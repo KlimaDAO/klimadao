@@ -28,7 +28,6 @@ link: new HttpLink({ uri: process.env.GRAPH_API_URL, fetch }),
 
 // Define a function that executes a GraphQL query and returns the result
 async function executeGraphQLQuery( link, query, variables = {}) {
-console.log(link, query);
   client.setLink( new HttpLink({ uri:link, fetch }));
 
   try {

@@ -3,9 +3,10 @@ const { executeGraphQLQuery } = require('../apollo-client.js');
 const { GET_PROJECTS } = require('../queries/projects.js');
 const fetch = require('node-fetch')
 const { faker } = require('@faker-js/faker');
-const {fakeProjects} = require('./fake_data')
+const { fakeProjects } = require('./fake_data')
 const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
 const { POOLED_PROJECTS } = require('../queries/pooled_projects');
+const { POOL_PROJECTS } = require('../queries/pool_project.js');
 
 module.exports = async function (fastify, opts) {
 
@@ -38,12 +39,12 @@ module.exports = async function (fastify, opts) {
 
             //@todo -> calculate the minimum price
             const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS);
-            let pooledProjectsData =  (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
+            let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
             console.log(pooledProjectsData);
-            const projects = data.data.projects.map(function(project) {
-                if (pooledProjectsData &&  pooledProjectsData.carbonOffsets ) {
-                    var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage );
-
+            const projects = data.data.projects.map(function (project) {
+                if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
+                    var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
+                    project.isPoolProject = true;
                     delete pooledProjectsData.carbonOffsets[index];
                 }
 
@@ -54,8 +55,37 @@ module.exports = async function (fastify, opts) {
                     price = Math.min(...(Array.from(uniqueValues)));
                 }
                 delete project.listings;
-                return {...project, price}
+                return { ...project, price }
             });
+
+            const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
+                let singleProject = {
+                    "id": project.id,
+                    "isPoolProject": true,
+                    "key": project.projectID + '-' + project.vintageYear,
+                    "projectID": project.projectID.split("-")[1],
+                    "name": project.name,
+                    "methodology": project.methodology,
+                    "vintage": project.vintageYear,
+                    "projectAddress": project.tokenAddress,
+                    "registry":project.projectID.split("-")[0],
+                    "updatedAt": project.lastUpdate,
+                    "category": {
+                        "id": project.methodologyCategory
+                    },
+                    "country": {
+                        "id": project.country
+                    },
+                    "price": '1000000000000000000',
+                    "activities": null,
+                    "listings": null,
+
+                };
+
+                return singleProject;
+
+            });
+
 
             if (process.env.ENV == 'local') {
                 projects.splice(1, 1);
@@ -64,10 +94,10 @@ module.exports = async function (fastify, opts) {
                 let year = 2014;
                 let startCount = projects.length;
                 let methodogies = ['AM0038', 'AM0043', 'AMS-I.D.', 'VM0002', 'VM0019', 'AM0120', 'VM0041', 'AMS-III.D.', 'VM0004', 'AR-ACM0003', 'VM0021', 'AM0050'];
-                let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy','Renewable Energy', 'Renewable Energy', 'Renewable Energy',
-            'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
-                
-            ];
+                let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy',
+                    'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
+
+                ];
 
                 for (; startCount < 20; startCount++) {
                     projects.push({
@@ -75,19 +105,19 @@ module.exports = async function (fastify, opts) {
                         "key": "GS-500-FAKE",
                         "projectID": "500",
                         "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
-                        "methodology": methodogies[(startCount - 2) % 12 ],
+                        "methodology": methodogies[(startCount - 2) % 12],
                         "vintage": year,
                         "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
                         "registry": startCount % 2 ? "GS" : "VS",
-                        "updatedAt":"1673468220",
+                        "updatedAt": "1673468220",
                         "category": {
-                            "id": categories[(startCount - 2) % 12 ]
+                            "id": categories[(startCount - 2) % 12]
                         },
                         "country": {
                             "id": "Sudan"
                         },
-                        "price": 1000000000000000000,
-                        
+                        "price": '1000000000000000000',
+
                     });
                     year++;
                 }
@@ -95,7 +125,7 @@ module.exports = async function (fastify, opts) {
             }
 
             // Send the transformed projects array as a JSON string in the response
-            return reply.send(JSON.stringify(projects.concat(pooledProjectsData.carbonOffsets)));
+            return reply.send(JSON.stringify(projects.concat(pooledProjects)));
         }
     }),
         fastify.route({
@@ -127,71 +157,86 @@ module.exports = async function (fastify, opts) {
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
 
-
-
                 if (id.includes("FAKE")) {
                     return reply.send(JSON.stringify(
                         fakeProjects
                     ))
                 }
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
-
+                var project = undefined;
                 if (data.data.projects[0]) {
-                    // this comes from https://thegraph.com/hosted-service/subgraph/klimadao/polygon-bridged-carbon
+                    project = { ...data.data.projects[0] };
+
+                    var project = { ...data.data.projects[0] };
+
+                    if (project.listings.length) {
 
 
-                    if (process.env.ENV != 'local') {
-                        // let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
-                        //     .query({
-                        //         query: GET_PROJECT_BY_ID,
-                        //         variables: { projectID, vintage }
-                        //     });
-                        // var projects = data.data.projects[0];
-                        // projects = { ...projects }
-                        // projects.pools = pools.data.carbonOffsets;
-                        // if (projects.registry == "VCS") {
-                        //     const results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
-                        //     projects.location = JSON.parse(await results.text()).location;
-                        // }
+                        const listings = project.listings.map((item) => ({ ...item, selected: false }));
 
-                    } else {
-                        var project = { ...data.data.projects[0] };
-                        if (project.registry == "VCS") {
-                            var results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
-                            results = JSON.parse(await results.text());
-                            project.location =results.location;
-                            project.description = results.description;
-                        } else if(project.registry == "GS") {
-                            var results = await fetch(`https://api.goldstandard.org/projects/${id[1]}`)
-                            results = JSON.parse(await results.text());
-                            project.description = results.description;
-                            project.location = {
-                                "latitude": 30.735555,
-                                "longitude": 114.544166
-                            }
+                        await Promise.all(
+                            listings.map(async (listing) => {
+                                const seller = await fastify.firebase.firestore()
+                                    .collection("users")
+                                    .doc((listing.seller.id).toUpperCase())
+                                    .get();
+                                listing.seller = { ...seller.data(), ...listing.seller };
+                            })
+                        );
+                        project.listings = listings;
+                    }
+
+                    return reply.send(JSON.stringify(project));
+                } else {
+
+                    console.log({ key: key, vintageStr: vintageStr });
+                    var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintage });
+                    console.log(data);
+                    if (data.data.carbonOffsets[0]) {
+                        project = { ...data.data.carbonOffsets[0] }
+                        project = {
+                            "id": project.id,
+                            "isPoolProject": true,
+                            "key": project.projectID + '-' + project.vintageYear,
+                            "projectID": project.projectID.split("-")[1],
+                            "name": project.name,
+                            "methodology": project.methodology,
+                            "vintage": project.vintageYear,
+                            "projectAddress": project.tokenAddress,
+                            "registry": project.projectID.split("-")[0],
+                            "updatedAt": project.lastUpdate,
+                            "category": {
+                                "id": project.methodologyCategory
+                            },
+                            "country": {
+                                "id": project.country
+                            },
+                            "price": '1000000000000000000',
+                            "activities": null,
+                            "listings": null,
                         }
 
-                       
-
-                        
-                        if (project.listings.length) {
+                    }
+                }
 
 
-                            const listings = project.listings.map((item) => ({ ...item, selected: false }));
+                if (project) {
 
-                            await Promise.all(
-                                listings.map(async (listing) => {
-                                    const seller = await fastify.firebase.firestore()
-                                        .collection("users")
-                                        .doc((listing.seller.id).toUpperCase())
-                                        .get();
-                                    listing.seller = { ...seller.data(), ...listing.seller };
-                                })
-                            );
-                            project.listings = listings;
-                        }
+                    if (project.registry == "VCS") {
+
+                        var results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
+                        results = JSON.parse(await results.text());
+                        project.location = results.location;
+                        project.description = results.description;
+                    } else if (project.registry == "GS") {
+
+                        var results = await fetch(`https://api.goldstandard.org/projects/${id[1]}`)
+                        results = JSON.parse(await results.text());
+                        project.description = results.description;
+                        project.location = null;
                     }
                     return reply.send(JSON.stringify(project));
+
                 }
                 return reply.notFound();
             }
