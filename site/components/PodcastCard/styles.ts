@@ -27,8 +27,8 @@ export const content = css`
   gap: 1.2rem;
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
     cursor: pointer;
     margin-top: 0.4rem;
     path {

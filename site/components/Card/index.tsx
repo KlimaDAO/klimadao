@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Text } from "@klimadao/lib/components";
@@ -30,10 +30,10 @@ export const Card = (props: CardProps) => {
       </div>
       <div className="image">
         <Image
+          fill
           src={props.post.imageUrl || defaultImage}
           alt={props.post.title}
-          objectFit="cover"
-          layout="fill"
+          style={{ objectFit: "cover" }}
         />
       </div>
     </Link>

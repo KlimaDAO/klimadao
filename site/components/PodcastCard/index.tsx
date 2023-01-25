@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import { Anchor as A, PlayIcon, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
@@ -14,7 +14,10 @@ interface CardProps {
 export function PodcastCard(props: CardProps) {
   const date = new Date(props.podcast.publishedAt).toLocaleDateString("en");
   return (
-    <div className={styles.card}>
+    <A
+      className={styles.card}
+      href={`${urls.podcast}/${props.podcast.rssId}/?listen-on=true}`}
+    >
       <div className={styles.content}>
         <Text t="body3" className="date">
           {date}
@@ -23,20 +26,16 @@ export function PodcastCard(props: CardProps) {
         <Text t="body2" className="summary">
           {props.podcast.summary}
         </Text>
-        {props.podcast.rssId && (
-          <A href={`${urls.podcast}/${props.podcast.rssId}/?listen-on=true`}>
-            <PlayIcon />
-          </A>
-        )}
+        <PlayIcon />
       </div>
       <div className={styles.image}>
         <Image
+          fill
           src={podcastImage}
           alt={props.podcast.title}
-          objectFit="cover"
-          layout="fill"
+          style={{ objectFit: "cover" }}
         />
       </div>
-    </div>
+    </A>
   );
 }
