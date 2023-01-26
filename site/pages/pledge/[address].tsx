@@ -92,8 +92,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     } catch (error) {
       pledge = { ...DEFAULT_PLEDGE_VALUES, ownerAddress: resolvedAddress };
     }
-
-    // const holdings = await queryHoldingsByAddress(resolvedAddress);
     let holdings;
     // add up retirements and holdings here
     let retirements: RetirementsTotalsAndBalances;
