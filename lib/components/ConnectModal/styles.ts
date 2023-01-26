@@ -25,6 +25,11 @@ export const modalContainer = css`
   overflow: hidden;
 `;
 
+export const connectContent = css`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const walletButton = css`
   background: var(--white);
   display: flex;
