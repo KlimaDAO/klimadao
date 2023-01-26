@@ -1,4 +1,4 @@
-import { Checkbox } from "components/Form";
+import { Checkbox } from "components/shared/Form";
 import { FC } from "react";
 import { Control, useController } from "react-hook-form";
 import { CheckboxOption, DocumentType, TagSlug } from "../lib/cmsDataMap";

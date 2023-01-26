@@ -1,15 +1,13 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
-import { createLinkWithLocaleQuery } from "lib/i18n";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
+import Link from "next/link";
+
 import { FC } from "react";
 
-import { urls } from "@klimadao/lib/constants";
-import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { HeaderDesktop } from "components/Header/HeaderDesktop";
+import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
 import { HeaderMobile } from "../Header/HeaderMobile";
-import { DropdownItemDesktop } from "./DropdownItemDesktop";
 import { LinkItemDesktop } from "./LinkItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";
 import * as styles from "./styles";
@@ -17,24 +15,12 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-export type PageName =
-  | "Home"
-  | "Buy"
-  | "Resources"
-  | "Disclaimer"
-  | "Infinity"
-  | "Community"
-  | "Contact"
-  | "Pledges"
-  | "EventDemo"
-  | "Resource Center"
-  | "About";
+export type PageName = "Projects" | "Portfolio" | "Login" | "Resources";
 
 export type NavItemMobileID =
-  | "About"
-  | "App"
-  | "Infinity"
-  | "Love Letters"
+  | "Profile"
+  | "Portfolio"
+  | "Marketplace"
   | "Resources";
 
 export type Props = {
@@ -46,10 +32,8 @@ export type Props = {
 export const Navigation: FC<Props> = ({
   activePage,
   transparent,
-  showThemeToggle = true,
+  showThemeToggle,
 }) => {
-  const { locale } = useRouter();
-
   return (
     <>
       <HeaderDesktop
@@ -57,167 +41,51 @@ export const Navigation: FC<Props> = ({
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
-          activePage !== "Infinity" ? (
-            <ButtonPrimary
-              key="Enter App"
-              label={t({ message: "Enter App", id: "shared.enter_app" })}
-              href={createLinkWithLocaleQuery(urls.app, locale)}
-            />
-          ) : (
-            <ButtonPrimary
-              key="Contact Sales"
-              variant="blue"
-              shape="rounded"
-              label={t({
-                message: "Contact Sales",
-                id: "shared.contact_sales",
-              })}
-              href={urls.klimaInfinityContactForm}
-              target="_blank"
-            />
-          ),
+          <ButtonPrimary
+            key="Enter App"
+            label={t({ message: "Enter App", id: "shared.enter_app" })}
+            href="/projects"
+            renderLink={(linkProps) => <Link {...linkProps} />}
+          />,
         ]}
         activePage={activePage}
       >
-        <DropdownItemDesktop
-          name={t({ message: "About", id: "shared.about" })}
-          active={activePage === "About"}
-        >
-          <LinkItemDesktop
-            name={t({
-              message: "Community",
-              id: "shared.community",
-            })}
-            key="community"
-            url="/community"
-            active={activePage === "Community"}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Contact Us",
-              id: "shared.contact_us",
-            })}
-            key="contact"
-            active={activePage === "Contact"}
-            url="/contact"
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Disclaimer",
-              id: "shared.disclaimer",
-            })}
-            key="disclaimer"
-            active={activePage === "Disclaimer"}
-            url="/disclaimer"
-          />
-        </DropdownItemDesktop>
-
-        <DropdownItemDesktop name={t({ message: "App", id: "shared.app" })}>
-          <LinkItemDesktop
-            name={t({
-              message: "Buy Klima",
-              id: "shared.buy",
-            })}
-            key="buy klima"
-            url={createLinkWithLocaleQuery(urls.buy, locale)}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Stake Klima",
-              id: "shared.stake",
-            })}
-            key="stake"
-            url={createLinkWithLocaleQuery(urls.stake, locale)}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Bond Klima",
-              id: "shared.bond",
-            })}
-            key="bond"
-            url={createLinkWithLocaleQuery(urls.bonds, locale)}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Wrap sKlima",
-              id: "shared.wrap",
-            })}
-            key="wrap"
-            url={createLinkWithLocaleQuery(urls.wrap, locale)}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Offset",
-              id: "shared.offset",
-            })}
-            key="offset"
-            url={createLinkWithLocaleQuery(urls.offset, locale)}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Info",
-              id: "shared.info",
-            })}
-            key="info"
-            url={createLinkWithLocaleQuery(urls.info, locale)}
-          />
-        </DropdownItemDesktop>
-        <DropdownItemDesktop
-          name={t({ message: "Infinity", id: "shared.infinity" })}
-        >
-          <LinkItemDesktop
-            name={t({ message: "Introduction", id: "shared.infinity_intro" })}
-            active={activePage === "Infinity"}
-            url="/infinity"
-          />
-          <LinkItemDesktop
-            name={t({ message: "How to pledge", id: "shared.pledge" })}
-            active={activePage === "Pledges"}
-            url="/pledge"
-          />
-        </DropdownItemDesktop>
         <LinkItemDesktop
-          url={urls.loveletter}
-          name={t({ message: "Love Letters", id: "shared.loveletters" })}
+          name={t({
+            message: "Marketplace",
+            id: "shared.resourcecenter",
+          })}
+          key="marketplace"
+          url="/projects"
+          active={activePage === "Projects"}
         />
-        <DropdownItemDesktop
-          name={t({ message: "Resources", id: "shared.resources" })}
-        >
-          <LinkItemDesktop
-            name={t({
-              message: "Resource Center",
-              id: "shared.resourcecenter",
-            })}
-            key="resourcecenter"
-            url="/resources"
-            active={activePage === "Resource Center"}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "How To Buy Klima",
-              id: "shared.how_to_buy",
-            })}
-            key="how to buy"
-            active={activePage === "Buy"}
-            url="/buy"
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Carbon Dashboards",
-              id: "shared.carbon_dashboards",
-            })}
-            key="carbon dashboards"
-            url={urls.carbonDashboard}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Official Docs",
-              id: "shared.docs",
-            })}
-            key="docs"
-            url={urls.officialDocs}
-          />
-        </DropdownItemDesktop>
+        <LinkItemDesktop
+          name={t({
+            message: "Profile",
+            id: "shared.resourcecenter",
+          })}
+          key="profile"
+          url="/users/login"
+          active={activePage === "Login"}
+        />
+        <LinkItemDesktop
+          name={t({
+            message: "Portfolio",
+            id: "shared.resourcecenter",
+          })}
+          key="portfolio"
+          url="/portfolio"
+          active={activePage === "Portfolio"}
+        />
+        <LinkItemDesktop
+          name={t({
+            message: "Resources",
+            id: "shared.resourcecenter",
+          })}
+          key="resources"
+          url="/resources"
+          active={activePage === "Resources"}
+        />
       </HeaderDesktop>
 
       <HeaderMobile
@@ -226,159 +94,37 @@ export const Navigation: FC<Props> = ({
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">
             <NavItemMobile
-              name={t({ message: "About", id: "shared.about" })}
-              active={activePage === "About"}
-              id="About"
-              subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "Community",
-                    id: "shared.community",
-                  })}
-                  key="community"
-                  active={activePage === "Community"}
-                  url="/community"
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Contact Us",
-                    id: "shared.contact",
-                  })}
-                  key="contact"
-                  active={activePage === "Contact"}
-                  url="/contact"
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Disclaimer",
-                    id: "shared.disclaimer",
-                  })}
-                  key="disclaimer"
-                  active={activePage === "Disclaimer"}
-                  url="/disclaimer"
-                />,
-              ]}
+              name={t({ message: "Marketplace", id: "shared.about" })}
+              active={activePage === "Projects"}
+              id="Marketplace"
+              url="/projects"
             />
             <NavItemMobile
-              name={t({ message: "App", id: "shared.app" })}
-              id="App"
-              subMenu={[
-                <NavItemMobile
-                  name={t({ message: "Buy Klima", id: "shared.buy" })}
-                  key="buy klima"
-                  url="/buy"
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Stake Klima",
-                    id: "shared.stake",
-                  })}
-                  key="stake"
-                  url={createLinkWithLocaleQuery(urls.stake, locale)}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Bond Klima",
-                    id: "shared.bond",
-                  })}
-                  key="bond"
-                  url={createLinkWithLocaleQuery(urls.bonds, locale)}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Wrap sKlima",
-                    id: "shared.wrap",
-                  })}
-                  key="wrap"
-                  url={createLinkWithLocaleQuery(urls.wrap, locale)}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Offset",
-                    id: "shared.offset",
-                  })}
-                  key="offset"
-                  url={createLinkWithLocaleQuery(urls.offset, locale)}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Info",
-                    id: "shared.info",
-                  })}
-                  key="info"
-                  url={createLinkWithLocaleQuery(urls.info, locale)}
-                />,
-              ]}
+              name={t({ message: "Profile", id: "shared.about" })}
+              active={activePage === "Login"}
+              id="Profile"
+              url="/users/login"
             />
 
             <NavItemMobile
-              name={t({ message: "Infinity", id: "shared.infinity" })}
-              subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "Introduction",
-                    id: "shared.infinity_intro",
-                  })}
-                  key="infinity"
-                  url="/infinity"
-                />,
-                <NavItemMobile
-                  name={t({ message: "How to pledge", id: "shared.pledge" })}
-                  key="pledges"
-                  url="/pledge"
-                />,
-              ]}
+              name={t({ message: "Portfolio", id: "shared.about" })}
+              active={activePage === "Portfolio"}
+              id="Portfolio"
+              url="/portfolio"
             />
             <NavItemMobile
-              name={t({ message: "Love Letters", id: "shared.loveletters" })}
-              id="Love Letters"
-              url={urls.loveletter}
-            />
-            <NavItemMobile
-              name={t({ message: "Resources", id: "shared.resources" })}
+              name={t({ message: "Resources", id: "shared.about" })}
+              active={activePage === "Resources"}
               id="Resources"
-              subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "Resource Center",
-                    id: "shared.resourcecenter",
-                  })}
-                  key="resourcecenter"
-                  url="/resources"
-                  active={activePage === "Resource Center"}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "How To Buy Klima",
-                    id: "shared.how_to_buy",
-                  })}
-                  active={activePage === "Buy"}
-                  key="how to buy"
-                  url="/buy"
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Carbon Dashboard",
-                    id: "shared.carbon_dashboard",
-                  })}
-                  key="carbon dashboards"
-                  url={urls.carbonDashboard}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Official Docs",
-                    id: "shared.docs",
-                  })}
-                  key="docs"
-                  url={urls.officialDocs}
-                />,
-              ]}
+              url="/resources"
             />
           </div>
           <div className="buttons">
             <ButtonPrimary
-              label="Enter App"
-              href={createLinkWithLocaleQuery(urls.app, locale)}
+              key="Enter App"
+              label={t({ message: "Enter App", id: "shared.enter_app" })}
+              href="/projects"
+              renderLink={(linkProps) => <Link {...linkProps} />}
               className={styles.navMain_MobileButton}
             />
             {showThemeToggle && <ThemeToggle />}

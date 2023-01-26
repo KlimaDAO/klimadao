@@ -1,11 +1,11 @@
-import { Section, Text } from "@klimadao/lib/components";
+import { GridContainer, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
-import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
-import { PageHead } from "components/PageHead";
+import { Footer } from "components/shared/Footer";
+import { PageHead } from "components/shared/PageHead";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 import { ResourcesList } from "./ResourcesList";
 
@@ -18,24 +18,23 @@ export interface Props {
 
 export const Resources: NextPage<Props> = (props) => {
   return (
-    <>
+    <GridContainer>
       <PageHead
         title={t({
           id: "resources.head.title",
-          message: "KlimaDAO | Resources",
+          message: "CarbonMark | Resources",
         })}
         mediaTitle={t({
           id: "resources.head.metaTitle",
-          message: `KlimaDAO Resources - Go beyond Carbon neutral`,
+          message: `CarbonMark News & Resources`,
         })}
         metaDescription={t({
           id: "resources.head.metaDescription",
-          message:
-            "Updates and thought leadership from the founders, DAO contributors, advisors and community.",
+          message: "Updates and thought leadership from the CarbonMark team",
         })}
       />
 
-      <Navigation activePage="Resource Center" />
+      <Navigation activePage="Resources" />
 
       {!!props.featuredArticles?.length && (
         <Section variant="gray" className={styles.sectionHead}>
@@ -45,8 +44,7 @@ export const Resources: NextPage<Props> = (props) => {
             </Text>
             <Text t="body3" align="center">
               <Trans id="resources.page.header.subline">
-                Updates and thought leadership from the founders, DAO
-                contributors, advisors and community.
+                Updates and thought leadership from the CarbonMark team.
               </Trans>
             </Text>
           </div>
@@ -62,6 +60,6 @@ export const Resources: NextPage<Props> = (props) => {
       <ResourcesList documents={props.documents} />
 
       <Footer />
-    </>
+    </GridContainer>
   );
 };

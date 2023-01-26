@@ -6,10 +6,10 @@ import Link from "next/link";
 import { Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 
-import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
-import { PageHead } from "components/PageHead";
-import PortableTextRenderer from "components/PortableTextRenderer";
+import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
+import { Footer } from "components/shared/Footer";
+import { PageHead } from "components/shared/PageHead";
 import { Post } from "lib/queries";
 
 import defaultImage from "public/cover-default.png";
@@ -24,7 +24,7 @@ export const PostPage = (props: PostProps) => {
   if (!props.post) {
     return (
       <>
-        <Navigation activePage="Resource Center" />
+        <Navigation activePage="Resources" showThemeToggle={false} />
         <div className={styles.fallbackContainer}>
           {/* TODO: worth restyling this */}
           <Text className={styles.loadingArticle}>Loading article...</Text>
@@ -48,7 +48,7 @@ export const PostPage = (props: PostProps) => {
         isArticle={true}
       />
 
-      <Navigation activePage="Resource Center" />
+      <Navigation activePage="Resources" showThemeToggle={false} />
 
       <div className={styles.container}>
         <div className={styles.banner}>

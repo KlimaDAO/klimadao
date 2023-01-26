@@ -1,4 +1,4 @@
-import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
+import { Web3ContextProvider } from "@klimadao/lib/components";
 import "@klimadao/lib/theme/globals.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/variables.css";
@@ -57,9 +57,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
-          <GridContainer>
-            <Component {...pageProps} />
-          </GridContainer>
+          <Component {...pageProps} />
         </I18nProvider>
       </Web3ContextProvider>
     </>

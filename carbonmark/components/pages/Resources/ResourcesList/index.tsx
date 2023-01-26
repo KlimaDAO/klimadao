@@ -10,10 +10,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { FC, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { BlogPostCard } from "components/BlogPostCard";
-import { InputField } from "components/Form";
-import { Modal } from "components/Modal";
-import { PodcastCard } from "components/PodcastCard";
+import { BlogPostCard } from "components/pages/Resources/BlogPostCard";
+import { PodcastCard } from "components/pages/Resources/PodcastCard";
+import { InputField } from "components/shared/Form";
+import { Modal } from "components/shared/Modal";
 import { ResourcesFilters } from "../ResourcesFilters";
 import { SortByButton } from "../SortByButton";
 import { SortyByDropDown } from "../SortyByDropDown";
