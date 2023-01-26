@@ -72,7 +72,10 @@ export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
     } = {};
     wallets.map(
       (wallet: { address: string; status: string; saved: boolean }) =>
-        (formattedWallets[wallet.address] = wallet)
+        (formattedWallets[wallet.address.toLowerCase()] = {
+          ...wallet,
+          address: wallet.address.toLowerCase(),
+        })
     );
     return formattedWallets;
   };
