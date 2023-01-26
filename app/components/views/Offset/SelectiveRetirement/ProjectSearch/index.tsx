@@ -5,7 +5,7 @@ import ErrorIcon from "@mui/icons-material/Error";
 import isEmpty from "lodash/isEmpty";
 import { FC, useEffect, useState } from "react";
 
-import { CarbonProject } from "../SelectiveRetirement/queryProjectDetails";
+import { CarbonProject } from "../queryProjectDetails";
 import { ConfirmProjectSelection } from "./ConfirmProjectSelection";
 import { ProjectSearchForm } from "./ProjectSearchForm";
 import { ProjectSelection } from "./ProjectSelection";

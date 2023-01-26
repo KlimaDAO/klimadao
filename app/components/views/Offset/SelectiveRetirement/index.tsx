@@ -6,11 +6,11 @@ import { FC, useEffect, useState } from "react";
 
 import { LeafIcon } from "components/LeafIcon";
 
-import { LoadingOverlay } from "../LoadingOverlay";
-import { ProjectSearch } from "../ProjectSearch";
-import { RetirementTypeButton } from "../RetirementTypeButton";
-import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
+import { LoadingOverlay } from "./LoadingOverlay";
+import { ProjectSearch } from "./ProjectSearch";
 import { CarbonProject } from "./queryProjectDetails";
+import { RetirementTypeButton } from "./RetirementTypeButton";
+import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import * as styles from "./styles";
 
 type Props = {

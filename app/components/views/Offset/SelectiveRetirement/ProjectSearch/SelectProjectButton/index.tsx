@@ -6,10 +6,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { FC } from "react";
 
-import {
-  BalanceAttribute,
-  CarbonProject,
-} from "../../SelectiveRetirement/queryProjectDetails";
+import { BalanceAttribute, CarbonProject } from "../../queryProjectDetails";
 import * as styles from "./styles";
 
 type Props = {

@@ -5,12 +5,12 @@ import filter from "lodash/filter";
 import isEmpty from "lodash/isEmpty";
 import { FC, useState } from "react";
 
-import { ProjectSearchStep } from "../";
+import { ProjectSearchStep } from "..";
 import {
   BalanceAttribute,
   CarbonProject,
   queryCarbonProjectDetails,
-} from "../../SelectiveRetirement/queryProjectDetails";
+} from "../../queryProjectDetails";
 import { filterOptions } from "../filterOptions";
 import { ProjectSearchFilter } from "../ProjectSearchFilter";
 

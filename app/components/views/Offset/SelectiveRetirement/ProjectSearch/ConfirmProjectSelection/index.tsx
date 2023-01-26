@@ -4,7 +4,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import { FC } from "react";
 
 import { ProjectSearchStep } from "..";
-import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
+import { CarbonProject } from "../../queryProjectDetails";
 import * as styles from "./styles";
 
 type Props = {
