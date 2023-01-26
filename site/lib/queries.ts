@@ -11,10 +11,12 @@ export const hideFromProduction = IS_PRODUCTION
   ? "hideFromProduction != true"
   : "true";
 
+export const isDomainKlimadao = '(domain == "klimadao" || !defined(domain))';
+
 export const queries = {
   /** fetch all blog posts and podcasts, sorted by publishedAt, limit to 20 */
   allDocuments: /* groq */ `
-    *[_type in ["post", "podcast"] && ${hideFromProduction}][0...20] | order(publishedAt desc) {
+    *[_type in ["post", "podcast"] && ${hideFromProduction} && ${isDomainKlimadao}][0...20] | order(publishedAt desc) {
       "type": _type,
       publishedAt, 
       title, 
@@ -29,7 +31,7 @@ export const queries = {
 
   /** fetch all blog posts, sorted by publishedAt */
   allPosts: /* groq */ `
-    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
+    *[_type == "post" && ${hideFromProduction} && ${isDomainKlimadao}] | order(publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
@@ -41,7 +43,7 @@ export const queries = {
 
   /** fetch all blog posts with isFeaturedArticle == true, limit to 20, sorted by publishedAt */
   allFeaturedPosts: /* groq */ `
-    *[_type == "post" && ${hideFromProduction} && isFeaturedArticle == true][0...20] | order(publishedAt desc) {
+    *[_type == "post"  && isFeaturedArticle == true && ${hideFromProduction} && ${isDomainKlimadao}][0...20] | order(publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
@@ -54,14 +56,14 @@ export const queries = {
 
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
-    *[_type == "post" && ${hideFromProduction}] | order(publishedAt desc) {
+    *[_type == "post" && ${hideFromProduction} && ${isDomainKlimadao}] | order(publishedAt desc) {
       "slug": slug.current, 
       title
     }[0]
   `,
   /** fetch a blog post based on slug */
   post: /* groq */ `
-    *[_type == "post" && slug.current == $slug && ${hideFromProduction}][0] {
+    *[_type == "post" && slug.current == $slug && ${hideFromProduction} && ${isDomainKlimadao}][0] {
       body[] {
         ...,
         markDefs[]{
@@ -90,7 +92,7 @@ export const queries = {
   `,
 
   allPodcasts: /* groq */ `
-  *[_type == "podcast" && hideFromProduction != true] | order(publishedAt desc) {
+  *[_type == "podcast"  && ${hideFromProduction} && ${isDomainKlimadao}] | order(publishedAt desc) {
     summary, 
     "slug": slug.current, 
     title, 
