@@ -26,11 +26,8 @@ export const modalContainer = css`
 `;
 
 export const connectContent = css`
-  &[data-display="true"] {
-    display: flex;
-    flex-direction: column;
-  }
-  display: none;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const walletButton = css`
@@ -104,16 +101,10 @@ export const spinner = css`
   justify-content: center;
   align-items: center;
   padding: 6rem;
-  &[data-display="false"] {
-    display: none;
-  }
 `;
 
 export const errorContent = css`
   display: flex;
-  &[data-display="false"] {
-    display: none;
-  }
   flex-direction: column;
   align-items: center;
   gap: 2.4rem;

@@ -114,92 +114,95 @@ export const ConnectModal = (props: ConnectModalProps) => {
               <Close fontSize="large" />
             </button>
           </span>
-          <div
-            className={styles.connectContent}
-            data-display={step === "connect"}
-          >
-            <div className={styles.buttonsContainer}>
-              {showMetamask && (
+          {step === "connect" && (
+            <div className={styles.connectContent}>
+              <div className={styles.buttonsContainer}>
+                {showMetamask && (
+                  <button
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "injected" })}
+                  >
+                    <MetaMaskFoxIcon />
+                    <Text t="button">Metamask</Text>
+                  </button>
+                )}
+                {showBrave && (
+                  <button
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "injected" })}
+                  >
+                    <BraveIcon />
+                    <Text t="button">Brave</Text>
+                  </button>
+                )}
+                {showBrowserWallet && (
+                  <button
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "injected" })}
+                  >
+                    <ExtensionIcon className={styles.browserWalletIcon} />
+                    <Text t="button">Browser Injected Wallet</Text>
+                  </button>
+                )}
                 <button
                   className={styles.walletButton}
-                  onClick={() => handleConnect({ wallet: "injected" })}
+                  onClick={() =>
+                    handleConnect({
+                      wallet: isInjectedCoinbase ? "injected" : "coinbase",
+                    })
+                  }
                 >
-                  <MetaMaskFoxIcon />
-                  <Text t="button">Metamask</Text>
+                  <CoinbaseWalletIcon />
+                  <Text t="button">Coinbase</Text>
                 </button>
-              )}
-              {showBrave && (
                 <button
                   className={styles.walletButton}
-                  onClick={() => handleConnect({ wallet: "injected" })}
+                  onClick={() => handleConnect({ wallet: "walletConnect" })}
                 >
-                  <BraveIcon />
-                  <Text t="button">Brave</Text>
+                  <WalletConnectIcon />
+                  <Text t="button">walletconnect</Text>
                 </button>
-              )}
-              {showBrowserWallet && (
-                <button
-                  className={styles.walletButton}
-                  onClick={() => handleConnect({ wallet: "injected" })}
-                >
-                  <ExtensionIcon className={styles.browserWalletIcon} />
-                  <Text t="button">Browser Injected Wallet</Text>
-                </button>
-              )}
+              </div>
+              <span className={styles.continueBox}>
+                <div className={styles.leftLine} />
+                <Text className={styles.continueText} t="badge">
+                  {props.torusText}
+                </Text>
+                <div className={styles.rightLine} />
+              </span>
               <button
-                className={styles.walletButton}
-                onClick={() =>
-                  handleConnect({
-                    wallet: isInjectedCoinbase ? "injected" : "coinbase",
-                  })
-                }
+                className={styles.torusButtons}
+                onClick={() => handleConnect({ wallet: "torus" })}
               >
-                <CoinbaseWalletIcon />
-                <Text t="button">Coinbase</Text>
-              </button>
-              <button
-                className={styles.walletButton}
-                onClick={() => handleConnect({ wallet: "walletConnect" })}
-              >
-                <WalletConnectIcon />
-                <Text t="button">walletconnect</Text>
+                <span className={styles.buttonBackground}>
+                  <TwitterIcon className={styles.twitter} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <FacebookColorIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <GoogleIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <DiscordColorIcon className={styles.discord} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <MailOutlineIcon fontSize="large" />
+                </span>
               </button>
             </div>
-            <span className={styles.continueBox}>
-              <div className={styles.leftLine} />
-              <Text className={styles.continueText} t="badge">
-                {props.torusText}
-              </Text>
-              <div className={styles.rightLine} />
-            </span>
-            <button
-              className={styles.torusButtons}
-              onClick={() => handleConnect({ wallet: "torus" })}
-            >
-              <span className={styles.buttonBackground}>
-                <TwitterIcon className={styles.twitter} />
-              </span>
-              <span className={styles.buttonBackground}>
-                <FacebookColorIcon />
-              </span>
-              <span className={styles.buttonBackground}>
-                <GoogleIcon />
-              </span>
-              <span className={styles.buttonBackground}>
-                <DiscordColorIcon className={styles.discord} />
-              </span>
-              <span className={styles.buttonBackground}>
-                <MailOutlineIcon fontSize="large" />
-              </span>
-            </button>
-          </div>
-          <div className={styles.spinner} data-display={step === "loading"}>
-            <Spinner />
-          </div>
-          <div className={styles.errorContent} data-display={step === "error"}>
-            <Text t="body2">{props.errorMessage}</Text>
-            <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
-          </div>
+          )}
+          {step === "loading" && (
+            <div className={styles.spinner}>
+              <Spinner />
+            </div>
+          )}
+          {step === "error" && (
+            <div className={styles.errorContent}>
+              <Text t="body2">{props.errorMessage}</Text>
+              <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
+            </div>
+          )}
         </div>
       </div>
     </div>
