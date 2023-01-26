@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-26 00:16+0000\n"
+"POT-Creation-Date: 2023-01-26 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -513,7 +513,7 @@ msgstr "La compensación entre cadenas ya está disponible a través de <0>LI.FI
 
 #: components/views/Offset/index.tsx:655
 msgid "offset.min_quantity_fiat"
-msgstr ""
+msgstr "Compra mínima de 1 tonelada. Sólo números enteros."
 
 #: components/views/Offset/index.tsx:764
 msgid "offset.modal_payWith.title"

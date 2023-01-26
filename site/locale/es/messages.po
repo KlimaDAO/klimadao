@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-26 00:16+0000\n"
+"POT-Creation-Date: 2023-01-26 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,11 +48,14 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:408
 msgid "buy.bond_answer_cex1"
-msgstr ""
+msgstr "KLIMA no se negocia en una bolsa centralizada como Coinbase, Binance o Crypto.com, ya que estas bolsas suelen cobrar comisiones de cotización muy elevadas y requieren la financiación de costosos creadores de mercado."
 
 #: components/pages/Buy/index.tsx:416
 msgid "buy.bond_answer_cex2"
 msgstr ""
+"En su lugar, los tokens KLIMA se negocian en una \"bolsa descentralizada\" (DEX) que funciona con contratos inteligentes y se ejecuta directamente en el blockchain. Los DEX tienen algunas ventajas importantes. Los DEX hacen posible que la DAO posea la mayor parte de la liquidez, por lo que puede mantener plena autonomía y generar ingresos para pagar a los contribuyentes. Elegimos utilizar la tecnología DEX de Sushi porque ya facilita decenas de millones de dólares en transacciones al día.\n"
+"\n"
+"Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator"
 
 #: components/pages/Buy/index.tsx:371
 msgid "buy.bond_description1"
@@ -72,7 +75,7 @@ msgstr "¿Puedo comprar KLIMA directamente con tarjeta de crédito?"
 
 #: components/pages/Buy/index.tsx:190
 msgid "buy.connect_advanced"
-msgstr ""
+msgstr "Nota: estas instrucciones son sólo para usuarios del monedero Torus. Sushi soporta una gran variedad de monederos diferentes."
 
 #: components/pages/Buy/index.tsx:185
 msgid "buy.connect_torus_sushi"
@@ -80,11 +83,11 @@ msgstr "3A. Conectar Torus a Sushi.com usando WalletConnect"
 
 #: components/pages/Buy/index.tsx:212
 msgid "buy.connect_torus_sushi_description2"
-msgstr ""
+msgstr "En otra pestaña del navegador, visita <0>Sushi.com</0> y haz clic en \"Conectar\" en la esquina superior derecha. Aparecerán varias opciones de monedero. Elija WalletConnect. Después de elegir WalletConnect, verá un código QR: haga clic en \"Copiar al portapapeles\"."
 
 #: components/pages/Buy/index.tsx:229
 msgid "buy.connect_torus_sushi_description3"
-msgstr ""
+msgstr "Vuelva a la aplicación del monedero Torus y pegue este código en el widget WalletConnect. Esto creará una conexión temporal entre su monedero y <0>Sushi.com</0>."
 
 #: components/pages/Buy/index.tsx:237
 msgid "buy.connect_torus_sushi_description4"
@@ -133,11 +136,11 @@ msgstr "Cómo comprar KLIMA"
 
 #: components/pages/Buy/index.tsx:44
 msgid "buy.how_to_paragraph_part_1"
-msgstr ""
+msgstr "KLIMA es un activo digital respaldado por carbono y puede apostarse para obtener recompensas o utilizarse para compensar carbono digital. Poseer KLIMA también te permite votar y ayudar a gobernar el Mercado Digital de Carbono."
 
 #: components/pages/Buy/index.tsx:51
 msgid "buy.how_to_paragraph_part_2"
-msgstr ""
+msgstr "Este es un breve tutorial para principiantes que son nuevos en Web3 y DeFi"
 
 #: components/pages/Buy/index.tsx:143
 msgid "buy.load_wallet"
@@ -149,7 +152,7 @@ msgstr "<0>Carga tu nuevo monedero con tokens MATIC.</0> MATIC es el gas que ali
 
 #: components/pages/Buy/index.tsx:148
 msgid "buy.load_wallet_description1"
-msgstr ""
+msgstr "Utiliza un servicio como <0>MoonPay</0> o <1>Transak</1> o un exchange centralizado como <2>Coinbase</2> para comprar Polygon MATIC y enviarlo a tu monedero recién creado."
 
 #: components/pages/Buy/index.tsx:158
 msgid "buy.load_wallet_description2"
@@ -169,19 +172,19 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:327
 msgid "buy.question_why_matic_answer"
-msgstr ""
+msgstr "El token y el protocolo KLIMA viven en la blockchain de Polygon. MATIC es el \"gas\" que impulsa cada transacción en Polygon. No es posible ejecutar una transacción sin pagar la tasa de transacción. Esto significa que tendrá que pagar unos céntimos de MATIC por las siguientes acciones:"
 
 #: components/pages/Buy/index.tsx:338
 msgid "buy.question_why_matic_answer_bullet1"
-msgstr ""
+msgstr "Staking KLIMA para sKLIMA"
 
 #: components/pages/Buy/index.tsx:345
 msgid "buy.question_why_matic_answer_bullet2"
-msgstr ""
+msgstr "Intercambio entre diferentes tokens"
 
 #: components/pages/Buy/index.tsx:352
 msgid "buy.question_why_matic_answer_bullet3"
-msgstr ""
+msgstr "Envío de fichas a otro monedero"
 
 #: components/pages/Buy/index.tsx:359
 msgid "buy.question_why_matic_answer_bullet4"
@@ -189,7 +192,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:292
 msgid "buy.staking_cta"
-msgstr ""
+msgstr "¡Stake, gana, vota y compensa!"
 
 #: components/pages/Buy/index.tsx:295
 msgid "buy.staking_description1"
@@ -217,11 +220,11 @@ msgstr "3."
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.summary_steps_title"
-msgstr ""
+msgstr "La mejor y más fácil manera de conseguir KLIMA es seguir estos tres pasos:"
 
 #: components/pages/Buy/index.tsx:59
 msgid "buy.summary_title"
-msgstr ""
+msgstr "Resumen"
 
 #: components/pages/Buy/index.tsx:253
 msgid "buy.swap_description1"
@@ -237,7 +240,7 @@ msgstr "Si está utilizando Torus, mantenga abierta la pestaña del navegador co
 
 #: components/pages/Buy/index.tsx:282
 msgid "buy.swap_description4"
-msgstr ""
+msgstr "Optional: If you'd like your Sushi transactions themselves to be climate positive, you should enable the Sushi 'Green Fee', powered by KlimaDAO. This will spend 0.02 MATIC per transaction to purchase and retire digital carbon automatically!"
 
 #: components/pages/Buy/index.tsx:100
 msgid "buy.swap_for_klima_description"
@@ -1419,7 +1422,7 @@ msgstr "Buscar"
 
 #: components/pages/Resources/ResourcesList/index.tsx:168
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "Buscar..."
 
 #: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "resources.form.input.sort_by.label"
@@ -1627,7 +1630,7 @@ msgstr "Compensación de emisiones de CO2 equivalente (toneladas métricas)"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:213
 msgid "retirement.single.is_this_your_retirement"
-msgstr ""
+msgstr "¿Es ésta tu retirada?"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
@@ -1635,7 +1638,7 @@ msgstr "Mensaje de Retiro"
 
 #: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
 msgid "retirement.single.no_pledge"
-msgstr ""
+msgstr "Este usuario no ha creado una promesa"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1897,7 +1900,7 @@ msgstr "Cargando..."
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 msgid "shared.login_connect"
-msgstr ""
+msgstr "Iniciar sesión / Conectar"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
