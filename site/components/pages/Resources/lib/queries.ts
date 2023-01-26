@@ -23,6 +23,7 @@ const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
       "slug": slug.current, 
       author->,
       "imageUrl": mainImage.asset->url,
+      rssId,
       "embed": embedCode,
       "tags": tags[]->label_en
     }
@@ -38,6 +39,7 @@ const filterDocumentsWithoutTags = (params: QueryParams) => /* groq */ `
     "slug": slug.current, 
     author->,
     "imageUrl": mainImage.asset->url,
+    rssId,
     "embed": embedCode,
     "tags": tags[]->label_en
   }
@@ -87,6 +89,7 @@ export const searchByText = (searchQuery: string) => /* groq */ `
       "slug": slug.current, 
       author->,
       "imageUrl": mainImage.asset->url,
+      rssId,
       "embed": embedCode,
       "tags": tags[]->label_en
     }
