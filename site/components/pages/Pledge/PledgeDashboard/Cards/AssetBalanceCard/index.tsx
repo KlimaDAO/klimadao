@@ -65,7 +65,7 @@ const TOKEN_MAP: TokenMap = {
 export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
   console.log("holdings", props.holdings);
-
+  // I think we should do all of this in pledge page
   const holdingsByToken = groupBy(props.holdings, "token");
 
   /** Hide tokens with no balance
