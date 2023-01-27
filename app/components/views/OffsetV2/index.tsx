@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Text } from "@klimadao/lib/components";
 import { offsetCompatibility, retirementTokens } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -15,7 +16,6 @@ import { SelectiveRetirement } from "../Offset/SelectiveRetirement";
 import { CostDisplay } from "./CostDisplay";
 import { OffsetLayout } from "./OffsetLayout";
 
-import { PaymentMethodInput } from "./PaymentMethodInput";
 import * as styles from "./styles";
 
 /* TODO
@@ -184,12 +184,23 @@ export const OffsetV2 = () => {
           labelAlignment="start"
         />
 
-        <PaymentMethodInput
+        {/* <PaymentMethodInput
           selectedPaymentMethod={watch("paymentMethod")}
           isModalOpen={paymentMethodModalOpen}
           onToggleModal={() => setPaymentMethodModalOpen((s) => !s)}
           onPaymentMethodSelect={(value) => setValue("paymentMethod", value)}
-        />
+        /> */}
+
+        <div className="disclaimer">
+          <GppMaybeOutlined />
+          <Text t="caption">
+            <Trans id="offset_disclaimer">
+              Be careful not to expose any sensitive personal information. Your
+              message can not be edited and will permanently exist on a public
+              blockchain.
+            </Trans>
+          </Text>
+        </div>
       </div>
     </OffsetLayout>
   );
