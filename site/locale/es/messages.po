@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-26 21:23+0000\n"
+"POT-Creation-Date: 2023-01-27 23:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -408,28 +408,31 @@ msgstr "Trabajamos con los actores del mercado tradicional de carbono, las plata
 msgid "concat.careers"
 msgstr "Carreras profesionales"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:164
-#: components/pages/Pledge/index.tsx:106
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+#: components/pages/Pledge/index.tsx:104
 msgid "connectModal.continue"
 msgstr "o continuar con"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:173
-#: components/pages/Pledge/index.tsx:115
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
 msgid "connect_modal.connecting"
 msgstr "Conectando..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:160
-#: components/pages/Pledge/index.tsx:102
-msgid "connect_modal.error_message"
-msgstr "Hemos tenido problemas para hacer la conexión. Por favor, inténtelo de nuevo."
+#: lib/constants.ts:18
+msgid "connect_modal.error_message_default"
+msgstr "Hemos tenido problemas para realizar la conexión. Por favor, inténtelo de nuevo."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:177
-#: components/pages/Pledge/index.tsx:119
+#: lib/constants.ts:22
+msgid "connect_modal.error_message_refused"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.error_title"
 msgstr "Error de conexión"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:169
-#: components/pages/Pledge/index.tsx:111
+#: components/pages/Pledge/PledgeDashboard/index.tsx:167
+#: components/pages/Pledge/index.tsx:109
 msgid "connect_modal.sign_in"
 msgstr "Iniciar sesión / Conectar"
 
@@ -1128,15 +1131,15 @@ msgstr "{0}% de la huella"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Toneladas de carbono"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:136
+#: components/pages/Pledge/PledgeDashboard/index.tsx:137
 msgid "pledges.dashboard.head.metaDescription"
 msgstr "{pledgeOwnerTitle} se compromete a compensar {currentTotalFootprint} toneladas de carbono. Vea su historial de compensación de carbono y lea más sobre su compromiso."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:132
+#: components/pages/Pledge/PledgeDashboard/index.tsx:133
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "Compromiso de {pledgeOwnerTitle}"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:128
+#: components/pages/Pledge/PledgeDashboard/index.tsx:129
 msgid "pledges.dashboard.head.title"
 msgstr "Compromiso de {pledgeOwnerTitle} | KlimaDAO"
 
@@ -1196,7 +1199,7 @@ msgstr "Añadir cartera"
 msgid "pledges.form.awaiting_signature"
 msgstr "En espera de la firma..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:191
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.confirm_delete"
 msgstr "Confirmar la eliminación"
 
@@ -1208,7 +1211,7 @@ msgstr "eliminar"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancelar"
 
-#: components/pages/Pledge/index.tsx:206
+#: components/pages/Pledge/index.tsx:204
 msgid "pledges.form.error"
 msgstr "Introduzca una dirección de monedero, dominio .klima o .eth"
 
@@ -1348,7 +1351,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Guardar el compromiso"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:187
+#: components/pages/Pledge/PledgeDashboard/index.tsx:185
 msgid "pledges.form.title"
 msgstr "Tu compromiso"
 
@@ -1364,43 +1367,43 @@ msgstr "Utilice su cartera para firmar y confirmar esta modificación."
 msgid "pledges.form.wallets.label"
 msgstr "Monederos secundarios"
 
-#: components/pages/Pledge/index.tsx:93
+#: components/pages/Pledge/index.tsx:94
 msgid "pledges.head.metaDescription"
 msgstr "Demuestre su compromiso con el clima solicitando su panel de compromisos para destacar toda su actividad de compensación de carbono"
 
-#: components/pages/Pledge/index.tsx:89
+#: components/pages/Pledge/index.tsx:90
 msgid "pledges.head.metaTitle"
 msgstr "Cree un compromiso de carbono y muestre su impacto"
 
-#: components/pages/Pledge/index.tsx:85
+#: components/pages/Pledge/index.tsx:86
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Compromisos"
 
-#: components/pages/Pledge/index.tsx:65
+#: components/pages/Pledge/index.tsx:66
 msgid "pledges.home.hero.connecting"
 msgstr "Conectando..."
 
-#: components/pages/Pledge/index.tsx:76
+#: components/pages/Pledge/index.tsx:77
 msgid "pledges.home.hero.create"
 msgstr "Crear un compromiso"
 
-#: components/pages/Pledge/index.tsx:164
+#: components/pages/Pledge/index.tsx:162
 msgid "pledges.home.hero.learn_more"
 msgstr "Aprende más"
 
-#: components/pages/Pledge/index.tsx:71
+#: components/pages/Pledge/index.tsx:72
 msgid "pledges.home.hero.view"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:200
+#: components/pages/Pledge/index.tsx:198
 msgid "pledges.home.search.label"
 msgstr "Dirección ENS o 0x"
 
-#: components/pages/Pledge/index.tsx:194
+#: components/pages/Pledge/index.tsx:192
 msgid "pledges.home.search.placeholder"
 msgstr "Ingrese la dirección ENS, KNS o 0x"
 
-#: components/pages/Pledge/index.tsx:220
+#: components/pages/Pledge/index.tsx:218
 msgid "pledges.home.search.submit"
 msgstr "Buscar"
 

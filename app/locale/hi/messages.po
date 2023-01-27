@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-26 21:23+0000\n"
+"POT-Creation-Date: 2023-01-27 23:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -316,23 +316,27 @@ msgstr "ट्रेज़री बैलेंस"
 msgid "choose_bond.ubo.description"
 msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
-#: components/views/Home/index.tsx:171
+#: components/views/Home/index.tsx:169
 msgid "connectModal.continue"
 msgstr "या साथ जारी रखें"
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:178
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
-#: components/views/Home/index.tsx:167
-msgid "connect_modal.error_message"
+#: lib/constants.ts:29
+msgid "connect_modal.error_message_default"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
-#: components/views/Home/index.tsx:184
+#: lib/constants.ts:33
+msgid "connect_modal.error_message_refused"
+msgstr ""
+
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
-#: components/views/Home/index.tsx:176
+#: components/views/Home/index.tsx:174
 msgid "connect_modal.sign_in"
 msgstr "साइन इन / कनेक्ट करें"
 
@@ -824,7 +828,7 @@ msgstr "लोड हो रहा है..."
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63
-#: components/views/Home/index.tsx:153
+#: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227

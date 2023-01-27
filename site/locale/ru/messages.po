@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-26 21:23+0000\n"
+"POT-Creation-Date: 2023-01-27 23:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -403,28 +403,31 @@ msgstr "Мы работаем с традиционными участникам
 msgid "concat.careers"
 msgstr "Карьера"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:164
-#: components/pages/Pledge/index.tsx:106
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+#: components/pages/Pledge/index.tsx:104
 msgid "connectModal.continue"
 msgstr "или продолжить с"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:173
-#: components/pages/Pledge/index.tsx:115
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:160
-#: components/pages/Pledge/index.tsx:102
-msgid "connect_modal.error_message"
+#: lib/constants.ts:18
+msgid "connect_modal.error_message_default"
 msgstr "У нас возникли проблемы с подключением. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:177
-#: components/pages/Pledge/index.tsx:119
+#: lib/constants.ts:22
+msgid "connect_modal.error_message_refused"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:169
-#: components/pages/Pledge/index.tsx:111
+#: components/pages/Pledge/PledgeDashboard/index.tsx:167
+#: components/pages/Pledge/index.tsx:109
 msgid "connect_modal.sign_in"
 msgstr "Войти / Подключиться"
 
@@ -1122,15 +1125,15 @@ msgstr "{0}% от следа"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Углеродная тонна(ы)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:136
+#: components/pages/Pledge/PledgeDashboard/index.tsx:137
 msgid "pledges.dashboard.head.metaDescription"
 msgstr "{pledgeOwnerTitle} обязуется компенсировать {currentTotalFootprint} тонны углерода. Посмотрите их историю компенсации выбросов углерода и узнайте больше об их обязательствах."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:132
+#: components/pages/Pledge/PledgeDashboard/index.tsx:133
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s Обязательство"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:128
+#: components/pages/Pledge/PledgeDashboard/index.tsx:129
 msgid "pledges.dashboard.head.title"
 msgstr ""
 "{pledgeOwnerTitle}'s Обязательство | KlimaDAO\n"
@@ -1192,7 +1195,7 @@ msgstr "Добавить кошелек"
 msgid "pledges.form.awaiting_signature"
 msgstr "Ожидание подписи..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:191
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.confirm_delete"
 msgstr "подтвердить удаление"
 
@@ -1204,7 +1207,7 @@ msgstr "Удалить"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "Отмена"
 
-#: components/pages/Pledge/index.tsx:206
+#: components/pages/Pledge/index.tsx:204
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
@@ -1344,7 +1347,7 @@ msgstr "0х..."
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:187
+#: components/pages/Pledge/PledgeDashboard/index.tsx:185
 msgid "pledges.form.title"
 msgstr "Ваш залог"
 
@@ -1362,43 +1365,43 @@ msgstr ""
 msgid "pledges.form.wallets.label"
 msgstr "Дополнительный(е) кошелек(и)"
 
-#: components/pages/Pledge/index.tsx:93
+#: components/pages/Pledge/index.tsx:94
 msgid "pledges.head.metaDescription"
 msgstr "Продемонстрируйте свою приверженность позитивному отношению к климату, заявив, что ваша панель инструментов обещаний отображает всю вашу деятельность по компенсации выбросов углерода."
 
-#: components/pages/Pledge/index.tsx:89
+#: components/pages/Pledge/index.tsx:90
 msgid "pledges.head.metaTitle"
 msgstr "Создайте обязательство по выбросам углерода и продемонстрируйте свое влияние"
 
-#: components/pages/Pledge/index.tsx:85
+#: components/pages/Pledge/index.tsx:86
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Залоги"
 
-#: components/pages/Pledge/index.tsx:65
+#: components/pages/Pledge/index.tsx:66
 msgid "pledges.home.hero.connecting"
 msgstr "Подключение..."
 
-#: components/pages/Pledge/index.tsx:76
+#: components/pages/Pledge/index.tsx:77
 msgid "pledges.home.hero.create"
 msgstr "Создать обязательство"
 
-#: components/pages/Pledge/index.tsx:164
+#: components/pages/Pledge/index.tsx:162
 msgid "pledges.home.hero.learn_more"
 msgstr "Подробнее"
 
-#: components/pages/Pledge/index.tsx:71
+#: components/pages/Pledge/index.tsx:72
 msgid "pledges.home.hero.view"
 msgstr "Просмотреть свой залог"
 
-#: components/pages/Pledge/index.tsx:200
+#: components/pages/Pledge/index.tsx:198
 msgid "pledges.home.search.label"
 msgstr "ENS или 0x адрес"
 
-#: components/pages/Pledge/index.tsx:194
+#: components/pages/Pledge/index.tsx:192
 msgid "pledges.home.search.placeholder"
 msgstr "Введите адрес ENS, KNS или 0x"
 
-#: components/pages/Pledge/index.tsx:220
+#: components/pages/Pledge/index.tsx:218
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
 
