@@ -123,7 +123,15 @@ export const useProvider = (): Web3ModalState => {
       };
       setWeb3State(newState);
     } catch (e: any) {
-      throw new Error(e);
+      if (
+        // TODO check message for coinbase when it is working again
+        e.code === 4001 ||
+        e.message === "User closed modal" ||
+        e.message === "User cancelled login"
+      ) {
+        e.name = "rejected";
+      }
+      throw e;
     }
   };
 

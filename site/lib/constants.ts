@@ -1,4 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -12,3 +13,14 @@ export const MONTH_IN_SECONDS = 2592000;
 export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
   ? "http://localhost:3000"
   : urls.home;
+
+export const connectErrorStrings = {
+  default: t({
+    message: "We had some trouble connecting. Please try again.",
+    id: "connect_modal.error_message_default",
+  }),
+  rejected: t({
+    message: "User refused connection.",
+    id: "connect_modal.error_message_refused",
+  }),
+};

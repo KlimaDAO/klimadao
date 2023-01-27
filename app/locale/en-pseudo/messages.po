@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:685
 msgid "Beneficiary 0x address (optional)"
@@ -316,23 +322,27 @@ msgstr ""
 msgid "choose_bond.ubo.description"
 msgstr ""
 
-#: components/views/Home/index.tsx:171
+#: components/views/Home/index.tsx:169
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/views/Home/index.tsx:180
+#: components/views/Home/index.tsx:178
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: components/views/Home/index.tsx:167
-msgid "connect_modal.error_message"
+#: lib/constants.ts:29
+msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: components/views/Home/index.tsx:184
+#: lib/constants.ts:33
+msgid "connect_modal.error_message_refused"
+msgstr ""
+
+#: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/views/Home/index.tsx:176
+#: components/views/Home/index.tsx:174
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -824,7 +834,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63
-#: components/views/Home/index.tsx:153
+#: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227

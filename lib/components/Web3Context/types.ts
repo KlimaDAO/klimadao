@@ -65,12 +65,15 @@ export interface DisconnectedWeb3State {
   network: undefined;
 }
 export interface RenderModalProps {
-  errorMessage: string;
   torusText: string;
   titles: {
     connect: string;
     loading: string;
     error: string;
+  };
+  errors: {
+    default: string;
+    rejected: string;
   };
   buttonClassName?: string;
   onClose?: () => void;
