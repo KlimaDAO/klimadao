@@ -711,6 +711,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
+
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">

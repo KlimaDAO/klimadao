@@ -24,8 +24,15 @@ export const baseStyles = css`
   padding: 1rem;
 
   ::placeholder {
-    ${typography.caption};
     color: var(--font-03);
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+
+    ${breakpoints.large} {
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
   }
 
   &:focus,
