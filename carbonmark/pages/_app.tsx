@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   useTabListener();
 
   const firstRender = useRef(true);
-  const { translation } = pageProps;
+  const { translation, fixedThemeName } = pageProps;
 
   const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
@@ -46,6 +46,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       i18n.activate(locale);
     }
   }, [locale]);
+
+  useEffect(() => {
+    if (fixedThemeName) {
+      document.body.dataset.theme = fixedThemeName;
+    }
+  });
 
   return (
     <>

@@ -5,13 +5,15 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
+    const { fixedThemeName } = this.props.__NEXT_DATA__.props.pageProps;
+
     return (
       <Html>
         <Head>
           <WebFonts />
         </Head>
         <body>
-          <InitializeTheme />
+          {!fixedThemeName && <InitializeTheme />}
           <Main />
           <NextScript />
         </body>
