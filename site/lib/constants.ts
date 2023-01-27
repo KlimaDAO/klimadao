@@ -20,7 +20,7 @@ export const connectErrorStrings = {
     id: "connect_modal.error_message_default",
   }),
   rejected: t({
-    message: "User refused connection. Dont do that. Bad user.",
+    message: "User refused connection.",
     id: "connect_modal.error_message_refused",
   }),
 };
