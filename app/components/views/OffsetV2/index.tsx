@@ -15,6 +15,7 @@ import { SelectiveRetirement } from "../Offset/SelectiveRetirement";
 import { CostDisplay } from "./CostDisplay";
 import { OffsetLayout } from "./OffsetLayout";
 
+import { PaymentMethodInput } from "./PaymentMethodInput";
 import * as styles from "./styles";
 
 /* TODO
@@ -65,8 +66,6 @@ export const OffsetV2 = () => {
   const [retirementTokenModalOpen, setRetirementTokenModalOpen] =
     useState(false);
   const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false);
-
-  const balances = useSelector(selectBalances);
 
   // form control
   const {
@@ -185,20 +184,11 @@ export const OffsetV2 = () => {
           labelAlignment="start"
         />
 
-        <DropdownWithModal
-          label={t({
-            id: "offset.dropdown_payWith.label",
-            message: "Pay with",
-          })}
-          modalTitle={t({
-            id: "offset.modal_payWith.title",
-            message: "Select Token",
-          })}
-          currentItem={watch("paymentMethod")}
-          items={retirementTokenItems(watch("paymentMethod"))}
+        <PaymentMethodInput
+          selectedPaymentMethod={watch("paymentMethod")}
           isModalOpen={paymentMethodModalOpen}
           onToggleModal={() => setPaymentMethodModalOpen((s) => !s)}
-          onItemSelect={(value) => setValue("paymentMethod", value)}
+          onPaymentMethodSelect={(value) => setValue("paymentMethod", value)}
         />
       </div>
     </OffsetLayout>

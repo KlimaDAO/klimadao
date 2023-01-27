@@ -1,15 +1,14 @@
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { Image } from "components/Image";
 import { StaticImageData } from "next/image";
 import { FC, ReactNode } from "react";
-
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import { Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 
 import * as styles from "./styles";
 
-interface Item {
+export interface Item {
   key: string;
   label: string;
   description?: ReactNode;
