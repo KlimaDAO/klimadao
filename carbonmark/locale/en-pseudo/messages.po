@@ -134,11 +134,11 @@ msgstr ""
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: lib/constants.ts:20
+#: lib/constants.ts:21
 msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: lib/constants.ts:24
+#: lib/constants.ts:25
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "menu.wallet_address"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:142
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:158
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "profile.create_your_profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:142
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
@@ -520,15 +520,15 @@ msgstr ""
 msgid "user.activities.title"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:114
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:133
 msgid "user.edit.edit.input.price.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:109
 msgid "user.edit.form.edit.price.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:93
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:97
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
@@ -572,15 +572,15 @@ msgstr ""
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:131
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:149
 msgid "user.edit.form.input.singleUnitPrice.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:122
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:125
 msgid "user.edit.form.input.singleUnitPrice.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:110
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:113
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
@@ -596,43 +596,53 @@ msgstr ""
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:90
 msgid "user.listing.edit.input.quantity.maxAmount"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:79
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:83
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:64
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:68
 msgid "user.listing.edit.input.quantity.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:72
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:76
 msgid "user.listing.edit.input.quantity.required"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:44
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:48
 msgid "user.listing.edit.project.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:57
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:60
 msgid "user.listing.form.input.select_project.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:103
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:140
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:124
+msgid "user.listing.form.input.singleUnitPrice.minimum"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:133
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:117
+msgid "user.listing.form.input.singleUnitPrice.required"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:106
 msgid "user.listing.form.input.totalAmountToSell.maxAmount"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:96
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:99
 msgid "user.listing.form.input.totalAmountToSell.minimum"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:81
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:84
 msgid "user.listing.form.input.totalAmountToSell.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:89
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:92
 msgid "user.listing.form.input.totalAmountToSell.required"
 msgstr ""
 
