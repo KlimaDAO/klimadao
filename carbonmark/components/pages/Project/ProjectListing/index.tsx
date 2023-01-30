@@ -27,7 +27,7 @@ const getFormattedDate = (timestamp: string, locale = "en") => {
 
 export const ProjectListing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, renderModal, isConnected, toggleModal } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
 
   const isConnectedSeller =
     !!props.listing.seller &&
@@ -90,32 +90,6 @@ export const ProjectListing: FC<Props> = (props) => {
           disabled={isConnectedSeller}
         />
       )}
-
-      {renderModal &&
-        renderModal({
-          errorMessage: t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          }),
-          torusText: t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          }),
-          titles: {
-            connect: t({
-              id: "connect_modal.connect_to_buy",
-              message: "Sign In / Connect To Buy",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          },
-        })}
     </Card>
   );
 };

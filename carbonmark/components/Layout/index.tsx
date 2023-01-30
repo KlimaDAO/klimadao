@@ -5,12 +5,12 @@ import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
 import { useResponsive } from "hooks/useResponsive";
+import { connectErrorStrings } from "lib/constants";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
 import { Footer } from "../shared/Footer";
 import { NavDrawer } from "./NavDrawer";
-
 import * as styles from "./styles";
 
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
@@ -92,10 +92,7 @@ export const Layout: FC<Props> = (props: Props) => {
 
           {renderModal &&
             renderModal({
-              errorMessage: t({
-                message: "We had some trouble connecting. Please try again.",
-                id: "connect_modal.error_message",
-              }),
+              errors: connectErrorStrings,
               torusText: t({
                 message: "or continue with",
                 id: "connectModal.continue",

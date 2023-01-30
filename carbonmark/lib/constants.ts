@@ -1,4 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -14,3 +15,14 @@ export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
   : urls.home;
 
 export const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
+
+export const connectErrorStrings = {
+  default: t({
+    message: "We had some trouble connecting. Please try again.",
+    id: "connect_modal.error_message_default",
+  }),
+  rejected: t({
+    message: "User refused connection.",
+    id: "connect_modal.error_message_refused",
+  }),
+};

@@ -17,7 +17,7 @@ import * as styles from "./styles";
 
 export const Login: NextPage = () => {
   const router = useRouter();
-  const { address, isConnected, renderModal, toggleModal } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
@@ -71,32 +71,6 @@ export const Login: NextPage = () => {
                     onClick={toggleModal}
                   />
                 )}
-
-                {renderModal({
-                  errorMessage: t({
-                    message:
-                      "We had some trouble connecting. Please try again.",
-                    id: "connect_modal.error_message",
-                  }),
-                  torusText: t({
-                    message: "or continue with",
-                    id: "connectModal.continue",
-                  }),
-                  titles: {
-                    connect: t({
-                      id: "connect_modal.sign_in",
-                      message: "Sign In / Connect",
-                    }),
-                    loading: t({
-                      id: "connect_modal.connecting",
-                      message: "Connecting...",
-                    }),
-                    error: t({
-                      id: "connect_modal.error_title",
-                      message: "Connection Error",
-                    }),
-                  },
-                })}
               </div>
             </Card>
           </Col>

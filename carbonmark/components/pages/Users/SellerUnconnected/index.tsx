@@ -25,7 +25,7 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, renderModal, isConnected, toggleModal } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
   const userData = props.carbonmarkUser;
 
   const hasListings = !!userData?.listings?.length;
@@ -90,33 +90,6 @@ export const SellerUnconnected: FC<Props> = (props) => {
                     )}
                   />
                 )}
-
-                {renderModal &&
-                  renderModal({
-                    errorMessage: t({
-                      message:
-                        "We had some trouble connecting. Please try again.",
-                      id: "connect_modal.error_message",
-                    }),
-                    torusText: t({
-                      message: "or continue with",
-                      id: "connectModal.continue",
-                    }),
-                    titles: {
-                      connect: t({
-                        id: "connect_modal.connect_to_buy",
-                        message: "Sign In / Connect To Buy",
-                      }),
-                      loading: t({
-                        id: "connect_modal.connecting",
-                        message: "Connecting...",
-                      }),
-                      error: t({
-                        id: "connect_modal.error_title",
-                        message: "Connection Error",
-                      }),
-                    },
-                  })}
               </Listing>
             ))}
         </Col>
