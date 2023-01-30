@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
-import { LogoWithClaim } from "@klimadao/lib/components";
+import { CarbonmarkLogo } from "@klimadao/lib/components";
 import { PageName } from "../Navigation";
 
 interface Props {
@@ -25,7 +25,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
       <nav className={styles.menuDesktop}>
         <div>
           <Link href={"/"}>
-            <LogoWithClaim />
+            <CarbonmarkLogo />
           </Link>
         </div>
         <div className={styles.navMain_Desktop}>{props.children}</div>

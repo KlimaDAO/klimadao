@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import { FC } from "react";
 
-import { HeaderDesktop } from "components/Header/HeaderDesktop";
 import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
+import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { LinkItemDesktop } from "./LinkItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";

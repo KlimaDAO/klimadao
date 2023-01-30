@@ -3,8 +3,8 @@ import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
-import { Navigation } from "components/Navigation";
 import { Footer } from "components/shared/Footer";
+import { Navigation } from "components/shared/Navigation";
 import { PageHead } from "components/shared/PageHead";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 import { ResourcesList } from "./ResourcesList";
@@ -34,7 +34,7 @@ export const Resources: NextPage<Props> = (props) => {
         })}
       />
 
-      <Navigation activePage="Resources" />
+      <Navigation activePage="Resources" showThemeToggle={false} />
 
       {!!props.featuredArticles?.length && (
         <Section variant="gray" className={styles.sectionHead}>

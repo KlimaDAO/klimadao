@@ -15,6 +15,16 @@ module.exports = async (phase, { defaultConfig }) => {
     async redirects() {
       return [
         {
+          source: "/blog",
+          destination: "/resources",
+          permanent: true,
+        },
+        {
+          source: "/podcast",
+          destination: "/resources",
+          permanent: true,
+        },
+        {
           source: "/cms",
           destination: "https://klimadao.sanity.studio/desk",
           permanent: true,

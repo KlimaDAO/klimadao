@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-import { LogoWithClaim } from "@klimadao/lib/components";
+import { CarbonmarkLogo } from "@klimadao/lib/components";
 import Link from "next/link";
 import { NavMobile } from "../Navigation/NavMobile";
 import { ToggleNavButton } from "../Navigation/ToggleNavButton";
@@ -29,7 +29,7 @@ export const HeaderMobile: FC<Props> = (props) => {
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
-            <LogoWithClaim />
+            <CarbonmarkLogo />
           </Link>
         </div>
         {props.buttons && (
