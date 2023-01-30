@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-27 23:19+0000\n"
+"POT-Creation-Date: 2023-01-30 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -330,7 +330,7 @@ msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
-msgstr ""
+msgstr "L'utilisateur a refusé la connexion."
 
 #: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
