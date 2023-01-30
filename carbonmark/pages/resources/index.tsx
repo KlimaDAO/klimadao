@@ -18,7 +18,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
         documents,
         featuredArticles,
         translation,
-        fixedThemeName: "theme-dark",
+        fixedThemeName: "theme-light",
       },
       revalidate: 240,
     };

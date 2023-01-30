@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       notFound: true,
       revalidate: 240,
-      fixedThemeName: "theme-dark",
+      fixedThemeName: "theme-light",
     };
   }
 };
