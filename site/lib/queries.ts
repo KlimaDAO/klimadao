@@ -25,7 +25,6 @@ export const queries = {
       author->,
       "imageUrl": mainImage.asset->url,
       rssId,
-      "embed": embedCode,
       "tags": tags[]->label_en
     }
   `,
@@ -100,7 +99,6 @@ export const queries = {
     publishedAt, 
     host->, 
     rssId,
-    "embed": embedCode
   }
 `,
 };
