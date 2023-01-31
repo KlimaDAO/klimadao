@@ -14,11 +14,12 @@ import {
   getPledgeByAddress,
 } from "components/pages/Pledge/lib/firebase";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import { Holding, Pledge } from "components/pages/Pledge/types";
+import { Pledge } from "components/pages/Pledge/types";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { mergeHoldings } from "lib/mergeHoldings";
+import { Dictionary, groupBy } from "lodash";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -28,7 +29,16 @@ interface Params extends ParsedUrlQuery {
 interface PageProps {
   canonicalUrl: string;
   domain: string | null;
-  holdings: Holding[];
+  holdings: Dictionary<
+    {
+      change?: number;
+      id: string;
+      timestamp: string;
+      token: string;
+      tokenAmount: string;
+      carbonValue: string;
+    }[]
+  >;
   pageAddress: string;
   pledge: Pledge;
   retirements: RetirementsTotalsAndBalances;
@@ -159,7 +169,8 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       retirements = await getRetirementTotalsAndBalances({
         address: resolvedAddress,
       });
-      holdings = await queryHoldingsByAddress(resolvedAddress);
+      const holdingsPromise = await queryHoldingsByAddress(resolvedAddress);
+      holdings = groupBy(holdingsPromise, "token");
     }
 
     return {

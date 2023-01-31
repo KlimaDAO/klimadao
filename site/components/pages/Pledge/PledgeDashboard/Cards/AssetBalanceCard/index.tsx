@@ -13,15 +13,20 @@ import NCTIcon from "public/icons/NCT.png";
 import UBOIcon from "public/icons/UBO.png";
 
 import { Text } from "@klimadao/lib/components";
-import { Wallet } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 import { TokenRow } from "./TokenRow";
 
 type Props = {
   pageAddress: string;
-  secondaryWallets?: Wallet[];
-  holdings: any; // update this to grouped holdings type?
+  holdings: Dictionary<{
+    change: number;
+    id: string;
+    timestamp: string;
+    token: string;
+    tokenAmount: string;
+    carbonValue: string;
+}[]>
 };
 
 type TokenMap = {
@@ -75,10 +80,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
 
   useEffect(() => {
     (async () => {
-      const balances = await getBalances({
-        address: props.pageAddress,
-        secondaryWallets: props.secondaryWallets,
-      });
+      const balances = await getBalances({ address: props.pageAddress });
       setBalances(balances);
     })();
   }, []);
