@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-31 15:34+0000\n"
+"POT-Creation-Date: 2023-01-31 22:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -529,7 +529,7 @@ msgstr "Token auswählen"
 msgid "offset.modal_retire.title"
 msgstr "CO2-Typ auswählen"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:37
+#: components/CarbonTonnesRetiredCard/index.tsx:41
 msgid "offset.number_of_retirements"
 msgstr "Insgesamt ausgeglichen"
 
@@ -660,11 +660,15 @@ msgstr "AUSGLEICH ANSEHEN"
 msgid "offset.successModal.title"
 msgstr "Ausgleich erfolgreich!"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:29
+#: components/CarbonTonnesRetiredCard/index.tsx:33
 msgid "offset.tonnes_of_carbon_retired"
 msgstr "CO2-Tonnen"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:20
+#: components/CarbonTonnesRetiredCard/index.tsx:51
+msgid "offset.view_retirements"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
 msgstr "Bislang ausgeglichen"
 
