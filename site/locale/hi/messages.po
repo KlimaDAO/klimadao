@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-30 15:34+0000\n"
+"POT-Creation-Date: 2023-01-31 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +74,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:185
 msgid "buy.connect_torus_sushi"
-msgstr ""
+msgstr "३ए। वॉलेटकनेक्ट का उपयोग करके टोरस को Sushi.com से कनेक्ट करें"
 
 #: components/pages/Buy/index.tsx:212
 msgid "buy.connect_torus_sushi_description2"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:111
 msgid "buy.create_wallet_item"
-msgstr ""
+msgstr "1. वॉलेट बनाएं"
 
 #: components/pages/Buy/index.tsx:319
 msgid "buy.faq_title"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:322
 msgid "buy.question_why_matic"
-msgstr ""
+msgstr "मुझे पहले मैटिक क्यों खरीदना चाहिए?"
 
 #: components/pages/Buy/index.tsx:327
 msgid "buy.question_why_matic_answer"
@@ -203,15 +203,15 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:69
 msgid "buy.step_1"
-msgstr ""
+msgstr "१ "
 
 #: components/pages/Buy/index.tsx:82
 msgid "buy.step_2"
-msgstr ""
+msgstr "२ "
 
 #: components/pages/Buy/index.tsx:97
 msgid "buy.step_3"
-msgstr ""
+msgstr "३ "
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.summary_steps_title"
@@ -243,11 +243,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:250
 msgid "buy.swap_subtitle"
-msgstr ""
+msgstr "३बी। KLIMA के लिए MATIC स्वैप करें"
 
 #: components/pages/Buy/index.tsx:179
 msgid "buy.swap_wallet"
-msgstr ""
+msgstr "3. <0>Sushi.com पर KLIMA के लिए स्वैप करें</0>"
 
 #: components/pages/Buy/index.tsx:196
 msgid "buy.torus_login_description"
@@ -255,12 +255,12 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:205
 msgid "buy.wallet_connect_example"
-msgstr ""
+msgstr "वॉलेट कनेक्ट इनपुट उदाहरण"
 
 #: components/pages/Buy/index.tsx:222
 #: components/pages/Buy/index.tsx:268
 msgid "buy.wallet_connect_example_qr_code"
-msgstr ""
+msgstr "वॉलेट कनेक्ट qr कोड उदाहरण"
 
 #: components/pages/Buy/index.tsx:366
 msgid "buy.what_are_bonds"
@@ -1319,7 +1319,7 @@ msgstr "प्रोफ़ाइल छवि url (वैकल्पिक)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:304
 msgid "pledges.form.input.profileWebsiteUrl.label"
-msgstr ""
+msgstr "वेबसाइट (वैकल्पिक)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:597
 msgid "pledges.form.input.totalFootprint.label"
@@ -1379,7 +1379,7 @@ msgstr "और जानें"
 
 #: components/pages/Pledge/index.tsx:72
 msgid "pledges.home.hero.view"
-msgstr ""
+msgstr "अपनी प्रतिज्ञा देखें"
 
 #: components/pages/Pledge/index.tsx:198
 msgid "pledges.home.search.label"
@@ -1683,7 +1683,7 @@ msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखे�
 
 #: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
 msgid "retirement.single.view_pledge"
-msgstr ""
+msgstr "प्रतिज्ञा देखें"
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
