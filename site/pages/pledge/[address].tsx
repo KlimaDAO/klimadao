@@ -18,7 +18,7 @@ import { Holding, Pledge } from "components/pages/Pledge/types";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
-import groupBy from "lodash/groupBy";
+import { mergeHoldings } from "lib/mergeHoldings";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -153,21 +153,8 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       holdingsPromises.push(queryHoldingsByAddress(resolvedAddress));
       // starting with array of arrays
       const holdingsValues = await Promise.all(holdingsPromises);
-      const holdingsByToken = holdingsValues.map((array) =>
-        groupBy(array, "token")
-      );
-      // map through holdings values and sort arrays for each token
-      // map again and find change values
-      // merge the tokens together and calculate totals
-
-      // console.log("holdingsValues", holdingsByToken, holdingsByToken[0]);
-      const sortedHoldings = holdingsByToken.map(
-        (token) => Object.values(token)[0] // map through tokens and sort and get value change
-      );
-      console.log("sortedCalculatedHoldings", sortedHoldings);
-
-      const mergedHoldings = holdingsValues[0];
-      holdings = mergedHoldings;
+      mergeHoldings(holdingsValues);
+      holdings = mergeHoldings(holdingsValues);
     } else {
       retirements = await getRetirementTotalsAndBalances({
         address: resolvedAddress,

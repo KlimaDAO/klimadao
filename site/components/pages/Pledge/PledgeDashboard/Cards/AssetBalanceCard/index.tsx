@@ -1,11 +1,9 @@
 import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import groupBy from "lodash/groupBy";
 import map from "lodash/map";
 import { StaticImageData } from "next/legacy/image";
 import { FC, useEffect, useState } from "react";
 
-import { Holding } from "components/pages/Pledge/types";
 import { Balances, BalanceToken, getBalances } from "lib/getBalances";
 import BCTIcon from "public/icons/BCT.png";
 import KLIMAIcon from "public/icons/KLIMA.png";
@@ -15,13 +13,15 @@ import NCTIcon from "public/icons/NCT.png";
 import UBOIcon from "public/icons/UBO.png";
 
 import { Text } from "@klimadao/lib/components";
+import { Wallet } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 import { TokenRow } from "./TokenRow";
 
 type Props = {
   pageAddress: string;
-  holdings: Holding[];
+  secondaryWallets?: Wallet[];
+  holdings: any; // update this to grouped holdings type?
 };
 
 type TokenMap = {
@@ -64,21 +64,21 @@ const TOKEN_MAP: TokenMap = {
 
 export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
-  console.log("holdings", props.holdings);
-  // I think we should do all of this in pledge page
-  const holdingsByToken = groupBy(props.holdings, "token");
 
   /** Hide tokens with no balance
    * @todo hide token with no transaction history*/
   const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
     ...token,
     balance: balances && balances[key as BalanceToken],
-    holdings: holdingsByToken[token.label],
+    holdings: props.holdings[token.label],
   })).filter(({ balance }) => !!Number(balance));
 
   useEffect(() => {
     (async () => {
-      const balances = await getBalances({ address: props.pageAddress });
+      const balances = await getBalances({
+        address: props.pageAddress,
+        secondaryWallets: props.secondaryWallets,
+      });
       setBalances(balances);
     })();
   }, []);
