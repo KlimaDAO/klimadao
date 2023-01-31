@@ -1,16 +1,20 @@
+import { t, Trans } from "@lingui/macro";
 import { FC } from "react";
-
-import { Trans } from "@lingui/macro";
-import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
-
 import { useSelector } from "react-redux";
+
+import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
+import LaunchOutlinedIcon from "@mui/icons-material/LaunchOutlined";
+
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { selectCarbonRetired } from "state/selectors";
 
-import { Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
 export const CarbonTonnesRetiredCard: FC = () => {
+  const { address } = useWeb3();
   const totalCarbonRetired = useSelector(selectCarbonRetired);
   return (
     <div className={styles.card}>
@@ -37,6 +41,19 @@ export const CarbonTonnesRetiredCard: FC = () => {
             <Trans id="offset.number_of_retirements">Total retirements</Trans>
           </Text>
         </div>
+        {Number(totalCarbonRetired?.totalRetirements) > 0 && (
+          <ButtonPrimary
+            target="_blank"
+            variant="transparent"
+            icon={<LaunchOutlinedIcon />}
+            href={`${urls.retirements}/${address}`}
+            className={styles.button}
+            label={t({
+              id: "offset.view_retirements",
+              message: "View Retirements",
+            })}
+          />
+        )}
       </div>
     </div>
   );

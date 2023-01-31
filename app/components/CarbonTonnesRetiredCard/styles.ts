@@ -56,3 +56,14 @@ export const card = css`
     }
   }
 `;
+
+export const button = css`
+  width: 22rem;
+  color: #fff !important;
+  border: 1px solid #fff;
+
+  svg {
+    width: 0.75em !important;
+    height: 0.75em !important;
+  }
+`;

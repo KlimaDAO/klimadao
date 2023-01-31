@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:685
 msgid "Beneficiary 0x address (optional)"
@@ -527,7 +533,7 @@ msgstr ""
 msgid "offset.modal_retire.title"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:37
+#: components/CarbonTonnesRetiredCard/index.tsx:41
 msgid "offset.number_of_retirements"
 msgstr ""
 
@@ -656,11 +662,15 @@ msgstr ""
 msgid "offset.successModal.title"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:29
+#: components/CarbonTonnesRetiredCard/index.tsx:33
 msgid "offset.tonnes_of_carbon_retired"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:20
+#: components/CarbonTonnesRetiredCard/index.tsx:51
+msgid "offset.view_retirements"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
 msgstr ""
 
