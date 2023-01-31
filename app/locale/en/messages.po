@@ -533,7 +533,7 @@ msgstr "Select Token"
 msgid "offset.modal_retire.title"
 msgstr "Select Carbon Type"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:37
+#: components/CarbonTonnesRetiredCard/index.tsx:41
 msgid "offset.number_of_retirements"
 msgstr "Total retirements"
 
@@ -662,11 +662,15 @@ msgstr "VIEW RETIREMENT"
 msgid "offset.successModal.title"
 msgstr "Retirement Successful!"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:29
+#: components/CarbonTonnesRetiredCard/index.tsx:33
 msgid "offset.tonnes_of_carbon_retired"
 msgstr "Tonnes of carbon"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:20
+#: components/CarbonTonnesRetiredCard/index.tsx:51
+msgid "offset.view_retirements"
+msgstr "View Retirements"
+
+#: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
