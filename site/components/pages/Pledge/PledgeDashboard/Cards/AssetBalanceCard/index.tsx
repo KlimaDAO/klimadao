@@ -1,5 +1,6 @@
 import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
+import { Dictionary } from "lodash";
 import map from "lodash/map";
 import { StaticImageData } from "next/legacy/image";
 import { FC, useEffect, useState } from "react";
@@ -19,14 +20,16 @@ import { TokenRow } from "./TokenRow";
 
 type Props = {
   pageAddress: string;
-  holdings: Dictionary<{
-    change: number;
-    id: string;
-    timestamp: string;
-    token: string;
-    tokenAmount: string;
-    carbonValue: string;
-}[]>
+  holdings: Dictionary<
+    {
+      change?: number;
+      id: string;
+      timestamp: string;
+      token: string;
+      tokenAmount: string;
+      carbonValue: string;
+    }[]
+  >;
 };
 
 type TokenMap = {

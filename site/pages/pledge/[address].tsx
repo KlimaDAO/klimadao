@@ -103,7 +103,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     } catch (error) {
       pledge = { ...DEFAULT_PLEDGE_VALUES, ownerAddress: resolvedAddress };
     }
-    let holdings;
+    let holdings: Dictionary<
+      {
+        change?: number;
+        id: string;
+        timestamp: string;
+        token: string;
+        tokenAmount: string;
+        carbonValue: string;
+      }[]
+    >;
     // add up retirements and holdings here
     let retirements: RetirementsTotalsAndBalances;
     if (pledge.wallets && Object.values(pledge.wallets).length) {

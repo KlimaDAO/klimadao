@@ -48,7 +48,6 @@ export const calculateTokenValues = (
     .flat()
     .sort((a, b) => Number(a.timestamp) - Number(b.timestamp));
   let tokenCount = 0;
-  const valuadses = groupBy(sortedHoldings, "token");
   const values = Object.values(groupBy(sortedHoldings, "token")).map(
     (holdings) =>
       holdings.map((holding, index) => {

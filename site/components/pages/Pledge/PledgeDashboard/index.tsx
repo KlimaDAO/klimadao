@@ -8,10 +8,11 @@ import { Modal } from "components/Modal";
 import { PageHead } from "components/PageHead";
 
 import { connectErrorStrings } from "lib/constants";
+import { Dictionary } from "lodash";
 import { AcceptModal, RemoveModal } from "../InvitationModals";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
-import { Holding, Pledge } from "../types";
+import { Pledge } from "../types";
 import {
   AssetBalanceCard,
   FootprintCard,
@@ -25,7 +26,16 @@ import * as styles from "./styles";
 type Props = {
   canonicalUrl: string;
   domain: string | null;
-  holdings: Holding[];
+  holdings: Dictionary<
+    {
+      change?: number;
+      id: string;
+      timestamp: string;
+      token: string;
+      tokenAmount: string;
+      carbonValue: string;
+    }[]
+  >;
   pageAddress: string;
   pledge: Pledge;
   retirements: RetirementsTotalsAndBalances;
