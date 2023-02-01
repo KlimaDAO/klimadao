@@ -67,12 +67,6 @@ export const Navigation: FC<Props> = ({
           active={activePage === "Login"}
         />
         <LinkItemDesktop
-          name={t`Portfolio`}
-          key="portfolio"
-          url="/portfolio"
-          active={activePage === "Portfolio"}
-        />
-        <LinkItemDesktop
           name={t`Resources`}
           key="resources"
           url="/resources"
@@ -96,13 +90,6 @@ export const Navigation: FC<Props> = ({
               active={activePage === "Login"}
               id="Profile"
               url="/users/login"
-            />
-
-            <NavItemMobile
-              name={t`Portfolio`}
-              active={activePage === "Portfolio"}
-              id="Portfolio"
-              url="/portfolio"
             />
             <NavItemMobile
               name={t`Resources`}

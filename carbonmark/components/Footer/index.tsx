@@ -25,9 +25,6 @@ export const Footer: FC<Props> = (props) => {
           <Link href="/users/login">
             <Trans>Profile</Trans>
           </Link>
-          <Link href="/portfolio">
-            <Trans>Portfolio</Trans>
-          </Link>
           <Link href="/resources">
             <Trans>Resources</Trans>
           </Link>
