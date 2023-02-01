@@ -118,6 +118,7 @@ export const mobile = {
       box-shadow: var(--shadow-06);
     }
     .close {
+      margin-inline-start: auto;
       background: var(--surface-02);
     }
   `,

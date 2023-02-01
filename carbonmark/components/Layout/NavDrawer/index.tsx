@@ -3,7 +3,6 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC } from "react";
 import { AddressSection } from "../AddressSection";
@@ -12,10 +11,10 @@ import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
-const DynamicThemeToggle = dynamic(
-  () => import("components/shared/ThemeToggle"),
-  { ssr: false }
-);
+// const DynamicThemeToggle = dynamic(
+//   () => import("components/shared/ThemeToggle"),
+//   { ssr: false }
+// );
 
 interface NavDrawerProps {
   userAddress?: string;
@@ -33,7 +32,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         <CarbonmarkLogo />
       </Link>
       <div className={styles.mobile.header} data-mobile-only>
-        <DynamicThemeToggle />
+        {/* <DynamicThemeToggle /> */}
         <ButtonPrimary
           variant="lightGray"
           className="close"

@@ -3,10 +3,7 @@ import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
-import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
-import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
 import { Footer } from "../Footer";
@@ -16,9 +13,9 @@ import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
-const ThemeToggle = dynamic(() => import("../shared/ThemeToggle"), {
-  ssr: false,
-});
+// const ThemeToggle = dynamic(() => import("../shared/ThemeToggle"), {
+//   ssr: false,
+// });
 
 type Props = {
   userAddress?: string;
@@ -30,7 +27,7 @@ export const Layout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const { isDesktop } = useResponsive();
+  // const { isDesktop } = useResponsive();
 
   return (
     <div
@@ -59,8 +56,8 @@ export const Layout: FC<Props> = (props: Props) => {
             />
           </div>
 
-          <ChangeLanguageButton />
-          {isDesktop && <ThemeToggle />}
+          {/* <ChangeLanguageButton /> */}
+          {/* {isDesktop && <ThemeToggle />} */}
 
           {props.profileButton}
 

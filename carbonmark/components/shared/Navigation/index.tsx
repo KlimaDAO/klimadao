@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { FC } from "react";
 
-import { ChangeLanguageButton } from "components/shared/ChangeLanguageButton";
 import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { LinkItemDesktop } from "./LinkItemDesktop";
@@ -37,14 +36,14 @@ export type Props = {
 export const Navigation: FC<Props> = ({
   activePage,
   transparent,
-  showThemeToggle,
+  showThemeToggle = false,
 }) => {
   return (
     <>
       <HeaderDesktop
         transparent={transparent}
         buttons={[
-          <ChangeLanguageButton key="ChangeLanguageButton" />,
+          // <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
             key="Enter App"
@@ -82,7 +81,7 @@ export const Navigation: FC<Props> = ({
       </HeaderDesktop>
 
       <HeaderMobile
-        buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
+      // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
       >
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">
