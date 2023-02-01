@@ -13,17 +13,38 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:14
-msgid "A new era for kleema dow"
+#: components/pages/errors/Custom404.tsx:14
+#: components/pages/errors/Custom404.tsx:15
+#: components/pages/errors/Custom404.tsx:16
+#: components/pages/errors/Custom404.tsx:23
+msgid "404 - Page Not Found"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:14
+#: components/pages/errors/Custom500.tsx:15
+#: components/pages/errors/Custom500.tsx:16
+msgid "500 - Server Error"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:23
+msgid "500 - Server error occurred"
 msgstr ""
 
 #: components/Stats/index.tsx:57
 msgid "Active listings:"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:152
 #: components/pages/Project/Purchase/PurchaseForm.tsx:185
 msgid "Available:"
+msgstr ""
+
+#: components/pages/Home/index.tsx:18
+msgid "CarbonMark | Universal Carbon Market"
+msgstr ""
+
+#: components/pages/Home/index.tsx:17
+msgid "CarbonMark.com"
 msgstr ""
 
 #: components/shared/ChangeLanguageButton/index.tsx:48
@@ -34,7 +55,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:113
+#: components/shared/Navigation/index.tsx:118
 msgid "Enter App"
 msgstr ""
 
@@ -44,33 +65,44 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:103
 msgid "Final price"
+msgstr "<<<<<<< HEAD"
+
+#: components/shared/Footer/index.tsx:20
+msgid "Home"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:175
 #: components/pages/Users/SellerUnconnected/index.tsx:52
 msgid "Listings"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:188
 msgid "Loading..."
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:54
-#: components/shared/Navigation/index.tsx:85
+#: components/shared/Footer/index.tsx:23
+#: components/shared/Navigation/index.tsx:59
+#: components/shared/Navigation/index.tsx:90
 msgid "Marketplace"
+msgstr ""
+
+#: components/pages/Home/index.tsx:19
+msgid "Open-source and open-access carbon toolkit. Powered by KlimaDAO"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:59
 msgid "Payment Successful"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:66
-#: components/shared/Navigation/index.tsx:98
+#: components/shared/Footer/index.tsx:29
+#: components/shared/Navigation/index.tsx:71
+#: components/shared/Navigation/index.tsx:103
 msgid "Portfolio"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:60
-#: components/shared/Navigation/index.tsx:91
+#: components/shared/Footer/index.tsx:26
+#: components/shared/Navigation/index.tsx:65
+#: components/shared/Navigation/index.tsx:96
 msgid "Profile"
 msgstr ""
 
@@ -86,13 +118,22 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:72
-#: components/shared/Navigation/index.tsx:104
+#: components/shared/Footer/index.tsx:32
+#: components/shared/Navigation/index.tsx:77
+#: components/shared/Navigation/index.tsx:109
 msgid "Resources"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:42
 msgid "Seller Listing"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:26
+msgid "Sorry, looks like we sent you the wrong way."
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:26
+msgid "Sorry, something went wrong."
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:70
@@ -554,42 +595,14 @@ msgstr ""
 msgid "shared.approve"
 msgstr ""
 
-#: components/shared/Footer/index.tsx:49
-msgid "shared.blog"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:43
-msgid "shared.bond"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:37
-msgid "shared.buy"
-msgstr ""
-
 #: components/pages/Project/ProjectListing/index.tsx:70
 #: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""
 
-#: components/shared/Footer/index.tsx:52
-msgid "shared.contact"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:55
-msgid "shared.disclaimer"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:46
-msgid "shared.docs"
-msgstr ""
-
-#: components/shared/Navigation/index.tsx:46
+#: components/shared/Navigation/index.tsx:51
 msgid "shared.enter_app"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:34
-msgid "shared.home"
 msgstr ""
 
 #: components/pages/Users/Login/index.tsx:61
@@ -608,11 +621,7 @@ msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:207
 msgid "shared.resources.sort_by.header"
-msgstr ""
-
-#: components/shared/Footer/index.tsx:40
-msgid "shared.stake"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #: components/pages/Users/SellerConnected/CreateAListingModal.tsx:138
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:216
