@@ -67,7 +67,7 @@ msgstr ""
 msgid "Final price"
 msgstr "<<<<<<< HEAD"
 
-#: components/shared/Footer/index.tsx:20
+#: components/Footer/index.tsx:20
 msgid "Home"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr "<<<<<<< HEAD"
 msgid "Loading..."
 msgstr ""
 
-#: components/shared/Footer/index.tsx:23
+#: components/Footer/index.tsx:23
 #: components/shared/Navigation/index.tsx:59
 #: components/shared/Navigation/index.tsx:90
 msgid "Marketplace"
@@ -94,13 +94,13 @@ msgstr ""
 msgid "Payment Successful"
 msgstr ""
 
-#: components/shared/Footer/index.tsx:29
+#: components/Footer/index.tsx:29
 #: components/shared/Navigation/index.tsx:71
 #: components/shared/Navigation/index.tsx:103
 msgid "Portfolio"
 msgstr ""
 
-#: components/shared/Footer/index.tsx:26
+#: components/Footer/index.tsx:26
 #: components/shared/Navigation/index.tsx:65
 #: components/shared/Navigation/index.tsx:96
 msgid "Profile"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/shared/Footer/index.tsx:32
+#: components/Footer/index.tsx:32
 #: components/shared/Navigation/index.tsx:77
 #: components/shared/Navigation/index.tsx:109
 msgid "Resources"
