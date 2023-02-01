@@ -98,3 +98,19 @@ export const spinnerWrap = css`
   justify-content: center;
   min-height: 25rem;
 `;
+
+export const errorMessagePrice = css`
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+  color: var(--warn);
+  margin-bottom: 0.2rem;
+  word-break: break-word;
+  margin-top: -0.8rem;
+
+  ${breakpoints.large} {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+`;

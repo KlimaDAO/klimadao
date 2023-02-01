@@ -21,6 +21,11 @@ msgstr ""
 msgid "Active listings:"
 msgstr ""
 
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
+#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+msgid "Available:"
+msgstr ""
+
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
@@ -33,7 +38,7 @@ msgstr ""
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:183
+#: components/pages/Users/SellerConnected/index.tsx:180
 msgid "Error:"
 msgstr ""
 
@@ -41,9 +46,13 @@ msgstr ""
 msgid "Final price"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:178
+#: components/pages/Users/SellerConnected/index.tsx:175
 #: components/pages/Users/SellerUnconnected/index.tsx:52
 msgid "Listings"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+msgid "Loading..."
 msgstr ""
 
 #: components/shared/Navigation/index.tsx:54
@@ -90,7 +99,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:209
+#: components/pages/Project/Purchase/index.tsx:208
 msgid "This offer no longer exists."
 msgstr ""
 
@@ -106,7 +115,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:227
+#: components/pages/Users/SellerConnected/index.tsx:224
 msgid "Updating your data..."
 msgstr ""
 
@@ -167,11 +176,11 @@ msgstr ""
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: lib/constants.ts:21
+#: lib/constants.ts:22
 msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: lib/constants.ts:25
+#: lib/constants.ts:26
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
@@ -207,7 +216,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:205
+#: components/pages/Users/SellerConnected/index.tsx:202
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -219,11 +228,11 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:233
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:263
+#: components/pages/Users/SellerConnected/index.tsx:260
 msgid "profile.edit_profile.title"
 msgstr ""
 
@@ -231,36 +240,36 @@ msgstr ""
 msgid "profile.edit_your_profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:147
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:146
 msgid "profile.listing.delete.error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:162
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:161
 msgid "profile.listing.edit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:190
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:187
 #: components/pages/Users/SellerUnconnected/index.tsx:58
 msgid "profile.listings.empty_state"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:114
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:113
 msgid "profile.listings_modal.title"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:94
+#: components/pages/Users/SellerConnected/index.tsx:91
 msgid "profile.load_assets.error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:64
+#: components/pages/Users/SellerConnected/index.tsx:63
 msgid "profile.missing_assets"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:155
+#: components/pages/Users/SellerConnected/index.tsx:152
 msgid "profile.update_activity.error"
 msgstr ""
 
@@ -296,7 +305,7 @@ msgstr ""
 msgid "project.single.best_price"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:155
+#: components/pages/Project/Purchase/index.tsx:154
 msgid "project.single.button.back_to_project"
 msgstr ""
 
@@ -308,7 +317,7 @@ msgstr ""
 msgid "project.single.button.back_to_projects"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:185
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "project.single.header.seller"
 msgstr ""
 
@@ -324,7 +333,7 @@ msgstr ""
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:199
+#: components/pages/Project/Purchase/PurchaseForm.tsx:211
 msgid "purchase.button.continue"
 msgstr ""
 
@@ -336,51 +345,51 @@ msgstr ""
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:124
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:108
+#: components/pages/Project/Purchase/PurchaseForm.tsx:115
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:117
+#: components/pages/Project/Purchase/PurchaseForm.tsx:124
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:36
+#: components/pages/Project/Purchase/PurchaseForm.tsx:37
 msgid "purchase.input.cost.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+#: components/pages/Project/Purchase/PurchaseForm.tsx:161
 msgid "purchase.input.price.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:85
+#: components/pages/Project/Purchase/index.tsx:84
 msgid "purchase.loading.allowance.error"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:196
+#: components/pages/Project/Purchase/index.tsx:195
 msgid "purchase.price_each"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:221
+#: components/pages/Project/Purchase/index.tsx:220
 msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:225
+#: components/pages/Project/Purchase/index.tsx:224
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
@@ -529,7 +538,7 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:169
 msgid "seller.edit_listing.title"
 msgstr ""
 
@@ -558,7 +567,7 @@ msgid "shared.buy"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+#: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""
@@ -605,8 +614,8 @@ msgstr ""
 msgid "shared.stake"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:139
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:138
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "tonnes.long"
 msgstr ""
 
@@ -614,11 +623,11 @@ msgstr ""
 msgid "tonnes.short"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:148
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:147
 msgid "transaction.create_listing.approval_description"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
 msgid "transaction.edit_listing.approval_description"
 msgstr ""
 
@@ -718,47 +727,47 @@ msgstr ""
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:94
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
 msgid "user.edit.form.error.api_error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:113
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
 msgid "user.edit.form.error.general_error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:106
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
 msgid "user.edit.form.error.user_rejected"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:216
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:209
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:167
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "user.edit.form.input.handle.handle_exists"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:174
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "user.edit.form.input.handle.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:162
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "user.edit.form.input.handle.pattern"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:138
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:139
 msgid "user.edit.form.input.handle.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:147
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
@@ -774,15 +783,15 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:184
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "user.edit.form.input.username.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
@@ -852,6 +861,6 @@ msgstr ""
 msgid "user.stats.title"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:250
+#: components/pages/Users/SellerConnected/index.tsx:247
 msgid "user.stats.your_seller_data.description"
 msgstr ""

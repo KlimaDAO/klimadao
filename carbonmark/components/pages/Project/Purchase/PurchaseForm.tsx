@@ -5,23 +5,23 @@ import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getTokenBalance } from "lib/actions";
-import { FAKE_USDC } from "lib/constants";
+import { CARBONMARK_FEE, FAKE_USDC } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
 import * as styles from "./styles";
-
-const CARBONMARK_FEE = 0.03; // 3%
 
 type TotalValueProps = {
   control: Control<FormValues>;
   singlePrice: string;
   setValue: (field: "price", value: string) => void;
-  warn: boolean;
+  errorMessage?: string;
 };
 
 const TotalValue: FC<TotalValueProps> = (props) => {
+  const { locale } = useRouter();
   const amount = useWatch({ name: "amount", control: props.control });
   const price = Number(props.singlePrice) * Number(amount);
   const totalPrice = price + price * CARBONMARK_FEE || 0;
@@ -32,15 +32,22 @@ const TotalValue: FC<TotalValueProps> = (props) => {
   }, [amount]);
 
   return (
-    <HighlightValue
-      label={t({
-        id: "purchase.input.cost.label",
-        message: "Cost incl. 3% fee",
-      })}
-      value={formatToPrice(totalPrice)}
-      icon={carbonmarkTokenInfoMap["usdc"].icon}
-      warn={props.warn}
-    />
+    <>
+      <HighlightValue
+        label={t({
+          id: "purchase.input.cost.label",
+          message: "Cost incl. 3% fee",
+        })}
+        value={formatToPrice(totalPrice, locale)}
+        icon={carbonmarkTokenInfoMap["usdc"].icon}
+        warn={!!props.errorMessage}
+      />
+      {!!props.errorMessage && (
+        <Text t="caption" className={styles.errorMessagePrice}>
+          {props.errorMessage}
+        </Text>
+      )}
+    </>
   );
 };
 
@@ -58,6 +65,7 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
+  const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
   const [balance, setBalance] = useState<string | null>(null);
@@ -74,8 +82,8 @@ export const PurchaseForm: FC<Props> = (props) => {
       setBalance(balance);
     };
 
-    getBalance();
-  }, []);
+    !balance && getBalance();
+  }, [address]);
 
   const { register, handleSubmit, formState, control, setValue, clearErrors } =
     useForm<FormValues>({
@@ -141,7 +149,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           errorMessage={formState.errors.amount?.message}
         />
         <Text t="badge" className={styles.availableAmount}>
-          Available: {formatUnits(props.listing.leftToSell)}
+          <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
         </Text>
         <InputField
           id="price"
@@ -171,13 +179,18 @@ export const PurchaseForm: FC<Props> = (props) => {
           singlePrice={singleUnitPrice}
           control={control}
           setValue={setValue}
-          warn={!!formState.errors.price?.message}
+          errorMessage={formState.errors.price?.message}
         />
-        {!!formState.errors.price?.message && (
-          <Text t="badge" className={styles.availableAmount}>
-            {formState.errors.price.message}
-          </Text>
-        )}
+        <Text t="badge" className={styles.availableAmount}>
+          <Trans>Available:</Trans>{" "}
+          {!balance ? (
+            <i>
+              <Trans>Loading...</Trans>
+            </i>
+          ) : (
+            formatToPrice(balance, locale)
+          )}
+        </Text>
 
         {!address && !isConnected && (
           <ButtonPrimary

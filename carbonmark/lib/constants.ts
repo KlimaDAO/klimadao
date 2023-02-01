@@ -16,6 +16,7 @@ export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
 
 export const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
 export const MINIMUM_TONNE_PRICE = 0.1; // minimum amount of tonnes per listing
+export const CARBONMARK_FEE = 0.03; // 3%
 
 export const connectErrorStrings = {
   default: t({

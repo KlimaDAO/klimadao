@@ -21,6 +21,11 @@ msgstr "A new era for kleema dow"
 msgid "Active listings:"
 msgstr "Active listings:"
 
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
+#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+msgid "Available:"
+msgstr "Available:"
+
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Change language"
@@ -33,7 +38,7 @@ msgstr "Created:"
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Users/SellerConnected/index.tsx:183
+#: components/pages/Users/SellerConnected/index.tsx:180
 msgid "Error:"
 msgstr "Error:"
 
@@ -41,10 +46,14 @@ msgstr "Error:"
 msgid "Final price"
 msgstr "Final price"
 
-#: components/pages/Users/SellerConnected/index.tsx:178
+#: components/pages/Users/SellerConnected/index.tsx:175
 #: components/pages/Users/SellerUnconnected/index.tsx:52
 msgid "Listings"
 msgstr "Listings"
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+msgid "Loading..."
+msgstr "Loading..."
 
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:85
@@ -90,7 +99,7 @@ msgstr "Seller Listing"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
-#: components/pages/Project/Purchase/index.tsx:209
+#: components/pages/Project/Purchase/index.tsx:208
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
@@ -106,7 +115,7 @@ msgstr "Tonnes sold:"
 msgid "Updated:"
 msgstr "Updated:"
 
-#: components/pages/Users/SellerConnected/index.tsx:227
+#: components/pages/Users/SellerConnected/index.tsx:224
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -167,11 +176,11 @@ msgstr "or continue with"
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: lib/constants.ts:21
+#: lib/constants.ts:22
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 
-#: lib/constants.ts:25
+#: lib/constants.ts:26
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
@@ -207,7 +216,7 @@ msgstr "Your Wallet Address"
 msgid "profile.addListing_modal.submit"
 msgstr "Create Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:205
+#: components/pages/Users/SellerConnected/index.tsx:202
 msgid "profile.create_new_listing"
 msgstr "Create New Listing"
 
@@ -219,11 +228,11 @@ msgstr "Create your profile on Carbonmark and start selling"
 msgid "profile.editListing_modal.submit"
 msgstr "Update Listing"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:233
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:263
+#: components/pages/Users/SellerConnected/index.tsx:260
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -231,36 +240,36 @@ msgstr "Your Profile"
 msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:147
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:146
 msgid "profile.listing.delete.error"
 msgstr "Could not delete listing. Please try again."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:162
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:161
 msgid "profile.listing.edit"
 msgstr "Edit"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:190
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:189
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:187
 #: components/pages/Users/SellerUnconnected/index.tsx:58
 msgid "profile.listings.empty_state"
 msgstr "No active listings to show."
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:114
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:113
 msgid "profile.listings_modal.title"
 msgstr "Create a Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:94
+#: components/pages/Users/SellerConnected/index.tsx:91
 msgid "profile.load_assets.error"
 msgstr "There was an error loading your assets"
 
-#: components/pages/Users/SellerConnected/index.tsx:64
+#: components/pages/Users/SellerConnected/index.tsx:63
 msgid "profile.missing_assets"
 msgstr "You do not have any c3 tokens to create a listing :("
 
-#: components/pages/Users/SellerConnected/index.tsx:155
+#: components/pages/Users/SellerConnected/index.tsx:152
 msgid "profile.update_activity.error"
 msgstr "There was an error updating your data: {e}"
 
@@ -296,7 +305,7 @@ msgstr "Renewable Energy"
 msgid "project.single.best_price"
 msgstr "Best Price"
 
-#: components/pages/Project/Purchase/index.tsx:155
+#: components/pages/Project/Purchase/index.tsx:154
 msgid "project.single.button.back_to_project"
 msgstr "Back to Project"
 
@@ -308,7 +317,7 @@ msgstr "Back to Project Details"
 msgid "project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
-#: components/pages/Project/Purchase/index.tsx:185
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
@@ -324,7 +333,7 @@ msgstr "for"
 msgid "props.transaction.conjunction.at"
 msgstr "at"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:199
+#: components/pages/Project/Purchase/PurchaseForm.tsx:211
 msgid "purchase.button.continue"
 msgstr "Continue"
 
@@ -336,51 +345,51 @@ msgstr "Use Klima Infinity to retire & offset"
 msgid "purchase.button.view_assets"
 msgstr "View Assets"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.label"
 msgstr "How many tonnes of carbon do you want to buy?"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.maxAmount"
 msgstr "You exceeded the available amount of tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:124
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.minimum"
 msgstr "The minimum amount to buy is 1 Tonne"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:108
+#: components/pages/Project/Purchase/PurchaseForm.tsx:115
 msgid "purchase.input.amount.placeholder"
 msgstr "Tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:117
+#: components/pages/Project/Purchase/PurchaseForm.tsx:124
 msgid "purchase.input.amount.required"
 msgstr "Amount is required"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:36
+#: components/pages/Project/Purchase/PurchaseForm.tsx:37
 msgid "purchase.input.cost.label"
 msgstr "Cost incl. 3% fee"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "purchase.input.price.maxAmount"
 msgstr "You exceeded your available amount of tokens"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+#: components/pages/Project/Purchase/PurchaseForm.tsx:161
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/index.tsx:85
+#: components/pages/Project/Purchase/index.tsx:84
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:196
+#: components/pages/Project/Purchase/index.tsx:195
 msgid "purchase.price_each"
 msgstr "each"
 
-#: components/pages/Project/Purchase/index.tsx:221
+#: components/pages/Project/Purchase/index.tsx:220
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:225
+#: components/pages/Project/Purchase/index.tsx:224
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
@@ -529,7 +538,7 @@ msgstr "Please use a different filter combination."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:169
 msgid "seller.edit_listing.title"
 msgstr "Edit Listing"
 
@@ -558,7 +567,7 @@ msgid "shared.buy"
 msgstr "Buy"
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+#: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
@@ -605,8 +614,8 @@ msgstr "Sort by:"
 msgid "shared.stake"
 msgstr "Stake"
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:139
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:138
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "tonnes.long"
 msgstr "tonnes"
 
@@ -614,11 +623,11 @@ msgstr "tonnes"
 msgid "tonnes.short"
 msgstr "t"
 
-#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:148
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:147
 msgid "transaction.create_listing.approval_description"
 msgstr "You are about to transfer ownership of this asset from your wallet to the KlimaDAO  You can remove your listing at any time until it has been sold."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:225
 msgid "transaction.edit_listing.approval_description"
 msgstr "You are about to transfer ownership of this asset from your wallet to the KlimaDAO Carbonmark. You can remove your listing at any time until it has been sold."
 
@@ -718,47 +727,47 @@ msgstr "USDC per ton"
 msgid "user.edit.form.edit.quantity.label"
 msgstr "Quantity"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:94
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
 msgid "user.edit.form.error.api_error"
 msgstr "There was an error with the Request API. Please try again"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:113
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
 msgid "user.edit.form.error.general_error"
 msgstr "Something went wrong. Please try again"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:106
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
 msgid "user.edit.form.error.user_rejected"
 msgstr "You chose to reject the transaction."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:216
 msgid "user.edit.form.input.description.label"
 msgstr "About"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:209
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "user.edit.form.input.description.placeholder"
 msgstr "Description"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:167
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "user.edit.form.input.handle.handle_exists"
 msgstr "Sorry, this handle already exists"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:174
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "user.edit.form.input.handle.label"
 msgstr "Handle (not changeable later! Choose wisely)"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:162
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr "Handle should not be an address"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "user.edit.form.input.handle.pattern"
 msgstr "Handle should contain any special characters"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:138
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:139
 msgid "user.edit.form.input.handle.placeholder"
 msgstr "Your unique handle"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:147
 msgid "user.edit.form.input.handle.required"
 msgstr "Handle is required"
 
@@ -774,15 +783,15 @@ msgstr "USDC per ton"
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr "Total Amount"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
 msgid "user.edit.form.input.username.label"
 msgstr "Display Name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:184
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "user.edit.form.input.username.placeholder"
 msgstr "Your display name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:192
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:193
 msgid "user.edit.form.input.username.required"
 msgstr "Display Name is required"
 
@@ -852,6 +861,6 @@ msgstr "Data for this seller"
 msgid "user.stats.title"
 msgstr "Stats"
 
-#: components/pages/Users/SellerConnected/index.tsx:250
+#: components/pages/Users/SellerConnected/index.tsx:247
 msgid "user.stats.your_seller_data.description"
 msgstr "Your seller data"
