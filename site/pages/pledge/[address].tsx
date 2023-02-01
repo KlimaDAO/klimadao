@@ -170,7 +170,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         queryHoldingsByAddress(wallet.address)
       );
       holdingsPromises.push(queryHoldingsByAddress(resolvedAddress));
-      // starting with array of arrays
       const holdingsValues = await Promise.all(holdingsPromises);
       mergeHoldings(holdingsValues);
       holdings = mergeHoldings(holdingsValues);

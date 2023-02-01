@@ -1,406 +1,94 @@
 import { Holding } from "components/pages/Pledge/types";
+import { Dictionary } from "lodash";
 import {
   calculateChange,
   calculateTokenValues,
   groupHoldings,
   mergeHoldings,
 } from "./mergeHoldings";
+import {
+  calculatedGroupedHoldingsDecreasing,
+  calculatedGroupedHoldingsIncreasing,
+  expectedOutputDecreasing,
+  expectedOutputIncreasing,
+  expectedOutputLargeNumber,
+  groupedHoldingsDecreasing,
+  groupedHoldingsIncreasing,
+  holdingsInputDecreasing,
+  holdingsInputIncreasing,
+  holdingsInputLargeNumber,
+} from "./testFixtures";
 
-const holdingsInput: Holding[][] = [
-  [
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "1",
-      token: "BCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "3",
-      token: "BCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "5",
-      token: "BCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "7",
-      token: "NCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "9",
-      token: "NCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "11",
-      token: "NCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-    },
-  ],
-  [
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "4",
-      token: "BCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "6",
-      token: "BCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "8",
-      token: "NCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "10",
-      token: "NCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "12",
-      token: "NCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "14",
-      token: "NCT",
-      tokenAmount: "4",
-      carbonValue: "4",
-    },
-  ],
-];
+describe("groupHoldings", () => {
+  it("Groups 2 holdings arrays of BCT and NCT", () => {
+    expect(groupHoldings(holdingsInputIncreasing as Holding[][])).toStrictEqual(
+      groupedHoldingsIncreasing
+    );
+  });
+});
 
-const groupedHoldings = [
-  {
-    BCT: [
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-        timestamp: "1",
-        token: "BCT",
-        tokenAmount: "1",
-        carbonValue: "1",
-      },
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-        timestamp: "3",
-        token: "BCT",
-        tokenAmount: "2",
-        carbonValue: "2",
-      },
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-        timestamp: "5",
-        token: "BCT",
-        tokenAmount: "3",
-        carbonValue: "3",
-      },
-    ],
-    NCT: [
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-        timestamp: "7",
-        token: "NCT",
-        tokenAmount: "1",
-        carbonValue: "1",
-      },
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-        timestamp: "9",
-        token: "NCT",
-        tokenAmount: "2",
-        carbonValue: "2",
-      },
-      {
-        id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-        timestamp: "11",
-        token: "NCT",
-        tokenAmount: "3",
-        carbonValue: "3",
-      },
-    ],
-  },
-  {
-    BCT: [
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-        timestamp: "4",
-        token: "BCT",
-        tokenAmount: "2",
-        carbonValue: "2",
-      },
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-        timestamp: "6",
-        token: "BCT",
-        tokenAmount: "3",
-        carbonValue: "3",
-      },
-    ],
-    NCT: [
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-        timestamp: "8",
-        token: "NCT",
-        tokenAmount: "1",
-        carbonValue: "1",
-      },
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-        timestamp: "10",
-        token: "NCT",
-        tokenAmount: "2",
-        carbonValue: "2",
-      },
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-        timestamp: "12",
-        token: "NCT",
-        tokenAmount: "3",
-        carbonValue: "3",
-      },
-      {
-        id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-        timestamp: "14",
-        token: "NCT",
-        tokenAmount: "4",
-        carbonValue: "4",
-      },
-    ],
-  },
-];
+describe("calculateChange", () => {
+  it("calculates the value change from sorted holdings increasing", () => {
+    expect(
+      calculateChange(
+        groupedHoldingsIncreasing as unknown as Dictionary<Holding[]>[]
+      )
+    ).toStrictEqual(calculatedGroupedHoldingsIncreasing);
+  });
+  it("calculates the value change from sorted holdings decreasing", () => {
+    expect(
+      calculateChange(
+        groupedHoldingsDecreasing as unknown as Dictionary<Holding[]>[]
+      )
+    ).toStrictEqual(calculatedGroupedHoldingsDecreasing);
+  });
+});
 
-const calculatedGroupedHoldings = [
-  [
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "1",
-      token: "BCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-      change: 1,
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "3",
-      token: "BCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-      change: 1,
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "5",
-      token: "BCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-      change: 1,
-    },
-  ],
-  [
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "7",
-      token: "NCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-      change: 1,
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "9",
-      token: "NCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-      change: 1,
-    },
-    {
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "11",
-      token: "NCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-      change: 1,
-    },
-  ],
-  [
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "4",
-      token: "BCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-      change: 2,
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "6",
-      token: "BCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-      change: 1,
-    },
-  ],
-  [
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "8",
-      token: "NCT",
-      tokenAmount: "1",
-      carbonValue: "1",
-      change: 1,
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "10",
-      token: "NCT",
-      tokenAmount: "2",
-      carbonValue: "2",
-      change: 1,
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "12",
-      token: "NCT",
-      tokenAmount: "3",
-      carbonValue: "3",
-      change: 1,
-    },
-    {
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "14",
-      token: "NCT",
-      tokenAmount: "4",
-      carbonValue: "4",
-      change: 1,
-    },
-  ],
-];
+describe("calculateTokenValues", () => {
+  it("merges all increasing value holdings and calculates new values based on change", () => {
+    expect(
+      calculateTokenValues(
+        calculatedGroupedHoldingsIncreasing as {
+          change: number;
+          id: string;
+          timestamp: string;
+          token: string;
+          tokenAmount: string;
+          carbonValue: string;
+        }[][]
+      )
+    ).toStrictEqual(expectedOutputIncreasing);
+  });
+  it("merges increasing and decreasing holdings and calculates new values based on change", () => {
+    expect(
+      calculateTokenValues(
+        calculatedGroupedHoldingsDecreasing as {
+          change: number;
+          id: string;
+          timestamp: string;
+          token: string;
+          tokenAmount: string;
+          carbonValue: string;
+        }[][]
+      )
+    ).toStrictEqual(expectedOutputDecreasing);
+  });
+});
 
-const expectedOutput = {
-  BCT: [
-    {
-      carbonValue: "1",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "1",
-      token: "BCT",
-      tokenAmount: "1",
-    },
-    {
-      carbonValue: "2",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "3",
-      token: "BCT",
-      tokenAmount: "2",
-    },
-    {
-      carbonValue: "4",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "4",
-      token: "BCT",
-      tokenAmount: "4",
-    },
-    {
-      carbonValue: "5",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-BCT-1674777600",
-      timestamp: "5",
-      token: "BCT",
-      tokenAmount: "5",
-    },
-    {
-      carbonValue: "6",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-BCT-1674777600",
-      timestamp: "6",
-      token: "BCT",
-      tokenAmount: "6",
-    },
-  ],
-  NCT: [
-    {
-      carbonValue: "1",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "7",
-      token: "NCT",
-      tokenAmount: "1",
-    },
-    {
-      carbonValue: "2",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "8",
-      token: "NCT",
-      tokenAmount: "2",
-    },
-    {
-      carbonValue: "3",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "9",
-      token: "NCT",
-      tokenAmount: "3",
-    },
-    {
-      carbonValue: "4",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "10",
-      token: "NCT",
-      tokenAmount: "4",
-    },
-    {
-      carbonValue: "5",
-      id: "0xdeb8c24ad9640d62334da6f30c191e9cfd180e5b-NCT-1674777600",
-      timestamp: "11",
-      token: "NCT",
-      tokenAmount: "5",
-    },
-    {
-      carbonValue: "6",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "12",
-      token: "NCT",
-      tokenAmount: "6",
-    },
-    {
-      carbonValue: "7",
-      id: "0x838cd36c38e64c166b2c5130d15a8acff1e09d44-NCT-1674777600",
-      timestamp: "14",
-      token: "NCT",
-      tokenAmount: "7",
-    },
-  ],
-};
-
-export const holdingsTest = test("setup", () => {
-  expect(groupHoldings(holdingsInput)).toStrictEqual(groupedHoldings);
-  expect(calculateChange(groupedHoldings)).toStrictEqual(
-    calculatedGroupedHoldings
-  );
-  expect(calculateTokenValues(calculatedGroupedHoldings)).toStrictEqual(
-    expectedOutput
-  );
-  expect(mergeHoldings(holdingsInput)).toStrictEqual(expectedOutput);
+describe("mergeHoldings", () => {
+  test("merge holdings functions together", () => {
+    expect(mergeHoldings(holdingsInputIncreasing as Holding[][])).toStrictEqual(
+      expectedOutputIncreasing
+    );
+  });
+  test("merge holdings functions together with decreasing values", () => {
+    expect(mergeHoldings(holdingsInputDecreasing as Holding[][])).toStrictEqual(
+      expectedOutputDecreasing
+    );
+  });
+  test("merge holdings mergines weird with big decimals", () => {
+    expect(
+      mergeHoldings(holdingsInputLargeNumber as Holding[][])
+    ).toStrictEqual(expectedOutputLargeNumber);
+  });
 });
