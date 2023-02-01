@@ -3,7 +3,7 @@ import { GridContainer, Section, Text } from "@klimadao/lib/components";
 import { PageHead } from "components/shared/PageHead";
 
 import { t, Trans } from "@lingui/macro";
-import { Footer } from "components/shared/Footer";
+import { Footer } from "components/Footer";
 import { Navigation } from "components/shared/Navigation";
 import * as styles from "./styles";
 

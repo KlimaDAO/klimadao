@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 
+import { Footer } from "components/Footer";
 import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
-import { Footer } from "components/shared/Footer";
 import { Navigation } from "components/shared/Navigation";
 import { PageHead } from "components/shared/PageHead";
 import { Post } from "lib/queries";

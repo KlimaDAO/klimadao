@@ -3,7 +3,7 @@ import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
-import { Footer } from "components/shared/Footer";
+import { Footer } from "components/Footer";
 import { Navigation } from "components/shared/Navigation";
 import { PageHead } from "components/shared/PageHead";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";

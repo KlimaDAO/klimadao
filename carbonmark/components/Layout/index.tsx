@@ -9,7 +9,7 @@ import { connectErrorStrings } from "lib/constants";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
-import { Footer } from "../shared/Footer";
+import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
 import * as styles from "./styles";
 
