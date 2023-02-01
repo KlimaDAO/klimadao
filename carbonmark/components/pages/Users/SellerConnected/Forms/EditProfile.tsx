@@ -5,10 +5,9 @@ import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { utils } from "ethers";
-import { loginUser, postUser, putUser, verifyUser } from "lib/api";
+import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
 import * as styles from "./styles";
 
 type Props = {
@@ -41,6 +40,19 @@ export const EditProfile: FC<Props> = (props) => {
   });
 
   const hasError = !isLoading && !!errorMessage;
+
+  const fetchIsNewHandle = async (handle: string) => {
+    try {
+      const existingUser = await getUser({
+        user: handle,
+        type: "handle",
+      });
+      const apiHandle = existingUser?.handle || "";
+      return apiHandle.toLowerCase() !== handle.toLowerCase();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onSubmit: SubmitHandler<User> = async (values: User) => {
     setErrorMessage(null);
@@ -144,21 +156,27 @@ export const EditProfile: FC<Props> = (props) => {
                   message: "Handle should contain any special characters",
                 }),
               },
-              validate: (value) => !utils.isAddress(value), // no polygon addresses
+              validate: {
+                isAddress: (v) =>
+                  !utils.isAddress(v) || // do not allow polygon addresses
+                  t({
+                    id: "user.edit.form.input.handle.no_polygon_address",
+                    message: "Handle should not be an address",
+                  }),
+                isNewHandle: async (v) =>
+                  (await fetchIsNewHandle(v)) || // ensure unique handles
+                  t({
+                    id: "user.edit.form.input.handle.handle_exists",
+                    message: "Sorry, this handle already exists",
+                  }),
+              },
             }),
           }}
           label={t({
             id: "user.edit.form.input.handle.label",
             message: "Handle (not changeable later! Choose wisely)",
           })}
-          errorMessage={
-            formState.errors.handle?.message ||
-            (formState.errors.handle &&
-              t({
-                id: "user.edit.form.input.handle.invalid",
-                message: "Not a valid handle name",
-              }))
-          }
+          errorMessage={formState.errors.handle?.message}
         />
         <InputField
           id="username"
