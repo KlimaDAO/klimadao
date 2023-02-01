@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-01 05:18+0000\n"
+"POT-Creation-Date: 2023-02-01 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -662,7 +662,7 @@ msgstr "Tonnes de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:51
 msgid "offset.view_retirements"
-msgstr ""
+msgstr "Voir les Compensations"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
