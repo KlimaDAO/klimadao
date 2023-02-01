@@ -70,11 +70,10 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     setIsLoadingAllowance(true);
     try {
-      if (!address || !provider) return;
+      if (!address) return;
       const allowance = await getUSDCtokenToCarbonmarkAllowance({
         tokenAddress: FAKE_USDC,
         userAddress: address,
-        provider,
       });
 
       setAllowanceValue(allowance);

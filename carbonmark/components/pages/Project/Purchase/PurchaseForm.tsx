@@ -58,16 +58,15 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
-  const { address, isConnected, toggleModal, provider } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
   const [balance, setBalance] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!provider && !address) return;
+    if (!address) return;
 
     const getBalance = async () => {
       const balance = await getTokenBalance({
-        provider,
         tokenAddress: FAKE_USDC,
         userAddress: address,
       });

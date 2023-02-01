@@ -52,11 +52,10 @@ export const CreateAListingModal: FC<Props> = (props) => {
   const onAddListingFormSubmit = async (values: FormValues) => {
     setIsLoading(true);
     try {
-      if (!address || !provider) return;
+      if (!address) return;
       const allowance = await getC3tokenToCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
-        provider,
       });
       setAllowanceValue(allowance);
       setInputValues(values);

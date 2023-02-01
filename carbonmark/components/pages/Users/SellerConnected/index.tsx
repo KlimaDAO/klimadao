@@ -28,7 +28,6 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
 import { Asset, Listing, User } from "@klimadao/lib/types/carbonmark";
-import { getStaticProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
@@ -72,11 +71,9 @@ export const SellerConnected: FC<Props> = (props) => {
       const getAssetsData = async () => {
         try {
           setIsLoadingAssets(true);
-          const provider = getStaticProvider({ chain: "mumbai" }); // TODO: Replace with getStaticProvider() after switch to Main Net
 
           const assetsData = await getUserAssetsData({
             assets: user.assets,
-            provider,
             userAddress: props.userAddress,
           });
 

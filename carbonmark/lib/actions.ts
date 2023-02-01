@@ -1,6 +1,10 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { Asset } from "@klimadao/lib/types/carbonmark";
-import { formatUnits, getContract } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getContract,
+  getStaticProvider,
+} from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
@@ -9,15 +13,16 @@ import { OnStatusHandler } from "./statusMessage";
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
+const staticProvider = getStaticProvider({ chain: "mumbai" }); // TODO: remove "mumbai" later
+
 export const getC3tokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  provider: ethers.providers.Provider;
 }): Promise<string> => {
   const tokenContract = new Contract(
     params.tokenAddress,
     C3ProjectToken.abi,
-    params.provider
+    staticProvider
   );
 
   const allowance = await tokenContract.allowance(
@@ -31,12 +36,11 @@ export const getC3tokenToCarbonmarkAllowance = async (params: {
 export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  provider: ethers.providers.Provider;
 }): Promise<string> => {
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("usdc") later
     IERC20.abi,
-    params.provider
+    staticProvider
   );
 
   const allowance = await tokenContract.allowance(
@@ -227,7 +231,6 @@ export const deleteListingTransaction = async (params: {
 
 export const getUserAssetsData = async (params: {
   assets: string[];
-  provider: providers.JsonRpcProvider;
   userAddress: string;
 }): Promise<Asset[]> => {
   try {
@@ -237,7 +240,7 @@ export const getUserAssetsData = async (params: {
         const contract = new ethers.Contract(
           asset,
           C3ProjectToken.abi,
-          params.provider
+          staticProvider
         );
 
         const tokenName = await contract.symbol();
@@ -263,13 +266,12 @@ export const getUserAssetsData = async (params: {
 
 export const getTokenBalance = async (params: {
   tokenAddress: string;
-  provider: providers.JsonRpcProvider;
   userAddress: string;
 }) => {
   const tokenContract = new Contract(
     params.tokenAddress, // TODO: replace this contract getter with getContract("<usdc>") later
     IERC20.abi,
-    params.provider
+    staticProvider
   );
 
   const balance = await tokenContract.balanceOf(params.userAddress);
