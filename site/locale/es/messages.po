@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-31 22:49+0000\n"
+"POT-Creation-Date: 2023-02-01 05:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,7 +44,7 @@ msgstr "Los usuarios avanzados pueden utilizar el <0>Polygon Bridge</0> para mov
 
 #: components/pages/Buy/index.tsx:390
 msgid "buy.bond_answer_cedit_card"
-msgstr ""
+msgstr "Sí, algunos proveedores de servicios on-ramp como <0>Transak</0> te permiten comprar KLIMA directamente con tarjeta de crédito, previo pago de una comisión. Sin embargo, si su monedero no tiene MATIC, no podrá transferir ni realizar otras acciones. Por esta razón, y para garantizar la mejor tasa del mercado, recomendamos comprar MATIC directamente en su lugar, y cambiar su MATIC por KLIMA en Sushi.com."
 
 #: components/pages/Buy/index.tsx:408
 msgid "buy.bond_answer_cex1"
@@ -67,7 +67,7 @@ msgstr "La capacidad de los bonos es limitada y no siempre están disponibles."
 
 #: components/pages/Buy/index.tsx:401
 msgid "buy.bond_question_cex"
-msgstr ""
+msgstr "¿Por qué no puedo encontrar KLIMA en Coinbase u otras bolsas centralizadas? ¿Por qué tengo que usar <0>Sushi.com</0>?"
 
 #: components/pages/Buy/index.tsx:385
 msgid "buy.bond_question_credit_card"
@@ -91,7 +91,7 @@ msgstr "Vuelva a la aplicación del monedero Torus y pegue este código en el wi
 
 #: components/pages/Buy/index.tsx:237
 msgid "buy.connect_torus_sushi_description4"
-msgstr ""
+msgstr "Cuando vuelva a la pestaña Sushi en su navegador, debería ver que su dirección Torus es ahora visible en la esquina superior derecha."
 
 #: components/pages/Buy/index.tsx:243
 msgid "buy.connect_torus_sushi_description5"
@@ -111,7 +111,7 @@ msgstr "Elija la opción de inicio de sesión \"Email o Social\", que le dirigir
 
 #: components/pages/Buy/index.tsx:129
 msgid "buy.create_wallet_description3"
-msgstr ""
+msgstr "Cuando estés conectado, deberías ver la dirección de tu nuevo monedero en la esquina superior izquierda de la aplicación."
 
 #: components/pages/Buy/index.tsx:135
 msgid "buy.create_wallet_description4"
@@ -164,11 +164,11 @@ msgstr "<0>¡Asegúrese de comprar y enviar los MATIC a través de la red Polygo
 
 #: components/pages/Buy/index.tsx:427
 msgid "buy.question_exchange"
-msgstr ""
+msgstr "¿Qué pasa si quiero usar un exchange diferente, pero no venden Polygon MATIC?"
 
 #: components/pages/Buy/index.tsx:322
 msgid "buy.question_why_matic"
-msgstr ""
+msgstr "¿Por qué tengo que comprar MATIC primero?"
 
 #: components/pages/Buy/index.tsx:327
 msgid "buy.question_why_matic_answer"
@@ -188,7 +188,7 @@ msgstr "Envío de fichas a otro monedero"
 
 #: components/pages/Buy/index.tsx:359
 msgid "buy.question_why_matic_answer_bullet4"
-msgstr ""
+msgstr "Usar KLIMA u otros tokens para compensar carbono"
 
 #: components/pages/Buy/index.tsx:292
 msgid "buy.staking_cta"
@@ -200,7 +200,7 @@ msgstr "¡Enhorabuena! Ahora que tienes algo de KLIMA en tu cartera, te recomend
 
 #: components/pages/Buy/index.tsx:303
 msgid "buy.staking_description2"
-msgstr ""
+msgstr "También puedes utilizar la app para gastar KLIMA y <0>retirar carbono digital</0> en la blockchain."
 
 #: components/pages/Buy/index.tsx:310
 msgid "buy.staking_description3"
@@ -260,12 +260,12 @@ msgstr "En una nueva pestaña del navegador, vaya a la aplicación web <0>Torus 
 
 #: components/pages/Buy/index.tsx:205
 msgid "buy.wallet_connect_example"
-msgstr ""
+msgstr "ejemplo de entrada wallet connect"
 
 #: components/pages/Buy/index.tsx:222
 #: components/pages/Buy/index.tsx:268
 msgid "buy.wallet_connect_example_qr_code"
-msgstr ""
+msgstr "ejemplo de código qr de wallet connect"
 
 #: components/pages/Buy/index.tsx:366
 msgid "buy.what_are_bonds"
@@ -424,7 +424,7 @@ msgstr "Hemos tenido problemas para realizar la conexión. Por favor, inténtelo
 
 #: lib/constants.ts:22
 msgid "connect_modal.error_message_refused"
-msgstr ""
+msgstr "El usuario rechazó la conexión."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:175
 #: components/pages/Pledge/index.tsx:117
@@ -1333,7 +1333,7 @@ msgstr "URL de la imagen de perfil (opcional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:304
 msgid "pledges.form.input.profileWebsiteUrl.label"
-msgstr ""
+msgstr "Sitio web (opcional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:597
 msgid "pledges.form.input.totalFootprint.label"
@@ -1393,7 +1393,7 @@ msgstr "Aprende más"
 
 #: components/pages/Pledge/index.tsx:72
 msgid "pledges.home.hero.view"
-msgstr ""
+msgstr "Ver tu compromiso"
 
 #: components/pages/Pledge/index.tsx:198
 msgid "pledges.home.search.label"
@@ -1665,11 +1665,11 @@ msgstr "Toneladas"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:48
 msgid "retirement.single.project_details.view_mco2_pool"
-msgstr ""
+msgstr "Ver la actividad de la piscina de MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr ""
+msgstr "Ver transacción en Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1697,7 +1697,7 @@ msgstr "Ver en Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
 msgid "retirement.single.view_pledge"
-msgstr ""
+msgstr "Ver compromiso"
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
