@@ -75,7 +75,7 @@ export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 0 0.8rem;
+  padding: 0 2.4rem;
 `;
 
 export const navMain_DesktopLink = css`
