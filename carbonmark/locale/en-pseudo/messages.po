@@ -47,6 +47,14 @@ msgstr ""
 msgid "CarbonMark.com"
 msgstr ""
 
+#: components/pages/Home/index.tsx:18
+msgid "CarbonMark | Universal Carbon Market"
+msgstr ""
+
+#: components/pages/Home/index.tsx:17
+msgid "CarbonMark.com"
+msgstr ""
+
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
