@@ -51,37 +51,25 @@ export const Navigation: FC<Props> = ({
         activePage={activePage}
       >
         <LinkItemDesktop
-          name={t({
-            message: "Marketplace",
-            id: "shared.resourcecenter",
-          })}
+          name={t`Marketplace`}
           key="marketplace"
           url="/projects"
           active={activePage === "Projects"}
         />
         <LinkItemDesktop
-          name={t({
-            message: "Profile",
-            id: "shared.resourcecenter",
-          })}
+          name={t`Profile`}
           key="profile"
           url="/users/login"
           active={activePage === "Login"}
         />
         <LinkItemDesktop
-          name={t({
-            message: "Portfolio",
-            id: "shared.resourcecenter",
-          })}
+          name={t`Portfolio`}
           key="portfolio"
           url="/portfolio"
           active={activePage === "Portfolio"}
         />
         <LinkItemDesktop
-          name={t({
-            message: "Resources",
-            id: "shared.resourcecenter",
-          })}
+          name={t`Resources`}
           key="resources"
           url="/resources"
           active={activePage === "Resources"}
@@ -94,26 +82,26 @@ export const Navigation: FC<Props> = ({
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">
             <NavItemMobile
-              name={t({ message: "Marketplace", id: "shared.about" })}
+              name={t`Marketplace`}
               active={activePage === "Projects"}
               id="Marketplace"
               url="/projects"
             />
             <NavItemMobile
-              name={t({ message: "Profile", id: "shared.about" })}
+              name={t`Profile`}
               active={activePage === "Login"}
               id="Profile"
               url="/users/login"
             />
 
             <NavItemMobile
-              name={t({ message: "Portfolio", id: "shared.about" })}
+              name={t`Portfolio`}
               active={activePage === "Portfolio"}
               id="Portfolio"
               url="/portfolio"
             />
             <NavItemMobile
-              name={t({ message: "Resources", id: "shared.about" })}
+              name={t`Resources`}
               active={activePage === "Resources"}
               id="Resources"
               url="/resources"
@@ -122,7 +110,7 @@ export const Navigation: FC<Props> = ({
           <div className="buttons">
             <ButtonPrimary
               key="Enter App"
-              label={t({ message: "Enter App", id: "shared.enter_app" })}
+              label={t`Enter App`}
               href="/projects"
               renderLink={(linkProps) => <Link {...linkProps} />}
               className={styles.navMain_MobileButton}

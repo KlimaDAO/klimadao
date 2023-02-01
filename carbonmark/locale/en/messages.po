@@ -29,6 +29,10 @@ msgstr "Change language"
 msgid "Created:"
 msgstr "Created:"
 
+#: components/shared/Navigation/index.tsx:113
+msgid "Enter App"
+msgstr "Enter App"
+
 #: components/pages/Users/SellerConnected/index.tsx:183
 msgid "Error:"
 msgstr "Error:"
@@ -42,9 +46,24 @@ msgstr "Final price"
 msgid "Listings"
 msgstr "Listings"
 
+#: components/shared/Navigation/index.tsx:54
+#: components/shared/Navigation/index.tsx:85
+msgid "Marketplace"
+msgstr "Marketplace"
+
 #: components/pages/Purchases/index.tsx:59
 msgid "Payment Successful"
 msgstr "Payment Successful"
+
+#: components/shared/Navigation/index.tsx:66
+#: components/shared/Navigation/index.tsx:98
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: components/shared/Navigation/index.tsx:60
+#: components/shared/Navigation/index.tsx:91
+msgid "Profile"
+msgstr "Profile"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Project"
@@ -57,6 +76,11 @@ msgstr "Quantity Available:"
 #: components/pages/Purchases/index.tsx:94
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
+
+#: components/shared/Navigation/index.tsx:72
+#: components/shared/Navigation/index.tsx:104
+msgid "Resources"
+msgstr "Resources"
 
 #: components/pages/Project/ProjectListing/index.tsx:42
 msgid "Seller Listing"
@@ -117,6 +141,15 @@ msgstr "updated quantity"
 #: lib/formatWalletAddress.ts:9
 msgid "activity.you"
 msgstr "You"
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:87
+msgid "blog.disclaimer.description"
+msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
+
+#: components/pages/Blog/Post/index.tsx:84
+msgid "blog.disclaimer.title"
+msgstr "Disclaimer:"
 
 #: components/pages/Users/ProfileButton/index.tsx:13
 msgid "button.edit_profile"
@@ -351,9 +384,150 @@ msgstr "Confirm Purchase"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
+msgid "resources.form.categories.header"
+msgstr "Categories"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
+msgid "resources.form.categories.subheader"
+msgstr "Select one or more"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
+msgid "resources.form.filters.clear_all"
+msgstr "Clear All"
+
+#: components/pages/Resources/ResourcesList/index.tsx:177
+msgid "resources.form.input.search.label"
+msgstr "Search"
+
+#: components/pages/Resources/ResourcesList/index.tsx:168
+msgid "resources.form.input.search.placeholder"
+msgstr "Search..."
+
+#: components/pages/Resources/ResourcesList/index.tsx:201
+msgid "resources.form.input.sort_by.label"
+msgstr "Sort by"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:21
+msgid "resources.form.input.sort_by.select"
+msgstr "Select"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
+msgid "resources.form.sub_topics.header"
+msgstr "Sub-topics"
+
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr "Updates and thought leadership from the CarbonMark team"
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr "CarbonMark News & Resources"
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr "CarbonMark | Resources"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:71
+msgid "resources.list.filter.tag.basics"
+msgstr "Basics"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:111
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr "Carbon Footprint"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:79
+msgid "resources.list.filter.tag.deep_dives"
+msgstr "Deep Dives"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:52
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr "Klima Infinity"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:44
+msgid "resources.list.filter.tag.klima_overview"
+msgstr "Klima Overview"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:60
+msgid "resources.list.filter.tag.partnerships"
+msgstr "Partnerships"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:103
+msgid "resources.list.filter.tag.policy"
+msgstr "Policy"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:95
+msgid "resources.list.filter.tag.press_releases"
+msgstr "Press Releases"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:87
+msgid "resources.list.filter.tag.user_guides"
+msgstr "User Guides"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:121
+msgid "resources.list.filter.type.blog"
+msgstr "Blog"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:129
+msgid "resources.list.filter.type.podcast"
+msgstr "Podcast"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:62
 #: components/pages/Users/SellerConnected/ProjectTokenDropDown/index.tsx:59
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Toggle Select Project"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr "A-Z"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
+msgid "resources.list.sort_by.latest_first"
+msgstr "Latest First"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:147
+msgid "resources.list.sort_by.oldest_first"
+msgstr "Oldest First"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr "Z-A"
+
+#: components/pages/Resources/ResourcesList/index.tsx:302
+msgid "resources.mobile_modal.button.show_results"
+msgstr "Show Results"
+
+#: components/pages/Resources/ResourcesList/index.tsx:275
+msgid "resources.mobile_modal.title"
+msgstr "Sort By"
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr "Updates and thought leadership from the CarbonMark team."
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
+msgstr "Featured Articles"
+
+#: components/pages/Resources/ResourcesList/index.tsx:159
+msgid "resources.page.list.header"
+msgstr "Explore All"
+
+#: components/pages/Resources/ResourcesList/index.tsx:240
+msgid "resources.page.list.no_search_results.title"
+msgstr "Sorry. We couldn't find any matching results."
+
+#: components/pages/Resources/ResourcesList/index.tsx:232
+msgid "resources.page.list.on_fetch_error"
+msgstr "Sorry! Something went wrong."
+
+#: components/pages/Resources/ResourcesList/index.tsx:253
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr "Please use a different filter combination."
+
+#: components/pages/Resources/ResourcesList/index.tsx:246
+msgid "resources.page.list.search_submit.no_search_results"
+msgstr "Check your search for typos or try a different search term."
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:170
 msgid "seller.edit_listing.title"
@@ -401,6 +575,10 @@ msgstr "Disclaimer"
 msgid "shared.docs"
 msgstr "Docs"
 
+#: components/shared/Navigation/index.tsx:46
+msgid "shared.enter_app"
+msgstr "Enter App"
+
 #: components/shared/Footer/index.tsx:34
 msgid "shared.home"
 msgstr "Home"
@@ -414,6 +592,14 @@ msgstr "shared.loading"
 #: components/pages/Users/Login/index.tsx:67
 msgid "shared.login_connect"
 msgstr "Login / Connect"
+
+#: components/pages/Blog/Post/index.tsx:70
+msgid "shared.resourcecenter"
+msgstr "Resource Center"
+
+#: components/pages/Resources/ResourcesList/index.tsx:207
+msgid "shared.resources.sort_by.header"
+msgstr "Sort by:"
 
 #: components/shared/Footer/index.tsx:40
 msgid "shared.stake"

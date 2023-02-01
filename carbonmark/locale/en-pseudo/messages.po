@@ -29,6 +29,10 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
+#: components/shared/Navigation/index.tsx:113
+msgid "Enter App"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/index.tsx:183
 msgid "Error:"
 msgstr ""
@@ -42,8 +46,23 @@ msgstr ""
 msgid "Listings"
 msgstr ""
 
+#: components/shared/Navigation/index.tsx:54
+#: components/shared/Navigation/index.tsx:85
+msgid "Marketplace"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:59
 msgid "Payment Successful"
+msgstr ""
+
+#: components/shared/Navigation/index.tsx:66
+#: components/shared/Navigation/index.tsx:98
+msgid "Portfolio"
+msgstr ""
+
+#: components/shared/Navigation/index.tsx:60
+#: components/shared/Navigation/index.tsx:91
+msgid "Profile"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:112
@@ -56,6 +75,11 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:94
 msgid "Quantity purchased:"
+msgstr ""
+
+#: components/shared/Navigation/index.tsx:72
+#: components/shared/Navigation/index.tsx:104
+msgid "Resources"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:42
@@ -116,6 +140,15 @@ msgstr ""
 
 #: lib/formatWalletAddress.ts:9
 msgid "activity.you"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:87
+msgid "blog.disclaimer.description"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:84
+msgid "blog.disclaimer.title"
 msgstr ""
 
 #: components/pages/Users/ProfileButton/index.tsx:13
@@ -351,8 +384,149 @@ msgstr ""
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
+msgid "resources.form.categories.header"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
+msgid "resources.form.categories.subheader"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
+msgid "resources.form.filters.clear_all"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:177
+msgid "resources.form.input.search.label"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:168
+msgid "resources.form.input.search.placeholder"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:201
+msgid "resources.form.input.sort_by.label"
+msgstr ""
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:21
+msgid "resources.form.input.sort_by.select"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
+msgid "resources.form.sub_topics.header"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:71
+msgid "resources.list.filter.tag.basics"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:111
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:79
+msgid "resources.list.filter.tag.deep_dives"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:52
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:44
+msgid "resources.list.filter.tag.klima_overview"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:60
+msgid "resources.list.filter.tag.partnerships"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:103
+msgid "resources.list.filter.tag.policy"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:95
+msgid "resources.list.filter.tag.press_releases"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:87
+msgid "resources.list.filter.tag.user_guides"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:121
+msgid "resources.list.filter.type.blog"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:129
+msgid "resources.list.filter.type.podcast"
+msgstr ""
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:62
 #: components/pages/Users/SellerConnected/ProjectTokenDropDown/index.tsx:59
 msgid "resources.list.select.sort_by.toggle"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
+msgid "resources.list.sort_by.latest_first"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:147
+msgid "resources.list.sort_by.oldest_first"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:302
+msgid "resources.mobile_modal.button.show_results"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:275
+msgid "resources.mobile_modal.title"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:159
+msgid "resources.page.list.header"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:240
+msgid "resources.page.list.no_search_results.title"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:232
+msgid "resources.page.list.on_fetch_error"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:253
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:246
+msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:170
@@ -401,6 +575,10 @@ msgstr ""
 msgid "shared.docs"
 msgstr ""
 
+#: components/shared/Navigation/index.tsx:46
+msgid "shared.enter_app"
+msgstr ""
+
 #: components/shared/Footer/index.tsx:34
 msgid "shared.home"
 msgstr ""
@@ -413,6 +591,14 @@ msgstr ""
 #: components/Layout/index.tsx:78
 #: components/pages/Users/Login/index.tsx:67
 msgid "shared.login_connect"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:70
+msgid "shared.resourcecenter"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:207
+msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/shared/Footer/index.tsx:40
