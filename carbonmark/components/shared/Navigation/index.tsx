@@ -15,7 +15,12 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-export type PageName = "Projects" | "Portfolio" | "Login" | "Resources";
+export type PageName =
+  | "Home"
+  | "Projects"
+  | "Portfolio"
+  | "Login"
+  | "Resources";
 
 export type NavItemMobileID =
   | "Profile"
