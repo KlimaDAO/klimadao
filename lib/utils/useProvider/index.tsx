@@ -123,12 +123,15 @@ export const useProvider = (): Web3ModalState => {
       };
       setWeb3State(newState);
     } catch (e: any) {
+      console.log(e);
       if (
         // TODO check message for coinbase when it is working again
-        e.code === 4001 ||
-        e.message === "User closed modal" ||
-        e.message === "User cancelled login"
+        e.code === 4001 || // metamask
+        e.message === "User closed modal" || // wallet connect
+        e.message === "User cancelled login" || // torus message
+        e.message === "User denied account authorization" // coinbase message
       ) {
+        localStorage.removeItem("web3-wallet");
         e.name = "rejected";
       }
       throw e;
@@ -161,7 +164,7 @@ export const useProvider = (): Web3ModalState => {
       window.location.reload();
     };
     const handleDisconnect = () => {
-      localStorage.removeItem("web3-wallet");
+      localStorage.clear();
       window.location.reload();
     };
 
