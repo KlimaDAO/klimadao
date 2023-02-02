@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-01 16:50+0000\n"
+"POT-Creation-Date: 2023-02-02 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -334,7 +334,7 @@ msgstr "У нас возникли проблемы с подключением.
 
 #: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
-msgstr ""
+msgstr "Пользователь отказался от подключения."
 
 #: components/views/Home/index.tsx:182
 msgid "connect_modal.error_title"
@@ -670,7 +670,7 @@ msgstr "Тонны углерода"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:51
 msgid "offset.view_retirements"
-msgstr ""
+msgstr "Посмотреть употребление"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
