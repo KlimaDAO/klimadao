@@ -123,7 +123,6 @@ export const useProvider = (): Web3ModalState => {
       };
       setWeb3State(newState);
     } catch (e: any) {
-      console.log(e);
       if (
         // TODO check message for coinbase when it is working again
         e.code === 4001 || // metamask
