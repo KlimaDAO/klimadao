@@ -1,5 +1,5 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { Text } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
@@ -25,7 +25,8 @@ type Props = {
 export const PurchaseReceipt: NextPage<Props> = (props) => {
   const { locale } = useRouter();
 
-  const projectName = props.purchase?.listing?.project?.name || "Loading";
+  const projectName =
+    props.purchase?.listing?.project?.name || t({ message: "Processing..." });
 
   return (
     <>
@@ -121,18 +122,11 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                         {props.purchase.listing.project.country.id}
                       </Text>
                     </div>
-
-                    <ButtonPrimary
-                      label={
-                        <Trans id="purchase.button.go_to_infinity">
-                          Use Klima Infinity to retire & offset
-                        </Trans>
-                      }
-                    />
                     <CarbonmarkButton
+                      href="/portfolio"
                       label={
                         <Trans id="purchase.button.view_assets">
-                          View Assets
+                          View Your Assets
                         </Trans>
                       }
                     />

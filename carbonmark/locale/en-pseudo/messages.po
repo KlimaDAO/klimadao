@@ -47,14 +47,6 @@ msgstr ""
 msgid "CarbonMark.com"
 msgstr ""
 
-#: components/pages/Home/index.tsx:18
-msgid "CarbonMark | Universal Carbon Market"
-msgstr ""
-
-#: components/pages/Home/index.tsx:17
-msgid "CarbonMark.com"
-msgstr ""
-
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
@@ -63,7 +55,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:118
+#: components/shared/Navigation/index.tsx:104
 msgid "Enter App"
 msgstr ""
 
@@ -71,7 +63,7 @@ msgstr ""
 msgid "Error:"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:103
+#: components/pages/Purchases/index.tsx:104
 msgid "Final price"
 msgstr "<<<<<<< HEAD"
 
@@ -89,8 +81,8 @@ msgid "Loading..."
 msgstr ""
 
 #: components/Footer/index.tsx:23
-#: components/shared/Navigation/index.tsx:59
-#: components/shared/Navigation/index.tsx:90
+#: components/shared/Navigation/index.tsx:58
+#: components/shared/Navigation/index.tsx:83
 msgid "Marketplace"
 msgstr ""
 
@@ -98,23 +90,21 @@ msgstr ""
 msgid "Open-source and open-access carbon toolkit. Powered by KlimaDAO"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:59
+#: components/pages/Purchases/index.tsx:60
 msgid "Payment Successful"
 msgstr ""
 
-#: components/Footer/index.tsx:29
-#: components/shared/Navigation/index.tsx:71
-#: components/shared/Navigation/index.tsx:103
-msgid "Portfolio"
+#: components/pages/Purchases/index.tsx:29
+msgid "Processing..."
 msgstr ""
 
 #: components/Footer/index.tsx:26
-#: components/shared/Navigation/index.tsx:65
-#: components/shared/Navigation/index.tsx:96
+#: components/shared/Navigation/index.tsx:64
+#: components/shared/Navigation/index.tsx:89
 msgid "Profile"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:112
+#: components/pages/Purchases/index.tsx:113
 msgid "Project"
 msgstr ""
 
@@ -122,13 +112,13 @@ msgstr ""
 msgid "Quantity Available:"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:94
+#: components/pages/Purchases/index.tsx:95
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/Footer/index.tsx:32
-#: components/shared/Navigation/index.tsx:77
-#: components/shared/Navigation/index.tsx:109
+#: components/Footer/index.tsx:29
+#: components/shared/Navigation/index.tsx:70
+#: components/shared/Navigation/index.tsx:95
 msgid "Resources"
 msgstr ""
 
@@ -144,7 +134,7 @@ msgstr ""
 msgid "Sorry, something went wrong."
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:70
+#: components/pages/Purchases/index.tsx:71
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
@@ -168,7 +158,7 @@ msgstr ""
 msgid "Updating your data..."
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:63
+#: components/pages/Purchases/index.tsx:64
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
 
@@ -217,11 +207,11 @@ msgstr ""
 msgid "buy"
 msgstr ""
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:93
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/Layout/index.tsx:105
+#: components/Layout/index.tsx:102
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -233,11 +223,11 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/Layout/index.tsx:109
+#: components/Layout/index.tsx:106
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/Layout/index.tsx:101
+#: components/Layout/index.tsx:98
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -358,7 +348,7 @@ msgstr ""
 msgid "project.single.button.back_to_project"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:46
+#: components/pages/Purchases/index.tsx:47
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
@@ -386,11 +376,7 @@ msgstr ""
 msgid "purchase.button.continue"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:127
-msgid "purchase.button.go_to_infinity"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:134
+#: components/pages/Purchases/index.tsx:128
 msgid "purchase.button.view_assets"
 msgstr ""
 
@@ -609,7 +595,7 @@ msgstr ""
 msgid "shared.connect_to_buy"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:51
+#: components/shared/Navigation/index.tsx:50
 msgid "shared.enter_app"
 msgstr ""
 
@@ -617,8 +603,8 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/Layout/NavDrawer/index.tsx:48
-#: components/Layout/index.tsx:78
+#: components/Layout/NavDrawer/index.tsx:47
+#: components/Layout/index.tsx:75
 #: components/pages/Users/Login/index.tsx:67
 msgid "shared.login_connect"
 msgstr ""
