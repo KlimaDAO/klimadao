@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         project,
         translation,
+        fixedThemeName: "theme-light",
       },
       revalidate: 240,
     };

@@ -62,6 +62,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         purchase,
         translation,
         transaction: params.purchase_id,
+        fixedThemeName: "theme-light",
       },
       revalidate: 10,
     };

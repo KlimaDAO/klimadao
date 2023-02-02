@@ -94,6 +94,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         userDomain: isDomainInURL ? userInUrl : null,
         carbonmarkUser,
         translation,
+        fixedThemeName: "theme-light",
       },
       revalidate: 10,
     };

@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       props: {
         post,
         translation,
+        fixedThemeName: "theme-light",
       },
       revalidate: 240,
     };
@@ -28,7 +29,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       notFound: true,
       revalidate: 240,
-      fixedThemeName: "theme-light",
     };
   }
 };
