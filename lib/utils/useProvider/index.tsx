@@ -164,7 +164,7 @@ export const useProvider = (): Web3ModalState => {
       window.location.reload();
     };
     const handleDisconnect = () => {
-      localStorage.clear();
+      localStorage.removeItem("web3-wallet");
       window.location.reload();
     };
 
