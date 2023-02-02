@@ -105,6 +105,8 @@ module.exports = async (phase, { defaultConfig }) => {
       // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
       // for more information.
       hideSourceMaps: true,
+      disableServerWebpackPlugin: true,
+      disableClientWebpackPlugin: true,
     },
   };
   nextConfig = withBundleAnalyzer({
@@ -121,5 +123,5 @@ module.exports = async (phase, { defaultConfig }) => {
     silent: true, // Suppresses all logs
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options.
-  })(phase, { defaultConfig });
+  });
 };
