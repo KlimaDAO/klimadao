@@ -20,6 +20,7 @@ const POOLED_PROJECTS = gql`
                     totalBridged
                     totalRetired
                     storageMethod
+                    lastUpdate
                 }
             }
             `

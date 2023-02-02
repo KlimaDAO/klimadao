@@ -44,21 +44,30 @@ module.exports = async function (fastify, opts) {
             const projects = data.data.projects.map(function (project) {
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
-                    project.isPoolProject = true;
-                    delete pooledProjectsData.carbonOffsets[index];
+                    if (index != -1) {
+                        project.isPoolProject = true;
+                        delete pooledProjectsData.carbonOffsets[index];
+                    }
                 }
 
                 var price = 0;
                 if (project.listings.length) {
-                    const uniqueValues = new Set();
-                    project.listings.forEach(item => uniqueValues.add(item.singleUnitPrice));
-                    price = Math.min(...(Array.from(uniqueValues)));
+                    const uniqueValues = [];
+                    project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
+                    let lowestPrice = uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b));
+                    price = lowestPrice;
                 }
+
                 delete project.listings;
                 return { ...project, price }
             });
 
             const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
+                let country = project.country.length ? 
+                    {
+                        "id": project.country
+                    } : null;
+                
                 let singleProject = {
                     "id": project.id,
                     "isPoolProject": true,
@@ -73,9 +82,7 @@ module.exports = async function (fastify, opts) {
                     "category": {
                         "id": project.methodologyCategory
                     },
-                    "country": {
-                        "id": project.country
-                    },
+                    "country": country,
                     "price": '1000000000000000000',
                     "activities": null,
                     "listings": null,
@@ -162,6 +169,7 @@ module.exports = async function (fastify, opts) {
                         fakeProjects
                     ))
                 }
+                console.log("======")
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
                 if (data.data.projects[0]) {
@@ -186,14 +194,18 @@ module.exports = async function (fastify, opts) {
                         project.listings = listings;
                     }
 
-                    return reply.send(JSON.stringify(project));
+                    // return reply.send(JSON.stringify(project));
                 } else {
 
                     console.log({ key: key, vintageStr: vintageStr });
                     var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintage });
-                    console.log(data);
                     if (data.data.carbonOffsets[0]) {
                         project = { ...data.data.carbonOffsets[0] }
+                        let country = project.country.length ? 
+                        {
+                            "id": project.country
+                        } : null;
+                    
                         project = {
                             "id": project.id,
                             "isPoolProject": true,
@@ -208,9 +220,7 @@ module.exports = async function (fastify, opts) {
                             "category": {
                                 "id": project.methodologyCategory
                             },
-                            "country": {
-                                "id": project.country
-                            },
+                            "country": country,
                             "price": '1000000000000000000',
                             "activities": null,
                             "listings": null,
@@ -219,14 +229,18 @@ module.exports = async function (fastify, opts) {
                     }
                 }
 
-
                 if (project) {
-
                     if (project.registry == "VCS") {
 
                         var results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
                         results = JSON.parse(await results.text());
-                        project.location = results.location;
+                        project.location = {
+                            type: "Feature",
+                            geometry: {
+                              type: "Point",
+                              coordinates: [results.location.longitude, results.location.latitude] // note here that geojson is different from other specs: it uses [x, y] not [y, x]
+                            }
+                          }
                         project.description = results.description;
                     } else if (project.registry == "GS") {
 

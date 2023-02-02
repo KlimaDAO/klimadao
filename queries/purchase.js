@@ -20,6 +20,24 @@ const GET_PURCHASE_BY_ID = gql`
                   seller {
                     id
                   }
+                  project
+                  {
+                      id
+                      key
+                      projectID
+                      name
+                      methodology
+                      vintage
+                      projectAddress
+                      registry
+                      category {
+                          id
+                      }
+                      country{
+                          id
+                      }
+                      updatedAt
+                  }
                 }
                 price
                 timeStamp

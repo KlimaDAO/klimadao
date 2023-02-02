@@ -53,7 +53,24 @@ const GET_PROJECT_BY_ID = gql`
                         buyer {
                             id
                         }
-                    }
+                        project {
+                            id
+                            key
+                            projectID
+                            name
+                            methodology
+                            vintage
+                            projectAddress
+                            registry
+                            category {
+                                id
+                            }
+                            country{
+                                id
+                            }
+                            updatedAt
+                            }
+                        }
                 }
             }
             `

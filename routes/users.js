@@ -161,13 +161,13 @@ module.exports = async function (fastify, opts) {
                     // Query the Firestore database for documents with a matching handle
                     let usersRef = fastify.firebase.firestore().collection("users");
                     //const users = await usersRef.where('handle', '==', userIdentifier).get();
-                    const userSnapshot = await usersRef.where('handle', '==', userIdentifier).limit(1).get();
+                    const userSnapshot = await usersRef.where('handle', '==', userIdentifier.toLowerCase()).limit(1).get();
                     // If no documents are found, return a 404 error
                     if (userSnapshot.empty) {
                         return reply.notFound();
                     }
                     // Iterate through the documents and assign the first one to the user variable
-                    const user = userSnapshot.docs[0];
+                    user = userSnapshot.docs[0];
 
                 }
                 // Create a response object with the data from the retrieved user document
@@ -265,13 +265,26 @@ module.exports = async function (fastify, opts) {
                     });
                 }
 
+                let usersRef = fastify.firebase.firestore().collection("users");
+                    //const users = await usersRef.where('handle', '==', userIdentifier).get();
+                    const userSnapshot = await usersRef.where('handle', '==', handle.toLowerCase()).limit(1).get();
+                    // If no documents are found, return a 404 error
+                    if (!userSnapshot.empty) {
+                        return reply.code(403).send({
+                            "code": 403,
+                            "error": "This user is already registered!"
+                        });
+                    }
+                    // Iterate through the documents and assign the first one to the user variable
+                    
+
                 try {
                     // Try creating a new user document with the specified data
                     await fastify.firebase.firestore()
                         .collection("users")
                         .doc(wallet.toUpperCase()).set({
                             username,
-                            handle,
+                            handle : handle.toLowerCase(),
                             description,
                         });
                     // If the document is successfully created, return the request body

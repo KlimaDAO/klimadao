@@ -21,6 +21,7 @@ const GET_PROJECTS = gql`
                     country{
                         id
                     }
+                    updatedAt
                     
                 }
             }
