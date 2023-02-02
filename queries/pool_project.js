@@ -3,7 +3,7 @@ const { gql } = require('@apollo/client');
 
 const POOL_PROJECTS = gql`
     query carbonOffsets ($key: String!, $vintageStr: BigInt!){
-        carbonOffsets(where: {projectID: $key, vintage: $vintageStr}) {
+        carbonOffsets(where: {projectID: $key, vintageYear: $vintageStr}) {
             id
             name
             tokenAddress
@@ -19,6 +19,7 @@ const POOL_PROJECTS = gql`
             registry
             totalBridged
             totalRetired
+            currentSupply
             storageMethod
         }
     }

@@ -169,7 +169,6 @@ module.exports = async function (fastify, opts) {
                         fakeProjects
                     ))
                 }
-                console.log("======")
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
                 if (data.data.projects[0]) {
@@ -193,13 +192,24 @@ module.exports = async function (fastify, opts) {
                         );
                         project.listings = listings;
                     }
+                    data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintage });
+                    if (data.data.carbonOffsets[0]) {
+                        let poolProject = { ...data.data.carbonOffsets[0] };
+                        project.isPoolProject = true;
+                        project.totalBridged = poolProject.totalBridged;
+                        project.totalRetired = poolProject.totalRetired;
+                        project.currentSupply = poolProject.currentSupply;
+                    } else {
+                        project.totalBridged = null;
+                        project.totalRetired = null;
+                        project.currentSupply = null;
+                    }
 
                     // return reply.send(JSON.stringify(project));
                 } else {
 
-                    console.log({ key: key, vintageStr: vintageStr });
-                    var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintage });
-                    if (data.data.carbonOffsets[0]) {
+                    var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintageStr });
+                     if (data.data.carbonOffsets[0]) {
                         project = { ...data.data.carbonOffsets[0] }
                         let country = project.country.length ? 
                         {
@@ -224,6 +234,9 @@ module.exports = async function (fastify, opts) {
                             "price": '1000000000000000000',
                             "activities": null,
                             "listings": null,
+                            "totalBridged": project.totalBridged,
+                            "totalRetired": project.totalRetired,
+                            "currentSupply": project.currentSupply
                         }
 
                     }
