@@ -7,11 +7,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { ProjectImage } from "@klimadao/carbonmark/components/pages/Project/ProjectImage";
 import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
+import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { FAKE_USDC } from "lib/constants";
 import { createProjectLink, createSellerLink } from "lib/createUrls";

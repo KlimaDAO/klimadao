@@ -1,9 +1,9 @@
-import { ProjectImage } from "@klimadao/carbonmark/components/pages/Project/ProjectImage";
 import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/carbonmark";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
+import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
