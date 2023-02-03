@@ -3,8 +3,11 @@ import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
+import { ProjectsController } from "components/pages/Project/ProjectsController";
+import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC, ReactNode, useState } from "react";
 import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
@@ -27,7 +30,12 @@ export const Layout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  // const { isDesktop } = useResponsive();
+  const { isDesktop, isMobile } = useResponsive();
+  /**
+   * Only show the projects controller if on the Projects Page
+   * @todo lift this logic to projects/index.tsx and pass the child components as props to Layout
+   */
+  const isProjects = useRouter().pathname === "/projects";
 
   return (
     <div
@@ -58,6 +66,10 @@ export const Layout: FC<Props> = (props: Props) => {
 
           {/* <ChangeLanguageButton /> */}
           {/* {isDesktop && <ThemeToggle />} */}
+          {/* Desktop controller */}
+          {isProjects && isDesktop && (
+            <ProjectsController className={styles.projectsController} />
+          )}
 
           {props.profileButton}
 
@@ -110,6 +122,10 @@ export const Layout: FC<Props> = (props: Props) => {
               },
             })}
         </div>
+
+        {isProjects && isMobile && (
+          <ProjectsController className={styles.mobileProjectsController} />
+        )}
 
         {props.children}
 

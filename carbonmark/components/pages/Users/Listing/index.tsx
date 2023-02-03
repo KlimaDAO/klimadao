@@ -5,9 +5,9 @@ import { FC, ReactNode } from "react";
 import { Text } from "@klimadao/lib/components";
 import { Listing as ListingType } from "@klimadao/lib/types/carbonmark";
 
+import { ProjectImage } from "@klimadao/carbonmark/components/pages/Project/ProjectImage";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
-import { ProjectImage } from "components/ProjectImage";
 import { Vintage } from "components/Vintage";
 
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";

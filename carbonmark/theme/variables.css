@@ -1,0 +1,12 @@
+/** CarbonMark Specific Styling */
+
+body,
+body[data-theme="theme-light"] {
+  --surface-inverse-01: #202020;
+  --font-inverse-01: #fff;
+}
+
+body[data-theme="theme-dark"] {
+  --surface-inverse-01: #fff;
+  --font-inverse-01: #313131;
+}

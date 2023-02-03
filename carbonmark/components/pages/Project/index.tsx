@@ -6,7 +6,7 @@ import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
-import { ProjectImage } from "components/ProjectImage";
+import { ProjectImage } from "components/pages/Project/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";

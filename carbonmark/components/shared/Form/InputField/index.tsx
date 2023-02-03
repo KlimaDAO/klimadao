@@ -5,7 +5,7 @@ import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
-interface Props {
+export interface InputFieldProps {
   id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
@@ -14,7 +14,7 @@ interface Props {
   icon?: JSX.Element;
 }
 
-export const InputField = React.forwardRef<HTMLInputElement, Props>(
+export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
   (props, ref) => {
     const inputStyles = cx(
       styles.baseStyles,

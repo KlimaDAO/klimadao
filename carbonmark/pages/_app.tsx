@@ -1,3 +1,4 @@
+import "@klimadao/carbonmark/theme/variables.css";
 import { Web3ContextProvider } from "@klimadao/lib/components";
 import "@klimadao/lib/theme/globals.css";
 import "@klimadao/lib/theme/normalize.css";

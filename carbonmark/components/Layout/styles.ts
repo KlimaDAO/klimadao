@@ -199,3 +199,14 @@ export const global = css`
     }
   }
 `;
+
+export const projectsController = css`
+  margin-right: auto;
+  width: 100%;
+  grid-column: 1/3;
+`;
+
+export const mobileProjectsController = css`
+  ${projectsController}
+  justify-content: center;
+`;
