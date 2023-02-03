@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-02 20:01+0000\n"
+"POT-Creation-Date: 2023-02-03 21:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -596,7 +596,7 @@ msgstr "Le recomendamos que visite nuestra página Crypto Security 101 para obte
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "El usuario es el único responsable de proporcionar la información privada y de verificar la identidad y la legitimidad. A pesar de los indicadores y mensajes que sugieren proporcionar la información privada y la verificación, KlimaDAO no hace ninguna afirmación sobre la identidad en la plataforma. No podemos garantizar la seguridad de los datos que se revelan en línea, y para las consecuencias sostenidas debido a la vulnerabilidad o cualquier tipo de fallo, el comportamiento anormal de software."
 
-#: components/pages/errors/Custom404.tsx:37
+#: components/pages/errors/Custom404.tsx:41
 msgid "error.404.page.text"
 msgstr "Lo siento, parece que te hemos enviado por el camino equivocado. <0/>Déjanos guiarte de vuelta a la página de inicio:"
 
@@ -1747,10 +1747,10 @@ msgstr "Total de transacciones de retirada"
 msgid "retirement.totals_by_assets.headline"
 msgstr "Totales de retiro por activo"
 
-#: components/pages/errors/Custom404.tsx:16
 #: components/pages/errors/Custom404.tsx:20
 #: components/pages/errors/Custom404.tsx:24
-#: components/pages/errors/Custom404.tsx:34
+#: components/pages/errors/Custom404.tsx:28
+#: components/pages/errors/Custom404.tsx:38
 msgid "shared.404"
 msgstr "404 Pagina no encontrada"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-02 20:01+0000\n"
+"POT-Creation-Date: 2023-02-03 21:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -320,11 +320,11 @@ msgstr "Баланс казначейства"
 msgid "choose_bond.ubo.description"
 msgstr "C3 Универсальный базовый офсет"
 
-#: components/views/Home/index.tsx:169
+#: components/views/Home/index.tsx:170
 msgid "connectModal.continue"
 msgstr "или продолжить с"
 
-#: components/views/Home/index.tsx:178
+#: components/views/Home/index.tsx:179
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
@@ -336,13 +336,17 @@ msgstr "У нас возникли проблемы с подключением.
 msgid "connect_modal.error_message_refused"
 msgstr "Пользователь отказался от подключения."
 
-#: components/views/Home/index.tsx:182
+#: components/views/Home/index.tsx:183
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:175
 msgid "connect_modal.sign_in"
 msgstr "Войти / Подключиться"
+
+#: components/views/errors/Custom404.tsx:19
+msgid "error.404.page.text"
+msgstr ""
 
 #: components/views/Offset/index.tsx:738
 msgid "fiat.max_quantity"
@@ -748,6 +752,10 @@ msgstr "Процент от общего количества токенов. В
 msgid "pklima.update"
 msgstr "Обновленный контракт теперь предполагает, что держатели pKLIMA застейкали и заработали награды за ранее полученные токены. До ноябрьского исправления эти награды за стейкинг не учитывались в лимите доли поставок, что означало, что ваша доля в общем объеме поставок KLIMA могла превысить лимит, определенный в ваших условиях."
 
+#: components/views/errors/Custom404.tsx:16
+msgid "shared.404"
+msgstr "404 Страница не найдена"
+
 #: components/TransactionModal/Approve.tsx:97
 #: components/views/Bond/index.tsx:453
 #: components/views/Offset/index.tsx:453
@@ -840,7 +848,7 @@ msgstr "Загрузка..."
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63
-#: components/views/Home/index.tsx:154
+#: components/views/Home/index.tsx:155
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227

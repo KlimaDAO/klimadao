@@ -591,7 +591,7 @@ msgstr "We recommend that you visit our Crypto Security 101 page for safety inst
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
-#: components/pages/errors/Custom404.tsx:37
+#: components/pages/errors/Custom404.tsx:41
 msgid "error.404.page.text"
 msgstr "Sorry, looks like we sent you the wrong way. <0/>Let us guide you back to the home page:"
 
@@ -1739,10 +1739,10 @@ msgstr "Total Retirement Transactions"
 msgid "retirement.totals_by_assets.headline"
 msgstr "Retirement Totals By Asset"
 
-#: components/pages/errors/Custom404.tsx:16
 #: components/pages/errors/Custom404.tsx:20
 #: components/pages/errors/Custom404.tsx:24
-#: components/pages/errors/Custom404.tsx:34
+#: components/pages/errors/Custom404.tsx:28
+#: components/pages/errors/Custom404.tsx:38
 msgid "shared.404"
 msgstr "404 - Page Not Found"
 

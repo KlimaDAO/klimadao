@@ -322,11 +322,11 @@ msgstr "Treasury Balance"
 msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
-#: components/views/Home/index.tsx:169
+#: components/views/Home/index.tsx:170
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/views/Home/index.tsx:178
+#: components/views/Home/index.tsx:179
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -338,13 +338,17 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: components/views/Home/index.tsx:182
+#: components/views/Home/index.tsx:183
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:175
 msgid "connect_modal.sign_in"
 msgstr "Sign In / Connect"
+
+#: components/views/errors/Custom404.tsx:19
+msgid "error.404.page.text"
+msgstr "Sorry, looks like we sent you the wrong way. <0/>Please select a destination from the menu."
 
 #: components/views/Offset/index.tsx:738
 msgid "fiat.max_quantity"
@@ -746,6 +750,10 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
+#: components/views/errors/Custom404.tsx:16
+msgid "shared.404"
+msgstr "404 - Page Not Found"
+
 #: components/TransactionModal/Approve.tsx:97
 #: components/views/Bond/index.tsx:453
 #: components/views/Offset/index.tsx:453
@@ -838,7 +846,7 @@ msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63
-#: components/views/Home/index.tsx:154
+#: components/views/Home/index.tsx:155
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227
