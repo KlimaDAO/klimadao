@@ -1804,13 +1804,13 @@ msgstr "Confirm"
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:117
 #: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
 msgstr "Contact Sales"
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
@@ -1831,7 +1831,7 @@ msgstr "Disclaimer"
 msgid "shared.docs"
 msgstr "Official Docs"
 
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:63
 #: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "Enter App"

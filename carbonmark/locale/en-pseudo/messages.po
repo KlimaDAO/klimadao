@@ -207,11 +207,11 @@ msgstr ""
 msgid "buy"
 msgstr ""
 
-#: components/Layout/index.tsx:93
+#: components/Layout/index.tsx:105
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/Layout/index.tsx:102
+#: components/Layout/index.tsx:114
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -223,11 +223,11 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/Layout/index.tsx:106
+#: components/Layout/index.tsx:118
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/Layout/index.tsx:98
+#: components/Layout/index.tsx:110
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -604,7 +604,7 @@ msgid "shared.loading"
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:47
-#: components/Layout/index.tsx:75
+#: components/Layout/index.tsx:87
 #: components/pages/Users/Login/index.tsx:67
 msgid "shared.login_connect"
 msgstr ""
