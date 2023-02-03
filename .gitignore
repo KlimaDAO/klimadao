@@ -35,6 +35,7 @@ yarn-error.log*
 .env.production.local
 .linguirc
 .prettierrc
+.sentryclirc
 
 # vercel
 .vercel

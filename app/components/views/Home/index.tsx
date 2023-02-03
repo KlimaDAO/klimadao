@@ -15,6 +15,7 @@ import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { NotificationModal } from "components/NotificationModal";
 import { Bond } from "components/views/Bond";
 import { ChooseBond } from "components/views/ChooseBond";
+import { Custom404 } from "components/views/errors/Custom404";
 import { Info } from "components/views/Info";
 import { Offset } from "components/views/Offset";
 import { PKlima } from "components/views/PKlima";
@@ -261,6 +262,7 @@ export const Home: FC = () => {
                 />
               );
             })}
+            <Route path="*" element={<Custom404 />} />
           </IsomorphicRoutes>
         </div>
       </div>
