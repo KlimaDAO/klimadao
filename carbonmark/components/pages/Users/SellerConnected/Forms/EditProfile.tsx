@@ -26,7 +26,7 @@ const defaultValues = {
 };
 
 export const editSignMessage = (nonce: string): string =>
-  `Sign to authenticate ownership and edit your Klima Marketplace Profile 💚\n\nSignature nonce: ${nonce}`;
+  `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${nonce}`;
 
 export const EditProfile: FC<Props> = (props) => {
   const isExistingUser = !!props.user?.handle;
