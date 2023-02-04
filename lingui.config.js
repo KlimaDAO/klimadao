@@ -6,6 +6,13 @@
 const config = {
   locales: ["en", "zh-CN", "en-pseudo", "fr", "de", "ru", "es", "ko", "hi"],
   sourceLocale: "en",
+  extractBabelOptions: {
+    presets: [
+      "@babel/preset-typescript",
+      "@babel/preset-react",
+      "@babel/preset-flow",
+    ],
+  },
   fallbackLocales: {
     default: "en",
   },
