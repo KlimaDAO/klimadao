@@ -252,11 +252,11 @@ export const Home: FC = () => {
                 path="/offsetv2"
                 element={
                   <OffsetV2
-                  // address={address}
-                  // provider={provider}
-                  // isConnected={isConnected}
-                  // onRPCError={handleRPCError}
-                  // toggleModal={toggleModal}
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                    onRPCError={handleRPCError}
+                    toggleModal={toggleModal}
                   />
                 }
               />

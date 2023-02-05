@@ -32,6 +32,8 @@ export const CarbonTonnesBreakdownCard: FC = () => {
   const retiredTokens = retirementTokens.filter(
     (tkn) => carbonRetired && Number(carbonRetired[tkn]) > 0
   );
+
+  console.log(useSelector(selectCarbonRetired));
   const isLoading = !carbonRetired;
   const isEmpty = !isLoading && !retiredTokens.length;
   return (

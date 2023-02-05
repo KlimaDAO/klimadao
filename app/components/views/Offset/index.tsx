@@ -61,6 +61,7 @@ import {
 } from "./SelectiveRetirement/queryProjectDetails";
 
 import Fiat from "public/icons/Fiat.png";
+import { getCarbonTokenBalances } from "./lib/getCarbonTokenBalances";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import * as styles from "./styles";
@@ -155,6 +156,7 @@ export const Offset = (props: Props) => {
     }
   }, [params]);
 
+  // done
   useEffect(() => {
     if (props.isConnected && props.address) {
       dispatch(
@@ -169,6 +171,15 @@ export const Offset = (props: Props) => {
           onRPCError: props.onRPCError,
         })
       );
+
+      const getCarbonTokens = async () => {
+        const carbonTokens = await getCarbonTokenBalances(
+          props.address?.toLowerCase()
+        );
+        console.log(getCarbonTokens);
+      };
+
+      getCarbonTokens();
     }
   }, [props.isConnected, props.address]);
 
@@ -189,6 +200,7 @@ export const Offset = (props: Props) => {
     }
   }, [paymentMethod]);
 
+  //done without debounced
   useEffect(() => {
     if (debouncedQuantity === "" || !Number(debouncedQuantity)) {
       setCost("0");
@@ -255,6 +267,7 @@ export const Offset = (props: Props) => {
     setBeneficiaryAddress(address);
   };
 
+  // into lib
   const getApprovalValue = (): string => {
     const costAsNumber = Number(cost);
     const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
@@ -516,6 +529,7 @@ export const Offset = (props: Props) => {
     props.isConnected &&
     (status === "userConfirmation" || status === "networkConfirmation");
 
+  // done
   const paymentMethodItems = offsetInputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
@@ -535,6 +549,7 @@ export const Offset = (props: Props) => {
     label: "Credit Card",
   });
 
+  // done
   const retirementTokenItems = retirementTokens.map((tkn) => {
     const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
@@ -548,6 +563,7 @@ export const Offset = (props: Props) => {
     };
   });
 
+  // done
   const costIcon =
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
@@ -701,7 +717,7 @@ export const Offset = (props: Props) => {
             </label>
             <textarea
               value={retirementMessage}
-              maxLength={280}
+              maxLength={280} // done
               onChange={(e) => {
                 setRetirementMessage(e.target.value);
               }}
@@ -745,6 +761,7 @@ export const Offset = (props: Props) => {
                 : undefined
             }
           />
+
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
@@ -785,6 +802,7 @@ export const Offset = (props: Props) => {
               </Trans>
             </Text>
           </div>
+
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
