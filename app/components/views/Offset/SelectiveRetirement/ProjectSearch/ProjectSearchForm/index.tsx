@@ -10,7 +10,7 @@ import {
   BalanceAttribute,
   CarbonProject,
   queryCarbonProjectDetails,
-} from "../../SelectiveRetirement/queryProjectDetails";
+} from "../../queryProjectDetails";
 import { filterOptions } from "../filterOptions";
 import { ProjectSearchFilter } from "../ProjectSearchFilter";
 

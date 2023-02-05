@@ -6,14 +6,15 @@ import { FC, useEffect, useState } from "react";
 
 import { LeafIcon } from "components/LeafIcon";
 
-import { LoadingOverlay } from "../LoadingOverlay";
-import { ProjectSearch } from "../ProjectSearch";
-import { RetirementTypeButton } from "../RetirementTypeButton";
-import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
+import { LoadingOverlay } from "./LoadingOverlay";
+import { ProjectSearch } from "./ProjectSearch";
 import { CarbonProject } from "./queryProjectDetails";
+import { RetirementTypeButton } from "./RetirementTypeButton";
+import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import * as styles from "./styles";
 
 type Props = {
+  isRedeem: boolean;
   projectAddress: string;
   selectedRetirementToken: RetirementToken;
   setProjectAddress: (address: string) => void;
@@ -24,7 +25,14 @@ type Props = {
 type InputMode = "default" | "search" | "address";
 
 export const SelectiveRetirement: FC<Props> = (props) => {
-  const [inputMode, setInputMode] = useState<InputMode>("default");
+  const handleDefaultInputMode = () => {
+    if (props.isRedeem) return "search";
+    return "default";
+  };
+
+  const [inputMode, setInputMode] = useState<InputMode>(
+    handleDefaultInputMode()
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   const disableSelectiveRetirement = props.selectedRetirementToken === "mco2";
@@ -40,7 +48,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
   useEffect(() => {
     props.setSelectedProject(null);
     props.setProjectAddress("");
-    setInputMode("default");
+    handleDefaultInputMode();
   }, [props.selectedRetirementToken]);
 
   return (
@@ -67,17 +75,19 @@ export const SelectiveRetirement: FC<Props> = (props) => {
         <div className={styles.options}>
           {isLoading && <LoadingOverlay />}
 
-          <RetirementTypeButton
-            label={t({
-              id: "offset.selectiveRetirement.default_input_type",
-              message: "Default",
-            })}
-            active={inputMode === "default"}
-            onClick={() => {
-              props.setProjectAddress("");
-              setInputMode("default");
-            }}
-          />
+          {!props.isRedeem && (
+            <RetirementTypeButton
+              label={t({
+                id: "offset.selectiveRetirement.default_input_type",
+                message: "Default",
+              })}
+              active={inputMode === "default"}
+              onClick={() => {
+                props.setProjectAddress("");
+                handleDefaultInputMode();
+              }}
+            />
+          )}
           <RetirementTypeButton
             label={t({
               id: "offset.selectiveRetirement.search_input_type",

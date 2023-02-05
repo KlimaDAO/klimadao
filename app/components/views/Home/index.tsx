@@ -19,9 +19,11 @@ import { Custom404 } from "components/views/errors/Custom404";
 import { Info } from "components/views/Info";
 import { Offset } from "components/views/Offset";
 import { PKlima } from "components/views/PKlima";
+import { Redeem } from "components/views/Redeem";
 import { Stake } from "components/views/Stake";
 import { Wrap } from "components/views/Wrap";
 
+import { featureFlags } from "lib/featureFlags";
 import { initLocale } from "lib/i18n";
 
 import { ButtonPrimary } from "@klimadao/lib/components";
@@ -247,6 +249,20 @@ export const Home: FC = () => {
                 />
               }
             />
+            {featureFlags.redemptionUI && (
+              <Route
+                path="/redeem"
+                element={
+                  <Redeem
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                    onRPCError={handleRPCError}
+                    toggleModal={toggleModal}
+                  />
+                }
+              />
+            )}
             <Route path="/info" element={<Info provider={provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />
             {bonds.map((bond) => {

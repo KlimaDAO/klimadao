@@ -15,6 +15,7 @@ import {
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { Redeem } from "@mui/icons-material";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -28,6 +29,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { selectBalances, selectDomain, selectLocale } from "state/selectors";
 
+import { featureFlags } from "lib/featureFlags";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 import { Domain } from "state/user";
@@ -196,6 +198,18 @@ export const NavMenu: FC<Props> = (props) => {
       >
         <Trans id="menu.offset">Offset</Trans>
       </MenuButton>
+
+      {featureFlags.redemptionUI && (
+        <MenuButton
+          isActive={pathname === "/redeem"}
+          icon={<Redeem />}
+          href="/redeem"
+          onClick={handleHide}
+        >
+          [Dev] Redeem
+        </MenuButton>
+      )}
+
       <MenuButton
         isActive={pathname === "/info"}
         href="/info"

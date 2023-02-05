@@ -3,10 +3,10 @@ import { RetirementToken } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import { FC } from "react";
 
-import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
+import { CarbonProject } from "../../queryProjectDetails";
 import { SelectProjectButton } from "../SelectProjectButton";
 
-import { ProjectSearchStep } from "../";
+import { ProjectSearchStep } from "..";
 import * as styles from "./styles";
 
 type Props = {
