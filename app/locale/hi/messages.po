@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-03 23:54+0000\n"
+"POT-Creation-Date: 2023-02-06 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,19 +224,19 @@ msgstr "KLIMA ख़रीदें"
 #. Long sentence
 #: components/views/Buy/index.tsx:57
 msgid "buy.connect_to_buy"
-msgstr ""
+msgstr "यह सुविधा केवल उन उपयोगकर्ताओं के लिए उपलब्ध है जो लॉग इन हैं। आप नीचे दिए गए बटन के माध्यम से लॉग इन कर सकते हैं या खाता बना सकते हैं।"
 
 #: components/views/Buy/index.tsx:32
 msgid "buy.cta_1"
-msgstr ""
+msgstr "यदि आप एक नौसिखिया हैं, तो हम अनुशंसा करते हैं कि आप हमारे चरण-दर-चरण ट्यूटोरियल का अनुसरण करें: <0>KLIMA कैसे खरीदें</0> ."
 
 #: components/views/Buy/index.tsx:38
 msgid "buy.cta_2"
-msgstr ""
+msgstr "अन्यथा, यदि आपके पास पहले से ही पॉलीगॉन पर MATIC वाला वॉलेट है, तो KLIMA प्राप्त करने का सबसे अच्छा तरीका <0>Sushi.com पर स्वैप करना है</0> . यदि आप इसके बजाय क्रेडिट कार्ड से भुगतान करना पसंद करते हैं, तो आप <1>ट्रांसक का उपयोग कर सकते हैं</1> KLIMA को सीधे खरीदने के लिए।"
 
 #: components/views/Buy/index.tsx:52
 msgid "buy.please_log_in"
-msgstr ""
+msgstr "कृपया लॉग इन करें या वॉलेट कनेक्ट करें"
 
 #: components/views/Bond/index.tsx:699
 msgid "capacity.description_inverse"
@@ -330,7 +330,7 @@ msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: �
 
 #: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
-msgstr ""
+msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
 #: components/views/Home/index.tsx:183
 msgid "connect_modal.error_title"
@@ -342,7 +342,7 @@ msgstr "साइन इन / कनेक्ट करें"
 
 #: components/views/errors/Custom404.tsx:19
 msgid "error.404.page.text"
-msgstr ""
+msgstr "क्षमा करें, ऐसा लगता है कि हमने आपको गलत तरीके से भेजा है। <0/>कृपया मेनू से एक गंतव्य चुनें।"
 
 #: components/views/Offset/index.tsx:738
 msgid "fiat.max_quantity"
@@ -521,7 +521,7 @@ msgstr "क्रॉस-चेन ऑफ़सेटिंग अब <0> LI.FI �
 
 #: components/views/Offset/index.tsx:655
 msgid "offset.min_quantity_fiat"
-msgstr ""
+msgstr "न्यूनतम १  टन खरीद। केवल पूर्ण पूर्णांक।"
 
 #: components/views/Offset/index.tsx:764
 msgid "offset.modal_payWith.title"
@@ -590,7 +590,7 @@ msgstr "क्या आप सुनिश्चित हैं कि आप 
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:71
 msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
+msgstr "डिफ़ॉल्ट "
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
@@ -622,7 +622,7 @@ msgstr "प्रोजेक्ट ढूंढे जा रहे हैं..
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
 msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
+msgstr "उपलब्ध टन: {0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:105
 msgid "offset.selectiveRetirement.retire_from_default_pool"
@@ -666,7 +666,7 @@ msgstr "टन कार्बन"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:51
 msgid "offset.view_retirements"
-msgstr ""
+msgstr "रिटयरमेंट देखें"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
@@ -846,7 +846,7 @@ msgstr "लोड हो रहा है..."
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
-msgstr ""
+msgstr "साइन इन / कनेक्ट करें"
 
 #: components/views/Bond/index.tsx:604
 #: components/views/PKlima/index.tsx:239
