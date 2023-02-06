@@ -1,10 +1,11 @@
-import { Anchor, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { ActivityType as ActivityT } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
@@ -88,24 +89,18 @@ export const Activity: FC<ActivityT> = (props) => {
       </Text>
       <Text t="caption">
         {!!addressA && (
-          <Anchor
-            className="account"
-            href={`https://polygonscan.com/address/${addressA}`}
-          >
+          <Link className="account" href={`/users/${addressA}`}>
             {formatWalletAddress(addressA, connectedAddress)}{" "}
-          </Anchor>
+          </Link>
         )}
 
         {ACTIVITY_ACTIONS[props.activityType]}
 
         {addressB && (
-          <Anchor
-            className="account"
-            href={`https://polygonscan.com/address/${addressB}`}
-          >
+          <Link className="account" href={`/users/${addressB}`}>
             {" "}
             {formatWalletAddress(addressB, connectedAddress)}
-          </Anchor>
+          </Link>
         )}
       </Text>
       {!!amountA && !!amountB && (
