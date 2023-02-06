@@ -443,39 +443,39 @@ msgstr ""
 msgid "invalid_rpc.modal.title"
 msgstr ""
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:183
 msgid "menu.bond_carbon"
 msgstr ""
 
-#: components/NavMenu/index.tsx:165
+#: components/NavMenu/index.tsx:167
 msgid "menu.buy_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:219
 msgid "menu.info"
 msgstr ""
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:224
 msgid "menu.just_for_you"
 msgstr ""
 
-#: components/NavMenu/index.tsx:70
+#: components/NavMenu/index.tsx:72
 msgid "menu.not_connected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:199
 msgid "menu.offset"
 msgstr ""
 
-#: components/NavMenu/index.tsx:173
+#: components/NavMenu/index.tsx:175
 msgid "menu.stake_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:52
+#: components/NavMenu/index.tsx:54
 msgid "menu.wallet_address"
 msgstr ""
 
-#: components/NavMenu/index.tsx:189
+#: components/NavMenu/index.tsx:191
 msgid "menu.wrap_klima"
 msgstr ""
 
@@ -555,11 +555,11 @@ msgstr ""
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:50
+#: components/views/Offset/index.tsx:605
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:56
+#: components/views/Offset/SelectiveRetirement/index.tsx:63
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
@@ -579,79 +579,79 @@ msgstr ""
 msgid "offset.retiring"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:91
+#: components/views/Offset/SelectiveRetirement/index.tsx:100
 msgid "offset.selectiveRetirement.address_input_type"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/index.tsx:80
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/index.tsx:105
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:71
+#: components/views/Offset/SelectiveRetirement/index.tsx:79
 msgid "offset.selectiveRetirement.default_input_type"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/index.tsx:72
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
 msgstr ""
 
-#: components/views/Offset/LoadingOverlay/index.tsx:12
+#: components/views/Offset/SelectiveRetirement/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/SelectProjectButton/index.tsx:66
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:105
+#: components/views/Offset/SelectiveRetirement/index.tsx:114
 msgid "offset.selectiveRetirement.retire_from_default_pool"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:82
+#: components/views/Offset/SelectiveRetirement/index.tsx:91
 msgid "offset.selectiveRetirement.search_input_type"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
 msgstr ""
 
@@ -755,6 +755,54 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
+#: components/views/Redeem/RedeemLayout/index.tsx:28
+msgid "redeem.description"
+msgstr ""
+
+#: components/views/Redeem/RedeemLayout/index.tsx:35
+msgid "redeem.fiat_description"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:42
+msgid "redeem.form.errors.paymentMethod.required"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:30
+msgid "redeem.form.errors.projectAddress.isAddress"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:26
+msgid "redeem.form.errors.projectAddress.required"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:38
+msgid "redeem.form.errors.quantity.min"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:34
+msgid "redeem.form.errors.quantity.required"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:22
+msgid "redeem.form.errors.retirementToken.isAddress"
+msgstr ""
+
+#: components/views/Redeem/lib/formSchema.ts:18
+msgid "redeem.form.errors.retirementToken.required"
+msgstr ""
+
+#: components/views/Redeem/RedeemLayout/index.tsx:25
+msgid "redeem.redeem_carbon"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:208
+msgid "redeem.select_carbon_pool"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:212
+msgid "redeem.select_carbon_pool.title"
+msgstr ""
+
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
 msgstr ""
@@ -767,7 +815,7 @@ msgstr ""
 msgid "shared.approve"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
+#: components/views/Offset/SelectiveRetirement/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
 msgstr ""
 
@@ -990,7 +1038,7 @@ msgstr ""
 msgid "status.user_rejected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:231
 msgid "token.pKLIMA"
 msgstr ""
 

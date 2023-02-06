@@ -1,12 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { offsetCompatibility, retirementTokens } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
-import { utils } from "ethers";
 import debounce from "lodash/debounce";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "state";
-import * as yup from "yup";
 
 import {
   getOffsetConsumptionCost,
@@ -21,6 +20,12 @@ import { tokenInfo } from "lib/getTokenInfo";
 import { getFiatRetirementCost } from "../Offset/lib/getFiatRetirementCost";
 import { SelectiveRetirement } from "../Offset/SelectiveRetirement";
 import { CostDisplay } from "./CostDisplay";
+import {
+  formSchema,
+  RedeemErrorId,
+  redeemErrorTranslationsMap,
+  RedeemFormValues,
+} from "./lib/formSchema";
 import { PaymentMethodInput } from "./PaymentMethodInput";
 import { RedeemLayout } from "./RedeemLayout";
 
@@ -31,31 +36,8 @@ import * as styles from "./styles";
   - debounce cost (if required?)
   - setSelectedRetirementToken is a useEffect on a few conditons
   - default beneficiary address to connected wallet
-  - calculate cost
   - handle approval
 */
-
-yup.addMethod<yup.StringSchema>(
-  yup.string,
-  "isAddress",
-  function (errorMessage: string) {
-    return this.test("is-address", errorMessage, function (value) {
-      if (utils.isAddress(value || "")) return true;
-
-      return this.createError({ message: errorMessage });
-    });
-  }
-);
-
-// TODO
-export const formSchema = yup.object({
-  retirementToken: yup.string(),
-  projectAddress: yup.string(),
-  project: yup.object(),
-  quantity: yup.number().required().min(0),
-  paymentMethod: yup.string(),
-  cost: yup.string().nullable(),
-});
 
 const defaultValues = {
   retirementToken: "bct",
@@ -86,10 +68,11 @@ export const Redeem = (props) => {
   const [retirementTokenModalOpen, setRetirementTokenModalOpen] =
     useState(false);
   const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   // form control
   const { register, handleSubmit, formState, setValue, getValues, watch } =
-    useForm({
+    useForm<RedeemFormValues>({
       defaultValues,
       mode: "onChange",
       resolver: yupResolver(formSchema),
@@ -129,6 +112,8 @@ export const Redeem = (props) => {
   const setProjectAddress = (address) => setValue("projectAddress", address);
 
   useEffect(() => {
+    if (quantity === 0) return;
+
     const awaitGetOffsetConsumptionCost = async () => {
       setValue("cost", null);
       // setValue("quantity", 0);
@@ -169,16 +154,63 @@ export const Redeem = (props) => {
     debouncedCost();
   }, [quantity, projectAddress, paymentMethod, retirementToken]);
 
+  const getButtonProps = () => {
+    if (!props.isConnected) {
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
+    }
+    // } else if (isLoading || cost === "loading") {
+    //   return {
+    //     label: t({ id: "shared.loading", message: "Loading..." }),
+    //     disabled: true,
+    //   };
+    // } else if (isRedirecting) {
+    //   return {
+    //     label: t({
+    //       id: "shared.redirecting_checkout",
+    //       message: "Redirecting to checkout...",
+    //     }),
+    //     disabled: true,
+    //   };
+    // } else if (paymentMethod !== "fiat" && insufficientBalance) {
+    //   return {
+    //     label: t({
+    //       id: "shared.insufficient_balance",
+    //       message: "Insufficient balance",
+    //     }),
+    //     disabled: true,
+    //   };
+    // } else if (paymentMethod !== "fiat" && !hasApproval()) {
+    //   return {
+    //     label: t({ id: "shared.approve", message: "Approve" }),
+    // onClick: () => setShowTransactionModal(true),
+    // } else if (paymentMethod === "fiat") {
+    //   return {
+    //     label: t({ id: "offset.checkout", message: "Checkout" }),
+    //     onClick: handleFiat,
+    //   };
+    // }
+    return {
+      label: t({ id: "shared.redeem", message: "Redeem carbon" }),
+      onClick: () => setShowTransactionModal(true),
+    };
+  };
+
   return (
     <RedeemLayout>
       <div className={styles.offsetCard_ui}>
         <DropdownWithModal
           label={t({
-            id: "offset.dropdown_retire.label",
+            id: "redeem.select_carbon_pool",
             message: "Select carbon pool type",
           })}
           modalTitle={t({
-            id: "offset.modal_retire.title",
+            id: "redeem.select_carbon_pool.title",
             message: "Select Carbon Type",
           })}
           currentItem={watch("retirementToken")}
@@ -203,7 +235,7 @@ export const Redeem = (props) => {
           inputProps={{
             id: "quantity",
             placeholder: "Enter quantity to redeem",
-            type: "text",
+            type: "number",
             onKeyDown: (e) => {
               if (paymentMethod === "fiat" && ["."].includes(e.key)) {
                 e.preventDefault();
@@ -212,6 +244,11 @@ export const Redeem = (props) => {
             ...register("quantity"),
           }}
           label="How much would you like to redeem?"
+          errorMessage={
+            redeemErrorTranslationsMap[
+              errors.quantity?.message as RedeemErrorId
+            ]
+          }
         />
 
         {/* TODO: calculate cost */}
@@ -226,6 +263,14 @@ export const Redeem = (props) => {
           isModalOpen={paymentMethodModalOpen}
           onToggleModal={() => setPaymentMethodModalOpen((s) => !s)}
           onPaymentMethodSelect={(value) => setValue("paymentMethod", value)}
+        />
+
+        <ButtonPrimary
+          disabled={!isDirty}
+          type="submit"
+          {...getButtonProps()}
+          // label={submitting ? "Redeeming" : "Redeem"} // TODO}
+          // onClick={handleSubmit(onSubmit)}
         />
       </div>
     </RedeemLayout>
