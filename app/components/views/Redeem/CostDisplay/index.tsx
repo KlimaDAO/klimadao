@@ -10,7 +10,7 @@ import { tokenInfo } from "lib/getTokenInfo";
 const MAX_FIAT_COST = 2000; // usdc
 
 type Props = {
-  cost: number;
+  cost: number | null;
   paymentMethod: string;
   warn: boolean;
 };
@@ -44,7 +44,7 @@ export const CostDisplay: React.FC<Props> = (props) => {
       amount={Number(props.cost)?.toLocaleString(locale)}
       icon={costIcon}
       name={props.paymentMethod}
-      loading={props.cost === "loading"}
+      loading={props.cost === null}
       warn={props.warn}
       helperText={
         props.paymentMethod === "fiat"

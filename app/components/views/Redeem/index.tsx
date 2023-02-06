@@ -63,7 +63,7 @@ const defaultValues = {
   project: {},
   quantity: 0,
   paymentMethod: "fiat",
-  cost: null,
+  cost: "0",
 };
 
 const retirementTokenItems = (paymentMethod) =>
@@ -130,6 +130,7 @@ export const Redeem = (props) => {
 
   useEffect(() => {
     const awaitGetOffsetConsumptionCost = async () => {
+      setValue("cost", null);
       // setValue("quantity", 0);
 
       if (paymentMethod !== "fiat") {
@@ -174,7 +175,7 @@ export const Redeem = (props) => {
         <DropdownWithModal
           label={t({
             id: "offset.dropdown_retire.label",
-            message: "Select carbon offset token to retire",
+            message: "Select carbon pool type",
           })}
           modalTitle={t({
             id: "offset.modal_retire.title",
@@ -188,6 +189,7 @@ export const Redeem = (props) => {
         />
 
         <SelectiveRetirement
+          label="Choose a carbon project to redeem"
           projectAddress={watch("projectAddress")}
           selectedRetirementToken={retirementToken}
           setProjectAddress={setProjectAddress}
@@ -200,7 +202,7 @@ export const Redeem = (props) => {
           id="quantity"
           inputProps={{
             id: "quantity",
-            placeholder: "How much would you like to redeem",
+            placeholder: "Enter quantity to redeem",
             type: "text",
             onKeyDown: (e) => {
               if (paymentMethod === "fiat" && ["."].includes(e.key)) {

@@ -14,6 +14,7 @@ import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import * as styles from "./styles";
 
 type Props = {
+  label: string | JSX.Element;
   isRedeem: boolean;
   projectAddress: string;
   selectedRetirementToken: RetirementToken;
@@ -55,9 +56,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
     <div className={styles.container}>
       <div className={styles.label}>
         <Text t="caption" color="lighter">
-          <Trans id="offset.retire_specific">
-            Retire specific project tokens (optional)
-          </Trans>
+          {props.label}
         </Text>
         <TextInfoTooltip
           content={
