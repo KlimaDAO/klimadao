@@ -24,16 +24,19 @@ type Props = {
 
 export const PurchaseReceipt: NextPage<Props> = (props) => {
   const { locale } = useRouter();
-
-  const projectName =
-    props.purchase?.listing?.project?.name || t({ message: "Processing..." });
+  const amount =
+    props.purchase?.amount && formatBigToTonnes(props.purchase.amount, locale);
+  const metaDescription = props.purchase
+    ? t`${amount} tonnes were purchased for project ${props.purchase.listing.project.projectID}`
+    : t`View the project details and other info for this purchase.`;
 
   return (
     <>
       <PageHead
-        title={`Carbonmark - Successfully Purchased Project: ${projectName}`}
-        mediaTitle={`Carbonmark - Successfully Purchased Project: ${projectName}`}
-        metaDescription={`Carbonmark - Successfully Purchased Project: ${projectName}`}
+        doNotIndex
+        title={t`Purchase Receipt | Carbonmark`}
+        mediaTitle={t`Purchase Receipt | Carbonmark`}
+        metaDescription={metaDescription}
       />
 
       <Layout>

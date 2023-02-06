@@ -4,6 +4,8 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 
 import { User } from "@klimadao/lib/types/carbonmark";
+import { concatAddress } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 import { ProfileButton } from "./ProfileButton";
@@ -36,9 +38,13 @@ export const Users: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`Carbonmark - Profile for ${userName}`}
-        mediaTitle={`Carbonmark - Profile for ${userName}`}
-        metaDescription={`Carbonmark - Profile for ${userName}`}
+        title={t`${
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+        } | Profile | Carbonmark`}
+        mediaTitle={`${
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+        }'s Profile on Carbonmark`}
+        metaDescription={t`View seller listings, carbon market activity and more.`}
       />
 
       <Layout

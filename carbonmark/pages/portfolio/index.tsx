@@ -15,13 +15,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 240,
     };
   } catch (e) {
     console.error("Failed to generate Portfolio Page", e);
     return {
       notFound: true,
-      revalidate: 240,
     };
   }
 };

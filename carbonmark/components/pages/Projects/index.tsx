@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/carbonmark";
+import { t } from "@lingui/macro";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -27,9 +28,9 @@ export const Projects: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title="Carbonmark - Projects"
-        mediaTitle="Carbonmark - Projects"
-        metaDescription="Carbonmark - Projects"
+        title={t`Projects | Carbonmark`}
+        mediaTitle={t`Browse Carbon Projects | Carbonmark`}
+        metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
 
       <Layout>

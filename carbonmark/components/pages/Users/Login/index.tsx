@@ -32,9 +32,9 @@ export const Login: NextPage = () => {
   return (
     <>
       <PageHead
-        title="Carbonmark - User Login"
-        mediaTitle="Carbonmark - User Login"
-        metaDescription="Carbonmark - User Login"
+        title={t`User Profile | Carbonmark`}
+        mediaTitle={t`User Profile | Carbonmark`}
+        metaDescription={t`Log in to create a Carbonmark profile`}
       />
 
       <Layout>

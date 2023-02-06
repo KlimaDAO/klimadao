@@ -14,11 +14,10 @@ export const Home: NextPage<Props> = () => {
   return (
     <GridContainer>
       <PageHead
-        title={t`CarbonMark.com`}
-        mediaTitle={t`CarbonMark | Universal Carbon Market`}
-        metaDescription={t`Open-source and open-access carbon toolkit. Powered by KlimaDAO`}
+        title={t`Carbonmark.com`}
+        mediaTitle={t`Carbonmark | Universal Carbon Market`}
+        metaDescription={t`The open platform for digital carbon.`}
       />
-
       <Navigation activePage="Home" />
       <Section variant="gray" className={styles.hero}>
         <div className="stack">

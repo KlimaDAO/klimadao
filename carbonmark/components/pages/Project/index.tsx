@@ -1,6 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Activities } from "components/Activities";
@@ -46,9 +46,9 @@ export const Project: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`Carbonmark - Project: ${props.project.name}`}
-        mediaTitle={`Carbonmark - Project: ${props.project.name}`}
-        metaDescription={`Carbonmark - Project: ${props.project.name}`}
+        title={t`${props.project.projectID} | Carbonmark`}
+        mediaTitle={t`${props.project.name} | Carbonmark`}
+        metaDescription={`${props.project.description}`}
       />
 
       <Layout>

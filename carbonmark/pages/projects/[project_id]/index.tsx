@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     console.error("Failed to generate Carbonnmark Project Page", e);
     return {
       notFound: true,
-      revalidate: 240,
+      revalidate: 10,
     };
   }
 };

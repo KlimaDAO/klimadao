@@ -139,9 +139,9 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`Carbonmark - Purchase Project: ${props.project.name}`}
-        mediaTitle={`Carbonmark - Purchase Project: ${props.project.name}`}
-        metaDescription={`Carbonmark - Purchase Project: ${props.project.name}`}
+        title={t`Purchase ${props.project.projectID} | Carbonmark`}
+        mediaTitle={t`Purchase ${props.project.name} | Carbonmark`}
+        metaDescription={`${props.project.description}`}
       />
 
       <Layout>

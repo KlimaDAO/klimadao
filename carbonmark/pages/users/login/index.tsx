@@ -17,13 +17,11 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 240,
     };
   } catch (e) {
     console.error("Failed to generate Carbonmark Login Page", e);
     return {
       notFound: true,
-      revalidate: 240,
     };
   }
 };

@@ -11,7 +11,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   return {
     props: { translation, fixedThemeName: "theme-light" },
-    revalidate: 600,
   };
 };
 

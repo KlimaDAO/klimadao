@@ -39,12 +39,28 @@ msgstr "<<<<<<< HEAD"
 msgid "Available:"
 msgstr ""
 
+#: components/pages/Projects/index.tsx:32
+msgid "Browse Carbon Projects | Carbonmark"
+msgstr ""
+
+#: components/pages/Projects/index.tsx:33
+msgid "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
+msgstr ""
+
+#: components/pages/Resources/index.tsx:24
+msgid "CarbonMark News & Resources"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:23
+msgid "CarbonMark | Resources"
+msgstr ""
+
 #: components/pages/Home/index.tsx:18
-msgid "CarbonMark | Universal Carbon Market"
+msgid "Carbonmark | Universal Carbon Market"
 msgstr ""
 
 #: components/pages/Home/index.tsx:17
-msgid "CarbonMark.com"
+msgid "Carbonmark.com"
 msgstr ""
 
 #: components/shared/ChangeLanguageButton/index.tsx:48
@@ -63,7 +79,7 @@ msgstr ""
 msgid "Error:"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:104
+#: components/pages/Purchases/index.tsx:107
 msgid "Final price"
 msgstr "<<<<<<< HEAD"
 
@@ -80,22 +96,18 @@ msgstr "<<<<<<< HEAD"
 msgid "Loading..."
 msgstr ""
 
+#: components/pages/Users/Login/index.tsx:37
+msgid "Log in to create a Carbonmark profile"
+msgstr ""
+
 #: components/Footer/index.tsx:23
 #: components/shared/Navigation/index.tsx:58
 #: components/shared/Navigation/index.tsx:83
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Home/index.tsx:19
-msgid "Open-source and open-access carbon toolkit. Powered by KlimaDAO"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:60
+#: components/pages/Purchases/index.tsx:63
 msgid "Payment Successful"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:29
-msgid "Processing..."
 msgstr ""
 
 #: components/Footer/index.tsx:26
@@ -104,15 +116,29 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:113
+#: components/pages/Purchases/index.tsx:116
 msgid "Project"
+msgstr ""
+
+#: components/pages/Projects/index.tsx:31
+msgid "Projects | Carbonmark"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:37
+#: components/pages/Purchases/index.tsx:38
+msgid "Purchase Receipt | Carbonmark"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:142
+#: components/pages/Project/Purchase/index.tsx:143
+msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:53
 msgid "Quantity Available:"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:95
+#: components/pages/Purchases/index.tsx:98
 msgid "Quantity purchased:"
 msgstr ""
 
@@ -134,8 +160,12 @@ msgstr ""
 msgid "Sorry, something went wrong."
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:71
+#: components/pages/Purchases/index.tsx:74
 msgid "Thank you for supporting the planet! See purchase details below."
+msgstr ""
+
+#: components/pages/Home/index.tsx:19
+msgid "The open platform for digital carbon."
 msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:208
@@ -154,11 +184,28 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
+#: components/pages/Resources/index.tsx:25
+msgid "Updates, guides and more from the CarbonMark team"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/index.tsx:224
 msgid "Updating your data..."
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:64
+#: components/pages/Users/Login/index.tsx:35
+#: components/pages/Users/Login/index.tsx:36
+msgid "User Profile | Carbonmark"
+msgstr ""
+
+#: components/pages/Users/index.tsx:47
+msgid "View seller listings, carbon market activity and more."
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:31
+msgid "View the project details and other info for this purchase."
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:67
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
 
@@ -348,7 +395,7 @@ msgstr ""
 msgid "project.single.button.back_to_project"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:47
+#: components/pages/Purchases/index.tsx:50
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
@@ -376,7 +423,7 @@ msgstr ""
 msgid "purchase.button.continue"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:128
+#: components/pages/Purchases/index.tsx:131
 msgid "purchase.button.view_assets"
 msgstr ""
 
@@ -460,18 +507,6 @@ msgstr ""
 msgid "resources.form.sub_topics.header"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:31
-msgid "resources.head.metaDescription"
-msgstr ""
-
-#: components/pages/Resources/index.tsx:27
-msgid "resources.head.metaTitle"
-msgstr ""
-
-#: components/pages/Resources/index.tsx:23
-msgid "resources.head.title"
-msgstr ""
-
 #: components/pages/Resources/lib/cmsDataMap.ts:71
 msgid "resources.list.filter.tag.basics"
 msgstr ""
@@ -545,11 +580,11 @@ msgstr ""
 msgid "resources.mobile_modal.title"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:46
+#: components/pages/Resources/index.tsx:37
 msgid "resources.page.header.subline"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:43
+#: components/pages/Resources/index.tsx:34
 msgid "resources.page.header.title"
 msgstr ""
 
@@ -866,4 +901,17 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:247
 msgid "user.stats.your_seller_data.description"
+msgstr ""
+
+#: components/pages/Project/index.tsx:49
+#: components/pages/Project/index.tsx:50
+msgid "{0} | Carbonmark"
+msgstr ""
+
+#: components/pages/Users/index.tsx:41
+msgid "{0} | Profile | Carbonmark"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:30
+msgid "{amount} tonnes were purchased for project {0}"
 msgstr ""
