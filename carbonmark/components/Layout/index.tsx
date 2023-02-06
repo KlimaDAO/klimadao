@@ -4,6 +4,7 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
+import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
 import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
@@ -121,8 +122,8 @@ export const Layout: FC<Props> = (props: Props) => {
                 }),
               },
             })}
+          <InvalidNetworkModal />
         </div>
-
         {isProjects && isMobile && (
           <ProjectsController className={styles.mobileProjectsController} />
         )}
