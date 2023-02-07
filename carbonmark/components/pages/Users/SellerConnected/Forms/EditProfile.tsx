@@ -43,11 +43,11 @@ export const EditProfile: FC<Props> = (props) => {
 
   const fetchIsNewHandle = async (handle: string) => {
     try {
-      const existingUser = await getUser({
+      const handleFromApi = await getUser({
         user: handle,
         type: "handle",
       });
-      const apiHandle = existingUser?.handle || "";
+      const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
       console.error(error);
@@ -135,42 +135,47 @@ export const EditProfile: FC<Props> = (props) => {
         <InputField
           id="handle"
           inputProps={{
-            disabled: !!props.user?.handle,
+            disabled: isExistingUser,
             placeholder: t({
               id: "user.edit.form.input.handle.placeholder",
               message: "Your unique handle",
             }),
             type: "text",
-            ...register("handle", {
-              required: {
-                value: true,
-                message: t({
-                  id: "user.edit.form.input.handle.required",
-                  message: "Handle is required",
-                }),
-              },
-              pattern: {
-                value: /^[a-zA-Z0-9]+$/, // no special characters!
-                message: t({
-                  id: "user.edit.form.input.handle.pattern",
-                  message: "Handle should contain any special characters",
-                }),
-              },
-              validate: {
-                isAddress: (v) =>
-                  !utils.isAddress(v) || // do not allow polygon addresses
-                  t({
-                    id: "user.edit.form.input.handle.no_polygon_address",
-                    message: "Handle should not be an address",
-                  }),
-                isNewHandle: async (v) =>
-                  (await fetchIsNewHandle(v)) || // ensure unique handles
-                  t({
-                    id: "user.edit.form.input.handle.handle_exists",
-                    message: "Sorry, this handle already exists",
-                  }),
-              },
-            }),
+            ...register(
+              "handle",
+              !isExistingUser // validate only if handle can be changed
+                ? {
+                    required: {
+                      value: true,
+                      message: t({
+                        id: "user.edit.form.input.handle.required",
+                        message: "Handle is required",
+                      }),
+                    },
+                    pattern: {
+                      value: /^[a-zA-Z0-9]+$/, // no special characters!
+                      message: t({
+                        id: "user.edit.form.input.handle.pattern",
+                        message: "Handle should contain any special characters",
+                      }),
+                    },
+                    validate: {
+                      isAddress: (v) =>
+                        !utils.isAddress(v) || // do not allow polygon addresses
+                        t({
+                          id: "user.edit.form.input.handle.no_polygon_address",
+                          message: "Handle should not be an address",
+                        }),
+                      isNewHandle: async (v) =>
+                        (await fetchIsNewHandle(v)) || // ensure unique handles
+                        t({
+                          id: "user.edit.form.input.handle.handle_exists",
+                          message: "Sorry, this handle already exists",
+                        }),
+                    },
+                  }
+                : undefined
+            ),
           }}
           label={t({
             id: "user.edit.form.input.handle.label",
