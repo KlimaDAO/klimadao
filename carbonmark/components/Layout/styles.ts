@@ -97,6 +97,10 @@ export const controls = css`
   align-items: center;
   gap: 1.6rem;
   grid-column: 1 / 3;
+
+  .connectButton {
+    white-space: nowrap;
+  }
 `;
 
 export const menuButton = css`

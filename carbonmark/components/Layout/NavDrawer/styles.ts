@@ -1,20 +1,24 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   position: relative;
-  padding: 3.2rem;
+  padding: 2.4rem;
   background-color: var(--surface-01);
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   z-index: 3;
-  gap: 2.4rem;
+  gap: 1.6rem;
   max-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+
+  ${breakpoints.large} {
+    gap: 2.4rem;
+    padding: 3.2rem;
+  }
 
   #klima-logo {
     height: 2.8rem;
@@ -36,7 +40,7 @@ export const container = css`
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 1.6rem;
   }
 
   .navFooter .hr {
@@ -78,35 +82,35 @@ export const container = css`
     max-width: 100%;
     overflow: hidden;
   }
+`;
 
-  .navFooter_buttons {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(4, 4.2rem);
-    justify-content: center;
-    gap: 1rem;
+export const footer_icons = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  flex-wrap: wrap;
 
-    ${breakpoints.desktop} {
-      gap: 1rem;
-      grid-template-columns: repeat(4, 4.6rem);
-    }
+  svg {
+    width: 1.6rem;
   }
 
-  .navFooter_button {
-    ${common.iconButton};
-    min-height: 4.2rem;
-    min-width: 4.2rem;
+  & svg path {
+    fill: var(--font-02);
+  }
 
-    ${breakpoints.desktop} {
-      min-height: 4.6rem;
-      min-width: 4.6rem;
-    }
+  & svg:hover path {
+    fill: var(--font-01);
   }
 `;
 
 export const addressContainer = css`
   display: grid;
-  gap: 1.2rem;
+  gap: 1.6rem;
+  ${breakpoints.large} {
+    gap: 2.4rem;
+  }
 `;
 
 export const mobile = {

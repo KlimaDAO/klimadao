@@ -1,4 +1,4 @@
-import { Text } from "@klimadao/lib/components";
+import { CopyAddressButton, Text } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -13,27 +13,23 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
   return (
     <div className={styles.address}>
       <Text t="caption">
-        <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
+        <Trans>Your Wallet Address:</Trans>
       </Text>
-
-      {props.domain ? (
-        <div className="domain-wrapper">
-          <img
-            src={props.domain.imageUrl}
-            alt="profile avatar"
-            className="avatar"
-          />
-          <Text t="caption" color="lightest" className={"domain-name"}>
-            {props.domain.name}
-          </Text>
-        </div>
-      ) : (
-        <Text t="caption" color="lightest">
-          {props.address ? (
-            concatAddress(props.address)
-          ) : (
-            <Trans id="menu.not_connected">NOT CONNECTED</Trans>
-          )}
+      {!props.address && (
+        <Text t="caption" color="lightest" uppercase>
+          <Trans>Not Connected</Trans>
+        </Text>
+      )}
+      {props.address && (
+        <CopyAddressButton
+          label={concatAddress(props.address)}
+          address={props.address}
+          className="copyButton"
+        />
+      )}
+      {props.domain && (
+        <Text t="caption" color="lightest" className="domain">
+          {props.domain.name}
         </Text>
       )}
     </div>

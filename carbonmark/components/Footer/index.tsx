@@ -1,5 +1,12 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
+import {
+  Anchor as A,
+  DiscordIcon,
+  GithubIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
 import { FC } from "react";
@@ -31,9 +38,18 @@ export const Footer: FC<Props> = (props) => {
         </nav>
 
         <nav className={styles.footer_icons}>
-          <Text t="caption">
-            Built with 🌳 by <a href="https://klimadao.finance">KlimaDAO</a>
-          </Text>
+          <A href={urls.twitterCarbonmark}>
+            <TwitterIcon />
+          </A>
+          <A href={urls.discordInvite}>
+            <DiscordIcon />
+          </A>
+          <A href={urls.github}>
+            <GithubIcon />
+          </A>
+          <A href={urls.linkedInCarbonmark}>
+            <LinkedInIcon />
+          </A>
         </nav>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
 import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
@@ -85,17 +85,16 @@ export const Layout: FC<Props> = (props: Props) => {
           <div data-desktop-only>
             {!address && !isConnected && (
               <ButtonPrimary
-                label={t({
-                  id: "shared.login_connect",
-                  message: "Login / Connect",
-                })}
+                label={t`Log in`}
                 onClick={toggleModal}
+                className="connectButton"
               />
             )}
             {address && isConnected && (
               <ButtonPrimary
-                label={concatAddress(address)}
+                label={t`Log out`}
                 onClick={disconnect}
+                className="connectButton"
               />
             )}
           </div>

@@ -2,5 +2,11 @@ import { css } from "@emotion/css";
 
 export const address = css`
   display: grid;
-  gap: 0.4rem;
+  justify-content: start;
+  .copyButton {
+    justify-content: start;
+  }
+  .domain {
+    margin-top: -1.2rem;
+  }
 `;

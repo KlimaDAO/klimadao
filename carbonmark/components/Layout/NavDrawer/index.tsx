@@ -1,6 +1,16 @@
-import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import {
+  Anchor as A,
+  ButtonPrimary,
+  CarbonmarkLogo,
+  DiscordIcon,
+  GithubIcon,
+  LinkedInIcon,
+  Text,
+  TwitterIcon,
+} from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import Link from "next/link";
@@ -40,30 +50,30 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
           onClick={props.onHide}
         />
       </div>
-      <div className="hr" />
-      <div data-mobile-only>
-        {!address && !isConnected && (
+      {!address && !isConnected && (
+        <div data-mobile-only>
           <ButtonPrimary
-            label={t({
-              id: "shared.login_connect",
-              message: "Login / Connect",
-            })}
+            label={t`Log in`}
             onClick={toggleModal}
             className="connectButton"
           />
-        )}
-        {address && isConnected && (
+          <div className="hr" />
+        </div>
+      )}
+      {address && isConnected && (
+        <div data-mobile-only>
           <ButtonPrimary
-            label={concatAddress(address)}
+            label={t`Log out`}
             onClick={disconnect}
             className="connectButton"
           />
-        )}
-      </div>
-      <div className={styles.addressContainer} data-desktop-only>
+        </div>
+      )}
+      <div className={styles.addressContainer}>
+        <div className="hr" />
         <AddressSection domain={connectedDomain} address={address} />
+        <div className="hr" />
       </div>
-      <div className="hr" />
       <NavMenu
         userAddress={props.userAddress}
         connectedAddress={address}
@@ -72,7 +82,25 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
 
       <div className="navFooter">
         <div className="hr" />
-        <div className="navFooter_buttons"></div>
+        <Text t="caption" align="center">
+          <Trans>
+            Built with 🌳 by <a href="https://klimadao.finance">KlimaDAO</a>
+          </Trans>
+        </Text>
+        <div className={styles.footer_icons}>
+          <A href={urls.twitterCarbonmark}>
+            <TwitterIcon />
+          </A>
+          <A href={urls.discordInvite}>
+            <DiscordIcon />
+          </A>
+          <A href={urls.github}>
+            <GithubIcon />
+          </A>
+          <A href={urls.linkedInCarbonmark}>
+            <LinkedInIcon />
+          </A>
+        </div>
       </div>
     </nav>
   );
