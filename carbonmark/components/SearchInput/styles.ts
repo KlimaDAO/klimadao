@@ -10,7 +10,6 @@ export const main = css`
   display: flex;
   width: 100%;
   max-width: 40rem;
-  min-width: 17.5rem;
   // Not great but we need to force the div "container" element
   // in InputField to fill available space
   div {

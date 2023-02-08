@@ -29,7 +29,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
       <ButtonPrimary
         className={styles.filterButton}
         icon={<TuneIcon />}
-        label="Filters"
+        label={<span>Filters</span>}
       />
       {isDesktop && <Toggle onChange={console.log} options={TOGGLE_OPTIONS} />}
     </div>
