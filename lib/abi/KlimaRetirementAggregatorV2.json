@@ -303,8 +303,10 @@
       "type": "function"
     },
     {
+      "anonymous": false,
       "inputs": [
         {
+          "indexed": false,
           "internalType": "address",
           "name": "sourceToken",
           "type": "address"
@@ -408,10 +410,23 @@
           "type": "uint256"
         },
         {
-          "internalType": "string",
-          "name": "retiringEntityString",
-          "type": "string"
+          "indexed": false,
+          "internalType": "address payable",
+          "name": "relayerAddress",
+          "type": "address"
         },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "functionSignature",
+          "type": "bytes"
+        }
+      ],
+      "name": "MetaTransactionExecuted",
+      "type": "event"
+    },
+    {
+      "inputs": [
         {
           "internalType": "address",
           "name": "beneficiaryAddress",
