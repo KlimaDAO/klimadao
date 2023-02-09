@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-08 15:35+0000\n"
+"POT-Creation-Date: 2023-02-09 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -342,7 +342,7 @@ msgstr "Iniciar sesión / Conectar"
 
 #: components/views/errors/Custom404.tsx:19
 msgid "error.404.page.text"
-msgstr ""
+msgstr "Lo sentimos, parece que te enviamos por el camino equivocado. <0/>Seleccione un destino del menú."
 
 #: components/views/Offset/index.tsx:738
 msgid "fiat.max_quantity"
