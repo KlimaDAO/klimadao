@@ -34,8 +34,8 @@ msgstr "500 - Server error occurred"
 msgid "Active listings:"
 msgstr "Active listings:"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:152
-#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+#: components/pages/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Project/Purchase/PurchaseForm.tsx:184
 msgid "Available:"
 msgstr "Available:"
 
@@ -92,7 +92,7 @@ msgstr "Home"
 msgid "Listings"
 msgstr "Listings"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+#: components/pages/Project/Purchase/PurchaseForm.tsx:187
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -134,6 +134,7 @@ msgstr "Purchase Receipt | Carbonmark"
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
+#: components/pages/Portfolio/AssetProject/index.tsx:40
 #: components/pages/Project/ProjectListing/index.tsx:53
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
@@ -147,6 +148,14 @@ msgstr "Quantity purchased:"
 #: components/shared/Navigation/index.tsx:95
 msgid "Resources"
 msgstr "Resources"
+
+#: components/pages/Portfolio/AssetProject/index.tsx:45
+msgid "Retire"
+msgstr "Retire"
+
+#: components/pages/Portfolio/AssetProject/index.tsx:49
+msgid "Sell"
+msgstr "Sell"
 
 #: components/pages/Project/ProjectListing/index.tsx:42
 msgid "Seller Listing"
@@ -208,6 +217,10 @@ msgstr "View the project details and other info for this purchase."
 #: components/pages/Purchases/index.tsx:67
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
+
+#: components/pages/Portfolio/index.tsx:129
+msgid "We couldn't find any C3 tokens in your connected wallet :("
+msgstr "We couldn't find any C3 tokens in your connected wallet :("
 
 #: components/Activities/Activities.constants.ts:5
 msgid "activity.action.createdListing"
@@ -297,6 +310,10 @@ msgstr "Profile"
 #: components/Layout/AddressSection/index.tsx:16
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"
+
+#: components/pages/Portfolio/Balances/index.tsx:72
+msgid "portfolio.balances.title"
+msgstr "Balances"
 
 #: components/pages/Users/SellerConnected/Forms/AddListing.tsx:158
 msgid "profile.addListing_modal.submit"
@@ -411,15 +428,15 @@ msgstr "Seller:"
 msgid "project.single.methodology"
 msgstr "Methodology:"
 
-#: components/Activities/Activity.tsx:69
+#: components/Activities/Activity.tsx:70
 msgid "props.transaction.conjunction"
 msgstr "for"
 
-#: components/Activities/Activity.tsx:22
+#: components/Activities/Activity.tsx:23
 msgid "props.transaction.conjunction.at"
 msgstr "at"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:211
+#: components/pages/Project/Purchase/PurchaseForm.tsx:210
 msgid "purchase.button.continue"
 msgstr "Continue"
 
@@ -427,23 +444,23 @@ msgstr "Continue"
 msgid "purchase.button.view_assets"
 msgstr "View Your Assets"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:145
+#: components/pages/Project/Purchase/PurchaseForm.tsx:144
 msgid "purchase.input.amount.label"
 msgstr "How many tonnes of carbon do you want to buy?"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseForm.tsx:137
 msgid "purchase.input.amount.maxAmount"
 msgstr "You exceeded the available amount of tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseForm.tsx:130
 msgid "purchase.input.amount.minimum"
 msgstr "The minimum amount to buy is 1 Tonne"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:115
+#: components/pages/Project/Purchase/PurchaseForm.tsx:114
 msgid "purchase.input.amount.placeholder"
 msgstr "Tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:124
+#: components/pages/Project/Purchase/PurchaseForm.tsx:123
 msgid "purchase.input.amount.required"
 msgstr "Amount is required"
 
@@ -451,11 +468,11 @@ msgstr "Amount is required"
 msgid "purchase.input.cost.label"
 msgstr "Cost incl. 3% fee"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:168
+#: components/pages/Project/Purchase/PurchaseForm.tsx:167
 msgid "purchase.input.price.maxAmount"
 msgstr "You exceeded your available amount of tokens"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+#: components/pages/Project/Purchase/PurchaseForm.tsx:160
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
@@ -625,7 +642,7 @@ msgid "shared.approve"
 msgstr "Approve"
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:197
+#: components/pages/Project/Purchase/PurchaseForm.tsx:196
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
@@ -657,7 +674,7 @@ msgstr "Sort by:"
 msgid "tonnes.long"
 msgstr "tonnes"
 
-#: components/Activities/Activity.tsx:13
+#: components/Activities/Activity.tsx:14
 msgid "tonnes.short"
 msgstr "t"
 
@@ -899,6 +916,7 @@ msgstr "Data for this seller"
 msgid "user.stats.title"
 msgstr "Stats"
 
+#: components/pages/Portfolio/index.tsx:148
 #: components/pages/Users/SellerConnected/index.tsx:247
 msgid "user.stats.your_seller_data.description"
 msgstr "Your seller data"

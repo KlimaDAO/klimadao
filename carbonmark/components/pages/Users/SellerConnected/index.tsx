@@ -6,15 +6,15 @@ import { FC, useEffect, useState } from "react";
 
 import { Activities } from "components/Activities";
 import { Card } from "components/Card";
+import { CreateListing } from "components/CreateListing";
 import { Stats } from "components/Stats";
 import { ProfileHeader } from "../ProfileHeader";
-import { CreateAListingModal } from "./CreateAListingModal";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
-import { getUserAssetsData } from "lib/actions";
+import { getAssets } from "lib/actions";
 import { getUser } from "lib/api";
-import { pollUntil } from "../utils";
+import { pollUntil } from "lib/pollUntil";
 
 import {
   getActiveListings,
@@ -72,7 +72,7 @@ export const SellerConnected: FC<Props> = (props) => {
         try {
           setIsLoadingAssets(true);
 
-          const assetsData = await getUserAssetsData({
+          const assetsData = await getAssets({
             assets: user.assets,
             userAddress: props.userAddress,
           });
@@ -268,7 +268,7 @@ export const SellerConnected: FC<Props> = (props) => {
       </Modal>
 
       {!!assetsData?.length && (
-        <CreateAListingModal
+        <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
           assets={assetsData}

@@ -23,6 +23,9 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
     onClose();
   }, [props.selectedAsset]);
 
+  // do not toggle a dropdown when there are no further selections
+  const isDisabled = props.assets.length === 1;
+
   return (
     <div className={styles.tippyContainer}>
       <Tippy
@@ -51,6 +54,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
         visible={isOpen}
         placement="bottom-end"
         appendTo="parent"
+        disabled={isDisabled}
       >
         <button
           onClick={onToggle}
@@ -62,7 +66,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
           })}
         >
           <span>{props.selectedAsset?.projectName || "not found"}</span>
-          <ArrowDropDownIcon />
+          {!isDisabled && <ArrowDropDownIcon />}
         </button>
       </Tippy>
     </div>

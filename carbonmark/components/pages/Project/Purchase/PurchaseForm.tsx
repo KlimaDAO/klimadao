@@ -4,8 +4,8 @@ import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { HighlightValue } from "components/Transaction/HighlightValue";
-import { getTokenBalance } from "lib/actions";
-import { CARBONMARK_FEE, FAKE_USDC } from "lib/constants";
+import { getUSDCBalance } from "lib/actions";
+import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { useRouter } from "next/router";
@@ -74,8 +74,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     if (!address) return;
 
     const getBalance = async () => {
-      const balance = await getTokenBalance({
-        tokenAddress: FAKE_USDC,
+      const balance = await getUSDCBalance({
         userAddress: address,
       });
 

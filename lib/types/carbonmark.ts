@@ -106,6 +106,7 @@ export type ActivityType = {
   } | null;
 };
 
+// data from C3 ABI function "getProjectInfo"
 export type ProjectInfo = {
   active: boolean;
   country: string;
@@ -117,14 +118,31 @@ export type ProjectInfo = {
   region: string | "";
   registry: "GS";
   uri: string;
-  category: Category;
+  project_type: string;
 };
 
 export type Asset = {
   tokenAddress: string;
   tokenName: string;
-  projectName: string;
   balance: string;
+  projectName: ProjectInfo["name"];
+};
+
+export type AssetExtended = {
+  tokenAddress: string;
+  tokenName: string;
+  balance: string;
+  projectName: ProjectInfo["name"];
+  projectId: ProjectInfo["project_id"];
+  projectType: ProjectInfo["project_type"];
+  country: ProjectInfo["country"];
+  methodology: ProjectInfo["methodology"];
+  registry: ProjectInfo["registry"];
+  projectUrl: ProjectInfo["uri"];
+  active: ProjectInfo["active"];
+  category: CategoryName;
+  key: string;
+  vintage: string;
 };
 
 export type Stats = {
@@ -157,4 +175,11 @@ export type Purchase = {
   amount: BigNumber;
   price: BigNumber;
   listing: Listing;
+};
+
+export type CarbonmarkToken = "usdc" | "c3" | "tc02";
+
+export type Balance = {
+  tokenName: CarbonmarkToken;
+  balance: string;
 };

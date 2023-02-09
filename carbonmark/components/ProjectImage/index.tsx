@@ -1,11 +1,11 @@
-import { CategoryNames } from "@klimadao/lib/types/carbonmark";
+import { CategoryName, CategoryNames } from "@klimadao/lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { FC } from "react";
 
 import { categoryInfoMap, getFirstCategory } from "lib/getCategoryInfo";
 
 type Props = {
-  category: CategoryNames;
+  category: CategoryNames | CategoryName;
 };
 
 export const ProjectImage: FC<Props> = (props) => {

@@ -6,7 +6,7 @@ import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
-import { ProjectTokenDropDown } from "../ProjectTokenDropDown";
+import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import * as styles from "./styles";
 export type FormValues = {
   tokenAddress: string;
@@ -28,7 +28,7 @@ const defaultValues = {
   singleUnitPrice: "",
 };
 
-export const AddListing: FC<Props> = (props) => {
+export const CreateListingForm: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const { register, handleSubmit, formState, control, setValue } =

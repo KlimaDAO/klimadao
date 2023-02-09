@@ -1,17 +1,19 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { Asset } from "@klimadao/lib/types/carbonmark";
+import { Asset, AssetExtended } from "@klimadao/lib/types/carbonmark";
 import {
   formatUnits,
   getContract,
   getStaticProvider,
 } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 
 // TODO: Before GO-LIVE replace with getContract("usdc")
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import { FAKE_USDC } from "./constants";
 
 const staticProvider = getStaticProvider({ chain: "mumbai" }); // TODO: remove "mumbai" later
 
@@ -229,7 +231,7 @@ export const deleteListingTransaction = async (params: {
   }
 };
 
-export const getUserAssetsData = async (params: {
+export const getAssets = async (params: {
   assets: string[];
   userAddress: string;
 }): Promise<Asset[]> => {
@@ -243,16 +245,71 @@ export const getUserAssetsData = async (params: {
           staticProvider
         );
 
-        const tokenName = await contract.symbol();
-        const c3TokenBalance = await contract.balanceOf(params.userAddress);
-        const balance = formatUnits(c3TokenBalance);
-        const projectInfo = await contract.getProjectInfo();
+        const promises = [
+          contract.symbol(),
+          contract.balanceOf(params.userAddress),
+          contract.getProjectInfo(),
+        ];
+        const [tokenName, c3TokenBalance, projectInfo] = await Promise.all(
+          promises
+        );
 
         resolvedAssets.push({
           tokenAddress: asset,
           tokenName,
+          balance: formatUnits(c3TokenBalance),
           projectName: projectInfo.name,
-          balance,
+        });
+        return resolvedAssets;
+      },
+      Promise.resolve([])
+    );
+    return assetsData;
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const getAssetsExtended = async (params: {
+  assets: string[];
+  userAddress: string;
+}): Promise<AssetExtended[]> => {
+  try {
+    const assetsData = await params.assets.reduce<Promise<AssetExtended[]>>(
+      async (resultPromise, asset) => {
+        const resolvedAssets = await resultPromise;
+        const contract = new ethers.Contract(
+          asset,
+          C3ProjectToken.abi,
+          staticProvider
+        );
+
+        const promises = [
+          contract.symbol(),
+          contract.balanceOf(params.userAddress),
+          contract.getProjectInfo(),
+          contract.getProjectIdentifier(),
+          contract.getVintage(),
+        ];
+
+        const [tokenName, c3TokenBalance, projectInfo, projectKey, vintage] =
+          await Promise.all(promises);
+
+        resolvedAssets.push({
+          tokenAddress: asset,
+          tokenName,
+          balance: formatUnits(c3TokenBalance),
+          projectId: projectInfo.project_id,
+          key: projectKey,
+          vintage: ethers.utils.formatUnits(vintage, 0),
+          projectName: projectInfo.name,
+          projectType: projectInfo.project_type,
+          country: projectInfo.country,
+          methodology: projectInfo.methodology,
+          registry: projectInfo.registry,
+          projectUrl: projectInfo.uri,
+          active: projectInfo.active,
+          category: getCategoryFromMethodology(projectInfo.methodology),
         });
         return resolvedAssets;
       },
@@ -276,4 +333,11 @@ export const getTokenBalance = async (params: {
 
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance); // TODO: ensure to pass 6 later for USDC
+};
+
+export const getUSDCBalance = async (params: { userAddress: string }) => {
+  return getTokenBalance({
+    userAddress: params.userAddress, // TODO: replace this contract getter with getContract("<usdc>") later
+    tokenAddress: FAKE_USDC,
+  });
 };

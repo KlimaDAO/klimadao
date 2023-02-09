@@ -32,10 +32,10 @@ msgstr ""
 
 #: components/Stats/index.tsx:57
 msgid "Active listings:"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:152
-#: components/pages/Project/Purchase/PurchaseForm.tsx:185
+#: components/pages/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Project/Purchase/PurchaseForm.tsx:184
 msgid "Available:"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:107
 msgid "Final price"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #: components/Footer/index.tsx:20
 msgid "Home"
@@ -90,9 +90,9 @@ msgstr ""
 #: components/pages/Users/SellerConnected/index.tsx:175
 #: components/pages/Users/SellerUnconnected/index.tsx:52
 msgid "Listings"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:188
+#: components/pages/Project/Purchase/PurchaseForm.tsx:187
 msgid "Loading..."
 msgstr ""
 
@@ -134,6 +134,7 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
+#: components/pages/Portfolio/AssetProject/index.tsx:40
 #: components/pages/Project/ProjectListing/index.tsx:53
 msgid "Quantity Available:"
 msgstr ""
@@ -146,6 +147,14 @@ msgstr ""
 #: components/shared/Navigation/index.tsx:70
 #: components/shared/Navigation/index.tsx:95
 msgid "Resources"
+msgstr ""
+
+#: components/pages/Portfolio/AssetProject/index.tsx:45
+msgid "Retire"
+msgstr ""
+
+#: components/pages/Portfolio/AssetProject/index.tsx:49
+msgid "Sell"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:42
@@ -207,6 +216,10 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:67
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
+msgstr ""
+
+#: components/pages/Portfolio/index.tsx:129
+msgid "We couldn't find any C3 tokens in your connected wallet :("
 msgstr ""
 
 #: components/Activities/Activities.constants.ts:5
@@ -296,6 +309,10 @@ msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:16
 msgid "menu.wallet_address"
+msgstr ""
+
+#: components/pages/Portfolio/Balances/index.tsx:72
+msgid "portfolio.balances.title"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/AddListing.tsx:158
@@ -411,15 +428,15 @@ msgstr ""
 msgid "project.single.methodology"
 msgstr ""
 
-#: components/Activities/Activity.tsx:69
+#: components/Activities/Activity.tsx:70
 msgid "props.transaction.conjunction"
 msgstr ""
 
-#: components/Activities/Activity.tsx:22
+#: components/Activities/Activity.tsx:23
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:211
+#: components/pages/Project/Purchase/PurchaseForm.tsx:210
 msgid "purchase.button.continue"
 msgstr ""
 
@@ -427,23 +444,23 @@ msgstr ""
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:145
+#: components/pages/Project/Purchase/PurchaseForm.tsx:144
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseForm.tsx:137
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseForm.tsx:130
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:115
+#: components/pages/Project/Purchase/PurchaseForm.tsx:114
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:124
+#: components/pages/Project/Purchase/PurchaseForm.tsx:123
 msgid "purchase.input.amount.required"
 msgstr ""
 
@@ -451,11 +468,11 @@ msgstr ""
 msgid "purchase.input.cost.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:168
+#: components/pages/Project/Purchase/PurchaseForm.tsx:167
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+#: components/pages/Project/Purchase/PurchaseForm.tsx:160
 msgid "purchase.input.price.required"
 msgstr ""
 
@@ -625,7 +642,7 @@ msgid "shared.approve"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:197
+#: components/pages/Project/Purchase/PurchaseForm.tsx:196
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""
@@ -650,14 +667,14 @@ msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:207
 msgid "shared.resources.sort_by.header"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/CreateAListingModal.tsx:138
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:216
 msgid "tonnes.long"
 msgstr ""
 
-#: components/Activities/Activity.tsx:13
+#: components/Activities/Activity.tsx:14
 msgid "tonnes.short"
 msgstr ""
 
@@ -899,6 +916,7 @@ msgstr ""
 msgid "user.stats.title"
 msgstr ""
 
+#: components/pages/Portfolio/index.tsx:148
 #: components/pages/Users/SellerConnected/index.tsx:247
 msgid "user.stats.your_seller_data.description"
 msgstr ""

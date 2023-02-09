@@ -103,7 +103,9 @@ export const categoryInfoMap: CategoryInfoMap = {
   },
 };
 
-export const getFirstCategory = (categories: CategoryNames): CategoryName => {
+export const getFirstCategory = (
+  categories: CategoryNames | CategoryName
+): CategoryName => {
   const categoryArray = categories.split(",");
   return categoryArray[0].trim() as CategoryName;
 };

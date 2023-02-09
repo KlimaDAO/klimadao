@@ -1,7 +1,8 @@
+import { CarbonmarkToken } from "@klimadao/lib/types/carbonmark";
 import { StaticImageData } from "next/legacy/image";
+import C3 from "public/icons/c3_token.png";
+import TC02 from "public/icons/tucan_token.png";
 import USDC from "public/icons/USDC.png";
-
-export type CarbonmarkToken = "usdc"; // what are the others?
 
 type CarbonmarkTokenMap = {
   [key in CarbonmarkToken]: {
@@ -13,4 +14,6 @@ type CarbonmarkTokenMap = {
 
 export const carbonmarkTokenInfoMap: CarbonmarkTokenMap = {
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
+  c3: { key: "c3", icon: C3, label: "C3" },
+  tc02: { key: "tc02", icon: TC02, label: "TC02" },
 };

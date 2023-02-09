@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
-import { CategoryNames } from "@klimadao/lib/types/carbonmark";
+import { CategoryName, CategoryNames } from "@klimadao/lib/types/carbonmark";
 import { categoryInfoMap, getFirstCategory } from "lib/getCategoryInfo";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  category: CategoryNames;
+  category: CategoryNames | CategoryName;
 };
 
 export const Category: FC<Props> = (props) => {

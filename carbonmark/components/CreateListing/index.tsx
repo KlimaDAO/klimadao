@@ -13,7 +13,7 @@ import {
   onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AddListing, FormValues } from "./Forms/AddListing";
+import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
 type Props = {
@@ -21,25 +21,31 @@ type Props = {
   showModal: boolean;
   onModalClose: () => void;
   onSubmit: () => void;
+  successScreen?: React.ReactNode;
 };
 
-export const CreateAListingModal: FC<Props> = (props) => {
+export const CreateListing: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
 
   const isPending =
     status?.statusType === "userConfirmation" ||
     status?.statusType === "networkConfirmation";
 
-  const showTransactionView = !!inputValues && !!allowanceValue;
+  const showSuccessScreen = success && !!props.successScreen;
+  const showTransactionView =
+    !!inputValues && !!allowanceValue && !showSuccessScreen;
+  const showForm = !showTransactionView && !isLoading && !showSuccessScreen;
 
   const resetStateAndCloseModal = () => {
     setInputValues(null);
     setAllowanceValue(null);
     setStatus(null);
+    setSuccess(false);
     props.onModalClose();
   };
 
@@ -101,7 +107,8 @@ export const CreateAListingModal: FC<Props> = (props) => {
       });
 
       props.onSubmit();
-      resetStateAndCloseModal();
+      setSuccess(true);
+      !props.successScreen && resetStateAndCloseModal(); // close only if no success screen provided
     } catch (e) {
       console.error("Error in onAddListing", e);
       return;
@@ -117,8 +124,8 @@ export const CreateAListingModal: FC<Props> = (props) => {
       showModal={props.showModal}
       onToggleModal={onModalClose}
     >
-      {!showTransactionView && !isLoading && (
-        <AddListing
+      {showForm && (
+        <CreateListingForm
           assets={props.assets}
           onSubmit={onAddListingFormSubmit}
           values={inputValues}
@@ -126,7 +133,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
       )}
 
       {isLoading && (
-        <div className={styles.spinnerContainer}>
+        <div className={styles.centerContent}>
           <Spinner />
         </div>
       )}
@@ -159,6 +166,10 @@ export const CreateAListingModal: FC<Props> = (props) => {
             setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
           }}
         />
+      )}
+
+      {showSuccessScreen && (
+        <div className={styles.centerContent}>{props.successScreen}</div>
       )}
     </Modal>
   );
