@@ -1,21 +1,24 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { offsetCompatibility, retirementTokens } from "@klimadao/lib/constants";
+import {
+  offsetCompatibility,
+  offsetInputTokens,
+  retirementTokens,
+} from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import debounce from "lodash/debounce";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "state";
 
-import {
-  getOffsetConsumptionCost,
-  getRetiredOffsetBalances,
-  getRetirementAllowances,
-} from "actions/offset";
+import { getRetiredOffsetBalances } from "actions/offset";
+import { getRedeemAllowances, getRedeemCost } from "actions/redeem";
+import { selectAllowancesWithParams } from "state/selectors";
 
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { InputField } from "components/Form";
 import { tokenInfo } from "lib/getTokenInfo";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import { getFiatRetirementCost } from "../Offset/lib/getFiatRetirementCost";
 import { SelectiveRetirement } from "../Offset/SelectiveRetirement";
@@ -44,7 +47,7 @@ const defaultValues = {
   projectAddress: "",
   project: {},
   quantity: 0,
-  paymentMethod: "fiat",
+  paymentMethod: "usdc", //todo fiat default
   cost: "0",
 };
 
@@ -64,6 +67,12 @@ const retirementTokenItems = (paymentMethod) =>
 
 export const Redeem = (props) => {
   const dispatch = useAppDispatch();
+  const allowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: offsetInputTokens,
+      spender: "retirementAggregatorV2",
+    })
+  );
 
   const [retirementTokenModalOpen, setRetirementTokenModalOpen] =
     useState(false);
@@ -71,36 +80,20 @@ export const Redeem = (props) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
 
   // form control
-  const { register, handleSubmit, formState, setValue, getValues, watch } =
-    useForm<RedeemFormValues>({
-      defaultValues,
-      mode: "onChange",
-      resolver: yupResolver(formSchema),
-    });
+  const {
+    register,
+    handleSubmit,
+    formState,
+    setValue,
+    getValues,
+    watch,
+    values,
+  } = useForm<RedeemFormValues>({
+    defaultValues,
+    mode: "onChange",
+    resolver: yupResolver(formSchema),
+  });
   const { isDirty, errors } = formState;
-
-  const values = getValues();
-
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
-
-  useEffect(() => {
-    if (props.isConnected && props.address) {
-      dispatch(
-        getRetiredOffsetBalances({
-          address: props.address,
-          onRPCError: props.onRPCError,
-        })
-      );
-      dispatch(
-        getRetirementAllowances({
-          address: props.address,
-          onRPCError: props.onRPCError,
-        })
-      );
-    }
-  }, [props.isConnected, props.address]);
 
   const retirementToken = watch("retirementToken");
   const selectedProject = watch("project");
@@ -111,21 +104,40 @@ export const Redeem = (props) => {
   const setSelectedProject = (project) => setValue("project", project);
   const setProjectAddress = (address) => setValue("projectAddress", address);
 
+  // const values = getValues();
+
+  // useEffect(() => {
+  //   console.log(allowances);
+  // }, [values]);
+
+  useEffect(() => {
+    if (props.isConnected && props.address) {
+      dispatch(
+        getRetiredOffsetBalances({
+          address: props.address,
+          onRPCError: props.onRPCError,
+        })
+      );
+      dispatch(
+        getRedeemAllowances({
+          address: props.address,
+          onRPCError: props.onRPCError,
+        })
+      );
+    }
+  }, [props.isConnected, props.address]);
+
+  // calculate cost
   useEffect(() => {
     if (quantity === 0) return;
 
     const awaitGetOffsetConsumptionCost = async () => {
       setValue("cost", null);
       // setValue("quantity", 0);
-
+      const values = getValues();
       if (paymentMethod !== "fiat") {
-        const [consumptionCost] = await getOffsetConsumptionCost({
-          inputToken: paymentMethod,
-          retirementToken: retirementToken,
-          quantity: quantity.toString(),
-          amountInCarbon: true,
-          getSpecific: !!projectAddress,
-        });
+        console.log({ ...values });
+        const [consumptionCost] = await getRedeemCost({ ...values });
         setValue("cost", consumptionCost);
       } else {
         const floorQuantity =
@@ -197,7 +209,7 @@ export const Redeem = (props) => {
     // }
     return {
       label: t({ id: "shared.redeem", message: "Redeem carbon" }),
-      onClick: () => setShowTransactionModal(true),
+      // onClick: () => setShowTransactionModal(true),
     };
   };
 
