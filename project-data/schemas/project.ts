@@ -113,10 +113,15 @@ export default defineType({
         }),
     }),
     defineField({
-      type: "reference",
-      name: "methodology",
-      to: [{ type: "methodology" }],
-      description: "Project methodology",
+      type: "array",
+      name: "methodologies",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "methodology" }],
+        },
+      ],
+      description: "Methodologies applied by the project",
       group: "info",
     }),
     {
