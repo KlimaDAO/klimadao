@@ -31,3 +31,9 @@ export const offsetCard_ui = css`
     height: 3.2rem;
   }
 `;
+
+export const redeemCard_header_title = css`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;

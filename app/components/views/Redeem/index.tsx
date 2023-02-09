@@ -1,22 +1,31 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import {
   offsetCompatibility,
   offsetInputTokens,
   retirementTokens,
 } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
+import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import debounce from "lodash/debounce";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
 
 import { getRetiredOffsetBalances } from "actions/offset";
 import { getRedeemAllowances, getRedeemCost } from "actions/redeem";
-import { selectAllowancesWithParams } from "state/selectors";
+import { changeApprovalTransaction } from "actions/utils";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import {
+  selectAllowancesWithParams,
+  selectNotificationStatus,
+} from "state/selectors";
+import { setAllowance } from "state/user";
 
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { InputField } from "components/Form";
+import { TransactionModal } from "components/TransactionModal";
 import { tokenInfo } from "lib/getTokenInfo";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
@@ -29,6 +38,7 @@ import {
   redeemErrorTranslationsMap,
   RedeemFormValues,
 } from "./lib/formSchema";
+import { getApprovalValue } from "./lib/getApprovalValue";
 import { PaymentMethodInput } from "./PaymentMethodInput";
 import { RedeemLayout } from "./RedeemLayout";
 
@@ -66,6 +76,12 @@ const retirementTokenItems = (paymentMethod) =>
   });
 
 export const Redeem = (props) => {
+  const [retirementTokenModalOpen, setRetirementTokenModalOpen] =
+    useState(false);
+  const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
@@ -74,10 +90,15 @@ export const Redeem = (props) => {
     })
   );
 
-  const [retirementTokenModalOpen, setRetirementTokenModalOpen] =
-    useState(false);
-  const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false);
-  const [submitting, setSubmitting] = useState<boolean>(false);
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  };
+
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
+  const status = fullStatus?.statusType;
 
   // form control
   const {
@@ -213,6 +234,44 @@ export const Redeem = (props) => {
     };
   };
 
+  const closeTransactionModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
+  const hasApproval =
+    paymentMethod !== "fiat" &&
+    !!allowances?.[paymentMethod] &&
+    !!Number(allowances?.[paymentMethod]) &&
+    Number(cost) <= Number(allowances?.[paymentMethod]); // Caution: Number trims values down to 17 decimal places of precision
+
+  const handleApprove = async () => {
+    try {
+      if (!props.provider || paymentMethod === "fiat" || !cost) return;
+
+      const token = paymentMethod;
+      const spender = "retirementAggregatorV2";
+
+      const approvedValue = await changeApprovalTransaction({
+        value: getApprovalValue({ cost, paymentMethod }),
+        provider: props.provider,
+        token,
+        spender,
+        onStatus: setStatus,
+      });
+
+      dispatch(
+        setAllowance({
+          token,
+          spender,
+          value: approvedValue,
+        })
+      );
+    } catch (e) {
+      return;
+    }
+  };
+
   return (
     <RedeemLayout>
       <div className={styles.offsetCard_ui}>
@@ -283,8 +342,30 @@ export const Redeem = (props) => {
           {...getButtonProps()}
           // label={submitting ? "Redeeming" : "Redeem"} // TODO}
           // onClick={handleSubmit(onSubmit)}
+          onClick={() => setShowTransactionModal(true)}
         />
       </div>
+
+      {!showTransactionModal && paymentMethod !== "fiat" && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.redeemCard_header_title}>
+              <ParkOutlined />
+              <Trans id="offset.retire_carbon">Redeem Carbon</Trans>
+            </Text>
+          }
+          onCloseModal={closeTransactionModal}
+          token={paymentMethod}
+          spender={"retirementAggregatorV2"}
+          value={cost.toString()}
+          approvalValue={getApprovalValue({ cost, paymentMethod })}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApprove}
+          hasApproval={hasApproval}
+          // onSubmit={handleRetire}
+        />
+      )}
     </RedeemLayout>
   );
 };
