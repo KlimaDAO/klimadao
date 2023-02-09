@@ -15,10 +15,8 @@ import { formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
   getAllListings,
-  getAmountLeftToSell,
   getLowestPriceFromListings,
   getSortByUpdateListings,
-  getTotalAmountSold,
 } from "lib/listingsGetter";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -138,15 +136,8 @@ export const Project: NextPage<Props> = (props) => {
           <Col>
             <Stats
               description="Data for this project and vintage"
-              stats={{
-                tonnesSold:
-                  (!!allListings && getTotalAmountSold(allListings)) || 0,
-                tonnesOwned:
-                  (!!activeListings && getAmountLeftToSell(activeListings)) ||
-                  0,
-                activeListings:
-                  (!!activeListings && activeListings.length) || 0,
-              }}
+              allListings={allListings || []}
+              activeListings={activeListings || []}
             />
             <Activities activities={props.project.activities || []} />
           </Col>

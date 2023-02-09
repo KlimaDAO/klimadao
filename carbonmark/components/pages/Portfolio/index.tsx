@@ -11,12 +11,7 @@ import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getAssetsExtended } from "lib/actions";
 import { getUser } from "lib/api";
-import {
-  getActiveListings,
-  getAllListings,
-  getAmountLeftToSell,
-  getTotalAmountSold,
-} from "lib/listingsGetter";
+import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -191,15 +186,8 @@ export const Portfolio: NextPage = () => {
           <Col>
             <Balances />
             <Stats
-              stats={{
-                tonnesSold:
-                  (!!allListings && getTotalAmountSold(allListings)) || 0,
-                tonnesOwned:
-                  (!!activeListings && getAmountLeftToSell(activeListings)) ||
-                  0,
-                activeListings:
-                  (!!activeListings && activeListings.length) || 0,
-              }}
+              allListings={allListings || []}
+              activeListings={activeListings || []}
               description={t({
                 id: "user.stats.your_seller_data.description",
                 message: "Your seller data",

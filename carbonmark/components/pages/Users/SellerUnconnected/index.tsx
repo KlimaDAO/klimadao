@@ -9,9 +9,7 @@ import { createProjectPurchaseLink } from "lib/createUrls";
 import {
   getActiveListings,
   getAllListings,
-  getAmountLeftToSell,
   getSortByUpdateListings,
-  getTotalAmountSold,
 } from "lib/listingsGetter";
 import { FC } from "react";
 import { Listing } from "../Listing";
@@ -95,13 +93,8 @@ export const SellerUnconnected: FC<Props> = (props) => {
         </Col>
         <Col>
           <Stats
-            stats={{
-              tonnesSold:
-                (!!allListings && getTotalAmountSold(allListings)) || 0,
-              tonnesOwned:
-                (!!activeListings && getAmountLeftToSell(activeListings)) || 0,
-              activeListings: (!!activeListings && activeListings.length) || 0,
-            }}
+            allListings={allListings || []}
+            activeListings={activeListings || []}
           />
           <Activities activities={userData?.activities || []} />
         </Col>

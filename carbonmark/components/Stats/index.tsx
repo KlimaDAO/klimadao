@@ -1,24 +1,32 @@
 import { Text } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
-import { useRouter } from "next/router";
-import { FC } from "react";
-
-import { Stats as StatsType } from "@klimadao/lib/types/carbonmark";
+import { Listing } from "@klimadao/lib/types/carbonmark";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Card } from "components/Card";
-
+import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
+import { useRouter } from "next/router";
+import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  stats?: StatsType;
+  allListings?: Listing[];
+  activeListings?: Listing[];
   description?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
   const { locale } = useRouter();
+  const tonnesSold =
+    (!!props.allListings?.length && getTotalAmountSold(props.allListings)) || 0;
+  const tonnesOwned =
+    (!!props.activeListings?.length &&
+      getAmountLeftToSell(props.activeListings)) ||
+    0;
+  const activeListings = props.activeListings?.length || 0;
+
   return (
     <Card>
       <Text t="h4">
@@ -37,9 +45,7 @@ export const Stats: FC<Props> = (props) => {
             <StoreOutlinedIcon />
             <Trans>Tonnes sold:</Trans>
           </Text>
-          <Text t="caption">
-            {trimWithLocale(props.stats?.tonnesSold || 0, 2, locale)}
-          </Text>
+          <Text t="caption">{trimWithLocale(tonnesSold || 0, 2, locale)}</Text>
         </div>
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>
@@ -48,7 +54,7 @@ export const Stats: FC<Props> = (props) => {
           </Text>
           <Text t="caption">
             {" "}
-            {trimWithLocale(props.stats?.tonnesOwned || 0, 2, locale)}
+            {trimWithLocale(tonnesOwned || 0, 2, locale)}
           </Text>
         </div>
         <div className={styles.listItem}>
@@ -56,7 +62,7 @@ export const Stats: FC<Props> = (props) => {
             <SellOutlinedIcon />
             <Trans>Active listings:</Trans>
           </Text>
-          <Text t="caption">{props.stats?.activeListings || "-"}</Text>
+          <Text t="caption">{activeListings || "-"}</Text>
         </div>
       </div>
     </Card>

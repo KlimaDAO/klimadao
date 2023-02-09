@@ -19,9 +19,7 @@ import { pollUntil } from "lib/pollUntil";
 import {
   getActiveListings,
   getAllListings,
-  getAmountLeftToSell,
   getSortByUpdateListings,
-  getTotalAmountSold,
 } from "lib/listingsGetter";
 
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -237,13 +235,8 @@ export const SellerConnected: FC<Props> = (props) => {
 
         <Col>
           <Stats
-            stats={{
-              tonnesSold:
-                (!!allListings && getTotalAmountSold(allListings)) || 0,
-              tonnesOwned:
-                (!!activeListings && getAmountLeftToSell(activeListings)) || 0,
-              activeListings: (!!activeListings && activeListings.length) || 0,
-            }}
+            allListings={allListings || []}
+            activeListings={activeListings || []}
             description={t({
               id: "user.stats.your_seller_data.description",
               message: "Your seller data",
