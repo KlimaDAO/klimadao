@@ -61,11 +61,11 @@ module.exports = async function (fastify, opts) {
             });
 
             const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
-                let country = project.country.length ? 
+                let country = project.country.length ?
                     {
                         "id": project.country
                     } : null;
-                
+
                 let singleProject = {
                     "id": project.id,
                     "isPoolProject": true,
@@ -75,7 +75,7 @@ module.exports = async function (fastify, opts) {
                     "methodology": project.methodology,
                     "vintage": project.vintageYear,
                     "projectAddress": project.tokenAddress,
-                    "registry":project.projectID.split("-")[0],
+                    "registry": project.projectID.split("-")[0],
                     "updatedAt": project.lastUpdate,
                     "category": {
                         "id": project.methodologyCategory
@@ -207,13 +207,13 @@ module.exports = async function (fastify, opts) {
                 } else {
 
                     var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintageStr });
-                     if (data.data.carbonOffsets[0]) {
+                    if (data.data.carbonOffsets[0]) {
                         project = { ...data.data.carbonOffsets[0] }
-                        let country = project.country.length ? 
-                        {
-                            "id": project.country
-                        } : null;
-                    
+                        let country = project.country.length ?
+                            {
+                                "id": project.country
+                            } : null;
+
                         project = {
                             "id": project.id,
                             "isPoolProject": true,
@@ -248,10 +248,10 @@ module.exports = async function (fastify, opts) {
                         project.location = {
                             type: "Feature",
                             geometry: {
-                              type: "Point",
-                              coordinates: [results.location.longitude, results.location.latitude] // note here that geojson is different from other specs: it uses [x, y] not [y, x]
+                                type: "Point",
+                                coordinates: [results.location.longitude, results.location.latitude] // note here that geojson is different from other specs: it uses [x, y] not [y, x]
                             }
-                          }
+                        }
                         project.description = results.description;
                     } else if (project.registry == "GS") {
 

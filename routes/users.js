@@ -274,9 +274,7 @@ module.exports = async function (fastify, opts) {
                             "code": 403,
                             "error": "This user is already registered!"
                         });
-                    }
-                    // Iterate through the documents and assign the first one to the user variable
-                    
+                    }                    
 
                 try {
                     // Try creating a new user document with the specified data
