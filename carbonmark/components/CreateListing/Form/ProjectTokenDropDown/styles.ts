@@ -36,6 +36,7 @@ export const dropDownMenu = css`
 `;
 
 export const projectButton = css`
+  width: 100%;
   display: flex;
   align-items: center;
   border-radius: 1rem;

@@ -49,10 +49,13 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
             ))}
           </div>
         }
+        onShow={({ popper, reference }) => {
+          popper.style.width = reference.getBoundingClientRect().width + "px";
+        }}
         interactive={true}
         onClickOutside={onToggle}
         visible={isOpen}
-        placement="bottom-end"
+        placement="bottom-start"
         appendTo="parent"
         disabled={isDisabled}
       >
