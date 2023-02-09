@@ -37,10 +37,8 @@ module.exports = async function (fastify, opts) {
         },
         handler: async function (request, reply) {
 
-            //@todo -> calculate the minimum price
             const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS);
             let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
-            console.log(pooledProjectsData);
             const projects = data.data.projects.map(function (project) {
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
@@ -71,7 +69,7 @@ module.exports = async function (fastify, opts) {
                 let singleProject = {
                     "id": project.id,
                     "isPoolProject": true,
-                    "key": project.projectID + '-' + project.vintageYear,
+                    "key": project.projectID,
                     "projectID": project.projectID.split("-")[1],
                     "name": project.name,
                     "methodology": project.methodology,
