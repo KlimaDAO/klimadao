@@ -16,8 +16,12 @@ export interface Project {
   activities: ActivityType[] | null;
   updatedAt: string; // timestamp
   location?: {
-    latitude: number;
-    longitude: number;
+    // only defined for Verra projects
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
   };
   description?: string;
   isPoolProject?: boolean;
