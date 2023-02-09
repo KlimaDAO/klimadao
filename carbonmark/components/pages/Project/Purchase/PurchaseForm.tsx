@@ -86,6 +86,7 @@ export const PurchaseForm: FC<Props> = (props) => {
 
   const { register, handleSubmit, formState, control, setValue, clearErrors } =
     useForm<FormValues>({
+      mode: "onChange",
       defaultValues: {
         listingId: props.listing.id,
         ...props.values,
@@ -116,6 +117,8 @@ export const PurchaseForm: FC<Props> = (props) => {
               message: "Tonnes",
             }),
             type: "number",
+            min: 1,
+            max: Number(formatUnits(props.listing.leftToSell)),
             ...register("amount", {
               onChange: () => clearErrors("price"),
               required: {
