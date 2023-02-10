@@ -5,7 +5,6 @@ import { ParsedUrlQuery } from "querystring";
 import { Users } from "components/pages/Users";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
-import { getDomainByAddress } from "lib/shared/getDomainByAddress";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
 import { User } from "@klimadao/lib/types/carbonmark";
@@ -54,19 +53,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       } else {
         throw new Error("Not a valid user address");
       }
-    }
-
-    const nameserviceDomain =
-      !isDomainInURL && isValidAddress && (await getDomainByAddress(userInUrl));
-
-    // redirect now to this page again with nameserviceDomain in URL
-    if (nameserviceDomain) {
-      return {
-        redirect: {
-          destination: `/users/${nameserviceDomain}`,
-          statusCode: 301,
-        },
-      };
     }
 
     let userAddress: string;
