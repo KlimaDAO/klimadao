@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { t, Trans } from "@lingui/macro";
@@ -21,6 +22,7 @@ import {
 import { NextPage } from "next";
 import Link from "next/link";
 import { ProjectListing } from "./ProjectListing";
+import { ProjectMap } from "./ProjectMap";
 
 import * as styles from "./styles";
 
@@ -40,7 +42,6 @@ export const Project: NextPage<Props> = (props) => {
     !!activeListings &&
     !!activeListings.length &&
     getSortByUpdateListings(activeListings);
-
   return (
     <>
       <PageHead
@@ -106,6 +107,32 @@ export const Project: NextPage<Props> = (props) => {
             </Text>
             <Text t="caption" color="lighter" align="end">
               {props.project.registry}
+            </Text>
+          </div>
+        </div>
+        <div
+          className={cx(
+            {
+              hasMap: !!props.project.location,
+            },
+            styles.row
+          )}
+        >
+          {props.project.location && (
+            <div className={styles.mapContainer}>
+              <ProjectMap
+                lat={props.project.location?.geometry.coordinates[1]}
+                lng={props.project.location?.geometry.coordinates[0]}
+                zoom={5}
+              />
+            </div>
+          )}
+          <div className={styles.descriptionContainer}>
+            <Text t="body4">
+              <Trans>Description</Trans>
+            </Text>
+            <Text t="body8">
+              {props.project.description ?? "No project description found"}
             </Text>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Web3ContextProvider } from "@klimadao/lib/components";
 import "@klimadao/lib/theme/globals.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/variables.css";
+
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";

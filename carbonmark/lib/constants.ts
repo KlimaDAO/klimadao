@@ -28,3 +28,5 @@ export const connectErrorStrings = {
     id: "connect_modal.error_message_refused",
   }),
 };
+
+export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

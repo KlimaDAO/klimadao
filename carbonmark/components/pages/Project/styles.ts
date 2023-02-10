@@ -19,6 +19,41 @@ export const listingsHeader = css`
   grid-column: 1 / 3;
 `;
 
+export const mapContainer = css`
+  display: grid;
+  height: 100%;
+  min-height: 32rem;
+  min-width: 100%;
+  width: 100%;
+`;
+
+export const descriptionContainer = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+export const row = css`
+  display: grid;
+  gap: 4rem;
+  grid-column: 1/3;
+  grid-template-rows: 1fr;
+  ${breakpoints.large} {
+    grid-template-rows: auto;
+  }
+  &.hasMap {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    ${breakpoints.large} {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+`;
+
+export const hasMap = css``;
+
 export const listings = css`
   display: grid;
   gap: 2rem;
