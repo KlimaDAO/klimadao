@@ -54,15 +54,9 @@ export const SellerConnected: FC<Props> = (props) => {
 
   // load Assets every time user changed
   useEffect(() => {
-    // show error message if a carbonmark user has no assets
+    // stop loading assets when there are no assets to load
     if (isCarbonmarkUser && !hasAssets) {
       setIsLoadingAssets(false);
-      setErrorMessage(
-        t({
-          id: "profile.missing_assets",
-          message: "You do not have any c3 tokens to create a listing :(",
-        })
-      );
     }
 
     if (hasAssets) {
@@ -82,15 +76,12 @@ export const SellerConnected: FC<Props> = (props) => {
             (a) => Number(a.balance) > 0
           );
 
-          setAssetsData(assetsWithBalance);
+          if (assetsWithBalance.length) {
+            setAssetsData(assetsWithBalance);
+          }
         } catch (e) {
           console.error(e);
-          setErrorMessage(
-            t({
-              id: "profile.load_assets.error",
-              message: "There was an error loading your assets",
-            })
-          );
+          setErrorMessage(t`There was an error loading your assets. ${e}`);
         } finally {
           setIsLoadingAssets(false);
         }
@@ -112,15 +103,32 @@ export const SellerConnected: FC<Props> = (props) => {
       setSortedListings(sortedListings);
   }, [user]);
 
-  const onEditProfile = (data: User) => {
-    setUser((prev) => ({ ...prev, ...data }));
-    props.onToggleEditProfileModal();
+  const onEditProfile = async (data: User) => {
+    try {
+      setErrorMessage("");
+      if (isCarbonmarkUser) {
+        setUser((prev) => ({ ...prev, ...data }));
+      } else {
+        // for a new user, get all data from backend
+        const newUser = await getUser({
+          user: props.userAddress,
+          type: "wallet",
+        });
+        setUser((prev) => ({ ...prev, ...newUser }));
+      }
+    } catch (error) {
+      console.error("GET NEW USER DATA error", error);
+      setErrorMessage(t`There was an error getting your data: ${error}`);
+    } finally {
+      props.onToggleEditProfileModal();
+    }
   };
 
   const onUpdateUser = async () => {
     if (!user) return; // TS typeguard
 
     try {
+      setErrorMessage("");
       setIsUpdatingUser(true);
 
       const fetchUser = () =>
@@ -143,14 +151,11 @@ export const SellerConnected: FC<Props> = (props) => {
         maxAttempts: 50,
       });
 
-      setUser((prev) => ({ ...prev, ...updatedUser }));
+      updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
       setErrorMessage(
-        t({
-          id: "profile.update_activity.error",
-          message: `There was an error updating your data: ${e}`,
-        })
+        t`Please refresh the page. There was an error updating your data: ${e}.`
       );
     } finally {
       setIsUpdatingUser(false);
@@ -175,7 +180,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
           {errorMessage && (
             <Text t="h5" className={styles.errorMessage}>
-              <Trans>Error: </Trans> {errorMessage}
+              {errorMessage}
             </Text>
           )}
 
@@ -207,7 +212,12 @@ export const SellerConnected: FC<Props> = (props) => {
               </>
             )
           }
-          disabled={isLoadingAssets || !hasAssets || isUpdatingUser}
+          disabled={
+            isLoadingAssets ||
+            !hasAssets ||
+            isUpdatingUser ||
+            !assetsData?.length
+          }
           onClick={() => setShowCreateListingModal(true)}
         />
       </div>

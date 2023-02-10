@@ -30,7 +30,7 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/Stats/index.tsx:63
+#: components/Stats/index.tsx:65
 msgid "Active listings:"
 msgstr ""
 
@@ -75,12 +75,12 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:104
-msgid "Enter App"
+#: components/pages/Project/index.tsx:132
+msgid "Description"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:178
-msgid "Error:"
+#: components/shared/Navigation/index.tsx:104
+msgid "Enter App"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:107
@@ -91,12 +91,12 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:178
 #: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:143
+#: components/pages/Portfolio/index.tsx:148
 msgid "Loading your data..."
 msgstr ""
 
@@ -135,6 +135,11 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:63
 msgid "Payment Successful"
+msgstr ""
+
+#: components/pages/Portfolio/index.tsx:122
+#: components/pages/Users/SellerConnected/index.tsx:158
+msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
 #: components/Footer/index.tsx:33
@@ -188,6 +193,10 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
+msgid "Something went wrong. Please try again. {error}"
+msgstr ""
+
 #: components/pages/errors/Custom404.tsx:26
 msgid "Sorry, looks like we sent you the wrong way."
 msgstr ""
@@ -196,7 +205,7 @@ msgstr ""
 msgid "Sorry, something went wrong."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:167
+#: components/pages/Portfolio/index.tsx:178
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
 msgstr ""
 
@@ -212,6 +221,14 @@ msgstr ""
 msgid "The open platform for digital carbon."
 msgstr ""
 
+#: components/pages/Users/SellerConnected/index.tsx:121
+msgid "There was an error getting your data: {error}"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:84
+msgid "There was an error loading your assets. {e}"
+msgstr ""
+
 #: components/shared/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
@@ -220,11 +237,11 @@ msgstr ""
 msgid "This offer no longer exists."
 msgstr ""
 
-#: components/Stats/index.tsx:53
+#: components/Stats/index.tsx:55
 msgid "Tonnes owned:"
 msgstr ""
 
-#: components/Stats/index.tsx:46
+#: components/Stats/index.tsx:48
 msgid "Tonnes sold:"
 msgstr ""
 
@@ -236,7 +253,7 @@ msgstr ""
 msgid "Updates, guides and more from the CarbonMark team"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:222
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Updating your data..."
 msgstr ""
 
@@ -257,12 +274,16 @@ msgstr ""
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:179
+#: components/pages/Portfolio/index.tsx:190
 msgid "We couldn't find any C3 tokens in your connected wallet :("
 msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:62
 msgid "Wrong Network"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
+msgid "You chose to reject the transaction."
 msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:16
@@ -358,7 +379,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:200
+#: components/pages/Users/SellerConnected/index.tsx:205
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -370,11 +391,11 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:238
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:253
+#: components/pages/Users/SellerConnected/index.tsx:263
 msgid "profile.edit_profile.title"
 msgstr ""
 
@@ -394,25 +415,13 @@ msgstr ""
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:190
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "profile.listings.empty_state"
 msgstr ""
 
 #: components/CreateListing/index.tsx:120
 msgid "profile.listings_modal.title"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:89
-msgid "profile.load_assets.error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:61
-msgid "profile.missing_assets"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:150
-msgid "profile.update_activity.error"
 msgstr ""
 
 #: lib/getCategoryInfo.ts:87
@@ -443,7 +452,7 @@ msgstr ""
 msgid "project.category.renewable_energy"
 msgstr ""
 
-#: components/pages/Project/index.tsx:98
+#: components/pages/Project/index.tsx:99
 msgid "project.single.best_price"
 msgstr ""
 
@@ -455,7 +464,7 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/pages/Project/index.tsx:56
+#: components/pages/Project/index.tsx:57
 msgid "project.single.button.back_to_projects"
 msgstr ""
 
@@ -463,7 +472,7 @@ msgstr ""
 msgid "project.single.header.seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:105
+#: components/pages/Project/index.tsx:106
 msgid "project.single.methodology"
 msgstr ""
 
@@ -811,47 +820,35 @@ msgstr ""
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:95
-msgid "user.edit.form.error.api_error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
-msgid "user.edit.form.error.general_error"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
-msgid "user.edit.form.error.user_rejected"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:221
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:215
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "user.edit.form.input.handle.handle_exists"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:172
 msgid "user.edit.form.input.handle.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:165
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "user.edit.form.input.handle.pattern"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:139
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:131
 msgid "user.edit.form.input.handle.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
@@ -867,15 +864,15 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "user.edit.form.input.username.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
@@ -937,21 +934,21 @@ msgstr ""
 msgid "user.login.title"
 msgstr ""
 
-#: components/Stats/index.tsx:37
+#: components/Stats/index.tsx:39
 msgid "user.stats.seller.description"
 msgstr ""
 
-#: components/Stats/index.tsx:33
+#: components/Stats/index.tsx:35
 msgid "user.stats.title"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:191
-#: components/pages/Users/SellerConnected/index.tsx:240
+#: components/pages/Portfolio/index.tsx:202
+#: components/pages/Users/SellerConnected/index.tsx:250
 msgid "user.stats.your_seller_data.description"
 msgstr ""
 
-#: components/pages/Project/index.tsx:47
 #: components/pages/Project/index.tsx:48
+#: components/pages/Project/index.tsx:49
 msgid "{0} | Carbonmark"
 msgstr ""
 

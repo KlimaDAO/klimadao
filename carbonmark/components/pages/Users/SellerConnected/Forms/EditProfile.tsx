@@ -87,36 +87,28 @@ export const EditProfile: FC<Props> = (props) => {
         });
       }
 
-      if (response) {
+      if (response.handle) {
         props.onSubmit(response);
       } else {
-        setIsLoading(false);
-        setErrorMessage(
-          t({
-            id: "user.edit.form.error.api_error",
-            message:
-              "There was an error with the Request API. Please try again",
-          })
-        );
+        throw new Error("Handle is missing!");
       }
     } catch (error: any) {
-      setIsLoading(false);
       console.error(error);
       if (error.code === "ACTION_REJECTED") {
         setErrorMessage(
           t({
-            id: "user.edit.form.error.user_rejected",
             message: "You chose to reject the transaction.",
           })
         );
       } else {
         setErrorMessage(
           t({
-            id: "user.edit.form.error.general_error",
-            message: "Something went wrong. Please try again",
+            message: `Something went wrong. Please try again. ${error}`,
           })
         );
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 

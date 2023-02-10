@@ -13,7 +13,7 @@ export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (!res.ok || !data.nonce) {
     throw new Error(data.message);
   }
   return data;
@@ -34,17 +34,12 @@ export const verifyUser = async (params: {
     }),
   });
 
-  try {
-    const data = await res.json();
+  const data = await res.json();
 
-    if (res.status !== 200 || !data.token) {
-      throw new Error(data.message);
-    }
-    return data;
-  } catch (e) {
-    console.error("Error verifyUser", e);
-    throw new Error("Error verifyUser");
+  if (!res.ok || !data.token) {
+    throw new Error(data.message);
   }
+  return data;
 };
 
 export const putUser = async (params: {
@@ -62,7 +57,7 @@ export const putUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (!res.ok || data.error) {
     throw new Error(data.message);
   }
   return data;
@@ -83,7 +78,7 @@ export const postUser = async (params: {
 
   const data = await res.json();
 
-  if (res.status !== 200) {
+  if (!res.ok || data.error) {
     throw new Error(data.message);
   }
   return data;
@@ -93,13 +88,12 @@ export const getUser = async (params: {
   user: string;
   type: "wallet" | "handle";
 }): Promise<User> => {
-  try {
-    const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
+  const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
 
-    const json = await result.json();
-    return json;
-  } catch (e) {
-    console.error("Failed to getUser", e);
-    return Promise.reject(e);
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
   }
+  return data;
 };
