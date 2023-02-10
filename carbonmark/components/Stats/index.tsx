@@ -19,12 +19,14 @@ interface Props {
 
 export const Stats: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const tonnesSold =
-    (!!props.allListings?.length && getTotalAmountSold(props.allListings)) || 0;
-  const tonnesOwned =
-    (!!props.activeListings?.length &&
-      getAmountLeftToSell(props.activeListings)) ||
-    0;
+  const tonnesSold = props.allListings?.length
+    ? getTotalAmountSold(props.allListings)
+    : 0;
+
+  const tonnesOwned = props.activeListings?.length
+    ? getAmountLeftToSell(props.activeListings)
+    : 0;
+
   const activeListings = props.activeListings?.length || 0;
 
   return (

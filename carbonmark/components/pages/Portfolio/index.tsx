@@ -39,14 +39,14 @@ export const Portfolio: NextPage = () => {
   useEffect(() => {
     if (!isConnectedUser) return;
 
-    const getUserData = async () => {
+    const getInitialUserData = async () => {
       try {
         setIsLoadingUser(true);
-        const user = await getUser({
+        const newUser = await getUser({
           type: "wallet",
           user: address,
         });
-        setUser(user);
+        setUser(newUser);
       } catch (error) {
         console.error(error);
       } finally {
@@ -54,7 +54,7 @@ export const Portfolio: NextPage = () => {
       }
     };
 
-    !user && getUserData();
+    !user && getInitialUserData();
   }, [isConnectedUser]);
 
   // load Assets every time user changed
