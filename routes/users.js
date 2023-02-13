@@ -3,9 +3,12 @@ const { executeGraphQLQuery } = require('../apollo-client.js');
 const { GET_USER_DATA } = require('../queries/users.js');
 const ethers = require('ethers');
 const jwt = require('jsonwebtoken');
+const { GET_USER_ASSETS } = require('../queries/user_assets.js');
 
 const generateNounce = () => (Math.random() + 1).toString(36).substring(2);
 const users = {};
+
+
 
 
 module.exports = async function (fastify, opts) {
@@ -204,7 +207,18 @@ module.exports = async function (fastify, opts) {
                     response.listings = [];
                     response.activities = [];
                     // Add a fixed array of assets to the response object
+                }
+
+                if (process.env.ENV == 'local') {
                     response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
+
+                } else {
+                    const data = await executeGraphQLQuery(process.env.ASSETS_GRAPH_API_URL, GET_USER_ASSETS,  {wallet: '0x000000000000000000000000000000000000dead'} );
+                    if (data.data.accounts.length) {
+                        response.assets = data.data.accounts[0].holdings
+                    } else {
+                        response.assets = [];
+                    }
                 }
                 // Return the response object
                 return reply.send(response);
