@@ -7,6 +7,10 @@ export const list = css`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
+  a {
+    width: 100%;
+    max-width: 32rem;
+  }
 `;
 
 export const card = css`
@@ -14,6 +18,7 @@ export const card = css`
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
   max-width: 32rem;
+  width: 100%;
   display: flex;
   gap: 1.6rem;
   flex-direction: column;
@@ -29,6 +34,7 @@ export const card = css`
 export const cardImage = css`
   position: relative;
   overflow: hidden;
+  width: 100%;
   height: 12rem;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 `;
