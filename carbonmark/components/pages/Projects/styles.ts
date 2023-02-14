@@ -46,5 +46,4 @@ export const tags = css`
   flex-direction: row;
   margin-top: auto;
   align-items: center;
-  justify-content: space-between;
 `;
