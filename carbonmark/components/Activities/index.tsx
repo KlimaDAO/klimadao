@@ -17,7 +17,7 @@ export const Activities: FC<Props> = (props) => {
     (hasActivities &&
       props.activities
         .sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp))
-        .slice(0, 20)) ||
+        .slice(0, 5)) ||
     [];
 
   return (
