@@ -40,15 +40,13 @@ export const NavMenu: React.FC<Props> = (props) => {
       >
         <Trans id="menu.profile">Profile</Trans>
       </MenuButton>
-      {isConnected && (
-        <MenuButton
-          isActive={pathname.startsWith("/portfolio")}
-          href="/portfolio"
-          icon={<ViewQuiltOutlinedIcon />}
-        >
-          <Trans id="menu.portfolio">Portfolio</Trans>
-        </MenuButton>
-      )}
+      <MenuButton
+        isActive={pathname.startsWith("/portfolio")}
+        href="/portfolio"
+        icon={<ViewQuiltOutlinedIcon />}
+      >
+        <Trans id="menu.portfolio">Portfolio</Trans>
+      </MenuButton>
     </>
   );
 };
