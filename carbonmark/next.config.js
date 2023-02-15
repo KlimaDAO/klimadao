@@ -12,6 +12,8 @@ module.exports = async (phase, { defaultConfig }) => {
 
   const nextConfig = {
     reactStrictMode: true,
+    //Provide source maps on preview deployments
+    productionBrowserSourceMaps: !IS_PRODUCTION,
     async redirects() {
       return [
         {
