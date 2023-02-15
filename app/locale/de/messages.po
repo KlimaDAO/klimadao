@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-14 15:36+0000\n"
+"POT-Creation-Date: 2023-02-15 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -332,7 +332,7 @@ msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 
 #: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
-msgstr ""
+msgstr "Benutzer verweigerte Verbindung."
 
 #: components/views/Home/index.tsx:183
 msgid "connect_modal.error_title"
@@ -344,7 +344,7 @@ msgstr "Anmelden / Verbinden"
 
 #: components/views/errors/Custom404.tsx:19
 msgid "error.404.page.text"
-msgstr ""
+msgstr "Entschuldigung, sieht so aus, als hätten wir dich in die falsche Richtung geschickt. <0/>Bitte wähle einen Zielort aus dem Menü aus."
 
 #: components/views/Offset/index.tsx:738
 msgid "fiat.max_quantity"
@@ -670,7 +670,7 @@ msgstr "CO2-Tonnen"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:51
 msgid "offset.view_retirements"
-msgstr ""
+msgstr "CO2-Ausgleiche ansehen"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
