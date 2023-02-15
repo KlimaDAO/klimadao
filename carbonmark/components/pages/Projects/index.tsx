@@ -33,7 +33,7 @@ export const Projects: NextPage<Props> = (props) => {
         metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
 
-      <Layout>
+      <Layout fullWidth={true}>
         <div className={styles.list}>
           {sortedProjects &&
             sortedProjects.map((project, index) => (

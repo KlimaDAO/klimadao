@@ -10,6 +10,7 @@ export const container = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2rem;
 `;
 
 export const backNavLink = css`

@@ -24,6 +24,8 @@ import * as styles from "./styles";
 type Props = {
   userAddress?: string;
   profileButton?: JSX.Element;
+  /** if true then body of layout will not be constraied by max-width */
+  fullWidth?: boolean;
   children: ReactNode;
 };
 
@@ -37,7 +39,7 @@ export const Layout: FC<Props> = (props: Props) => {
    * @todo lift this logic to projects/index.tsx and pass the child components as props to Layout
    */
   const isProjects = useRouter().pathname === "/projects";
-
+  const { fullWidth } = props;
   return (
     <div
       className={cx(styles.container, styles.global)}
@@ -46,90 +48,102 @@ export const Layout: FC<Props> = (props: Props) => {
       <div className={styles.desktopNavMenu}>
         <NavDrawer userAddress={props.userAddress} />
       </div>
-      <div className={styles.cardGrid}>
-        <div className={styles.controls}>
-          <Link href="/" className={styles.mobileLogo} data-mobile-only>
-            <CarbonmarkLogo />
-          </Link>
+      <div className={styles.fullWidthScrollableContainer}>
+        <div className={cx(styles.cardGrid, { fullWidth })}>
+          {/* header  */}
+          <div className={styles.controls}>
+            <Link href="/" className={styles.mobileLogo} data-mobile-only>
+              <CarbonmarkLogo />
+            </Link>
 
-          {/* keep mobile nav menu here in markup hierarchy for tab nav */}
-          <div
-            className={styles.mobileNavMenu_overlay}
-            data-visible={showMobileMenu}
-            onClick={() => setShowMobileMenu(false)}
-          />
-          <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
-            <NavDrawer
-              userAddress={props.userAddress}
-              onHide={() => setShowMobileMenu(false)}
+            {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+            <div
+              className={styles.mobileNavMenu_overlay}
+              data-visible={showMobileMenu}
+              onClick={() => setShowMobileMenu(false)}
             />
-          </div>
-
-          {/* <ChangeLanguageButton /> */}
-          {/* {isDesktop && <ThemeToggle />} */}
-          {/* Desktop controller */}
-          {isProjects && isDesktop && (
-            <ProjectsController className={styles.projectsController} />
-          )}
-
-          {props.profileButton}
-
-          <ButtonPrimary
-            data-mobile-only
-            variant="gray"
-            icon={<Menu />}
-            onClick={() => setShowMobileMenu((s) => !s)}
-            className={styles.menuButton}
-          />
-
-          <div data-desktop-only>
-            {!address && !isConnected && (
-              <ButtonPrimary
-                label={t`Log in`}
-                onClick={toggleModal}
-                className="connectButton"
+            <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
+              <NavDrawer
+                userAddress={props.userAddress}
+                onHide={() => setShowMobileMenu(false)}
               />
-            )}
-            {address && isConnected && (
-              <ButtonPrimary
-                label={t`Log out`}
-                onClick={disconnect}
-                className="connectButton"
-              />
-            )}
-          </div>
+            </div>
 
-          {renderModal &&
-            renderModal({
-              errors: connectErrorStrings,
-              torusText: t({
-                message: "or continue with",
-                id: "connectModal.continue",
-              }),
-              titles: {
-                connect: t({
-                  id: "connect_modal.sign_in",
-                  message: "Sign In / Connect",
+            {/* <ChangeLanguageButton /> */}
+            {/* {isDesktop && <ThemeToggle />} */}
+            {/* Desktop controller */}
+            {isProjects && isDesktop && (
+              <ProjectsController className={styles.projectsController} />
+            )}
+
+            {props.profileButton}
+
+            <ButtonPrimary
+              data-mobile-only
+              variant="gray"
+              icon={<Menu />}
+              onClick={() => setShowMobileMenu((s) => !s)}
+              className={styles.menuButton}
+            />
+
+            <div data-desktop-only>
+              {!address && !isConnected && (
+                <ButtonPrimary
+                  label={t`Log in`}
+                  onClick={toggleModal}
+                  className="connectButton"
+                />
+              )}
+              {address && isConnected && (
+                <ButtonPrimary
+                  label={t`Log out`}
+                  onClick={disconnect}
+                  className="connectButton"
+                />
+              )}
+            </div>
+
+            {renderModal &&
+              renderModal({
+                errors: connectErrorStrings,
+                torusText: t({
+                  message: "or continue with",
+                  id: "connectModal.continue",
                 }),
-                loading: t({
-                  id: "connect_modal.connecting",
-                  message: "Connecting...",
-                }),
-                error: t({
-                  id: "connect_modal.error_title",
-                  message: "Connection Error",
-                }),
-              },
-            })}
-          <InvalidNetworkModal />
+                titles: {
+                  connect: t({
+                    id: "connect_modal.sign_in",
+                    message: "Sign In / Connect",
+                  }),
+                  loading: t({
+                    id: "connect_modal.connecting",
+                    message: "Connecting...",
+                  }),
+                  error: t({
+                    id: "connect_modal.error_title",
+                    message: "Connection Error",
+                  }),
+                },
+              })}
+            <InvalidNetworkModal />
+          </div>
+          {/* body  */}
+          <div
+            style={{
+              gridColumn: "1/3",
+              display: "inherit",
+              gridGap: "inherit",
+            }}
+          >
+            {isProjects && isMobile && (
+              <ProjectsController className={styles.mobileProjectsController} />
+            )}
+
+            {props.children}
+          </div>
+          {/* footer  */}
+          <Footer className={styles.fullWidthFooter} />
         </div>
-        {isProjects && isMobile && (
-          <ProjectsController className={styles.mobileProjectsController} />
-        )}
-
-        {props.children}
-
-        <Footer className={styles.fullWidthFooter} />
       </div>
     </div>
   );
