@@ -7,7 +7,7 @@ import { User } from "@klimadao/lib/types/carbonmark";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
-import { PageHead } from "components/shared/PageHead";
+import { PageHead } from "components/PageHead";
 import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";

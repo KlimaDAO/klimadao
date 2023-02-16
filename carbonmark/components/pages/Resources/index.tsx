@@ -4,8 +4,8 @@ import { NextPage } from "next";
 import * as styles from "./styles";
 
 import { Footer } from "components/Footer";
+import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
-import { PageHead } from "components/shared/PageHead";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 import { ResourcesList } from "./ResourcesList";
 

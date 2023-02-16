@@ -6,7 +6,7 @@ import { Activities } from "components/Activities";
 import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
 import { LoginCard } from "components/LoginCard";
-import { PageHead } from "components/shared/PageHead";
+import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getAssetsExtended } from "lib/actions";

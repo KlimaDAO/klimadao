@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import { Layout } from "components/Layout";
 import { LoginCard } from "components/LoginCard";
-import { PageHead } from "components/shared/PageHead";
+import { PageHead } from "components/PageHead";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
 import { Activities } from "components/Activities";

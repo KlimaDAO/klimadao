@@ -26,7 +26,9 @@ export const PageHead = (props: PageHeadProps) => {
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl =
     props.canonicalUrl || `${urls.carbonmark}${relativePath}`;
-  const mediaImageSrc = getOgImageSrc(props.mediaImageSrc);
+  const mediaImageSrc = getOgImageSrc(
+    props.mediaImageSrc || `${urls.carbonmark}/og-media.png`
+  );
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
