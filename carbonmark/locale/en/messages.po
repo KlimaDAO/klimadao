@@ -87,6 +87,10 @@ msgstr "Enter App"
 msgid "Final price"
 msgstr "Final price"
 
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
+msgid "Handle should not contain any special characters"
+msgstr "Handle should not contain any special characters"
+
 #: components/Footer/index.tsx:27
 msgid "Home"
 msgstr "Home"
@@ -106,7 +110,7 @@ msgid "Loading..."
 msgstr "Loading..."
 
 #: components/Layout/NavDrawer/index.tsx:56
-#: components/Layout/index.tsx:88
+#: components/Layout/index.tsx:92
 msgid "Log in"
 msgstr "Log in"
 
@@ -115,7 +119,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
 #: components/Layout/NavDrawer/index.tsx:66
-#: components/Layout/index.tsx:95
+#: components/Layout/index.tsx:99
 msgid "Log out"
 msgstr "Log out"
 
@@ -193,7 +197,7 @@ msgstr "Sell"
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
 msgstr "Something went wrong. Please try again. {error}"
 
@@ -204,6 +208,10 @@ msgstr "Sorry, looks like we sent you the wrong way."
 #: components/pages/errors/Custom500.tsx:26
 msgid "Sorry, something went wrong."
 msgstr "Sorry, something went wrong."
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+msgid "Sorry, this handle already exists"
+msgstr "Sorry, this handle already exists"
 
 #: components/pages/Portfolio/index.tsx:178
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
@@ -282,7 +290,7 @@ msgstr "We couldn't find any C3 tokens in your connected wallet :("
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:103
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
 
@@ -319,11 +327,11 @@ msgid "activity.you"
 msgstr "You"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:87
+#: components/pages/Blog/Post/index.tsx:88
 msgid "blog.disclaimer.description"
 msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
 
-#: components/pages/Blog/Post/index.tsx:84
+#: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
@@ -335,11 +343,11 @@ msgstr "Edit Profile"
 msgid "buy"
 msgstr "Buy"
 
-#: components/Layout/index.tsx:105
+#: components/Layout/index.tsx:109
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/Layout/index.tsx:114
+#: components/Layout/index.tsx:118
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -351,11 +359,11 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: components/Layout/index.tsx:118
+#: components/Layout/index.tsx:122
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/Layout/index.tsx:110
+#: components/Layout/index.tsx:114
 msgid "connect_modal.sign_in"
 msgstr "Sign In / Connect"
 
@@ -363,7 +371,7 @@ msgstr "Sign In / Connect"
 msgid "menu.marketplace"
 msgstr "Marketplace"
 
-#: components/Layout/NavMenu/index.tsx:49
+#: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
 msgstr "Portfolio"
 
@@ -391,7 +399,7 @@ msgstr "Create your profile on Carbonmark and start selling"
 msgid "profile.editListing_modal.submit"
 msgstr "Update Listing"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:228
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
@@ -699,7 +707,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.enter_app"
 msgstr "Enter App"
 
-#: components/pages/Blog/Post/index.tsx:70
+#: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 
@@ -820,35 +828,27 @@ msgstr "USDC per ton"
 msgid "user.edit.form.edit.quantity.label"
 msgstr "Quantity"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
 msgid "user.edit.form.input.description.label"
 msgstr "About"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "user.edit.form.input.description.placeholder"
 msgstr "Description"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
-msgid "user.edit.form.input.handle.handle_exists"
-msgstr "Sorry, this handle already exists"
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:172
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
 msgid "user.edit.form.input.handle.label"
 msgstr "Handle (not changeable later! Choose wisely)"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr "Handle should not be an address"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
-msgid "user.edit.form.input.handle.pattern"
-msgstr "Handle should contain any special characters"
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:131
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:135
 msgid "user.edit.form.input.handle.placeholder"
 msgstr "Your unique handle"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
 msgid "user.edit.form.input.handle.required"
 msgstr "Handle is required"
 
@@ -864,15 +864,15 @@ msgstr "USDC per ton"
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr "Total Amount"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:195
 msgid "user.edit.form.input.username.label"
 msgstr "Display Name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "user.edit.form.input.username.placeholder"
 msgstr "Your display name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
 msgid "user.edit.form.input.username.required"
 msgstr "Display Name is required"
 

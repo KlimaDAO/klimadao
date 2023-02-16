@@ -87,6 +87,10 @@ msgstr ""
 msgid "Final price"
 msgstr ""
 
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
+msgid "Handle should not contain any special characters"
+msgstr ""
+
 #: components/Footer/index.tsx:27
 msgid "Home"
 msgstr ""
@@ -106,7 +110,7 @@ msgid "Loading..."
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:56
-#: components/Layout/index.tsx:88
+#: components/Layout/index.tsx:92
 msgid "Log in"
 msgstr ""
 
@@ -115,7 +119,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:66
-#: components/Layout/index.tsx:95
+#: components/Layout/index.tsx:99
 msgid "Log out"
 msgstr ""
 
@@ -193,7 +197,7 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
 msgstr ""
 
@@ -203,6 +207,10 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:26
 msgid "Sorry, something went wrong."
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
+msgid "Sorry, this handle already exists"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:178
@@ -282,7 +290,7 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:99
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:103
 msgid "You chose to reject the transaction."
 msgstr ""
 
@@ -319,11 +327,11 @@ msgid "activity.you"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:87
+#: components/pages/Blog/Post/index.tsx:88
 msgid "blog.disclaimer.description"
 msgstr ""
 
-#: components/pages/Blog/Post/index.tsx:84
+#: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
 msgstr ""
 
@@ -335,11 +343,11 @@ msgstr ""
 msgid "buy"
 msgstr ""
 
-#: components/Layout/index.tsx:105
+#: components/Layout/index.tsx:109
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/Layout/index.tsx:114
+#: components/Layout/index.tsx:118
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -351,11 +359,11 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/Layout/index.tsx:118
+#: components/Layout/index.tsx:122
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/Layout/index.tsx:110
+#: components/Layout/index.tsx:114
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -363,7 +371,7 @@ msgstr ""
 msgid "menu.marketplace"
 msgstr ""
 
-#: components/Layout/NavMenu/index.tsx:49
+#: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
 msgstr ""
 
@@ -391,7 +399,7 @@ msgstr ""
 msgid "profile.editListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:228
 msgid "profile.edit_modal.submit"
 msgstr ""
 
@@ -699,7 +707,7 @@ msgstr ""
 msgid "shared.enter_app"
 msgstr ""
 
-#: components/pages/Blog/Post/index.tsx:70
+#: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
 msgstr ""
 
@@ -820,35 +828,27 @@ msgstr ""
 msgid "user.edit.form.edit.quantity.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
 msgid "user.edit.form.input.description.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "user.edit.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
-msgid "user.edit.form.input.handle.handle_exists"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:172
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
 msgid "user.edit.form.input.handle.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:157
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "user.edit.form.input.handle.no_polygon_address"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
-msgid "user.edit.form.input.handle.pattern"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:131
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:135
 msgid "user.edit.form.input.handle.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
 msgid "user.edit.form.input.handle.required"
 msgstr ""
 
@@ -864,15 +864,15 @@ msgstr ""
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:195
 msgid "user.edit.form.input.username.label"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "user.edit.form.input.username.placeholder"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
 msgid "user.edit.form.input.username.required"
 msgstr ""
 
