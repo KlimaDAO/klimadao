@@ -83,3 +83,28 @@ export type RetirementIndexInfo = [
   beneficiaryName: string,
   retirementMessage: string
 ];
+
+export type RetirementIndexInfoResult = {
+  tokenAddress: RetirementIndexInfo[0];
+  typeOfToken: RetirementToken;
+  amount: string;
+  beneficiaryName: RetirementIndexInfo[2];
+  retirementMessage: RetirementIndexInfo[3];
+};
+
+export interface ProjectTokenBalance {
+  /** 0x of project token */
+  address: string;
+  /** Token symbol
+   *  @example "TCO2-VCS-123-2023" */
+  symbol: string;
+  /** Balance held
+   * @example "1.123" */
+  quantity: string;
+  /** Current for aggregatorV2 to spend
+   *  @example "1.123" */
+  allowance: string;
+  /** Quantity retired so far
+   *  @example "1.123" */
+  retired: string;
+}
