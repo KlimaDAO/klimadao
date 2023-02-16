@@ -52,7 +52,7 @@ export const Stats: FC<Props> = (props) => {
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>
             <SavingsOutlinedIcon />
-            <Trans>Tonnes owned:</Trans>
+            <Trans>Tonnes listed:</Trans>
           </Text>
           <Text t="caption">
             {" "}

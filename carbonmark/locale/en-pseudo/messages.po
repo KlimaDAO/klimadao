@@ -250,7 +250,7 @@ msgid "This offer no longer exists."
 msgstr ""
 
 #: components/Stats/index.tsx:55
-msgid "Tonnes owned:"
+msgid "Tonnes listed:"
 msgstr ""
 
 #: components/Stats/index.tsx:48
