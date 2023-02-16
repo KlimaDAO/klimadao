@@ -34,10 +34,7 @@ const TotalValue: FC<TotalValueProps> = (props) => {
   return (
     <>
       <HighlightValue
-        label={t({
-          id: "purchase.input.cost.label",
-          message: "Cost incl. 3% fee",
-        })}
+        label={t`Cost incl. ${CARBONMARK_FEE * 100}% fee`}
         value={formatToPrice(totalPrice, locale)}
         icon={carbonmarkTokenInfoMap["usdc"].icon}
         warn={!!props.errorMessage}
