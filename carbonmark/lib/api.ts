@@ -1,4 +1,11 @@
-import { User } from "@klimadao/lib/types/carbonmark";
+import {
+  Category,
+  CategoryName,
+  CategoryNames,
+  Country,
+  Project,
+  User,
+} from "@klimadao/lib/types/carbonmark";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {
@@ -90,6 +97,55 @@ export const getUser = async (params: {
 }): Promise<User> => {
   const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
 
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+type Params = {
+  search?: string;
+  country?: string;
+  category?: CategoryName | CategoryNames;
+  vintage?: string;
+};
+export const getProjects = async (params?: Params): Promise<Project[]> => {
+  const searchParams = !!params && new URLSearchParams(params);
+  const url = searchParams ? `/api/projects?${searchParams}` : "/api/projects";
+
+  const result = await fetch(url);
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const getCategories = async (): Promise<Category[]> => {
+  const result = await fetch("/api/categories");
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const getCountries = async (): Promise<Country[]> => {
+  const result = await fetch("/api/countries");
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const getVintages = async (): Promise<string[]> => {
+  const result = await fetch("/api/vintages");
   const data = await result.json();
 
   if (!result.ok || data.error) {
