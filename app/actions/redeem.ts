@@ -16,28 +16,21 @@ import { getAllowance } from "@klimadao/lib/utils";
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 export const getRedeemCost = async (params): Promise<string> => {
-  console.log(params);
   const retirementAggregatorV2Contract = getContract({
     contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
   });
 
-  const parsed = utils.parseUnits(
-    params.quantity.toString(),
-    getTokenDecimals(params.retirementToken)
-  );
+  const parsed = utils.parseUnits(params.quantity.toString(), 18);
 
-  console.log(params);
   const sourceAmount =
-    await retirementAggregatorV2Contract.getSourceAmountSwapOnly(
-      addresses.mainnet[params.retirementToken],
-      params.projectAddress,
-      parsed
+    await retirementAggregatorV2Contract.getSourceAmountSpecificRedeem(
+      addresses.mainnet[params.paymentMethod],
+      params.retirementToken,
+      [parsed.toString()]
     );
 
-  console.log(sourceAmount);
-
-  return formatUnits(sourceAmount[0], getTokenDecimals(params.inputToken));
+  return formatUnits(sourceAmount, getTokenDecimals(params.paymentMethod));
 };
 
 // TODO review

@@ -158,7 +158,9 @@ export const Redeem = (props) => {
       const values = getValues();
       if (paymentMethod !== "fiat") {
         console.log({ ...values });
-        const [consumptionCost] = await getRedeemCost({ ...values });
+        const consumptionCost = await getRedeemCost({ ...values });
+        console.log({ consumptionCost });
+
         setValue("cost", consumptionCost);
       } else {
         const floorQuantity =
@@ -346,7 +348,7 @@ export const Redeem = (props) => {
         />
       </div>
 
-      {!showTransactionModal && paymentMethod !== "fiat" && (
+      {showTransactionModal && paymentMethod !== "fiat" && (
         <TransactionModal
           title={
             <Text t="h4" className={styles.redeemCard_header_title}>

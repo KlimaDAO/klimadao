@@ -38,6 +38,8 @@ export const CostDisplay: React.FC<Props> = (props) => {
     tokenInfo[props.paymentMethod === "fiat" ? "usdc" : props.paymentMethod]
       .icon;
 
+  console.log({ amount: props.cost });
+
   return (
     <MiniTokenDisplay
       label={label}
