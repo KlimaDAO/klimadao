@@ -6,6 +6,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
+  addresses,
   offsetCompatibility,
   offsetInputTokens,
   OffsetPaymentMethod,
@@ -13,7 +14,7 @@ import {
   retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
-import { getTokenDecimals } from "@klimadao/lib/utils";
+import { safeAdd } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { providers, utils } from "ethers";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -31,14 +32,24 @@ import {
   selectBalances,
   selectLocale,
   selectNotificationStatus,
+  selectProjectTokens,
 } from "state/selectors";
-import { setAllowance, updateRetirement } from "state/user";
+import {
+  decrementProjectToken,
+  setAllowance,
+  setProjectToken,
+  updateRetirement,
+} from "state/user";
 
 import {
+  approveProjectToken,
   getOffsetConsumptionCost,
+  getProjectTokenBalances,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   retireCarbonTransaction,
+  RetireCarbonTransactionResult,
+  retireProjectTokenTransaction,
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
 
@@ -60,15 +71,21 @@ import {
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
 
+import C3T from "public/icons/C3T.png";
 import Fiat from "public/icons/Fiat.png";
+import TCO2 from "public/icons/TCO2.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
+import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
 const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
+
+export const isRetirementToken = (str: string): str is RetirementToken =>
+  !!retirementTokens.includes(str as RetirementToken);
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -82,6 +99,7 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
+  const projectTokens = useSelector(selectProjectTokens);
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: offsetInputTokens,
@@ -95,8 +113,9 @@ export const Offset = (props: Props) => {
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] =
     useState<OffsetPaymentMethod>("fiat");
-  const [selectedRetirementToken, setSelectedRetirementToken] =
-    useState<RetirementToken>("bct");
+  const [selectedRetirementToken, setSelectedRetirementToken] = useState<
+    RetirementToken | string
+  >("bct");
 
   // form state
   const [quantity, setQuantity] = useState("");
@@ -126,7 +145,13 @@ export const Offset = (props: Props) => {
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
     if (params.inputToken) {
-      setPaymentMethod(params.inputToken);
+      // if its an 0x address then we assume it's a C3T or TCO2 held by the user.
+      if (utils.isAddress(params.inputToken)) {
+        setPaymentMethod("bct"); // Project tokens and fiat can't be selected at the same time
+        setSelectedRetirementToken(params.inputToken);
+      } else {
+        setPaymentMethod(params.inputToken);
+      }
     }
     if (params.retirementToken) {
       setSelectedRetirementToken(params.retirementToken);
@@ -141,6 +166,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
+      // these are for selective retirement within a retirementToken
       setProjectAddress(params.projectTokens);
     }
     if (params.quantity) {
@@ -156,7 +182,12 @@ export const Offset = (props: Props) => {
   }, [params]);
 
   useEffect(() => {
-    if (props.isConnected && props.address) {
+    if (props.isConnected && props.address && props.provider) {
+      dispatch(
+        getProjectTokenBalances({
+          address: props.address,
+        })
+      );
       dispatch(
         getRetiredOffsetBalances({
           address: props.address,
@@ -170,7 +201,7 @@ export const Offset = (props: Props) => {
         })
       );
     }
-  }, [props.isConnected, props.address]);
+  }, [props.isConnected, props.address, props.provider]);
 
   // effects
   useEffect(() => {
@@ -182,7 +213,11 @@ export const Offset = (props: Props) => {
     }
     // if input token changes, force a compatible retirement token
     if (
-      !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
+      selectedRetirementToken &&
+      !utils.isAddress(selectedRetirementToken) &&
+      !offsetCompatibility[paymentMethod]?.includes(
+        selectedRetirementToken as RetirementToken
+      )
     ) {
       // never undefined, because universal tokens
       setSelectedRetirementToken(offsetCompatibility[paymentMethod][0]);
@@ -195,6 +230,10 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
+      if (!isRetirementToken(selectedRetirementToken)) {
+        setCost("0");
+        return;
+      }
       setCost("loading");
       if (paymentMethod !== "fiat") {
         const [consumptionCost] = await getOffsetConsumptionCost({
@@ -256,31 +295,43 @@ export const Offset = (props: Props) => {
   };
 
   const getApprovalValue = (): string => {
-    const costAsNumber = Number(cost);
-    const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
-    const decimals = getTokenDecimals(paymentMethod);
-    return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
+    if (!cost) return "0";
+    if (!isRetirementToken(selectedRetirementToken)) {
+      return quantity;
+    }
+    return safeAdd(cost, (Number(cost) * APPROVAL_SLIPPAGE).toString());
   };
 
   const handleApprove = async () => {
     try {
       if (!props.provider || paymentMethod === "fiat") return;
-
-      const token = paymentMethod;
-      const spender = "retirementAggregator";
+      if (!isRetirementToken(selectedRetirementToken)) {
+        const approvedValue = await approveProjectToken({
+          value: getApprovalValue(),
+          signer: props.provider.getSigner(),
+          onStatus: setStatus,
+          projectTokenAddress: selectedRetirementToken,
+        });
+        dispatch(
+          setProjectToken({
+            address: selectedRetirementToken,
+            allowance: approvedValue,
+          })
+        );
+        return;
+      }
 
       const approvedValue = await changeApprovalTransaction({
         value: getApprovalValue(),
         provider: props.provider,
-        token,
-        spender,
+        token: paymentMethod,
+        spender: "retirementAggregator",
         onStatus: setStatus,
       });
-
       dispatch(
         setAllowance({
-          token,
-          spender,
+          token: paymentMethod,
+          spender: "retirementAggregator",
           value: approvedValue,
         })
       );
@@ -292,32 +343,54 @@ export const Offset = (props: Props) => {
   const handleRetire = async () => {
     try {
       if (!props.address || !props.provider || paymentMethod === "fiat") return;
-      const { receipt, retirementTotals } = await retireCarbonTransaction({
-        address: props.address,
-        provider: props.provider,
-        inputToken: paymentMethod,
-        retirementToken: selectedRetirementToken,
-        quantity,
-        amountInCarbon: true,
-        beneficiaryAddress,
-        beneficiaryName: beneficiary,
-        retirementMessage,
-        onStatus: setStatus,
-        projectAddress,
-      });
-      dispatch(
-        updateRetirement({
+      let retirement: RetireCarbonTransactionResult;
+      if (isRetirementToken(selectedRetirementToken)) {
+        retirement = await retireCarbonTransaction({
+          address: props.address,
+          provider: props.provider,
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
-          cost,
           quantity,
-        })
-      );
+          amountInCarbon: true,
+          beneficiaryAddress,
+          beneficiaryName: beneficiary,
+          retirementMessage,
+          onStatus: setStatus,
+          projectAddress,
+        });
+        dispatch(
+          updateRetirement({
+            inputToken: paymentMethod,
+            retirementToken: selectedRetirementToken,
+            cost,
+            quantity,
+          })
+        );
+      } else {
+        retirement = await retireProjectTokenTransaction({
+          address: props.address,
+          signer: props.provider.getSigner(),
+          quantity,
+          beneficiaryAddress,
+          beneficiaryName: beneficiary,
+          retirementMessage,
+          onStatus: setStatus,
+          projectTokenAddress: selectedRetirementToken,
+          symbol: projectTokens[selectedRetirementToken].symbol,
+        });
+        dispatch(
+          decrementProjectToken({
+            address: selectedRetirementToken,
+            quantityRetired: quantity,
+          })
+        );
+      }
+
       // close TransactionModal
       closeTransactionModal();
       // this opens RetirementSuccessModal
-      setRetirementTransactionHash(receipt.transactionHash);
-      setRetirementTotals(retirementTotals);
+      setRetirementTransactionHash(retirement.receipt.transactionHash);
+      setRetirementTotals(retirement.retirementTotals);
     } catch (e) {
       return;
     }
@@ -340,11 +413,16 @@ export const Offset = (props: Props) => {
     return;
   };
 
-  const insufficientBalance =
-    props.isConnected &&
-    !isLoading &&
-    paymentMethod !== "fiat" &&
-    Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+  const insufficientBalance = () => {
+    if (paymentMethod === "fiat") return true;
+    if (!isRetirementToken(selectedRetirementToken)) {
+      return (
+        Number(quantity) >
+        Number(projectTokens[selectedRetirementToken].quantity)
+      );
+    }
+    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+  };
 
   const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
   const invalidRetirementQuantity =
@@ -357,8 +435,12 @@ export const Offset = (props: Props) => {
       );
 
   const hasApproval = () => {
+    if (paymentMethod === "fiat") return true;
+    if (!isRetirementToken(selectedRetirementToken)) {
+      const a = projectTokens[selectedRetirementToken].allowance;
+      return !!Number(a) && Number(a) >= Number(quantity);
+    }
     return (
-      paymentMethod !== "fiat" &&
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
       Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
@@ -440,7 +522,7 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (paymentMethod !== "fiat" && insufficientBalance) {
+    } else if (paymentMethod !== "fiat" && insufficientBalance()) {
       return {
         label: t({
           id: "shared.insufficient_balance",
@@ -470,7 +552,10 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
-    setSelectedRetirementToken(tkn as RetirementToken);
+    if (!isRetirementToken(tkn)) {
+      setPaymentMethod("bct"); // Project tokens and fiat can't be selected at the same time
+    }
+    setSelectedRetirementToken(tkn);
   };
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
@@ -535,7 +620,7 @@ export const Offset = (props: Props) => {
     label: "Credit Card",
   });
 
-  const retirementTokenItems = retirementTokens.map((tkn) => {
+  const poolTokenItems = retirementTokens.map((tkn) => {
     const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
@@ -547,6 +632,20 @@ export const Offset = (props: Props) => {
       ),
     };
   });
+
+  const projectTokenItems = Object.keys(projectTokens).map((key) => {
+    const token = projectTokens[key];
+    const isTCO2 = token.symbol.startsWith("TCO2");
+    return {
+      disabled: false,
+      description: "",
+      key: token.address,
+      icon: isTCO2 ? TCO2 : C3T,
+      label: token.symbol,
+    };
+  });
+
+  const retirementTokenItems = [...poolTokenItems, ...projectTokenItems];
 
   const costIcon =
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
@@ -584,14 +683,8 @@ export const Offset = (props: Props) => {
         <div className={styles.offsetCard_ui}>
           {/* attr: retirementToken  */}
           <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
-            })}
-            modalTitle={t({
-              id: "offset.modal_retire.title",
-              message: "Select Carbon Type",
-            })}
+            label={t`Select carbon token to retire`}
+            modalTitle={t`Select token`}
             currentItem={selectedRetirementToken}
             items={retirementTokenItems}
             isModalOpen={isRetireTokenModalOpen}
@@ -599,14 +692,43 @@ export const Offset = (props: Props) => {
             onItemSelect={handleSelectRetirementToken}
           />
 
-          {/* attr: projectAddress  */}
-          <SelectiveRetirement
-            projectAddress={projectAddress}
-            selectedRetirementToken={selectedRetirementToken}
-            setProjectAddress={setProjectAddress}
-            selectedProject={selectedProject}
-            setSelectedProject={setSelectedProject}
-          />
+          {isRetirementToken(selectedRetirementToken) && (
+            <DropdownWithModal
+              label={t({
+                id: "offset.dropdown_payWith.label",
+                message: "Pay with",
+              })}
+              modalTitle={t({
+                id: "offset.modal_payWith.title",
+                message: "Select Token",
+              })}
+              currentItem={paymentMethod}
+              items={paymentMethodItems}
+              isModalOpen={isInputTokenModalOpen}
+              onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+              onItemSelect={(str) =>
+                handleSelectInputToken(str as OffsetPaymentMethod)
+              }
+            />
+          )}
+
+          {isRetirementToken(selectedRetirementToken) && (
+            <SelectiveRetirement
+              projectAddress={projectAddress}
+              selectedRetirementToken={selectedRetirementToken}
+              setProjectAddress={setProjectAddress}
+              selectedProject={selectedProject}
+              setSelectedProject={setSelectedProject}
+            />
+          )}
+
+          {!isRetirementToken(selectedRetirementToken) && (
+            <ProjectTokenDetails
+              symbol={projectTokens[selectedRetirementToken].symbol}
+              quantity={projectTokens[selectedRetirementToken].quantity}
+              address={selectedRetirementToken}
+            />
+          )}
 
           <div className={styles.input}>
             <label>
@@ -711,39 +833,42 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          <MiniTokenDisplay
-            label={
-              <div className="mini_token_label">
-                <Text t="caption" color="lighter">
-                  <Trans id="offset_cost">Cost</Trans>
-                </Text>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="offset.aggregation_fee_tooltip">
-                      This cost includes slippage and the aggregation fee of 1%.
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-            }
-            amount={Number(cost)?.toLocaleString(locale)}
-            icon={costIcon}
-            name={paymentMethod}
-            loading={cost === "loading"}
-            warn={insufficientBalance || invalidCost}
-            helperText={
-              paymentMethod === "fiat"
-                ? t({
-                    id: "fiat.max_quantity",
-                    message: `$${MAX_FIAT_COST.toLocaleString(
-                      locale
-                    )} maximum for credit cards`,
-                  })
-                : undefined
-            }
-          />
+          {isRetirementToken(selectedRetirementToken) && (
+            <MiniTokenDisplay
+              label={
+                <div className="mini_token_label">
+                  <Text t="caption" color="lighter">
+                    <Trans id="offset_cost">Cost</Trans>
+                  </Text>
+                  <TextInfoTooltip
+                    content={
+                      <Trans id="offset.aggregation_fee_tooltip">
+                        This cost includes slippage and the aggregation fee of
+                        1%.
+                      </Trans>
+                    }
+                  >
+                    <InfoOutlined />
+                  </TextInfoTooltip>
+                </div>
+              }
+              amount={Number(cost)?.toLocaleString(locale)}
+              icon={costIcon}
+              name={paymentMethod}
+              loading={cost === "loading"}
+              warn={insufficientBalance() || invalidCost}
+              helperText={
+                paymentMethod === "fiat"
+                  ? t({
+                      id: "fiat.max_quantity",
+                      message: `$${MAX_FIAT_COST.toLocaleString(
+                        locale
+                      )} maximum for credit cards`,
+                    })
+                  : undefined
+              }
+            />
+          )}
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
@@ -751,29 +876,14 @@ export const Offset = (props: Props) => {
               </Text>
             }
             amount={Number(quantity)?.toLocaleString(locale)}
-            icon={tokenInfo[selectedRetirementToken].icon}
+            icon={
+              retirementTokenItems.find(
+                (t) => t.key === selectedRetirementToken
+              )?.icon ?? TCO2 // just to make ts happy
+            }
             name={selectedRetirementToken}
             labelAlignment="start"
           />
-
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
-            })}
-            modalTitle={t({
-              id: "offset.modal_payWith.title",
-              message: "Select Token",
-            })}
-            currentItem={paymentMethod}
-            items={paymentMethodItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={(str) =>
-              handleSelectInputToken(str as OffsetPaymentMethod)
-            }
-          />
-
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
