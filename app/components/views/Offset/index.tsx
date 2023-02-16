@@ -808,8 +808,23 @@ export const Offset = (props: Props) => {
             </Text>
           }
           onCloseModal={closeTransactionModal}
-          token={paymentMethod}
-          spender={"retirementAggregator"}
+          tokenName={
+            isRetirementToken(selectedRetirementToken)
+              ? paymentMethod
+              : projectTokens[selectedRetirementToken].symbol
+          }
+          tokenIcon={
+            isRetirementToken(selectedRetirementToken)
+              ? tokenInfo[paymentMethod].icon
+              : retirementTokenItems.find(
+                  (t) => t.key === selectedRetirementToken
+                )?.icon ?? TCO2
+          }
+          spenderAddress={
+            isRetirementToken(selectedRetirementToken)
+              ? addresses["mainnet"].retirementAggregator
+              : addresses["mainnet"].retirementAggregatorV2
+          }
           value={cost.toString()}
           approvalValue={getApprovalValue()}
           status={fullStatus}
