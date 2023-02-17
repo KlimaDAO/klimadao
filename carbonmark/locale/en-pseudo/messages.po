@@ -137,6 +137,10 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
+#: components/pages/Project/index.tsx:150
+msgid "No listings found for this project."
+msgstr ""
+
 #: components/Layout/AddressSection/index.tsx:20
 msgid "Not Connected"
 msgstr ""

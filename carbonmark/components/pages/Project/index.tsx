@@ -139,10 +139,16 @@ export const Project: NextPage<Props> = (props) => {
 
         <div className={styles.listingsHeader}>
           <Text t="h5">Listings</Text>
-          {sortedListings && (
+          {sortedListings ? (
             <Text t="caption">
               We found <strong>{activeListings.length}</strong> prices for this
               project:
+            </Text>
+          ) : (
+            <Text t="caption" color="default">
+              <i>
+                <Trans>No listings found for this project.</Trans>
+              </i>
             </Text>
           )}
         </div>
