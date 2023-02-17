@@ -1,5 +1,5 @@
-import { ActivityActionT } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
+import { ActivityActionT } from "lib/types/carbonmark";
 
 export const ACTIVITY_ACTIONS: Record<ActivityActionT, string> = {
   CreatedListing: t({

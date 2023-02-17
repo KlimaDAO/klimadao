@@ -1,5 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
-import { Project } from "@klimadao/lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark";
 
 type ProjectData = {
   key: Project["key"];

@@ -1,5 +1,5 @@
-import { carbonmark } from "@klimadao/lib/constants";
-import { Category } from "@klimadao/lib/types/carbonmark";
+import { urls } from "lib/constants";
+import { Category } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -13,7 +13,7 @@ const getCategories: NextApiHandler<Category[] | APIDefaultResponse> = async (
   switch (req.method) {
     case "GET":
       try {
-        const result = await fetch(`${carbonmark.categories}`);
+        const result = await fetch(urls.api.categories);
 
         const json = await result.json();
 

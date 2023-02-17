@@ -1,5 +1,4 @@
 import { Text } from "@klimadao/lib/components";
-import { Project } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
@@ -9,6 +8,7 @@ import { ProjectImage } from "components/ProjectImage";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";

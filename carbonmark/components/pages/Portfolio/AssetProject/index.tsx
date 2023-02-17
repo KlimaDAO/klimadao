@@ -1,7 +1,7 @@
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
-import { AssetExtended } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
+import { AssetExtended } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 

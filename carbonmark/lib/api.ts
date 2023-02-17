@@ -5,7 +5,7 @@ import {
   Country,
   Project,
   User,
-} from "@klimadao/lib/types/carbonmark";
+} from "lib/types/carbonmark";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {

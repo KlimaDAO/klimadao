@@ -1,11 +1,11 @@
 import { Text } from "@klimadao/lib/components";
-import { Balance } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { Balance } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";

@@ -1,5 +1,5 @@
-import { Listing } from "@klimadao/lib/types/carbonmark";
 import { formatUnits } from "@klimadao/lib/utils";
+import { Listing } from "lib/types/carbonmark";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {

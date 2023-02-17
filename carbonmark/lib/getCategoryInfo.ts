@@ -1,5 +1,5 @@
-import { CategoryName, CategoryNames } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
+import { CategoryName, CategoryNames } from "lib/types/carbonmark";
 
 import Agriculture from "public/category/Agriculture.png";
 import EnergyEfficiency from "public/category/Energy_Efficiency.jpeg";

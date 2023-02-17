@@ -1,7 +1,7 @@
 import { Spinner, Text } from "@klimadao/lib/components";
-import { ActivityType } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
+import { ActivityType } from "lib/types/carbonmark";
 import { FC } from "react";
 import { Activity } from "./Activity";
 import * as styles from "./styles";

@@ -1,9 +1,3 @@
-export {
-  getCarbonmarkProject,
-  getCarbonmarkProjects,
-  getCarbonmarkUser,
-  getPurchase,
-} from "./carbonmark";
 export { concatAddress } from "./concatAddress";
 // ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";

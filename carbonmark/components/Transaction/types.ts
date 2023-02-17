@@ -1,4 +1,4 @@
-import { CarbonmarkToken } from "@klimadao/lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark";
 
 export type Value = {
   value: string;

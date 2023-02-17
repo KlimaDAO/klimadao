@@ -1,77 +1,69 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { Asset, AssetExtended } from "@klimadao/lib/types/carbonmark";
-import {
-  formatUnits,
-  getContract,
-  getStaticProvider,
-} from "@klimadao/lib/utils";
+import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import { addresses } from "@klimadao/lib/constants";
+import { AllowancesToken } from "@klimadao/lib/types/allowances";
+import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
-import { getCarbonmarkAddress } from "./getAddresses";
-import { OnStatusHandler } from "./statusMessage";
+import { getAddress } from "lib/networkAware/getAddress";
+import { getContract } from "lib/networkAware/getContract";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { OnStatusHandler } from "lib/statusMessage";
+import { Asset, AssetExtended } from "lib/types/carbonmark";
 
-// TODO: Before GO-LIVE replace with getContract("usdc")
-// Currently, the USDC token is pointing to a fake one on Mumbai
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { FAKE_USDC } from "./constants";
-
-const staticProvider = getStaticProvider({ chain: "mumbai" }); // TODO: remove "mumbai" later
-
-export const getC3tokenToCarbonmarkAllowance = async (params: {
+/** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
+export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
 }): Promise<string> => {
   const tokenContract = new Contract(
     params.tokenAddress,
-    C3ProjectToken.abi,
-    staticProvider
-  );
-
-  const allowance = await tokenContract.allowance(
-    params.userAddress,
-    getCarbonmarkAddress()
-  );
-
-  return ethers.utils.formatUnits(allowance);
-};
-
-export const getUSDCtokenToCarbonmarkAllowance = async (params: {
-  userAddress: string;
-  tokenAddress: string;
-}): Promise<string> => {
-  const tokenContract = new Contract(
-    params.tokenAddress, // TODO: replace this contract getter with getContract("usdc") later
     IERC20.abi,
-    staticProvider
+    getStaticProvider()
   );
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getCarbonmarkAddress()
+    getAddress("carbonmark")
   );
 
-  return ethers.utils.formatUnits(allowance); // TODO: ensure to pass 6 later for USDC
+  return ethers.utils.formatUnits(allowance, 18);
 };
 
-export const onApproveCarbonmarkTransaction = async (params: {
+/** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
+export const approveTokenSpend = async (params: {
+  /** Name of a known token like "usdc" */
+  tokenName?: AllowancesToken;
+  /** Alternative to tokenName: address for an 18-decimal ERC20 token */
+  tokenAddress?: string;
+  spender: keyof typeof addresses.mainnet;
   value: string;
-  provider: providers.JsonRpcProvider;
-  tokenAddress: string;
+  signer: providers.JsonRpcSigner;
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
-    const tokenContract = new Contract(
-      params.tokenAddress,
-      C3ProjectToken.abi,
-      params.provider.getSigner()
-    );
-
-    const parsedValue = utils.parseUnits(params.value, 18); // always 18 for C3 tokens
+    let tokenContract: Contract;
+    if (params.tokenName) {
+      tokenContract = getContract({
+        contractName: params.tokenName,
+        provider: params.signer,
+      });
+    } else if (params.tokenAddress) {
+      tokenContract = new Contract(
+        params.tokenAddress,
+        IERC20.abi,
+        params.signer
+      );
+    } else {
+      throw new Error("Must provide either tokenName or tokenAddress");
+    }
+    const decimals = params.tokenName ? getTokenDecimals(params.tokenName) : 18; // assume 18 if no tokenName is provided
+    const parsedValue = utils.parseUnits(params.value, decimals);
 
     params.onStatus("userConfirmation");
-
     const txn = await tokenContract.approve(
-      getCarbonmarkAddress(),
+      getAddress(params.spender),
       parsedValue.toString()
     );
 
@@ -109,7 +101,7 @@ export const createListingTransaction = async (params: {
     const listingTxn = await carbonmarkContract.addListing(
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
+      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [] // TODO batches price
     );
@@ -148,7 +140,7 @@ export const updateListingTransaction = async (params: {
       params.listingId,
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
+      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [] // TODO batches price
     );
@@ -185,7 +177,7 @@ export const makePurchase = async (params: {
     const purchaseTxn = await carbonmarkContract.purchase(
       params.listingId,
       utils.parseUnits(params.amount, 18), // C3 token
-      utils.parseUnits(params.price, 18) // TODO: Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
+      utils.parseUnits(params.price, getTokenDecimals("usdc"))
     );
 
     params.onStatus("networkConfirmation", "");
@@ -242,7 +234,7 @@ export const getAssets = async (params: {
         const contract = new ethers.Contract(
           asset,
           C3ProjectToken.abi,
-          staticProvider
+          getStaticProvider()
         );
 
         const promises = [
@@ -281,7 +273,7 @@ export const getAssetsExtended = async (params: {
         const contract = new ethers.Contract(
           asset,
           C3ProjectToken.abi,
-          staticProvider
+          getStaticProvider()
         );
 
         const promises = [
@@ -321,23 +313,11 @@ export const getAssetsExtended = async (params: {
   }
 };
 
-export const getTokenBalance = async (params: {
-  tokenAddress: string;
-  userAddress: string;
-}) => {
-  const tokenContract = new Contract(
-    params.tokenAddress, // TODO: replace this contract getter with getContract("<usdc>") later
-    IERC20.abi,
-    staticProvider
-  );
-
-  const balance = await tokenContract.balanceOf(params.userAddress);
-  return formatUnits(balance); // TODO: ensure to pass 6 later for USDC
-};
-
 export const getUSDCBalance = async (params: { userAddress: string }) => {
-  return getTokenBalance({
-    userAddress: params.userAddress, // TODO: replace this contract getter with getContract("<usdc>") later
-    tokenAddress: FAKE_USDC,
+  const tokenContract = getContract({
+    contractName: "usdc",
+    provider: getStaticProvider(),
   });
+  const balance = await tokenContract.balanceOf(params.userAddress);
+  return formatUnits(balance, getTokenDecimals("usdc"));
 };

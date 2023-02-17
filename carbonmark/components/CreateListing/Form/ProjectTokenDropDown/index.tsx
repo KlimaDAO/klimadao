@@ -1,7 +1,7 @@
-import { Asset } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Tippy from "@tippyjs/react";
+import { Asset } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";

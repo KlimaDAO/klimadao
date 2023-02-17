@@ -2,15 +2,15 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { FC, useState } from "react";
 
-import { Asset } from "@klimadao/lib/types/carbonmark";
+import { Asset } from "lib/types/carbonmark";
 
 import { Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/shared/Modal";
 import { Transaction } from "components/Transaction";
 import {
+  approveTokenSpend,
   createListingTransaction,
-  getC3tokenToCarbonmarkAllowance,
-  onApproveCarbonmarkTransaction,
+  getCarbonmarkAllowance,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { CreateListingForm, FormValues } from "./Form";
@@ -59,7 +59,7 @@ export const CreateListing: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address) return;
-      const allowance = await getC3tokenToCarbonmarkAllowance({
+      const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
       });
@@ -84,9 +84,10 @@ export const CreateListing: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveCarbonmarkTransaction({
+      await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
-        provider,
+        spender: "carbonmark",
+        signer: provider.getSigner(),
         value: inputValues.totalAmountToSell,
         onStatus: onUpdateStatus,
       });

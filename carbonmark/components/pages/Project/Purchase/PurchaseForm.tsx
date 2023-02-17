@@ -1,5 +1,4 @@
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { Listing } from "@klimadao/lib/types/carbonmark";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
@@ -8,6 +7,7 @@ import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";

@@ -1,5 +1,5 @@
-import { carbonmark } from "@klimadao/lib/constants";
-import { User } from "@klimadao/lib/types/carbonmark";
+import { urls } from "lib/constants";
+import { User } from "lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -21,7 +21,7 @@ const singleUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Not found! Queries are not correct" });
         }
 
-        const result = await fetch(`${carbonmark.users}/${user}?type=${type}`);
+        const result = await fetch(`${urls.api.users}/${user}?type=${type}`);
 
         const json = await result.json();
 
@@ -45,7 +45,7 @@ const singleUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const result = await fetch(`${carbonmark.users}/${req.body.wallet}`, {
+        const result = await fetch(`${urls.api.users}/${req.body.wallet}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

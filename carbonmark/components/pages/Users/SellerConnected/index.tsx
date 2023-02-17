@@ -25,7 +25,7 @@ import {
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 
-import { Asset, Listing, User } from "@klimadao/lib/types/carbonmark";
+import { Asset, Listing, User } from "lib/types/carbonmark";
 
 import * as styles from "./styles";
 

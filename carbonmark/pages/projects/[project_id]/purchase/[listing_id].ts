@@ -1,7 +1,7 @@
-import { Listing, Project } from "@klimadao/lib/types/carbonmark";
-import { getCarbonmarkProject } from "@klimadao/lib/utils";
 import { ProjectPurchase } from "components/pages/Project/Purchase";
+import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
+import { Listing, Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 

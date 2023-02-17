@@ -1,13 +1,12 @@
 import { Spinner } from "@klimadao/lib/components";
-import { useConnectedUser } from "hooks/useConnectedUser";
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
-
-import { User } from "@klimadao/lib/types/carbonmark";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
+import { useConnectedUser } from "hooks/useConnectedUser";
+import { User } from "lib/types/carbonmark";
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
 import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";

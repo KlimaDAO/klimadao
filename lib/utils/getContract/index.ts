@@ -86,18 +86,20 @@ const getContractAbiByName = (name: ContractName) => {
 export const getContract = (params: {
   contractName: ContractName;
   provider: providers.JsonRpcProvider | Signer;
+  network?: "testnet" | "mainnet";
 }): Contract => {
+  const { network = "mainnet" } = params;
   const abi = getContractAbiByName(params.contractName);
   if (!abi)
     throw new Error(`Unknown abi for contractName: ${params.contractName}`);
 
   const nameInAddresses = params.contractName.replace("Main", "") as Address;
   if (!isNameInAddresses(nameInAddresses)) {
-    throw new Error(`Unknown contract name in mainnet: ${nameInAddresses}`);
+    throw new Error(`Unknown contract name: ${nameInAddresses}`);
   }
 
   return new Contract(
-    addresses["mainnet"][nameInAddresses],
+    addresses[network][nameInAddresses],
     abi,
     params.provider
   );

@@ -2,13 +2,12 @@ import { Trans } from "@lingui/macro";
 import { FC, useState } from "react";
 
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { getCarbonmarkAddress } from "lib/getAddresses";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
-
 import { Value } from "./types";
 
+import { getAddress } from "lib/networkAware/getAddress";
 import * as styles from "./styles";
 
 interface Props {
@@ -63,7 +62,7 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.approvalText}
-          spenderAddress={getCarbonmarkAddress()}
+          spenderAddress={getAddress("carbonmark")}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -77,7 +76,7 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.submitText}
-          spenderAddress={getCarbonmarkAddress()}
+          spenderAddress={getAddress("carbonmark")}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}

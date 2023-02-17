@@ -1,14 +1,16 @@
 import { Text } from "@klimadao/lib/components";
-import { Listing } from "@klimadao/lib/types/carbonmark";
-import { trimWithLocale } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+import { FC } from "react";
+
+import { trimWithLocale } from "@klimadao/lib/utils";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Card } from "components/Card";
 import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
-import { useRouter } from "next/router";
-import { FC } from "react";
+import { Listing } from "lib/types/carbonmark";
+
 import * as styles from "./styles";
 
 interface Props {

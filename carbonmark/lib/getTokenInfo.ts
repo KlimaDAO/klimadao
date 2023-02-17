@@ -1,4 +1,4 @@
-import { CarbonmarkToken } from "@klimadao/lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/legacy/image";
 import C3 from "public/icons/c3_token.png";
 import TC02 from "public/icons/toucan_token.png";

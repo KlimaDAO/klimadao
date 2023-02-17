@@ -1,9 +1,10 @@
 import { formatUnits, trimWithLocale } from "@klimadao/lib/utils";
 import { BigNumber } from "ethers";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 
-// price is always only USDC??
+/** USDC only */
 export const formatBigToPrice = (value: BigNumber, locale = "en") => {
-  const toNumber = Number(formatUnits(value, 18)); // TODO: ensure to change this later to 6 decimals for USDC !!
+  const toNumber = Number(formatUnits(value, getTokenDecimals("usdc")));
   return formatToPrice(toNumber, locale);
 };
 

@@ -1,5 +1,4 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { User } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
@@ -11,6 +10,7 @@ import {
   getAllListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
+import { User } from "lib/types/carbonmark";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";

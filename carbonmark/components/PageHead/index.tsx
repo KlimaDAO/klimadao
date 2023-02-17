@@ -1,9 +1,7 @@
-import { urls } from "@klimadao/lib/constants";
 import { getOgImageSrc } from "@klimadao/lib/utils";
+import { IS_PRODUCTION, urls } from "lib/constants";
 import Head from "next/head";
 import { useRouter } from "next/router";
-
-import { IS_PRODUCTION } from "lib/constants";
 
 export interface PageHeadProps {
   /** <title> tag */
@@ -24,15 +22,14 @@ export const PageHead = (props: PageHeadProps) => {
   const noRobots = props.doNotIndex || !IS_PRODUCTION;
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
-  const canonicalUrl =
-    props.canonicalUrl || `${urls.carbonmark}${relativePath}`;
+  const canonicalUrl = props.canonicalUrl || `${urls.baseUrl}/${relativePath}`;
   const mediaImageSrc = getOgImageSrc(
-    props.mediaImageSrc || `${urls.carbonmark}/og-media.png`
+    props.mediaImageSrc || `${urls.baseUrl}/og-media.png`
   );
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
-      {!noRobots && (
+      {IS_PRODUCTION && (
         <script
           defer
           data-domain="carbonmark.com"

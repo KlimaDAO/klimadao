@@ -1,11 +1,11 @@
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { User } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { utils } from "ethers";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
+import { User } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as styles from "./styles";

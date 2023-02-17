@@ -1,4 +1,4 @@
-import { CategoryName } from "@klimadao/lib/types/carbonmark";
+import { CategoryName } from "lib/types/carbonmark";
 
 const getMap = () => {
   const methodologyToCategoryMap = new Map<string, CategoryName>();

@@ -10,15 +10,15 @@ import { EditListing, FormValues } from "./Forms/EditListing";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Transaction } from "components/Transaction";
 import {
+  approveTokenSpend,
   deleteListingTransaction,
-  getC3tokenToCarbonmarkAllowance,
-  onApproveCarbonmarkTransaction,
+  getCarbonmarkAllowance,
   updateListingTransaction,
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 
-import { Asset, Listing as ListingType } from "@klimadao/lib/types/carbonmark";
+import { Asset, Listing as ListingType } from "lib/types/carbonmark";
 
 import * as styles from "./styles";
 
@@ -70,7 +70,7 @@ export const ListingEditable: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address) return;
-      const allowance = await getC3tokenToCarbonmarkAllowance({
+      const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
       });
@@ -95,9 +95,10 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveCarbonmarkTransaction({
+      await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
-        provider,
+        spender: "carbonmark",
+        signer: provider.getSigner(),
         value: inputValues.totalAmountToSell,
         onStatus: onUpdateStatus,
       });

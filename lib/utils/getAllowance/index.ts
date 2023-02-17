@@ -19,14 +19,16 @@ export const getAllowance = async (params: {
   address: string;
   spender: AllowancesSpender;
   token: AllowancesToken;
+  network?: "mainnet" | "testnet";
 }): Promise<AllowancesFormatted> => {
   try {
     if (!isSpenderInAddresses(params.spender)) {
       throw new Error(`Unknown spender name in mainnet: ${params.spender}`);
     }
+    const { network = "mainnet" } = params;
     const value: BigNumber = await params.contract.allowance(
       params.address, // owner
-      addresses["mainnet"][params.spender] // spender
+      addresses[network][params.spender] // spender
     );
     const decimals = getTokenDecimals(params.token);
     return {

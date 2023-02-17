@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
-import { CategoryName, CategoryNames } from "@klimadao/lib/types/carbonmark";
 import { categoryInfoMap, getFirstCategory } from "lib/getCategoryInfo";
+import { CategoryName, CategoryNames } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
 

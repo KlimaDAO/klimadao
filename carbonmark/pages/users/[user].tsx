@@ -7,8 +7,8 @@ import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
-import { User } from "@klimadao/lib/types/carbonmark";
-import { getCarbonmarkUser } from "@klimadao/lib/utils";
+import { getCarbonmarkUser } from "lib/carbonmark";
+import { User } from "lib/types/carbonmark";
 
 interface Params extends ParsedUrlQuery {
   user: string;

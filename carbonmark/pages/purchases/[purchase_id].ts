@@ -1,7 +1,8 @@
-import { Purchase } from "@klimadao/lib/types/carbonmark";
-import { getPurchase, getStaticProvider } from "@klimadao/lib/utils";
 import { PurchaseReceipt } from "components/pages/Purchases";
+import { getPurchase } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+import { Purchase } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
-    const provider = getStaticProvider({ chain: "mumbai" }); // TODO: Change this to simply getStaticProvider() after switch to mainnet
+    const provider = getStaticProvider();
     const transactionReceipt = await provider.getTransactionReceipt(
       params.purchase_id
     );

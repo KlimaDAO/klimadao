@@ -8,13 +8,14 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { Purchase } from "@klimadao/lib/types/carbonmark";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
+import { Purchase } from "lib/types/carbonmark";
 
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 
+import { urls } from "lib/constants";
 import * as styles from "./styles";
 
 type Props = {
@@ -80,7 +81,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                 <Text>
                   View transaction on{" "}
                   <a
-                    href={`https://mumbai.polygonscan.com/tx/${props.transaction}`} // TODO: switch link to mainnet
+                    href={`${urls.blockExplorer}/tx/${props.transaction}`}
                     target="_blank"
                     rel="noreferrer"
                   >

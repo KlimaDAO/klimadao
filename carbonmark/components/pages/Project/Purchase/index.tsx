@@ -7,26 +7,25 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
-import { FAKE_USDC } from "lib/constants";
+
 import { createProjectLink, createSellerLink } from "lib/createUrls";
+import { Listing, Project } from "lib/types/carbonmark";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 
 import { formatBigToPrice } from "lib/formatNumbers";
 
 import { Transaction } from "components/Transaction";
-import {
-  getUSDCtokenToCarbonmarkAllowance,
-  makePurchase,
-  onApproveCarbonmarkTransaction,
-} from "lib/actions";
+import { approveTokenSpend, makePurchase } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 
+import { getAllowance } from "lib/networkAware/getAllowance";
+import { getContract } from "lib/networkAware/getContract";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import * as styles from "./styles";
 
 type Props = {
@@ -71,12 +70,16 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
     setIsLoadingAllowance(true);
     try {
       if (!address) return;
-      const allowance = await getUSDCtokenToCarbonmarkAllowance({
-        tokenAddress: FAKE_USDC,
-        userAddress: address,
+      const allowance = await getAllowance({
+        contract: getContract({
+          contractName: "usdc",
+          provider: getStaticProvider(),
+        }),
+        address,
+        spender: "carbonmark",
+        token: "usdc",
       });
-
-      setAllowanceValue(allowance);
+      setAllowanceValue(allowance.usdc.carbonmark);
       setInputValues(values);
     } catch (e) {
       console.error(e);
@@ -103,9 +106,10 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveCarbonmarkTransaction({
-        tokenAddress: FAKE_USDC,
-        provider,
+      await approveTokenSpend({
+        tokenName: "usdc",
+        spender: "carbonmark",
+        signer: provider.getSigner(),
         value: inputValues.price,
         onStatus: onUpdateStatus,
       });

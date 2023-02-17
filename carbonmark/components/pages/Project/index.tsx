@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
-import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
@@ -19,6 +18,7 @@ import {
   getLowestPriceFromListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
+import { Project as ProjectType } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { ProjectListing } from "./ProjectListing";

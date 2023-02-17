@@ -1,5 +1,4 @@
 import { Spinner, Text } from "@klimadao/lib/components";
-import { AssetExtended, User } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
@@ -13,6 +12,7 @@ import { getAssetsExtended } from "lib/actions";
 import { getUser } from "lib/api";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
+import { AssetExtended, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
