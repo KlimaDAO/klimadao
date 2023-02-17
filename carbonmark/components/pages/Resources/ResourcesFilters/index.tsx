@@ -1,10 +1,9 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import ClearIcon from "@mui/icons-material/ClearRounded";
+import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { FC } from "react";
 import { Control } from "react-hook-form";
-
-import { CheckboxGroup } from "./CheckboxGroup";
 
 import { mainTags, subTags } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
@@ -30,9 +29,9 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        <CheckboxGroup
+        <CheckboxGroup<FormValues>
           options={mainTags}
-          formName="tags"
+          name="tags"
           control={props.control}
         />
       </div>
@@ -42,9 +41,9 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        <CheckboxGroup
+        <CheckboxGroup<FormValues>
           options={subTags}
-          formName="tags"
+          name="tags"
           control={props.control}
         />
       </div>

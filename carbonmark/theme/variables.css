@@ -1,5 +1,10 @@
 /** CarbonMark Specific Styling */
 
+:root {
+  --padding-small: 0.8rem;
+  --padding-medium: 2rem;
+}
+
 body,
 body[data-theme="theme-light"] {
   --surface-inverse-01: #202020;

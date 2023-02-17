@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import React, { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, ReactElement } from "react";
 
 import { Text } from "@klimadao/lib/components";
 
@@ -8,7 +8,7 @@ import * as styles from "./styles";
 interface Props {
   id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
-  label: string;
+  label: string | ReactElement;
   errorMessage?: string;
 }
 
@@ -33,7 +33,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
           className={inputStyles}
         />
         <label htmlFor={props.id} className={styles.label}>
-          <Text t="caption">{props.label}</Text>
+          {typeof props.label === "string" ? (
+            <Text t="caption">{props.label}</Text>
+          ) : (
+            props.label
+          )}
         </label>
       </div>
     );
