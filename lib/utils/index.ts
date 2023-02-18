@@ -51,4 +51,3 @@ export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
 export { useTabListener } from "./useTabListener";
 export { useWeb3 } from "./useWeb3";
-export { getVerraProjectByID } from "./verra/getVerraProjects";
