@@ -1,28 +1,46 @@
-import { t, Trans } from "@lingui/macro";
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useRouter } from "next/router";
-
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { cx } from "@emotion/css";
+import {
+  ButtonPrimary,
+  CopyAddressButton,
+  Section,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import {
   concatAddress,
+  getImageSizes,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
+  trimWithLocale,
 } from "@klimadao/lib/utils";
-
+import { t, Trans } from "@lingui/macro";
+import { FacebookButton } from "components/FacebookButton";
+import { Footer } from "components/Footer";
+import { LinkedInButton } from "components/LinkedInButton";
+import { Navigation } from "components/Navigation";
+import { PageHead } from "components/PageHead";
+import { TweetButton } from "components/TweetButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
-
+import { NextPage } from "next";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
+import sunsetMountains from "public/sunset-mountains.jpg";
+import { useEffect } from "react";
+import { RetirementFooter } from "../Footer";
+import { BuyKlima } from "./BuyKlima";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
+import { ProjectDetails } from "./ProjectDetails";
 import { RetirementDate } from "./RetirementDate";
+import { RetirementHeader } from "./RetirementHeader";
+import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
-
-import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
-import { useEffect } from "react";
-import { SingleRetirementLayout } from "./SingleRetirementLayout";
+import { ViewPledgeButton } from "./ViewPledgeButton";
 
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
   dynamic(
@@ -48,7 +66,18 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
-  const { asPath } = useRouter();
+  const { asPath, locale } = useRouter();
+
+  const trimmedAmount = trimWithLocale(
+    retirement.amount.replace(/\.?0+$/, ""),
+    2,
+    locale
+  );
+
+  const retiree =
+    retirement.beneficiary ||
+    props.nameserviceDomain ||
+    concatAddress(props.beneficiaryAddress);
 
   useEffect(() => {
     if (!retirement.pending) return;
@@ -69,115 +98,216 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     rescursivePoller();
   }, []);
 
-  if (retirement.pending) {
-    return (
-      <SingleRetirementLayout
-        beneficiaryAddress={props.beneficiaryAddress}
-        nameserviceDomain={props.nameserviceDomain}
-        pledge={props.pledge}
-        projectDetails={props.projectDetails}
-        retirement={retirement}
-        canonicalUrl={props.canonicalUrl}
-      >
-        <div className={styles.pending}>
-          <div className="spinnerTitle">
-            <Spinner />
-            <Text>
-              <Trans>Processing data...</Trans>
-            </Text>
-          </div>
-          <Text t="caption" align="center">
-            <Trans>
-              We haven't finished processing the blockchain data for this
-              retirement. This usually takes a few seconds, but might take
-              longer if the network is congested.
-            </Trans>
-          </Text>
-        </div>
-      </SingleRetirementLayout>
-    );
-  }
-  const tokenType =
-    getRetirementTokenByAddress(retirement.offset.tokenAddress) || "bct";
   // TODO this doesn't work with TCO2, will quickly follow up to fix this
-  const tokenData = retirementTokenInfoMap[tokenType];
+  const tokenType = !retirement.pending
+    ? getRetirementTokenByAddress(retirement.offset.tokenAddress) || "bct"
+    : null;
+  const tokenData = tokenType ? retirementTokenInfoMap[tokenType] : null;
 
   return (
-    <SingleRetirementLayout
-      beneficiaryAddress={props.beneficiaryAddress}
-      nameserviceDomain={props.nameserviceDomain}
-      pledge={props.pledge}
-      projectDetails={props.projectDetails}
-      retirement={retirement}
-      canonicalUrl={props.canonicalUrl}
-    >
-      <>
-        <RetirementValue
-          value={retirement.amount}
-          label={tokenData.label}
-          icon={tokenData.icon}
+    <>
+      <PageHead
+        title={t({
+          id: "retirement.head.title",
+          message: `KlimaDAO | Carbon Retirement Receipt`,
+        })}
+        mediaTitle={t({
+          id: "retirement.head.metaTitle",
+          message: `${retiree} retired ${retirement.amount} Tonnes of carbon`,
+        })}
+        metaDescription={t({
+          id: "retirement.head.metaDescription",
+          message: "Transparent, on-chain offsets powered by KlimaDAO.",
+        })}
+        canonicalUrl={props.canonicalUrl}
+      />
+      <Navigation activePage="Home" />
+      <Section variant="gray" className={styles.section}>
+        <RetirementHeader
+          overline={retirement.beneficiary}
+          title={t({
+            id: "retirement.single.header.quantity",
+            message: `${trimmedAmount}t`,
+          })}
+          subline={
+            <Trans id="retirement.single.header.subline">
+              CO2-Equivalent Emissions Offset (Metric Tonnes)
+            </Trans>
+          }
         />
-        <div className={styles.metaData}>
-          <div className="column">
-            <TextGroup
-              title={
-                <Trans id="retirement.single.beneficiary.title">
-                  Beneficiary
+        <div className={styles.retirementContent}>
+          <RetirementMessage message={retirement.retirementMessage} />
+          {retirement.pending && (
+            <div className={styles.pending}>
+              <div className="spinnerTitle">
+                <Spinner />
+                <Text>
+                  <Trans>Processing data...</Trans>
+                </Text>
+              </div>
+              <Text t="caption" align="center">
+                <Trans>
+                  We haven't finished processing the blockchain data for this
+                  retirement. This usually takes a few seconds, but might take
+                  longer if the network is congested.
                 </Trans>
-              }
-              text={
-                retirement.beneficiary ||
-                t({
-                  id: "retirement.single.beneficiary.placeholder",
-                  message: "No beneficiary name provided",
-                })
-              }
+              </Text>
+            </div>
+          )}
+          {tokenData && (
+            <RetirementValue
+              value={retirement.amount}
+              label={tokenData.label}
+              icon={tokenData.icon}
             />
-            <TextGroup
-              title={
-                <Trans id="retirement.single.beneficiaryAddress.title">
-                  Beneficiary Address
+          )}
+          {!retirement.pending && tokenData && (
+            <div className={styles.metaData}>
+              <div className="column">
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.beneficiary.title">
+                      Beneficiary
+                    </Trans>
+                  }
+                  text={
+                    retirement.beneficiary ||
+                    t({
+                      id: "retirement.single.beneficiary.placeholder",
+                      message: "No beneficiary name provided",
+                    })
+                  }
+                />
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.beneficiaryAddress.title">
+                      Beneficiary Address
+                    </Trans>
+                  }
+                  text={
+                    <Link
+                      href={`/retirements/${
+                        props.nameserviceDomain || props.beneficiaryAddress
+                      }`}
+                      className="address"
+                    >
+                      {props.nameserviceDomain ||
+                        concatAddress(props.beneficiaryAddress)}
+                    </Link>
+                  }
+                />
+              </div>
+              <div className="column">
+                <RetirementDate timestamp={retirement.timestamp} />
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.retirementCertificate.title">
+                      Certificate
+                    </Trans>
+                  }
+                  text={
+                    retirement ? (
+                      <DownloadCertificateButton
+                        beneficiaryName={retirement.beneficiary}
+                        beneficiaryAddress={props.beneficiaryAddress}
+                        retirement={retirement}
+                        retirementIndex={props.retirementIndex}
+                        retirementMessage={retirement.retirementMessage}
+                        retirementUrl={`${urls.home}/${asPath}`}
+                        projectDetails={props.projectDetails ?? undefined}
+                        tokenData={tokenData}
+                      />
+                    ) : null
+                  }
+                />
+              </div>
+            </div>
+          )}
+          <Text className={styles.data_description} t="caption" align="start">
+            <Trans id="retirement.single.disclaimer">
+              This represents the permanent retirement of tokenized carbon
+              assets on the Polygon blockchain. This retirement and the
+              associated data are immutable public records.
+            </Trans>
+          </Text>
+          <div className={styles.pledge_button}>
+            <ViewPledgeButton pledge={props.pledge} />
+            {props.pledge === null && (
+              <Text className={styles.create_pledge} t="caption" align="center">
+                <Trans id="retirement.single.is_this_your_retirement">
+                  Is this your retirement?
                 </Trans>
-              }
-              text={
-                <Link
-                  href={`/retirements/${
-                    props.nameserviceDomain || props.beneficiaryAddress
-                  }`}
-                  className="address"
-                >
-                  {props.nameserviceDomain ||
-                    concatAddress(props.beneficiaryAddress)}
+                <Link href={`/pledge/${props.beneficiaryAddress}`}>
+                  <Trans id="retirement.single.create_a_pledge">
+                    Create a pledge now.
+                  </Trans>
                 </Link>
-              }
-            />
-          </div>
-          <div className="column">
-            <RetirementDate timestamp={retirement.timestamp} />
-            <TextGroup
-              title={
-                <Trans id="retirement.single.retirementCertificate.title">
-                  Certificate
-                </Trans>
-              }
-              text={
-                retirement ? (
-                  <DownloadCertificateButton
-                    beneficiaryName={retirement.beneficiary}
-                    beneficiaryAddress={props.beneficiaryAddress}
-                    retirement={retirement}
-                    retirementIndex={props.retirementIndex}
-                    retirementMessage={retirement.retirementMessage}
-                    retirementUrl={`${urls.home}/${asPath}`}
-                    projectDetails={props.projectDetails ?? undefined}
-                    tokenData={tokenData}
-                  />
-                ) : null
-              }
-            />
+              </Text>
+            )}
           </div>
         </div>
-      </>
-    </SingleRetirementLayout>
+      </Section>
+      <Section variant="gray" className={styles.section}>
+        <div className={styles.share_content}>
+          <Image
+            alt="Sunset Mountains"
+            src={sunsetMountains}
+            layout="fill"
+            objectFit="cover"
+            sizes={getImageSizes({ large: "1072px" })}
+            placeholder="blur"
+            className="image"
+          />
+          <Text className="title" t="h3">
+            <Trans id="retirement.share.title">Share your impact</Trans>
+          </Text>
+          <div className="buttons">
+            <TweetButton
+              title={`${retiree} retired ${retirement.amount} Tonnes of carbon`}
+              tags={["klimadao", "Offset"]}
+            />
+            <FacebookButton />
+            <LinkedInButton />
+            <CopyAddressButton variant="lightGray" shape="circle" />
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.section}>
+        <RetirementFooter />
+      </Section>
+      <Section variant="gray" className={styles.section}>
+        <BuyKlima />
+      </Section>
+      <Section
+        variant="gray"
+        className={cx(styles.section, styles.sectionButtons)}
+      >
+        <div className={styles.sectionButtonsWrap}>
+          <CopyAddressButton label="Copy Link" variant="gray" />
+          {!retirement.pending && retirement.transaction.id && (
+            <ButtonPrimary
+              href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
+              target="_blank"
+              variant="gray"
+              rel="noopener noreferrer"
+              label={t({
+                id: "retirement.single.view_on_polygon_scan",
+                message: "View on Polygonscan",
+              })}
+              className={styles.buttonViewOnPolygon}
+            />
+          )}
+        </div>
+      </Section>
+      {!retirement.pending && retirement.offset && (
+        <Section variant="gray" className={styles.section}>
+          <ProjectDetails
+            projectDetails={props.projectDetails ?? undefined}
+            offset={retirement.offset}
+          />
+        </Section>
+      )}
+      <Footer />
+    </>
   );
 };
