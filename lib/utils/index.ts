@@ -24,9 +24,9 @@ export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
 export {
   createRetirementStorageContract,
-  getRetirementIndexInfo,
   getRetirementTotalsAndBalances,
 } from "./getRetirement";
+export { getRetirementDetails } from "./getRetirementDetails";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getStakingRewards } from "./getStakingRewards";
 export { getStaticProvider } from "./getStaticProvider";

@@ -83,11 +83,3 @@ export type RetirementIndexInfo = [
   beneficiaryName: string,
   retirementMessage: string
 ];
-
-export type RetirementIndexInfoResult = {
-  tokenAddress: RetirementIndexInfo[0];
-  typeOfToken: RetirementToken;
-  amount: string;
-  beneficiaryName: RetirementIndexInfo[2];
-  retirementMessage: RetirementIndexInfo[3];
-};
