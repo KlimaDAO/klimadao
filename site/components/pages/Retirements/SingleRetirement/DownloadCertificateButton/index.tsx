@@ -3,7 +3,6 @@ import { FC } from "react";
 
 import { RetirementToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import { t } from "@lingui/macro";
 import { StaticImageData } from "next/legacy/image";
@@ -11,7 +10,8 @@ import { generateCertificate } from "./generateCertificate";
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;
-  projectDetails?: VerraProjectDetails;
+  /** Normalized id with prefix like VCS-123 */
+  projectId: string;
   retirement: KlimaRetire;
   retirementIndex: string;
   retirementMessage: string;

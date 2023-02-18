@@ -22,6 +22,7 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { TweetButton } from "components/TweetButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
+import { normalizeProjectId } from "lib/normalizeProjectId";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -214,8 +215,11 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                         retirementIndex={props.retirementIndex}
                         retirementMessage={retirement.retirementMessage}
                         retirementUrl={`${urls.home}/${asPath}`}
-                        projectDetails={props.projectDetails ?? undefined}
                         tokenData={tokenData}
+                        projectId={normalizeProjectId({
+                          id: retirement.offset.projectID,
+                          standard: retirement.offset.standard,
+                        })}
                       />
                     ) : null
                   }

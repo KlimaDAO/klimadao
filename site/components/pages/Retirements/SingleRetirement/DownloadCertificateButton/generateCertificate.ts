@@ -3,7 +3,6 @@ import { jsPDF } from "jspdf";
 
 import { RetirementToken, urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import bctBackground from "public/bg_bct.jpeg";
 import mco2Background from "public/bg_mco2.jpeg";
@@ -19,7 +18,8 @@ import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 type Params = {
   beneficiaryName: string;
   beneficiaryAddress: string;
-  projectDetails?: VerraProjectDetails;
+  /** Normalized id with prefix like VCS-123 */
+  projectId: string;
   retirement: KlimaRetire;
   retirementIndex: string;
   retirementMessage: string;
@@ -171,7 +171,6 @@ export const generateCertificate = (params: Params): void => {
   };
 
   const printProjectDetails = (): void => {
-    const project = params.projectDetails?.value[0];
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
     const formattedRetirementDate = `${retirementDate.getDate()}/${
       retirementDate.getMonth() + 1
@@ -179,7 +178,7 @@ export const generateCertificate = (params: Params): void => {
     let projectDetails = [
       {
         label: "Project",
-        value: project?.resourceName,
+        value: params.projectId,
       },
       {
         label: "Asset Retired",

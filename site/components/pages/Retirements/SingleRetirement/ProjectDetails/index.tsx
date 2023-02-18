@@ -2,6 +2,7 @@ import { Text } from "@klimadao/lib/components";
 import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
+import { normalizeProjectId } from "lib/normalizeProjectId";
 import { FC } from "react";
 
 import { ProjectDetail } from "./List";
@@ -9,11 +10,6 @@ import * as styles from "./styles";
 
 type Props = {
   offset: KlimaRetire["offset"];
-};
-
-const normalizeProjectId = (id: string, standard: string) => {
-  if (id.startsWith("VCS-") || id.startsWith("GS-")) return id;
-  return `${standard}-${id}`;
 };
 
 const constructVerraUrl = (id: string) => {
@@ -53,7 +49,10 @@ export const ProjectDetails: FC<Props> = (props) => {
           isMossOffset
             ? t`MCO2 Token`
             : props.offset.name ||
-              normalizeProjectId(props.offset.projectID, props.offset.standard)
+              normalizeProjectId({
+                id: props.offset.projectID,
+                standard: props.offset.standard,
+              })
         }
         tokenAddress={props.offset.tokenAddress}
         isMossOffset={isMossOffset}

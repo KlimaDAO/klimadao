@@ -4,10 +4,8 @@ import { ParsedUrlQuery } from "querystring";
 
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import {
   getRetirementDetails,
-  getVerraProjectByID,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 
@@ -30,7 +28,6 @@ export interface SingleRetirementPageProps {
   beneficiaryAddress: string;
   retirement: KlimaRetire | PendingKlimaRetire;
   retirementIndex: Params["retirement_index"];
-  projectDetails: VerraProjectDetails | null;
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
@@ -116,19 +113,11 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    let projectDetails: VerraProjectDetails | null = null;
-    if (retirement && !retirement.pending && !!retirement.offset.projectID) {
-      projectDetails = await getVerraProjectByID(
-        retirement.offset.projectID.replace("VCS-", "")
-      );
-    }
-
     return {
       props: {
         beneficiaryAddress: beneficiaryAddress,
         canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
-        projectDetails,
         retirement: retirement || null,
         retirementIndex: params.retirement_index,
         translation,
