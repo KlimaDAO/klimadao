@@ -3,11 +3,10 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 import { urls } from "@klimadao/lib/constants";
-import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import {
-  getRetirementIndexInfo,
+  getRetirementDetails,
   getVerraProjectByID,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
@@ -16,7 +15,6 @@ import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { Pledge } from "components/pages/Pledge/types";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { getAddressByDomain } from "lib/getAddressByDomain";
-import { getDomainByAddress } from "lib/getDomainByAddress";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/secrets";
@@ -30,9 +28,8 @@ interface Params extends ParsedUrlQuery {
 export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
-  retirement: KlimaRetire | null;
+  retirement: KlimaRetire | PendingKlimaRetire;
   retirementIndex: Params["retirement_index"];
-  retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
@@ -85,26 +82,34 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const promises: [
-      Promise<KlimaRetire | false>,
-      Promise<RetirementIndexInfoResult>,
-      Promise<Record<string, unknown>>
-    ] = [
+    let retirement: KlimaRetire | PendingKlimaRetire;
+    const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
-      getRetirementIndexInfo({
-        beneficiaryAddress: beneficiaryAddress,
+      loadTranslation(locale),
+    ]);
+    if (subgraphData) {
+      retirement = subgraphData;
+    } else {
+      // if the subgraph is slow to index, try grabbing the retirement directly from the storage contract
+      const fallbackData = await getRetirementDetails({
+        beneficiaryAddress,
         index: retirementIndex,
         infuraId: INFURA_ID,
-      }),
-      loadTranslation(locale),
-    ];
-
-    const [retirement, retirementIndexInfo, translation] = await Promise.all(
-      promises
-    );
-
-    if (!retirementIndexInfo) {
-      throw new Error("No retirement found");
+      });
+      if (!fallbackData) {
+        // if no fallback data and no subgraph data, it probably never existed, return page 404
+        throw new Error(
+          `No retirement found for address ${beneficiaryAddress} at index ${retirementIndex}`
+        );
+      }
+      // construct PendingKlimaRetire
+      retirement = {
+        pending: true,
+        amount: fallbackData.amount,
+        beneficiary: fallbackData.beneficiary,
+        beneficiaryAddress,
+        retirementMessage: fallbackData.retirementMessage,
+      };
     }
 
     if (!translation) {
@@ -112,7 +117,7 @@ export const getStaticProps: GetStaticProps<
     }
 
     let projectDetails: VerraProjectDetails | null = null;
-    if (retirement && !!retirement.offset.projectID) {
+    if (retirement && !retirement.pending && !!retirement.offset.projectID) {
       projectDetails = await getVerraProjectByID(
         retirement.offset.projectID.replace("VCS-", "")
       );
@@ -126,11 +131,10 @@ export const getStaticProps: GetStaticProps<
         projectDetails,
         retirement: retirement || null,
         retirementIndex: params.retirement_index,
-        retirementIndexInfo,
         translation,
         pledge,
       },
-      revalidate: 240,
+      revalidate: retirement.pending ? 4 : 240,
     };
   } catch (e) {
     console.error("Failed to generate", e);
