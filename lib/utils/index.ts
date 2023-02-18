@@ -1,11 +1,6 @@
 export { concatAddress } from "./concatAddress";
 // ENS
-export {
-  getAddressByENS,
-  getENSByAddress,
-  getENSProfile,
-  isENSDomain,
-} from "./ens";
+export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { formatUnits } from "./formatUnits";
 export {
@@ -35,9 +30,7 @@ export { getTransactionOptions } from "./getTransactionOptions";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 // KNS
 export {
-  createKNSDomainFromName,
   getAddressByKNS,
-  getKNSByAddress,
   getKNSProfile,
   isKNSDomain,
   KNSContract,

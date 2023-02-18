@@ -68,19 +68,6 @@ export const getStaticProps: GetStaticProps<
       throw new Error("Not a valid beneficiary address");
     }
 
-    const nameserviceDomain =
-      !isDomainInURL && (await getDomainByAddress(beneficiaryInUrl));
-
-    // redirect now to this page again with nameserviceDomain in URL
-    if (nameserviceDomain) {
-      return {
-        redirect: {
-          destination: `/retirements/${nameserviceDomain}/${params.retirement_index}`,
-          statusCode: 301,
-        },
-      };
-    }
-
     let beneficiaryAddress: string;
     if (isDomainInURL) {
       beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve
