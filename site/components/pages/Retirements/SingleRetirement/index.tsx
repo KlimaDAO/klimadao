@@ -50,24 +50,24 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 }) => {
   const { asPath } = useRouter();
 
-  const { locale, asPath } = useRouter();
-  const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
-
-  const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
-    /\.?0+$/,
-    ""
-  ); // remove whitespace 0s from string, e.g. 1.0 => 1
-
-  // collect from indexInfo and optional data from subgraph
-  const retireData = {
-    amount: trimWithLocale(amountWithoutWhiteSpace, 2, locale),
-    tokenLabel: tokenData.label,
-    tokenIcon: tokenData.icon,
-    beneficiaryName: retirementIndexInfo.beneficiaryName,
-    retirementMessage: retirementIndexInfo.retirementMessage,
-    timestamp: retirement?.timestamp || null,
-    transactionID: retirement?.transaction?.id || null,
-  };
+  useEffect(() => {
+    if (!retirement.pending) return;
+    const rescursivePoller = async () => {
+      // wait 5 seconds
+      await new Promise((res) => setTimeout(res, 5000));
+      // check if its available yet
+      const result = await queryKlimaRetireByIndex(
+        props.beneficiaryAddress,
+        parseInt(props.retirementIndex)
+      );
+      if (result) {
+        return window.location.reload();
+      }
+      // otherwise wait 5 more seconds and try again
+      await rescursivePoller();
+    };
+    rescursivePoller();
+  }, []);
 
   if (retirement.pending) {
     return (
