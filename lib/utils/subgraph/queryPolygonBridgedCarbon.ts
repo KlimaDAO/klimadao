@@ -30,6 +30,7 @@ export const queryKlimaRetireByIndex = async (
               retirementMessage
               amount
               offset {
+                name
                 id
                 tokenAddress
                 totalRetired
@@ -43,6 +44,7 @@ export const queryKlimaRetireByIndex = async (
                 methodology
                 methodologyCategory
                 category
+                currentSupply
               }
             }
           }

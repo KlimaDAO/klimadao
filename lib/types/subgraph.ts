@@ -11,6 +11,7 @@ export interface KlimaRetire {
     id: string;
   };
   offset: {
+    name: string; // not present on all
     id: string;
     tokenAddress: string;
     totalRetired: string; // "0" if bridge is "Moss"
@@ -24,6 +25,7 @@ export interface KlimaRetire {
     methodology: string;
     methodologyCategory: string;
     category: string;
+    currentSupply: string;
   };
   pending?: undefined;
 }
