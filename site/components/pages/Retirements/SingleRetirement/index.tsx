@@ -272,6 +272,11 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           </div>
         </div>
       </Section>
+      {!retirement.pending && retirement.offset && (
+        <Section variant="gray" className={styles.section}>
+          <ProjectDetails offset={retirement.offset} />
+        </Section>
+      )}
       <Section variant="gray" className={styles.section}>
         <RetirementFooter />
       </Section>
@@ -299,14 +304,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           )}
         </div>
       </Section>
-      {!retirement.pending && retirement.offset && (
-        <Section variant="gray" className={styles.section}>
-          <ProjectDetails
-            projectDetails={props.projectDetails ?? undefined}
-            offset={retirement.offset}
-          />
-        </Section>
-      )}
       <Footer />
     </>
   );
