@@ -15,12 +15,20 @@ msgstr ""
 msgid "Frequently Asked Questions"
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:145
+msgid "Processing data..."
+msgstr ""
+
 #: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
+msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:65
@@ -1569,39 +1577,39 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:110
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:261
+#: components/pages/Retirements/SingleRetirement/index.tsx:262
 msgid "retirement.share.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
+#: components/pages/Retirements/SingleRetirement/index.tsx:175
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:183
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:217
+#: components/pages/Retirements/SingleRetirement/index.tsx:241
 msgid "retirement.single.create_a_pledge"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:203
+#: components/pages/Retirements/SingleRetirement/index.tsx:227
 msgid "retirement.single.disclaimer"
 msgstr ""
 
@@ -1609,15 +1617,15 @@ msgstr ""
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:133
 msgid "retirement.single.header.subline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:237
 msgid "retirement.single.is_this_your_retirement"
 msgstr ""
 
@@ -1661,7 +1669,7 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:181
+#: components/pages/Retirements/SingleRetirement/index.tsx:204
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -1669,15 +1677,11 @@ msgstr ""
 msgid "retirement.single.retirementDate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:132
-msgid "retirement.single.retirementMessage.placeholder"
-msgstr ""
-
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:239
+#: components/pages/Retirements/SingleRetirement/index.tsx:293
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
@@ -1882,7 +1886,7 @@ msgstr ""
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr ""
 

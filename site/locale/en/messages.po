@@ -21,6 +21,10 @@ msgstr "Change language"
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:145
+msgid "Processing data..."
+msgstr "Processing data..."
+
 #: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
@@ -28,6 +32,10 @@ msgstr "Switch to Polygon"
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
+msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
+msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
 #: components/InvalidNetworkModal/index.tsx:65
 msgid "Wrong Network"
@@ -1575,39 +1583,39 @@ msgstr "Use carbon-backed KLIMA tokens to govern, swap, and earn staking rewards
 msgid "retirement.footer.buy_klima.title"
 msgstr "Acquire, stake, and get rewarded."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} retired {0} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:110
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:261
+#: components/pages/Retirements/SingleRetirement/index.tsx:262
 msgid "retirement.share.title"
 msgstr "Share your impact"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
+#: components/pages/Retirements/SingleRetirement/index.tsx:175
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:183
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:217
+#: components/pages/Retirements/SingleRetirement/index.tsx:241
 msgid "retirement.single.create_a_pledge"
 msgstr "Create a pledge now."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:203
+#: components/pages/Retirements/SingleRetirement/index.tsx:227
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
@@ -1615,15 +1623,15 @@ msgstr "This represents the permanent retirement of tokenized carbon assets on t
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:128
 msgid "retirement.single.header.quantity"
-msgstr "{0}t"
+msgstr "{trimmedAmount}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:133
 msgid "retirement.single.header.subline"
 msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:237
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Is this your retirement?"
 
@@ -1667,7 +1675,7 @@ msgstr "View transaction on Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:181
+#: components/pages/Retirements/SingleRetirement/index.tsx:204
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -1675,15 +1683,11 @@ msgstr "Certificate"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:132
-msgid "retirement.single.retirementMessage.placeholder"
-msgstr "No retirement message provided"
-
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:239
+#: components/pages/Retirements/SingleRetirement/index.tsx:293
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
@@ -1888,7 +1892,7 @@ msgstr "Info"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "Loading..."
 
