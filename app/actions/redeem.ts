@@ -26,7 +26,7 @@ export const getRedeemCost = async (params): Promise<string> => {
   const sourceAmount =
     await retirementAggregatorV2Contract.getSourceAmountSpecificRedeem(
       addresses.mainnet[params.paymentMethod],
-      params.retirementToken,
+      addresses.mainnet[params.retirementToken],
       [parsed.toString()]
     );
 

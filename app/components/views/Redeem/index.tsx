@@ -54,7 +54,7 @@ import * as styles from "./styles";
 
 const defaultValues = {
   retirementToken: "bct",
-  projectAddress: "",
+  projectAddress: "", // 0x2F800Db0fdb5223b3C3f354886d907A671414A7F
   project: {},
   quantity: 0,
   paymentMethod: "usdc", //todo fiat default
@@ -153,13 +153,11 @@ export const Redeem = (props) => {
     if (quantity === 0) return;
 
     const awaitGetOffsetConsumptionCost = async () => {
-      setValue("cost", null);
+      return setValue("cost", "5");
       // setValue("quantity", 0);
       const values = getValues();
       if (paymentMethod !== "fiat") {
-        console.log({ ...values });
         const consumptionCost = await getRedeemCost({ ...values });
-        console.log({ consumptionCost });
 
         setValue("cost", consumptionCost);
       } else {
@@ -180,7 +178,6 @@ export const Redeem = (props) => {
           // setDebouncedQuantity(floorQuantity);
         }
         const cost = await getFiatRetirementCost(reqParams);
-        console.log("hello");
         setValue("cost", cost);
       }
     };
@@ -188,53 +185,6 @@ export const Redeem = (props) => {
 
     debouncedCost();
   }, [quantity, projectAddress, paymentMethod, retirementToken]);
-
-  const getButtonProps = () => {
-    if (!props.isConnected) {
-      return {
-        label: t({
-          id: "shared.login_connect",
-          message: "Login / Connect",
-        }),
-        onClick: props.toggleModal,
-      };
-    }
-    // } else if (isLoading || cost === "loading") {
-    //   return {
-    //     label: t({ id: "shared.loading", message: "Loading..." }),
-    //     disabled: true,
-    //   };
-    // } else if (isRedirecting) {
-    //   return {
-    //     label: t({
-    //       id: "shared.redirecting_checkout",
-    //       message: "Redirecting to checkout...",
-    //     }),
-    //     disabled: true,
-    //   };
-    // } else if (paymentMethod !== "fiat" && insufficientBalance) {
-    //   return {
-    //     label: t({
-    //       id: "shared.insufficient_balance",
-    //       message: "Insufficient balance",
-    //     }),
-    //     disabled: true,
-    //   };
-    // } else if (paymentMethod !== "fiat" && !hasApproval()) {
-    //   return {
-    //     label: t({ id: "shared.approve", message: "Approve" }),
-    // onClick: () => setShowTransactionModal(true),
-    // } else if (paymentMethod === "fiat") {
-    //   return {
-    //     label: t({ id: "offset.checkout", message: "Checkout" }),
-    //     onClick: handleFiat,
-    //   };
-    // }
-    return {
-      label: t({ id: "shared.redeem", message: "Redeem carbon" }),
-      // onClick: () => setShowTransactionModal(true),
-    };
-  };
 
   const closeTransactionModal = () => {
     setStatus(null);
@@ -272,6 +222,54 @@ export const Redeem = (props) => {
     } catch (e) {
       return;
     }
+  };
+
+  const getButtonProps = () => {
+    if (!props.isConnected) {
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
+      // } else if (isLoading || cost === "loading") {
+      //   return {
+      //     label: t({ id: "shared.loading", message: "Loading..." }),
+      //     disabled: true,
+      //   };
+      // } else if (isRedirecting) {
+      //   return {
+      //     label: t({
+      //       id: "shared.redirecting_checkout",
+      //       message: "Redirecting to checkout...",
+      //     }),
+      //     disabled: true,
+      //   };
+      // } else if (paymentMethod !== "fiat" && insufficientBalance) {
+      //   return {
+      //     label: t({
+      //       id: "shared.insufficient_balance",
+      //       message: "Insufficient balance",
+      //     }),
+      //     disabled: true,
+      //   };
+    } else if (paymentMethod !== "fiat" && !hasApproval) {
+      return {
+        label: t({ id: "shared.approve", message: "Approve" }),
+        onClick: () => setShowTransactionModal(true),
+      };
+    }
+    // else if (paymentMethod === "fiat") {
+    //   return {
+    //     label: t({ id: "offset.checkout", message: "Checkout" }),
+    //     onClick: handleFiat,
+    //   };
+    // }
+    return {
+      label: t({ id: "shared.redeem", message: "Redeem carbon" }),
+      // onClick: () => setShowTransactionModal(true),
+    };
   };
 
   return (
@@ -339,7 +337,7 @@ export const Redeem = (props) => {
         />
 
         <ButtonPrimary
-          disabled={!isDirty}
+          // disabled={!isDirty}
           type="submit"
           {...getButtonProps()}
           // label={submitting ? "Redeeming" : "Redeem"} // TODO}
