@@ -14,7 +14,11 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
 
 import { getRetiredOffsetBalances } from "actions/offset";
-import { getRedeemAllowances, getRedeemCost } from "actions/redeem";
+import {
+  getRedeemAllowances,
+  getRedeemCost,
+  redeemCarbonTransaction,
+} from "actions/redeem";
 import { changeApprovalTransaction } from "actions/utils";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
@@ -224,6 +228,29 @@ export const Redeem = (props) => {
     }
   };
 
+  const handleRedeem = async () => {
+    try {
+      if (!props.address || !props.provider || paymentMethod === "fiat") return;
+
+      const { receipt } = await redeemCarbonTransaction({
+        paymentMethod,
+        poolToken: retirementToken,
+        maxAmountIn: cost,
+        projectAddress,
+        amount: quantity,
+        provider: props.provider,
+        onStatus: setStatus,
+      });
+
+      closeTransactionModal();
+      // this opens RetirementSuccessModal
+      setRetirementTransactionHash(receipt.transactionHash);
+      setRetirementTotals(retirementTotals);
+    } catch (e) {
+      return;
+    }
+  };
+
   const getButtonProps = () => {
     if (!props.isConnected) {
       return {
@@ -363,7 +390,7 @@ export const Redeem = (props) => {
           onResetStatus={() => setStatus(null)}
           onApproval={handleApprove}
           hasApproval={hasApproval}
-          // onSubmit={handleRetire}
+          onSubmit={handleRedeem}
         />
       )}
     </RedeemLayout>

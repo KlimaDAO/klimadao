@@ -1,5 +1,5 @@
-import { getStaticProvider } from "@klimadao/lib/utils";
-import { utils } from "ethers";
+import { getStaticProvider, getTransactionOptions } from "@klimadao/lib/utils";
+import { providers, utils } from "ethers";
 import { Thunk } from "state";
 import { updateAllowances } from "state/user";
 
@@ -12,6 +12,7 @@ import {
 
 import { offsetInputTokens } from "@klimadao/lib/constants";
 import { getAllowance } from "@klimadao/lib/utils";
+import { OnStatusHandler } from "./utils";
 
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
@@ -79,4 +80,63 @@ export const getRedeemAllowances = (params: {
       throw error;
     }
   };
+};
+
+export const redeemCarbonTransaction = async (params: {
+  paymentMethod: string;
+  poolToken: string;
+  maxAmountIn: string;
+  projectAddress: string;
+  amount: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const transactionOptions = await getTransactionOptions();
+
+    // retire transaction
+    const redeemContract = getContract({
+      contractName: "retirementAggregatorV2",
+      provider: getStaticProvider(),
+    });
+
+    params.onStatus("userConfirmation");
+
+    let txn;
+    if (params.carbonPool === "bct" || params.carbonPool === "nct") {
+      // toucanRedeemExactCarbonPoolSpecific
+      txn = await redeemContract.toucanRedeemExactCarbonPoolSpecific(
+        params.paymentMethod,
+        params.poolToken,
+        params.maxAmountIn,
+        [params.projectAddress],
+        [params.amount],
+        transactionOptions // is this correct??
+      );
+    } else if (params.carbonPool === "ubo" || params.carbonPool === "nbo") {
+      // c3RedeemPoolSpecific
+      txn = await redeemContract.c3RedeemPoolSpecific(
+        params.paymentMethod,
+        params.poolToken,
+        params.maxAmountIn,
+        [params.projectAddress],
+        [params.amount],
+        transactionOptions
+      );
+    }
+
+    params.onStatus("networkConfirmation");
+
+    const receipt = await txn.wait(1);
+
+    return { receipt };
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    console.error(error);
+    throw error;
+  }
 };
