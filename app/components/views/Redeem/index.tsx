@@ -31,6 +31,7 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import { InputField } from "components/Form";
 import { TransactionModal } from "components/TransactionModal";
 import { tokenInfo } from "lib/getTokenInfo";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import { getFiatRetirementCost } from "../Offset/lib/getFiatRetirementCost";
@@ -86,6 +87,7 @@ export const Redeem = (props) => {
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
 
+  const params = useOffsetParams();
   const dispatch = useAppDispatch();
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
@@ -128,6 +130,28 @@ export const Redeem = (props) => {
   const cost = watch("cost");
   const setSelectedProject = (project) => setValue("project", project);
   const setProjectAddress = (address) => setValue("projectAddress", address);
+
+  /** Initialize input from params after they are extracted, validated & stripped */
+  useEffect(() => {
+    if (params.inputToken) {
+      setValue("paymentMethod", params.inputToken);
+    }
+    if (params.retirementToken) {
+      setValue("retirementToken", params.retirementToken);
+    }
+    if (params.projectTokens) {
+      setValue("projectAddress", params.projectTokens);
+    }
+    if (params.quantity) {
+      // handles the case where a decimal value for quantity is passed
+      // as a query param - we convert it to a whole number (1.123 -> 2)
+      const quantity =
+        paymentMethod === "fiat"
+          ? Math.ceil(Number(params.quantity)).toString()
+          : params.quantity;
+      setValue("quantity", quantity);
+    }
+  }, [params]);
 
   // const values = getValues();
 
@@ -243,7 +267,7 @@ export const Redeem = (props) => {
       });
 
       closeTransactionModal();
-      // this opens RetirementSuccessModal
+      // this opens RedeemSuccessModal
       setRetirementTransactionHash(receipt.transactionHash);
       setRetirementTotals(retirementTotals);
     } catch (e) {
