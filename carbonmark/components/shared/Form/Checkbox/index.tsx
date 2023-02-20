@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
 import React, { InputHTMLAttributes, ReactElement } from "react";
 
-import { Text } from "@klimadao/lib/components";
+import { Text } from "components/Text";
 
 import * as styles from "./styles";
 

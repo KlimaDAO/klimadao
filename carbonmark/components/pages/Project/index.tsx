@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
@@ -9,6 +8,7 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
+import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { formatToPrice } from "lib/formatNumbers";
@@ -23,7 +23,6 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { ProjectListing } from "./ProjectListing";
 import { ProjectMap } from "./ProjectMap";
-
 import * as styles from "./styles";
 
 type Props = {

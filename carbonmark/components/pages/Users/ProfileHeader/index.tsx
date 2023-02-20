@@ -1,10 +1,9 @@
-import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import { Text } from "components/Text";
 import Image from "next/legacy/image";
 import userLogo from "public/user_default_avatar.png";
 import { FC } from "react";
-
 import * as styles from "./styles";
 
 type Props = {

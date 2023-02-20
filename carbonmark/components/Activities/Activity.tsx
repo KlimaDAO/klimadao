@@ -1,6 +1,6 @@
-import { Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { Text } from "components/Text";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";

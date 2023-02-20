@@ -1,4 +1,6 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { Text } from "components/Text";
+
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";

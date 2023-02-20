@@ -1,15 +1,19 @@
-import "@klimadao/carbonmark/theme/variables.css";
 import { Web3ContextProvider } from "@klimadao/lib/components";
-import "@klimadao/lib/theme/globals.css";
-import "@klimadao/lib/theme/normalize.css";
-import "@klimadao/lib/theme/variables.css";
-
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+
+// organize-imports-ignore
+import "@klimadao/lib/theme/normalize.css";
+// organize-imports-ignore
+import "@klimadao/lib/theme/variables.css";
+// organize-imports-ignore
+import "@klimadao/carbonmark/theme/variables.css"; // overrides for variables.css - must be imported after
+// organize-imports-ignore
+import "@klimadao/lib/theme/globals.css"; // depends on variables
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {

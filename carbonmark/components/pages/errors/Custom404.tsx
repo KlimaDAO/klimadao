@@ -1,10 +1,9 @@
-import { GridContainer, Section, Text } from "@klimadao/lib/components";
-
-import { PageHead } from "components/PageHead";
-
+import { GridContainer, Section } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { Footer } from "components/Footer";
+import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
+import { Text } from "components/Text";
 import * as styles from "./styles";
 
 export const Custom404 = () => {

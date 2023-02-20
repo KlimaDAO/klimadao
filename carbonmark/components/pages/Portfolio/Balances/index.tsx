@@ -1,7 +1,7 @@
-import { Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
+import { Text } from "components/Text";
 import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";

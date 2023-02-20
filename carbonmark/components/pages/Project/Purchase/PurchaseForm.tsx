@@ -1,7 +1,8 @@
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
+import { Text } from "components/Text";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";

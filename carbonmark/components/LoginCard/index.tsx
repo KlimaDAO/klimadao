@@ -1,8 +1,8 @@
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
-
 import { Card } from "components/Card";
+import { Text } from "components/Text";
 import { FC } from "react";
 import * as styles from "./styles";
 

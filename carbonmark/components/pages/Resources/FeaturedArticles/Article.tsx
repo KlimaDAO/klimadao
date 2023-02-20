@@ -1,14 +1,10 @@
+import { Text } from "components/Text";
+import { FeaturedPost } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
-
-import { Text } from "@klimadao/lib/components";
-
-import { FeaturedPost } from "lib/queries";
-
 import defaultImage from "public/cover-default.png";
-
+import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {

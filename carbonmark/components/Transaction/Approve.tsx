@@ -1,19 +1,16 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
-import { FC } from "react";
-
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
+import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
-
+import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
-
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { Value } from "./types";
-
 import * as styles from "./styles";
+import { Value } from "./types";
 
 interface Props {
   amount: Value;

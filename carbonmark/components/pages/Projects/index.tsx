@@ -1,10 +1,10 @@
-import { Text } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
+import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
@@ -13,6 +13,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as styles from "./styles";
+
 type Props = {
   projects: Project[];
 };

@@ -1,4 +1,4 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
@@ -7,6 +7,7 @@ import { Layout } from "components/Layout";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
+import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { getAssetsExtended } from "lib/actions";
 import { getUser } from "lib/api";

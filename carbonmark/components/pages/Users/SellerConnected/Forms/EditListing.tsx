@@ -1,7 +1,8 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
+import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";

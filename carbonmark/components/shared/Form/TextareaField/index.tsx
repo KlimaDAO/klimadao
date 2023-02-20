@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
+import { Text } from "components/Text";
 import React, { TextareaHTMLAttributes } from "react";
-
 import * as styles from "./styles";
 
 interface Props {

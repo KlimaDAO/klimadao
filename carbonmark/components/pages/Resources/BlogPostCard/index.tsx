@@ -1,10 +1,8 @@
+import { Text } from "components/Text";
+import { PostDetails } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
-
-import { Text } from "@klimadao/lib/components";
-import { PostDetails } from "lib/queries";
 import defaultImage from "public/cover-default.png";
-
 import * as styles from "./styles";
 
 interface BlogPostCardProps {

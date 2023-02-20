@@ -1,21 +1,18 @@
-import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
+import { PageHead } from "components/PageHead";
+import { Text } from "components/Text";
+import { urls } from "lib/constants";
+import { createProjectLink } from "lib/createUrls";
+import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { Purchase } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
-import { PageHead } from "components/PageHead";
-import { createProjectLink } from "lib/createUrls";
-import { Purchase } from "lib/types/carbonmark";
-
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-
-import { urls } from "lib/constants";
 import * as styles from "./styles";
 
 type Props = {

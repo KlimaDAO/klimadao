@@ -5,13 +5,13 @@ import {
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
-  Text,
   TwitterIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
+import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import Link from "next/link";
 import { FC } from "react";

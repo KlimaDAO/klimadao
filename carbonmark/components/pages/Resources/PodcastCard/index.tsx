@@ -1,6 +1,5 @@
-import { Text } from "@klimadao/lib/components";
+import { Text } from "components/Text";
 import { PodcastDetails } from "lib/queries";
-
 import * as styles from "./styles";
 
 interface CardProps {

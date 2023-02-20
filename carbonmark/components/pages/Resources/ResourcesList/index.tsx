@@ -1,23 +1,15 @@
-import {
-  ButtonPrimary,
-  Section,
-  Spinner,
-  Text,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, Section, Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SearchIcon from "@mui/icons-material/Search";
-import { FC, useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-
 import { BlogPostCard } from "components/pages/Resources/BlogPostCard";
 import { PodcastCard } from "components/pages/Resources/PodcastCard";
 import { InputField } from "components/shared/Form";
 import { Modal } from "components/shared/Modal";
-import { ResourcesFilters } from "../ResourcesFilters";
-import { SortByButton } from "../SortByButton";
-import { SortyByDropDown } from "../SortyByDropDown";
-
+import { Text } from "components/Text";
+import { Document } from "lib/queries";
+import { FC, useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import {
   DocumentType,
   sortedByQueries,
@@ -25,8 +17,9 @@ import {
   TagSlug,
 } from "../lib/cmsDataMap";
 import { queryFilteredDocuments, searchDocumentsByText } from "../lib/queries";
-
-import { Document } from "lib/queries";
+import { ResourcesFilters } from "../ResourcesFilters";
+import { SortByButton } from "../SortByButton";
+import { SortyByDropDown } from "../SortyByDropDown";
 import * as styles from "./styles";
 
 export interface Props {

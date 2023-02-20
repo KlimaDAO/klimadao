@@ -1,31 +1,27 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { Modal } from "components/shared/Modal";
-import { NextPage } from "next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useState } from "react";
-
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
-
-import { createProjectLink, createSellerLink } from "lib/createUrls";
-import { Listing, Project } from "lib/types/carbonmark";
-import { FormValues, PurchaseForm } from "./PurchaseForm";
-
-import { formatBigToPrice } from "lib/formatNumbers";
-
+import { Modal } from "components/shared/Modal";
+import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { approveTokenSpend, makePurchase } from "lib/actions";
-import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-
+import { createProjectLink, createSellerLink } from "lib/createUrls";
+import { formatBigToPrice } from "lib/formatNumbers";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
+import { Listing, Project } from "lib/types/carbonmark";
+import { NextPage } from "next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { FormValues, PurchaseForm } from "./PurchaseForm";
 import * as styles from "./styles";
 
 type Props = {
