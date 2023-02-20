@@ -1,6 +1,7 @@
 import { cache } from "@emotion/css";
 import createEmotionServer from "@emotion/server/create-instance";
-import { InitializeTheme, WebFonts } from "@klimadao/lib/components";
+import { InitializeTheme } from "@klimadao/lib/components";
+import { WebFonts } from "components/WebFonts";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
