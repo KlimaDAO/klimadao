@@ -36,8 +36,9 @@ module.exports = async function (fastify, opts) {
             }
         },
         handler: async function (request, reply) {
-
-            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS);
+            var { country, category, search } = (request.query);
+            console.log({ country, category, search } )
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, {country: country, category: category, search: search});
             let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
             const projects = data.data.projects.map(function (project) {
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
@@ -92,42 +93,42 @@ module.exports = async function (fastify, opts) {
             });
 
 
-            if (process.env.ENV == 'local') {
-                projects.splice(1, 1);
+            // if (process.env.ENV == 'local') {
+            //     projects.splice(1, 1);
 
 
-                let year = 2014;
-                let startCount = projects.length;
-                let methodogies = ['AM0038', 'AM0043', 'AMS-I.D.', 'VM0002', 'VM0019', 'AM0120', 'VM0041', 'AMS-III.D.', 'VM0004', 'AR-ACM0003', 'VM0021', 'AM0050'];
-                let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy',
-                    'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
+            //     let year = 2014;
+            //     let startCount = projects.length;
+            //     let methodogies = ['AM0038', 'AM0043', 'AMS-I.D.', 'VM0002', 'VM0019', 'AM0120', 'VM0041', 'AMS-III.D.', 'VM0004', 'AR-ACM0003', 'VM0021', 'AM0050'];
+            //     let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy',
+            //         'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
 
-                ];
+            //     ];
 
-                for (; startCount < 20; startCount++) {
-                    projects.push({
-                        "id": "fake",
-                        "key": "GS-500-FAKE",
-                        "projectID": "500",
-                        "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
-                        "methodology": methodogies[(startCount - 2) % 12],
-                        "vintage": year,
-                        "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
-                        "registry": startCount % 2 ? "GS" : "VS",
-                        "updatedAt": "1673468220",
-                        "category": {
-                            "id": categories[(startCount - 2) % 12]
-                        },
-                        "country": {
-                            "id": "Sudan"
-                        },
-                        "price": '1000000000000000000',
+            //     for (; startCount < 20; startCount++) {
+            //         projects.push({
+            //             "id": "fake",
+            //             "key": "GS-500-FAKE",
+            //             "projectID": "500",
+            //             "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
+            //             "methodology": methodogies[(startCount - 2) % 12],
+            //             "vintage": year,
+            //             "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
+            //             "registry": startCount % 2 ? "GS" : "VS",
+            //             "updatedAt": "1673468220",
+            //             "category": {
+            //                 "id": categories[(startCount - 2) % 12]
+            //             },
+            //             "country": {
+            //                 "id": "Sudan"
+            //             },
+            //             "price": '1000000000000000000',
 
-                    });
-                    year++;
-                }
+            //         });
+            //         year++;
+            //     }
 
-            }
+            // }
 
             // Send the transformed projects array as a JSON string in the response
             return reply.send(JSON.stringify(projects.concat(pooledProjects)));
@@ -156,17 +157,16 @@ module.exports = async function (fastify, opts) {
             },
             handler: async function (request, reply) {
                 var { id } = (request.params);
-                var { country, category, search } = (request.query);
                 id = id.split("-")
                 var key = `${id[0]}-${id[1]}`;
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
 
-                if (id.includes("FAKE")) {
-                    return reply.send(JSON.stringify(
-                        fakeProjects
-                    ))
-                }
+                // if (id.includes("FAKE")) {
+                //     return reply.send(JSON.stringify(
+                //         fakeProjects
+                //     ))
+                // }
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
                 if (data.data.projects[0]) {

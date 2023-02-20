@@ -133,6 +133,7 @@ module.exports = async function (fastify, opts) {
                             handle: { type: 'string' },
                             username: { type: 'string' },
                             description: { type: 'string' },
+                            profileImgUrl: { type: 'string' },
                             wallet: { type: 'string' },
                             listings: { type: 'array' },
                             activities: { type: 'array' },
@@ -213,6 +214,7 @@ module.exports = async function (fastify, opts) {
                     response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
 
                 } else {
+                    // @TODO -> wait for the subgraph to be deployed on mumbai
                     const data = await executeGraphQLQuery(process.env.ASSETS_GRAPH_API_URL, GET_USER_ASSETS,  {wallet: '0x000000000000000000000000000000000000dead'} );
                     if (data.data.accounts.length) {
                         response.assets = data.data.accounts[0].holdings
@@ -224,8 +226,6 @@ module.exports = async function (fastify, opts) {
                 return reply.send(response);
             }
         }),
-
-
 
         fastify.route({
             method: 'POST',
@@ -263,7 +263,7 @@ module.exports = async function (fastify, opts) {
             },
             handler: async function (request, reply) {
                 // Destructure the wallet, username, handle, and description properties from the request body
-                const { wallet, username, handle, description } = request.body;
+                const { wallet, username, handle, description, profileImgUrl } = request.body;
 
                 // Query the Firestore database for the user document with the specified wallet address
                 const user = await fastify.firebase.firestore()
@@ -298,6 +298,7 @@ module.exports = async function (fastify, opts) {
                             username,
                             handle : handle.toLowerCase(),
                             description,
+                            profileImgUrl
                         });
                     // If the document is successfully created, return the request body
                     return reply.send(request.body);
@@ -309,7 +310,7 @@ module.exports = async function (fastify, opts) {
         }),
         fastify.route({
             method: 'PUT',
-            onRequest: [fastify.authenticate],
+           onRequest: [fastify.authenticate],
             path: '/users/:wallet',
             schema: {
                 tags: ["user"],
@@ -319,6 +320,7 @@ module.exports = async function (fastify, opts) {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
                         description: { type: 'string', minLength: 2, maxLength: 500 },
+                        profileImgUrl:  { type: 'string', minLength: 2, maxLength: 500 }
                     },
                 },
                 response: {
@@ -329,6 +331,7 @@ module.exports = async function (fastify, opts) {
                             username: { type: 'string' },
                             wallet: { type: 'string' },
                             description: { type: 'string' },
+                            profileImgUrl: { type: 'string' }
                         }
                     },
 
@@ -336,7 +339,7 @@ module.exports = async function (fastify, opts) {
             },
             handler: async function (request, reply) {
                 // Destructure the wallet, username, and description properties from the request body
-                const { wallet, username, description } = request.body;
+                const { wallet, username, description, profileImgUrl } = request.body;
 
                 try {
                     // Try updating the user document with the specified data
@@ -345,6 +348,8 @@ module.exports = async function (fastify, opts) {
                         .doc(wallet.toUpperCase()).update({
                             username: username,
                             description: description,
+                            profileImgUrl: profileImgUrl
+
                         });
                     // If the update is successful, return the request body
                     return reply.send(request.body);
