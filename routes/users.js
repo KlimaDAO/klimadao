@@ -320,7 +320,7 @@ module.exports = async function (fastify, opts) {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
                         description: { type: 'string', minLength: 2, maxLength: 500 },
-                        profileImgUrl:  { type: 'string', minLength: 2, maxLength: 500 }
+                        profileImgUrl:  { type: 'string', minLength: 2, maxLength: 200 }
                     },
                 },
                 response: {
