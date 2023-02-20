@@ -1,5 +1,5 @@
+import { PoolIcon } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
-import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
@@ -61,9 +61,7 @@ export const Projects: NextPage<Props> = (props) => {
                       {!!project.category?.id && (
                         <Category category={project.category.id} />
                       )}
-                      {project.isPoolProject && (
-                        <SyncOutlinedIcon fontSize="large" />
-                      )}
+                      {project.isPoolProject && <PoolIcon />}
                       <Vintage vintage={project.vintage} />
                     </div>
                   </div>

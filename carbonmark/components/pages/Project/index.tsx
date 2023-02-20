@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
+import { PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -78,9 +78,7 @@ export const Project: NextPage<Props> = (props) => {
               {!!props.project.category?.id && (
                 <Category category={props.project.category.id} />
               )}
-              {props.project.isPoolProject && (
-                <SyncOutlinedIcon fontSize="large" />
-              )}
+              {props.project.isPoolProject && <PoolIcon />}
             </div>
           </div>
         </div>
