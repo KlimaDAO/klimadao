@@ -1,6 +1,17 @@
 /** CarbonMark Specific Styling */
 
 :root {
+  --bright-blue: #0019ff;
+  --bisque: #fceabe;
+  --soft-green: #b2f5c1;
+  --yellow: #ffb800;
+  --manatee: #8b8fae;
+  --klima-green: #00cc33;
+  --warning-red: #fc3503;
+  --old-burgundy: #4e3d42;
+  --charcoal-gray: #2a2a2a;
+  --dark-purple: #1f0322;
+  --dark-charcoal: #202020;
   --padding-small: 0.8rem;
   --padding-medium: 2rem;
   --font-family: "DM Sans", sans-serif;
@@ -11,9 +22,21 @@ body,
 body[data-theme="theme-light"] {
   --surface-inverse-01: #202020;
   --font-inverse-01: #fff;
+  --font-01: #000;
+  --font-02: #3b3b3d;
+  --font-03: #626266;
+  --surface-01: #eeeff5;
+  --surface-02: #fff;
+  --blue-yellow: var(--bright-blue);
 }
 
 body[data-theme="theme-dark"] {
   --surface-inverse-01: #fff;
   --font-inverse-01: #313131;
+  --font-01: #fff;
+  --font-02: #eeeff5;
+  --font-03: #b0b1b8;
+  --surface-01: #58585c;
+  --surface-02: #3b3b3d;
+  --blue-yellow: var(--yellow);
 }
