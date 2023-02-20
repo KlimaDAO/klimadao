@@ -41,6 +41,10 @@ msgstr "MCO2 Token"
 msgid "Methodology: {0}"
 msgstr "Methodology: {0}"
 
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+msgid "No retirement message provided."
+msgstr "No retirement message provided."
+
 #: components/pages/Retirements/SingleRetirement/index.tsx:146
 msgid "Processing data..."
 msgstr "Processing data..."
