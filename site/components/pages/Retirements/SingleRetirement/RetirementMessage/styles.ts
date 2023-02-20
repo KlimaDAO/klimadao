@@ -10,4 +10,9 @@ export const retirementMessage_textGroup = css`
     font-weight: 400;
     word-break: break-word;
   }
+
+  .fallback {
+    font-style: italic;
+    color: var(--font-02);
+  }
 `;
