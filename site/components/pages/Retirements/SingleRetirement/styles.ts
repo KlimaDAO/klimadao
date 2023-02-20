@@ -183,3 +183,17 @@ export const footerButtons = css`
     align-items: start;
   }
 `;
+
+export const pending = css`
+  background-color: var(--surface-03);
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+
+  .spinnerTitle {
+    display: flex;
+    gap: 1.6rem;
+  }
+`;

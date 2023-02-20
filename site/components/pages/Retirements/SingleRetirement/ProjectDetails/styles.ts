@@ -15,18 +15,17 @@ export const projectDetails = css`
   border-radius: 1.2rem;
   grid-column: main;
   display: grid;
-  gap: 2.8rem;
-  padding: 2.8rem 1.5rem;
+  gap: 2.4rem;
+  padding: 2.4rem;
 
   ${breakpoints.medium} {
-    gap: 3.2rem;
     padding: 5.2rem;
   }
 `;
 
 export const title = css`
   display: grid;
-  gap: 1.6rem;
+  gap: 0.8rem;
 `;
 
 export const list = css`

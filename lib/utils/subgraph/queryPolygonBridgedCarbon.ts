@@ -5,7 +5,7 @@ import { KlimaRetire, QueryKlimaRetires } from "../../types/subgraph";
 export const queryKlimaRetireByIndex = async (
   beneficiaryAddress: string,
   index: number
-): Promise<KlimaRetire | false> => {
+): Promise<KlimaRetire | null> => {
   try {
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
@@ -30,6 +30,7 @@ export const queryKlimaRetireByIndex = async (
               retirementMessage
               amount
               offset {
+                name
                 id
                 tokenAddress
                 totalRetired
@@ -43,14 +44,22 @@ export const queryKlimaRetireByIndex = async (
                 methodology
                 methodologyCategory
                 category
+                currentSupply
               }
             }
           }
           `,
       }),
     });
+    if (!result.ok) {
+      const json = await result.json();
+      throw new Error(json);
+    }
     const json: QueryKlimaRetires = await result.json();
-    return !!json.data.klimaRetires.length && json.data.klimaRetires[0];
+    if (!json.data.klimaRetires.length) {
+      return null; // might not exist yet, subgraph can be slow to index
+    }
+    return json.data.klimaRetires[0];
   } catch (e) {
     console.error("Failed to query KlimaRetireByIndex", e);
     return Promise.reject(e);

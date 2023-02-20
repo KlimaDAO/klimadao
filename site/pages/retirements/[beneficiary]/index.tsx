@@ -12,7 +12,6 @@ import {
 
 import { RetirementPage } from "components/pages/Retirements";
 import { getAddressByDomain } from "lib/getAddressByDomain";
-import { getDomainByAddress } from "lib/getDomainByAddress";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/secrets";
@@ -47,19 +46,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");
-    }
-
-    const nameserviceDomain =
-      !isDomainInURL && (await getDomainByAddress(beneficiaryInUrl));
-
-    // redirect now to this page again with nameserviceDomain in URL
-    if (nameserviceDomain) {
-      return {
-        redirect: {
-          destination: `/retirements/${nameserviceDomain}`,
-          statusCode: 301,
-        },
-      };
     }
 
     // enforces lowercase urls

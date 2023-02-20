@@ -1,11 +1,6 @@
 export { concatAddress } from "./concatAddress";
 // ENS
-export {
-  getAddressByENS,
-  getENSByAddress,
-  getENSProfile,
-  isENSDomain,
-} from "./ens";
+export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { formatUnits } from "./formatUnits";
 export {
@@ -24,9 +19,9 @@ export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
 export {
   createRetirementStorageContract,
-  getRetirementIndexInfo,
   getRetirementTotalsAndBalances,
 } from "./getRetirement";
+export { getRetirementDetails } from "./getRetirementDetails";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getStakingRewards } from "./getStakingRewards";
 export { getStaticProvider } from "./getStaticProvider";
@@ -35,9 +30,7 @@ export { getTransactionOptions } from "./getTransactionOptions";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 // KNS
 export {
-  createKNSDomainFromName,
   getAddressByKNS,
-  getKNSByAddress,
   getKNSProfile,
   isKNSDomain,
   KNSContract,
@@ -58,4 +51,3 @@ export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
 export { useTabListener } from "./useTabListener";
 export { useWeb3 } from "./useWeb3";
-export { getVerraProjectByID } from "./verra/getVerraProjects";

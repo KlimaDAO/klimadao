@@ -19,23 +19,6 @@ export const getAddressByENS = async (domain: string, infuraId?: string) => {
   }
 };
 
-export const getENSByAddress = async (
-  address: string,
-  infuraId?: string
-): Promise<string | null> => {
-  try {
-    const provider = getStaticProvider({
-      chain: "eth",
-      infuraId,
-    });
-    const domain = await provider.lookupAddress(address);
-    return domain;
-  } catch (e) {
-    console.error("Error in getENSByAddress", e);
-    return Promise.reject(e);
-  }
-};
-
 const DEFAULT_ENS_PROFILE =
   "https://raw.githubusercontent.com/ensdomains/media-kit/5ebbcb4e0f4cca1caa1630f30b1116935f5e6636/Logos/Token.svg";
 

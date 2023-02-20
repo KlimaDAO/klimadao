@@ -33,6 +33,7 @@ const mainnet = {
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
   retirementAggregator: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
+  retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
 };
@@ -72,6 +73,7 @@ const testnet: typeof mainnet = {
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
   retirementAggregator: "",
+  retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
 };

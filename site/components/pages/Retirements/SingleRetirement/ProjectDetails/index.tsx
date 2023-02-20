@@ -1,8 +1,8 @@
 import { Text } from "@klimadao/lib/components";
 import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { t, Trans } from "@lingui/macro";
+import { normalizeProjectId } from "lib/normalizeProjectId";
 import { FC } from "react";
 
 import { ProjectDetail } from "./List";
@@ -10,15 +10,16 @@ import * as styles from "./styles";
 
 type Props = {
   offset: KlimaRetire["offset"];
-  projectDetails?: VerraProjectDetails;
+};
+
+const constructVerraUrl = (id: string) => {
+  const split = id.split("-");
+  const resourceIdentifier = split[split.length - 1]; // might not have prefix
+  return `${verra.projectDetailPage}/${resourceIdentifier}`;
 };
 
 export const ProjectDetails: FC<Props> = (props) => {
-  const { offset, projectDetails } = props;
-
-  const isMossOffset = offset.bridge === "Moss";
-  const isVerraProject = !isMossOffset && !!projectDetails?.value.length;
-
+  const isMossOffset = props.offset.bridge === "Moss";
   return (
     <div className={styles.projectDetails}>
       <div className={styles.title}>
@@ -29,40 +30,37 @@ export const ProjectDetails: FC<Props> = (props) => {
         </Text>
         <div>
           <Text t="body2">
-            <Trans id="retirement.single.project_details.subline">
-              The tonne(s) retired originated from the following project(s).
+            <Trans>
+              <Trans>
+                Every KlimaDAO retirement is tied to a verified offset project.
+                Click to learn more about the project.
+              </Trans>
             </Trans>
           </Text>
-          {isVerraProject && (
-            <Text t="body2">
-              <Trans id="retirement.single.project_details.click_on_project">
-                Click on the project title to learn more.
-              </Trans>
-            </Text>
-          )}
         </div>
       </div>
-      {isVerraProject &&
-        projectDetails.value.map((value) => (
-          <ProjectDetail
-            key={value.resourceIdentifier}
-            projectLink={`${verra.projectDetailPage}/${value.resourceIdentifier}`}
-            headline={value.resourceName}
-            tokenAddress={offset.tokenAddress}
-            totalRetired={offset.totalRetired}
-          />
-        ))}
-      {isMossOffset && (
-        <ProjectDetail
-          projectLink="https://mco2token.moss.earth/"
-          headline={t({
-            id: "retirement.single.project_details.moss_headline",
-            message: "Learn more about the projects that back the MCO2 pools",
-          })}
-          tokenAddress={offset.tokenAddress}
-          isMossOffset={true}
-        />
-      )}
+      <ProjectDetail
+        projectLink={
+          isMossOffset
+            ? "https://mco2token.moss.earth/"
+            : constructVerraUrl(props.offset.projectID)
+        }
+        headline={
+          isMossOffset
+            ? t`MCO2 Token`
+            : props.offset.name ||
+              normalizeProjectId({
+                id: props.offset.projectID,
+                standard: props.offset.standard,
+              })
+        }
+        tokenAddress={props.offset.tokenAddress}
+        isMossOffset={isMossOffset}
+        totalRetired={props.offset.totalRetired}
+        currentSupply={props.offset.currentSupply}
+        methodology={props.offset.methodology}
+        location={props.offset.country || props.offset.region}
+      />
     </div>
   );
 };

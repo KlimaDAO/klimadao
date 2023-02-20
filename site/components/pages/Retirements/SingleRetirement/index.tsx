@@ -1,17 +1,20 @@
-import { t, Trans } from "@lingui/macro";
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useRouter } from "next/router";
-
-import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
+import { cx } from "@emotion/css";
+import {
+  ButtonPrimary,
+  CopyAddressButton,
+  Section,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import {
   concatAddress,
   getImageSizes,
+  getRetirementTokenByAddress,
+  queryKlimaRetireByIndex,
   trimWithLocale,
 } from "@klimadao/lib/utils";
-
+import { t, Trans } from "@lingui/macro";
 import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
 import { LinkedInButton } from "components/LinkedInButton";
@@ -19,11 +22,15 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { TweetButton } from "components/TweetButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
-
-import { cx } from "@emotion/css";
-import { CopyAddressButton } from "@klimadao/lib/components";
+import { normalizeProjectId } from "lib/normalizeProjectId";
+import { NextPage } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import sunsetMountains from "public/sunset-mountains.jpg";
+import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
 import { BuyKlima } from "./BuyKlima";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
@@ -34,8 +41,6 @@ import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
-
-import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import { ViewPledgeButton } from "./ViewPledgeButton";
 
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
@@ -58,40 +63,47 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
     }
   );
 
-export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
-  props
-) => {
-  const {
-    beneficiaryAddress,
-    retirement,
-    retirementIndexInfo,
-    nameserviceDomain,
-    pledge,
-  } = props;
+export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
+  retirement, // destructure so ts can properly narrow retirement.pending types
+  ...props
+}) => {
+  const { asPath, locale } = useRouter();
 
-  const { locale, asPath } = useRouter();
-  const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
-
-  const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
-    /\.?0+$/,
-    ""
-  ); // remove whitespace 0s from string, e.g. 1.0 => 1
-
-  // collect from indexInfo and optional data from subgraph
-  const retireData = {
-    amount: trimWithLocale(amountWithoutWhiteSpace, 2, locale),
-    tokenLabel: tokenData.label,
-    tokenIcon: tokenData.icon,
-    beneficiaryName: retirementIndexInfo.beneficiaryName,
-    retirementMessage: retirementIndexInfo.retirementMessage,
-    timestamp: retirement?.timestamp || null,
-    transactionID: retirement?.transaction?.id || null,
-  };
+  const trimmedAmount = trimWithLocale(
+    retirement.amount.replace(/\.?0+$/, ""),
+    2,
+    locale
+  );
 
   const retiree =
-    retireData.beneficiaryName ||
-    nameserviceDomain ||
-    concatAddress(beneficiaryAddress);
+    retirement.beneficiary ||
+    props.nameserviceDomain ||
+    concatAddress(props.beneficiaryAddress);
+
+  useEffect(() => {
+    if (!retirement.pending) return;
+    const rescursivePoller = async () => {
+      // wait 5 seconds
+      await new Promise((res) => setTimeout(res, 5000));
+      // check if its available yet
+      const result = await queryKlimaRetireByIndex(
+        props.beneficiaryAddress,
+        parseInt(props.retirementIndex)
+      );
+      if (result) {
+        return window.location.reload();
+      }
+      // otherwise wait 5 more seconds and try again
+      await rescursivePoller();
+    };
+    rescursivePoller();
+  }, []);
+
+  // TODO this doesn't work with TCO2, will quickly follow up to fix this
+  const tokenType = !retirement.pending
+    ? getRetirementTokenByAddress(retirement.offset.tokenAddress) || "bct"
+    : null;
+  const tokenData = tokenType ? retirementTokenInfoMap[tokenType] : null;
 
   return (
     <>
@@ -102,7 +114,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
         })}
         mediaTitle={t({
           id: "retirement.head.metaTitle",
-          message: `${retiree} retired ${retireData.amount} Tonnes of carbon`,
+          message: `${retiree} retired ${retirement.amount} Tonnes of carbon`,
         })}
         metaDescription={t({
           id: "retirement.head.metaDescription",
@@ -111,13 +123,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
-
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
-          overline={retireData.beneficiaryName}
+          overline={retirement.beneficiary}
           title={t({
             id: "retirement.single.header.quantity",
-            message: `${retireData.amount}t`,
+            message: `${trimmedAmount}t`,
           })}
           subline={
             <Trans id="retirement.single.header.subline">
@@ -126,79 +137,96 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
           }
         />
         <div className={styles.retirementContent}>
-          <RetirementMessage
-            message={
-              retireData.retirementMessage ||
-              t({
-                id: "retirement.single.retirementMessage.placeholder",
-                message: "No retirement message provided",
-              })
-            }
-          />
-          <RetirementValue
-            value={retireData.amount}
-            label={retireData.tokenLabel}
-            icon={retireData.tokenIcon}
-          />
-          <div className={styles.metaData}>
-            <div className="column">
-              <TextGroup
-                title={
-                  <Trans id="retirement.single.beneficiary.title">
-                    Beneficiary
-                  </Trans>
-                }
-                text={
-                  retireData.beneficiaryName ||
-                  t({
-                    id: "retirement.single.beneficiary.placeholder",
-                    message: "No beneficiary name provided",
-                  })
-                }
-              />
-              <TextGroup
-                title={
-                  <Trans id="retirement.single.beneficiaryAddress.title">
-                    Beneficiary Address
-                  </Trans>
-                }
-                text={
-                  <Link
-                    href={`/retirements/${
-                      nameserviceDomain || beneficiaryAddress
-                    }`}
-                    className="address"
-                  >
-                    {nameserviceDomain || concatAddress(beneficiaryAddress)}
-                  </Link>
-                }
-              />
+          <RetirementMessage message={retirement.retirementMessage} />
+          {retirement.pending && (
+            <div className={styles.pending}>
+              <div className="spinnerTitle">
+                <Spinner />
+                <Text>
+                  <Trans>Processing data...</Trans>
+                </Text>
+              </div>
+              <Text t="caption" align="center">
+                <Trans>
+                  We haven't finished processing the blockchain data for this
+                  retirement. This usually takes a few seconds, but might take
+                  longer if the network is congested.
+                </Trans>
+              </Text>
             </div>
-            <div className="column">
-              <RetirementDate timestamp={retireData.timestamp} />
-              <TextGroup
-                title={
-                  <Trans id="retirement.single.retirementCertificate.title">
-                    Certificate
-                  </Trans>
-                }
-                text={
-                  retirement ? (
-                    <DownloadCertificateButton
-                      beneficiaryName={retireData.beneficiaryName}
-                      beneficiaryAddress={beneficiaryAddress}
-                      retirement={retirement}
-                      retirementIndex={props.retirementIndex}
-                      retirementMessage={retireData.retirementMessage}
-                      retirementUrl={`${urls.home}/${asPath}`}
-                      projectDetails={props.projectDetails ?? undefined}
-                      tokenData={tokenData}
-                    />
-                  ) : null
-                }
-              />
+          )}
+          {tokenData && (
+            <RetirementValue
+              value={retirement.amount}
+              label={tokenData.label}
+              icon={tokenData.icon}
+            />
+          )}
+          {!retirement.pending && tokenData && (
+            <div className={styles.metaData}>
+              <div className="column">
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.beneficiary.title">
+                      Beneficiary
+                    </Trans>
+                  }
+                  text={
+                    retirement.beneficiary ||
+                    t({
+                      id: "retirement.single.beneficiary.placeholder",
+                      message: "No beneficiary name provided",
+                    })
+                  }
+                />
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.beneficiaryAddress.title">
+                      Beneficiary Address
+                    </Trans>
+                  }
+                  text={
+                    <Link
+                      href={`/retirements/${
+                        props.nameserviceDomain || props.beneficiaryAddress
+                      }`}
+                      className="address"
+                    >
+                      {props.nameserviceDomain ||
+                        concatAddress(props.beneficiaryAddress)}
+                    </Link>
+                  }
+                />
+              </div>
+              <div className="column">
+                <RetirementDate timestamp={retirement.timestamp} />
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.retirementCertificate.title">
+                      Certificate
+                    </Trans>
+                  }
+                  text={
+                    retirement ? (
+                      <DownloadCertificateButton
+                        beneficiaryName={retirement.beneficiary}
+                        beneficiaryAddress={props.beneficiaryAddress}
+                        retirement={retirement}
+                        retirementIndex={props.retirementIndex}
+                        retirementMessage={retirement.retirementMessage}
+                        retirementUrl={`${urls.home}/${asPath}`}
+                        tokenData={tokenData}
+                        projectId={normalizeProjectId({
+                          id: retirement.offset.projectID,
+                          standard: retirement.offset.standard,
+                        })}
+                      />
+                    ) : null
+                  }
+                />
+              </div>
             </div>
-          </div>
+          )}
           <Text className={styles.data_description} t="caption" align="start">
             <Trans id="retirement.single.disclaimer">
               This represents the permanent retirement of tokenized carbon
@@ -207,13 +235,13 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
             </Trans>
           </Text>
           <div className={styles.pledge_button}>
-            <ViewPledgeButton pledge={pledge} />
-            {pledge === null && (
+            <ViewPledgeButton pledge={props.pledge} />
+            {props.pledge === null && (
               <Text className={styles.create_pledge} t="caption" align="center">
                 <Trans id="retirement.single.is_this_your_retirement">
                   Is this your retirement?
                 </Trans>
-                <Link href={`/pledge/${beneficiaryAddress}`}>
+                <Link href={`/pledge/${props.beneficiaryAddress}`}>
                   <Trans id="retirement.single.create_a_pledge">
                     Create a pledge now.
                   </Trans>
@@ -223,29 +251,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
           </div>
         </div>
       </Section>
-
-      <Section
-        variant="gray"
-        className={cx(styles.section, styles.sectionButtons)}
-      >
-        <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="gray" />
-          {retireData.transactionID && (
-            <ButtonPrimary
-              href={`https://polygonscan.com/tx/${retireData.transactionID}`}
-              target="_blank"
-              variant="gray"
-              rel="noopener noreferrer"
-              label={t({
-                id: "retirement.single.view_on_polygon_scan",
-                message: "View on Polygonscan",
-              })}
-              className={styles.buttonViewOnPolygon}
-            />
-          )}
-        </div>
-      </Section>
-
       <Section variant="gray" className={styles.section}>
         <div className={styles.share_content}>
           <Image
@@ -262,7 +267,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
           </Text>
           <div className="buttons">
             <TweetButton
-              title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
+              title={`${retiree} retired ${retirement.amount} Tonnes of carbon`}
               tags={["klimadao", "Offset"]}
             />
             <FacebookButton />
@@ -271,23 +276,38 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
           </div>
         </div>
       </Section>
-
-      {props.retirement?.offset && (
+      {!retirement.pending && retirement.offset && (
         <Section variant="gray" className={styles.section}>
-          <ProjectDetails
-            projectDetails={props.projectDetails ?? undefined}
-            offset={props.retirement.offset}
-          />
+          <ProjectDetails offset={retirement.offset} />
         </Section>
       )}
       <Section variant="gray" className={styles.section}>
         <RetirementFooter />
       </Section>
-
       <Section variant="gray" className={styles.section}>
         <BuyKlima />
       </Section>
-
+      <Section
+        variant="gray"
+        className={cx(styles.section, styles.sectionButtons)}
+      >
+        <div className={styles.sectionButtonsWrap}>
+          <CopyAddressButton label="Copy Link" variant="gray" />
+          {!retirement.pending && retirement.transaction.id && (
+            <ButtonPrimary
+              href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
+              target="_blank"
+              variant="gray"
+              rel="noopener noreferrer"
+              label={t({
+                id: "retirement.single.view_on_polygon_scan",
+                message: "View on Polygonscan",
+              })}
+              className={styles.buttonViewOnPolygon}
+            />
+          )}
+        </div>
+      </Section>
       <Footer />
     </>
   );
