@@ -6,16 +6,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
+msgid "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
+msgid "Explore MCO2 on carbon.klimadao.finance"
 msgstr ""
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:145
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+msgid "Location: {0}"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:50
+msgid "MCO2 Token"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+msgid "Methodology: {0}"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:146
 msgid "Processing data..."
 msgstr ""
 
@@ -27,7 +53,11 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
+msgid "View on Polygonscan"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
@@ -1577,39 +1607,39 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:119
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:114
+#: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:262
+#: components/pages/Retirements/SingleRetirement/index.tsx:266
 msgid "retirement.share.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:175
+#: components/pages/Retirements/SingleRetirement/index.tsx:176
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:183
+#: components/pages/Retirements/SingleRetirement/index.tsx:184
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:241
+#: components/pages/Retirements/SingleRetirement/index.tsx:245
 msgid "retirement.single.create_a_pledge"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:227
+#: components/pages/Retirements/SingleRetirement/index.tsx:231
 msgid "retirement.single.disclaimer"
 msgstr ""
 
@@ -1617,15 +1647,15 @@ msgstr ""
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:128
+#: components/pages/Retirements/SingleRetirement/index.tsx:129
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:133
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.header.subline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:237
+#: components/pages/Retirements/SingleRetirement/index.tsx:241
 msgid "retirement.single.is_this_your_retirement"
 msgstr ""
 
@@ -1637,39 +1667,15 @@ msgstr ""
 msgid "retirement.single.no_pledge"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
-msgid "retirement.single.project_details.click_on_project"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
-msgid "retirement.single.project_details.moss_headline"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
-msgid "retirement.single.project_details.subline"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:41
-msgid "retirement.single.project_details.tonnes"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:48
-msgid "retirement.single.project_details.view_mco2_pool"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:204
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -1681,7 +1687,7 @@ msgstr ""
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:293
+#: components/pages/Retirements/SingleRetirement/index.tsx:302
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
@@ -1886,7 +1892,7 @@ msgstr ""
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "shared.loading"
 msgstr ""
 
@@ -1975,4 +1981,12 @@ msgstr ""
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
+msgid "{trimCurrentSupply} Tonnes remaining"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
+msgid "{trimTotalRetired} Tonnes retired in total"
 msgstr ""
