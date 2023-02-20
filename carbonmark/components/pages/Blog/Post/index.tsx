@@ -78,10 +78,10 @@ export const PostPage = (props: PostProps) => {
               <PortableTextRenderer value={props.post.body} />
               {props.post.showDisclaimer && (
                 <div className={styles.disclaimer}>
-                  <Text t="caption" color="lighter">
+                  <Text t="body1" color="lighter">
                     <Trans id="blog.disclaimer.title">Disclaimer:</Trans>
                   </Text>
-                  <Text t="caption" color="lighter">
+                  <Text t="body1" color="lighter">
                     <Trans
                       id="blog.disclaimer.description"
                       comment="Long sentence"

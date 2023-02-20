@@ -22,7 +22,7 @@ export const BlogPostCard = (props: BlogPostCardProps) => {
         <Text t="body2" className="summary">
           {props.post.summary}
         </Text>
-        <Text t="caption" className="read_more" style={{ marginTop: "auto" }}>
+        <Text t="body3" className="read_more" style={{ marginTop: "auto" }}>
           Read more
         </Text>
       </div>

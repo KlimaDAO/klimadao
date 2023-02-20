@@ -71,7 +71,7 @@ export const Project: NextPage<Props> = (props) => {
               </Text>
             </div>
             <div className={styles.tags}>
-              <Text t="badge" className={styles.projectHeaderText}>
+              <Text t="h4" className={styles.projectHeaderText}>
                 {props.project.key}
               </Text>
               <Vintage vintage={props.project.vintage} />
@@ -89,7 +89,7 @@ export const Project: NextPage<Props> = (props) => {
           <div className="best-price">
             {sortedListings && (
               <>
-                <Text t="h5" color="lighter">
+                <Text t="h4" color="lighter">
                   <span className="badge">
                     {formatToPrice(getLowestPriceFromListings(activeListings))}
                   </span>
@@ -101,10 +101,10 @@ export const Project: NextPage<Props> = (props) => {
             )}
           </div>
           <div className="methodology">
-            <Text t="caption" color="lighter">
+            <Text t="h5" color="lighter">
               <Trans id="project.single.methodology">Methodology:</Trans>
             </Text>
-            <Text t="caption" color="lighter" align="end">
+            <Text t="body1" color="lighter" align="end">
               {props.project.registry}
             </Text>
           </div>
@@ -127,24 +127,24 @@ export const Project: NextPage<Props> = (props) => {
             </div>
           )}
           <div className={styles.descriptionContainer}>
-            <Text t="body4">
+            <Text t="h5">
               <Trans>Description</Trans>
             </Text>
-            <Text t="body8">
+            <Text t="body1">
               {props.project.description ?? "No project description found"}
             </Text>
           </div>
         </div>
 
         <div className={styles.listingsHeader}>
-          <Text t="h5">Listings</Text>
+          <Text t="h4">Listings</Text>
           {sortedListings ? (
-            <Text t="caption">
+            <Text t="body1">
               We found <strong>{activeListings.length}</strong> prices for this
               project:
             </Text>
           ) : (
-            <Text t="caption" color="default">
+            <Text t="body1" color="default">
               <i>
                 <Trans>No listings found for this project.</Trans>
               </i>

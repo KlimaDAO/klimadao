@@ -177,7 +177,7 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
               {!!props.listing.seller && (
                 <div className="stack">
                   <Text
-                    t="badge"
+                    t="body3"
                     align="center"
                     className={styles.projectHeaderText}
                   >
@@ -190,7 +190,7 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
               )}
             </div>
             <div className={styles.price}>
-              <Text t="body4">
+              <Text t="body3">
                 {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
                 <Trans id="purchase.price_each">each</Trans>
               </Text>

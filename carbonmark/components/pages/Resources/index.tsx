@@ -32,7 +32,7 @@ export const Resources: NextPage<Props> = (props) => {
             <Text t="h1" align="center">
               <Trans id="resources.page.header.title">Featured Articles</Trans>
             </Text>
-            <Text t="body3" align="center">
+            <Text t="body1" align="center">
               <Trans id="resources.page.header.subline">
                 Updates and thought leadership from the CarbonMark team.
               </Trans>

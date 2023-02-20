@@ -60,11 +60,11 @@ export const Balances: FC = () => {
                     alt={balance.tokenName}
                   />
                 </div>
-                <Text t="caption">
+                <Text t="body1">
                   {carbonmarkTokenInfoMap[balance.tokenName].label}
                 </Text>
               </div>
-              <Text t="caption" className={styles.itemWithIcon}>
+              <Text t="body1" className={styles.itemWithIcon}>
                 {balance.balance}
               </Text>
             </div>

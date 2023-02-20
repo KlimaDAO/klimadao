@@ -18,10 +18,10 @@ export const ResourcesFilters: FC<Props> = (props) => {
   return (
     <div className={styles.filtersContainerInner}>
       <div className={styles.filtersHeader}>
-        <Text t="h3">
+        <Text t="h4">
           <Trans id="resources.form.categories.header">Categories</Trans>
         </Text>
-        <Text t="caption">
+        <Text t="body2">
           <Trans id="resources.form.categories.subheader">
             Select one or more
           </Trans>
@@ -35,7 +35,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
         />
       </div>
       <div>
-        <Text t="h4">
+        <Text t="h5">
           <Trans id="resources.form.sub_topics.header">Sub-topics</Trans>
         </Text>
       </div>

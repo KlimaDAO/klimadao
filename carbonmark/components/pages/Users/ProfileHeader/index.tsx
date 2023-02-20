@@ -28,10 +28,10 @@ export const ProfileHeader: FC<Props> = (props) => {
         )}
       </div>
       <div className={styles.profileText}>
-        <Text t="h3">{props.userName}</Text>
+        <Text t="h4">{props.userName}</Text>
 
         {!props.isCarbonmarkUser && (
-          <Text t="caption">
+          <Text t="body1">
             <Trans id="profile.create_your_profile">
               Create your profile on Carbonmark and start selling
             </Trans>
@@ -39,7 +39,7 @@ export const ProfileHeader: FC<Props> = (props) => {
         )}
 
         {props.isCarbonmarkUser && !props.description && (
-          <Text t="caption">
+          <Text t="body1">
             <Trans id="profile.edit_your_profile">
               Edit your profile to add a description
             </Trans>
@@ -47,7 +47,7 @@ export const ProfileHeader: FC<Props> = (props) => {
         )}
 
         {props.isCarbonmarkUser && props.description && (
-          <Text t="caption">{props.description}</Text>
+          <Text t="body1">{props.description}</Text>
         )}
       </div>
     </div>

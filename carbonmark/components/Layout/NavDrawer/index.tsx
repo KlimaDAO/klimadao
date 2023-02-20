@@ -82,7 +82,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
 
       <div className="navFooter">
         <div className="hr" />
-        <Text t="caption" align="center">
+        <Text t="body1" align="center">
           <Trans>
             Built with 🌳 by <a href="https://klimadao.finance">KlimaDAO</a>
           </Trans>

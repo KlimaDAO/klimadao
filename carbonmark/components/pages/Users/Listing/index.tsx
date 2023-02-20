@@ -24,15 +24,15 @@ export const Listing: FC<Props> = (props) => {
         <Category category={props.listing.project.category.id} />
         <Vintage vintage={props.listing.project.vintage} />
       </div>
-      <Text>{props.listing.project.name}</Text>
+      <Text t="h4">{props.listing.project.name}</Text>
       <div className={styles.image}>
         <ProjectImage category={props.listing.project.category.id} />
       </div>
       <div className={styles.amounts}>
-        <Text t="body4">
+        <Text t="h4">
           {formatBigToPrice(props.listing.singleUnitPrice, locale)}
         </Text>
-        <Text t="body6">
+        <Text t="body1">
           <Trans id="seller.listing.quantity_available">
             Quantity Available:
           </Trans>{" "}

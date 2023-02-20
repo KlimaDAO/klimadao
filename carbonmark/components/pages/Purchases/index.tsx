@@ -92,34 +92,34 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                     <div className="summary">
                       <div className="cols">
                         <div className="col">
-                          <Text t="caption">
+                          <Text t="body1">
                             <Trans>Quantity purchased:</Trans>
                           </Text>
-                          <Text t="caption">
+                          <Text t="body1">
                             {formatBigToTonnes(props.purchase.amount, locale)}
                           </Text>
                         </div>
 
                         <div className="col">
-                          <Text t="caption">
+                          <Text t="body1">
                             <Trans>Final price</Trans>
                           </Text>
-                          <Text t="caption">
+                          <Text t="body1">
                             {formatBigToPrice(props.purchase.price, locale)}
                           </Text>
                         </div>
                       </div>
 
-                      <Text t="caption">
+                      <Text t="body1">
                         <Trans>Project</Trans>
                       </Text>
-                      <Text t="caption" color="lighter">
+                      <Text t="body1" color="lighter">
                         {props.purchase.listing.project.methodology}
                       </Text>
-                      <Text t="caption">
+                      <Text t="body1">
                         {props.purchase.listing.project.name}
                       </Text>
-                      <Text t="badge" className="country">
+                      <Text t="body3" className="country">
                         {props.purchase.listing.project.country.id}
                       </Text>
                     </div>

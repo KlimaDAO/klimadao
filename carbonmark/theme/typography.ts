@@ -83,59 +83,8 @@ export const body4 = css`
 export const button = css`
   font-family: var(--font-family-secondary);
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.6rem;
   font-weight: 600;
-`;
-
-// legacy tags
-
-export const body5 = css`
-  font-size: 2rem;
-  line-height: 2.8rem;
-  font-weight: 300;
-  ${breakpoints.large} {
-    font-size: 2.4rem;
-    line-height: 3.2rem;
-  }
-`;
-export const body6 = css`
-  font-size: 1.4rem;
-  line-height: 2rem;
-  font-weight: 300;
-  ${breakpoints.large} {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-  }
-`;
-export const body7 = css`
-  font-weight: 300;
-  font-size: 2rem;
-  line-height: 2.8rem;
-  ${breakpoints.large} {
-    font-size: 2.8rem;
-    line-height: 3.6rem;
-  }
-`;
-export const body8 = css`
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
-`;
-export const caption = css`
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  font-weight: 500;
-  ${breakpoints.large} {
-    font-size: 1.6rem;
-    line-height: 2rem;
-  }
-`;
-
-export const badge = css`
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  line-height: 1.4rem;
-  font-weight: 400;
-  letter-spacing: 0.06rem;
+  letter-spacing: 3%;
 `;

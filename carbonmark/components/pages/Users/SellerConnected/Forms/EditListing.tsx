@@ -45,10 +45,10 @@ export const EditListing: FC<Props> = (props) => {
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
-        <Text t="caption">
+        <Text t="body1">
           <Trans id="user.listing.edit.project.label">Project</Trans>
         </Text>
-        <Text t="caption" className={styles.editLabelProjectName}>
+        <Text t="body1" className={styles.editLabelProjectName}>
           {props.listing.project.name}
         </Text>
       </div>
@@ -101,7 +101,7 @@ export const EditListing: FC<Props> = (props) => {
             })}
             errorMessage={formState.errors.totalAmountToSell?.message}
           />
-          <Text t="badge" className={styles.availableAmount}>
+          <Text t="body3" className={styles.availableAmount}>
             Available: {props.assetBalance}
           </Text>
           <InputField

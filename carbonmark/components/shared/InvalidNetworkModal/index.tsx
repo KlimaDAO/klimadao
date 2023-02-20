@@ -60,13 +60,13 @@ export const InvalidNetworkModal: FC = () => {
   return (
     <Modal
       title={
-        <Text t="h3">
+        <Text t="h4">
           ⚠ <Trans>Wrong Network</Trans>
         </Text>
       }
       showModal={showModal}
     >
-      <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
+      <Text t="body1" color="lightest" style={{ fontWeight: "normal" }}>
         <Trans>This app only works on Polygon Mainnet.</Trans>
       </Text>
       <div className={styles.switchButtonContainer}>

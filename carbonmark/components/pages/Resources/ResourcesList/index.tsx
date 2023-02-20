@@ -196,7 +196,7 @@ export const ResourcesList: FC<Props> = (props) => {
                   message: "Sort by",
                 })}
               />
-              <Text t="body4">
+              <Text t="body1">
                 <Trans id="shared.resources.sort_by.header">Sort by:</Trans>
               </Text>
               <SortyByDropDown control={control} setValue={setValue} />
@@ -235,14 +235,14 @@ export const ResourcesList: FC<Props> = (props) => {
                   </Trans>
                 </Text>
                 {wasTextSearch ? (
-                  <Text>
+                  <Text t="body1">
                     <Trans id="resources.page.list.search_submit.no_search_results">
                       Check your search for typos or try a different search
                       term.
                     </Trans>
                   </Text>
                 ) : (
-                  <Text>
+                  <Text t="body1">
                     <Trans id="resources.page.list.search_submit.no_filter_results">
                       Please use a different filter combination.
                     </Trans>

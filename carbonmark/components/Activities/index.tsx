@@ -27,7 +27,7 @@ export const Activities: FC<Props> = (props) => {
         <Trans id="user.activities.title">Activities</Trans>
       </Text>
       {!hasActivities && (
-        <Text t="caption" color="lighter">
+        <Text t="body1" color="lighter">
           <i>
             <Trans id="user.activities.empty_state">No activity to show</Trans>
           </i>

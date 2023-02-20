@@ -37,7 +37,7 @@ export const AssetProject: FC<Props> = (props) => {
         <ProjectImage category={props.assetsData.category} />
       </div>
 
-      <Text t="caption">
+      <Text t="body1">
         <Trans>Quantity Available:</Trans>{" "}
         {formatToTonnes(props.assetsData.balance, locale)}
       </Text>

@@ -32,7 +32,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
     return (
       <div className={styles.container}>
         <label htmlFor={props.id} className={visuallyHidden}>
-          <Text t="caption">{props.label}</Text>
+          <Text t="body1">{props.label}</Text>
         </label>
 
         {!!props.icon && <div className={styles.icon}>{props.icon}</div>}
@@ -46,7 +46,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
         />
 
         {!!props.errorMessage && (
-          <Text t="caption" className={styles.errorMessage}>
+          <Text t="body1" className={styles.errorMessage}>
             {props.errorMessage}
           </Text>
         )}

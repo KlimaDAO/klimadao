@@ -34,7 +34,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
         />
         <label htmlFor={props.id} className={styles.label}>
           {typeof props.label === "string" ? (
-            <Text t="caption">{props.label}</Text>
+            <Text t="body1">{props.label}</Text>
           ) : (
             props.label
           )}

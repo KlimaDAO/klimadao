@@ -13,11 +13,11 @@ interface AddressSectionProps {
 export const AddressSection: FC<AddressSectionProps> = (props) => {
   return (
     <div className={styles.address}>
-      <Text t="caption">
+      <Text t="body1">
         <Trans>Your Wallet Address:</Trans>
       </Text>
       {!props.address && (
-        <Text t="caption" color="lightest" uppercase>
+        <Text t="body1" color="lightest" uppercase>
           <Trans>Not Connected</Trans>
         </Text>
       )}
@@ -29,7 +29,7 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
         />
       )}
       {props.domain && (
-        <Text t="caption" color="lightest" className="domain">
+        <Text t="body1" color="lightest" className="domain">
           {props.domain.name}
         </Text>
       )}

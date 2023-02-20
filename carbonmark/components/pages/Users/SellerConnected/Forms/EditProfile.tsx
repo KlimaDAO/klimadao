@@ -220,7 +220,7 @@ export const EditProfile: FC<Props> = (props) => {
           </div>
         )}
         {hasError && (
-          <Text t="caption" className="error">
+          <Text t="body1" className="error">
             {errorMessage}
           </Text>
         )}

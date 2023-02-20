@@ -45,10 +45,10 @@ export const Approve: FC<Props> = (props) => {
             Please confirm the transaction
           </Trans>
         </Text>
-        {!!props.description && <Text t="caption">{props.description}</Text>}
+        {!!props.description && <Text t="body1">{props.description}</Text>}
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <Text t="body1" color="lighter">
               <Trans id="transaction_modal.approve.contract_address">
                 Contract address
               </Trans>
@@ -58,7 +58,7 @@ export const Approve: FC<Props> = (props) => {
         />
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <Text t="body1" color="lighter">
               <Trans id="transaction_modal.approve.amount">
                 Confirm amount
               </Trans>
@@ -74,7 +74,7 @@ export const Approve: FC<Props> = (props) => {
         {!!props.price && (
           <HighlightValue
             label={
-              <Text t="caption" color="lighter">
+              <Text t="body1" color="lighter">
                 <Trans id="transaction_modal.approve.price">
                   Confirm price per tonne
                 </Trans>
@@ -92,7 +92,7 @@ export const Approve: FC<Props> = (props) => {
       {!!props.status && (
         <div className={styles.statusMessage}>
           {success && <CheckIcon />}
-          <Text t="caption" color="lighter" align="center">
+          <Text t="body1" color="lighter" align="center">
             {getStatusMessage(props.status)}
           </Text>
         </div>

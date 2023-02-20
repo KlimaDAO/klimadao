@@ -193,7 +193,7 @@ export const ListingEditable: FC<Props> = (props) => {
             />
             {errorMessage && (
               <div className={styles.errorMessageWrap}>
-                <Text t="caption" className={styles.errorMessage}>
+                <Text t="body1" className={styles.errorMessage}>
                   {errorMessage}
                 </Text>
               </div>

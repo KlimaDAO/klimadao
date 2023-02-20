@@ -34,7 +34,7 @@ export const Stats: FC<Props> = (props) => {
       <Text t="h4">
         <Trans id="user.stats.title">Stats</Trans>
       </Text>
-      <Text t="caption" color="lighter">
+      <Text t="body1" color="lighter">
         {props.description ||
           t({
             id: "user.stats.seller.description",
@@ -43,28 +43,25 @@ export const Stats: FC<Props> = (props) => {
       </Text>
       <div className={styles.list}>
         <div className={styles.listItem}>
-          <Text t="caption" className={styles.itemWithIcon}>
+          <Text t="body1" className={styles.itemWithIcon}>
             <StoreOutlinedIcon />
             <Trans>Tonnes sold:</Trans>
           </Text>
-          <Text t="caption">{trimWithLocale(tonnesSold || 0, 2, locale)}</Text>
+          <Text t="body1">{trimWithLocale(tonnesSold || 0, 2, locale)}</Text>
         </div>
         <div className={styles.listItem}>
-          <Text t="caption" className={styles.itemWithIcon}>
+          <Text t="body1" className={styles.itemWithIcon}>
             <SavingsOutlinedIcon />
             <Trans>Tonnes listed:</Trans>
           </Text>
-          <Text t="caption">
-            {" "}
-            {trimWithLocale(tonnesOwned || 0, 2, locale)}
-          </Text>
+          <Text t="body1"> {trimWithLocale(tonnesOwned || 0, 2, locale)}</Text>
         </div>
         <div className={styles.listItem}>
-          <Text t="caption" className={styles.itemWithIcon}>
+          <Text t="body1" className={styles.itemWithIcon}>
             <SellOutlinedIcon />
             <Trans>Active listings:</Trans>
           </Text>
-          <Text t="caption">{activeListings || "-"}</Text>
+          <Text t="body1">{activeListings || "-"}</Text>
         </div>
       </div>
     </Card>

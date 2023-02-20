@@ -28,7 +28,7 @@ export const Article: FC<Props> = (props) => {
       />
       <div className="stack">
         <div className={styles.stackContent}>
-          <Text t="caption" className={styles.articleText}>
+          <Text t="body1" className={styles.articleText}>
             {formattedDate}
           </Text>
           <Text t="h3" className={styles.articleText}>

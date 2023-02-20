@@ -78,8 +78,8 @@ export const Activity: FC<ActivityT> = (props) => {
 
   return (
     <div key={props.id} className={styles.activity}>
-      <Text t="caption">{props.project?.name || "unknown"}</Text>
-      <Text t="caption" color="lighter">
+      <Text t="h5">{props.project?.name || "unknown"}</Text>
+      <Text t="body1" color="lighter">
         <i>
           {getElapsedTime({
             locale: locale || "en",
@@ -87,7 +87,7 @@ export const Activity: FC<ActivityT> = (props) => {
           })}
         </i>
       </Text>
-      <Text t="caption">
+      <Text t="body1">
         {!!addressA && (
           <Link className="account" href={`/users/${addressA}`}>
             {formatWalletAddress(addressA, connectedAddress)}{" "}
@@ -104,7 +104,7 @@ export const Activity: FC<ActivityT> = (props) => {
         )}
       </Text>
       {!!amountA && !!amountB && (
-        <Text t="caption">
+        <Text t="body1">
           <span className="number">{`${amountA}`}</span> {transactionString}
           <span className="number">{`${amountB}`}</span>
         </Text>

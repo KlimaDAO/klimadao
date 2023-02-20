@@ -21,7 +21,7 @@ export const LoginCard: FC<Props> = (props) => {
             Please login or connect your wallet
           </Trans>
         </Text>
-        <Text t="caption">
+        <Text t="body1">
           <Trans id="user.login.description">
             This feature is available only to users who are logged in. You can
             log in or create an account via the button below.

@@ -48,7 +48,7 @@ export const Submit: FC<Props> = (props) => {
         {!!props.description && <Text>{props.description}</Text>}
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <Text t="body1" color="lighter">
               <Trans id="transaction_modal.submit.contract_address">
                 Contract address
               </Trans>
@@ -58,7 +58,7 @@ export const Submit: FC<Props> = (props) => {
         />
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <Text t="body1" color="lighter">
               <Trans id="transaction_modal.submit.amount">Submit amount</Trans>
             </Text>
           }
@@ -72,7 +72,7 @@ export const Submit: FC<Props> = (props) => {
         {!!props.price && (
           <HighlightValue
             label={
-              <Text t="caption" color="lighter">
+              <Text t="body1" color="lighter">
                 <Trans id="transaction_modal.submit.price">
                   Submit price per tonne
                 </Trans>
@@ -90,7 +90,7 @@ export const Submit: FC<Props> = (props) => {
       {!!props.status && (
         <div className={styles.statusMessage}>
           {success && <CheckIcon />}
-          <Text t="caption" color="lighter" align="center">
+          <Text t="body1" color="lighter" align="center">
             {getStatusMessage(props.status)}
           </Text>
         </div>

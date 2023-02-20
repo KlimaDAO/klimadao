@@ -58,7 +58,7 @@ export const CreateListingForm: FC<Props> = (props) => {
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
-        <Text t="caption">
+        <Text t="body1">
           <Trans id="user.listing.form.input.select_project.label">
             Select Project:
           </Trans>
@@ -118,7 +118,7 @@ export const CreateListingForm: FC<Props> = (props) => {
             })}
             errorMessage={formState.errors.totalAmountToSell?.message}
           />
-          <Text t="badge" className={styles.availableAmount}>
+          <Text t="body3" className={styles.availableAmount}>
             Available: {selectedAsset.balance}
           </Text>
           <InputField

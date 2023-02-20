@@ -56,7 +56,7 @@ export const Projects: NextPage<Props> = (props) => {
                     <Text t="h5">
                       {project.name || "! MISSING PROJECT NAME !"}
                     </Text>
-                    <Text t="caption">{project.methodology}</Text>
+                    <Text t="body1">{project.methodology}</Text>
                     <div className={styles.tags}>
                       {!!project.category?.id && (
                         <Category category={project.category.id} />

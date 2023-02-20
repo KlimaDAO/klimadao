@@ -41,24 +41,24 @@ export const ProjectListing: FC<Props> = (props) => {
           <div className={styles.sellerBadge}>
             <Trans>Seller Listing</Trans>
           </div>
-          <Text t="caption">
+          <Text t="body1">
             <Link href={createSellerLink(props.listing.seller.handle)}>
               {isConnectedSeller ? "You" : "@" + props.listing.seller.handle}
             </Link>
           </Text>
         </div>
       )}
-      <Text t="h5">{formatBigToPrice(props.listing.singleUnitPrice)}</Text>
-      <Text t="caption">
+      <Text t="h4">{formatBigToPrice(props.listing.singleUnitPrice)}</Text>
+      <Text t="body1">
         <Trans>Quantity Available:</Trans>{" "}
         {formatBigToTonnes(props.listing.leftToSell)}
       </Text>
       <div className={styles.dates}>
-        <Text t="caption">
+        <Text t="body1">
           <Trans>Created:</Trans>{" "}
           <span>{getFormattedDate(props.listing.createdAt, locale)}</span>
         </Text>
-        <Text t="caption">
+        <Text t="body1">
           <Trans>Updated:</Trans>{" "}
           <span>{getFormattedDate(props.listing.updatedAt, locale)}</span>
         </Text>

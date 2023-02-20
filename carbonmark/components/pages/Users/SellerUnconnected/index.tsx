@@ -46,12 +46,12 @@ export const SellerUnconnected: FC<Props> = (props) => {
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
-          <Text t="h3">
+          <Text t="h4">
             <Trans>Listings</Trans>
           </Text>
 
           {!sortedListings && (
-            <Text t="caption" color="lighter">
+            <Text t="body1" color="lighter">
               <i>
                 <Trans id="profile.listings.empty_state">
                   No active listings to show.

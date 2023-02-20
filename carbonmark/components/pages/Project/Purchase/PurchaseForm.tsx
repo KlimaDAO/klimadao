@@ -41,7 +41,7 @@ const TotalValue: FC<TotalValueProps> = (props) => {
         warn={!!props.errorMessage}
       />
       {!!props.errorMessage && (
-        <Text t="caption" className={styles.errorMessagePrice}>
+        <Text t="body1" className={styles.errorMessagePrice}>
           {props.errorMessage}
         </Text>
       )}
@@ -148,7 +148,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           })}
           errorMessage={formState.errors.amount?.message}
         />
-        <Text t="badge" className={styles.availableAmount}>
+        <Text t="body3" className={styles.availableAmount}>
           <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
         </Text>
         <InputField
@@ -181,7 +181,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           setValue={setValue}
           errorMessage={formState.errors.price?.message}
         />
-        <Text t="badge" className={styles.availableAmount}>
+        <Text t="body3" className={styles.availableAmount}>
           <Trans>Available:</Trans>{" "}
           {!balance ? (
             <i>
