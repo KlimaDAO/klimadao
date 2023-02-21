@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-21 15:35+0000\n"
+"POT-Creation-Date: 2023-02-21 21:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "No retirement message provided."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:146
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "Processing data..."
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr "Это приложение работает только в Polygon Mai
 msgid "View on Polygonscan"
 msgstr "Посмотреть на Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:150
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
@@ -1619,39 +1619,39 @@ msgstr "Используйте токены KLIMA, обеспеченные уг
 msgid "retirement.footer.buy_klima.title"
 msgstr "Приобретайте, стейкайте и получайте вознаграждение."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/index.tsx:133
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:129
 msgid "retirement.head.metaTitle"
-msgstr "{retiree} выбито {0} Тонны углерода"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:125
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Квитанция о возврате углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:266
+#: components/pages/Retirements/SingleRetirement/index.tsx:277
 msgid "retirement.share.title"
 msgstr "Поделитесь своим влиянием"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:176
+#: components/pages/Retirements/SingleRetirement/index.tsx:187
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Имя получателя не указано"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:170
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.beneficiary.title"
 msgstr "Бенефициар"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:184
+#: components/pages/Retirements/SingleRetirement/index.tsx:195
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Адрес получателя"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:245
+#: components/pages/Retirements/SingleRetirement/index.tsx:256
 msgid "retirement.single.create_a_pledge"
 msgstr "Создайте залог прямо сейчас."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:231
+#: components/pages/Retirements/SingleRetirement/index.tsx:242
 msgid "retirement.single.disclaimer"
 msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
 
@@ -1659,15 +1659,11 @@ msgstr "Это представляет собой постоянное выбы
 msgid "retirement.single.download_certificate_button"
 msgstr "Скачать PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:129
-msgid "retirement.single.header.quantity"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:134
+#: components/pages/Retirements/SingleRetirement/index.tsx:145
 msgid "retirement.single.header.subline"
 msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:241
+#: components/pages/Retirements/SingleRetirement/index.tsx:252
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Это ваше выбытие?"
 
@@ -1687,7 +1683,7 @@ msgstr "Детали проекта"
 msgid "retirement.single.quantity"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ "
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:205
+#: components/pages/Retirements/SingleRetirement/index.tsx:216
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Сертификат"
 
@@ -1699,7 +1695,7 @@ msgstr "Дата"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:302
+#: components/pages/Retirements/SingleRetirement/index.tsx:313
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
@@ -1906,7 +1902,7 @@ msgstr "Информация"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "Загрузка..."
 
