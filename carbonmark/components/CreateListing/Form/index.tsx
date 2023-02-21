@@ -3,7 +3,7 @@ import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
-import { Asset } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
@@ -19,7 +19,7 @@ export type FormValues = {
 };
 
 type Props = {
-  assets: Asset[];
+  assets: AssetForListing[];
   onSubmit: (values: FormValues) => void;
   values: null | FormValues;
 };

@@ -9,19 +9,25 @@ import { Modal } from "components/shared/Modal";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { getAssets } from "lib/actions";
 import { getUser } from "lib/api";
+import { ProfileHeader } from "../ProfileHeader";
+import { EditProfile } from "./Forms/EditProfile";
+import { ListingEditable } from "./ListingEditable";
+
+import { addProjectsToAssets } from "lib/actions";
+import { getAssetsWithProjectTokens } from "lib/getAssetsData";
+import { pollUntil } from "lib/pollUntil";
+
 import {
   getActiveListings,
   getAllListings,
   getSortByUpdateListings,
 } from "lib/listingsGetter";
-import { pollUntil } from "lib/pollUntil";
-import { Asset, Listing, User } from "lib/types/carbonmark";
+import { Listing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
-import { ProfileHeader } from "../ProfileHeader";
-import { EditProfile } from "./Forms/EditProfile";
-import { ListingEditable } from "./ListingEditable";
+
+import { AssetForListing } from "lib/types/carbonmark";
+
 import * as styles from "./styles";
 
 type Props = {
@@ -35,7 +41,7 @@ type Props = {
 export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
-  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
@@ -55,24 +61,29 @@ export const SellerConnected: FC<Props> = (props) => {
     }
 
     if (hasAssets) {
-      const getAssetsData = async () => {
+      const getProjectData = async () => {
         try {
           setIsLoadingAssets(true);
 
-          const assetsData = await getAssets({
-            assets: user.assets,
-            userAddress: props.userAddress,
-          });
-
-          // TODO: filter assets with balance > 0
-          // this will be unnecessary as soon as bezos switched to mainnet
-
-          const assetsWithBalance = assetsData.filter(
-            (a) => Number(a.balance) > 0
+          const assetWithProjectTokens = getAssetsWithProjectTokens(
+            user.assets
           );
 
-          if (assetsWithBalance.length) {
-            setAssetsData(assetsWithBalance);
+          if (assetWithProjectTokens.length) {
+            const assetsData = await addProjectsToAssets({
+              assets: assetWithProjectTokens,
+            });
+
+            // TODO: filter assets with balance > 0
+            // this will be unnecessary as soon as bezos switched to mainnet
+
+            const assetsWithBalance = assetsData.filter(
+              (a) => Number(a.balance) > 0
+            );
+
+            if (assetsWithBalance.length) {
+              setAssetsData(assetsWithBalance);
+            }
           }
         } catch (e) {
           console.error(e);
@@ -82,7 +93,7 @@ export const SellerConnected: FC<Props> = (props) => {
         }
       };
 
-      getAssetsData();
+      getProjectData();
     }
   }, [user]);
 

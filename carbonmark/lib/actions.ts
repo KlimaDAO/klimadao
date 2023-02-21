@@ -4,13 +4,15 @@ import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import { getProject } from "lib/api";
+import { createProjectIdFromAsset, isC3TToken } from "lib/getAssetsData";
 import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
-import { Asset, AssetExtended } from "lib/types/carbonmark";
+import { Asset, AssetForListing } from "lib/types/carbonmark";
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
@@ -223,34 +225,42 @@ export const deleteListingTransaction = async (params: {
   }
 };
 
-export const getAssets = async (params: {
-  assets: string[];
-  userAddress: string;
-}): Promise<Asset[]> => {
+export const addProjectsToAssets = async (params: {
+  assets: Asset[];
+}): Promise<AssetForListing[]> => {
   try {
-    const assetsData = await params.assets.reduce<Promise<Asset[]>>(
+    const assetsData = await params.assets.reduce<Promise<AssetForListing[]>>(
       async (resultPromise, asset) => {
         const resolvedAssets = await resultPromise;
-        const contract = new ethers.Contract(
-          asset,
-          C3ProjectToken.abi,
-          getStaticProvider()
-        );
 
-        const promises = [
-          contract.symbol(),
-          contract.balanceOf(params.userAddress),
-          contract.getProjectInfo(),
-        ];
-        const [tokenName, c3TokenBalance, projectInfo] = await Promise.all(
-          promises
-        );
+        let project: AssetForListing["project"];
+        const projectId = createProjectIdFromAsset(asset);
+
+        const projectFromApi =
+          !!projectId && (await getProjectInfoFromApi(projectId));
+
+        // project exists on API
+        if (projectFromApi && projectFromApi.key) {
+          project = projectFromApi;
+        } else {
+          // no project from API, let´s call the contract
+          if (isC3TToken(asset.token.symbol)) {
+            const projectFromContract = await getProjectInfoFromC3Contract(
+              asset.token.id
+            );
+            project = projectFromContract;
+          }
+          // TODO: Do the same if TCO2 token !
+        }
 
         resolvedAssets.push({
-          tokenAddress: asset,
-          tokenName,
-          balance: formatUnits(c3TokenBalance),
-          projectName: projectInfo.name,
+          tokenAddress: asset.token.id,
+          tokenName: asset.token.name,
+          balance: ethers.utils.formatUnits(
+            asset.tokenAmount,
+            asset.token.decimals
+          ),
+          project,
         });
         return resolvedAssets;
       },
@@ -262,54 +272,54 @@ export const getAssets = async (params: {
   }
 };
 
-export const getAssetsExtended = async (params: {
-  assets: string[];
-  userAddress: string;
-}): Promise<AssetExtended[]> => {
+export const getProjectInfoFromApi = async (
+  projectId: string
+): Promise<AssetForListing["project"] | null> => {
   try {
-    const assetsData = await params.assets.reduce<Promise<AssetExtended[]>>(
-      async (resultPromise, asset) => {
-        const resolvedAssets = await resultPromise;
-        const contract = new ethers.Contract(
-          asset,
-          C3ProjectToken.abi,
-          getStaticProvider()
-        );
+    const project = await getProject({ projectId });
 
-        const promises = [
-          contract.symbol(),
-          contract.balanceOf(params.userAddress),
-          contract.getProjectInfo(),
-          contract.getProjectIdentifier(),
-          contract.getVintage(),
-        ];
+    return {
+      key: project.key,
+      projectID: project.projectID,
+      name: project.name,
+      methodology: project.methodology,
+      vintage: project.vintage,
+      category: project.category?.id || "Other",
+    };
+  } catch (e: any) {
+    console.error("getProjectInfoFromApi Error", e);
+    return null;
+  }
+};
 
-        const [tokenName, c3TokenBalance, projectInfo, projectKey, vintage] =
-          await Promise.all(promises);
+export const getProjectInfoFromC3Contract = async (
+  tokenAddress: string
+): Promise<AssetForListing["project"] | undefined> => {
+  const contract = new ethers.Contract(
+    tokenAddress,
+    C3ProjectToken.abi,
+    getStaticProvider()
+  );
 
-        resolvedAssets.push({
-          tokenAddress: asset,
-          tokenName,
-          balance: formatUnits(c3TokenBalance),
-          projectId: projectInfo.project_id,
-          key: projectKey,
-          vintage: ethers.utils.formatUnits(vintage, 0),
-          projectName: projectInfo.name,
-          projectType: projectInfo.project_type,
-          country: projectInfo.country,
-          methodology: projectInfo.methodology,
-          registry: projectInfo.registry,
-          projectUrl: projectInfo.uri,
-          active: projectInfo.active,
-          category: getCategoryFromMethodology(projectInfo.methodology),
-        });
-        return resolvedAssets;
-      },
-      Promise.resolve([])
-    );
-    return assetsData;
-  } catch (e) {
-    throw e;
+  try {
+    const promises = [
+      contract.getProjectInfo(),
+      contract.getProjectIdentifier(),
+      contract.getVintage(),
+    ];
+
+    const [projectInfo, projectKey, vintage] = await Promise.all(promises);
+
+    return {
+      key: projectKey,
+      projectID: projectInfo.project_id,
+      name: projectInfo.name,
+      methodology: projectInfo.methodology,
+      vintage: ethers.utils.formatUnits(vintage, 0),
+      category: getCategoryFromMethodology(projectInfo.methodology),
+    };
+  } catch (e: any) {
+    console.error("getProjectInfoFromContract Error", e);
   }
 };
 

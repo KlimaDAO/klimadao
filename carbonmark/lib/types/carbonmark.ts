@@ -34,7 +34,7 @@ export interface User {
   wallet: string;
   listings: Listing[];
   activities: ActivityType[];
-  assets: string[]; // token addresses
+  assets: Asset[];
 }
 
 export type Listing = {
@@ -110,6 +110,17 @@ export type ActivityType = {
   } | null;
 };
 
+export type Asset = {
+  token: {
+    id: string;
+    name: string;
+    symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
+    decimals: number;
+  };
+  tokenAmount: BigNumber;
+  updatedAt: string; // timestamp
+};
+
 // data from C3 ABI function "getProjectInfo"
 export type ProjectInfo = {
   active: boolean;
@@ -125,28 +136,18 @@ export type ProjectInfo = {
   project_type: string;
 };
 
-export type Asset = {
+export type AssetForListing = {
   tokenAddress: string;
   tokenName: string;
   balance: string;
-  projectName: ProjectInfo["name"];
-};
-
-export type AssetExtended = {
-  tokenAddress: string;
-  tokenName: string;
-  balance: string;
-  projectName: ProjectInfo["name"];
-  projectId: ProjectInfo["project_id"];
-  projectType: ProjectInfo["project_type"];
-  country: ProjectInfo["country"];
-  methodology: ProjectInfo["methodology"];
-  registry: ProjectInfo["registry"];
-  projectUrl: ProjectInfo["uri"];
-  active: ProjectInfo["active"];
-  category: CategoryName;
-  key: string;
-  vintage: string;
+  project?: {
+    key: string;
+    vintage: string;
+    name: string;
+    projectID: string;
+    methodology: string;
+    category: CategoryNames | CategoryName;
+  };
 };
 
 export type Category = {

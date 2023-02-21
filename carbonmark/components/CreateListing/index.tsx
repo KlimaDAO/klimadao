@@ -2,7 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { FC, useState } from "react";
 
-import { Asset } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark";
 
 import { Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/shared/Modal";
@@ -17,7 +17,7 @@ import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
 type Props = {
-  assets: Asset[];
+  assets: AssetForListing[];
   showModal: boolean;
   onModalClose: () => void;
   onSubmit: () => void;

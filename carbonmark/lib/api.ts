@@ -124,6 +124,18 @@ export const getProjects = async (params?: Params): Promise<Project[]> => {
   return data;
 };
 
+export const getProject = async (params: {
+  projectId: string;
+}): Promise<Project> => {
+  const result = await fetch(`/api/projects/${params.projectId}`);
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
 export const getCategories = async (): Promise<Category[]> => {
   const result = await fetch("/api/categories");
   const data = await result.json();

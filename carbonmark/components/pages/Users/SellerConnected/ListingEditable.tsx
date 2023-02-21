@@ -13,21 +13,24 @@ import {
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Asset, Listing as ListingType } from "lib/types/carbonmark";
+import { Listing as ListingType } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
+
+import { AssetForListing } from "lib/types/carbonmark";
+
 import * as styles from "./styles";
 
 type Props = {
   listings: ListingType[];
-  assets: Asset[];
+  assets: AssetForListing[];
   onFinishEditing: () => void;
 };
 
 const getBalanceForListing = (
   listing: ListingType,
-  assets: Asset[]
+  assets: AssetForListing[]
 ): number => {
   const matchingBalance = assets.find(
     (a) => a.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase()

@@ -1,15 +1,15 @@
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Tippy from "@tippyjs/react";
-import { Asset } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";
 
 interface Props {
   setValue: (field: "tokenAddress", value: string) => void;
-  assets: Asset[];
-  selectedAsset: Asset;
+  assets: AssetForListing[];
+  selectedAsset: AssetForListing;
 }
 
 export const ProjectTokenDropDown: FC<Props> = (props) => {
@@ -44,7 +44,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
                   props.selectedAsset.tokenAddress === asset.tokenAddress
                 }
               >
-                {asset.projectName}
+                {asset.project?.name || asset.tokenName}
               </button>
             ))}
           </div>
@@ -68,7 +68,11 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
             message: "Toggle Select Project",
           })}
         >
-          <span>{props.selectedAsset?.projectName || "not found"}</span>
+          <span>
+            {props.selectedAsset?.project?.name ||
+              props.selectedAsset.tokenName ||
+              "not found"}
+          </span>
           {!isDisabled && <ArrowDropDownIcon />}
         </button>
       </Tippy>
