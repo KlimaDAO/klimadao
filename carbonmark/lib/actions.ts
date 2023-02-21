@@ -256,10 +256,7 @@ export const addProjectsToAssets = async (params: {
         resolvedAssets.push({
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
-          balance: ethers.utils.formatUnits(
-            asset.tokenAmount,
-            asset.token.decimals
-          ),
+          balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
           project,
         });
         return resolvedAssets;

@@ -117,8 +117,7 @@ export type Asset = {
     symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
     decimals: number;
   };
-  tokenAmount: BigNumber;
-  updatedAt: string; // timestamp
+  amount: BigNumber;
 };
 
 // data from C3 ABI function "getProjectInfo"
