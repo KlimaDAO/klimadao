@@ -12,7 +12,6 @@ import {
   getImageSizes,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
-  trimWithLocale,
 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { FacebookButton } from "components/FacebookButton";
@@ -63,17 +62,32 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
     }
   );
 
+/**
+ * Round to 2nd decimal place, to localized string.
+ * If the rounded value is smaller than 0.01, show 6 decimal places instead.
+ * Trims trailing zeros.
+ * "1000.12567" => "1,000.13"
+ * "1000.000" => "1,000"
+ * "0.0001234" => "0.000123"
+ */
+const formatTonnes = (params: { amount: string; locale: string }): string => {
+  const amountNumber = Number(params.amount);
+  const maximumFractionDigits = amountNumber >= 0.01 ? 2 : 6;
+  return amountNumber.toLocaleString(params.locale, {
+    maximumFractionDigits,
+  });
+};
+
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
   const { asPath, locale } = useRouter();
 
-  const trimmedAmount = trimWithLocale(
-    retirement.amount.replace(/\.?0+$/, ""),
-    2,
-    locale
-  );
+  const formattedAmount = formatTonnes({
+    amount: retirement.amount,
+    locale: locale || "en",
+  });
 
   const retiree =
     retirement.beneficiary ||
@@ -114,7 +128,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         })}
         mediaTitle={t({
           id: "retirement.head.metaTitle",
-          message: `${retiree} retired ${retirement.amount} Tonnes of carbon`,
+          message: `${retiree} retired ${formattedAmount} Tonnes of carbon`,
         })}
         metaDescription={t({
           id: "retirement.head.metaDescription",
@@ -126,10 +140,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
           overline={retirement.beneficiary}
-          title={t({
-            id: "retirement.single.header.quantity",
-            message: `${trimmedAmount}t`,
-          })}
+          title={`${formattedAmount}t`}
           subline={
             <Trans id="retirement.single.header.subline">
               CO2-Equivalent Emissions Offset (Metric Tonnes)
@@ -157,7 +168,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           )}
           {tokenData && (
             <RetirementValue
-              value={retirement.amount}
+              value={formattedAmount}
               label={tokenData.label}
               icon={tokenData.icon}
             />
@@ -267,7 +278,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           </Text>
           <div className="buttons">
             <TweetButton
-              title={`${retiree} retired ${retirement.amount} Tonnes of carbon`}
+              title={`${retiree} retired ${formattedAmount} Tonnes of carbon`}
               tags={["klimadao", "Offset"]}
             />
             <FacebookButton />
