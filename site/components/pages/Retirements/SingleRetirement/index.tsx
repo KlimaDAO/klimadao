@@ -115,7 +115,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 
   // TODO this doesn't work with TCO2, will quickly follow up to fix this
   const tokenType = !retirement.pending
-    ? getRetirementTokenByAddress(retirement.offset.tokenAddress) || "bct"
+    ? getRetirementTokenByAddress(retirement.pool) || "bct"
     : null;
   const tokenData = tokenType ? retirementTokenInfoMap[tokenType] : null;
 
