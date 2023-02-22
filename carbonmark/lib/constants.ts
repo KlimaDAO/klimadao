@@ -8,7 +8,13 @@ export const IS_PRODUCTION =
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
-export const MINIMUM_TONNE_PRICE = 0.1; // minimum amount of tonnes per listing
+const ENVIRONMENT = IS_PRODUCTION
+  ? "production"
+  : IS_LOCAL_DEVELOPMENT
+  ? "development"
+  : "preview";
+
+export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 
 export const connectErrorStrings = {
@@ -24,32 +30,16 @@ export const connectErrorStrings = {
 
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-interface NetworkURLs {
-  mainnet: string;
-  testnet: string;
-}
-
-interface AppConfig {
-  defaultNetwork: "testnet" | "mainnet";
+export const config = {
+  networks: {
+    production: "mainnet",
+    preview: "testnet",
+    development: "testnet",
+  },
   urls: {
     baseUrl: {
-      production: string;
-      staging: string;
-      development: string;
-    };
-    blockExplorer: NetworkURLs;
-    api: NetworkURLs;
-  };
-}
-
-/** See readme to understand how testnet/mainnet and environments work */
-export const config: AppConfig = {
-  /** For static RPC and addresses. For transactions, always rely on the user's wallet network */
-  defaultNetwork: "testnet",
-  urls: {
-    baseUrl: {
-      production: "https://carbonmark.vercel.app", // TODO https://www.carbonmark.com
-      staging: "https://carbonmark.vercel.app", // TODO https://staging.carbonmark.com
+      production: "https://www.carbonmark.com",
+      preview: process.env.NEXT_PUBLIC_VERCEL_URL, // note: won't take custom subdomains like staging.carbonmark.com, takes the vercel generated url instead
       development: "http://localhost:3002",
     },
     blockExplorer: {
@@ -57,27 +47,23 @@ export const config: AppConfig = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      mainnet: "https://marketplace-api-najada.vercel.app/api", // TODO https://api.carbonmark.com
+      mainnet: "https://api.carbonmark.com/api",
       testnet: "https://marketplace-api-najada.vercel.app/api", // TODO https://staging-api.carbonmark.com
     },
   },
-};
+} as const;
 
-const BASE_URL = IS_PRODUCTION
-  ? config.urls.baseUrl.production
-  : IS_LOCAL_DEVELOPMENT
-  ? config.urls.baseUrl.development
-  : process.env.NEXT_PUBLIC_VERCEL_URL; // if on a preview link, use the unique vercel deployment URL
+export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
 
 export const urls = {
   api: {
-    projects: `${config.urls.api[config.defaultNetwork]}/projects`,
-    users: `${config.urls.api[config.defaultNetwork]}/users`,
-    purchases: `${config.urls.api[config.defaultNetwork]}/purchases`,
-    categories: `${config.urls.api[config.defaultNetwork]}/categories`,
-    countries: `${config.urls.api[config.defaultNetwork]}/countries`,
-    vintages: `${config.urls.api[config.defaultNetwork]}/vintages`,
+    projects: `${config.urls.api[DEFAULT_NETWORK]}/projects`,
+    users: `${config.urls.api[DEFAULT_NETWORK]}/users`,
+    purchases: `${config.urls.api[DEFAULT_NETWORK]}/purchases`,
+    categories: `${config.urls.api[DEFAULT_NETWORK]}/categories`,
+    countries: `${config.urls.api[DEFAULT_NETWORK]}/countries`,
+    vintages: `${config.urls.api[DEFAULT_NETWORK]}/vintages`,
   },
-  blockExplorer: `${config.urls.blockExplorer[config.defaultNetwork]}`,
-  baseUrl: BASE_URL,
+  blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
+  baseUrl: config.urls.baseUrl[ENVIRONMENT],
 };
