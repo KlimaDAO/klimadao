@@ -143,7 +143,7 @@ export type AssetForListing = {
   project?: {
     key: string;
     vintage: string;
-    name: string;
+    name?: string;
     projectID: string;
     methodology: string;
     category: CategoryNames | CategoryName;

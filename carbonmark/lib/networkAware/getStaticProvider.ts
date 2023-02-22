@@ -6,7 +6,8 @@ import { config } from "lib/constants";
 export const getStaticProvider = (
   params?: Parameters<typeof IGetStaticProvider>[0]
 ): providers.JsonRpcProvider => {
-  const chain =
-    params?.chain ?? config.defaultNetwork === "testnet" ? "mumbai" : "polygon";
+  const defaultChain =
+    config.defaultNetwork === "testnet" ? "mumbai" : "polygon";
+  const chain = params?.chain || defaultChain;
   return IGetStaticProvider({ ...params, chain });
 };
