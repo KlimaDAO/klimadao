@@ -31,6 +31,7 @@ async function executeGraphQLQuery( link, query, variables = {}) {
   client.setLink( new HttpLink({ uri:link, fetch }));
 
   try {
+    console.log(variables)
     // Execute the query and return the result
     return await client.query({
         query:query,

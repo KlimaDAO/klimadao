@@ -1,12 +1,14 @@
 'use strict'
 const { executeGraphQLQuery } = require('../apollo-client.js');
-const { GET_PROJECTS } = require('../queries/projects.js');
+const { GET_PROJECTS, getProjectsQuery } = require('../queries/projects.js');
 const fetch = require('node-fetch')
 const { faker } = require('@faker-js/faker');
 const { fakeProjects } = require('./fake_data')
 const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
-const { POOLED_PROJECTS } = require('../queries/pooled_projects');
+const { POOLED_PROJECTS, getPooledProjectsQuery } = require('../queries/pooled_projects');
 const { POOL_PROJECTS } = require('../queries/pool_project.js');
+const { POOL_PRICE } = require('../queries/pool_price_in_usdc.js');
+const { getAllVintages, getAllCategories, getAllCountries } = require('../helpers/utils.js');
 
 module.exports = async function (fastify, opts) {
 
@@ -36,10 +38,35 @@ module.exports = async function (fastify, opts) {
             }
         },
         handler: async function (request, reply) {
-            var { country, category, search } = (request.query);
-            console.log({ country, category, search } )
-            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, {country: country, category: category, search: search});
-            let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
+            var { country, category , search, vintage } = (request.query);
+
+                if (category) {
+                    category = category.split(",")
+                } else {
+                    category = await getAllCategories()
+                }
+                if (country) {
+                    country = country.split(",")
+                } else {
+                    country = await getAllCountries()
+                }
+                if (vintage) {
+                    vintage = vintage.split(",")
+                } else {
+                    vintage = await getAllVintages();
+                }
+              
+
+                if (!search) {
+                    search = '';
+                }
+
+                console.log({ country, category , search, vintage } );
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, { country, category , search, vintage }
+                );
+
+                
+            let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS, { country, category , search, vintage })).data;
             const projects = data.data.projects.map(function (project) {
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
@@ -60,6 +87,8 @@ module.exports = async function (fastify, opts) {
                 delete project.listings;
                 return { ...project, price }
             });
+
+            console.log(pooledProjectsData.carbonOffsets);
 
             const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
                 let country = project.country.length ?
@@ -91,44 +120,6 @@ module.exports = async function (fastify, opts) {
                 return singleProject;
 
             });
-
-
-            // if (process.env.ENV == 'local') {
-            //     projects.splice(1, 1);
-
-
-            //     let year = 2014;
-            //     let startCount = projects.length;
-            //     let methodogies = ['AM0038', 'AM0043', 'AMS-I.D.', 'VM0002', 'VM0019', 'AM0120', 'VM0041', 'AMS-III.D.', 'VM0004', 'AR-ACM0003', 'VM0021', 'AM0050'];
-            //     let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy', 'Renewable Energy',
-            //         'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
-
-            //     ];
-
-            //     for (; startCount < 20; startCount++) {
-            //         projects.push({
-            //             "id": "fake",
-            //             "key": "GS-500-FAKE",
-            //             "projectID": "500",
-            //             "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
-            //             "methodology": methodogies[(startCount - 2) % 12],
-            //             "vintage": year,
-            //             "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
-            //             "registry": startCount % 2 ? "GS" : "VS",
-            //             "updatedAt": "1673468220",
-            //             "category": {
-            //                 "id": categories[(startCount - 2) % 12]
-            //             },
-            //             "country": {
-            //                 "id": "Sudan"
-            //             },
-            //             "price": '1000000000000000000',
-
-            //         });
-            //         year++;
-            //     }
-
-            // }
 
             // Send the transformed projects array as a JSON string in the response
             return reply.send(JSON.stringify(projects.concat(pooledProjects)));
@@ -207,6 +198,7 @@ module.exports = async function (fastify, opts) {
                 } else {
 
                     var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintageStr });
+
                     if (data.data.carbonOffsets[0]) {
                         project = { ...data.data.carbonOffsets[0] }
                         let country = project.country.length ?
@@ -237,6 +229,14 @@ module.exports = async function (fastify, opts) {
                             "currentSupply": project.currentSupply
                         }
 
+                        // var result = await executeGraphQLQuery(process.env.SUSHI_SWAP_GRAPH_API_URL, POOL_PRICE, { id: "0x2B3eCb0991AF0498ECE9135bcD04013d7993110c"});
+                        
+                      
+                        // const priceInUSD =  extractPriceInUSD(result.data?.pairs0, result.data?.pairs1);
+                        // console.log("===== ===== ====== ===== ======");
+                        // console.log(priceInUSD);
+                        // console.log("===== ===== ====== ===== ======");
+
                     }
                 }
 
@@ -266,4 +266,6 @@ module.exports = async function (fastify, opts) {
                 return reply.notFound();
             }
         })
+
+       
 }

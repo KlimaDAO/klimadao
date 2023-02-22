@@ -10,12 +10,12 @@ const GET_USER_ASSETS = gql`
                     holdings {
                         id
                         token {
+                            id 
                             name
                             symbol
-                            decimals
+                            decimals   
                         }
-                        tokenAmount
-                        updatedAt
+                        amount
                     }
                 }
             }

@@ -202,7 +202,7 @@ module.exports = async function (fastify, opts) {
                     // Add the activities array from the data to the response object
                     response.activities = data.data.users[0].activities;
                     // Add a fixed array of assets to the response object
-                    response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
+                    // response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
                 } else {
                     // If the users array in the data is empty, add empty arrays for listings and activities to the response object
                     response.listings = [];
@@ -210,17 +210,12 @@ module.exports = async function (fastify, opts) {
                     // Add a fixed array of assets to the response object
                 }
 
-                if (process.env.ENV == 'local') {
-                    response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
-
+                const assetsData = await executeGraphQLQuery(process.env.ASSETS_GRAPH_API_URL, GET_USER_ASSETS,  {wallet} );
+                console.log(assetsData);
+                if (assetsData.data.accounts.length) {
+                    response.assets = assetsData.data.accounts[0].holdings
                 } else {
-                    // @TODO -> wait for the subgraph to be deployed on mumbai
-                    const data = await executeGraphQLQuery(process.env.ASSETS_GRAPH_API_URL, GET_USER_ASSETS,  {wallet: '0x000000000000000000000000000000000000dead'} );
-                    if (data.data.accounts.length) {
-                        response.assets = data.data.accounts[0].holdings
-                    } else {
-                        response.assets = [];
-                    }
+                    response.assets = [];
                 }
                 // Return the response object
                 return reply.send(response);
