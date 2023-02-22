@@ -372,35 +372,30 @@ export const retireProjectTokenTransaction = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<RetireCarbonTransactionResult> => {
   try {
-    // retire transaction
-    const aggregator = getContract({
-      contractName: "retirementAggregatorV2",
-      provider: params.signer,
-    });
-
-    const retireExactMethod =
-      aggregator[
-        params.symbol.startsWith("TCO2")
-          ? "toucan_retireExactTCO2"
-          : "c3_retireExactC3T"
-      ];
-
-    const txn = await retireExactMethod(
+    const args = [
       params.projectTokenAddress,
       utils.parseUnits(params.quantity, 18),
       params.beneficiaryAddress || (await params.signer.getAddress()),
       params.beneficiaryName,
       params.retirementMessage,
-      0
+      0,
+    ];
+    // retire transaction
+    const aggregator = getContract({
+      contractName: "retirementAggregatorV2",
+      provider: params.signer,
+    });
+    const method = params.symbol.startsWith("TCO2")
+      ? "toucanRetireExactTCO2"
+      : "c3RetireExactC3T";
+    const newRetirementIndex: BigNumber = await aggregator.callStatic[method](
+      ...args
     );
-
-    params.onStatus("networkConfirmation");
-
+    const txn = await aggregator[method](...args);
     const receipt: RetirementReceipt = await txn.wait(1);
-    console.log("receipt", receipt.events);
     return {
       receipt,
-      retirementTotals: 1, // TODO
+      retirementTotals: newRetirementIndex.toNumber(),
     };
   } catch (e: any) {
     if (e.code === 4001) {

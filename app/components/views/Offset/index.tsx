@@ -935,7 +935,11 @@ export const Offset = (props: Props) => {
               ? addresses["mainnet"].retirementAggregator
               : addresses["mainnet"].retirementAggregatorV2
           }
-          value={cost.toString()}
+          value={
+            isRetirementToken(selectedRetirementToken)
+              ? cost.toString()
+              : quantity
+          }
           approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}

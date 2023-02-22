@@ -36,7 +36,6 @@ const iconMap: IconMap = {
 export const CarbonTonnesBreakdownCard: FC = () => {
   const carbonRetired = useSelector(selectCarbonRetired);
   const projectTokens = useSelector(selectProjectTokens);
-  console.log("got project tokens", projectTokens);
   const retiredProjectTokens = Object.keys(projectTokens).reduce<
     ProjectTokenBalance[]
   >((arr, tkn) => {
