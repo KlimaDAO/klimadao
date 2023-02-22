@@ -7,7 +7,7 @@ import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  setValue: (field: "tokenAddress", value: string) => void;
+  onTokenSelect: (a: AssetForListing) => void;
   assets: AssetForListing[];
   selectedAsset: AssetForListing;
 }
@@ -35,9 +35,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
               <button
                 key={asset.tokenAddress}
                 className={styles.projectButton}
-                onClick={() =>
-                  props.setValue("tokenAddress", asset.tokenAddress)
-                }
+                onClick={() => props.onTokenSelect(asset)}
                 role="button"
                 aria-label={asset.tokenName}
                 data-active={

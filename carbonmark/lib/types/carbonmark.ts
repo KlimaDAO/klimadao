@@ -139,6 +139,7 @@ export type AssetForListing = {
   tokenAddress: string;
   tokenName: string;
   balance: string;
+  tokenType: "1" | "2"; // 1: C3T, 2: TCO2
   project?: {
     key: string;
     vintage: string;

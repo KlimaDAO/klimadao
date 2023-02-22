@@ -104,6 +104,7 @@ export const CreateListing: FC<Props> = (props) => {
         provider,
         totalAmountToSell: inputValues.totalAmountToSell,
         singleUnitPrice: inputValues.singleUnitPrice,
+        tokenType: inputValues.tokenType,
         onStatus: onUpdateStatus,
       });
 

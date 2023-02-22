@@ -28,3 +28,6 @@ export const getAllC3TTokensFromAssets = (assets: Asset[]) =>
 
 export const getAllTCO2TokensFromAssets = (assets: Asset[]) =>
   assets.filter((a) => isProjectTokenAsset(a) && isTCO2Token(a.token.symbol));
+
+export const getTokenType = (asset: Asset): "1" | "2" =>
+  isProjectTokenAsset(asset) && isC3TToken(asset.token.symbol) ? "1" : "2";

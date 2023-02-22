@@ -14,6 +14,7 @@ export type FormValues = {
   tokenAddress: string;
   totalAmountToSell: string;
   singleUnitPrice: string;
+  tokenType: "1" | "2";
   batches?: string;
   batchPrices?: string;
 };
@@ -28,6 +29,7 @@ const defaultValues = {
   tokenAddress: "",
   totalAmountToSell: "",
   singleUnitPrice: "",
+  tokenType: "",
 };
 
 export const CreateListingForm: FC<Props> = (props) => {
@@ -40,6 +42,7 @@ export const CreateListingForm: FC<Props> = (props) => {
         ...props.values,
         tokenAddress:
           props.values?.tokenAddress || props.assets[0].tokenAddress,
+        tokenType: props.values?.tokenType || props.assets[0].tokenType,
       },
     });
 
@@ -64,7 +67,10 @@ export const CreateListingForm: FC<Props> = (props) => {
           </Trans>
         </Text>
         <ProjectTokenDropDown
-          setValue={setValue}
+          onTokenSelect={(asset) => {
+            setValue("tokenAddress", asset.tokenAddress);
+            setValue("tokenType", asset.tokenType);
+          }}
           assets={props.assets}
           selectedAsset={selectedAsset}
         />
@@ -78,6 +84,15 @@ export const CreateListingForm: FC<Props> = (props) => {
               ...register("tokenAddress"),
             }}
             label={"token address"}
+            hideLabel
+          />
+          <InputField
+            id="tokenType"
+            inputProps={{
+              type: "hidden",
+              ...register("tokenType"),
+            }}
+            label={"Token Type"}
             hideLabel
           />
           <InputField
