@@ -80,4 +80,8 @@ export const allRetirementsListItem = css`
     width: 2.4rem;
     height: 2.4rem;
   }
+
+  .tokenIcon {
+    object-fit: contain;
+  }
 `;

@@ -2,7 +2,7 @@ export interface KlimaRetire {
   id: string;
   timestamp: string;
   index: string;
-  pool: string; // mainnet address for retirement tokens
+  pool: string; // mainnet address for retirement tokens. 0x000 for tco2s
   beneficiaryAddress: string;
   beneficiary: string;
   retirementMessage: string;
@@ -18,7 +18,7 @@ export interface KlimaRetire {
     projectID: string; // starts with 'VCS-' if registry is "Verra"
     country: string;
     region: string;
-    bridge: string; // "Toucan", "Moss" or "C3"
+    bridge: "Toucan" | "Moss" | "C3";
     registry: string; // "Verra" or "VCS"
     standard: string; // "VCS" or "" for Moss
     vintage: string;

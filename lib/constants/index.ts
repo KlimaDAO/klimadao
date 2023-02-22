@@ -232,10 +232,16 @@ export type OffsetPaymentMethod = OffsetInputToken | "fiat";
 
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
+/** Known carbon pools */
+export const poolTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
+/** Known carbon tokens */
+export const projectTokens = ["tco2", "c3t"] as const;
 
 // TODO rename to pool token
-
 export type RetirementToken = (typeof retirementTokens)[number];
+export type PoolToken = (typeof poolTokens)[number];
+export type ProjectToken = (typeof projectTokens)[number];
+export type CarbonToken = PoolToken | ProjectToken;
 
 type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {

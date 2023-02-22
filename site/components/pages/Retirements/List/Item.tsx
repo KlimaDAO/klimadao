@@ -1,21 +1,17 @@
-import Image from "next/legacy/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { FC } from "react";
-
 import { Text } from "@klimadao/lib/components";
-
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   getRetirementTokenByAddress,
-  trimWithLocale,
+  trimWithLocale
 } from "@klimadao/lib/utils";
-
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
-import { retirementTokenInfoMap } from "lib/getTokenInfo";
+import { carbonTokenInfoMap } from "lib/getTokenInfo";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC } from "react";
 import { LeafIcon } from "./Leaf";
-
 import * as styles from "./styles";
 
 type Props = {
@@ -33,8 +29,11 @@ export const RetirementItem: FC<Props> = (props) => {
     dateStyle: "full",
   }).format(retirementDate);
 
-  const typeOfToken = getRetirementTokenByAddress(retirement.pool);
-  const tokenData = !!typeOfToken && retirementTokenInfoMap[typeOfToken];
+  const poolTokenName = getRetirementTokenByAddress(retirement.pool); // can be null
+  const projectTokenName =
+    retirement.offset.bridge === "Toucan" ? "tco2" : "c3t";
+
+  const tokenData = carbonTokenInfoMap[poolTokenName || projectTokenName];
 
   const url = `/retirements/${
     nameserviceDomain || retirement.beneficiaryAddress
@@ -48,6 +47,7 @@ export const RetirementItem: FC<Props> = (props) => {
           src={tokenData.icon}
           width={48}
           height={48}
+          className="tokenIcon"
         />
       ) : (
         <LeafIcon />
