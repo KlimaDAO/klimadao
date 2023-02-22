@@ -70,11 +70,6 @@ export const rightLine = css`
   background: linear-gradient(90deg, #626266 0%, rgba(98, 98, 102, 0) 100%);
 `;
 
-export const continueText = css`
-  color: #626266;
-  text-transform: uppercase;
-`;
-
 export const textBox = css`
   display: flex;
   align-items: center;
@@ -91,6 +86,7 @@ export const torusButtons = css`
   background-color: #eeeff5;
   border-radius: 0.4rem;
   padding: 0.6rem 2.4rem;
+  font-size: 1.6rem;
 `;
 
 export const twitter = css`
@@ -192,4 +188,42 @@ export const modalContent = css`
       transform: scale(1);
     }
   }
+`;
+
+export const errorButton = css`
+  background-color: #0019ff; // bright-blue
+  color: #fff !important;
+`;
+
+// typography
+export const h3 = css`
+  font-family: var(--font-family-secondary);
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+  /* ${breakpoints.large} {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+  } */
+`;
+
+export const button = css`
+  font-family: var(--font-family-secondary);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 3%;
+`;
+
+export const subText = css`
+  color: #626266;
+  ${button}
+`;
+
+export const body1 = css`
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: 1%;
 `;
