@@ -22,10 +22,11 @@ export const login = css`
 
 export const title = css`
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  width: 100%;
   align-items: center;
   gap: 0.8rem;
-
+  text-transform: capitalize;
   svg {
     fill: var(--font-02);
   }
@@ -33,6 +34,8 @@ export const title = css`
 
 export const loginButton = css`
   width: 100%;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
 `;
 
 export const redirecting = css`

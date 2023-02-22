@@ -100,14 +100,14 @@ export const Layout: FC<Props> = (props: Props) => {
             <div data-desktop-only>
               {!address && !isConnected && (
                 <ButtonPrimary
-                  label={t`Log in`}
+                  label={t`Login`}
                   onClick={toggleModal}
                   className="connectButton"
                 />
               )}
               {address && isConnected && (
                 <ButtonPrimary
-                  label={t`Log out`}
+                  label={t`Logout`}
                   onClick={disconnect}
                   className="connectButton"
                 />

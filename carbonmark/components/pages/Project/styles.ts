@@ -121,15 +121,15 @@ export const meta = css`
     flex-direction: column;
     ${breakpoints.medium} {
       flex-direction: row;
+      align-items: center;
     }
   }
 
   .badge {
     padding: 0.4rem 0.8rem;
-    background-color: var(--klima-blue);
+    background-color: var(--yellow);
     align-items: center;
     align-self: flex-start;
     border-radius: var(--border-radius);
-    color: white;
   }
 `;

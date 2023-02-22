@@ -1,8 +1,8 @@
 import { css } from "@emotion/css";
-import * as typography from "@klimadao/lib/theme/typography";
+import * as typography from "theme/typography";
 
 export const menuButton = css`
-  ${typography.caption};
+  ${typography.body1};
   display: flex;
   align-items: center;
   gap: 1.6rem;
@@ -37,7 +37,7 @@ export const menuButton = css`
     background-color: var(--surface-02);
 
     .iconContainer {
-      background-color: var(--klima-green);
+      background-color: var(--bright-blue);
 
       svg {
         fill: var(--surface-01);
@@ -60,7 +60,7 @@ export const menuButton = css`
   }
 
   &[data-active="true"] .iconContainer {
-    background-color: var(--klima-green);
+    background-color: var(--bright-blue);
 
     svg {
       fill: var(--surface-01);

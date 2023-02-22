@@ -15,11 +15,9 @@ export const LoginCard: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.login}>
-        <Text t="h3" className={styles.title}>
-          <LoginOutlinedIcon />
-          <Trans id="user.login.title">
-            Please login or connect your wallet
-          </Trans>
+        <Text t="h4" className={styles.title}>
+          <LoginOutlinedIcon fontSize="large" />
+          <Trans>Please Log In</Trans>
         </Text>
         <Text t="body1">
           <Trans id="user.login.description">
@@ -37,8 +35,9 @@ export const LoginCard: FC<Props> = (props) => {
         )}
         {!props.isLoading && (
           <ButtonPrimary
-            label={<Trans>Login / Connect</Trans>}
+            label={<Trans>Login</Trans>}
             onClick={props.onLogin}
+            className={styles.loginButton}
           />
         )}
       </div>

@@ -119,6 +119,8 @@ export const controls = css`
   grid-column: 1 / 3;
   .connectButton {
     white-space: nowrap;
+    background-color: var(--bright-blue);
+    color: var(--white);
   }
 `;
 

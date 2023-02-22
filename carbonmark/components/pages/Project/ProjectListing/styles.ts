@@ -2,6 +2,8 @@ import { css } from "@emotion/css";
 
 export const buyButton = css`
   align-self: flex-start;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
 `;
 
 export const sellerInfo = css`

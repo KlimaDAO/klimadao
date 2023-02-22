@@ -66,7 +66,7 @@ export const Project: NextPage<Props> = (props) => {
             )}
             <div className={styles.imageGradient}></div>
             <div className="stack">
-              <Text t="h4" align="center" className={styles.projectHeaderText}>
+              <Text t="h3" align="center" className={styles.projectHeaderText}>
                 {props.project.name || "! MISSING PROJECT NAME !"}
               </Text>
             </div>
@@ -87,12 +87,12 @@ export const Project: NextPage<Props> = (props) => {
           <div className="best-price">
             {sortedListings && (
               <>
-                <Text t="h4" color="lighter">
+                <Text t="h4">
                   <span className="badge">
                     {formatToPrice(getLowestPriceFromListings(activeListings))}
                   </span>
                 </Text>
-                <Text t="h5" color="lighter">
+                <Text t="h4" color="lighter">
                   <Trans id="project.single.best_price">Best Price</Trans>
                 </Text>
               </>
@@ -125,7 +125,7 @@ export const Project: NextPage<Props> = (props) => {
             </div>
           )}
           <div className={styles.descriptionContainer}>
-            <Text t="h5">
+            <Text t="h5" color="lighter">
               <Trans>Description</Trans>
             </Text>
             <Text t="body1">
