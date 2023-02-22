@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-21 22:13+0000\n"
+"POT-Creation-Date: 2023-02-22 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1616,7 +1616,7 @@ msgstr "Compensations carbones transparentes, activées par la blockchain et ali
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:129
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{retiree} a compensé {formattedAmount} Tonnes de carbone"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:125
 msgid "retirement.head.title"
