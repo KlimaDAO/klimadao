@@ -102,13 +102,17 @@ export const Pledge: NextPage = () => {
           onClose: handleModalClose,
           errors: connectErrorStrings,
           torusText: t({
-            message: "or continue with",
-            id: "connectModal.continue",
+            message: "social or email",
+            id: "connectModal.torus",
+          }),
+          walletText: t({
+            message: "connect a wallet",
+            id: "connectModal.wallet",
           }),
           titles: {
             connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
+              id: "shared.login",
+              message: "Login",
             }),
             loading: t({
               id: "connect_modal.connecting",

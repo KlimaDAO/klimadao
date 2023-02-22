@@ -31,7 +31,7 @@ export const connectContent = css`
 `;
 
 export const walletButton = css`
-  background: var(--white);
+  background: #eeeff5;
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -53,34 +53,34 @@ export const browserWalletIcon = css`
 export const buttonsContainer = css`
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  padding-top: 3.2rem;
+  gap: 1.2rem;
+  padding-top: 1.6rem;
 `;
 
 export const leftLine = css`
-  width: 70px;
-  height: 2px;
+  width: 7rem;
+  height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(270deg, #626266 0%, rgba(98, 98, 102, 0) 100%);
 `;
 export const rightLine = css`
-  width: 70px;
-  height: 2px;
+  width: 7rem;
+  height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 97.86%);
+  background: linear-gradient(90deg, #626266 0%, rgba(98, 98, 102, 0) 100%);
 `;
 
 export const continueText = css`
-  color: var(--white);
+  color: #626266;
   text-transform: uppercase;
 `;
 
-export const continueBox = css`
+export const textBox = css`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  padding: 3.2rem 0;
+  padding: 0.8rem 0;
 `;
 
 export const torusButtons = css`
@@ -88,12 +88,23 @@ export const torusButtons = css`
   display: flex;
   gap: 1.6rem;
   cursor: pointer;
+  background-color: #eeeff5;
+  border-radius: 0.4rem;
+  padding: 0.6rem 2.4rem;
 `;
+
 export const twitter = css`
   fill: #1d9bf0;
 `;
+
 export const discord = css`
   fill: #5865f2;
+`;
+
+export const email = css`
+  .MuiSvgIcon-root {
+    fill: #767676;
+  }
 `;
 
 export const spinner = css`
@@ -134,7 +145,7 @@ export const modalContent = css`
   max-height: calc(100vh - 10rem);
   overflow-y: auto;
   border-radius: 1.2rem;
-  background-color: rgba(57, 57, 57, 1); // dark surface-04
+  background-color: white; // dark surface-04
   pointer-events: fill;
   margin: 2rem;
   gap: 1rem;
@@ -152,8 +163,9 @@ export const modalContent = css`
     align-items: center;
     width: 100%;
     text-transform: capitalize;
+    padding-bottom: 1.2rem;
     p {
-      color: var(--white);
+      color: #000;
     }
     button {
       display: flex;
@@ -163,8 +175,8 @@ export const modalContent = css`
       height: 4rem;
       padding: 1rem;
       border-radius: 0.4rem;
-      color: var(--white);
-      background-color: rgba(32, 32, 32, 1); // dark surface-02
+      color: #000;
+      background-color: #eeeff5;
     }
   }
 

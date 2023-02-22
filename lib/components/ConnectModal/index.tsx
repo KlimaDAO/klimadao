@@ -26,6 +26,7 @@ const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 
 export interface ConnectModalProps {
   torusText: string;
+  walletText: string;
   titles: {
     connect: string;
     loading: string;
@@ -127,7 +128,41 @@ export const ConnectModal = (props: ConnectModalProps) => {
           </span>
           {step === "connect" && (
             <div className={styles.connectContent}>
+              <span className={styles.textBox}>
+                <div className={styles.leftLine} />
+                <Text className={styles.continueText} t="badge">
+                  {props.torusText}
+                </Text>
+                <div className={styles.rightLine} />
+              </span>
+              <button
+                className={styles.torusButtons}
+                onClick={() => handleConnect({ wallet: "torus" })}
+              >
+                <span className={styles.buttonBackground}>
+                  <TwitterIcon className={styles.twitter} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <FacebookColorIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <GoogleIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <DiscordColorIcon className={styles.discord} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <MailOutlineIcon fontSize="large" class={styles.email} />
+                </span>
+              </button>
               <div className={styles.buttonsContainer}>
+                <span className={styles.textBox}>
+                  <div className={styles.leftLine} />
+                  <Text className={styles.continueText} t="badge">
+                    {props.walletText}
+                  </Text>
+                  <div className={styles.rightLine} />
+                </span>
                 {showMetamask && (
                   <button
                     className={styles.walletButton}
@@ -174,33 +209,6 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <Text t="button">walletconnect</Text>
                 </button>
               </div>
-              <span className={styles.continueBox}>
-                <div className={styles.leftLine} />
-                <Text className={styles.continueText} t="badge">
-                  {props.torusText}
-                </Text>
-                <div className={styles.rightLine} />
-              </span>
-              <button
-                className={styles.torusButtons}
-                onClick={() => handleConnect({ wallet: "torus" })}
-              >
-                <span className={styles.buttonBackground}>
-                  <TwitterIcon className={styles.twitter} />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <FacebookColorIcon />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <GoogleIcon />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <DiscordColorIcon className={styles.discord} />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <MailOutlineIcon fontSize="large" />
-                </span>
-              </button>
             </div>
           )}
           {step === "loading" && (
