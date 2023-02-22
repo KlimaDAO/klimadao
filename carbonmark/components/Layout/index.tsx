@@ -5,11 +5,13 @@ import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode, useState } from "react";
+import "tippy.js/dist/tippy.css";
 import { Footer } from "../Footer";
 import { NavDrawer } from "./NavDrawer";
 import * as styles from "./styles";
@@ -55,7 +57,15 @@ export const Layout: FC<Props> = (props: Props) => {
             <Link href="/" className={styles.mobileLogo} data-mobile-only>
               <CarbonmarkLogo />
             </Link>
-
+            <div className={styles.betaWrapperMobile}>
+              <TextInfoTooltip
+                contentText={t({
+                  message:
+                    "This product is still in Beta and hasn't been internally audited yet.",
+                })}
+                tooltipText={t({ message: "BETA" })}
+              />
+            </div>
             {/* keep mobile nav menu here in markup hierarchy for tab nav */}
             <div
               className={styles.mobileNavMenu_overlay}

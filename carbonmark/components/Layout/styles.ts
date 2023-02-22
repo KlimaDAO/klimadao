@@ -231,3 +231,10 @@ export const mobileProjectsController = css`
   ${projectsController};
   justify-content: center;
 `;
+
+export const betaWrapperMobile = css`
+  display: flex;
+  ${breakpoints.desktop} {
+    display: none;
+  }
+`;

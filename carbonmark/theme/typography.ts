@@ -50,34 +50,31 @@ export const h5 = css`
 
 export const body1 = css`
   font-family: var(--font-family);
-  font-size: 2rem;
-  line-height: 2.8rem;
-  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2rem;
   letter-spacing: 1%;
 `;
 
 export const body2 = css`
   font-family: var(--font-family);
-  font-size: 2rem;
-  line-height: 2.8rem;
-  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   letter-spacing: 1%;
 `;
 
 export const body3 = css`
   font-family: var(--font-family);
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
   letter-spacing: 1%;
 `;
 
 // nav text
 export const body4 = css`
   font-family: var(--font-family-secondary);
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
 `;
 
 export const button = css`

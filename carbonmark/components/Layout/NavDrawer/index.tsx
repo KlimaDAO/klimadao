@@ -12,12 +12,14 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import Link from "next/link";
 import { FC } from "react";
 import { AddressSection } from "../AddressSection";
 import { NavMenu } from "../NavMenu";
 import * as styles from "./styles";
+
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
@@ -41,6 +43,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
       <Link href="/" data-desktop-only>
         <CarbonmarkLogo />
       </Link>
+
       <div className={styles.mobile.header} data-mobile-only>
         {/* <DynamicThemeToggle /> */}
         <ButtonPrimary
@@ -70,6 +73,15 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         </div>
       )}
       <div className={styles.addressContainer}>
+        <div className={styles.betaWraperDesktop}>
+          <TextInfoTooltip
+            contentText={t({
+              message:
+                "This product is still in Beta and hasn't been internally audited yet.",
+            })}
+            tooltipText={t({ message: "BETA" })}
+          />
+        </div>
         <div className="hr" />
         <AddressSection domain={connectedDomain} address={address} />
         <div className="hr" />

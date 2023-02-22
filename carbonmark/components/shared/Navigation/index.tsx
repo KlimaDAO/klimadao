@@ -1,11 +1,9 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
+import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-
 import { FC } from "react";
-
-import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { LinkItemDesktop } from "./LinkItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";
