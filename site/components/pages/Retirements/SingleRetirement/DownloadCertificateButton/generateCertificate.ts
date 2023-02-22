@@ -1,7 +1,7 @@
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { jsPDF } from "jspdf";
 
-import { RetirementToken, urls } from "@klimadao/lib/constants";
+import { CarbonToken, urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import bctBackground from "public/bg_bct.jpeg";
@@ -27,7 +27,7 @@ type Params = {
   tokenData: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<RetirementToken>;
+    label: Uppercase<CarbonToken>;
   };
 };
 
@@ -51,6 +51,8 @@ const featureImageMap = {
   ubo: uboBackground,
   nbo: nboBackground,
   mco2: mco2Background,
+  tco2: bctBackground,
+  c3t: uboBackground,
 };
 
 export const generateCertificate = (params: Params): void => {
