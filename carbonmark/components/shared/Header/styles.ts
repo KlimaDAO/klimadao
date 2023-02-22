@@ -68,7 +68,11 @@ export const headerMobile = css`
 `;
 
 export const mainLogoMobile = css`
-  padding: 0 1rem;
+  padding: 0 0.9rem;
+  svg {
+    max-height: calc(var(--header-height) - 1.8rem);
+    max-width: calc(var(--header-height) - 1.8rem);
+  }
 `;
 
 export const navMain_Desktop = css`
@@ -100,5 +104,12 @@ export const navMain_Buttons = css`
     a {
       box-shadow: var(--shadow-light);
     }
+  }
+`;
+
+export const navMain_logo = css`
+  svg {
+    max-height: 8rem;
+    max-width: 14.4rem;
   }
 `;

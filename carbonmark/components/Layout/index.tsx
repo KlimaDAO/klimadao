@@ -1,8 +1,9 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
+import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
 import { TextInfoTooltip } from "components/TextInfoTooltip";

@@ -144,3 +144,13 @@ export const loginWrapper = css`
     display: none;
   }
 `;
+
+export const logo = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    max-height: 10.2rem;
+    max-width: 18rem;
+  }
+`;

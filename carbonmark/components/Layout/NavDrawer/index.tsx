@@ -1,7 +1,6 @@
 import {
   Anchor as A,
   ButtonPrimary,
-  CarbonmarkLogo,
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
@@ -11,6 +10,7 @@ import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
+import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
@@ -40,10 +40,11 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <Link href="/" data-desktop-only>
-        <CarbonmarkLogo />
-      </Link>
-
+      <div className={styles.logo}>
+        <Link href="/" data-desktop-only>
+          <CarbonmarkLogoFull />
+        </Link>
+      </div>
       <div className={styles.mobile.header} data-mobile-only>
         {/* <DynamicThemeToggle /> */}
         <ButtonPrimary

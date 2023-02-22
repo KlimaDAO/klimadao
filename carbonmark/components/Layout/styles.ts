@@ -57,8 +57,11 @@ export const container = css`
 
 export const mobileLogo = css`
   margin-right: auto;
+  height: min-content;
   svg {
+    max-height: 5rem;
     width: 100%; // make logo auto increase
+    max-width: 5rem;
   }
 `;
 
@@ -114,7 +117,6 @@ export const controls = css`
   align-items: center;
   gap: 1.6rem;
   grid-column: 1 / 3;
-
   .connectButton {
     white-space: nowrap;
   }

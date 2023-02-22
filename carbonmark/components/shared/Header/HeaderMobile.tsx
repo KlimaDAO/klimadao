@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-import { CarbonmarkLogo } from "@klimadao/lib/components";
+import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import Link from "next/link";
 import { NavMobile } from "../Navigation/NavMobile";
 import { ToggleNavButton } from "../Navigation/ToggleNavButton";
