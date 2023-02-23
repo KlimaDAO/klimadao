@@ -3,6 +3,9 @@ import { css } from "@emotion/css";
 export const main = css`
   button.action {
     width: 100%;
+    &:first-of-type {
+      margin-top: 1.8rem;
+    }
   }
 
   .modalContent {
@@ -10,7 +13,7 @@ export const main = css`
     width: 36rem;
     min-width: 30rem;
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 0.5rem;
   }
 
   .title {
