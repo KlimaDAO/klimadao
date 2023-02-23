@@ -10,8 +10,9 @@ import {
   offsetCompatibility,
   offsetInputTokens,
   OffsetPaymentMethod,
+  PoolToken,
+  poolTokens,
   RetirementToken,
-  retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
 import { safeAdd } from "@klimadao/lib/utils";
@@ -83,8 +84,8 @@ import * as styles from "./styles";
 const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
 
-export const isRetirementToken = (str: string): str is RetirementToken =>
-  !!retirementTokens.includes(str as RetirementToken);
+export const isPoolToken = (str: string): str is PoolToken =>
+  !!poolTokens.includes(str as PoolToken);
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -112,6 +113,7 @@ export const Offset = (props: Props) => {
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] =
     useState<OffsetPaymentMethod>("fiat");
+  /** This is a token name or an 0x address for tco2/c3t token */
   const [selectedRetirementToken, setSelectedRetirementToken] = useState<
     RetirementToken | string
   >("bct");
@@ -229,7 +231,7 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
-      if (!isRetirementToken(selectedRetirementToken)) {
+      if (!isPoolToken(selectedRetirementToken)) {
         setCost("0");
         return;
       }
@@ -295,7 +297,7 @@ export const Offset = (props: Props) => {
 
   const getApprovalValue = (): string => {
     if (!cost) return "0";
-    if (!isRetirementToken(selectedRetirementToken)) {
+    if (!isPoolToken(selectedRetirementToken)) {
       return quantity;
     }
     return safeAdd(cost, (Number(cost) * APPROVAL_SLIPPAGE).toString());
@@ -304,7 +306,7 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider || paymentMethod === "fiat") return;
-      if (!isRetirementToken(selectedRetirementToken)) {
+      if (!isPoolToken(selectedRetirementToken)) {
         const approvedValue = await approveProjectToken({
           value: getApprovalValue(),
           signer: props.provider.getSigner(),
@@ -343,7 +345,7 @@ export const Offset = (props: Props) => {
     try {
       if (!props.address || !props.provider || paymentMethod === "fiat") return;
       let retirement: RetireCarbonTransactionResult;
-      if (isRetirementToken(selectedRetirementToken)) {
+      if (isPoolToken(selectedRetirementToken)) {
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
@@ -414,7 +416,7 @@ export const Offset = (props: Props) => {
 
   const insufficientBalance = () => {
     if (paymentMethod === "fiat") return true;
-    if (!isRetirementToken(selectedRetirementToken)) {
+    if (!isPoolToken(selectedRetirementToken)) {
       return (
         Number(quantity) >
         Number(projectTokens[selectedRetirementToken].quantity)
@@ -435,7 +437,7 @@ export const Offset = (props: Props) => {
 
   const hasApproval = () => {
     if (paymentMethod === "fiat") return true;
-    if (!isRetirementToken(selectedRetirementToken)) {
+    if (!isPoolToken(selectedRetirementToken)) {
       const a = projectTokens[selectedRetirementToken].allowance;
       return !!Number(a) && Number(a) >= Number(quantity);
     }
@@ -551,7 +553,7 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
-    if (!isRetirementToken(tkn)) {
+    if (!isPoolToken(tkn)) {
       setPaymentMethod("bct"); // Project tokens and fiat can't be selected at the same time
     }
     setSelectedRetirementToken(tkn);
@@ -619,7 +621,7 @@ export const Offset = (props: Props) => {
     label: "Credit Card",
   });
 
-  const poolTokenItems = retirementTokens.map((tkn) => {
+  const poolTokenItems = poolTokens.map((tkn) => {
     const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
@@ -690,7 +692,7 @@ export const Offset = (props: Props) => {
             onItemSelect={handleSelectRetirementToken}
           />
 
-          {isRetirementToken(selectedRetirementToken) && (
+          {isPoolToken(selectedRetirementToken) && (
             <DropdownWithModal
               label={t({
                 id: "offset.dropdown_payWith.label",
@@ -710,7 +712,7 @@ export const Offset = (props: Props) => {
             />
           )}
 
-          {isRetirementToken(selectedRetirementToken) && (
+          {isPoolToken(selectedRetirementToken) && (
             <SelectiveRetirement
               projectAddress={projectAddress}
               selectedRetirementToken={selectedRetirementToken}
@@ -720,7 +722,7 @@ export const Offset = (props: Props) => {
             />
           )}
 
-          {!isRetirementToken(selectedRetirementToken) && (
+          {!isPoolToken(selectedRetirementToken) && (
             <ProjectTokenDetails
               symbol={projectTokens[selectedRetirementToken].symbol}
               quantity={projectTokens[selectedRetirementToken].quantity}
@@ -831,7 +833,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          {isRetirementToken(selectedRetirementToken) && (
+          {isPoolToken(selectedRetirementToken) && (
             <MiniTokenDisplay
               label={
                 <div className="mini_token_label">
@@ -917,26 +919,24 @@ export const Offset = (props: Props) => {
           }
           onCloseModal={closeTransactionModal}
           tokenName={
-            isRetirementToken(selectedRetirementToken)
+            isPoolToken(selectedRetirementToken)
               ? paymentMethod
               : projectTokens[selectedRetirementToken].symbol
           }
           tokenIcon={
-            isRetirementToken(selectedRetirementToken)
+            isPoolToken(selectedRetirementToken)
               ? tokenInfo[paymentMethod].icon
               : retirementTokenItems.find(
                   (t) => t.key === selectedRetirementToken
                 )?.icon ?? TCO2
           }
           spenderAddress={
-            isRetirementToken(selectedRetirementToken)
+            isPoolToken(selectedRetirementToken)
               ? addresses["mainnet"].retirementAggregator
               : addresses["mainnet"].retirementAggregatorV2
           }
           value={
-            isRetirementToken(selectedRetirementToken)
-              ? cost.toString()
-              : quantity
+            isPoolToken(selectedRetirementToken) ? cost.toString() : quantity
           }
           approvalValue={getApprovalValue()}
           status={fullStatus}
