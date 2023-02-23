@@ -1,9 +1,10 @@
 import {
   OffsetInputToken,
   offsetInputTokens,
-  RetirementToken,
-  retirementTokens,
+  PoolToken,
+  poolTokens,
 } from "@klimadao/lib/constants";
+import { utils } from "ethers";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -20,7 +21,7 @@ const inputParams = [
 interface OffsetParams {
   quantity?: string;
   inputToken?: OffsetInputToken;
-  retirementToken?: RetirementToken;
+  retirementToken?: PoolToken | string;
   beneficiary?: string;
   beneficiaryAddress?: string;
   message?: string;
@@ -61,7 +62,9 @@ export const useOffsetParams = (): OffsetParams => {
       } else if (param === "retirementToken") {
         const tkn = params.get("retirementToken")?.toLowerCase() || undefined;
         data[param] =
-          tkn && isValidToken(tkn, retirementTokens) ? tkn : undefined;
+          tkn && (isValidToken(tkn, poolTokens) || utils.isAddress(tkn))
+            ? tkn
+            : undefined;
       } else {
         data[param] = params.get(param) || undefined;
       }

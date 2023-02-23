@@ -146,15 +146,10 @@ export const Offset = (props: Props) => {
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
     if (params.inputToken) {
-      // if its an 0x address then we assume it's a C3T or TCO2 held by the user.
-      if (utils.isAddress(params.inputToken)) {
-        setPaymentMethod("bct"); // Project tokens and fiat can't be selected at the same time
-        setSelectedRetirementToken(params.inputToken);
-      } else {
-        setPaymentMethod(params.inputToken);
-      }
+      setPaymentMethod(params.inputToken);
     }
     if (params.retirementToken) {
+      // can also be 0x address for tco2/c3t
       setSelectedRetirementToken(params.retirementToken);
     }
     if (params.message) {
@@ -553,9 +548,6 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
-    if (!isPoolToken(tkn)) {
-      setPaymentMethod("bct"); // Project tokens and fiat can't be selected at the same time
-    }
     setSelectedRetirementToken(tkn);
   };
 
@@ -681,7 +673,6 @@ export const Offset = (props: Props) => {
         </div>
 
         <div className={styles.offsetCard_ui}>
-          {/* attr: retirementToken  */}
           <DropdownWithModal
             label={t`Select carbon token to retire`}
             modalTitle={t`Select token`}
@@ -722,13 +713,14 @@ export const Offset = (props: Props) => {
             />
           )}
 
-          {!isPoolToken(selectedRetirementToken) && (
-            <ProjectTokenDetails
-              symbol={projectTokens[selectedRetirementToken].symbol}
-              quantity={projectTokens[selectedRetirementToken].quantity}
-              address={selectedRetirementToken}
-            />
-          )}
+          {!isPoolToken(selectedRetirementToken) &&
+            projectTokens[selectedRetirementToken] && ( // careful, projectTokens must load before rendering
+              <ProjectTokenDetails
+                symbol={projectTokens[selectedRetirementToken].symbol}
+                quantity={projectTokens[selectedRetirementToken].quantity}
+                address={selectedRetirementToken}
+              />
+            )}
 
           <div className={styles.input}>
             <label>
