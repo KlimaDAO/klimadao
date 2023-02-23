@@ -58,7 +58,6 @@ import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
-import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
@@ -654,7 +653,6 @@ export const Offset = (props: Props) => {
     <>
       <div className={styles.columnRight}>
         <CarbonTonnesRetiredCard />
-        <CarbonTonnesBreakdownCard />
       </div>
 
       <div className={styles.offsetCard}>

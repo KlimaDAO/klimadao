@@ -3,7 +3,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   getRetirementTokenByAddress,
-  trimWithLocale
+  trimWithLocale,
 } from "@klimadao/lib/utils";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";

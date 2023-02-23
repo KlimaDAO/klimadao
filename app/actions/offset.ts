@@ -33,7 +33,6 @@ import {
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import KlimaRetirementAggregatorV2 from "@klimadao/lib/abi/KlimaRetirementAggregatorV2.json";
 
 export const getRetiredOffsetBalances = (params: {
   address: string;
@@ -313,31 +312,8 @@ export const getProjectTokenBalances = (params: {
         }
       );
 
-      // map and fetch allowance for each asset
-      const retirementPromises: Promise<BigNumber>[] = holdings.map(
-        async (asset) => {
-          const contract = new Contract(
-            addresses["mainnet"].retirementAggregatorV2,
-            KlimaRetirementAggregatorV2.abi,
-            getStaticProvider()
-          );
-
-          console.log("getting tpr", params.address, asset.token.id);
-
-          return contract.getTotalProjectRetired(
-            params.address,
-            asset.token.id
-          );
-        }
-      );
-
       const rawAllowances = await Promise.all(allowancePromises);
-      /** TODO: use subgraph to get TCO2 retirement history instead.
-       * This naiv solution won't work when the user retires all of their tco2 balance */
-      const rawRetirements = await Promise.all(retirementPromises);
       const allowances = rawAllowances.map((value) => formatUnits(value, 18));
-      const retirements = rawRetirements.map((value) => formatUnits(value, 18));
-      console.log("got retirements", retirements);
 
       // combine with balances and set each object to redux state
       const projectTokenBalances = holdings.reduce<ProjectTokenBalance[]>(
@@ -348,7 +324,6 @@ export const getProjectTokenBalances = (params: {
             quantity: utils.formatUnits(tokenAmount, 18),
             symbol: token.symbol,
             allowance: allowances[i], // for performance, fetch the allowance on-the-fly when they select it in the dropdown
-            retired: retirements[i],
           },
         ],
         []

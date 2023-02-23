@@ -104,7 +104,4 @@ export interface ProjectTokenBalance {
   /** Current for aggregatorV2 to spend
    *  @example "1.123" */
   allowance: string;
-  /** Quantity retired so far
-   *  @example "1.123" */
-  retired: string;
 }
