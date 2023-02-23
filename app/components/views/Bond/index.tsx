@@ -345,7 +345,7 @@ export const Bond: FC<Props> = (props) => {
         })
       );
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       return;
     }
   };

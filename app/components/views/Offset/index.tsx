@@ -116,6 +116,8 @@ export const Offset = (props: Props) => {
   const [selectedRetirementToken, setSelectedRetirementToken] = useState<
     RetirementToken | string
   >("bct");
+  /** When selecting tco2 or c3t this is `true` */
+  const isRetiringOwnCarbon = !isPoolToken(selectedRetirementToken);
 
   // form state
   const [quantity, setQuantity] = useState("");
@@ -136,6 +138,7 @@ export const Offset = (props: Props) => {
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
+
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -225,7 +228,7 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
-      if (!isPoolToken(selectedRetirementToken)) {
+      if (isRetiringOwnCarbon) {
         setCost("0");
         return;
       }
@@ -290,17 +293,17 @@ export const Offset = (props: Props) => {
   };
 
   const getApprovalValue = (): string => {
-    if (!cost) return "0";
-    if (!isPoolToken(selectedRetirementToken)) {
+    if (isRetiringOwnCarbon) {
       return quantity;
     }
+    if (!cost) return "0";
     return safeAdd(cost, (Number(cost) * APPROVAL_SLIPPAGE).toString());
   };
 
   const handleApprove = async () => {
     try {
-      if (!props.provider || paymentMethod === "fiat") return;
-      if (!isPoolToken(selectedRetirementToken)) {
+      if (!props.provider) return;
+      if (isRetiringOwnCarbon) {
         const approvedValue = await approveProjectToken({
           value: getApprovalValue(),
           signer: props.provider.getSigner(),
@@ -315,7 +318,7 @@ export const Offset = (props: Props) => {
         );
         return;
       }
-
+      if (paymentMethod === "fiat") return;
       const approvedValue = await changeApprovalTransaction({
         value: getApprovalValue(),
         provider: props.provider,
@@ -337,9 +340,29 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (!props.address || !props.provider || paymentMethod === "fiat") return;
+      if (!props.address || !props.provider) return;
       let retirement: RetireCarbonTransactionResult;
-      if (isPoolToken(selectedRetirementToken)) {
+      if (!isPoolToken(selectedRetirementToken)) {
+        retirement = await retireProjectTokenTransaction({
+          address: props.address,
+          signer: props.provider.getSigner(),
+          quantity,
+          beneficiaryAddress,
+          beneficiaryName: beneficiary,
+          retirementMessage,
+          onStatus: setStatus,
+          projectTokenAddress: selectedRetirementToken,
+          symbol: projectTokens[selectedRetirementToken].symbol,
+        });
+        dispatch(
+          decrementProjectToken({
+            address: selectedRetirementToken,
+            quantityRetired: quantity,
+          })
+        );
+      } else if (paymentMethod === "fiat") {
+        return; // type guard
+      } else {
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
@@ -359,24 +382,6 @@ export const Offset = (props: Props) => {
             retirementToken: selectedRetirementToken,
             cost,
             quantity,
-          })
-        );
-      } else {
-        retirement = await retireProjectTokenTransaction({
-          address: props.address,
-          signer: props.provider.getSigner(),
-          quantity,
-          beneficiaryAddress,
-          beneficiaryName: beneficiary,
-          retirementMessage,
-          onStatus: setStatus,
-          projectTokenAddress: selectedRetirementToken,
-          symbol: projectTokens[selectedRetirementToken].symbol,
-        });
-        dispatch(
-          decrementProjectToken({
-            address: selectedRetirementToken,
-            quantityRetired: quantity,
           })
         );
       }
@@ -409,13 +414,13 @@ export const Offset = (props: Props) => {
   };
 
   const insufficientBalance = () => {
-    if (paymentMethod === "fiat") return true;
-    if (!isPoolToken(selectedRetirementToken)) {
+    if (isRetiringOwnCarbon && projectTokens[selectedRetirementToken]) {
       return (
         Number(quantity) >
         Number(projectTokens[selectedRetirementToken].quantity)
       );
     }
+    if (paymentMethod === "fiat") return false;
     return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
   };
 
@@ -430,11 +435,11 @@ export const Offset = (props: Props) => {
       );
 
   const hasApproval = () => {
-    if (paymentMethod === "fiat") return true;
-    if (!isPoolToken(selectedRetirementToken)) {
+    if (isRetiringOwnCarbon && projectTokens[selectedRetirementToken]) {
       const a = projectTokens[selectedRetirementToken].allowance;
       return !!Number(a) && Number(a) >= Number(quantity);
     }
+    if (paymentMethod === "fiat") return true;
     return (
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
@@ -525,15 +530,15 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (paymentMethod !== "fiat" && !hasApproval()) {
-      return {
-        label: t({ id: "shared.approve", message: "Approve" }),
-        onClick: () => setShowTransactionModal(true),
-      };
-    } else if (paymentMethod === "fiat") {
+    } else if (paymentMethod === "fiat" && !isRetiringOwnCarbon) {
       return {
         label: t({ id: "offset.checkout", message: "Checkout" }),
         onClick: handleFiat,
+      };
+    } else if (!hasApproval()) {
+      return {
+        label: t({ id: "shared.approve", message: "Approve" }),
+        onClick: () => setShowTransactionModal(true),
       };
     }
     return {
@@ -555,19 +560,16 @@ export const Offset = (props: Props) => {
       clearTimeout(debounceTimerRef.current);
     }
     if (
+      !isRetiringOwnCarbon &&
       paymentMethod === "fiat" &&
       Number(e.target.value) &&
       Number(e.target.value) < 1
     ) {
       setQuantity("1");
-    } else if (
-      paymentMethod !== "fiat" &&
-      Number(e.target.value) > 0 &&
-      Number(e.target.value) < 0.0001
-    ) {
-      setQuantity("0.0001");
-    } else if (paymentMethod === "fiat") {
+    } else if (!isRetiringOwnCarbon && paymentMethod === "fiat") {
       setQuantity(Math.ceil(Number(e.target.value)).toString());
+    } else if (Number(e.target.value) > 0 && Number(e.target.value) < 0.0001) {
+      setQuantity("0.0001");
     } else {
       setQuantity(e.target.value);
     }
@@ -675,7 +677,7 @@ export const Offset = (props: Props) => {
             onItemSelect={handleSelectRetirementToken}
           />
 
-          {isPoolToken(selectedRetirementToken) && (
+          {!isRetiringOwnCarbon && (
             <DropdownWithModal
               label={t({
                 id: "offset.dropdown_payWith.label",
@@ -695,7 +697,7 @@ export const Offset = (props: Props) => {
             />
           )}
 
-          {isPoolToken(selectedRetirementToken) && (
+          {!isRetiringOwnCarbon && (
             <SelectiveRetirement
               projectAddress={projectAddress}
               selectedRetirementToken={selectedRetirementToken}
@@ -705,7 +707,7 @@ export const Offset = (props: Props) => {
             />
           )}
 
-          {!isPoolToken(selectedRetirementToken) &&
+          {isRetiringOwnCarbon &&
             projectTokens[selectedRetirementToken] && ( // careful, projectTokens must load before rendering
               <ProjectTokenDetails
                 symbol={projectTokens[selectedRetirementToken].symbol}
@@ -725,11 +727,17 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                min={paymentMethod === "fiat" ? "1" : "0"}
+                min={
+                  paymentMethod === "fiat" && !isRetiringOwnCarbon ? "1" : "0"
+                }
                 value={quantity}
                 onKeyDown={(e) => {
                   // prevent a user from entering a decimal value when credit card is selected
-                  if (paymentMethod === "fiat" && ["."].includes(e.key)) {
+                  if (
+                    paymentMethod === "fiat" &&
+                    !isRetiringOwnCarbon &&
+                    ["."].includes(e.key)
+                  ) {
                     e.preventDefault();
                   }
                   // dont let user enter these special characters into the number input
@@ -817,7 +825,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          {isPoolToken(selectedRetirementToken) && (
+          {!isRetiringOwnCarbon && (
             <MiniTokenDisplay
               label={
                 <div className="mini_token_label">
@@ -893,7 +901,7 @@ export const Offset = (props: Props) => {
         </div>
       </div>
 
-      {showTransactionModal && paymentMethod !== "fiat" && (
+      {showTransactionModal && (
         <TransactionModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
@@ -903,25 +911,23 @@ export const Offset = (props: Props) => {
           }
           onCloseModal={closeTransactionModal}
           tokenName={
-            isPoolToken(selectedRetirementToken)
+            !isRetiringOwnCarbon
               ? paymentMethod
               : projectTokens[selectedRetirementToken].symbol
           }
           tokenIcon={
-            isPoolToken(selectedRetirementToken)
+            !isRetiringOwnCarbon && paymentMethod !== "fiat"
               ? tokenInfo[paymentMethod].icon
               : retirementTokenItems.find(
                   (t) => t.key === selectedRetirementToken
                 )?.icon ?? TCO2
           }
           spenderAddress={
-            isPoolToken(selectedRetirementToken)
+            !isRetiringOwnCarbon
               ? addresses["mainnet"].retirementAggregator
               : addresses["mainnet"].retirementAggregatorV2
           }
-          value={
-            isPoolToken(selectedRetirementToken) ? cost.toString() : quantity
-          }
+          value={!isRetiringOwnCarbon ? cost.toString() : quantity}
           approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}

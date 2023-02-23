@@ -204,9 +204,7 @@ export const retireCarbonTransaction = async (params: {
         params.retirementMessage
       );
     }
-
     params.onStatus("networkConfirmation");
-
     const receipt: RetirementReceipt = await txn.wait(1);
     return { receipt, retirementTotals };
   } catch (e: any) {
@@ -363,11 +361,14 @@ export const retireProjectTokenTransaction = async (params: {
     const method = params.symbol.startsWith("TCO2")
       ? "toucanRetireExactTCO2"
       : "c3RetireExactC3T";
+    params.onStatus("userConfirmation");
     const newRetirementIndex: BigNumber = await aggregator.callStatic[method](
       ...args
     );
     const txn = await aggregator[method](...args);
+    params.onStatus("networkConfirmation");
     const receipt: RetirementReceipt = await txn.wait(1);
+
     return {
       receipt,
       retirementTotals: newRetirementIndex.toNumber(),

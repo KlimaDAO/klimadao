@@ -25,7 +25,11 @@ export const Modal: FC<Props> = (props) => {
       <div className={styles.modalContainer}>
         <div className={cx(styles.modalContent, props.className)}>
           <div className={styles.title}>
-            <Text>{props.title}</Text>
+            {typeof props.title === "string" ? (
+              <Text>{props.title}</Text>
+            ) : (
+              props.title
+            )}
             {showCloseButton && (
               <button
                 className={styles.closeButton}
