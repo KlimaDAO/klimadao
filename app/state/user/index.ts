@@ -97,10 +97,6 @@ export const userSlice = createSlice({
       s.projectTokens[a.payload.address] = {
         ...s.projectTokens[a.payload.address],
         allowance: "0.0",
-        retired: safeAdd(
-          s.projectTokens[a.payload.address].retired,
-          a.payload.quantityRetired
-        ),
         quantity: safeSub(
           s.projectTokens[a.payload.address].quantity,
           a.payload.quantityRetired
