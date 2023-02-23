@@ -24,7 +24,10 @@ export interface Project {
     };
   };
   description?: string;
-  isPoolProject?: boolean;
+  isPoolProject?: boolean; // pool project only
+  totalBridged: string | null; // pool project only
+  totalRetired: string | null; // pool project only
+  currentSupply: string | null; // pool project only
 }
 
 export interface User {

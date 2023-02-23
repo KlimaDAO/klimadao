@@ -41,6 +41,7 @@ export const Project: NextPage<Props> = (props) => {
     !!activeListings &&
     !!activeListings.length &&
     getSortByUpdateListings(activeListings);
+
   return (
     <>
       <PageHead
@@ -165,7 +166,9 @@ export const Project: NextPage<Props> = (props) => {
           </Col>
           <Col>
             <Stats
-              description="Data for this project and vintage"
+              description={t`Data for this project and vintage`}
+              currentSupply={props.project.currentSupply}
+              totalRetired={props.project.totalRetired}
               allListings={allListings || []}
               activeListings={activeListings || []}
             />

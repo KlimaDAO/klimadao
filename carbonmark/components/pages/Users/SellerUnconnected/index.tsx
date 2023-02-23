@@ -93,6 +93,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
         </Col>
         <Col>
           <Stats
+            description={t`Data for this seller`}
             allListings={allListings || []}
             activeListings={activeListings || []}
           />

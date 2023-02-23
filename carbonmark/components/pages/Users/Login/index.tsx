@@ -41,7 +41,7 @@ export const Login: NextPage = () => {
           </Col>
           <Col>
             <Activities activities={[]} />
-            <Stats />
+            <Stats description={t`Data for this seller`} />
           </Col>
         </TwoColLayout>
       </Layout>

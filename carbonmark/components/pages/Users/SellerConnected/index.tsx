@@ -253,10 +253,7 @@ export const SellerConnected: FC<Props> = (props) => {
           <Stats
             allListings={allListings || []}
             activeListings={activeListings || []}
-            description={t({
-              id: "user.stats.your_seller_data.description",
-              message: "Your seller data",
-            })}
+            description={t`Your seller data`}
           />
           <Activities
             activities={user?.activities || []}
