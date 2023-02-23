@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Text } from "components/Text";
 import { withSkeleton } from "hocs/WithSkeleton";
 import { FC, PropsWithChildren, useState } from "react";
 import * as styles from "./styles";

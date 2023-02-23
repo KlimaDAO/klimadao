@@ -5,17 +5,18 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { formatBigToTonnes, formatToPrice } from "lib/formatNumbers";
 import { isConnectedAddress } from "lib/formatWalletAddress";
-import { Listing, Project } from "lib/types/carbonmark";
+import { ListingFormatted, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  listing: Listing;
+  listing: ListingFormatted;
   project: Project;
+  isBestPrice: boolean;
 };
 
 const getFormattedDate = (timestamp: string, locale = "en") => {
@@ -25,7 +26,7 @@ const getFormattedDate = (timestamp: string, locale = "en") => {
   }).format(date);
 };
 
-export const ProjectListing: FC<Props> = (props) => {
+export const SellerListing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
 
@@ -41,6 +42,11 @@ export const ProjectListing: FC<Props> = (props) => {
           <div className={styles.sellerBadge}>
             <Trans>Seller Listing</Trans>
           </div>
+          {props.isBestPrice && (
+            <div className={styles.bestPriceBadge}>
+              <Trans>Best Price</Trans>
+            </div>
+          )}
           <Text t="body1">
             <Link href={createSellerLink(props.listing.seller.handle)}>
               {isConnectedSeller ? "You" : "@" + props.listing.seller.handle}
@@ -48,7 +54,7 @@ export const ProjectListing: FC<Props> = (props) => {
           </Text>
         </div>
       )}
-      <Text t="h4">{formatBigToPrice(props.listing.singleUnitPrice)}</Text>
+      <Text t="h4">{formatToPrice(props.listing.singleUnitPrice)}</Text>
       <Text t="body1">
         <Trans>Quantity Available:</Trans>{" "}
         {formatBigToTonnes(props.listing.leftToSell)}

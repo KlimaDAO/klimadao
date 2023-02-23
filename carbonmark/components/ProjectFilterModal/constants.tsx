@@ -1,6 +1,6 @@
-import { CheckboxOption } from "@klimadao/carbonmark/components/CheckboxGroup/CheckboxGroup.types";
-import { Text } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
+import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
+import { Text } from "components/Text";
 import { categoryInfoMap } from "lib/getCategoryInfo";
 import * as styles from "./styles";
 
@@ -19,7 +19,7 @@ export const PROJECT_SORT_OPTIONS = {
 export const PROJECT_FILTERS: Record<string, CheckboxOption[]> = {
   CATEGORIES: Object.values(categoryInfoMap).map((category) => ({
     label: (
-      <Text className={styles.option} t="caption">
+      <Text className={styles.option} t="body1">
         <category.icon />
         {category.label}
       </Text>

@@ -8,13 +8,9 @@ export const buyButton = css`
 
 export const sellerInfo = css`
   display: flex;
-  gap: 0.8rem;
+  gap: 1.2rem;
   flex-direction: row;
   align-items: center;
-
-  svg {
-    fill: var(--klima-blue);
-  }
 
   a,
   a:visited {
@@ -34,6 +30,15 @@ export const sellerBadge = css`
   color: var(--font-01);
 `;
 
+export const bestPriceBadge = css`
+  padding: 0.4rem 0.8rem;
+  background-color: var(--yellow);
+  align-items: center;
+  align-self: flex-start;
+  border-radius: var(--border-radius);
+  color: var(--font-01);
+`;
+
 export const dates = css`
   display: flex;
   gap: 2.4rem;
@@ -42,4 +47,9 @@ export const dates = css`
   span {
     font-weight: 900;
   }
+`;
+
+export const buttons = css`
+  display: flex;
+  gap: 2rem;
 `;

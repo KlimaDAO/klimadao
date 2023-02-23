@@ -28,7 +28,15 @@ export interface Project {
   totalBridged: string | null; // pool project only
   totalRetired: string | null; // pool project only
   currentSupply: string | null; // pool project only
+  prices?: Price[];
 }
+
+export type Price = {
+  leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
+  tokenAddress: string;
+  singleUnitPrice: number; // NOT A BIGNUMBER ! Already formatted in USDCs
+  name: string;
+};
 
 export interface User {
   handle: string;
@@ -71,6 +79,18 @@ export type Listing = {
     id: string;
   };
 };
+
+export type PriceFlagged = Price & {
+  isPoolProject: true;
+};
+
+// makes sense to convert more BigNumbers !
+// see https://github.com/Atmosfearful/bezos-frontend/issues/50
+export type ListingFormatted = Omit<Listing, "singleUnitPrice"> & {
+  singleUnitPrice: string; // USDCs
+};
+
+export type ProjectBuyOption = ListingFormatted | PriceFlagged;
 
 /**
  * A type representing possible activity actions (e.g "Sold", "Purchase" etc)

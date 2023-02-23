@@ -30,7 +30,7 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/Stats/StatsListings.tsx:49
+#: components/Stats/index.tsx:62
 msgid "Active listings:"
 msgstr ""
 
@@ -48,6 +48,11 @@ msgstr ""
 msgid "BETA"
 msgstr ""
 
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
+#: components/pages/Project/BuyOptions/SellerListing.tsx:47
+msgid "Best Price"
+msgstr ""
+
 #: components/pages/Projects/index.tsx:33
 msgid "Browse Carbon Projects | Carbonmark"
 msgstr ""
@@ -58,6 +63,14 @@ msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:99
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
+msgstr ""
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:42
+msgid "Buy"
+msgstr ""
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:24
+msgid "Carbon Pool"
 msgstr ""
 
 #: components/pages/Resources/index.tsx:23
@@ -96,20 +109,11 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Project/ProjectListing/index.tsx:58
+#: components/pages/Project/BuyOptions/SellerListing.tsx:64
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Project/index.tsx:169
-msgid "Data for this project and vintage"
-msgstr ""
-
-#: components/pages/Users/Login/index.tsx:44
-#: components/pages/Users/SellerUnconnected/index.tsx:96
-msgid "Data for this seller"
-msgstr ""
-
-#: components/pages/Project/index.tsx:130
+#: components/pages/Project/index.tsx:166
 msgid "Description"
 msgstr ""
 
@@ -170,7 +174,7 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Project/index.tsx:148
+#: components/pages/Project/index.tsx:184
 msgid "No listings found for this project."
 msgstr ""
 
@@ -224,7 +228,8 @@ msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:46
-#: components/pages/Project/ProjectListing/index.tsx:53
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:35
+#: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Quantity Available:"
 msgstr ""
 
@@ -234,10 +239,6 @@ msgstr ""
 
 #: components/ProjectFilterModal/constants.tsx:10
 msgid "Recently Updated"
-msgstr ""
-
-#: components/Stats/StatsBar.tsx:40
-msgid "Remaining Supply:"
 msgstr ""
 
 #: components/Footer/index.tsx:36
@@ -250,11 +251,15 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:47
+msgid "Retire now"
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:55
 msgid "Sell"
 msgstr ""
 
-#: components/pages/Project/ProjectListing/index.tsx:42
+#: components/pages/Project/BuyOptions/SellerListing.tsx:43
 msgid "Seller Listing"
 msgstr ""
 
@@ -272,10 +277,6 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:165
 msgid "Sorry, this handle already exists"
-msgstr ""
-
-#: components/Stats/index.tsx:21
-msgid "Stats"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:183
@@ -319,7 +320,7 @@ msgstr ""
 msgid "Toggle sort menu"
 msgstr ""
 
-#: components/Stats/StatsListings.tsx:42
+#: components/Stats/index.tsx:55
 msgid "Tonnes listed:"
 msgstr ""
 
@@ -327,11 +328,7 @@ msgstr ""
 msgid "Tonnes sold:"
 msgstr ""
 
-#: components/Stats/StatsBar.tsx:32
-msgid "Total Retirements:"
-msgstr ""
-
-#: components/pages/Project/ProjectListing/index.tsx:62
+#: components/pages/Project/BuyOptions/SellerListing.tsx:68
 msgid "Updated:"
 msgstr ""
 
@@ -434,7 +431,7 @@ msgstr ""
 msgid "button.edit_profile"
 msgstr ""
 
-#: components/pages/Project/ProjectListing/index.tsx:80
+#: components/pages/Project/BuyOptions/SellerListing.tsx:86
 msgid "buy"
 msgstr ""
 
@@ -498,7 +495,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:266
+#: components/pages/Users/SellerConnected/index.tsx:269
 msgid "profile.edit_profile.title"
 msgstr ""
 
@@ -555,7 +552,7 @@ msgstr ""
 msgid "project.category.renewable_energy"
 msgstr ""
 
-#: components/pages/Project/index.tsx:97
+#: components/pages/Project/index.tsx:133
 msgid "project.single.best_price"
 msgstr ""
 
@@ -567,7 +564,7 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/pages/Project/index.tsx:57
+#: components/pages/Project/index.tsx:96
 msgid "project.single.button.back_to_projects"
 msgstr ""
 
@@ -575,7 +572,7 @@ msgstr ""
 msgid "project.single.header.seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:104
+#: components/pages/Project/index.tsx:140
 msgid "project.single.methodology"
 msgstr ""
 
@@ -788,7 +785,7 @@ msgstr ""
 msgid "shared.approve"
 msgstr ""
 
-#: components/pages/Project/ProjectListing/index.tsx:70
+#: components/pages/Project/BuyOptions/SellerListing.tsx:76
 #: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:73
 msgid "shared.connect_to_buy"
@@ -1021,8 +1018,21 @@ msgstr ""
 msgid "user.login.description"
 msgstr ""
 
-#: components/pages/Project/index.tsx:48
-#: components/pages/Project/index.tsx:49
+#: components/Stats/index.tsx:39
+msgid "user.stats.seller.description"
+msgstr ""
+
+#: components/Stats/index.tsx:35
+msgid "user.stats.title"
+msgstr ""
+
+#: components/pages/Portfolio/index.tsx:207
+#: components/pages/Users/SellerConnected/index.tsx:256
+msgid "user.stats.your_seller_data.description"
+msgstr ""
+
+#: components/pages/Project/index.tsx:87
+#: components/pages/Project/index.tsx:88
 msgid "{0} | Carbonmark"
 msgstr ""
 
