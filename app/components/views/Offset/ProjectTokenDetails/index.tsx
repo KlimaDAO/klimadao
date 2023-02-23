@@ -77,9 +77,7 @@ export const ProjectTokenDetails = (props: Props) => {
   useEffect(() => {
     const fetchProjectInfo = async () => {
       if (info) setInfo(null); // trigger loading
-      console.log("getting new info");
       const newInfo = await queryProjectInfo(props.address);
-      console.log("got new info", newInfo);
       setInfo(newInfo);
     };
 
