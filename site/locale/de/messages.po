@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-22 15:36+0000\n"
+"POT-Creation-Date: 2023-02-23 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,11 +13,11 @@ msgstr "Sprache wechseln"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
 msgid "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "Jeder CO2-Ausgleich durch KlimaDAO erfolgt durch verifizierte CO2-Projekte. Klicken Sie hier, um mehr über das Projekt zu erfahren."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr ""
+msgstr "MCO2 auf carbon.klimadao.finance entdecken"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -29,11 +29,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:50
 msgid "MCO2 Token"
-msgstr ""
+msgstr "MCO2-Token"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
 msgid "Methodology: {0}"
-msgstr ""
+msgstr "Methodik: {0}"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
 msgid "No retirement message provided."
@@ -41,7 +41,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "Processing data..."
-msgstr ""
+msgstr "Daten werden verarbeitet..."
 
 #: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
@@ -57,7 +57,7 @@ msgstr "Auf Polygonscan ansehen"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr ""
+msgstr "Wir haben die Verarbeitung der Blockchaindaten für diesen Ausgleich noch nicht abgeschlossen. Dies dauert etwas länger, wenn das Netzwerk überlastet ist."
 
 #: components/InvalidNetworkModal/index.tsx:65
 msgid "Wrong Network"
@@ -1615,7 +1615,7 @@ msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:129
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:125
 msgid "retirement.head.title"
@@ -1983,8 +1983,8 @@ msgstr "Mit Coinbase scannen, um dich zu verbinden"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
 msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr ""
+msgstr "{trimCurrentSupply} Verbleibende Tonnen"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
 msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr ""
+msgstr "{trimTotalRetired} Tonnen insgesamt ausgeglichen"
