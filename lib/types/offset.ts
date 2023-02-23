@@ -77,21 +77,6 @@ type RetirementPoolInfo = {
 export type RetirementsTotalsAndBalances = RetirementTotalsFormatted &
   RetirementPoolInfo;
 
-export type RetirementIndexInfo = [
-  tokenAddress: string,
-  amount: BigNumber,
-  beneficiaryName: string,
-  retirementMessage: string
-];
-
-export type RetirementIndexInfoResult = {
-  tokenAddress: RetirementIndexInfo[0];
-  typeOfToken: RetirementToken;
-  amount: string;
-  beneficiaryName: RetirementIndexInfo[2];
-  retirementMessage: RetirementIndexInfo[3];
-};
-
 export interface ProjectTokenBalance {
   /** 0x of project token */
   address: string;
