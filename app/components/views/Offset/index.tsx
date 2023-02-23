@@ -21,7 +21,6 @@ import { providers, utils } from "ethers";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
@@ -653,21 +652,14 @@ export const Offset = (props: Props) => {
         <div className={styles.offsetCard_header}>
           <Text t="h4" className={styles.offsetCard_header_title}>
             <ParkOutlined />
-            <Trans id="offset.retire_carbon">Retire Carbon</Trans>
+            <Trans>Offset</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="offset.go_carbon_neutral">
-              Go carbon neutral by retiring carbon and claiming the underlying
-              environmental benefit of the carbon offset. Learn more about
-              carbon tokens in our <A href={urls.officialDocs}>docs</A>.
-            </Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            <FiberNewRoundedIcon className={styles.newReleasesIcon} />
-            <Trans id="offset.lifi">
-              Cross-chain offsetting is now available through{" "}
-              <A href={urls.lifiOffset}>LI.FI and Etherspot</A>, with support
-              for multiple chains and tokens.
+            <Trans>
+              Pay with fiat or crypto, or retire credits you already own. Your
+              message and data will be permanently inscribed on the blockchain.
+              Learn more about supported tokens in our{" "}
+              <A href={urls.officialDocs}>docs</A>.
             </Trans>
           </Text>
         </div>
