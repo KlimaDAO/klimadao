@@ -125,8 +125,15 @@ export default defineType({
       group: "info",
     }),
     {
+      name: "region",
+      description: "Region where the project was implemented",
+      group: "location",
+      type: "string",
+      validation: (r) => r.required(),
+    },
+    {
       name: "country",
-      description: "ISO-3166 English Short Name of the country",
+      description: "ISO-3166 English Short Name of the country where the project was implemented",
       type: "string",
       group: "location",
       validation: (r) => r.required(),
@@ -136,7 +143,7 @@ export default defineType({
     },
     {
       name: "state",
-      description: "(optional) state or territory",
+      description: "(optional) state or territory where the project was implemented",
       type: "string",
       group: "location",
     },
