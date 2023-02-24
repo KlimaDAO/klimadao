@@ -314,18 +314,20 @@ export const getProjectTokenBalances = (params: {
       const allowances = rawAllowances.map((value) => formatUnits(value, 18));
 
       // combine with balances and set each object to redux state
-      const projectTokenBalances = holdings.reduce<ProjectTokenBalance[]>(
-        (arr, { token, tokenAmount }, i) => [
-          ...arr,
-          {
-            address: token.id,
-            quantity: utils.formatUnits(tokenAmount, 18),
-            symbol: token.symbol,
-            allowance: allowances[i], // for performance, fetch the allowance on-the-fly when they select it in the dropdown
-          },
-        ],
-        []
-      );
+      const projectTokenBalances = holdings
+        .reduce<ProjectTokenBalance[]>(
+          (arr, { token, tokenAmount }, i) => [
+            ...arr,
+            {
+              address: token.id,
+              quantity: utils.formatUnits(tokenAmount, 18),
+              symbol: token.symbol,
+              allowance: allowances[i], // for performance, fetch the allowance on-the-fly when they select it in the dropdown
+            },
+          ],
+          []
+        )
+        .sort((a, b) => (a.symbol > b.symbol ? 1 : -1));
       projectTokenBalances.forEach((b) => dispatch(setProjectToken(b)));
     } catch (error: any) {
       console.error(error);
