@@ -1,4 +1,4 @@
-import { getStaticProvider, getTransactionOptions } from "@klimadao/lib/utils";
+import { getStaticProvider } from "@klimadao/lib/utils";
 import { providers, utils } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
@@ -158,7 +158,6 @@ export const retireCarbonTransaction = async (params: {
     // add + 1 now as this number is only passed on if transaction succeeded
     const formattedTotals = totals.toNumber();
     const retirementTotals = formattedTotals + 1;
-    const transactionOptions = await getTransactionOptions();
 
     // retire transaction
     const retireContract = getContract({
@@ -181,8 +180,7 @@ export const retireCarbonTransaction = async (params: {
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        [params.projectAddress],
-        transactionOptions
+        [params.projectAddress]
       );
     } else {
       txn = await retireContract.retireCarbon(
@@ -195,8 +193,7 @@ export const retireCarbonTransaction = async (params: {
         params.amountInCarbon,
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
-        params.retirementMessage,
-        transactionOptions
+        params.retirementMessage
       );
     }
 

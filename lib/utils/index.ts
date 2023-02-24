@@ -26,7 +26,6 @@ export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getStakingRewards } from "./getStakingRewards";
 export { getStaticProvider } from "./getStaticProvider";
 export { getTokenDecimals } from "./getTokenDecimals";
-export { getTransactionOptions } from "./getTransactionOptions";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 // KNS
 export {
