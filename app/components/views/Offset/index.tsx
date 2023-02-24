@@ -768,13 +768,15 @@ export const Offset = (props: Props) => {
                 </Trans>
               </Text>
             )}
-            {!invalidRetirementQuantity && paymentMethod === "fiat" && (
-              <Text t="body8" color="lightest">
-                <Trans id="offset.min_quantity_fiat">
-                  Minimum 1-tonne purchase. Whole integers only.
-                </Trans>
-              </Text>
-            )}
+            {!invalidRetirementQuantity &&
+              paymentMethod === "fiat" &&
+              !isRetiringOwnCarbon && (
+                <Text t="body8" color="lightest">
+                  <Trans id="offset.min_quantity_fiat">
+                    Minimum 1-tonne purchase. Whole integers only.
+                  </Trans>
+                </Text>
+              )}
           </div>
 
           {/* attr: beneficiaryName  */}
