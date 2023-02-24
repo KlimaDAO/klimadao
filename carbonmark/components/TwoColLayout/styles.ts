@@ -5,7 +5,6 @@ export const wrapper = css`
   grid-column: 1/3;
   gap: 2rem;
   display: grid;
-
   ${breakpoints.large} {
     grid-template-columns: 2fr 1fr;
   }

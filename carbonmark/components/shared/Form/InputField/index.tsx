@@ -1,14 +1,15 @@
 import { cx } from "@emotion/css";
-import React, { InputHTMLAttributes } from "react";
-
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
-
+import { TextInfoTooltip } from "components/TextInfoTooltip";
+import React, { InputHTMLAttributes } from "react";
 import * as styles from "./styles";
 
 export interface InputFieldProps {
   id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
+  infoTooltip?: string;
   hideLabel?: boolean;
   errorMessage?: string;
   icon?: JSX.Element;
@@ -25,7 +26,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       props.inputProps.className
     );
     // for a11y if we don't want visually show labels
-    const visuallyHidden = cx({
+    const visuallyHidden = cx(styles.inputLabel, {
       [styles.visuallyHidden]: Boolean(props.hideLabel),
     });
 
@@ -33,6 +34,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       <div className={styles.container}>
         <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="body1">{props.label}</Text>
+          {props.infoTooltip && (
+            <TextInfoTooltip tooltip={props.infoTooltip}>
+              <HelpOutline className={styles.tooltipHelpIcon} />
+            </TextInfoTooltip>
+          )}
         </label>
 
         {!!props.icon && <div className={styles.icon}>{props.icon}</div>}

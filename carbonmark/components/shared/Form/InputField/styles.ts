@@ -9,6 +9,17 @@ export const container = css`
   gap: 0.75rem;
 `;
 
+export const inputLabel = css`
+  display: flex;
+  gap: 0.4rem;
+`;
+
+export const tooltipHelpIcon = css`
+  width: 2rem;
+  height: 2rem;
+  color: var(--bright-blue);
+`;
+
 export const baseStyles = css`
   ${typography.caption};
   display: block;

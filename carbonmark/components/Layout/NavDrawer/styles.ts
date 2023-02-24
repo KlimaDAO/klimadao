@@ -128,7 +128,7 @@ export const mobile = {
   `,
 };
 
-export const betaWraperDesktop = css`
+export const betaWrapperDesktop = css`
   display: none;
   ${breakpoints.desktop} {
     display: flex;

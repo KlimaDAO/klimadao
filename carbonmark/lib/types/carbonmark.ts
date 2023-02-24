@@ -42,6 +42,7 @@ export interface User {
   handle: string;
   username: string;
   description: string;
+  profileImgUrl?: string;
   wallet: string;
   listings: Listing[];
   activities: ActivityType[];

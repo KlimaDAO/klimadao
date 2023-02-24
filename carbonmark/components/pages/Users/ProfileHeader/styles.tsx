@@ -6,8 +6,6 @@ export const profileHeader = css`
   align-items: center;
   gap: 1.6rem;
   flex-direction: column;
-  margin: 2rem 0;
-
   ${breakpoints.medium} {
     flex-direction: row;
   }

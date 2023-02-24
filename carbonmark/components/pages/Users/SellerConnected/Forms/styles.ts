@@ -38,3 +38,7 @@ export const editLabelProjectName = css`
   padding: 1.4rem 1rem;
   min-height: 4.8rem;
 `;
+
+export const profileLogo = css`
+  justify-self: center;
+`;

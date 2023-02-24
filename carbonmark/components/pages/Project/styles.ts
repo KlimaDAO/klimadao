@@ -17,6 +17,7 @@ export const listingsHeader = css`
   display: grid;
   gap: 1.2rem;
   grid-column: 1 / 3;
+  align-items: center;
 `;
 
 export const mapContainer = css`

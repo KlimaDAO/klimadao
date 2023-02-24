@@ -36,12 +36,13 @@ export const SellerUnconnected: FC<Props> = (props) => {
     getSortByUpdateListings(activeListings);
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={userData?.username || props.userName}
           isCarbonmarkUser={!!userData}
           description={userData?.description}
+          profileImgUrl={userData?.profileImgUrl}
         />
       </div>
       <div className={styles.listings}>
@@ -49,16 +50,6 @@ export const SellerUnconnected: FC<Props> = (props) => {
           <Text t="h4">
             <Trans>Listings</Trans>
           </Text>
-
-          {!sortedListings && (
-            <Text t="body1" color="lighter">
-              <i>
-                <Trans id="profile.listings.empty_state">
-                  No active listings to show.
-                </Trans>
-              </i>
-            </Text>
-          )}
         </div>
       </div>
 
@@ -90,6 +81,13 @@ export const SellerUnconnected: FC<Props> = (props) => {
                 )}
               </Listing>
             ))}
+          {!hasListings && (
+            <Text t="body1" color="lighter">
+              <i>
+                <Trans>No active listings.</Trans>
+              </i>
+            </Text>
+          )}
         </Col>
         <Col>
           <Stats
@@ -100,6 +98,6 @@ export const SellerUnconnected: FC<Props> = (props) => {
           <Activities activities={userData?.activities || []} />
         </Col>
       </TwoColLayout>
-    </>
+    </div>
   );
 };
