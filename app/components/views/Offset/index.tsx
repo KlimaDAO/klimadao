@@ -522,7 +522,7 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (paymentMethod !== "fiat" && insufficientBalance()) {
+    } else if (insufficientBalance()) {
       return {
         label: t({
           id: "shared.insufficient_balance",
@@ -745,7 +745,11 @@ export const Offset = (props: Props) => {
                     e.preventDefault();
                   }
                 }}
-                data-error={invalidCost || invalidRetirementQuantity}
+                data-error={
+                  invalidCost ||
+                  invalidRetirementQuantity ||
+                  insufficientBalance()
+                }
                 onChange={handleChangeQuantity}
                 placeholder={t({
                   id: "offset.offset_quantity",
@@ -867,6 +871,7 @@ export const Offset = (props: Props) => {
                 <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
+            warn={isRetiringOwnCarbon && insufficientBalance()}
             amount={Number(quantity)?.toLocaleString(locale)}
             icon={
               retirementTokenItems.find(
