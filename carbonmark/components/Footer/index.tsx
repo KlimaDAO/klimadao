@@ -8,9 +8,9 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
+import { Text } from "components/Text";
 import Link from "next/link";
 import { FC } from "react";
-
 import * as styles from "./styles";
 
 interface Props {
@@ -24,16 +24,24 @@ export const Footer: FC<Props> = (props) => {
       <div className={cx(styles.footer_content, "footer_content")}>
         <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">
-            <Trans>Home</Trans>
+            <Text t="body4">
+              <Trans>Home</Trans>
+            </Text>
           </Link>
           <Link href="/projects">
-            <Trans>Marketplace</Trans>
+            <Text t="body4">
+              <Trans>Marketplace</Trans>
+            </Text>
           </Link>
           <Link href="/users/login">
-            <Trans>Profile</Trans>
+            <Text t="body4">
+              <Trans>Profile</Trans>
+            </Text>
           </Link>
           <Link href="/resources">
-            <Trans>Resources</Trans>
+            <Text t="body4">
+              <Trans>Resources</Trans>
+            </Text>
           </Link>
         </nav>
 

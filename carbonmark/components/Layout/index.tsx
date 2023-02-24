@@ -147,8 +147,8 @@ export const Layout: FC<Props> = (props: Props) => {
             {props.children}
           </div>
           {/* footer  */}
-          <Footer className={styles.fullWidthFooter} />
         </div>
+        <Footer className={styles.fullWidthFooter} />
       </div>
     </div>
   );
