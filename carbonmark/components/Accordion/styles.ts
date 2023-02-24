@@ -3,7 +3,6 @@ import * as typography from "@klimadao/lib/theme/typography";
 
 export const main = css`
   width: 100%;
-  padding: 0 0.4rem;
   border-bottom: 1px solid var(--surface-02);
 
   .content {
