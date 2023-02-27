@@ -283,7 +283,8 @@ module.exports = async function (fastify, opts) {
                             type: "Feature",
                             geometry: {
                                 type: "Point",
-                                coordinates: [results.location.longitude, results.location.latitude] // note here that geojson is different from other specs: it uses [x, y] not [y, x]
+                                coordinates: [results.location.longitude, results.location.latitude]
+                                 // note here that geojson is different from other specs: it uses [x, y] not [y, x]
                             }
                         }
                         project.description = results.description;
