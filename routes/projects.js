@@ -195,8 +195,6 @@ module.exports = async function (fastify, opts) {
                         project.totalRetired = null;
                         project.currentSupply = null;
                     }
-
-                    // return reply.send(JSON.stringify(project));
                 } else {
 
                     var data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintageStr });

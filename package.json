@@ -37,10 +37,13 @@
     "fastify-plugin": "^4.0.0",
     "fastify-swagger": "^5.2.0",
     "firebase": "^9.9.4",
+    "firebase-admin": "^11.5.0",
     "graph-cli": "^0.0.1",
     "graphql": "^16.6.0",
+    "i": "^0.3.7",
     "jsonwebtoken": "^8.5.1",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "npm": "^9.5.1"
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "^2.2.9",

@@ -2,6 +2,7 @@ const { executeGraphQLQuery } = require("../apollo-client");
 const { GET_COUNTRIES } = require("../queries/countries");
 const { GET_CATEGORIES, GET_POOLED_PROJECT_CAT, GET_POOLED_PROJECT_COUNTRY, GET_POOLED_PROJECT_VINTAGE } = require('../queries/categories');
 const { GET_VINTAGES } = require('../queries/vintage.js');
+const { initializeApp } = require("firebase-admin/app");
 
 async function getAllVintages() {
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
