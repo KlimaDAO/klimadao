@@ -31,7 +31,7 @@ export const connectContent = css`
 `;
 
 export const walletButton = css`
-  background: var(--white);
+  background: var(--surface-02);
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -41,7 +41,7 @@ export const walletButton = css`
   cursor: pointer;
   p {
     text-transform: uppercase;
-    color: #000 !important; // using important bc this is over-ridden when compiled
+    color: var(--font-01);
   }
 `;
 
@@ -53,34 +53,37 @@ export const browserWalletIcon = css`
 export const buttonsContainer = css`
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  padding-top: 3.2rem;
+  gap: 1.2rem;
+  padding-top: 1.6rem;
 `;
 
 export const leftLine = css`
-  width: 70px;
-  height: 2px;
+  width: 7rem;
+  height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    270deg,
+    var(--font-02) 0%,
+    rgba(98, 98, 102, 0) 100%
+  );
 `;
 export const rightLine = css`
-  width: 70px;
-  height: 2px;
+  width: 7rem;
+  height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 97.86%);
+  background: linear-gradient(
+    90deg,
+    var(--font-02) 0%,
+    rgba(98, 98, 102, 0) 100%
+  );
 `;
 
-export const continueText = css`
-  color: var(--white);
-  text-transform: uppercase;
-`;
-
-export const continueBox = css`
+export const textBox = css`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  padding: 3.2rem 0;
+  padding: 0.8rem 0;
 `;
 
 export const torusButtons = css`
@@ -88,12 +91,24 @@ export const torusButtons = css`
   display: flex;
   gap: 1.6rem;
   cursor: pointer;
+  background-color: var(--surface-02);
+  border-radius: 0.4rem;
+  padding: 0.6rem 2.4rem;
+  font-size: 1.6rem;
 `;
+
 export const twitter = css`
   fill: #1d9bf0;
 `;
+
 export const discord = css`
   fill: #5865f2;
+`;
+
+export const email = css`
+  .MuiSvgIcon-root {
+    fill: #767676;
+  }
 `;
 
 export const spinner = css`
@@ -134,7 +149,7 @@ export const modalContent = css`
   max-height: calc(100vh - 10rem);
   overflow-y: auto;
   border-radius: 1.2rem;
-  background-color: rgba(57, 57, 57, 1); // dark surface-04
+  background-color: var(--surface-01);
   pointer-events: fill;
   margin: 2rem;
   gap: 1rem;
@@ -145,15 +160,16 @@ export const modalContent = css`
   ${breakpoints.medium} {
     padding: 2.4rem;
   }
-
+  box-shadow: var(--shadow-01);
   .title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     text-transform: capitalize;
+    padding-bottom: 1.2rem;
     p {
-      color: var(--white);
+      color: var(--font-01);
     }
     button {
       display: flex;
@@ -163,8 +179,8 @@ export const modalContent = css`
       height: 4rem;
       padding: 1rem;
       border-radius: 0.4rem;
-      color: var(--white);
-      background-color: rgba(32, 32, 32, 1); // dark surface-02
+      color: #000;
+      background-color: var(--surface-02);
     }
   }
 
@@ -179,5 +195,48 @@ export const modalContent = css`
       -webkit-transform: scale(1);
       transform: scale(1);
     }
+  }
+`;
+
+export const errorButton = css`
+  background-color: #0019ff; // bright-blue, same in dark/light mode
+  color: #fff !important; // same in dark/light mode
+`;
+
+// typography
+export const h3 = css`
+  font-family: var(--font-family-secondary);
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+  /* ${breakpoints.large} {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+  } */
+`;
+
+export const button = css`
+  font-family: var(--font-family-secondary);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 3%;
+`;
+
+export const subText = css`
+  color: var(--font-02);
+  ${button}
+`;
+
+export const body1 = css`
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: 1%;
+`;
+export const closeButton = css`
+  svg {
+    fill: var(--font-01);
   }
 `;

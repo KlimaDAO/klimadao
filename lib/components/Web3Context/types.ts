@@ -66,6 +66,7 @@ export interface DisconnectedWeb3State {
 }
 export interface RenderModalProps {
   torusText: string;
+  walletText: string;
   titles: {
     connect: string;
     loading: string;
