@@ -31,7 +31,7 @@ export const connectContent = css`
 `;
 
 export const walletButton = css`
-  background: #eeeff5;
+  background: var(--surface-02);
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -41,7 +41,7 @@ export const walletButton = css`
   cursor: pointer;
   p {
     text-transform: uppercase;
-    color: #000 !important; // using important bc this is over-ridden when compiled
+    color: var(--font-01);
   }
 `;
 
@@ -61,13 +61,13 @@ export const leftLine = css`
   width: 7rem;
   height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(270deg, #626266 0%, rgba(98, 98, 102, 0) 100%);
+  background: linear-gradient(270deg, var(--font-02) 0%, var(--font-02) 100%);
 `;
 export const rightLine = css`
   width: 7rem;
   height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(90deg, #626266 0%, rgba(98, 98, 102, 0) 100%);
+  background: linear-gradient(90deg, var(--font-02) 0%, var(--font-02) 100%);
 `;
 
 export const textBox = css`
@@ -83,7 +83,7 @@ export const torusButtons = css`
   display: flex;
   gap: 1.6rem;
   cursor: pointer;
-  background-color: #eeeff5;
+  background-color: var(--surface-02);
   border-radius: 0.4rem;
   padding: 0.6rem 2.4rem;
   font-size: 1.6rem;
@@ -141,7 +141,7 @@ export const modalContent = css`
   max-height: calc(100vh - 10rem);
   overflow-y: auto;
   border-radius: 1.2rem;
-  background-color: white; // dark surface-04
+  background-color: var(--surface-01);
   pointer-events: fill;
   margin: 2rem;
   gap: 1rem;
@@ -152,7 +152,7 @@ export const modalContent = css`
   ${breakpoints.medium} {
     padding: 2.4rem;
   }
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-01);
   .title {
     display: flex;
     justify-content: space-between;
@@ -161,7 +161,7 @@ export const modalContent = css`
     text-transform: capitalize;
     padding-bottom: 1.2rem;
     p {
-      color: #000;
+      color: var(--font-01);
     }
     button {
       display: flex;
@@ -172,7 +172,7 @@ export const modalContent = css`
       padding: 1rem;
       border-radius: 0.4rem;
       color: #000;
-      background-color: #eeeff5;
+      background-color: var(--surface-02);
     }
   }
 
@@ -191,8 +191,8 @@ export const modalContent = css`
 `;
 
 export const errorButton = css`
-  background-color: #0019ff; // bright-blue
-  color: #fff !important;
+  background-color: #0019ff; // bright-blue, same in dark/light mode
+  color: #fff !important; // same in dark/light mode
 `;
 
 // typography
@@ -217,7 +217,7 @@ export const button = css`
 `;
 
 export const subText = css`
-  color: #626266;
+  color: var(--font-02);
   ${button}
 `;
 
@@ -226,4 +226,9 @@ export const body1 = css`
   font-size: 1.6rem;
   line-height: 2rem;
   letter-spacing: 1%;
+`;
+export const closeButton = css`
+  svg {
+    fill: var(--font-01);
+  }
 `;

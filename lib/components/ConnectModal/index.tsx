@@ -122,7 +122,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
             <div>
               <p className={styles.h3}>{getTitle(step)}</p>
             </div>
-            <button onClick={handleClose}>
+            <button onClick={handleClose} className={styles.closeButton}>
               <Close fontSize="large" />
             </button>
           </span>
