@@ -8,7 +8,7 @@ import { Modal, ModalProps } from "components/shared/Modal";
 import { omit } from "lodash";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 import { PROJECT_FILTERS, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
 
@@ -29,27 +29,26 @@ const defaultValues: ModalFieldValues = {
   categories: [],
   vintages: [],
 };
-type FetchArgs = [input: RequestInfo | URL, init?: RequestInit];
-const fetcher = (...args: FetchArgs) =>
-  fetch(...args).then((res) => res.json());
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const { control, reset } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
-  const { data: vintages = [], isLoading: vintagesLoading } = useSWR<string[]>(
-    "/api/vintages",
-    fetcher
-  );
+  /**
+   * Because we're prefilling these queries in getStaticProps
+   * the cache will return us the server fetched values
+   * We're also disabling revalidation since the data doesn't change much
+   */
+  const { data: vintages = [], isLoading: vintagesLoading } =
+    useSWRImmutable<string[]>("/api/vintages");
+  const { data: categories = [], isLoading: categoriesLoading } =
+    useSWRImmutable<{ id: string }[]>("/api/categories");
 
-  const { data: categories = [], isLoading: categoriesLoading } = useSWR<
-    {
-      id: string;
-    }[]
-  >("/api/categories", fetcher);
-
-  /** @todo Not great. We need end to end typing to ensure that if the key values change server side then our build fails  */
+  /**
+   * @todo Not great. We need end to end typing to ensure that if the key values
+   * change server side then our build fails
+   */
   const categoryOptions = PROJECT_FILTERS.CATEGORIES.filter((cat) =>
     categories.map(({ id }) => id).includes(cat.value)
   );

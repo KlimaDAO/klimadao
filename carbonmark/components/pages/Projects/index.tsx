@@ -1,3 +1,4 @@
+import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { PoolIcon } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Category } from "components/Category";
@@ -12,19 +13,20 @@ import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ProjectsPageStaticProps } from "pages/projects";
+import useSWR, { SWRConfig } from "swr";
 import * as styles from "./styles";
 
-type Props = {
-  projects: Project[];
-};
-
-export const Projects: NextPage<Props> = (props) => {
+const Page: NextPage = () => {
   const { locale } = useRouter();
 
-  const hasProjects = !!props.projects.length;
+  /**@todo add complex keys and fetch based on URL params */
+  const { data: projects } = useSWR<Project[]>("/api/projects");
+
+  const hasProjects = !!projects?.length;
   const sortedProjects =
     hasProjects &&
-    props.projects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+    projects?.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
   return (
     <>
@@ -74,3 +76,22 @@ export const Projects: NextPage<Props> = (props) => {
     </>
   );
 };
+
+export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
+  <SWRConfig
+    value={{
+      fetcher,
+      /**
+       * Prefill our API responses with server side fetched data
+       * see: https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
+       */ fallback: {
+        "/api/projects": props.projects,
+        "/api/vintages": props.vintages,
+        "/api/categories": props.categories,
+        "/api/countries": props.countries,
+      },
+    }}
+  >
+    <Page />
+  </SWRConfig>
+);

@@ -182,6 +182,8 @@ export type Country = {
   id: string;
 };
 
+export type Vintage = string;
+
 export type CategoryName =
   | "Agriculture"
   | "Energy Efficiency"
