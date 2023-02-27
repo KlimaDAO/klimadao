@@ -61,13 +61,21 @@ export const leftLine = css`
   width: 7rem;
   height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(270deg, var(--font-02) 0%, var(--font-02) 100%);
+  background: linear-gradient(
+    270deg,
+    var(--font-02) 0%,
+    rgba(98, 98, 102, 0) 100%
+  );
 `;
 export const rightLine = css`
   width: 7rem;
   height: 0.1rem;
   opacity: 0.8;
-  background: linear-gradient(90deg, var(--font-02) 0%, var(--font-02) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--font-02) 0%,
+    rgba(98, 98, 102, 0) 100%
+  );
 `;
 
 export const textBox = css`
