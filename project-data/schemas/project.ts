@@ -21,6 +21,15 @@ const sdgs = [
   { value: "17", title: "17. Partnerships to achieve the Goal" },
 ];
 
+const ccbs = [
+  { title: "Social Carbon", value: "Social Carbon" },
+  { title: "CCB Gold", value: "CCB-Gold" },
+  { title: "CCB Climate Gold", value: "CCB-Climate Gold" },
+  { title: "CCB No Distinction", value: "CCB-No Distinction" },
+  { title: "CCB Biodiversity Gold", value: "CCB-Biodiversity Gold" },
+  { title: "CCB Community Gold", value: "CCB-Community Gold" },
+];
+
 export default defineType({
   name: "project",
   title: "Project",
@@ -123,6 +132,20 @@ export default defineType({
       ],
       description: "Methodologies applied by the project",
       group: "info",
+    }),
+    defineField({
+      name: "ccbs",
+      description: "Additional certifications and co-benefits",
+      group: "info",
+      type: "array",
+      of: [
+        {
+          type: "string",
+          options: {
+            list: ccbs,
+          },
+        },
+      ],
     }),
     {
       name: "region",
