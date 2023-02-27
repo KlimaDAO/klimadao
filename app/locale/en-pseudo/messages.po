@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:799
+#: components/views/Offset/index.tsx:785
 msgid "Beneficiary 0x address (optional)"
 msgstr ""
 
-#: components/views/Offset/index.tsx:787
+#: components/views/Offset/index.tsx:773
 msgid "Beneficiary name"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "error.404.page.text"
 msgstr ""
 
-#: components/views/Offset/index.tsx:854
+#: components/views/Offset/index.tsx:840
 msgid "fiat.max_quantity"
 msgstr ""
 
@@ -505,11 +505,11 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:837
+#: components/views/Offset/index.tsx:823
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:722
+#: components/views/Offset/index.tsx:702
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -517,11 +517,11 @@ msgstr ""
 msgid "offset.checkout"
 msgstr ""
 
-#: components/views/Offset/index.tsx:802
+#: components/views/Offset/index.tsx:788
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:682
+#: components/views/Offset/index.tsx:868
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
@@ -537,15 +537,15 @@ msgstr ""
 msgid "offset.insufficient_project_tonnage"
 msgstr ""
 
-#: components/views/Offset/index.tsx:762
+#: components/views/Offset/index.tsx:746
 msgid "offset.invalid_project_tonnage"
 msgstr ""
 
-#: components/views/Offset/index.tsx:769
+#: components/views/Offset/index.tsx:755
 msgid "offset.min_quantity_fiat"
 msgstr ""
 
-#: components/views/Offset/index.tsx:686
+#: components/views/Offset/index.tsx:872
 msgid "offset.modal_payWith.title"
 msgstr ""
 
@@ -553,11 +553,11 @@ msgstr ""
 msgid "offset.number_of_retirements"
 msgstr ""
 
-#: components/views/Offset/index.tsx:750
+#: components/views/Offset/index.tsx:734
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:909
+#: components/views/Offset/index.tsx:915
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -569,19 +569,19 @@ msgstr ""
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:779
+#: components/views/Offset/index.tsx:765
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:813
+#: components/views/Offset/index.tsx:799
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:822
+#: components/views/Offset/index.tsx:808
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:867
+#: components/views/Offset/index.tsx:853
 msgid "offset.retiring"
 msgstr ""
 
@@ -689,11 +689,11 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:833
+#: components/views/Offset/index.tsx:819
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:882
+#: components/views/Offset/index.tsx:888
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -858,7 +858,7 @@ msgstr ""
 msgid "shared.login"
 msgstr ""
 
-#: components/views/Bond/index.tsx:396
+#: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:155
 #: components/views/Offset/index.tsx:453

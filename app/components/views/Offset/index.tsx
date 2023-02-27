@@ -678,26 +678,6 @@ export const Offset = (props: Props) => {
           />
 
           {!isRetiringOwnCarbon && (
-            <DropdownWithModal
-              label={t({
-                id: "offset.dropdown_payWith.label",
-                message: "Pay with",
-              })}
-              modalTitle={t({
-                id: "offset.modal_payWith.title",
-                message: "Select Token",
-              })}
-              currentItem={paymentMethod}
-              items={paymentMethodItems}
-              isModalOpen={isInputTokenModalOpen}
-              onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-              onItemSelect={(str) =>
-                handleSelectInputToken(str as OffsetPaymentMethod)
-              }
-            />
-          )}
-
-          {!isRetiringOwnCarbon && (
             <SelectiveRetirement
               projectAddress={projectAddress}
               selectedRetirementToken={selectedRetirementToken}
@@ -883,6 +863,25 @@ export const Offset = (props: Props) => {
             name={selectedRetirementToken}
             labelAlignment="start"
           />
+          {!isRetiringOwnCarbon && (
+            <DropdownWithModal
+              label={t({
+                id: "offset.dropdown_payWith.label",
+                message: "Pay with",
+              })}
+              modalTitle={t({
+                id: "offset.modal_payWith.title",
+                message: "Select Token",
+              })}
+              currentItem={paymentMethod}
+              items={paymentMethodItems}
+              isModalOpen={isInputTokenModalOpen}
+              onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+              onItemSelect={(str) =>
+                handleSelectInputToken(str as OffsetPaymentMethod)
+              }
+            />
+          )}
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">

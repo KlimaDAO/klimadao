@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:799
+#: components/views/Offset/index.tsx:785
 msgid "Beneficiary 0x address (optional)"
 msgstr "Beneficiary 0x address (optional)"
 
-#: components/views/Offset/index.tsx:787
+#: components/views/Offset/index.tsx:773
 msgid "Beneficiary name"
 msgstr "Beneficiary name"
 
@@ -386,7 +386,7 @@ msgstr "Connection Error"
 msgid "error.404.page.text"
 msgstr "Sorry, looks like we sent you the wrong way. <0/>Please select a destination from the menu."
 
-#: components/views/Offset/index.tsx:854
+#: components/views/Offset/index.tsx:840
 msgid "fiat.max_quantity"
 msgstr "${0} maximum for credit cards"
 
@@ -505,11 +505,11 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "BACK"
 
-#: components/views/Offset/index.tsx:837
+#: components/views/Offset/index.tsx:823
 msgid "offset.aggregation_fee_tooltip"
 msgstr "This cost includes slippage and the aggregation fee of 1%."
 
-#: components/views/Offset/index.tsx:722
+#: components/views/Offset/index.tsx:702
 msgid "offset.amount_in_tonnes"
 msgstr "How many tonnes of carbon would you like to offset?"
 
@@ -517,11 +517,11 @@ msgstr "How many tonnes of carbon would you like to offset?"
 msgid "offset.checkout"
 msgstr "Checkout"
 
-#: components/views/Offset/index.tsx:802
+#: components/views/Offset/index.tsx:788
 msgid "offset.default_retirement_address"
 msgstr "Defaults to the connected wallet address"
 
-#: components/views/Offset/index.tsx:682
+#: components/views/Offset/index.tsx:868
 msgid "offset.dropdown_payWith.label"
 msgstr "Pay with"
 
@@ -537,15 +537,15 @@ msgstr "INPUT TOKEN INCOMPATIBLE"
 msgid "offset.insufficient_project_tonnage"
 msgstr "Insufficient project tonnage"
 
-#: components/views/Offset/index.tsx:762
+#: components/views/Offset/index.tsx:746
 msgid "offset.invalid_project_tonnage"
 msgstr "Cannot exceed available tonnage of the project selected"
 
-#: components/views/Offset/index.tsx:769
+#: components/views/Offset/index.tsx:755
 msgid "offset.min_quantity_fiat"
 msgstr "Minimum 1-tonne purchase. Whole integers only."
 
-#: components/views/Offset/index.tsx:686
+#: components/views/Offset/index.tsx:872
 msgid "offset.modal_payWith.title"
 msgstr "Select Token"
 
@@ -553,11 +553,11 @@ msgstr "Select Token"
 msgid "offset.number_of_retirements"
 msgstr "Total retirements"
 
-#: components/views/Offset/index.tsx:750
+#: components/views/Offset/index.tsx:734
 msgid "offset.offset_quantity"
 msgstr "Enter quantity to offset"
 
-#: components/views/Offset/index.tsx:909
+#: components/views/Offset/index.tsx:915
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
@@ -569,19 +569,19 @@ msgstr "Retire specific project tokens (optional)"
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
-#: components/views/Offset/index.tsx:779
+#: components/views/Offset/index.tsx:765
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 
-#: components/views/Offset/index.tsx:813
+#: components/views/Offset/index.tsx:799
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
-#: components/views/Offset/index.tsx:822
+#: components/views/Offset/index.tsx:808
 msgid "offset.retirement_purpose"
 msgstr "Describe the purpose of this retirement"
 
-#: components/views/Offset/index.tsx:867
+#: components/views/Offset/index.tsx:853
 msgid "offset.retiring"
 msgstr "Retiring"
 
@@ -689,11 +689,11 @@ msgstr "View Retirements"
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
-#: components/views/Offset/index.tsx:833
+#: components/views/Offset/index.tsx:819
 msgid "offset_cost"
 msgstr "Cost"
 
-#: components/views/Offset/index.tsx:882
+#: components/views/Offset/index.tsx:888
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
@@ -858,7 +858,7 @@ msgstr "Loading..."
 msgid "shared.login"
 msgstr "Login"
 
-#: components/views/Bond/index.tsx:396
+#: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:155
 #: components/views/Offset/index.tsx:453

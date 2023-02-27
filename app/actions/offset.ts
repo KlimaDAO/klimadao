@@ -281,7 +281,7 @@ export const getProjectTokenBalances = (params: {
                       symbol
                       id
                     }
-                    tokenAmount
+                    amount
                   }
                 }
               }
