@@ -48,7 +48,7 @@ export const config = {
     },
     api: {
       mainnet: "https://api.carbonmark.com/api",
-      testnet: "https://marketplace-api-najada.vercel.app/api", // TODO https://staging-api.carbonmark.com
+      testnet: "https://staging-api.carbonmark.com/api",
     },
   },
 } as const;
