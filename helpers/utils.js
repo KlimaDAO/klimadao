@@ -3,23 +3,6 @@ const { GET_COUNTRIES } = require("../queries/countries");
 const { GET_CATEGORIES, GET_POOLED_PROJECT_CAT, GET_POOLED_PROJECT_COUNTRY, GET_POOLED_PROJECT_VINTAGE } = require('../queries/categories');
 const { GET_VINTAGES } = require('../queries/vintage.js');
 
-async function extractPriceInUSD(pairs0, pairs1) {
-    if (pairs0 && pairs0.length > 0) {
-        for (const pair of pairs0) {
-            if (pair.token1.symbol === "USDC") {
-                return parseFloat(pair.token1Price);
-            }
-        }
-    }
-    if (pairs1 && pairs1.length > 0) {
-        for (const pair of pairs1) {
-            if (pair.token0.symbol === "USDC") {
-                return parseFloat(pair.token0Price);
-            }
-        }
-    }
-}
-
 async function getAllVintages() {
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
 
@@ -56,7 +39,6 @@ async function getAllCategories() {
 async function getAllCountries() {
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_COUNTRIES);
 
-
     const uniqueValues = new Set();
 
     data.data.countries.forEach(item => uniqueValues.add(item.id));
@@ -73,7 +55,6 @@ async function getAllCountries() {
 
 // Export the Apollo client instance and the executeGraphQLQuery function
 module.exports = {
-    extractPriceInUSD,
     getAllVintages,
     getAllCategories,
     getAllCountries

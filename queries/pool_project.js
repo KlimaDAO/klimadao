@@ -21,6 +21,10 @@ const POOL_PROJECTS = gql`
             totalRetired
             currentSupply
             storageMethod
+            balanceUBO
+            balanceNBO
+            balanceNCT
+            balanceBCT
         }
     }
     `
