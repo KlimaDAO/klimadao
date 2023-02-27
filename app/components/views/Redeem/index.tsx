@@ -46,20 +46,21 @@ import {
 import { getApprovalValue } from "./lib/getApprovalValue";
 import { PaymentMethodInput } from "./PaymentMethodInput";
 import { RedeemLayout } from "./RedeemLayout";
+import { RedeemSuccessModal } from "./RedeemSuccessModal";
 
 import * as styles from "./styles";
 
 /* TODO
-  - URL params support
+  - URL params support ✅
   - debounce cost (if required?)
   - setSelectedRetirementToken is a useEffect on a few conditons
   - default beneficiary address to connected wallet
-  - handle approval
+  - handle approval ✅?
 */
 
 const defaultValues = {
   retirementToken: "bct",
-  projectAddress: "", // 0x2F800Db0fdb5223b3C3f354886d907A671414A7F
+  projectAddress: "0x2f800db0fdb5223b3c3f354886d907a671414a7f", // 0x2F800Db0fdb5223b3C3f354886d907A671414A7F
   project: {},
   quantity: 0,
   paymentMethod: "usdc", //todo fiat default
@@ -86,6 +87,7 @@ export const Redeem = (props) => {
   const [paymentMethodModalOpen, setPaymentMethodModalOpen] = useState(false);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
+  const [redeemTransactionHash, setRedeemTransactionHash] = useState("");
 
   const params = useOffsetParams();
   const dispatch = useAppDispatch();
@@ -96,6 +98,7 @@ export const Redeem = (props) => {
     })
   );
 
+  const isLoading = props.isConnected && !allowances?.bct;
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
@@ -109,6 +112,7 @@ export const Redeem = (props) => {
   // form control
   const {
     register,
+    reset,
     handleSubmit,
     formState,
     setValue,
@@ -132,6 +136,7 @@ export const Redeem = (props) => {
   const setProjectAddress = (address) => setValue("projectAddress", address);
 
   /** Initialize input from params after they are extracted, validated & stripped */
+  // project address is removed when retirementToken is a param
   useEffect(() => {
     if (params.inputToken) {
       setValue("paymentMethod", params.inputToken);
@@ -225,6 +230,12 @@ export const Redeem = (props) => {
     !!Number(allowances?.[paymentMethod]) &&
     Number(cost) <= Number(allowances?.[paymentMethod]); // Caution: Number trims values down to 17 decimal places of precision
 
+  const insufficientBalance =
+    props.isConnected &&
+    !isLoading &&
+    paymentMethod !== "fiat" &&
+    Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+
   const handleApprove = async () => {
     try {
       if (!props.provider || paymentMethod === "fiat" || !cost) return;
@@ -256,7 +267,7 @@ export const Redeem = (props) => {
     try {
       if (!props.address || !props.provider || paymentMethod === "fiat") return;
 
-      const { receipt } = await redeemCarbonTransaction({
+      const receipt = await redeemCarbonTransaction({
         paymentMethod,
         poolToken: retirementToken,
         maxAmountIn: cost,
@@ -268,8 +279,7 @@ export const Redeem = (props) => {
 
       closeTransactionModal();
       // this opens RedeemSuccessModal
-      setRetirementTransactionHash(receipt.transactionHash);
-      setRetirementTotals(retirementTotals);
+      setRedeemTransactionHash(receipt.transactionHash);
     } catch (e) {
       return;
     }
@@ -284,139 +294,134 @@ export const Redeem = (props) => {
         }),
         onClick: props.toggleModal,
       };
-      // } else if (isLoading || cost === "loading") {
+      // } else if (isLoading || !cost) {
       //   return {
       //     label: t({ id: "shared.loading", message: "Loading..." }),
       //     disabled: true,
       //   };
-      // } else if (isRedirecting) {
-      //   return {
-      //     label: t({
-      //       id: "shared.redirecting_checkout",
-      //       message: "Redirecting to checkout...",
-      //     }),
-      //     disabled: true,
-      //   };
-      // } else if (paymentMethod !== "fiat" && insufficientBalance) {
-      //   return {
-      //     label: t({
-      //       id: "shared.insufficient_balance",
-      //       message: "Insufficient balance",
-      //     }),
-      //     disabled: true,
-      //   };
+    } else if (paymentMethod !== "fiat" && insufficientBalance) {
+      return {
+        label: t({
+          id: "shared.insufficient_balance",
+          message: "Insufficient balance",
+        }),
+        disabled: true,
+      };
     } else if (paymentMethod !== "fiat" && !hasApproval) {
       return {
         label: t({ id: "shared.approve", message: "Approve" }),
         onClick: () => setShowTransactionModal(true),
       };
     }
-    // else if (paymentMethod === "fiat") {
-    //   return {
-    //     label: t({ id: "offset.checkout", message: "Checkout" }),
-    //     onClick: handleFiat,
-    //   };
-    // }
     return {
       label: t({ id: "shared.redeem", message: "Redeem carbon" }),
-      // onClick: () => setShowTransactionModal(true),
+      onClick: () => setShowTransactionModal(true),
     };
   };
 
   return (
-    <RedeemLayout>
-      <div className={styles.offsetCard_ui}>
-        <DropdownWithModal
-          label={t({
-            id: "redeem.select_carbon_pool",
-            message: "Select carbon pool type",
-          })}
-          modalTitle={t({
-            id: "redeem.select_carbon_pool.title",
-            message: "Select Carbon Type",
-          })}
-          currentItem={watch("retirementToken")}
-          items={retirementTokenItems(watch("paymentMethod"))}
-          isModalOpen={retirementTokenModalOpen}
-          onToggleModal={() => setRetirementTokenModalOpen((s) => !s)}
-          onItemSelect={(value) => setValue("retirementToken", value)}
-        />
+    <>
+      <RedeemLayout>
+        <div className={styles.offsetCard_ui}>
+          <DropdownWithModal
+            label={t({
+              id: "redeem.select_carbon_pool",
+              message: "Select carbon pool type",
+            })}
+            modalTitle={t({
+              id: "redeem.select_carbon_pool.title",
+              message: "Select Carbon Type",
+            })}
+            currentItem={watch("retirementToken")}
+            items={retirementTokenItems(watch("paymentMethod"))}
+            isModalOpen={retirementTokenModalOpen}
+            onToggleModal={() => setRetirementTokenModalOpen((s) => !s)}
+            onItemSelect={(value) => setValue("retirementToken", value)}
+          />
 
-        <SelectiveRetirement
-          label="Choose a carbon project to redeem"
-          projectAddress={watch("projectAddress")}
-          selectedRetirementToken={retirementToken}
-          setProjectAddress={setProjectAddress}
-          selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject}
-          isRedeem={true}
-        />
+          <SelectiveRetirement
+            label="Choose a carbon project to redeem"
+            projectAddress={watch("projectAddress")}
+            selectedRetirementToken={retirementToken}
+            setProjectAddress={setProjectAddress}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
+            isRedeem={true}
+          />
 
-        <InputField
-          id="quantity"
-          inputProps={{
-            id: "quantity",
-            placeholder: "Enter quantity to redeem",
-            type: "number",
-            onKeyDown: (e) => {
-              if (paymentMethod === "fiat" && ["."].includes(e.key)) {
-                e.preventDefault();
-              }
-            },
-            ...register("quantity"),
+          <InputField
+            id="quantity"
+            inputProps={{
+              id: "quantity",
+              placeholder: "Enter quantity to redeem",
+              type: "number",
+              onKeyDown: (e) => {
+                if (paymentMethod === "fiat" && ["."].includes(e.key)) {
+                  e.preventDefault();
+                }
+              },
+              ...register("quantity"),
+            }}
+            label="How much would you like to redeem?"
+            errorMessage={
+              redeemErrorTranslationsMap[
+                errors.quantity?.message as RedeemErrorId
+              ]
+            }
+          />
+
+          <CostDisplay
+            cost={cost}
+            paymentMethod={watch("paymentMethod")}
+            warn={false}
+          />
+
+          <PaymentMethodInput
+            selectedPaymentMethod={watch("paymentMethod")}
+            isModalOpen={paymentMethodModalOpen}
+            onToggleModal={() => setPaymentMethodModalOpen((s) => !s)}
+            onPaymentMethodSelect={(value) => setValue("paymentMethod", value)}
+          />
+
+          <ButtonPrimary
+            disabled={!isDirty}
+            type="submit"
+            {...getButtonProps()}
+          />
+        </div>
+
+        {showTransactionModal && paymentMethod !== "fiat" && (
+          <TransactionModal
+            title={
+              <Text t="h4" className={styles.redeemCard_header_title}>
+                <ParkOutlined />
+                <Trans>Redeem Carbon</Trans>
+              </Text>
+            }
+            onCloseModal={closeTransactionModal}
+            token={paymentMethod}
+            spender={"retirementAggregatorV2"}
+            value={cost.toString()}
+            approvalValue={getApprovalValue({ cost, paymentMethod })}
+            status={fullStatus}
+            onResetStatus={() => setStatus(null)}
+            onApproval={handleApprove}
+            hasApproval={true}
+            // hasApproval={hasApproval}
+            onSubmit={handleRedeem}
+          />
+        )}
+      </RedeemLayout>
+
+      {redeemTransactionHash && (
+        <RedeemSuccessModal
+          onSuccessModalClose={() => {
+            setRedeemTransactionHash("");
+            reset();
           }}
-          label="How much would you like to redeem?"
-          errorMessage={
-            redeemErrorTranslationsMap[
-              errors.quantity?.message as RedeemErrorId
-            ]
-          }
-        />
-
-        {/* TODO: calculate cost */}
-        <CostDisplay
-          cost={cost}
-          paymentMethod={watch("paymentMethod")}
-          warn={false}
-        />
-
-        <PaymentMethodInput
-          selectedPaymentMethod={watch("paymentMethod")}
-          isModalOpen={paymentMethodModalOpen}
-          onToggleModal={() => setPaymentMethodModalOpen((s) => !s)}
-          onPaymentMethodSelect={(value) => setValue("paymentMethod", value)}
-        />
-
-        <ButtonPrimary
-          // disabled={!isDirty}
-          type="submit"
-          {...getButtonProps()}
-          // label={submitting ? "Redeeming" : "Redeem"} // TODO}
-          // onClick={handleSubmit(onSubmit)}
-          onClick={() => setShowTransactionModal(true)}
-        />
-      </div>
-
-      {showTransactionModal && paymentMethod !== "fiat" && (
-        <TransactionModal
-          title={
-            <Text t="h4" className={styles.redeemCard_header_title}>
-              <ParkOutlined />
-              <Trans id="offset.retire_carbon">Redeem Carbon</Trans>
-            </Text>
-          }
-          onCloseModal={closeTransactionModal}
-          token={paymentMethod}
-          spender={"retirementAggregatorV2"}
-          value={cost.toString()}
-          approvalValue={getApprovalValue({ cost, paymentMethod })}
-          status={fullStatus}
-          onResetStatus={() => setStatus(null)}
-          onApproval={handleApprove}
-          hasApproval={hasApproval}
-          onSubmit={handleRedeem}
+          retirementUrl="#"
         />
       )}
-    </RedeemLayout>
+    </>
   );
 };
