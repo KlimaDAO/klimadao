@@ -2,7 +2,6 @@
 
 const fp = require('fastify-plugin')
 const fb = require('firebase-admin')
-var serviceAccount = require("../serviceAccountKey.json");
 var admin = require("firebase-admin");
 
 /**
