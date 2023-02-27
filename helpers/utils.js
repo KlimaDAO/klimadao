@@ -53,7 +53,6 @@ async function getAllCountries() {
 }
 
 
-// Export the Apollo client instance and the executeGraphQLQuery function
 module.exports = {
     getAllVintages,
     getAllCategories,
