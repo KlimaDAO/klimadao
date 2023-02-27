@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 15:37+0000\n"
+"POT-Creation-Date: 2023-02-27 22:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -317,10 +317,14 @@ msgid "choose_bond.ubo.description"
 msgstr "Compensación universal basica C3"
 
 #: components/views/Home/index.tsx:170
-msgid "connectModal.continue"
-msgstr "o continuar con"
+msgid "connectModal.torus"
+msgstr ""
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:174
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/views/Home/index.tsx:183
 msgid "connect_modal.connecting"
 msgstr "Conectando..."
 
@@ -332,13 +336,9 @@ msgstr "Hemos tenido problemas para realizar la conexión. Por favor, inténtelo
 msgid "connect_modal.error_message_refused"
 msgstr "El usuario rechazó la conexión."
 
-#: components/views/Home/index.tsx:183
+#: components/views/Home/index.tsx:187
 msgid "connect_modal.error_title"
 msgstr "Error de conexión"
-
-#: components/views/Home/index.tsx:175
-msgid "connect_modal.sign_in"
-msgstr "Iniciar sesión / Conectar"
 
 #: components/views/errors/Custom404.tsx:19
 msgid "error.404.page.text"
@@ -837,6 +837,10 @@ msgstr "Cantidad inválida"
 #: components/views/Wrap/index.tsx:204
 msgid "shared.loading"
 msgstr "Cargando..."
+
+#: components/views/Home/index.tsx:179
+msgid "shared.login"
+msgstr ""
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63

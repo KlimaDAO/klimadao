@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 15:37+0000\n"
+"POT-Creation-Date: 2023-02-27 22:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -441,11 +441,16 @@ msgstr "职业生涯"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
-msgid "connectModal.continue"
-msgstr "或继续"
+msgid "connectModal.torus"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+#: components/pages/Pledge/index.tsx:108
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
@@ -457,15 +462,10 @@ msgstr "我们在连接时遇到了一些问题，请重试。"
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.error_title"
 msgstr "连接错误"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-#: components/pages/Pledge/index.tsx:109
-msgid "connect_modal.sign_in"
-msgstr "登录/连接"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -1221,7 +1221,7 @@ msgstr "添加钱包"
 msgid "pledges.form.awaiting_signature"
 msgstr "等待签名..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.confirm_delete"
 msgstr "确认移除"
 
@@ -1233,7 +1233,7 @@ msgstr "移除"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "取消"
 
-#: components/pages/Pledge/index.tsx:204
+#: components/pages/Pledge/index.tsx:208
 msgid "pledges.form.error"
 msgstr "输入钱包地址, .klima 或 .eth 域"
 
@@ -1373,7 +1373,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:185
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.title"
 msgstr "你的承诺"
 
@@ -1409,7 +1409,7 @@ msgstr "正在连接..."
 msgid "pledges.home.hero.create"
 msgstr "创建承诺"
 
-#: components/pages/Pledge/index.tsx:162
+#: components/pages/Pledge/index.tsx:166
 msgid "pledges.home.hero.learn_more"
 msgstr "更多内容"
 
@@ -1417,15 +1417,15 @@ msgstr "更多内容"
 msgid "pledges.home.hero.view"
 msgstr "查看您的承诺"
 
-#: components/pages/Pledge/index.tsx:198
+#: components/pages/Pledge/index.tsx:202
 msgid "pledges.home.search.label"
 msgstr "ENS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:192
+#: components/pages/Pledge/index.tsx:196
 msgid "pledges.home.search.placeholder"
 msgstr "输入 ENS, KNS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:218
+#: components/pages/Pledge/index.tsx:222
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 
@@ -1889,6 +1889,11 @@ msgstr "信息"
 #: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "正在加载..."
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
+msgid "shared.login"
+msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46

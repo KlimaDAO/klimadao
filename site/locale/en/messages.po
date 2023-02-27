@@ -447,11 +447,16 @@ msgstr "Careers"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
-msgid "connectModal.continue"
-msgstr "or continue with"
+msgid "connectModal.torus"
+msgstr "social or email"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+#: components/pages/Pledge/index.tsx:108
+msgid "connectModal.wallet"
+msgstr "connect a wallet"
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -463,15 +468,10 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-#: components/pages/Pledge/index.tsx:109
-msgid "connect_modal.sign_in"
-msgstr "Sign In / Connect"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -1227,7 +1227,7 @@ msgstr "Add wallet"
 msgid "pledges.form.awaiting_signature"
 msgstr "Awaiting signature..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.confirm_delete"
 msgstr "confirm removal"
 
@@ -1239,7 +1239,7 @@ msgstr "remove"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancel"
 
-#: components/pages/Pledge/index.tsx:204
+#: components/pages/Pledge/index.tsx:208
 msgid "pledges.form.error"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
@@ -1379,7 +1379,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:185
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
@@ -1415,7 +1415,7 @@ msgstr "Connecting..."
 msgid "pledges.home.hero.create"
 msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:162
+#: components/pages/Pledge/index.tsx:166
 msgid "pledges.home.hero.learn_more"
 msgstr "Learn more"
 
@@ -1423,15 +1423,15 @@ msgstr "Learn more"
 msgid "pledges.home.hero.view"
 msgstr "View your pledge"
 
-#: components/pages/Pledge/index.tsx:198
+#: components/pages/Pledge/index.tsx:202
 msgid "pledges.home.search.label"
 msgstr "ENS or 0x address"
 
-#: components/pages/Pledge/index.tsx:192
+#: components/pages/Pledge/index.tsx:196
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
-#: components/pages/Pledge/index.tsx:218
+#: components/pages/Pledge/index.tsx:222
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
@@ -1895,6 +1895,11 @@ msgstr "Info"
 #: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "Loading..."
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
+msgid "shared.login"
+msgstr "Login"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46

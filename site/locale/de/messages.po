@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 15:37+0000\n"
+"POT-Creation-Date: 2023-02-27 22:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -441,11 +441,16 @@ msgstr "Karriere"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
-msgid "connectModal.continue"
-msgstr "oder fortfahren mit"
+msgid "connectModal.torus"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+#: components/pages/Pledge/index.tsx:108
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
@@ -457,15 +462,10 @@ msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 msgid "connect_modal.error_message_refused"
 msgstr "Benutzer verweigert Verbindung."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-#: components/pages/Pledge/index.tsx:109
-msgid "connect_modal.sign_in"
-msgstr "Anmelden / Verbinden"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -1225,7 +1225,7 @@ msgstr "Wallet hinzufügen"
 msgid "pledges.form.awaiting_signature"
 msgstr "Warte auf Unterschrift..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.confirm_delete"
 msgstr "entfernen bestätigen"
 
@@ -1237,7 +1237,7 @@ msgstr "entfernen"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "abbrechen"
 
-#: components/pages/Pledge/index.tsx:204
+#: components/pages/Pledge/index.tsx:208
 msgid "pledges.form.error"
 msgstr "Gib eine Walletaddresse oder eine .klima- oder .eth-Domain ein"
 
@@ -1377,7 +1377,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Versprechen speichern"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:185
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.title"
 msgstr "Dein Pledge"
 
@@ -1413,7 +1413,7 @@ msgstr "Verbinde..."
 msgid "pledges.home.hero.create"
 msgstr "Zusicherung erstellen"
 
-#: components/pages/Pledge/index.tsx:162
+#: components/pages/Pledge/index.tsx:166
 msgid "pledges.home.hero.learn_more"
 msgstr "Mehr erfahren"
 
@@ -1421,15 +1421,15 @@ msgstr "Mehr erfahren"
 msgid "pledges.home.hero.view"
 msgstr "Ihren Pledge ansehen"
 
-#: components/pages/Pledge/index.tsx:198
+#: components/pages/Pledge/index.tsx:202
 msgid "pledges.home.search.label"
 msgstr "ENS- oder 0x-Adresse"
 
-#: components/pages/Pledge/index.tsx:192
+#: components/pages/Pledge/index.tsx:196
 msgid "pledges.home.search.placeholder"
 msgstr "ENS-, KNS- oder 0x-Adresse eingeben"
 
-#: components/pages/Pledge/index.tsx:218
+#: components/pages/Pledge/index.tsx:222
 msgid "pledges.home.search.submit"
 msgstr "Suchen"
 
@@ -1893,6 +1893,11 @@ msgstr "Info"
 #: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "Lade..."
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
+msgid "shared.login"
+msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46

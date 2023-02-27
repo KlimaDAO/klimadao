@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 15:37+0000\n"
+"POT-Creation-Date: 2023-02-27 22:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -319,10 +319,14 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
 #: components/views/Home/index.tsx:170
-msgid "connectModal.continue"
-msgstr "oder weiter mit"
+msgid "connectModal.torus"
+msgstr ""
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:174
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/views/Home/index.tsx:183
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
@@ -334,13 +338,9 @@ msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 msgid "connect_modal.error_message_refused"
 msgstr "Benutzer verweigerte Verbindung."
 
-#: components/views/Home/index.tsx:183
+#: components/views/Home/index.tsx:187
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
-
-#: components/views/Home/index.tsx:175
-msgid "connect_modal.sign_in"
-msgstr "Anmelden / Verbinden"
 
 #: components/views/errors/Custom404.tsx:19
 msgid "error.404.page.text"
@@ -843,6 +843,10 @@ msgstr "Ungültige Menge"
 #: components/views/Wrap/index.tsx:204
 msgid "shared.loading"
 msgstr "Lade..."
+
+#: components/views/Home/index.tsx:179
+msgid "shared.login"
+msgstr ""
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63

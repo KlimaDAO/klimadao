@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 15:37+0000\n"
+"POT-Creation-Date: 2023-02-27 22:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,11 +443,16 @@ msgstr "Carrières"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
-msgid "connectModal.continue"
-msgstr "ou continuer avec"
+msgid "connectModal.torus"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+#: components/pages/Pledge/index.tsx:108
+msgid "connectModal.wallet"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
@@ -459,15 +464,10 @@ msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-#: components/pages/Pledge/index.tsx:109
-msgid "connect_modal.sign_in"
-msgstr "S'identifier / Se connecter"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -1226,7 +1226,7 @@ msgstr "Ajouter un portefeuille"
 msgid "pledges.form.awaiting_signature"
 msgstr "En attente de signature..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.confirm_delete"
 msgstr "Confirmer la compensation"
 
@@ -1238,7 +1238,7 @@ msgstr "supprimer"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "annuler"
 
-#: components/pages/Pledge/index.tsx:204
+#: components/pages/Pledge/index.tsx:208
 msgid "pledges.form.error"
 msgstr "Entrez une adresse de portefeuille, un domaine .klima ou .eth"
 
@@ -1378,7 +1378,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Sauvegarder l'engagement"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:185
+#: components/pages/Pledge/PledgeDashboard/index.tsx:189
 msgid "pledges.form.title"
 msgstr "Votre engagement"
 
@@ -1414,7 +1414,7 @@ msgstr "Connexion en cours..."
 msgid "pledges.home.hero.create"
 msgstr "Créer un engagement"
 
-#: components/pages/Pledge/index.tsx:162
+#: components/pages/Pledge/index.tsx:166
 msgid "pledges.home.hero.learn_more"
 msgstr "En savoir plus"
 
@@ -1422,15 +1422,15 @@ msgstr "En savoir plus"
 msgid "pledges.home.hero.view"
 msgstr "Voir votre engagement"
 
-#: components/pages/Pledge/index.tsx:198
+#: components/pages/Pledge/index.tsx:202
 msgid "pledges.home.search.label"
 msgstr "Adresse ENS ou 0x"
 
-#: components/pages/Pledge/index.tsx:192
+#: components/pages/Pledge/index.tsx:196
 msgid "pledges.home.search.placeholder"
 msgstr "Entrez une adresse ENS, KNS ou 0x"
 
-#: components/pages/Pledge/index.tsx:218
+#: components/pages/Pledge/index.tsx:222
 msgid "pledges.home.search.submit"
 msgstr "Recherche"
 
@@ -1896,6 +1896,11 @@ msgstr "Informations"
 #: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "shared.loading"
 msgstr "Chargement..."
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:171
+#: components/pages/Pledge/index.tsx:113
+msgid "shared.login"
+msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
