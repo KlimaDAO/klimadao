@@ -222,7 +222,7 @@ interface ProjectTokenHolding {
     symbol: string;
     id: string; // address
   };
-  tokenAmount: string; // bignumber string
+  amount: string; // bignumber string
 }
 
 export const approveProjectToken = async (params: {
@@ -316,11 +316,11 @@ export const getProjectTokenBalances = (params: {
       // combine with balances and set each object to redux state
       const projectTokenBalances = holdings
         .reduce<ProjectTokenBalance[]>(
-          (arr, { token, tokenAmount }, i) => [
+          (arr, { token, amount }, i) => [
             ...arr,
             {
               address: token.id,
-              quantity: utils.formatUnits(tokenAmount, 18),
+              quantity: utils.formatUnits(amount, 18),
               symbol: token.symbol,
               allowance: allowances[i], // for performance, fetch the allowance on-the-fly when they select it in the dropdown
             },
