@@ -9,6 +9,8 @@ const { POOLED_PROJECTS, getPooledProjectsQuery } = require('../queries/pooled_p
 const { POOL_PROJECTS } = require('../queries/pool_project.js');
 const { POOL_PRICE } = require('../queries/pool_price_in_usdc.js');
 const { getAllVintages, getAllCategories, getAllCountries, extractPriceInUSD } = require('../helpers/utils.js');
+const { getSanityClient } = require('../sanity.js');
+const { fetchProjects } = require('../sanity/queries.js');
 
 module.exports = async function (fastify, opts) {
 
@@ -38,35 +40,34 @@ module.exports = async function (fastify, opts) {
             }
         },
         handler: async function (request, reply) {
-            var { country, category , search, vintage } = (request.query);
+            var { country, category, search, vintage } = (request.query);
 
-                if (category) {
-                    category = category.split(",")
-                } else {
-                    category = await getAllCategories()
-                }
-                if (country) {
-                    country = country.split(",")
-                } else {
-                    country = await getAllCountries()
-                }
-                if (vintage) {
-                    vintage = vintage.split(",")
-                } else {
-                    vintage = await getAllVintages();
-                }
-              
+            if (category) {
+                category = category.split(",")
+            } else {
+                category = await getAllCategories()
+            }
+            if (country) {
+                country = country.split(",")
+            } else {
+                country = await getAllCountries()
+            }
+            if (vintage) {
+                vintage = vintage.split(",")
+            } else {
+                vintage = await getAllVintages();
+            }
 
-                if (!search) {
-                    search = '';
-                }
 
-                console.log({ country, category , search, vintage } );
-            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, { country, category , search, vintage }
-                );
+            if (!search) {
+                search = '';
+            }
 
-                
-            let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS, { country, category , search, vintage })).data;
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, { country, category, search, vintage }
+            );
+
+
+            let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS, { country, category, search, vintage })).data;
             const projects = data.data.projects.map(function (project) {
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
@@ -88,7 +89,6 @@ module.exports = async function (fastify, opts) {
                 return { ...project, price }
             });
 
-            console.log(pooledProjectsData.carbonOffsets);
 
             const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
                 let country = project.country.length ?
@@ -228,8 +228,7 @@ module.exports = async function (fastify, opts) {
                         project.prices = [];
                         if (poolProject) {
                             if (poolProject.balanceUBO != "0") {
-                                console.log(poolProject.balanceUBO)
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_UBO_POOL});
+                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_UBO_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceUBO,
                                     tokenAddress: process.env.UBO_POOL,
@@ -238,7 +237,7 @@ module.exports = async function (fastify, opts) {
                                 })
                             }
                             if (poolProject.balanceNBO != "0") {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NBO_POOL});
+                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NBO_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNBO,
                                     tokenAddress: process.env.NBO_POOL,
@@ -247,7 +246,7 @@ module.exports = async function (fastify, opts) {
                                 })
                             }
                             if (poolProject.balanceNTC != "0") {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id:  process.env.LP_NTC_POOL});
+                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NTC_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNCT,
                                     tokenAddress: process.env.NTC_POOL,
@@ -256,8 +255,7 @@ module.exports = async function (fastify, opts) {
                                 })
                             }
                             if (poolProject.balanceBCT != "0") {
-                                console.log(poolProject)
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_BTC_POOL});
+                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_BTC_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceBCT,
                                     tokenAddress: process.env.BTC_POOL,
@@ -272,17 +270,17 @@ module.exports = async function (fastify, opts) {
                 if (project) {
                     if (project.registry == "VCS") {
 
-                        var results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
-                        results = JSON.parse(await results.text());
-                        project.location = {
-                            type: "Feature",
-                            geometry: {
-                                type: "Point",
-                                coordinates: [results.location.longitude, results.location.latitude]
-                                 // note here that geojson is different from other specs: it uses [x, y] not [y, x]
-                            }
-                        }
+                        const sanity = getSanityClient();
+
+                        const params = {
+                            registry: project.registry,
+                            registryProjectId: id[1],
+                        };
+
+                        const results = await sanity.fetch(fetchProjects, params);
                         project.description = results.description;
+                        project.location = results.geolocation;
+
                     } else if (project.registry == "GS") {
 
                         var results = await fetch(`https://api.goldstandard.org/projects/${id[1]}`)
@@ -297,5 +295,5 @@ module.exports = async function (fastify, opts) {
             }
         })
 
-       
+
 }
