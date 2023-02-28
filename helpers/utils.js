@@ -2,6 +2,8 @@ const { executeGraphQLQuery } = require("../apollo-client");
 const { GET_COUNTRIES } = require("../queries/countries");
 const { GET_CATEGORIES, GET_POOLED_PROJECT_CAT, GET_POOLED_PROJECT_COUNTRY, GET_POOLED_PROJECT_VINTAGE } = require('../queries/categories');
 const { GET_VINTAGES } = require('../queries/vintage.js');
+const { ethers } = require("ethers");
+const { POOL_PRICE } = require("../queries/pool_price_in_usdc");
 
 async function getAllVintages() {
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
@@ -52,13 +54,41 @@ async function getAllCountries() {
     return result;
 }
 function convertArrayToObjects(arr) {
-    return arr.map(function(item) {
-      return { id: item };
+    return arr.map(function (item) {
+        return { id: item };
     });
-  }
+}
 
+async function calculatePoolPrices() {
+
+    var decimals;
+    if (process.env.VERCEL_ENV == "production") {
+        decimals = 10e5;
+    } else {
+        decimals = 10e17;
+    }
+    const results = [];
+
+
+    var pools = [
+        { "ubo": process.env.LP_UBO_POOL }, { "nbo": process.env.LP_NBO_POOL }, { "ntc": process.env.LP_NTC_POOL }, { "btc": process.env.LP_BTC_POOL }
+    ];
+
+    for (let i = 0 ; i < pools.length; i++) {
+        const poolKey = Object.keys(pools[i])[0];
+        const poolAddress = Object.values(pools[i])[0];
+
+
+        const result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: poolAddress });
+
+        results.push({ price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
+    }
+
+    return results;
+}
 
 module.exports = {
+    calculatePoolPrices,
     convertArrayToObjects,
     getAllVintages,
     getAllCategories,
