@@ -1,6 +1,5 @@
 'use strict'
-const { executeGraphQLQuery } = require('../apollo-client.js');
-const { GET_VINTAGES } = require('../queries/vintage.js');
+const { getAllVintages } = require('../helpers/utils.js');
 
 module.exports = async function (fastify, opts) {
 
@@ -21,15 +20,9 @@ module.exports = async function (fastify, opts) {
         },
         handler: async function (request, reply) {
 
-            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
+            const vintages = await getAllVintages()
 
-            const uniqueValues = new Set();
-
-            data.data.projects.forEach(item => uniqueValues.add(item.vintage));
-
-            const result = Array.from(uniqueValues);
-            // Send the transformed projects array as a JSON string in the response
-            return reply.send(JSON.stringify(result));
+            return reply.send(JSON.stringify(vintages));
         }
     })
 }

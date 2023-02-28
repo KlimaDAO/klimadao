@@ -8,7 +8,7 @@ const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
 const { POOLED_PROJECTS, getPooledProjectsQuery } = require('../queries/pooled_projects');
 const { POOL_PROJECTS } = require('../queries/pool_project.js');
 const { POOL_PRICE } = require('../queries/pool_price_in_usdc.js');
-const { getAllVintages, getAllCategories, getAllCountries, extractPriceInUSD } = require('../helpers/utils.js');
+const { getAllVintages, getAllCategories, getAllCountries } = require('../helpers/utils.js');
 const { getSanityClient } = require('../sanity.js');
 const { fetchProjects } = require('../sanity/queries.js');
 

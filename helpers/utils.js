@@ -25,11 +25,11 @@ async function getAllCategories() {
 
     const uniqueValues = new Set();
 
-    data.data.categories.forEach(item => uniqueValues.add(item.id));
+    data.data.categories.forEach(item => uniqueValues.add(...item.id.split(",")));
 
     const pooldata = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, GET_POOLED_PROJECT_CAT);
 
-    pooldata.data.carbonOffsets.forEach(item => uniqueValues.add(item.methodologyCategory));
+    pooldata.data.carbonOffsets.forEach(item => uniqueValues.add(...item.methodologyCategory.split(",")));
 
     const result = Array.from(uniqueValues);
 
@@ -51,9 +51,15 @@ async function getAllCountries() {
 
     return result;
 }
+function convertArrayToObjects(arr) {
+    return arr.map(function(item) {
+      return { id: item };
+    });
+  }
 
 
 module.exports = {
+    convertArrayToObjects,
     getAllVintages,
     getAllCategories,
     getAllCountries

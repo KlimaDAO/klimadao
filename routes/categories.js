@@ -1,8 +1,6 @@
 'use strict';
 
-// Import the executeGraphQLQuery function and the GET_CATEGORIES query
-const { executeGraphQLQuery } = require('../apollo-client.js');
-const { GET_CATEGORIES } = require('../queries/categories');
+const { getAllCategories, convertArrayToObjects } = require('../helpers/utils.js');
 
 // Export an async function that registers a Fastify route
 module.exports = async function (fastify, opts) {
@@ -27,13 +25,10 @@ module.exports = async function (fastify, opts) {
     handler: async function (request, reply) {
       try {
         // Execute the GET_CATEGORIES query and store the result in the 'data' variable
-        const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_CATEGORIES);
-        // If the query returned errors, return a Bad Request response with the first error message
-        if (data.errors) {
-          return reply.status(400).send({ message: data.errors[0].message });
-        }
-        // Otherwise, return the data from the query as a JSON string in the response
-        return reply.send(JSON.stringify(data.data.categories));
+        const categories = await getAllCategories()
+       
+
+        return reply.send(JSON.stringify(convertArrayToObjects(categories)));
       } catch (error) {
         // If an error occurred while executing the query, return a Internal Server Error response
         return reply.status(500).send({ message: 'An internal server error occurred' });
