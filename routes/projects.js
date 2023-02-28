@@ -122,7 +122,8 @@ module.exports = async function (fastify, opts) {
             });
 
             // Send the transformed projects array as a JSON string in the response
-            return reply.send(JSON.stringify(projects.concat(pooledProjects)));
+            return reply.send(JSON.stringify(pooledProjects));
+            //return reply.send(JSON.stringify(projects.concat(pooledProjects)));
         }
     }),
         fastify.route({
