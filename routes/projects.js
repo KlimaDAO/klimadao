@@ -8,7 +8,7 @@ const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
 const { POOLED_PROJECTS, getPooledProjectsQuery } = require('../queries/pooled_projects');
 const { POOL_PROJECTS } = require('../queries/pool_project.js');
 const { POOL_PRICE } = require('../queries/pool_price_in_usdc.js');
-const { getAllVintages, getAllCategories, getAllCountries } = require('../helpers/utils.js');
+const { getAllVintages, getAllCategories, getAllCountries, calculatePoolPrices } = require('../helpers/utils.js');
 const { getSanityClient } = require('../sanity.js');
 const { fetchProjects } = require('../sanity/queries.js');
 
@@ -62,6 +62,7 @@ module.exports = async function (fastify, opts) {
             if (!search) {
                 search = '';
             }
+            const poolPrices = await calculatePoolPrices();
 
             const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, { country, category, search, vintage }
             );
@@ -69,17 +70,32 @@ module.exports = async function (fastify, opts) {
 
             let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS, { country, category, search, vintage })).data;
             const projects = data.data.projects.map(function (project) {
+                const uniqueValues = [];
+                
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
                     if (index != -1) {
                         project.isPoolProject = true;
+
+                        if (pooledProjectsData.carbonOffsets[index].balanceUBO != "0") {
+                            uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
+                                                }
+                        if (pooledProjectsData.carbonOffsets[index].balanceNBO != "0") {
+                            uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
+                        }
+                        if (pooledProjectsData.carbonOffsets[index].balanceNTC != "0") {
+                            uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
+                        }
+                        if (pooledProjectsData.carbonOffsets[index].balanceBCT != "0") {
+                            uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
+                        }
                         delete pooledProjectsData.carbonOffsets[index];
                     }
                 }
 
                 var price = 0;
                 if (project.listings.length) {
-                    const uniqueValues = [];
+                    
                     project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
                     let lowestPrice = uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b));
                     price = lowestPrice;
@@ -90,12 +106,31 @@ module.exports = async function (fastify, opts) {
             });
 
 
-            const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
+            const pooledProjects =  pooledProjectsData.carbonOffsets.map( function (project) {
+
+
+                const uniqueValues = [];
+
+                if (project.balanceUBO != "0") {
+                    uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
+                }
+                if (project.balanceNBO != "0") {
+                    uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
+                }
+                if (project.balanceNTC != "0") {
+                    uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
+                }
+                if (project.balanceBCT != "0") {
+                    uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
+                }
+
                 let country = project.country.length ?
                     {
                         "id": project.country
                     } : null;
 
+            
+               
                 let singleProject = {
                     "id": project.id,
                     "isPoolProject": true,
@@ -111,7 +146,7 @@ module.exports = async function (fastify, opts) {
                         "id": project.methodologyCategory
                     },
                     "country": country,
-                    "price": '1000000000000000000',
+                    "price": uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)),
                     "activities": null,
                     "listings": null,
 
@@ -122,6 +157,7 @@ module.exports = async function (fastify, opts) {
             });
 
             // Send the transformed projects array as a JSON string in the response
+            // return reply.send(JSON.stringify(projects));
             return reply.send(JSON.stringify(projects.concat(pooledProjects)));
         }
     }),

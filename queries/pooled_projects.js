@@ -27,6 +27,10 @@ const POOLED_PROJECTS = gql`
                     totalRetired
                     storageMethod
                     lastUpdate
+                    balanceUBO
+                    balanceNBO
+                    balanceNCT
+                    balanceBCT
                 }
             }
             `
