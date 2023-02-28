@@ -153,11 +153,6 @@ module.exports = async function (fastify, opts) {
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
 
-                // if (id.includes("FAKE")) {
-                //     return reply.send(JSON.stringify(
-                //         fakeProjects
-                //     ))
-                // }
                 var poolProject;
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
@@ -257,7 +252,7 @@ module.exports = async function (fastify, opts) {
                                     leftToSell: poolProject.balanceNCT,
                                     tokenAddress: process.env.NTC_POOL,
                                     singleUnitPrice: result.data.pair.currentprice,
-                                    name: 'NTC',
+                                    name: 'NCT',
                                 })
                             }
                             if (poolProject.balanceBCT != "0") {
@@ -267,7 +262,7 @@ module.exports = async function (fastify, opts) {
                                     leftToSell: poolProject.balanceBCT,
                                     tokenAddress: process.env.BTC_POOL,
                                     singleUnitPrice: result.data.pair.currentprice,
-                                    name: 'BTC',
+                                    name: 'BCT',
                                 })
                             }
                         }
