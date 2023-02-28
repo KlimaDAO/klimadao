@@ -2,8 +2,6 @@
 const { getAllVintages } = require('../helpers/utils.js');
 
 module.exports = async function (fastify, opts) {
-
-    // @TODO: merge with other projects from the poooool
     fastify.route({
         method: 'GET',
         path: '/vintages',
