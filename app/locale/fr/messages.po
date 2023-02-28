@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-27 22:16+0000\n"
+"POT-Creation-Date: 2023-02-28 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -318,11 +318,11 @@ msgstr "Compensation C3 standard"
 
 #: components/views/Home/index.tsx:170
 msgid "connectModal.torus"
-msgstr ""
+msgstr "réseau social ou email"
 
 #: components/views/Home/index.tsx:174
 msgid "connectModal.wallet"
-msgstr ""
+msgstr "connecter un portefeuille"
 
 #: components/views/Home/index.tsx:183
 msgid "connect_modal.connecting"
@@ -840,7 +840,7 @@ msgstr "Chargement..."
 
 #: components/views/Home/index.tsx:179
 msgid "shared.login"
-msgstr ""
+msgstr "Se connecter"
 
 #: components/views/Bond/index.tsx:396
 #: components/views/Buy/index.tsx:63
