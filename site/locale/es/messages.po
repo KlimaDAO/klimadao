@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-28 17:49+0000\n"
+"POT-Creation-Date: 2023-02-28 19:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,7 @@ msgstr "Metodología: {0}"
 msgid "No retirement message provided."
 msgstr "No se proporcionó ningún mensaje de retiro."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "Processing data..."
 msgstr "Procesando datos..."
 
@@ -55,7 +55,7 @@ msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 msgid "View on Polygonscan"
 msgstr "Ver en Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:165
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "No hemos terminado de procesar los datos de la blockchain para esta retirada. Esto suele tardar unos segundos, pero podría tardar más si la red está congestionada."
 
@@ -1619,39 +1619,39 @@ msgstr "Utiliza tokens KLIMA respaldados por carbono para gobernar, intercambiar
 msgid "retirement.footer.buy_klima.title"
 msgstr "Adquirir, hacer staking y ser recompensado."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:133
+#: components/pages/Retirements/SingleRetirement/index.tsx:137
 msgid "retirement.head.metaDescription"
 msgstr "Compensaciones transparentes en el blockchain con la ayuda de KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:129
+#: components/pages/Retirements/SingleRetirement/index.tsx:133
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} ha retirado {formattedAmount} Toneladas de carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:125
+#: components/pages/Retirements/SingleRetirement/index.tsx:129
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Recibo de Retiro de Carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:277
+#: components/pages/Retirements/SingleRetirement/index.tsx:281
 msgid "retirement.share.title"
 msgstr "Comparte tu impacto"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:187
+#: components/pages/Retirements/SingleRetirement/index.tsx:191
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No se ha facilitado el nombre del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:181
+#: components/pages/Retirements/SingleRetirement/index.tsx:185
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:195
+#: components/pages/Retirements/SingleRetirement/index.tsx:199
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Dirección del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:260
 msgid "retirement.single.create_a_pledge"
 msgstr "Crear un compromiso"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:242
+#: components/pages/Retirements/SingleRetirement/index.tsx:246
 msgid "retirement.single.disclaimer"
 msgstr "Esto representa la retirada permanente de los activos de carbono tokenizados en la blockchain de Polygon. Esta retirada y los datos asociados son registros públicos inmutables."
 
@@ -1659,11 +1659,11 @@ msgstr "Esto representa la retirada permanente de los activos de carbono tokeniz
 msgid "retirement.single.download_certificate_button"
 msgstr "Descargar PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:145
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
 msgid "retirement.single.header.subline"
 msgstr "Compensación de emisiones de CO2 equivalente (toneladas métricas)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:252
+#: components/pages/Retirements/SingleRetirement/index.tsx:256
 msgid "retirement.single.is_this_your_retirement"
 msgstr "¿Es ésta tu retirada?"
 
@@ -1683,7 +1683,7 @@ msgstr "Detalles del proyecto"
 msgid "retirement.single.quantity"
 msgstr "CANTIDAD RETIRADA"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:216
+#: components/pages/Retirements/SingleRetirement/index.tsx:220
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificado"
 
@@ -1695,7 +1695,7 @@ msgstr "Fecha"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No se proporcionó una marca de tiempo de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:313
+#: components/pages/Retirements/SingleRetirement/index.tsx:317
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Ver en Polygonscan"
 
@@ -1711,45 +1711,37 @@ msgstr "No se han encontrado retiros"
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "Todos los retiros"
 
-#: components/pages/Retirements/Breakdown/index.tsx:57
-msgid "retirement.totals.breakdown_token_assets.empty"
-msgstr "No se han encontrado retiros"
-
-#: components/pages/Retirements/index.tsx:52
+#: components/pages/Retirements/index.tsx:46
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
-#: components/pages/Retirements/index.tsx:46
+#: components/pages/Retirements/index.tsx:40
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
-#: components/pages/Retirements/index.tsx:71
+#: components/pages/Retirements/index.tsx:65
 msgid "retirement.totals.page_headline"
 msgstr "Retiradas de carbono"
 
-#: components/pages/Retirements/index.tsx:77
+#: components/pages/Retirements/index.tsx:71
 msgid "retirement.totals.page_subline"
 msgstr "para el beneficiario"
 
-#: components/pages/Retirements/index.tsx:101
+#: components/pages/Retirements/index.tsx:95
 msgid "retirement.totals.retired_assets"
 msgstr "Activos retirados"
 
-#: components/pages/Retirements/index.tsx:117
+#: components/pages/Retirements/index.tsx:111
 msgid "retirement.totals.retirements"
 msgstr "Retiros"
 
-#: components/pages/Retirements/index.tsx:109
+#: components/pages/Retirements/index.tsx:103
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total de toneladas de carbono retiradas"
 
-#: components/pages/Retirements/index.tsx:123
+#: components/pages/Retirements/index.tsx:117
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total de transacciones de retirada"
-
-#: components/pages/Retirements/Breakdown/index.tsx:32
-msgid "retirement.totals_by_assets.headline"
-msgstr "Totales de retiro por activo"
 
 #: components/pages/errors/Custom404.tsx:20
 #: components/pages/errors/Custom404.tsx:24
@@ -1857,7 +1849,7 @@ msgstr "Cómo empezar"
 
 #: components/pages/Buy/index.tsx:29
 #: components/pages/Home/index.tsx:69
-#: components/pages/Retirements/index.tsx:58
+#: components/pages/Retirements/index.tsx:52
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr "Impulsa la acción climática y gana recompensas con una moneda digital respaldada por carbono."
