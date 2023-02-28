@@ -20,7 +20,7 @@ import { LinkedInButton } from "components/LinkedInButton";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { TweetButton } from "components/TweetButton";
-import { retirementTokenInfoMap } from "lib/getTokenInfo";
+import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { normalizeProjectId } from "lib/normalizeProjectId";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
@@ -113,11 +113,15 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     rescursivePoller();
   }, []);
 
-  // TODO this doesn't work with TCO2, will quickly follow up to fix this
-  const tokenType = !retirement.pending
-    ? getRetirementTokenByAddress(retirement.pool) || "bct"
-    : null;
-  const tokenData = tokenType ? retirementTokenInfoMap[tokenType] : null;
+  const poolTokenName =
+    !retirement.pending && getRetirementTokenByAddress(retirement.pool); // can be null
+  const projectTokenName = retirement.pending
+    ? null
+    : retirement.offset.bridge === "Toucan"
+    ? "tco2"
+    : "c3t";
+  const carbonTokenName = poolTokenName || projectTokenName;
+  const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
 
   return (
     <>

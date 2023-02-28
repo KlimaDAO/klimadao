@@ -9,7 +9,10 @@ import {
   AllowancesSpender,
   AllowancesToken,
 } from "@klimadao/lib/types/allowances";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import {
+  ProjectTokenBalance,
+  RetirementsTotalsAndBalances,
+} from "@klimadao/lib/types/offset";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
 import {
   ActionReducerMapBuilder,
@@ -31,6 +34,9 @@ export interface UserState {
     ubo: string;
     nbo: string;
     usdc: string;
+  };
+  projectTokens: {
+    [address: string]: ProjectTokenBalance;
   };
   nameServiceDomains?: {
     knsDomain: Domain;
@@ -55,6 +61,7 @@ export interface Domain {
 
 const initialState: UserState = {
   balance: undefined,
+  projectTokens: {},
   nameServiceDomains: undefined,
   pklimaTerms: undefined,
   bondAllowance: undefined,
@@ -73,6 +80,28 @@ export const userSlice = createSlice({
   reducers: {
     setBalance: (s, a) => {
       s.balance = { ...s.balance!, ...a.payload };
+    },
+    setProjectToken: (
+      s,
+      a: PayloadAction<Partial<ProjectTokenBalance> & { address: string }>
+    ) => {
+      s.projectTokens[a.payload.address] = {
+        ...s.projectTokens[a.payload.address],
+        ...a.payload,
+      };
+    },
+    decrementProjectToken: (
+      s,
+      a: PayloadAction<{ address: string; quantityRetired: string }>
+    ) => {
+      s.projectTokens[a.payload.address] = {
+        ...s.projectTokens[a.payload.address],
+        allowance: "0.0",
+        quantity: safeSub(
+          s.projectTokens[a.payload.address].quantity,
+          a.payload.quantityRetired
+        ),
+      };
     },
     setDomains: (s, a: Setter<"nameServiceDomains">) => {
       s.nameServiceDomains = {
@@ -222,6 +251,8 @@ export const userSlice = createSlice({
 
 export const {
   setBalance,
+  setProjectToken,
+  decrementProjectToken,
   setPklimaTerms,
   setBondAllowance,
   setCarbonRetiredBalances,

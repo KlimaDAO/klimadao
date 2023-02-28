@@ -77,9 +77,16 @@ type RetirementPoolInfo = {
 export type RetirementsTotalsAndBalances = RetirementTotalsFormatted &
   RetirementPoolInfo;
 
-export type RetirementIndexInfo = [
-  tokenAddress: string,
-  amount: BigNumber,
-  beneficiaryName: string,
-  retirementMessage: string
-];
+export interface ProjectTokenBalance {
+  /** 0x of project token */
+  address: string;
+  /** Token symbol
+   *  @example "TCO2-VCS-123-2023" */
+  symbol: string;
+  /** Balance held
+   * @example "1.123" */
+  quantity: string;
+  /** Current for aggregatorV2 to spend
+   *  @example "1.123" */
+  allowance: string;
+}

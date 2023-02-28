@@ -1,7 +1,3 @@
-import {
-  AllowancesSpender,
-  AllowancesToken,
-} from "@klimadao/lib/types/allowances";
 import { Trans } from "@lingui/macro";
 import { FC, ReactNode, useState } from "react";
 import { AppNotificationStatus } from "state/app";
@@ -10,14 +6,16 @@ import { Modal } from "components/Modal";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
 
+import { StaticImageData } from "next/image";
 import * as styles from "./styles";
 
 interface Props {
   title: ReactNode;
   value: string;
   approvalValue?: string;
-  token: AllowancesToken;
-  spender: AllowancesSpender;
+  tokenName: string;
+  tokenIcon: StaticImageData;
+  spenderAddress: string;
   onCloseModal: () => void;
   onApproval: () => void;
   onSubmit: () => void;
@@ -65,8 +63,9 @@ export const TransactionModal: FC<Props> = (props) => {
         {view === "approve" && (
           <Approve
             value={props.approvalValue || props.value}
-            token={props.token}
-            spender={props.spender}
+            tokenIcon={props.tokenIcon}
+            tokenName={props.tokenName}
+            spenderAddress={props.spenderAddress}
             onApproval={props.onApproval}
             onSuccess={() => {
               props.onResetStatus();
@@ -78,8 +77,9 @@ export const TransactionModal: FC<Props> = (props) => {
         {view === "submit" && (
           <Submit
             value={props.value}
-            token={props.token}
-            spender={props.spender}
+            tokenIcon={props.tokenIcon}
+            tokenName={props.tokenName}
+            spenderAddress={props.spenderAddress}
             onSubmit={props.onSubmit}
             onClose={props.onCloseModal}
             status={props.status}

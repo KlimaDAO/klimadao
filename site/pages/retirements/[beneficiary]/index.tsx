@@ -1,38 +1,23 @@
-import { utils } from "ethers";
-import { GetStaticProps } from "next";
-import { ParsedUrlQuery } from "querystring";
-
 import { urls } from "@klimadao/lib/constants";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
-  getRetirementTotalsAndBalances,
+  getTotalCarbonRetired,
+  getTotalRetirements,
   queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";
-
-import { RetirementPage } from "components/pages/Retirements";
+import { Props, RetirementPage } from "components/pages/Retirements";
+import { utils } from "ethers";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/secrets";
+import { GetStaticProps } from "next";
 
-interface Params extends ParsedUrlQuery {
+type Params = {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   beneficiary: string;
-}
+};
 
-interface PageProps {
-  /** The resolved 0x address */
-  beneficiaryAddress: string;
-  totalsAndBalances: RetirementsTotalsAndBalances;
-  klimaRetires: KlimaRetire[] | null;
-  nameserviceDomain: string | null;
-  canonicalUrl: string;
-}
-
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
-) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
   try {
     const { params, locale } = ctx;
 
@@ -65,25 +50,21 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       beneficiaryAddress = beneficiaryInUrl;
     }
 
-    const promises = [
-      getRetirementTotalsAndBalances({
-        address: beneficiaryAddress,
-        infuraId: INFURA_ID,
-      }),
-      queryKlimaRetiresByAddress(beneficiaryAddress),
-      loadTranslation(locale),
-    ];
-
-    const [totalsAndBalances, klimaRetires, translation] = await Promise.all(
-      promises
-    );
+    const [totalRetirements, totalCarbonRetired, klimaRetires, translation] =
+      await Promise.all([
+        getTotalRetirements({ beneficiaryAddress, infuraId: INFURA_ID }),
+        getTotalCarbonRetired({ beneficiaryAddress, infuraId: INFURA_ID }),
+        queryKlimaRetiresByAddress(beneficiaryAddress),
+        loadTranslation(locale),
+      ]);
 
     if (!translation) {
       throw new Error("No translation found");
     }
     return {
       props: {
-        totalsAndBalances,
+        totalRetirements,
+        totalCarbonRetired,
         klimaRetires: klimaRetires || null,
         beneficiaryAddress: beneficiaryAddress,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,

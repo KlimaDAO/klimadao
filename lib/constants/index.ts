@@ -232,7 +232,16 @@ export type OffsetPaymentMethod = OffsetInputToken | "fiat";
 
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
+/** Known carbon pools */
+export const poolTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
+/** Known carbon tokens */
+export const projectTokens = ["tco2", "c3t"] as const;
+
+// TODO rename to pool token
 export type RetirementToken = (typeof retirementTokens)[number];
+export type PoolToken = (typeof poolTokens)[number];
+export type ProjectToken = (typeof projectTokens)[number];
+export type CarbonToken = PoolToken | ProjectToken;
 
 type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
@@ -252,6 +261,8 @@ const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
+  cujoRefiHoldings:
+    "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
 };
 
 const VERRA_REGISTRY = "https://registry.verra.org";
@@ -259,4 +270,8 @@ const VERRA_REGISTRY_API = `${VERRA_REGISTRY}/uiapi`;
 export const verra = {
   projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
   projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
+};
+const GOLD_STANDARD_REGISTRY = "https://registry.goldstandard.org";
+export const goldStandard = {
+  projectDetailPage: `${GOLD_STANDARD_REGISTRY}/projects/details`,
 };

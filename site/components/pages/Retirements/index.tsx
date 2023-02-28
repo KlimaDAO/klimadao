@@ -3,7 +3,6 @@ import { trimWithLocale } from "@klimadao/lib/utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Footer } from "components/Footer";
@@ -13,7 +12,6 @@ import { PageHead } from "components/PageHead";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
-import { Breakdown } from "./Breakdown";
 import { RetirementFooter } from "./Footer";
 import { AllRetirements } from "./List";
 
@@ -21,21 +19,17 @@ import { t, Trans } from "@lingui/macro";
 import { BuyKlima } from "./SingleRetirement/BuyKlima";
 import * as styles from "./styles";
 
-type Props = {
-  totalsAndBalances: RetirementsTotalsAndBalances;
+export type Props = {
+  totalRetirements: number;
+  totalCarbonRetired: string;
   klimaRetires: KlimaRetire[] | null;
   beneficiaryAddress: string;
-  nameserviceDomain?: string;
-  canonicalUrl?: string;
+  nameserviceDomain: string | null;
+  canonicalUrl: string | null;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
-  const {
-    beneficiaryAddress,
-    totalsAndBalances,
-    klimaRetires,
-    nameserviceDomain,
-  } = props;
+  const { beneficiaryAddress, klimaRetires, nameserviceDomain } = props;
 
   const { locale } = useRouter();
   const concattedAddress = concatAddress(beneficiaryAddress);
@@ -60,7 +54,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
-        canonicalUrl={props.canonicalUrl}
+        canonicalUrl={props.canonicalUrl || undefined}
       />
       <Navigation activePage="Home" />
 
@@ -103,7 +97,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <Text t="h2" className="value" align="center">
-              {trimWithLocale(totalsAndBalances.totalTonnesRetired, 2, locale)}t
+              {trimWithLocale(props.totalCarbonRetired, 2, locale)}t
             </Text>
             <Text t="h4" color="lightest" align="center">
               <Trans id="retirement.totals.total_carbon_tonnes">
@@ -117,7 +111,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
               <Trans id="retirement.totals.retirements">Retirements</Trans>
             </Text>
             <Text t="h2" className="value" align="center">
-              {totalsAndBalances.totalRetirements}
+              {props.totalRetirements}
             </Text>
             <Text t="h4" color="lightest" align="center">
               <Trans id="retirement.totals.total_retirement_transactions">
@@ -126,11 +120,10 @@ export const RetirementPage: NextPage<Props> = (props) => {
             </Text>
           </div>
         </div>
-        <Breakdown totalsAndBalances={props.totalsAndBalances} />
         {klimaRetires && (
           <AllRetirements
             klimaRetires={klimaRetires}
-            nameserviceDomain={props.nameserviceDomain}
+            nameserviceDomain={props.nameserviceDomain || undefined}
           />
         )}
       </Section>

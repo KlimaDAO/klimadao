@@ -1,5 +1,5 @@
 import { Text } from "@klimadao/lib/components";
-import { RetirementToken } from "@klimadao/lib/constants";
+import { CarbonToken } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
 import Image, { StaticImageData } from "next/legacy/image";
 import { FC } from "react";
@@ -7,7 +7,7 @@ import * as styles from "./styles";
 
 type Props = {
   value: string;
-  label: Uppercase<RetirementToken>;
+  label: Uppercase<CarbonToken>;
   icon: StaticImageData;
 };
 

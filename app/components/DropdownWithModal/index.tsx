@@ -30,7 +30,6 @@ interface Props {
 export const DropdownWithModal: FC<Props> = (props) => {
   const currentItem =
     props.items.find(({ key }) => props.currentItem === key) ?? props.items[0];
-
   return (
     <div className={styles.container}>
       <Text t="caption" color="lighter" className="label">

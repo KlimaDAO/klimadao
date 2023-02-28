@@ -34,8 +34,10 @@ import {
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { useAppDispatch } from "state";
 
+import { addresses } from "@klimadao/lib/constants";
 import { defineMessage, t, Trans } from "@lingui/macro";
 import * as styles from "components/views/Stake/styles";
+import { tokenInfo } from "lib/getTokenInfo";
 
 interface Props {
   provider?: providers.Web3Provider;
@@ -414,8 +416,9 @@ export const Wrap: FC<Props> = (props) => {
             </Text>
           }
           onCloseModal={closeModal}
-          token={getToken()}
-          spender={SPENDER}
+          tokenName={getToken()}
+          tokenIcon={tokenInfo[getToken()].icon}
+          spenderAddress={addresses["mainnet"][SPENDER]}
           value={quantity.toString()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}

@@ -39,7 +39,8 @@ import { ImageCard } from "components/ImageCard";
 import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
-import { urls } from "@klimadao/lib/constants";
+import { addresses, urls } from "@klimadao/lib/constants";
+import { tokenInfo } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
 interface Props {
@@ -475,8 +476,9 @@ export const Stake = (props: Props) => {
             </Text>
           }
           onCloseModal={closeModal}
-          token={getToken()}
-          spender={getSpender()}
+          tokenName={getToken()}
+          tokenIcon={tokenInfo[getToken()].icon}
+          spenderAddress={addresses["mainnet"][getSpender()]}
           value={quantity.toString()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}

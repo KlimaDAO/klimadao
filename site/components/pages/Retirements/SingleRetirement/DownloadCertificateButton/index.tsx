@@ -1,7 +1,7 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { FC } from "react";
 
-import { RetirementToken } from "@klimadao/lib/constants";
+import { CarbonToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { t } from "@lingui/macro";
@@ -19,7 +19,7 @@ export interface DownloadCertificateButtonProps {
   tokenData: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<RetirementToken>;
+    label: Uppercase<CarbonToken>;
   };
 }
 

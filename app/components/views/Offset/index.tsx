@@ -6,20 +6,21 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
+  addresses,
   offsetCompatibility,
   offsetInputTokens,
   OffsetPaymentMethod,
+  PoolToken,
+  poolTokens,
   RetirementToken,
-  retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
-import { getTokenDecimals } from "@klimadao/lib/utils";
+import { safeAdd } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { providers, utils } from "ethers";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
@@ -31,14 +32,24 @@ import {
   selectBalances,
   selectLocale,
   selectNotificationStatus,
+  selectProjectTokens,
 } from "state/selectors";
-import { setAllowance, updateRetirement } from "state/user";
+import {
+  decrementProjectToken,
+  setAllowance,
+  setProjectToken,
+  updateRetirement,
+} from "state/user";
 
 import {
+  approveProjectToken,
   getOffsetConsumptionCost,
+  getProjectTokenBalances,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   retireCarbonTransaction,
+  RetireCarbonTransactionResult,
+  retireProjectTokenTransaction,
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
 
@@ -47,7 +58,6 @@ import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
-import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
@@ -60,15 +70,21 @@ import {
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
 
+import C3T from "public/icons/C3T.png";
 import Fiat from "public/icons/Fiat.png";
+import TCO2 from "public/icons/TCO2.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
+import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
 const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
+
+export const isPoolToken = (str: string): str is PoolToken =>
+  !!poolTokens.includes(str as PoolToken);
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -82,6 +98,7 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
+  const projectTokens = useSelector(selectProjectTokens);
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: offsetInputTokens,
@@ -95,8 +112,12 @@ export const Offset = (props: Props) => {
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] =
     useState<OffsetPaymentMethod>("fiat");
-  const [selectedRetirementToken, setSelectedRetirementToken] =
-    useState<RetirementToken>("bct");
+  /** This is a token name or an 0x address for tco2/c3t token */
+  const [selectedRetirementToken, setSelectedRetirementToken] = useState<
+    RetirementToken | string
+  >("bct");
+  /** When selecting tco2 or c3t this is `true` */
+  const isRetiringOwnCarbon = !isPoolToken(selectedRetirementToken);
 
   // form state
   const [quantity, setQuantity] = useState("");
@@ -117,6 +138,7 @@ export const Offset = (props: Props) => {
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
+
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -129,6 +151,7 @@ export const Offset = (props: Props) => {
       setPaymentMethod(params.inputToken);
     }
     if (params.retirementToken) {
+      // can also be 0x address for tco2/c3t
       setSelectedRetirementToken(params.retirementToken);
     }
     if (params.message) {
@@ -141,6 +164,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
+      // these are for selective retirement within a retirementToken
       setProjectAddress(params.projectTokens);
     }
     if (params.quantity) {
@@ -156,7 +180,12 @@ export const Offset = (props: Props) => {
   }, [params]);
 
   useEffect(() => {
-    if (props.isConnected && props.address) {
+    if (props.isConnected && props.address && props.provider) {
+      dispatch(
+        getProjectTokenBalances({
+          address: props.address,
+        })
+      );
       dispatch(
         getRetiredOffsetBalances({
           address: props.address,
@@ -170,7 +199,7 @@ export const Offset = (props: Props) => {
         })
       );
     }
-  }, [props.isConnected, props.address]);
+  }, [props.isConnected, props.address, props.provider]);
 
   // effects
   useEffect(() => {
@@ -182,7 +211,11 @@ export const Offset = (props: Props) => {
     }
     // if input token changes, force a compatible retirement token
     if (
-      !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
+      selectedRetirementToken &&
+      !utils.isAddress(selectedRetirementToken) &&
+      !offsetCompatibility[paymentMethod]?.includes(
+        selectedRetirementToken as RetirementToken
+      )
     ) {
       // never undefined, because universal tokens
       setSelectedRetirementToken(offsetCompatibility[paymentMethod][0]);
@@ -195,6 +228,10 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
+      if (isRetiringOwnCarbon) {
+        setCost("0");
+        return;
+      }
       setCost("loading");
       if (paymentMethod !== "fiat") {
         const [consumptionCost] = await getOffsetConsumptionCost({
@@ -256,31 +293,43 @@ export const Offset = (props: Props) => {
   };
 
   const getApprovalValue = (): string => {
-    const costAsNumber = Number(cost);
-    const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
-    const decimals = getTokenDecimals(paymentMethod);
-    return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
+    if (isRetiringOwnCarbon) {
+      return quantity;
+    }
+    if (!cost) return "0";
+    return safeAdd(cost, (Number(cost) * APPROVAL_SLIPPAGE).toString());
   };
 
   const handleApprove = async () => {
     try {
-      if (!props.provider || paymentMethod === "fiat") return;
-
-      const token = paymentMethod;
-      const spender = "retirementAggregator";
-
+      if (!props.provider) return;
+      if (isRetiringOwnCarbon) {
+        const approvedValue = await approveProjectToken({
+          value: getApprovalValue(),
+          signer: props.provider.getSigner(),
+          onStatus: setStatus,
+          projectTokenAddress: selectedRetirementToken,
+        });
+        dispatch(
+          setProjectToken({
+            address: selectedRetirementToken,
+            allowance: approvedValue,
+          })
+        );
+        return;
+      }
+      if (paymentMethod === "fiat") return;
       const approvedValue = await changeApprovalTransaction({
         value: getApprovalValue(),
         provider: props.provider,
-        token,
-        spender,
+        token: paymentMethod,
+        spender: "retirementAggregator",
         onStatus: setStatus,
       });
-
       dispatch(
         setAllowance({
-          token,
-          spender,
+          token: paymentMethod,
+          spender: "retirementAggregator",
           value: approvedValue,
         })
       );
@@ -291,33 +340,57 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (!props.address || !props.provider || paymentMethod === "fiat") return;
-      const { receipt, retirementTotals } = await retireCarbonTransaction({
-        address: props.address,
-        provider: props.provider,
-        inputToken: paymentMethod,
-        retirementToken: selectedRetirementToken,
-        quantity,
-        amountInCarbon: true,
-        beneficiaryAddress,
-        beneficiaryName: beneficiary,
-        retirementMessage,
-        onStatus: setStatus,
-        projectAddress,
-      });
-      dispatch(
-        updateRetirement({
+      if (!props.address || !props.provider) return;
+      let retirement: RetireCarbonTransactionResult;
+      if (!isPoolToken(selectedRetirementToken)) {
+        retirement = await retireProjectTokenTransaction({
+          address: props.address,
+          signer: props.provider.getSigner(),
+          quantity,
+          beneficiaryAddress,
+          beneficiaryName: beneficiary,
+          retirementMessage,
+          onStatus: setStatus,
+          projectTokenAddress: selectedRetirementToken,
+          symbol: projectTokens[selectedRetirementToken].symbol,
+        });
+        dispatch(
+          decrementProjectToken({
+            address: selectedRetirementToken,
+            quantityRetired: quantity,
+          })
+        );
+      } else if (paymentMethod === "fiat") {
+        return; // type guard
+      } else {
+        retirement = await retireCarbonTransaction({
+          address: props.address,
+          provider: props.provider,
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
-          cost,
           quantity,
-        })
-      );
+          amountInCarbon: true,
+          beneficiaryAddress,
+          beneficiaryName: beneficiary,
+          retirementMessage,
+          onStatus: setStatus,
+          projectAddress,
+        });
+        dispatch(
+          updateRetirement({
+            inputToken: paymentMethod,
+            retirementToken: selectedRetirementToken,
+            cost,
+            quantity,
+          })
+        );
+      }
+
       // close TransactionModal
       closeTransactionModal();
       // this opens RetirementSuccessModal
-      setRetirementTransactionHash(receipt.transactionHash);
-      setRetirementTotals(retirementTotals);
+      setRetirementTransactionHash(retirement.receipt.transactionHash);
+      setRetirementTotals(retirement.retirementTotals);
     } catch (e) {
       return;
     }
@@ -340,11 +413,16 @@ export const Offset = (props: Props) => {
     return;
   };
 
-  const insufficientBalance =
-    props.isConnected &&
-    !isLoading &&
-    paymentMethod !== "fiat" &&
-    Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+  const insufficientBalance = () => {
+    if (isRetiringOwnCarbon && projectTokens[selectedRetirementToken]) {
+      return (
+        Number(quantity) >
+        Number(projectTokens[selectedRetirementToken].quantity)
+      );
+    }
+    if (paymentMethod === "fiat") return false;
+    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+  };
 
   const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
   const invalidRetirementQuantity =
@@ -357,8 +435,12 @@ export const Offset = (props: Props) => {
       );
 
   const hasApproval = () => {
+    if (isRetiringOwnCarbon && projectTokens[selectedRetirementToken]) {
+      const a = projectTokens[selectedRetirementToken].allowance;
+      return !!Number(a) && Number(a) >= Number(quantity);
+    }
+    if (paymentMethod === "fiat") return true;
     return (
-      paymentMethod !== "fiat" &&
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
       Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
@@ -440,7 +522,7 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (paymentMethod !== "fiat" && insufficientBalance) {
+    } else if (insufficientBalance()) {
       return {
         label: t({
           id: "shared.insufficient_balance",
@@ -448,15 +530,15 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (paymentMethod !== "fiat" && !hasApproval()) {
-      return {
-        label: t({ id: "shared.approve", message: "Approve" }),
-        onClick: () => setShowTransactionModal(true),
-      };
-    } else if (paymentMethod === "fiat") {
+    } else if (paymentMethod === "fiat" && !isRetiringOwnCarbon) {
       return {
         label: t({ id: "offset.checkout", message: "Checkout" }),
         onClick: handleFiat,
+      };
+    } else if (!hasApproval()) {
+      return {
+        label: t({ id: "shared.approve", message: "Approve" }),
+        onClick: () => setShowTransactionModal(true),
       };
     }
     return {
@@ -470,7 +552,7 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
-    setSelectedRetirementToken(tkn as RetirementToken);
+    setSelectedRetirementToken(tkn);
   };
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
@@ -478,19 +560,16 @@ export const Offset = (props: Props) => {
       clearTimeout(debounceTimerRef.current);
     }
     if (
+      !isRetiringOwnCarbon &&
       paymentMethod === "fiat" &&
       Number(e.target.value) &&
       Number(e.target.value) < 1
     ) {
       setQuantity("1");
-    } else if (
-      paymentMethod !== "fiat" &&
-      Number(e.target.value) > 0 &&
-      Number(e.target.value) < 0.0001
-    ) {
-      setQuantity("0.0001");
-    } else if (paymentMethod === "fiat") {
+    } else if (!isRetiringOwnCarbon && paymentMethod === "fiat") {
       setQuantity(Math.ceil(Number(e.target.value)).toString());
+    } else if (Number(e.target.value) > 0 && Number(e.target.value) < 0.0001) {
+      setQuantity("0.0001");
     } else {
       setQuantity(e.target.value);
     }
@@ -535,7 +614,7 @@ export const Offset = (props: Props) => {
     label: "Credit Card",
   });
 
-  const retirementTokenItems = retirementTokens.map((tkn) => {
+  const poolTokenItems = poolTokens.map((tkn) => {
     const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
@@ -548,6 +627,20 @@ export const Offset = (props: Props) => {
     };
   });
 
+  const projectTokenItems = Object.keys(projectTokens).map((key) => {
+    const token = projectTokens[key];
+    const isTCO2 = token.symbol.startsWith("TCO2");
+    return {
+      disabled: false,
+      description: "",
+      key: token.address,
+      icon: isTCO2 ? TCO2 : C3T,
+      label: token.symbol,
+    };
+  });
+
+  const retirementTokenItems = [...poolTokenItems, ...projectTokenItems];
+
   const costIcon =
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
@@ -555,43 +648,28 @@ export const Offset = (props: Props) => {
     <>
       <div className={styles.columnRight}>
         <CarbonTonnesRetiredCard />
-        <CarbonTonnesBreakdownCard />
       </div>
 
       <div className={styles.offsetCard}>
         <div className={styles.offsetCard_header}>
           <Text t="h4" className={styles.offsetCard_header_title}>
             <ParkOutlined />
-            <Trans id="offset.retire_carbon">Retire Carbon</Trans>
+            <Trans>Offset</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="offset.go_carbon_neutral">
-              Go carbon neutral by retiring carbon and claiming the underlying
-              environmental benefit of the carbon offset. Learn more about
-              carbon tokens in our <A href={urls.officialDocs}>docs</A>.
-            </Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            <FiberNewRoundedIcon className={styles.newReleasesIcon} />
-            <Trans id="offset.lifi">
-              Cross-chain offsetting is now available through{" "}
-              <A href={urls.lifiOffset}>LI.FI and Etherspot</A>, with support
-              for multiple chains and tokens.
+            <Trans>
+              Pay with fiat or crypto, or retire credits you already own. Your
+              message and data will be permanently inscribed on the blockchain.
+              Learn more about supported tokens in our{" "}
+              <A href={urls.officialDocs}>docs</A>.
             </Trans>
           </Text>
         </div>
 
         <div className={styles.offsetCard_ui}>
-          {/* attr: retirementToken  */}
           <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
-            })}
-            modalTitle={t({
-              id: "offset.modal_retire.title",
-              message: "Select Carbon Type",
-            })}
+            label={t`Select carbon token to retire`}
+            modalTitle={t`Select token`}
             currentItem={selectedRetirementToken}
             items={retirementTokenItems}
             isModalOpen={isRetireTokenModalOpen}
@@ -599,14 +677,24 @@ export const Offset = (props: Props) => {
             onItemSelect={handleSelectRetirementToken}
           />
 
-          {/* attr: projectAddress  */}
-          <SelectiveRetirement
-            projectAddress={projectAddress}
-            selectedRetirementToken={selectedRetirementToken}
-            setProjectAddress={setProjectAddress}
-            selectedProject={selectedProject}
-            setSelectedProject={setSelectedProject}
-          />
+          {!isRetiringOwnCarbon && (
+            <SelectiveRetirement
+              projectAddress={projectAddress}
+              selectedRetirementToken={selectedRetirementToken}
+              setProjectAddress={setProjectAddress}
+              selectedProject={selectedProject}
+              setSelectedProject={setSelectedProject}
+            />
+          )}
+
+          {isRetiringOwnCarbon &&
+            projectTokens[selectedRetirementToken] && ( // careful, projectTokens must load before rendering
+              <ProjectTokenDetails
+                symbol={projectTokens[selectedRetirementToken].symbol}
+                quantity={projectTokens[selectedRetirementToken].quantity}
+                address={selectedRetirementToken}
+              />
+            )}
 
           <div className={styles.input}>
             <label>
@@ -619,11 +707,17 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                min={paymentMethod === "fiat" ? "1" : "0"}
+                min={
+                  paymentMethod === "fiat" && !isRetiringOwnCarbon ? "1" : "0"
+                }
                 value={quantity}
                 onKeyDown={(e) => {
                   // prevent a user from entering a decimal value when credit card is selected
-                  if (paymentMethod === "fiat" && ["."].includes(e.key)) {
+                  if (
+                    paymentMethod === "fiat" &&
+                    !isRetiringOwnCarbon &&
+                    ["."].includes(e.key)
+                  ) {
                     e.preventDefault();
                   }
                   // dont let user enter these special characters into the number input
@@ -631,7 +725,11 @@ export const Offset = (props: Props) => {
                     e.preventDefault();
                   }
                 }}
-                data-error={invalidCost || invalidRetirementQuantity}
+                data-error={
+                  invalidCost ||
+                  invalidRetirementQuantity ||
+                  insufficientBalance()
+                }
                 onChange={handleChangeQuantity}
                 placeholder={t({
                   id: "offset.offset_quantity",
@@ -650,13 +748,15 @@ export const Offset = (props: Props) => {
                 </Trans>
               </Text>
             )}
-            {!invalidRetirementQuantity && paymentMethod === "fiat" && (
-              <Text t="body8" color="lightest">
-                <Trans id="offset.min_quantity_fiat">
-                  Minimum 1-tonne purchase. Whole integers only.
-                </Trans>
-              </Text>
-            )}
+            {!invalidRetirementQuantity &&
+              paymentMethod === "fiat" &&
+              !isRetiringOwnCarbon && (
+                <Text t="body8" color="lightest">
+                  <Trans id="offset.min_quantity_fiat">
+                    Minimum 1-tonne purchase. Whole integers only.
+                  </Trans>
+                </Text>
+              )}
           </div>
 
           {/* attr: beneficiaryName  */}
@@ -711,69 +811,77 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          <MiniTokenDisplay
-            label={
-              <div className="mini_token_label">
-                <Text t="caption" color="lighter">
-                  <Trans id="offset_cost">Cost</Trans>
-                </Text>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="offset.aggregation_fee_tooltip">
-                      This cost includes slippage and the aggregation fee of 1%.
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-            }
-            amount={Number(cost)?.toLocaleString(locale)}
-            icon={costIcon}
-            name={paymentMethod}
-            loading={cost === "loading"}
-            warn={insufficientBalance || invalidCost}
-            helperText={
-              paymentMethod === "fiat"
-                ? t({
-                    id: "fiat.max_quantity",
-                    message: `$${MAX_FIAT_COST.toLocaleString(
-                      locale
-                    )} maximum for credit cards`,
-                  })
-                : undefined
-            }
-          />
+          {!isRetiringOwnCarbon && (
+            <MiniTokenDisplay
+              label={
+                <div className="mini_token_label">
+                  <Text t="caption" color="lighter">
+                    <Trans id="offset_cost">Cost</Trans>
+                  </Text>
+                  <TextInfoTooltip
+                    content={
+                      <Trans id="offset.aggregation_fee_tooltip">
+                        This cost includes slippage and the aggregation fee of
+                        1%.
+                      </Trans>
+                    }
+                  >
+                    <InfoOutlined />
+                  </TextInfoTooltip>
+                </div>
+              }
+              amount={Number(cost)?.toLocaleString(locale)}
+              icon={costIcon}
+              name={paymentMethod}
+              loading={cost === "loading"}
+              warn={insufficientBalance() || invalidCost}
+              helperText={
+                paymentMethod === "fiat"
+                  ? t({
+                      id: "fiat.max_quantity",
+                      message: `$${MAX_FIAT_COST.toLocaleString(
+                        locale
+                      )} maximum for credit cards`,
+                    })
+                  : undefined
+              }
+            />
+          )}
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
                 <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
+            warn={isRetiringOwnCarbon && insufficientBalance()}
             amount={Number(quantity)?.toLocaleString(locale)}
-            icon={tokenInfo[selectedRetirementToken].icon}
+            icon={
+              retirementTokenItems.find(
+                (t) => t.key === selectedRetirementToken
+              )?.icon ?? TCO2 // just to make ts happy
+            }
             name={selectedRetirementToken}
             labelAlignment="start"
           />
-
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
-            })}
-            modalTitle={t({
-              id: "offset.modal_payWith.title",
-              message: "Select Token",
-            })}
-            currentItem={paymentMethod}
-            items={paymentMethodItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={(str) =>
-              handleSelectInputToken(str as OffsetPaymentMethod)
-            }
-          />
-
+          {!isRetiringOwnCarbon && (
+            <DropdownWithModal
+              label={t({
+                id: "offset.dropdown_payWith.label",
+                message: "Pay with",
+              })}
+              modalTitle={t({
+                id: "offset.modal_payWith.title",
+                message: "Select Token",
+              })}
+              currentItem={paymentMethod}
+              items={paymentMethodItems}
+              isModalOpen={isInputTokenModalOpen}
+              onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+              onItemSelect={(str) =>
+                handleSelectInputToken(str as OffsetPaymentMethod)
+              }
+            />
+          )}
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -799,7 +907,7 @@ export const Offset = (props: Props) => {
         </div>
       </div>
 
-      {showTransactionModal && paymentMethod !== "fiat" && (
+      {showTransactionModal && (
         <TransactionModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
@@ -808,9 +916,24 @@ export const Offset = (props: Props) => {
             </Text>
           }
           onCloseModal={closeTransactionModal}
-          token={paymentMethod}
-          spender={"retirementAggregator"}
-          value={cost.toString()}
+          tokenName={
+            !isRetiringOwnCarbon
+              ? paymentMethod
+              : projectTokens[selectedRetirementToken].symbol
+          }
+          tokenIcon={
+            !isRetiringOwnCarbon && paymentMethod !== "fiat"
+              ? tokenInfo[paymentMethod].icon
+              : retirementTokenItems.find(
+                  (t) => t.key === selectedRetirementToken
+                )?.icon ?? TCO2
+          }
+          spenderAddress={
+            !isRetiringOwnCarbon
+              ? addresses["mainnet"].retirementAggregator
+              : addresses["mainnet"].retirementAggregatorV2
+          }
+          value={!isRetiringOwnCarbon ? cost.toString() : quantity}
           approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}

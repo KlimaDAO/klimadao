@@ -2,27 +2,24 @@ import { cx } from "@emotion/css";
 import { Trans } from "@lingui/macro";
 import { FC } from "react";
 
-import {
-  AllowancesSpender,
-  AllowancesToken,
-} from "@klimadao/lib/types/allowances";
-import { concatAddress, getSpenderAddress } from "@klimadao/lib/utils";
+import { concatAddress } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { getStatusMessage } from "actions/utils";
-import { tokenInfo } from "lib/getTokenInfo";
 import { AppNotificationStatus } from "state/app";
 
 import { HighlightValue } from "./HighlightValue";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 
+import { StaticImageData } from "next/image";
 import * as styles from "./styles";
 
 interface Props {
   value: string;
-  token: AllowancesToken;
-  spender: AllowancesSpender;
+  tokenIcon: StaticImageData;
+  tokenName: string;
+  spenderAddress: string;
   onApproval: () => void;
   onSuccess: () => void;
   status: AppNotificationStatus | null;
@@ -38,9 +35,6 @@ export const Approve: FC<Props> = (props) => {
 
   const showApproveButton = !showButtonSpinner && !success;
   const showNextButton = !showButtonSpinner && success;
-
-  const spenderAddress = getSpenderAddress(props.spender);
-
   return (
     <>
       <div
@@ -62,7 +56,7 @@ export const Approve: FC<Props> = (props) => {
               </Trans>
             </Text>
           }
-          value={concatAddress(spenderAddress)}
+          value={concatAddress(props.spenderAddress)}
         />
         <HighlightValue
           label={
@@ -73,8 +67,8 @@ export const Approve: FC<Props> = (props) => {
             </Text>
           }
           value={props.value || "0"}
-          icon={tokenInfo[props.token].icon}
-          iconName={props.token}
+          icon={props.tokenIcon}
+          iconName={props.tokenName}
         />
       </div>
       {!!props.status && (

@@ -29,7 +29,7 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
-import { Bond as BondType } from "@klimadao/lib/constants";
+import { addresses, Bond as BondType } from "@klimadao/lib/constants";
 import {
   concatAddress,
   safeAdd,
@@ -46,6 +46,7 @@ import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
 import { TransactionModal } from "components/TransactionModal";
 import { providers } from "ethers";
+import { tokenInfo } from "lib/getTokenInfo";
 import { RootState, useAppDispatch } from "state";
 import { redeemBond, setBond } from "state/bonds";
 import { selectAppState, selectBondAllowance } from "state/selectors";
@@ -344,7 +345,7 @@ export const Bond: FC<Props> = (props) => {
         })
       );
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       return;
     }
   };
@@ -1084,8 +1085,12 @@ export const Bond: FC<Props> = (props) => {
             </Text>
           }
           onCloseModal={closeModal}
-          token={viewIsBond ? bondMapToTokenName[props.bond] : "klima"}
-          spender={bondMapToBondName[props.bond]}
+          tokenName={viewIsBond ? bondMapToTokenName[props.bond] : "klima"}
+          tokenIcon={
+            tokenInfo[viewIsBond ? bondMapToTokenName[props.bond] : "klima"]
+              .icon
+          }
+          spenderAddress={addresses["mainnet"][bondMapToBondName[props.bond]]}
           value={
             viewIsBond ? quantity.toString() : bondState?.pendingPayout || "0"
           }
