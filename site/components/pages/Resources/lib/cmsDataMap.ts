@@ -37,7 +37,7 @@ type SortedByQueries = {
   value: SortQuery;
 };
 
-export const mainTags: CheckboxOption[] = [
+export const getMainTags = (): CheckboxOption[] => [
   {
     value: "klima-overview",
     id: "e448b05c-86e1-4354-946b-e4f54f246c48",
@@ -64,7 +64,7 @@ export const mainTags: CheckboxOption[] = [
   },
 ];
 
-export const subTags: CheckboxOption[] = [
+export const getSubTags = (): CheckboxOption[] => [
   {
     value: "basics",
     id: "d424ffeb-d0f7-4e1a-83b5-691d122fe5e8",
@@ -115,7 +115,7 @@ export const subTags: CheckboxOption[] = [
   },
 ];
 
-export const documentTypes: CheckboxOption[] = [
+export const getDocumentTypes = (): CheckboxOption[] => [
   {
     value: "post",
     label: t({
@@ -134,7 +134,7 @@ export const documentTypes: CheckboxOption[] = [
   },
 ];
 
-export const sortedByQueries: SortedByQueries[] = [
+export const getSortedByQueries = (): SortedByQueries[] => [
   {
     label: t({
       id: "resources.list.sort_by.latest_first",
