@@ -64,11 +64,11 @@ msgstr "BETA"
 msgid "Best Price"
 msgstr "Best Price"
 
-#: components/pages/Projects/index.tsx:39
+#: components/pages/Projects/index.tsx:46
 msgid "Browse Carbon Projects | Carbonmark"
 msgstr "Browse Carbon Projects | Carbonmark"
 
-#: components/pages/Projects/index.tsx:40
+#: components/pages/Projects/index.tsx:47
 msgid "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
 msgstr "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
 
@@ -254,7 +254,7 @@ msgstr "Profile picture"
 msgid "Project"
 msgstr "Project"
 
-#: components/pages/Projects/index.tsx:38
+#: components/pages/Projects/index.tsx:45
 msgid "Projects | Carbonmark"
 msgstr "Projects | Carbonmark"
 

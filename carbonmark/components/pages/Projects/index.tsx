@@ -20,12 +20,19 @@ import * as styles from "./styles";
 const Page: NextPage = () => {
   const { locale } = useRouter();
 
-  const { projects, isLoading, isValidating } = useFetchProjects();
+  const {
+    projects: unsafeProjects,
+    isLoading,
+    isValidating,
+  } = useFetchProjects();
+
+  // TEMP: the api has a bug where it sometimes returns `null`
+  const safeProjects = unsafeProjects?.filter((p) => !!p);
 
   const sortedProjects =
-    isLoading || !projects
+    isLoading || !safeProjects
       ? undefined
-      : projects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+      : safeProjects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
