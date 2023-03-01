@@ -14,7 +14,7 @@ export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
   ? "http://localhost:3000"
   : urls.home;
 
-export const connectErrorStrings = {
+export const getConnectErrorStrings = () => ({
   default: t({
     message: "We had some trouble connecting. Please try again.",
     id: "connect_modal.error_message_default",
@@ -23,4 +23,4 @@ export const connectErrorStrings = {
     message: "User refused connection.",
     id: "connect_modal.error_message_refused",
   }),
-};
+});

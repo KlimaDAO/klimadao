@@ -31,8 +31,8 @@ import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { NavMenu } from "components/NavMenu";
+import { getConnectErrorStrings } from "lib/constants";
 import { setAppState } from "state/app";
-import { connectErrorStrings } from "../../../lib/constants";
 import { Buy } from "../Buy";
 import * as styles from "./styles";
 
@@ -166,7 +166,7 @@ export const Home: FC = () => {
               />
             )}
             {renderModal({
-              errors: connectErrorStrings,
+              errors: getConnectErrorStrings(),
               torusText: t({
                 message: "social or email",
                 id: "connectModal.torus",

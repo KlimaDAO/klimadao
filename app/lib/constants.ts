@@ -25,7 +25,7 @@ export const FIAT_RETIREMENT_API_URL = IS_PRODUCTION
   ? "https://checkout.offsetra.com/api/checkout"
   : "https://staging-checkout.offsetra.com/api/checkout";
 
-export const connectErrorStrings = {
+export const getConnectErrorStrings = () => ({
   default: t({
     message: "We had some trouble connecting. Please try again.",
     id: "connect_modal.error_message_default",
@@ -34,4 +34,4 @@ export const connectErrorStrings = {
     message: "User refused connection.",
     id: "connect_modal.error_message_refused",
   }),
-};
+});
