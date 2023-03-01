@@ -34,8 +34,6 @@ export const title = css`
 
 export const loginButton = css`
   width: 100%;
-  background-color: var(--bright-blue);
-  color: var(--white) !important;
 `;
 
 export const redirecting = css`

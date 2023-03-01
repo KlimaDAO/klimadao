@@ -1,6 +1,6 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";

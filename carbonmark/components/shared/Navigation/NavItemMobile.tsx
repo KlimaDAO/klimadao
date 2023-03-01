@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import Link from "next/link";
 import React, { FC, useState } from "react";
 import { NavItemMobileID } from "./index";

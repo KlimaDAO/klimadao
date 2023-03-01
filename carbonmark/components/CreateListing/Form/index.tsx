@@ -1,5 +1,5 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";

@@ -1,6 +1,6 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { useResponsive } from "hooks/useResponsive";
 import { FC } from "react";
 import * as styles from "./styles";

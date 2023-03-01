@@ -1,5 +1,5 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import dynamic from "next/dynamic";
 import Link from "next/link";

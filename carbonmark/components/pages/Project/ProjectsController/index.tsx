@@ -1,8 +1,8 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary } from "@klimadao/lib/components";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListIcon from "@mui/icons-material/List";
 import TuneIcon from "@mui/icons-material/Tune";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { SearchInput } from "components/SearchInput";
 import { Toggle } from "components/Toggle";

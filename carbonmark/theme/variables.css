@@ -16,6 +16,10 @@
   --padding-medium: 2rem;
   --font-family: "DM Sans", sans-serif;
   --font-family-secondary: "Poppins", sans-serif;
+  --shadow-01: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.24),
+    0 0 0.2rem rgba(0, 0, 0, 0.12);
+  --shadow-02: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.24),
+    0 0 0.4rem rgba(0, 0, 0, 0.12);
 }
 
 body,

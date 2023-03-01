@@ -1,7 +1,7 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";

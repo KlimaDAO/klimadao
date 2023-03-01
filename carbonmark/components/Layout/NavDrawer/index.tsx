@@ -1,6 +1,5 @@
 import {
   Anchor as A,
-  ButtonPrimary,
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
@@ -11,6 +10,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { BetaBadge } from "components/BetaBadge";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";

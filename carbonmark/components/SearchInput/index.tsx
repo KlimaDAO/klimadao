@@ -1,5 +1,5 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import SearchIcon from "@mui/icons-material/Search";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField, InputFieldProps } from "components/shared/Form/InputField";
 import { ChangeEvent, FC, KeyboardEvent, useEffect, useState } from "react";
 import * as styles from "./styles";

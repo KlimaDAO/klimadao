@@ -1,7 +1,8 @@
-import { ButtonPrimary, Section, Spinner } from "@klimadao/lib/components";
+import { Section, Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SearchIcon from "@mui/icons-material/Search";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { BlogPostCard } from "components/pages/Resources/BlogPostCard";
 import { PodcastCard } from "components/pages/Resources/PodcastCard";
 import { InputField } from "components/shared/Form";

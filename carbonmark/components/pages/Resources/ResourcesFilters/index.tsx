@@ -1,6 +1,6 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import ClearIcon from "@mui/icons-material/ClearRounded";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { Text } from "components/Text";
 import { FC } from "react";

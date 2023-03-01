@@ -1,4 +1,5 @@
 export { Anchor } from "./Anchor";
+export { BaseButton } from "./Buttons/ButtonBase";
 export type { ButtonBaseProps } from "./Buttons/ButtonBase";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { ButtonSecondary } from "./Buttons/ButtonSecondary";
