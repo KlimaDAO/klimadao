@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-02-28 19:02+0000\n"
+"POT-Creation-Date: 2023-03-01 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr "容量"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
 msgid "Loading project info..."
-msgstr ""
+msgstr "正在加载项目信息..."
 
 #: components/views/Offset/index.tsx:657
 msgid "Offset"
@@ -33,19 +33,19 @@ msgstr "2022年4月12日起，“dapp”迁移至“app”。请更新您的书�
 
 #: components/views/Offset/index.tsx:660
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
-msgstr ""
+msgstr "可使用法定货币或加密货币支付，亦或您停用碳而拥有的积分。您的信息和数据将永久铭刻在区块链上。在 <0> docs</0> 中了解我们所支持代币的更多信息."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
 msgid "Project details <0/>"
-msgstr ""
+msgstr "项目详情<0/>"
 
 #: components/views/Offset/index.tsx:671
 msgid "Select carbon token to retire"
-msgstr ""
+msgstr "选择要停用的碳代币"
 
 #: components/views/Offset/index.tsx:672
 msgid "Select token"
-msgstr ""
+msgstr "选择代币"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -57,15 +57,15 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
-msgstr ""
+msgstr "可用吨数：{0}"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
 msgid "Unknown category"
-msgstr ""
+msgstr "未知类别"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:97
 msgid "Unknown methodology"
-msgstr ""
+msgstr "未知方法"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -354,11 +354,11 @@ msgstr "C3 基本通用抵消"
 
 #: components/views/Home/index.tsx:170
 msgid "connectModal.torus"
-msgstr ""
+msgstr "社交或电子邮件"
 
 #: components/views/Home/index.tsx:174
 msgid "connectModal.wallet"
-msgstr ""
+msgstr "连接钱包"
 
 #: components/views/Home/index.tsx:183
 msgid "connect_modal.connecting"
@@ -850,7 +850,7 @@ msgstr "正在加载..."
 
 #: components/views/Home/index.tsx:179
 msgid "shared.login"
-msgstr ""
+msgstr "登录"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
