@@ -20,7 +20,7 @@ import { SortyByDropDown } from "../SortyByDropDown";
 
 import {
   DocumentType,
-  sortedByQueries,
+  getSortedByQueries,
   SortQuery,
   TagSlug,
 } from "../lib/cmsDataMap";
@@ -281,7 +281,7 @@ export const ResourcesList: FC<Props> = (props) => {
         onToggleModal={() => setShowMobileModal((prev) => !prev)}
       >
         <div className={styles.sortByButtons}>
-          {sortedByQueries.map((option) => (
+          {getSortedByQueries().map((option) => (
             <SortByButton
               key={option.id}
               label={option.label}

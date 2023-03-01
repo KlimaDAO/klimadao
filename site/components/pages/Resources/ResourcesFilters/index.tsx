@@ -6,7 +6,7 @@ import { Control } from "react-hook-form";
 
 import { CheckboxGroup } from "./CheckboxGroup";
 
-import { documentTypes, mainTags, subTags } from "../lib/cmsDataMap";
+import { getDocumentTypes, getMainTags, getSubTags } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 
 import * as styles from "./styles";
@@ -31,7 +31,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       </div>
       <div className={styles.filtersCheckboxGroup}>
         <CheckboxGroup
-          options={mainTags}
+          options={getMainTags()}
           formName="tags"
           control={props.control}
         />
@@ -43,7 +43,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       </div>
       <div className={styles.filtersCheckboxGroup}>
         <CheckboxGroup
-          options={subTags}
+          options={getSubTags()}
           formName="tags"
           control={props.control}
         />
@@ -55,7 +55,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       </div>
       <div className={styles.filtersCheckboxGroup}>
         <CheckboxGroup
-          options={documentTypes}
+          options={getDocumentTypes()}
           formName="types"
           control={props.control}
         />
