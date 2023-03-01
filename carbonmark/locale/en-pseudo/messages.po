@@ -39,6 +39,7 @@ msgid "@Username (note: this can not be changed!)"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/shared/Navigation/index.tsx:77
 msgid "About"
 msgstr ""
 
@@ -66,6 +67,10 @@ msgstr ""
 
 #: components/pages/Projects/index.tsx:46
 msgid "Browse Carbon Projects | Carbonmark"
+msgstr ""
+
+#: components/shared/Navigation/index.tsx:50
+msgid "Browse Projects"
 msgstr ""
 
 #: components/pages/Projects/index.tsx:47
@@ -112,6 +117,10 @@ msgstr ""
 msgid "Clear Filters"
 msgstr ""
 
+#: components/pages/Home/index.tsx:470
+msgid "Contact"
+msgstr ""
+
 #: components/pages/Project/Purchase/PurchaseForm.tsx:38
 msgid "Cost incl. {0}% fee"
 msgstr ""
@@ -141,7 +150,7 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:102
+#: components/shared/Navigation/index.tsx:117
 msgid "Enter App"
 msgstr ""
 
@@ -161,8 +170,17 @@ msgstr ""
 msgid "Handle should not contain any special characters"
 msgstr ""
 
-#: components/Footer/index.tsx:28
+#: components/pages/Home/index.tsx:473
+#: components/shared/Navigation/index.tsx:83
+msgid "Help"
+msgstr ""
+
+#: components/Footer/index.tsx:29
 msgid "Home"
+msgstr ""
+
+#: components/pages/Home/index.tsx:479
+msgid "KlimaDAO"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:179
@@ -200,9 +218,9 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: components/Footer/index.tsx:33
-#: components/shared/Navigation/index.tsx:56
-#: components/shared/Navigation/index.tsx:81
+#: components/Footer/index.tsx:34
+#: components/shared/Navigation/index.tsx:59
+#: components/shared/Navigation/index.tsx:96
 msgid "Marketplace"
 msgstr ""
 
@@ -240,9 +258,13 @@ msgstr ""
 msgid "Price Lowest"
 msgstr ""
 
-#: components/Footer/index.tsx:38
-#: components/shared/Navigation/index.tsx:62
-#: components/shared/Navigation/index.tsx:87
+#: components/pages/Home/index.tsx:464
+msgid "Privacy policy"
+msgstr ""
+
+#: components/Footer/index.tsx:39
+#: components/shared/Navigation/index.tsx:65
+#: components/shared/Navigation/index.tsx:102
 msgid "Profile"
 msgstr ""
 
@@ -286,9 +308,10 @@ msgstr ""
 msgid "Remaining Supply:"
 msgstr ""
 
-#: components/Footer/index.tsx:43
-#: components/shared/Navigation/index.tsx:68
-#: components/shared/Navigation/index.tsx:93
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:476
+#: components/shared/Navigation/index.tsx:71
+#: components/shared/Navigation/index.tsx:108
 msgid "Resources"
 msgstr ""
 
@@ -338,6 +361,10 @@ msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
+msgstr ""
+
+#: components/pages/Home/index.tsx:467
+msgid "Terms of use"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:72
@@ -849,10 +876,6 @@ msgstr ""
 #: components/pages/Project/Purchase/PurchaseForm.tsx:197
 #: components/pages/Users/SellerUnconnected/index.tsx:64
 msgid "shared.connect_to_buy"
-msgstr ""
-
-#: components/shared/Navigation/index.tsx:48
-msgid "shared.enter_app"
 msgstr ""
 
 #: components/Layout/index.tsx:123

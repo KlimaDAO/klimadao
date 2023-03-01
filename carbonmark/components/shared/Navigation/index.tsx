@@ -15,9 +15,11 @@ const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 export type PageName =
   | "Home"
   | "Projects"
+  | "About"
   | "Portfolio"
   | "Login"
-  | "Resources";
+  | "Resources"
+  | "Help";
 
 export type NavItemMobileID =
   | "Profile"
@@ -44,9 +46,10 @@ export const Navigation: FC<Props> = ({
           // <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
-            key="Enter App"
-            label={t({ message: "Enter App", id: "shared.enter_app" })}
+            key="Browse Projects"
+            label={t`Browse Projects`}
             href="/projects"
+            className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
           />,
         ]}
@@ -70,6 +73,18 @@ export const Navigation: FC<Props> = ({
           url="/resources"
           active={activePage === "Resources"}
         />
+        <LinkItemDesktop
+          name={t`About`}
+          key="about"
+          url="/about"
+          active={activePage === "About"}
+        />
+        <LinkItemDesktop
+          name={t`Help`}
+          key="help"
+          url="/help"
+          active={activePage === "Help"}
+        />
       </HeaderDesktop>
 
       <HeaderMobile
@@ -79,7 +94,7 @@ export const Navigation: FC<Props> = ({
           <div className="links">
             <NavItemMobile
               name={t`Marketplace`}
-              active={activePage === "Projects"}
+              active={activePage === "About"}
               id="Marketplace"
               url="/projects"
             />

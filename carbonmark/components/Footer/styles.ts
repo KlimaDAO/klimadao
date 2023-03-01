@@ -30,7 +30,7 @@ export const footer_content = css`
   flex-direction: column;
   grid-column: main;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
   justify-content: space-between;
   height: 100%;
 

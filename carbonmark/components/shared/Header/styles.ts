@@ -9,8 +9,8 @@ export const headerDesktop = css`
   justify-content: center;
   align-items: center;
   background: var(--surface-02);
-  padding-top: 3.6rem;
-  height: var(--header-height);
+  // padding-top: 3.6rem;
+  height: 7.2rem;
   z-index: 10; /* so the drop-shadow is visible over next section, 10 to make opened Translation menu flow over main content */
 
   ${breakpoints.desktop} {
@@ -25,6 +25,7 @@ export const menuDesktop = css`
   width: 100%;
   align-items: center;
   z-index: 99;
+  margin-top: 2rem !important;
 `;
 
 export const headerTransparentDesktop = css`
@@ -67,6 +68,11 @@ export const headerMobile = css`
   }
 `;
 
+export const headerTransparentMobile = css`
+  ${headerMobile}
+  background: transparent !important;
+`;
+
 export const mainLogoMobile = css`
   padding: 0 0.9rem;
   svg {
@@ -78,17 +84,18 @@ export const mainLogoMobile = css`
 export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 0 2.4rem;
+  justify-content: center;
+  gap: 2rem;
 `;
 
 export const navMain_DesktopLink = css`
   text-decoration: none;
   padding: 0 2rem;
   font-weight: bold;
-  color: var(--font-01);
+  // color: var(--font-01) !important;
   display: flex;
   align-items: center;
+  color: red !important;
 `;
 
 export const navMain_Buttons = css`

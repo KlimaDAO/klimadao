@@ -9,6 +9,7 @@ import { ToggleNavButton } from "../Navigation/ToggleNavButton";
 interface Props {
   buttons?: JSX.Element[];
   children: ReactNode;
+  transparent?: boolean;
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
@@ -26,7 +27,13 @@ export const HeaderMobile: FC<Props> = (props) => {
         isToggled ? styles.headerMobileWrap_toggled : styles.headerMobileWrap
       }
     >
-      <header className={styles.headerMobile}>
+      <header
+        className={
+          props.transparent
+            ? styles.headerTransparentMobile
+            : styles.headerMobile
+        }
+      >
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
             <CarbonmarkLogo />

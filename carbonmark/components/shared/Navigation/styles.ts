@@ -13,7 +13,7 @@ export const navMain_DesktopLink = css`
   border-radius: 0.4rem;
   padding: 1.6rem 1.2rem;
   white-space: nowrap;
-  color: var(--font-02) !important;
+  color: #000 !important;
   width: 100%;
   &,
   &:hover,
@@ -23,8 +23,8 @@ export const navMain_DesktopLink = css`
   }
   &:hover,
   &:focus {
-    color: var(--font-01) !important;
-    background: var(--klima-green);
+    font-weight: 700;
+    color: var(--bright-blue) !important;
   }
   &.dropdown {
     text-transform: uppercase;
@@ -36,8 +36,8 @@ export const navMain_DesktopLink = css`
     }
   }
   &[data-active="true"] {
-    color: var(--font-01);
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--bright-blue) !important;
   }
 `;
 
@@ -53,8 +53,16 @@ export const navMain_MobileItem = css`
 
 export const navMain_MobileButton = css`
   width: min-content;
-  color: var(--font-01) !important;
   white-space: nowrap;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
+`;
+
+export const browseButton = css`
+  width: min-content;
+  white-space: nowrap;
+  background-color: var(--bright-blue);
+  color: var(--white) !important;
 `;
 
 export const navMain_MobileItemsWrapper = css`
@@ -209,7 +217,7 @@ export const buttonToggleNav = css`
   text-transform: none;
   background-color: var(--surface-01);
   border: 0;
-  border-radius: 1.6rem;
+  border-radius: 0.4rem;
   margin: 0;
   overflow: visible;
   line-height: 0;
@@ -224,7 +232,8 @@ export const hamburgerOuter = css`
   box-sizing: border-box;
   width: 2.4rem;
   height: 2rem;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   position: relative;
 `;
 
@@ -285,9 +294,8 @@ export const hamburgerInner = css`
   box-sizing: border-box;
   display: block;
   top: 50%;
-  margin-top: -0.2rem;
-  width: 2.4rem;
-  height: 0.4rem;
+  width: 1.6rem;
+  height: 0.2rem;
   background-color: var(--font-01);
   border-radius: 0;
   position: absolute;
@@ -296,11 +304,11 @@ export const hamburgerInner = css`
   transition-timing-function: ease;
   &::before {
     transition: top 0.075s ease 0.12s, opacity 0.075s ease 0s;
-    top: -0.8rem;
+    top: -0.5rem;
     content: "";
     display: block;
-    width: 2.4rem;
-    height: 0.4rem;
+    width: 1.6rem;
+    height: 0.2rem;
     background-color: var(--font-01);
     border-radius: 0;
     position: absolute;
@@ -311,11 +319,11 @@ export const hamburgerInner = css`
   &::after {
     transition: bottom 0.075s ease 0.12s,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
-    bottom: -0.8rem;
+    bottom: -0.5rem;
     content: "";
     display: block;
-    width: 2.4rem;
-    height: 0.4rem;
+    width: 1.6rem;
+    height: 0.2rem;
     background-color: var(--font-01);
     border-radius: 0;
     position: absolute;

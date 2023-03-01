@@ -39,6 +39,7 @@ msgid "@Username (note: this can not be changed!)"
 msgstr "@Username (note: this can not be changed!)"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/shared/Navigation/index.tsx:77
 msgid "About"
 msgstr "About"
 
@@ -67,6 +68,10 @@ msgstr "Best Price"
 #: components/pages/Projects/index.tsx:46
 msgid "Browse Carbon Projects | Carbonmark"
 msgstr "Browse Carbon Projects | Carbonmark"
+
+#: components/shared/Navigation/index.tsx:50
+msgid "Browse Projects"
+msgstr "Browse Projects"
 
 #: components/pages/Projects/index.tsx:47
 msgid "Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks."
@@ -112,6 +117,10 @@ msgstr "Change language"
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
+#: components/pages/Home/index.tsx:470
+msgid "Contact"
+msgstr "Contact"
+
 #: components/pages/Project/Purchase/PurchaseForm.tsx:38
 msgid "Cost incl. {0}% fee"
 msgstr "Cost incl. {0}% fee"
@@ -141,7 +150,7 @@ msgstr "Display name"
 msgid "Display name is required"
 msgstr "Display name is required"
 
-#: components/shared/Navigation/index.tsx:102
+#: components/shared/Navigation/index.tsx:117
 msgid "Enter App"
 msgstr "Enter App"
 
@@ -161,9 +170,18 @@ msgstr "Handle should not be an address"
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
-#: components/Footer/index.tsx:28
+#: components/pages/Home/index.tsx:473
+#: components/shared/Navigation/index.tsx:83
+msgid "Help"
+msgstr "Help"
+
+#: components/Footer/index.tsx:29
 msgid "Home"
 msgstr "Home"
+
+#: components/pages/Home/index.tsx:479
+msgid "KlimaDAO"
+msgstr "KlimaDAO"
 
 #: components/pages/Users/SellerConnected/index.tsx:179
 #: components/pages/Users/SellerUnconnected/index.tsx:51
@@ -200,9 +218,9 @@ msgstr "Login"
 msgid "Logout"
 msgstr "Logout"
 
-#: components/Footer/index.tsx:33
-#: components/shared/Navigation/index.tsx:56
-#: components/shared/Navigation/index.tsx:81
+#: components/Footer/index.tsx:34
+#: components/shared/Navigation/index.tsx:59
+#: components/shared/Navigation/index.tsx:96
 msgid "Marketplace"
 msgstr "Marketplace"
 
@@ -240,9 +258,13 @@ msgstr "Price Highest"
 msgid "Price Lowest"
 msgstr "Price Lowest"
 
-#: components/Footer/index.tsx:38
-#: components/shared/Navigation/index.tsx:62
-#: components/shared/Navigation/index.tsx:87
+#: components/pages/Home/index.tsx:464
+msgid "Privacy policy"
+msgstr "Privacy policy"
+
+#: components/Footer/index.tsx:39
+#: components/shared/Navigation/index.tsx:65
+#: components/shared/Navigation/index.tsx:102
 msgid "Profile"
 msgstr "Profile"
 
@@ -286,9 +308,10 @@ msgstr "Recently Updated"
 msgid "Remaining Supply:"
 msgstr "Remaining Supply:"
 
-#: components/Footer/index.tsx:43
-#: components/shared/Navigation/index.tsx:68
-#: components/shared/Navigation/index.tsx:93
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:476
+#: components/shared/Navigation/index.tsx:71
+#: components/shared/Navigation/index.tsx:108
 msgid "Resources"
 msgstr "Resources"
 
@@ -339,6 +362,10 @@ msgstr "Success. Go to your <0>Profile page</0> to see your new listing."
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
+
+#: components/pages/Home/index.tsx:467
+msgid "Terms of use"
+msgstr "Terms of use"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
@@ -850,10 +877,6 @@ msgstr "Approve"
 #: components/pages/Users/SellerUnconnected/index.tsx:64
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
-
-#: components/shared/Navigation/index.tsx:48
-msgid "shared.enter_app"
-msgstr "Enter App"
 
 #: components/Layout/index.tsx:123
 msgid "shared.login"

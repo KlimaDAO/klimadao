@@ -1,4 +1,8 @@
 import { cx } from "@emotion/css";
+import { Trans } from "@lingui/macro";
+import Link from "next/link";
+import { FC } from "react";
+
 import {
   Anchor as A,
   DiscordIcon,
@@ -7,10 +11,7 @@ import {
   TwitterIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
-import Link from "next/link";
-import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {

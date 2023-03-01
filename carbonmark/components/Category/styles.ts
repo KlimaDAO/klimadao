@@ -12,9 +12,6 @@ export const category = css`
   align-self: flex-start;
 
   font-size: 1.4rem;
-  color: var(--font-01);
-
-  &.other {
-    color: white;
-  }
+  color: #000;
+  border: 1px solid var(--font-03);
 `;

@@ -3,7 +3,7 @@ import React, { FC, HTMLProps } from "react";
 import * as styles from "./styles";
 
 type Props = HTMLProps<HTMLDivElement> & {
-  variant?: "white" | "gray" | "black";
+  variant?: "white" | "darkgray" | "gray" | "black";
   fillViewport?: boolean;
 };
 
