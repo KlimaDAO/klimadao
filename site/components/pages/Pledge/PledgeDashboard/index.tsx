@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "components/Modal";
 import { PageHead } from "components/PageHead";
 
-import { connectErrorStrings } from "lib/constants";
+import { getConnectErrorStrings } from "lib/constants";
 import { AcceptModal, RemoveModal } from "../InvitationModals";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
@@ -158,7 +158,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       />
       {renderModal &&
         renderModal({
-          errors: connectErrorStrings,
+          errors: getConnectErrorStrings(),
           torusText: t({
             message: "social or email",
             id: "connectModal.torus",

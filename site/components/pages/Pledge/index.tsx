@@ -14,7 +14,7 @@ import * as styles from "./styles";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
-import { connectErrorStrings } from "lib/constants";
+import { getConnectErrorStrings } from "lib/constants";
 
 export const Pledge: NextPage = () => {
   const router = useRouter();
@@ -100,7 +100,7 @@ export const Pledge: NextPage = () => {
       {renderModal &&
         renderModal({
           onClose: handleModalClose,
-          errors: connectErrorStrings,
+          errors: getConnectErrorStrings(),
           torusText: t({
             message: "social or email",
             id: "connectModal.torus",

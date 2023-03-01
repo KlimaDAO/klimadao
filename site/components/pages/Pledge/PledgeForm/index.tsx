@@ -23,8 +23,8 @@ import SaveIcon from "@mui/icons-material/Save";
 import {
   editPledgeMessage,
   formSchema,
+  getErrorTranslationsMap,
   PledgeErrorId,
-  pledgeErrorTranslationsMap,
   pledgeFormAdapter,
   putPledge,
   waitForGnosisSignature,
@@ -221,7 +221,7 @@ export const PledgeForm: FC<Props> = (props) => {
       setSubmitting(false);
     } catch (error: any) {
       if (error instanceof Error) {
-        setErrorMessage(getErrorMessage(error.name));
+        setErrorMessage(getErrorMessage(error.name) || "");
       } else {
         setErrorMessage(
           t({
@@ -242,6 +242,13 @@ export const PledgeForm: FC<Props> = (props) => {
       <Trans id="pledges.form.awaiting_signature">Awaiting signature...</Trans>
     </div>
   );
+
+  const pledgeErrorTranslationsMap = getErrorTranslationsMap();
+
+  const getErrorMessage = (stringId?: string) => {
+    if (!stringId) return undefined;
+    return pledgeErrorTranslationsMap[stringId as PledgeErrorId];
+  };
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -271,9 +278,7 @@ export const PledgeForm: FC<Props> = (props) => {
               ...register("name"),
             }}
             label={t({ id: "pledges.form.input.name.label", message: "Name" })}
-            errorMessage={
-              pledgeErrorTranslationsMap[errors.name?.message as PledgeErrorId]
-            }
+            errorMessage={getErrorMessage(errors.name?.message)}
           />
 
           <InputField
@@ -287,11 +292,7 @@ export const PledgeForm: FC<Props> = (props) => {
               id: "pledges.form.input.profileImageUrl.label",
               message: "Profile image url (optional)",
             })}
-            errorMessage={
-              pledgeErrorTranslationsMap[
-                errors.profileImageUrl?.message as PledgeErrorId
-              ]
-            }
+            errorMessage={getErrorMessage(errors.profileImageUrl?.message)}
           />
 
           <InputField
@@ -305,11 +306,7 @@ export const PledgeForm: FC<Props> = (props) => {
               id: "pledges.form.input.profileWebsiteUrl.label",
               message: "Website (Optional)",
             })}
-            errorMessage={
-              pledgeErrorTranslationsMap[
-                errors.profileWebsiteUrl?.message as PledgeErrorId
-              ]
-            }
+            errorMessage={getErrorMessage(errors.profileWebsiteUrl?.message)}
           />
 
           <TextareaField
@@ -327,11 +324,7 @@ export const PledgeForm: FC<Props> = (props) => {
               id: "pledges.form.input.description.label",
               message: "Pledge",
             })}
-            errorMessage={
-              pledgeErrorTranslationsMap[
-                errors.description?.message as PledgeErrorId
-              ]
-            }
+            errorMessage={getErrorMessage(errors.description?.message)}
           />
           <div className={styles.wallets_section}>
             <div className={styles.pledge_form_wallets_title}>
@@ -388,12 +381,9 @@ export const PledgeForm: FC<Props> = (props) => {
                           id: "pledges.form.input.walletAddress.label",
                           message: "Address",
                         })}
-                        errorMessage={
-                          pledgeErrorTranslationsMap[
-                            errors.wallets?.[index]?.address
-                              ?.message as PledgeErrorId
-                          ]
-                        }
+                        errorMessage={getErrorMessage(
+                          errors.wallets?.[index]?.address?.message
+                        )}
                       />
                       <div className={styles.pledge_wallet_edit_buttons}>
                         <ButtonPrimary
@@ -489,9 +479,7 @@ export const PledgeForm: FC<Props> = (props) => {
             })}
             errorMessage={
               !!formState.errors.methodology?.message
-                ? pledgeErrorTranslationsMap[
-                    formState.errors.methodology.message as PledgeErrorId
-                  ]
+                ? getErrorMessage(formState.errors.methodology.message)
                 : undefined
             }
           />
@@ -531,12 +519,9 @@ export const PledgeForm: FC<Props> = (props) => {
                         id: "pledges.form.input.categoryName.label",
                         message: "Category",
                       })}
-                      errorMessage={
-                        pledgeErrorTranslationsMap[
-                          errors.categories?.[index]?.name
-                            ?.message as PledgeErrorId
-                        ]
-                      }
+                      errorMessage={getErrorMessage(
+                        errors.categories?.[index]?.name?.message
+                      )}
                     />
 
                     <InputField
@@ -554,12 +539,9 @@ export const PledgeForm: FC<Props> = (props) => {
                         id: "pledges.form.input.categoryQuantity.label",
                         message: "Quantity",
                       })}
-                      errorMessage={
-                        pledgeErrorTranslationsMap[
-                          errors.categories?.[index]?.quantity
-                            ?.message as PledgeErrorId
-                        ]
-                      }
+                      errorMessage={getErrorMessage(
+                        errors.categories?.[index]?.quantity?.message
+                      )}
                     />
                   </div>
 
@@ -598,11 +580,7 @@ export const PledgeForm: FC<Props> = (props) => {
               id: "pledges.form.input.totalFootprint.label",
               message: "Total footprint",
             })}
-            errorMessage={
-              pledgeErrorTranslationsMap[
-                errors.footprint?.message as PledgeErrorId
-              ]
-            }
+            errorMessage={getErrorMessage(errors.footprint?.message)}
           />
 
           <TotalFootprint control={control} setValue={setValue} />
