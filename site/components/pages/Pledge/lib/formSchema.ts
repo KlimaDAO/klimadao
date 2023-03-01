@@ -30,7 +30,7 @@ yup.addMethod<yup.StringSchema>(
   }
 );
 
-export const pledgeErrorTranslationsMap = {
+export const getErrorTranslationsMap = () => ({
   ["pledges.form.errors.name.required"]: t({
     id: "pledges.form.errors.name.required",
     message: "Enter a name",
@@ -91,9 +91,9 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.walletAddress.isOwner",
     message: "You cannot add the pledge owner",
   }),
-} as const;
+});
 
-export type PledgeErrorId = keyof typeof pledgeErrorTranslationsMap;
+export type PledgeErrorId = keyof ReturnType<typeof getErrorTranslationsMap>;
 
 export const formSchema = yup
   .object({

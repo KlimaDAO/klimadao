@@ -1,5 +1,5 @@
 export { editPledgeMessage } from "./editPledgeMessage";
-export { formSchema, pledgeErrorTranslationsMap } from "./formSchema";
+export { formSchema, getErrorTranslationsMap } from "./formSchema";
 export type { PledgeErrorId } from "./formSchema";
 export { DEFAULT_NONCE, generateNonce } from "./generateNonce";
 export {
