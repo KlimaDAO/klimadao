@@ -656,14 +656,17 @@ msgid "offset.selectiveRetirement.selectProject.select"
 msgstr ""
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:22
 msgid "offset.successModal.body1"
 msgstr ""
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:35
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:32
 msgid "offset.successModal.body2"
 msgstr ""
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:47
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:44
 msgid "offset.successModal.cta"
 msgstr ""
 
@@ -759,10 +762,6 @@ msgstr ""
 msgid "redeem.description"
 msgstr ""
 
-#: components/views/Redeem/RedeemLayout/index.tsx:35
-msgid "redeem.fiat_description"
-msgstr ""
-
 #: components/views/Redeem/lib/formSchema.ts:42
 msgid "redeem.form.errors.paymentMethod.required"
 msgstr ""
@@ -795,11 +794,11 @@ msgstr ""
 msgid "redeem.redeem_carbon"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:208
+#: components/views/Redeem/index.tsx:327
 msgid "redeem.select_carbon_pool"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:212
+#: components/views/Redeem/index.tsx:331
 msgid "redeem.select_carbon_pool.title"
 msgstr ""
 

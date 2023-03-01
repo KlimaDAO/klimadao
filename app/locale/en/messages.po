@@ -662,14 +662,17 @@ msgid "offset.selectiveRetirement.selectProject.select"
 msgstr "Select project"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:22
 msgid "offset.successModal.body1"
 msgstr "Thank you. By participating in the voluntary carbon market, you are making conservation more profitable and climate mitigation more impactful"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:35
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:32
 msgid "offset.successModal.body2"
 msgstr "Click the button below to view your retirement. Consider sharing the page to support us on our journey towards a more transparent, accessible and rewarding carbon market!"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:47
+#: components/views/Redeem/RedeemSuccessModal/index.tsx:44
 msgid "offset.successModal.cta"
 msgstr "VIEW RETIREMENT"
 
@@ -763,11 +766,7 @@ msgstr "The updated contract now assumes pKLIMA holders have staked and earned r
 
 #: components/views/Redeem/RedeemLayout/index.tsx:28
 msgid "redeem.description"
-msgstr "Already own tokenized carbon from a pool and want to exchange it for a more specific carbon credit? Redeem it here in exchange for specific TCO2 tokens."
-
-#: components/views/Redeem/RedeemLayout/index.tsx:35
-msgid "redeem.fiat_description"
-msgstr "Interested in acquiring carbon tokens from a specific carbon project with USDC or Credit Card? You can also do that here."
+msgstr "Swap USDC or other tokens for a specific offset project. The project tokens will be swapped out of the pool and transferred to your wallet, so you can trade or retire them later."
 
 #: components/views/Redeem/lib/formSchema.ts:42
 msgid "redeem.form.errors.paymentMethod.required"
@@ -801,11 +800,11 @@ msgstr "Enter a name"
 msgid "redeem.redeem_carbon"
 msgstr "Redeem Carbon"
 
-#: components/views/Redeem/index.tsx:208
+#: components/views/Redeem/index.tsx:327
 msgid "redeem.select_carbon_pool"
 msgstr "Select carbon pool type"
 
-#: components/views/Redeem/index.tsx:212
+#: components/views/Redeem/index.tsx:331
 msgid "redeem.select_carbon_pool.title"
 msgstr "Select Carbon Type"
 

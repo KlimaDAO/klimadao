@@ -26,15 +26,9 @@ export const RedeemLayout: React.FC<Props> = (props) => (
         </Text>
         <Text t="caption" color="lightest">
           <Trans id="redeem.description">
-            Already own tokenized carbon from a pool and want to exchange it for
-            a more specific carbon credit? Redeem it here in exchange for
-            specific TCO2 tokens.
-          </Trans>
-        </Text>
-        <Text t="caption" color="lightest">
-          <Trans id="redeem.fiat_description">
-            Interested in acquiring carbon tokens from a specific carbon project
-            with USDC or Credit Card? You can also do that here.
+            Swap USDC or other tokens for a specific offset project. The project
+            tokens will be swapped out of the pool and transferred to your
+            wallet, so you can trade or retire them later.
           </Trans>
         </Text>
       </div>
