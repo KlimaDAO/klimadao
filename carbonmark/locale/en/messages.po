@@ -92,11 +92,11 @@ msgstr "CarbonMark News & Resources"
 msgid "CarbonMark | Resources"
 msgstr "CarbonMark | Resources"
 
-#: components/pages/Home/index.tsx:19
+#: components/pages/Home/index.tsx:15
 msgid "Carbonmark | Universal Carbon Market"
 msgstr "Carbonmark | Universal Carbon Market"
 
-#: components/pages/Home/index.tsx:18
+#: components/pages/Home/index.tsx:14
 msgid "Carbonmark.com"
 msgstr "Carbonmark.com"
 
@@ -344,7 +344,7 @@ msgstr "Switch to Polygon"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
-#: components/pages/Home/index.tsx:20
+#: components/pages/Home/index.tsx:16
 msgid "The open platform for digital carbon."
 msgstr "The open platform for digital carbon."
 
@@ -583,31 +583,32 @@ msgstr "Delete Listing"
 msgid "profile.listings_modal.title"
 msgstr "Create a Listing"
 
-#: lib/getCategoryInfo.ts:87
+#: lib/getCategoryInfo.ts:97
 msgid "project.category.agriculture"
 msgstr "Agriculture"
 
-#: lib/getCategoryInfo.ts:77
+#: lib/getCategoryInfo.ts:87
 msgid "project.category.energy_efficiency"
 msgstr "Energy Efficiency"
 
-#: lib/getCategoryInfo.ts:47
+#: lib/getCategoryInfo.ts:57
 msgid "project.category.forestry"
 msgstr "Forestry"
 
-#: lib/getCategoryInfo.ts:97
-msgid "project.category.industria_processing"
+#: lib/getCategoryInfo.ts:108
+#: lib/getCategoryInfo.ts:118
+msgid "project.category.industrial_processing"
 msgstr "Industrial Processing"
 
-#: lib/getCategoryInfo.ts:67
+#: lib/getCategoryInfo.ts:77
 msgid "project.category.other"
 msgstr "Other"
 
-#: lib/getCategoryInfo.ts:57
+#: lib/getCategoryInfo.ts:67
 msgid "project.category.other_nature_based"
 msgstr "Other Nature-Based"
 
-#: lib/getCategoryInfo.ts:37
+#: lib/getCategoryInfo.ts:47
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
 

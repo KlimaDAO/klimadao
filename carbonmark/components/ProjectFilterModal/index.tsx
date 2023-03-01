@@ -9,7 +9,7 @@ import { omit } from "lodash";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
-import { PROJECT_FILTERS, PROJECT_SORT_OPTIONS } from "./constants";
+import { getProjectFilters, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
 
 type ModalFieldValues = {
@@ -49,7 +49,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    * @todo Not great. We need end to end typing to ensure that if the key values
    * change server side then our build fails
    */
-  const categoryOptions = PROJECT_FILTERS.CATEGORIES.filter((cat) =>
+  const categoryOptions = getProjectFilters().CATEGORIES.filter((cat) =>
     categories.map(({ id }) => id).includes(cat.value)
   );
 

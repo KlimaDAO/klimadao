@@ -1,7 +1,6 @@
 import {
   Category,
   CategoryName,
-  CategoryNames,
   Country,
   Project,
   User,
@@ -108,9 +107,10 @@ export const getUser = async (params: {
 type Params = {
   search?: string;
   country?: string;
-  category?: CategoryName | CategoryNames;
+  category?: CategoryName;
   vintage?: string;
 };
+
 export const getProjects = async (params?: Params): Promise<Project[]> => {
   const searchParams = !!params && new URLSearchParams(params);
   const url = searchParams ? `/api/projects?${searchParams}` : "/api/projects";

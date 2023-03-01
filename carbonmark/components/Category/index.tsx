@@ -1,33 +1,32 @@
 import { cx } from "@emotion/css";
-import { categoryInfoMap, getFirstCategory } from "lib/getCategoryInfo";
-import { CategoryName, CategoryNames } from "lib/types/carbonmark";
+import { getCategoryInfo } from "lib/getCategoryInfo";
+import { CategoryName } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  category: CategoryNames | CategoryName;
+  category: CategoryName;
 };
 
 export const Category: FC<Props> = (props) => {
   // there are more than one category if coming from a pool!
   // quick fix: take the first one
-  const firstCategory = getFirstCategory(props.category);
-  const category = categoryInfoMap[firstCategory];
+  const categoryInfo = getCategoryInfo(props.category);
 
-  if (!category) {
+  if (!categoryInfo) {
     return <div className={styles.category}>??</div>;
   }
 
-  const Icon = category.icon;
+  const Icon = categoryInfo.icon;
 
-  const other = category.key === "Other";
+  const other = categoryInfo.key === "Other";
 
   return (
     <div
       className={cx(styles.category, { other })}
-      style={{ backgroundColor: category.color }}
+      style={{ backgroundColor: categoryInfo.color }}
     >
-      <Icon /> {category.label}
+      <Icon /> {categoryInfo.label}
     </div>
   );
 };

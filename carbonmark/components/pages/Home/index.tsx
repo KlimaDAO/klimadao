@@ -7,11 +7,7 @@ import { Text } from "components/Text";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
-export interface Props {
-  deleteme?: () => void;
-}
-
-export const Home: NextPage<Props> = () => {
+export const Home: NextPage = () => {
   return (
     <GridContainer>
       <PageHead

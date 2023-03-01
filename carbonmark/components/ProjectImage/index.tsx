@@ -1,18 +1,14 @@
-import { CategoryName, CategoryNames } from "lib/types/carbonmark";
+import { getCategoryInfo } from "lib/getCategoryInfo";
+import { CategoryName } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { FC } from "react";
 
-import { categoryInfoMap, getFirstCategory } from "lib/getCategoryInfo";
-
 type Props = {
-  category: CategoryNames | CategoryName;
+  category: CategoryName;
 };
 
 export const ProjectImage: FC<Props> = (props) => {
-  // there are more than one category if coming from a pool!
-  // quick fix: take the first one
-  const firstCategory = getFirstCategory(props.category);
-  const category = categoryInfoMap[firstCategory];
+  const category = getCategoryInfo(props.category);
 
   return (
     <Image

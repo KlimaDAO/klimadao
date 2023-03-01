@@ -2,6 +2,7 @@ import { Web3ContextProvider } from "@klimadao/lib/components";
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
+import { activateLocale, loadTranslation } from "lib/i18n";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
@@ -17,10 +18,8 @@ import "@klimadao/lib/theme/globals.css"; // depends on variables
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
-    /* eslint-disable @typescript-eslint/no-var-requires */
-    const englishMessages = require("../locale/en/messages").messages;
-    i18n.load("en", englishMessages);
-    i18n.activate("en");
+    const messages = await loadTranslation("en");
+    activateLocale("en", messages);
   }
 };
 
@@ -33,8 +32,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
   if (translation && firstRender.current) {
-    i18n.load(locale, translation);
-    i18n.activate(locale);
+    activateLocale(locale, translation);
     firstRender.current = false;
   } else if (
     // server only
@@ -49,8 +47,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   // listen for the locale changes
   useEffect(() => {
     if (translation && !router.isFallback) {
-      i18n.load(locale, translation);
-      i18n.activate(locale);
+      activateLocale(locale, translation);
     }
   }, [locale]);
 
