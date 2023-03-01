@@ -7,7 +7,7 @@ const { gql } = require('@apollo/client');
     (where: {
         category_: { id_in: $category },
         country_: { id_in: $country },
-        name_contains: $search,
+        name_contains_nocase: $search,
         vintage_in: $vintage
     })
     {

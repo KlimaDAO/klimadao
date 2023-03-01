@@ -6,7 +6,7 @@ const POOLED_PROJECTS = gql`
                 (where: {
                     methodologyCategory_in:  $category,
                     country_in:  $country ,
-                    name_contains: $search,
+                    name_contains_nocase: $search,
                     vintageYear_in: $vintage
                 })
                 {
