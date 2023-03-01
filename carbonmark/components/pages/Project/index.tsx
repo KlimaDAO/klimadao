@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
 import { PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
-import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -24,7 +23,6 @@ import {
   ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { NextPage } from "next";
-import Link from "next/link";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
@@ -80,7 +78,7 @@ export const Project: NextPage<Props> = (props) => {
         />
       );
     });
-
+  console.log(props.project);
   return (
     <>
       <PageHead
@@ -90,15 +88,6 @@ export const Project: NextPage<Props> = (props) => {
       />
 
       <Layout>
-        <div className={styles.fullWidth}>
-          <Link href={"/projects"} className={styles.backToResults}>
-            <ArrowBack className="arrow" />
-            <Trans id="project.single.button.back_to_projects">
-              Back to Projects
-            </Trans>
-          </Link>
-        </div>
-
         <div className={styles.fullWidth}>
           <div className={styles.projectHeader}>
             {!!props.project.category?.id && (

@@ -105,6 +105,7 @@ export const cardGrid = css`
   ${breakpoints.desktop} {
     display: grid;
     grid-column: full;
+    padding: 4rem;
   }
 `;
 
@@ -122,10 +123,16 @@ export const controls = css`
     background-color: var(--bright-blue);
     color: var(--white);
   }
+  background-color: var(--surface-01);
+  padding: 0.8rem 1.6rem;
+  ${breakpoints.desktop} {
+    padding: 4rem 4rem 0rem 4rem;
+    background-color: var(--surface-02);
+  }
 `;
 
 export const menuButton = css`
-  background-color: var(--surface-02);
+  background-color: var(--surface-02) !important;
   height: 4.8rem;
   width: 4.8rem;
   font-size: 2.4rem !important;

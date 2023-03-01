@@ -5,6 +5,27 @@ export const fullWidth = css`
   grid-column: 1 / 3;
 `;
 
+export const fullWidthBack = css`
+  align-items: center;
+  margin-top: 0rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: min-content;
+  width: min-content;
+  a {
+    white-space: nowrap;
+  }
+  ${breakpoints.desktop} {
+    justify-content: center;
+    margin-top: -8.8rem;
+    height: 4.8rem;
+    width: 21rem;
+    border: 1px solid var(--font-01);
+    border-radius: 0.4rem;
+  }
+`;
+
 export const projectLink = css`
   display: inline-flex;
   margin: 1rem 0;

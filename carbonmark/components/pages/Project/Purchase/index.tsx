@@ -145,7 +145,7 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
       />
 
       <Layout>
-        <div className={styles.fullWidth}>
+        <div className={styles.fullWidthBack}>
           <Link
             href={createProjectLink(props.project)}
             className={styles.backToResults}

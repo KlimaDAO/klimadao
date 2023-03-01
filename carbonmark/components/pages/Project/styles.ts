@@ -5,14 +5,6 @@ export const fullWidth = css`
   grid-column: 1 / 3;
 `;
 
-export const backToResults = css`
-  color: var(--font-01) !important;
-
-  svg {
-    margin-right: 0.8rem;
-  }
-`;
-
 export const listingsHeader = css`
   display: grid;
   gap: 1.2rem;

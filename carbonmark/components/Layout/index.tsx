@@ -52,90 +52,90 @@ export const Layout: FC<Props> = (props: Props) => {
         <NavDrawer userAddress={props.userAddress} />
       </div>
       <div className={styles.fullWidthScrollableContainer}>
+        <div className={styles.controls}>
+          <Link href="/" className={styles.mobileLogo} data-mobile-only>
+            <CarbonmarkLogo />
+          </Link>
+          <div className={styles.betaWrapperMobile}>
+            <BetaBadge />
+          </div>
+          {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+          <div
+            className={styles.mobileNavMenu_overlay}
+            data-visible={showMobileMenu}
+            onClick={() => setShowMobileMenu(false)}
+          />
+          <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
+            <NavDrawer
+              userAddress={props.userAddress}
+              onHide={() => setShowMobileMenu(false)}
+            />
+          </div>
+
+          {/* <ChangeLanguageButton /> */}
+          {/* {isDesktop && <ThemeToggle />} */}
+          {/* Desktop controller */}
+          {isProjects && isDesktop && (
+            <ProjectsController className={styles.projectsController} />
+          )}
+
+          {props.profileButton}
+
+          <ButtonPrimary
+            data-mobile-only
+            variant="gray"
+            icon={<Menu />}
+            onClick={() => setShowMobileMenu((s) => !s)}
+            className={styles.menuButton}
+          />
+
+          <div data-desktop-only>
+            {!address && !isConnected && (
+              <ButtonPrimary
+                label={t`Login`}
+                onClick={toggleModal}
+                className="connectButton"
+              />
+            )}
+            {address && isConnected && (
+              <ButtonPrimary
+                label={t`Logout`}
+                onClick={disconnect}
+                className="connectButton"
+              />
+            )}
+          </div>
+
+          {renderModal &&
+            renderModal({
+              errors: connectErrorStrings,
+              torusText: t({
+                message: "social or email",
+                id: "connectModal.torus",
+              }),
+              walletText: t({
+                message: "connect a wallet",
+                id: "connectModal.wallet",
+              }),
+              titles: {
+                connect: t({
+                  id: "shared.login",
+                  message: "Login",
+                }),
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
+                }),
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
+              },
+            })}
+          <InvalidNetworkModal />
+        </div>
         <div className={cx(styles.cardGrid, { fullWidth })}>
           {/* header  */}
-          <div className={styles.controls}>
-            <Link href="/" className={styles.mobileLogo} data-mobile-only>
-              <CarbonmarkLogo />
-            </Link>
-            <div className={styles.betaWrapperMobile}>
-              <BetaBadge />
-            </div>
-            {/* keep mobile nav menu here in markup hierarchy for tab nav */}
-            <div
-              className={styles.mobileNavMenu_overlay}
-              data-visible={showMobileMenu}
-              onClick={() => setShowMobileMenu(false)}
-            />
-            <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
-              <NavDrawer
-                userAddress={props.userAddress}
-                onHide={() => setShowMobileMenu(false)}
-              />
-            </div>
-
-            {/* <ChangeLanguageButton /> */}
-            {/* {isDesktop && <ThemeToggle />} */}
-            {/* Desktop controller */}
-            {isProjects && isDesktop && (
-              <ProjectsController className={styles.projectsController} />
-            )}
-
-            {props.profileButton}
-
-            <ButtonPrimary
-              data-mobile-only
-              variant="gray"
-              icon={<Menu />}
-              onClick={() => setShowMobileMenu((s) => !s)}
-              className={styles.menuButton}
-            />
-
-            <div data-desktop-only>
-              {!address && !isConnected && (
-                <ButtonPrimary
-                  label={t`Login`}
-                  onClick={toggleModal}
-                  className="connectButton"
-                />
-              )}
-              {address && isConnected && (
-                <ButtonPrimary
-                  label={t`Logout`}
-                  onClick={disconnect}
-                  className="connectButton"
-                />
-              )}
-            </div>
-
-            {renderModal &&
-              renderModal({
-                errors: connectErrorStrings,
-                torusText: t({
-                  message: "social or email",
-                  id: "connectModal.torus",
-                }),
-                walletText: t({
-                  message: "connect a wallet",
-                  id: "connectModal.wallet",
-                }),
-                titles: {
-                  connect: t({
-                    id: "shared.login",
-                    message: "Login",
-                  }),
-                  loading: t({
-                    id: "connect_modal.connecting",
-                    message: "Connecting...",
-                  }),
-                  error: t({
-                    id: "connect_modal.error_title",
-                    message: "Connection Error",
-                  }),
-                },
-              })}
-            <InvalidNetworkModal />
-          </div>
           {/* body  */}
           <div
             style={{
