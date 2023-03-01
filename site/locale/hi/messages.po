@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-01 18:05+0000\n"
+"POT-Creation-Date: 2023-03-01 20:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1052,11 +1052,11 @@ msgstr "कुछ गलत हो गया। कृपया शीघ्र 
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "कृपया डुप्लीकेट वॉलेट निकालें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:638
+#: components/pages/Pledge/PledgeForm/index.tsx:616
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "क्या आप वाकई {0} को अपने गिरवी से हटाना चाहते हैं?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:347
+#: components/pages/Pledge/PledgeForm/index.tsx:340
 msgid "pledge.form.wallets.tooltip"
 msgstr "अपनी प्रतिज्ञा में योगदान करने के लिए अन्य वॉलेट जोड़ें। अगर वॉलेट का मालिक आपका निमंत्रण स्वीकार करता है, तो उनका वॉलेट आपके प्लेज डैशबोर्ड पर दिखाई देगा। द्वितीयक वॉलेट द्वारा की गई कोई भी सेवानिवृत्ति आपकी प्रतिज्ञा में योगदान देगी। आप इस प्रतिज्ञा के लिए एकमात्र स्वामित्व और संपादन पहुंच बनाए रखेंगे।"
 
@@ -1209,11 +1209,11 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 msgid "pledges.edit_pledge"
 msgstr "प्लेज संपादित करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:580
+#: components/pages/Pledge/PledgeForm/index.tsx:562
 msgid "pledges.form.add_footprint_category_button"
 msgstr "कैटेगरी जोड़ें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:456
+#: components/pages/Pledge/PledgeForm/index.tsx:446
 msgid "pledges.form.add_wallet_button"
 msgstr "बटुआ जोड़ें"
 
@@ -1225,11 +1225,11 @@ msgstr "हस्ताक्षर की प्रतीक्षा में
 msgid "pledges.form.confirm_delete"
 msgstr "हटाने की पुष्टि करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:644
+#: components/pages/Pledge/PledgeForm/index.tsx:622
 msgid "pledges.form.confirm_remove"
 msgstr "हटाना"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:657
+#: components/pages/Pledge/PledgeForm/index.tsx:635
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "रद्द करें"
 
@@ -1297,79 +1297,79 @@ msgstr "आप गिरवी स्वामी को नहीं जोड�
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "पता आवश्यक है"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:501
+#: components/pages/Pledge/PledgeForm/index.tsx:489
 msgid "pledges.form.footprint.label"
 msgstr "फ़ुटप्रिंट"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:509
+#: components/pages/Pledge/PledgeForm/index.tsx:497
 msgid "pledges.form.footprint.prompt"
 msgstr "एक कैटेगरी जोड़ें और अपने कार्बन फुटप्रिंट की गणना शुरू करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:253
+#: components/pages/Pledge/PledgeForm/index.tsx:260
 msgid "pledges.form.generic_error"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:530
+#: components/pages/Pledge/PledgeForm/index.tsx:518
 msgid "pledges.form.input.categoryName.label"
 msgstr "कैटेगरी"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:522
+#: components/pages/Pledge/PledgeForm/index.tsx:510
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "कैटेगरी नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:553
+#: components/pages/Pledge/PledgeForm/index.tsx:538
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "मात्रा"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:545
+#: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "कार्बन टन"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:326
+#: components/pages/Pledge/PledgeForm/index.tsx:323
 msgid "pledges.form.input.description.label"
 msgstr "प्लेज"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:319
+#: components/pages/Pledge/PledgeForm/index.tsx:316
 msgid "pledges.form.input.description.placeholder"
 msgstr "आपने क्या प्लेज ली है?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:486
+#: components/pages/Pledge/PledgeForm/index.tsx:476
 msgid "pledges.form.input.methodology.label"
 msgstr "कार्यप्रणाली"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:478
+#: components/pages/Pledge/PledgeForm/index.tsx:468
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "आपने अपने कार्बन फ़ुटप्रिंट की गणना के लिए किन उपकरणों या विधियों का उपयोग किया?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:273
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.name.label"
 msgstr "नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:266
+#: components/pages/Pledge/PledgeForm/index.tsx:273
 msgid "pledges.form.input.name.placeholder"
 msgstr "नाम या कंपनी का नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:286
+#: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "प्रोफ़ाइल छवि url (वैकल्पिक)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:304
+#: components/pages/Pledge/PledgeForm/index.tsx:305
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr "वेबसाइट (वैकल्पिक)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:597
+#: components/pages/Pledge/PledgeForm/index.tsx:579
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "कुल फ़ुटप्रिंट"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:387
+#: components/pages/Pledge/PledgeForm/index.tsx:380
 msgid "pledges.form.input.walletAddress.label"
 msgstr "पता"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:379
+#: components/pages/Pledge/PledgeForm/index.tsx:372
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0x..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:617
+#: components/pages/Pledge/PledgeForm/index.tsx:595
 msgid "pledges.form.submit_button"
 msgstr "प्लेज सेव करें"
 
@@ -1381,11 +1381,11 @@ msgstr "आपकी प्रतिज्ञा"
 msgid "pledges.form.total_footprint_summary"
 msgstr "कुल फ़ुटप्रिंट: {0} कार्बन टन"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:629
+#: components/pages/Pledge/PledgeForm/index.tsx:607
 msgid "pledges.form.use_your_wallet"
 msgstr "इस संपादन पर हस्ताक्षर करने और पुष्टि करने के लिए अपने वॉलेट का उपयोग करें।"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:339
+#: components/pages/Pledge/PledgeForm/index.tsx:332
 msgid "pledges.form.wallets.label"
 msgstr "द्वितीयक बटुआ"
 
@@ -1911,7 +1911,7 @@ msgstr "ऑफ़सेट"
 msgid "shared.okay"
 msgstr "ठीक"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:431
+#: components/pages/Pledge/PledgeForm/index.tsx:421
 msgid "shared.pending"
 msgstr "लंबित"
 

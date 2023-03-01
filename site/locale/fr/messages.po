@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-01 18:05+0000\n"
+"POT-Creation-Date: 2023-03-01 20:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1057,11 +1057,11 @@ msgstr "Un problème est survenu. Veuillez réessayer sous peu."
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "Veuillez supprimer le(s) portefeuille(s) en double"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:638
+#: components/pages/Pledge/PledgeForm/index.tsx:616
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "Êtes-vous sûr de vouloir supprimer {0} de votre engagement ?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:347
+#: components/pages/Pledge/PledgeForm/index.tsx:340
 msgid "pledge.form.wallets.tooltip"
 msgstr "Ajoutez d'autres portefeuilles pour contribuer à votre engagement. Si le propriétaire du portefeuille accepte votre invitation, son portefeuille apparaîtra sur le tableau de bord de votre engagement. Tous les retraits effectués par un portefeuille secondaire contribueront à votre engagement. Vous resterez le seul propriétaire et le seul éditeur de cet engagement."
 
@@ -1214,11 +1214,11 @@ msgstr "Total des tonnes de Carbone compensées"
 msgid "pledges.edit_pledge"
 msgstr "Modifier l'engagement"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:580
+#: components/pages/Pledge/PledgeForm/index.tsx:562
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Ajouter une catégorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:456
+#: components/pages/Pledge/PledgeForm/index.tsx:446
 msgid "pledges.form.add_wallet_button"
 msgstr "Ajouter un portefeuille"
 
@@ -1230,11 +1230,11 @@ msgstr "En attente de signature..."
 msgid "pledges.form.confirm_delete"
 msgstr "Confirmer la compensation"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:644
+#: components/pages/Pledge/PledgeForm/index.tsx:622
 msgid "pledges.form.confirm_remove"
 msgstr "supprimer"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:657
+#: components/pages/Pledge/PledgeForm/index.tsx:635
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "annuler"
 
@@ -1302,79 +1302,79 @@ msgstr "Vous ne pouvez pas ajouter le propriétaire de l'engagement"
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "Adresse requise"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:501
+#: components/pages/Pledge/PledgeForm/index.tsx:489
 msgid "pledges.form.footprint.label"
 msgstr "Empreinte"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:509
+#: components/pages/Pledge/PledgeForm/index.tsx:497
 msgid "pledges.form.footprint.prompt"
 msgstr "Ajoutez une catégorie et commencez à calculer votre empreinte carbone"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:253
+#: components/pages/Pledge/PledgeForm/index.tsx:260
 msgid "pledges.form.generic_error"
 msgstr "Un problème est survenu. Veuillez réessayer."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:530
+#: components/pages/Pledge/PledgeForm/index.tsx:518
 msgid "pledges.form.input.categoryName.label"
 msgstr "Catégorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:522
+#: components/pages/Pledge/PledgeForm/index.tsx:510
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Nom de catégorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:553
+#: components/pages/Pledge/PledgeForm/index.tsx:538
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Quantité"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:545
+#: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Tonnes de carbone"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:326
+#: components/pages/Pledge/PledgeForm/index.tsx:323
 msgid "pledges.form.input.description.label"
 msgstr "Engagement"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:319
+#: components/pages/Pledge/PledgeForm/index.tsx:316
 msgid "pledges.form.input.description.placeholder"
 msgstr "Quel est votre engagement ?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:486
+#: components/pages/Pledge/PledgeForm/index.tsx:476
 msgid "pledges.form.input.methodology.label"
 msgstr "Méthodologie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:478
+#: components/pages/Pledge/PledgeForm/index.tsx:468
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Quels outils ou méthodologies avez-vous utilisés pour calculer votre empreinte carbone ?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:273
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.name.label"
 msgstr "Nom"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:266
+#: components/pages/Pledge/PledgeForm/index.tsx:273
 msgid "pledges.form.input.name.placeholder"
 msgstr "Nom ou nom de l'entreprise"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:286
+#: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL de l'image de profil (facultatif)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:304
+#: components/pages/Pledge/PledgeForm/index.tsx:305
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr "Site Internet (facultatif)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:597
+#: components/pages/Pledge/PledgeForm/index.tsx:579
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Empreinte totale"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:387
+#: components/pages/Pledge/PledgeForm/index.tsx:380
 msgid "pledges.form.input.walletAddress.label"
 msgstr "Adresse"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:379
+#: components/pages/Pledge/PledgeForm/index.tsx:372
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0x..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:617
+#: components/pages/Pledge/PledgeForm/index.tsx:595
 msgid "pledges.form.submit_button"
 msgstr "Sauvegarder l'engagement"
 
@@ -1386,11 +1386,11 @@ msgstr "Votre engagement"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Empreinte totale : {0} Tonnes de carbone"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:629
+#: components/pages/Pledge/PledgeForm/index.tsx:607
 msgid "pledges.form.use_your_wallet"
 msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:339
+#: components/pages/Pledge/PledgeForm/index.tsx:332
 msgid "pledges.form.wallets.label"
 msgstr "Portefeuille(s) secondaire(s)"
 
@@ -1918,7 +1918,7 @@ msgstr "Compensation"
 msgid "shared.okay"
 msgstr "Ok"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:431
+#: components/pages/Pledge/PledgeForm/index.tsx:421
 msgid "shared.pending"
 msgstr "En attente"
 

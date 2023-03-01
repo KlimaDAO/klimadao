@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-01 18:05+0000\n"
+"POT-Creation-Date: 2023-03-01 20:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1052,11 +1052,11 @@ msgstr "出问题了，请稍后重试。"
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "请删除重复的钱包"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:638
+#: components/pages/Pledge/PledgeForm/index.tsx:616
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "您确定要从承诺中删除 {0} 吗？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:347
+#: components/pages/Pledge/PledgeForm/index.tsx:340
 msgid "pledge.form.wallets.tooltip"
 msgstr "添加其他钱包来为您的承诺做出贡献。如果钱包的所有者接受了您的邀请，他们的钱包将出现在您的质押仪表板上。所有二级钱包的任何碳停用都将有助于您的承诺。您将保留对此承诺的唯一所有权和编辑权限。"
 
@@ -1209,11 +1209,11 @@ msgstr "已停用的总碳吨"
 msgid "pledges.edit_pledge"
 msgstr "编辑承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:580
+#: components/pages/Pledge/PledgeForm/index.tsx:562
 msgid "pledges.form.add_footprint_category_button"
 msgstr "添加类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:456
+#: components/pages/Pledge/PledgeForm/index.tsx:446
 msgid "pledges.form.add_wallet_button"
 msgstr "添加钱包"
 
@@ -1225,11 +1225,11 @@ msgstr "等待签名..."
 msgid "pledges.form.confirm_delete"
 msgstr "确认移除"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:644
+#: components/pages/Pledge/PledgeForm/index.tsx:622
 msgid "pledges.form.confirm_remove"
 msgstr "移除"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:657
+#: components/pages/Pledge/PledgeForm/index.tsx:635
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "取消"
 
@@ -1297,79 +1297,79 @@ msgstr "您不能添加承诺所有者"
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "需要地址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:501
+#: components/pages/Pledge/PledgeForm/index.tsx:489
 msgid "pledges.form.footprint.label"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:509
+#: components/pages/Pledge/PledgeForm/index.tsx:497
 msgid "pledges.form.footprint.prompt"
 msgstr "添加一个类别并开始计算您的碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:253
+#: components/pages/Pledge/PledgeForm/index.tsx:260
 msgid "pledges.form.generic_error"
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:530
+#: components/pages/Pledge/PledgeForm/index.tsx:518
 msgid "pledges.form.input.categoryName.label"
 msgstr "类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:522
+#: components/pages/Pledge/PledgeForm/index.tsx:510
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "分类名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:553
+#: components/pages/Pledge/PledgeForm/index.tsx:538
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "数量"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:545
+#: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:326
+#: components/pages/Pledge/PledgeForm/index.tsx:323
 msgid "pledges.form.input.description.label"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:319
+#: components/pages/Pledge/PledgeForm/index.tsx:316
 msgid "pledges.form.input.description.placeholder"
 msgstr "你的承诺是什么？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:486
+#: components/pages/Pledge/PledgeForm/index.tsx:476
 msgid "pledges.form.input.methodology.label"
 msgstr "方法"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:478
+#: components/pages/Pledge/PledgeForm/index.tsx:468
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:273
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.name.label"
 msgstr "名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:266
+#: components/pages/Pledge/PledgeForm/index.tsx:273
 msgid "pledges.form.input.name.placeholder"
 msgstr "姓名或公司名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:286
+#: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "资料图片网址（可选）"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:304
+#: components/pages/Pledge/PledgeForm/index.tsx:305
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr "网站（可选）"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:597
+#: components/pages/Pledge/PledgeForm/index.tsx:579
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "总碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:387
+#: components/pages/Pledge/PledgeForm/index.tsx:380
 msgid "pledges.form.input.walletAddress.label"
 msgstr "地址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:379
+#: components/pages/Pledge/PledgeForm/index.tsx:372
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0x..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:617
+#: components/pages/Pledge/PledgeForm/index.tsx:595
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
@@ -1381,11 +1381,11 @@ msgstr "你的承诺"
 msgid "pledges.form.total_footprint_summary"
 msgstr "总碳足迹：{0} 碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:629
+#: components/pages/Pledge/PledgeForm/index.tsx:607
 msgid "pledges.form.use_your_wallet"
 msgstr "使用您的钱包签名并确认此编辑。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:339
+#: components/pages/Pledge/PledgeForm/index.tsx:332
 msgid "pledges.form.wallets.label"
 msgstr "二级钱包"
 
@@ -1911,7 +1911,7 @@ msgstr "抵消"
 msgid "shared.okay"
 msgstr "好的"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:431
+#: components/pages/Pledge/PledgeForm/index.tsx:421
 msgid "shared.pending"
 msgstr "等待中"
 

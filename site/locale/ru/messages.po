@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-01 18:05+0000\n"
+"POT-Creation-Date: 2023-03-01 20:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1060,11 +1060,11 @@ msgstr "Что-то пошло не так. Пожалуйста, попробу
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "Пожалуйста, удалите дубликат(ы) кошелька(ов)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:638
+#: components/pages/Pledge/PledgeForm/index.tsx:616
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "Вы уверены, что хотите удалить {0} из своего залога?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:347
+#: components/pages/Pledge/PledgeForm/index.tsx:340
 msgid "pledge.form.wallets.tooltip"
 msgstr "Добавьте другие кошельки для внесения обеспечения. Если владелец кошелька примет ваше приглашение, его кошелек появится на панели управления залогом. Любые списания, сделанные вторичным кошельком, пойдут в счет вашего залога. Вы сохраните единоличное право собственности и доступ к редактированию этого залога."
 
@@ -1219,11 +1219,11 @@ msgstr "Всего выбыло тонн углерода"
 msgid "pledges.edit_pledge"
 msgstr "Изменить залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:580
+#: components/pages/Pledge/PledgeForm/index.tsx:562
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Добавить категорию"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:456
+#: components/pages/Pledge/PledgeForm/index.tsx:446
 msgid "pledges.form.add_wallet_button"
 msgstr "Добавить кошелек"
 
@@ -1235,11 +1235,11 @@ msgstr "Ожидание подписи..."
 msgid "pledges.form.confirm_delete"
 msgstr "подтвердить удаление"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:644
+#: components/pages/Pledge/PledgeForm/index.tsx:622
 msgid "pledges.form.confirm_remove"
 msgstr "Удалить"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:657
+#: components/pages/Pledge/PledgeForm/index.tsx:635
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "Отмена"
 
@@ -1307,79 +1307,79 @@ msgstr "Вы не можете добавить владельца залога"
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "Требуется адрес"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:501
+#: components/pages/Pledge/PledgeForm/index.tsx:489
 msgid "pledges.form.footprint.label"
 msgstr "След"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:509
+#: components/pages/Pledge/PledgeForm/index.tsx:497
 msgid "pledges.form.footprint.prompt"
 msgstr "Добавьте категорию и начните рассчитывать свой углеродный след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:253
+#: components/pages/Pledge/PledgeForm/index.tsx:260
 msgid "pledges.form.generic_error"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:530
+#: components/pages/Pledge/PledgeForm/index.tsx:518
 msgid "pledges.form.input.categoryName.label"
 msgstr "Категория"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:522
+#: components/pages/Pledge/PledgeForm/index.tsx:510
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Название категории"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:553
+#: components/pages/Pledge/PledgeForm/index.tsx:538
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Количество"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:545
+#: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Тонны углерода"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:326
+#: components/pages/Pledge/PledgeForm/index.tsx:323
 msgid "pledges.form.input.description.label"
 msgstr "Залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:319
+#: components/pages/Pledge/PledgeForm/index.tsx:316
 msgid "pledges.form.input.description.placeholder"
 msgstr "Каково ваше обязательство?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:486
+#: components/pages/Pledge/PledgeForm/index.tsx:476
 msgid "pledges.form.input.methodology.label"
 msgstr "Методология"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:478
+#: components/pages/Pledge/PledgeForm/index.tsx:468
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Какие инструменты или методики вы использовали для расчета своего углеродного следа?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:273
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.name.label"
 msgstr "Имя"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:266
+#: components/pages/Pledge/PledgeForm/index.tsx:273
 msgid "pledges.form.input.name.placeholder"
 msgstr "Имя или название компании"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:286
+#: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL - изображения профиля (необязательно)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:304
+#: components/pages/Pledge/PledgeForm/index.tsx:305
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr "Веб-сайт (необязательно)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:597
+#: components/pages/Pledge/PledgeForm/index.tsx:579
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Общий след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:387
+#: components/pages/Pledge/PledgeForm/index.tsx:380
 msgid "pledges.form.input.walletAddress.label"
 msgstr "Адрес"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:379
+#: components/pages/Pledge/PledgeForm/index.tsx:372
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0х..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:617
+#: components/pages/Pledge/PledgeForm/index.tsx:595
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
@@ -1391,13 +1391,13 @@ msgstr "Ваш залог"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Общий след: {0} тонны углерода"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:629
+#: components/pages/Pledge/PledgeForm/index.tsx:607
 msgid "pledges.form.use_your_wallet"
 msgstr ""
 "Используйте свой кошелек, чтобы подписать и подтвердить эти изменения\n"
 ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:339
+#: components/pages/Pledge/PledgeForm/index.tsx:332
 msgid "pledges.form.wallets.label"
 msgstr "Дополнительный(е) кошелек(и)"
 
@@ -1927,7 +1927,7 @@ msgstr "Офсет"
 msgid "shared.okay"
 msgstr "Хорошо"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:431
+#: components/pages/Pledge/PledgeForm/index.tsx:421
 msgid "shared.pending"
 msgstr "В ожидании"
 
