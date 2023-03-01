@@ -89,7 +89,7 @@ module.exports = async function (fastify, opts) {
                         if (pooledProjectsData.carbonOffsets[index].balanceBCT != "0") {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                         }
-                        delete pooledProjectsData.carbonOffsets[index];
+                        delete pooledProjectsData.carbonOffsets.splice(index, 1);
                     }
                 }
 
