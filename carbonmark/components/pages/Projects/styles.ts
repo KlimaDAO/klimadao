@@ -13,6 +13,13 @@ export const list = css`
   }
 `;
 
+export const loadingPlaceholder = css`
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const card = css`
   background-color: var(--surface-01);
   border-radius: var(--border-radius);

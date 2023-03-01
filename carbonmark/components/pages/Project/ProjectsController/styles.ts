@@ -23,8 +23,3 @@ export const filterButton = css`
     }
   }
 `;
-
-export const search = css`
-  width: 100%;
-  max-width: 40rem;
-`;

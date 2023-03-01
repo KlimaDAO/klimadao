@@ -1,29 +1,61 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import SearchIcon from "@mui/icons-material/Search";
 import { InputField, InputFieldProps } from "components/shared/Form/InputField";
-import { FC, HTMLAttributes } from "react";
-import { useForm } from "react-hook-form";
+import { ChangeEvent, FC, KeyboardEvent, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-type SearchInputProps = HTMLAttributes<HTMLInputElement> &
-  Pick<InputFieldProps, "id" | "label">;
+type SearchInputProps = Pick<InputFieldProps, "id" | "label"> & {
+  placeholder: string;
+  /** Useful for pre-filling to reflect URL query param */
+  initialValue?: string;
+  onSubmit: (str: string | null) => void;
+};
 
 export const SearchInput: FC<SearchInputProps> = (props) => {
-  const { register } = useForm();
+  const [searchString, setSearchString] = useState("");
+
+  const handleSubmit = () => {
+    props.onSubmit(searchString || null);
+  };
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") handleSubmit();
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // for better ux, fire a submit when they clear the input
+    if (searchString && e.target.value === "") {
+      props.onSubmit(null);
+    }
+    setSearchString(e.target.value);
+  };
+
+  useEffect(() => {
+    if (props.initialValue && !searchString) {
+      setSearchString(props.initialValue);
+    }
+  }, [props.initialValue]);
+
   return (
     <div className={styles.main}>
       <InputField
         id={props.id}
         inputProps={{
-          ...register(props.id),
           className: styles.input,
           placeholder: props.placeholder,
           type: "search",
+          value: searchString,
+          onChange: handleChange,
+          onKeyDown: handleKeyDown,
         }}
         label={props.label}
         hideLabel
       />
-      <ButtonPrimary className={styles.button} icon={<SearchIcon />} />
+      <ButtonPrimary
+        className={styles.button}
+        icon={<SearchIcon />}
+        onClick={handleSubmit}
+      />
     </div>
   );
 };

@@ -136,7 +136,6 @@ export const Layout: FC<Props> = (props: Props) => {
               })}
             <InvalidNetworkModal />
           </div>
-          ren
           {/* body  */}
           <div
             style={{
