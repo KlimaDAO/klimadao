@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { Text } from "components/Text";
 import { getCategoryInfo } from "lib/getCategoryInfo";
 import { CategoryName } from "lib/types/carbonmark";
 import { FC } from "react";
@@ -22,11 +23,8 @@ export const Category: FC<Props> = (props) => {
   const other = categoryInfo.key === "Other";
 
   return (
-    <div
-      className={cx(styles.category, { other })}
-      style={{ backgroundColor: categoryInfo.color }}
-    >
+    <Text className={cx(styles.category, { other })}>
       <Icon /> {categoryInfo.label}
-    </div>
+    </Text>
   );
 };

@@ -1,5 +1,5 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
-import { PoolIcon, Spinner } from "@klimadao/lib/components";
+import { Spinner } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -75,13 +75,16 @@ const Page: NextPage = () => {
                   <Text t="h5">
                     {project.name || "! MISSING PROJECT NAME !"}
                   </Text>
-                  <Text t="body1">{project.methodology}</Text>
+                  {project.description && (
+                    <Text t="body1" className={styles.cardDescription}>
+                      {project.description}
+                    </Text>
+                  )}
                   <div className={styles.tags}>
+                    <Vintage vintage={project.vintage} />
                     {!!project.category?.id && (
                       <Category category={project.category.id} />
                     )}
-                    {project.isPoolProject && <PoolIcon />}
-                    <Vintage vintage={project.vintage} />
                   </div>
                 </div>
               </div>
