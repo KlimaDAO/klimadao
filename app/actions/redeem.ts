@@ -97,7 +97,6 @@ export const redeemCarbonTransaction = async (params: {
 
     params.onStatus("networkConfirmation");
     await txn.wait(1);
-
     params.onStatus("done");
   } catch (e: any) {
     if (e.code === 4001) {

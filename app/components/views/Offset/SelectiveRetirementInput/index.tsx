@@ -1,12 +1,12 @@
 import { t } from "@lingui/macro";
 import { utils } from "ethers";
 import { ChangeEvent, FC } from "react";
-
 import * as styles from "./styles";
 
 type Props = {
   projectAddress: string;
   setProjectAddress: (val: string) => void;
+  disabled?: boolean;
 };
 
 export const SelectiveRetirementInput: FC<Props> = (props) => {
@@ -26,6 +26,7 @@ export const SelectiveRetirementInput: FC<Props> = (props) => {
         !!props.projectAddress && !utils.isAddress(props.projectAddress)
       }
       pattern="^0x[a-fA-F0-9]{40}$"
+      disabled={props.disabled}
     />
   );
 };

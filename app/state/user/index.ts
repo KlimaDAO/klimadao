@@ -19,6 +19,7 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
+import { RedeemPaymentMethod } from "lib/hooks/useRedeemParams";
 import { redeemBond } from "state/bonds";
 
 export interface UserState {
@@ -88,6 +89,32 @@ export const userSlice = createSlice({
       s.projectTokens[a.payload.address] = {
         ...s.projectTokens[a.payload.address],
         ...a.payload,
+      };
+    },
+    updateRedemption: (
+      s,
+      a: PayloadAction<{
+        paymentMethod: RedeemPaymentMethod;
+        projectTokenAddress: string;
+        quantity: string;
+        cost: string;
+        tempSymbol?: string;
+      }>
+    ) => {
+      s.allowances![a.payload.paymentMethod]["retirementAggregatorV2"] = "0.0";
+      // when it's a freshly purchased tco2 we don't know the symbol so we pass an override down
+      const symbol =
+        s.projectTokens[a.payload.projectTokenAddress]?.symbol ??
+        a.payload.tempSymbol ??
+        "";
+
+      s.projectTokens[a.payload.projectTokenAddress] = {
+        ...s.projectTokens[a.payload.projectTokenAddress],
+        symbol,
+        quantity: safeAdd(
+          s.projectTokens[a.payload.projectTokenAddress]?.quantity || "0",
+          a.payload.quantity
+        ),
       };
     },
     decrementProjectToken: (
@@ -252,6 +279,7 @@ export const userSlice = createSlice({
 export const {
   setBalance,
   setProjectToken,
+  updateRedemption,
   decrementProjectToken,
   setPklimaTerms,
   setBondAllowance,

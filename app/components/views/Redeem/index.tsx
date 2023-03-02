@@ -9,13 +9,14 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
+import { getProjectTokenBalances } from "actions/offset";
 import {
   getRedeemAllowances,
   getRedeemCost,
   redeemCarbonTransaction,
 } from "actions/redeem";
 import { changeApprovalTransaction } from "actions/utils";
-import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
+import { CarbonBalancesCard } from "components/CarbonBalancesCard";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
@@ -44,7 +45,7 @@ import {
   selectLocale,
   selectNotificationStatus,
 } from "state/selectors";
-import { setAllowance } from "state/user";
+import { setAllowance, updateRedemption } from "state/user";
 import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import * as styles from "./styles";
 
@@ -129,6 +130,11 @@ export const Redeem = (props: Props) => {
           onRPCError: props.onRPCError,
         })
       );
+      dispatch(
+        getProjectTokenBalances({
+          address: props.address,
+        })
+      );
     }
   }, [props.isConnected, props.address, props.provider]);
 
@@ -138,13 +144,11 @@ export const Redeem = (props: Props) => {
       return;
     }
     const getter = async () => {
-      console.log("getting cost", debouncedQuantity, pool, paymentMethod);
       const newCost = await getRedeemCost({
         paymentMethod,
         pool,
         quantity: debouncedQuantity,
       });
-      console.log("got cost", newCost);
       setCost(newCost);
     };
     getter();
@@ -195,8 +199,18 @@ export const Redeem = (props: Props) => {
         quantity,
         maxCost: cost,
       });
+      dispatch(
+        updateRedemption({
+          projectTokenAddress,
+          paymentMethod,
+          quantity,
+          tempSymbol: pool === "bct" || pool === "nct" ? "TCO2" : "C3T", // temp workaround, don't have the full symbol
+          cost,
+        })
+      );
       handleOnSuccess();
     } catch (e) {
+      console.error(e);
       return;
     }
   };
@@ -224,11 +238,6 @@ export const Redeem = (props: Props) => {
   };
 
   const getButtonProps = () => {
-    console.log(
-      "pt",
-      !!projectTokenAddress && !utils.isAddress(projectTokenAddress)
-    );
-
     if (!props.isConnected) {
       return {
         label: t({
@@ -355,7 +364,7 @@ export const Redeem = (props: Props) => {
   return (
     <>
       <div className={styles.columnRight}>
-        <CarbonTonnesRetiredCard />
+        <CarbonBalancesCard isConnected={props.isConnected} />
       </div>
 
       <div className={styles.offsetCard}>
@@ -390,6 +399,7 @@ export const Redeem = (props: Props) => {
             setProjectAddress={setProjectTokenAddress}
             selectedProject={selectedProject}
             setSelectedProject={setSelectedProject}
+            disableDefault={true}
           />
           {utils.isAddress(projectTokenAddress) && !selectedProject && (
             /** Show supplemental details for when they use params */
@@ -482,7 +492,6 @@ export const Redeem = (props: Props) => {
               handleSelectInputToken(str as RedeemPaymentMethod)
             }
           />
-
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
@@ -497,7 +506,7 @@ export const Redeem = (props: Props) => {
           </div>
         </div>
       </div>
-
+      <button onClick={handleRedeem}>test</button>
       {showTransactionModal && (
         <TransactionModal
           title={

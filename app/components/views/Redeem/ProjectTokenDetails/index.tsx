@@ -109,7 +109,6 @@ export const ProjectTokenDetails = (props: Props) => {
   const formattedQuantity = Number(poolBalance).toLocaleString(locale, {
     maximumFractionDigits: 2,
   });
-  console.log("q", formattedQuantity, balanceKey, poolBalance);
   return (
     <div className={styles.container}>
       <Text>{info.name || info.projectID}</Text>

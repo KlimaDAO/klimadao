@@ -2,10 +2,8 @@ import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { FC, useEffect, useState } from "react";
-
 import { LeafIcon } from "components/LeafIcon";
-
+import { FC, useEffect, useState } from "react";
 import { LoadingOverlay } from "../LoadingOverlay";
 import { ProjectSearch } from "../ProjectSearch";
 import { RetirementTypeButton } from "../RetirementTypeButton";
@@ -19,12 +17,14 @@ type Props = {
   setProjectAddress: (address: string) => void;
   selectedProject: CarbonProject | null;
   setSelectedProject: (project: CarbonProject | null) => void;
+  disableDefault?: boolean;
 };
 
 type InputMode = "default" | "search" | "address";
 
 export const SelectiveRetirement: FC<Props> = (props) => {
-  const [inputMode, setInputMode] = useState<InputMode>("default");
+  const defaultMode = props.disableDefault ? "search" : "default";
+  const [inputMode, setInputMode] = useState<InputMode>(defaultMode);
   const [isLoading, setIsLoading] = useState(false);
 
   const disableSelectiveRetirement = props.selectedRetirementToken === "mco2";
@@ -40,7 +40,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
   useEffect(() => {
     props.setSelectedProject(null);
     props.setProjectAddress("");
-    setInputMode("default");
+    setInputMode(defaultMode);
   }, [props.selectedRetirementToken]);
 
   return (
@@ -73,6 +73,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
               message: "Default",
             })}
             active={inputMode === "default"}
+            disabled={props.disableDefault}
             onClick={() => {
               props.setProjectAddress("");
               setInputMode("default");
@@ -125,6 +126,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           <SelectiveRetirementInput
             projectAddress={props.projectAddress}
             setProjectAddress={props.setProjectAddress}
+            disabled={!!props.selectedProject}
           />
         )}
       </div>
