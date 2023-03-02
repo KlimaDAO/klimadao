@@ -1,5 +1,4 @@
 import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
-import "@klimadao/lib/theme/globals.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/variables.css";
 import { useTabListener } from "@klimadao/lib/utils";
@@ -8,6 +7,8 @@ import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+// keep globals on new line so that it is imported after variables.css
+import "@klimadao/lib/theme/globals.css";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
