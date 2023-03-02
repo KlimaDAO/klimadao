@@ -332,6 +332,7 @@ module.exports = async function (fastify, opts) {
                         const results = await sanity.fetch(fetchProjects, params);
                         project.description = results.description;
                         project.location = results.geolocation;
+                        project.name = results.name;
 
                     } else if (project.registry == "GS") {
 
