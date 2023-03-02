@@ -19,7 +19,17 @@ const fetchProjects =  groq`*[_type == 'project'][0] {
     registryProjectId
   }`
 
+  const fetchAllProjects = groq`
+  *[_type == 'project'] {
+    "id": id.current,
+    description,
+    registry,
+    registryProjectId,
+    methodologies[]->{ category },
+    name,
+  }`
 
   module.exports = {
-    fetchProjects
+    fetchProjects,
+    fetchAllProjects
 };

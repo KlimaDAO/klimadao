@@ -87,10 +87,15 @@ async function calculatePoolPrices() {
     return results;
 }
 
+function findProjectWithRegistryIdAndRegistry(projects, registryId, registry) {
+    return projects.find(project => project.registryProjectId === registryId && project.registry === registry);
+  }
+
 module.exports = {
     calculatePoolPrices,
     convertArrayToObjects,
     getAllVintages,
     getAllCategories,
-    getAllCountries
+    getAllCountries,
+    findProjectWithRegistryIdAndRegistry
 };
