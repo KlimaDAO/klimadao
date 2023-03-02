@@ -1,4 +1,3 @@
-import { Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
 import { Activities } from "components/Activities";
@@ -6,6 +5,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
 import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";

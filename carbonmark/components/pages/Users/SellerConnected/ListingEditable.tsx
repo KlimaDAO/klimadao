@@ -1,8 +1,8 @@
-import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import {

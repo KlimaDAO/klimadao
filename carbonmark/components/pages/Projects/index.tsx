@@ -1,10 +1,10 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
-import { Spinner } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";

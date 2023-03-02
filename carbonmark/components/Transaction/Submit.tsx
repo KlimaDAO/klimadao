@@ -1,10 +1,10 @@
 import { cx } from "@emotion/css";
-import { Spinner } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";

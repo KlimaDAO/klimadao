@@ -1,8 +1,8 @@
-import { Spinner } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
+import { Spinner } from "components/shared/Spinner";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";

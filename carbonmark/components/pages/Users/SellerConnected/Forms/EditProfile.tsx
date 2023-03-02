@@ -1,9 +1,9 @@
-import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { utils } from "ethers";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";

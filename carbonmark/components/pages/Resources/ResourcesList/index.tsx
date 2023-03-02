@@ -1,4 +1,4 @@
-import { Section, Spinner } from "@klimadao/lib/components";
+import { Section } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,6 +7,7 @@ import { BlogPostCard } from "components/pages/Resources/BlogPostCard";
 import { PodcastCard } from "components/pages/Resources/PodcastCard";
 import { InputField } from "components/shared/Form";
 import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Document } from "lib/queries";
 import { FC, useEffect, useState } from "react";
