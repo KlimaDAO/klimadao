@@ -113,7 +113,6 @@ export const Redeem = (props: Props) => {
       setPool(params.pool);
     }
     if (params.projectTokenAddress) {
-      // these are for selective retirement within a retirementToken
       setProjectTokenAddress(params.projectTokenAddress);
     }
     if (params.quantity) {
@@ -371,7 +370,7 @@ export const Redeem = (props: Props) => {
         <div className={styles.offsetCard_header}>
           <Text t="h4" className={styles.offsetCard_header_title}>
             <RedeemOutlined />
-            <Trans>Buy Carbon</Trans>
+            <Trans>Buy & Redeem Carbon</Trans>
           </Text>
           <Text t="caption" color="lightest">
             <Trans id="redeem.description">

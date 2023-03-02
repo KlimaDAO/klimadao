@@ -201,7 +201,7 @@ export const NavMenu: FC<Props> = (props) => {
         href="/redeem"
         onClick={handleHide}
       >
-        <Trans>Redeem</Trans>
+        <Trans>Buy & Redeem</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/info"}
