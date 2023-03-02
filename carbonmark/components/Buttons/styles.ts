@@ -9,7 +9,7 @@ export const buttonPrimary = css`
   &,
   &:hover:not(:disabled),
   &:visited {
-    color: var(--surface-02); /* same in darkmode */
+    color: white; /* same in darkmode. same as not hovered. keep here to override hover state in lib */
   }
 
   &.gray {
