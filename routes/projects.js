@@ -119,16 +119,16 @@ module.exports = async function (fastify, opts) {
 
                 const uniqueValues = [];
 
-                if (parseFloat(project.balanceUBO) != 0) {
+                if (parseFloat(project.balanceUBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
                 }
-                if (parseFloat(project.balanceNBO) != 0) {
+                if (parseFloat(project.balanceNBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                 }
-                if (parseFloat(project.balanceNTC) != 0) {
+                if (parseFloat(project.balanceNTC) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                 }
-                if (parseFloat(project.balanceBTC) != 0) {
+                if (parseFloat(project.balanceBTC) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                 }
 
@@ -274,7 +274,7 @@ module.exports = async function (fastify, opts) {
 
                         project.prices = [];
                         if (poolProject) {
-                            if (poolProject.balanceUBO != "0") {
+                            if (parseFloat(poolProject.balanceUBO ) > 0) {
                                 var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_UBO_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceUBO,
@@ -283,7 +283,7 @@ module.exports = async function (fastify, opts) {
                                     name: 'UBO',
                                 })
                             }
-                            if (poolProject.balanceNBO != "0") {
+                            if (parseFloat(poolProject.balanceNBO)  > 0) {
                                 var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NBO_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNBO,
@@ -292,7 +292,7 @@ module.exports = async function (fastify, opts) {
                                     name: 'UBO',
                                 })
                             }
-                            if (poolProject.balanceNTC != "0") {
+                            if (parseFloat(poolProject.balanceNTC)  > 0) {
                                 var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NTC_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNCT,
@@ -301,7 +301,7 @@ module.exports = async function (fastify, opts) {
                                     name: 'NCT',
                                 })
                             }
-                            if (poolProject.balanceBCT != "0") {
+                            if (parseFloat(poolProject.balanceBCT) > 0) {
                                 var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_BTC_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceBCT,
