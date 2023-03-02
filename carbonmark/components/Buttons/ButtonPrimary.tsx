@@ -18,5 +18,5 @@ export const ButtonPrimary: FC<ButtonBaseProps> = (props) => {
     },
     props.className
   );
-  return <KlimaButton className={className} {...props} />;
+  return <KlimaButton {...props} className={className} />;
 };
