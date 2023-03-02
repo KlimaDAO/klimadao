@@ -198,6 +198,7 @@ export const allowancesContracts = {
     "sklima",
     "wsklima",
   ],
+  retirementAggregatorV2: ["ubo", "nbo", "bct", "nct", "usdc", "klima"], // redeemables
   staking_helper: ["klima"],
   staking: ["sklima"],
   wsklima: ["sklima"],

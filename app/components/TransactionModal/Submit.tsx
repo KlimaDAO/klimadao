@@ -10,6 +10,7 @@ import { AppNotificationStatus } from "state/app";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { HighlightValue } from "./HighlightValue";
 
+import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { StaticImageData } from "next/image";
 import * as styles from "./styles";
@@ -56,6 +57,7 @@ export const Submit: FC<Props> = (props) => {
             </Text>
           }
           value={concatAddress(props.spenderAddress)}
+          valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
         <HighlightValue
           label={

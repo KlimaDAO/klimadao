@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:785
 msgid "Beneficiary 0x address (optional)"
@@ -15,12 +21,34 @@ msgstr ""
 msgid "Beneficiary name"
 msgstr ""
 
+#: components/views/Redeem/index.tsx:365
+#: components/views/Redeem/index.tsx:506
+msgid "Buy Carbon"
+msgstr ""
+
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
 msgstr ""
 
+#: components/views/Redeem/index.tsx:281
+msgid "Continue"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:420
+msgid "Enter quantity"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:402
+msgid "How many tonnes would you like to acquire?"
+msgstr ""
+
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:95
 msgid "Loading project info..."
+msgstr ""
+
+#: components/views/Redeem/index.tsx:242
+msgid "Loading..."
 msgstr ""
 
 #: components/views/Offset/index.tsx:657
@@ -35,8 +63,26 @@ msgstr ""
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr ""
 
+#: components/views/Redeem/index.tsx:476
+msgid "Payment Method"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:475
+msgid "Payment method"
+msgstr ""
+
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:130
 msgid "Project details <0/>"
+msgstr ""
+
+#: components/NavMenu/index.tsx:204
+msgid "Redeem"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:378
+#: components/views/Redeem/index.tsx:379
+msgid "Select carbon pool"
 msgstr ""
 
 #: components/views/Offset/index.tsx:671
@@ -55,20 +101,34 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
+#: components/views/Redeem/index.tsx:444
+msgid "This cost includes slippage and any redemption fees charged by the pool"
+msgstr ""
+
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
 msgstr ""
 
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:126
+msgid "Tonnes available: {formattedQuantity}"
+msgstr ""
+
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:102
 msgid "Unknown category"
 msgstr ""
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:97
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:101
 msgid "Unknown methodology"
 msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
+msgstr ""
+
+#: components/views/Redeem/index.tsx:464
+msgid "You receive"
 msgstr ""
 
 #. Long sentence
@@ -352,15 +412,15 @@ msgstr ""
 msgid "choose_bond.ubo.description"
 msgstr ""
 
-#: components/views/Home/index.tsx:170
+#: components/views/Home/index.tsx:167
 msgid "connectModal.torus"
 msgstr ""
 
-#: components/views/Home/index.tsx:174
+#: components/views/Home/index.tsx:171
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/views/Home/index.tsx:183
+#: components/views/Home/index.tsx:180
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -372,7 +432,7 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/views/Home/index.tsx:187
+#: components/views/Home/index.tsx:184
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -443,39 +503,39 @@ msgstr ""
 msgid "invalid_rpc.modal.title"
 msgstr ""
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:180
 msgid "menu.bond_carbon"
 msgstr ""
 
-#: components/NavMenu/index.tsx:165
+#: components/NavMenu/index.tsx:164
 msgid "menu.buy_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:212
 msgid "menu.info"
 msgstr ""
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:217
 msgid "menu.just_for_you"
 msgstr ""
 
-#: components/NavMenu/index.tsx:70
+#: components/NavMenu/index.tsx:69
 msgid "menu.not_connected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:197
+#: components/NavMenu/index.tsx:196
 msgid "menu.offset"
 msgstr ""
 
-#: components/NavMenu/index.tsx:173
+#: components/NavMenu/index.tsx:172
 msgid "menu.stake_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:52
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr ""
 
-#: components/NavMenu/index.tsx:189
+#: components/NavMenu/index.tsx:188
 msgid "menu.wrap_klima"
 msgstr ""
 
@@ -524,14 +584,17 @@ msgid "offset.enter_address"
 msgstr ""
 
 #: components/views/Offset/index.tsx:623
+#: components/views/Redeem/index.tsx:343
 msgid "offset.incompatible"
 msgstr ""
 
 #: components/views/Offset/index.tsx:503
+#: components/views/Redeem/index.tsx:252
 msgid "offset.insufficient_project_tonnage"
 msgstr ""
 
 #: components/views/Offset/index.tsx:746
+#: components/views/Redeem/index.tsx:429
 msgid "offset.invalid_project_tonnage"
 msgstr ""
 
@@ -684,6 +747,7 @@ msgid "offset.you_have_retired"
 msgstr ""
 
 #: components/views/Offset/index.tsx:819
+#: components/views/Redeem/index.tsx:440
 msgid "offset_cost"
 msgstr ""
 
@@ -755,13 +819,18 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
+#: components/views/Redeem/index.tsx:368
+msgid "redeem.description"
+msgstr ""
+
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:91
+#: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Offset/index.tsx:540
+#: components/views/Redeem/index.tsx:276
 #: components/views/Stake/index.tsx:254
 #: components/views/Wrap/index.tsx:232
 msgid "shared.approve"
@@ -800,6 +869,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:417
 #: components/views/Offset/index.tsx:474
+#: components/views/Redeem/index.tsx:247
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "shared.enter_quantity"
@@ -817,6 +887,7 @@ msgid "shared.error"
 msgstr ""
 
 #: components/views/Offset/index.tsx:527
+#: components/views/Redeem/index.tsx:268
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "shared.insufficient_balance"
@@ -827,6 +898,7 @@ msgid "shared.invalid_beneficiary_addr"
 msgstr ""
 
 #: components/views/Offset/index.tsx:519
+#: components/views/Redeem/index.tsx:260
 msgid "shared.invalid_project_address"
 msgstr ""
 
@@ -841,6 +913,7 @@ msgstr ""
 #: components/views/Offset/index.tsx:461
 #: components/views/Offset/index.tsx:602
 #: components/views/PKlima/index.tsx:157
+#: components/views/Redeem/index.tsx:329
 #: components/views/Stake/index.tsx:432
 #: components/views/Stake/index.tsx:439
 #: components/views/Stake/index.tsx:446
@@ -848,15 +921,16 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/views/Home/index.tsx:179
+#: components/views/Home/index.tsx:176
 msgid "shared.login"
 msgstr ""
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
-#: components/views/Home/index.tsx:155
+#: components/views/Home/index.tsx:152
 #: components/views/Offset/index.tsx:453
 #: components/views/PKlima/index.tsx:149
+#: components/views/Redeem/index.tsx:234
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -990,43 +1064,43 @@ msgstr ""
 msgid "status.user_rejected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:217
+#: components/NavMenu/index.tsx:224
 msgid "token.pKLIMA"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:46
+#: components/TransactionModal/Approve.tsx:47
 msgid "transaction_modal.approve.allow_amount"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:54
+#: components/TransactionModal/Approve.tsx:55
 msgid "transaction_modal.approve.approve_quantity.contract_address"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:64
+#: components/TransactionModal/Approve.tsx:66
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:96
+#: components/TransactionModal/Submit.tsx:98
 msgid "transaction_modal.close"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:99
+#: components/TransactionModal/Approve.tsx:101
 msgid "transaction_modal.next"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:63
+#: components/TransactionModal/Submit.tsx:65
 msgid "transaction_modal.submit.amount"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:88
+#: components/TransactionModal/Submit.tsx:90
 msgid "transaction_modal.submit.button"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:46
+#: components/TransactionModal/Submit.tsx:47
 msgid "transaction_modal.submit.confirm_transaction"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:53
+#: components/TransactionModal/Submit.tsx:54
 msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
