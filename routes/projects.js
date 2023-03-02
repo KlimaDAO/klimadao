@@ -95,7 +95,7 @@ module.exports = async function (fastify, opts) {
                         if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) != 0) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                         }
-                        pooledProjectsData.carbonOffsets.splice(index, 1);
+                        delete pooledProjectsData.carbonOffsets.splice(index, 1);
                     }
                 }
 
@@ -155,7 +155,7 @@ module.exports = async function (fastify, opts) {
                         "id": project.methodologyCategory
                     },
                     "country": country,
-                    "price": uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)),
+                    "price": uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0",
                     "activities": null,
                     "listings": null,
 
