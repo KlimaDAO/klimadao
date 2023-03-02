@@ -119,16 +119,21 @@ module.exports = async function (fastify, opts) {
 
                 const uniqueValues = [];
 
+                console.log(project)
+                console.log(project.balanceUBO)
                 if (parseFloat(project.balanceUBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
                 }
+                console.log(project.balanceNBO)
                 if (parseFloat(project.balanceNBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                 }
-                if (parseFloat(project.balanceNTC) > 0) {
+                console.log(project.balanceNCT)
+                if (parseFloat(project.balanceNCT) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                 }
-                if (parseFloat(project.balanceBTC) > 0) {
+                console.log(project.balanceBCT)
+                if (parseFloat(project.balanceBCT) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                 }
 
@@ -155,7 +160,7 @@ module.exports = async function (fastify, opts) {
                         "id": project.methodologyCategory
                     },
                     "country": country,
-                    "price": uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0",
+                    "price":uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0",
                     "activities": null,
                     "listings": null,
 
