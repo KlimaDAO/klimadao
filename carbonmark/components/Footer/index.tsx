@@ -26,22 +26,32 @@ export const Footer: FC<Props> = (props) => {
         <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">
             <Text t="body4">
-              <Trans>Home</Trans>
+              <Trans>Privacy Policy</Trans>
             </Text>
           </Link>
-          <Link href="/projects">
+          <Link href="/">
             <Text t="body4">
-              <Trans>Marketplace</Trans>
+              <Trans>Terms of Use</Trans>
             </Text>
           </Link>
-          <Link href="/users/login">
+          <Link href="/">
             <Text t="body4">
-              <Trans>Profile</Trans>
+              <Trans>Contact</Trans>
             </Text>
           </Link>
-          <Link href="/resources">
+          <Link href="/">
+            <Text t="body4">
+              <Trans>Help</Trans>
+            </Text>
+          </Link>
+          <Link href="/">
             <Text t="body4">
               <Trans>Resources</Trans>
+            </Text>
+          </Link>
+          <Link href={urls.app}>
+            <Text t="body4">
+              <Trans>KlimaDAO</Trans>
             </Text>
           </Link>
         </nav>

@@ -73,7 +73,6 @@ export const desktopNavMenu = css`
 `;
 export const fullWidthScrollableContainer = css`
   width: 100%;
-  height: 100%;
   ${breakpoints.desktop} {
     overflow-y: auto;
     grid-column: full;
@@ -81,31 +80,25 @@ export const fullWidthScrollableContainer = css`
 `;
 
 export const cardGrid = css`
-  max-width: 111.6rem;
+  min-height: 100vh;
+
   &.fullWidth {
     max-width: unset;
   }
-  margin: auto;
   display: grid;
   /* header body footer  */
   grid-template-rows: auto 1fr auto;
   gap: 1.6rem;
-  padding: 1.6rem;
+  grid-template-columns: auto 1fr auto;
   align-content: start;
   justify-self: center;
   width: 100%;
   ${breakpoints.small} {
     gap: 2.4rem;
-    padding: 2.4rem;
-  }
-  ${breakpoints.medium} {
-    gap: 2.4rem;
-    padding: 2.4rem;
   }
   ${breakpoints.desktop} {
     display: grid;
     grid-column: full;
-    padding: 4rem;
   }
 `;
 
@@ -117,7 +110,6 @@ export const controls = css`
   justify-content: flex-end;
   align-items: center;
   gap: 1.6rem;
-  grid-column: 1 / 3;
   .connectButton {
     white-space: nowrap;
     background-color: var(--bright-blue);
@@ -125,7 +117,9 @@ export const controls = css`
   }
   background-color: var(--surface-01);
   padding: 0.8rem 1.6rem;
+  grid-column: 1 / 4;
   ${breakpoints.desktop} {
+    grid-column: 2 / 3;
     padding: 4rem 4rem 0rem 4rem;
     background-color: var(--surface-02);
   }
@@ -201,7 +195,7 @@ export const mobileNavMenu = css`
 `;
 
 export const fullWidthFooter = css`
-  grid-column: 1 / 3;
+  grid-column: 1 / 4;
   display: grid;
   overflow: hidden;
   grid-template-columns:

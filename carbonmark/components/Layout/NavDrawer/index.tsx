@@ -1,11 +1,3 @@
-import {
-  Anchor as A,
-  DiscordIcon,
-  GithubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
@@ -26,7 +18,7 @@ import * as styles from "./styles";
 // const DynamicThemeToggle = dynamic(
 //   () => import("components/shared/ThemeToggle"),
 //   { ssr: false }
-// );
+// )
 
 interface NavDrawerProps {
   userAddress?: string;
@@ -94,20 +86,6 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
             Built with 🌳 by <a href="https://klimadao.finance">KlimaDAO</a>
           </Trans>
         </Text>
-        <div className={styles.footer_icons}>
-          <A href={urls.twitterCarbonmark}>
-            <TwitterIcon />
-          </A>
-          <A href={urls.discordInvite}>
-            <DiscordIcon />
-          </A>
-          <A href={urls.github}>
-            <GithubIcon />
-          </A>
-          <A href={urls.linkedInCarbonmark}>
-            <LinkedInIcon />
-          </A>
-        </div>
       </div>
     </nav>
   );
