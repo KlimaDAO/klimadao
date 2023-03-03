@@ -13,16 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:785
+#: components/CarbonBalancesCard/index.tsx:119
+msgid "Balances"
+msgstr ""
+
+#: components/views/Offset/index.tsx:780
 msgid "Beneficiary 0x address (optional)"
 msgstr ""
 
-#: components/views/Offset/index.tsx:773
+#: components/views/Offset/index.tsx:768
 msgid "Beneficiary name"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:365
-#: components/views/Redeem/index.tsx:506
+#: components/views/Redeem/index.tsx:373
+msgid "Buy & Redeem Carbon"
+msgstr ""
+
+#: components/NavMenu/index.tsx:204
+#: components/views/Redeem/index.tsx:514
 msgid "Buy Carbon"
 msgstr ""
 
@@ -30,16 +38,20 @@ msgstr ""
 msgid "Capacity"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:281
+#: components/views/Redeem/index.tsx:289
 msgid "Continue"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:420
+#: components/views/Redeem/index.tsx:429
 msgid "Enter quantity"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:402
+#: components/views/Redeem/index.tsx:411
 msgid "How many tonnes would you like to acquire?"
+msgstr ""
+
+#: components/CarbonBalancesCard/index.tsx:131
+msgid "Loading balances..."
 msgstr ""
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
@@ -47,11 +59,19 @@ msgstr ""
 msgid "Loading project info..."
 msgstr ""
 
-#: components/views/Redeem/index.tsx:242
+#: components/views/Redeem/index.tsx:250
 msgid "Loading..."
 msgstr ""
 
-#: components/views/Offset/index.tsx:657
+#: components/CarbonBalancesCard/index.tsx:161
+msgid "No balances found."
+msgstr ""
+
+#: components/CarbonBalancesCard/index.tsx:124
+msgid "Not Connected"
+msgstr ""
+
+#: components/views/Offset/index.tsx:652
 msgid "Offset"
 msgstr ""
 
@@ -59,37 +79,33 @@ msgstr ""
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr ""
 
-#: components/views/Offset/index.tsx:660
+#: components/views/Offset/index.tsx:655
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr ""
 
-#: components/views/Redeem/index.tsx:476
+#: components/views/Redeem/index.tsx:485
 msgid "Payment Method"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:475
+#: components/views/Redeem/index.tsx:484
 msgid "Payment method"
 msgstr ""
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:130
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:129
 msgid "Project details <0/>"
 msgstr ""
 
-#: components/NavMenu/index.tsx:204
-msgid "Redeem"
-msgstr ""
-
-#: components/views/Redeem/index.tsx:378
-#: components/views/Redeem/index.tsx:379
+#: components/views/Redeem/index.tsx:386
+#: components/views/Redeem/index.tsx:387
 msgid "Select carbon pool"
 msgstr ""
 
-#: components/views/Offset/index.tsx:671
+#: components/views/Offset/index.tsx:666
 msgid "Select carbon token to retire"
 msgstr ""
 
-#: components/views/Offset/index.tsx:672
+#: components/views/Offset/index.tsx:667
 msgid "Select token"
 msgstr ""
 
@@ -101,7 +117,7 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/views/Redeem/index.tsx:444
+#: components/views/Redeem/index.tsx:453
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr ""
 
@@ -109,7 +125,7 @@ msgstr ""
 msgid "Tonnes available: {0}"
 msgstr ""
 
-#: components/views/Redeem/ProjectTokenDetails/index.tsx:126
+#: components/views/Redeem/ProjectTokenDetails/index.tsx:125
 msgid "Tonnes available: {formattedQuantity}"
 msgstr ""
 
@@ -127,7 +143,11 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:464
+#: components/CarbonBalancesCard/index.tsx:164
+msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
+msgstr ""
+
+#: components/views/Redeem/index.tsx:473
 msgid "You receive"
 msgstr ""
 
@@ -440,7 +460,7 @@ msgstr ""
 msgid "error.404.page.text"
 msgstr ""
 
-#: components/views/Offset/index.tsx:840
+#: components/views/Offset/index.tsx:835
 msgid "fiat.max_quantity"
 msgstr ""
 
@@ -559,23 +579,23 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:823
+#: components/views/Offset/index.tsx:818
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:702
+#: components/views/Offset/index.tsx:697
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/views/Offset/index.tsx:535
+#: components/views/Offset/index.tsx:529
 msgid "offset.checkout"
 msgstr ""
 
-#: components/views/Offset/index.tsx:788
+#: components/views/Offset/index.tsx:783
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:868
+#: components/views/Offset/index.tsx:863
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
@@ -583,26 +603,26 @@ msgstr ""
 msgid "offset.enter_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:623
-#: components/views/Redeem/index.tsx:343
+#: components/views/Offset/index.tsx:617
+#: components/views/Redeem/index.tsx:351
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:503
-#: components/views/Redeem/index.tsx:252
+#: components/views/Offset/index.tsx:497
+#: components/views/Redeem/index.tsx:260
 msgid "offset.insufficient_project_tonnage"
 msgstr ""
 
-#: components/views/Offset/index.tsx:746
-#: components/views/Redeem/index.tsx:429
+#: components/views/Offset/index.tsx:741
+#: components/views/Redeem/index.tsx:438
 msgid "offset.invalid_project_tonnage"
 msgstr ""
 
-#: components/views/Offset/index.tsx:755
+#: components/views/Offset/index.tsx:750
 msgid "offset.min_quantity_fiat"
 msgstr ""
 
-#: components/views/Offset/index.tsx:872
+#: components/views/Offset/index.tsx:867
 msgid "offset.modal_payWith.title"
 msgstr ""
 
@@ -610,11 +630,11 @@ msgstr ""
 msgid "offset.number_of_retirements"
 msgstr ""
 
-#: components/views/Offset/index.tsx:734
+#: components/views/Offset/index.tsx:729
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:915
+#: components/views/Offset/index.tsx:910
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -626,23 +646,23 @@ msgstr ""
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:765
+#: components/views/Offset/index.tsx:760
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:799
+#: components/views/Offset/index.tsx:794
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:808
+#: components/views/Offset/index.tsx:803
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:853
+#: components/views/Offset/index.tsx:848
 msgid "offset.retiring"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:91
+#: components/views/Offset/SelectiveRetirement/index.tsx:92
 msgid "offset.selectiveRetirement.address_input_type"
 msgstr ""
 
@@ -698,11 +718,11 @@ msgstr ""
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:105
+#: components/views/Offset/SelectiveRetirement/index.tsx:106
 msgid "offset.selectiveRetirement.retire_from_default_pool"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:82
+#: components/views/Offset/SelectiveRetirement/index.tsx:83
 msgid "offset.selectiveRetirement.search_input_type"
 msgstr ""
 
@@ -746,12 +766,12 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:819
-#: components/views/Redeem/index.tsx:440
+#: components/views/Offset/index.tsx:814
+#: components/views/Redeem/index.tsx:449
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:888
+#: components/views/Offset/index.tsx:883
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -819,7 +839,7 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:368
+#: components/views/Redeem/index.tsx:376
 msgid "redeem.description"
 msgstr ""
 
@@ -829,8 +849,8 @@ msgstr ""
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:540
-#: components/views/Redeem/index.tsx:276
+#: components/views/Offset/index.tsx:534
+#: components/views/Redeem/index.tsx:284
 #: components/views/Stake/index.tsx:254
 #: components/views/Wrap/index.tsx:232
 msgid "shared.approve"
@@ -863,19 +883,19 @@ msgstr ""
 msgid "shared.enter_amount"
 msgstr ""
 
-#: components/views/Offset/index.tsx:479
+#: components/views/Offset/index.tsx:473
 msgid "shared.enter_beneficiary"
 msgstr ""
 
 #: components/views/Bond/index.tsx:417
-#: components/views/Offset/index.tsx:474
-#: components/views/Redeem/index.tsx:247
+#: components/views/Offset/index.tsx:468
+#: components/views/Redeem/index.tsx:255
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "shared.enter_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:487
+#: components/views/Offset/index.tsx:481
 msgid "shared.enter_retirement_message"
 msgstr ""
 
@@ -886,23 +906,23 @@ msgstr ""
 msgid "shared.error"
 msgstr ""
 
-#: components/views/Offset/index.tsx:527
-#: components/views/Redeem/index.tsx:268
+#: components/views/Offset/index.tsx:521
+#: components/views/Redeem/index.tsx:276
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "shared.insufficient_balance"
 msgstr ""
 
-#: components/views/Offset/index.tsx:495
+#: components/views/Offset/index.tsx:489
 msgid "shared.invalid_beneficiary_addr"
 msgstr ""
 
-#: components/views/Offset/index.tsx:519
-#: components/views/Redeem/index.tsx:260
+#: components/views/Offset/index.tsx:513
+#: components/views/Redeem/index.tsx:268
 msgid "shared.invalid_project_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:511
+#: components/views/Offset/index.tsx:505
 msgid "shared.invalid_quantity"
 msgstr ""
 
@@ -910,10 +930,10 @@ msgstr ""
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:411
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:461
-#: components/views/Offset/index.tsx:602
+#: components/views/Offset/index.tsx:455
+#: components/views/Offset/index.tsx:596
 #: components/views/PKlima/index.tsx:157
-#: components/views/Redeem/index.tsx:329
+#: components/views/Redeem/index.tsx:337
 #: components/views/Stake/index.tsx:432
 #: components/views/Stake/index.tsx:439
 #: components/views/Stake/index.tsx:446
@@ -928,9 +948,9 @@ msgstr ""
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:152
-#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:447
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:234
+#: components/views/Redeem/index.tsx:242
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -943,11 +963,11 @@ msgstr ""
 msgid "shared.max"
 msgstr ""
 
-#: components/views/Offset/index.tsx:466
+#: components/views/Offset/index.tsx:460
 msgid "shared.redirecting_checkout"
 msgstr ""
 
-#: components/views/Offset/index.tsx:545
+#: components/views/Offset/index.tsx:539
 msgid "shared.retire"
 msgstr ""
 
