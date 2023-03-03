@@ -3,14 +3,14 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const hero = css`
   display: grid;
-  padding: 0 !important;
-  height: 80vh;
+  padding: 4rem 0 0 !important;
   grid-column: full;
   grid-template-columns: inherit;
   position: relative;
 
   ${breakpoints.desktop} {
     height: 100vh;
+    padding: 0 !important;
   }
 
   .stack {
@@ -26,7 +26,7 @@ export const hero = css`
 
     ${breakpoints.desktop} {
       max-width: 70%;
-      margin-bottom: 10rem;
+      margin-bottom: 8.4rem;
     }
 
     & h1 {
@@ -52,6 +52,7 @@ export const hero = css`
       font-family: var(--font-family);
 
       ${breakpoints.desktop} {
+        max-width: 70%;
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
@@ -407,12 +408,19 @@ export const learnMoreList = css`
     padding: 0 0 1.6rem;
     flex-direction: column;
 
-    ${breakpoints.desktop} {
-      margin: 6rem auto;
-    }
-
     & > div {
       min-width: 100%;
+    }
+
+    ${breakpoints.medium} {
+      flex-direction: row;
+      & > div {
+        min-width: auto;
+      }
+    }
+
+    ${breakpoints.desktop} {
+      margin: 6rem auto;
     }
   }
 `;
@@ -494,6 +502,7 @@ export const card = css`
   display: flex;
   flex: 1;
   gap: 1.6rem;
+  max-width: 32rem;
   flex-direction: column;
   height: 100%;
   transition: all 0.2s ease 0s;
@@ -509,6 +518,10 @@ export const cardImage = css`
   overflow: hidden;
   height: 12rem;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+  img {
+    object-fit: cover;
+  }
 `;
 
 export const cardContent = css`
@@ -799,7 +812,7 @@ export const footerNav = css`
   }
 
   ${breakpoints.large} {
-    gap: 1.6rem 7rem;
+    gap: 1.6rem 2rem;
     flex-direction: column;
   }
 

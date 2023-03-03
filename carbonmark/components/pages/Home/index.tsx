@@ -57,14 +57,18 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.hero}>
         <Image
           fill
-          src="/hero.jpeg"
           alt="Carbonmark Hero"
-          style={{ zIndex: 1, objectFit: "cover" }}
+          src={isDesktop ? "/hero.jpeg" : "/hero-sm.jpeg"}
+          style={{
+            zIndex: 1,
+            objectFit: "cover",
+            objectPosition: isDesktop ? "top" : "-0.25rem 1rem",
+          }}
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
           <Text t="h1" as="h1">
-            The Universal Carbon Marketplace.
+            The Universal Carbon Marketplace
           </Text>
           <Text t="body1" as="h2">
             The largest selection of digital carbon credits worldwide. Buy,
