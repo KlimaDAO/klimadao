@@ -111,7 +111,7 @@ async function calculatePoolPrices(fastify) {
         const poolKey = Object.keys(pools[i])[0];
         const poolAddress = Object.values(pools[i])[0];
 
-        const cachedResult = await fastify.lcache.get(poolAddress);
+        const cachedResult = await fastify.lcache.get(poolAddress + process.env.VERCEL_ENV);
 
         var result = undefined;
         if (cachedResult) {
@@ -119,7 +119,7 @@ async function calculatePoolPrices(fastify) {
           }
         else {
             result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: poolAddress });
-            await fastify.lcache.set(poolAddress, result, 60 * 24);
+            await fastify.lcache.set(poolAddress + process.env.VERCEL_ENV, result, 60 * 24);
         }
 
         results.push({ price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
