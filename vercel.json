@@ -4,23 +4,5 @@
             "source": "/(.*)",
             "destination": "/api/serverless.js"
         }
-    ],
-    "crons": [
-        {
-          "path": "/api/vintages",
-          "schedule": "* * * * *"
-        },
-        {
-            "path": "/api/countries",
-            "schedule": "* * * * *"
-        },
-        {
-            "path": "/api/categories",
-            "schedule": "* * * * *"
-        },
-        {
-            "path": "/api/vintages",
-            "schedule": "* * * * *"
-        }
-      ]
+    ]
 }
