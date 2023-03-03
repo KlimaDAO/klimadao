@@ -278,30 +278,28 @@ module.exports = async function (fastify, opts) {
 
                         project.prices = [];
                         if (poolProject) {
-                            console.log(poolProject)
                             if (parseFloat(poolProject.balanceUBO) > 0) {
                                 project.prices.push({
                                     leftToSell: poolProject.balanceUBO,
                                     tokenAddress: process.env.UBO_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).price,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).priceInUsd,
                                     name: 'UBO',
                                 })
 
                             }
                             if (parseFloat(poolProject.balanceNBO) > 0) {
                                 project.prices.push({
-                                    leftToSell: (poolPrices.find(obj => obj.name === "nbo")).price,
+                                    leftToSell: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
                                     tokenAddress: process.env.NBO_POOL,
                                     singleUnitPrice: result.data.pair.currentprice,
                                     name: 'NBO',
                                 })
                             }
                             if (parseFloat(poolProject.balanceNCT) > 0) {
-                                uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNCT,
                                     tokenAddress: process.env.NTC_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ntc")).price,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ntc")).priceInUsd,
                                     name: 'NCT',
                                 })
                             }
@@ -309,7 +307,7 @@ module.exports = async function (fastify, opts) {
                                 project.prices.push({
                                     leftToSell: poolProject.balanceBCT,
                                     tokenAddress: process.env.BTC_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "btc")).price,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "btc")).priceInUsd,
                                     name: 'BCT',
                                 })
                             }

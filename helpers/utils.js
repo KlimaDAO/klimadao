@@ -122,7 +122,7 @@ async function calculatePoolPrices(fastify) {
             await fastify.lcache.set(poolAddress + process.env.VERCEL_ENV, result, 60 * 24);
         }
 
-        results.push({ price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
+        results.push({ priceInUsd:result.data.pair.currentprice, price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
     }
 
     return results;
