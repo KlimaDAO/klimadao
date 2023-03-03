@@ -10,12 +10,12 @@ import SvgIcon from "@mui/material/SvgIcon";
 import { CategoryName } from "lib/types/carbonmark";
 import { StaticImageData } from "next/legacy/image";
 import Agriculture from "public/category/Agriculture.png";
-import EnergyEfficiency from "public/category/Energy_Efficiency.jpeg";
-import Forestry from "public/category/Forestry.jpeg";
-import IndustrialProcessing from "public/category/Industrial_Processing.jpeg";
+import EnergyEfficiency from "public/category/Energy_Efficiency.png";
+import Forestry from "public/category/Forestry.png";
+import IndustrialProcessing from "public/category/Industrial_Processing.png";
 import Others from "public/category/Others.png";
 import OtherNatureBased from "public/category/Other_Nature_Based.png";
-import RenewableEnergy from "public/category/Renewable_Energy.jpeg";
+import RenewableEnergy from "public/category/Renewable_Energy.png";
 
 export const categoryNames: CategoryName[] = [
   "Agriculture",
