@@ -18,7 +18,7 @@ module.exports = async function (fastify, opts) {
         },
         handler: async function (request, reply) {
 
-            const vintages = await getAllVintages()
+            const vintages = await getAllVintages(fastify)
 
             return reply.send(JSON.stringify(vintages));
         }

@@ -34,6 +34,7 @@
     "fastify": "^4.0.0",
     "fastify-cli": "^5.4.0",
     "fastify-cookie": "^5.7.0",
+    "fastify-lcache": "^1.1.1",
     "fastify-openapi-docs": "^2.0.1",
     "fastify-plugin": "^4.0.0",
     "fastify-swagger": "^5.2.0",

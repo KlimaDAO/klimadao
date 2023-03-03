@@ -5,7 +5,16 @@ const { GET_VINTAGES } = require('../queries/vintage.js');
 const { ethers } = require("ethers");
 const { POOL_PRICE } = require("../queries/pool_price_in_usdc");
 
-async function getAllVintages() {
+async function getAllVintages(fastify) {
+    const cacheKey = `vintages`;
+
+    const cachedResult = await fastify.lcache.get(cacheKey);
+
+    if (cachedResult) {
+        return cachedResult;
+      }
+
+
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
 
     const uniqueValues = new Set();
@@ -18,11 +27,22 @@ async function getAllVintages() {
 
     const result = Array.from(uniqueValues);
 
+    await fastify.lcache.set(cacheKey, result);
+
     return result;
 }
 
 
-async function getAllCategories() {
+async function getAllCategories(fastify) {
+
+    const cacheKey = `categories`;
+
+    const cachedResult = await fastify.lcache.get(cacheKey);
+
+    if (cachedResult) {
+        return cachedResult;
+      }
+
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_CATEGORIES);
 
     const uniqueValues = new Set();
@@ -35,10 +55,21 @@ async function getAllCategories() {
 
     const result = Array.from(uniqueValues);
 
+    await fastify.lcache.set(cacheKey, result);
+
     return result;
 }
 
-async function getAllCountries() {
+async function getAllCountries(fastify) {
+
+    const cacheKey = `countries`;
+
+    const cachedResult = await fastify.lcache.get(cacheKey);
+
+    if (cachedResult) {
+        return cachedResult;
+      }
+
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_COUNTRIES);
 
     const uniqueValues = new Set();
@@ -51,6 +82,8 @@ async function getAllCountries() {
 
     const result = Array.from(uniqueValues);
 
+    await fastify.lcache.set(cacheKey, result);
+
     return result;
 }
 function convertArrayToObjects(arr) {
@@ -59,7 +92,7 @@ function convertArrayToObjects(arr) {
     });
 }
 
-async function calculatePoolPrices() {
+async function calculatePoolPrices(fastify) {
 
     var decimals;
     if (process.env.VERCEL_ENV == "production") {
@@ -78,8 +111,16 @@ async function calculatePoolPrices() {
         const poolKey = Object.keys(pools[i])[0];
         const poolAddress = Object.values(pools[i])[0];
 
+        const cachedResult = await fastify.lcache.get(poolAddress);
 
-        const result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: poolAddress });
+        var result = undefined;
+        if (cachedResult) {
+             result = cachedResult;
+          }
+        else {
+            result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: poolAddress });
+            await fastify.lcache.set(poolAddress, result, 60 * 24);
+        }
 
         results.push({ price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
     }

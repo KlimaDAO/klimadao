@@ -45,17 +45,17 @@ module.exports = async function (fastify, opts) {
             if (category) {
                 category = category.split(",")
             } else {
-                category = await getAllCategories()
+                category = await getAllCategories(fastify)
             }
             if (country) {
                 country = country.split(",")
             } else {
-                country = await getAllCountries()
+                country = await getAllCountries(fastify)
             }
             if (vintage) {
                 vintage = vintage.split(",")
             } else {
-                vintage = await getAllVintages();
+                vintage = await getAllVintages(fastify);
             }
 
 
@@ -68,7 +68,7 @@ module.exports = async function (fastify, opts) {
 
 
 
-            const poolPrices = await calculatePoolPrices();
+            const poolPrices = await calculatePoolPrices(fastify);
 
             const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS, { country, category, search, vintage }
             );
@@ -77,7 +77,7 @@ module.exports = async function (fastify, opts) {
             let pooledProjectsData = (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS, { country, category, search, vintage })).data;
             const projects = data.data.projects.map(function (project) {
                 const uniqueValues = [];
-                
+
                 if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
                     var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage);
                     if (index != -1) {
@@ -85,7 +85,7 @@ module.exports = async function (fastify, opts) {
 
                         if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) != 0) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
-                                                }
+                        }
                         if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) != 0) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                         }
@@ -101,21 +101,21 @@ module.exports = async function (fastify, opts) {
 
                 var price = 0;
                 if (project.listings.length) {
-                    
+
                     project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
                     let lowestPrice = uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b));
                     price = lowestPrice;
                 }
                 const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID, project.registry);
                 project.description = cmsData ? cmsData.description.slice(0, 200) : undefined;
-                project.name = cmsData? cmsData.name : project.name;
+                project.name = cmsData ? cmsData.name : project.name;
                 project.methodologies = cmsData ? cmsData.methodologies : [];
                 delete project.listings;
                 return { ...project, price }
             });
 
 
-            const pooledProjects =  pooledProjectsData.carbonOffsets.map( function (project) {
+            const pooledProjects = pooledProjectsData.carbonOffsets.map(function (project) {
 
 
                 const uniqueValues = [];
@@ -139,8 +139,8 @@ module.exports = async function (fastify, opts) {
                         "id": project.country
                     } : null;
 
-                    const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID.split("-")[1], project.projectID.split("-")[0]);
-               
+                const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID.split("-")[1], project.projectID.split("-")[0]);
+
                 let singleProject = {
                     "id": project.id,
                     "isPoolProject": true,
@@ -157,7 +157,7 @@ module.exports = async function (fastify, opts) {
                         "id": project.methodologyCategory
                     },
                     "country": country,
-                    "price":uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0",
+                    "price": uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0",
                     "activities": null,
                     "listings": null,
 
@@ -199,7 +199,7 @@ module.exports = async function (fastify, opts) {
                 var key = `${id[0]}-${id[1]}`;
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
-               
+
 
 
                 var poolProject;
@@ -274,41 +274,42 @@ module.exports = async function (fastify, opts) {
                             "currentSupply": project.currentSupply
                         }
 
+                        const poolPrices = await calculatePoolPrices(fastify);
+
                         project.prices = [];
                         if (poolProject) {
-                            if (parseFloat(poolProject.balanceUBO ) > 0) {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_UBO_POOL });
+                            console.log(poolProject)
+                            if (parseFloat(poolProject.balanceUBO) > 0) {
                                 project.prices.push({
                                     leftToSell: poolProject.balanceUBO,
                                     tokenAddress: process.env.UBO_POOL,
-                                    singleUnitPrice: result.data.pair.currentprice,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).price,
                                     name: 'UBO',
                                 })
+
                             }
-                            if (parseFloat(poolProject.balanceNBO)  > 0) {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NBO_POOL });
+                            if (parseFloat(poolProject.balanceNBO) > 0) {
                                 project.prices.push({
-                                    leftToSell: poolProject.balanceNBO,
+                                    leftToSell: (poolPrices.find(obj => obj.name === "nbo")).price,
                                     tokenAddress: process.env.NBO_POOL,
                                     singleUnitPrice: result.data.pair.currentprice,
-                                    name: 'UBO',
+                                    name: 'NBO',
                                 })
                             }
-                            if (parseFloat(poolProject.balanceNTC)  > 0) {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_NTC_POOL });
+                            if (parseFloat(poolProject.balanceNCT) > 0) {
+                                uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                                 project.prices.push({
                                     leftToSell: poolProject.balanceNCT,
                                     tokenAddress: process.env.NTC_POOL,
-                                    singleUnitPrice: result.data.pair.currentprice,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ntc")).price,
                                     name: 'NCT',
                                 })
                             }
                             if (parseFloat(poolProject.balanceBCT) > 0) {
-                                var result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: process.env.LP_BTC_POOL });
                                 project.prices.push({
                                     leftToSell: poolProject.balanceBCT,
                                     tokenAddress: process.env.BTC_POOL,
-                                    singleUnitPrice: result.data.pair.currentprice,
+                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "btc")).price,
                                     name: 'BCT',
                                 })
                             }
@@ -321,13 +322,11 @@ module.exports = async function (fastify, opts) {
 
                         const sanity = getSanityClient();
 
-                        
                         const params = {
                             registry: project.registry,
                             registryProjectId: id[1],
                         };
-                        
- 
+
                         const results = await sanity.fetch(fetchProjects, params);
                         project.description = results.description;
                         project.location = results.geolocation;

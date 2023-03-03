@@ -24,7 +24,7 @@ module.exports = async function (fastify, opts) {
     // Define the route handler function
     handler: async function (request, reply) {
       try {
-        const countries = await getAllCountries()
+        const countries = await getAllCountries(fastify)
        
 
         return reply.send(JSON.stringify(convertArrayToObjects(countries)));
