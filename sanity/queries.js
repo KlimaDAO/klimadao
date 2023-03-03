@@ -25,7 +25,7 @@ const fetchProjects =  groq`*[_type == 'project'][0] {
     description,
     registry,
     registryProjectId,
-    methodologies[]->{ category },
+    methodologies[]->{  "id": id.current, category, name },
     name,
   }`
 

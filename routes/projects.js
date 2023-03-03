@@ -109,6 +109,7 @@ module.exports = async function (fastify, opts) {
                 const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID, project.registry);
                 project.description = cmsData ? cmsData.description.slice(0, 200) : undefined;
                 project.name = cmsData? cmsData.name : project.name;
+                project.methodologies = cmsData ? cmsData.methodologies : [];
                 delete project.listings;
                 return { ...project, price }
             });
@@ -151,7 +152,7 @@ module.exports = async function (fastify, opts) {
                     "key": project.projectID,
                     "projectID": project.projectID.split("-")[1],
                     "name": cmsData ? cmsData.name : project.name,
-                    "methodology": project.methodology,
+                    "methodology": cmsData ? cmsData.methodologies : [],
                     "vintage": project.vintageYear,
                     "projectAddress": project.tokenAddress,
                     "registry": project.projectID.split("-")[0],
@@ -333,6 +334,7 @@ module.exports = async function (fastify, opts) {
                         project.description = results.description;
                         project.location = results.geolocation;
                         project.name = results.name;
+                        project.name = results.methodologies;
 
                     } else if (project.registry == "GS") {
 
