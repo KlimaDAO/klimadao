@@ -32,7 +32,9 @@ export const StatsBar: FC<Props> = (props) => {
               <Trans>Total Retirements:</Trans>
             </span>
           </Text>
-          <Text t="body1">{trimWithLocale(retired || 0, 2, locale)}</Text>
+          <Text t="body1" color="lighter" className={styles.bold}>
+            {trimWithLocale(retired || 0, 2, locale)}
+          </Text>
         </div>
         <div className={styles.listItem}>
           <Text t="body1" className={styles.itemWithColor}>
@@ -40,7 +42,9 @@ export const StatsBar: FC<Props> = (props) => {
               <Trans>Remaining Supply:</Trans>{" "}
             </span>
           </Text>
-          <Text t="body1">{trimWithLocale(remaining || 0, 2, locale)}</Text>
+          <Text t="body1" color="lighter" className={styles.bold}>
+            {trimWithLocale(remaining || 0, 2, locale)}
+          </Text>
         </div>
       </div>
     </>

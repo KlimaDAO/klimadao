@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const list = css`
   display: grid;
@@ -10,9 +9,7 @@ export const listItem = css`
   display: flex;
   flex-direction: row;
   gap: 1.2rem;
-  ${breakpoints.desktop} {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 `;
 
 export const itemWithIcon = css`
@@ -34,16 +31,16 @@ export const itemWithColor = css`
 
   span {
     position: relative;
-    padding-left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
   }
 
   span:before {
-    position: absolute;
     content: "";
-    width: 1.8rem;
-    height: 1.8rem;
-    top: 0;
-    left: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+
     background-color: var(--yellow);
   }
 
@@ -53,8 +50,8 @@ export const itemWithColor = css`
 `;
 
 export const bar = css`
-  height: 20px;
-  background-color: var(--yellow);
+  height: 0.8rem;
+  background-color: var(--bisque);
   border-radius: var(--border-radius);
 
   &::before {
@@ -65,7 +62,16 @@ export const bar = css`
     height: 100%;
     background: var(--old-burgundy);
     white-space: nowrap;
-    box-shadow: var(--shadow-01);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
   }
+`;
+
+export const bold = css`
+  font-weight: 600;
+`;
+
+export const titles = css`
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
 `;
