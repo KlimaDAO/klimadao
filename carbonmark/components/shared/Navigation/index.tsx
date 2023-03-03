@@ -113,8 +113,8 @@ export const Navigation: FC<Props> = ({
           </div>
           <div className="buttons">
             <ButtonPrimary
-              key="Enter App"
-              label={t`Enter App`}
+              key="Enter Marketplace"
+              label={t`Enter Marketplace`}
               href="/projects"
               renderLink={(linkProps) => <Link {...linkProps} />}
               className={styles.navMain_MobileButton}

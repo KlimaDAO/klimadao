@@ -2,7 +2,7 @@ import { cx } from "@emotion/css";
 import {
   Anchor as A,
   ButtonPrimary,
-  CircleLogo,
+  C3Logo,
   GithubIcon,
   GridContainer,
   LinkedInIcon,
@@ -11,6 +11,7 @@ import {
   SCBLogo,
   Section,
   TwitterIcon,
+  VlinderLogo,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
@@ -56,13 +57,9 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.hero}>
         <Image
           fill
-          alt="Carbonmark Hero"
           src="/hero.jpeg"
-          loader={(params) => params.src}
-          style={{
-            zIndex: 1,
-            objectFit: "cover",
-          }}
+          alt="Carbonmark Hero"
+          style={{ zIndex: 1, objectFit: "cover" }}
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
@@ -89,7 +86,8 @@ export const Home: NextPage<Props> = (props) => {
               Our Partners
             </Text>
             <div className="partners">
-              <CircleLogo height="50" />
+              <C3Logo height="50" />
+              <VlinderLogo height="50" />
               <SCBLogo height="50" />
               <OffsetraLogo height="50" />
             </div>
@@ -382,8 +380,9 @@ export const Home: NextPage<Props> = (props) => {
                     Introducing carbonmark article
                   </Text>
                   <Text t="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Mauris tempor non sagittis egestas sellus ...
+                    Zero-fee carbon credit trading - instantaneous, transparent,
+                    and always available. Learn more about what Carbonmark can
+                    do for you as a carbon credit trader.
                   </Text>
                   <Text t="h5" as="h6">
                     Read more
@@ -404,8 +403,9 @@ export const Home: NextPage<Props> = (props) => {
                     FAQs
                   </Text>
                   <Text t="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Mauris tempor non sagittis egestas sellus ...
+                    What is Carbonmark? Answers to common questions about the
+                    Digital Carbon Market interface that easily connects buyers
+                    and sellers of verified carbon credits.
                   </Text>
                   <Text t="h5" as="h6">
                     Read more
@@ -426,8 +426,9 @@ export const Home: NextPage<Props> = (props) => {
                     Carbonmark's role
                   </Text>
                   <Text t="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Mauris tempor non sagittis egestas sellus ...
+                    Traditional carbon markets are slow and opaque. See how
+                    Carbonmark elevates carbon trading by leveraging
+                    state-of-the-art low-emission blockchain technology.
                   </Text>
                   <Text t="h5" as="h6">
                     Read more

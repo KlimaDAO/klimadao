@@ -18,7 +18,7 @@ export const navMain_DesktopLink = css`
   &,
   &:hover,
   &:visited {
-    color: var(--font-03);
+    color: var(--font-01);
     font-weight: 500;
   }
   &:hover,
@@ -109,7 +109,7 @@ export const navMain_MobileLink = css`
   width: 100%;
   background: transparent;
   border: none;
-  color: var(--font-01) !important;
+  color: var(--white) !important;
   font-size: 1.4rem !important;
   &:focus {
     border: 1px solid var(--font-01) !important;

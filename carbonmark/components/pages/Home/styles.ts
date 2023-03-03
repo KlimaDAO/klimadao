@@ -4,7 +4,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const hero = css`
   display: grid;
   padding: 0 !important;
-  height: 60vh;
+  height: 80vh;
   grid-column: full;
   grid-template-columns: inherit;
   position: relative;
@@ -73,11 +73,17 @@ export const hero = css`
 `;
 
 export const partnersSection = css`
+  position: relative;
   padding: 4rem 0rem 2rem !important;
-  background: url("/partners-bg.png") center top / cover no-repeat;
+  background: url("/partners-bg.jpeg") -145rem -85rem / auto no-repeat;
 
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
+    background: url("/partners-bg.jpeg") center 27% / cover no-repeat !important;
+  }
+
+  & .stack {
+    z-index: 2;
   }
 
   & h2 {
@@ -113,7 +119,6 @@ export const partnersSection = css`
   & .partners-list {
     ${breakpoints.desktop} {
       position: relative;
-      height: 40rem;
     }
     & .card {
       min-width: 3.5rem;
@@ -125,11 +130,6 @@ export const partnersSection = css`
 
     ${breakpoints.desktop} {
       display: flex !important;
-    }
-
-    p {
-      height: 12rem;
-      overflow: hidden;
     }
   }
 
@@ -334,6 +334,7 @@ export const poweredBySection = css`
 
   ${breakpoints.desktop} {
     padding: 16rem 0rem 6rem !important;
+    background: url("/powered-by-bg.png") center top / cover no-repeat;
   }
 
   & h2 {
@@ -529,7 +530,9 @@ export const cardContent = css`
     text-overflow: ellipsis;
   }
 
-  & p {
+  & > p {
+    overflow: hidden;
+    height: 12rem;
     line-height: 2rem;
     background: linear-gradient(
       180deg,
@@ -663,7 +666,7 @@ export const sectionImage = css`
       & div {
         display: flex;
         max-width: 100%;
-        padding: 8rem 1.8rem;
+        padding: 8rem 3.2rem;
         margin: 0 auto;
         flex-direction: column;
         justify-content: center;
@@ -671,19 +674,19 @@ export const sectionImage = css`
         ${breakpoints.desktop} {
           padding: 0;
           max-width: 60%;
+          padding: 8rem 1.8rem;
         }
       }
 
       & h2 {
         max-width: 75%;
-        text-align: center;
+        text-align: left;
         font-size: 3.6rem;
         line-height: 3.6rem;
-        margin: 0 auto 3.2rem;
+        margin: 0 0 3.2rem 0;
 
         ${breakpoints.desktop} {
           max-width: 100%;
-          text-align: left;
           margin-bottom: 4rem;
           font-size: 6rem;
           line-height: 6rem;
