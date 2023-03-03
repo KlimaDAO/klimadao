@@ -3,6 +3,7 @@ import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
+import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
@@ -10,6 +11,7 @@ import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -18,26 +20,20 @@ import { SWRConfig } from "swr";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
-  const { locale } = useRouter();
+  const { locale, query } = useRouter();
 
-  const {
-    projects: unsafeProjects,
-    isLoading,
-    isValidating,
-  } = useFetchProjects();
+  const sortKey = String(query["sort"]);
 
-  // TEMP: the api has a bug where it sometimes returns `null`
-  const safeProjects = unsafeProjects?.filter((p) => !!p);
+  const { projects, isLoading, isValidating } = useFetchProjects();
 
-  const sortedProjects =
-    isLoading || !safeProjects
-      ? undefined
-      : safeProjects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+  const sortFn = get(PROJECT_SORT_FNS, sortKey) ?? identity;
+
+  const sortedProjects = sortFn(projects);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
   const showLoadingProjectsSpinner =
-    isLoading || (isValidating && !sortedProjects?.length);
+    isEmpty(sortedProjects) && (isLoading || isValidating);
 
   return (
     <>

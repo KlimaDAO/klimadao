@@ -23,6 +23,7 @@ export const dropdownHeader = css`
 export const tippyContainer = css`
   .tippy-box {
     margin-top: 0rem;
+    background: none;
   }
 `;
 

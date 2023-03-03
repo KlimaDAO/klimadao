@@ -27,15 +27,14 @@ export const CheckboxGroup = <T extends FieldValues>(props: Props<T>) => {
             checked: field.value.includes(option.value),
             onChange: (e) => {
               if (e.target.checked) {
-                /** Add field to list of checked values */
+                /** Add this checkbox to the list of checked values */
                 field.onChange([...field.value, e.target.value]);
               } else {
-                /** Remove any field from list of checked values */
-                field.onChange(() =>
-                  field.value.filter(
-                    (value: unknown) => value !== e.target.value
-                  )
+                /** Remove this checkbox from list of checked values */
+                const value = field.value.filter(
+                  (value: unknown) => value !== e.target.value
                 );
+                field.onChange(value);
               }
             },
           }}

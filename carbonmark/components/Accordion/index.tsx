@@ -17,7 +17,7 @@ const Component: FC<AccordionProps> = (props) => {
 
   return (
     <div className={cx("accordion", styles.main)} data-open={open}>
-      <button onClick={toggle} className={styles.toggle}>
+      <button onClick={toggle} className={styles.toggle} type="button">
         <Text className={styles.label}>{props.label}</Text>
         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </button>

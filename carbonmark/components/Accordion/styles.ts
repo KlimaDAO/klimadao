@@ -7,6 +7,7 @@ export const main = css`
 
   .content {
     padding: 0 0.4rem;
+    padding-bottom: 1rem;
     overflow: hidden;
     display: none;
     max-height: 0;
@@ -16,7 +17,7 @@ export const main = css`
   &[data-open="true"] {
     .content {
       display: block;
-      max-height: 500px;
+      max-height: fit-content;
     }
   }
 `;

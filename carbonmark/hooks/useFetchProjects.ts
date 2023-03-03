@@ -1,5 +1,7 @@
 import { fetcher } from "lib/fetcher";
 import { getProjectsQueryString } from "lib/getProjectsQueryString";
+import { isNil } from "lodash";
+import { negate } from "lodash/fp";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { Project } from "../lib/types/carbonmark";
@@ -11,5 +13,7 @@ export const useFetchProjects = () => {
   const { data, ...rest } = useSWR<Project[]>(path, fetcher, {
     revalidateOnMount: false,
   });
-  return { projects: data, ...rest };
+  /** Remove any null or undefined projects */
+  const projects = data?.filter(negate(isNil)) ?? [];
+  return { projects, ...rest };
 };

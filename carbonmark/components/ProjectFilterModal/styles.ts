@@ -8,6 +8,11 @@ export const main = css`
     }
   }
 
+  form {
+    display: grid;
+    grid-gap: inherit;
+  }
+
   .modalContent {
     max-width: 90vw;
     width: 36rem;

@@ -16,7 +16,6 @@ const getProjects: NextApiHandler<Project[] | APIDefaultResponse> = async (
       try {
         const queryString = getProjectsQueryString(req.query);
         const result = await fetch(urls.api.projects + queryString);
-
         const json = await result.json();
 
         return res.status(200).json(json);

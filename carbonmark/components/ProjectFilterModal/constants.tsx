@@ -2,6 +2,9 @@ import { t } from "@lingui/macro";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Text } from "components/Text";
 import { categoryNames, getCategoryInfo } from "lib/getCategoryInfo";
+import { Project } from "lib/types/carbonmark";
+import { sortBy } from "lib/utils/array.utils";
+import { IdentityFn } from "lib/utils/types.utils";
 import * as styles from "./styles";
 
 export const PROJECT_SORT_OPTIONS = {
@@ -11,6 +14,15 @@ export const PROJECT_SORT_OPTIONS = {
   "vintage-newest": t`Vintage Newest`,
   "vintage-oldest": t`Vintage Oldest`,
 } as const;
+
+/** A Collection of sort functions keyed by sort option */
+export const PROJECT_SORT_FNS: Record<string, IdentityFn<Project[]>> = {
+  "price-highest": sortBy<Project>("price", "desc"),
+  "price-lowest": sortBy<Project>("price"),
+  "recently-updated": sortBy<Project>("updatedAt", "desc"),
+  "vintage-newest": sortBy<Project>("vintage", "desc"),
+  "vintage-oldest": sortBy<Project>("vintage"),
+};
 
 export const getProjectFilters = () => {
   const allCategories = categoryNames.map((name) => getCategoryInfo(name));
