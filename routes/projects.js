@@ -334,7 +334,7 @@ module.exports = async function (fastify, opts) {
                         project.description = results.description;
                         project.location = results.geolocation;
                         project.name = results.name;
-                        project.name = results.methodologies;
+                        project.methodologies = results.methodologies;
 
                     } else if (project.registry == "GS") {
 
