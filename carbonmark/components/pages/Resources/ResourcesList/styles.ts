@@ -1,6 +1,15 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const section = css`
+  ${breakpoints.large} {
+    padding-top: 8rem;
+  }
+  ${breakpoints.desktop} {
+    padding-top: 6rem;
+  }
+`;
+
 export const resourcesListContainer = css`
   grid-column: main;
   display: flex;

@@ -5,7 +5,7 @@ import Tippy from "@tippyjs/react";
 import { FC, useEffect, useState } from "react";
 import { Control, useWatch } from "react-hook-form";
 
-import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
+import { getSortedByQueries, SortQuery } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 import { SortByButton } from "../SortByButton";
 
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const getSelectedSortyByLabel = (sortBy: string) =>
-  (!!sortBy && sortedByQueries.find((q) => q.value === sortBy)?.label) ||
+  (!!sortBy && getSortedByQueries().find((q) => q.value === sortBy)?.label) ||
   t({ id: "resources.form.input.sort_by.select", message: "Select" });
 
 export const SortyByDropDown: FC<Props> = (props) => {
@@ -39,7 +39,7 @@ export const SortyByDropDown: FC<Props> = (props) => {
       <Tippy
         content={
           <div className={styles.dropDownMenu}>
-            {sortedByQueries.map((option) => (
+            {getSortedByQueries().map((option) => (
               <SortByButton
                 key={option.id}
                 label={option.label}

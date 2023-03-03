@@ -14,7 +14,7 @@ import { FC, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import {
   DocumentType,
-  sortedByQueries,
+  getSortedByQueries,
   SortQuery,
   TagSlug,
 } from "../lib/cmsDataMap";
@@ -148,10 +148,10 @@ export const ResourcesList: FC<Props> = (props) => {
   }, [watch]);
 
   return (
-    <Section variant="gray">
+    <Section variant="gray" className={styles.section}>
       <div className={styles.resourcesListContainer}>
         <Text t="h2">
-          <Trans id="resources.page.list.header">Explore All</Trans>
+          <Trans>Resources</Trans>
         </Text>
         <div className={styles.inputsContainer}>
           <form onSubmit={handleSubmit(onSearchSubmit)}>
@@ -275,7 +275,7 @@ export const ResourcesList: FC<Props> = (props) => {
         onToggleModal={() => setShowMobileModal((prev) => !prev)}
       >
         <div className={styles.sortByButtons}>
-          {sortedByQueries.map((option) => (
+          {getSortedByQueries().map((option) => (
             <SortByButton
               key={option.id}
               label={option.label}

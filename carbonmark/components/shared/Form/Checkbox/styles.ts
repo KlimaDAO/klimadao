@@ -27,7 +27,7 @@ export const baseStyles = css`
 
   width: 1.6rem;
   height: 1.6rem;
-  border: 0.1rem solid var(--klima-green);
+  border: 0.1rem solid var(--bright-blue);
   border-radius: 0.15em;
   transform: translateY(-0.08rem);
 
@@ -37,7 +37,7 @@ export const baseStyles = css`
   cursor: pointer;
 
   &:checked {
-    background-color: var(--klima-green);
+    background-color: var(--bright-blue);
   }
 
   &::before {

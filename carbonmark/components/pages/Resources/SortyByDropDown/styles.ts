@@ -15,7 +15,7 @@ export const dropdownHeader = css`
   }
 
   svg {
-    fill: var(--klima-green);
+    fill: var(--bright-blue);
   }
 `;
 
