@@ -2,7 +2,7 @@ const  groq  = require("groq");
 
 
 
-const fetchProjects =  groq`*[_type == 'project'][0] {
+const fetchProjects =  groq`*[_type == 'project' && registry == $registry && registryProjectId == $registryProjectId][0] {
     country,
     description,
     "geolocation": {

@@ -120,20 +120,16 @@ module.exports = async function (fastify, opts) {
 
                 const uniqueValues = [];
 
-                console.log(project)
-                console.log(project.balanceUBO)
+
                 if (parseFloat(project.balanceUBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
                 }
-                console.log(project.balanceNBO)
                 if (parseFloat(project.balanceNBO) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                 }
-                console.log(project.balanceNCT)
                 if (parseFloat(project.balanceNCT) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                 }
-                console.log(project.balanceBCT)
                 if (parseFloat(project.balanceBCT) > 0) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                 }
@@ -325,11 +321,13 @@ module.exports = async function (fastify, opts) {
 
                         const sanity = getSanityClient();
 
+                        
                         const params = {
                             registry: project.registry,
                             registryProjectId: id[1],
                         };
-
+                        
+ 
                         const results = await sanity.fetch(fetchProjects, params);
                         project.description = results.description;
                         project.location = results.geolocation;
