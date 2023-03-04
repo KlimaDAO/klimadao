@@ -1,7 +1,12 @@
 import { isString } from "lodash";
 import { isStringArray } from "./utils/types.utils";
 
-const PROJECT_QUERY_PARAMS = ["search", "category", "vintage"] as const;
+const PROJECT_QUERY_PARAMS = [
+  "search",
+  "category",
+  "country",
+  "vintage",
+] as const;
 type ProjectsParam = (typeof PROJECT_QUERY_PARAMS)[number];
 
 /**

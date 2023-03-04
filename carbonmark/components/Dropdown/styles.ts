@@ -16,7 +16,7 @@ export const dropdownHeader = css`
   }
 
   svg {
-    fill: var(--klima-green);
+    fill: var(--blue-yellow);
   }
 `;
 
@@ -45,11 +45,11 @@ export const dropdownButton = css`
 
   &:hover {
     cursor: pointer;
-    color: var(--klima-green);
+    color: var(--blue-yellow);
   }
 
   &[data-active="true"] {
-    color: var(--klima-green);
+    color: var(--blue-yellow);
   }
 
   ${breakpoints.large} {
