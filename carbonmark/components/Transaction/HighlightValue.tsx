@@ -29,7 +29,7 @@ export const HighlightValue: FC<HighlightValueProps> = (props) => {
         )}
 
         <Text
-          t="body3"
+          t="body1"
           className={cx("value", {
             warn: !!props.warn,
           })}

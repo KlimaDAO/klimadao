@@ -243,3 +243,13 @@ export const betaWrapperMobile = css`
     display: none;
   }
 `;
+
+export const layoutContentContainer = css`
+  grid-column: 2/3;
+  display: inherit;
+  grid-gap: inherit;
+  max-width: 111.6rem;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+`;

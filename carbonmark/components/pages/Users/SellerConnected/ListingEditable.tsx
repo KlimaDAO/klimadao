@@ -5,6 +5,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
   deleteListingTransaction,
@@ -13,13 +14,10 @@ import {
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Listing as ListingType } from "lib/types/carbonmark";
+import { AssetForListing, Listing as ListingType } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
-
-import { AssetForListing } from "lib/types/carbonmark";
-
 import * as styles from "./styles";
 
 type Props = {
@@ -84,10 +82,18 @@ export const ListingEditable: FC<Props> = (props) => {
   };
 
   const hasApproval = () => {
+    if (!listingToEdit) return true;
+    const existingQuantity = formatUnits(listingToEdit.leftToSell);
+    const newQuantity = inputValues?.newQuantity || "1";
+    const delta = Number(newQuantity) - Number(existingQuantity);
+    if (delta <= 0) {
+      // we only need an approval when tonnes are being added
+      return true;
+    }
     return (
       !!allowanceValue &&
       !!inputValues &&
-      Number(allowanceValue) >= Number(inputValues.totalAmountToSell)
+      Number(allowanceValue) >= Number(inputValues.newQuantity)
     );
   };
 
@@ -99,7 +105,7 @@ export const ListingEditable: FC<Props> = (props) => {
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: inputValues.totalAmountToSell,
+        value: inputValues.newQuantity,
         onStatus: onUpdateStatus,
       });
     } catch (e) {
@@ -115,8 +121,8 @@ export const ListingEditable: FC<Props> = (props) => {
         listingId: listingToEdit.id,
         tokenAddress: inputValues.tokenAddress,
         provider,
-        totalAmountToSell: inputValues.totalAmountToSell,
-        singleUnitPrice: inputValues.singleUnitPrice,
+        totalAmountToSell: inputValues.newQuantity,
+        singleUnitPrice: inputValues.newSingleUnitPrice,
         onStatus: onUpdateStatus,
       });
 
@@ -214,13 +220,13 @@ export const ListingEditable: FC<Props> = (props) => {
           <Transaction
             hasApproval={hasApproval()}
             amount={{
-              value: `${inputValues.totalAmountToSell} ${t({
+              value: `${inputValues.newQuantity} ${t({
                 id: "tonnes.long",
                 message: "tonnes",
               })}`,
             }}
             price={{
-              value: inputValues.singleUnitPrice,
+              value: inputValues.newSingleUnitPrice,
               token: "usdc",
             }}
             approvalText={t({

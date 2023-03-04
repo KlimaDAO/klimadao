@@ -78,7 +78,6 @@ export const Project: NextPage<Props> = (props) => {
         />
       );
     });
-  console.log(props.project);
   return (
     <>
       <PageHead

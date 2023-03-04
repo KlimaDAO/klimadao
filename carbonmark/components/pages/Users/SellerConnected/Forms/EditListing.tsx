@@ -1,4 +1,8 @@
-import { formatUnits } from "@klimadao/lib/utils";
+import {
+  formatTonnes,
+  formatUnits,
+  getTokenDecimals,
+} from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
@@ -12,8 +16,8 @@ import * as styles from "./styles";
 
 export type FormValues = {
   tokenAddress: string;
-  totalAmountToSell: string;
-  singleUnitPrice: string;
+  newQuantity: string;
+  newSingleUnitPrice: string;
   batches?: string;
   batchPrices?: string;
 };
@@ -26,14 +30,30 @@ type Props = {
   assetBalance: string;
 };
 
+/**
+ * list of editable listings to show on /profile
+ * */
 export const EditListing: FC<Props> = (props) => {
-  const { locale } = useRouter();
+  const router = useRouter();
+  const locale = router.locale || "en";
+
+  const listedQuantity = formatTonnes({
+    amount: formatUnits(props.listing.leftToSell),
+    locale,
+  });
+  const totalAvailableQuantity = formatTonnes({
+    amount: (Number(props.assetBalance) + Number(listedQuantity)).toString(),
+    locale,
+  });
 
   const { register, handleSubmit, formState } = useForm<FormValues>({
     defaultValues: {
       tokenAddress: props.listing.tokenAddress,
-      totalAmountToSell: formatUnits(props.listing.leftToSell),
-      singleUnitPrice: formatUnits(props.listing.singleUnitPrice),
+      newQuantity: formatUnits(props.listing.leftToSell),
+      newSingleUnitPrice: formatUnits(
+        props.listing.singleUnitPrice,
+        getTokenDecimals("usdc")
+      ),
       ...props.values,
     },
   });
@@ -65,13 +85,11 @@ export const EditListing: FC<Props> = (props) => {
           />
           <InputField
             id="quantity"
+            label={t`New Quantity`}
             inputProps={{
-              placeholder: t({
-                id: "user.listing.edit.input.quantity.placeholder",
-                message: "How many do you want to sell",
-              }),
+              placeholder: t`Total quantity to list for sale`,
               type: "number",
-              ...register("totalAmountToSell", {
+              ...register("newQuantity", {
                 required: {
                   value: true,
                   message: t({
@@ -83,36 +101,33 @@ export const EditListing: FC<Props> = (props) => {
                   value: 1,
                   message: t({
                     id: "user.listing.edit.input.quantity.minimum",
-                    message: "The minimum quantity to sell is 1 Tonne",
+                    message: "The minimum quantity to sell is 1 tonne",
                   }),
                 },
                 max: {
-                  value: Number(props.assetBalance),
-                  message: t({
-                    id: "user.listing.edit.input.quantity.maxAmount",
-                    message: "You exceeded your available quantity",
-                  }),
+                  value: Number(totalAvailableQuantity),
+                  message: t`Available balance exceeded`,
                 },
               }),
             }}
-            label={t({
-              id: "user.edit.form.edit.quantity.label",
-              message: "Quantity",
-            })}
-            errorMessage={formState.errors.totalAmountToSell?.message}
+            errorMessage={formState.errors.newQuantity?.message}
           />
           <Text t="body3" className={styles.availableAmount}>
-            Available: {props.assetBalance}
+            <Trans>
+              Quantity listed: {listedQuantity}, Quantity unlisted:{" "}
+              {props.assetBalance}, Total available: {totalAvailableQuantity}
+            </Trans>
           </Text>
           <InputField
             id="price"
+            label={t`New Unit Price (USDC)`}
             inputProps={{
               placeholder: t({
                 id: "user.edit.form.edit.price.placeholder",
                 message: "USDC per ton",
               }),
               type: "number",
-              ...register("singleUnitPrice", {
+              ...register("newSingleUnitPrice", {
                 required: {
                   value: true,
                   message: t({
@@ -131,11 +146,7 @@ export const EditListing: FC<Props> = (props) => {
                 },
               }),
             }}
-            label={t({
-              id: "user.edit.edit.input.price.label",
-              message: "Price",
-            })}
-            errorMessage={formState.errors.singleUnitPrice?.message}
+            errorMessage={formState.errors.newSingleUnitPrice?.message}
           />
 
           <ButtonPrimary

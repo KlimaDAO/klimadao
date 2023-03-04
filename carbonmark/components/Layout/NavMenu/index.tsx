@@ -18,7 +18,7 @@ export const NavMenu: React.FC<Props> = (props) => {
   );
   const isConnected = !!props.connectedAddress || !!props.connectedDomain;
   const profileLink = isConnected
-    ? `/users/${props.connectedDomain?.name || props.connectedAddress}`
+    ? `/users/${props.connectedAddress}`
     : `/users/login`;
   return (
     <>

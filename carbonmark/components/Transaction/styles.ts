@@ -47,7 +47,7 @@ export const switchButton = css`
 
   &[data-active="true"] {
     font-weight: bold;
-    border-bottom: 3px solid var(--klima-green);
+    border-bottom: 3px solid var(--bright-blue);
   }
 
   &:disabled {

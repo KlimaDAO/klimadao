@@ -89,7 +89,6 @@ export const EditProfile: FC<Props> = (props) => {
       });
 
       let response;
-      console.log("putting values", values);
       if (isExistingUser) {
         response = await putUser({
           user: values,

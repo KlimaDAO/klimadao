@@ -138,16 +138,7 @@ export const Layout: FC<Props> = (props: Props) => {
 
           {/* header  */}
           {/* body  */}
-          <div
-            style={{
-              gridColumn: "2/3",
-              display: "inherit",
-              gridGap: "inherit",
-              maxWidth: "111.6rem",
-              margin: "auto",
-              width: "100%",
-            }}
-          >
+          <div className={styles.layoutContentContainer}>
             {isProjects && isMobile && (
               <ProjectsController className={styles.mobileProjectsController} />
             )}

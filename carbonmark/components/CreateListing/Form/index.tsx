@@ -155,7 +155,7 @@ export const CreateListingForm: FC<Props> = (props) => {
                 pattern: {
                   // https://stackoverflow.com/questions/354044/what-is-the-best-u-s-currency-regex#:~:text=Number%3A%20Currency%20amount%20(cents%20optional)%20Optional%20thousands%20separators%3B%20optional%20two%2Ddigit%20fraction
                   value: /^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/,
-                  message: "Please enter a correct price format",
+                  message: `Enter a complete price to the nearest cent e.g. "1.23", "0.10"`,
                 },
                 min: {
                   value: 0.1,

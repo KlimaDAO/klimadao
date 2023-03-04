@@ -299,7 +299,7 @@ export const getProjectInfoFromApi = async (
       category: project.category?.id || "Other",
     };
   } catch (e: any) {
-    console.error("getProjectInfoFromApi Error", e);
+    console.error("getProjectInfoFromApi Error for projectId", projectId, e);
     return null;
   }
 };

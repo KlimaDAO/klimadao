@@ -1,10 +1,6 @@
+import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { FC, useState } from "react";
-
-import { AssetForListing } from "lib/types/carbonmark";
-
-import { Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/shared/Modal";
 import { Transaction } from "components/Transaction";
 import {
@@ -13,6 +9,8 @@ import {
   getCarbonmarkAllowance,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
+import { AssetForListing } from "lib/types/carbonmark";
+import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
