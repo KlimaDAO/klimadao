@@ -19,6 +19,10 @@ export const HeaderMobile: FC<Props> = (props) => {
     isToggled
       ? document.body.classList.add("scroll-lock")
       : document.body.classList.remove("scroll-lock");
+
+    return () => {
+      document.body.classList.remove("scroll-lock");
+    };
   }, [isToggled]);
 
   return (
