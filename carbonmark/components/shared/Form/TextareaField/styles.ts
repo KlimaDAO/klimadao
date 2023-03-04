@@ -30,7 +30,7 @@ export const baseStyles = css`
 
   &:focus,
   &:hover {
-    border-color: var(--klima-green);
+    border-color: var(--bright-blue);
   }
 
   &:disabled {

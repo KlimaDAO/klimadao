@@ -28,6 +28,7 @@
     "dev-cms": "cd ./cms && npm run start",
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev --workspace=carbonmark\"",
     "deploy-cms": "cd ./cms && npm run deploy",
+    "lint-all": "npm run lint --workspaces",
     "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract && npm run -w carbonmark lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile && npm run -w carbonmark lingui:compile",
