@@ -46,24 +46,21 @@ export interface Props {
 
 export const Home: NextPage<Props> = (props) => {
   const { locale } = useRouter();
-  const { isDesktop, isMobile } = useResponsive();
+  const { isMobile } = useResponsive();
   return (
-    <GridContainer>
+    <GridContainer className={styles.global}>
       <PageHead
         title={t`Carbonmark.com`}
         mediaTitle={t`Carbonmark | Universal Carbon Market`}
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
+        <Image fill data-desktop-only alt="Carbonmark Hero" src="/hero.jpeg" />
         <Image
           fill
+          data-mobile-only
           alt="Carbonmark Hero"
-          src={isDesktop ? "/hero.jpeg" : "/hero-sm.jpeg"}
-          style={{
-            zIndex: 1,
-            objectFit: "cover",
-            objectPosition: isDesktop ? "top" : "-0.25rem 1rem",
-          }}
+          src="/hero-sm.jpeg"
         />
         <Navigation transparent activePage="Home" />
         <div className="stack">
@@ -84,6 +81,18 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.partnersSection)}>
+        <Image
+          fill
+          data-desktop-only
+          alt="Partners Background"
+          src="/partners-bg.jpeg"
+        />
+        <Image
+          fill
+          data-mobile-only
+          alt="Partners Background"
+          src="/partners-bg-sm.jpeg"
+        />
         <div className="stack">
           <div className="">
             <Text t="h2" as="h2">
@@ -143,6 +152,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.offsetCarbonSection)}>
+        <Image fill alt="Offset Carbon" src={"/offset-carbon-bg.jpeg"} />
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
@@ -160,14 +170,14 @@ export const Home: NextPage<Props> = (props) => {
               Offset now, or acquire carbon to offset later - you decide what to
               do when you take ownership of your carbon assets.
             </Text>
-            {isDesktop && (
-              <ButtonPrimary
-                href="/projects"
-                label="Browse Projects"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/projects"
+              label="Browse Projects"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-desktop-only {...linkProps} />
+              )}
+            />
           </div>
           <div>
             <div className={styles.list}>
@@ -211,18 +221,19 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
               </div>
             </div>
-            {isMobile && (
-              <ButtonPrimary
-                href="/projects"
-                label="Browse Projects"
-                className={cx(styles.browseButton, "mobile-only")}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/projects"
+              label="Browse Projects"
+              className={cx(styles.browseButton, "mobile-only")}
+              renderLink={(linkProps) => (
+                <Link data-mobile-only {...linkProps} />
+              )}
+            />
           </div>
         </div>
       </Section>
       <Section className={cx(styles.section, styles.sellCarbonSection)}>
+        <Image fill alt="Sell Carbon" src={"/sell-carbon-bg.jpeg"} />
         <div className="stack">
           <div>
             <div className={styles.list}>
@@ -266,14 +277,14 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
               </div>
             </div>
-            {isMobile && (
-              <ButtonPrimary
-                href="/profile"
-                label="Create Profile"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/profile"
+              label="Create Profile"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-mobile-only {...linkProps} />
+              )}
+            />
           </div>
           <div>
             <Text t="h2" as="h2">
@@ -286,20 +297,21 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="body1" className="description">
               Unprecedented transparency across the digital carbon market.
             </Text>
-            {isDesktop && (
-              <ButtonPrimary
-                href="/profile"
-                label="Create Profile"
-                className={styles.browseButton}
-                renderLink={(linkProps) => <Link {...linkProps} />}
-              />
-            )}
+            <ButtonPrimary
+              href="/profile"
+              label="Create Profile"
+              className={styles.browseButton}
+              renderLink={(linkProps) => (
+                <Link data-desktop-only {...linkProps} />
+              )}
+            />
           </div>
         </div>
       </Section>
       <Section className={styles.sectionImage}>
         <div className="carbon-traders">
           <div className="pattern-bg">
+            <Image fill alt="Pattern" src={"/carbon-traders-bg.jpeg"} />
             <div>
               <Text t="h2" as="h2">
                 For carbon traders
@@ -328,13 +340,18 @@ export const Home: NextPage<Props> = (props) => {
               </ul>
             </div>
           </div>
-          <div className="image-bg" />
+          <div className="image-bg">
+            <Image fill alt="Pattern" src={"/plant-pots.jpeg"} />
+          </div>
         </div>
       </Section>
       <Section className={styles.sectionImage}>
         <div className="project-devs">
-          <div className="image-bg" />
+          <div className="image-bg">
+            <Image fill alt="Pattern" src={"/plant.jpeg"} />
+          </div>
           <div className="pattern-bg">
+            <Image fill alt="Pattern" src={"/project-devs-bg.jpeg"} />
             <div>
               <Text t="h2" as="h2">
                 For project developers
@@ -362,6 +379,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.learnMoreSection)}>
+        <Image fill alt="Learn More" src={"/learn-more-bg.jpeg"} />
         <div className="stack">
           <Text t="h2" as="h2">
             Learn more
@@ -450,6 +468,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.poweredBySection)}>
+        <Image fill alt="Powered By" src={"/powered-by-bg.jpeg"} />
         <div className="stack">
           <Text t="h2" as="h2">
             Powered by

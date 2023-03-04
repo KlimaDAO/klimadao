@@ -1,5 +1,20 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
+import breakpoints, {
+  breakpoints as specificBreakpoints,
+} from "@klimadao/lib/theme/breakpoints";
+
+export const global = css`
+  [data-mobile-only="true"] {
+    ${breakpoints.desktop} {
+      display: none;
+    }
+  }
+  [data-desktop-only="true"] {
+    @media (max-width: ${specificBreakpoints.desktop}px) {
+      display: none;
+    }
+  }
+`;
 
 export const hero = css`
   display: grid;
@@ -8,9 +23,19 @@ export const hero = css`
   grid-template-columns: inherit;
   position: relative;
 
+  & img {
+    z-index: 1;
+    object-fit: cover;
+    object-position: -0.25rem 1rem;
+  }
+
   ${breakpoints.desktop} {
     height: 100vh;
     padding: 0 !important;
+
+    & img {
+      object-position: top;
+    }
   }
 
   .stack {
@@ -52,7 +77,6 @@ export const hero = css`
       font-family: var(--font-family);
 
       ${breakpoints.desktop} {
-        max-width: 70%;
         font-size: 2.4rem;
         line-height: 3.2rem;
       }
@@ -76,11 +100,18 @@ export const hero = css`
 export const partnersSection = css`
   position: relative;
   padding: 4rem 0rem 2rem !important;
-  background: url("/partners-bg.jpeg") -145rem -85rem / auto no-repeat;
+
+  & img {
+    z-index: 1;
+    object-fit: cover;
+    object-position: top;
+  }
 
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
-    background: url("/partners-bg.jpeg") center 27% / cover no-repeat !important;
+    & img {
+      object-position: 27%;
+    }
   }
 
   & .stack {
@@ -146,14 +177,21 @@ export const partnersSection = css`
 `;
 
 export const offsetCarbonSection = css`
+  position: relative;
   padding: 4rem 0rem !important;
-  background: url("/offset-carbon-bg.png") center center / cover no-repeat;
+
+  & img {
+    z-index: 1;
+    object-fit: cover;
+    object-position: top;
+  }
 
   ${breakpoints.desktop} {
-    padding: 20rem 0rem 28rem !important;
+    padding: 22rem 0rem !important;
   }
 
   & .stack {
+    z-index: 2;
     gap: 3.2rem;
     display: flex;
     flex-direction: column;
@@ -201,14 +239,21 @@ export const offsetCarbonSection = css`
 `;
 
 export const sellCarbonSection = css`
+  position: relative;
   padding: 4rem 0rem !important;
-  background: url("/sell-carbon-bg.png") center bottom / cover no-repeat;
+
+  & img {
+    z-index: 1;
+    object-fit: cover;
+    object-position: top;
+  }
 
   ${breakpoints.desktop} {
-    padding: 20rem 0rem 28rem !important;
+    padding: 22rem 0rem !important;
   }
 
   & .stack {
+    z-index: 2;
     gap: 3.2rem;
     display: flex;
     flex-direction: column-reverse;
@@ -280,11 +325,20 @@ export const sellCarbonSection = css`
 `;
 
 export const learnMoreSection = css`
+  position: relative;
   padding: 4rem 0rem;
-  background: url("/learn-more-bg.png") center bottom / cover no-repeat;
+
+  & img {
+    z-index: 1;
+    object-fit: cover;
+  }
 
   ${breakpoints.desktop} {
     padding: 7.5rem 0rem 3rem;
+  }
+
+  & .stack {
+    z-index: 2;
   }
 
   & h2 {
@@ -330,12 +384,20 @@ export const learnMoreSection = css`
 `;
 
 export const poweredBySection = css`
+  position: relative;
   padding: 8.4rem 0rem 6rem !important;
-  background: url("/powered-by-bg.png") center center / cover no-repeat;
+
+  & img {
+    z-index: 1;
+    object-fit: cover;
+  }
 
   ${breakpoints.desktop} {
     padding: 16rem 0rem 6rem !important;
-    background: url("/powered-by-bg.png") center top / cover no-repeat;
+  }
+
+  & .stack {
+    z-index: 2;
   }
 
   & h2 {
@@ -650,20 +712,36 @@ export const sectionImage = css`
 
     &.carbon-traders {
       & .image-bg {
-        background: url("/plant-pots.png") center center / cover no-repeat;
+        position: relative;
+        & img {
+          z-index: 1;
+          object-fit: cover;
+        }
       }
       & .pattern-bg {
-        background: url("/carbon-traders-bg.png") center center / cover
-          no-repeat;
+        z-index: 2;
+        position: relative;
+        & img {
+          z-index: 1;
+          object-fit: cover;
+        }
       }
     }
 
     &.project-devs {
       & .image-bg {
-        background: url("/plant.png") center center / cover no-repeat;
+        position: relative;
+        & img {
+          z-index: 1;
+          object-fit: cover;
+        }
       }
       & .pattern-bg {
-        background: url("/project-devs-bg.png") center center / cover no-repeat;
+        position: relative;
+        & img {
+          z-index: 1;
+          object-fit: cover;
+        }
       }
     }
 
@@ -677,6 +755,7 @@ export const sectionImage = css`
       }
 
       & div {
+        z-index: 2;
         display: flex;
         max-width: 100%;
         padding: 8rem 3.2rem;
