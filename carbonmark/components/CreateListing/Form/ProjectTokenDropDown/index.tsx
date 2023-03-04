@@ -1,5 +1,6 @@
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
 import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
@@ -12,6 +13,7 @@ interface Props {
   selectedAsset: AssetForListing;
 }
 
+/**@todo replace with /carbonmark/components/Dropdown */
 export const ProjectTokenDropDown: FC<Props> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,6 +27,8 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
 
   // do not toggle a dropdown when there are no further selections
   const isDisabled = props.assets.length === 1;
+
+  const ArrowIcon = isOpen ? ArrowDropUpIcon : ArrowDropDownIcon;
 
   return (
     <div className={styles.tippyContainer}>
@@ -55,6 +59,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
         visible={isOpen}
         placement="bottom-start"
         appendTo="parent"
+        arrow="none"
         disabled={isDisabled}
       >
         <button
@@ -71,7 +76,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
               props.selectedAsset.tokenName ||
               "not found"}
           </span>
-          {!isDisabled && <ArrowDropDownIcon />}
+          {!isDisabled && <ArrowIcon fontSize="large" />}
         </button>
       </Tippy>
     </div>
