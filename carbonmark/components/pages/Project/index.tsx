@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
@@ -106,7 +105,6 @@ export const Project: NextPage<Props> = (props) => {
               {!!props.project.category?.id && (
                 <Category category={props.project.category.id} />
               )}
-              {props.project.isPoolProject && <PoolIcon />}
             </div>
           </div>
         </div>

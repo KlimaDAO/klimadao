@@ -150,7 +150,7 @@ msgstr "Country"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:182
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -159,7 +159,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:154
+#: components/pages/Project/index.tsx:152
 msgid "Description"
 msgstr "Description"
 
@@ -263,7 +263,7 @@ msgstr "New Unit Price (USDC)"
 msgid "No active listings."
 msgstr "No active listings."
 
-#: components/pages/Project/index.tsx:172
+#: components/pages/Project/index.tsx:170
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -704,7 +704,7 @@ msgstr "Other Nature-Based"
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
 
-#: components/pages/Project/index.tsx:121
+#: components/pages/Project/index.tsx:119
 msgid "project.single.best_price"
 msgstr "Best Price"
 
@@ -720,7 +720,7 @@ msgstr "Back to Project Details"
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
-#: components/pages/Project/index.tsx:128
+#: components/pages/Project/index.tsx:126
 msgid "project.single.methodology"
 msgstr "Methodology:"
 
@@ -1038,8 +1038,8 @@ msgstr "Total Amount to Sell is required"
 msgid "user.login.description"
 msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
+#: components/pages/Project/index.tsx:83
 #: components/pages/Project/index.tsx:84
-#: components/pages/Project/index.tsx:85
 msgid "{0} | Carbonmark"
 msgstr "{0} | Carbonmark"
 

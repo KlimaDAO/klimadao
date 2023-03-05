@@ -150,7 +150,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Project/index.tsx:184
+#: components/pages/Project/index.tsx:182
 msgid "Data for this project and vintage"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Data for this seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:154
+#: components/pages/Project/index.tsx:152
 msgid "Description"
 msgstr ""
 
@@ -263,7 +263,7 @@ msgstr ""
 msgid "No active listings."
 msgstr ""
 
-#: components/pages/Project/index.tsx:172
+#: components/pages/Project/index.tsx:170
 msgid "No listings found for this project."
 msgstr ""
 
@@ -704,7 +704,7 @@ msgstr ""
 msgid "project.category.renewable_energy"
 msgstr ""
 
-#: components/pages/Project/index.tsx:121
+#: components/pages/Project/index.tsx:119
 msgid "project.single.best_price"
 msgstr ""
 
@@ -720,7 +720,7 @@ msgstr ""
 msgid "project.single.header.seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:128
+#: components/pages/Project/index.tsx:126
 msgid "project.single.methodology"
 msgstr ""
 
@@ -1038,8 +1038,8 @@ msgstr ""
 msgid "user.login.description"
 msgstr ""
 
+#: components/pages/Project/index.tsx:83
 #: components/pages/Project/index.tsx:84
-#: components/pages/Project/index.tsx:85
 msgid "{0} | Carbonmark"
 msgstr ""
 
