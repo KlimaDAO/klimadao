@@ -11,8 +11,6 @@ import { FC } from "react";
 import { ACTIVITY_ACTIONS } from "./Activities.constants";
 import * as styles from "./styles";
 
-const tonnesT = t({ id: "tonnes.short", message: "t" });
-
 /** Represents a single activity of a user  */
 export const Activity: FC<ActivityT> = (props) => {
   const { address: connectedAddress } = useWeb3();
@@ -37,8 +35,7 @@ export const Activity: FC<ActivityT> = (props) => {
   addressA = sellerID;
 
   /** By default activities are buy or sell transactions */
-  amountA =
-    !!props.amount && `${formatBigToTonnes(props.amount, locale)}${tonnesT}`;
+  amountA = !!props.amount && `${formatBigToTonnes(props.amount, locale)}t`;
   amountB = !!props.price && `${formatBigToPrice(props.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */

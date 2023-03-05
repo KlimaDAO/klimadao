@@ -724,11 +724,11 @@ msgstr ""
 msgid "project.single.methodology"
 msgstr ""
 
-#: components/Activities/Activity.tsx:70
+#: components/Activities/Activity.tsx:67
 msgid "props.transaction.conjunction"
 msgstr ""
 
-#: components/Activities/Activity.tsx:23
+#: components/Activities/Activity.tsx:21
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
@@ -886,10 +886,6 @@ msgstr ""
 #: components/CreateListing/index.tsx:145
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:223
 msgid "tonnes.long"
-msgstr ""
-
-#: components/Activities/Activity.tsx:14
-msgid "tonnes.short"
 msgstr ""
 
 #: components/CreateListing/index.tsx:154
