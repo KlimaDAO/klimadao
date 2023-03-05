@@ -1,18 +1,23 @@
-import { Home, Props } from "components/pages/Home";
-import { getCarbonmarkProjects } from "lib/carbonmark";
+import { Home } from "components/pages/Home";
+import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
-import { Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 
-interface HomeProps extends Props {
-  projects?: Project[];
-}
+const defaultProjectKeys = ["VCS-981-2014", "VCS-812-2009", "VCS-1190-2017"];
 
-export const getStaticProps: GetStaticProps<HomeProps> = async (ctx) => {
-  const projects = await getCarbonmarkProjects();
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
+  const projects = await Promise.all(
+    defaultProjectKeys.map(
+      async (project) => await getCarbonmarkProject(project)
+    )
+  );
   return {
-    props: { projects, translation, fixedThemeName: "theme-light" },
+    props: {
+      projects,
+      translation,
+      fixedThemeName: "theme-light",
+    },
     revalidate: 600,
   };
 };

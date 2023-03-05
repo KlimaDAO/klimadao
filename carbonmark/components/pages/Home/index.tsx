@@ -32,6 +32,7 @@ import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
+import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -111,35 +112,36 @@ export const Home: NextPage<Props> = (props) => {
           </Text>
           <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
-              {props?.projects?.slice(0, 3)?.map((project, idx) => (
-                <div key={`project-${idx}`} className={cx(styles.card, "card")}>
-                  <div className={styles.cardImage}>
-                    {!!project.category?.id && (
-                      <ProjectImage category={project.category.id} />
-                    )}
-                  </div>
-                  <div className={styles.cardContent}>
-                    <Text t="body3" as="h4">
-                      {formatBigToPrice(project.price, locale)}
-                    </Text>
-                    <Text as="h5">
-                      {project.name || "! MISSING PROJECT NAME !"}
-                    </Text>
-                    <Text t="body1">
-                      {project.description ||
-                        "The Bull Run project is designed to protect 4,650 ha of tropical pine forests, grasslands, and mature humid broadleaf forest in the Cayo District of Belize, Central America. This area, which lies 23.5 km east-southeast of San Ignacio, Belize, includes 15 IUCN listed endangered species! The property consists primarily of a tropical pine savannah with a small component of tropical mixed broadleaf forest. Several studies involving bird conservation and protection on the property have been undertaken in the years since the project started, including a study on the threatened Orange-breasted falcons."}
-                    </Text>
-                    <div className={styles.tags}>
+              {props?.projects?.map((project, idx) => (
+                <Link
+                  passHref
+                  key={`${project.key}-${idx}`}
+                  href={createProjectLink(project)}
+                >
+                  <div className={cx(styles.card, "card")}>
+                    <div className={styles.cardImage}>
                       {!!project.category?.id && (
-                        <Category category={project.category.id} />
+                        <ProjectImage category={project.category.id} />
                       )}
-                      {project.isPoolProject && (
-                        <SyncOutlinedIcon fontSize="large" />
-                      )}
-                      <Vintage vintage={project.vintage} />
+                    </div>
+                    <div className={styles.cardContent}>
+                      <Text t="body3" as="h4">
+                        {formatBigToPrice(project.price, locale)}
+                      </Text>
+                      <Text as="h5">{project?.name}</Text>
+                      <Text t="body1">{project?.description}</Text>
+                      <div className={styles.tags}>
+                        {!!project.category?.id && (
+                          <Category category={project.category.id} />
+                        )}
+                        {project.isPoolProject && (
+                          <SyncOutlinedIcon fontSize="large" />
+                        )}
+                        <Vintage vintage={project.vintage} />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -152,7 +154,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.offsetCarbonSection)}>
-        <Image fill alt="Offset Carbon" src={"/offset-carbon-bg.jpeg"} />
+        <Image fill alt="Offset Carbon" src="/offset-carbon-bg.jpeg" />
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
@@ -233,7 +235,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.sellCarbonSection)}>
-        <Image fill alt="Sell Carbon" src={"/sell-carbon-bg.jpeg"} />
+        <Image fill alt="Sell Carbon" src="/sell-carbon-bg.jpeg" />
         <div className="stack">
           <div>
             <div className={styles.list}>
@@ -311,7 +313,7 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.sectionImage}>
         <div className="carbon-traders">
           <div className="pattern-bg">
-            <Image fill alt="Pattern" src={"/carbon-traders-bg.jpeg"} />
+            <Image fill alt="Pattern" src="/carbon-traders-bg.jpeg" />
             <div>
               <Text t="h2" as="h2">
                 For carbon traders
@@ -341,17 +343,17 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <div className="image-bg">
-            <Image fill alt="Pattern" src={"/plant-pots.jpeg"} />
+            <Image fill alt="Pattern" src="/plant-pots.jpeg" />
           </div>
         </div>
       </Section>
       <Section className={styles.sectionImage}>
         <div className="project-devs">
           <div className="image-bg">
-            <Image fill alt="Pattern" src={"/plant.jpeg"} />
+            <Image fill alt="Pattern" src="/plant.jpeg" />
           </div>
           <div className="pattern-bg">
-            <Image fill alt="Pattern" src={"/project-devs-bg.jpeg"} />
+            <Image fill alt="Pattern" src="/project-devs-bg.jpeg" />
             <div>
               <Text t="h2" as="h2">
                 For project developers
@@ -379,7 +381,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.learnMoreSection)}>
-        <Image fill alt="Learn More" src={"/learn-more-bg.jpeg"} />
+        <Image fill alt="Learn More" src="/learn-more-bg.jpeg" />
         <div className="stack">
           <Text t="h2" as="h2">
             Learn more
@@ -468,7 +470,7 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={cx(styles.section, styles.poweredBySection)}>
-        <Image fill alt="Powered By" src={"/powered-by-bg.jpeg"} />
+        <Image fill alt="Powered By" src="/powered-by-bg.jpeg" />
         <div className="stack">
           <Text t="h2" as="h2">
             Powered by
