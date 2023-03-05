@@ -18,7 +18,7 @@ import {
   getSortByUpdateListings,
 } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
-import { AssetForListing, Listing, User } from "lib/types/carbonmark";
+import { AssetForListing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
@@ -35,7 +35,6 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
-  const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
@@ -44,9 +43,10 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const isCarbonmarkUser = !!user;
   const hasAssets = !!user?.assets?.length;
-  const hasListings = !!user?.listings?.length;
-  const allListings = hasListings && getAllListings(user.listings);
-  const activeListings = hasListings && getActiveListings(user.listings);
+  const allListings = getAllListings(user?.listings ?? []);
+  const activeListings = getActiveListings(user?.listings ?? []);
+  const sortedListings = getSortByUpdateListings(activeListings);
+  const hasListings = !!activeListings.length;
 
   // load Assets every time user changed
   useEffect(() => {
@@ -90,18 +90,6 @@ export const SellerConnected: FC<Props> = (props) => {
 
       getProjectData();
     }
-  }, [user]);
-
-  // update listings when user changed
-  useEffect(() => {
-    const sortedListings =
-      activeListings &&
-      !!activeListings.length &&
-      getSortByUpdateListings(activeListings);
-
-    sortedListings &&
-      sortedListings.length &&
-      setSortedListings(sortedListings);
   }, [user]);
 
   const onEditProfile = async (data: User) => {
@@ -152,7 +140,7 @@ export const SellerConnected: FC<Props> = (props) => {
         maxAttempts: 50,
       });
 
-      updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
+      setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
       setErrorMessage(

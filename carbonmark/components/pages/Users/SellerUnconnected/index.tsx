@@ -26,9 +26,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
   const { address, isConnected, toggleModal } = useWeb3();
   const userData = props.carbonmarkUser;
 
-  const hasListings = !!userData?.listings?.length;
-  const allListings = hasListings && getAllListings(userData.listings);
-  const activeListings = hasListings && getActiveListings(userData.listings);
+  const allListings = getAllListings(userData?.listings ?? []);
+  const activeListings = getActiveListings(userData?.listings ?? []);
+  const hasListings = !!activeListings.length;
 
   const sortedListings =
     !!activeListings &&
