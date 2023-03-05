@@ -18,11 +18,11 @@ export const redeemPaymentMethods: RedeemPaymentMethod[] = [
 ];
 
 type CompatMap = { [token in RedeemPaymentMethod]: RedeemablePoolToken[] };
-export const redeemCompatability: CompatMap = {
-  ubo: ["ubo"],
-  nbo: ["nbo"],
-  bct: ["bct"],
-  nct: ["nct"],
+export const redeemCompatibility: CompatMap = {
+  ubo: ["bct", "nct", "ubo", "nbo"],
+  nbo: ["bct", "nct", "ubo", "nbo"],
+  bct: ["bct", "nct", "ubo", "nbo"],
+  nct: ["bct", "nct", "ubo", "nbo"],
   usdc: ["bct", "nct", "ubo", "nbo"],
   klima: ["bct", "nct", "ubo", "nbo"],
 };

@@ -27,7 +27,7 @@ import { tokenInfo } from "lib/getTokenInfo";
 import {
   RedeemablePoolToken,
   redeemablePoolTokens,
-  redeemCompatability,
+  redeemCompatibility,
   RedeemPaymentMethod,
   redeemPaymentMethods,
   useRedeemParams,
@@ -343,7 +343,7 @@ export const Redeem = (props: Props) => {
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
 
   const poolTokenItems = redeemablePoolTokens.map((tkn) => {
-    const disabled = !redeemCompatability[paymentMethod]?.includes(tkn);
+    const disabled = !redeemCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
       disabled,
