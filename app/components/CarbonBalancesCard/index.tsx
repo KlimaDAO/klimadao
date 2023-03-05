@@ -98,7 +98,11 @@ export const CarbonBalancesCard = (props: {
     return [...prev, { assetName, balance, icon: iconMap[tkn] }];
   }, []);
 
-  Object.keys(projectTokens).forEach((address) => {
+  const sortedProjectTokens = Object.keys(projectTokens).sort((a, b) =>
+    projectTokens[a].symbol > projectTokens[b].symbol ? 1 : -1
+  );
+
+  Object.keys(sortedProjectTokens).forEach((address) => {
     const { symbol, quantity } = projectTokens[address];
     const formattedBalance = formatTonnes({ amount: quantity, locale });
     const icon = symbol.startsWith("TCO2-") ? TCO2 : C3T;
