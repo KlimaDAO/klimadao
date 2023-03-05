@@ -95,11 +95,14 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     props.onToggleModal?.();
   };
 
+  const initialSort = router.query.sort ? String(router.query.sort) : undefined;
+
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Dropdown
           name="sort"
+          initial={initialSort ?? "recently-updated"}
           className="dropdown"
           aria-label={t`Toggle sort menu`}
           renderLabel={(selected) => `Sort By: ${selected?.label}`}

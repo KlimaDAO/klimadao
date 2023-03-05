@@ -7,7 +7,7 @@ import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";
 
 type Props<V, T extends FieldValues> = {
-  initial?: string;
+  initial?: V;
   options: Option<V>[];
   name: Path<T>;
   control: Control<T>;
