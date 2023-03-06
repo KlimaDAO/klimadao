@@ -38,7 +38,6 @@ export const ResourcesFilters: FC<Props> = (props) => {
         icon={<ClearIcon />}
         label={<Trans id="resources.form.filters.clear_all">Clear All</Trans>}
         onClick={props.onResetFilters}
-        className={styles.clearAllButton}
       />
     </div>
   );

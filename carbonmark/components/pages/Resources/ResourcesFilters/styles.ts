@@ -27,8 +27,3 @@ export const filtersCheckboxGroup = css`
   gap: 1.2rem;
   margin-bottom: 1.6rem;
 `;
-
-export const clearAllButton = css`
-  background-color: var(--surface-01);
-  color: var(--font-01) !important;
-`;
