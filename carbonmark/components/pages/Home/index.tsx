@@ -63,6 +63,13 @@ export const Home: NextPage<Props> = (props) => {
           alt="Carbonmark Hero"
           src="/hero-sm.jpeg"
         />
+        <Image
+          fill
+          data-mobile-only
+          alt="Circle Tree"
+          src="/circle-tree.png"
+          className="circle-tree"
+        />
         <Navigation transparent activePage="Home" />
         <div className="stack">
           <Text t="h1" as="h1">

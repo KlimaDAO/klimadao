@@ -27,6 +27,14 @@ export const hero = css`
     z-index: 1;
     object-fit: cover;
     object-position: -0.25rem 1rem;
+
+    &.circle-tree {
+      object-fit: contain;
+      top: 6rem !important;
+      right: -2rem !important;
+      height: 8rem !important;
+      object-position: top right;
+    }
   }
 
   ${breakpoints.desktop} {
