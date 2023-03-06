@@ -34,7 +34,7 @@ export interface Project {
 export type Price = {
   leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
   tokenAddress: string;
-  singleUnitPrice: number; // NOT A BIGNUMBER ! Already formatted in USDCs
+  singleUnitPrice: string; // NOT A BIGNUMBER ! Already formatted in USDCs
   name: string;
 };
 

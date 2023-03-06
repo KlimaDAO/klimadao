@@ -31,7 +31,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Image from "next/image";
@@ -46,6 +46,17 @@ export interface Props {
 export const Home: NextPage<Props> = (props) => {
   const { locale } = useRouter();
   const { isMobile } = useResponsive();
+  // TODO - TEMP FIX here because backend is giving wrong price in project.price field
+  const projects =
+    props.projects?.map((p) => {
+      const bestPrice =
+        p.prices?.reduce<string>((newPrice, priceEntry) => {
+          if (Number(priceEntry.singleUnitPrice) > Number(newPrice))
+            return priceEntry.singleUnitPrice;
+          return newPrice;
+        }, "0") || "0";
+      return { ...p, price: bestPrice };
+    }) || [];
   return (
     <GridContainer className={styles.global}>
       <PageHead
@@ -117,7 +128,7 @@ export const Home: NextPage<Props> = (props) => {
           </Text>
           <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
-              {props?.projects?.map((project, idx) => (
+              {projects.map((project, idx) => (
                 <Link
                   passHref
                   key={`${project.key}-${idx}`}
@@ -131,7 +142,7 @@ export const Home: NextPage<Props> = (props) => {
                     </div>
                     <div className={styles.cardContent}>
                       <Text t="body3" as="h4">
-                        {formatBigToPrice(project.price, locale)}
+                        {formatToPrice(project.price, locale)}
                       </Text>
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">{project?.description}</Text>

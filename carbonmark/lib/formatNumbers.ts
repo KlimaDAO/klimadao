@@ -13,7 +13,6 @@ export const formatToPrice = (value: string | number, locale = "en") => {
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD",
-    maximumSignificantDigits: 3,
   }).format(toNumber);
 };
 
