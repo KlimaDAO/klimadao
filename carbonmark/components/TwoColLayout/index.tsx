@@ -15,5 +15,7 @@ export const TwoColLayout: FC<Props> = (props) => {
 };
 
 export const Col: FC<Props> = (props) => {
-  return <div className={styles.col}>{props.children}</div>;
+  return (
+    <div className={cx(styles.col, props.className)}>{props.children}</div>
+  );
 };

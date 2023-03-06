@@ -16,12 +16,7 @@ export const portfolioContent = css`
   display: grid;
   gap: 2.4rem;
   ${breakpoints.desktop} {
-    gap: 4rem;
-    grid-template-columns: 1fr 24rem;
-  }
-  ${breakpoints.desktopLarge} {
-    gap: 4rem;
-    grid-template-columns: 1fr 37rem;
+    grid-template-columns: 2fr 1fr;
   }
 `;
 

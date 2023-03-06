@@ -208,7 +208,7 @@ export const Portfolio: NextPage = () => {
             )}
           </Col>
 
-          <Col>
+          <Col className="statsColumn">
             <Balances />
             <Stats
               allListings={allListings || []}
