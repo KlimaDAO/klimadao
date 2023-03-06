@@ -118,7 +118,13 @@ export const partnersSection = css`
   ${breakpoints.desktop} {
     padding: 7.6rem 0rem 11rem !important;
     & img {
-      object-position: 27%;
+      object-position: center;
+    }
+  }
+
+  ${breakpoints.desktopLarge} {
+    & img {
+      object-position: center 28%;
     }
   }
 
