@@ -6,7 +6,7 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { Spinner } from "components/shared/Spinner";
+import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
@@ -157,14 +157,7 @@ export const Portfolio: NextPage = () => {
               <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
             )}
 
-            {isConnectedUser && isLoading && (
-              <div className={styles.fullWidth}>
-                <Spinner />
-                <Text>
-                  <Trans>Loading your data...</Trans>
-                </Text>
-              </div>
-            )}
+            {isConnectedUser && isLoading && <SpinnerWithLabel />}
 
             {errorMessage && (
               <Text t="h5" className={styles.errorMessage}>

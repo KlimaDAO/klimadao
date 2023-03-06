@@ -56,7 +56,7 @@ export const receiptContent = css`
   }
 
   .country {
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 `;
 

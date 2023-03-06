@@ -37,7 +37,7 @@ export const searchInput = css`
 
   &:focus,
   &:hover {
-    border-color: var(--klima-green);
+    border-color: var(--bright-blue);
   }
 
   // remove ugly clear icon

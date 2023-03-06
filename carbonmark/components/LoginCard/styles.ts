@@ -1,11 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const fullWidth = css`
-  display: flex;
-  gap: 2rem;
-`;
-
 export const login = css`
   display: flex;
   gap: 1.6rem;
@@ -34,8 +29,4 @@ export const title = css`
 
 export const loginButton = css`
   width: 100%;
-`;
-
-export const redirecting = css`
-  color: var(--klima-green);
 `;

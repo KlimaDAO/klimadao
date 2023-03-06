@@ -116,8 +116,8 @@ export const navMain_MobileLink = css`
     border-radius: 0.4rem;
   }
   &:active {
-    background: var(--klima-green);
-    border-color: var(--klima-green);
+    background: var(--bright-blue);
+    border-color: var(--bright-blue);
   }
   transform: none !important;
   &.activeItem {

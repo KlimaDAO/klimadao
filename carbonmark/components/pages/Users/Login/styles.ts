@@ -1,12 +1,20 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const loginControls = css`
+  grid-column: main;
+  display: flex;
+  flex-direction: row-reverse;
+`;
+
 export const fullWidth = css`
+  grid-column: main;
   display: flex;
   gap: 2rem;
 `;
 
 export const login = css`
+  grid-column: main;
   display: flex;
   gap: 1.6rem;
   justify-content: center;
@@ -33,8 +41,4 @@ export const title = css`
 
 export const loginButton = css`
   width: 100%;
-`;
-
-export const redirecting = css`
-  color: var(--klima-green);
 `;

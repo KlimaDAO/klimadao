@@ -75,12 +75,6 @@ export const errorMessage = css`
   word-break: break-word;
 `;
 
-export const loadingText = css`
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-`;
-
 export const spinnerContainer = css`
   min-height: 20rem;
   display: flex;

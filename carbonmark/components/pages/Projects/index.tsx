@@ -7,7 +7,7 @@ import { PageHead } from "components/PageHead";
 import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
-import { Spinner } from "components/shared/Spinner";
+import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
@@ -54,12 +54,7 @@ const Page: NextPage = () => {
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>
           )}
-          {showLoadingProjectsSpinner && (
-            <div className={styles.loadingPlaceholder}>
-              <Spinner />
-              <Text>Loading projects...</Text>
-            </div>
-          )}
+          {showLoadingProjectsSpinner && <SpinnerWithLabel />}
           {sortedProjects?.map((project, index) => (
             <Link
               key={project.key + "-" + index}

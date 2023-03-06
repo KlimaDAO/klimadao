@@ -62,7 +62,7 @@ export const statusMessage = css`
   gap: 0.8rem;
 
   & svg {
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 `;
 

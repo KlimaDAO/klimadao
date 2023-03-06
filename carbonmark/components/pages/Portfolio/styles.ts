@@ -20,17 +20,6 @@ export const portfolioContent = css`
   }
 `;
 
-export const fullWidth = css`
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const isLoading = css`
-  color: var(--klima-green);
-`;
-
 export const errorMessage = css`
   color: var(--warn);
   margin-bottom: 0.2rem;

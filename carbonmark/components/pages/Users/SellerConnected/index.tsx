@@ -7,6 +7,7 @@ import { CreateListing } from "components/CreateListing";
 import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
+import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -209,12 +210,7 @@ export const SellerConnected: FC<Props> = (props) => {
         <Col>
           {isUpdatingUser && (
             <Card>
-              <Text t="body1" className={styles.loadingText}>
-                <Spinner />
-                <i>
-                  <Trans>Updating your data...</Trans>
-                </i>
-              </Text>
+              <SpinnerWithLabel label={t`Updating your data...`} />
             </Card>
           )}
           {!hasListings && (

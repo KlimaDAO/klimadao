@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Card } from "components/Card";
-import { Spinner } from "components/shared/Spinner";
+import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -26,14 +26,7 @@ export const LoginCard: FC<Props> = (props) => {
             log in or create an account via the button below.
           </Trans>
         </Text>
-        {props.isLoading && (
-          <div className={styles.fullWidth}>
-            <Spinner />
-            <Text className={styles.redirecting}>
-              <Trans>Loading...</Trans>
-            </Text>
-          </div>
-        )}
+        {props.isLoading && <SpinnerWithLabel />}
         {!props.isLoading && (
           <ButtonPrimary
             label={<Trans>Login</Trans>}

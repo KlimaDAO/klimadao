@@ -12,12 +12,12 @@ export const paragraph = css`
 `;
 
 export const blockQuote = css`
-  border-left: 1rem solid var(--klima-green);
+  border-left: 1rem solid var(--bright-blue);
   margin: 1.5em 1rem;
   padding: 0.5em 1rem;
   quotes: "\\201C""\\201D""\\2018""\\2019";
   &:before {
-    color: var(--klima-green);
+    color: var(--bright-blue);
     content: open-quote;
     font-size: 4rem;
     line-height: 1rem;
@@ -32,10 +32,10 @@ export const inlineImage = css`
 
 export const link = css`
   text-decoration: underline;
-  color: var(--klima-green);
+  color: var(--bright-blue);
   word-break: break-word;
   &:visited {
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 `;
 

@@ -17,7 +17,7 @@ export const sellerInfo = css`
     color: var(--klima-blue);
   }
   a:hover {
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 `;
 

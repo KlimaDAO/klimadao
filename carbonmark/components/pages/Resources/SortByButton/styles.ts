@@ -12,11 +12,11 @@ export const sortbyButton = css`
 
   &:hover {
     cursor: pointer;
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 
   &[data-active="true"] {
-    color: var(--klima-green);
+    color: var(--bright-blue);
   }
 
   ${breakpoints.large} {

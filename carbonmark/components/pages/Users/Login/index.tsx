@@ -1,16 +1,16 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-
+import { Activities } from "components/Activities";
 import { Layout } from "components/Layout";
+import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { Col, TwoColLayout } from "components/TwoColLayout";
-
-import { Activities } from "components/Activities";
 import { Stats } from "components/Stats";
+import { Col, TwoColLayout } from "components/TwoColLayout";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import * as styles from "./styles";
 
 export const Login: NextPage = () => {
   const router = useRouter();
@@ -35,6 +35,9 @@ export const Login: NextPage = () => {
       />
 
       <Layout>
+        <div className={styles.loginControls}>
+          <LoginButton />
+        </div>
         <TwoColLayout>
           <Col>
             <LoginCard isLoading={isRedirecting} onLogin={toggleModal} />

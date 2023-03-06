@@ -45,7 +45,7 @@ export const changeLanguageButton = css`
 
 export const tooltip = css`
   text-align: center;
-  border: 1px solid var(--klima-green);
+  border: 1px solid var(--bright-blue);
   background: var(--surface-03);
   border-radius: 0.4rem;
   padding: 1.6rem;
@@ -60,10 +60,10 @@ export const menuItem = css`
   ${typography.button};
   color: var(--font-02) !important;
   &:hover {
-    color: var(--klima-green) !important;
+    color: var(--bright-blue) !important;
   }
   &[data-active="true"] {
-    color: var(--klima-green) !important;
+    color: var(--bright-blue) !important;
   }
 `;
 
