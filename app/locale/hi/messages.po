@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-02 19:39+0000\n"
+"POT-Creation-Date: 2023-03-06 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr "क्षमता"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
 msgid "Loading project info..."
-msgstr ""
+msgstr "प्रोजेक्ट जानकारी लोड हो रही है..."
 
 #: components/views/Offset/index.tsx:657
 msgid "Offset"
@@ -33,19 +33,19 @@ msgstr "12 अप्रैल, 2022 को हम \"dapp\" (डैप) से \"
 
 #: components/views/Offset/index.tsx:660
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
-msgstr ""
+msgstr "फिएट या क्रिप्टो के साथ भुगतान करें, या आपके पास पहले से मौजूद क्रेडिट को रिटायर करें। आपका संदेश और डेटा ब्लॉकचैन पर स्थायी रूप से अंकित किया जाएगा। हमारे <0>दस्तावेज़ों में समर्थित टोकन के बारे में अधिक जानें</0> ."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
 msgid "Project details <0/>"
-msgstr ""
+msgstr "प्रोजेक्ट विवरण <0/>"
 
 #: components/views/Offset/index.tsx:671
 msgid "Select carbon token to retire"
-msgstr ""
+msgstr "रिटायर होने के लिए कार्बन टोकन चुनें"
 
 #: components/views/Offset/index.tsx:672
 msgid "Select token"
-msgstr ""
+msgstr "टोकन चुनें"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -57,15 +57,15 @@ msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मे
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
-msgstr ""
+msgstr "उपलब्ध टन: {0}"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
 msgid "Unknown category"
-msgstr ""
+msgstr "अज्ञात श्रेणी"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:97
 msgid "Unknown methodology"
-msgstr ""
+msgstr "अज्ञात पद्धति"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -354,11 +354,11 @@ msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
 #: components/views/Home/index.tsx:170
 msgid "connectModal.torus"
-msgstr ""
+msgstr "ईमेल या सोशल"
 
 #: components/views/Home/index.tsx:174
 msgid "connectModal.wallet"
-msgstr ""
+msgstr "वॉलेट कनेक्ट करें"
 
 #: components/views/Home/index.tsx:183
 msgid "connect_modal.connecting"
@@ -850,7 +850,7 @@ msgstr "लोड हो रहा है..."
 
 #: components/views/Home/index.tsx:179
 msgid "shared.login"
-msgstr ""
+msgstr "लॉग इन करें"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
