@@ -4,7 +4,7 @@ import { FC, ReactNode } from "react";
 
 import { Image } from "components/Image";
 
-import { Text } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
@@ -14,6 +14,8 @@ interface HighlightValueProps {
   icon?: StaticImageData;
   iconName?: string;
   warn?: boolean;
+  /** If you want to wrap the value in a hyperlink, e.g. to polygonscan*/
+  valueHref?: string;
 }
 
 export const HighlightValue: FC<HighlightValueProps> = (props) => {
@@ -31,14 +33,32 @@ export const HighlightValue: FC<HighlightValueProps> = (props) => {
           />
         )}
 
-        <Text
-          t="body3"
-          className={cx("value", {
-            warn: !!props.warn,
-          })}
-        >
-          {props.value}
-        </Text>
+        {props.valueHref ? (
+          <Anchor
+            href={props.valueHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Text
+              t="body3"
+              className={cx("value", {
+                warn: !!props.warn,
+              })}
+              style={{ textDecoration: "underline" }}
+            >
+              {props.value}
+            </Text>
+          </Anchor>
+        ) : (
+          <Text
+            t="body3"
+            className={cx("value", {
+              warn: !!props.warn,
+            })}
+          >
+            {props.value}
+          </Text>
+        )}
       </div>
     </div>
   );

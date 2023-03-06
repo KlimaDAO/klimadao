@@ -12,6 +12,7 @@ import { HighlightValue } from "./HighlightValue";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 
+import { urls } from "@klimadao/lib/constants";
 import { StaticImageData } from "next/image";
 import * as styles from "./styles";
 
@@ -57,6 +58,7 @@ export const Approve: FC<Props> = (props) => {
             </Text>
           }
           value={concatAddress(props.spenderAddress)}
+          valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
         <HighlightValue
           label={

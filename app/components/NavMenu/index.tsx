@@ -21,15 +21,14 @@ import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
+import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
+import { createLinkWithLocaleSubPath } from "lib/i18n";
 import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { selectBalances, selectDomain, selectLocale } from "state/selectors";
-
-import { createLinkWithLocaleSubPath } from "lib/i18n";
-
 import { Domain } from "state/user";
 import * as styles from "./styles";
 
@@ -195,6 +194,14 @@ export const NavMenu: FC<Props> = (props) => {
         onClick={handleHide}
       >
         <Trans id="menu.offset">Offset</Trans>
+      </MenuButton>
+      <MenuButton
+        isActive={pathname === "/redeem"}
+        icon={<RedeemOutlined />}
+        href="/redeem"
+        onClick={handleHide}
+      >
+        <Trans>Buy Carbon</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/info"}

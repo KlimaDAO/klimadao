@@ -1,39 +1,36 @@
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { bonds } from "@klimadao/lib/constants";
-import { FC, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Route, useLocation } from "react-router-dom";
-import { useAppDispatch } from "state";
-
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import Menu from "@mui/icons-material/Menu";
 import { loadAppDetails } from "actions/app";
 import { loadAccountDetails } from "actions/user";
-import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
-import { selectAppState } from "state/selectors";
-
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
+import { IsomorphicRoutes } from "components/IsomorphicRoutes";
+import { NavMenu } from "components/NavMenu";
 import { NotificationModal } from "components/NotificationModal";
 import { Bond } from "components/views/Bond";
+import { Buy } from "components/views/Buy";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Custom404 } from "components/views/errors/Custom404";
 import { Info } from "components/views/Info";
 import { Offset } from "components/views/Offset";
 import { PKlima } from "components/views/PKlima";
+import { Redeem } from "components/views/Redeem";
 import { Stake } from "components/views/Stake";
 import { Wrap } from "components/views/Wrap";
-
-import { initLocale } from "lib/i18n";
-
-import { ButtonPrimary } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
-import Menu from "@mui/icons-material/Menu";
-import { ChangeLanguageButton } from "components/ChangeLanguageButton";
-import { IsomorphicRoutes } from "components/IsomorphicRoutes";
-import { NavMenu } from "components/NavMenu";
 import { getConnectErrorStrings } from "lib/constants";
+import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
+import { initLocale } from "lib/i18n";
+import { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Route, useLocation } from "react-router-dom";
+import { useAppDispatch } from "state";
 import { setAppState } from "state/app";
-import { Buy } from "../Buy";
+import { selectAppState } from "state/selectors";
 import * as styles from "./styles";
 
 export const Home: FC = () => {
@@ -239,6 +236,18 @@ export const Home: FC = () => {
               path="/offset"
               element={
                 <Offset
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
+                />
+              }
+            />
+            <Route
+              path="/redeem"
+              element={
+                <Redeem
                   address={address}
                   provider={provider}
                   isConnected={isConnected}

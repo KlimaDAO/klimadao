@@ -17,14 +17,35 @@ import {
 } from "@klimadao/lib/constants";
 import { safeAdd } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { providers, utils } from "ethers";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
-
+import {
+  approveProjectToken,
+  getOffsetConsumptionCost,
+  getProjectTokenBalances,
+  getRetiredOffsetBalances,
+  getRetirementAllowances,
+  retireCarbonTransaction,
+  RetireCarbonTransactionResult,
+  retireProjectTokenTransaction,
+} from "actions/offset";
+import { changeApprovalTransaction } from "actions/utils";
+import { CarbonBalancesCard } from "components/CarbonBalancesCard";
+import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
+import { DropdownWithModal } from "components/DropdownWithModal";
+import { MiniTokenDisplay } from "components/MiniTokenDisplay";
+import { TransactionModal } from "components/TransactionModal";
+import { providers, utils } from "ethers";
+import { tokenInfo } from "lib/getTokenInfo";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { createLinkWithLocaleSubPath } from "lib/i18n";
+import C3T from "public/icons/C3T.png";
+import Fiat from "public/icons/Fiat.png";
+import TCO2 from "public/icons/TCO2.png";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
@@ -40,42 +61,15 @@ import {
   setProjectToken,
   updateRetirement,
 } from "state/user";
-
-import {
-  approveProjectToken,
-  getOffsetConsumptionCost,
-  getProjectTokenBalances,
-  getRetiredOffsetBalances,
-  getRetirementAllowances,
-  retireCarbonTransaction,
-  RetireCarbonTransactionResult,
-  retireProjectTokenTransaction,
-} from "actions/offset";
-import { changeApprovalTransaction } from "actions/utils";
-
-import { tokenInfo } from "lib/getTokenInfo";
-import { useOffsetParams } from "lib/hooks/useOffsetParams";
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
-
-import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
-import { DropdownWithModal } from "components/DropdownWithModal";
-import { MiniTokenDisplay } from "components/MiniTokenDisplay";
-import { TransactionModal } from "components/TransactionModal";
-
+import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
+import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
+import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import { SelectiveRetirement } from "./SelectiveRetirement";
 import {
   BalanceAttribute,
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
-
-import C3T from "public/icons/C3T.png";
-import Fiat from "public/icons/Fiat.png";
-import TCO2 from "public/icons/TCO2.png";
-import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
-import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
-import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
@@ -648,6 +642,7 @@ export const Offset = (props: Props) => {
     <>
       <div className={styles.columnRight}>
         <CarbonTonnesRetiredCard />
+        <CarbonBalancesCard isConnected={props.isConnected} />
       </div>
 
       <div className={styles.offsetCard}>

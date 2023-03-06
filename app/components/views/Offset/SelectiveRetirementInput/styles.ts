@@ -20,4 +20,8 @@ export const input = css`
   [data-error="true"] {
     border: 0.2rem solid red;
   }
+
+  &:disabled {
+    opacity: 0.8;
+  }
 `;
