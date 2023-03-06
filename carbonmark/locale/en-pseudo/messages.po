@@ -55,7 +55,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:137
+#: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
 msgstr ""
 
@@ -82,6 +82,7 @@ msgid "Browse Carbon Projects | Carbonmark"
 msgstr ""
 
 #: components/shared/Navigation/index.tsx:50
+#: components/shared/Navigation/index.tsx:117
 msgid "Browse Projects"
 msgstr ""
 
@@ -113,15 +114,15 @@ msgstr ""
 msgid "Carbonmark Overview"
 msgstr ""
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "Carbonmark | Universal Carbon Market"
 msgstr ""
 
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
 msgid "Carbonmark.com"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:123
+#: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
 msgstr ""
 
@@ -129,12 +130,12 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:142
+#: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
 msgstr ""
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:475
+#: components/pages/Home/index.tsx:496
 msgid "Contact"
 msgstr ""
 
@@ -142,7 +143,7 @@ msgstr ""
 msgid "Cost incl. {0}% fee"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:116
+#: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
 msgstr ""
 
@@ -175,10 +176,6 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:117
-msgid "Enter Marketplace"
-msgstr ""
-
 #: components/pages/Purchases/index.tsx:105
 msgid "Final price"
 msgstr ""
@@ -196,13 +193,13 @@ msgid "Handle should not contain any special characters"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:478
+#: components/pages/Home/index.tsx:499
 #: components/shared/Navigation/index.tsx:83
 msgid "Help"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:484
+#: components/pages/Home/index.tsx:505
 msgid "KlimaDAO"
 msgstr ""
 
@@ -304,7 +301,7 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:469
+#: components/pages/Home/index.tsx:490
 msgid "Privacy policy"
 msgstr ""
 
@@ -358,7 +355,7 @@ msgid "Remaining Supply:"
 msgstr ""
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:481
+#: components/pages/Home/index.tsx:502
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:71
 #: components/shared/Navigation/index.tsx:108
@@ -417,7 +414,7 @@ msgstr ""
 msgid "Terms of Use"
 msgstr ""
 
-#: components/pages/Home/index.tsx:472
+#: components/pages/Home/index.tsx:493
 msgid "Terms of use"
 msgstr ""
 
@@ -425,7 +422,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Home/index.tsx:55
+#: components/pages/Home/index.tsx:56
 msgid "The open platform for digital carbon."
 msgstr ""
 
@@ -449,7 +446,7 @@ msgstr ""
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:104
+#: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
 msgstr ""
 
@@ -498,7 +495,7 @@ msgstr ""
 msgid "View the project details and other info for this purchase."
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:130
+#: components/ProjectFilterModal/index.tsx:133
 msgid "Vintage"
 msgstr ""
 
@@ -812,7 +809,7 @@ msgstr ""
 msgid "resources.form.input.sort_by.select"
 msgstr ""
 
-#: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:64
+#: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
 msgstr ""
