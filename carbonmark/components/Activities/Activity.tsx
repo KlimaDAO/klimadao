@@ -8,7 +8,7 @@ import { ActivityType as ActivityT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { ACTIVITY_ACTIONS } from "./Activities.constants";
+import { getActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
 
 /** Represents a single activity of a user  */
@@ -91,7 +91,7 @@ export const Activity: FC<ActivityT> = (props) => {
           </Link>
         )}
 
-        {ACTIVITY_ACTIONS[props.activityType]}
+        {getActivityActions()[props.activityType]}
 
         {addressB && (
           <Link className="account" href={`/users/${addressB}`}>
