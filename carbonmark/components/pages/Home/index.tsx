@@ -22,7 +22,6 @@ import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
@@ -139,9 +138,6 @@ export const Home: NextPage<Props> = (props) => {
                       <div className={styles.tags}>
                         {!!project.category?.id && (
                           <Category category={project.category.id} />
-                        )}
-                        {project.isPoolProject && (
-                          <SyncOutlinedIcon fontSize="large" />
                         )}
                         <Vintage vintage={project.vintage} />
                       </div>
