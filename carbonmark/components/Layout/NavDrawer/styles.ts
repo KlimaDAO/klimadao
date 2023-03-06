@@ -116,14 +116,11 @@ export const addressContainer = css`
 export const mobile = {
   header: css`
     display: flex;
-    justify-content: space-between;
-    button {
-      width: 4.8rem;
-      box-shadow: var(--shadow-06);
-    }
+    flex-direction: row-reverse;
     .close {
-      margin-inline-start: auto;
-      background: var(--surface-02);
+      width: 4.8rem;
+      color: var(--font-01) !important;
+      background-color: var(--surface-02) !important;
     }
   `,
 };

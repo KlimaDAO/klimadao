@@ -3,11 +3,11 @@ import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
+import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
-import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { formatToPrice } from "lib/formatNumbers";
 import {
@@ -77,6 +77,7 @@ export const Project: NextPage<Props> = (props) => {
         />
       );
     });
+
   return (
     <>
       <PageHead
@@ -86,60 +87,56 @@ export const Project: NextPage<Props> = (props) => {
       />
 
       <Layout>
-        <div className={styles.fullWidth}>
-          <div className={styles.projectHeader}>
+        <div className={styles.projectControls}>
+          <LoginButton className="desktopLogin" />
+        </div>
+        <div className={styles.projectHeader}>
+          {!!props.project.category?.id && (
+            <ProjectImage category={props.project.category.id} />
+          )}
+          <div className={styles.imageGradient} />
+          <Text t="h4" className={styles.projectHeaderText}>
+            {props.project.name || "Error - No project name found"}
+          </Text>
+          <div className={styles.tags}>
+            <Text t="h5" className={styles.projectHeaderText}>
+              {props.project.registry}-{props.project.projectID}
+            </Text>
+            <Vintage vintage={props.project.vintage} />
             {!!props.project.category?.id && (
-              <ProjectImage category={props.project.category.id} />
+              <Category category={props.project.category.id} />
             )}
-            <div className={styles.imageGradient}></div>
-            <div className="stack">
-              <Text t="h3" align="center" className={styles.projectHeaderText}>
-                {props.project.name || "! MISSING PROJECT NAME !"}
-              </Text>
-            </div>
-            <div className={styles.tags}>
-              <Text t="h4" className={styles.projectHeaderText}>
-                {props.project.key}
-              </Text>
-              <Vintage vintage={props.project.vintage} />
-              {!!props.project.category?.id && (
-                <Category category={props.project.category.id} />
-              )}
-            </div>
           </div>
         </div>
 
         <div className={styles.meta}>
           {bestPrice && (
             <div className="best-price">
-              <Text t="h4">
-                <span className="badge">{formatToPrice(bestPrice)}</span>
+              <Text t="h5" className="best-price-badge">
+                {formatToPrice(bestPrice)}
               </Text>
-              <Text t="h4" color="lighter">
-                <Trans id="project.single.best_price">Best Price</Trans>
+              <Text t="h5" color="lighter">
+                <Trans>Best Price</Trans>
               </Text>
             </div>
           )}
 
           <div className="methodology">
             <Text t="h5" color="lighter">
-              <Trans id="project.single.methodology">Methodology:</Trans>
+              <Trans>Methodology</Trans>
             </Text>
             <Text t="body1" color="lighter" align="end">
-              {props.project.registry}
+              {props.project.registry}-{props.project.projectID}
             </Text>
           </div>
         </div>
         <div
-          className={cx(
-            {
-              hasMap: !!props.project.location,
-            },
-            styles.row
-          )}
+          className={cx(styles.mapAndDescription, {
+            hasMap: !!props.project.location,
+          })}
         >
           {props.project.location && (
-            <div className={styles.mapContainer}>
+            <div className="mapColumn">
               <ProjectMap
                 lat={props.project.location?.geometry.coordinates[1]}
                 lng={props.project.location?.geometry.coordinates[0]}
@@ -147,7 +144,7 @@ export const Project: NextPage<Props> = (props) => {
               />
             </div>
           )}
-          <div className={styles.descriptionContainer}>
+          <div className="descriptionColumn">
             <Text t="h5" color="lighter">
               <Trans>Description</Trans>
             </Text>
@@ -173,11 +170,9 @@ export const Project: NextPage<Props> = (props) => {
           )}
         </div>
 
-        <TwoColLayout>
-          <Col>
-            <div className={styles.listings}>{pricesOrListings || null}</div>
-          </Col>
-          <Col>
+        <div className={styles.listingsAndStats}>
+          <div className="listingsColumn">{pricesOrListings || null}</div>
+          <div className="statsColumn">
             <Stats
               description={t`Data for this project and vintage`}
               currentSupply={props.project.currentSupply}
@@ -186,8 +181,8 @@ export const Project: NextPage<Props> = (props) => {
               activeListings={activeListings || []}
             />
             <Activities activities={props.project.activities || []} />
-          </Col>
-        </TwoColLayout>
+          </div>
+        </div>
       </Layout>
     </>
   );

@@ -1,14 +1,15 @@
-import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
+import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
+import { Spinner } from "components/shared/Spinner";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
-import { Col, TwoColLayout } from "components/TwoColLayout";
+import { Col } from "components/TwoColLayout";
 import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
@@ -31,7 +32,12 @@ export const Portfolio: NextPage = () => {
   const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const hasAssets = !isLoadingAssets && !!user?.assets?.length;
+  const listableAssets =
+    user?.assets?.filter(
+      (asset) =>
+        asset.token.symbol.startsWith("TCO2-") ||
+        asset.token.symbol.startsWith("C3T-")
+    ) ?? [];
   const assetWithProjectTokens =
     !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
   const hasListings = !isLoadingUser && !!user?.listings?.length;
@@ -40,6 +46,8 @@ export const Portfolio: NextPage = () => {
 
   const isConnectedUser = isConnected && address;
   const isLoading = isLoadingUser || isLoadingAssets;
+
+  const hasAssets = !isLoadingAssets && listableAssets.length;
 
   useEffect(() => {
     if (!isConnectedUser) return;
@@ -140,7 +148,10 @@ export const Portfolio: NextPage = () => {
       />
 
       <Layout>
-        <TwoColLayout>
+        <div className={styles.portfolioControls}>
+          <LoginButton />
+        </div>
+        <div className={styles.portfolioContent}>
           <Col>
             {!isConnectedUser && (
               <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
@@ -149,7 +160,7 @@ export const Portfolio: NextPage = () => {
             {isConnectedUser && isLoading && (
               <div className={styles.fullWidth}>
                 <Spinner />
-                <Text className={styles.isLoading}>
+                <Text>
                   <Trans>Loading your data...</Trans>
                 </Text>
               </div>
@@ -190,11 +201,9 @@ export const Portfolio: NextPage = () => {
               />
             )}
 
-            {isConnectedUser && !isLoading && !assetsData && (
+            {isConnectedUser && !isLoading && !hasAssets && (
               <Text>
-                <Trans>
-                  We couldn't find any C3 tokens in your connected wallet :(
-                </Trans>
+                <Trans>No listable assets found.</Trans>
               </Text>
             )}
           </Col>
@@ -208,7 +217,7 @@ export const Portfolio: NextPage = () => {
             />
             <Activities activities={user?.activities || []} />
           </Col>
-        </TwoColLayout>
+        </div>
       </Layout>
     </>
   );

@@ -2,10 +2,19 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const fullWidth = css`
-  grid-column: 1 / 3;
+  grid-column: full;
+`;
+
+export const projectHeaderTags = css`
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+  gap: 1.6rem;
+  align-items: center;
 `;
 
 export const fullWidthBack = css`
+  grid-column: full;
   align-items: center;
   margin-top: 0rem;
   display: flex;
@@ -18,7 +27,6 @@ export const fullWidthBack = css`
   }
   ${breakpoints.desktop} {
     justify-content: center;
-    margin-top: -8.8rem;
     height: 4.8rem;
     width: 21rem;
     border: 1px solid var(--font-01);
@@ -51,7 +59,8 @@ export const projectHeader = css`
 
   .stack {
     display: grid;
-    gap: 1.6rem;
+    justify-items: start;
+    gap: 0.8rem;
   }
 
   ${breakpoints.medium} {
@@ -72,7 +81,6 @@ export const imageGradient = css`
 export const projectHeaderText = css`
   color: var(--white);
   word-break: break-word;
-  font-size: 1.4rem;
   font-weight: 600;
   z-index: 1;
 
@@ -82,18 +90,11 @@ export const projectHeaderText = css`
 `;
 
 export const price = css`
-  display: flex;
-  gap: 0.4rem;
-  flex-direction: column;
-  border-radius: var(--border-radius);
-  padding: 0.4rem 0.8rem;
-  background-color: var(--surface-02);
-  flex-direction: row;
+  align-self: start;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--yellow);
   align-items: center;
-  align-self: flex-start;
-
-  font-size: 1.4rem;
-  color: var(--font-01);
+  border-radius: var(--border-radius);
 `;
 
 export const formContainer = css`

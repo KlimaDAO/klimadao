@@ -1,6 +1,6 @@
-import { Spinner } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { ActivityType } from "lib/types/carbonmark";
 import { FC } from "react";

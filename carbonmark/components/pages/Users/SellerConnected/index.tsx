@@ -4,6 +4,7 @@ import { Activities } from "components/Activities";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
+import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Stats } from "components/Stats";
@@ -20,6 +21,7 @@ import {
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
+import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
@@ -29,13 +31,12 @@ type Props = {
   carbonmarkUser: User | null;
   userName: string;
   userAddress: string;
-  showEditProfileModal: boolean;
-  onToggleEditProfileModal: () => void;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
@@ -109,7 +110,7 @@ export const SellerConnected: FC<Props> = (props) => {
       console.error("GET NEW USER DATA error", error);
       setErrorMessage(t`There was an error getting your data: ${error}`);
     } finally {
-      props.onToggleEditProfileModal();
+      setShowEditProfileModal(false);
     }
   };
 
@@ -153,6 +154,10 @@ export const SellerConnected: FC<Props> = (props) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.userControlsRow}>
+        <ProfileButton onClick={() => setShowEditProfileModal(true)} />
+        <LoginButton className="loginButton" />
+      </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={user?.username || props.userName}
@@ -246,8 +251,8 @@ export const SellerConnected: FC<Props> = (props) => {
           id: "profile.edit_profile.title",
           message: "Your Profile",
         })}
-        showModal={props.showEditProfileModal}
-        onToggleModal={props.onToggleEditProfileModal}
+        showModal={showEditProfileModal}
+        onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
         <EditProfile
           user={user}

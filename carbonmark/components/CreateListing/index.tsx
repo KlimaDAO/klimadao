@@ -1,7 +1,7 @@
-import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Transaction } from "components/Transaction";
 import {
   approveTokenSpend,

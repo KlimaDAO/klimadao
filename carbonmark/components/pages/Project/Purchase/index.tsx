@@ -1,14 +1,16 @@
-import { Spinner } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
+import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Vintage } from "components/Vintage";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
@@ -151,9 +153,7 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
             className={styles.backToResults}
           >
             <ArrowBack className="arrow" />
-            <Trans id="project.single.button.back_to_project">
-              Back to Project
-            </Trans>
+            <Trans>Back to Project</Trans>
           </Link>
         </div>
 
@@ -165,34 +165,33 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
               )}
               <div className={styles.imageGradient}></div>
               <div className="stack">
-                <Text
-                  t="h4"
-                  align="center"
-                  className={styles.projectHeaderText}
-                >
+                {!!props.listing.seller && (
+                  <div className="stack">
+                    <Text t="h5" className={styles.projectHeaderText}>
+                      <Link
+                        href={createSellerLink(props.listing.seller.handle)}
+                      >
+                        @{props.listing.seller.handle}
+                      </Link>
+                    </Text>
+                  </div>
+                )}
+                <Text t="h3" className={styles.projectHeaderText}>
                   {props.project.name}
                 </Text>
-              </div>
-
-              {!!props.listing.seller && (
-                <div className="stack">
-                  <Text
-                    t="body3"
-                    align="center"
-                    className={styles.projectHeaderText}
-                  >
-                    <Trans id="project.single.header.seller">Seller:</Trans>{" "}
-                    <Link href={createSellerLink(props.listing.seller.handle)}>
-                      @{props.listing.seller.handle}
-                    </Link>
+                <div className={styles.projectHeaderTags}>
+                  <Text t="body1" className={styles.projectHeaderText}>
+                    {props.project.registry}-{props.project.projectID}
                   </Text>
+                  <Vintage vintage={props.project.vintage} />
+                  <Category category={props.project.category?.id || "Other"} />
                 </div>
-              )}
+              </div>
             </div>
             <div className={styles.price}>
-              <Text t="body3">
+              <Text t="h4">
                 {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
-                <Trans id="purchase.price_each">each</Trans>
+                <Trans>each</Trans>
               </Text>
             </div>
             <div className={styles.formContainer}>

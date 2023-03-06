@@ -32,20 +32,19 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <div className={styles.logo}>
-        <Link href="/" data-desktop-only>
-          <CarbonmarkLogoFull />
-        </Link>
-      </div>
       <div className={styles.mobile.header} data-mobile-only>
-        {/* <DynamicThemeToggle /> */}
         <ButtonPrimary
-          variant="lightGray"
           className="close"
           label={<Close />}
           onClick={props.onHide}
         />
       </div>
+      <div className={styles.logo}>
+        <Link href="/">
+          <CarbonmarkLogoFull />
+        </Link>
+      </div>
+
       {!address && !isConnected && (
         <div data-mobile-only>
           <ButtonPrimary

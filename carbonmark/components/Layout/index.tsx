@@ -5,12 +5,9 @@ import Menu from "@mui/icons-material/Menu";
 import { BetaBadge } from "components/BetaBadge";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
-import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
-import { useResponsive } from "hooks/useResponsive";
 import { connectErrorStrings } from "lib/constants";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FC, ReactNode, useState } from "react";
 import "tippy.js/dist/tippy.css";
 import { Footer } from "../Footer";
@@ -26,23 +23,13 @@ import * as styles from "./styles";
 
 type Props = {
   userAddress?: string;
-  profileButton?: JSX.Element;
-  /** if true then body of layout will not be constraied by max-width */
-  fullWidth?: boolean;
   children: ReactNode;
 };
 
+/** App layout for desktop side-panel and mobile navigation */
 export const Layout: FC<Props> = (props: Props) => {
-  const { address, renderModal, isConnected, toggleModal, disconnect } =
-    useWeb3();
+  const { renderModal } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const { isDesktop, isMobile } = useResponsive();
-  /**
-   * Only show the projects controller if on the Projects Page
-   * @todo lift this logic to projects/index.tsx and pass the child components as props to Layout
-   */
-  const isProjects = useRouter().pathname === "/projects";
-  const { fullWidth } = props;
   return (
     <div
       className={cx(styles.container, styles.global)}
@@ -51,104 +38,64 @@ export const Layout: FC<Props> = (props: Props) => {
       <div className={styles.desktopNavMenu}>
         <NavDrawer userAddress={props.userAddress} />
       </div>
-      <div className={styles.fullWidthScrollableContainer}>
-        <div className={cx(styles.cardGrid, { fullWidth })}>
-          <div className={styles.controls}>
-            <Link href="/" className={styles.mobileLogo} data-mobile-only>
-              <CarbonmarkLogo />
-            </Link>
-            <div className={styles.betaWrapperMobile}>
-              <BetaBadge />
-            </div>
-            {/* keep mobile nav menu here in markup hierarchy for tab nav */}
-            <div
-              className={styles.mobileNavMenu_overlay}
-              data-visible={showMobileMenu}
-              onClick={() => setShowMobileMenu(false)}
-            />
-            <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
-              <NavDrawer
-                userAddress={props.userAddress}
-                onHide={() => setShowMobileMenu(false)}
-              />
-            </div>
-
-            {/* <ChangeLanguageButton /> */}
-            {/* {isDesktop && <ThemeToggle />} */}
-            {/* Desktop controller */}
-            {isProjects && isDesktop && (
-              <ProjectsController className={styles.projectsController} />
-            )}
-
-            {props.profileButton}
-
-            <ButtonPrimary
-              data-mobile-only
-              variant="gray"
-              icon={<Menu />}
-              onClick={() => setShowMobileMenu((s) => !s)}
-              className={styles.menuButton}
-            />
-
-            <div data-desktop-only>
-              {!address && !isConnected && (
-                <ButtonPrimary
-                  label={t`Login`}
-                  onClick={toggleModal}
-                  className="connectButton"
-                />
-              )}
-              {address && isConnected && (
-                <ButtonPrimary
-                  label={t`Logout`}
-                  onClick={disconnect}
-                  className="connectButton"
-                />
-              )}
-            </div>
-
-            {renderModal &&
-              renderModal({
-                errors: connectErrorStrings,
-                torusText: t({
-                  message: "social or email",
-                  id: "connectModal.torus",
-                }),
-                walletText: t({
-                  message: "connect a wallet",
-                  id: "connectModal.wallet",
-                }),
-                titles: {
-                  connect: t({
-                    id: "shared.login",
-                    message: "Login",
-                  }),
-                  loading: t({
-                    id: "connect_modal.connecting",
-                    message: "Connecting...",
-                  }),
-                  error: t({
-                    id: "connect_modal.error_title",
-                    message: "Connection Error",
-                  }),
-                },
-              })}
-            <InvalidNetworkModal />
+      <main className={styles.mainContentGrid}>
+        <div className={styles.controls}>
+          <Link href="/" className={styles.mobileLogo} data-mobile-only>
+            <CarbonmarkLogo />
+          </Link>
+          <div className={styles.betaWrapperMobile}>
+            <BetaBadge />
           </div>
-
-          {/* header  */}
-          {/* body  */}
-          <div className={styles.layoutContentContainer}>
-            {isProjects && isMobile && (
-              <ProjectsController className={styles.mobileProjectsController} />
-            )}
-
-            {props.children}
+          {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+          <div
+            className={styles.mobileNavMenu_overlay}
+            data-visible={showMobileMenu}
+            onClick={() => setShowMobileMenu(false)}
+          />
+          <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
+            <NavDrawer
+              userAddress={props.userAddress}
+              onHide={() => setShowMobileMenu(false)}
+            />
           </div>
-          {/* footer  */}
-          <Footer className={styles.fullWidthFooter} />
+          <ButtonPrimary
+            data-mobile-only
+            variant="gray"
+            icon={<Menu />}
+            onClick={() => setShowMobileMenu((s) => !s)}
+            className={styles.menuButton}
+          />
         </div>
-      </div>
+        <div className={styles.layoutChildrenContainer}>{props.children}</div>
+        <Footer />
+      </main>
+      <InvalidNetworkModal />
+      {renderModal &&
+        renderModal({
+          errors: connectErrorStrings,
+          torusText: t({
+            message: "social or email",
+            id: "connectModal.torus",
+          }),
+          walletText: t({
+            message: "connect a wallet",
+            id: "connectModal.wallet",
+          }),
+          titles: {
+            connect: t({
+              id: "shared.login",
+              message: "Login",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          },
+        })}
     </div>
   );
 };

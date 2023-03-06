@@ -1,8 +1,8 @@
-import { Spinner } from "@klimadao/lib/components";
-import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
+import { formatUnits, getTokenDecimals, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getUSDCBalance } from "lib/actions";
@@ -66,7 +66,10 @@ type Props = {
 export const PurchaseForm: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
-  const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
+  const singleUnitPrice = formatUnits(
+    props.listing.singleUnitPrice,
+    getTokenDecimals("usdc")
+  );
   const [balance, setBalance] = useState<string | null>(null);
 
   useEffect(() => {
@@ -152,30 +155,6 @@ export const PurchaseForm: FC<Props> = (props) => {
         <Text t="body3" className={styles.availableAmount}>
           <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
         </Text>
-        <InputField
-          id="price"
-          inputProps={{
-            type: "hidden",
-            ...register("price", {
-              required: {
-                value: true,
-                message: t({
-                  id: "purchase.input.price.required",
-                  message: "Price is required",
-                }),
-              },
-              max: {
-                value: Number(balance),
-                message: t({
-                  id: "purchase.input.price.maxAmount",
-                  message: "You exceeded your available amount of tokens",
-                }),
-              },
-            }),
-          }}
-          label={"Price"}
-          hideLabel
-        />
         <TotalValue
           singlePrice={singleUnitPrice}
           control={control}
@@ -216,6 +195,30 @@ export const PurchaseForm: FC<Props> = (props) => {
           />
         )}
       </div>
+      <InputField
+        id="price"
+        inputProps={{
+          type: "hidden",
+          ...register("price", {
+            required: {
+              value: true,
+              message: t({
+                id: "purchase.input.price.required",
+                message: "Price is required",
+              }),
+            },
+            max: {
+              value: Number(balance),
+              message: t({
+                id: "purchase.input.price.maxAmount",
+                message: "You exceeded your available amount of tokens",
+              }),
+            },
+          }),
+        }}
+        label={"Price"}
+        hideLabel
+      />
     </form>
   );
 };

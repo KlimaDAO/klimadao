@@ -1,16 +1,36 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const list = css`
-  grid-column: 1 / 3;
+const FIVE_CARD_WIDTH = "168rem";
+
+export const projectsControls = css`
+  grid-column: full;
+  max-width: calc(${FIVE_CARD_WIDTH});
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 0.8rem;
+  justify-self: center;
+  .desktopLogin {
+    display: none;
+  }
+  /** Logout button is only on Desktop */
+  ${breakpoints.desktop} {
+    grid-template-columns: 1fr auto;
+    .desktopLogin {
+      display: initial;
+    }
+  }
+`;
+
+export const projectsList = css`
+  grid-column: full;
+  justify-self: center;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2rem;
-  a {
-    width: 100%;
-    max-width: 32rem;
-  }
+  max-width: ${FIVE_CARD_WIDTH};
 `;
 
 export const loadingPlaceholder = css`
@@ -24,16 +44,18 @@ export const card = css`
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-01);
-  max-width: 32rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: all 0.2s ease 0s;
-
-  &:hover {
-    opacity: 0.8;
-    transform: scale(0.98);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  ${breakpoints.medium} {
+    max-width: 32rem;
+  }
+  ${breakpoints.large} {
+    transition: all 0.2s ease 0s;
+    &:hover {
+      opacity: 0.8;
+      transform: scale(0.98);
+    }
   }
 `;
 
@@ -46,6 +68,8 @@ export const cardDescription = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  max-height: 9rem;
+  overflow-y: hidden;
 `;
 
 export const cardImage = css`
@@ -57,10 +81,10 @@ export const cardImage = css`
 `;
 
 export const cardContent = css`
-  flex: 1 0 auto;
   padding: 2rem;
   display: grid;
   gap: 0.8rem;
+  grid-template-rows: auto auto 1fr;
 `;
 
 export const tags = css`

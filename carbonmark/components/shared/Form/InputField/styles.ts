@@ -1,6 +1,5 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
   position: relative;
@@ -21,7 +20,7 @@ export const tooltipHelpIcon = css`
 `;
 
 export const baseStyles = css`
-  ${typography.caption};
+  font-size: 1.6rem; /** Prevent safari-zoom issue */
   display: block;
   width: 100%;
   min-height: 4.8rem;
@@ -35,7 +34,6 @@ export const baseStyles = css`
   padding: 1rem;
 
   ::placeholder {
-    ${typography.caption};
     color: var(--font-03);
   }
 

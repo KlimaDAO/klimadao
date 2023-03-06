@@ -7,7 +7,6 @@ import { useConnectedUser } from "hooks/useConnectedUser";
 import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
@@ -22,7 +21,6 @@ export const Users: NextPage<Props> = (props) => {
     props.userAddress
   );
   const [isLoading, setIsLoading] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
 
   const userName =
     props.userDomain || props.carbonmarkUser?.handle || props.userAddress;
@@ -46,14 +44,7 @@ export const Users: NextPage<Props> = (props) => {
         metaDescription={t`View seller listings, carbon market activity and more.`}
       />
 
-      <Layout
-        userAddress={props.userAddress}
-        profileButton={
-          isConnectedUser ? (
-            <ProfileButton onClick={() => setShowEditModal(true)} />
-          ) : undefined
-        }
-      >
+      <Layout userAddress={props.userAddress}>
         {isLoading && <Spinner />}
 
         {isConnectedUser && (
@@ -61,8 +52,6 @@ export const Users: NextPage<Props> = (props) => {
             userAddress={props.userAddress}
             userName={userName}
             carbonmarkUser={props.carbonmarkUser}
-            showEditProfileModal={showEditModal}
-            onToggleEditProfileModal={() => setShowEditModal((prev) => !prev)}
           />
         )}
 

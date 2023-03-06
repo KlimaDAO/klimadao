@@ -1,18 +1,15 @@
 import { css } from "@emotion/css";
 import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 
-export const main = css`
+export const projectsController = css`
   display: flex;
-  width: 100%;
-  > *:not(:nth-last-child(1)) {
-    margin-right: 2rem;
-  }
+  gap: 1.6rem;
 `;
 
 export const filterButton = css`
   //Unfortunately button styles win the selector war here
-  color: var(--font-inverse-01) !important;
-  background: var(--surface-inverse-01);
+  color: white !important;
+  background: var(--manatee) !important;
   @media (max-width: ${breakpoints.medium}px) {
     padding: 0;
     width: 4.8rem;

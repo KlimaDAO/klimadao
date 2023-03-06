@@ -26,7 +26,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
 
   const toggleModal = () => setModalOpen((prev) => !prev);
   return (
-    <div {...props} className={cx(styles.main, props.className)}>
+    <div {...props} className={cx(styles.projectsController, props.className)}>
       <SearchInput
         id="projects-search-input"
         label="project search"

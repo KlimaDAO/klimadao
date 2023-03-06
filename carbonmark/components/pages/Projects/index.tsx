@@ -2,7 +2,9 @@ import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
+import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
+import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
 import { Spinner } from "components/shared/Spinner";
@@ -42,9 +44,13 @@ const Page: NextPage = () => {
         mediaTitle={t`Browse Carbon Projects | Carbonmark`}
         metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
       />
+      <Layout>
+        <div className={styles.projectsControls}>
+          <ProjectsController />
+          <LoginButton className="desktopLogin" />
+        </div>
 
-      <Layout fullWidth={true}>
-        <div className={styles.list}>
+        <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>
           )}
@@ -59,29 +65,24 @@ const Page: NextPage = () => {
               key={project.key + "-" + index}
               href={createProjectLink(project)}
               passHref
+              className={styles.card}
             >
-              <div className={styles.card}>
-                <div className={styles.cardImage}>
+              <div className={styles.cardImage}>
+                {!!project.category?.id && (
+                  <ProjectImage category={project.category.id} />
+                )}
+              </div>
+              <div className={styles.cardContent}>
+                <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
+                <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
+                <Text t="body1" className={styles.cardDescription}>
+                  {project.description || t`No project description found`}
+                </Text>
+                <div className={styles.tags}>
+                  <Vintage vintage={project.vintage} />
                   {!!project.category?.id && (
-                    <ProjectImage category={project.category.id} />
+                    <Category category={project.category.id} />
                   )}
-                </div>
-                <div className={styles.cardContent}>
-                  <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
-                  <Text t="h5">
-                    {project.name || "! MISSING PROJECT NAME !"}
-                  </Text>
-                  {project.description && (
-                    <Text t="body1" className={styles.cardDescription}>
-                      {project.description}
-                    </Text>
-                  )}
-                  <div className={styles.tags}>
-                    <Vintage vintage={project.vintage} />
-                    {!!project.category?.id && (
-                      <Category category={project.category.id} />
-                    )}
-                  </div>
                 </div>
               </div>
             </Link>

@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as typography from "@klimadao/lib/theme/typography";
+import * as typography from "theme/typography";
 
 export const changeLanguageButton = css`
   display: flex;
@@ -44,7 +44,6 @@ export const changeLanguageButton = css`
 `;
 
 export const tooltip = css`
-  ${typography.caption};
   text-align: center;
   border: 1px solid var(--klima-green);
   background: var(--surface-03);

@@ -1,76 +1,87 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const fullWidth = css`
-  grid-column: 1 / 3;
-`;
-
-export const listingsHeader = css`
-  display: grid;
-  gap: 1.2rem;
-  grid-column: 1 / 3;
-  align-items: center;
-`;
-
-export const mapContainer = css`
-  display: grid;
-  height: 100%;
-  min-height: 32rem;
-  min-width: 100%;
-  width: 100%;
-`;
-
-export const descriptionContainer = css`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
-export const row = css`
-  display: grid;
-  gap: 4rem;
-  grid-column: 1/3;
-  grid-template-rows: 1fr;
-  ${breakpoints.large} {
-    grid-template-rows: auto;
+export const projectControls = css`
+  display: none;
+  grid-column: main;
+  ${breakpoints.desktop} {
+    display: flex;
+    flex-direction: row-reverse;
   }
-  &.hasMap {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    ${breakpoints.large} {
-      grid-template-rows: 1fr;
-      grid-template-columns: 1fr 1fr;
+`;
+
+export const projectHeader = css`
+  margin-top: -2.4rem;
+  grid-column: full;
+  position: relative;
+  padding: 2.6rem 1.6rem 3.8rem 1.6rem;
+  display: grid;
+  gap: 0.4rem;
+  ${breakpoints.medium} {
+    padding: 6rem 2rem;
+  }
+
+  ${breakpoints.desktop} {
+    gap: 0.8rem;
+    padding: 8rem 4rem;
+    margin-top: unset;
+    grid-column: main;
+  }
+`;
+
+export const mapAndDescription = css`
+  grid-column: main;
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: "description" "map";
+  .mapColumn {
+    grid-area: map;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 23rem;
+  }
+  .descriptionColumn {
+    display: grid;
+    gap: 0.8rem;
+    align-content: flex-start;
+    grid-area: description;
+  }
+  ${breakpoints.desktop} {
+    grid-template-areas: "map description";
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    .mapColumn {
+      max-height: unset;
+      height: 32rem;
     }
   }
 `;
 
-export const hasMap = css``;
-
-export const listings = css`
+export const listingsAndStats = css`
+  grid-column: main;
   display: grid;
   gap: 2rem;
-  grid-column: 1 / 3;
+  .listingsColumn {
+    display: grid;
+    align-content: flex-start;
+    gap: 2rem;
+  }
+  .statsColumn {
+    display: grid;
+    align-content: flex-start;
+    gap: 2rem;
+  }
+  ${breakpoints.desktop} {
+    grid-template-columns: 1fr auto;
+  }
 `;
 
-export const projectHeader = css`
-  position: relative;
-  overflow: hidden;
-  padding: 2.4rem 1.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 2.5rem;
-
-  .stack {
-    display: grid;
-    gap: 1.6rem;
-  }
-
-  ${breakpoints.medium} {
-    padding: 6rem 2rem;
-  }
+export const listingsHeader = css`
+  grid-column: main;
+  display: grid;
+  gap: 0.8rem;
+  align-items: center;
 `;
 
 export const imageGradient = css`
@@ -84,45 +95,42 @@ export const imageGradient = css`
 `;
 
 export const projectHeaderText = css`
-  color: var(--white);
-  word-break: break-word;
-  font-size: 1.4rem;
-  font-weight: 600;
+  color: white;
   z-index: 1;
-
-  a {
-    color: var(--klima-blue);
-  }
 `;
 
 export const tags = css`
   display: flex;
-  gap: 1.6rem;
-  flex-direction: row;
+  gap: 0.8rem;
+  flex-wrap: wrap;
   z-index: 1;
   align-items: center;
 `;
 
 export const meta = css`
-  grid-column: 1 / 3;
-  display: flex;
-  justify-content: space-between;
+  grid-column: main;
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  .methodology {
+    display: grid;
+    gap: 0.4rem;
+  }
 
   .best-price {
     display: flex;
     gap: 1.2rem;
-    flex-direction: column;
+    align-items: center;
     ${breakpoints.medium} {
       flex-direction: row;
       align-items: center;
     }
   }
 
-  .badge {
-    padding: 0.4rem 0.8rem;
+  .best-price-badge {
+    padding: 0.8rem 1.6rem;
     background-color: var(--yellow);
     align-items: center;
-    align-self: flex-start;
     border-radius: var(--border-radius);
   }
 `;

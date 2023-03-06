@@ -1,6 +1,5 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
   display: grid;
@@ -9,7 +8,6 @@ export const container = css`
 `;
 
 export const baseStyles = css`
-  ${typography.caption};
   display: block;
   width: 100%;
   min-height: 4.8rem;
@@ -24,7 +22,6 @@ export const baseStyles = css`
   resize: vertical;
 
   ::placeholder {
-    ${typography.caption};
     color: var(--font-03);
   }
 

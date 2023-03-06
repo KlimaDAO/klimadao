@@ -5,7 +5,6 @@ import breakpoints, {
 
 export const container = css`
   grid-column: full;
-
   position: relative; /* new stacking context */
   z-index: 0;
   overflow-x: hidden;
@@ -55,6 +54,20 @@ export const container = css`
   scrollbar-width: 0.6rem;
 `;
 
+export const mainContentGrid = css`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns:
+    [full-start] minmax(1.6rem, 1fr)
+    [main-start] minmax(0, 111.6rem)
+    [main-end] minmax(1.6rem, 1fr)
+    [full-end];
+  ${breakpoints.desktop} {
+    grid-template-rows: 1fr auto;
+    overflow-y: auto;
+  }
+`;
+
 export const mobileLogo = css`
   margin-right: auto;
   height: min-content;
@@ -71,11 +84,18 @@ export const desktopNavMenu = css`
     display: flex;
   }
 `;
-export const fullWidthScrollableContainer = css`
+
+export const layoutChildrenContainer = css`
+  grid-column: full;
   width: 100%;
+  display: grid;
+  grid-template-columns: inherit;
+  gap: 2.4rem 0rem;
+  padding: 1.6rem;
+  align-content: flex-start;
   ${breakpoints.desktop} {
-    overflow-y: auto;
-    grid-column: full;
+    gap: 4rem 0rem;
+    padding: 4rem;
   }
 `;
 
@@ -103,8 +123,7 @@ export const cardGrid = css`
 `;
 
 export const controls = css`
-  max-width: 111.6rem;
-  margin: auto;
+  grid-column: full;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -117,11 +136,8 @@ export const controls = css`
   }
   background-color: var(--surface-01);
   padding: 0.8rem 1.6rem;
-  grid-column: 1 / 4;
   ${breakpoints.desktop} {
-    grid-column: 2 / 3;
-    padding: 4rem 4rem 0rem 4rem;
-    background-color: var(--surface-02);
+    display: none;
   }
 `;
 
@@ -194,25 +210,6 @@ export const mobileNavMenu = css`
   }
 `;
 
-export const fullWidthFooter = css`
-  grid-column: 1 / 4;
-  display: grid;
-  overflow: hidden;
-  grid-template-columns:
-    [full-start] minmax(1.6rem, 1fr)
-    [main-start] minmax(0, 107.2rem)
-    [main-end] minmax(1.6rem, 1fr)
-    [full-end];
-
-  ${breakpoints.small} {
-    grid-template-columns:
-      [full-start] minmax(3.2rem, 1fr)
-      [main-start] minmax(0, 107.2rem)
-      [main-end] minmax(3.2rem, 1fr)
-      [full-end];
-  }
-`;
-
 export const global = css`
   [data-mobile-only="true"] {
     ${breakpoints.desktop} {
@@ -226,30 +223,9 @@ export const global = css`
   }
 `;
 
-export const projectsController = css`
-  margin-right: auto;
-  width: 100%;
-  grid-column: 1/3;
-`;
-
-export const mobileProjectsController = css`
-  ${projectsController};
-  justify-content: center;
-`;
-
 export const betaWrapperMobile = css`
   display: flex;
   ${breakpoints.desktop} {
     display: none;
   }
-`;
-
-export const layoutContentContainer = css`
-  grid-column: 2/3;
-  display: inherit;
-  grid-gap: inherit;
-  max-width: 111.6rem;
-  margin: auto;
-  width: 100%;
-  height: 100%;
 `;

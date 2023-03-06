@@ -1,6 +1,5 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as typography from "@klimadao/lib/theme/typography";
 
 export const checkboxContainer = css`
   display: flex;
@@ -12,7 +11,6 @@ export const checkboxContainer = css`
 `;
 
 export const baseStyles = css`
-  ${typography.caption};
   display: grid;
   grid-template-columns: 1em auto;
 

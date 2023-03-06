@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const fullWidth = css`
-  grid-column: 1 / 3;
+  grid-column: full;
 `;
 
 export const receiptContainer = css`

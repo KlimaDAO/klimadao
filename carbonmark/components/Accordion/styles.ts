@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import * as typography from "@klimadao/lib/theme/typography";
+import * as typography from "theme/typography";
 
 export const main = css`
   width: 100%;

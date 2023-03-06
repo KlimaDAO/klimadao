@@ -2,9 +2,25 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
+  grid-column: main;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
+`;
+
+export const userControlsRow = css`
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: flex-end;
+  .loginButton {
+    display: none;
+  }
+  ${breakpoints.desktop} {
+    .loginButton {
+      display: initial;
+    }
+  }
 `;
 
 export const fullWidth = css`

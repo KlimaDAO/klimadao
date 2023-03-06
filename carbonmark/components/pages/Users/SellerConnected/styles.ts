@@ -2,9 +2,30 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
+  grid-column: full;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
+  ${breakpoints.desktop} {
+    grid-column: main;
+  }
+`;
+
+export const userControlsRow = css`
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: flex-end;
+  gap: 1.6rem;
+  .loginButton {
+    display: none;
+  }
+  ${breakpoints.desktop} {
+    grid-template-columns: auto auto;
+    .loginButton {
+      display: initial;
+    }
+  }
 `;
 
 export const fullWidth = css`
@@ -57,7 +78,6 @@ export const errorMessage = css`
 export const loadingText = css`
   display: flex;
   gap: 1.2rem;
-  color: var(--klima-green);
   align-items: center;
 `;
 

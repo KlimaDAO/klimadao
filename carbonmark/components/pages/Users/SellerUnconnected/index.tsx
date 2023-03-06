@@ -2,6 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Activities } from "components/Activities";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { LoginButton } from "components/LoginButton";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
@@ -37,6 +38,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.userControlsRow}>
+        <LoginButton className="loginButton" />
+      </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={userData?.username || props.userName}
