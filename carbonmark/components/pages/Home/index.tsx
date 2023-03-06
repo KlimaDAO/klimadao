@@ -2,7 +2,6 @@ import { cx } from "@emotion/css";
 import {
   Anchor as A,
   ButtonPrimary,
-  C3Logo,
   GithubIcon,
   GridContainer,
   LinkedInIcon,
@@ -107,7 +106,7 @@ export const Home: NextPage<Props> = (props) => {
               Our Partners
             </Text>
             <div className="partners">
-              <C3Logo height="50" />
+              <Image src="/c3.png" width="57" height="58" alt="C3 Logo" />
               <VlinderLogo height="50" />
               <SCBLogo height="50" />
               <OffsetraLogo height="50" />

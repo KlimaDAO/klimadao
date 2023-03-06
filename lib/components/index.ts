@@ -33,7 +33,6 @@ export { CarbonmarkLogo } from "./Logos/CarbonmarkLogo";
 export { KlimaInfinityLogo } from "./Logos/KlimaInfinityLogo";
 export { KlimaInfinityLogoOnly } from "./Logos/KlimaInfinityLogoOnly";
 export { LogoWithClaim } from "./Logos/LogoWithClaim";
-export { C3Logo } from "./Logos/partners/C3Logo";
 export { OffsetraLogo } from "./Logos/partners/OffsetraLogo";
 export { SCBLogo } from "./Logos/partners/SCBLogo";
 export { VlinderLogo } from "./Logos/partners/VlinderLogo";
