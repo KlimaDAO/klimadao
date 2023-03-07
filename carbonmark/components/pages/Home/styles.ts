@@ -27,12 +27,17 @@ export const hero = css`
     z-index: 1;
     object-fit: cover;
     object-position: -0.25rem 1rem;
+  }
 
-    &.circle-tree {
+  & .circle-tree {
+    position: absolute;
+    top: 5.5rem;
+    width: 8rem;
+    height: 8rem;
+    right: -2rem;
+
+    & img {
       object-fit: contain;
-      top: 6rem !important;
-      right: -2rem !important;
-      height: 8rem !important;
       object-position: top right;
     }
   }

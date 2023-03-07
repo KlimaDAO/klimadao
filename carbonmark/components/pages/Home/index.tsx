@@ -72,13 +72,9 @@ export const Home: NextPage<Props> = (props) => {
           alt="Carbonmark Hero"
           src="/hero-sm.jpeg"
         />
-        <Image
-          fill
-          data-mobile-only
-          alt="Circle Tree"
-          src="/circle-tree.png"
-          className="circle-tree"
-        />
+        <div data-mobile-only className="circle-tree">
+          <Image fill alt="Circle Tree" src="/circle-tree.png" />
+        </div>
         <Navigation transparent activePage="Home" />
         <div className="stack">
           <Text t="h1" as="h1">
@@ -218,7 +214,7 @@ export const Home: NextPage<Props> = (props) => {
                     <PaymentOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Create profile and get connected
+                    Create a profile and get connected
                   </Text>
                 </div>
               </div>
@@ -487,7 +483,9 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <Text t="h2" as="h2">
             Powered by
-            <LogoWithClaim />
+            <A href={urls.home}>
+              <LogoWithClaim />
+            </A>
           </Text>
           <Text t="body1" className="description">
             KlimaDAO provides the transparent, neutral, and public digital
@@ -514,9 +512,9 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/">
               <Trans>Resources</Trans>
             </Link>
-            <Link href="/">
+            <A href={urls.home}>
               <Trans>KlimaDAO</Trans>
-            </Link>
+            </A>
           </nav>
           <nav className={styles.footerIcons}>
             <A href={urls.twitterCarbonmark}>
