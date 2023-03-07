@@ -110,16 +110,18 @@ export const Project: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.meta}>
-          {bestPrice && (
-            <div className="best-price">
-              <Text t="h5" className="best-price-badge">
-                {formatToPrice(bestPrice)}
-              </Text>
-              <Text t="h5" color="lighter">
-                <Trans>Best Price</Trans>
-              </Text>
-            </div>
-          )}
+          <div className="best-price">
+            {bestPrice && (
+              <>
+                <Text t="h5" className="best-price-badge">
+                  {formatToPrice(bestPrice)}
+                </Text>
+                <Text t="h5" color="lighter">
+                  <Trans>Best Price</Trans>
+                </Text>
+              </>
+            )}
+          </div>
 
           <div className="methodology">
             <Text t="h5" color="lighter">
