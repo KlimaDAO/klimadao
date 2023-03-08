@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-07 15:54+0000\n"
+"POT-Creation-Date: 2023-03-08 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,12 @@ msgstr "受益人姓名"
 
 #: components/views/Redeem/index.tsx:373
 msgid "Buy & Redeem Carbon"
-msgstr ""
+msgstr "购买和赎回碳"
 
 #: components/NavMenu/index.tsx:204
 #: components/views/Redeem/index.tsx:514
 msgid "Buy Carbon"
-msgstr ""
+msgstr "购买碳"
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -34,19 +34,19 @@ msgstr "容量"
 
 #: components/views/Redeem/index.tsx:289
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: components/views/Redeem/index.tsx:429
 msgid "Enter quantity"
-msgstr ""
+msgstr "输入数量"
 
 #: components/views/Redeem/index.tsx:411
 msgid "How many tonnes would you like to acquire?"
-msgstr ""
+msgstr "您想要多少吨碳？"
 
 #: components/CarbonBalancesCard/index.tsx:136
 msgid "Loading balances..."
-msgstr ""
+msgstr "正在加载余额..."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:95
@@ -59,11 +59,11 @@ msgstr "正在加载..."
 
 #: components/CarbonBalancesCard/index.tsx:166
 msgid "No balances found."
-msgstr ""
+msgstr "未找到余额。"
 
 #: components/CarbonBalancesCard/index.tsx:129
 msgid "Not Connected"
-msgstr ""
+msgstr "未连接"
 
 #: components/views/Offset/index.tsx:652
 msgid "Offset"
@@ -79,11 +79,11 @@ msgstr "可使用法定货币或加密货币支付，亦或您停用碳而拥有
 
 #: components/views/Redeem/index.tsx:485
 msgid "Payment Method"
-msgstr ""
+msgstr "付款方式"
 
 #: components/views/Redeem/index.tsx:484
 msgid "Payment method"
-msgstr ""
+msgstr "付款方式"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
@@ -93,7 +93,7 @@ msgstr "项目详情<0/>"
 #: components/views/Redeem/index.tsx:386
 #: components/views/Redeem/index.tsx:387
 msgid "Select carbon pool"
-msgstr ""
+msgstr "选择碳池"
 
 #: components/views/Offset/index.tsx:666
 msgid "Select carbon token to retire"
@@ -113,7 +113,7 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #: components/views/Redeem/index.tsx:453
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
+msgstr "此费用包括滑点和矿池收取的任何赎回费用"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
@@ -121,7 +121,7 @@ msgstr "可用吨数：{0}"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:125
 msgid "Tonnes available: {formattedQuantity}"
-msgstr ""
+msgstr "可用吨数：{formattedQuantity}"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:102
@@ -139,11 +139,11 @@ msgstr "网络错误"
 
 #: components/CarbonBalancesCard/index.tsx:169
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
-msgstr ""
+msgstr "您的钱包需加载 USDC、KLIMA 或碳池代币。信用卡支付功能即将推出。"
 
 #: components/views/Redeem/index.tsx:473
 msgid "You receive"
-msgstr ""
+msgstr "您收到"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
@@ -835,7 +835,7 @@ msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之�
 
 #: components/views/Redeem/index.tsx:376
 msgid "redeem.description"
-msgstr ""
+msgstr "为特定的碳抵消项目获取代币。项目代币将从碳池中赎回并转移到您的钱包，因此您可以稍后进行交易或碳停用。"
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
