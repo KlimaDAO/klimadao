@@ -78,7 +78,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:119
+#: components/pages/Project/index.tsx:120
 msgid "Best Price"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgid "Clear Filters"
 msgstr ""
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:509
+#: components/pages/Home/index.tsx:507
 msgid "Contact"
 msgstr ""
 
@@ -156,16 +156,16 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Project/index.tsx:177
+#: components/pages/Project/index.tsx:179
 msgid "Data for this project and vintage"
 msgstr ""
 
-#: components/pages/Users/Login/index.tsx:44
+#: components/pages/Users/Login/index.tsx:47
 #: components/pages/Users/SellerUnconnected/index.tsx:98
 msgid "Data for this seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:149
+#: components/pages/Project/index.tsx:151
 msgid "Description"
 msgstr ""
 
@@ -202,13 +202,13 @@ msgid "Handle should not contain any special characters"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:512
+#: components/pages/Home/index.tsx:510
 #: components/shared/Navigation/index.tsx:83
 msgid "Help"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:518
+#: components/pages/Home/index.tsx:516
 msgid "KlimaDAO"
 msgstr ""
 
@@ -216,16 +216,12 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerConnected/index.tsx:173
 #: components/pages/Users/SellerUnconnected/index.tsx:55
 msgid "Listings"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:164
-msgid "Loading your data..."
-msgstr ""
-
-#: components/LoginCard/index.tsx:33
+#: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "Loading..."
 msgstr ""
@@ -244,7 +240,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: components/LoginCard/index.tsx:39
+#: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr ""
 
@@ -253,7 +249,7 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Project/index.tsx:126
+#: components/pages/Project/index.tsx:128
 msgid "Methodology"
 msgstr ""
 
@@ -265,20 +261,20 @@ msgstr ""
 msgid "New Unit Price (USDC)"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:223
+#: components/pages/Users/SellerConnected/index.tsx:219
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "No active listings."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:206
+#: components/pages/Portfolio/index.tsx:199
 msgid "No listable assets found."
 msgstr ""
 
-#: components/pages/Project/index.tsx:167
+#: components/pages/Project/index.tsx:169
 msgid "No listings found for this project."
 msgstr ""
 
-#: components/pages/Projects/index.tsx:79
+#: components/pages/Projects/index.tsx:74
 msgid "No project description found"
 msgstr ""
 
@@ -299,7 +295,7 @@ msgid "Please Log In"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:135
-#: components/pages/Users/SellerConnected/index.tsx:148
+#: components/pages/Users/SellerConnected/index.tsx:149
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
@@ -319,7 +315,7 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:503
+#: components/pages/Home/index.tsx:501
 msgid "Privacy policy"
 msgstr ""
 
@@ -373,7 +369,7 @@ msgid "Remaining Supply:"
 msgstr ""
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:515
+#: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:71
 #: components/shared/Navigation/index.tsx:108
@@ -420,7 +416,7 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:194
+#: components/pages/Portfolio/index.tsx:187
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
 msgstr ""
 
@@ -432,7 +428,7 @@ msgstr ""
 msgid "Terms of Use"
 msgstr ""
 
-#: components/pages/Home/index.tsx:506
+#: components/pages/Home/index.tsx:504
 msgid "Terms of use"
 msgstr ""
 
@@ -444,11 +440,11 @@ msgstr ""
 msgid "The open platform for digital carbon."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:111
+#: components/pages/Users/SellerConnected/index.tsx:112
 msgid "There was an error getting your data: {error}"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:86
+#: components/pages/Users/SellerConnected/index.tsx:87
 msgid "There was an error loading your assets. {e}"
 msgstr ""
 
@@ -492,7 +488,7 @@ msgstr ""
 msgid "Updates, guides and more from the CarbonMark team"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Updating your data..."
 msgstr ""
 
@@ -545,8 +541,8 @@ msgstr ""
 msgid "Your display name"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:216
-#: components/pages/Users/SellerConnected/index.tsx:240
+#: components/pages/Portfolio/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:236
 msgid "Your seller data"
 msgstr ""
 
@@ -647,7 +643,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:188
+#: components/pages/Users/SellerConnected/index.tsx:189
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -663,7 +659,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:250
+#: components/pages/Users/SellerConnected/index.tsx:246
 msgid "profile.edit_profile.title"
 msgstr ""
 
