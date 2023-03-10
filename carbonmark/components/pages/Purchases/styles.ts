@@ -55,6 +55,13 @@ export const receiptContent = css`
     gap: 0.8rem;
   }
 
+  a {
+    color: var(--bright-blue);
+    &:hover {
+      color: var(--bright-blue);
+    }
+  }
+
   .country {
     color: var(--bright-blue);
   }
