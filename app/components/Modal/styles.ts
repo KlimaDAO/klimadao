@@ -38,6 +38,8 @@ export const modalContent = css`
   width: 80%;
   position: fixed;
   height: fit-content;
+  max-height: 100vh;
+  overflow-y: scroll;
   border-radius: 1.2rem;
   background-color: var(--surface-01);
   display: flex;
