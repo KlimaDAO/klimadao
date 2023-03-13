@@ -15,7 +15,7 @@ import {
   RetirementToken,
   urls,
 } from "@klimadao/lib/constants";
-import { safeAdd } from "@klimadao/lib/utils";
+import { formatUnits, safeAdd } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -72,9 +72,6 @@ import {
 } from "./SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
 
-// We need to approve a little bit extra (here 1%)
-// It's possible that the price can slip upward between approval and final transaction
-const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -291,7 +288,8 @@ export const Offset = (props: Props) => {
       return quantity;
     }
     if (!cost) return "0";
-    return safeAdd(cost, (Number(cost) * APPROVAL_SLIPPAGE).toString());
+    const withSlippage = utils.parseUnits(cost).div(utils.parseUnits("100"));
+    return safeAdd(cost, formatUnits(withSlippage, 18));
   };
 
   const handleApprove = async () => {
