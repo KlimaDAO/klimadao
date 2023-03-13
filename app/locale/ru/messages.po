@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-09 15:37+0000\n"
+"POT-Creation-Date: 2023-03-13 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,12 @@ msgstr "Имя Получателя"
 
 #: components/views/Redeem/index.tsx:373
 msgid "Buy & Redeem Carbon"
-msgstr ""
+msgstr "Купить и вывести углерод"
 
 #: components/NavMenu/index.tsx:204
 #: components/views/Redeem/index.tsx:514
 msgid "Buy Carbon"
-msgstr ""
+msgstr "Купить углерод"
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -34,24 +34,24 @@ msgstr "Вместимость"
 
 #: components/views/Redeem/index.tsx:289
 msgid "Continue"
-msgstr ""
+msgstr "Продолжить"
 
 #: components/views/Redeem/index.tsx:429
 msgid "Enter quantity"
-msgstr ""
+msgstr "Введите количество"
 
 #: components/views/Redeem/index.tsx:411
 msgid "How many tonnes would you like to acquire?"
-msgstr ""
+msgstr "Сколько тонн вы хотели бы приобрести?"
 
 #: components/CarbonBalancesCard/index.tsx:136
 msgid "Loading balances..."
-msgstr ""
+msgstr "Загрузка остатков..."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:95
 msgid "Loading project info..."
-msgstr ""
+msgstr "Загрузка информации о проекте..."
 
 #: components/views/Redeem/index.tsx:250
 msgid "Loading..."
@@ -59,11 +59,11 @@ msgstr "Загрузка..."
 
 #: components/CarbonBalancesCard/index.tsx:166
 msgid "No balances found."
-msgstr ""
+msgstr "Балансы не найдены."
 
 #: components/CarbonBalancesCard/index.tsx:129
 msgid "Not Connected"
-msgstr ""
+msgstr "Не подключен"
 
 #: components/views/Offset/index.tsx:652
 msgid "Offset"
@@ -75,33 +75,33 @@ msgstr "12 апреля 2022 года мы перешли с «dapp» на «app
 
 #: components/views/Offset/index.tsx:655
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
-msgstr ""
+msgstr "Оплачивайте фиатными деньгами или криптовалютой или списывайте кредиты, которыми вы уже владеете. Ваше сообщение и данные будут навсегда записаны в блокчейне. Узнайте больше о поддерживаемых токенах в нашей <0>документации.</0> ."
 
 #: components/views/Redeem/index.tsx:485
 msgid "Payment Method"
-msgstr ""
+msgstr "Метод оплаты"
 
 #: components/views/Redeem/index.tsx:484
 msgid "Payment method"
-msgstr ""
+msgstr "Метод оплаты"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
 msgid "Project details <0/>"
-msgstr ""
+msgstr "Детали проекта <0/>"
 
 #: components/views/Redeem/index.tsx:386
 #: components/views/Redeem/index.tsx:387
 msgid "Select carbon pool"
-msgstr ""
+msgstr "Выберите углеродный пул"
 
 #: components/views/Offset/index.tsx:666
 msgid "Select carbon token to retire"
-msgstr ""
+msgstr "Выберите токен углерода для списания"
 
 #: components/views/Offset/index.tsx:667
 msgid "Select token"
-msgstr ""
+msgstr "Выберите токен"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
@@ -113,25 +113,25 @@ msgstr "Это приложение работает только в Polygon Mai
 
 #: components/views/Redeem/index.tsx:453
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
+msgstr "Эта стоимость включает проскальзывание и любые комиссии за погашение, взимаемые пулом."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
-msgstr ""
+msgstr "Доступные тонны: {0}"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:125
 msgid "Tonnes available: {formattedQuantity}"
-msgstr ""
+msgstr "Доступные тонны: {formattedQuantity}"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:102
 msgid "Unknown category"
-msgstr ""
+msgstr "Неизвестная категория"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:97
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:101
 msgid "Unknown methodology"
-msgstr ""
+msgstr "Неизвестная методика"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
@@ -139,11 +139,11 @@ msgstr "Неверная сеть"
 
 #: components/CarbonBalancesCard/index.tsx:169
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
-msgstr ""
+msgstr "Вам необходимо пополнить свой кошелек с помощью USDC, KLIMA или токеном углеродного пула. Поддержка кредитных карт появится в ближайшее время."
 
 #: components/views/Redeem/index.tsx:473
 msgid "You receive"
-msgstr ""
+msgstr "Вы получите"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
@@ -432,11 +432,11 @@ msgstr "C3 Универсальный базовый офсет"
 
 #: components/views/Home/index.tsx:167
 msgid "connectModal.torus"
-msgstr ""
+msgstr "Электронная почта или социальные сети"
 
 #: components/views/Home/index.tsx:171
 msgid "connectModal.wallet"
-msgstr ""
+msgstr "подключите кошелек"
 
 #: components/views/Home/index.tsx:180
 msgid "connect_modal.connecting"
@@ -843,7 +843,7 @@ msgstr "Обновленный контракт теперь предполаг�
 
 #: components/views/Redeem/index.tsx:376
 msgid "redeem.description"
-msgstr ""
+msgstr "Приобретайте токены для конкретного проекта компенсации выбросов углерода. Токены проекта будут выкуплены из углеродного пула и переведены на ваш кошелек, чтобы вы могли обменять их или изъять из обращения позже."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
@@ -945,7 +945,7 @@ msgstr "Загрузка..."
 
 #: components/views/Home/index.tsx:176
 msgid "shared.login"
-msgstr ""
+msgstr "Авторизоваться"
 
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63

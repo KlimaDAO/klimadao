@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-09 15:37+0000\n"
+"POT-Creation-Date: 2023-03-13 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,12 @@ msgstr "Nombre del Beneficiario"
 
 #: components/views/Redeem/index.tsx:373
 msgid "Buy & Redeem Carbon"
-msgstr ""
+msgstr "Comprar y canjear carbono"
 
 #: components/NavMenu/index.tsx:204
 #: components/views/Redeem/index.tsx:514
 msgid "Buy Carbon"
-msgstr ""
+msgstr "Comprar Carbono"
 
 #: components/views/Bond/index.tsx:697
 msgid "Capacity"
@@ -34,19 +34,19 @@ msgstr "Capacidad"
 
 #: components/views/Redeem/index.tsx:289
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: components/views/Redeem/index.tsx:429
 msgid "Enter quantity"
-msgstr ""
+msgstr "Introduce la cantidad"
 
 #: components/views/Redeem/index.tsx:411
 msgid "How many tonnes would you like to acquire?"
-msgstr ""
+msgstr "¿Cuántas toneladas le gustaría adquirir?"
 
 #: components/CarbonBalancesCard/index.tsx:136
 msgid "Loading balances..."
-msgstr ""
+msgstr "Cargando saldos..."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:95
@@ -59,7 +59,7 @@ msgstr "Cargando..."
 
 #: components/CarbonBalancesCard/index.tsx:166
 msgid "No balances found."
-msgstr ""
+msgstr "No se encontraron saldos."
 
 #: components/CarbonBalancesCard/index.tsx:129
 msgid "Not Connected"
@@ -79,11 +79,11 @@ msgstr "Pague con fiat o cripto, o retire créditos que ya posea. Su mensaje y s
 
 #: components/views/Redeem/index.tsx:485
 msgid "Payment Method"
-msgstr ""
+msgstr "Método de pago"
 
 #: components/views/Redeem/index.tsx:484
 msgid "Payment method"
-msgstr ""
+msgstr "Método de pago"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:117
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
@@ -93,7 +93,7 @@ msgstr "Detalles del proyecto <0/>"
 #: components/views/Redeem/index.tsx:386
 #: components/views/Redeem/index.tsx:387
 msgid "Select carbon pool"
-msgstr ""
+msgstr "Seleccionar depósito de carbono"
 
 #: components/views/Offset/index.tsx:666
 msgid "Select carbon token to retire"
@@ -113,7 +113,7 @@ msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 
 #: components/views/Redeem/index.tsx:453
 msgid "This cost includes slippage and any redemption fees charged by the pool"
-msgstr ""
+msgstr "Este coste incluye el slippage y las comisiones de reembolso cobradas por el pool."
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
 msgid "Tonnes available: {0}"
@@ -121,7 +121,7 @@ msgstr "Toneladas disponibles: {0}"
 
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:125
 msgid "Tonnes available: {formattedQuantity}"
-msgstr ""
+msgstr "Toneladas disponibles: {formattedQuantity}"
 
 #: components/views/Offset/ProjectTokenDetails/index.tsx:98
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:102
@@ -139,11 +139,11 @@ msgstr "Red incorrecta"
 
 #: components/CarbonBalancesCard/index.tsx:169
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
-msgstr ""
+msgstr "Tienes que cargar tu monedero con USDC, KLIMA o un token del pool de carbono. Próximamente se admitirán tarjetas de crédito."
 
 #: components/views/Redeem/index.tsx:473
 msgid "You receive"
-msgstr ""
+msgstr "Recibiras"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1023
@@ -835,7 +835,7 @@ msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hech
 
 #: components/views/Redeem/index.tsx:376
 msgid "redeem.description"
-msgstr ""
+msgstr "Adquiera tokens para un proyecto específico de compensación de carbono. Los tokens del proyecto se canjearán de un fondo de carbono y se transferirán a tu monedero, para que puedas canjearlos o retirarlos más tarde."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
