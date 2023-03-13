@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-13 15:34+0000\n"
+"POT-Creation-Date: 2023-03-13 17:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,11 @@ msgstr ""
 msgid "Balances"
 msgstr "Балансы"
 
-#: components/views/Offset/index.tsx:780
+#: components/views/Offset/index.tsx:778
 msgid "Beneficiary 0x address (optional)"
 msgstr "Адрес получателя 0x (необязательно)"
 
-#: components/views/Offset/index.tsx:768
+#: components/views/Offset/index.tsx:766
 msgid "Beneficiary name"
 msgstr "Имя Получателя"
 
@@ -65,7 +65,7 @@ msgstr "Балансы не найдены."
 msgid "Not Connected"
 msgstr "Не подключен"
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:650
 msgid "Offset"
 msgstr "Офсет"
 
@@ -73,7 +73,7 @@ msgstr "Офсет"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "12 апреля 2022 года мы перешли с «dapp» на «app». Пожалуйста, обновите закладки."
 
-#: components/views/Offset/index.tsx:655
+#: components/views/Offset/index.tsx:653
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "Оплачивайте фиатными деньгами или криптовалютой или списывайте кредиты, которыми вы уже владеете. Ваше сообщение и данные будут навсегда записаны в блокчейне. Узнайте больше о поддерживаемых токенах в нашей <0>документации.</0> ."
 
@@ -95,11 +95,11 @@ msgstr "Детали проекта <0/>"
 msgid "Select carbon pool"
 msgstr "Выберите углеродный пул"
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:664
 msgid "Select carbon token to retire"
 msgstr "Выберите токен углерода для списания"
 
-#: components/views/Offset/index.tsx:667
+#: components/views/Offset/index.tsx:665
 msgid "Select token"
 msgstr "Выберите токен"
 
@@ -458,7 +458,7 @@ msgstr "Ошибка подключения"
 msgid "error.404.page.text"
 msgstr "Извините, похоже, мы отправили вас не туда. <0/>Пожалуйста, выберите пункт назначения в меню."
 
-#: components/views/Offset/index.tsx:835
+#: components/views/Offset/index.tsx:833
 msgid "fiat.max_quantity"
 msgstr ""
 "${0} максимум для кредитных карт\n"
@@ -581,23 +581,23 @@ msgstr "ПОДТВЕРЖДЕНИЕ"
 msgid "nav.back"
 msgstr "НАЗАД"
 
-#: components/views/Offset/index.tsx:818
+#: components/views/Offset/index.tsx:816
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Эта стоимость включает проскальзывание и комиссию за агрегацию в размере 1%."
 
-#: components/views/Offset/index.tsx:697
+#: components/views/Offset/index.tsx:695
 msgid "offset.amount_in_tonnes"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
-#: components/views/Offset/index.tsx:529
+#: components/views/Offset/index.tsx:527
 msgid "offset.checkout"
 msgstr "Проверить"
 
-#: components/views/Offset/index.tsx:783
+#: components/views/Offset/index.tsx:781
 msgid "offset.default_retirement_address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
-#: components/views/Offset/index.tsx:863
+#: components/views/Offset/index.tsx:861
 msgid "offset.dropdown_payWith.label"
 msgstr "Оплатить с помощью"
 
@@ -605,26 +605,26 @@ msgstr "Оплатить с помощью"
 msgid "offset.enter_address"
 msgstr "Введите 0x-адрес"
 
-#: components/views/Offset/index.tsx:617
+#: components/views/Offset/index.tsx:615
 #: components/views/Redeem/index.tsx:351
 msgid "offset.incompatible"
 msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
-#: components/views/Offset/index.tsx:497
+#: components/views/Offset/index.tsx:495
 #: components/views/Redeem/index.tsx:260
 msgid "offset.insufficient_project_tonnage"
 msgstr "Недостаточный тоннаж по проекту"
 
-#: components/views/Offset/index.tsx:741
+#: components/views/Offset/index.tsx:739
 #: components/views/Redeem/index.tsx:438
 msgid "offset.invalid_project_tonnage"
 msgstr "Не может превышать доступный тоннаж выбранного проекта"
 
-#: components/views/Offset/index.tsx:750
+#: components/views/Offset/index.tsx:748
 msgid "offset.min_quantity_fiat"
 msgstr "Минимальная закупка 1 тонна. Только целые числа."
 
-#: components/views/Offset/index.tsx:867
+#: components/views/Offset/index.tsx:865
 msgid "offset.modal_payWith.title"
 msgstr "Выберите токен"
 
@@ -632,11 +632,11 @@ msgstr "Выберите токен"
 msgid "offset.number_of_retirements"
 msgstr "Итого выведено "
 
-#: components/views/Offset/index.tsx:729
+#: components/views/Offset/index.tsx:727
 msgid "offset.offset_quantity"
 msgstr "Введите количество для компенсации"
 
-#: components/views/Offset/index.tsx:910
+#: components/views/Offset/index.tsx:908
 msgid "offset.retire_carbon"
 msgstr "Вывод карбона"
 
@@ -648,19 +648,19 @@ msgstr "Убрать выбранные токены проекта (необя�
 msgid "offset.retire_specific_tooltip"
 msgstr "За дополнительную плату, определяемую выбранным пулом и выплачиваемую поставщику бриджа."
 
-#: components/views/Offset/index.tsx:760
+#: components/views/Offset/index.tsx:758
 msgid "offset.retirement_credit"
 msgstr "Кому будет зачислено это выбивание?"
 
-#: components/views/Offset/index.tsx:794
+#: components/views/Offset/index.tsx:792
 msgid "offset.retirement_message"
 msgstr "Сообщение о выводе"
 
-#: components/views/Offset/index.tsx:803
+#: components/views/Offset/index.tsx:801
 msgid "offset.retirement_purpose"
 msgstr "Опишите цель этого вывода"
 
-#: components/views/Offset/index.tsx:848
+#: components/views/Offset/index.tsx:846
 msgid "offset.retiring"
 msgstr "Вывод"
 
@@ -768,12 +768,12 @@ msgstr "Посмотреть употребление"
 msgid "offset.you_have_retired"
 msgstr "Вы выбили"
 
-#: components/views/Offset/index.tsx:814
+#: components/views/Offset/index.tsx:812
 #: components/views/Redeem/index.tsx:449
 msgid "offset_cost"
 msgstr "Стоимость"
 
-#: components/views/Offset/index.tsx:883
+#: components/views/Offset/index.tsx:881
 msgid "offset_disclaimer"
 msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в блокчейне."
 
@@ -851,7 +851,7 @@ msgstr "404 Страница не найдена"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:534
+#: components/views/Offset/index.tsx:532
 #: components/views/Redeem/index.tsx:284
 #: components/views/Stake/index.tsx:254
 #: components/views/Wrap/index.tsx:232
@@ -885,19 +885,19 @@ msgstr "Загрузка..."
 msgid "shared.enter_amount"
 msgstr "Введите сумму"
 
-#: components/views/Offset/index.tsx:473
+#: components/views/Offset/index.tsx:471
 msgid "shared.enter_beneficiary"
 msgstr "Введите имя получателя"
 
 #: components/views/Bond/index.tsx:417
-#: components/views/Offset/index.tsx:468
+#: components/views/Offset/index.tsx:466
 #: components/views/Redeem/index.tsx:255
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "shared.enter_quantity"
 msgstr "ВВЕДИТЕ КОЛИЧЕСТВО"
 
-#: components/views/Offset/index.tsx:481
+#: components/views/Offset/index.tsx:479
 msgid "shared.enter_retirement_message"
 msgstr "Введите сообщение"
 
@@ -908,23 +908,23 @@ msgstr "Введите сообщение"
 msgid "shared.error"
 msgstr "ОШИБКА"
 
-#: components/views/Offset/index.tsx:521
+#: components/views/Offset/index.tsx:519
 #: components/views/Redeem/index.tsx:276
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "shared.insufficient_balance"
 msgstr "НЕДОСТАТОЧНЫЙ БАЛАНС"
 
-#: components/views/Offset/index.tsx:489
+#: components/views/Offset/index.tsx:487
 msgid "shared.invalid_beneficiary_addr"
 msgstr "Неверный адрес получателя"
 
-#: components/views/Offset/index.tsx:513
+#: components/views/Offset/index.tsx:511
 #: components/views/Redeem/index.tsx:268
 msgid "shared.invalid_project_address"
 msgstr "Неверный адрес проекта"
 
-#: components/views/Offset/index.tsx:505
+#: components/views/Offset/index.tsx:503
 msgid "shared.invalid_quantity"
 msgstr "Неверное количество"
 
@@ -932,8 +932,8 @@ msgstr "Неверное количество"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:411
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:455
-#: components/views/Offset/index.tsx:596
+#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:594
 #: components/views/PKlima/index.tsx:157
 #: components/views/Redeem/index.tsx:337
 #: components/views/Stake/index.tsx:432
@@ -950,7 +950,7 @@ msgstr "Авторизоваться"
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:152
-#: components/views/Offset/index.tsx:447
+#: components/views/Offset/index.tsx:445
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:242
 #: components/views/Stake/index.tsx:228
@@ -965,11 +965,11 @@ msgstr "Войти / Подключиться"
 msgid "shared.max"
 msgstr "Максимум"
 
-#: components/views/Offset/index.tsx:460
+#: components/views/Offset/index.tsx:458
 msgid "shared.redirecting_checkout"
 msgstr "Перенаправление на проверку..."
 
-#: components/views/Offset/index.tsx:539
+#: components/views/Offset/index.tsx:537
 msgid "shared.retire"
 msgstr "Вывод карбона"
 
