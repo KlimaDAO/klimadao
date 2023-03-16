@@ -66,14 +66,20 @@ export const listingsAndStats = css`
     display: grid;
     align-content: flex-start;
     gap: 2rem;
+    ${breakpoints.desktop} {
+      grid-column: 1 / 3;
+    }
   }
   .statsColumn {
     display: grid;
     align-content: flex-start;
     gap: 2rem;
+    ${breakpoints.desktop} {
+      grid-column: 3/4;
+    }
   }
   ${breakpoints.desktop} {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
