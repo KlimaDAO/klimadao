@@ -904,9 +904,6 @@ export const footerNav = css`
 
   & a {
     color: #fff !important;
-    &:hover {
-      color: var(--font-01) !important;
-    }
   }
 
   ${breakpoints.large} {
@@ -946,10 +943,6 @@ export const footerIcons = css`
 
   & svg path {
     fill: #fff;
-  }
-
-  & svg:hover path {
-    fill: var(--font-01);
   }
 
   ${breakpoints.medium} {

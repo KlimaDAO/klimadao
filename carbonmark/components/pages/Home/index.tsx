@@ -2,7 +2,6 @@ import { cx } from "@emotion/css";
 import {
   Anchor as A,
   ButtonPrimary,
-  GithubIcon,
   GridContainer,
   LinkedInIcon,
   LogoWithClaim,
@@ -17,7 +16,6 @@ import { getImageSizes } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
-import EmailIcon from "@mui/icons-material/Email";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
@@ -519,14 +517,8 @@ export const Home: NextPage<Props> = (props) => {
             <A href={urls.twitterCarbonmark}>
               <TwitterIcon />
             </A>
-            <A href={urls.github}>
-              <GithubIcon />
-            </A>
             <A href={urls.linkedInCarbonmark}>
               <LinkedInIcon />
-            </A>
-            <A href={urls.pressEmail}>
-              <EmailIcon />
             </A>
           </nav>
         </div>

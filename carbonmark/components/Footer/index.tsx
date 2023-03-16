@@ -5,8 +5,6 @@ import { FC } from "react";
 
 import {
   Anchor as A,
-  DiscordIcon,
-  GithubIcon,
   LinkedInIcon,
   TwitterIcon,
 } from "@klimadao/lib/components";
@@ -55,16 +53,9 @@ export const Footer: FC<Props> = (props) => {
             </Text>
           </Link>
         </nav>
-
         <nav className={styles.footer_icons}>
           <A href={urls.twitterCarbonmark}>
             <TwitterIcon />
-          </A>
-          <A href={urls.discordInvite}>
-            <DiscordIcon />
-          </A>
-          <A href={urls.github}>
-            <GithubIcon />
           </A>
           <A href={urls.linkedInCarbonmark}>
             <LinkedInIcon />
