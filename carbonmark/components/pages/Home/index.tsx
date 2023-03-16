@@ -410,7 +410,7 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
                   <Text t="h5" as="h5">
-                    Introducing carbonmark article
+                    Introducing Carbonmark
                   </Text>
                   <Text t="body1">
                     Zero-fee carbon credit trading - instantaneous, transparent,
@@ -459,9 +459,8 @@ export const Home: NextPage<Props> = (props) => {
                     Carbonmark's role
                   </Text>
                   <Text t="body1">
-                    Traditional carbon markets are slow and opaque. See how
-                    Carbonmark elevates carbon trading by leveraging
-                    state-of-the-art low-emission blockchain technology.
+                    Learn more about Carbonmark's role in improving the Digital
+                    Carbon Market - and the Voluntary Carbon Market as a whole.
                   </Text>
                   <Text t="h5" as="h6">
                     Read more
