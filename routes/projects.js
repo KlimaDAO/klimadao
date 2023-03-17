@@ -203,6 +203,7 @@ module.exports = async function (fastify, opts) {
                 const poolPrices = await calculatePoolPrices(fastify);
 
                 var uniqueValues = [];
+                var prices = [];
                 var poolProject;
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
