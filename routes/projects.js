@@ -229,9 +229,8 @@ module.exports = async function (fastify, opts) {
                         );
                         project.listings = listings;
                     }
-                    data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintage });
+                    data = await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOL_PROJECTS, { key: key, vintageStr: vintageStr });
                     if (data.data.carbonOffsets[0]) {
-                        poolProject = data.data.carbonOffsets[0];
                         let poolProject = { ...data.data.carbonOffsets[0] };
                         project.isPoolProject = true;
                         project.totalBridged = poolProject.totalBridged;
