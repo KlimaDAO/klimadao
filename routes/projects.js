@@ -8,7 +8,7 @@ const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
 const { POOLED_PROJECTS, getPooledProjectsQuery } = require('../queries/pooled_projects');
 const { POOL_PROJECTS } = require('../queries/pool_project.js');
 const { POOL_PRICE } = require('../queries/pool_price_in_usdc.js');
-const { getAllVintages, getAllCategories, getAllCountries, calculatePoolPrices, findProjectWithRegistryIdAndRegistry } = require('../helpers/utils.js');
+const { getAllVintages, getAllCategories, getAllCountries, calculatePoolPrices, findProjectWithRegistryIdAndRegistry, calculateProjectPoolPrices } = require('../helpers/utils.js');
 const { getSanityClient } = require('../sanity.js');
 const { fetchProjects, fetchAllProjects } = require('../sanity/queries.js');
 
@@ -200,8 +200,9 @@ module.exports = async function (fastify, opts) {
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
 
+                const poolPrices = await calculatePoolPrices(fastify);
 
-
+                var uniqueValues = [];
                 var poolProject;
                 var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
                 var project = undefined;
@@ -214,9 +215,10 @@ module.exports = async function (fastify, opts) {
 
 
                         const listings = project.listings.map((item) => ({ ...item, selected: false }));
-
+                        project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
                         await Promise.all(
                             listings.map(async (listing) => {
+                                
                                 const seller = await fastify.firebase.firestore()
                                     .collection("users")
                                     .doc((listing.seller.id).toUpperCase())
@@ -234,6 +236,10 @@ module.exports = async function (fastify, opts) {
                         project.totalBridged = poolProject.totalBridged;
                         project.totalRetired = poolProject.totalRetired;
                         project.currentSupply = poolProject.currentSupply;
+
+                        [uniqueValues, prices] = calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices);
+                        project.prices = prices;
+
                     } else {
                         project.totalBridged = null;
                         project.totalRetired = null;
@@ -266,7 +272,6 @@ module.exports = async function (fastify, opts) {
                                 "id": project.methodologyCategory
                             },
                             "country": country,
-                            "price": '1000000000000000000',
                             "activities": null,
                             "listings": null,
                             "totalBridged": project.totalBridged,
@@ -274,43 +279,12 @@ module.exports = async function (fastify, opts) {
                             "currentSupply": project.currentSupply
                         }
 
-                        const poolPrices = await calculatePoolPrices(fastify);
+                       
 
                         project.prices = [];
                         if (poolProject) {
-                            if (parseFloat(poolProject.balanceUBO) > 0) {
-                                project.prices.push({
-                                    leftToSell: poolProject.balanceUBO,
-                                    tokenAddress: process.env.UBO_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).priceInUsd,
-                                    name: 'UBO',
-                                })
-
-                            }
-                            if (parseFloat(poolProject.balanceNBO) > 0) {
-                                project.prices.push({
-                                    leftToSell: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
-                                    tokenAddress: process.env.NBO_POOL,
-                                    singleUnitPrice: result.data.pair.currentprice,
-                                    name: 'NBO',
-                                })
-                            }
-                            if (parseFloat(poolProject.balanceNCT) > 0) {
-                                project.prices.push({
-                                    leftToSell: poolProject.balanceNCT,
-                                    tokenAddress: process.env.NTC_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "ntc")).priceInUsd,
-                                    name: 'NCT',
-                                })
-                            }
-                            if (parseFloat(poolProject.balanceBCT) > 0) {
-                                project.prices.push({
-                                    leftToSell: poolProject.balanceBCT,
-                                    tokenAddress: process.env.BTC_POOL,
-                                    singleUnitPrice: (poolPrices.find(obj => obj.name === "btc")).priceInUsd,
-                                    name: 'BCT',
-                                })
-                            }
+                            [uniqueValues, prices] = calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices);
+                            project.prices = prices;
                         }
                     }
                 }
@@ -338,6 +312,8 @@ module.exports = async function (fastify, opts) {
                         project.description = results.description;
                         project.location = null;
                     }
+                    project.price =  uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0";
+
                     return reply.send(JSON.stringify(project));
 
                 }

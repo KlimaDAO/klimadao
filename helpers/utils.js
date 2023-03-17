@@ -92,6 +92,44 @@ function convertArrayToObjects(arr) {
     });
 }
 
+
+function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
+
+    var prices = [];
+    if (parseFloat(poolProject.balanceNBO) > 0) {
+        uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
+
+       prices.push({
+            leftToSell: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
+            tokenAddress: process.env.NBO_POOL,
+            singleUnitPrice: result.data.pair.currentprice,
+            name: 'NBO',
+        })
+    }
+    if (parseFloat(poolProject.balanceNCT) > 0) {
+        uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
+
+        prices.push({
+            leftToSell: poolProject.balanceNCT,
+            tokenAddress: process.env.NTC_POOL,
+            singleUnitPrice: (poolPrices.find(obj => obj.name === "ntc")).priceInUsd,
+            name: 'NCT',
+        })
+    }
+    if (parseFloat(poolProject.balanceBCT) > 0) {
+        uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
+
+        prices.push({
+            leftToSell: poolProject.balanceBCT,
+            tokenAddress: process.env.BTC_POOL,
+            singleUnitPrice: (poolPrices.find(obj => obj.name === "btc")).priceInUsd,
+            name: 'BCT',
+        })
+    }
+
+    return [uniqueValues, prices];
+}
+
 async function calculatePoolPrices(fastify) {
 
     var decimals;
@@ -138,5 +176,6 @@ module.exports = {
     getAllVintages,
     getAllCategories,
     getAllCountries,
-    findProjectWithRegistryIdAndRegistry
+    findProjectWithRegistryIdAndRegistry,
+    calculateProjectPoolPrices
 };
