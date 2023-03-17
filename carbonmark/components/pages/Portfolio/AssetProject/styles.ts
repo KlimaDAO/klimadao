@@ -21,4 +21,8 @@ export const tags = css`
 export const buttons = css`
   display: flex;
   gap: 2rem;
+
+  & a {
+    color: var(--white);
+  }
 `;
