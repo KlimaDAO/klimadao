@@ -102,8 +102,12 @@ module.exports = async function (fastify, opts) {
                 var price = 0;
                 if (project.listings.length) {
 
-                    project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
-                    let lowestPrice = uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b));
+                    project.listings.forEach(item => {
+                        if (!/^0+$/.test(item.leftToSell)) {
+                          uniqueValues.push(item.singleUnitPrice);
+                        }
+                      });
+                    let lowestPrice = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)): "0";
                     price = lowestPrice;
                 }
                 const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID, project.registry);
@@ -167,9 +171,13 @@ module.exports = async function (fastify, opts) {
 
             });
 
+
+            const filteredItems =  (projects.concat(pooledProjects)).filter(project => project.price !== "0");
+
+            
             // Send the transformed projects array as a JSON string in the response
             // return reply.send(JSON.stringify(projects));
-            return reply.send(JSON.stringify(projects.concat(pooledProjects)));
+            return reply.send(JSON.stringify(filteredItems));
         }
     }),
         fastify.route({

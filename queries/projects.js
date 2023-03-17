@@ -21,6 +21,7 @@ const { gql } = require('@apollo/client');
         registry
         listings {
           singleUnitPrice
+          leftToSell
         }
         category {
           id
