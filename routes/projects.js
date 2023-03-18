@@ -103,10 +103,11 @@ module.exports = async function (fastify, opts) {
                 if (project.listings.length) {
 
                     project.listings.forEach(item => {
-                        if (!/^0+$/.test(item.leftToSell)) {
-                          uniqueValues.push(item.singleUnitPrice);
+                        if (!/^0+$/.test(item.leftToSell) && item.active != false && item.deleted != true) {
+                            uniqueValues.push(item.singleUnitPrice);
                         }
                       });
+
                     let lowestPrice = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)): "0";
                     price = lowestPrice;
                 }
@@ -224,7 +225,13 @@ module.exports = async function (fastify, opts) {
 
 
                         const listings = project.listings.map((item) => ({ ...item, selected: false }));
-                        project.listings.forEach(item => uniqueValues.push(item.singleUnitPrice));
+
+                        project.listings.forEach(item => {
+                            if (!/^0+$/.test(item.leftToSell) && item.active != false && item.deleted != true) {
+                              uniqueValues.push(item.singleUnitPrice);
+                            }
+                          });
+
                         await Promise.all(
                             listings.map(async (listing) => {
                                 

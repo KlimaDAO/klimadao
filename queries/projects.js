@@ -22,6 +22,8 @@ const { gql } = require('@apollo/client');
         listings {
           singleUnitPrice
           leftToSell
+          active
+          deleted
         }
         category {
           id
