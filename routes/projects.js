@@ -287,8 +287,6 @@ module.exports = async function (fastify, opts) {
                             "currentSupply": project.currentSupply
                         }
 
-                       
-
                         project.prices = [];
                         if (poolProject) {
                             [uniqueValues, prices] = calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices);

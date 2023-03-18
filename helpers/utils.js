@@ -100,10 +100,20 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
 
        prices.push({
-            leftToSell: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
+            leftToSell: poolProject.balanceNBO,
             tokenAddress: process.env.NBO_POOL,
-            singleUnitPrice: result.data.pair.currentprice,
+            singleUnitPrice: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
             name: 'NBO',
+        })
+    }
+    if (parseFloat(poolProject.balanceUBO) > 0) {
+        uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
+
+       prices.push({
+            leftToSell: poolProject.balanceUBO,
+            tokenAddress: process.env.UBO_POOL,
+            singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).priceInUsd,
+            name: 'UBO',
         })
     }
     if (parseFloat(poolProject.balanceNCT) > 0) {
