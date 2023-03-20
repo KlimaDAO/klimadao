@@ -182,7 +182,10 @@ export const Project: NextPage<Props> = (props) => {
               allListings={allListings || []}
               activeListings={activeListings || []}
             />
-            <Activities activities={props.project.activities || []} />
+            <Activities
+              activities={props.project.activities || []}
+              showTitles={false}
+            />
           </div>
         </div>
       </Layout>

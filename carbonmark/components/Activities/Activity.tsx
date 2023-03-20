@@ -7,12 +7,14 @@ import { getElapsedTime } from "lib/getElapsedTime";
 import { ActivityType as ActivityT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
 import { getActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
-
+type Props = {
+  activity: ActivityT;
+  showTitle?: boolean;
+};
 /** Represents a single activity of a user  */
-export const Activity: FC<ActivityT> = (props) => {
+export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
 
@@ -23,20 +25,24 @@ export const Activity: FC<ActivityT> = (props) => {
     message: "at",
   });
 
-  const isPurchaseActivity = props.activityType === "Purchase";
-  const isSaleActivity = props.activityType === "Sold";
-  const isUpdateQuantity = props.activityType === "UpdatedQuantity";
-  const isUpdatePrice = props.activityType === "UpdatedPrice";
+  const isPurchaseActivity = props.activity.activityType === "Purchase";
+  const isSaleActivity = props.activity.activityType === "Sold";
+  const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
+  const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
 
-  const sellerID = props.seller.id;
-  const buyerId = props.buyer?.id;
+  const sellerID = props.activity.seller.id;
+  const buyerId = props.activity.buyer?.id;
 
   /** By default the seller is the "source" of all actions */
   addressA = sellerID;
 
   /** By default activities are buy or sell transactions */
-  amountA = !!props.amount && `${formatBigToTonnes(props.amount, locale)}t`;
-  amountB = !!props.price && `${formatBigToPrice(props.price, locale)}`;
+  amountA =
+    !!props.activity.amount &&
+    `${formatBigToTonnes(props.activity.amount, locale)}t`;
+  amountB =
+    !!props.activity.price &&
+    `${formatBigToPrice(props.activity.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
@@ -52,14 +58,18 @@ export const Activity: FC<ActivityT> = (props) => {
   /** Price Labels */
   if (isUpdatePrice) {
     amountA =
-      props.previousPrice && formatBigToPrice(props.previousPrice, locale);
-    amountB = props.price && formatBigToPrice(props.price, locale);
+      props.activity.previousPrice &&
+      formatBigToPrice(props.activity.previousPrice, locale);
+    amountB =
+      props.activity.price && formatBigToPrice(props.activity.price, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
-    amountA = props.previousAmount && formatBigToTonnes(props.previousAmount);
-    amountB = props.amount && formatBigToTonnes(props.amount);
+    amountA =
+      props.activity.previousAmount &&
+      formatBigToTonnes(props.activity.previousAmount);
+    amountB = props.activity.amount && formatBigToTonnes(props.activity.amount);
   }
 
   /** Determine the conjunction between the labels */
@@ -74,13 +84,15 @@ export const Activity: FC<ActivityT> = (props) => {
   }
 
   return (
-    <div key={props.id} className={styles.activity}>
-      <Text t="h5">{props.project?.name || "unknown"}</Text>
+    <div key={props.activity.id} className={styles.activity}>
+      {props.showTitle && (
+        <Text t="h5">{props.activity.project?.name || "unknown"}</Text>
+      )}
       <Text t="body1" color="lighter">
         <i>
           {getElapsedTime({
             locale: locale || "en",
-            timeStamp: Number(props.timeStamp),
+            timeStamp: Number(props.activity.timeStamp),
           })}
         </i>
       </Text>
@@ -91,7 +103,7 @@ export const Activity: FC<ActivityT> = (props) => {
           </Link>
         )}
 
-        {getActivityActions()[props.activityType]}
+        {getActivityActions()[props.activity.activityType]}
 
         {addressB && (
           <Link className="account" href={`/users/${addressB}`}>

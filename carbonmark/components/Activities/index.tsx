@@ -10,9 +10,11 @@ import * as styles from "./styles";
 interface Props {
   activities: ActivityType[];
   isLoading?: boolean;
+  showTitles?: boolean;
 }
 
 export const Activities: FC<Props> = (props) => {
+  const showTitle = props.showTitles ?? true;
   const hasActivities = !!props.activities?.length;
   const sortedActivities =
     (hasActivities &&
@@ -38,7 +40,14 @@ export const Activities: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
-      {!!sortedActivities.length && sortedActivities.map(Activity)}
+      {!!sortedActivities.length &&
+        sortedActivities.map((activity) => (
+          <Activity
+            key={activity.id}
+            activity={activity}
+            showTitle={showTitle}
+          />
+        ))}
     </Card>
   );
 };
