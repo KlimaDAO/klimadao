@@ -165,7 +165,7 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
-              Buy or offset carbon
+              Buy or retire carbon
             </Text>
             <Text t="body1" className="description">
               Maximize your climate impact.
@@ -176,7 +176,7 @@ export const Home: NextPage<Props> = (props) => {
               projects.
             </Text>
             <Text t="body1" className="description">
-              Offset now, or acquire carbon to offset later - you decide what to
+              Retire now, or acquire carbon to retire later - you decide what to
               do when you take ownership of your carbon assets.
             </Text>
             <ButtonPrimary
@@ -225,7 +225,7 @@ export const Home: NextPage<Props> = (props) => {
                     <ParkOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Offset instantly, or purchase and hold digital carbon
+                    Retire instantly, or purchase and hold digital carbon
                   </Text>
                 </div>
               </div>
