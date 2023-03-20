@@ -11,7 +11,6 @@ export const projectControls = css`
 `;
 
 export const projectHeader = css`
-  margin-top: -2.4rem;
   grid-column: full;
   position: relative;
   padding: 2.6rem 1.6rem 3.8rem 1.6rem;
@@ -24,7 +23,6 @@ export const projectHeader = css`
   ${breakpoints.desktop} {
     gap: 0.8rem;
     padding: 8rem 4rem;
-    margin-top: unset;
     grid-column: main;
   }
 `;
