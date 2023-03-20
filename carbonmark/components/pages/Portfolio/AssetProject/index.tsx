@@ -23,7 +23,7 @@ export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
   const retireLink = createRetireLink({
     quantity: props.asset.balance,
-    tokenAddress: props.asset.tokenAddress,
+    retirementToken: props.asset.tokenAddress,
   });
 
   return (

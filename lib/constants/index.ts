@@ -95,6 +95,7 @@ export const urls = {
   gitbook: "https://klima-dao.gitbook.io/klima-dao",
   app: "https://app.klimadao.finance",
   stake: "https://app.klimadao.finance/#/stake",
+  redeem: "https://app.klimadao.finance/#/redeem",
   wrap: "https://app.klimadao.finance/#/wrap",
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",

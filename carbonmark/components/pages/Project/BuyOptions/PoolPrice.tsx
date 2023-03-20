@@ -1,9 +1,10 @@
-import { Anchor, ButtonPrimary, PoolIcon } from "@klimadao/lib/components";
+import { Anchor, PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { createRetireLink } from "lib/createUrls";
+import { createRedeemLink, createRetireLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
 import { FC } from "react";
@@ -38,16 +39,19 @@ export const PoolPrice: FC<Props> = (props) => {
 
       <div className={styles.buttons}>
         <ButtonPrimary
-          className={styles.buyButton}
           label={t`Buy` + ` ${props.price.name}`}
-          href={"https://klimadao.finance"} // go where?
+          href={createRedeemLink({
+            projectTokenAddress: props.project.projectAddress,
+            poolName: props.price.name,
+          })}
+          renderLink={(linkProps) => <Anchor {...linkProps} />}
         />
 
         <CarbonmarkButton
           label={t`Retire now`}
           href={createRetireLink({
             quantity: props.price.leftToSell,
-            tokenAddress: props.price.tokenAddress,
+            retirementToken: props.price.tokenAddress,
           })}
           renderLink={(linkProps) => <Anchor {...linkProps} />}
         />
