@@ -1,4 +1,3 @@
-import { cx } from "@emotion/css";
 import { Text } from "components/Text";
 import { getCategoryInfo } from "lib/getCategoryInfo";
 import { CategoryName } from "lib/types/carbonmark";
@@ -10,20 +9,12 @@ type Props = {
 };
 
 export const Category: FC<Props> = (props) => {
-  // there are more than one category if coming from a pool!
-  // quick fix: take the first one
   const categoryInfo = getCategoryInfo(props.category);
-
-  if (!categoryInfo) {
-    return <div className={styles.category}>??</div>;
-  }
 
   const Icon = categoryInfo.icon;
 
-  const other = categoryInfo.key === "Other";
-
   return (
-    <Text className={cx(styles.category, { other })}>
+    <Text className={styles.category}>
       <Icon /> {categoryInfo.label}
     </Text>
   );

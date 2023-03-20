@@ -38,6 +38,8 @@ type CategoryInfoMap = {
 };
 
 export const getCategoryInfo = (category: CategoryName) => {
+  const trimmed = category.trim() as CategoryName;
+
   const categoryInfoMap: CategoryInfoMap = {
     "Renewable Energy": {
       key: "Renewable Energy",
@@ -110,6 +112,6 @@ export const getCategoryInfo = (category: CategoryName) => {
       icon: PrecisionManufacturingOutlinedIcon,
     },
   };
-  const info = categoryInfoMap[category];
+  const info = categoryInfoMap[trimmed] || categoryInfoMap.Other;
   return info;
 };
