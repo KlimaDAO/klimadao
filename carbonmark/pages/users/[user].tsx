@@ -68,9 +68,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         user: userAddress,
         type: "wallet",
       });
-      // API returns object on 404 not found
       if (userData?.handle) {
-        carbonmarkUser = userData;
+        return {
+          redirect: {
+            destination: `/users/${userData?.handle}`,
+            permanent: true,
+          },
+        };
       }
     }
 
