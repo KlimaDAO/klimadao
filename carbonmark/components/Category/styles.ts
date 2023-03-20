@@ -15,4 +15,7 @@ export const category = css`
   color: #000;
   border: 1px solid var(--font-03);
   white-space: nowrap;
+  & svg {
+    color: var(--font-03);
+  }
 `;

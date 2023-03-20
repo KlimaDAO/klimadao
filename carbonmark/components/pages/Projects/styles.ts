@@ -82,7 +82,7 @@ export const cardContent = css`
 
 export const tags = css`
   display: flex;
-  gap: 1.6rem;
+  gap: 0.8rem;
   flex-direction: row;
   margin-top: auto;
   align-items: center;
