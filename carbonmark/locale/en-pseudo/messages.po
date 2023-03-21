@@ -78,7 +78,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:120
+#: components/pages/Project/index.tsx:121
 msgid "Best Price"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "Carbonmark Overview"
 msgstr ""
 
-#: components/pages/Home/index.tsx:64
+#: components/pages/Home/index.tsx:62
 msgid "Carbonmark | Universal Carbon Market"
 msgstr ""
 
-#: components/pages/Home/index.tsx:63
+#: components/pages/Home/index.tsx:61
 msgid "Carbonmark.com"
 msgstr ""
 
@@ -139,8 +139,8 @@ msgstr ""
 msgid "Clear Filters"
 msgstr ""
 
-#: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:507
+#: components/Footer/index.tsx:37
+#: components/pages/Home/index.tsx:504
 msgid "Contact"
 msgstr ""
 
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Project/index.tsx:179
+#: components/pages/Project/index.tsx:180
 msgid "Data for this project and vintage"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Data for this seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:151
+#: components/pages/Project/index.tsx:152
 msgid "Description"
 msgstr ""
 
@@ -201,14 +201,18 @@ msgstr ""
 msgid "Handle should not contain any special characters"
 msgstr ""
 
-#: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:510
+#: components/pages/Portfolio/index.tsx:200
+msgid "Have you already created your Carbonmark <0>Profile</0>?"
+msgstr ""
+
+#: components/Footer/index.tsx:42
+#: components/pages/Home/index.tsx:507
 #: components/shared/Navigation/index.tsx:83
 msgid "Help"
 msgstr ""
 
-#: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:516
+#: components/Footer/index.tsx:52
+#: components/pages/Home/index.tsx:513
 msgid "KlimaDAO"
 msgstr ""
 
@@ -249,7 +253,7 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Project/index.tsx:128
+#: components/pages/Project/index.tsx:129
 msgid "Methodology"
 msgstr ""
 
@@ -266,11 +270,11 @@ msgstr ""
 msgid "No active listings."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:199
+#: components/pages/Portfolio/index.tsx:194
 msgid "No listable assets found."
 msgstr ""
 
-#: components/pages/Project/index.tsx:169
+#: components/pages/Project/index.tsx:170
 msgid "No listings found for this project."
 msgstr ""
 
@@ -294,7 +298,7 @@ msgstr ""
 msgid "Please Log In"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:135
+#: components/pages/Portfolio/index.tsx:129
 #: components/pages/Users/SellerConnected/index.tsx:149
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
@@ -303,19 +307,19 @@ msgstr ""
 msgid "Press Releases"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:11
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Highest"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Price Lowest"
 msgstr ""
 
-#: components/Footer/index.tsx:29
+#: components/Footer/index.tsx:27
 msgid "Privacy Policy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:501
+#: components/pages/Home/index.tsx:498
 msgid "Privacy policy"
 msgstr ""
 
@@ -360,7 +364,7 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
 msgstr ""
 
@@ -368,8 +372,8 @@ msgstr ""
 msgid "Remaining Supply:"
 msgstr ""
 
-#: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:513
+#: components/Footer/index.tsx:47
+#: components/pages/Home/index.tsx:510
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:71
 #: components/shared/Navigation/index.tsx:108
@@ -416,7 +420,7 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:187
+#: components/pages/Portfolio/index.tsx:181
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
 msgstr ""
 
@@ -424,11 +428,11 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr ""
 
-#: components/Footer/index.tsx:34
+#: components/Footer/index.tsx:32
 msgid "Terms of Use"
 msgstr ""
 
-#: components/pages/Home/index.tsx:504
+#: components/pages/Home/index.tsx:501
 msgid "Terms of use"
 msgstr ""
 
@@ -436,7 +440,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Home/index.tsx:65
+#: components/pages/Home/index.tsx:63
 msgid "The open platform for digital carbon."
 msgstr ""
 
@@ -513,11 +517,11 @@ msgstr ""
 msgid "Vintage"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Newest"
 msgstr ""
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:16
 msgid "Vintage Oldest"
 msgstr ""
 
@@ -541,7 +545,7 @@ msgstr ""
 msgid "Your display name"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:209
+#: components/pages/Portfolio/index.tsx:213
 #: components/pages/Users/SellerConnected/index.tsx:236
 msgid "Your seller data"
 msgstr ""
@@ -1025,8 +1029,8 @@ msgstr ""
 msgid "user.login.description"
 msgstr ""
 
-#: components/pages/Project/index.tsx:84
 #: components/pages/Project/index.tsx:85
+#: components/pages/Project/index.tsx:86
 msgid "{0} | Carbonmark"
 msgstr ""
 

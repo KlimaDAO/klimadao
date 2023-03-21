@@ -32,12 +32,6 @@ export const Portfolio: NextPage = () => {
   const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const listableAssets =
-    user?.assets?.filter(
-      (asset) =>
-        asset.token.symbol.startsWith("TCO2-") ||
-        asset.token.symbol.startsWith("C3T-")
-    ) ?? [];
   const assetWithProjectTokens =
     !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
   const hasListings = !isLoadingUser && !!user?.listings?.length;
@@ -47,7 +41,7 @@ export const Portfolio: NextPage = () => {
   const isConnectedUser = isConnected && address;
   const isLoading = isLoadingUser || isLoadingAssets;
 
-  const hasAssets = !isLoadingAssets && listableAssets.length;
+  const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
 
   useEffect(() => {
     if (!isConnectedUser) return;
@@ -195,8 +189,18 @@ export const Portfolio: NextPage = () => {
             )}
 
             {isConnectedUser && !isLoading && !hasAssets && (
+              <>
+                <Text>
+                  <Trans>No listable assets found.</Trans>
+                </Text>
+              </>
+            )}
+            {!isLoading && !user && (
               <Text>
-                <Trans>No listable assets found.</Trans>
+                <Trans>
+                  Have you already created your Carbonmark{" "}
+                  <Link href={`/users/${address}`}>Profile</Link>?
+                </Trans>
               </Text>
             )}
           </Col>
