@@ -43,7 +43,10 @@ export const Project: NextPage<Props> = (props) => {
       getActiveListings(props.project.listings)) ||
     [];
   const poolPrices =
-    (Array.isArray(props.project?.prices) && props.project.prices) || [];
+    (Array.isArray(props.project?.prices) &&
+      // Remove pool prices if the quantity is less than 1. (leftover  token 'dust')
+      props.project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
+    [];
 
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
     poolPrices,
