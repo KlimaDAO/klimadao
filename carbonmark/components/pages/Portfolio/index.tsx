@@ -136,9 +136,9 @@ export const Portfolio: NextPage = () => {
   return (
     <>
       <PageHead
-        title="Carbonmark - Portfolio"
-        mediaTitle="Carbonmark - Portfolio"
-        metaDescription="Carbonmark - Portfolio"
+        title={t`Portfolio | Carbonmark`}
+        mediaTitle={t`Portfolio | Carbonmark`}
+        metaDescription={t`Manage your digital carbon assets and listings.`}
       />
 
       <Layout>

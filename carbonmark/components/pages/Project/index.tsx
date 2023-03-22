@@ -84,9 +84,9 @@ export const Project: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={t`${props.project.projectID} | Carbonmark`}
-        mediaTitle={t`${props.project.name} | Carbonmark`}
-        metaDescription={`${props.project.description}`}
+        title={`${props.project.registry}-${props.project.projectID} | Carbonmark`}
+        mediaTitle={`${props.project.registry}-${props.project.projectID} | ${props.project.name}`}
+        metaDescription={t`View and purchase this carbon offset project on Carbonmark`}
       />
 
       <Layout>
