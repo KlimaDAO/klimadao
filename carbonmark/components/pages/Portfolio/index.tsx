@@ -195,7 +195,7 @@ export const Portfolio: NextPage = () => {
                 </Text>
               </>
             )}
-            {!isLoading && !user && (
+            {isConnectedUser && !isLoading && !user && (
               <Text>
                 <Trans>
                   Have you already created your Carbonmark{" "}
