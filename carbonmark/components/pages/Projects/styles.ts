@@ -62,7 +62,7 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   max-height: 9rem;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 export const cardImage = css`
