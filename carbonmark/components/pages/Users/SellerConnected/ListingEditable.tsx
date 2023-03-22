@@ -5,6 +5,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { BigNumber, utils } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
@@ -45,6 +46,13 @@ export const ListingEditable: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const existingQuantityBN = BigNumber.from(listingToEdit?.leftToSell || "0");
+  const newQuantityBN = utils.parseUnits(inputValues?.newQuantity || "1", 18);
+  const newQuantityDelta = formatUnits(
+    newQuantityBN.sub(existingQuantityBN),
+    18
+  );
+
   const isPending =
     status?.statusType === "userConfirmation" ||
     status?.statusType === "networkConfirmation";
@@ -82,11 +90,7 @@ export const ListingEditable: FC<Props> = (props) => {
   };
 
   const hasApproval = () => {
-    if (!listingToEdit) return true;
-    const existingQuantity = formatUnits(listingToEdit.leftToSell);
-    const newQuantity = inputValues?.newQuantity || "1";
-    const delta = Number(newQuantity) - Number(existingQuantity);
-    if (delta <= 0) {
+    if (Number(newQuantityDelta) <= 0) {
       // we only need an approval when tonnes are being added
       return true;
     }
@@ -105,7 +109,7 @@ export const ListingEditable: FC<Props> = (props) => {
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: inputValues.newQuantity,
+        value: newQuantityDelta,
         onStatus: onUpdateStatus,
       });
     } catch (e) {
@@ -220,7 +224,7 @@ export const ListingEditable: FC<Props> = (props) => {
           <Transaction
             hasApproval={hasApproval()}
             amount={{
-              value: `${inputValues.newQuantity} ${t({
+              value: `${newQuantityDelta} ${t({
                 id: "tonnes.long",
                 message: "tonnes",
               })}`,

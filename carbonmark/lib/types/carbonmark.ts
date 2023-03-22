@@ -54,7 +54,8 @@ export type Listing = {
   createdAt: string;
   updatedAt: string;
   totalAmountToSell: BigNumber;
-  leftToSell: BigNumber;
+  /** Unformatted 18 decimal string */
+  leftToSell: string;
   tokenAddress: string;
   active: boolean; // false when amount is "0"
   deleted: boolean; // user deleted this listing

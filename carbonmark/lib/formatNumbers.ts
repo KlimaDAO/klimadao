@@ -1,5 +1,5 @@
 import { formatUnits, trimWithLocale } from "@klimadao/lib/utils";
-import { BigNumber, BigNumberish } from "ethers";
+import { BigNumberish } from "ethers";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 
 /** USDC only */
@@ -16,7 +16,7 @@ export const formatToPrice = (value: string | number, locale = "en") => {
   }).format(toNumber);
 };
 
-export const formatBigToTonnes = (value: BigNumber, locale = "en") => {
+export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {
   const toNumber = formatUnits(value, 18);
   return formatToTonnes(toNumber, locale);
 };
