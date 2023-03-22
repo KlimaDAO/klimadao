@@ -106,9 +106,9 @@ module.exports = async function (fastify, opts) {
                         if (!/^0+$/.test(item.leftToSell) && item.active != false && item.deleted != true) {
                             uniqueValues.push(item.singleUnitPrice);
                         }
-                      });
+                    });
 
-                    let lowestPrice = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)): "0";
+                    let lowestPrice = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0";
                     price = lowestPrice;
                 }
                 const cmsData = findProjectWithRegistryIdAndRegistry(projectsCmsData, project.projectID, project.registry);
@@ -173,9 +173,9 @@ module.exports = async function (fastify, opts) {
             });
 
 
-            const filteredItems =  (projects.concat(pooledProjects)).filter(project => project.price !== "0");
+            const filteredItems = (projects.concat(pooledProjects)).filter(project => project.price !== "0");
 
-            
+
             // Send the transformed projects array as a JSON string in the response
             // return reply.send(JSON.stringify(projects));
             return reply.send(JSON.stringify(filteredItems));
@@ -228,13 +228,13 @@ module.exports = async function (fastify, opts) {
 
                         project.listings.forEach(item => {
                             if (!/^0+$/.test(item.leftToSell) && item.active != false && item.deleted != true) {
-                              uniqueValues.push(item.singleUnitPrice);
+                                uniqueValues.push(item.singleUnitPrice);
                             }
-                          });
+                        });
 
                         await Promise.all(
                             listings.map(async (listing) => {
-                                
+
                                 const seller = await fastify.firebase.firestore()
                                     .collection("users")
                                     .doc((listing.seller.id).toUpperCase())
@@ -325,7 +325,40 @@ module.exports = async function (fastify, opts) {
                         project.description = results.description;
                         project.location = null;
                     }
-                    project.price =  uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0";
+                    project.price = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0";
+
+
+
+                    if (project.activities.length) {
+                        const activities = project.activities;
+
+                        await Promise.all(
+                            activities.map(async (actvity) => {
+
+                                const seller = await fastify.firebase.firestore()
+                                    .collection("users")
+                                    .doc((actvity.seller.id).toUpperCase())
+                                    .get();
+                                if(!seller.empty) {
+                                    actvity.seller.handle =  (seller.data()).handle;
+
+                                }
+                                if (actvity.buyer) {
+                                    const buyer = await fastify.firebase.firestore()
+                                        .collection("users")
+                                        .doc((actvity.buyer.id).toUpperCase())
+                                        .get();
+                                    if(!buyer.empty) {
+                                        actvity.buyer.handle = (buyer.data()).handle;
+
+                                    }
+                                }
+
+                            })
+                        );
+                        project.activities = activities;
+
+                    }
 
                     return reply.send(JSON.stringify(project));
 
