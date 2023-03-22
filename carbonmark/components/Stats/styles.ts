@@ -41,7 +41,7 @@ export const itemWithColor = css`
     width: 1.2rem;
     height: 1.2rem;
 
-    background-color: var(--yellow);
+    background-color: var(--bisque);
   }
 
   span.first:before {

@@ -11,7 +11,7 @@ export const sellerInfo = css`
   gap: 1.2rem;
   flex-direction: row;
   align-items: center;
-
+  flex-wrap: wrap;
   a,
   a:visited {
     color: var(--klima-blue);
@@ -28,6 +28,7 @@ export const sellerBadge = css`
   align-self: flex-start;
   border-radius: var(--border-radius);
   color: var(--font-01);
+  white-space: nowrap;
 `;
 
 export const bestPriceBadge = css`
@@ -37,6 +38,7 @@ export const bestPriceBadge = css`
   align-self: flex-start;
   border-radius: var(--border-radius);
   color: var(--font-01);
+  white-space: nowrap;
 `;
 
 export const dates = css`

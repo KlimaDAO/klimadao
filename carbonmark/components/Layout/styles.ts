@@ -94,7 +94,7 @@ export const layoutChildrenContainer = css`
   padding: 1.6rem;
   align-content: flex-start;
   ${breakpoints.desktop} {
-    gap: 4rem 0rem;
+    gap: 2rem 0rem;
     padding: 4rem;
   }
 `;

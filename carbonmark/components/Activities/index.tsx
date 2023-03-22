@@ -25,7 +25,7 @@ export const Activities: FC<Props> = (props) => {
 
   return (
     <Card>
-      <Text t="h4">
+      <Text t="h4" color="lighter">
         <Trans>Activity</Trans>
       </Text>
       {!hasActivities && (

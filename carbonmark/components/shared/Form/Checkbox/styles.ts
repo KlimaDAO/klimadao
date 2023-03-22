@@ -19,13 +19,13 @@ export const baseStyles = css`
   /* Remove most all native input styles */
   appearance: none;
   /* For iOS < 15 */
-  background-color: var(--white);
+  background-color: var(--surface-02);
   /* Not removed via appearance */
   margin: 0;
 
   width: 1.6rem;
   height: 1.6rem;
-  border: 0.1rem solid var(--bright-blue);
+  border: 0.1rem solid var(--manatee);
   border-radius: 0.15em;
   transform: translateY(-0.08rem);
 

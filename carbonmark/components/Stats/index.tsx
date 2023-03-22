@@ -19,7 +19,7 @@ export const Stats: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.titles}>
-        <Text t="h4">
+        <Text t="h4" color="lighter">
           <Trans>Stats</Trans>
         </Text>
         <Text t="body1" color="lighter">
