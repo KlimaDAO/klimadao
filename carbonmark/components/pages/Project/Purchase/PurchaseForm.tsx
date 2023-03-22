@@ -1,4 +1,4 @@
-import { formatUnits, getTokenDecimals, useWeb3 } from "@klimadao/lib/utils";
+import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
@@ -9,6 +9,7 @@ import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -27,17 +28,18 @@ const TotalValue: FC<TotalValueProps> = (props) => {
   const amount = useWatch({ name: "amount", control: props.control });
   const price = Number(props.singlePrice) * Number(amount);
   const totalPrice = price + price * CARBONMARK_FEE || 0;
-
+  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
+  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
   useEffect(() => {
     // setValue on client only to prevent infinite loop
-    props.setValue("price", totalPrice.toString());
+    props.setValue("price", totalPriceFormatted);
   }, [amount]);
 
   return (
     <>
       <HighlightValue
-        label={t`Cost incl. ${CARBONMARK_FEE * 100}% fee`}
-        value={formatToPrice(totalPrice, locale)}
+        label={t`Listing cost, incl. ${CARBONMARK_FEE * 100}% fee`}
+        value={formatToPrice(totalPriceFormatted, locale)}
         icon={carbonmarkTokenInfoMap["usdc"].icon}
         warn={!!props.errorMessage}
       />

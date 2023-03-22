@@ -60,7 +60,8 @@ export type Listing = {
   deleted: boolean; // user deleted this listing
   batches: [];
   batchPrices: [];
-  singleUnitPrice: BigNumber;
+  /** Unformatted USDC e.g. 1000000 */
+  singleUnitPrice: string;
   project: {
     id: string;
     key: string;

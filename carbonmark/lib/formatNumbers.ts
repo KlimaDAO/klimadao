@@ -1,9 +1,9 @@
 import { formatUnits, trimWithLocale } from "@klimadao/lib/utils";
-import { BigNumber } from "ethers";
+import { BigNumber, BigNumberish } from "ethers";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 
 /** USDC only */
-export const formatBigToPrice = (value: BigNumber, locale = "en") => {
+export const formatBigToPrice = (value: BigNumberish, locale = "en") => {
   const toNumber = Number(formatUnits(value, getTokenDecimals("usdc")));
   return formatToPrice(toNumber, locale);
 };
