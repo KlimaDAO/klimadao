@@ -364,17 +364,6 @@ export const learnMoreSection = css`
     margin-bottom: 4rem;
   }
 
-  & a {
-    color: #fff;
-    margin: 0;
-    background: #000;
-    min-width: 13.5rem;
-
-    ${breakpoints.desktop} {
-      margin: 4.8rem auto 0;
-    }
-  }
-
   .card-wrapper div {
     min-height: 2.75rem;
 
@@ -610,7 +599,9 @@ export const cardContent = css`
   padding: 1.2rem 2rem 2rem;
   display: grid;
   gap: 1.2rem;
-
+  .readMore {
+    text-align: center;
+  }
   & h4 {
     font-weight: 700;
     font-size: 2rem;
@@ -690,6 +681,16 @@ export const section = css`
       }
     }
   }
+`;
+
+export const heroBackground = css`
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 40.1%,
+    rgba(255, 255, 255, 0.72) 100%
+  );
+  border-radius: 1rem;
+  padding: 2rem 2.4rem;
 `;
 
 export const sectionImage = css`
@@ -834,9 +835,7 @@ export const sectionImage = css`
 export const browseButton = css`
   width: auto;
   margin: 4rem auto 0;
-  font-size: 1.4rem;
-  color: var(--white) !important;
-  background-color: var(--bright-blue);
+  white-space: nowrap;
 
   ${breakpoints.desktop} {
     width: 19rem;

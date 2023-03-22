@@ -18,13 +18,6 @@ export const portfolioContent = css`
   ${breakpoints.desktop} {
     grid-template-columns: 2fr 1fr;
   }
-
-  a {
-    color: var(--bright-blue);
-    &:hover {
-      color: var(--bright-blue);
-    }
-  }
 `;
 
 export const errorMessage = css`

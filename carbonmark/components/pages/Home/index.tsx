@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
 import {
   Anchor as A,
-  ButtonPrimary,
   GridContainer,
   LinkedInIcon,
   LogoWithClaim,
@@ -21,6 +20,7 @@ import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
@@ -74,14 +74,14 @@ export const Home: NextPage<Props> = (props) => {
           <Image fill alt="Circle Tree" src="/circle-tree.png" />
         </div>
         <Navigation transparent activePage="Home" />
-        <div className="stack">
+        <div className={cx(["stack", styles.heroBackground])}>
           <Text t="h1" as="h1">
             The Universal Carbon Marketplace
           </Text>
           <Text t="body1" as="h2">
             The largest selection of digital carbon credits worldwide. Buy,
-            sell, and retire digital carbon from any project instantly with 0%
-            transaction fee.
+            sell, and retire digital carbon from any project instantly with
+            zero-commission trading.
           </Text>
           <ButtonPrimary
             href="/projects"
@@ -415,9 +415,11 @@ export const Home: NextPage<Props> = (props) => {
                     and always available. Learn more about what Carbonmark can
                     do for you as a carbon credit trader.
                   </Text>
-                  <Text t="h5" as="h6">
-                    Read more
-                  </Text>
+                  <A href="/blog/what-is-carbonmark">
+                    <Text t="h5" as="h6" className="readMore">
+                      Read more
+                    </Text>
+                  </A>
                 </div>
               </div>
               <div className={styles.card}>
@@ -438,9 +440,11 @@ export const Home: NextPage<Props> = (props) => {
                     Digital Carbon Market interface that easily connects buyers
                     and sellers of verified carbon credits.
                   </Text>
-                  <Text t="h5" as="h6">
-                    Read more
-                  </Text>
+                  <A href="/blog/carbonmark-faqs">
+                    <Text t="h5" as="h6" className="readMore">
+                      Read more
+                    </Text>
+                  </A>
                 </div>
               </div>
               <div className={styles.card}>
@@ -460,9 +464,11 @@ export const Home: NextPage<Props> = (props) => {
                     Learn more about Carbonmark's role in improving the Digital
                     Carbon Market - and the Voluntary Carbon Market as a whole.
                   </Text>
-                  <Text t="h5" as="h6">
-                    Read more
-                  </Text>
+                  <A href="/blog/carbonmarks-role-in-the-digital-carbon-market">
+                    <Text t="h5" as="h6" className="readMore">
+                      Read more
+                    </Text>
+                  </A>
                 </div>
               </div>
             </div>
@@ -485,8 +491,8 @@ export const Home: NextPage<Props> = (props) => {
             </A>
           </Text>
           <Text t="body1" className="description">
-            KlimaDAO provides the transparent, neutral, and public digital
-            carbon infrastructure to accelerate climate finance on a global
+            KlimaDAO provides the transparent, neutral, and public
+            infrastructure required to accelerate climate finance on a global
             scale.
           </Text>
         </div>
