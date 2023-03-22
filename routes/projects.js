@@ -83,16 +83,16 @@ module.exports = async function (fastify, opts) {
                     if (index != -1) {
                         project.isPoolProject = true;
 
-                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) != 0) {
+                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >= 1) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
                         }
-                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) != 0) {
+                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >= 1) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                         }
-                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceNTC) != 0) {
+                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceNTC) >= 1) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                         }
-                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) != 0) {
+                        if (parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >= 1) {
                             uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                         }
                         delete pooledProjectsData.carbonOffsets.splice(index, 1);
@@ -126,16 +126,16 @@ module.exports = async function (fastify, opts) {
                 const uniqueValues = [];
 
 
-                if (parseFloat(project.balanceUBO) > 0) {
+                if (parseFloat(project.balanceUBO) >= 1) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
                 }
-                if (parseFloat(project.balanceNBO) > 0) {
+                if (parseFloat(project.balanceNBO) >= 1) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
                 }
-                if (parseFloat(project.balanceNCT) > 0) {
+                if (parseFloat(project.balanceNCT) >= 1) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
                 }
-                if (parseFloat(project.balanceBCT) > 0) {
+                if (parseFloat(project.balanceBCT) >= 1) {
                     uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
                 }
 

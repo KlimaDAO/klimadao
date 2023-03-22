@@ -96,7 +96,7 @@ function convertArrayToObjects(arr) {
 function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
 
     var prices = [];
-    if (parseFloat(poolProject.balanceNBO) > 0) {
+    if (parseFloat(poolProject.balanceNBO) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
 
        prices.push({
@@ -106,7 +106,7 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
             name: 'NBO',
         })
     }
-    if (parseFloat(poolProject.balanceUBO) > 0) {
+    if (parseFloat(poolProject.balanceUBO) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
 
        prices.push({
@@ -116,7 +116,7 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
             name: 'UBO',
         })
     }
-    if (parseFloat(poolProject.balanceNCT) > 0) {
+    if (parseFloat(poolProject.balanceNCT) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "ntc")).price);
 
         prices.push({
@@ -126,7 +126,7 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
             name: 'NCT',
         })
     }
-    if (parseFloat(poolProject.balanceBCT) > 0) {
+    if (parseFloat(poolProject.balanceBCT) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "btc")).price);
 
         prices.push({
