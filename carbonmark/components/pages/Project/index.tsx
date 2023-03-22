@@ -59,11 +59,11 @@ export const Project: NextPage<Props> = (props) => {
 
   const pricesOrListings =
     !!sortedListingsAndPrices.length &&
-    sortedListingsAndPrices.map((option) => {
+    sortedListingsAndPrices.map((option, index) => {
       if (isPoolPrice(option)) {
         return (
           <PoolPrice
-            key={option.tokenAddress}
+            key={option.singleUnitPrice + index}
             price={option}
             project={props.project}
             isBestPrice={bestPrice === option.singleUnitPrice}
@@ -73,7 +73,7 @@ export const Project: NextPage<Props> = (props) => {
 
       return (
         <SellerListing
-          key={option.tokenAddress}
+          key={option.singleUnitPrice + index}
           project={props.project}
           listing={option}
           isBestPrice={bestPrice === option.singleUnitPrice}
