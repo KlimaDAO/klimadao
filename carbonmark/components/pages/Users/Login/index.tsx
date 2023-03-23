@@ -6,7 +6,7 @@ import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Stats } from "components/Stats";
-import { Col, TwoColLayout } from "components/TwoColLayout";
+import { Col } from "components/TwoColLayout";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ export const Login: NextPage = () => {
         <div className={styles.loginControls}>
           <LoginButton />
         </div>
-        <TwoColLayout>
+        <div className={styles.loginContent}>
           <Col>
             <LoginCard isLoading={isRedirecting} onLogin={toggleModal} />
           </Col>
@@ -46,7 +46,7 @@ export const Login: NextPage = () => {
             <Activities activities={[]} />
             <Stats description={t`Data for this seller`} />
           </Col>
-        </TwoColLayout>
+        </div>
       </Layout>
     </>
   );

@@ -7,6 +7,15 @@ export const loginControls = css`
   flex-direction: row-reverse;
 `;
 
+export const loginContent = css`
+  grid-column: main;
+  display: grid;
+  gap: 2.4rem;
+  ${breakpoints.desktop} {
+    grid-template-columns: 2fr 1fr;
+  }
+`;
+
 export const fullWidth = css`
   grid-column: main;
   display: flex;
