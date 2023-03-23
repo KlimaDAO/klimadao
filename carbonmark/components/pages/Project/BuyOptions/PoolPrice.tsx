@@ -42,7 +42,7 @@ export const PoolPrice: FC<Props> = (props) => {
           label={t`Buy` + ` ${props.price.name}`}
           href={createRedeemLink({
             projectTokenAddress: props.project.projectAddress,
-            poolName: props.price.name,
+            poolName: props.price.name.toLowerCase(),
           })}
           renderLink={(linkProps) => <Anchor {...linkProps} />}
         />
@@ -50,8 +50,8 @@ export const PoolPrice: FC<Props> = (props) => {
         <CarbonmarkButton
           label={t`Retire now`}
           href={createRetireLink({
-            quantity: props.price.leftToSell,
-            retirementToken: props.price.tokenAddress,
+            retirementToken: props.price.name.toLowerCase(),
+            projectTokens: props.project.projectAddress,
           })}
           renderLink={(linkProps) => <Anchor {...linkProps} />}
         />
