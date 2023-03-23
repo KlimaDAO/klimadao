@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 240,
+      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Carbonnmark Project Page", e);

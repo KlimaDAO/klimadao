@@ -38,13 +38,13 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 240,
+      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Carbonmark Projects Page", e);
     return {
       notFound: true,
-      revalidate: 240,
+      revalidate: 10,
     };
   }
 };
