@@ -4,10 +4,10 @@ import * as typography from "theme/typography";
 export const main = css`
   width: 100%;
   border-bottom: 1px solid var(--surface-02);
+  padding: 0.6rem 0;
 
   .content {
-    padding: 0 0.4rem;
-    padding-bottom: 1rem;
+    padding: 1rem 0.4rem;
     overflow: hidden;
     display: none;
     max-height: 0;

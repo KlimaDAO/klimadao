@@ -6,11 +6,11 @@ export const main = css`
     &:first-of-type {
       margin-top: 1.8rem;
     }
+    margin: 0.3rem 0;
   }
 
   form {
     display: grid;
-    grid-gap: inherit;
   }
 
   .modalContent {
@@ -28,6 +28,7 @@ export const main = css`
   .dropdown {
     text-align: left;
     width: 100%;
+    margin-bottom: 1.4rem;
     button {
       width: 100%;
     }
