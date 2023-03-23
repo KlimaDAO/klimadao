@@ -39,7 +39,7 @@ export const PoolPrice: FC<Props> = (props) => {
 
       <div className={styles.buttons}>
         <ButtonPrimary
-          label={t`Buy` + ` ${props.price.name}`}
+          label={t`Buy`}
           href={createRedeemLink({
             projectTokenAddress: props.project.projectAddress,
             poolName: props.price.name.toLowerCase(),
