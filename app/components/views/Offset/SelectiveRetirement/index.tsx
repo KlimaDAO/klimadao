@@ -38,9 +38,11 @@ export const SelectiveRetirement: FC<Props> = (props) => {
 
   /** clear selection when different retirement token is selected */
   useEffect(() => {
-    props.setSelectedProject(null);
-    props.setProjectAddress("");
-    setInputMode(defaultMode);
+    if (inputMode !== "address") {
+      props.setSelectedProject(null);
+      props.setProjectAddress("");
+      setInputMode(defaultMode);
+    }
   }, [props.selectedRetirementToken]);
 
   return (

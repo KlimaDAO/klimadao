@@ -61,6 +61,7 @@ import {
   setProjectToken,
   updateRetirement,
 } from "state/user";
+import { ProjectTokenDetails as PooledProjectTokenDetails } from "../Redeem/ProjectTokenDetails";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import { ProjectTokenDetails } from "./ProjectTokenDetails";
@@ -686,6 +687,17 @@ export const Offset = (props: Props) => {
                 symbol={projectTokens[selectedRetirementToken].symbol}
                 quantity={projectTokens[selectedRetirementToken].quantity}
                 address={selectedRetirementToken}
+              />
+            )}
+
+          {utils.isAddress(projectAddress) &&
+            !selectedProject &&
+            isPoolToken(selectedRetirementToken) &&
+            selectedRetirementToken !== "mco2" && (
+              /** Show supplemental details for the advanced input */
+              <PooledProjectTokenDetails
+                address={projectAddress}
+                pool={selectedRetirementToken}
               />
             )}
 
