@@ -32,7 +32,7 @@ export const Footer: FC<Props> = (props) => {
               <Trans>Terms of Use</Trans>
             </Text>
           </Link>
-          <Link href={urls.contact}>
+          <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
             <Text t="body4">
               <Trans>Contact</Trans>
             </Text>

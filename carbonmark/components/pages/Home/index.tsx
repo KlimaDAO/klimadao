@@ -495,7 +495,7 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/blog/terms-of-use">
               <Trans>Terms of use</Trans>
             </Link>
-            <Link href={urls.contact}>
+            <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
               <Trans>Contact</Trans>
             </Link>
             <Link href="/blog/getting-started">

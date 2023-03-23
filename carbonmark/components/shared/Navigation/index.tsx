@@ -76,13 +76,13 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t`About`}
           key="about"
-          url="/about"
+          url="/blog/introducing-carbonmark"
           active={activePage === "About"}
         />
         <LinkItemDesktop
           name={t`Help`}
           key="help"
-          url="/help"
+          url="/blog/getting-started"
           active={activePage === "Help"}
         />
       </HeaderDesktop>
