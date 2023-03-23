@@ -50,6 +50,7 @@ export const Home: FC = () => {
   const {
     address,
     isConnected,
+    initializing,
     disconnect,
     toggleModal,
     network,
@@ -239,6 +240,7 @@ export const Home: FC = () => {
                   address={address}
                   provider={provider}
                   isConnected={isConnected}
+                  initializing={initializing}
                   onRPCError={handleRPCError}
                   toggleModal={toggleModal}
                 />

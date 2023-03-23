@@ -120,6 +120,7 @@ export const useProvider = (): Web3ModalState => {
         address,
         network,
         isConnected: true,
+        initializing: false,
       };
       setWeb3State(newState);
     } catch (e: any) {
@@ -142,6 +143,8 @@ export const useProvider = (): Web3ModalState => {
     const wallet = localStorage.getItem("web3-wallet");
     if (wallet) {
       connect();
+    } else {
+      setWeb3State((s) => ({ ...s, initializing: false }));
     }
   }, []);
 
