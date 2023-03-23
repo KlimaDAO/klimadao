@@ -329,7 +329,7 @@ module.exports = async function (fastify, opts) {
 
 
 
-                    if (project.activities.length) {
+                    if (project.activities) {
                         const activities = project.activities;
 
                         await Promise.all(
