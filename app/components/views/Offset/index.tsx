@@ -80,6 +80,7 @@ export const isPoolToken = (str: string): str is PoolToken =>
 
 interface Props {
   provider?: providers.JsonRpcProvider;
+  initializing?: boolean;
   address?: string;
   isConnected: boolean;
   onRPCError: () => void;
@@ -170,6 +171,17 @@ export const Offset = (props: Props) => {
       setDebouncedQuantity(quantity);
     }
   }, [params]);
+
+  useEffect(() => {
+    if (
+      selectedRetirementToken &&
+      utils.isAddress(selectedRetirementToken) &&
+      !props.isConnected &&
+      !props.initializing
+    ) {
+      props.toggleModal();
+    }
+  }, [selectedRetirementToken, props.initializing, props.isConnected]);
 
   useEffect(() => {
     if (props.isConnected && props.address && props.provider) {
@@ -622,6 +634,17 @@ export const Offset = (props: Props) => {
 
   const projectTokenItems = Object.keys(projectTokens).map((key) => {
     const token = projectTokens[key];
+    // type safety, should never happen
+    if (!token) {
+      return {
+        disabled: true,
+        description: "",
+        key: "unknown",
+        icon: TCO2,
+        label: "unknown",
+      };
+    }
+    // TODO might be undefined?
     const isTCO2 = token.symbol.startsWith("TCO2");
     return {
       disabled: false,
@@ -924,7 +947,7 @@ export const Offset = (props: Props) => {
           tokenName={
             !isRetiringOwnCarbon
               ? paymentMethod
-              : projectTokens[selectedRetirementToken].symbol
+              : projectTokens[selectedRetirementToken]?.symbol || "unknown"
           }
           tokenIcon={
             !isRetiringOwnCarbon && paymentMethod !== "fiat"

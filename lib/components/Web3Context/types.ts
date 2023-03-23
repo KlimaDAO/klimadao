@@ -54,6 +54,7 @@ export interface ConnectedWeb3State {
   address: string;
   signer: providers.JsonRpcSigner;
   network: providers.Network;
+  initializing: false;
 }
 
 export interface DisconnectedWeb3State {
@@ -89,10 +90,12 @@ export type Web3ModalState = Web3State & {
   showModal: boolean;
   renderModal: (props: RenderModalProps) => JSX.Element;
   toggleModal: () => void;
+  initializing: boolean;
 };
 
 export const web3InitialState: Web3ModalState = {
   isConnected: false,
+  initializing: true,
   provider: undefined,
   web3Provider: undefined,
   address: undefined,
