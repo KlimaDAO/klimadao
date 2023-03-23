@@ -15,14 +15,16 @@ export const BlogPostCard = (props: BlogPostCardProps) => {
   return (
     <Link href={`/blog/${props.post.slug}`} className={styles.card}>
       <div className="content">
-        <Text t="body3" className="date">
+        <Text t="h5" className="date">
           {date}
         </Text>
-        <Text t="body1">{props.post.title}</Text>
-        <Text t="body2" className="summary">
+        <Text t="h5" className="title" color="lighter">
+          {props.post.title}
+        </Text>
+        <Text t="body1" className="summary">
           {props.post.summary}
         </Text>
-        <Text t="body3" className="read_more" style={{ marginTop: "auto" }}>
+        <Text t="button" color="lightest" style={{ marginTop: "auto" }}>
           Read more
         </Text>
       </div>

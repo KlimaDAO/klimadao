@@ -68,7 +68,7 @@ export const PostPage = (props: PostProps) => {
                 <Trans id="shared.resourcecenter">Resource Center</Trans>
               </Link>
 
-              <Text t="h2" as="h1">
+              <Text t="h1" as="h1" color="lighter">
                 {props.post.title}
               </Text>
 

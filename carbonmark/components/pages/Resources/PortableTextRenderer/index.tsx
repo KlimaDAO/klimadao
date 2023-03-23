@@ -26,7 +26,7 @@ const components: PortableTextComponents = {
       );
     },
   },
-  listItem: ({ children }) => <li className={styles.li}>{children}</li>,
+  listItem: ({ children }) => <li>{children}</li>,
 
   marks: {
     link: ({ children, value }) => {
@@ -49,28 +49,28 @@ const components: PortableTextComponents = {
 
   block: {
     h1: ({ children }) => (
-      <Text t="h3" as="h2" className={styles.heading}>
+      <Text t="h3" as="h2" color="lighter" className={styles.heading}>
         {children}
       </Text>
     ),
     h2: ({ children }) => (
-      <Text t="h4" as="h3" className={styles.heading}>
+      <Text t="h4" as="h3" color="lighter" className={styles.heading}>
         {children}
       </Text>
     ),
     h3: ({ children }) => (
-      <Text t="h4" as="h3" className={styles.heading}>
+      <Text t="h4" as="h3" color="lighter" className={styles.heading}>
         {children}
       </Text>
     ),
     h4: ({ children }) => (
-      <Text t="h4" as="h3" className={styles.heading}>
+      <Text t="h4" as="h3" color="lighter" className={styles.heading}>
         {children}
       </Text>
     ),
 
     normal: ({ children }) => (
-      <Text t="body2" className={styles.paragraph}>
+      <Text t="body5" className={styles.paragraph}>
         {children}
       </Text>
     ),

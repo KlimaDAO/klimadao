@@ -77,6 +77,15 @@ export const body4 = css`
   font-weight: 500;
 `;
 
+export const body5 = css`
+  font-family: var(--font-family);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.012rem;
+`;
+
 export const button = css`
   font-family: var(--font-family-secondary);
   text-transform: uppercase;

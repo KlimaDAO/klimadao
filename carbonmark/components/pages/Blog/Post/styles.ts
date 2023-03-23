@@ -73,7 +73,7 @@ export const content = css`
 
 export const date = css`
   margin: 2.4rem 0;
-  color: var(--font-03) !important;
+  color: var(--manatee) !important;
 `;
 
 export const fallbackContainer = css`

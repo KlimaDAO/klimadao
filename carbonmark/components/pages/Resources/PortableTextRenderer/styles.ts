@@ -1,13 +1,13 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
 export const heading = css`
-  margin: 4.8rem 0 3.2rem;
+  margin: 4.8rem 0 1.6rem;
+  font-weight: 700;
 `;
 
 export const paragraph = css`
-  margin: 2rem 0;
+  margin: 1rem 0;
   word-break: break-word;
 `;
 
@@ -39,26 +39,15 @@ export const link = css`
   }
 `;
 
-export const li = css`
-  margin-bottom: 1.5rem;
-  line-height: 3.4rem;
-  ${typography.body2}
-  ${breakpoints.large} {
-    line-height: 3.8rem;
-  }
-`;
-
 export const ul = css`
-  margin: 2rem;
+  margin: 1.2rem;
   margin-inline-start: 1.5rem;
-  color: var(--font-01);
 `;
 
 export const ol = css`
   ${typography.body2}
   margin: 2rem 0;
   margin-inline-start: 3.5rem;
-  color: var(--font-01);
 `;
 
 export const nestedUl = css`
