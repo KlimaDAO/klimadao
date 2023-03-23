@@ -327,8 +327,6 @@ module.exports = async function (fastify, opts) {
                     }
                     project.price = uniqueValues.length ? uniqueValues.reduce((a, b) => a.length < b.length ? a : (a.length === b.length && a < b ? a : b)) : "0";
 
-
-
                     if (project.activities) {
                         const activities = project.activities;
 

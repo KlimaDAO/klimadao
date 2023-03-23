@@ -305,7 +305,7 @@ module.exports = async function (fastify, opts) {
         }),
         fastify.route({
             method: 'PUT',
-           onRequest: [fastify.authenticate],
+            onRequest: [fastify.authenticate],
             path: '/users/:wallet',
             schema: {
                 tags: ["user"],
@@ -315,7 +315,7 @@ module.exports = async function (fastify, opts) {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
                         description: { type: 'string', minLength: 2, maxLength: 500 },
-                        profileImgUrl:  { type: 'string', minLength: 2, maxLength: 200 }
+                        profileImgUrl:  { type: 'string', nullable: true}
                     },
                 },
                 response: {
@@ -337,15 +337,19 @@ module.exports = async function (fastify, opts) {
                 const { wallet, username, description, profileImgUrl } = request.body;
 
                 try {
+                    let updatedData = {
+                        username: username,
+                        description: description
+                    }
+                    if (profileImgUrl){
+                        updatedData.profileImgUrl = profileImgUrl;
+                    }
                     // Try updating the user document with the specified data
                     await fastify.firebase.firestore()
                         .collection("users")
-                        .doc(wallet.toUpperCase()).update({
-                            username: username,
-                            description: description,
-                            profileImgUrl: profileImgUrl
-
-                        });
+                        .doc(wallet.toUpperCase()).update(
+                            updatedData 
+                        );
                     // If the update is successful, return the request body
                     return reply.send(request.body);
                 } catch (err) {
