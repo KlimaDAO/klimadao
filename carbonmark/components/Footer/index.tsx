@@ -22,32 +22,32 @@ export const Footer: FC<Props> = (props) => {
     <footer className={cx(styles.footer(props.transparent), props.className)}>
       <div className={cx(styles.footer_content, "footer_content")}>
         <nav className={cx(styles.footer_nav, "footer_nav")}>
-          <Link href="/">
+          <Link href="/blog/privacy-policy">
             <Text t="body4">
               <Trans>Privacy Policy</Trans>
             </Text>
           </Link>
-          <Link href="/">
+          <Link href="/blog/terms-of-use">
             <Text t="body4">
               <Trans>Terms of Use</Trans>
             </Text>
           </Link>
-          <Link href="/">
+          <Link href={urls.contact}>
             <Text t="body4">
               <Trans>Contact</Trans>
             </Text>
           </Link>
-          <Link href="/">
+          <Link href="/blog/getting-started">
             <Text t="body4">
               <Trans>Help</Trans>
             </Text>
           </Link>
-          <Link href="/">
+          <Link href="/resources">
             <Text t="body4">
               <Trans>Resources</Trans>
             </Text>
           </Link>
-          <Link href={urls.app}>
+          <Link href={urls.home}>
             <Text t="body4">
               <Trans>KlimaDAO</Trans>
             </Text>

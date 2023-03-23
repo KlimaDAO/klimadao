@@ -500,19 +500,19 @@ export const Home: NextPage<Props> = (props) => {
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <nav className={styles.footerNav}>
-            <Link href="/">
+            <Link href="/blog/privacy-policy">
               <Trans>Privacy policy</Trans>
             </Link>
-            <Link href="/">
+            <Link href="/blog/terms-of-use">
               <Trans>Terms of use</Trans>
             </Link>
-            <Link href="/">
+            <Link href={urls.contact}>
               <Trans>Contact</Trans>
             </Link>
-            <Link href="/">
+            <Link href="/blog/getting-started">
               <Trans>Help</Trans>
             </Link>
-            <Link href="/">
+            <Link href="/resources">
               <Trans>Resources</Trans>
             </Link>
             <A href={urls.home}>
