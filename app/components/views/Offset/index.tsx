@@ -103,25 +103,34 @@ export const Offset = (props: Props) => {
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
-  const [paymentMethod, setPaymentMethod] =
-    useState<OffsetPaymentMethod>("fiat");
+  const [paymentMethod, setPaymentMethod] = useState<OffsetPaymentMethod>(
+    params.inputToken || "fiat"
+  );
   /** This is a token name or an 0x address for tco2/c3t token */
   const [selectedRetirementToken, setSelectedRetirementToken] = useState<
     RetirementToken | string
-  >("bct");
+  >(params.retirementToken || "bct");
   /** When selecting tco2 or c3t this is `true` */
   const isRetiringOwnCarbon = !isPoolToken(selectedRetirementToken);
 
   // form state
-  const [quantity, setQuantity] = useState("");
-  const [debouncedQuantity, setDebouncedQuantity] = useState("");
+  const [quantity, setQuantity] = useState(params.quantity || "");
+  const [debouncedQuantity, setDebouncedQuantity] = useState(
+    params.quantity || ""
+  );
   const debounceTimerRef = useRef<NodeJS.Timeout | undefined>();
   const [cost, setCost] = useState("");
-  const [beneficiary, setBeneficiary] = useState("");
-  const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
-  const [retirementMessage, setRetirementMessage] = useState("");
+  const [beneficiary, setBeneficiary] = useState(params.beneficiary || "");
+  const [beneficiaryAddress, setBeneficiaryAddress] = useState(
+    params.beneficiaryAddress || ""
+  );
+  const [retirementMessage, setRetirementMessage] = useState(
+    params.message || ""
+  );
   // for selective retirement
-  const [projectAddress, setProjectAddress] = useState("");
+  const [projectAddress, setProjectAddress] = useState(
+    params.projectTokens || ""
+  );
   const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
     null
   );
@@ -138,39 +147,15 @@ export const Offset = (props: Props) => {
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
-  /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
-    if (params.inputToken) {
-      setPaymentMethod(params.inputToken);
-    }
-    if (params.retirementToken) {
-      // can also be 0x address for tco2/c3t
-      setSelectedRetirementToken(params.retirementToken);
-    }
-    if (params.message) {
-      setRetirementMessage(params.message);
-    }
-    if (params.beneficiary) {
-      setBeneficiary(params.beneficiary);
-    }
-    if (params.beneficiaryAddress) {
-      setBeneficiaryAddress(params.beneficiaryAddress);
-    }
-    if (params.projectTokens) {
-      // these are for selective retirement within a retirementToken
-      setProjectAddress(params.projectTokens);
-    }
-    if (params.quantity) {
+    if (params.quantity && paymentMethod === "fiat") {
       // handles the case where a decimal value for quantity is passed
       // as a query param - we convert it to a whole number (1.123 -> 2)
-      const quantity =
-        paymentMethod === "fiat"
-          ? Math.ceil(Number(params.quantity)).toString()
-          : params.quantity;
-      setQuantity(quantity);
-      setDebouncedQuantity(quantity);
+      const newQuantity = Math.ceil(Number(params.quantity)).toString();
+      setQuantity(newQuantity);
+      setDebouncedQuantity(newQuantity);
     }
-  }, [params]);
+  }, [params.quantity]);
 
   useEffect(() => {
     if (
