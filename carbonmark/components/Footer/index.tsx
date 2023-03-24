@@ -10,6 +10,7 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Text } from "components/Text";
+import { urls as carbonmarkUrls } from "lib/constants";
 import * as styles from "./styles";
 
 interface Props {
@@ -37,7 +38,7 @@ export const Footer: FC<Props> = (props) => {
               <Trans>Contact</Trans>
             </Text>
           </Link>
-          <Link href="/blog/getting-started">
+          <Link href={carbonmarkUrls.help}>
             <Text t="body4">
               <Trans>Help</Trans>
             </Text>

@@ -7,21 +7,30 @@ import { PageHead } from "components/PageHead";
 import PortableTextRenderer from "components/pages/Resources/PortableTextRenderer";
 import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { Post } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import defaultImage from "public/cover-default.png";
 import * as styles from "./styles";
-
 interface PostProps {
   post?: Post;
 }
 
 export const PostPage = (props: PostProps) => {
+  const { asPath } = useRouter();
+  const activePage =
+    asPath === carbonmarkUrls.about
+      ? "About"
+      : carbonmarkUrls.help
+      ? "Help"
+      : "Resources";
+
   if (!props.post) {
     return (
       <>
-        <Navigation activePage="Resources" showThemeToggle={false} />
+        <Navigation activePage={activePage} showThemeToggle={false} />
         <div className={styles.fallbackContainer}>
           {/* TODO: worth restyling this */}
           <Text className={styles.loadingArticle}>Loading article...</Text>
@@ -34,7 +43,6 @@ export const PostPage = (props: PostProps) => {
   const publishedDate = `Published ${new Date(
     props.post.publishedAt
   ).toDateString()}`;
-
   return (
     <>
       <GridContainer>
@@ -46,7 +54,7 @@ export const PostPage = (props: PostProps) => {
           isArticle={true}
         />
 
-        <Navigation activePage="Resources" showThemeToggle={false} />
+        <Navigation activePage={activePage} showThemeToggle={false} />
 
         <div className={styles.container}>
           <div className={styles.banner}>

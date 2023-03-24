@@ -28,6 +28,7 @@ import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { Project } from "lib/types/carbonmark";
@@ -498,7 +499,7 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
               <Trans>Contact</Trans>
             </Link>
-            <Link href="/blog/getting-started">
+            <Link href={carbonmarkUrls.help}>
               <Trans>Help</Trans>
             </Link>
             <Link href="/resources">

@@ -1,12 +1,14 @@
 import { t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
+import { urls } from "lib/constants";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FC } from "react";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { LinkItemDesktop } from "./LinkItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";
+
 import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
@@ -76,13 +78,13 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t`About`}
           key="about"
-          url="/blog/introducing-carbonmark"
+          url={urls.about}
           active={activePage === "About"}
         />
         <LinkItemDesktop
           name={t`Help`}
           key="help"
-          url="/blog/getting-started"
+          url={urls.help}
           active={activePage === "Help"}
         />
       </HeaderDesktop>
