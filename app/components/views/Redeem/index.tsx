@@ -72,14 +72,19 @@ export const Redeem = (props: Props) => {
   const params = useRedeemParams();
 
   // form input states
-  const [quantity, setQuantity] = useState("");
-  const [pool, setPool] = useState<RedeemablePoolToken>("bct");
-  const [projectTokenAddress, setProjectTokenAddress] = useState("");
-  const [paymentMethod, setPaymentMethod] =
-    useState<RedeemPaymentMethod>("usdc");
+  const [quantity, setQuantity] = useState(params.quantity || "");
+  const [pool, setPool] = useState<RedeemablePoolToken>(params.pool || "bct");
+  const [projectTokenAddress, setProjectTokenAddress] = useState(
+    params.projectTokenAddress || ""
+  );
+  const [paymentMethod, setPaymentMethod] = useState<RedeemPaymentMethod>(
+    params.paymentMethod || "usdc"
+  );
 
   // debounce quantity
-  const [debouncedQuantity, setDebouncedQuantity] = useState("");
+  const [debouncedQuantity, setDebouncedQuantity] = useState(
+    params.quantity || ""
+  );
   const debounceTimerRef = useRef<NodeJS.Timeout | undefined>();
 
   // ui states
@@ -103,23 +108,6 @@ export const Redeem = (props: Props) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
-
-  /** Initialize input from params after they are extracted, validated & stripped */
-  useEffect(() => {
-    if (params.paymentMethod) {
-      setPaymentMethod(params.paymentMethod);
-    }
-    if (params.pool) {
-      setPool(params.pool);
-    }
-    if (params.projectTokenAddress) {
-      setProjectTokenAddress(params.projectTokenAddress);
-    }
-    if (params.quantity) {
-      setQuantity(params.quantity);
-      setDebouncedQuantity(quantity);
-    }
-  }, [params]);
 
   useEffect(() => {
     if (props.isConnected && props.address && props.provider) {

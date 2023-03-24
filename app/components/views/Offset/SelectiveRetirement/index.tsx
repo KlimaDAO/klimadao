@@ -23,7 +23,11 @@ type Props = {
 type InputMode = "default" | "search" | "address";
 
 export const SelectiveRetirement: FC<Props> = (props) => {
-  const defaultMode = props.disableDefault ? "search" : "default";
+  const defaultMode = props.disableDefault
+    ? "search"
+    : props.projectAddress
+    ? "address"
+    : "default";
   const [inputMode, setInputMode] = useState<InputMode>(defaultMode);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,7 +42,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
 
   /** clear selection when different retirement token is selected */
   useEffect(() => {
-    if (inputMode !== "address") {
+    if (props.selectedProject) {
       props.setSelectedProject(null);
       props.setProjectAddress("");
       setInputMode(defaultMode);

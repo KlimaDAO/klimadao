@@ -47,6 +47,30 @@ const isValidToken = <T extends readonly string[]>(
   arr: T
 ): str is T[number] => arr.includes(str);
 
+const parseRedeemParams = (params: URLSearchParams) => {
+  const data: RedeemParams = {};
+  inputParams.forEach((param) => {
+    if (param === "pool") {
+      const pool = params.get("pool")?.toLowerCase() || undefined;
+      data[param] =
+        pool && isValidToken(pool, redeemablePoolTokens) ? pool : undefined;
+    } else if (param === "paymentMethod") {
+      const method = params.get("paymentMethod")?.toLowerCase() || undefined;
+      data[param] =
+        method && isValidToken(method, redeemPaymentMethods)
+          ? method
+          : undefined;
+    } else if (param === "projectTokenAddress") {
+      const tkn = params.get("projectTokenAddress")?.toLowerCase() || undefined;
+      data[param] = tkn && utils.isAddress(tkn) ? tkn : undefined;
+    } else if (param === "quantity") {
+      const quantity = params.get(param);
+      data[param] = quantity && Number(quantity) ? quantity : undefined;
+    }
+  });
+  return data;
+};
+
 /**
  * For the Redeem view in the app. On mount, validates, extracts and strips the search params from the url and returns them as a typed object.
  * @example http://app.klimadao.finance/#/redeem
@@ -57,33 +81,9 @@ const isValidToken = <T extends readonly string[]>(
  * */
 export const useRedeemParams = (): RedeemParams => {
   const [params, setParams] = useSearchParams();
-  const [state, setState] = useState<RedeemParams>({});
+  const [state] = useState<RedeemParams>(parseRedeemParams(params));
 
   useEffect(() => {
-    const data: RedeemParams = {};
-    inputParams.forEach((param) => {
-      if (param === "pool") {
-        const pool = params.get("pool")?.toLowerCase() || undefined;
-        data[param] =
-          pool && isValidToken(pool, redeemablePoolTokens) ? pool : undefined;
-      } else if (param === "paymentMethod") {
-        const method = params.get("paymentMethod")?.toLowerCase() || undefined;
-        data[param] =
-          method && isValidToken(method, redeemPaymentMethods)
-            ? method
-            : undefined;
-      } else if (param === "projectTokenAddress") {
-        const tkn =
-          params.get("projectTokenAddress")?.toLowerCase() || undefined;
-        data[param] = tkn && utils.isAddress(tkn) ? tkn : undefined;
-      } else if (param === "quantity") {
-        const quantity = params.get(param);
-        data[param] = quantity && Number(quantity) ? quantity : undefined;
-      }
-    });
-
-    // set state to trigger re-render in parent component
-    setState(data);
     // strip the params from the browser url
     const strippedParams = Object.fromEntries(params.entries());
     for (const key of inputParams) {
