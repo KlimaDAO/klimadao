@@ -684,11 +684,6 @@ export const section = css`
 `;
 
 export const heroBackground = css`
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 40.1%,
-    rgba(255, 255, 255, 0.72) 100%
-  );
   border-radius: 1rem;
   padding: 2rem 2.4rem;
 `;

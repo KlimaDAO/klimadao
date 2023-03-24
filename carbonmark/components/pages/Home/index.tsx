@@ -53,7 +53,12 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription={t`The open platform for digital carbon.`}
       />
       <Section className={styles.hero}>
-        <Image fill data-desktop-only alt="Carbonmark Hero" src="/hero.jpeg" />
+        <Image
+          fill
+          data-desktop-only
+          alt="Carbonmark Hero"
+          src="/landing-hero-1.jpg"
+        />
         <Image
           fill
           data-mobile-only
