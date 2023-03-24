@@ -15,6 +15,8 @@ import "@klimadao/lib/theme/variables.css";
 import "@klimadao/carbonmark/theme/variables.css"; // overrides for variables.css - must be imported after
 // organize-imports-ignore
 import "@klimadao/lib/theme/globals.css"; // depends on variables
+// organize-imports-ignore
+import "@klimadao/carbonmark/theme/globals.css"; // carbonmark specific overrides for globals.css
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
