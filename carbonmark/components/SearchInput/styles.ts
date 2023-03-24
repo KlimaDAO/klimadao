@@ -1,6 +1,9 @@
 import { css } from "@emotion/css";
 
 export const input = css`
+  // This is to override safari's rounded corners behaviour
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
   background: var(--surface-01);
   border: unset;
   border-radius: var(--border-radius) 0 0 var(--border-radius);
