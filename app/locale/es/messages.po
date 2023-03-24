@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-23 20:29+0000\n"
+"POT-Creation-Date: 2023-03-24 23:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,20 +11,20 @@ msgstr ""
 msgid "Balances"
 msgstr "Saldos"
 
-#: components/views/Offset/index.tsx:813
+#: components/views/Offset/index.tsx:798
 msgid "Beneficiary 0x address (optional)"
 msgstr "Dirección 0x del beneficiario (opcional)"
 
-#: components/views/Offset/index.tsx:801
+#: components/views/Offset/index.tsx:786
 msgid "Beneficiary name"
 msgstr "Nombre del Beneficiario"
 
-#: components/views/Redeem/index.tsx:373
+#: components/views/Redeem/index.tsx:361
 msgid "Buy & Redeem Carbon"
 msgstr "Comprar y canjear carbono"
 
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:514
+#: components/views/Redeem/index.tsx:502
 msgid "Buy Carbon"
 msgstr "Comprar Carbono"
 
@@ -32,15 +32,15 @@ msgstr "Comprar Carbono"
 msgid "Capacity"
 msgstr "Capacidad"
 
-#: components/views/Redeem/index.tsx:289
+#: components/views/Redeem/index.tsx:277
 msgid "Continue"
 msgstr "Continuar"
 
-#: components/views/Redeem/index.tsx:429
+#: components/views/Redeem/index.tsx:417
 msgid "Enter quantity"
 msgstr "Introduce la cantidad"
 
-#: components/views/Redeem/index.tsx:411
+#: components/views/Redeem/index.tsx:399
 msgid "How many tonnes would you like to acquire?"
 msgstr "¿Cuántas toneladas le gustaría adquirir?"
 
@@ -53,7 +53,7 @@ msgstr "Cargando saldos..."
 msgid "Loading project info..."
 msgstr "Cargando información del proyecto..."
 
-#: components/views/Redeem/index.tsx:250
+#: components/views/Redeem/index.tsx:238
 msgid "Loading..."
 msgstr "Cargando..."
 
@@ -65,7 +65,7 @@ msgstr "No se encontraron saldos."
 msgid "Not Connected"
 msgstr ""
 
-#: components/views/Offset/index.tsx:674
+#: components/views/Offset/index.tsx:659
 msgid "Offset"
 msgstr "Compensación"
 
@@ -73,15 +73,15 @@ msgstr "Compensación"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "El 12 de abril de 2022 migramos de \"dapp\" a \"app\". Por favor, actualice sus marcadores."
 
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:662
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "Pague con fiat o cripto, o retire créditos que ya posea. Su mensaje y sus datos quedarán inscritos de forma permanente en la blockchain. Más información sobre los tokens compatibles en nuestros <0>docs</0>."
 
-#: components/views/Redeem/index.tsx:485
+#: components/views/Redeem/index.tsx:473
 msgid "Payment Method"
 msgstr "Método de pago"
 
-#: components/views/Redeem/index.tsx:484
+#: components/views/Redeem/index.tsx:472
 msgid "Payment method"
 msgstr "Método de pago"
 
@@ -90,16 +90,16 @@ msgstr "Método de pago"
 msgid "Project details <0/>"
 msgstr "Detalles del proyecto <0/>"
 
-#: components/views/Redeem/index.tsx:386
-#: components/views/Redeem/index.tsx:387
+#: components/views/Redeem/index.tsx:374
+#: components/views/Redeem/index.tsx:375
 msgid "Select carbon pool"
 msgstr "Seleccionar depósito de carbono"
 
-#: components/views/Offset/index.tsx:688
+#: components/views/Offset/index.tsx:673
 msgid "Select carbon token to retire"
 msgstr "Seleccionar token de carbono para retirar"
 
-#: components/views/Offset/index.tsx:689
+#: components/views/Offset/index.tsx:674
 msgid "Select token"
 msgstr "Seleccionar token"
 
@@ -111,7 +111,7 @@ msgstr "Cambiar a Polygon"
 msgid "This app only works on Polygon Mainnet."
 msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 
-#: components/views/Redeem/index.tsx:453
+#: components/views/Redeem/index.tsx:441
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "Este coste incluye el slippage y las comisiones de reembolso cobradas por el pool."
 
@@ -141,7 +141,7 @@ msgstr "Red incorrecta"
 msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Credit card support is coming soon."
 msgstr "Tienes que cargar tu monedero con USDC, KLIMA o un token del pool de carbono. Próximamente se admitirán tarjetas de crédito."
 
-#: components/views/Redeem/index.tsx:473
+#: components/views/Redeem/index.tsx:461
 msgid "You receive"
 msgstr "Recibiras"
 
@@ -454,7 +454,7 @@ msgstr "Error de conexión"
 msgid "error.404.page.text"
 msgstr "Lo sentimos, parece que te enviamos por el camino equivocado. <0/>Seleccione un destino del menú."
 
-#: components/views/Offset/index.tsx:868
+#: components/views/Offset/index.tsx:853
 msgid "fiat.max_quantity"
 msgstr "${0} máximo para tarjetas de crédito"
 
@@ -573,23 +573,23 @@ msgstr "CONFIRMACIÓN"
 msgid "nav.back"
 msgstr "VOLVER"
 
-#: components/views/Offset/index.tsx:851
+#: components/views/Offset/index.tsx:836
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Este coste incluye el slippage y la tasa de agregación del 1%."
 
-#: components/views/Offset/index.tsx:730
+#: components/views/Offset/index.tsx:715
 msgid "offset.amount_in_tonnes"
 msgstr "¿Cuántas toneladas de carbono le gustaría compensar?"
 
-#: components/views/Offset/index.tsx:540
+#: components/views/Offset/index.tsx:525
 msgid "offset.checkout"
 msgstr "Checkout"
 
-#: components/views/Offset/index.tsx:816
+#: components/views/Offset/index.tsx:801
 msgid "offset.default_retirement_address"
 msgstr "Por defecto, la dirección del monedero conectado"
 
-#: components/views/Offset/index.tsx:896
+#: components/views/Offset/index.tsx:881
 msgid "offset.dropdown_payWith.label"
 msgstr "Pagar con"
 
@@ -597,26 +597,26 @@ msgstr "Pagar con"
 msgid "offset.enter_address"
 msgstr "Ingrese la dirección 0x"
 
-#: components/views/Offset/index.tsx:628
-#: components/views/Redeem/index.tsx:351
+#: components/views/Offset/index.tsx:613
+#: components/views/Redeem/index.tsx:339
 msgid "offset.incompatible"
 msgstr "TOKEN INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:508
-#: components/views/Redeem/index.tsx:260
+#: components/views/Offset/index.tsx:493
+#: components/views/Redeem/index.tsx:248
 msgid "offset.insufficient_project_tonnage"
 msgstr "Proyecto de tonelaje insuficiente"
 
-#: components/views/Offset/index.tsx:774
-#: components/views/Redeem/index.tsx:438
+#: components/views/Offset/index.tsx:759
+#: components/views/Redeem/index.tsx:426
 msgid "offset.invalid_project_tonnage"
 msgstr "No puede superar el tonelaje disponible del proyecto seleccionado"
 
-#: components/views/Offset/index.tsx:783
+#: components/views/Offset/index.tsx:768
 msgid "offset.min_quantity_fiat"
 msgstr "Compra mínima de 1 tonelada. Sólo números enteros."
 
-#: components/views/Offset/index.tsx:900
+#: components/views/Offset/index.tsx:885
 msgid "offset.modal_payWith.title"
 msgstr "Seleccionar token"
 
@@ -624,39 +624,39 @@ msgstr "Seleccionar token"
 msgid "offset.number_of_retirements"
 msgstr "Total de retiros"
 
-#: components/views/Offset/index.tsx:762
+#: components/views/Offset/index.tsx:747
 msgid "offset.offset_quantity"
 msgstr "Ingrese la cantidad a compensar"
 
-#: components/views/Offset/index.tsx:943
+#: components/views/Offset/index.tsx:928
 msgid "offset.retire_carbon"
 msgstr "RETIRA CARBONO"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:52
+#: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
 msgstr "Retirar tokens de proyectos específicos (opcional)"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:58
+#: components/views/Offset/SelectiveRetirement/index.tsx:62
 msgid "offset.retire_specific_tooltip"
 msgstr "Sujeto a una tasa adicional, determinada por el pool seleccionado y pagada al proveedor del puente."
 
-#: components/views/Offset/index.tsx:793
+#: components/views/Offset/index.tsx:778
 msgid "offset.retirement_credit"
 msgstr "¿A quién se acreditará esta retirada?"
 
-#: components/views/Offset/index.tsx:827
+#: components/views/Offset/index.tsx:812
 msgid "offset.retirement_message"
 msgstr "Mensaje de Retiro"
 
-#: components/views/Offset/index.tsx:836
+#: components/views/Offset/index.tsx:821
 msgid "offset.retirement_purpose"
 msgstr "Describa el objetivo de esta retirada"
 
-#: components/views/Offset/index.tsx:881
+#: components/views/Offset/index.tsx:866
 msgid "offset.retiring"
 msgstr "Retirando"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:94
+#: components/views/Offset/SelectiveRetirement/index.tsx:98
 msgid "offset.selectiveRetirement.address_input_type"
 msgstr "Dirección 0x"
 
@@ -676,7 +676,7 @@ msgstr "Confirmar selección"
 msgid "offset.selectiveRetirement.confirmation_message"
 msgstr "¿Está seguro de que desea seleccionar el siguiente proyecto?"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:73
+#: components/views/Offset/SelectiveRetirement/index.tsx:77
 msgid "offset.selectiveRetirement.default_input_type"
 msgstr "Por defecto"
 
@@ -712,11 +712,11 @@ msgstr "Buscando proyectos..."
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "Toneladas disponibles: {0}"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:108
+#: components/views/Offset/SelectiveRetirement/index.tsx:112
 msgid "offset.selectiveRetirement.retire_from_default_pool"
 msgstr "Permite retirar el proyecto predeterminado de el pool. Esta opción evita el pago de tasas adicionales."
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:85
+#: components/views/Offset/SelectiveRetirement/index.tsx:89
 msgid "offset.selectiveRetirement.search_input_type"
 msgstr "Buscar proyecto"
 
@@ -760,12 +760,12 @@ msgstr "Ver los retiros"
 msgid "offset.you_have_retired"
 msgstr "Has retirado"
 
-#: components/views/Offset/index.tsx:847
-#: components/views/Redeem/index.tsx:449
+#: components/views/Offset/index.tsx:832
+#: components/views/Redeem/index.tsx:437
 msgid "offset_cost"
 msgstr "Costo"
 
-#: components/views/Offset/index.tsx:916
+#: components/views/Offset/index.tsx:901
 msgid "offset_disclaimer"
 msgstr "Tenga cuidado de no exponer ninguna información personal sensible. Su mensaje no puede ser editado y existirá permanentemente en un blockchain público."
 
@@ -833,7 +833,7 @@ msgstr "Un porcentaje del suministro total de tokens. Su demanda ajustada al ín
 msgid "pklima.update"
 msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hecho staking y ganado recompensas sobre tokens previamente reclamados. Antes de la corrección de noviembre, estas recompensas de staking no se contaban para el límite de la cuota de suministro, lo que significaba que su cuota del suministro total de KLIMA podía superar el límite definido en sus condiciones."
 
-#: components/views/Redeem/index.tsx:376
+#: components/views/Redeem/index.tsx:364
 msgid "redeem.description"
 msgstr "Adquiera tokens para un proyecto específico de compensación de carbono. Los tokens del proyecto se canjearán de un fondo de carbono y se transferirán a tu monedero, para que puedas canjearlos o retirarlos más tarde."
 
@@ -843,8 +843,8 @@ msgstr "404 Pagina no encontrada"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:545
-#: components/views/Redeem/index.tsx:284
+#: components/views/Offset/index.tsx:530
+#: components/views/Redeem/index.tsx:272
 #: components/views/Stake/index.tsx:254
 #: components/views/Wrap/index.tsx:232
 msgid "shared.approve"
@@ -877,19 +877,19 @@ msgstr "Cargando..."
 msgid "shared.enter_amount"
 msgstr "Ingrese la cantidad"
 
-#: components/views/Offset/index.tsx:484
+#: components/views/Offset/index.tsx:469
 msgid "shared.enter_beneficiary"
 msgstr "Ingrese el nombre del beneficiario"
 
 #: components/views/Bond/index.tsx:417
-#: components/views/Offset/index.tsx:479
-#: components/views/Redeem/index.tsx:255
+#: components/views/Offset/index.tsx:464
+#: components/views/Redeem/index.tsx:243
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "shared.enter_quantity"
 msgstr "INTRODUCIR CANTIDAD"
 
-#: components/views/Offset/index.tsx:492
+#: components/views/Offset/index.tsx:477
 msgid "shared.enter_retirement_message"
 msgstr "Introducir el mensaje de retirada"
 
@@ -900,23 +900,23 @@ msgstr "Introducir el mensaje de retirada"
 msgid "shared.error"
 msgstr "ERROR"
 
-#: components/views/Offset/index.tsx:532
-#: components/views/Redeem/index.tsx:276
+#: components/views/Offset/index.tsx:517
+#: components/views/Redeem/index.tsx:264
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "shared.insufficient_balance"
 msgstr "SALDO INSUFICIENTE"
 
-#: components/views/Offset/index.tsx:500
+#: components/views/Offset/index.tsx:485
 msgid "shared.invalid_beneficiary_addr"
 msgstr "Dirección del beneficiario no válida"
 
-#: components/views/Offset/index.tsx:524
-#: components/views/Redeem/index.tsx:268
+#: components/views/Offset/index.tsx:509
+#: components/views/Redeem/index.tsx:256
 msgid "shared.invalid_project_address"
 msgstr "Dirección del proyecto no válida"
 
-#: components/views/Offset/index.tsx:516
+#: components/views/Offset/index.tsx:501
 msgid "shared.invalid_quantity"
 msgstr "Cantidad inválida"
 
@@ -924,10 +924,10 @@ msgstr "Cantidad inválida"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:411
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:466
-#: components/views/Offset/index.tsx:607
+#: components/views/Offset/index.tsx:451
+#: components/views/Offset/index.tsx:592
 #: components/views/PKlima/index.tsx:157
-#: components/views/Redeem/index.tsx:337
+#: components/views/Redeem/index.tsx:325
 #: components/views/Stake/index.tsx:432
 #: components/views/Stake/index.tsx:439
 #: components/views/Stake/index.tsx:446
@@ -942,9 +942,9 @@ msgstr "Iniciar sesión"
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:458
+#: components/views/Offset/index.tsx:443
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:242
+#: components/views/Redeem/index.tsx:230
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -957,11 +957,11 @@ msgstr "Iniciar sesión / Conectar"
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:471
+#: components/views/Offset/index.tsx:456
 msgid "shared.redirecting_checkout"
 msgstr "Redirigiendo a la caja..."
 
-#: components/views/Offset/index.tsx:550
+#: components/views/Offset/index.tsx:535
 msgid "shared.retire"
 msgstr "Retirar carbono"
 
