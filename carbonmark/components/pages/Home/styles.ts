@@ -23,32 +23,16 @@ export const hero = css`
   grid-template-columns: inherit;
   position: relative;
 
-  & img {
+  .hero_img {
     z-index: 1;
+    filter: blur(4px);
+    opacity: 70%;
     object-fit: cover;
-    object-position: -0.25rem 1rem;
-  }
-
-  & .circle-tree {
-    position: absolute;
-    top: 5.5rem;
-    width: 8rem;
-    height: 8rem;
-    right: -2rem;
-
-    & img {
-      object-fit: contain;
-      object-position: top right;
-    }
   }
 
   ${breakpoints.desktop} {
     height: 100vh;
     padding: 0 !important;
-
-    & img {
-      object-position: top;
-    }
   }
 
   .stack {

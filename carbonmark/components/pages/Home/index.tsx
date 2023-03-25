@@ -55,19 +55,10 @@ export const Home: NextPage<Props> = (props) => {
       <Section className={styles.hero}>
         <Image
           fill
-          data-desktop-only
           alt="Carbonmark Hero"
-          src="/landing-hero-1.jpg"
+          src="/hero_background.jpg"
+          className="hero_img"
         />
-        <Image
-          fill
-          data-mobile-only
-          alt="Carbonmark Hero"
-          src="/hero-sm.jpeg"
-        />
-        <div data-mobile-only className="circle-tree">
-          <Image fill alt="Circle Tree" src="/circle-tree.png" />
-        </div>
         <Navigation transparent activePage="Home" />
         <div className={cx(["stack", styles.heroBackground])}>
           <Text t="h1" as="h1">
