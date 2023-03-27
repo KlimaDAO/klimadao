@@ -68,7 +68,13 @@ export const blogContainer = css`
 export const content = css`
   grid-column: main;
   max-width: 76rem;
-  justify-self: center;
+  justify-self: auto;
+  overflow-wrap: break-word;
+
+  ${breakpoints.large} {
+    justify-self: center;
+    overflow-wrap: unset;
+  }
 `;
 
 export const date = css`

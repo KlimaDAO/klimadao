@@ -29,12 +29,15 @@ export const profileLogo = css`
 `;
 
 export const titles = css`
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0rem;
+
   ${breakpoints.desktop} {
+    white-space: nowrap;
     flex-direction: row;
     gap: 2rem;
   }
