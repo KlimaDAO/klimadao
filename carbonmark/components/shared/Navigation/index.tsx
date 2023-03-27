@@ -27,6 +27,8 @@ export type NavItemMobileID =
   | "Profile"
   | "Portfolio"
   | "Marketplace"
+  | "About"
+  | "Help"
   | "Resources";
 
 export type Props = {
@@ -96,7 +98,7 @@ export const Navigation: FC<Props> = ({
           <div className="links">
             <NavItemMobile
               name={t`Marketplace`}
-              active={activePage === "About"}
+              active={activePage === "Projects"}
               id="Marketplace"
               url="/projects"
             />
@@ -111,6 +113,18 @@ export const Navigation: FC<Props> = ({
               active={activePage === "Resources"}
               id="Resources"
               url="/resources"
+            />
+            <NavItemMobile
+              name={t`About`}
+              active={activePage === "About"}
+              id="About"
+              url={urls.about}
+            />
+            <NavItemMobile
+              name={t`Help`}
+              active={activePage === "Help"}
+              id="Help"
+              url={urls.help}
             />
           </div>
           <div className="buttons">
