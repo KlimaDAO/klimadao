@@ -28,6 +28,21 @@ export const profileLogo = css`
   }
 `;
 
+export const titles = css`
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  ${breakpoints.desktop} {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .handle {
+    color: var(--bright-blue);
+  }
+`;
+
 export const profileText = css`
   display: grid;
   gap: 1.2rem;

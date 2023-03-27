@@ -9,6 +9,7 @@ type Props = {
   description?: string;
   isCarbonmarkUser: boolean;
   profileImgUrl?: string;
+  handle?: string;
 };
 
 export const ProfileHeader: FC<Props> = (props) => {
@@ -19,8 +20,14 @@ export const ProfileHeader: FC<Props> = (props) => {
         profileImgUrl={props.profileImgUrl}
       />
       <div className={styles.profileText}>
-        <Text t="h4">{props.userName}</Text>
-
+        <div className={styles.titles}>
+          <Text t="h4">{props.userName}</Text>
+          {props.handle && (
+            <Text t="h4" className="handle">
+              @{props.handle}
+            </Text>
+          )}
+        </div>
         {!props.isCarbonmarkUser && (
           <Text t="body1">
             <Trans id="profile.create_your_profile">
