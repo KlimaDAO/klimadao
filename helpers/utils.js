@@ -12,7 +12,7 @@ async function getAllVintages(fastify) {
 
     if (cachedResult) {
         return cachedResult;
-      }
+    }
 
 
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
@@ -41,7 +41,7 @@ async function getAllCategories(fastify) {
 
     if (cachedResult) {
         return cachedResult;
-      }
+    }
 
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_CATEGORIES);
 
@@ -68,7 +68,7 @@ async function getAllCountries(fastify) {
 
     if (cachedResult) {
         return cachedResult;
-      }
+    }
 
     const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_COUNTRIES);
 
@@ -99,7 +99,7 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
     if (parseFloat(poolProject.balanceNBO) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
 
-       prices.push({
+        prices.push({
             leftToSell: poolProject.balanceNBO,
             tokenAddress: process.env.NBO_POOL,
             singleUnitPrice: (poolPrices.find(obj => obj.name === "nbo")).priceInUsd,
@@ -109,7 +109,7 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
     if (parseFloat(poolProject.balanceUBO) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "ubo")).price);
 
-       prices.push({
+        prices.push({
             leftToSell: poolProject.balanceUBO,
             tokenAddress: process.env.UBO_POOL,
             singleUnitPrice: (poolPrices.find(obj => obj.name === "ubo")).priceInUsd,
@@ -140,45 +140,77 @@ function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
     return [uniqueValues, prices];
 }
 
+const getPoolPrice = async (pool, decimals, fastify) => {
+    const CACHE_KEY = pool.address + process.env.VERCEL_ENV;
+    let result = await fastify.lcache.get(CACHE_KEY);
+
+    if (!result) {
+        result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: pool.address });
+        await fastify.lcache.set(CACHE_KEY, result);
+    }
+
+    var feeAmount = 0;
+    if (pool.feeAdd) {
+        feeAmount = Number(result.data.pair.currentprice) * pool.fee;
+    } else {
+        feeAmount = ((1 / (1 - pool.fee)) - 1) * Number(result.data.pair.currentprice);
+    }
+
+    var priceWithFee = Number(result.data.pair.currentprice) + feeAmount;
+    var priceTrimmed = parseFloat(priceWithFee.toFixed(6));
+    var priceFormatted = priceTrimmed * decimals;
+
+    const priceResult = { priceInUsd: priceWithFee.toFixed(6), price: priceFormatted.toFixed(0), name: pool.name };
+
+    return priceResult;
+};
+
 async function calculatePoolPrices(fastify) {
 
     var decimals;
     if (process.env.VERCEL_ENV == "production") {
-        decimals = 10e5;
+        decimals = 1e6;
     } else {
-        decimals = 10e17;
+        decimals = 1e18;
     }
-    const results = [];
-
 
     var pools = [
-        { "ubo": process.env.LP_UBO_POOL }, { "nbo": process.env.LP_NBO_POOL }, { "ntc": process.env.LP_NTC_POOL }, { "btc": process.env.LP_BTC_POOL }
+        {
+            name: "ubo",
+            address: process.env.LP_UBO_POOL,
+            feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
+            fee: 0.0225
+        },
+        {
+            name: "nbo",
+            address: process.env.LP_NBO_POOL,
+            feeAdd: true,
+            fee: 0.0225
+        },
+        {
+            name: "ntc",
+            address: process.env.LP_NTC_POOL,
+            feeAdd: false, // Toucan contracts: fee is subtracted from whatever value you input
+            fee: 0.1
+        }, {
+            name: "btc",
+            address: process.env.LP_BTC_POOL,
+            feeAdd: false,
+            fee: 0.25
+        }
     ];
 
-    for (let i = 0 ; i < pools.length; i++) {
-        const poolKey = Object.keys(pools[i])[0];
-        const poolAddress = Object.values(pools[i])[0];
+    const resultsPromises = pools.map((pool) => { return getPoolPrice(pool, decimals, fastify) });
 
-        const cachedResult = await fastify.lcache.get(poolAddress + process.env.VERCEL_ENV);
-
-        var result = undefined;
-        if (cachedResult) {
-             result = cachedResult;
-          }
-        else {
-            result = await executeGraphQLQuery(process.env.POOL_PRICES_GRAPH_API_URL, POOL_PRICE, { id: poolAddress });
-            await fastify.lcache.set(poolAddress + process.env.VERCEL_ENV, result, 60 * 24);
-        }
-
-        results.push({ priceInUsd:result.data.pair.currentprice, price: (Math.trunc(result.data.pair.currentprice * decimals)).toString(), name :  poolKey});
-    }
+    const results = await Promise.all(resultsPromises);
 
     return results;
 }
 
 function findProjectWithRegistryIdAndRegistry(projects, registryId, registry) {
     return projects.find(project => project.registryProjectId === registryId && project.registry === registry);
-  }
+}
+
 
 module.exports = {
     calculatePoolPrices,
