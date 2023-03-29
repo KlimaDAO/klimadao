@@ -111,6 +111,7 @@ export const getOffsetConsumptionCost = async (params: {
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
+
   let sourceAmount: any;
   if (params.getSpecific) {
     sourceAmount =
@@ -127,10 +128,8 @@ export const getOffsetConsumptionCost = async (params: {
         parsed
       );
   }
-  return [
-    formatUnits(sourceAmount, getTokenDecimals(params.inputToken)),
-    // formatUnits(sourceAmount[1], getTokenDecimals(params.retirementToken)),
-  ];
+
+  return [formatUnits(sourceAmount, getTokenDecimals(params.inputToken))];
 };
 
 export type RetireCarbonTransactionResult = {
@@ -159,6 +158,7 @@ export const retireCarbonTransaction = async (params: {
 
   try {
     // get all current retirement totals
+
     const storageContract = createRetirementStorageContract(params.provider);
 
     const [totals]: RetirementTotals =

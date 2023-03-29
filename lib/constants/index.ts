@@ -195,7 +195,7 @@ export const allowancesContracts = {
     "mco2",
     "sklima",
     "wsklima",
-  ], // redeemables
+  ],
   staking_helper: ["klima"],
   staking: ["sklima"],
   wsklima: ["sklima"],
