@@ -101,7 +101,6 @@ export const getOffsetConsumptionCost = async (params: {
   inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
-  // amountInCarbon: boolean;
   getSpecific: boolean;
 }): Promise<[string]> => {
   const retirementAggregatorContract = getContract({
@@ -145,7 +144,6 @@ export const retireCarbonTransaction = async (params: {
   inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
-  // amountInCarbon: boolean;
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
@@ -191,14 +189,12 @@ export const retireCarbonTransaction = async (params: {
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
         parsed
-        // params.amountInCarbon // amountInCarbon: bool
       );
     } else {
       sourceAmount = await retireContract.getSourceAmountDefaultRetirement(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
         parsed
-        // params.amountInCarbon // amountInCarbon: bool
       );
     }
     let txn;

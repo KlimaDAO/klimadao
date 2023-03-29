@@ -227,7 +227,6 @@ export const Offset = (props: Props) => {
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           quantity: debouncedQuantity,
-          // amountInCarbon: true,
           getSpecific: !!projectAddress,
         });
         setCost(consumptionCost);
@@ -359,7 +358,6 @@ export const Offset = (props: Props) => {
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           quantity,
-          // amountInCarbon: true,
           beneficiaryAddress,
           beneficiaryName: beneficiary,
           retirementMessage,
