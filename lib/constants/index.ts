@@ -245,13 +245,13 @@ type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
   ubo: ["ubo"],
   nbo: ["nbo"],
-  bct: ["bct", "nct"],
-  nct: ["bct", "nct"],
+  bct: ["bct"],
+  nct: ["nct"],
   mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
-  klima: ["bct", "mco2"],
-  sklima: ["bct", "mco2"],
-  wsklima: ["bct", "mco2"],
+  klima: ["bct", "nct", "mco2", "ubo", "nbo"],
+  sklima: ["bct", "nct", "mco2", "ubo", "nbo"],
+  wsklima: ["bct", "nct", "mco2", "ubo", "nbo"],
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
