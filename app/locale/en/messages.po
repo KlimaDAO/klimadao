@@ -30,7 +30,7 @@ msgid "Buy & Redeem Carbon"
 msgstr "Buy & Redeem Carbon"
 
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:502
+#: components/views/Redeem/index.tsx:501
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
 

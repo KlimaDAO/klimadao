@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-03-29 17:36+0000\n"
+"POT-Creation-Date: 2023-03-29 20:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgid "Buy & Redeem Carbon"
 msgstr "Купить и вывести углерод"
 
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:502
+#: components/views/Redeem/index.tsx:501
 msgid "Buy Carbon"
 msgstr "Купить углерод"
 
