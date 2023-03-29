@@ -117,7 +117,7 @@ module.exports = async function (fastify, opts) {
               );
             }
             if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNTC) >=
+              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
               1
             ) {
               uniqueValues.push(
