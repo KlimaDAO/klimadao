@@ -83,14 +83,19 @@ module.exports = async function (fastify, opts) {
           { country, category, search, vintage }
         )
       ).data;
+
       const projects = data.data.projects.map(function (project) {
         const uniqueValues = [];
 
         if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
           var index = pooledProjectsData.carbonOffsets.findIndex(
             (item) =>
-              item.projectID === project.key &&
+
+            
+              item.projectID === project.registry + '-' + project.projectID &&
               item.vintageYear === project.vintage
+           
+         
           );
           if (index != -1) {
             project.isPoolProject = true;
@@ -161,6 +166,7 @@ module.exports = async function (fastify, opts) {
         project.name = cmsData ? cmsData.name : project.name;
         project.methodologies = cmsData ? cmsData.methodologies : [];
         delete project.listings;
+       
         return { ...project, price };
       });
 
@@ -344,7 +350,7 @@ module.exports = async function (fastify, opts) {
             project = {
               id: project.id,
               isPoolProject: true,
-              key: project.projectID + "-" + project.vintageYear,
+              key: project.projectID,
               projectID: project.projectID.split("-")[1],
               name: project.name,
               methodology: project.methodology,
@@ -397,6 +403,8 @@ module.exports = async function (fastify, opts) {
             project.description = results.description;
             project.location = null;
           }
+
+         
           project.price = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
                 a.length < b.length ? a : a.length === b.length && a < b ? a : b

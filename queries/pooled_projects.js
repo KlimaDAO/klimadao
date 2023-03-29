@@ -3,7 +3,8 @@ const { gql } = require('@apollo/client');
 const POOLED_PROJECTS = gql`
             query carbonOffsets($country: [String], $category: [String], $search: String, $vintage: [String]){
                 carbonOffsets
-                (where: {
+                (first:1000,
+                    where: {
                     methodologyCategory_in:  $category,
                     country_in:  $country ,
                     name_contains_nocase: $search,
