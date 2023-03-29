@@ -95,7 +95,7 @@ export const Offset = (props: Props) => {
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: offsetInputTokens,
-      spender: "retirementAggregator",
+      spender: "retirementAggregatorV2",
     })
   );
 
@@ -227,7 +227,7 @@ export const Offset = (props: Props) => {
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           quantity: debouncedQuantity,
-          amountInCarbon: true,
+          // amountInCarbon: true,
           getSpecific: !!projectAddress,
         });
         setCost(consumptionCost);
@@ -313,13 +313,13 @@ export const Offset = (props: Props) => {
         value: getApprovalValue(),
         provider: props.provider,
         token: paymentMethod,
-        spender: "retirementAggregator",
+        spender: "retirementAggregatorV2",
         onStatus: setStatus,
       });
       dispatch(
         setAllowance({
           token: paymentMethod,
-          spender: "retirementAggregator",
+          spender: "retirementAggregatorV2",
           value: approvedValue,
         })
       );
@@ -359,7 +359,7 @@ export const Offset = (props: Props) => {
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           quantity,
-          amountInCarbon: true,
+          // amountInCarbon: true,
           beneficiaryAddress,
           beneficiaryName: beneficiary,
           retirementMessage,

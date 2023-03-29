@@ -224,9 +224,9 @@ export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
-  (typeof allowancesContracts)["retirementAggregator"][number];
+  (typeof allowancesContracts)["retirementAggregatorV2"][number];
 export const offsetInputTokens = allowancesContracts[
-  "retirementAggregator"
+  "retirementAggregatorV2"
 ] as unknown as OffsetInputToken[];
 
 export type OffsetPaymentMethod = OffsetInputToken | "fiat";
@@ -250,11 +250,11 @@ export const offsetCompatibility: CompatMap = {
   nbo: ["nbo"],
   bct: ["bct", "nct"],
   nct: ["bct", "nct"],
-  mco2: ["mco2"],
+  // mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
   klima: ["bct", "mco2"],
-  sklima: ["bct", "mco2"],
-  wsklima: ["bct", "mco2"],
+  // sklima: ["bct", "mco2"],
+  // wsklima: ["bct", "mco2"],
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
