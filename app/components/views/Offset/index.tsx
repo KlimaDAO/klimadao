@@ -941,11 +941,7 @@ export const Offset = (props: Props) => {
                   (t) => t.key === selectedRetirementToken
                 )?.icon ?? TCO2
           }
-          spenderAddress={
-            !isRetiringOwnCarbon
-              ? addresses["mainnet"].retirementAggregator
-              : addresses["mainnet"].retirementAggregatorV2
-          }
+          spenderAddress={addresses["mainnet"].retirementAggregatorV2}
           value={!isRetiringOwnCarbon ? cost.toString() : quantity}
           approvalValue={getApprovalValue()}
           status={fullStatus}

@@ -114,18 +114,19 @@ export const getOffsetConsumptionCost = async (params: {
   );
   let sourceAmount: any;
   if (params.getSpecific) {
-    sourceAmount = await retirementAggregatorContract.getSourceAmountSpecificRetirement(
-      addresses["mainnet"][params.inputToken],
-      addresses["mainnet"][params.retirementToken],
-      parsed
-    );
-
+    sourceAmount =
+      await retirementAggregatorContract.getSourceAmountSpecificRetirement(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        parsed
+      );
   } else {
-    sourceAmount = await retirementAggregatorContract.getSourceAmountDefaultRetirement(
-      addresses["mainnet"][params.inputToken],
-      addresses["mainnet"][params.retirementToken],
-      parsed
-    );
+    sourceAmount =
+      await retirementAggregatorContract.getSourceAmountDefaultRetirement(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        parsed
+      );
   }
   return [
     formatUnits(sourceAmount, getTokenDecimals(params.inputToken)),
@@ -151,7 +152,6 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
-
   enum TransferMode {
     EXTERNAL = 0,
     INTERNAL = 1,
@@ -180,7 +180,7 @@ export const retireCarbonTransaction = async (params: {
 
     params.onStatus("userConfirmation");
     let sourceAmount: any;
-    
+
     const parsed = utils.parseUnits(
       params.quantity,
       getTokenDecimals(params.retirementToken)
@@ -193,7 +193,6 @@ export const retireCarbonTransaction = async (params: {
         parsed
         // params.amountInCarbon // amountInCarbon: bool
       );
-      
     } else {
       sourceAmount = await retireContract.getSourceAmountDefaultRetirement(
         addresses["mainnet"][params.inputToken],
@@ -201,7 +200,7 @@ export const retireCarbonTransaction = async (params: {
         parsed
         // params.amountInCarbon // amountInCarbon: bool
       );
-      }
+    }
     let txn;
     if (!!params.projectAddress) {
       txn = await retireContract.retireExactCarbonSpecific(
@@ -213,7 +212,7 @@ export const retireCarbonTransaction = async (params: {
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        'retiringEntityString', 
+        "retiringEntityString",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
@@ -228,7 +227,7 @@ export const retireCarbonTransaction = async (params: {
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        'retiringEntityString',   
+        "retiringEntityString",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,

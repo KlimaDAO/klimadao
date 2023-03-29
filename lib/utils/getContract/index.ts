@@ -5,7 +5,6 @@ import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import IERC20 from "../../abi/IERC20.json";
 import Depository from "../../abi/KlimaBondDepository_Regular.json";
 import KlimaProV2 from "../../abi/KlimaProV2.json";
-import KlimaRetirementAggregator from "../../abi/KlimaRetirementAggregator.json";
 import KlimaRetirementAggregatorV2 from "../../abi/KlimaRetirementAggregatorV2.json";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
@@ -63,7 +62,6 @@ const contractMap = {
   // Others
   distributor: DistributorContractv4.abi,
   klimaNameService: PunkTLD.abi,
-  retirementAggregator: KlimaRetirementAggregator.abi, // offset
   retirementAggregatorV2: KlimaRetirementAggregatorV2.abi, // offset
   pklima_exercise: ExercisePKlima.abi,
   staking_helper: KlimaStakingHelper.abi, // stake
