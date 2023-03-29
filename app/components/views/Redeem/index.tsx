@@ -493,7 +493,6 @@ export const Redeem = (props: Props) => {
           </div>
         </div>
       </div>
-      <button onClick={handleRedeem}>test</button>
       {showTransactionModal && (
         <TransactionModal
           title={
