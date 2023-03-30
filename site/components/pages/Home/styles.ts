@@ -189,8 +189,12 @@ export const ctaButtonContainer = css`
   a {
     color: var(--font-01) !important;
     border: 3px solid var(--klima-green);
+    width: 100%;
     &:last-of-type {
       color: #000 !important;
+    }
+    ${breakpoints.medium} {
+      width: auto;
     }
   }
 `;
