@@ -150,7 +150,6 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
-
   enum TransferMode {
     EXTERNAL = 0,
     INTERNAL = 1,
@@ -162,7 +161,6 @@ export const retireCarbonTransaction = async (params: {
     // get all current retirement totals
 
     const storageContract = createRetirementStorageContract(params.provider);
-
 
     const [totals]: RetirementTotals =
       await storageContract.getRetirementTotals(
@@ -180,7 +178,6 @@ export const retireCarbonTransaction = async (params: {
     });
 
     params.onStatus("userConfirmation");
-
 
     const parsedCost = utils.parseUnits(
       params.cost,
