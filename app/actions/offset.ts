@@ -141,6 +141,7 @@ export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;
+  cost: string;
   retirementToken: RetirementToken;
   quantity: string;
   beneficiaryAddress: string;
@@ -149,6 +150,7 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
+
   enum TransferMode {
     EXTERNAL = 0,
     INTERNAL = 1,
@@ -160,6 +162,7 @@ export const retireCarbonTransaction = async (params: {
     // get all current retirement totals
 
     const storageContract = createRetirementStorageContract(params.provider);
+
 
     const [totals]: RetirementTotals =
       await storageContract.getRetirementTotals(
@@ -177,38 +180,25 @@ export const retireCarbonTransaction = async (params: {
     });
 
     params.onStatus("userConfirmation");
-    let sourceAmount: any;
 
-    const parsed = utils.parseUnits(
-      params.quantity,
-      getTokenDecimals(params.retirementToken)
+
+    const parsedCost = utils.parseUnits(
+      params.cost,
+      getTokenDecimals(params.inputToken)
     );
 
-    if (params.projectAddress) {
-      sourceAmount = await retireContract.getSourceAmountSpecificRetirement(
-        addresses["mainnet"][params.inputToken],
-        addresses["mainnet"][params.retirementToken],
-        parsed
-      );
-    } else {
-      sourceAmount = await retireContract.getSourceAmountDefaultRetirement(
-        addresses["mainnet"][params.inputToken],
-        addresses["mainnet"][params.retirementToken],
-        parsed
-      );
-    }
     let txn;
     if (!!params.projectAddress) {
       txn = await retireContract.retireExactCarbonSpecific(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
         params.projectAddress,
-        sourceAmount,
+        parsedCost,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        "retiringEntityString",
+        "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
@@ -218,12 +208,12 @@ export const retireCarbonTransaction = async (params: {
       txn = await retireContract.retireExactCarbonDefault(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        sourceAmount,
+        parsedCost,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        "retiringEntityString",
+        "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,

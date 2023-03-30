@@ -356,6 +356,7 @@ export const Offset = (props: Props) => {
           address: props.address,
           provider: props.provider,
           inputToken: paymentMethod,
+          cost: cost,
           retirementToken: selectedRetirementToken,
           quantity,
           beneficiaryAddress,
