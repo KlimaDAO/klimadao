@@ -150,7 +150,6 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
-
   enum TransferMode {
     EXTERNAL = 0,
     INTERNAL = 1,
