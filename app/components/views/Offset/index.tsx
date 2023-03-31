@@ -376,6 +376,13 @@ export const Offset = (props: Props) => {
             quantity,
           })
         );
+        dispatch(
+          setAllowance({
+            token: paymentMethod,
+            spender: "retirementAggregatorV2",
+            value: "0",
+          })
+        );
       }
 
       // close TransactionModal
