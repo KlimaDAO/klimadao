@@ -46,8 +46,8 @@ export const buttonPrimary = css`
   }
 
   &:disabled {
-    background-color: var(--surface-02);
-    color: var(--font-03);
+    color: var(--white);
+    opacity: 0.4;
   }
 `;
 
