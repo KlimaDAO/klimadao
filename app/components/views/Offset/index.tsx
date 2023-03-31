@@ -352,11 +352,12 @@ export const Offset = (props: Props) => {
       } else if (paymentMethod === "fiat") {
         return; // type guard
       } else {
+        const maxAmountIn = allowances?.[paymentMethod];
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
           inputToken: paymentMethod,
-          cost: cost,
+          maxAmountIn: maxAmountIn,
           retirementToken: selectedRetirementToken,
           quantity,
           beneficiaryAddress,

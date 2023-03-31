@@ -141,7 +141,7 @@ export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;
-  cost: string;
+  maxAmountIn?: string;
   retirementToken: RetirementToken;
   quantity: string;
   beneficiaryAddress: string;
@@ -179,8 +179,8 @@ export const retireCarbonTransaction = async (params: {
 
     params.onStatus("userConfirmation");
 
-    const parsedCost = utils.parseUnits(
-      params.cost,
+    const parsedMaxAmountIn = utils.parseUnits(
+      params.maxAmountIn ?? "0",
       getTokenDecimals(params.inputToken)
     );
 
@@ -190,7 +190,7 @@ export const retireCarbonTransaction = async (params: {
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
         params.projectAddress,
-        parsedCost,
+        parsedMaxAmountIn,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
@@ -205,7 +205,7 @@ export const retireCarbonTransaction = async (params: {
       txn = await retireContract.retireExactCarbonDefault(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        parsedCost,
+        parsedMaxAmountIn,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
