@@ -122,7 +122,8 @@ export const Home: NextPage<Props> = (props) => {
                     </div>
                     <div className={styles.cardContent}>
                       <Text t="body3" as="h4">
-                        {formatBigToPrice(project.price, locale)}
+                        {project?.price &&
+                          formatBigToPrice(project.price, locale)}
                       </Text>
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">{project?.description}</Text>

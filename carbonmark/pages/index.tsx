@@ -3,7 +3,7 @@ import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
-const defaultProjectKeys = ["VCS-981-2014", "VCS-812-2009", "VCS-1190-2017"];
+const defaultProjectKeys = ["VCS-981-2014", "VCS-1764-2020", "VCS-1190-2017"];
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
