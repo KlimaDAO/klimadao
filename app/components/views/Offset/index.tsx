@@ -98,7 +98,6 @@ export const Offset = (props: Props) => {
       spender: "retirementAggregatorV2",
     })
   );
-
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
@@ -352,7 +351,10 @@ export const Offset = (props: Props) => {
       } else if (paymentMethod === "fiat") {
         return; // type guard
       } else {
-        const maxAmountIn = allowances?.[paymentMethod];
+        const withSlippage = utils
+          .parseUnits(cost)
+          .div(utils.parseUnits("100"));
+        const maxAmountIn = safeAdd(cost, formatUnits(withSlippage, 18));
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,

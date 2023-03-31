@@ -141,7 +141,7 @@ export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;
-  maxAmountIn?: string;
+  maxAmountIn: string;
   retirementToken: RetirementToken;
   quantity: string;
   beneficiaryAddress: string;
@@ -161,12 +161,10 @@ export const retireCarbonTransaction = async (params: {
     // get all current retirement totals
 
     const storageContract = createRetirementStorageContract(params.provider);
-
     const [totals]: RetirementTotals =
       await storageContract.getRetirementTotals(
         params.beneficiaryAddress || params.address
       );
-
     // add + 1 now as this number is only passed on if transaction succeeded
     const formattedTotals = totals.toNumber();
     const retirementTotals = formattedTotals + 1;
@@ -180,7 +178,7 @@ export const retireCarbonTransaction = async (params: {
     params.onStatus("userConfirmation");
 
     const parsedMaxAmountIn = utils.parseUnits(
-      params.maxAmountIn ?? "0",
+      params.maxAmountIn,
       getTokenDecimals(params.inputToken)
     );
 
