@@ -95,10 +95,9 @@ export const Offset = (props: Props) => {
   const allowances = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: offsetInputTokens,
-      spender: "retirementAggregator",
+      spender: "retirementAggregatorV2",
     })
   );
-
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
@@ -227,7 +226,6 @@ export const Offset = (props: Props) => {
           inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           quantity: debouncedQuantity,
-          amountInCarbon: true,
           getSpecific: !!projectAddress,
         });
         setCost(consumptionCost);
@@ -313,13 +311,13 @@ export const Offset = (props: Props) => {
         value: getApprovalValue(),
         provider: props.provider,
         token: paymentMethod,
-        spender: "retirementAggregator",
+        spender: "retirementAggregatorV2",
         onStatus: setStatus,
       });
       dispatch(
         setAllowance({
           token: paymentMethod,
-          spender: "retirementAggregator",
+          spender: "retirementAggregatorV2",
           value: approvedValue,
         })
       );
@@ -353,13 +351,17 @@ export const Offset = (props: Props) => {
       } else if (paymentMethod === "fiat") {
         return; // type guard
       } else {
+        const withSlippage = utils
+          .parseUnits(cost)
+          .div(utils.parseUnits("100"));
+        const maxAmountIn = safeAdd(cost, formatUnits(withSlippage, 18));
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
           inputToken: paymentMethod,
+          maxAmountIn: maxAmountIn,
           retirementToken: selectedRetirementToken,
           quantity,
-          amountInCarbon: true,
           beneficiaryAddress,
           beneficiaryName: beneficiary,
           retirementMessage,
@@ -941,11 +943,7 @@ export const Offset = (props: Props) => {
                   (t) => t.key === selectedRetirementToken
                 )?.icon ?? TCO2
           }
-          spenderAddress={
-            !isRetiringOwnCarbon
-              ? addresses["mainnet"].retirementAggregator
-              : addresses["mainnet"].retirementAggregatorV2
-          }
+          spenderAddress={addresses["mainnet"].retirementAggregatorV2}
           value={!isRetiringOwnCarbon ? cost.toString() : quantity}
           approvalValue={getApprovalValue()}
           status={fullStatus}

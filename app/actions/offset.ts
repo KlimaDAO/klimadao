@@ -67,7 +67,7 @@ export const getRetirementAllowances = (params: {
           getAllowance({
             contract,
             address: params.address,
-            spender: "retirementAggregator",
+            spender: "retirementAggregatorV2",
             token: val,
           })
         );
@@ -76,7 +76,6 @@ export const getRetirementAllowances = (params: {
 
       // await to get arr of Allowances
       const allAllowances = await Promise.all(promises);
-
       // reduce to match the state shape
       const allowances = allAllowances.reduce<AllowancesFormatted>(
         (obj, allowance) => {
@@ -102,38 +101,35 @@ export const getOffsetConsumptionCost = async (params: {
   inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
-  amountInCarbon: boolean;
   getSpecific: boolean;
-}): Promise<[string, string]> => {
+}): Promise<[string]> => {
   const retirementAggregatorContract = getContract({
-    contractName: "retirementAggregator",
+    contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
   });
   const parsed = utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
+
   let sourceAmount: any;
   if (params.getSpecific) {
-    sourceAmount = await retirementAggregatorContract.getSourceAmountSpecific(
-      addresses["mainnet"][params.inputToken],
-      addresses["mainnet"][params.retirementToken],
-      parsed,
-      params.amountInCarbon // amountInCarbon: bool
-    );
+    sourceAmount =
+      await retirementAggregatorContract.getSourceAmountSpecificRetirement(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        parsed
+      );
   } else {
-    sourceAmount = await retirementAggregatorContract.getSourceAmount(
-      addresses["mainnet"][params.inputToken],
-      addresses["mainnet"][params.retirementToken],
-      parsed,
-      params.amountInCarbon // amountInCarbon: bool
-    );
+    sourceAmount =
+      await retirementAggregatorContract.getSourceAmountDefaultRetirement(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        parsed
+      );
   }
 
-  return [
-    formatUnits(sourceAmount[0], getTokenDecimals(params.inputToken)),
-    formatUnits(sourceAmount[1], getTokenDecimals(params.retirementToken)),
-  ];
+  return [formatUnits(sourceAmount, getTokenDecimals(params.inputToken))];
 };
 
 export type RetireCarbonTransactionResult = {
@@ -145,63 +141,78 @@ export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;
+  maxAmountIn: string;
   retirementToken: RetirementToken;
   quantity: string;
-  amountInCarbon: boolean;
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
+  enum TransferMode {
+    EXTERNAL = 0,
+    INTERNAL = 1,
+    EXTERNAL_INTERNAL = 2,
+    INTERNAL_TOLERANT = 3,
+  }
+
   try {
     // get all current retirement totals
-    const storageContract = createRetirementStorageContract(params.provider);
 
+    const storageContract = createRetirementStorageContract(params.provider);
     const [totals]: RetirementTotals =
       await storageContract.getRetirementTotals(
         params.beneficiaryAddress || params.address
       );
-
     // add + 1 now as this number is only passed on if transaction succeeded
     const formattedTotals = totals.toNumber();
     const retirementTotals = formattedTotals + 1;
 
     // retire transaction
     const retireContract = getContract({
-      contractName: "retirementAggregator",
+      contractName: "retirementAggregatorV2",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation");
 
+    const parsedMaxAmountIn = utils.parseUnits(
+      params.maxAmountIn,
+      getTokenDecimals(params.inputToken)
+    );
+
     let txn;
     if (!!params.projectAddress) {
-      txn = await retireContract.retireCarbonSpecific(
+      txn = await retireContract.retireExactCarbonSpecific(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
+        params.projectAddress,
+        parsedMaxAmountIn,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        params.amountInCarbon,
+        "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        [params.projectAddress]
+        TransferMode.EXTERNAL
       );
     } else {
-      txn = await retireContract.retireCarbon(
+      txn = await retireContract.retireExactCarbonDefault(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
+        parsedMaxAmountIn,
         utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
-        params.amountInCarbon,
+        "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
-        params.retirementMessage
+        params.retirementMessage,
+        TransferMode.EXTERNAL
       );
     }
     params.onStatus("networkConfirmation");

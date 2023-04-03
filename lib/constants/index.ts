@@ -32,7 +32,6 @@ const mainnet = {
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
-  retirementAggregator: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
@@ -72,7 +71,6 @@ const testnet: typeof mainnet = {
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
-  retirementAggregator: "",
   retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
@@ -187,18 +185,17 @@ export type Bond = (typeof bonds)[number];
 
 // Spender with their Allowances tokens
 export const allowancesContracts = {
-  retirementAggregator: [
+  retirementAggregatorV2: [
     "ubo",
     "nbo",
     "bct",
     "nct",
-    "mco2",
     "usdc",
     "klima",
+    "mco2",
     "sklima",
     "wsklima",
   ],
-  retirementAggregatorV2: ["ubo", "nbo", "bct", "nct", "usdc", "klima"], // redeemables
   staking_helper: ["klima"],
   staking: ["sklima"],
   wsklima: ["sklima"],
@@ -224,9 +221,9 @@ export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
-  (typeof allowancesContracts)["retirementAggregator"][number];
+  (typeof allowancesContracts)["retirementAggregatorV2"][number];
 export const offsetInputTokens = allowancesContracts[
-  "retirementAggregator"
+  "retirementAggregatorV2"
 ] as unknown as OffsetInputToken[];
 
 export type OffsetPaymentMethod = OffsetInputToken | "fiat";
@@ -248,13 +245,13 @@ type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
   ubo: ["ubo"],
   nbo: ["nbo"],
-  bct: ["bct", "nct"],
-  nct: ["bct", "nct"],
+  bct: ["bct"],
+  nct: ["nct"],
   mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
-  klima: ["bct", "mco2"],
-  sklima: ["bct", "mco2"],
-  wsklima: ["bct", "mco2"],
+  klima: ["bct", "nct", "mco2", "ubo", "nbo"],
+  sklima: ["bct", "nct", "mco2", "ubo", "nbo"],
+  wsklima: ["bct", "nct", "mco2", "ubo", "nbo"],
   fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
