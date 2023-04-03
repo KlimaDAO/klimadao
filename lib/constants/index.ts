@@ -100,6 +100,7 @@ export const urls = {
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
+  redeem: "https://app.klimadao.finance/#/redeem",
   resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
