@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-03 15:33+0000\n"
+"POT-Creation-Date: 2023-04-03 20:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,11 @@ msgstr ""
 msgid "Balances"
 msgstr "बैलेंस"
 
-#: components/views/Offset/index.tsx:798
+#: components/views/Offset/index.tsx:800
 msgid "Beneficiary 0x address (optional)"
 msgstr "लाभार्थी का 0x पता (वैकल्पिक)"
 
-#: components/views/Offset/index.tsx:786
+#: components/views/Offset/index.tsx:788
 msgid "Beneficiary name"
 msgstr "लाभार्थी का नाम"
 
@@ -65,7 +65,7 @@ msgstr "कोई बैलेंस नहीं मिला."
 msgid "Not Connected"
 msgstr "कनेक्ट नहीं हैं"
 
-#: components/views/Offset/index.tsx:659
+#: components/views/Offset/index.tsx:661
 msgid "Offset"
 msgstr "ऑफ़सेट"
 
@@ -73,7 +73,7 @@ msgstr "ऑफ़सेट"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "12 अप्रैल, 2022 को हम \"dapp\" (डैप) से \"app\" (ऐप) में चले गए। कृपया अपने बुकमार्क अपडेट कर लें।"
 
-#: components/views/Offset/index.tsx:662
+#: components/views/Offset/index.tsx:664
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "फिएट या क्रिप्टो के साथ भुगतान करें, या आपके पास पहले से मौजूद क्रेडिट को रिटायर करें। आपका संदेश और डेटा ब्लॉकचैन पर स्थायी रूप से अंकित किया जाएगा। हमारे <0>दस्तावेज़ों में समर्थित टोकन के बारे में अधिक जानें</0> ."
 
@@ -95,11 +95,11 @@ msgstr "प्रोजेक्ट विवरण <0/>"
 msgid "Select carbon pool"
 msgstr "कार्बन पूल का चयन करें"
 
-#: components/views/Offset/index.tsx:673
+#: components/views/Offset/index.tsx:675
 msgid "Select carbon token to retire"
 msgstr "रिटायर होने के लिए कार्बन टोकन चुनें"
 
-#: components/views/Offset/index.tsx:674
+#: components/views/Offset/index.tsx:676
 msgid "Select token"
 msgstr "टोकन चुनें"
 
@@ -454,7 +454,7 @@ msgstr "संपर्क त्रुटि"
 msgid "error.404.page.text"
 msgstr "क्षमा करें, ऐसा लगता है कि हमने आपको गलत तरीके से भेजा है। <0/>कृपया मेनू से एक गंतव्य चुनें।"
 
-#: components/views/Offset/index.tsx:853
+#: components/views/Offset/index.tsx:855
 msgid "fiat.max_quantity"
 msgstr "${0} क्रेडिट कार्ड के लिए अधिकतम"
 
@@ -573,23 +573,23 @@ msgstr "पुष्टिकरण"
 msgid "nav.back"
 msgstr "पीछे"
 
-#: components/views/Offset/index.tsx:836
+#: components/views/Offset/index.tsx:838
 msgid "offset.aggregation_fee_tooltip"
 msgstr "इस लागत में स्लिपेज शुल्क और 1% का एकत्रीकरण शुल्क शामिल है।"
 
-#: components/views/Offset/index.tsx:715
+#: components/views/Offset/index.tsx:717
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?"
 
-#: components/views/Offset/index.tsx:525
+#: components/views/Offset/index.tsx:527
 msgid "offset.checkout"
 msgstr "चेक आउट"
 
-#: components/views/Offset/index.tsx:801
+#: components/views/Offset/index.tsx:803
 msgid "offset.default_retirement_address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
-#: components/views/Offset/index.tsx:881
+#: components/views/Offset/index.tsx:883
 msgid "offset.dropdown_payWith.label"
 msgstr "के साथ भुगतान करें"
 
@@ -597,26 +597,26 @@ msgstr "के साथ भुगतान करें"
 msgid "offset.enter_address"
 msgstr "0x पता दर्ज करें"
 
-#: components/views/Offset/index.tsx:613
+#: components/views/Offset/index.tsx:615
 #: components/views/Redeem/index.tsx:339
 msgid "offset.incompatible"
 msgstr "अयोग्य टोकन दर्ज करें"
 
-#: components/views/Offset/index.tsx:493
+#: components/views/Offset/index.tsx:495
 #: components/views/Redeem/index.tsx:248
 msgid "offset.insufficient_project_tonnage"
 msgstr "अपर्याप्त परियोजना टन भार"
 
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:761
 #: components/views/Redeem/index.tsx:426
 msgid "offset.invalid_project_tonnage"
 msgstr "चयनित परियोजना के उपलब्ध टन भार से अधिक नहीं हो सकता"
 
-#: components/views/Offset/index.tsx:768
+#: components/views/Offset/index.tsx:770
 msgid "offset.min_quantity_fiat"
 msgstr "न्यूनतम १  टन खरीद। केवल पूर्ण पूर्णांक।"
 
-#: components/views/Offset/index.tsx:885
+#: components/views/Offset/index.tsx:887
 msgid "offset.modal_payWith.title"
 msgstr "टोकन चुनें"
 
@@ -624,11 +624,11 @@ msgstr "टोकन चुनें"
 msgid "offset.number_of_retirements"
 msgstr "कुल रिटायरमेंट्स"
 
-#: components/views/Offset/index.tsx:747
+#: components/views/Offset/index.tsx:749
 msgid "offset.offset_quantity"
 msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
 
-#: components/views/Offset/index.tsx:928
+#: components/views/Offset/index.tsx:930
 msgid "offset.retire_carbon"
 msgstr "कार्बन रिटायर करें"
 
@@ -640,19 +640,19 @@ msgstr "विशिष्ट परियोजना टोकन सेवा
 msgid "offset.retire_specific_tooltip"
 msgstr "अतिरिक्त शुल्क के अधीन, चयनित पूल द्वारा निर्धारित और ब्रिज प्रदाता को भुगतान किया जाता है।"
 
-#: components/views/Offset/index.tsx:778
+#: components/views/Offset/index.tsx:780
 msgid "offset.retirement_credit"
 msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
-#: components/views/Offset/index.tsx:812
+#: components/views/Offset/index.tsx:814
 msgid "offset.retirement_message"
 msgstr "रिटायरमेंट संदेश"
 
-#: components/views/Offset/index.tsx:821
+#: components/views/Offset/index.tsx:823
 msgid "offset.retirement_purpose"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
-#: components/views/Offset/index.tsx:866
+#: components/views/Offset/index.tsx:868
 msgid "offset.retiring"
 msgstr "रिटायर करना"
 
@@ -760,12 +760,12 @@ msgstr "रिटयरमेंट देखें"
 msgid "offset.you_have_retired"
 msgstr "अपने रिटायर किया"
 
-#: components/views/Offset/index.tsx:832
+#: components/views/Offset/index.tsx:834
 #: components/views/Redeem/index.tsx:437
 msgid "offset_cost"
 msgstr "लागत"
 
-#: components/views/Offset/index.tsx:901
+#: components/views/Offset/index.tsx:903
 msgid "offset_disclaimer"
 msgstr "सावधान रहें कि किसी भी संवेदनशील व्यक्तिगत जानकारी को उजागर न करें। आपका संदेश संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
@@ -843,7 +843,7 @@ msgstr "404 - पृष्ठ नहीं मिला"
 
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:530
+#: components/views/Offset/index.tsx:532
 #: components/views/Redeem/index.tsx:272
 #: components/views/Stake/index.tsx:254
 #: components/views/Wrap/index.tsx:232
@@ -877,19 +877,19 @@ msgstr "लोड हो रहा है..."
 msgid "shared.enter_amount"
 msgstr "राशि डालें"
 
-#: components/views/Offset/index.tsx:469
+#: components/views/Offset/index.tsx:471
 msgid "shared.enter_beneficiary"
 msgstr "लाभार्थी का नाम दर्ज करें"
 
 #: components/views/Bond/index.tsx:417
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:466
 #: components/views/Redeem/index.tsx:243
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "shared.enter_quantity"
 msgstr "मात्रा दर्ज करें"
 
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:479
 msgid "shared.enter_retirement_message"
 msgstr "सेवानिवृत्ति संदेश दर्ज करें"
 
@@ -900,23 +900,23 @@ msgstr "सेवानिवृत्ति संदेश दर्ज कर
 msgid "shared.error"
 msgstr "ग़लती"
 
-#: components/views/Offset/index.tsx:517
+#: components/views/Offset/index.tsx:519
 #: components/views/Redeem/index.tsx:264
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "shared.insufficient_balance"
 msgstr "बैलेंस अपर्याप्त"
 
-#: components/views/Offset/index.tsx:485
+#: components/views/Offset/index.tsx:487
 msgid "shared.invalid_beneficiary_addr"
 msgstr "अमान्य लाभार्थी का पता"
 
-#: components/views/Offset/index.tsx:509
+#: components/views/Offset/index.tsx:511
 #: components/views/Redeem/index.tsx:256
 msgid "shared.invalid_project_address"
 msgstr "अमान्य परियोजना पता"
 
-#: components/views/Offset/index.tsx:501
+#: components/views/Offset/index.tsx:503
 msgid "shared.invalid_quantity"
 msgstr "अमान्य मात्रा"
 
@@ -924,8 +924,8 @@ msgstr "अमान्य मात्रा"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:411
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:451
-#: components/views/Offset/index.tsx:592
+#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:594
 #: components/views/PKlima/index.tsx:157
 #: components/views/Redeem/index.tsx:325
 #: components/views/Stake/index.tsx:432
@@ -942,7 +942,7 @@ msgstr "लॉग इन करें"
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:443
+#: components/views/Offset/index.tsx:445
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:230
 #: components/views/Stake/index.tsx:228
@@ -957,11 +957,11 @@ msgstr "साइन इन / कनेक्ट करें"
 msgid "shared.max"
 msgstr "अधिकतम"
 
-#: components/views/Offset/index.tsx:456
+#: components/views/Offset/index.tsx:458
 msgid "shared.redirecting_checkout"
 msgstr "चेकआउट पर रीडायरेक्ट किया जा रहा है..."
 
-#: components/views/Offset/index.tsx:535
+#: components/views/Offset/index.tsx:537
 msgid "shared.retire"
 msgstr "कार्बन रिटायर करें"
 
