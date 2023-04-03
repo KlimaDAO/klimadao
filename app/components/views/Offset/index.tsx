@@ -56,6 +56,7 @@ import {
   selectProjectTokens,
 } from "state/selectors";
 import {
+  decrementAllowance,
   decrementProjectToken,
   setAllowance,
   setProjectToken,
@@ -98,6 +99,7 @@ export const Offset = (props: Props) => {
       spender: "retirementAggregatorV2",
     })
   );
+  console.log("FOX", allowances);
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
@@ -377,10 +379,10 @@ export const Offset = (props: Props) => {
           })
         );
         dispatch(
-          setAllowance({
+          decrementAllowance({
             token: paymentMethod,
             spender: "retirementAggregatorV2",
-            value: "0",
+            value: cost,
           })
         );
       }
