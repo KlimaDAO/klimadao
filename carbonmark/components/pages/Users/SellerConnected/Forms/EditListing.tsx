@@ -1,13 +1,10 @@
-import {
-  formatTonnes,
-  formatUnits,
-  getTokenDecimals,
-} from "@klimadao/lib/utils";
+import { formatTonnes, formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -136,7 +133,7 @@ export const EditListing: FC<Props> = (props) => {
                   }),
                 },
                 min: {
-                  value: 0.1,
+                  value: MINIMUM_TONNE_PRICE,
                   message: t({
                     id: "user.listing.form.input.singleUnitPrice.minimum",
                     message: `The minimum price per tonne is ${MINIMUM_TONNE_PRICE.toLocaleString(
