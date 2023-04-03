@@ -144,10 +144,22 @@ export const partnersSection = css`
     margin-top: 2.6rem;
 
     ${breakpoints.desktop} {
-      gap: 7rem;
       margin-top: 2rem;
-      flex-direction: row;
+      flex-direction: column;
       margin-bottom: 37rem;
+    }
+
+    & div {
+      gap: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      ${breakpoints.desktop} {
+        gap: 7rem;
+        flex-direction: row;
+      }
     }
   }
 

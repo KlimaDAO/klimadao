@@ -96,10 +96,20 @@ export const Home: NextPage<Props> = (props) => {
               Our Partners
             </Text>
             <div className="partners">
-              <Image src="/c3.png" width="57" height="58" alt="C3 Logo" />
-              <VlinderLogo height="50" />
-              <SCBLogo height="50" />
-              <OffsetraLogo height="50" />
+              <div>
+                <Image
+                  src="/circle.png"
+                  width="194"
+                  height="50"
+                  alt="Circle Logo"
+                />
+                <Image src="/c3.png" width="57" height="58" alt="C3 Logo" />
+                <VlinderLogo height="50" />
+              </div>
+              <div>
+                <SCBLogo height="50" />
+                <OffsetraLogo height="50" />
+              </div>
             </div>
           </div>
           <Text t="h2" as="h2">
