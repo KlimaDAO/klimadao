@@ -311,6 +311,14 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
+                    message: "Buy Carbon",
+                    id: "shared.buy_carbon",
+                  })}
+                  key="buy carbon"
+                  url={createLinkWithLocaleQuery(urls.redeem, locale)}
+                />,
+                <NavItemMobile
+                  name={t({
                     message: "Info",
                     id: "shared.info",
                   })}
