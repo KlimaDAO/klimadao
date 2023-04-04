@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { t, Trans } from "@lingui/macro";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -8,8 +9,9 @@ import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Stats } from "components/Stats";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
-import { formatToPrice } from "lib/formatNumbers";
+import { formatList, formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
   getAllListings,
@@ -42,6 +44,12 @@ export const Project: NextPage<Props> = (props) => {
     (Array.isArray(props.project.listings) &&
       getActiveListings(props.project.listings)) ||
     [];
+
+  const allMethodologyIds =
+    props.project?.methodologies?.map(({ id }) => id) || [];
+  const allMethodologyNames =
+    props.project?.methodologies?.map(({ name }) => name) || [];
+
   const poolPrices =
     (Array.isArray(props.project?.prices) &&
       // Remove pool prices if the quantity is less than 1. (leftover  token 'dust')
@@ -126,12 +134,20 @@ export const Project: NextPage<Props> = (props) => {
             )}
           </div>
 
-          <div className="methodology">
-            <Text t="h5" color="lighter">
+          <div className={styles.methodology}>
+            <Text t="h5" color="lighter" align="end">
               <Trans>Methodology</Trans>
             </Text>
             <Text t="body1" color="lighter" align="end">
-              {props.project.registry}-{props.project.projectID}
+              {formatList(allMethodologyIds, "narrow")}
+              {props?.project?.methodologies?.length && (
+                <TextInfoTooltip
+                  className={styles.infoContent}
+                  tooltip={formatList(allMethodologyNames, "short")}
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              )}
             </Text>
           </div>
         </div>

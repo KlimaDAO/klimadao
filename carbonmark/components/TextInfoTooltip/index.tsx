@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import Tippy from "@tippyjs/react";
 import { Text } from "components/Text";
 import { ReactElement } from "react";
@@ -7,6 +8,7 @@ import * as styles from "./styles";
 interface TooltipProps {
   tooltip: string;
   children: ReactElement;
+  className?: string;
 }
 
 export const TextInfoTooltip = (props: TooltipProps) => (
@@ -16,7 +18,7 @@ export const TextInfoTooltip = (props: TooltipProps) => (
         {props.tooltip}
       </Text>
     }
-    className={styles.tippyBox}
+    className={cx(styles.tippyBox, props.className)}
   >
     {props.children}
   </Tippy>

@@ -5,6 +5,13 @@ export interface Project {
   key: string;
   projectID: string;
   name: string | "";
+  methodologies: [
+    {
+      id: string;
+      name: string;
+      category: string;
+    }
+  ];
   methodology: string;
   vintage: string;
   projectAddress: string;

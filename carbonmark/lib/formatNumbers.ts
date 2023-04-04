@@ -24,3 +24,11 @@ export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {
 export const formatToTonnes = (value: string | number, locale = "en") => {
   return trimWithLocale(value, 4, locale);
 };
+
+export const formatList = (
+  value: string[],
+  style: "long" | "short" | "narrow",
+  locale = "en"
+) => {
+  return new Intl.ListFormat(locale, { style }).format(value);
+};

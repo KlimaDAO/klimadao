@@ -116,11 +116,6 @@ export const meta = css`
   display: grid;
   grid-template-columns: 1fr auto;
 
-  .methodology {
-    display: grid;
-    gap: 0.4rem;
-  }
-
   .best-price {
     display: flex;
     gap: 1.2rem;
@@ -136,5 +131,35 @@ export const meta = css`
     background-color: var(--yellow);
     align-items: center;
     border-radius: var(--border-radius);
+  }
+`;
+
+export const methodology = css`
+  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  & p:last-of-type {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    & svg {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+`;
+
+export const infoContent = css`
+  color: var(--white);
+  padding: 1.2rem;
+  background: #303030;
+  max-width: 23rem !important;
+  border-radius: 0.4rem;
+
+  .tippy-arrow {
+    color: #303030;
   }
 `;
