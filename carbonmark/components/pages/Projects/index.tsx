@@ -40,9 +40,9 @@ const Page: NextPage = () => {
   return (
     <>
       <PageHead
-        title={t`Projects | Carbonmark`}
-        mediaTitle={t`Browse Carbon Projects | Carbonmark`}
-        metaDescription={t`Browse our massive inventory of verified carbon offset projects. Buy, sell, or offset in a few clicks.`}
+        title={t`Marketplace | Carbonmark`}
+        mediaTitle={t`Marketplace | Carbonmark`}
+        metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout>
         <div className={styles.projectsControls}>

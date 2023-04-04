@@ -16,9 +16,9 @@ export const Resources: NextPage<Props> = (props) => {
   return (
     <GridContainer>
       <PageHead
-        title={t`CarbonMark | Resources`}
-        mediaTitle={t`CarbonMark News & Resources`}
-        metaDescription={t`Updates, guides and more from the CarbonMark team`}
+        title={t`Resources | Carbonmark`}
+        mediaTitle={t`Resources | Carbonmark`}
+        metaDescription={t`Find the latest updates, guides, and resources to help you leverage the Carbonmark platform.`}
       />
 
       <Navigation activePage="Resources" showThemeToggle={false} />

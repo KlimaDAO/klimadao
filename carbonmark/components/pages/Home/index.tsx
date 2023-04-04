@@ -48,9 +48,9 @@ export const Home: NextPage<Props> = (props) => {
   return (
     <GridContainer className={styles.global}>
       <PageHead
-        title={t`Carbonmark.com`}
-        mediaTitle={t`Carbonmark | Universal Carbon Market`}
-        metaDescription={t`The open platform for digital carbon.`}
+        title={t`Carbonmark | The Universal Carbon Marketplace`}
+        mediaTitle={t`Carbonmark | The Universal Carbon Marketplace`}
+        metaDescription={t`The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading.`}
       />
       <Section className={styles.hero}>
         <Image

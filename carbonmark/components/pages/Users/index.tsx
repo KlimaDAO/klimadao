@@ -41,7 +41,7 @@ export const Users: NextPage<Props> = (props) => {
         mediaTitle={`${
           props.carbonmarkUser?.handle || concatAddress(props.userAddress)
         }'s Profile on Carbonmark`}
-        metaDescription={t`View seller listings, carbon market activity and more.`}
+        metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
 
       <Layout userAddress={props.userAddress}>

@@ -138,7 +138,7 @@ export const Portfolio: NextPage = () => {
       <PageHead
         title={t`Portfolio | Carbonmark`}
         mediaTitle={t`Portfolio | Carbonmark`}
-        metaDescription={t`Manage your digital carbon assets and listings.`}
+        metaDescription={t`View a complete overview of the digital carbon that you own in your Portfolio. `}
       />
 
       <Layout>
