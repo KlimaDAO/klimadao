@@ -61,7 +61,6 @@ export const cardDescription = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  max-height: 9rem;
   overflow: hidden;
 `;
 
