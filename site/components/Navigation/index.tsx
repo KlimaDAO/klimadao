@@ -156,6 +156,14 @@ export const Navigation: FC<Props> = ({
           />
           <LinkItemDesktop
             name={t({
+              message: "Buy Carbon",
+              id: "shared.buy_carbon",
+            })}
+            key="buy carbon"
+            url={createLinkWithLocaleQuery(urls.redeem, locale)}
+          />
+          <LinkItemDesktop
+            name={t({
               message: "Info",
               id: "shared.info",
             })}
@@ -300,6 +308,14 @@ export const Navigation: FC<Props> = ({
                   })}
                   key="offset"
                   url={createLinkWithLocaleQuery(urls.offset, locale)}
+                />,
+                <NavItemMobile
+                  name={t({
+                    message: "Buy Carbon",
+                    id: "shared.buy_carbon",
+                  })}
+                  key="buy carbon"
+                  url={createLinkWithLocaleQuery(urls.redeem, locale)}
                 />,
                 <NavItemMobile
                   name={t({
