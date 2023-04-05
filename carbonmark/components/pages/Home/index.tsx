@@ -412,7 +412,7 @@ export const Home: NextPage<Props> = (props) => {
                     and always available. Learn more about what Carbonmark can
                     do for you as a carbon credit trader.
                   </Text>
-                  <A href={carbonmarkUrls.about}>
+                  <A href={carbonmarkUrls.intro}>
                     <Text t="h5" as="h6" className="readMore">
                       Read more
                     </Text>
