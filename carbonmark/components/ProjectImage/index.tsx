@@ -1,3 +1,4 @@
+import { getImageSizes } from "@klimadao/lib/utils";
 import { getCategoryInfo } from "lib/getCategoryInfo";
 import { CategoryName } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
@@ -16,6 +17,9 @@ export const ProjectImage: FC<Props> = (props) => {
       alt={category.label}
       objectFit="cover"
       layout="fill"
+      sizes={getImageSizes({
+        desktopLarge: "1116px",
+      })}
     />
   );
 };

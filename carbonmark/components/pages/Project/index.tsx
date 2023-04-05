@@ -19,6 +19,7 @@ import {
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
 import {
+  CategoryName,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -45,6 +46,7 @@ export const Project: NextPage<Props> = (props) => {
       getActiveListings(props.project.listings)) ||
     [];
 
+  const category = props.project.methodologies[0].category as CategoryName;
   const allMethodologyIds =
     props.project?.methodologies?.map(({ id }) => id) || [];
   const allMethodologyNames =
@@ -102,9 +104,7 @@ export const Project: NextPage<Props> = (props) => {
           <LoginButton className="desktopLogin" />
         </div>
         <div className={styles.projectHeader}>
-          {!!props.project.category?.id && (
-            <ProjectImage category={props.project.category.id} />
-          )}
+          <ProjectImage category={category} />
           <div className={styles.imageGradient} />
           <Text t="h4" className={styles.projectHeaderText}>
             {props.project.name || "Error - No project name found"}
@@ -114,9 +114,7 @@ export const Project: NextPage<Props> = (props) => {
               {props.project.registry}-{props.project.projectID}
             </Text>
             <Vintage vintage={props.project.vintage} />
-            {!!props.project.category?.id && (
-              <Category category={props.project.category.id} />
-            )}
+            <Category category={category} />
           </div>
         </div>
 

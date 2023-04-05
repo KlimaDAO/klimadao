@@ -1,4 +1,4 @@
-import { Skeleton } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
 import { FC, PropsWithChildren } from "react";
 import * as styles from "./styles";
 

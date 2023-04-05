@@ -20,6 +20,8 @@
     "@hookform/resolvers": "^2.8.8",
     "@lingui/core": "^3.13.0",
     "@lingui/react": "^3.13.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.11.16",
     "@portabletext/react": "^2.0.2",
     "@sanity/client": "^3.3.2",
     "@tippyjs/react": "^4.2.6",

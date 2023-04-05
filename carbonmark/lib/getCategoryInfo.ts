@@ -6,16 +6,18 @@ import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
 import TerrainOutlinedIcon from "@mui/icons-material/TerrainOutlined";
+import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
 import SvgIcon from "@mui/material/SvgIcon";
 import { CategoryName } from "lib/types/carbonmark";
 import { StaticImageData } from "next/legacy/image";
-import Agriculture from "public/category/Agriculture.png";
-import EnergyEfficiency from "public/category/Energy_Efficiency.png";
-import Forestry from "public/category/Forestry.png";
-import IndustrialProcessing from "public/category/Industrial_Processing.png";
-import Others from "public/category/Others.png";
-import OtherNatureBased from "public/category/Other_Nature_Based.png";
-import RenewableEnergy from "public/category/Renewable_Energy.png";
+import Agriculture from "public/category/Agriculture.jpg";
+import BlueCarbon from "public/category/BlueCarbon.jpg";
+import EnergyEfficiency from "public/category/EnergyEfficiency.jpg";
+import Forestry from "public/category/Forestry.jpg";
+import IndustrialProcessing from "public/category/Industrial.jpg";
+import Other from "public/category/Other.jpg";
+import OtherNatureBased from "public/category/OtherNatureBased.jpg";
+import RenewableEnergy from "public/category/RenewableEnergy.jpg";
 
 export const categoryNames: CategoryName[] = [
   "Agriculture",
@@ -25,6 +27,7 @@ export const categoryNames: CategoryName[] = [
   "Other Nature-Based",
   "Other",
   "Renewable Energy",
+  "Blue Carbon",
 ];
 
 type CategoryInfoMap = {
@@ -33,85 +36,59 @@ type CategoryInfoMap = {
     imageSrc: StaticImageData;
     label: string;
     icon: typeof SvgIcon;
-    color: string;
   };
 };
 
 export const getCategoryInfo = (category: CategoryName) => {
-  const trimmed = category.trim() as CategoryName;
-
   const categoryInfoMap: CategoryInfoMap = {
     "Renewable Energy": {
       key: "Renewable Energy",
       imageSrc: RenewableEnergy,
-      label: t({
-        id: "project.category.renewable_energy",
-        message: "Renewable Energy",
-      }),
-      color: "#66E185",
+      label: t`Renewable Energy`,
       icon: BatterySaverIcon,
     },
     Forestry: {
       key: "Forestry",
       imageSrc: Forestry,
-      label: t({
-        id: "project.category.forestry",
-        message: "Forestry",
-      }),
-      color: "#6EC6FF",
+      label: t`Forestry`,
       icon: ParkOutlinedIcon,
     },
     "Other Nature-Based": {
       key: "Other Nature-Based",
       imageSrc: OtherNatureBased,
-      label: t({
-        id: "project.category.other_nature_based",
-        message: "Other Nature-Based",
-      }),
-      color: "#CEC2FF",
+      label: t`Other Nature-Based`,
       icon: TerrainOutlinedIcon,
     },
     Other: {
       key: "Other",
-      imageSrc: Others,
-      label: t({
-        id: "project.category.other",
-        message: "Other",
-      }),
-      color: "#4F5555",
+      imageSrc: Other,
+      label: t`Other`,
       icon: EmojiNatureIcon,
     },
     "Energy Efficiency": {
       key: "Energy Efficiency",
       imageSrc: EnergyEfficiency,
-      label: t({
-        id: "project.category.energy_efficiency",
-        message: "Energy Efficiency",
-      }),
-      color: "#FFCA66",
+      label: t`Energy Efficiency`,
       icon: BoltOutlinedIcon,
     },
     Agriculture: {
       key: "Agriculture",
       imageSrc: Agriculture,
-      label: t({
-        id: "project.category.agriculture",
-        message: "Agriculture",
-      }),
-      color: "#FFB8A3",
+      label: t`Agriculture`,
       icon: AgricultureOutlinedIcon,
     },
     "Industrial Processing": {
       key: "Industrial Processing",
       imageSrc: IndustrialProcessing,
-      label: t({
-        id: "project.category.industrial_processing",
-        message: "Industrial Processing",
-      }),
-      color: "#FF99BC",
+      label: t`Industrial Processing`,
       icon: PrecisionManufacturingOutlinedIcon,
     },
+    "Blue Carbon": {
+      key: "Blue Carbon",
+      imageSrc: BlueCarbon,
+      label: t`Blue Carbon`,
+      icon: WaterDropOutlinedIcon,
+    },
   };
-  const info = categoryInfoMap[trimmed] || categoryInfoMap.Other;
-  return info;
+  return categoryInfoMap[category] || categoryInfoMap.Other;
 };

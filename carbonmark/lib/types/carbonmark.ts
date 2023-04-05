@@ -200,7 +200,8 @@ export type CategoryName =
   | "Industrial Processing"
   | "Renewable Energy"
   | "Other"
-  | "Other Nature-Based";
+  | "Other Nature-Based"
+  | "Blue Carbon";
 
 export type Purchase = {
   id: string; // TransactionHash
