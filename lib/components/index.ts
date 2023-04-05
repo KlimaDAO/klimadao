@@ -6,6 +6,7 @@ export { ButtonSecondary } from "./Buttons/ButtonSecondary";
 export { ConnectModal } from "./ConnectModal";
 export { CopyAddressButton } from "./CopyAddressButton";
 export { BraveIcon } from "./Icons/BraveIcon";
+export { CircleWalletIcon } from "./Icons/CircleWalletIcon";
 export { CoinbaseWalletIcon } from "./Icons/CoinbaseWalletIcon";
 export { DiscordColorIcon } from "./Icons/DiscordColorIcon";
 export { DiscordIcon } from "./Icons/DiscordIcon";

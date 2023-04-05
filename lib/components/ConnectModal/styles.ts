@@ -45,6 +45,14 @@ export const walletButton = css`
   }
 `;
 
+export const walletButtonCircle = css`
+  ${walletButton}
+  background: #0019FF; // --bright-blue
+  p {
+    color: white;
+  }
+`;
+
 export const browserWalletIcon = css`
   width: 3.6rem;
   height: 3.6rem;

@@ -81,6 +81,10 @@ export const Layout: FC<Props> = (props: Props) => {
             message: "connect a wallet",
             id: "connectModal.wallet",
           }),
+          institutionalText: t({
+            message: "institutional",
+            id: "connectModal.institutional",
+          }),
           titles: {
             connect: t({
               id: "shared.login",
