@@ -99,7 +99,6 @@ export const Offset = (props: Props) => {
       spender: "retirementAggregatorV2",
     })
   );
-  console.log("FOX", allowances);
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
