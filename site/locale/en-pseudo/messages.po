@@ -445,6 +445,11 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:170
+#: components/pages/Pledge/index.tsx:112
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
 msgid "connectModal.torus"
@@ -455,8 +460,8 @@ msgstr ""
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -468,8 +473,8 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:179
-#: components/pages/Pledge/index.tsx:121
+#: components/pages/Pledge/PledgeDashboard/index.tsx:183
+#: components/pages/Pledge/index.tsx:125
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -1227,7 +1232,7 @@ msgstr ""
 msgid "pledges.form.awaiting_signature"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:193
+#: components/pages/Pledge/PledgeDashboard/index.tsx:197
 msgid "pledges.form.confirm_delete"
 msgstr ""
 
@@ -1239,7 +1244,7 @@ msgstr ""
 msgid "pledges.form.confirm_remove_cancel"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:208
+#: components/pages/Pledge/index.tsx:212
 msgid "pledges.form.error"
 msgstr ""
 
@@ -1379,7 +1384,7 @@ msgstr ""
 msgid "pledges.form.submit_button"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.title"
 msgstr ""
 
@@ -1415,7 +1420,7 @@ msgstr ""
 msgid "pledges.home.hero.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:166
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.hero.learn_more"
 msgstr ""
 
@@ -1423,15 +1428,15 @@ msgstr ""
 msgid "pledges.home.hero.view"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:206
 msgid "pledges.home.search.label"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:196
+#: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:222
+#: components/pages/Pledge/index.tsx:226
 msgid "pledges.home.search.submit"
 msgstr ""
 
@@ -1893,8 +1898,8 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "shared.login"
 msgstr ""
 
