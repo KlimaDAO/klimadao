@@ -7,6 +7,7 @@ import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+
 // keep globals on new line so that it is imported after variables.css
 import "@klimadao/lib/theme/globals.css";
 

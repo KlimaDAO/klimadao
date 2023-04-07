@@ -35,6 +35,7 @@ const mainnet = {
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
+  carbonmark: "0x77F2014496Cd168662f74F860353BE1d16deCB2E", // Diamond
 };
 
 const testnet: typeof mainnet = {
@@ -51,7 +52,7 @@ const testnet: typeof mainnet = {
   pklima_exercise: "0xBCE4486256bb306BF49e43DfdaFBc0A6660e95F9",
   sklima: "0xDe0cD0D51b9981BaB50DB974a1877c1C01b86e91",
   wsklima: "",
-  usdc: "",
+  usdc: "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7",
   klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
   klimaMco2Lp: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
@@ -74,6 +75,7 @@ const testnet: typeof mainnet = {
   retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
+  carbonmark: "0x694Ccc69525aecC522393e1e3623B937771ED1Af", // Diamond
 };
 
 export const addresses = {
@@ -93,12 +95,12 @@ export const urls = {
   gitbook: "https://klima-dao.gitbook.io/klima-dao",
   app: "https://app.klimadao.finance",
   stake: "https://app.klimadao.finance/#/stake",
+  redeem: "https://app.klimadao.finance/#/redeem",
   wrap: "https://app.klimadao.finance/#/wrap",
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
-  redeem: "https://app.klimadao.finance/#/redeem",
   resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
@@ -110,7 +112,7 @@ export const urls = {
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
-  polygonTestnetRpc: "https://rpc-mumbai.matic.today",
+  polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
   defaultEthRpc: "https://cloudflare-eth.com",
   infuraPolygonRpc: "https://polygon-mainnet.infura.io/v3",
   infuraPolygonRpcClient:
@@ -123,10 +125,12 @@ export const urls = {
   officialDocs: "https://docs.klimadao.finance",
   github: "https://github.com/KlimaDAO",
   linkedIn: "https://www.linkedin.com/company/klimadao/",
+  linkedInCarbonmark: "https://www.linkedin.com/company/carbonmarkcom",
   reddit: "https://www.reddit.com/r/Klima",
   podcast: "https://rss.com/podcasts/potk",
   telegram: "https://t.me/joinchat/Zb06f_mnMosyYTYy",
   twitter: "https://twitter.com/KlimaDAO",
+  twitterCarbonmark: "https://twitter.com/carbonmarkcom",
   youtube: "https://www.youtube.com/c/klimadaofinance",
   mediaRequestForm:
     "https://share-eu1.hsforms.com/1ILV2ALyPSqqUAeLdstfZZgfhhlr",
@@ -153,6 +157,10 @@ export const urls = {
   moonpayMatic: "https://www.moonpay.com/buy/matic",
   transakMatic:
     "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
+  carbonmark: "https://www.carbonmark.com",
+  marketplace: "https://www.carbonmark.com/projects",
+  portfolio: "https://www.carbonmark.com/portfolio",
+  resourcesCarbonark: "https://www.carbonmark.com/resources",
 };
 
 export const polygonNetworks = {
@@ -161,14 +169,14 @@ export const polygonNetworks = {
     hexChainId: "0x13881",
     chainId: 80001,
     rpcUrls: [urls.polygonTestnetRpc],
-    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+    blockExplorerUrls: ["https://mumbai.polygonscan.com"],
   },
   mainnet: {
     chainName: "Polygon Mainnet",
     hexChainId: "0x89",
     chainId: 137,
     rpcUrls: [urls.polygonMainnetRpc],
-    blockExplorerUrls: ["https://polygonscan.com/"],
+    blockExplorerUrls: ["https://polygonscan.com"],
   },
 };
 
@@ -209,6 +217,7 @@ export const allowancesContracts = {
   bond_nbo: ["nbo"],
   bond_ubo: ["ubo"],
   klimaProV2: ["klima"],
+  carbonmark: ["usdc"],
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
@@ -262,6 +271,7 @@ export const subgraphs = {
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
+  carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
 const VERRA_REGISTRY = "https://registry.verra.org";
@@ -270,6 +280,7 @@ export const verra = {
   projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
   projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
 };
+
 const GOLD_STANDARD_REGISTRY = "https://registry.goldstandard.org";
 export const goldStandard = {
   projectDetailPage: `${GOLD_STANDARD_REGISTRY}/projects/details`,

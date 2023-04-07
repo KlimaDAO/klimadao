@@ -68,6 +68,7 @@ export interface DisconnectedWeb3State {
 export interface RenderModalProps {
   torusText: string;
   walletText: string;
+  institutionalText: string;
   titles: {
     connect: string;
     loading: string;
@@ -76,6 +77,7 @@ export interface RenderModalProps {
   errors: {
     default: string;
     rejected: string;
+    alreadyProcessing: string;
   };
   buttonClassName?: string;
   onClose?: () => void;

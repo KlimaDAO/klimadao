@@ -123,7 +123,7 @@ export const Home: FC = () => {
 
   return (
     <>
-      <div className={styles.container} data-scrolllock={showMobileMenu}>
+      <div className={styles.container} data-scroll-lock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
           <NavMenu address={address} />
         </div>
@@ -172,6 +172,10 @@ export const Home: FC = () => {
               walletText: t({
                 message: "connect a wallet",
                 id: "connectModal.wallet",
+              }),
+              institutionalText: t({
+                message: "institutional",
+                id: "connectModal.institutional",
               }),
               titles: {
                 connect: t({

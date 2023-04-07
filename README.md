@@ -35,10 +35,13 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 
 > App can be accessed at [http://localhost:3001](http://localhost:3001)
 
+> CarbonMark can be accessed at [http://localhost:3002](http://localhost:3002)
+
 To run dev on a specific workspace use:
 
 - `npm run dev-site`
 - `npm run dev-app`
+- `npm run dev-carbonmark`
 - `npm run dev-lib`
 
 `npm run format-all`: Format all files with `prettier`.

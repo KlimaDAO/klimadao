@@ -2,6 +2,7 @@ export { concatAddress } from "./concatAddress";
 // ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
+export { formatTonnes } from "./formatTonnes";
 export { formatUnits } from "./formatUnits";
 export {
   getAllowance,

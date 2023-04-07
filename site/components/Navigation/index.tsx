@@ -15,7 +15,6 @@ import { NavItemMobile } from "./NavItemMobile";
 import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
-
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 export type PageName =

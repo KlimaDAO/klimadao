@@ -45,6 +45,14 @@ export const walletButton = css`
   }
 `;
 
+export const walletButtonCircle = css`
+  ${walletButton}
+  background: #0019FF; // --bright-blue
+  p {
+    color: white;
+  }
+`;
+
 export const browserWalletIcon = css`
   width: 3.6rem;
   height: 3.6rem;
@@ -126,9 +134,6 @@ export const errorContent = css`
   padding-top: 2.4rem;
   button {
     width: 100%;
-  }
-  p {
-    color: var(--white);
   }
 `;
 
@@ -221,7 +226,7 @@ export const button = css`
   font-size: 1.4rem;
   line-height: 1.6rem;
   font-weight: 600;
-  letter-spacing: 3%;
+  letter-spacing: 0.042rem;
 `;
 
 export const subText = css`
@@ -233,7 +238,7 @@ export const body1 = css`
   font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 2rem;
-  letter-spacing: 1%;
+  letter-spacing: 0.016rem;
 `;
 export const closeButton = css`
   svg {

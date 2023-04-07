@@ -16,8 +16,8 @@ export const HeaderMobile: FC<Props> = (props) => {
 
   useEffect(() => {
     isToggled
-      ? document.body.classList.add("scrollLock")
-      : document.body.classList.remove("scrollLock");
+      ? document.body.classList.add("scroll-lock")
+      : document.body.classList.remove("scroll-lock");
   }, [isToggled]);
 
   return (

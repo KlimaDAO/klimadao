@@ -5,8 +5,10 @@ import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
 import {
+  Anchor,
   BraveIcon,
   ButtonPrimary,
+  CircleWalletIcon,
   CoinbaseWalletIcon,
   DiscordColorIcon,
   FacebookColorIcon,
@@ -27,6 +29,7 @@ const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 export interface ConnectModalProps {
   torusText: string;
   walletText: string;
+  institutionalText: string;
   titles: {
     connect: string;
     loading: string;
@@ -36,6 +39,7 @@ export interface ConnectModalProps {
   errors: {
     default: string;
     rejected: string;
+    alreadyProcessing: string;
   };
   /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
@@ -53,7 +57,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
   const focusTrapRef = useFocusTrap();
   const [eth, setEth] = useState<WindowEthereum | undefined>(undefined);
   const [errorName, setErrorName] = useState<
-    "default" | "rejected" | undefined
+    "default" | "rejected" | "alreadyProcessing" | undefined
   >();
 
   useEffect(() => {
@@ -98,6 +102,8 @@ export const ConnectModal = (props: ConnectModalProps) => {
       console.error(e);
       if (e.name === "rejected") {
         setErrorName(e.name);
+      } else if (e.message.includes("processing eth_requestAccounts")) {
+        setErrorName("alreadyProcessing");
       } else {
         setErrorName("default");
       }
@@ -204,6 +210,19 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <WalletConnectIcon />
                   <p className={styles.button}>walletconnect</p>
                 </button>
+              </div>
+              <div className={styles.buttonsContainer}>
+                <span className={styles.textBox}>
+                  <div className={styles.leftLine} />
+                  <p className={styles.subText}>{props.institutionalText}</p>
+                  <div className={styles.rightLine} />
+                </span>
+                <Anchor href="https://www.carbonmark.com/blog/circle-institutional-custody-solution">
+                  <button className={styles.walletButtonCircle}>
+                    <CircleWalletIcon className={styles.browserWalletIcon} />
+                    <p className={styles.button}>circle custody</p>
+                  </button>
+                </Anchor>
               </div>
             </div>
           )}

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/CarbonBalancesCard/index.tsx:124
 msgid "Balances"
@@ -426,6 +432,10 @@ msgstr ""
 msgid "choose_bond.ubo.description"
 msgstr ""
 
+#: components/views/Home/index.tsx:176
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/views/Home/index.tsx:168
 msgid "connectModal.torus"
 msgstr ""
@@ -434,7 +444,7 @@ msgstr ""
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:185
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -446,7 +456,11 @@ msgstr ""
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: components/views/Home/index.tsx:185
+#: lib/constants.ts:37
+msgid "connect_modal.error_processing"
+msgstr ""
+
+#: components/views/Home/index.tsx:189
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -935,7 +949,7 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/views/Home/index.tsx:177
+#: components/views/Home/index.tsx:181
 msgid "shared.login"
 msgstr ""
 

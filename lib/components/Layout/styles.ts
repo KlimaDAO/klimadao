@@ -26,6 +26,9 @@ export const section = css`
   background-color: var(--surface-01);
   padding: 8.4rem 0rem;
 
+  &.darkgray {
+    background-color: #202020;
+  }
   &.gray {
     background-color: var(--surface-02);
   }

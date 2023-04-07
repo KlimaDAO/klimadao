@@ -45,7 +45,7 @@ msgstr "Methodology: {0}"
 msgid "No retirement message provided."
 msgstr "No retirement message provided."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:146
 msgid "Processing data..."
 msgstr "Processing data..."
 
@@ -61,7 +61,7 @@ msgstr "This app only works on Polygon Mainnet."
 msgid "View on Polygonscan"
 msgstr "View on Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:165
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
@@ -445,6 +445,11 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:170
+#: components/pages/Pledge/index.tsx:112
+msgid "connectModal.institutional"
+msgstr "institutional"
+
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
 msgid "connectModal.torus"
@@ -455,8 +460,8 @@ msgstr "social or email"
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -468,8 +473,12 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:179
-#: components/pages/Pledge/index.tsx:121
+#: lib/constants.ts:26
+msgid "connect_modal.error_processing"
+msgstr "Request already processing. Please open your wallet and complete the request."
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:183
+#: components/pages/Pledge/index.tsx:125
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -1227,7 +1236,7 @@ msgstr "Add wallet"
 msgid "pledges.form.awaiting_signature"
 msgstr "Awaiting signature..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:193
+#: components/pages/Pledge/PledgeDashboard/index.tsx:197
 msgid "pledges.form.confirm_delete"
 msgstr "confirm removal"
 
@@ -1239,7 +1248,7 @@ msgstr "remove"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancel"
 
-#: components/pages/Pledge/index.tsx:208
+#: components/pages/Pledge/index.tsx:212
 msgid "pledges.form.error"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
@@ -1379,7 +1388,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
@@ -1415,7 +1424,7 @@ msgstr "Connecting..."
 msgid "pledges.home.hero.create"
 msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:166
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.hero.learn_more"
 msgstr "Learn more"
 
@@ -1423,15 +1432,15 @@ msgstr "Learn more"
 msgid "pledges.home.hero.view"
 msgstr "View your pledge"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:206
 msgid "pledges.home.search.label"
 msgstr "ENS or 0x address"
 
-#: components/pages/Pledge/index.tsx:196
+#: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
-#: components/pages/Pledge/index.tsx:222
+#: components/pages/Pledge/index.tsx:226
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
@@ -1611,39 +1620,39 @@ msgstr "Use carbon-backed KLIMA tokens to govern, swap, and earn staking rewards
 msgid "retirement.footer.buy_klima.title"
 msgstr "Acquire, stake, and get rewarded."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:137
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:133
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} retired {formattedAmount} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:129
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:281
+#: components/pages/Retirements/SingleRetirement/index.tsx:266
 msgid "retirement.share.title"
 msgstr "Share your impact"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:191
+#: components/pages/Retirements/SingleRetirement/index.tsx:176
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:185
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:199
+#: components/pages/Retirements/SingleRetirement/index.tsx:184
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:260
+#: components/pages/Retirements/SingleRetirement/index.tsx:245
 msgid "retirement.single.create_a_pledge"
 msgstr "Create a pledge now."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:246
+#: components/pages/Retirements/SingleRetirement/index.tsx:231
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
@@ -1651,11 +1660,11 @@ msgstr "This represents the permanent retirement of tokenized carbon assets on t
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.header.subline"
 msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:241
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Is this your retirement?"
 
@@ -1675,7 +1684,7 @@ msgstr "Project Details"
 msgid "retirement.single.quantity"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:220
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -1687,7 +1696,7 @@ msgstr "Date"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:317
+#: components/pages/Retirements/SingleRetirement/index.tsx:302
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
@@ -1742,13 +1751,13 @@ msgstr "Total Retirement Transactions"
 msgid "shared.404"
 msgstr "404 - Page Not Found"
 
-#: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:238
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:237
 msgid "shared.about"
 msgstr "About"
 
-#: components/Navigation/index.tsx:116
-#: components/Navigation/index.tsx:272
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:271
 msgid "shared.app"
 msgstr "App"
 
@@ -1757,19 +1766,19 @@ msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:43
-#: components/Navigation/index.tsx:134
-#: components/Navigation/index.tsx:289
+#: components/Navigation/index.tsx:133
+#: components/Navigation/index.tsx:288
 msgid "shared.bond"
 msgstr "Bond Klima"
 
 #: components/Footer/index.tsx:37
-#: components/Navigation/index.tsx:118
-#: components/Navigation/index.tsx:276
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:275
 msgid "shared.buy"
 msgstr "Buy Klima"
 
-#: components/Navigation/index.tsx:158
-#: components/Navigation/index.tsx:313
+#: components/Navigation/index.tsx:157
+#: components/Navigation/index.tsx:312
 msgid "shared.buy_carbon"
 msgstr "Buy Carbon"
 
@@ -1779,16 +1788,16 @@ msgstr "Buy Carbon"
 msgid "shared.cancel"
 msgstr "Cancel"
 
-#: components/Navigation/index.tsx:377
+#: components/Navigation/index.tsx:376
 msgid "shared.carbon_dashboard"
 msgstr "Carbon Dashboard"
 
-#: components/Navigation/index.tsx:214
+#: components/Navigation/index.tsx:213
 msgid "shared.carbon_dashboards"
 msgstr "Carbon Dashboards"
 
-#: components/Navigation/index.tsx:88
-#: components/Navigation/index.tsx:243
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:242
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1799,18 +1808,18 @@ msgid "shared.confirm"
 msgstr "Confirm"
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:252
+#: components/Navigation/index.tsx:251
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:117
 #: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
 msgstr "Contact Sales"
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
@@ -1818,20 +1827,20 @@ msgid "shared.contact_us"
 msgstr "Contact Us"
 
 #: components/Footer/index.tsx:55
-#: components/Navigation/index.tsx:106
-#: components/Navigation/index.tsx:261
+#: components/Navigation/index.tsx:105
+#: components/Navigation/index.tsx:260
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:222
-#: components/Navigation/index.tsx:385
+#: components/Navigation/index.tsx:221
+#: components/Navigation/index.tsx:384
 msgid "shared.docs"
 msgstr "Official Docs"
 
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:63
 #: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "Enter App"
@@ -1855,13 +1864,13 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:205
-#: components/Navigation/index.tsx:368
+#: components/Navigation/index.tsx:204
+#: components/Navigation/index.tsx:367
 msgid "shared.how_to_buy"
 msgstr "How To Buy Klima"
 
-#: components/Navigation/index.tsx:175
-#: components/Navigation/index.tsx:332
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:331
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1875,13 +1884,13 @@ msgstr "Get Started"
 msgid "shared.infinity_cta"
 msgstr "DEFI FOR ORGANIZATIONS"
 
-#: components/Navigation/index.tsx:178
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:334
 msgid "shared.infinity_intro"
 msgstr "Introduction"
 
-#: components/Navigation/index.tsx:166
-#: components/Navigation/index.tsx:321
+#: components/Navigation/index.tsx:165
+#: components/Navigation/index.tsx:320
 msgid "shared.info"
 msgstr "Info"
 
@@ -1889,12 +1898,12 @@ msgstr "Info"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "shared.login"
 msgstr "Login"
 
@@ -1907,13 +1916,13 @@ msgstr "Login / Connect"
 msgid "shared.loveletter_cta"
 msgstr "DEFI FOR INDIVIDUALS"
 
-#: components/Navigation/index.tsx:190
-#: components/Navigation/index.tsx:350
+#: components/Navigation/index.tsx:189
+#: components/Navigation/index.tsx:349
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:150
-#: components/Navigation/index.tsx:305
+#: components/Navigation/index.tsx:149
+#: components/Navigation/index.tsx:304
 msgid "shared.offset"
 msgstr "Offset"
 
@@ -1926,8 +1935,8 @@ msgstr "Okay"
 msgid "shared.pending"
 msgstr "Pending"
 
-#: components/Navigation/index.tsx:183
-#: components/Navigation/index.tsx:343
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:342
 msgid "shared.pledge"
 msgstr "How to pledge"
 
@@ -1935,14 +1944,14 @@ msgstr "How to pledge"
 msgid "shared.remove"
 msgstr "remove"
 
-#: components/Navigation/index.tsx:196
-#: components/Navigation/index.tsx:359
+#: components/Navigation/index.tsx:195
+#: components/Navigation/index.tsx:358
 #: components/pages/Blog/Post/index.tsx:70
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 
-#: components/Navigation/index.tsx:193
-#: components/Navigation/index.tsx:355
+#: components/Navigation/index.tsx:192
+#: components/Navigation/index.tsx:354
 msgid "shared.resources"
 msgstr "Resources"
 
@@ -1951,8 +1960,8 @@ msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:126
-#: components/Navigation/index.tsx:281
+#: components/Navigation/index.tsx:125
+#: components/Navigation/index.tsx:280
 msgid "shared.stake"
 msgstr "Stake Klima"
 
@@ -1960,8 +1969,8 @@ msgstr "Stake Klima"
 msgid "shared.visit_klimadao_blog"
 msgstr "Visit the KlimaDAO Blog"
 
-#: components/Navigation/index.tsx:142
-#: components/Navigation/index.tsx:297
+#: components/Navigation/index.tsx:141
+#: components/Navigation/index.tsx:296
 msgid "shared.wrap"
 msgstr "Wrap sKlima"
 

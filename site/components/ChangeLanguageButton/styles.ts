@@ -8,20 +8,19 @@ export const changeLanguageButton = css`
     height: 2.4rem;
     width: 2.4rem;
   }
-  ${breakpoints.small} {
-    top: 3.2rem;
-    right: -0.2rem;
-    display: flex;
-    min-height: 4.8rem;
-    align-items: center;
-    background-color: var(--surface-01);
-    padding: 0rem 1.5rem;
-    border-radius: var(--border-radius);
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    transition: opacity 0.3s ease 0s;
-  }
+
+  top: 3.2rem;
+  right: -0.2rem;
+  display: flex;
+  min-height: 4.8rem;
+  align-items: center;
+  background-color: var(--surface-01);
+  padding: 0rem 1.5rem;
+  border-radius: var(--border-radius);
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  transition: opacity 0.3s ease 0s;
 
   ${breakpoints.medium} {
     top: 9.8rem;
