@@ -34,4 +34,9 @@ export const getConnectErrorStrings = () => ({
     message: "User refused connection.",
     id: "connect_modal.error_message_refused",
   }),
+  alreadyProcessing: t({
+    message:
+      "Request already processing. Please open your wallet and complete the request.",
+    id: "connect_modal.error_processing",
+  }),
 });

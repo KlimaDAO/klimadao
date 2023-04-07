@@ -26,6 +26,11 @@ export const connectErrorStrings = {
     message: "User refused connection.",
     id: "connect_modal.error_message_refused",
   }),
+  alreadyProcessing: t({
+    message:
+      "Request already processing. Please open your wallet and complete the request.",
+    id: "connect_modal.error_processing",
+  }),
 };
 
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

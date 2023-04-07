@@ -135,9 +135,6 @@ export const errorContent = css`
   button {
     width: 100%;
   }
-  p {
-    color: var(--white);
-  }
 `;
 
 export const buttonBackground = css`
