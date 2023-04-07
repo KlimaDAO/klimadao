@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.5.4",
-    "@emotion/css": "^11.10.0",
-    "@emotion/react": "^11.10.5",
+    "@emotion/css": "^11.10.6",
+    "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/styled": "^11.10.6",
     "@hookform/resolvers": "^2.8.8",
     "@lingui/core": "^3.13.0",
     "@lingui/react": "^3.13.0",
