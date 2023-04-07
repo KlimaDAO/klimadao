@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-06 15:33+0000\n"
+"POT-Creation-Date: 2023-04-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -428,6 +428,10 @@ msgstr "Schatzkammerguthaben"
 msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
+#: components/views/Home/index.tsx:176
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/views/Home/index.tsx:168
 msgid "connectModal.torus"
 msgstr ""
@@ -436,7 +440,7 @@ msgstr ""
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:185
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
@@ -448,7 +452,11 @@ msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 msgid "connect_modal.error_message_refused"
 msgstr "Benutzer verweigerte Verbindung."
 
-#: components/views/Home/index.tsx:185
+#: lib/constants.ts:37
+msgid "connect_modal.error_processing"
+msgstr ""
+
+#: components/views/Home/index.tsx:189
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
 
@@ -941,7 +949,7 @@ msgstr "Ungültige Menge"
 msgid "shared.loading"
 msgstr "Lade..."
 
-#: components/views/Home/index.tsx:177
+#: components/views/Home/index.tsx:181
 msgid "shared.login"
 msgstr "Login"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-06 15:33+0000\n"
+"POT-Creation-Date: 2023-04-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,7 @@ msgstr "Методология: {0}"
 msgid "No retirement message provided."
 msgstr "Сообщение о выводе не предоставляется."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:146
 msgid "Processing data..."
 msgstr "Обработка данных..."
 
@@ -55,7 +55,7 @@ msgstr "Это приложение работает только в Polygon Mai
 msgid "View on Polygonscan"
 msgstr "Посмотреть на Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:165
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Мы еще не закончили обработку данных блокчейна для этого вывода. Обычно это занимает несколько секунд, но может занять больше времени, если сеть перегружена."
 
@@ -439,6 +439,11 @@ msgstr "Мы работаем с традиционными участникам
 msgid "concat.careers"
 msgstr "Карьера"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:170
+#: components/pages/Pledge/index.tsx:112
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
 msgid "connectModal.torus"
@@ -449,8 +454,8 @@ msgstr "соцсети или электронная почта"
 msgid "connectModal.wallet"
 msgstr "подключите кошелек"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/PledgeDashboard/index.tsx:179
+#: components/pages/Pledge/index.tsx:121
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
@@ -462,8 +467,12 @@ msgstr "У нас возникли проблемы с подключением.
 msgid "connect_modal.error_message_refused"
 msgstr "Пользователь отказался от подключения."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:179
-#: components/pages/Pledge/index.tsx:121
+#: lib/constants.ts:26
+msgid "connect_modal.error_processing"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:183
+#: components/pages/Pledge/index.tsx:125
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
@@ -1231,7 +1240,7 @@ msgstr "Добавить кошелек"
 msgid "pledges.form.awaiting_signature"
 msgstr "Ожидание подписи..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:193
+#: components/pages/Pledge/PledgeDashboard/index.tsx:197
 msgid "pledges.form.confirm_delete"
 msgstr "подтвердить удаление"
 
@@ -1243,7 +1252,7 @@ msgstr "Удалить"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "Отмена"
 
-#: components/pages/Pledge/index.tsx:208
+#: components/pages/Pledge/index.tsx:212
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
@@ -1383,7 +1392,7 @@ msgstr "0х..."
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:189
+#: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.title"
 msgstr "Ваш залог"
 
@@ -1421,7 +1430,7 @@ msgstr "Подключение..."
 msgid "pledges.home.hero.create"
 msgstr "Создать обязательство"
 
-#: components/pages/Pledge/index.tsx:166
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.hero.learn_more"
 msgstr "Подробнее"
 
@@ -1429,15 +1438,15 @@ msgstr "Подробнее"
 msgid "pledges.home.hero.view"
 msgstr "Просмотреть свой залог"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:206
 msgid "pledges.home.search.label"
 msgstr "ENS или 0x адрес"
 
-#: components/pages/Pledge/index.tsx:196
+#: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.placeholder"
 msgstr "Введите адрес ENS, KNS или 0x"
 
-#: components/pages/Pledge/index.tsx:222
+#: components/pages/Pledge/index.tsx:226
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
 
@@ -1619,39 +1628,39 @@ msgstr "Используйте токены KLIMA, обеспеченные уг
 msgid "retirement.footer.buy_klima.title"
 msgstr "Приобретайте, стейкайте и получайте вознаграждение."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:137
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:133
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} выведено {formattedAmount} тонны углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:129
+#: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Квитанция о возврате углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:281
+#: components/pages/Retirements/SingleRetirement/index.tsx:266
 msgid "retirement.share.title"
 msgstr "Поделитесь своим влиянием"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:191
+#: components/pages/Retirements/SingleRetirement/index.tsx:176
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Имя получателя не указано"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:185
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.beneficiary.title"
 msgstr "Бенефициар"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:199
+#: components/pages/Retirements/SingleRetirement/index.tsx:184
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Адрес получателя"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:260
+#: components/pages/Retirements/SingleRetirement/index.tsx:245
 msgid "retirement.single.create_a_pledge"
 msgstr "Создайте залог прямо сейчас."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:246
+#: components/pages/Retirements/SingleRetirement/index.tsx:231
 msgid "retirement.single.disclaimer"
 msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
 
@@ -1659,11 +1668,11 @@ msgstr "Это представляет собой постоянное выбы
 msgid "retirement.single.download_certificate_button"
 msgstr "Скачать PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.header.subline"
 msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:241
 msgid "retirement.single.is_this_your_retirement"
 msgstr "Это ваше выбытие?"
 
@@ -1683,7 +1692,7 @@ msgstr "Детали проекта"
 msgid "retirement.single.quantity"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ "
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:220
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Сертификат"
 
@@ -1695,7 +1704,7 @@ msgstr "Дата"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:317
+#: components/pages/Retirements/SingleRetirement/index.tsx:302
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
@@ -1750,13 +1759,13 @@ msgstr "Всего транзакции выбивания"
 msgid "shared.404"
 msgstr "404 Страница не найдена"
 
-#: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:238
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:237
 msgid "shared.about"
 msgstr "О"
 
-#: components/Navigation/index.tsx:116
-#: components/Navigation/index.tsx:272
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:271
 msgid "shared.app"
 msgstr "Приложение"
 
@@ -1765,19 +1774,19 @@ msgid "shared.blog"
 msgstr "Блог"
 
 #: components/Footer/index.tsx:43
-#: components/Navigation/index.tsx:134
-#: components/Navigation/index.tsx:289
+#: components/Navigation/index.tsx:133
+#: components/Navigation/index.tsx:288
 msgid "shared.bond"
 msgstr "Облигация Klima"
 
 #: components/Footer/index.tsx:37
-#: components/Navigation/index.tsx:118
-#: components/Navigation/index.tsx:276
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:275
 msgid "shared.buy"
 msgstr "Купить Klima"
 
-#: components/Navigation/index.tsx:158
-#: components/Navigation/index.tsx:313
+#: components/Navigation/index.tsx:157
+#: components/Navigation/index.tsx:312
 msgid "shared.buy_carbon"
 msgstr "Купить углерод"
 
@@ -1787,16 +1796,16 @@ msgstr "Купить углерод"
 msgid "shared.cancel"
 msgstr "Отмена"
 
-#: components/Navigation/index.tsx:377
+#: components/Navigation/index.tsx:376
 msgid "shared.carbon_dashboard"
 msgstr "Приборные панели по углероду"
 
-#: components/Navigation/index.tsx:214
+#: components/Navigation/index.tsx:213
 msgid "shared.carbon_dashboards"
 msgstr "Приборные панели по углероду"
 
-#: components/Navigation/index.tsx:88
-#: components/Navigation/index.tsx:243
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:242
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1807,18 +1816,18 @@ msgid "shared.confirm"
 msgstr "Подтвердить"
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:252
+#: components/Navigation/index.tsx:251
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "Связаться"
 
-#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:117
 #: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
 msgstr "Связаться с отделом продаж"
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
@@ -1826,20 +1835,20 @@ msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
 #: components/Footer/index.tsx:55
-#: components/Navigation/index.tsx:106
-#: components/Navigation/index.tsx:261
+#: components/Navigation/index.tsx:105
+#: components/Navigation/index.tsx:260
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr "Отказ от ответственности"
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:222
-#: components/Navigation/index.tsx:385
+#: components/Navigation/index.tsx:221
+#: components/Navigation/index.tsx:384
 msgid "shared.docs"
 msgstr "Официальные документы"
 
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:63
 #: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "Войдите в приложение"
@@ -1865,13 +1874,13 @@ msgstr ""
 msgid "shared.home"
 msgstr "Домашняя страница"
 
-#: components/Navigation/index.tsx:205
-#: components/Navigation/index.tsx:368
+#: components/Navigation/index.tsx:204
+#: components/Navigation/index.tsx:367
 msgid "shared.how_to_buy"
 msgstr "Как купить Klima"
 
-#: components/Navigation/index.tsx:175
-#: components/Navigation/index.tsx:332
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:331
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1885,13 +1894,13 @@ msgstr "С чего начать"
 msgid "shared.infinity_cta"
 msgstr "ДЕФИ ДЛЯ ОРГАНИЗАЦИЙ"
 
-#: components/Navigation/index.tsx:178
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:334
 msgid "shared.infinity_intro"
 msgstr "Введение"
 
-#: components/Navigation/index.tsx:166
-#: components/Navigation/index.tsx:321
+#: components/Navigation/index.tsx:165
+#: components/Navigation/index.tsx:320
 msgid "shared.info"
 msgstr "Информация"
 
@@ -1899,12 +1908,12 @@ msgstr "Информация"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "shared.loading"
 msgstr "Загрузка..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:171
-#: components/pages/Pledge/index.tsx:113
+#: components/pages/Pledge/PledgeDashboard/index.tsx:175
+#: components/pages/Pledge/index.tsx:117
 msgid "shared.login"
 msgstr "Авторизоваться"
 
@@ -1917,13 +1926,13 @@ msgstr "Войти / Подключиться"
 msgid "shared.loveletter_cta"
 msgstr "DEFI ДЛЯ ФИЗИЧЕСКИХ ЛИЦ"
 
-#: components/Navigation/index.tsx:190
-#: components/Navigation/index.tsx:350
+#: components/Navigation/index.tsx:189
+#: components/Navigation/index.tsx:349
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:150
-#: components/Navigation/index.tsx:305
+#: components/Navigation/index.tsx:149
+#: components/Navigation/index.tsx:304
 msgid "shared.offset"
 msgstr "Офсет"
 
@@ -1936,8 +1945,8 @@ msgstr "Хорошо"
 msgid "shared.pending"
 msgstr "В ожидании"
 
-#: components/Navigation/index.tsx:183
-#: components/Navigation/index.tsx:343
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:342
 msgid "shared.pledge"
 msgstr ""
 "Как внести залог\n"
@@ -1947,14 +1956,14 @@ msgstr ""
 msgid "shared.remove"
 msgstr "Удалить"
 
-#: components/Navigation/index.tsx:196
-#: components/Navigation/index.tsx:359
+#: components/Navigation/index.tsx:195
+#: components/Navigation/index.tsx:358
 #: components/pages/Blog/Post/index.tsx:70
 msgid "shared.resourcecenter"
 msgstr "Информационный центр"
 
-#: components/Navigation/index.tsx:193
-#: components/Navigation/index.tsx:355
+#: components/Navigation/index.tsx:192
+#: components/Navigation/index.tsx:354
 msgid "shared.resources"
 msgstr "Источники"
 
@@ -1963,8 +1972,8 @@ msgid "shared.resources.sort_by.header"
 msgstr "Сортировать по"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:126
-#: components/Navigation/index.tsx:281
+#: components/Navigation/index.tsx:125
+#: components/Navigation/index.tsx:280
 msgid "shared.stake"
 msgstr "Стейкинг Klima"
 
@@ -1972,8 +1981,8 @@ msgstr "Стейкинг Klima"
 msgid "shared.visit_klimadao_blog"
 msgstr "Посетите блог KlimaDAO"
 
-#: components/Navigation/index.tsx:142
-#: components/Navigation/index.tsx:297
+#: components/Navigation/index.tsx:141
+#: components/Navigation/index.tsx:296
 msgid "shared.wrap"
 msgstr "обернуть sKLIMA"
 

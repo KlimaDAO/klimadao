@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-06 15:33+0000\n"
+"POT-Creation-Date: 2023-04-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -426,6 +426,10 @@ msgstr "ट्रेज़री बैलेंस"
 msgid "choose_bond.ubo.description"
 msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
+#: components/views/Home/index.tsx:176
+msgid "connectModal.institutional"
+msgstr ""
+
 #: components/views/Home/index.tsx:168
 msgid "connectModal.torus"
 msgstr "ईमेल या सोशल"
@@ -434,7 +438,7 @@ msgstr "ईमेल या सोशल"
 msgid "connectModal.wallet"
 msgstr "वॉलेट कनेक्ट करें"
 
-#: components/views/Home/index.tsx:181
+#: components/views/Home/index.tsx:185
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
@@ -446,7 +450,11 @@ msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: �
 msgid "connect_modal.error_message_refused"
 msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
-#: components/views/Home/index.tsx:185
+#: lib/constants.ts:37
+msgid "connect_modal.error_processing"
+msgstr ""
+
+#: components/views/Home/index.tsx:189
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
@@ -935,7 +943,7 @@ msgstr "अमान्य मात्रा"
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
-#: components/views/Home/index.tsx:177
+#: components/views/Home/index.tsx:181
 msgid "shared.login"
 msgstr "लॉग इन करें"
 
