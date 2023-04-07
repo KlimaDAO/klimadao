@@ -661,6 +661,10 @@ msgstr "We had some trouble connecting. Please try again."
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
+#: lib/constants.ts:29
+msgid "connect_modal.error_processing"
+msgstr "Request already processing. Please open your wallet and complete the request."
+
 #: components/Layout/index.tsx:97
 msgid "connect_modal.error_title"
 msgstr "Connection Error"

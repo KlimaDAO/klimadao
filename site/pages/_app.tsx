@@ -6,22 +6,10 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
-import { ReactElement, ReactNode, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 // keep globals on new line so that it is imported after variables.css
 import "@klimadao/lib/theme/globals.css";
-
-//nextjs.org/docs/basic-features/layouts
-export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
-  P,
-  IP
-> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
