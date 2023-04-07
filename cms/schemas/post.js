@@ -27,6 +27,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Locale",
+      name: "locale",
+      type: "string",
+      description: "Leaving this empty defaults the locale to 'en'",
+      options: {
+        list: [
+          { title: "en", value: "en" },
+          { title: "zh-CN", value: "zh-CN" },
+        ],
+      },
+    },
+    {
       title: "Domain",
       name: "domain",
       type: "string",
