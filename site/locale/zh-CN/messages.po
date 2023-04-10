@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-07 23:41+0000\n"
+"POT-Creation-Date: 2023-04-10 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -442,7 +442,7 @@ msgstr ""
 #: components/pages/Pledge/PledgeDashboard/index.tsx:170
 #: components/pages/Pledge/index.tsx:112
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "机构的"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
@@ -469,7 +469,7 @@ msgstr "用户拒绝连接。"
 
 #: lib/constants.ts:26
 msgid "connect_modal.error_processing"
-msgstr ""
+msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:183
 #: components/pages/Pledge/index.tsx:125
