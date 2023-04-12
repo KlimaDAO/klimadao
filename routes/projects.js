@@ -395,6 +395,7 @@ module.exports = async function (fastify, opts) {
             project.location = results.geolocation;
             project.name = results.name;
             project.methodologies = results.methodologies;
+            project.url = results.url
           } else if (project.registry == "GS") {
             var results = await fetch(
               `https://api.goldstandard.org/projects/${id[1]}`

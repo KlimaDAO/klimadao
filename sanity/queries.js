@@ -16,6 +16,7 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
     name,
     region,
     registry,
+    url,
     registryProjectId
   }`
 
