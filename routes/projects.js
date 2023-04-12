@@ -87,52 +87,65 @@ module.exports = async function (fastify, opts) {
       const projects = data.data.projects.map(function (project) {
         const uniqueValues = [];
 
-        if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
-          var index = pooledProjectsData.carbonOffsets.findIndex(
-            (item) =>
 
-            
-              item.projectID === project.registry + '-' + project.projectID &&
-              item.vintageYear === project.vintage
-           
-         
-          );
-          if (index != -1) {
+        if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
+
+          let indexes = pooledProjectsData.carbonOffsets.map((item, idx) => (item.projectID === project.registry + '-' + project.projectID &&
+            item.vintageYear === project.vintage) ? idx : '').filter(String);
+          // var index = pooledProjectsData.carbonOffsets.findIndex(
+          //   (item) =>
+
+
+          //     item.projectID === project.registry + '-' + project.projectID &&
+          //     item.vintageYear === project.vintage
+
+
+          // );
+          if (indexes && indexes.length) {
             project.isPoolProject = true;
 
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
-              1
-            ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ubo").price
-              );
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
-              1
-            ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "nbo").price
-              );
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
-              1
-            ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ntc").price
-              );
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
-              1
-            ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "btc").price
-              );
-            }
-            delete pooledProjectsData.carbonOffsets.splice(index, 1);
+            indexes.forEach(index => {
+              if (pooledProjectsData.carbonOffsets[index].projectID === "VCS-981" && pooledProjectsData.carbonOffsets[index].vintageYear === "2017") {
+                console.log(pooledProjectsData.carbonOffsets[index])
+                console.log(indexes);
+              }
+              if (
+                parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
+                1
+              ) {
+                uniqueValues.push(
+                  poolPrices.find((obj) => obj.name === "ubo").price
+                );
+              }
+              if (
+                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
+                1
+              ) {
+                uniqueValues.push(
+                  poolPrices.find((obj) => obj.name === "nbo").price
+                );
+              }
+              if (
+                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
+                1
+              ) {
+                uniqueValues.push(
+                  poolPrices.find((obj) => obj.name === "ntc").price
+                );
+              }
+              if (
+                parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
+                1
+              ) {
+                uniqueValues.push(
+                  poolPrices.find((obj) => obj.name === "btc").price
+                );
+              }
+            });
+
+            indexes.forEach(index => {
+              delete pooledProjectsData.carbonOffsets.splice(index, 1);
+            });
           }
         }
 
@@ -150,8 +163,8 @@ module.exports = async function (fastify, opts) {
 
           let lowestPrice = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-                a.length < b.length ? a : a.length === b.length && a < b ? a : b
-              )
+              a.length < b.length ? a : a.length === b.length && a < b ? a : b
+            )
             : "0";
           price = lowestPrice;
         }
@@ -166,7 +179,7 @@ module.exports = async function (fastify, opts) {
         project.name = cmsData ? cmsData.name : project.name;
         project.methodologies = cmsData ? cmsData.methodologies : [];
         delete project.listings;
-       
+
         return { ...project, price };
       });
 
@@ -190,8 +203,8 @@ module.exports = async function (fastify, opts) {
 
         let country = project.country.length
           ? {
-              id: project.country,
-            }
+            id: project.country,
+          }
           : null;
 
         const cmsData = findProjectWithRegistryIdAndRegistry(
@@ -218,8 +231,8 @@ module.exports = async function (fastify, opts) {
           country: country,
           price: uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-                a.length < b.length ? a : a.length === b.length && a < b ? a : b
-              )
+              a.length < b.length ? a : a.length === b.length && a < b ? a : b
+            )
             : "0",
           activities: null,
           listings: null,
@@ -314,17 +327,22 @@ module.exports = async function (fastify, opts) {
             { key: key, vintageStr: vintageStr }
           );
           if (data.data.carbonOffsets[0]) {
+            console.log(data.data.carbonOffsets);
             let poolProject = { ...data.data.carbonOffsets[0] };
             project.isPoolProject = true;
             project.totalBridged = poolProject.totalBridged;
             project.totalRetired = poolProject.totalRetired;
             project.currentSupply = poolProject.currentSupply;
 
-            [uniqueValues, prices] = calculateProjectPoolPrices(
-              poolProject,
-              uniqueValues,
-              poolPrices
-            );
+            var prices = [];
+            data.data.carbonOffsets.map(function (carbonProject) {
+              [uniqueValues, prices] = calculateProjectPoolPrices(
+                carbonProject,
+                uniqueValues,
+                poolPrices,
+                prices
+              );
+            });
             project.prices = prices;
           } else {
             project.totalBridged = null;
@@ -343,8 +361,8 @@ module.exports = async function (fastify, opts) {
             project = { ...data.data.carbonOffsets[0] };
             let country = project.country.length
               ? {
-                  id: project.country,
-                }
+                id: project.country,
+              }
               : null;
 
             project = {
@@ -370,12 +388,17 @@ module.exports = async function (fastify, opts) {
             };
 
             project.prices = [];
-            if (poolProject) {
-              [uniqueValues, prices] = calculateProjectPoolPrices(
-                poolProject,
-                uniqueValues,
-                poolPrices
-              );
+            prices = [];
+            if (data.data.carbonOffsets && data.data.carbonOffsets.length) {
+              console.log(data.data.carbonOffsets);
+              data.data.carbonOffsets.map(function (carbonProject) {
+                [uniqueValues, prices] = calculateProjectPoolPrices(
+                  carbonProject,
+                  uniqueValues,
+                  poolPrices,
+                  prices
+                );
+              });
               project.prices = prices;
             }
           }
@@ -405,11 +428,11 @@ module.exports = async function (fastify, opts) {
             project.location = null;
           }
 
-         
+
           project.price = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-                a.length < b.length ? a : a.length === b.length && a < b ? a : b
-              )
+              a.length < b.length ? a : a.length === b.length && a < b ? a : b
+            )
             : "0";
 
           if (project.activities) {
@@ -420,23 +443,23 @@ module.exports = async function (fastify, opts) {
                 if (actvity.activityType != "Sold") {
 
                   const seller = await fastify.firebase
-                  .firestore()
-                  .collection("users")
-                  .doc(actvity.seller.id.toUpperCase())
-                  .get();
-                if (seller.exists) {
-                  actvity.seller.handle = seller.data().handle;
-                }
-                if (actvity.buyer) {
-                  const buyer = await fastify.firebase
                     .firestore()
                     .collection("users")
-                    .doc(actvity.buyer.id.toUpperCase())
+                    .doc(actvity.seller.id.toUpperCase())
                     .get();
-                  if (buyer.exists) {
-                    actvity.buyer.handle = buyer.data().handle;
+                  if (seller.exists) {
+                    actvity.seller.handle = seller.data().handle;
                   }
-                }
+                  if (actvity.buyer) {
+                    const buyer = await fastify.firebase
+                      .firestore()
+                      .collection("users")
+                      .doc(actvity.buyer.id.toUpperCase())
+                      .get();
+                    if (buyer.exists) {
+                      actvity.buyer.handle = buyer.data().handle;
+                    }
+                  }
                 }
               })
             );

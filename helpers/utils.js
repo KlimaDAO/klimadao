@@ -93,9 +93,9 @@ function convertArrayToObjects(arr) {
 }
 
 
-function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices) {
+function calculateProjectPoolPrices(poolProject, uniqueValues, poolPrices, prices = []) {
 
-    var prices = [];
+    var prices = prices;
     if (parseFloat(poolProject.balanceNBO) >= 1) {
         uniqueValues.push((poolPrices.find(obj => obj.name === "nbo")).price);
 
