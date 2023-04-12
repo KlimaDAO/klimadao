@@ -13,6 +13,7 @@ import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { getCategoryFromProject } from "lib/projectGetter";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -63,9 +64,7 @@ const Page: NextPage = () => {
               className={styles.card}
             >
               <div className={styles.cardImage}>
-                {!!project.category?.id && (
-                  <ProjectImage category={project.category.id} />
-                )}
+                <ProjectImage category={getCategoryFromProject(project)} />
               </div>
               <div className={styles.cardContent}>
                 <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
@@ -75,9 +74,7 @@ const Page: NextPage = () => {
                 </Text>
                 <div className={styles.tags}>
                   <Vintage vintage={project.vintage} />
-                  {!!project.category?.id && (
-                    <Category category={project.category.id} />
-                  )}
+                  <Category category={getCategoryFromProject(project)} />
                 </div>
               </div>
             </Link>

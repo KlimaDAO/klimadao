@@ -18,8 +18,8 @@ import {
   getLowestPriceFromBuyOptions,
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
+import { getCategoryFromProject } from "lib/projectGetter";
 import {
-  CategoryName,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -46,7 +46,7 @@ export const Project: NextPage<Props> = (props) => {
       getActiveListings(props.project.listings)) ||
     [];
 
-  const category = props.project.methodologies[0].category as CategoryName;
+  const category = getCategoryFromProject(props.project);
   const allMethodologyIds =
     props.project?.methodologies?.map(({ id }) => id) || [];
   const allMethodologyNames =
