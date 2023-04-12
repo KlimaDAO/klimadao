@@ -221,7 +221,7 @@ module.exports = async function (fastify, opts) {
           key: project.projectID,
           projectID: project.projectID.split("-")[1],
           name: cmsData ? cmsData.name : project.name,
-          methodology: cmsData ? cmsData.methodologies : [],
+          methodologies: cmsData ? cmsData.methodologies : [],
           vintage: project.vintageYear,
           projectAddress: project.tokenAddress,
           registry: project.projectID.split("-")[0],
