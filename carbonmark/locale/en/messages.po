@@ -77,7 +77,7 @@ msgstr "Available:"
 msgid "BETA"
 msgstr "BETA"
 
-#: components/pages/Project/Purchase/index.tsx:156
+#: components/pages/Project/Purchase/index.tsx:157
 msgid "Back to Project"
 msgstr "Back to Project"
 
@@ -125,7 +125,7 @@ msgstr "Category"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Projects/index.tsx:45
+#: components/pages/Projects/index.tsx:46
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
@@ -268,8 +268,8 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:43
 #: components/pages/Projects/index.tsx:44
+#: components/pages/Projects/index.tsx:45
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
@@ -298,7 +298,7 @@ msgstr "No listable assets found."
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:73
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -374,8 +374,8 @@ msgstr "Project"
 msgid "Purchase Receipt | Carbonmark"
 msgstr "Purchase Receipt | Carbonmark"
 
-#: components/pages/Project/Purchase/index.tsx:144
 #: components/pages/Project/Purchase/index.tsx:145
+#: components/pages/Project/Purchase/index.tsx:146
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
@@ -494,7 +494,7 @@ msgstr "There was an error loading your assets. {e}"
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
 
-#: components/pages/Project/Purchase/index.tsx:207
+#: components/pages/Project/Purchase/index.tsx:206
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
@@ -669,7 +669,7 @@ msgstr "Request already processing. Please open your wallet and complete the req
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/pages/Project/Purchase/index.tsx:194
+#: components/pages/Project/Purchase/index.tsx:193
 msgid "each"
 msgstr "each"
 
@@ -781,15 +781,15 @@ msgstr "You exceeded your available amount of tokens"
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/index.tsx:85
+#: components/pages/Project/Purchase/index.tsx:86
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:219
+#: components/pages/Project/Purchase/index.tsx:218
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:223
+#: components/pages/Project/Purchase/index.tsx:222
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
