@@ -1,15 +1,13 @@
-import { BigDecimal, BigInt, Address, log } from "@graphprotocol/graph-ts";
-import { UniswapV2Pair } from '../../../bonds/generated/BCTBondV1/UniswapV2Pair'
+import { BigDecimal, BigInt, Address, log } from '@graphprotocol/graph-ts'
 import { ERC20 } from '../../generated/ERC20'
-import { IToken } from "../IToken";
+import { IToken } from '../IToken'
 
 import * as constants from '../../utils/Constants'
-import { toDecimal } from "../../utils/Decimals";
-import { KLIMA } from "./KLIMA";
-import { PriceUtil } from "../../utils/Price";
+import { toDecimal } from '../../utils/Decimals'
+import { KLIMA } from './KLIMA'
+import { PriceUtil } from '../../utils/Price'
 
 export class MCO2 implements IToken {
-
   private contractAddress: Address = Address.fromString(constants.MCO2_ERC20_CONTRACT)
   private klimaToken: KLIMA = new KLIMA()
 
@@ -30,7 +28,6 @@ export class MCO2 implements IToken {
   }
 
   getMarketPrice(blockNumber: BigInt): BigDecimal {
-
     //We are going through MCO2-USD until KLIMA-MCO2 LP is created
     if (blockNumber.lt(BigInt.fromString(constants.KLIMA_MCO2_PAIR_BLOCK))) {
       return this.getMarketPriceViaUsdc(blockNumber)
@@ -40,18 +37,19 @@ export class MCO2 implements IToken {
   }
 
   private getMarketPriceViaUsdc(blockNumber: BigInt): BigDecimal {
-
     let mco2UsdcRate = this.getUSDPrice(blockNumber)
     let klimaUsdcRate = this.klimaToken.getUSDPrice(blockNumber)
 
-    log.debug("[MCO2] Getting market price via USDC - MCO2-USDC Rate: {} ; KLIMA-USDC Rate: {}",
-      [mco2UsdcRate.toString(), klimaUsdcRate.toString()])
+    log.debug('[MCO2] Getting market price via USDC - MCO2-USDC Rate: {} ; KLIMA-USDC Rate: {}', [
+      mco2UsdcRate.toString(),
+      klimaUsdcRate.toString(),
+    ])
 
     if (mco2UsdcRate.equals(BigDecimal.zero())) {
       return BigDecimal.zero()
     }
 
-    return klimaUsdcRate.div(mco2UsdcRate);
+    return klimaUsdcRate.div(mco2UsdcRate)
   }
 
   getUSDPrice(blockNumber: BigInt): BigDecimal {
@@ -70,6 +68,6 @@ export class MCO2 implements IToken {
     if (!newBalanceRaw.reverted) {
       return toDecimal(newBalanceRaw.value, this.getDecimals())
     }
-    return BigDecimal.fromString("0")
+    return BigDecimal.fromString('0')
   }
 }

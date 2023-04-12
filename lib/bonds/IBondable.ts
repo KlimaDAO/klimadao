@@ -6,14 +6,13 @@ import { IToken } from '../tokens/IToken'
  * But for now until we get all impl right - it might be better to go with interface
  */
 export interface IBondable {
-    getToken(): IToken
-    getBondName(): string
-    getDaoFeeForBondPayout(payout: BigDecimal): BigDecimal
-    getBondPrice(): BigDecimal
-    getBondDiscount(blockNumber: BigInt): BigDecimal
-    parseBondPrice(priceInUSD: BigInt): BigDecimal
-    parseBondTokenValueFormatted(rawPrice: BigInt): BigDecimal
-    getCarbonCustodied(depositAmount: BigInt): BigDecimal
-    getTreasuredAmount(): BigDecimal
-  }
-  
+  getToken(): IToken
+  getBondName(): string
+  getDaoFeeForBondPayout(payout: BigDecimal): BigDecimal
+  getBondPrice(): BigDecimal
+  getBondDiscount(blockNumber: BigInt): BigDecimal
+  parseBondPrice(priceInUSD: BigInt): BigDecimal
+  parseBondTokenValueFormatted(rawPrice: BigInt): BigDecimal
+  getCarbonCustodied(depositAmount: BigInt): BigDecimal
+  getTreasuredAmount(): BigDecimal
+}

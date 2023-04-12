@@ -1,0 +1,46 @@
+specVersion: 0.0.5
+description: Ethereum Bridged Carbon
+repository: https://github.com/KlimaDAO/carbon-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: MossCarbon
+    network: mainnet
+    source:
+      address: '0xfC98e825A2264D890F9a1e68ed50E1526abCcacD'
+      abi: ERC20
+      startBlock: 10959600
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/MossCarbon.ts
+      entities:
+        - MossCarbon
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  - kind: ethereum/contract
+    name: MossBatch
+    network: mainnet
+    source:
+      address: '0x913a926fE2e314245772caF2AA72CF3F989A4207'
+      abi: MossBatch
+      startBlock: 10959600
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - MossBatch
+      abis:
+        - name: MossBatch
+          file: ../lib/abis/MossBatch.json
+      callHandlers:
+        - function: createBatch(string,uint256,string,string,uint256,address,address,bytes32)
+          handler: handleBatchCall
+      file: ./src/MossBatch.ts

@@ -1,15 +1,13 @@
-import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
+import { BigDecimal, BigInt, Address } from '@graphprotocol/graph-ts'
 import { ERC20 } from '../../generated/ERC20'
-import { IToken } from "../IToken";
+import { IToken } from '../IToken'
 
 import * as constants from '../../utils/Constants'
-import { toDecimal } from "../../utils/Decimals"
-import { KLIMA } from "./KLIMA";
-import { PriceUtil } from "../../utils/Price";
-
+import { toDecimal } from '../../utils/Decimals'
+import { KLIMA } from './KLIMA'
+import { PriceUtil } from '../../utils/Price'
 
 export class BCT implements IToken {
-
   private contractAddress: Address = Address.fromString(constants.BCT_ERC20_CONTRACT)
   private klimaToken: KLIMA = new KLIMA()
 
@@ -33,7 +31,6 @@ export class BCT implements IToken {
   }
 
   getUSDPrice(blockNumber: BigInt): BigDecimal {
-
     //We are going through BCT-USD until the liquidity is removed
     if (blockNumber.lt(BigInt.fromString(constants.BCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK))) {
       return PriceUtil.getBCT_USDRate()
@@ -60,6 +57,6 @@ export class BCT implements IToken {
     if (!newBalanceRaw.reverted) {
       return toDecimal(newBalanceRaw.value, this.getDecimals())
     }
-    return BigDecimal.fromString("0")
+    return BigDecimal.fromString('0')
   }
 }

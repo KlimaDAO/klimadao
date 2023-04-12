@@ -19,9 +19,8 @@
     "deploy": "graph deploy --product hosted-service klimadao/klimadao-vesting"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.29.0",
-    "@graphprotocol/graph-ts": "^0.26.0",
-    "prettier": "^1.18.2",
-    "typescript": "^4.6.4"
+    "@graphprotocol/graph-cli": "^0.45.0",
+    "@graphprotocol/graph-ts": "^0.29.3",
+    "prettier": "2.7.1"
   }
 }

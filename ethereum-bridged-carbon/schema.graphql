@@ -1,0 +1,82 @@
+type CarbonOffset @entity {
+  id: ID!
+  name: String!
+  tokenAddress: String!
+  bridge: String!
+  registry: String!
+  totalBridged: BigDecimal!
+  totalRetired: BigDecimal!
+  currentSupply: BigDecimal!
+  vintage: String!
+  projectID: String!
+  standard: String!
+  methodology: String!
+  country: String!
+  region: String!
+  storageMethod: String!
+  method: String!
+  emissionType: String!
+  category: String!
+  isCorsiaCompliant: Boolean
+  coBenefits: String!
+  correspAdjustment: String!
+  additionalCertification: String!
+  klimaRanking: BigInt!
+  bridges: [Bridge!] @derivedFrom(field: "offset")
+  retirements: [Retire!] @derivedFrom(field: "offset")
+  lastUpdate: BigInt!
+}
+
+type Bridge @entity {
+  id: ID!
+  timestamp: BigInt!
+  transaction: Transaction!
+  offset: CarbonOffset!
+  value: BigDecimal!
+  bridger: String!
+}
+
+type Retire @entity {
+  id: ID!
+  timestamp: BigInt!
+  transaction: Transaction!
+  offset: CarbonOffset!
+  value: BigDecimal!
+  beneficiary: String!
+  retiree: String!
+}
+
+type Batch @entity {
+  id: ID!
+  serialNumber: String!
+  projectID: BigInt!
+  vintage: String!
+  creditType: String!
+  value: BigDecimal!
+  tokenAddress: String!
+  broker: String!
+  timestamp: BigInt!
+  originaltx: String!
+  transaction: Transaction!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  blockHash: Bytes!
+  from: Bytes!
+  to: Bytes
+  value: BigInt!
+  # gasUsed: BigInt!
+  gasPrice: BigInt!
+}
+
+type CarbonMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  mco2Supply: BigDecimal!
+  totalCarbonSupply: BigDecimal!
+  mco2Retired: BigDecimal!
+  totalRetirements: BigDecimal!
+}

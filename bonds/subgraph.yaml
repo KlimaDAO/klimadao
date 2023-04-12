@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.4
 description: Klima DAO Subgraph
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:

@@ -54,4 +54,3 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfers
       file: ./src/CO2CompoundHandler.ts
- 

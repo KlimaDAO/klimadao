@@ -56,6 +56,13 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# Yarn local files
+.yarn/*
+.yarn/install-state.gz
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
 # dotenv environment variables file
 .env
 
@@ -65,4 +72,16 @@ typings/
 # thegraph build
 build
 bonds/build
+pairs/build
 protocol-metrics/build
+user-carbon/build
+vesting/build
+
+# thegraph generated
+generated/
+bonds/generated
+pairs/generated
+protocol-metrics/generated
+user-carbon/generated
+vesting/generated
+

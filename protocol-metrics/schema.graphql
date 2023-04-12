@@ -50,13 +50,12 @@ type Transaction @entity {
 }
 
 type Epoch @entity {
-   id: ID!
-   epochNumber: BigInt!
-   blockFrom: BigInt!
-   blockFromTimestamp: BigInt!
-   blockTo: BigInt!
-   blockToTimestamp: BigInt!
-   duration: BigInt!
-   prevAvgRebaseRate: BigDecimal!
- }
- 
+  id: ID!
+  epochNumber: BigInt!
+  blockFrom: BigInt!
+  blockFromTimestamp: BigInt!
+  blockTo: BigInt!
+  blockToTimestamp: BigInt!
+  duration: BigInt!
+  prevAvgRebaseRate: BigDecimal!
+}

@@ -32,7 +32,7 @@ type Deposit @entity {
   bondPrice: BigDecimal!
   marketPrice: BigDecimal!
   discount: BigDecimal!
-  tokenValue: BigDecimal!                                                                                     
+  tokenValue: BigDecimal!
   carbonCustodied: BigDecimal!
   expirationDate: BigInt!
   startDate: BigInt!

@@ -1,6 +1,6 @@
 import { ethereum } from '@graphprotocol/graph-ts'
 // schema imports
-import { Transaction } from "../../generated/schema"
+import { Transaction } from '../../generated/schema'
 
 export function loadOrCreateTransaction(eth_transaction: ethereum.Transaction, eth_block: ethereum.Block): Transaction {
   let transaction = Transaction.load(eth_transaction.hash.toHex())

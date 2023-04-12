@@ -1,0 +1,93 @@
+type CarbonOffset @entity {
+  id: ID!
+  name: String!
+  tokenAddress: String!
+  bridge: String!
+  registry: String!
+  totalBridged: BigDecimal!
+  totalRetired: BigDecimal!
+  currentSupply: BigDecimal!
+  vintage: String!
+  projectID: String!
+  standard: String!
+  methodology: String!
+  methodologyCategory: String!
+  country: String!
+  region: String!
+  storageMethod: String!
+  method: String!
+  emissionType: String!
+  category: String!
+  isCorsiaCompliant: Boolean
+  coBenefits: String!
+  correspAdjustment: String!
+  additionalCertification: String!
+  klimaRanking: BigInt!
+  bridges: [Bridge!] @derivedFrom(field: "offset")
+  retirements: [Retire!] @derivedFrom(field: "offset")
+  balanceBCT: BigDecimal!
+  balanceNCT: BigDecimal!
+  lastUpdate: BigInt!
+}
+
+type Bridge @entity {
+  id: ID!
+  timestamp: BigInt!
+  transaction: Transaction!
+  offset: CarbonOffset!
+  value: BigDecimal!
+  bridger: String!
+}
+
+"""
+CrosschainBridge entity tracks pool bridges across different blockchains
+Currently used by Toucan
+"""
+type CrosschainBridge @entity {
+  id: ID!
+  timestamp: BigInt!
+  transaction: Transaction!
+  pool: String!
+  value: BigDecimal!
+  bridger: String!
+  direction: BridgeDirection!
+}
+
+enum BridgeDirection {
+  Sent
+  Received
+}
+
+type Retire @entity {
+  id: ID!
+  timestamp: BigInt!
+  transaction: Transaction!
+  offset: CarbonOffset!
+  value: BigDecimal!
+  beneficiary: String!
+  retiree: String!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  blockHash: Bytes!
+  from: Bytes!
+  to: Bytes
+  value: BigInt!
+  # gasUsed: BigInt!
+  gasPrice: BigInt!
+}
+
+type CarbonMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  bctSupply: BigDecimal!
+  nctSupply: BigDecimal!
+  mco2Supply: BigDecimal!
+  totalCarbonSupply: BigDecimal!
+  tco2Retired: BigDecimal!
+  mco2Retired: BigDecimal!
+  totalRetirements: BigDecimal!
+}

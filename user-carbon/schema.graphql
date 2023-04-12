@@ -5,7 +5,7 @@ type Klimate @entity {
 }
 
 type Holding @entity {
-  id: ID! 
+  id: ID!
   klimate: Klimate!
   token: String!
   timestamp: BigInt!

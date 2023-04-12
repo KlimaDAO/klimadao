@@ -1,25 +1,24 @@
-import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
-import { BondV1 } from "../../../bonds/generated/BCTBondV1/BondV1";
-import { UniswapV2Pair } from "../../../bonds/generated/BCTBondV1/UniswapV2Pair";
-import { getDaoFee } from "../../../bonds/src/utils/DaoFee";
-import { IBondable } from "../../bonds/IBondable";
-import { IToken } from "../../tokens/IToken";
+import { BigDecimal, BigInt, Address } from '@graphprotocol/graph-ts'
+import { BondV1 } from '../../../bonds/generated/BCTBondV1/BondV1'
+import { UniswapV2Pair } from '../../../bonds/generated/BCTBondV1/UniswapV2Pair'
+import { getDaoFee } from '../../../bonds/src/utils/DaoFee'
+import { IBondable } from '../../bonds/IBondable'
+import { IToken } from '../../tokens/IToken'
 
-import * as constants from "../../utils/Constants";
-import { toDecimal } from "../../utils/Decimals";
-import { BCT } from "../../tokens/impl/BCT";
-import { KLIMA } from "../../tokens/impl/KLIMA";
-import { PriceUtil } from "../../utils/Price";
+import * as constants from '../../utils/Constants'
+import { toDecimal } from '../../utils/Decimals'
+import { BCT } from '../../tokens/impl/BCT'
+import { KLIMA } from '../../tokens/impl/KLIMA'
+import { PriceUtil } from '../../utils/Price'
 
 export class KLIMABCTBond implements IBondable {
-  
-  private contractAddress: Address;
+  private contractAddress: Address
 
   private klimaToken: IToken
   private bctToken: IToken
 
   constructor(constractAddress: Address) {
-    this.contractAddress = constractAddress;
+    this.contractAddress = constractAddress
     this.klimaToken = new KLIMA()
     this.bctToken = new BCT()
   }
@@ -29,11 +28,10 @@ export class KLIMABCTBond implements IBondable {
   }
 
   getBondName(): string {
-    return constants.KLIMABCT_LPBOND_TOKEN;
+    return constants.KLIMABCT_LPBOND_TOKEN
   }
 
   getBondPrice(): BigDecimal {
-
     let bond = BondV1.bind(this.contractAddress)
     const bondPriceInUsd = bond.bondPriceInUSD()
 
@@ -41,7 +39,6 @@ export class KLIMABCTBond implements IBondable {
   }
 
   getBondDiscount(blockNumber: BigInt): BigDecimal {
-
     const bondPrice = this.getBondPrice()
     const marketPrice = this.getToken().getMarketPrice(blockNumber)
 
@@ -53,7 +50,7 @@ export class KLIMABCTBond implements IBondable {
   }
 
   parseBondPrice(priceInUSD: BigInt): BigDecimal {
-    return toDecimal(priceInUSD, 18);
+    return toDecimal(priceInUSD, 18)
   }
 
   parseBondTokenValueFormatted(rawPrice: BigInt): BigDecimal {
@@ -61,7 +58,12 @@ export class KLIMABCTBond implements IBondable {
   }
 
   getCarbonCustodied(depositAmount: BigInt): BigDecimal {
-    return PriceUtil.getDiscountedPairCO2(depositAmount, Address.fromString(constants.KLIMA_BCT_PAIR), this.bctToken, this.klimaToken)
+    return PriceUtil.getDiscountedPairCO2(
+      depositAmount,
+      Address.fromString(constants.KLIMA_BCT_PAIR),
+      this.bctToken,
+      this.klimaToken
+    )
   }
 
   getTreasuredAmount(): BigDecimal {

@@ -17,7 +17,7 @@ type Token @entity {
 }
 
 type Swap @entity {
-  id: ID!     # PAIR_ADDR-TIMESTAMP
+  id: ID! # PAIR_ADDR-TIMESTAMP
   open: BigDecimal!
   high: BigDecimal!
   low: BigDecimal!

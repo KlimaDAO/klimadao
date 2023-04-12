@@ -1,15 +1,13 @@
-import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
+import { BigDecimal, BigInt, Address } from '@graphprotocol/graph-ts'
 import { ERC20 } from '../../generated/ERC20'
-import { IToken } from "../IToken";
+import { IToken } from '../IToken'
 
 import * as constants from '../../utils/Constants'
-import { toDecimal } from "../../utils/Decimals"
-import { KLIMA } from "./KLIMA";
-import { PriceUtil } from "../../utils/Price";
-
+import { toDecimal } from '../../utils/Decimals'
+import { KLIMA } from './KLIMA'
+import { PriceUtil } from '../../utils/Price'
 
 export class NBO implements IToken {
-
   private contractAddress: Address = Address.fromString(constants.NBO_ERC20_CONTRACT)
   private klimaToken: KLIMA = new KLIMA()
 
@@ -54,6 +52,6 @@ export class NBO implements IToken {
     if (!newBalanceRaw.reverted) {
       return toDecimal(newBalanceRaw.value, this.getDecimals())
     }
-    return BigDecimal.fromString("0")
+    return BigDecimal.fromString('0')
   }
 }
