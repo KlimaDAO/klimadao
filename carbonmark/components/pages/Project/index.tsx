@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { Activities } from "components/Activities";
@@ -11,6 +12,7 @@ import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
+import { useFetchProject } from "hooks/useFetchProject";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
@@ -25,37 +27,43 @@ import {
   ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { NextPage } from "next";
+import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
 import * as styles from "./styles";
 
-type Props = {
+export type PageProps = {
   project: ProjectType;
+  projectID: string;
 };
 
 const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
   (option as PriceFlagged).isPoolProject !== undefined;
 
-export const Project: NextPage<Props> = (props) => {
+const Page: NextPage<PageProps> = (props) => {
+  const { project } = useFetchProject(props.projectID);
+
+  // Typeguard, project should always be defined from static page props!
+  if (!project) {
+    return null;
+  }
+
   const allListings =
-    Array.isArray(props.project.listings) &&
-    getAllListings(props.project.listings);
+    Array.isArray(project.listings) && getAllListings(project.listings);
   const activeListings =
-    (Array.isArray(props.project.listings) &&
-      getActiveListings(props.project.listings)) ||
+    (Array.isArray(project.listings) && getActiveListings(project.listings)) ||
     [];
 
-  const category = getCategoryFromProject(props.project);
-  const allMethodologyIds =
-    props.project?.methodologies?.map(({ id }) => id) || [];
+  const category = getCategoryFromProject(project);
+  const allMethodologyIds = project?.methodologies?.map(({ id }) => id) || [];
   const allMethodologyNames =
-    props.project?.methodologies?.map(({ name }) => name) || [];
+    project?.methodologies?.map(({ name }) => name) || [];
 
   const poolPrices =
-    (Array.isArray(props.project?.prices) &&
+    (Array.isArray(project?.prices) &&
       // Remove pool prices if the quantity is less than 1. (leftover  token 'dust')
-      props.project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
+      project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
     [];
 
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
@@ -75,7 +83,7 @@ export const Project: NextPage<Props> = (props) => {
           <PoolPrice
             key={option.singleUnitPrice + index}
             price={option}
-            project={props.project}
+            project={project}
             isBestPrice={bestPrice === option.singleUnitPrice}
           />
         );
@@ -84,7 +92,7 @@ export const Project: NextPage<Props> = (props) => {
       return (
         <SellerListing
           key={option.singleUnitPrice + index}
-          project={props.project}
+          project={project}
           listing={option}
           isBestPrice={bestPrice === option.singleUnitPrice}
         />
@@ -94,8 +102,8 @@ export const Project: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`${props.project.registry}-${props.project.projectID} | Carbonmark`}
-        mediaTitle={`${props.project.registry}-${props.project.projectID} | ${props.project.name}`}
+        title={`${project.registry}-${project.projectID} | Carbonmark`}
+        mediaTitle={`${project.registry}-${project.projectID} | ${project.name}`}
         metaDescription={t`View and purchase this carbon offset project on Carbonmark`}
       />
 
@@ -107,13 +115,13 @@ export const Project: NextPage<Props> = (props) => {
           <ProjectImage category={category} />
           <div className={styles.imageGradient} />
           <Text t="h4" className={styles.projectHeaderText}>
-            {props.project.name || "Error - No project name found"}
+            {project.name || "Error - No project name found"}
           </Text>
           <div className={styles.tags}>
             <Text t="h5" className={styles.projectHeaderText}>
-              {props.project.registry}-{props.project.projectID}
+              {project.registry}-{project.projectID}
             </Text>
-            <Vintage vintage={props.project.vintage} />
+            <Vintage vintage={project.vintage} />
             <Category category={category} />
           </div>
         </div>
@@ -151,14 +159,14 @@ export const Project: NextPage<Props> = (props) => {
         </div>
         <div
           className={cx(styles.mapAndDescription, {
-            hasMap: !!props.project.location,
+            hasMap: !!project.location,
           })}
         >
-          {props.project.location && (
+          {project.location && (
             <div className="mapColumn">
               <ProjectMap
-                lat={props.project.location?.geometry.coordinates[1]}
-                lng={props.project.location?.geometry.coordinates[0]}
+                lat={project.location?.geometry.coordinates[1]}
+                lng={project.location?.geometry.coordinates[0]}
                 zoom={5}
               />
             </div>
@@ -168,7 +176,7 @@ export const Project: NextPage<Props> = (props) => {
               <Trans>Description</Trans>
             </Text>
             <Text t="body1">
-              {props.project.description ?? "No project description found"}
+              {project.description ?? "No project description found"}
             </Text>
           </div>
         </div>
@@ -194,13 +202,13 @@ export const Project: NextPage<Props> = (props) => {
           <div className="statsColumn">
             <Stats
               description={t`Data for this project and vintage`}
-              currentSupply={props.project.currentSupply}
-              totalRetired={props.project.totalRetired}
+              currentSupply={project.currentSupply}
+              totalRetired={project.totalRetired}
               allListings={allListings || []}
               activeListings={activeListings || []}
             />
             <Activities
-              activities={props.project.activities || []}
+              activities={project.activities || []}
               showTitles={false}
             />
           </div>
@@ -209,3 +217,16 @@ export const Project: NextPage<Props> = (props) => {
     </>
   );
 };
+
+export const Project: NextPage<PageProps> = (props) => (
+  <SWRConfig
+    value={{
+      fetcher,
+      fallback: {
+        [`/api/projects/${props.projectID}`]: props.project,
+      },
+    }}
+  >
+    <Page {...props} />
+  </SWRConfig>
+);
