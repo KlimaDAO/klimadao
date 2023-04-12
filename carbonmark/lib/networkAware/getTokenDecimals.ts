@@ -6,5 +6,5 @@ export const getTokenDecimals = (
   tkn: string,
   network?: "testnet" | "mainnet"
 ): 9 | 6 | 18 => {
-  return IGetTokenDecimals(tkn, network ?? DEFAULT_NETWORK);
+  return IGetTokenDecimals(tkn, network || DEFAULT_NETWORK);
 };
