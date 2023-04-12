@@ -19,7 +19,6 @@ import {
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
 import {
-  CategoryName,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -46,7 +45,10 @@ export const Project: NextPage<Props> = (props) => {
       getActiveListings(props.project.listings)) ||
     [];
 
-  const category = props.project.methodologies[0].category as CategoryName;
+  const category =
+    (props.project?.methodologies?.length &&
+      props.project.methodologies[0].category) ||
+    "Other"; // fallback for Staging Testnet Data
   const allMethodologyIds =
     props.project?.methodologies?.map(({ id }) => id) || [];
   const allMethodologyNames =
