@@ -56,6 +56,7 @@ import {
   selectProjectTokens,
 } from "state/selectors";
 import {
+  decrementAllowance,
   decrementProjectToken,
   setAllowance,
   setProjectToken,
@@ -374,6 +375,13 @@ export const Offset = (props: Props) => {
             retirementToken: selectedRetirementToken,
             cost,
             quantity,
+          })
+        );
+        dispatch(
+          decrementAllowance({
+            token: paymentMethod,
+            spender: "retirementAggregatorV2",
+            value: cost,
           })
         );
       }
