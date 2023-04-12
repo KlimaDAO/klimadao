@@ -15,7 +15,6 @@ const { gql } = require('@apollo/client');
         key
         projectID
         name
-        methodology
         vintage
         projectAddress
         registry
@@ -24,9 +23,6 @@ const { gql } = require('@apollo/client');
           leftToSell
           active
           deleted
-        }
-        category {
-          id
         }
         country {
           id
