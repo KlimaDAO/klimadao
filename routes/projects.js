@@ -105,10 +105,8 @@ module.exports = async function (fastify, opts) {
             project.isPoolProject = true;
 
             indexes.forEach(index => {
-              if (pooledProjectsData.carbonOffsets[index].projectID === "VCS-981" && pooledProjectsData.carbonOffsets[index].vintageYear === "2017") {
-                console.log(pooledProjectsData.carbonOffsets[index])
-                console.log(indexes);
-              }
+              pooledProjectsData.carbonOffsets[index].display = false;
+              // console.log( pooledProjectsData.carbonOffsets[index].display )
               if (
                 parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
                 1
@@ -143,9 +141,9 @@ module.exports = async function (fastify, opts) {
               }
             });
 
-            indexes.forEach(index => {
-              delete pooledProjectsData.carbonOffsets.splice(index, 1);
-            });
+            // indexes.forEach(index => {
+            //   delete pooledProjectsData.carbonOffsets.splice(index, 1);
+            // });
           }
         }
 
@@ -186,6 +184,9 @@ module.exports = async function (fastify, opts) {
       const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
         project
       ) {
+        if (project.display == false) {
+          return null;
+        }
         const uniqueValues = [];
 
         if (parseFloat(project.balanceUBO) >= 1) {
@@ -238,12 +239,13 @@ module.exports = async function (fastify, opts) {
           listings: null,
         };
 
+        
         return singleProject;
       });
 
       const filteredItems = projects
         .concat(pooledProjects)
-        .filter((project) => project.price !== "0");
+        .filter((project) => project!= null && project.price !== "0");
 
       // Send the transformed projects array as a JSON string in the response
       // return reply.send(JSON.stringify(projects));
