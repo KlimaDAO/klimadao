@@ -417,7 +417,9 @@ module.exports = async function (fastify, opts) {
 
             await Promise.all(
               activities.map(async (actvity) => {
-                const seller = await fastify.firebase
+                if (actvity.activityType != "Sold") {
+
+                  const seller = await fastify.firebase
                   .firestore()
                   .collection("users")
                   .doc(actvity.seller.id.toUpperCase())
@@ -435,9 +437,10 @@ module.exports = async function (fastify, opts) {
                     actvity.buyer.handle = buyer.data().handle;
                   }
                 }
+                }
               })
             );
-            project.activities = activities;
+            project.activities = activities.filter((activity) => activity.activityType !== "Sold");
           }
 
           return reply.send(JSON.stringify(project));
