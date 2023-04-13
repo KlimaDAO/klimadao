@@ -1,16 +1,11 @@
-import { Project } from "components/pages/Project";
+import { PageProps, Project } from "components/pages/Project";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
-import { Project as ProjectType } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;
-}
-
-interface PageProps {
-  project: ProjectType;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -33,6 +28,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return {
       props: {
         project,
+        projectID: params.project_id,
         translation,
         fixedThemeName: "theme-light",
       },
