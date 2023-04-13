@@ -83,7 +83,7 @@ msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:129
+#: components/pages/Project/index.tsx:137
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -150,7 +150,7 @@ msgstr "Create and edit listings, and track your activity with your Carbonmark p
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:196
+#: components/pages/Project/index.tsx:204
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -159,7 +159,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:168
+#: components/pages/Project/index.tsx:176
 msgid "Description"
 msgstr "Description"
 
@@ -273,7 +273,7 @@ msgstr "Marketplace"
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
-#: components/pages/Project/index.tsx:137
+#: components/pages/Project/index.tsx:145
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -294,7 +294,7 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:186
+#: components/pages/Project/index.tsx:194
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -543,7 +543,7 @@ msgstr "User Profile | Carbonmark"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
-#: components/pages/Project/index.tsx:99
+#: components/pages/Project/index.tsx:107
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
