@@ -1,14 +1,19 @@
 # Summary
 
-This repo contains 4 packages: `@klimadao/site`, `@klimadao/app`, `@klimadao/cms` and `@klimadao/lib`.
+This repo contains 6 packages.
 
-`@klimadao/site` -> klimadao.finance homepage. In the future, we can add the docs and blog as well.
+`@klimadao/app` -> app.klimadao.finance, a standalone single-page-app for protocol interactions.
 
-`@klimadao/app` -> app.klimadao.finance, a standalone single-page-app. Should be exportable as a static site for deployment on IPFS.
+`@klimadao/carbon-projects` -> A Sanity CMS that contains curated data for Verra projects, deployed to [carbon-projects.sanity.studio](https://carbon-projects.sanity.studio/), and referenced by the Carbonmark frontend and backend. NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `carbon-projects` folder.
 
-`@klimadao/lib` -> A shared component and theme library. For now, just a set of resources shared by the above two apps. In the future, this can be extended and published on NPM as a component library for use in other community projects.
+`@klimadao/carbonmark` -> The NextJS project that powers the carbonmark web application at carbonmark.com.
+The backend Node.js web-service and smart contracts are located in separate repositories.
 
-`@klimadao/cms` -> The Content Management System at klimadao.sanity.studio. NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder. This is because it is managed by the sanity [command line interface](https://www.sanity.io/docs/getting-started-with-sanity-cli), which uses `yarn` under the hood.
+`@klimadao/cms` -> A Sanity CMS that powers our blog, deployed to [klimadao.sanity.studio](https://klimadao.sanity.studio). NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder.
+
+`@klimadao/lib` -> Components and utilities that are shared between packages.
+
+`@klimadao/site` -> klimadao.finance homepage, content and cms-powered pages.
 
 ## Requirements
 
@@ -29,26 +34,17 @@ From the `klimadao/` root folder, _not_ from individual packages:
 
 A set of NPM Workspace commands are provided, and can be run from the root folder.
 
-`npm run dev-all`: run all workspaces with hot reloading enabled.
+- `npm run dev-all`: run all workspaces with hot reloading enabled.
+- `npm run dev-app`: [http://localhost:3001](http://localhost:3001)
+- `npm run dev-carbonmark`: [http://localhost:3002](http://localhost:3002)
+- `npm run dev-site`: [http://localhost:3000](http://localhost:3000)
+- `npm run dev-lib`: enable hot-reload for changes to components or utils.
 
-> Website can be accessed at [http://localhost:3000](http://localhost:3000)
+Other scripts you should know about:
 
-> App can be accessed at [http://localhost:3001](http://localhost:3001)
-
-> CarbonMark can be accessed at [http://localhost:3002](http://localhost:3002)
-
-To run dev on a specific workspace use:
-
-- `npm run dev-site`
-- `npm run dev-app`
-- `npm run dev-carbonmark`
-- `npm run dev-lib`
-
-`npm run format-all`: Format all files with `prettier`.
-
-`npm run extract-strings:dev`: Extract translation files for the source language "en".
-
-`npm run build-all`: build all workspaces.
+- `npm run build-all`: build all workspaces.
+- `npm run format-all`: Format all files with `prettier`.
+- `npm run extract-strings:dev`: Extract translation files for the source language "en".
 
 ## Translations
 
@@ -58,9 +54,9 @@ This repo uses [lingui](https://lingui.js.org/tutorials/react.html) in combinati
 
 We follow these rules:
 
-- always add an ID to each translation
-- extract the source translation with `npm run extract-strings:dev`
-- commit source language files "en" only
+- Don't use ids, except for very long strings.
+- Extract the source translation with `npm run extract-strings:dev`
+- Commit source language files "en" only
 
 ### For translators
 
@@ -93,23 +89,12 @@ Klima Infinity pledge dashboard is backed by a firebase database. Follow the fol
 FIREBASE_ADMIN_CERT={ "type": "service_account", "project_id": "your_database_name", "private_key_id": .... }
 ```
 
-## ENS Names and Ether URLs
-
-In order to reference ENS names or ethereum urls in the development environment you will need to:
-
-1. Register at https://www.infura.io/
-2. Create a new project
-3. Add the `Polygon PoS` addon and your card details at https://app.infura.io/settings/payment
-4. Copy the API Key for the new project to the `INFURA_ID` value in `.env.local`
-
-without this step pages such as `https://localhost:3000/retirements/<some.ens>` will fail to load while developing.
-
 # Contributing
 
 **The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
 
 If you'd like to just take a ticket or fix a bug, go for it (always better to ask first, though).
 
-If you'd like to become a regular contributor to the DAO, [join the KlimaDAO discord](https://discord.gg/utTTEbrk) and follow the application instructions.
+If you'd like to become a regular contributor to the DAO, [join the KlimaDAO discord](https://discord.com/invite/klimadao) and follow the application instructions.
 
 📚Check out the [contribution & style guide](https://github.com/KlimaDAO/klimadao/wiki).

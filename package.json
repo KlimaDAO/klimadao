@@ -2,10 +2,10 @@
   "name": "klimadao",
   "private": true,
   "workspaces": [
-    "./site",
     "./app",
+    "./carbonmark",
     "./lib",
-    "./carbonmark"
+    "./site"
   ],
   "engines": {
     "npm": ">=8.0.0",
