@@ -2,6 +2,7 @@ import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -27,6 +28,7 @@ import {
   ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { NextPage } from "next";
+import Link from "next/link";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
@@ -172,12 +174,19 @@ const Page: NextPage<PageProps> = (props) => {
             </div>
           )}
           <div className="descriptionColumn">
-            <Text t="h5" color="lighter">
-              <Trans>Description</Trans>
-            </Text>
-            <Text t="body1">
-              {project.description ?? "No project description found"}
-            </Text>
+            <div className="description">
+              <Text t="h5" color="lighter">
+                <Trans>Description</Trans>
+              </Text>
+              <Text t="body1">
+                {project.description ?? "No project description found"}
+              </Text>
+            </div>
+            <Link href={project.url} className="registryLink">
+              <Trans>
+                View Registry Details <LaunchIcon />
+              </Trans>
+            </Link>
           </div>
         </div>
 
