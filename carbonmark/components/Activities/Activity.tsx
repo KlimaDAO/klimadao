@@ -98,9 +98,7 @@ export const Activity = (props: Props) => {
 
   return (
     <div key={props.activity.id} className={styles.activity}>
-      {props.showTitle && (
-        <Text t="h5">{props.activity.project?.name || "unknown"}</Text>
-      )}
+      {project && <Text t="h5">{project.name}</Text>}
       <Text t="body1" color="lighter">
         <i>
           {getElapsedTime({
