@@ -27,6 +27,7 @@ import {
   Project as ProjectType,
   ProjectBuyOption,
 } from "lib/types/carbonmark";
+import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { SWRConfig } from "swr";
@@ -182,11 +183,13 @@ const Page: NextPage<PageProps> = (props) => {
                 {project.description ?? "No project description found"}
               </Text>
             </div>
-            <Link href={project.url} className="registryLink">
-              <Trans>
-                View Registry Details <LaunchIcon />
-              </Trans>
-            </Link>
+            {notNil(project.url) && (
+              <Link href={project.url} className="registryLink">
+                <Trans>
+                  View Registry Details <LaunchIcon />
+                </Trans>
+              </Link>
+            )}
           </div>
         </div>
 
