@@ -134,7 +134,7 @@ msgid "Clear Filters"
 msgstr "Clear Filters"
 
 #: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:507
+#: components/pages/Home/index.tsx:511
 msgid "Contact"
 msgstr "Contact"
 
@@ -212,7 +212,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:510
+#: components/pages/Home/index.tsx:514
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -223,7 +223,7 @@ msgid "Industrial Processing"
 msgstr "Industrial Processing"
 
 #: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:516
+#: components/pages/Home/index.tsx:520
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -352,7 +352,7 @@ msgstr "Price Lowest"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/pages/Home/index.tsx:501
+#: components/pages/Home/index.tsx:505
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -406,7 +406,7 @@ msgid "Renewable Energy"
 msgstr "Renewable Energy"
 
 #: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:513
+#: components/pages/Home/index.tsx:517
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -470,7 +470,7 @@ msgstr "Switch to Polygon"
 msgid "Terms of Use"
 msgstr "Terms of Use"
 
-#: components/pages/Home/index.tsx:504
+#: components/pages/Home/index.tsx:508
 msgid "Terms of use"
 msgstr "Terms of use"
 
