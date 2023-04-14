@@ -156,7 +156,8 @@ export default defineType({
     },
     {
       name: "country",
-      description: "ISO-3166 English Short Name of the country where the project was implemented",
+      description:
+        "ISO-3166 English Short Name of the country where the project was implemented",
       type: "string",
       group: "location",
       validation: (r) => r.required(),
@@ -166,7 +167,8 @@ export default defineType({
     },
     {
       name: "state",
-      description: "(optional) state or territory where the project was implemented",
+      description:
+        "(optional) state or territory where the project was implemented",
       type: "string",
       group: "location",
     },
