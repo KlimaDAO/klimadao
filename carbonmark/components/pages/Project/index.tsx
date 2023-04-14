@@ -22,6 +22,7 @@ import {
 } from "lib/listingsGetter";
 import { getCategoryFromProject } from "lib/projectGetter";
 import {
+  Listing,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -50,9 +51,11 @@ const Page: NextPage<PageProps> = (props) => {
   }
 
   const allListings =
-    Array.isArray(project.listings) && getAllListings(project.listings);
+    Array.isArray(project.listings) &&
+    getAllListings(project.listings as Listing[]);
   const activeListings =
-    (Array.isArray(project.listings) && getActiveListings(project.listings)) ||
+    (Array.isArray(project.listings) &&
+      getActiveListings(project.listings as Listing[])) ||
     [];
 
   const category = getCategoryFromProject(project);
@@ -68,7 +71,7 @@ const Page: NextPage<PageProps> = (props) => {
 
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
     poolPrices,
-    activeListings
+    activeListings as Listing[]
   );
 
   const bestPrice =
@@ -207,10 +210,7 @@ const Page: NextPage<PageProps> = (props) => {
               allListings={allListings || []}
               activeListings={activeListings || []}
             />
-            <Activities
-              activities={project.activities || []}
-              showTitles={false}
-            />
+            <Activities activities={project.activities || []} />
           </div>
         </div>
       </Layout>

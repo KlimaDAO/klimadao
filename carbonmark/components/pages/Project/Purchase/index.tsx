@@ -27,12 +27,12 @@ import { useState } from "react";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 import * as styles from "./styles";
 
-type Props = {
+export interface ProjectPurchasePageProps {
   project: Project;
-  listing: Listing;
-};
+  listing: Omit<Listing, "project">;
+}
 
-export const ProjectPurchase: NextPage<Props> = (props) => {
+export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
   const { locale, push } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
