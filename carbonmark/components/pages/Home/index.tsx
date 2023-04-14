@@ -126,8 +126,10 @@ export const Home: NextPage<Props> = (props) => {
                 >
                   <div className={cx(styles.card, "card")}>
                     <div className={styles.cardImage}>
-                      {!!project.category?.id && (
-                        <ProjectImage category={project.category.id} />
+                      {!!project.methodologies[0]?.category && (
+                        <ProjectImage
+                          category={project.methodologies[0]?.category}
+                        />
                       )}
                     </div>
                     <div className={styles.cardContent}>
@@ -138,8 +140,10 @@ export const Home: NextPage<Props> = (props) => {
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">{project?.description}</Text>
                       <div className={styles.tags}>
-                        {!!project.category?.id && (
-                          <Category category={project.category.id} />
+                        {!!project.methodologies[0]?.category && (
+                          <Category
+                            category={project.methodologies[0]?.category}
+                          />
                         )}
                         <Vintage vintage={project.vintage} />
                       </div>
