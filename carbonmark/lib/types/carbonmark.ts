@@ -12,15 +12,13 @@ export interface Project {
       category: CategoryName;
     }
   ];
-  methodology: string;
   vintage: string;
   projectAddress: string;
   registry: string;
-  category: Category | null;
-  listings: Listing[] | null;
+  listings: Omit<Listing, "project">[] | null;
   price: BigNumber;
   country: Country | null;
-  activities: ActivityType[] | null;
+  activities: ProjectActivity[] | null;
   updatedAt: string; // timestamp
   location?: {
     // only defined for Verra projects
@@ -52,15 +50,14 @@ export interface User {
   profileImgUrl?: string;
   wallet: string;
   listings: Listing[];
-  activities: ActivityType[];
+  activities: UserActivity[];
   assets: Asset[];
 }
 
 export type Listing = {
   id: string;
-  createdAt: string;
-  updatedAt: string;
-  totalAmountToSell: BigNumber;
+  /** Plain integer, not a bignumber */
+  totalAmountToSell: string;
   /** Unformatted 18 decimal string */
   leftToSell: string;
   tokenAddress: string;
@@ -70,23 +67,28 @@ export type Listing = {
   batchPrices: [];
   /** Unformatted USDC e.g. 1000000 */
   singleUnitPrice: string;
+  createdAt: string;
+  updatedAt: string;
+  seller?: {
+    handle: string;
+    username: string;
+    description: string;
+    profileImgUrl: string;
+    id: string;
+  };
+  /** careful, project is not present on Project["listings"] entries */
   project: {
     id: string;
     key: string;
     name: string;
     category: Category;
+    /** TODO: from api, in /user.listings, Country is not present */
+    country?: Country;
     methodology: string;
     projectAddress: string;
     projectID: string;
     registry: string;
     vintage: string;
-    country: Country;
-  };
-  seller?: {
-    handle: string;
-    username: string;
-    description: string;
-    id: string;
   };
 };
 
@@ -102,10 +104,6 @@ export type ListingFormatted = Omit<Listing, "singleUnitPrice"> & {
 
 export type ProjectBuyOption = ListingFormatted | PriceFlagged;
 
-/**
- * A type representing possible activity actions (e.g "Sold", "Purchase" etc)
- * Sourced from: https://github.com/Atmosfearful/bezos-frontend/issues/9#issuecomment-1348069483
- */
 export type ActivityActionT =
   | "UpdatedQuantity"
   | "UpdatedPrice"
@@ -114,43 +112,89 @@ export type ActivityActionT =
   | "Purchase"
   | "Sold";
 
-export type ActivityType = {
-  id: number;
-  activityType: ActivityActionT; // CreatedListing, DeletedListing, UpdatedPrice ...
-  amount: BigNumber | null;
-  previousAmount: BigNumber | null;
-  price: BigNumber | null;
-  previousPrice: BigNumber | null;
+export interface ProjectActivity {
+  /** txnHash + ActivityType
+   * @example "0x12345CreatedListing" */
+  id: string;
+  /** Stringified 18 decimal BigNumber */
+  amount: string;
+  /** Stringified 18 decimal BigNumber */
+  previousAmount: null | string;
+  /** Stringified 6 decimal BigNumber */
+  price: string;
+  /** Stringified 6 decimal BigNumber */
+  previousPrice: null | string;
+  /** Unix seconds timestamp */
   timeStamp: string;
-  batchPrices: [];
-  singleUnitPrice: BigNumber | null;
-  project: {
-    id: string;
-    key: string;
-    name: string;
-    category: Category;
-    methodology: string;
-    projectAddress: string;
-    projectID: string;
-    registry: string;
-    vintage: string;
-  };
+  /** String identifying the activity */
+  activityType: ActivityActionT;
   seller: {
     id: string;
+    handle: string;
   };
-  buyer: {
+  buyer: null | {
     id: string;
-  } | null;
-};
+    handle: string;
+  };
+}
+
+export interface UserActivity {
+  /** txnHash + ActivityType
+   * @example "0x12345CreatedListing" */
+  id: string;
+  /** Stringified 18 decimal BigNumber */
+  amount: string;
+  /** Stringified 18 decimal BigNumber */
+  previousAmount: null | string;
+  /** Stringified 6 decimal BigNumber */
+  price: string;
+  /** Stringified 6 decimal BigNumber */
+  previousPrice: null | string;
+  /** Unix seconds timestamp */
+  timeStamp: string;
+  /** String identifying the activity */
+  activityType: ActivityActionT;
+  project: {
+    /** Name of the project
+     * @example "5MW Biomass Based Cogeneration Project at Sainsons" */
+    name: string;
+    /** TODO this can be removed when methodologies is passed down */
+    category: Category;
+    /** @example "0x3" */
+    id: string;
+    /** @example "VCS-1547" */
+    key: string;
+    /** Registry project id number
+     * @example "1547" */
+    projectId: string;
+    /** TODO: api needs to remove and replace with `methodologies` */
+    methodology: string;
+    /** @example "2020" */
+    vintage: string;
+    /** Address for the project token */
+    projectAddress: string;
+    /** @example "VCS" */
+    registry: string;
+  };
+  seller: {
+    // TODO: api needs to pass handle
+    id: string;
+  };
+  buyer: null | {
+    // TODO: api needs to pass handle
+    id: string;
+  };
+}
 
 export type Asset = {
+  id: string;
   token: {
     id: string;
     name: string;
     symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
     decimals: number;
   };
-  amount: BigNumber;
+  amount: string;
 };
 
 // data from C3 ABI function "getProjectInfo"
@@ -204,13 +248,22 @@ export type CategoryName =
   | "Blue Carbon";
 
 export type Purchase = {
-  id: string; // TransactionHash
+  /** Transaction hash */
+  id: string;
+  /** Stringified 18 decimal BigNumber */
   amount: BigNumber;
-  price: BigNumber;
+  /** The purchased listing info */
   listing: Listing;
+  /** Stringified 6 decimal BigNumber */
+  price: string;
+  /** Unix seconds timestamp */
+  timeStamp: string;
+  user: {
+    id: string;
+  };
 };
 
-export type CarbonmarkToken = "usdc" | "c3" | "tc02";
+export type CarbonmarkToken = "usdc" | "c3" | "tco2";
 
 export type Balance = {
   tokenName: CarbonmarkToken;
