@@ -190,7 +190,7 @@ export const bonds = [
   "bct",
   "mco2",
 ] as const;
-export type Bond = (typeof bonds)[number];
+export type Bond = typeof bonds[number];
 
 // Spender with their Allowances tokens
 export const allowancesContracts = {
@@ -231,7 +231,7 @@ export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
-  (typeof allowancesContracts)["retirementAggregatorV2"][number];
+  typeof allowancesContracts["retirementAggregatorV2"][number];
 export const offsetInputTokens = allowancesContracts[
   "retirementAggregatorV2"
 ] as unknown as OffsetInputToken[];
@@ -246,9 +246,9 @@ export const poolTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 export const projectTokens = ["tco2", "c3t"] as const;
 
 // TODO rename to pool token
-export type RetirementToken = (typeof retirementTokens)[number];
-export type PoolToken = (typeof poolTokens)[number];
-export type ProjectToken = (typeof projectTokens)[number];
+export type RetirementToken = typeof retirementTokens[number];
+export type PoolToken = typeof poolTokens[number];
+export type ProjectToken = typeof projectTokens[number];
 export type CarbonToken = PoolToken | ProjectToken;
 
 type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
@@ -274,14 +274,26 @@ export const subgraphs = {
   carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
-const VERRA_REGISTRY = "https://registry.verra.org";
-const VERRA_REGISTRY_API = `${VERRA_REGISTRY}/uiapi`;
-export const verra = {
-  projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
-  projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
+/** Definitions of available registries */
+export const REGISTRIES = {
+  Verra: {
+    id: "VCS",
+    title: "Verra",
+    url: "https://registry.verra.org",
+    api: "https://registry.verra.org/uiapi",
+  },
+  GoldStandard: {
+    id: "GS",
+    title: "Gold Standard",
+    url: "https://registry.goldstandard.org",
+  },
 };
 
-const GOLD_STANDARD_REGISTRY = "https://registry.goldstandard.org";
+export const verra = {
+  projectSearch: `${REGISTRIES.Verra.api}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
+  projectDetailPage: `${REGISTRIES.Verra.url}/app/projectDetail/VCS`, // add ID after VCS like /191
+};
+
 export const goldStandard = {
-  projectDetailPage: `${GOLD_STANDARD_REGISTRY}/projects/details`,
+  projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };

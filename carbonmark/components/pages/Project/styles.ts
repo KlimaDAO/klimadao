@@ -105,10 +105,25 @@ export const projectHeaderText = css`
 
 export const tags = css`
   display: flex;
-  gap: 0.8rem;
+  gap: 2.8rem;
   flex-wrap: wrap;
   z-index: 1;
   align-items: center;
+`;
+
+export const tag = css`
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  padding: 0.4rem 0.8rem;
+  background-color: var(--surface-02);
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  border: 1px solid var(--font-03);
+  font-size: 1.4rem;
+  height: 2.6rem;
 `;
 
 export const meta = css`
