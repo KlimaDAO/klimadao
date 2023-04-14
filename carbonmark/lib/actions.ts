@@ -294,9 +294,9 @@ export const getProjectInfoFromApi = async (
       key: project.key,
       projectID: project.projectID,
       name: project.name,
-      methodology: project.methodology,
+      methodology: project.methodologies[0].id,
       vintage: project.vintage,
-      category: project.category?.id || "Other",
+      category: project.methodologies[0].category || "Other",
     };
   } catch (e: any) {
     console.error("getProjectInfoFromApi Error for projectId", projectId, e);
