@@ -28,11 +28,14 @@ export function loadOrCreateCarbonOffset(
       carbonOffset.totalBridged = BigDecimal.fromString('0')
       carbonOffset.totalRetired = BigDecimal.fromString('0')
       carbonOffset.currentSupply = BigDecimal.fromString('0')
+      carbonOffset.name = 'MCO2'
       carbonOffset.vintage = ''
       carbonOffset.vintageYear = ''
       carbonOffset.projectID = ''
       carbonOffset.standard = ''
       carbonOffset.methodology = ''
+      carbonOffset.methodologyCategory = ''
+      carbonOffset.country = ''
       carbonOffset.region = ''
       carbonOffset.storageMethod = ''
       carbonOffset.method = ''
@@ -43,6 +46,10 @@ export function loadOrCreateCarbonOffset(
       carbonOffset.correspAdjustment = ''
       carbonOffset.additionalCertification = ''
       carbonOffset.klimaRanking = BigInt.fromString('0')
+      carbonOffset.balanceBCT = BigDecimal.fromString('0')
+      carbonOffset.balanceNCT = BigDecimal.fromString('0')
+      carbonOffset.balanceUBO = BigDecimal.fromString('0')
+      carbonOffset.balanceNBO = BigDecimal.fromString('0')
       carbonOffset.lastUpdate = transaction.timestamp
     }
   }
@@ -92,6 +99,10 @@ export function createToucanCarbonOffset(
   carbonOffset.klimaRanking = BigInt.fromString(
     carbonOffset.vintage + carbonOffset.projectID.substring(4).padStart(6, '0')
   )
+  carbonOffset.balanceBCT = BigDecimal.fromString('0')
+  carbonOffset.balanceNCT = BigDecimal.fromString('0')
+  carbonOffset.balanceUBO = BigDecimal.fromString('0')
+  carbonOffset.balanceNBO = BigDecimal.fromString('0')
   carbonOffset.lastUpdate = transaction.timestamp
 
   // Manually update some of the items missing from the initial Toucan bridging
@@ -158,6 +169,10 @@ export function createC3ProjectToken(transaction: Transaction, token: Address, b
   carbonOffset.klimaRanking = BigInt.fromString(
     carbonOffset.vintage + carbonOffset.projectID.substring(4).padStart(6, '0')
   )
+  carbonOffset.balanceBCT = BigDecimal.fromString('0')
+  carbonOffset.balanceNCT = BigDecimal.fromString('0')
+  carbonOffset.balanceUBO = BigDecimal.fromString('0')
+  carbonOffset.balanceNBO = BigDecimal.fromString('0')
   carbonOffset.lastUpdate = transaction.timestamp
 
   return carbonOffset as CarbonOffset
