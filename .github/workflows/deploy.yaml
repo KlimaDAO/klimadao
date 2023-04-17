@@ -59,9 +59,14 @@ jobs:
         run: |
           if [ $REF == "refs/heads/staging" ]
           then
-              echo "::set-output name=subgraph::staging-klimadao-${{ matrix.value }}"
+              PREFIX="staging-"
+          fi;
+
+          if [[ "${{ matrix.value }}" =~ .*"bridged-carbon".* ]]
+          then
+              echo "::set-output name=subgraph::$PREFIX${{ matrix.value }}"
           else
-              echo "::set-output name=subgraph::klimadao-${{ matrix.value }}"
+              echo "::set-output name=subgraph::$PREFIXklimadao-${{ matrix.value }}"
           fi
         env:
           REF: ${{ github.ref }}
