@@ -64,9 +64,9 @@ jobs:
 
           if [[ "${{ matrix.value }}" =~ .*"bridged-carbon".* ]]
           then
-              echo "::set-output name=subgraph::$PREFIX${{ matrix.value }}"
+              echo "::set-output name=subgraph::${PREFIX}${{ matrix.value }}"
           else
-              echo "::set-output name=subgraph::$PREFIXklimadao-${{ matrix.value }}"
+              echo "::set-output name=subgraph::${PREFIX}klimadao-${{ matrix.value }}"
           fi
         env:
           REF: ${{ github.ref }}
