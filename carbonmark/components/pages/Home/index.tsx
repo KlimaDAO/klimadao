@@ -31,6 +31,7 @@ import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Image from "next/image";
@@ -126,11 +127,9 @@ export const Home: NextPage<Props> = (props) => {
                 >
                   <div className={cx(styles.card, "card")}>
                     <div className={styles.cardImage}>
-                      {!!project.methodologies[0]?.category && (
-                        <ProjectImage
-                          category={project.methodologies[0]?.category}
-                        />
-                      )}
+                      <ProjectImage
+                        category={getCategoryFromProject(project)}
+                      />
                     </div>
                     <div className={styles.cardContent}>
                       <Text t="body3" as="h4">
@@ -140,11 +139,7 @@ export const Home: NextPage<Props> = (props) => {
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">{project?.description}</Text>
                       <div className={styles.tags}>
-                        {!!project.methodologies[0]?.category && (
-                          <Category
-                            category={project.methodologies[0]?.category}
-                          />
-                        )}
+                        <Category category={getCategoryFromProject(project)} />
                         <Vintage vintage={project.vintage} />
                       </div>
                     </div>
