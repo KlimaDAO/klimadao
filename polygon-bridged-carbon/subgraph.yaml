@@ -329,6 +329,8 @@ templates:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        - event: Retired(address,uint256)
+          handler: handleRetired
       file: ./src/ToucanCarbonOffsets.ts
   - name: C3ProjectToken
     kind: ethereum/contract

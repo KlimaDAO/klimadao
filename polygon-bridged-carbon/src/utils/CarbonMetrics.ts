@@ -79,7 +79,15 @@ export class CarbonMetricUtils {
     carbonMetrics.mco2Supply = BigDecimal.zero()
     carbonMetrics.uboSupply = BigDecimal.zero()
     carbonMetrics.nboSupply = BigDecimal.zero()
+    carbonMetrics.bctRedeemed = BigDecimal.zero()
+    carbonMetrics.nctRedeemed = BigDecimal.zero()
+    carbonMetrics.uboRedeemed = BigDecimal.zero()
+    carbonMetrics.nboRedeemed = BigDecimal.zero()
     carbonMetrics.totalCarbonSupply = BigDecimal.zero()
+
+    carbonMetrics.bctCrosschainSupply = BigDecimal.zero()
+    carbonMetrics.nctCrosschainSupply = BigDecimal.zero()
+    carbonMetrics.totalCrosschainSupply = BigDecimal.zero()
 
     carbonMetrics.tco2Retired = BigDecimal.zero()
     carbonMetrics.mco2Retired = BigDecimal.zero()
