@@ -274,14 +274,26 @@ export const subgraphs = {
   carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
-const VERRA_REGISTRY = "https://registry.verra.org";
-const VERRA_REGISTRY_API = `${VERRA_REGISTRY}/uiapi`;
-export const verra = {
-  projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
-  projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
+/** Definitions of available registries */
+export const REGISTRIES = {
+  Verra: {
+    id: "VCS",
+    title: "Verra",
+    url: "https://registry.verra.org",
+    api: "https://registry.verra.org/uiapi",
+  },
+  GoldStandard: {
+    id: "GS",
+    title: "Gold Standard",
+    url: "https://registry.goldstandard.org",
+  },
 };
 
-const GOLD_STANDARD_REGISTRY = "https://registry.goldstandard.org";
+export const verra = {
+  projectSearch: `${REGISTRIES.Verra.api}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
+  projectDetailPage: `${REGISTRIES.Verra.url}/app/projectDetail/VCS`, // add ID after VCS like /191
+};
+
 export const goldStandard = {
-  projectDetailPage: `${GOLD_STANDARD_REGISTRY}/projects/details`,
+  projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };

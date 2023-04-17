@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
+import { REGISTRIES } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { Activities } from "components/Activities";
@@ -26,6 +27,7 @@ import {
   Project as ProjectType,
   ProjectBuyOption,
 } from "lib/types/carbonmark";
+import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
@@ -98,6 +100,10 @@ const Page: NextPage<PageProps> = (props) => {
         />
       );
     });
+  /** Match the registry key "VCS" to the correct registry */
+  const registry = Object.values(REGISTRIES).find(
+    selector("id", project.registry)
+  )?.title;
 
   return (
     <>
@@ -123,6 +129,7 @@ const Page: NextPage<PageProps> = (props) => {
             </Text>
             <Vintage vintage={project.vintage} />
             <Category category={category} />
+            {notNil(registry) && <Text className={styles.tag}>{registry}</Text>}
           </div>
         </div>
 
