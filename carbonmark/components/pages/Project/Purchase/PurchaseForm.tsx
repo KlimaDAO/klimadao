@@ -60,7 +60,7 @@ export type FormValues = {
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  listing: Omit<Listing, "project">;
+  listing: Listing;
   values: null | FormValues;
   isLoading: boolean;
 };

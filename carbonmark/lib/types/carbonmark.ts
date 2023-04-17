@@ -15,7 +15,7 @@ export interface Project {
   vintage: string;
   projectAddress: string;
   registry: string;
-  listings: Omit<Listing, "project">[] | null;
+  listings: Listing[] | null;
   price: BigNumber;
   country: Country | null;
   activities: ProjectActivity[] | null;
@@ -49,12 +49,12 @@ export interface User {
   description: string;
   profileImgUrl?: string;
   wallet: string;
-  listings: Listing[];
+  listings: ListingWithProject[];
   activities: UserActivity[];
   assets: Asset[];
 }
 
-export type Listing = {
+export interface Listing {
   id: string;
   /** Plain integer, not a bignumber */
   totalAmountToSell: string;
@@ -76,6 +76,10 @@ export type Listing = {
     profileImgUrl: string;
     id: string;
   };
+}
+
+/** Some endpoints do not include this `project` property. */
+export interface ListingWithProject extends Listing {
   /** careful, project is not present on Project["listings"] entries */
   project: {
     id: string;
@@ -90,19 +94,13 @@ export type Listing = {
     registry: string;
     vintage: string;
   };
-};
+}
 
 export type PriceFlagged = Price & {
   isPoolProject: true;
 };
 
-// makes sense to convert more BigNumbers !
-// see https://github.com/Atmosfearful/bezos-frontend/issues/50
-export type ListingFormatted = Omit<Listing, "singleUnitPrice"> & {
-  singleUnitPrice: string; // USDCs
-};
-
-export type ProjectBuyOption = ListingFormatted | PriceFlagged;
+export type ProjectBuyOption = Listing | PriceFlagged;
 
 export type ActivityActionT =
   | "UpdatedQuantity"
@@ -253,7 +251,7 @@ export type Purchase = {
   /** Stringified 18 decimal BigNumber */
   amount: BigNumber;
   /** The purchased listing info */
-  listing: Listing;
+  listing: ListingWithProject;
   /** Stringified 6 decimal BigNumber */
   price: string;
   /** Unix seconds timestamp */

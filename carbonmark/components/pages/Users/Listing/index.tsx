@@ -5,14 +5,14 @@ import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { Listing as ListingType } from "lib/types/carbonmark";
+import { ListingWithProject } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
 import * as styles from "./styles";
 
 type Props = {
-  listing: ListingType;
+  listing: ListingWithProject;
   children: ReactNode;
 };
 

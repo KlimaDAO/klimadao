@@ -29,7 +29,7 @@ import * as styles from "./styles";
 
 export interface ProjectPurchasePageProps {
   project: Project;
-  listing: Omit<Listing, "project">;
+  listing: Listing;
 }
 
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
