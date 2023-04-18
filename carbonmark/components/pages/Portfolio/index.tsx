@@ -1,26 +1,23 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { Activities } from "components/Activities";
 import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
-import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
 import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
-import { Balances } from "./Balances";
+import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
@@ -34,9 +31,6 @@ export const Portfolio: NextPage = () => {
 
   const assetWithProjectTokens =
     !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
-  const hasListings = !isLoadingUser && !!user?.listings?.length;
-  const allListings = hasListings && getAllListings(user.listings);
-  const activeListings = hasListings && getActiveListings(user.listings);
 
   const isConnectedUser = isConnected && address;
   const isLoading = isLoadingUser || isLoadingAssets;
@@ -205,15 +199,9 @@ export const Portfolio: NextPage = () => {
             )}
           </Col>
 
-          <Col className="statsColumn">
-            <Balances />
-            <Stats
-              allListings={allListings || []}
-              activeListings={activeListings || []}
-              description={t`Your seller data`}
-            />
-            <Activities activities={user?.activities || []} />
-          </Col>
+            <Col>
+              <PortfolioSidebar user={carbonmarkUser} />
+            </Col>
         </div>
       </Layout>
     </>
