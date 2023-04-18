@@ -65,16 +65,15 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
     <>
       {isUpdatingUser && <SpinnerWithLabel label={t`Loading your assets`} />}
 
-      <div className={isUpdatingUser ? styles.loadingOverlay : ""}>
-        {!!assetsData &&
-          assetsData.map((a) => (
-            <AssetProject
-              key={a.tokenAddress}
-              asset={a}
-              onSell={() => setAssetToSell(a)}
-            />
-          ))}
-      </div>
+      {!!assetsData &&
+        assetsData.map((a) => (
+          <div
+            className={isUpdatingUser ? styles.loadingOverlay : ""}
+            key={a.tokenAddress}
+          >
+            <AssetProject asset={a} onSell={() => setAssetToSell(a)} />
+          </div>
+        ))}
 
       {!!assetToSell && (
         <CreateListing
