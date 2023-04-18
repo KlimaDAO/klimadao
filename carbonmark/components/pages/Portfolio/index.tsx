@@ -7,12 +7,12 @@ import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { Col } from "components/TwoColLayout";
 import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
+import { Col, TwoColLayout } from "components/TwoColLayout";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -136,11 +136,6 @@ export const Portfolio: NextPage = () => {
       />
 
       <Layout>
-        <div className={styles.portfolioControls}>
-          <LoginButton />
-        </div>
-        <div className={styles.portfolioContent}>
-          <Col>
             {!isConnectedUser && (
               <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
             )}
@@ -161,6 +156,12 @@ export const Portfolio: NextPage = () => {
                   key={a.tokenAddress}
                   asset={a}
                   onSell={() => setAssetToSell(a)}
+        <div className={styles.container}>
+          <div className={styles.portfolioControls}>
+            <LoginButton />
+          </div>
+          <TwoColLayout>
+            <Col>
                 />
               ))}
 
@@ -197,11 +198,12 @@ export const Portfolio: NextPage = () => {
                 </Trans>
               </Text>
             )}
-          </Col>
+            </Col>
 
             <Col>
               <PortfolioSidebar user={carbonmarkUser} />
             </Col>
+          </TwoColLayout>
         </div>
       </Layout>
     </>
