@@ -1,107 +1,23 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { CreateListing } from "components/CreateListing";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
-import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { addProjectsToAssets } from "lib/actions";
-import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import { pollUntil } from "lib/pollUntil";
-import { AssetForListing, User } from "lib/types/carbonmark";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { AssetProject } from "./AssetProject";
+import { CarbonmarkAssets } from "./CarbonmarkAssets";
 import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal } = useWeb3();
-  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
-  const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const assetWithProjectTokens =
-    !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
   const { carbonmarkUser, isLoading } = useFetchUser(address);
 
   const isConnectedUser = isConnected && address;
-  const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
-
-  // load Assets every time user changed
-  useEffect(() => {
-    if (hasAssets && address) {
-      const getAssetsData = async () => {
-        try {
-          setIsLoadingAssets(true);
-
-          if (assetWithProjectTokens) {
-            const assetsWithProject = await addProjectsToAssets({
-              assets: assetWithProjectTokens,
-            });
-            // TODO: filter assets with balance > 0
-            // this will be unnecessary as soon as bezos switched to mainnet
-
-            const assetsWithBalance = assetsWithProject.filter(
-              (a) => Number(a.balance) > 0
-            );
-
-            setAssetsData(assetsWithBalance);
-          }
-        } catch (e) {
-          console.error(e);
-        } finally {
-          setIsLoadingAssets(false);
-        }
-      };
-
-      getAssetsData();
-    }
-  }, [user]);
-
-  const onUpdateUser = async () => {
-    if (!user) return; // TS typeguard
-
-    try {
-      setErrorMessage("");
-      setIsLoadingUser(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: user.wallet,
-          type: "wallet",
-        });
-
-      // API is updated when new activity exists
-      const activityIsAdded = (value: User) => {
-        const newActivityLength = value.activities.length;
-        const currentActivityLength = user.activities.length;
-        return newActivityLength > currentActivityLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: activityIsAdded,
-        ms: 1000,
-        maxAttempts: 50,
-      });
-
-      updatedUser && setUser((prev) => ({ ...prev, ...updatedUser }));
-    } catch (e) {
-      console.error("LOAD USER ACTIVITY error", e);
-      setErrorMessage(
-        t`Please refresh the page. There was an error updating your data: ${e}.`
-      );
-    } finally {
-      setIsLoadingUser(false);
-    }
-  };
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
   const isUnregistered =
     isConnectedUser && !isLoading && carbonmarkUser === null;
@@ -115,22 +31,6 @@ export const Portfolio: NextPage = () => {
       />
 
       <Layout>
-            {isConnectedUser && isLoading && <SpinnerWithLabel />}
-
-            {errorMessage && (
-              <Text t="h5" className={styles.errorMessage}>
-                {errorMessage}
-              </Text>
-            )}
-
-            {isConnectedUser &&
-              !isLoading &&
-              !!assetsData &&
-              assetsData.map((a) => (
-                <AssetProject
-                  key={a.tokenAddress}
-                  asset={a}
-                  onSell={() => setAssetToSell(a)}
         <div className={styles.container}>
           <div className={styles.portfolioControls}>
             <LoginButton />
@@ -141,16 +41,14 @@ export const Portfolio: NextPage = () => {
                 <LoginCard isLoading={isLoading} onLogin={toggleModal} />
               )}
 
+              {isCarbonmarkUser && (
+                <CarbonmarkAssets
+                  address={address}
+                  user={carbonmarkUser}
+                  isLoadingUser={isLoading}
                 />
-              ))}
+              )}
 
-            {!!assetToSell && (
-              <CreateListing
-                onModalClose={() => setAssetToSell(null)}
-                onSubmit={onUpdateUser}
-                assets={[assetToSell]}
-                showModal={!!assetToSell}
-                successScreen={
               {isUnregistered && (
                 <>
                   <Text>
@@ -159,13 +57,6 @@ export const Portfolio: NextPage = () => {
                       user.
                     </Trans>
                   </Text>
-            {isConnectedUser && !isLoading && !hasAssets && (
-              <>
-                <Text>
-                  <Trans>No listable assets found.</Trans>
-                </Text>
-              </>
-            )}
                   <Text>
                     <Trans>
                       Have you already created your Carbonmark{" "}
