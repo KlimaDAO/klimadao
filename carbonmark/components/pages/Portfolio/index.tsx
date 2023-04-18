@@ -8,11 +8,11 @@ import { PageHead } from "components/PageHead";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -22,8 +22,6 @@ import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal } = useWeb3();
-  const [isLoadingUser, setIsLoadingUser] = useState(false);
-  const [user, setUser] = useState<null | User>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
@@ -31,32 +29,10 @@ export const Portfolio: NextPage = () => {
 
   const assetWithProjectTokens =
     !!user?.assets?.length && getAssetsWithProjectTokens(user.assets);
+  const { carbonmarkUser, isLoading } = useFetchUser(address);
 
   const isConnectedUser = isConnected && address;
-  const isLoading = isLoadingUser || isLoadingAssets;
-
   const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
-
-  useEffect(() => {
-    if (!isConnectedUser) return;
-
-    const getInitialUserData = async () => {
-      try {
-        setIsLoadingUser(true);
-        const newUser = await getUser({
-          type: "wallet",
-          user: address,
-        });
-        setUser(newUser);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoadingUser(false);
-      }
-    };
-
-    !user && getInitialUserData();
-  }, [isConnectedUser]);
 
   // load Assets every time user changed
   useEffect(() => {
@@ -126,6 +102,9 @@ export const Portfolio: NextPage = () => {
       setIsLoadingUser(false);
     }
   };
+  const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
+  const isUnregistered =
+    isConnectedUser && !isLoading && carbonmarkUser === null;
 
   return (
     <>
@@ -136,10 +115,6 @@ export const Portfolio: NextPage = () => {
       />
 
       <Layout>
-            {!isConnectedUser && (
-              <LoginCard isLoading={isLoadingUser} onLogin={toggleModal} />
-            )}
-
             {isConnectedUser && isLoading && <SpinnerWithLabel />}
 
             {errorMessage && (
@@ -162,6 +137,10 @@ export const Portfolio: NextPage = () => {
           </div>
           <TwoColLayout>
             <Col>
+              {!isConnectedUser && (
+                <LoginCard isLoading={isLoading} onLogin={toggleModal} />
+              )}
+
                 />
               ))}
 
@@ -172,17 +151,14 @@ export const Portfolio: NextPage = () => {
                 assets={[assetToSell]}
                 showModal={!!assetToSell}
                 successScreen={
+              {isUnregistered && (
+                <>
                   <Text>
                     <Trans>
-                      Success. Go to your{" "}
-                      <Link href={`/users/${address}`}>Profile page</Link> to
-                      see your new listing.
+                      Sorry. We could not find any data on Carbonmark for your
+                      user.
                     </Trans>
                   </Text>
-                }
-              />
-            )}
-
             {isConnectedUser && !isLoading && !hasAssets && (
               <>
                 <Text>
@@ -190,14 +166,14 @@ export const Portfolio: NextPage = () => {
                 </Text>
               </>
             )}
-            {isConnectedUser && !isLoading && !user && (
-              <Text>
-                <Trans>
-                  Have you already created your Carbonmark{" "}
-                  <Link href={`/users/${address}`}>Profile</Link>?
-                </Trans>
-              </Text>
-            )}
+                  <Text>
+                    <Trans>
+                      Have you already created your Carbonmark{" "}
+                      <Link href={`/users/${address}`}>Profile</Link>?
+                    </Trans>
+                  </Text>
+                </>
+              )}
             </Col>
 
             <Col>
