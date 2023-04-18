@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { CreateListing } from "components/CreateListing";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
@@ -14,6 +14,7 @@ type Props = {
   address: string;
   user: User | null;
   isLoadingUser: boolean;
+  onUpdateUser: () => void;
 };
 
 export const CarbonmarkAssets: FC<Props> = (props) => {
@@ -25,7 +26,9 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
     !!props.user?.assets?.length &&
     getAssetsWithProjectTokens(props.user.assets);
 
+  const isUpdatingUser = props.isLoadingUser || isLoadingAssets;
   const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
+  const emptyAssets = !isUpdatingUser && !assetWithProjectTokens;
 
   // load Assets every time user changed
   useEffect(() => {
@@ -38,9 +41,9 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
             const assetsWithProject = await addProjectsToAssets({
               assets: assetWithProjectTokens,
             });
+
             // TODO: filter assets with balance > 0
             // this will be unnecessary as soon as bezos switched to mainnet
-
             const assetsWithBalance = assetsWithProject.filter(
               (a) => Number(a.balance) > 0
             );
@@ -58,15 +61,11 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
     }
   }, [props.user]);
 
-  const onUpdateUser = () => {
-    console.log("UPDATE");
-  };
-
   return (
     <>
-      {props.isLoadingUser && <SpinnerWithLabel />}
+      {isUpdatingUser && <SpinnerWithLabel label={t`Loading your assets`} />}
 
-      <div className={props.isLoadingUser ? styles.loadingOverlay : ""}>
+      <div className={isUpdatingUser ? styles.loadingOverlay : ""}>
         {!!assetsData &&
           assetsData.map((a) => (
             <AssetProject
@@ -75,25 +74,31 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
               onSell={() => setAssetToSell(a)}
             />
           ))}
-
-        {!!assetToSell && (
-          <CreateListing
-            onModalClose={() => setAssetToSell(null)}
-            onSubmit={onUpdateUser}
-            assets={[assetToSell]}
-            showModal={!!assetToSell}
-            successScreen={
-              <Text>
-                <Trans>
-                  Success. Go to your{" "}
-                  <Link href={`/users/${props.address}`}>Profile page</Link> to
-                  see your new listing.
-                </Trans>
-              </Text>
-            }
-          />
-        )}
       </div>
+
+      {!!assetToSell && (
+        <CreateListing
+          onModalClose={() => setAssetToSell(null)}
+          onSubmit={props.onUpdateUser}
+          assets={[assetToSell]}
+          showModal={!!assetToSell}
+          successScreen={
+            <Text>
+              <Trans>
+                Success. Go to your{" "}
+                <Link href={`/users/${props.address}`}>Profile page</Link> to
+                see your new listing.
+              </Trans>
+            </Text>
+          }
+        />
+      )}
+
+      {emptyAssets && (
+        <Text>
+          <Trans>No listable assets found.</Trans>
+        </Text>
+      )}
     </>
   );
 };

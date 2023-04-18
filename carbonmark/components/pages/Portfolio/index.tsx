@@ -7,20 +7,62 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
+import { getUserUntil } from "lib/api";
+import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
+import { useState } from "react";
 import { CarbonmarkAssets } from "./CarbonmarkAssets";
 import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal } = useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser(address);
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address);
+  const [isPending, setIsPending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const isConnectedUser = isConnected && address;
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
   const isUnregistered =
     isConnectedUser && !isLoading && carbonmarkUser === null;
+
+  const userActivityIsUpdated = (userFromApi: User) => {
+    // compare with current user
+    const oldUser = carbonmarkUser;
+    const newActivityLength = userFromApi.activities.length;
+    const currentActivityLength = oldUser?.activities.length || 0;
+    return newActivityLength > currentActivityLength;
+  };
+
+  const handleMutateUser = async () => {
+    if (!isConnectedUser) return;
+
+    const newUser = await getUserUntil({
+      address,
+      retryUntil: userActivityIsUpdated,
+      retryInterval: 1000,
+      maxAttempts: 50,
+    });
+
+    return newUser;
+  };
+
+  const onUpdateUser = async () => {
+    try {
+      setIsPending(true);
+      await mutate(handleMutateUser, {
+        populateCache: true,
+      });
+    } catch (e) {
+      console.error(e);
+      setErrorMessage(
+        t`Please refresh the page. There was an error updating your data: ${e}.`
+      );
+    } finally {
+      setIsPending(false);
+    }
+  };
 
   return (
     <>
@@ -41,11 +83,18 @@ export const Portfolio: NextPage = () => {
                 <LoginCard isLoading={isLoading} onLogin={toggleModal} />
               )}
 
+              {errorMessage && (
+                <Text t="h5" className={styles.errorMessage}>
+                  {errorMessage}
+                </Text>
+              )}
+
               {isCarbonmarkUser && (
                 <CarbonmarkAssets
                   address={address}
                   user={carbonmarkUser}
-                  isLoadingUser={isLoading}
+                  isLoadingUser={isLoading || isPending}
+                  onUpdateUser={onUpdateUser}
                 />
               )}
 
@@ -68,7 +117,7 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              <PortfolioSidebar user={carbonmarkUser} />
+              <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
             </Col>
           </TwoColLayout>
         </div>

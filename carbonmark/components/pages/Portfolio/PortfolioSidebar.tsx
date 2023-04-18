@@ -8,6 +8,7 @@ import { Balances } from "./Balances";
 
 type Props = {
   user: User | null;
+  isPending: boolean;
 };
 
 export const PortfolioSidebar: FC<Props> = (props) => {
@@ -22,7 +23,10 @@ export const PortfolioSidebar: FC<Props> = (props) => {
         activeListings={activeListings || []}
         description={t`Your seller data`}
       />
-      <Activities activities={props.user?.activities || []} />
+      <Activities
+        activities={props.user?.activities || []}
+        isLoading={props.isPending}
+      />
     </>
   );
 };

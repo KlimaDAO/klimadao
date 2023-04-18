@@ -23,3 +23,8 @@ export const errorMessage = css`
   margin-bottom: 0.2rem;
   word-break: break-word;
 `;
+
+export const loadingOverlay = css`
+  pointer-events: none;
+  opacity: 0.5;
+`;
