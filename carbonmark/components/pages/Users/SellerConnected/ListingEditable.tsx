@@ -15,20 +15,20 @@ import {
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing, Listing as ListingType } from "lib/types/carbonmark";
+import { AssetForListing, ListingWithProject } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 import * as styles from "./styles";
 
 type Props = {
-  listings: ListingType[];
+  listings: ListingWithProject[];
   assets: AssetForListing[];
   onFinishEditing: () => void;
 };
 
 const getBalanceForListing = (
-  listing: ListingType,
+  listing: ListingWithProject,
   assets: AssetForListing[]
 ): number => {
   const matchingBalance = assets.find(
@@ -39,7 +39,9 @@ const getBalanceForListing = (
 
 export const ListingEditable: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
-  const [listingToEdit, setListingToEdit] = useState<ListingType | null>(null);
+  const [listingToEdit, setListingToEdit] = useState<ListingWithProject | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);

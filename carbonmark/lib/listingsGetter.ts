@@ -2,46 +2,57 @@ import { formatUnits } from "@klimadao/lib/utils";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import {
   Listing,
-  ListingFormatted,
+  ListingWithProject,
   Price,
   PriceFlagged,
   ProjectBuyOption,
 } from "lib/types/carbonmark";
 
-export const getAmountLeftToSell = (listings: Listing[]) =>
+export const getAmountLeftToSell = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) =>
   listings.reduce((acc, curr) => {
     const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
     return leftToSellTotal;
   }, 0);
 
-export const getTotalAmountToSell = (listings: Listing[]) =>
+export const getTotalAmountToSell = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) =>
   listings.reduce((acc, curr) => {
     const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
     return totalAmountTo;
   }, 0);
 
-export const getTotalAmountSold = (listings: Listing[]) => {
+export const getTotalAmountSold = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) => {
   const totalAmount = getTotalAmountToSell(listings);
   const leftToSell = getAmountLeftToSell(listings);
   return totalAmount - leftToSell;
 };
 
-export const getActiveListings = (listings: Listing[]) =>
-  listings.filter((l) => l.active && l.deleted === false);
+export const getActiveListings = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) => listings.filter((l) => l.active && l.deleted === false);
 
-export const getAllListings = (listings: Listing[]) =>
-  listings.filter((l) => l.deleted === false);
+export const getAllListings = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) => listings.filter((l) => l.deleted === false);
 
-export const getSortByUpdateListings = (listings: Listing[]) =>
-  listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+export const getSortByUpdateListings = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) => listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
 export const getLowestPriceFromBuyOptions = (options: ProjectBuyOption[]) => {
   return options[0].singleUnitPrice;
 };
 
-export const sortPricesAndListingsByBestPrice = (
+export const sortPricesAndListingsByBestPrice = <
+  T extends Listing | ListingWithProject
+>(
   prices: Price[],
-  listings: Listing[]
+  listings: T[]
 ): ProjectBuyOption[] => {
   const flaggedPrices = !!prices?.length && flagPrices(prices);
   const formattedListings = !!listings?.length && formatListings(listings);
@@ -54,7 +65,9 @@ export const sortPricesAndListingsByBestPrice = (
   );
 };
 
-export const formatListings = (listings: Listing[]): ListingFormatted[] =>
+export const formatListings = <T extends Listing | ListingWithProject>(
+  listings: T[]
+) =>
   listings.map((listing) => ({
     ...listing,
     singleUnitPrice: formatUnits(

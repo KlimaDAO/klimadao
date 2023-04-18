@@ -7,14 +7,14 @@ import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
 import { formatBigToTonnes, formatToPrice } from "lib/formatNumbers";
 import { isConnectedAddress } from "lib/formatWalletAddress";
-import { ListingFormatted, Project } from "lib/types/carbonmark";
+import { Listing, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  listing: ListingFormatted;
+  listing: Listing;
   project: Project;
   isBestPrice: boolean;
 };
