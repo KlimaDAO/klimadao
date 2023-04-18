@@ -27,6 +27,7 @@ import {
 import { queryFilteredDocuments, searchDocumentsByText } from "../lib/queries";
 
 import { Document } from "lib/queries";
+import { useRouter } from "next/router";
 import * as styles from "./styles";
 
 export interface Props {
@@ -48,6 +49,7 @@ const defaultValues: FormValues = {
 };
 
 export const ResourcesList: FC<Props> = (props) => {
+  const { locale } = useRouter();
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
@@ -85,7 +87,10 @@ export const ResourcesList: FC<Props> = (props) => {
     try {
       setIsLoading(true);
 
-      const searchResult = await searchDocumentsByText(values.search);
+      const searchResult = await searchDocumentsByText(
+        values.search,
+        locale || "en"
+      );
 
       // remove all filters and sortBy as search results do not take filters into account and are sorted by relevance
       // but don't delete current search term in input field
@@ -124,7 +129,10 @@ export const ResourcesList: FC<Props> = (props) => {
 
     // query with input values
     try {
-      const filteredDocuments = await queryFilteredDocuments(values);
+      const filteredDocuments = await queryFilteredDocuments(
+        values,
+        locale || "en"
+      );
       if (filteredDocuments.length) {
         setVisibleDocuments(filteredDocuments);
       } else {

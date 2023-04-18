@@ -8,6 +8,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
     const post = await fetchCMSContent("post", {
       slug: ctx.params?.pid,
+      locale: ctx.locale,
     });
     const translation = await loadTranslation(ctx.locale);
     if (!post) {

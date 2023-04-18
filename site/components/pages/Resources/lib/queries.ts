@@ -1,5 +1,5 @@
 import { getSanityClient } from "lib/fetchCMSContent";
-import { Document, hideFromProduction, isDomainKlimadao } from "lib/queries";
+import { baseFilters, Document } from "lib/queries";
 import { FormValues } from "../ResourcesList";
 
 const defaultParams = {
@@ -15,7 +15,7 @@ type QueryParams = {
 
 /** fetch posts and podcasts filtered by specific tag slugs, types and order */
 const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
-    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) > 0 && ${hideFromProduction} && ${isDomainKlimadao}] | order(${params.sortedBy}) {
+    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) > 0 && ${baseFilters}] | order(${params.sortedBy}) {
       "type": _type,
       publishedAt, 
       title, 
@@ -30,7 +30,7 @@ const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
 
 /** fetch posts and podcasts filtered by types and order */
 const filterDocumentsWithoutTags = (params: QueryParams) => /* groq */ `
-  *[_type in ${params.types} && ${hideFromProduction} && ${isDomainKlimadao}] | order(${params.sortedBy}) {
+  *[_type in ${params.types} && ${baseFilters}] | order(${params.sortedBy}) {
     "type": _type,
     publishedAt, 
     title, 
@@ -44,7 +44,8 @@ const filterDocumentsWithoutTags = (params: QueryParams) => /* groq */ `
 `;
 
 export const queryFilteredDocuments = async (
-  values: FormValues
+  values: FormValues,
+  locale: string
 ): Promise<Document[]> => {
   const { tags } = values;
 
@@ -62,15 +63,13 @@ export const queryFilteredDocuments = async (
     ? filterDocumentsByTags(valuesWithFallback)
     : filterDocumentsWithoutTags(valuesWithFallback);
 
-  const filteredDocuments = await getSanityClient().fetch(query);
+  const filteredDocuments = await getSanityClient().fetch(query, { locale });
   return filteredDocuments;
 };
 
 /** fetch posts and podcasts scored by matching search text */
 export const searchByText = (searchQuery: string) => /* groq */ `
-  *[_type in ${JSON.stringify(
-    defaultParams.types
-  )} && ${hideFromProduction} && ${isDomainKlimadao}]
+  *[_type in ${JSON.stringify(defaultParams.types)} && ${baseFilters}]
     | score(
       title match ${searchQuery} + "*"
       || summary match ${searchQuery} + "*"
@@ -94,9 +93,10 @@ export const searchByText = (searchQuery: string) => /* groq */ `
   `;
 
 export const searchDocumentsByText = async (
-  searchQuery: string
+  searchQuery: string,
+  locale: string
 ): Promise<Document[]> => {
   const query = searchByText(JSON.stringify(searchQuery));
-  const result = await getSanityClient().fetch(query);
+  const result = await getSanityClient().fetch(query, { locale });
   return result;
 };
