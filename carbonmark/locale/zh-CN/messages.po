@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-14 00:19+0000\n"
+"POT-Creation-Date: 2023-04-19 00:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +46,7 @@ msgstr "关于"
 msgid "Active listings:"
 msgstr ""
 
-#: components/Activities/index.tsx:29
+#: components/Activities/index.tsx:24
 msgid "Activity"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:137
+#: components/pages/Project/index.tsx:144
 msgid "Best Price"
 msgstr ""
 
@@ -106,8 +106,8 @@ msgstr ""
 msgid "Carbonmark Overview"
 msgstr ""
 
-#: components/pages/Home/index.tsx:51
 #: components/pages/Home/index.tsx:52
+#: components/pages/Home/index.tsx:53
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgid "Clear Filters"
 msgstr ""
 
 #: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:511
+#: components/pages/Home/index.tsx:506
 msgid "Contact"
 msgstr "联系方式"
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:211
 msgid "Data for this project and vintage"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Data for this seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:176
+#: components/pages/Project/index.tsx:183
 msgid "Description"
 msgstr ""
 
@@ -206,7 +206,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr ""
 
 #: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:509
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -217,7 +217,7 @@ msgid "Industrial Processing"
 msgstr ""
 
 #: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:520
+#: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "Marketplace | Carbonmark"
 msgstr ""
 
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:152
 msgid "Methodology"
 msgstr "方法"
 
@@ -288,7 +288,7 @@ msgstr ""
 msgid "No listable assets found."
 msgstr ""
 
-#: components/pages/Project/index.tsx:194
+#: components/pages/Project/index.tsx:201
 msgid "No listings found for this project."
 msgstr ""
 
@@ -346,7 +346,7 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:505
+#: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
 msgstr ""
 
@@ -400,7 +400,7 @@ msgid "Renewable Energy"
 msgstr ""
 
 #: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:517
+#: components/pages/Home/index.tsx:512
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -464,7 +464,7 @@ msgstr "切换到 Polygon"
 msgid "Terms of Use"
 msgstr ""
 
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:503
 msgid "Terms of use"
 msgstr ""
 
@@ -472,7 +472,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
 
@@ -537,7 +537,7 @@ msgstr ""
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr ""
 
-#: components/pages/Project/index.tsx:107
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
@@ -711,15 +711,15 @@ msgstr ""
 msgid "profile.edit_your_profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:157
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:159
 msgid "profile.listing.delete.error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:172
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "profile.listing.edit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:200
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
@@ -731,11 +731,11 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/Activities/Activity.tsx:77
+#: components/Activities/Activity.tsx:90
 msgid "props.transaction.conjunction"
 msgstr ""
 
-#: components/Activities/Activity.tsx:23
+#: components/Activities/Activity.tsx:31
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
@@ -844,7 +844,7 @@ msgstr "请组合使用不同的过滤器。"
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:182
 msgid "seller.edit_listing.title"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgid "shared.resources.sort_by.header"
 msgstr "排序方式："
 
 #: components/CreateListing/index.tsx:145
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "tonnes.long"
 msgstr ""
 
@@ -887,7 +887,7 @@ msgstr ""
 msgid "transaction.create_listing.approval_description"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:236
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
 msgid "transaction.edit_listing.approval_description"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr "1. 批准"
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
 
-#: components/Activities/index.tsx:34
+#: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
 msgstr ""
 

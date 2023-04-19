@@ -52,7 +52,7 @@ msgstr "About"
 msgid "Active listings:"
 msgstr "Active listings:"
 
-#: components/Activities/index.tsx:29
+#: components/Activities/index.tsx:24
 msgid "Activity"
 msgstr "Activity"
 
@@ -83,7 +83,7 @@ msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:137
+#: components/pages/Project/index.tsx:144
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -112,8 +112,8 @@ msgstr "Carbon Pool"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark Overview"
 
-#: components/pages/Home/index.tsx:51
 #: components/pages/Home/index.tsx:52
+#: components/pages/Home/index.tsx:53
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "Carbonmark | The Universal Carbon Marketplace"
 
@@ -134,7 +134,7 @@ msgid "Clear Filters"
 msgstr "Clear Filters"
 
 #: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:511
+#: components/pages/Home/index.tsx:506
 msgid "Contact"
 msgstr "Contact"
 
@@ -150,7 +150,7 @@ msgstr "Create and edit listings, and track your activity with your Carbonmark p
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:211
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -159,7 +159,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:176
+#: components/pages/Project/index.tsx:183
 msgid "Description"
 msgstr "Description"
 
@@ -212,7 +212,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:509
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -223,7 +223,7 @@ msgid "Industrial Processing"
 msgstr "Industrial Processing"
 
 #: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:520
+#: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -273,7 +273,7 @@ msgstr "Marketplace"
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
-#: components/pages/Project/index.tsx:145
+#: components/pages/Project/index.tsx:152
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -294,7 +294,7 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:194
+#: components/pages/Project/index.tsx:201
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -352,7 +352,7 @@ msgstr "Price Lowest"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/pages/Home/index.tsx:505
+#: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -406,7 +406,7 @@ msgid "Renewable Energy"
 msgstr "Renewable Energy"
 
 #: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:517
+#: components/pages/Home/index.tsx:512
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -470,7 +470,7 @@ msgstr "Switch to Polygon"
 msgid "Terms of Use"
 msgstr "Terms of Use"
 
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:503
 msgid "Terms of use"
 msgstr "Terms of use"
 
@@ -478,7 +478,7 @@ msgstr "Terms of use"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 
@@ -543,7 +543,7 @@ msgstr "User Profile | Carbonmark"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
-#: components/pages/Project/index.tsx:107
+#: components/pages/Project/index.tsx:113
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
@@ -717,15 +717,15 @@ msgstr "Your Profile"
 msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:157
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:159
 msgid "profile.listing.delete.error"
 msgstr "Could not delete listing. Please try again."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:172
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "profile.listing.edit"
 msgstr "Edit"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:200
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
@@ -737,11 +737,11 @@ msgstr "Create a Listing"
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
-#: components/Activities/Activity.tsx:77
+#: components/Activities/Activity.tsx:90
 msgid "props.transaction.conjunction"
 msgstr "for"
 
-#: components/Activities/Activity.tsx:23
+#: components/Activities/Activity.tsx:31
 msgid "props.transaction.conjunction.at"
 msgstr "at"
 
@@ -850,7 +850,7 @@ msgstr "Please use a different filter combination."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:182
 msgid "seller.edit_listing.title"
 msgstr "Edit Listing"
 
@@ -885,7 +885,7 @@ msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 
 #: components/CreateListing/index.tsx:145
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:227
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "tonnes.long"
 msgstr "tonnes"
 
@@ -893,7 +893,7 @@ msgstr "tonnes"
 msgid "transaction.create_listing.approval_description"
 msgstr "You are about to transfer ownership of this asset from your wallet to Carbonmark.  You can remove your listing at any time until it has been sold."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:236
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
 msgid "transaction.edit_listing.approval_description"
 msgstr "You are about to transfer ownership of this asset from your wallet to Carbonmark. You can remove your listing at any time until it has been sold."
 
@@ -973,7 +973,7 @@ msgstr "1. Approve"
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Submit"
 
-#: components/Activities/index.tsx:34
+#: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
 msgstr "No activity to show"
 
