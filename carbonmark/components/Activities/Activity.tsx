@@ -38,8 +38,11 @@ export const Activity = (props: Props) => {
   const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
   const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
 
-  const sellerID = props.activity.seller.id;
-  const buyerId = props.activity.buyer?.id;
+  const seller = props.activity.seller;
+  const buyer = props.activity.buyer;
+
+  const sellerID = "handle" in seller ? seller.handle : seller.id;
+  const buyerId = buyer && "handle" in buyer ? buyer.handle : buyer?.id;
 
   // type guard
   const project = isUserActivity(props.activity)

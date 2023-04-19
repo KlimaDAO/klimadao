@@ -19,7 +19,8 @@ const getProjects: NextApiHandler<Project[] | APIDefaultResponse> = async (
         const json = await result.json();
 
         return res.status(200).json(json);
-      } catch ({ message }) {
+      } catch (error) {
+        const { message } = error as Error;
         console.error("Request failed:", message);
         res.status(500).json({ message: "Internal server error" });
       }
