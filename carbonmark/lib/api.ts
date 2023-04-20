@@ -1,3 +1,4 @@
+import { pollUntil } from "lib/pollUntil";
 import {
   Category,
   CategoryName,
@@ -164,4 +165,26 @@ export const getVintages = async (): Promise<string[]> => {
     throw new Error(data.message);
   }
   return data;
+};
+
+export const getUserUntil = async (params: {
+  address: string;
+  retryUntil: (u: User) => boolean;
+  maxAttempts?: number;
+  retryInterval?: number;
+}): Promise<User> => {
+  const fetchUser = () =>
+    getUser({
+      user: params.address,
+      type: "wallet",
+    });
+
+  const updatedUser = await pollUntil({
+    fn: fetchUser,
+    validate: params.retryUntil,
+    ms: params.retryInterval || 1000,
+    maxAttempts: params.maxAttempts || 50,
+  });
+
+  return updatedUser;
 };
