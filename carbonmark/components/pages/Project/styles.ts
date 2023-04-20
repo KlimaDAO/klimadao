@@ -105,7 +105,7 @@ export const projectHeaderText = css`
 
 export const tags = css`
   display: flex;
-  gap: 2.8rem;
+  gap: 2rem;
   flex-wrap: wrap;
   z-index: 1;
   align-items: center;

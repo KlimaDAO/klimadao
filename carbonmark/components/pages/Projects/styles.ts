@@ -85,4 +85,10 @@ export const tags = css`
   flex-direction: row;
   margin-top: auto;
   align-items: center;
+  overflow-x: auto;
+  ::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 `;
