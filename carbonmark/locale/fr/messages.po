@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-20 15:33+0000\n"
+"POT-Creation-Date: 2023-04-20 18:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Handle should not contain any special characters"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:200
+#: components/pages/Portfolio/index.tsx:110
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr ""
 
@@ -232,6 +232,10 @@ msgstr ""
 #: components/pages/Users/SellerConnected/index.tsx:174
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "Listings"
+msgstr ""
+
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:66
+msgid "Loading your assets"
 msgstr ""
 
 #: components/SpinnerWithLabel/index.tsx:15
@@ -284,7 +288,7 @@ msgstr ""
 msgid "No active listings."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:194
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:98
 msgid "No listable assets found."
 msgstr ""
 
@@ -320,13 +324,13 @@ msgstr ""
 msgid "Please Log In"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:129
+#: components/pages/Portfolio/index.tsx:60
 #: components/pages/Users/SellerConnected/index.tsx:149
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:139
-#: components/pages/Portfolio/index.tsx:140
+#: components/pages/Portfolio/index.tsx:70
+#: components/pages/Portfolio/index.tsx:71
 msgid "Portfolio | Carbonmark"
 msgstr ""
 
@@ -448,11 +452,15 @@ msgstr ""
 msgid "Sorry, this handle already exists"
 msgstr ""
 
+#: components/pages/Portfolio/index.tsx:104
+msgid "Sorry. We could not find any data on Carbonmark for your user."
+msgstr ""
+
 #: components/Stats/index.tsx:23
 msgid "Stats"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:181
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:86
 msgid "Success. Go to your <0>Profile page</0> to see your new listing."
 msgstr ""
 
@@ -533,7 +541,7 @@ msgstr "Guide de l'utilisateur"
 msgid "User Profile | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:141
+#: components/pages/Portfolio/index.tsx:72
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr ""
 
@@ -577,7 +585,7 @@ msgstr ""
 msgid "Your display name"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:213
+#: components/pages/Portfolio/PortfolioSidebar.tsx:24
 #: components/pages/Users/SellerConnected/index.tsx:237
 msgid "Your seller data"
 msgstr ""
