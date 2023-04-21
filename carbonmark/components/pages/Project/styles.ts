@@ -47,6 +47,7 @@ export const mapAndDescription = css`
   }
 
   .registryLink {
+    font-family: var(--font-family-secondary);
     font-size: 1.4rem;
     text-transform: uppercase;
     font-weight: 600;

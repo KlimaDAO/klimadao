@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
+import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -30,7 +31,6 @@ import {
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
-import Link from "next/link";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
@@ -134,7 +134,6 @@ const Page: NextPage<PageProps> = (props) => {
             {notNil(registry) && <Text className={styles.tag}>{registry}</Text>}
           </div>
         </div>
-
         <div className={styles.meta}>
           <div className="best-price">
             {bestPrice && (
@@ -173,6 +172,7 @@ const Page: NextPage<PageProps> = (props) => {
         >
           {project.location && (
             <div className="mapColumn">
+               
               <ProjectMap
                 lat={project.location?.geometry.coordinates[1]}
                 lng={project.location?.geometry.coordinates[0]}
@@ -190,15 +190,19 @@ const Page: NextPage<PageProps> = (props) => {
               </Text>
             </div>
             {notNil(project.url) && (
-              <Link href={project.url} className="registryLink">
+              <Anchor
+                target="_blank"
+                rel="noopener noreferrer"
+                href={project.url}
+                className="registryLink"
+              >
                 <Trans>
                   View Registry Details <LaunchIcon />
                 </Trans>
-              </Link>
+              </Anchor>
             )}
           </div>
         </div>
-
         <div className={styles.listingsHeader}>
           <Text t="h4">Listings</Text>
           {sortedListingsAndPrices ? (
