@@ -1,7 +1,9 @@
-import { ProjectPurchase } from "components/pages/Project/Purchase";
+import {
+  ProjectPurchase,
+  ProjectPurchasePageProps,
+} from "components/pages/Project/Purchase";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
-import { Listing, Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -9,14 +11,10 @@ interface Params extends ParsedUrlQuery {
   project_id: string;
 }
 
-interface PageProps {
-  project: Project;
-  listing: Listing;
-}
-
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
-) => {
+export const getStaticProps: GetStaticProps<
+  ProjectPurchasePageProps,
+  Params
+> = async (ctx) => {
   const { params, locale } = ctx;
 
   if (!params || !params?.project_id) {
@@ -29,9 +27,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
     const listing =
       !!project.listings?.length &&
-      project.listings.find(
-        (listing: Listing) => listing.id === params?.listing_id
-      );
+      project.listings.find((listing) => listing.id === params?.listing_id);
 
     if (!listing) {
       throw new Error("No matching listing found");

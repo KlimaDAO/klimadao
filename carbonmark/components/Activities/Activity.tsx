@@ -4,15 +4,23 @@ import { Text } from "components/Text";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
-import { ActivityType as ActivityT } from "lib/types/carbonmark";
+import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
-type Props = {
-  activity: ActivityT;
-  showTitle?: boolean;
+
+interface Props {
+  activity: UserActivity | ProjectActivity;
+}
+
+const isUserActivity = (
+  activity: UserActivity | ProjectActivity
+): activity is UserActivity => {
+  // only user activity objects have the project entry
+  return !!(activity as UserActivity).project;
 };
+
 /** Represents a single activity of a user  */
 export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
@@ -32,6 +40,11 @@ export const Activity = (props: Props) => {
 
   const sellerID = props.activity.seller.id;
   const buyerId = props.activity.buyer?.id;
+
+  // type guard
+  const project = isUserActivity(props.activity)
+    ? props.activity.project
+    : null;
 
   /** By default the seller is the "source" of all actions */
   addressA = sellerID;
@@ -85,9 +98,7 @@ export const Activity = (props: Props) => {
 
   return (
     <div key={props.activity.id} className={styles.activity}>
-      {props.showTitle && (
-        <Text t="h5">{props.activity.project?.name || "unknown"}</Text>
-      )}
+      {project && <Text t="h5">{project.name}</Text>}
       <Text t="body1" color="lighter">
         <i>
           {getElapsedTime({

@@ -5,7 +5,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import { Listing } from "lib/types/carbonmark";
+import { ListingWithProject } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ export type FormValues = {
 type Props = {
   onSubmit: (values: FormValues) => void;
   onCancel: () => void;
-  listing: Listing;
+  listing: ListingWithProject;
   values: null | FormValues;
   assetBalance: string;
 };

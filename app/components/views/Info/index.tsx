@@ -89,7 +89,15 @@ const addressInfo: AddressInfo[] = [
     image: `${BASE_URL}/icons/NBO.png`,
     decimals: 18,
   },
-
+  {
+    name: "NCT Token",
+    address: addresses["mainnet"].nct,
+    ariaLabel: "Copy NCT token address.",
+    metamaskAriaLabel: "Add NCT token to wallet.",
+    ticker: "NCT",
+    image: `${BASE_URL}/icons/NCT.png`,
+    decimals: 18,
+  },
   {
     name: "KLIMA/BCT LP",
     address: addresses["mainnet"].klimaBctLp,
@@ -179,7 +187,10 @@ export const Info: FC<Props> = (props) => (
         <div style={{ display: "grid", gap: "1.2rem" }}>
           {addressInfo.map((info) => (
             <div key={info.address}>
-              <p>{info.name}</p>
+              <div className="nameAndIcon">
+                <img src={info.image} alt={info.name} className="icon" />
+                <p>{info.name}</p>
+              </div>
               <div className="addressRow">
                 <A href={`https://polygonscan.com/address/${info.address}`}>
                   {concatAddress(info.address)}

@@ -120,7 +120,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                         {props.purchase.listing.project.name}
                       </Text>
                       <Text t="body3" className="country">
-                        {props.purchase.listing.project.country.id}
+                        {props.purchase.listing.project.country?.id}
                       </Text>
                     </div>
                     <CarbonmarkButton

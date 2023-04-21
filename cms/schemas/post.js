@@ -27,6 +27,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Locale",
+      name: "locale",
+      type: "string",
+      description: "Leaving this empty defaults the locale to 'en'",
+      options: {
+        list: [
+          { title: "en", value: "en" },
+          { title: "zh-CN", value: "zh-CN" },
+        ],
+      },
+    },
+    {
       title: "Domain",
       name: "domain",
       type: "string",
@@ -102,7 +114,7 @@ export default {
       name: "hideFromProduction",
       title: "Hide From Production (preview mode):",
       description:
-        "When set to TRUE and clicking 'publish', this post will not appear on the production environment, and will only be visible on `staging-site.klimadao.finance`",
+        "When set to TRUE and clicking 'publish' this post will only be visible on staging-site.klimadao.finance or staging.carbonmark.com",
       type: "boolean",
     },
   ],

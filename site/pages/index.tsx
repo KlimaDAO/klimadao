@@ -11,7 +11,9 @@ import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const treasuryBalance = await getTreasuryBalance({ infuraId: INFURA_ID });
-  const latestPost = await fetchCMSContent("latestPost");
+  const latestPost = await fetchCMSContent("latestPost", {
+    locale: ctx.locale,
+  });
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
   const monthlyStakingRewards = await getStakingRewards({

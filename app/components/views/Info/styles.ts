@@ -7,12 +7,21 @@ export const container = css`
   display: flex;
   flex-direction: column;
   color: var(--font-01);
-  min-height: 88rem;
+  min-height: 124rem;
   .infoSection {
     display: grid;
     gap: 0.8rem;
+    height: 100%;
+    .icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
-
+  .nameAndIcon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
   .addressRow {
     display: grid;
     grid-template-columns: repeat(3, max-content);

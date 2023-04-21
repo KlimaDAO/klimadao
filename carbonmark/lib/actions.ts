@@ -19,6 +19,10 @@ import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
 import { Asset, AssetForListing } from "lib/types/carbonmark";
+import {
+  getCategoryFromProject,
+  getMethodologyFromProject,
+} from "./projectGetter";
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
@@ -294,9 +298,9 @@ export const getProjectInfoFromApi = async (
       key: project.key,
       projectID: project.projectID,
       name: project.name,
-      methodology: project.methodology,
+      methodology: getMethodologyFromProject(project),
       vintage: project.vintage,
-      category: project.category?.id || "Other",
+      category: getCategoryFromProject(project),
     };
   } catch (e: any) {
     console.error("getProjectInfoFromApi Error for projectId", projectId, e);

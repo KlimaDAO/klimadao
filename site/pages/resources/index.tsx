@@ -5,10 +5,13 @@ import { GetStaticPropsContext } from "next";
 
 export async function getStaticProps(ctx: GetStaticPropsContext) {
   try {
-    const documents = await fetchCMSContent("allDocuments");
-    const featuredArticles = await fetchCMSContent("allFeaturedPosts");
+    const { locale } = ctx;
+    const documents = await fetchCMSContent("allDocuments", { locale });
+    const featuredArticles = await fetchCMSContent("allFeaturedPosts", {
+      locale,
+    });
 
-    const translation = await loadTranslation(ctx.locale);
+    const translation = await loadTranslation(locale);
     if (!documents) {
       throw new Error("No documents found");
     }
