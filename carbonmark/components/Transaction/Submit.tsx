@@ -1,10 +1,10 @@
 import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
-import { i18n } from "@lingui/core";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { CustomTrans } from "components/CustomTrans";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
@@ -23,25 +23,6 @@ interface Props {
   status: TransactionStatusMessage | null;
   description?: string;
 }
-
-interface CustomTransProps {
-  id: string;
-  style?: React.CSSProperties;
-}
-
-export const CustomTrans: FC<CustomTransProps> = ({ id, style }) => {
-  const translatedDescription = i18n._(id);
-
-  return (
-    <div>
-      {translatedDescription.split("\n").map((line, index) => (
-        <p key={index} style={style}>
-          {line}
-        </p>
-      ))}
-    </div>
-  );
-};
 
 export const Submit: FC<Props> = (props) => {
   const statusType = props.status?.statusType;
