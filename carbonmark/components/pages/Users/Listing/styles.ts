@@ -32,3 +32,12 @@ export const amounts = css`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const link = css`
+  color: black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: blue;
+  }
+`;
