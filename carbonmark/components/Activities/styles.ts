@@ -16,3 +16,12 @@ export const activity = css`
     margin-right: 0.4rem;
   }
 `;
+
+export const link = css`
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    color: blue;
+  }
+`;

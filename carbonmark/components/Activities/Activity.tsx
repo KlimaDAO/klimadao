@@ -98,7 +98,13 @@ export const Activity = (props: Props) => {
 
   return (
     <div key={props.activity.id} className={styles.activity}>
-      {project && <Text t="h5">{project.name}</Text>}
+      {project && (
+        <Link href={`/projects/${project.key}-${project.vintage}`}>
+          <Text t="h5" className={styles.link}>
+            {project.name}
+          </Text>
+        </Link>
+      )}
       <Text t="body1" color="lighter">
         <i>
           {getElapsedTime({
