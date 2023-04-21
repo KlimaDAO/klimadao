@@ -8,7 +8,7 @@ import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { HighlightValue } from "./HighlightValue";
 import * as styles from "./styles";
 import { Value } from "./types";
@@ -41,12 +41,15 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.approve.title">
-            Please confirm the transaction
-          </Trans>
-        </Text>
-        {!!props.description && <Text t="body1">{props.description}</Text>}
+        {!!props.description && (
+          <div>
+            {props.description.split("\n").map((line, index) => (
+              <Fragment key={index}>
+                <p style={{ marginBottom: "1.5em" }}>{line}</p>
+              </Fragment>
+            ))}
+          </div>
+        )}
         <HighlightValue
           label={
             <Text t="body1" color="lighter">

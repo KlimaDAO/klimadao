@@ -154,7 +154,7 @@ export const CreateListing: FC<Props> = (props) => {
           approvalText={t({
             id: "transaction.create_listing.approval_description",
             message:
-              "You are about to transfer ownership of this asset from your wallet to Carbonmark.  You can remove your listing at any time until it has been sold.",
+              "You are about to create a new listing.\n\nThe first step is to grant the approval to transfer this asset from your wallet to Carbonmark, the next step is to approve the actual transfer and make your listing live.\n\nYou can choose to remove your active listing at any time which will automatically transfer the listed asset back to your wallet.\n\nVerify all information is correct and click 'approve' to continue.",
           })}
           onApproval={handleApproval}
           onSubmit={onAddListing}

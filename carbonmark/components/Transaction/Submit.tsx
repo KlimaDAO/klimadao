@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
+import { i18n } from "@lingui/core";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
@@ -23,6 +24,25 @@ interface Props {
   description?: string;
 }
 
+interface CustomTransProps {
+  id: string;
+  style?: React.CSSProperties;
+}
+
+export const CustomTrans: FC<CustomTransProps> = ({ id, style }) => {
+  const translatedDescription = i18n._(id);
+
+  return (
+    <div>
+      {translatedDescription.split("\n").map((line, index) => (
+        <p key={index} style={style}>
+          {line}
+        </p>
+      ))}
+    </div>
+  );
+};
+
 export const Submit: FC<Props> = (props) => {
   const statusType = props.status?.statusType;
 
@@ -41,12 +61,10 @@ export const Submit: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.submit.title">
-            Please submit the transaction
-          </Trans>
-        </Text>
-        {!!props.description && <Text>{props.description}</Text>}
+        <CustomTrans
+          id="transaction_modal.submit.title"
+          style={{ marginBottom: "1.5em" }}
+        />
         <HighlightValue
           label={
             <Text t="body1" color="lighter">
