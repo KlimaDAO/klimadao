@@ -119,7 +119,7 @@ export const Activity = (props: Props) => {
       <Text t="body1">
         {!!addressA && (
           <Link className="account" href={`/users/${addressA}`}>
-            {formatWalletAddress(addressA, connectedAddress)}{" "}
+            {addressA.length >= 11 ? formatWalletAddress(addressA, connectedAddress) : addressA}{" "}
           </Link>
         )}
 
@@ -128,7 +128,7 @@ export const Activity = (props: Props) => {
         {addressB && (
           <Link className="account" href={`/users/${addressB}`}>
             {" "}
-            {formatWalletAddress(addressB, connectedAddress)}
+            {addressB.length >= 11 ? formatWalletAddress(addressB, connectedAddress) : addressB}
           </Link>
         )}
       </Text>
