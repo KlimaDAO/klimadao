@@ -2,13 +2,12 @@ import { Trans } from "@lingui/macro";
 import { FC, useState } from "react";
 
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
+import * as styles from "./styles";
 import { Submit } from "./Submit";
 import { Value } from "./types";
-
-import { getAddress } from "lib/networkAware/getAddress";
-import * as styles from "./styles";
 
 interface Props {
   hasApproval: boolean;

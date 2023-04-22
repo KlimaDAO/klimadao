@@ -4,11 +4,12 @@ import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { FormatTrans } from "components/FormatTrans";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
 import * as styles from "./styles";
 import { Value } from "./types";
@@ -41,7 +42,7 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        {!!props.description && (
+        {/* {!!props.description && (
           <div>
             {props.description.split("\n").map((line, index) => (
               <Fragment key={index}>
@@ -49,7 +50,15 @@ export const Approve: FC<Props> = (props) => {
               </Fragment>
             ))}
           </div>
-        )}
+        )} */}
+        <div>
+          {props.description && (
+            <FormatTrans
+              id={props.description}
+              style={{ marginBottom: "1.5em" }}
+            />
+          )}
+        </div>
         <HighlightValue
           label={
             <Text t="body1" color="lighter">

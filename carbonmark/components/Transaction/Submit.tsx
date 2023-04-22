@@ -4,7 +4,7 @@ import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { CustomTrans } from "components/CustomTrans";
+import { FormatTrans } from "components/FormatTrans";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
@@ -34,7 +34,7 @@ export const Submit: FC<Props> = (props) => {
 
   const showSubmitButton = !showButtonSpinner && !success;
   const showCloseButton = !showButtonSpinner && success;
-
+  console.log(props);
   return (
     <>
       <div
@@ -42,7 +42,7 @@ export const Submit: FC<Props> = (props) => {
           success,
         })}
       >
-        <CustomTrans
+        <FormatTrans
           id="transaction_modal.submit.title"
           style={{ marginBottom: "1.5em" }}
         />

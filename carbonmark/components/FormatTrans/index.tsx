@@ -1,19 +1,19 @@
 import { i18n } from "@lingui/core";
 import React, { FC } from "react";
 
-interface CustomTransProps {
+interface FormatTransProps {
   id: string;
   style?: React.CSSProperties;
 }
 
-export const CustomTrans: FC<CustomTransProps> = ({ id, style }) => {
+export const FormatTrans: FC<FormatTransProps> = ({ id, style }) => {
   const translatedDescription = i18n._(id);
 
   return (
     <div>
-      {translatedDescription.split("\n").map((line, index) => (
+      {translatedDescription.match(/[^\.!\?]+[\.!\?]+/g)?.map((line, index) => (
         <p key={index} style={style}>
-          {line}
+          {line.trim()}
         </p>
       ))}
     </div>
