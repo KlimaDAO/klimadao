@@ -1,4 +1,3 @@
-import { providers } from "ethers";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -6,7 +5,7 @@ import { AddressInfo } from "..";
 
 interface Props {
   info: AddressInfo;
-  provider: providers.Web3Provider;
+  provider: BrowserProvider;
 }
 
 const AddToMetaMaskButton: FC<Props> = (props) => {

@@ -1,6 +1,5 @@
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { providers } from "ethers";
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -40,7 +39,7 @@ import * as styles from "components/views/Stake/styles";
 import { tokenInfo } from "lib/getTokenInfo";
 
 interface Props {
-  provider?: providers.Web3Provider;
+  provider?: BrowserProvider;
   address?: string;
   isConnected?: boolean;
   toggleModal: () => void;

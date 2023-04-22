@@ -35,6 +35,6 @@
     "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev && npm run -w carbonmark lingui:extract:dev"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^8.0.1"
   }
 }

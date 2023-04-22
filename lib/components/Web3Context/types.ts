@@ -36,7 +36,7 @@ export type WrappedProvider =
   | TorusProvider;
 
 /** Ethers doesn't type the wrapped provider, so we have to type it to support `provider.provider.on('accountsChanged')` and isTorus, etc. */
-export interface TypedProvider extends providers.Web3Provider {
+export interface TypedProvider extends BrowserProvider {
   provider: WrappedProvider;
 }
 

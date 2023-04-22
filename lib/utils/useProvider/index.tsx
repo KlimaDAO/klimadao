@@ -1,4 +1,4 @@
-import { providers } from "ethers";
+import { BrowserProvider } from "ethers";
 import { useEffect, useState } from "react";
 import {
   CoinbaseProvider,
@@ -26,7 +26,7 @@ const isCoinbaseProvider = (p?: WrappedProvider): p is CoinbaseProvider =>
   !!p && "isCoinbaseWallet" in p && p.isCoinbaseWallet;
 
 const getWeb3Provider = (p: any): TypedProvider => {
-  return new providers.Web3Provider(p) as TypedProvider;
+  return new BrowserProvider(p) as TypedProvider;
 };
 
 /** React Hook to create and manage the web3Modal lifecycle */

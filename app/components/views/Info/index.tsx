@@ -1,4 +1,3 @@
-import { providers } from "ethers";
 import { FC } from "react";
 
 import { Anchor as A, CopyAddressButton, Text } from "@klimadao/lib/components";
@@ -22,7 +21,7 @@ export interface AddressInfo {
 }
 
 interface Props {
-  provider?: providers.Web3Provider;
+  provider?: BrowserProvider;
 }
 
 const addressInfo: AddressInfo[] = [
