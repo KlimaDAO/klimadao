@@ -1,6 +1,5 @@
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
-import { Activities } from "components/Activities";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
@@ -8,22 +7,18 @@ import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
-import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import {
-  getActiveListings,
-  getAllListings,
-  getSortByUpdateListings,
-} from "lib/listingsGetter";
+import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
+import { ProfileSidebar } from "../ProfileSidebar";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
@@ -46,7 +41,6 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const isCarbonmarkUser = !!user;
   const hasAssets = !!user?.assets?.length;
-  const allListings = getAllListings(user?.listings ?? []);
   const activeListings = getActiveListings(user?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
@@ -237,14 +231,10 @@ export const SellerConnected: FC<Props> = (props) => {
         </Col>
 
         <Col>
-          <Stats
-            allListings={allListings || []}
-            activeListings={activeListings || []}
-            description={t`Your seller data`}
-          />
-          <Activities
-            activities={user?.activities || []}
-            isLoading={isUpdatingUser}
+          <ProfileSidebar
+            user={user}
+            isPending={isUpdatingUser}
+            title={t`Your seller data`}
           />
         </Col>
       </TwoColLayout>

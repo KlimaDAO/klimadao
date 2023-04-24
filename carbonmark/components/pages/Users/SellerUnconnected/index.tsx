@@ -1,21 +1,16 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { Activities } from "components/Activities";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { LoginButton } from "components/LoginButton";
-import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createProjectPurchaseLink } from "lib/createUrls";
-import {
-  getActiveListings,
-  getAllListings,
-  getSortByUpdateListings,
-} from "lib/listingsGetter";
+import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
+import { ProfileSidebar } from "../ProfileSidebar";
 import * as styles from "./styles";
 
 type Props = {
@@ -27,7 +22,6 @@ export const SellerUnconnected: FC<Props> = (props) => {
   const { address, isConnected, toggleModal } = useWeb3();
   const userData = props.carbonmarkUser;
 
-  const allListings = getAllListings(userData?.listings ?? []);
   const activeListings = getActiveListings(userData?.listings ?? []);
   const hasListings = !!activeListings.length;
 
@@ -95,12 +89,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
           )}
         </Col>
         <Col>
-          <Stats
-            description={t`Data for this seller`}
-            allListings={allListings || []}
-            activeListings={activeListings || []}
-          />
-          <Activities activities={userData?.activities || []} />
+          <ProfileSidebar user={userData} title={t`Data for this seller`} />
         </Col>
       </TwoColLayout>
     </div>
