@@ -34,7 +34,6 @@ export const Submit: FC<Props> = (props) => {
 
   const showSubmitButton = !showButtonSpinner && !success;
   const showCloseButton = !showButtonSpinner && success;
-  console.log(props);
   return (
     <>
       <div

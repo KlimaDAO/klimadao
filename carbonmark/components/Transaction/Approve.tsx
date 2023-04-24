@@ -42,15 +42,6 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        {/* {!!props.description && (
-          <div>
-            {props.description.split("\n").map((line, index) => (
-              <Fragment key={index}>
-                <p style={{ marginBottom: "1.5em" }}>{line}</p>
-              </Fragment>
-            ))}
-          </div>
-        )} */}
         <div>
           {props.description && (
             <FormatTrans
