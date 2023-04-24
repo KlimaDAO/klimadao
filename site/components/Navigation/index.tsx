@@ -170,20 +170,10 @@ export const Navigation: FC<Props> = ({
             url={createLinkWithLocaleQuery(urls.info, locale)}
           />
         </DropdownItemDesktop>
-        <DropdownItemDesktop
-          name={t({ message: "Infinity", id: "shared.infinity" })}
-        >
-          <LinkItemDesktop
-            name={t({ message: "Introduction", id: "shared.infinity_intro" })}
-            active={activePage === "Infinity"}
-            url="/infinity"
-          />
-          <LinkItemDesktop
-            name={t({ message: "How to pledge", id: "shared.pledge" })}
-            active={activePage === "Pledges"}
-            url="/pledge"
-          />
-        </DropdownItemDesktop>
+        <LinkItemDesktop
+          name={t({ message: "Carbonmark", id: "shared.carbonmark" })}
+          url={urls.carbonmark}
+        />
         <LinkItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
@@ -328,22 +318,8 @@ export const Navigation: FC<Props> = ({
             />
 
             <NavItemMobile
-              name={t({ message: "Infinity", id: "shared.infinity" })}
-              subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "Introduction",
-                    id: "shared.infinity_intro",
-                  })}
-                  key="infinity"
-                  url="/infinity"
-                />,
-                <NavItemMobile
-                  name={t({ message: "How to pledge", id: "shared.pledge" })}
-                  key="pledges"
-                  url="/pledge"
-                />,
-              ]}
+              name={t({ message: "Carbonmark", id: "shared.carbonmark" })}
+              url={urls.carbonmark}
             />
             <NavItemMobile
               name={t({ message: "Love Letters", id: "shared.loveletters" })}
