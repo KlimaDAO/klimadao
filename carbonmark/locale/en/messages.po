@@ -83,7 +83,7 @@ msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:47
-#: components/pages/Project/index.tsx:144
+#: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -125,7 +125,7 @@ msgstr "Category"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Projects/index.tsx:46
+#: components/pages/Projects/index.tsx:47
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
@@ -150,7 +150,7 @@ msgstr "Create and edit listings, and track your activity with your Carbonmark p
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:211
+#: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -159,7 +159,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:183
+#: components/pages/Project/index.tsx:197
 msgid "Description"
 msgstr "Description"
 
@@ -272,12 +272,12 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:44
 #: components/pages/Projects/index.tsx:45
+#: components/pages/Projects/index.tsx:46
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
-#: components/pages/Project/index.tsx:152
+#: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -298,11 +298,11 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:227
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
-#: components/pages/Projects/index.tsx:73
+#: components/pages/Projects/index.tsx:74
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -547,11 +547,15 @@ msgstr "User Guides"
 msgid "User Profile | Carbonmark"
 msgstr "User Profile | Carbonmark"
 
+#: components/pages/Project/index.tsx:210
+msgid "View Registry Details <0/>"
+msgstr "View Registry Details <0/>"
+
 #: components/pages/Portfolio/index.tsx:72
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
-#: components/pages/Project/index.tsx:113
+#: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
