@@ -383,7 +383,7 @@ msgstr "Purchase Receipt | Carbonmark"
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:45
+#: components/pages/Portfolio/AssetProject/index.tsx:57
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
 #: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Quantity Available:"
@@ -422,7 +422,7 @@ msgstr "Resources"
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:50
+#: components/pages/Portfolio/AssetProject/index.tsx:62
 msgid "Retire"
 msgstr "Retire"
 
@@ -434,7 +434,7 @@ msgstr "Retire now"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
-#: components/pages/Portfolio/AssetProject/index.tsx:54
+#: components/pages/Portfolio/AssetProject/index.tsx:66
 msgid "Sell"
 msgstr "Sell"
 
