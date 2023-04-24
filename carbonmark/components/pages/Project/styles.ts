@@ -41,10 +41,27 @@ export const mapAndDescription = css`
   }
   .descriptionColumn {
     display: grid;
-    gap: 0.8rem;
+    gap: 2.2rem;
     align-content: flex-start;
     grid-area: description;
   }
+
+  .registryLink {
+    font-family: var(--font-family-secondary);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    svg {
+      margin-left: 0.4rem;
+    }
+  }
+
+  .description {
+    display: grid;
+    gap: 0.8rem;
+  }
+
   ${breakpoints.desktop} {
     grid-template-areas: "map description";
     grid-template-columns: 1fr 1fr;

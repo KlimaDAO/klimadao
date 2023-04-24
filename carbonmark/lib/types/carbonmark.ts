@@ -34,6 +34,7 @@ export interface Project {
   totalRetired: string | null; // pool project only
   currentSupply: string | null; // pool project only
   prices?: Price[];
+  url: string; // link to the projects registry detail page
 }
 
 export type Price = {
