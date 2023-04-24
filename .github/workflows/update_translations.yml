@@ -64,7 +64,7 @@ jobs:
 
       - name: Check for modified files in all locale folders
         id: git-check
-        run: echo ::set-output name=changed::$(if git diff-index --quiet HEAD -- **/locale/**; then echo "false"; else echo "true"; fi)
+        run: echo "{changed}=$(if git diff-index --quiet HEAD -- **/locale/**; then echo 'false'; else echo 'true'; fi)" >> $GITHUB_OUTPUT
 
       - name: If changed files are found in locale folders -> push changes with $ACTOR
         if: steps.git-check.outputs.changed == 'true'
