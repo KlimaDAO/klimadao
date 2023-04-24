@@ -5,13 +5,7 @@ export interface Project {
   key: string;
   projectID: string;
   name: string | "";
-  methodologies: [
-    {
-      id: string;
-      name: string;
-      category: CategoryName;
-    }
-  ];
+  methodologies: Array<Methodology>;
   vintage: string;
   projectAddress: string;
   registry: string;
@@ -224,6 +218,12 @@ export type AssetForListing = {
     methodology: string;
     category: CategoryName;
   };
+};
+
+export type Methodology = {
+  id: string;
+  name: string;
+  category: CategoryName;
 };
 
 export type Category = {

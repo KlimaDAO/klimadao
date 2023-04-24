@@ -25,6 +25,8 @@ import {
 } from "lib/listingsGetter";
 import { getCategoryFromProject } from "lib/projectGetter";
 import {
+  CategoryName,
+  Methodology,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -130,7 +132,16 @@ const Page: NextPage<PageProps> = (props) => {
               {project.registry}-{project.projectID}
             </Text>
             <Vintage vintage={project.vintage} />
-            <Category category={category} />
+            {project?.methodologies?.length > 1 ? (
+              project.methodologies.map((methodology: Methodology, index) => (
+                <Category
+                  key={`${methodology?.id}-${index}`}
+                  category={methodology?.category as CategoryName}
+                />
+              ))
+            ) : (
+              <Category category={category} />
+            )}
             {notNil(registry) && <Text className={styles.tag}>{registry}</Text>}
           </div>
         </div>

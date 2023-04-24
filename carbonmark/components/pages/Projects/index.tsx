@@ -14,6 +14,7 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
+import { CategoryName, Methodology } from "lib/types/carbonmark";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -74,7 +75,18 @@ const Page: NextPage = () => {
                 </Text>
                 <div className={styles.tags}>
                   <Vintage vintage={project.vintage} />
-                  <Category category={getCategoryFromProject(project)} />
+                  {project?.methodologies?.length > 1 ? (
+                    project.methodologies.map(
+                      (methodology: Methodology, index) => (
+                        <Category
+                          key={`${methodology?.id}-${index}`}
+                          category={methodology?.category as CategoryName}
+                        />
+                      )
+                    )
+                  ) : (
+                    <Category category={getCategoryFromProject(project)} />
+                  )}
                 </div>
               </div>
             </Link>
