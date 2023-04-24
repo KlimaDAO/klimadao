@@ -1,6 +1,11 @@
 import { Address } from '@graphprotocol/graph-ts'
 
-import { Transfer, ToucanCarbonOffsets, Retired } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import {
+  Transfer,
+  ToucanCarbonOffsets,
+  Retired,
+  Retired1 as Retired_1_4_0,
+} from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 
 import { toDecimal } from '../../lib/utils/Decimals'
 import { loadOrCreateCarbonOffset } from './utils/CarbonOffsets'
@@ -51,6 +56,26 @@ export function handleRetired(event: Retired): void {
 
     carbonOffset.totalRetired = carbonOffset.totalRetired.plus(retire.value)
     CarbonMetricUtils.updateCarbonTokenRetirements(new TCO2(), event.block.timestamp, event.params.tokenId)
+  }
+
+  carbonOffset.save()
+}
+
+export function handleRetired_1_4_0(event: Retired_1_4_0): void {
+  let transaction = loadOrCreateTransaction(event.transaction, event.block)
+  let offsetERC20 = ToucanCarbonOffsets.bind(event.address)
+
+  let carbonOffset = loadOrCreateCarbonOffset(transaction, event.address, 'Toucan', 'Verra')
+
+  if (carbonOffset.methodology != 'AM0001') {
+    let retire = loadOrCreateRetire(carbonOffset, transaction)
+    retire.value = toDecimal(event.params.amount, 18)
+    retire.retiree = event.params.sender.toHexString()
+
+    retire.save()
+
+    carbonOffset.totalRetired = carbonOffset.totalRetired.plus(retire.value)
+    CarbonMetricUtils.updateCarbonTokenRetirements(new TCO2(), event.block.timestamp, event.params.amount)
   }
 
   carbonOffset.save()
