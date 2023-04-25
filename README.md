@@ -89,6 +89,33 @@ Klima Infinity pledge dashboard is backed by a firebase database. Follow the fol
 FIREBASE_ADMIN_CERT={ "type": "service_account", "project_id": "your_database_name", "private_key_id": .... }
 ```
 
+# KlimaDAO Architecture Diagram
+
+As of April 2023 - subject to change.
+
+```mermaid
+graph TD;
+  A[Frontend monorepo]--deployed on-->B((Vercel));
+  A -.deployed on.->C((IPFS));
+  A --read/write--> D(Firebase off-chain storage);
+  I[Subgraphs] --deployed on--> G(Graph Hosted Service);
+  click I href "https://github.com/klimadao/klima-subgraph" "KlimaDAO Subgraph repo";
+  L --read--> G;
+  A --read--> G;
+  A --read/write-->L;
+  E[Carbon Dashboard Dash app] -- read --> G;
+  E --read-->F((Verra Registry));
+  click F href "https://registry.verra.org";
+  A--read-->H(Sanity CMS);
+  K[Solidity contracts]--deployed on-->L((Mainnet));
+  click L href "https://polygonscan.com" "Polygon Mainnet Explorer";
+  M[Python script]--write-->H;
+  click M href "https://github.com/KlimaDAO/research-analytics/tree/main/populate_cms" "CMS Ingestion Script";
+  M --read-->F;
+  L --> P(Dune Analytics);
+  click P href "https://dune.com/klimadao";
+```
+
 # Contributing
 
 **The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
