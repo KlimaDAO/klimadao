@@ -23,7 +23,7 @@ type Params = {
   retirement: KlimaRetire;
   retirementIndex: string;
   retirementUrl: string;
-  retiredToken: RetirementToken;
+  retiredToken: RetirementToken | null;
 };
 
 const KLIMA_GREEN = "#00cc33";
@@ -113,7 +113,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.text(`${retirementAmount} tonnes`, spacing.margin, 169);
 
     const beneficaryText =
-      params.retirement.beneficiaryName || params.retirement.beneficiaryAddress;
+      params.retirement.beneficiary || params.retirement.beneficiaryAddress;
     doc.font("Bold");
     doc.lineGap(-13);
     doc.text(beneficaryText, spacing.margin, 200, { width: 450 });
@@ -179,7 +179,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       },
       {
         label: "Asset Retired",
-        value: params.retiredToken.toUpperCase(),
+        value: params.retiredToken?.toUpperCase(),
       },
       {
         label: "Retired on",
@@ -210,7 +210,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       projectDetails = [
         {
           label: "Asset Retired",
-          value: params.retiredToken.toUpperCase(),
+          value: params.retiredToken?.toUpperCase(),
         },
         {
           label: "Retired on",
