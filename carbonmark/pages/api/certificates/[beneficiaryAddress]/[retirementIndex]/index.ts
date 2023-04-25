@@ -8,6 +8,7 @@ import {
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 
+import { IS_PRODUCTION } from "lib/constants";
 import { generateCertificate } from "lib/retirementCertificates";
 
 type Query = {
@@ -19,6 +20,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (IS_PRODUCTION) {
+    return res.status(404).send("Not found");
+  }
+
   try {
     const { beneficiaryAddress, retirementIndex } = req.query as Query;
 
