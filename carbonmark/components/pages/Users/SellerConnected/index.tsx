@@ -9,6 +9,7 @@ import { Spinner } from "components/shared/Spinner";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
 import { getUser } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
@@ -24,14 +25,13 @@ import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
 
 type Props = {
-  carbonmarkUser: User | null;
   userName: string;
   userAddress: string;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const [user, setUser] = useState<User | null>(props.carbonmarkUser);
+  const { carbonmarkUser } = useFetchUser(props.userAddress);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
@@ -39,9 +39,9 @@ export const SellerConnected: FC<Props> = (props) => {
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isCarbonmarkUser = !!user;
-  const hasAssets = !!user?.assets?.length;
-  const activeListings = getActiveListings(user?.listings ?? []);
+  const isCarbonmarkUser = !!carbonmarkUser;
+  const hasAssets = !!carbonmarkUser?.assets?.length;
+  const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
 
@@ -62,7 +62,7 @@ export const SellerConnected: FC<Props> = (props) => {
           setIsLoadingAssets(true);
 
           const assetWithProjectTokens = getAssetsWithProjectTokens(
-            user.assets
+            carbonmarkUser.assets
           );
 
           if (assetWithProjectTokens.length) {
@@ -91,21 +91,12 @@ export const SellerConnected: FC<Props> = (props) => {
 
       getProjectData();
     }
-  }, [user]);
+  }, [carbonmarkUser]);
 
   const onEditProfile = async (data: User) => {
     try {
       setErrorMessage("");
-      if (isCarbonmarkUser) {
-        setUser((prev) => ({ ...prev, ...data }));
-      } else {
-        // for a new user, get all data from backend
-        const newUser = await getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-        setUser((prev) => ({ ...prev, ...newUser }));
-      }
+      console.log("EDIT PROFILE", data);
     } catch (error) {
       console.error("GET NEW USER DATA error", error);
       setErrorMessage(t`There was an error getting your data: ${error}`);
@@ -115,7 +106,7 @@ export const SellerConnected: FC<Props> = (props) => {
   };
 
   const onUpdateUser = async () => {
-    if (!user) return; // TS typeguard
+    if (!carbonmarkUser) return; // TS typeguard
 
     try {
       scrollToTop();
@@ -131,7 +122,7 @@ export const SellerConnected: FC<Props> = (props) => {
       // API is updated when new activity exists
       const activityIsAdded = (value: User) => {
         const newActivityLength = value.activities.length;
-        const currentActivityLength = user.activities.length;
+        const currentActivityLength = carbonmarkUser?.activities?.length || 0;
         return newActivityLength > currentActivityLength;
       };
 
@@ -141,8 +132,7 @@ export const SellerConnected: FC<Props> = (props) => {
         ms: 1000,
         maxAttempts: 50,
       });
-
-      setUser((prev) => ({ ...prev, ...updatedUser }));
+      console.log("UPDATE USER", updatedUser);
     } catch (e) {
       console.error("LOAD USER ACTIVITY error", e);
       setErrorMessage(
@@ -161,11 +151,11 @@ export const SellerConnected: FC<Props> = (props) => {
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          handle={props.carbonmarkUser?.handle}
-          userName={user?.username || props.userName}
+          handle={carbonmarkUser?.handle}
+          userName={carbonmarkUser?.username || props.userName}
           isCarbonmarkUser={isCarbonmarkUser}
-          description={user?.description}
-          profileImgUrl={user?.profileImgUrl}
+          description={carbonmarkUser?.description}
+          profileImgUrl={carbonmarkUser?.profileImgUrl}
         />
       </div>
       <div className={styles.listings}>
@@ -232,7 +222,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
         <Col>
           <ProfileSidebar
-            user={user}
+            user={carbonmarkUser}
             isPending={isUpdatingUser}
             title={t`Your seller data`}
           />
@@ -248,7 +238,7 @@ export const SellerConnected: FC<Props> = (props) => {
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
         <EditProfile
-          user={user}
+          user={carbonmarkUser}
           onSubmit={onEditProfile}
           isCarbonmarkUser={isCarbonmarkUser}
         />

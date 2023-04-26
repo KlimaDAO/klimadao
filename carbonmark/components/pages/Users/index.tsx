@@ -4,7 +4,6 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { Spinner } from "components/shared/Spinner";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { useFetchUser } from "hooks/useFetchUser";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -20,15 +19,13 @@ export type PageProps = {
 };
 
 const Page: NextPage<PageProps> = (props) => {
-  const { carbonmarkUser } = useFetchUser(props.userAddress);
-
   const { isConnectedUser, isUnconnectedUser } = useConnectedUser(
     props.userAddress
   );
   const [isLoading, setIsLoading] = useState(false);
 
   const userName =
-    props.userDomain || carbonmarkUser?.handle || props.userAddress;
+    props.userDomain || props.carbonmarkUser?.handle || props.userAddress;
 
   // Wait until web3 is ready
   useEffect(() => {
@@ -41,10 +38,10 @@ const Page: NextPage<PageProps> = (props) => {
     <>
       <PageHead
         title={t`${
-          carbonmarkUser?.handle || concatAddress(props.userAddress)
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
         } | Profile | Carbonmark`}
         mediaTitle={`${
-          carbonmarkUser?.handle || concatAddress(props.userAddress)
+          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
         }'s Profile on Carbonmark`}
         metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
@@ -56,7 +53,6 @@ const Page: NextPage<PageProps> = (props) => {
           <SellerConnected
             userAddress={props.userAddress}
             userName={userName}
-            carbonmarkUser={carbonmarkUser}
           />
         )}
 
