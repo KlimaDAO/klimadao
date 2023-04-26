@@ -175,31 +175,33 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        <CarbonmarkButton
-          label={
-            isLoadingAssets ? (
-              <Spinner />
-            ) : (
-              <>
-                <span className={styles.addListingButtonText}>
-                  <Trans id="profile.create_new_listing">
-                    Create New Listing
-                  </Trans>
-                </span>
-                <span className={styles.addListingButtonIcon}>
-                  <AddIcon />
-                </span>
-              </>
-            )
-          }
-          disabled={
-            isLoadingAssets ||
-            !hasAssets ||
-            isUpdatingUser ||
-            !assetsData?.length
-          }
-          onClick={() => setShowCreateListingModal(true)}
-        />
+        {isCarbonmarkUser && (
+          <CarbonmarkButton
+            label={
+              isLoadingAssets ? (
+                <Spinner />
+              ) : (
+                <>
+                  <span className={styles.addListingButtonText}>
+                    <Trans id="profile.create_new_listing">
+                      Create New Listing
+                    </Trans>
+                  </span>
+                  <span className={styles.addListingButtonIcon}>
+                    <AddIcon />
+                  </span>
+                </>
+              )
+            }
+            disabled={
+              isLoadingAssets ||
+              !hasAssets ||
+              isUpdatingUser ||
+              !assetsData?.length
+            }
+            onClick={() => setShowCreateListingModal(true)}
+          />
+        )}
       </div>
 
       <TwoColLayout>
