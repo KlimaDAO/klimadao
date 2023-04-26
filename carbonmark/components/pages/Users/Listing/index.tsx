@@ -5,6 +5,7 @@ import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
+import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { ListingWithProject } from "lib/types/carbonmark";
 import Link from "next/link";
@@ -27,17 +28,13 @@ export const Listing: FC<Props> = (props) => {
         <Vintage vintage={props.listing.project.vintage} />
         <ProjectKey projectKey={props.listing.project.key} />
       </div>
-      <Link
-        href={`/projects/${props.listing.project.key}-${props.listing.project.vintage}`}
-      >
+      <Link href={createProjectLink(props.listing.project)}>
         <Text t="h4" className={styles.link}>
           {props.listing.project.name}
         </Text>
       </Link>
       <div className={styles.image}>
-        <Link
-          href={`/projects/${props.listing.project.key}-${props.listing.project.vintage}`}
-        >
+        <Link href={createProjectLink(props.listing.project)}>
           <ProjectImage category={props.listing.project.category.id} />
         </Link>
       </div>
