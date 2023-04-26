@@ -37,13 +37,17 @@ export const AssetProject: FC<Props> = (props) => {
         </div>
       )}
 
-      <Link
-        href={`/projects/${props.asset.project?.key}-${props.asset.project?.vintage}`}
-      >
+      {props.asset.project ? (
+        <Link href={createProjectLink(props.asset.project)}>
+          <Text t="h4" className={styles.link}>
+            {props.asset.project?.name || props.asset.tokenName}
+          </Text>
+        </Link>
+      ) : (
         <Text t="h4" className={styles.link}>
-          {props.asset.project?.name || props.asset.tokenName}
+          {props.asset.tokenName}
         </Text>
-      </Link>
+      )}
 
       {props.asset.project && (
         <div className={styles.image}>
