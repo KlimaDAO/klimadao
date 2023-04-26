@@ -870,7 +870,7 @@ msgstr "Edit Listing"
 msgid "seller.listing.buy"
 msgstr "Buy"
 
-#: components/pages/Users/Listing/index.tsx:36
+#: components/pages/Users/Listing/index.tsx:49
 msgid "seller.listing.quantity_available"
 msgstr "Quantity Available:"
 

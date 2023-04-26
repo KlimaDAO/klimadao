@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-24 23:27+0000\n"
+"POT-Creation-Date: 2023-04-26 00:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:185
 msgid "buy.connect_torus_sushi"
-msgstr ""
+msgstr "3A. Conectar Torus a Sushi.com usando WalletConnect"
 
 #: components/pages/Buy/index.tsx:212
 msgid "buy.connect_torus_sushi_description2"
@@ -177,7 +177,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:143
 msgid "buy.load_wallet"
-msgstr ""
+msgstr "2. Cargue su monedero con tokens MATIC"
 
 #: components/pages/Buy/index.tsx:85
 msgid "buy.load_wallet_description"
@@ -249,7 +249,7 @@ msgstr "2."
 
 #: components/pages/Buy/index.tsx:97
 msgid "buy.step_3"
-msgstr ""
+msgstr "3."
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.summary_steps_title"
@@ -281,11 +281,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:250
 msgid "buy.swap_subtitle"
-msgstr ""
+msgstr "3B. Cambiar MATIC por KLIMA"
 
 #: components/pages/Buy/index.tsx:179
 msgid "buy.swap_wallet"
-msgstr ""
+msgstr "3. Cambiar por KLIMA en <0>Sushi.com</0>"
 
 #: components/pages/Buy/index.tsx:196
 msgid "buy.torus_login_description"
@@ -563,11 +563,11 @@ msgstr "2. Estar disponible de forma ininterrumpida, puntual, segura y sin error
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:74
 msgid "disclaimer.2_financial_investment_or_trading_advice"
-msgstr ""
+msgstr "2. Asesoramiento financiero, de inversión o comercial, o una oferta para prestar dicho asesoramiento y/o servicio."
 
 #: components/pages/About/Disclaimer/index.tsx:125
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
-msgstr ""
+msgstr "3. Ser fiable, completo, legal o seguro."
 
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:32
@@ -642,15 +642,15 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:34
 msgid "error.500.page.title"
-msgstr ""
+msgstr "500 - Se ha producido un error en el servidor"
 
 #: components/pages/errors/Custom500.tsx:19
 msgid "error.page.500.head.title"
-msgstr ""
+msgstr "500 - Página no encontrada"
 
 #: components/pages/errors/Custom500.tsx:15
 msgid "error.page.500.title"
-msgstr ""
+msgstr "500 - Página no encontrada"
 
 #: components/pages/Home/index.tsx:236
 msgid "home.backed_by_carbon"
@@ -861,11 +861,11 @@ msgstr "1. ¿Qué es una compensación de carbono?"
 
 #: components/pages/Infinity/index.tsx:577
 msgid "infinity.faq_question2"
-msgstr ""
+msgstr "2. ¿Cómo contribuye el offsetting a la lucha contra el cambio climático?"
 
 #: components/pages/Infinity/index.tsx:634
 msgid "infinity.faq_question3"
-msgstr ""
+msgstr "3. What are carbon markets?"
 
 #: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
@@ -921,7 +921,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:286
 msgid "infinity.getStarted_third"
-msgstr ""
+msgstr "3"
 
 #: components/pages/Infinity/index.tsx:292
 msgid "infinity.getStarted_third_subtitle"
@@ -957,7 +957,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_title"
-msgstr ""
+msgstr "18,1 millones"
 
 #: components/pages/Infinity/index.tsx:472
 msgid "infinity.mission_card2_description"
@@ -973,7 +973,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_number"
-msgstr ""
+msgstr "150,000+"
 
 #: components/pages/Infinity/index.tsx:387
 msgid "infinity.polygon_manifesto_description"
@@ -1074,7 +1074,7 @@ msgstr ""
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "Aceptar la invitacion"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:70
 msgid "pledge.invitation.error.wallet_already_pinned"
