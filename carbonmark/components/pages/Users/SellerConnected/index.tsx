@@ -156,11 +156,8 @@ export const SellerConnected: FC<Props> = (props) => {
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          handle={carbonmarkUser?.handle}
-          userName={carbonmarkUser?.username || props.userName}
-          isCarbonmarkUser={isCarbonmarkUser}
-          description={carbonmarkUser?.description}
-          profileImgUrl={carbonmarkUser?.profileImgUrl}
+          carbonmarkUser={carbonmarkUser}
+          userName={props.userName}
         />
       </div>
       <div className={styles.listings}>
