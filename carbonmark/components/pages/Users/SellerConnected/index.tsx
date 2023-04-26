@@ -21,7 +21,7 @@ import {
 } from "lib/listingsGetter";
 import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
 import { EditProfile } from "./Forms/EditProfile";
@@ -35,6 +35,7 @@ type Props = {
 };
 
 export const SellerConnected: FC<Props> = (props) => {
+  const scrollToRef = useRef<null | HTMLDivElement>(null);
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
@@ -49,6 +50,10 @@ export const SellerConnected: FC<Props> = (props) => {
   const activeListings = getActiveListings(user?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
+
+  const scrollToTop = () =>
+    scrollToRef.current &&
+    scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
   // load Assets every time user changed
   useEffect(() => {
@@ -119,6 +124,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (!user) return; // TS typeguard
 
     try {
+      scrollToTop();
       setErrorMessage("");
       setIsUpdatingUser(true);
 
@@ -154,7 +160,7 @@ export const SellerConnected: FC<Props> = (props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div ref={scrollToRef} className={styles.container}>
       <div className={styles.userControlsRow}>
         <ProfileButton onClick={() => setShowEditProfileModal(true)} />
         <LoginButton className="loginButton" />
