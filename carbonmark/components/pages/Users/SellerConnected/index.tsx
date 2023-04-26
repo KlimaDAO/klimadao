@@ -31,7 +31,7 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { carbonmarkUser } = useFetchUser(props.userAddress);
+  const { carbonmarkUser, isLoading } = useFetchUser(props.userAddress);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
@@ -39,11 +39,13 @@ export const SellerConnected: FC<Props> = (props) => {
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isCarbonmarkUser = !!carbonmarkUser;
   const hasAssets = !!carbonmarkUser?.assets?.length;
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
+
+  const isCarbonmarkUser = !isLoading && !!carbonmarkUser;
+  const isUnregistered = !isLoading && carbonmarkUser === null;
 
   const scrollToTop = () =>
     scrollToRef.current &&
@@ -146,7 +148,10 @@ export const SellerConnected: FC<Props> = (props) => {
   return (
     <div ref={scrollToRef} className={styles.container}>
       <div className={styles.userControlsRow}>
-        <ProfileButton onClick={() => setShowEditProfileModal(true)} />
+        <ProfileButton
+          label={isUnregistered ? t`Create Profile` : t`Edit Profile`}
+          onClick={() => setShowEditProfileModal(true)}
+        />
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
