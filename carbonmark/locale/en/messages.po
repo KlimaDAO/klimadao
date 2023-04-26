@@ -235,7 +235,7 @@ msgstr "Latest First"
 msgid "Listing cost, incl. {0}% fee"
 msgstr "Listing cost, incl. {0}% fee"
 
-#: components/pages/Users/SellerConnected/index.tsx:174
+#: components/pages/Users/SellerConnected/index.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:56
 msgid "Listings"
 msgstr "Listings"
@@ -289,7 +289,7 @@ msgstr "New Quantity"
 msgid "New Unit Price (USDC)"
 msgstr "New Unit Price (USDC)"
 
-#: components/pages/Users/SellerConnected/index.tsx:220
+#: components/pages/Users/SellerConnected/index.tsx:226
 #: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "No active listings."
 msgstr "No active listings."
@@ -331,7 +331,7 @@ msgid "Please Log In"
 msgstr "Please Log In"
 
 #: components/pages/Portfolio/index.tsx:60
-#: components/pages/Users/SellerConnected/index.tsx:149
+#: components/pages/Users/SellerConnected/index.tsx:155
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
@@ -490,11 +490,11 @@ msgstr "Thank you for supporting the planet! See purchase details below."
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 
-#: components/pages/Users/SellerConnected/index.tsx:112
+#: components/pages/Users/SellerConnected/index.tsx:117
 msgid "There was an error getting your data: {error}"
 msgstr "There was an error getting your data: {error}"
 
-#: components/pages/Users/SellerConnected/index.tsx:87
+#: components/pages/Users/SellerConnected/index.tsx:92
 msgid "There was an error loading your assets. {e}"
 msgstr "There was an error loading your assets. {e}"
 
@@ -534,7 +534,7 @@ msgstr "Total quantity to list for sale"
 msgid "Updated:"
 msgstr "Updated:"
 
-#: components/pages/Users/SellerConnected/index.tsx:214
+#: components/pages/Users/SellerConnected/index.tsx:220
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -596,7 +596,7 @@ msgid "Your display name"
 msgstr "Your display name"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:243
 msgid "Your seller data"
 msgstr "Your seller data"
 
@@ -705,7 +705,7 @@ msgstr "Balances"
 msgid "profile.addListing_modal.submit"
 msgstr "Create Listing"
 
-#: components/pages/Users/SellerConnected/index.tsx:190
+#: components/pages/Users/SellerConnected/index.tsx:196
 msgid "profile.create_new_listing"
 msgstr "Create New Listing"
 
@@ -721,7 +721,7 @@ msgstr "Update Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:247
+#: components/pages/Users/SellerConnected/index.tsx:253
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
