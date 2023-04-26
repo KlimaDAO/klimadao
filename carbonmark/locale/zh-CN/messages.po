@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-26 15:34+0000\n"
+"POT-Creation-Date: 2023-04-26 16:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
 #: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Quantity Available:"
@@ -416,7 +416,7 @@ msgstr "资源"
 msgid "Resources | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:62
+#: components/pages/Portfolio/AssetProject/index.tsx:65
 msgid "Retire"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:66
+#: components/pages/Portfolio/AssetProject/index.tsx:69
 msgid "Sell"
 msgstr ""
 
@@ -864,7 +864,7 @@ msgstr ""
 msgid "seller.listing.buy"
 msgstr "购买"
 
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:46
 msgid "seller.listing.quantity_available"
 msgstr ""
 
