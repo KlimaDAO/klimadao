@@ -1,6 +1,7 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
+import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
@@ -9,7 +10,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
-
 interface Props {
   activity: UserActivity | ProjectActivity;
 }
@@ -99,7 +99,7 @@ export const Activity = (props: Props) => {
   return (
     <div key={props.activity.id} className={styles.activity}>
       {project && (
-        <Link href={`/projects/${project.key}-${project.vintage}`}>
+        <Link href={createProjectLink(project)}>
           <Text t="h5" className={styles.link}>
             {project.name}
           </Text>

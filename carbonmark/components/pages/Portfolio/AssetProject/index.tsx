@@ -8,13 +8,14 @@ import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
-import { createRetireLink } from "lib/createUrls";
+import { createProjectLink, createRetireLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { AssetForListing } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
+
 interface Props {
   asset: AssetForListing;
   onSell: () => void;
@@ -46,9 +47,7 @@ export const AssetProject: FC<Props> = (props) => {
 
       {props.asset.project && (
         <div className={styles.image}>
-          <Link
-            href={`/projects/${props.asset.project.key}-${props.asset.project.vintage}`}
-          >
+          <Link href={createProjectLink(props.asset.project)}>
             <ProjectImage category={props.asset.project?.category} />
           </Link>
         </div>
