@@ -62,7 +62,7 @@ const Page: NextPage<PageProps> = (props) => {
 
         {isUnconnectedUser && (
           <SellerUnconnected
-            carbonmarkUser={carbonmarkUser}
+            userAddress={props.userAddress}
             userName={userName}
           />
         )}
