@@ -20,11 +20,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (IS_PRODUCTION) {
-    return res.status(404).send("Not found");
-  }
-
   try {
+    if (IS_PRODUCTION) {
+      return res.status(404).send("Not found");
+    }
+
     const { beneficiaryAddress, retirementIndex } = req.query as Query;
 
     /** Validate address params */
@@ -40,7 +40,7 @@ export default async function handler(
       return res.status(400).send("Invalid beneficiary address");
     }
 
-    /** Retirement indexes start from 0 starts from 1 */
+    /** Retirement indexes start from 0, url starts from 1 */
     const index = Number(retirementIndex) - 1;
     const retirement = await queryKlimaRetireByIndex(beneficiaryAddress, index);
 
