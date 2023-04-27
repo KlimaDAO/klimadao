@@ -38,8 +38,11 @@ export const Activity = (props: Props) => {
   const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
   const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
 
-  const sellerID = props.activity.seller.id;
-  const buyerId = props.activity.buyer?.id;
+  const seller = props.activity.seller;
+  const buyer = props.activity.buyer;
+
+  const sellerID = "handle" in seller ? seller.handle : seller.id;
+  const buyerId = buyer && "handle" in buyer ? buyer.handle : buyer?.id;
 
   // type guard
   const project = isUserActivity(props.activity)
@@ -116,7 +119,9 @@ export const Activity = (props: Props) => {
       <Text t="body1">
         {!!addressA && (
           <Link className="account" href={`/users/${addressA}`}>
-            {formatWalletAddress(addressA, connectedAddress)}{" "}
+            {addressA.length >= 11
+              ? formatWalletAddress(addressA, connectedAddress)
+              : addressA}{" "}
           </Link>
         )}
 
@@ -125,7 +130,9 @@ export const Activity = (props: Props) => {
         {addressB && (
           <Link className="account" href={`/users/${addressB}`}>
             {" "}
-            {formatWalletAddress(addressB, connectedAddress)}
+            {addressB.length >= 11
+              ? formatWalletAddress(addressB, connectedAddress)
+              : addressB}
           </Link>
         )}
       </Text>
