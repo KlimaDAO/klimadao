@@ -31,7 +31,7 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { carbonmarkUser, isLoading } = useFetchUser(props.userAddress);
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
@@ -95,15 +95,23 @@ export const SellerConnected: FC<Props> = (props) => {
     }
   }, [carbonmarkUser]);
 
-  const onEditProfile = async (data: User) => {
+  const onEditProfile = async (profileData: User) => {
     try {
-      setErrorMessage("");
-      console.log("EDIT PROFILE", data);
-    } catch (error) {
-      console.error("GET NEW USER DATA error", error);
-      setErrorMessage(t`There was an error getting your data: ${error}`);
-    } finally {
+      // get fresh data again
+      const userFromApi = await getUser({
+        user: props.userAddress,
+        type: "wallet",
+      });
+
+      // Merge with data from Updated Profile as backend might be slow!
+      const newUser = { ...userFromApi, ...profileData };
+
+      // Update the cache only, do not revalidate
+      await mutate(newUser, false);
       setShowEditProfileModal(false);
+    } catch (e) {
+      console.error(e);
+      t`Please refresh the page. There was an error updating your data: ${e}.`;
     }
   };
 
