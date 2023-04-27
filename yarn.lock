@@ -275,7 +275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphprotocol/graph-cli@npm:0.45.0, @graphprotocol/graph-cli@npm:^0.45.0":
+"@graphprotocol/graph-cli@npm:0.45.0":
   version: 0.45.0
   resolution: "@graphprotocol/graph-cli@npm:0.45.0"
   dependencies:
@@ -311,7 +311,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphprotocol/graph-ts@npm:0.29.3, @graphprotocol/graph-ts@npm:^0.29.3":
+"@graphprotocol/graph-ts@npm:0.29.3":
   version: 0.29.3
   resolution: "@graphprotocol/graph-ts@npm:0.29.3"
   dependencies:
@@ -3437,8 +3437,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "klima-protocol-metrics@workspace:protocol-metrics"
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
@@ -3447,8 +3447,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "klimadao-bonds@workspace:bonds"
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
@@ -3467,8 +3467,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "klimadao-user-carbon@workspace:user-carbon"
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
@@ -4567,8 +4567,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "polygon-bridged-carbon@workspace:polygon-bridged-carbon"
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
@@ -4963,8 +4963,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
@@ -5772,8 +5772,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vesting@workspace:vesting"
   dependencies:
-    "@graphprotocol/graph-cli": ^0.45.0
-    "@graphprotocol/graph-ts": ^0.29.3
+    "@graphprotocol/graph-cli": 0.45.0
+    "@graphprotocol/graph-ts": 0.29.3
     prettier: 2.7.1
   languageName: unknown
   linkType: soft
