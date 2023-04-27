@@ -94,3 +94,8 @@ export const deleteListingButton = css`
   width: 100%;
   margin-top: 1.6rem;
 `;
+
+export const loadingOverlay = css`
+  pointer-events: none;
+  opacity: 0.5;
+`;

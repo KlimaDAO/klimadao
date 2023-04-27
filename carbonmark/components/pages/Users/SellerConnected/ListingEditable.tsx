@@ -25,6 +25,7 @@ type Props = {
   listings: ListingWithProject[];
   assets: AssetForListing[];
   onFinishEditing: () => void;
+  isUpdatingData: boolean;
 };
 
 const getBalanceForListing = (
@@ -169,13 +170,18 @@ export const ListingEditable: FC<Props> = (props) => {
   return (
     <>
       {props.listings.map((listing) => (
-        <Listing key={listing.id} listing={listing}>
-          <CarbonmarkButton
-            label={<Trans id="profile.listing.edit">Edit</Trans>}
-            className={styles.editListingButton}
-            onClick={() => setListingToEdit(listing)}
-          />
-        </Listing>
+        <div
+          className={props.isUpdatingData ? styles.loadingOverlay : ""}
+          key={listing.id}
+        >
+          <Listing listing={listing}>
+            <CarbonmarkButton
+              label={<Trans id="profile.listing.edit">Edit</Trans>}
+              className={styles.editListingButton}
+              onClick={() => setListingToEdit(listing)}
+            />
+          </Listing>
+        </div>
       ))}
 
       <Modal

@@ -225,6 +225,7 @@ export const SellerConnected: FC<Props> = (props) => {
               listings={sortedListings}
               onFinishEditing={onUpdateUser}
               assets={assetsData || []}
+              isUpdatingData={isPending}
             />
           )}
         </Col>
