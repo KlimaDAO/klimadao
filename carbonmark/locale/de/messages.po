@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-27 20:20+0000\n"
+"POT-Creation-Date: 2023-04-27 20:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -76,7 +76,7 @@ msgid "Back to Project"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
-#: components/pages/Project/BuyOptions/SellerListing.tsx:47
+#: components/pages/Project/BuyOptions/SellerListing.tsx:62
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr ""
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:64
+#: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Created:"
 msgstr ""
 
@@ -379,7 +379,7 @@ msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
-#: components/pages/Project/BuyOptions/SellerListing.tsx:59
+#: components/pages/Project/BuyOptions/SellerListing.tsx:78
 msgid "Quantity Available:"
 msgstr ""
 
@@ -432,7 +432,7 @@ msgstr ""
 msgid "Sell"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:43
+#: components/pages/Project/BuyOptions/SellerListing.tsx:58
 msgid "Seller Listing"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Total quantity to list for sale"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:68
+#: components/pages/Project/BuyOptions/SellerListing.tsx:87
 msgid "Updated:"
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO (â€
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:86
+#: components/pages/Project/BuyOptions/SellerListing.tsx:105
 msgid "buy"
 msgstr "Kaufen"
 
@@ -743,7 +743,7 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/Activities/Activity.tsx:90
+#: components/Activities/Activity.tsx:93
 msgid "props.transaction.conjunction"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgstr ""
 msgid "shared.approve"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:76
+#: components/pages/Project/BuyOptions/SellerListing.tsx:95
 #: components/pages/Project/Purchase/PurchaseForm.tsx:179
 #: components/pages/Users/SellerUnconnected/index.tsx:69
 msgid "shared.connect_to_buy"

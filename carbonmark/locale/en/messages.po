@@ -82,7 +82,7 @@ msgid "Back to Project"
 msgstr "Back to Project"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
-#: components/pages/Project/BuyOptions/SellerListing.tsx:47
+#: components/pages/Project/BuyOptions/SellerListing.tsx:62
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "Best Price"
@@ -146,7 +146,7 @@ msgstr "Country"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Create and edit listings, and track your activity with your Carbonmark profile."
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:64
+#: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Created:"
 msgstr "Created:"
 
@@ -385,7 +385,7 @@ msgstr "Purchase {0} | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
-#: components/pages/Project/BuyOptions/SellerListing.tsx:59
+#: components/pages/Project/BuyOptions/SellerListing.tsx:78
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
 
@@ -438,7 +438,7 @@ msgstr "Say a few words about yourself. This will be visible in your seller prof
 msgid "Sell"
 msgstr "Sell"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:43
+#: components/pages/Project/BuyOptions/SellerListing.tsx:58
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
@@ -530,7 +530,7 @@ msgstr "Total Retirements:"
 msgid "Total quantity to list for sale"
 msgstr "Total quantity to list for sale"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:68
+#: components/pages/Project/BuyOptions/SellerListing.tsx:87
 msgid "Updated:"
 msgstr "Updated:"
 
@@ -645,7 +645,7 @@ msgstr "The information provided in this blog post pertaining to KlimaDAO (“Kl
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:86
+#: components/pages/Project/BuyOptions/SellerListing.tsx:105
 msgid "buy"
 msgstr "Buy"
 
@@ -749,7 +749,7 @@ msgstr "Create a Listing"
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
-#: components/Activities/Activity.tsx:90
+#: components/Activities/Activity.tsx:93
 msgid "props.transaction.conjunction"
 msgstr "for"
 
@@ -878,7 +878,7 @@ msgstr "Quantity Available:"
 msgid "shared.approve"
 msgstr "Approve"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:76
+#: components/pages/Project/BuyOptions/SellerListing.tsx:95
 #: components/pages/Project/Purchase/PurchaseForm.tsx:179
 #: components/pages/Users/SellerUnconnected/index.tsx:69
 msgid "shared.connect_to_buy"
