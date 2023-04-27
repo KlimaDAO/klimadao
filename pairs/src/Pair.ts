@@ -21,14 +21,6 @@ import { BigDecimalZero, BigIntZero } from './utils'
 import { hourFromTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
 
-let KLIMA_NBO_ADDRESS = Address.fromString(KLIMA_NBO_PAIR)
-let KLIMA_UBO_ADDRESS = Address.fromString(KLIMA_UBO_PAIR)
-let KLIMA_BCT_ADDRESS = Address.fromString(KLIMA_BCT_PAIR)
-let KLIMA_MCO2_ADDRESS = Address.fromString(KLIMA_MCO2_PAIR)
-let KLIMA_USDC_ADDRESS = Address.fromString(KLIMA_USDC_PAIR)
-let BCT_USDC_ADDRESS = Address.fromString(BCT_USDC_PAIR)
-let NCT_USDC_ADDRESS = Address.fromString(NCT_USDC_PAIR)
-
 // Create or Load Token
 export function getCreateToken(address: Address): Token {
   let token = Token.load(address.toHexString())
@@ -71,16 +63,16 @@ export function updatePairPrice(address: Address, klima_usdc_rate: BigDecimal, h
   log.debug('Updating price for {}', [address.toHexString()])
   let price = BigDecimalZero
 
-  if (address == KLIMA_NBO_ADDRESS) {
+  if (address == KLIMA_NBO_PAIR) {
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_NBORate())
   }
-  if (address == KLIMA_UBO_ADDRESS) {
+  if (address == KLIMA_UBO_PAIR) {
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_UBORate())
   }
-  if (address == KLIMA_MCO2_ADDRESS) {
+  if (address == KLIMA_MCO2_PAIR) {
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_MCO2Rate())
   }
-  if (address == KLIMA_BCT_ADDRESS) {
+  if (address == KLIMA_BCT_PAIR) {
     log.debug('Klima BCT rate {}', [PriceUtil.getKLIMA_BCTRate().toString()])
     price = klima_usdc_rate.div(PriceUtil.getKLIMA_BCTRate())
   }
@@ -128,7 +120,7 @@ function toUnits(x: BigInt, decimals: number): BigDecimal {
 }
 
 export function handleSwap(event: SwapEvent): void {
-  let treasury_address = Address.fromString(TREASURY_ADDRESS)
+  let treasury_address = TREASURY_ADDRESS
   let pair = getCreatePair(event.address)
   let contract = PairContract.bind(event.address)
   let total_lp = toUnits(contract.totalSupply(), 18)
@@ -186,7 +178,7 @@ export function handleSwap(event: SwapEvent): void {
     volume = token0qty
   }
 
-  if (event.address == BCT_USDC_ADDRESS || event.address == KLIMA_USDC_ADDRESS || event.address == NCT_USDC_ADDRESS) {
+  if (event.address == BCT_USDC_PAIR || event.address == KLIMA_USDC_PAIR || event.address == NCT_USDC_PAIR) {
     let swap = Swap.load(hourlyId)
     if (swap == null) {
       swap = new Swap(hourlyId)
@@ -225,23 +217,23 @@ export function handleSwap(event: SwapEvent): void {
     pair.lastupdate = hour_timestamp
     pair.save()
   }
-  if (event.address == KLIMA_USDC_ADDRESS) {
+  if (event.address == KLIMA_USDC_PAIR) {
     // Update prices of tokens which are depedent on klima_usdc rate
-    if (event.block.number.ge(BigInt.fromString(KLIMA_NBO_PAIR_BLOCK))) {
-      updatePairPrice(KLIMA_NBO_ADDRESS, price, hour_timestamp)
+    if (event.block.number.ge(KLIMA_NBO_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_NBO_PAIR, price, hour_timestamp)
     }
-    if (event.block.number.ge(BigInt.fromString(KLIMA_UBO_PAIR_BLOCK))) {
-      updatePairPrice(KLIMA_UBO_ADDRESS, price, hour_timestamp)
+    if (event.block.number.ge(KLIMA_UBO_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_UBO_PAIR, price, hour_timestamp)
     }
-    if (event.block.number.ge(BigInt.fromString(KLIMA_BCT_PAIR_BLOCK))) {
-      updatePairPrice(KLIMA_BCT_ADDRESS, price, hour_timestamp)
+    if (event.block.number.ge(KLIMA_BCT_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_BCT_PAIR, price, hour_timestamp)
     }
-    if (event.block.number.ge(BigInt.fromString(KLIMA_MCO2_PAIR_BLOCK))) {
-      updatePairPrice(KLIMA_MCO2_ADDRESS, price, hour_timestamp)
+    if (event.block.number.ge(KLIMA_MCO2_PAIR_BLOCK)) {
+      updatePairPrice(KLIMA_MCO2_PAIR, price, hour_timestamp)
     }
   }
 
-  if (event.address == KLIMA_BCT_ADDRESS) {
+  if (event.address == KLIMA_BCT_PAIR) {
     let swap = Swap.load(hourlyId)
     if (price != BigDecimalZero) {
       usdprice = PriceUtil.getKLIMA_USDRate().div(price)

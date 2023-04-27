@@ -8,7 +8,7 @@ import { KLIMA } from './KLIMA'
 import { PriceUtil } from '../../utils/Price'
 
 export class MCO2 implements IToken {
-  private contractAddress: Address = Address.fromString(constants.MCO2_ERC20_CONTRACT)
+  private contractAddress: Address = constants.MCO2_ERC20_CONTRACT
   private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {
@@ -29,7 +29,7 @@ export class MCO2 implements IToken {
 
   getMarketPrice(blockNumber: BigInt): BigDecimal {
     //We are going through MCO2-USD until KLIMA-MCO2 LP is created
-    if (blockNumber.lt(BigInt.fromString(constants.KLIMA_MCO2_PAIR_BLOCK))) {
+    if (blockNumber.lt(constants.KLIMA_MCO2_PAIR_BLOCK)) {
       return this.getMarketPriceViaUsdc(blockNumber)
     } else {
       return PriceUtil.getKLIMA_MCO2Rate()

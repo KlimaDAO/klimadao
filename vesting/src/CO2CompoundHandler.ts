@@ -10,7 +10,7 @@ import { Transfer } from '../../lib/generated/ERC20'
 import { convertToWsKLIMA } from './utils/Convert'
 
 export function handleTransfers(event: Transfer): void {
-  const co2Compound = new Co2Compound(Address.fromString(constants.NFT_CO2COMPOUND_CONTRACT))
+  const co2Compound = new Co2Compound(constants.NFT_CO2COMPOUND_CONTRACT)
 
   if (event.params.to == co2Compound.getContractAddress()) {
     const lock = loadOrCreateLock(event.transaction.hash.toHexString())

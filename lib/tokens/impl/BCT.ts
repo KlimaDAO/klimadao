@@ -8,7 +8,7 @@ import { KLIMA } from './KLIMA'
 import { PriceUtil } from '../../utils/Price'
 
 export class BCT implements IToken {
-  private contractAddress: Address = Address.fromString(constants.BCT_ERC20_CONTRACT)
+  private contractAddress: Address = constants.BCT_ERC20_CONTRACT
   private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {
@@ -32,7 +32,7 @@ export class BCT implements IToken {
 
   getUSDPrice(blockNumber: BigInt): BigDecimal {
     //We are going through BCT-USD until the liquidity is removed
-    if (blockNumber.lt(BigInt.fromString(constants.BCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK))) {
+    if (blockNumber.lt(constants.BCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK)) {
       return PriceUtil.getBCT_USDRate()
     }
 

@@ -17,36 +17,36 @@ export class BondFactory {
 
   public getBondForBondAddress(address: Address): IBondable {
     //Naked bonds
-    if (address.equals(Address.fromHexString(constants.BCTBOND_V1))) {
+    if (address.equals(constants.BCTBOND_V1)) {
       return new BCTBond(address)
     }
-    if (address.equals(Address.fromHexString(constants.MCO2BOND_V1))) {
+    if (address.equals(constants.MCO2BOND_V1)) {
       return new MCO2Bond(address)
     }
-    if (address.equals(Address.fromHexString(constants.MCO2BOND_V1_2))) {
+    if (address.equals(constants.MCO2BOND_V1_2)) {
       return new MCO2Bond(address)
     }
-    if (address.equals(Address.fromHexString(constants.UBOBOND_V1))) {
+    if (address.equals(constants.UBOBOND_V1)) {
       return new UBOBond(address)
     }
-    if (address.equals(Address.fromHexString(constants.NBOBOND_V1))) {
+    if (address.equals(constants.NBOBOND_V1)) {
       return new NBOBond(address)
     }
 
     //LPS
-    if (address.equals(Address.fromHexString(constants.KLIMA_BCT_BOND_V1))) {
+    if (address.equals(constants.KLIMA_BCT_BOND_V1)) {
       return new KLIMABCTBond(address)
     }
-    if (address.equals(Address.fromHexString(constants.KLIMA_MCO2_BOND_V1))) {
+    if (address.equals(constants.KLIMA_MCO2_BOND_V1)) {
       return new KLIMAMCO2Bond(address)
     }
-    if (address.equals(Address.fromHexString(constants.KLIMA_MCO2_BOND_V1_2))) {
+    if (address.equals(constants.KLIMA_MCO2_BOND_V1_2)) {
       return new KLIMAMCO2Bond(address)
     }
-    if (address.equals(Address.fromHexString(constants.KLIMA_USDC_BOND_V1))) {
+    if (address.equals(constants.KLIMA_USDC_BOND_V1)) {
       return new KLIMAUSDCBond(address)
     }
-    if (address.equals(Address.fromHexString(constants.BCT_USDC_BOND_V1))) {
+    if (address.equals(constants.BCT_USDC_BOND_V1)) {
       return new BCTUSDCBond(address)
     }
 
@@ -54,7 +54,7 @@ export class BondFactory {
   }
 
   public getBondForBaseTokenAddress(address: Address): IBondable {
-    if (address.equals(Address.fromHexString(constants.USDC_ERC20_CONTRACT))) {
+    if (address.equals(constants.USDC_ERC20_CONTRACT)) {
       return new KLIMAUSDCInverseBond()
     }
     throw new Error('[Bond Factory] Failed to get Bond for base token address: ' + address.toHexString())

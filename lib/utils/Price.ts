@@ -36,7 +36,7 @@ export class PriceUtil {
 
   static getBCT_USDRate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(BCT_USDC_PAIR),
+      BCT_USDC_PAIR,
       this.usdcToken.getDecimals(),
       this.bctToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND
@@ -45,7 +45,7 @@ export class PriceUtil {
 
   static getKLIMA_BCTRate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(KLIMA_BCT_PAIR),
+      KLIMA_BCT_PAIR,
       this.bctToken.getDecimals(),
       this.klimaToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND
@@ -54,7 +54,7 @@ export class PriceUtil {
 
   static getKLIMA_USDRate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(KLIMA_USDC_PAIR),
+      KLIMA_USDC_PAIR,
       this.usdcToken.getDecimals(),
       this.klimaToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND
@@ -63,7 +63,7 @@ export class PriceUtil {
 
   static getKLIMA_MCO2Rate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(KLIMA_MCO2_PAIR),
+      KLIMA_MCO2_PAIR,
       this.klimaToken.getDecimals(),
       this.mco2Token.getDecimals(),
       RATE_FOR_TOKEN.FIRST
@@ -72,7 +72,7 @@ export class PriceUtil {
 
   static getMCO2_USDRate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(MCO2_USDC_PAIR),
+      MCO2_USDC_PAIR,
       this.usdcToken.getDecimals(),
       this.mco2Token.getDecimals(),
       RATE_FOR_TOKEN.SECOND
@@ -81,7 +81,7 @@ export class PriceUtil {
 
   static getKLIMA_UBORate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(KLIMA_UBO_PAIR),
+      KLIMA_UBO_PAIR,
       this.uboToken.getDecimals(),
       this.klimaToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND
@@ -90,7 +90,7 @@ export class PriceUtil {
 
   static getKLIMA_NBORate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(KLIMA_NBO_PAIR),
+      KLIMA_NBO_PAIR,
       this.klimaToken.getDecimals(),
       this.nboToken.getDecimals(),
       RATE_FOR_TOKEN.FIRST
@@ -99,7 +99,7 @@ export class PriceUtil {
 
   static getNCT_USDRate(): BigDecimal {
     return this.getUniV2Rate(
-      Address.fromString(NCT_USDC_PAIR),
+      NCT_USDC_PAIR,
       this.usdcToken.getDecimals(),
       this.nctToken.getDecimals(),
       RATE_FOR_TOKEN.SECOND

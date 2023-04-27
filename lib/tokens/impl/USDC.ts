@@ -7,7 +7,7 @@ import { toDecimal } from '../../utils/Decimals'
 import { KLIMA } from './KLIMA'
 
 export class USDC implements IToken {
-  private contractAddress: Address = Address.fromString(constants.USDC_ERC20_CONTRACT)
+  private contractAddress: Address = constants.USDC_ERC20_CONTRACT
   private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {

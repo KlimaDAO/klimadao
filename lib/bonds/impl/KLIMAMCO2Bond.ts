@@ -58,16 +58,11 @@ export class KLIMAMCO2Bond implements IBondable {
   }
 
   getCarbonCustodied(depositAmount: BigInt): BigDecimal {
-    return PriceUtil.getDiscountedPairCO2(
-      depositAmount,
-      Address.fromString(constants.KLIMA_MCO2_PAIR),
-      this.klimaToken,
-      this.mco2Token
-    )
+    return PriceUtil.getDiscountedPairCO2(depositAmount, constants.KLIMA_MCO2_PAIR, this.klimaToken, this.mco2Token)
   }
 
   getTreasuredAmount(): BigDecimal {
-    let pair = UniswapV2Pair.bind(Address.fromString(constants.KLIMA_MCO2_PAIR))
+    let pair = UniswapV2Pair.bind(constants.KLIMA_MCO2_PAIR)
     let lp_token_2 = toDecimal(pair.getReserves().value1, this.getToken().getDecimals())
 
     return lp_token_2

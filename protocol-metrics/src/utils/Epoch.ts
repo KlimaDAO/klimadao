@@ -23,7 +23,7 @@ export class EpochUtil {
    * Retrieve the last epoch entity and get previous average rebase rate
    */
   static getDynamicRebaseRate(): number {
-    const epochCall = KlimaStakingV1.bind(Address.fromString(STAKING_CONTRACT_V1)).try_epoch()
+    const epochCall = KlimaStakingV1.bind(STAKING_CONTRACT_V1).try_epoch()
     if (epochCall.reverted) {
       throw new Error('Epoch call reverted')
     }

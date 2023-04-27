@@ -14,25 +14,25 @@ export class TokenFactory {
   constructor() {}
 
   public getTokenForAddress(address: Address): IToken {
-    if (address.equals(Address.fromHexString(constants.BCT_ERC20_CONTRACT))) {
+    if (address.equals(constants.BCT_ERC20_CONTRACT)) {
       return new BCT()
     }
-    if (address.equals(Address.fromHexString(constants.MCO2_ERC20_CONTRACT))) {
+    if (address.equals(constants.MCO2_ERC20_CONTRACT)) {
       return new MCO2()
     }
-    if (address.equals(Address.fromHexString(constants.UBO_ERC20_CONTRACT))) {
+    if (address.equals(constants.UBO_ERC20_CONTRACT)) {
       return new UBO()
     }
-    if (address.equals(Address.fromHexString(constants.NBO_ERC20_CONTRACT))) {
+    if (address.equals(constants.NBO_ERC20_CONTRACT)) {
       return new NBO()
     }
-    if (address.equals(Address.fromHexString(constants.NCT_ERC20_CONTRACT))) {
+    if (address.equals(constants.NCT_ERC20_CONTRACT)) {
       return new NCT()
     }
-    if (address.equals(Address.fromHexString(constants.KLIMA_ERC20_V1_CONTRACT))) {
+    if (address.equals(constants.KLIMA_ERC20_V1_CONTRACT)) {
       return new KLIMA()
     }
-    if (address.equals(Address.fromHexString(constants.USDC_ERC20_CONTRACT))) {
+    if (address.equals(constants.USDC_ERC20_CONTRACT)) {
       return new USDC()
     }
 
