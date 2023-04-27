@@ -11,10 +11,9 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser } from "lib/api";
+import { getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { pollUntil } from "lib/pollUntil";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
@@ -31,11 +30,14 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
+
   const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
+  const [isPending, setIsPending] = useState(false);
+
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [isUpdatingUser, setIsUpdatingUser] = useState(false);
+
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -50,6 +52,25 @@ export const SellerConnected: FC<Props> = (props) => {
   const scrollToTop = () =>
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const userActivityIsUpdated = (userFromApi: User) => {
+    // compare with current user
+    const oldUser = carbonmarkUser;
+    const newActivityLength = userFromApi.activities.length;
+    const currentActivityLength = oldUser?.activities.length || 0;
+    return newActivityLength > currentActivityLength;
+  };
+
+  const handleMutateUserUntil = async () => {
+    const newUser = await getUserUntil({
+      address: props.userAddress,
+      retryUntil: userActivityIsUpdated,
+      retryInterval: 1000,
+      maxAttempts: 50,
+    });
+
+    return newUser;
+  };
 
   // load Assets every time user changed
   useEffect(() => {
@@ -116,40 +137,19 @@ export const SellerConnected: FC<Props> = (props) => {
   };
 
   const onUpdateUser = async () => {
-    if (!carbonmarkUser) return; // TS typeguard
-
     try {
       scrollToTop();
-      setErrorMessage("");
-      setIsUpdatingUser(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-
-      // API is updated when new activity exists
-      const activityIsAdded = (value: User) => {
-        const newActivityLength = value.activities.length;
-        const currentActivityLength = carbonmarkUser?.activities?.length || 0;
-        return newActivityLength > currentActivityLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: activityIsAdded,
-        ms: 1000,
-        maxAttempts: 50,
+      setIsPending(true);
+      await mutate(handleMutateUserUntil, {
+        populateCache: true,
       });
-      console.log("UPDATE USER", updatedUser);
     } catch (e) {
-      console.error("LOAD USER ACTIVITY error", e);
+      console.error(e);
       setErrorMessage(
         t`Please refresh the page. There was an error updating your data: ${e}.`
       );
     } finally {
-      setIsUpdatingUser(false);
+      setIsPending(false);
     }
   };
 
@@ -199,10 +199,7 @@ export const SellerConnected: FC<Props> = (props) => {
               )
             }
             disabled={
-              isLoadingAssets ||
-              !hasAssets ||
-              isUpdatingUser ||
-              !assetsData?.length
+              isLoadingAssets || !hasAssets || isPending || !assetsData?.length
             }
             onClick={() => setShowCreateListingModal(true)}
           />
@@ -211,7 +208,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
       <TwoColLayout>
         <Col>
-          {isUpdatingUser && (
+          {isPending && (
             <Card>
               <SpinnerWithLabel label={t`Updating your data...`} />
             </Card>
@@ -235,7 +232,7 @@ export const SellerConnected: FC<Props> = (props) => {
         <Col>
           <ProfileSidebar
             user={carbonmarkUser}
-            isPending={isUpdatingUser}
+            isPending={isPending}
             title={t`Your seller data`}
           />
         </Col>
