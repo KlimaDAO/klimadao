@@ -30,8 +30,7 @@ module.exports = async function (fastify, opts) {
         // // Execute the GET_CATEGORIES query and store the result in the 'data' variable
         const categories = await getAllCategories(fastify);
 
-        // return reply.send(JSON.stringify(convertArrayToObjects(categories)));
-        return reply.send("TEST");
+        return reply.send(JSON.stringify(convertArrayToObjects(categories)));
       } catch (error) {
         // If an error occurred while executing the query, return a Internal Server Error response
         return reply
