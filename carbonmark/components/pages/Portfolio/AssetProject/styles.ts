@@ -26,3 +26,12 @@ export const buttons = css`
     color: var(--white);
   }
 `;
+export const link = css`
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: blue;
+  }
+`;

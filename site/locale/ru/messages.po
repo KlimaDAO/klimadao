@@ -1,11 +1,15 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-20 18:23+0000\n"
+"POT-Creation-Date: 2023-04-28 00:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
+
+#: components/pages/Buy/index.tsx:100
+msgid "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
+msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -72,59 +76,59 @@ msgstr "Информация, представленная в данном бл�
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
 
-#: components/pages/Buy/index.tsx:433
+#: components/pages/Buy/index.tsx:432
 msgid "buy.answer_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:390
+#: components/pages/Buy/index.tsx:389
 msgid "buy.bond_answer_cedit_card"
-msgstr ""
+msgstr "Да, некоторые провайдеры, например <0>Transak</0>, позволяют покупать KLIMA напрямую с помощью кредитной карты за определенную плату. Однако, если в вашем кошельке нет MATIC, вы не сможете осуществить перевод или другие действия. По этой причине, а также для обеспечения наилучшего рыночного курса, мы рекомендуем покупать MATIC напрямую и обменивать MATIC на KLIMA на Sushi.com."
 
-#: components/pages/Buy/index.tsx:408
+#: components/pages/Buy/index.tsx:407
 msgid "buy.bond_answer_cex1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:416
+#: components/pages/Buy/index.tsx:415
 msgid "buy.bond_answer_cex2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:371
+#: components/pages/Buy/index.tsx:370
 msgid "buy.bond_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:380
+#: components/pages/Buy/index.tsx:379
 msgid "buy.bond_description_capacity"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:401
+#: components/pages/Buy/index.tsx:400
 msgid "buy.bond_question_cex"
-msgstr ""
+msgstr "Почему я не могу найти KLIMA на Coinbase или других централизованных биржах? Почему я должен использовать <0>Sushi.com</0> ?"
 
-#: components/pages/Buy/index.tsx:385
+#: components/pages/Buy/index.tsx:384
 msgid "buy.bond_question_credit_card"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:190
+#: components/pages/Buy/index.tsx:189
 msgid "buy.connect_advanced"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:185
+#: components/pages/Buy/index.tsx:184
 msgid "buy.connect_torus_sushi"
-msgstr ""
+msgstr "3A. Подключите Torus к Sushi.com с помощью WalletConnect"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:211
 msgid "buy.connect_torus_sushi_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:229
+#: components/pages/Buy/index.tsx:228
 msgid "buy.connect_torus_sushi_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:237
+#: components/pages/Buy/index.tsx:236
 msgid "buy.connect_torus_sushi_description4"
-msgstr ""
+msgstr "Когда вы вернетесь на вкладку Sushi в своем браузере, вы должны увидеть, что ваш адрес Torus теперь виден в правом верхнем углу."
 
-#: components/pages/Buy/index.tsx:243
+#: components/pages/Buy/index.tsx:242
 msgid "buy.connect_torus_sushi_description5"
 msgstr ""
 
@@ -132,27 +136,27 @@ msgstr ""
 msgid "buy.create_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:114
+#: components/pages/Buy/index.tsx:113
 msgid "buy.create_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:120
+#: components/pages/Buy/index.tsx:119
 msgid "buy.create_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:129
+#: components/pages/Buy/index.tsx:128
 msgid "buy.create_wallet_description3"
-msgstr ""
+msgstr "После подключения вы должны увидеть адрес своего нового кошелька в левом верхнем углу приложения."
 
-#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:134
 msgid "buy.create_wallet_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:111
+#: components/pages/Buy/index.tsx:110
 msgid "buy.create_wallet_item"
 msgstr "1. Создайте кошелек"
 
-#: components/pages/Buy/index.tsx:319
+#: components/pages/Buy/index.tsx:318
 msgid "buy.faq_title"
 msgstr ""
 
@@ -173,67 +177,67 @@ msgstr ""
 msgid "buy.how_to_paragraph_part_2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:143
+#: components/pages/Buy/index.tsx:142
 msgid "buy.load_wallet"
-msgstr ""
+msgstr "2. Пополните свой кошелек токенами MATIC"
 
 #: components/pages/Buy/index.tsx:85
 msgid "buy.load_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:148
+#: components/pages/Buy/index.tsx:147
 msgid "buy.load_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:158
+#: components/pages/Buy/index.tsx:157
 msgid "buy.load_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:168
+#: components/pages/Buy/index.tsx:167
 msgid "buy.load_wallet_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:427
+#: components/pages/Buy/index.tsx:426
 msgid "buy.question_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:322
+#: components/pages/Buy/index.tsx:321
 msgid "buy.question_why_matic"
-msgstr ""
+msgstr "Почему я должен сначала купить MATIC?"
 
-#: components/pages/Buy/index.tsx:327
+#: components/pages/Buy/index.tsx:326
 msgid "buy.question_why_matic_answer"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:338
+#: components/pages/Buy/index.tsx:337
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:345
+#: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:352
+#: components/pages/Buy/index.tsx:351
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:359
+#: components/pages/Buy/index.tsx:358
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:292
+#: components/pages/Buy/index.tsx:291
 msgid "buy.staking_cta"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:295
+#: components/pages/Buy/index.tsx:294
 msgid "buy.staking_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:303
+#: components/pages/Buy/index.tsx:302
 msgid "buy.staking_description2"
-msgstr ""
+msgstr "Вы также можете использовать приложение, чтобы потратить KLIMA и <0>отказаться от цифрового углерода.</0> на блокчейне."
 
-#: components/pages/Buy/index.tsx:310
+#: components/pages/Buy/index.tsx:309
 msgid "buy.staking_description3"
 msgstr ""
 
@@ -257,48 +261,44 @@ msgstr ""
 msgid "buy.summary_title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:253
+#: components/pages/Buy/index.tsx:252
 msgid "buy.swap_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:259
+#: components/pages/Buy/index.tsx:258
 msgid "buy.swap_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:275
+#: components/pages/Buy/index.tsx:274
 msgid "buy.swap_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:282
+#: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:100
-msgid "buy.swap_for_klima_description"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:250
+#: components/pages/Buy/index.tsx:249
 msgid "buy.swap_subtitle"
-msgstr ""
+msgstr "3Б. Обмен MATIC на KLIMA"
 
-#: components/pages/Buy/index.tsx:179
+#: components/pages/Buy/index.tsx:178
 msgid "buy.swap_wallet"
-msgstr ""
+msgstr "3. Обменяйте на KLIMA на <0>Sushi.com</0>"
 
-#: components/pages/Buy/index.tsx:196
+#: components/pages/Buy/index.tsx:195
 msgid "buy.torus_login_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:204
 msgid "buy.wallet_connect_example"
-msgstr ""
+msgstr "пример подключения входа к кошельку"
 
-#: components/pages/Buy/index.tsx:222
-#: components/pages/Buy/index.tsx:268
+#: components/pages/Buy/index.tsx:221
+#: components/pages/Buy/index.tsx:267
 msgid "buy.wallet_connect_example_qr_code"
-msgstr ""
+msgstr "пример кода qr для подключения кошелька"
 
-#: components/pages/Buy/index.tsx:366
+#: components/pages/Buy/index.tsx:365
 msgid "buy.what_are_bonds"
 msgstr ""
 
@@ -442,7 +442,7 @@ msgstr ""
 #: components/pages/Pledge/PledgeDashboard/index.tsx:170
 #: components/pages/Pledge/index.tsx:112
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "институциональный"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
@@ -547,25 +547,25 @@ msgstr ""
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:64
 msgid "disclaimer.1_an_offer_or_sollicitation"
-msgstr ""
+msgstr "1. Предложение или ходатайство о предложении владеть или контролировать любую ценную бумагу, другой актив или услугу, которые связаны с нематериальными выгодами;"
 
 #: components/pages/About/Disclaimer/index.tsx:111
 msgid "disclaimer.1_meet_your_requirements"
-msgstr ""
+msgstr "1. Соответствуйте вашим требованиям;"
 
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:116
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
-msgstr ""
+msgstr "2. Быть доступным на бесперебойной, своевременной, безопасной или безошибочной основе;"
 
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:74
 msgid "disclaimer.2_financial_investment_or_trading_advice"
-msgstr ""
+msgstr "2. Финансовые, инвестиционные или торговые консультации или предложение о предоставлении таких консультаций и/или услуг."
 
 #: components/pages/About/Disclaimer/index.tsx:125
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
-msgstr ""
+msgstr "3. Быть надежным, полным, законным или безопасным."
 
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:32
@@ -628,7 +628,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/About/Disclaimer/index.tsx:144
 msgid "disclaimer.you_bear_full_responsibility"
-msgstr ""
+msgstr "Вы несете полную ответственность за предоставление частной информации, проверку личности и легитимности. Несмотря на индикаторы и сообщения, предлагающие предоставить частную информацию и проверить ее, KlimaDAO не делает никаких заявлений о личности на платформе. Мы не можем гарантировать безопасность любых данных, которые раскрываются онлайн, и за устойчивые потери из-за уязвимости или любого вида сбоя, аномального поведения программного обеспечения."
 
 #: components/pages/errors/Custom404.tsx:41
 msgid "error.404.page.text"
@@ -640,7 +640,7 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:34
 msgid "error.500.page.title"
-msgstr ""
+msgstr "500 - Произошла ошибка сервера"
 
 #: components/pages/errors/Custom500.tsx:19
 msgid "error.page.500.head.title"
@@ -705,7 +705,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:83
 msgid "home.latest_news"
-msgstr ""
+msgstr "📰 Последние новости:"
 
 #: components/pages/Home/index.tsx:139
 msgid "home.learn_more"
@@ -819,7 +819,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:331
 msgid "infinity.carousel_image_description"
-msgstr ""
+msgstr "Проект ветроэнергетики в Джайбхиме, Индия"
 
 #: components/pages/Infinity/index.tsx:343
 msgid "infinity.carousel_info_subtitle"
@@ -843,7 +843,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:603
 msgid "infinity.faq_answer2_paragraph2"
-msgstr ""
+msgstr "Когда вы приобретаете углеродный кредит, Klima Infinity позволяет вам вывести этот углеродный кредит из оборота, навсегда изъяв его из обращения. Этот выход из обращения является моментом, когда вы можете заявить о выгоде от компенсации выбросов углерода."
 
 #: components/pages/Infinity/index.tsx:611
 msgid "infinity.faq_answer2_paragraph3"
@@ -855,15 +855,15 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:543
 msgid "infinity.faq_question1"
-msgstr ""
+msgstr "1. Что такое углеродная компенсация?"
 
 #: components/pages/Infinity/index.tsx:577
 msgid "infinity.faq_question2"
-msgstr ""
+msgstr "2. Как компенсация помогает в борьбе с изменением климата?"
 
 #: components/pages/Infinity/index.tsx:634
 msgid "infinity.faq_question3"
-msgstr ""
+msgstr "3. Что такое углеродные рынки?"
 
 #: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
@@ -1021,7 +1021,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_title"
-msgstr ""
+msgstr "Почему именно KlimaDAO?"
 
 #: components/pages/Home/index.tsx:384
 msgid "invest_in_the_future"
@@ -1051,7 +1051,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:191
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "Вы не можете добавить свой собственный кошелек в качестве дополнительного кошелька"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:227
 msgid "pledge.form.error.default_error_message"
@@ -1085,7 +1085,7 @@ msgstr ""
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} предлагает вам добавить свой кошелек к этому обязательству. Если вы согласитесь, то ваши выбросы углерода будут засчитаны в счет обещания {shortenedAddress}. Вы можете удалить свой кошелек из этого залога в любое время."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
@@ -1132,11 +1132,11 @@ msgstr ""
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "открепить мой кошелек"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "У вас может быть только одна страница залога на адрес кошелька. Если вы уже создали страницу залога с этим кошельком, посетители будут перенаправлены на этот залог. Вы можете удалить этот кошелек в любое время."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1156,23 +1156,23 @@ msgstr "Тонны"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:104
 msgid "pledges.dashboard.footprint.tooltip.category_percent"
-msgstr ""
+msgstr "{0}% занимаемой площади"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:110
 msgid "pledges.dashboard.footprint.tooltip.quantity"
-msgstr ""
+msgstr "{0} Тонна(ы) углерода"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:137
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "{pledgeOwnerTitle} обязуется компенсировать {currentTotalFootprint} тонн углерода. Ознакомьтесь с их историей компенсации выбросов углекислого газа и узнайте больше об их обязательствах."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:133
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle} Залог"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:129
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "{pledgeOwnerTitle} Залог | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1184,7 +1184,7 @@ msgstr "Методология"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:14
 msgid "pledges.dashboard.pledge.default_text"
-msgstr ""
+msgstr "Напишите свое обязательство сегодня!"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:21
 msgid "pledges.dashboard.pledge.title"
@@ -1192,11 +1192,11 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:64
 msgid "pledges.dashboard.profile.pledge_met"
-msgstr ""
+msgstr "≥ 100% обязательств выполнено"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:73
 msgid "pledges.dashboard.profile.pledge_progress"
-msgstr ""
+msgstr "{0}% от обязательства выполнено"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:106
 msgid "pledges.dashboard.profile.pledged_to_offset"
@@ -1208,7 +1208,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/RetirementsChart.tsx:141
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
-msgstr ""
+msgstr "{0} Углеродная тонна(ы) Списано"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:123
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
@@ -1232,15 +1232,15 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:197
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "подтвердить удаление"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:622
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "Удалить"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:635
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: components/pages/Pledge/index.tsx:212
 msgid "pledges.form.error"
@@ -1300,7 +1300,7 @@ msgstr ""
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "Вы не можете добавить владельца залога"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
@@ -1384,7 +1384,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:193
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Ваше обязательство"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:52
 msgid "pledges.form.total_footprint_summary"
@@ -1620,7 +1620,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{retiree} изъято из эксплуатации {formattedAmount} тонн углерода"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:114
 msgid "retirement.head.title"
@@ -1720,7 +1720,7 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:71
 msgid "retirement.totals.page_subline"
-msgstr ""
+msgstr "для бенефициара"
 
 #: components/pages/Retirements/index.tsx:95
 msgid "retirement.totals.retired_assets"
@@ -1746,12 +1746,12 @@ msgid "shared.404"
 msgstr "404 Страница не найдена"
 
 #: components/Navigation/index.tsx:83
-#: components/Navigation/index.tsx:237
+#: components/Navigation/index.tsx:227
 msgid "shared.about"
 msgstr "О"
 
 #: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:271
+#: components/Navigation/index.tsx:261
 msgid "shared.app"
 msgstr ""
 
@@ -1761,18 +1761,18 @@ msgstr ""
 
 #: components/Footer/index.tsx:43
 #: components/Navigation/index.tsx:133
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:278
 msgid "shared.bond"
 msgstr ""
 
 #: components/Footer/index.tsx:37
 #: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:275
+#: components/Navigation/index.tsx:265
 msgid "shared.buy"
 msgstr ""
 
 #: components/Navigation/index.tsx:157
-#: components/Navigation/index.tsx:312
+#: components/Navigation/index.tsx:302
 msgid "shared.buy_carbon"
 msgstr "Купить углерод"
 
@@ -1782,16 +1782,21 @@ msgstr "Купить углерод"
 msgid "shared.cancel"
 msgstr ""
 
-#: components/Navigation/index.tsx:376
+#: components/Navigation/index.tsx:352
 msgid "shared.carbon_dashboard"
 msgstr ""
 
-#: components/Navigation/index.tsx:213
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr ""
 
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:321
+msgid "shared.carbonmark"
+msgstr ""
+
 #: components/Navigation/index.tsx:87
-#: components/Navigation/index.tsx:242
+#: components/Navigation/index.tsx:232
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1802,7 +1807,7 @@ msgid "shared.confirm"
 msgstr ""
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:251
+#: components/Navigation/index.tsx:241
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "Связаться"
@@ -1822,15 +1827,15 @@ msgstr ""
 
 #: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105
-#: components/Navigation/index.tsx:260
+#: components/Navigation/index.tsx:250
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr ""
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:221
-#: components/Navigation/index.tsx:384
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:360
 msgid "shared.docs"
 msgstr ""
 
@@ -1858,14 +1863,9 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:204
-#: components/Navigation/index.tsx:367
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:343
 msgid "shared.how_to_buy"
-msgstr ""
-
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:331
-msgid "shared.infinity"
 msgstr ""
 
 #: components/pages/Infinity/index.tsx:108
@@ -1878,13 +1878,8 @@ msgstr ""
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:334
-msgid "shared.infinity_intro"
-msgstr ""
-
 #: components/Navigation/index.tsx:165
-#: components/Navigation/index.tsx:320
+#: components/Navigation/index.tsx:310
 msgid "shared.info"
 msgstr "Информация"
 
@@ -1910,13 +1905,13 @@ msgstr "Войти / Подключиться"
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:189
-#: components/Navigation/index.tsx:349
+#: components/Navigation/index.tsx:179
+#: components/Navigation/index.tsx:325
 msgid "shared.loveletters"
 msgstr ""
 
 #: components/Navigation/index.tsx:149
-#: components/Navigation/index.tsx:304
+#: components/Navigation/index.tsx:294
 msgid "shared.offset"
 msgstr "Офсет"
 
@@ -1929,23 +1924,18 @@ msgstr ""
 msgid "shared.pending"
 msgstr ""
 
-#: components/Navigation/index.tsx:182
-#: components/Navigation/index.tsx:342
-msgid "shared.pledge"
-msgstr ""
-
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "Удалить"
 
-#: components/Navigation/index.tsx:195
-#: components/Navigation/index.tsx:358
+#: components/Navigation/index.tsx:185
+#: components/Navigation/index.tsx:334
 #: components/pages/Blog/Post/index.tsx:70
 msgid "shared.resourcecenter"
 msgstr "Информационный центр"
 
-#: components/Navigation/index.tsx:192
-#: components/Navigation/index.tsx:354
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:330
 msgid "shared.resources"
 msgstr "Источники"
 
@@ -1955,7 +1945,7 @@ msgstr "Сортировать по"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:125
-#: components/Navigation/index.tsx:280
+#: components/Navigation/index.tsx:270
 msgid "shared.stake"
 msgstr ""
 
@@ -1964,9 +1954,9 @@ msgid "shared.visit_klimadao_blog"
 msgstr ""
 
 #: components/Navigation/index.tsx:141
-#: components/Navigation/index.tsx:296
+#: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr ""
+msgstr "Обернуть sKlima"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
@@ -1990,8 +1980,8 @@ msgstr "Сканируйте с помощью Coinbase, чтобы подклю
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
 msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr ""
+msgstr "{trimCurrentSupply} Оставшиеся тонны"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
 msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr ""
+msgstr "{trimTotalRetired} Всего выбыло тонн"

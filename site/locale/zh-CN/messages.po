@@ -1,11 +1,15 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-20 18:23+0000\n"
+"POT-Creation-Date: 2023-04-28 00:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
+
+#: components/pages/Buy/index.tsx:100
+msgid "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
+msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -72,61 +76,61 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
-#: components/pages/Buy/index.tsx:433
+#: components/pages/Buy/index.tsx:432
 msgid "buy.answer_exchange"
 msgstr "高级用户可以使用<0>Polygon Bridge</0>将任何资产从以太坊转移到 Polygon，和/或 <1>Polygon Gas Swap</1>将 USDC 等资产换成 MATIC。"
 
-#: components/pages/Buy/index.tsx:390
+#: components/pages/Buy/index.tsx:389
 msgid "buy.bond_answer_cedit_card"
 msgstr ""
 "是的，像 <0>Transak</0> 这样的一些入口供应商，允许您使用信用卡直接购买 KLIMA，但会收取一定的费用。但如果您的钱包没有 MATIC，您将无法转帐或执行其他操作。出于这个原因，也为了保证最佳市场利率，我们建议直接购买 MATIC，然后在 Sushi.com 上将 MATIC 换成 KLIMA。\n"
 ""
 
-#: components/pages/Buy/index.tsx:408
+#: components/pages/Buy/index.tsx:407
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA 不在像 Coinbase, Binance 或 Crypto.com 这样的中心化交易所进行交易，因为这些交易所通常收取非常高的挂牌费用，且需要昂贵的做市商的融资。"
 
-#: components/pages/Buy/index.tsx:416
+#: components/pages/Buy/index.tsx:415
 msgid "buy.bond_answer_cex2"
 msgstr "相反，KLIMA 代币在“去中心化交易所”（DEX）上交易，该交易所由智能合约提供支持并直接在区块链上运行。 DEX 有一些主要优势。 DEX 使 DAO 拥有大部分流动性成为可能，因此它可以保持完全自治并产生收入来支付贡献者。我们选择使用 Sushi 的 DEX 技术，因为它已经每天处理数千万美元的交易。"
 
-#: components/pages/Buy/index.tsx:371
+#: components/pages/Buy/index.tsx:370
 msgid "buy.bond_description1"
 msgstr "有经验的加密货币用户可以通过债券直接从协议购买KLIMA。要通过债券获得KLIMA，您需要提供一种碳代币或流动性代币，并获得折扣后的KLIMA代币作为回报。这是DAO用来增加其数字碳储备的机制。"
 
-#: components/pages/Buy/index.tsx:380
+#: components/pages/Buy/index.tsx:379
 msgid "buy.bond_description_capacity"
 msgstr "债券的发行额是有限的，且并非始终易得。"
 
-#: components/pages/Buy/index.tsx:401
+#: components/pages/Buy/index.tsx:400
 msgid "buy.bond_question_cex"
 msgstr "为什么我在 Coinbase 或其他中心化交易所找不到 KLIMA？为什么我必须使用 <0>Sushi.com</0> ？"
 
-#: components/pages/Buy/index.tsx:385
+#: components/pages/Buy/index.tsx:384
 msgid "buy.bond_question_credit_card"
 msgstr "我可以直接用信用卡购买 KLIMA 吗？"
 
-#: components/pages/Buy/index.tsx:190
+#: components/pages/Buy/index.tsx:189
 msgid "buy.connect_advanced"
 msgstr "注意：此说明仅适用于 Torus 钱包用户。 Sushi 支持多种不同的钱包。"
 
-#: components/pages/Buy/index.tsx:185
+#: components/pages/Buy/index.tsx:184
 msgid "buy.connect_torus_sushi"
 msgstr "3A. 使用 WalletConnect 将 Torus 连接到 Sushi.com"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:211
 msgid "buy.connect_torus_sushi_description2"
 msgstr "在单独的浏览器选项卡中，访问 <0>Sushi.com</0>然后点击右上角的“连接”。您将看到几个钱包选项。选择 WalletConnect。选择 WalletConnect 后，您将看到一个二维码——单击“复制到剪贴板”。"
 
-#: components/pages/Buy/index.tsx:229
+#: components/pages/Buy/index.tsx:228
 msgid "buy.connect_torus_sushi_description3"
 msgstr "返回 Torus 钱包应用并将此代码粘贴到 WalletConnect 小部件中。这将在您的钱包和 <0>Sushi.com</0> 之间创建一个临时连接。"
 
-#: components/pages/Buy/index.tsx:237
+#: components/pages/Buy/index.tsx:236
 msgid "buy.connect_torus_sushi_description4"
 msgstr "当您返回浏览器中的 Sushi 选项卡时，您应该会看到您的 Torus 地址现在显示在右上角。"
 
-#: components/pages/Buy/index.tsx:243
+#: components/pages/Buy/index.tsx:242
 msgid "buy.connect_torus_sushi_description5"
 msgstr "最后，使用 <0>Sushi.com</0>的下拉菜单切换到Polygon网络。"
 
@@ -134,27 +138,27 @@ msgstr "最后，使用 <0>Sushi.com</0>的下拉菜单切换到Polygon网络。
 msgid "buy.create_wallet_description"
 msgstr "<0>创建一个钱包。</0>我们推荐 Torus Wallet，但我们的应用程序支持大多数 Web3 钱包（Metamask、Coinbase Wallet、Brave、MyEtherWallet 等）。"
 
-#: components/pages/Buy/index.tsx:114
+#: components/pages/Buy/index.tsx:113
 msgid "buy.create_wallet_description1"
 msgstr "前往 <0>app.klimadao.finance</0>然后点击右上角的“连接”。"
 
-#: components/pages/Buy/index.tsx:120
+#: components/pages/Buy/index.tsx:119
 msgid "buy.create_wallet_description2"
 msgstr "选择“电子邮件或社交”登录选项，这将引导您使用 Torus 登录。 Torus 是一种使用您现有的电子邮件或社交登录名生成安全钱包的技术。您将能够在数百个其他 Web3 和 DeFi 应用程序中使用这个新的 Torus 钱包。"
 
-#: components/pages/Buy/index.tsx:129
+#: components/pages/Buy/index.tsx:128
 msgid "buy.create_wallet_description3"
 msgstr "连接后，您应该会在应用程序的左上角看到您的新钱包地址。"
 
-#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:134
 msgid "buy.create_wallet_description4"
 msgstr "高级：如果你不想使用 Torus，请随意使用任何兼容 Polygon 的 Web3 钱包。"
 
-#: components/pages/Buy/index.tsx:111
+#: components/pages/Buy/index.tsx:110
 msgid "buy.create_wallet_item"
 msgstr "1.创建钱包"
 
-#: components/pages/Buy/index.tsx:319
+#: components/pages/Buy/index.tsx:318
 msgid "buy.faq_title"
 msgstr "常见问题"
 
@@ -175,7 +179,7 @@ msgstr "KLIMA 是一种碳支持的数字资产，可以抵押以获得奖励或
 msgid "buy.how_to_paragraph_part_2"
 msgstr "这是一个针对 Web3 和 DeFi 新手的简短教程"
 
-#: components/pages/Buy/index.tsx:143
+#: components/pages/Buy/index.tsx:142
 msgid "buy.load_wallet"
 msgstr "2. 将MATIC代币存入您的钱包"
 
@@ -183,59 +187,59 @@ msgstr "2. 将MATIC代币存入您的钱包"
 msgid "buy.load_wallet_description"
 msgstr "<0>充值 MATIC 代币到您的新钱包。</0> MATIC 是为 Polygon 网络提供动力的gas。您在 Polygon 上执行的每笔交易都需要价值几美分的 MATIC 来支付网络费用。"
 
-#: components/pages/Buy/index.tsx:148
+#: components/pages/Buy/index.tsx:147
 msgid "buy.load_wallet_description1"
 msgstr "使用像 <0>MoonPay </0>或 <1>Transak</1>这样的服务, 或像 <2>Coinbase</2> 这样的中心化交易所购买 Polygon MATIC 并将其发送到您新创建的钱包。"
 
-#: components/pages/Buy/index.tsx:158
+#: components/pages/Buy/index.tsx:157
 msgid "buy.load_wallet_description2"
 msgstr "<0>确保将 MATIC 代币已发送到您的新钱包地址！</0> 您可以通过连接到我们的应用程序并单击导航菜单中的地址，将地址复制到剪贴板。"
 
-#: components/pages/Buy/index.tsx:168
+#: components/pages/Buy/index.tsx:167
 msgid "buy.load_wallet_description3"
 msgstr "<0>请务必通过 Polygon 网络购买和发送 MATIC！</0> Coinbase 等一些交易所会询问您在哪个网络上发送 MATIC 代币。确保始终选择Polygon。"
 
-#: components/pages/Buy/index.tsx:427
+#: components/pages/Buy/index.tsx:426
 msgid "buy.question_exchange"
 msgstr "如果我想使用不同的交易所，但他们不出售 Polygon MATIC 怎么办？"
 
-#: components/pages/Buy/index.tsx:322
+#: components/pages/Buy/index.tsx:321
 msgid "buy.question_why_matic"
 msgstr "为什么我必须先购买 MATIC？"
 
-#: components/pages/Buy/index.tsx:327
+#: components/pages/Buy/index.tsx:326
 msgid "buy.question_why_matic_answer"
 msgstr "KLIMA 代币和协议存在于 Polygon 区块链上。MATIC 是 Polygon 上每个交易所需的“燃料”。没有支付交易费用，就无法执行交易。这意味着您需要支付几美分的 MATIC 来执行以下操作："
 
-#: components/pages/Buy/index.tsx:338
+#: components/pages/Buy/index.tsx:337
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "质押KLIMA以获取sKLIMA"
 
-#: components/pages/Buy/index.tsx:345
+#: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "在不同的代币之间转换"
 
-#: components/pages/Buy/index.tsx:352
+#: components/pages/Buy/index.tsx:351
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "发送代币到另一个钱包"
 
-#: components/pages/Buy/index.tsx:359
+#: components/pages/Buy/index.tsx:358
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "使用 KLIMA 或其他代币抵消碳排放"
 
-#: components/pages/Buy/index.tsx:292
+#: components/pages/Buy/index.tsx:291
 msgid "buy.staking_cta"
 msgstr "质押、赚取、投票和抵消！"
 
-#: components/pages/Buy/index.tsx:295
+#: components/pages/Buy/index.tsx:294
 msgid "buy.staking_description1"
 msgstr "恭喜！现在您的钱包里已有一些 KLIMA了，我们强烈建议您<0>质押</0>KLIMA来获得sKLIMA，随着协议的发展，sKLIMA会随时间积累奖励。"
 
-#: components/pages/Buy/index.tsx:303
+#: components/pages/Buy/index.tsx:302
 msgid "buy.staking_description2"
 msgstr "在区块链上，您还可以使用该应用程序花出您的 KLIMA 并<0>停用数字碳</0>。"
 
-#: components/pages/Buy/index.tsx:310
+#: components/pages/Buy/index.tsx:309
 msgid "buy.staking_description3"
 msgstr "最后，请留意<0>正在进行的投票</0>并帮助指导协议朝着正确的方向发展。"
 
@@ -259,48 +263,44 @@ msgstr "获得 KLIMA 最好和最简单的方法是遵循以下三个步骤："
 msgid "buy.summary_title"
 msgstr "总结"
 
-#: components/pages/Buy/index.tsx:253
+#: components/pages/Buy/index.tsx:252
 msgid "buy.swap_description1"
 msgstr "连接您的钱包并切换到 Polygon 网络后，您现在应该可以用 MATIC 置换 KLIMA。"
 
-#: components/pages/Buy/index.tsx:259
+#: components/pages/Buy/index.tsx:258
 msgid "buy.swap_description2"
 msgstr "<0>重要提示：请勿将您所有 MATIC 都换成 KLIMA！</0> 至少保留0.5个MATIC以支付其他未来的交易费用。"
 
-#: components/pages/Buy/index.tsx:275
+#: components/pages/Buy/index.tsx:274
 msgid "buy.swap_description3"
 msgstr "如果您使用的是 Torus，请在浏览器选项卡中打开 Torus 应用程序。您将需要返回您的钱包以批准和授权交易。"
 
-#: components/pages/Buy/index.tsx:282
+#: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description4"
 msgstr "可选：如果您希望您的Sushi交易本身对气候有利，您应该启用由 KlimaDAO 提供支持的Sushi“绿色费用”。这将在每笔交易中花费 0.02 MATIC 来自动购买和t停用数字碳！"
 
-#: components/pages/Buy/index.tsx:100
-msgid "buy.swap_for_klima_description"
-msgstr "<0>换成 KLIMA。</0> Sushi 是一个去中心化交易所，您可以以尽可能低的价格立即将您的 MATIC 代币交易转为 KLIMA 代币。"
-
-#: components/pages/Buy/index.tsx:250
+#: components/pages/Buy/index.tsx:249
 msgid "buy.swap_subtitle"
 msgstr "3B. 将 MATIC 换成 KLIMA"
 
-#: components/pages/Buy/index.tsx:179
+#: components/pages/Buy/index.tsx:178
 msgid "buy.swap_wallet"
 msgstr "3. 在 <0>Sushi.com</0>上换取 KLIMA"
 
-#: components/pages/Buy/index.tsx:196
+#: components/pages/Buy/index.tsx:195
 msgid "buy.torus_login_description"
 msgstr "在新的浏览器选项卡中，转到 <0>Torus Polygon webapp</0>并使用您的新 Torus 帐户登录。当您登录时，您应该会看到一个 WalletConnect 小部件。"
 
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:204
 msgid "buy.wallet_connect_example"
 msgstr "钱包连接输入示例"
 
-#: components/pages/Buy/index.tsx:222
-#: components/pages/Buy/index.tsx:268
+#: components/pages/Buy/index.tsx:221
+#: components/pages/Buy/index.tsx:267
 msgid "buy.wallet_connect_example_qr_code"
 msgstr "钱包连接二维码示例"
 
-#: components/pages/Buy/index.tsx:366
+#: components/pages/Buy/index.tsx:365
 msgid "buy.what_are_bonds"
 msgstr "还有其他方法可以获得 KLIMA 吗？什么是债券？"
 
@@ -1748,12 +1748,12 @@ msgid "shared.404"
 msgstr "404 - 页面不存在"
 
 #: components/Navigation/index.tsx:83
-#: components/Navigation/index.tsx:237
+#: components/Navigation/index.tsx:227
 msgid "shared.about"
 msgstr "关于"
 
 #: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:271
+#: components/Navigation/index.tsx:261
 msgid "shared.app"
 msgstr "应用程序"
 
@@ -1763,18 +1763,18 @@ msgstr "博客"
 
 #: components/Footer/index.tsx:43
 #: components/Navigation/index.tsx:133
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:278
 msgid "shared.bond"
 msgstr "债券化Klima"
 
 #: components/Footer/index.tsx:37
 #: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:275
+#: components/Navigation/index.tsx:265
 msgid "shared.buy"
 msgstr "购买 Klima"
 
 #: components/Navigation/index.tsx:157
-#: components/Navigation/index.tsx:312
+#: components/Navigation/index.tsx:302
 msgid "shared.buy_carbon"
 msgstr "购买碳"
 
@@ -1784,16 +1784,21 @@ msgstr "购买碳"
 msgid "shared.cancel"
 msgstr "取消"
 
-#: components/Navigation/index.tsx:376
+#: components/Navigation/index.tsx:352
 msgid "shared.carbon_dashboard"
 msgstr "碳仪表板"
 
-#: components/Navigation/index.tsx:213
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr "碳仪表板"
 
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:321
+msgid "shared.carbonmark"
+msgstr "Carbonmark"
+
 #: components/Navigation/index.tsx:87
-#: components/Navigation/index.tsx:242
+#: components/Navigation/index.tsx:232
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1804,7 +1809,7 @@ msgid "shared.confirm"
 msgstr "确认"
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:251
+#: components/Navigation/index.tsx:241
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "联系方式"
@@ -1824,15 +1829,15 @@ msgstr "联系我们"
 
 #: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105
-#: components/Navigation/index.tsx:260
+#: components/Navigation/index.tsx:250
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr "免责声明"
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:221
-#: components/Navigation/index.tsx:384
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:360
 msgid "shared.docs"
 msgstr "官方文档"
 
@@ -1860,15 +1865,10 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 msgid "shared.home"
 msgstr "首页"
 
-#: components/Navigation/index.tsx:204
-#: components/Navigation/index.tsx:367
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:343
 msgid "shared.how_to_buy"
 msgstr "如何购买 Klima"
-
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:331
-msgid "shared.infinity"
-msgstr "Infinity"
 
 #: components/pages/Infinity/index.tsx:108
 #: components/pages/Infinity/index.tsx:309
@@ -1880,13 +1880,8 @@ msgstr "开始"
 msgid "shared.infinity_cta"
 msgstr "面向组织的 DEFI"
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:334
-msgid "shared.infinity_intro"
-msgstr "介绍"
-
 #: components/Navigation/index.tsx:165
-#: components/Navigation/index.tsx:320
+#: components/Navigation/index.tsx:310
 msgid "shared.info"
 msgstr "信息"
 
@@ -1912,13 +1907,13 @@ msgstr "登录/连接"
 msgid "shared.loveletter_cta"
 msgstr "面向个人的 DEFI"
 
-#: components/Navigation/index.tsx:189
-#: components/Navigation/index.tsx:349
+#: components/Navigation/index.tsx:179
+#: components/Navigation/index.tsx:325
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:149
-#: components/Navigation/index.tsx:304
+#: components/Navigation/index.tsx:294
 msgid "shared.offset"
 msgstr "抵消"
 
@@ -1931,23 +1926,18 @@ msgstr "好的"
 msgid "shared.pending"
 msgstr "等待中"
 
-#: components/Navigation/index.tsx:182
-#: components/Navigation/index.tsx:342
-msgid "shared.pledge"
-msgstr "如何给出承诺"
-
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
 msgstr "消除"
 
-#: components/Navigation/index.tsx:195
-#: components/Navigation/index.tsx:358
+#: components/Navigation/index.tsx:185
+#: components/Navigation/index.tsx:334
 #: components/pages/Blog/Post/index.tsx:70
 msgid "shared.resourcecenter"
 msgstr "资源中心"
 
-#: components/Navigation/index.tsx:192
-#: components/Navigation/index.tsx:354
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:330
 msgid "shared.resources"
 msgstr "资源"
 
@@ -1957,7 +1947,7 @@ msgstr "排序方式："
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:125
-#: components/Navigation/index.tsx:280
+#: components/Navigation/index.tsx:270
 msgid "shared.stake"
 msgstr "质押 Klima"
 
@@ -1966,7 +1956,7 @@ msgid "shared.visit_klimadao_blog"
 msgstr "访问 KlimaDAO 博客"
 
 #: components/Navigation/index.tsx:141
-#: components/Navigation/index.tsx:296
+#: components/Navigation/index.tsx:286
 msgid "shared.wrap"
 msgstr "打包 sKLIMA"
 

@@ -6,7 +6,10 @@ import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
 import { formatBigToTonnes, formatToPrice } from "lib/formatNumbers";
-import { isConnectedAddress } from "lib/formatWalletAddress";
+import {
+  formatWalletAddress,
+  isConnectedAddress,
+} from "lib/formatWalletAddress";
 import { Listing, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -26,6 +29,16 @@ const getFormattedDate = (timestamp: string, locale = "en") => {
   }).format(date);
 };
 
+function getSellerId(seller: Listing["seller"]): string | undefined {
+  if (!seller) {
+    return undefined;
+  }
+
+  return seller.handle !== undefined
+    ? seller.handle
+    : formatWalletAddress(seller.id);
+}
+
 export const SellerListing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
@@ -33,6 +46,8 @@ export const SellerListing: FC<Props> = (props) => {
   const isConnectedSeller =
     !!props.listing.seller &&
     isConnectedAddress(props.listing.seller.id, address);
+
+  const sellerId = getSellerId(props.listing.seller);
 
   return (
     <Card>
@@ -48,8 +63,12 @@ export const SellerListing: FC<Props> = (props) => {
             </div>
           )}
           <Text t="body1">
-            <Link href={createSellerLink(props.listing.seller.handle)}>
-              {isConnectedSeller ? "You" : "@" + props.listing.seller.handle}
+            <Link
+              href={createSellerLink(
+                props.listing.seller.handle ?? props.listing.seller.id
+              )}
+            >
+              {isConnectedSeller ? "You" : "@" + sellerId}
             </Link>
           </Text>
         </div>

@@ -13,7 +13,7 @@ updates:
       - "Actions dependencies"
   # GitHub Actions written in TypeScript
   - package-ecosystem: "npm"
-    directory: "/.github/actions/"
+    directory: "./.github/actions/"
     schedule:
       # Check for updates to TypeScript GitHub Actions every week
       interval: "weekly"
