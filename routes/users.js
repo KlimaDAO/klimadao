@@ -96,9 +96,9 @@ module.exports = async function (fastify, opts) {
                 const signerWalletAddress = ethers.utils.verifyMessage(signedMessage, signature);
 
                 // If the signature is invalid, send a 401 Unauthorized response
-                // if (signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()) {
-                //     return reply.code(401).send('Unauthorized: Invalid signature');
-                // }
+                if (signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()) {
+                    return reply.code(401).send('Unauthorized: Invalid signature');
+                }
 
                 // Create a JWT token for the user
                 const token = fastify.jwt.sign({ wallet });
@@ -134,6 +134,8 @@ module.exports = async function (fastify, opts) {
                             username: { type: 'string' },
                             description: { type: 'string' },
                             profileImgUrl: { type: 'string' },
+                            updatedAt: { type: 'number' },
+                            createdAt: { type: 'number' },
                             wallet: { type: 'string' },
                             listings: { type: 'array' },
                             activities: { type: 'array' },
@@ -234,7 +236,8 @@ module.exports = async function (fastify, opts) {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
                         description: { type: 'string', minLength: 2, maxLength: 500 },
-                        wallet: { type: 'string', minLength: 26, maxLength: 64 }
+                        wallet: { type: 'string', minLength: 26, maxLength: 64 },
+                        
                     },
                     required: ['handle', 'username', 'wallet', 'description']
                 },
@@ -244,7 +247,9 @@ module.exports = async function (fastify, opts) {
                         properties: {
                             handle: { type: 'string' },
                             username: { type: 'string' },
-                            wallet: { type: 'string' }
+                            wallet: { type: 'string' },
+                            updatedAt: { type: 'number' },
+                            createdAt: { type: 'number' }
                         }
                     },
                     '403': {
@@ -259,6 +264,17 @@ module.exports = async function (fastify, opts) {
             handler: async function (request, reply) {
                 // Destructure the wallet, username, handle, and description properties from the request body
                 const { wallet, username, handle, description, profileImgUrl } = request.body;
+
+                let createData = {
+                    username,
+                    handle : handle.toLowerCase(),
+                    description,
+                    createdAt: Date.now(),
+                    updatedAt: Date.now()
+                }
+                if (profileImgUrl){
+                    createData.profileImgUrl = profileImgUrl;
+                }
 
                 // Query the Firestore database for the user document with the specified wallet address
                 const user = await fastify.firebase.firestore()
@@ -289,17 +305,15 @@ module.exports = async function (fastify, opts) {
                     // Try creating a new user document with the specified data
                     await fastify.firebase.firestore()
                         .collection("users")
-                        .doc(wallet.toUpperCase()).set({
-                            username,
-                            handle : handle.toLowerCase(),
-                            description,
-                            profileImgUrl
-                        });
+                        .doc(wallet.toUpperCase()).set(
+                            createData
+                          );
                     // If the document is successfully created, return the request body
                     return reply.send(request.body);
                 } catch (err) {
+                    console.log(err);
                     // If an error occurs, return the error in the response
-                    return reply.error({ error: err });
+                    return reply.code(403).send({ error: err });
                 }
             }
         }),
@@ -339,7 +353,8 @@ module.exports = async function (fastify, opts) {
                 try {
                     let updatedData = {
                         username: username,
-                        description: description
+                        description: description,
+                        updatedAt: Date.now()
                     }
                     if (profileImgUrl){
                         updatedData.profileImgUrl = profileImgUrl;
@@ -353,6 +368,7 @@ module.exports = async function (fastify, opts) {
                     // If the update is successful, return the request body
                     return reply.send(request.body);
                 } catch (err) {
+                    console.log(err);
                     // If an error occurs, return a 404 error with a message
                     return reply.code(403).send({ code: 404, error: "No document to update" });
                 }
