@@ -97,11 +97,10 @@ export const Buy: NextPage = () => {
                 <Trans id="buy.step_3">3.</Trans>
               </Text>
               <Text t="body2">
-                <Trans id="buy.swap_for_klima_description">
+                <Trans>
                   <span className={styles.bold}>Swap for KLIMA.</span> Sushi is
-                  a Decentralized Exchange where you can instantly trade some of
-                  your MATIC tokens for KLIMA tokens at the lowest possible
-                  price.
+                  a Decentralized Exchange where you can trade some of your
+                  MATIC tokens for KLIMA tokens at the lowest possible price.
                 </Trans>
               </Text>
             </div>

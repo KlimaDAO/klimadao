@@ -2,10 +2,13 @@ import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
+import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
+import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { ListingWithProject } from "lib/types/carbonmark";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
@@ -23,10 +26,17 @@ export const Listing: FC<Props> = (props) => {
       <div className={styles.tags}>
         <Category category={props.listing.project.category.id} />
         <Vintage vintage={props.listing.project.vintage} />
+        <ProjectKey projectKey={props.listing.project.key} />
       </div>
-      <Text t="h4">{props.listing.project.name}</Text>
+      <Link href={createProjectLink(props.listing.project)}>
+        <Text t="h4" className={styles.link}>
+          {props.listing.project.name}
+        </Text>
+      </Link>
       <div className={styles.image}>
-        <ProjectImage category={props.listing.project.category.id} />
+        <Link href={createProjectLink(props.listing.project)}>
+          <ProjectImage category={props.listing.project.category.id} />
+        </Link>
       </div>
       <div className={styles.amounts}>
         <Text t="h4">

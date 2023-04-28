@@ -1,8 +1,10 @@
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
+import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -23,6 +25,8 @@ import {
 } from "lib/listingsGetter";
 import { getCategoryFromProject } from "lib/projectGetter";
 import {
+  CategoryName,
+  Methodology,
   PriceFlagged,
   Project as ProjectType,
   ProjectBuyOption,
@@ -128,11 +132,19 @@ const Page: NextPage<PageProps> = (props) => {
               {project.registry}-{project.projectID}
             </Text>
             <Vintage vintage={project.vintage} />
-            <Category category={category} />
+            {project?.methodologies?.length > 1 ? (
+              project.methodologies.map((methodology: Methodology, index) => (
+                <Category
+                  key={`${methodology?.id}-${index}`}
+                  category={methodology?.category as CategoryName}
+                />
+              ))
+            ) : (
+              <Category category={category} />
+            )}
             {notNil(registry) && <Text className={styles.tag}>{registry}</Text>}
           </div>
         </div>
-
         <div className={styles.meta}>
           <div className="best-price">
             {bestPrice && (
@@ -171,6 +183,7 @@ const Page: NextPage<PageProps> = (props) => {
         >
           {project.location && (
             <div className="mapColumn">
+               
               <ProjectMap
                 lat={project.location?.geometry.coordinates[1]}
                 lng={project.location?.geometry.coordinates[0]}
@@ -179,15 +192,28 @@ const Page: NextPage<PageProps> = (props) => {
             </div>
           )}
           <div className="descriptionColumn">
-            <Text t="h5" color="lighter">
-              <Trans>Description</Trans>
-            </Text>
-            <Text t="body1">
-              {project.description ?? "No project description found"}
-            </Text>
+            <div className="description">
+              <Text t="h5" color="lighter">
+                <Trans>Description</Trans>
+              </Text>
+              <Text t="body1">
+                {project.description ?? "No project description found"}
+              </Text>
+            </div>
+            {notNil(project.url) && (
+              <Anchor
+                target="_blank"
+                rel="noopener noreferrer"
+                href={project.url}
+                className="registryLink"
+              >
+                <Trans>
+                  View Registry Details <LaunchIcon />
+                </Trans>
+              </Anchor>
+            )}
           </div>
         </div>
-
         <div className={styles.listingsHeader}>
           <Text t="h4">Listings</Text>
           {sortedListingsAndPrices ? (
