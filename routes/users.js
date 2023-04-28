@@ -189,6 +189,7 @@ module.exports = async function (fastify, opts) {
                     // Create a new listings array with the listings from the data, and add a "selected" property set to false
                     const listings = data.data.users[0].listings.map((item) => ({ ...item, selected: false }));
 
+                    const activities = data.data.users[0].activities;
                     await Promise.all(
                         listings.map(async (listing) => {
                             const seller = await fastify.firebase.firestore()
@@ -196,6 +197,29 @@ module.exports = async function (fastify, opts) {
                                 .doc((listing.seller.id).toUpperCase())
                                 .get();
                             listing.seller = { ...seller.data(), ...listing.seller };
+                        }),
+                        activities.map(async (actvity) => {
+                              if (actvity.activityType != "Sold") {
+              
+                                const seller = await fastify.firebase
+                                  .firestore()
+                                  .collection("users")
+                                  .doc(actvity.seller.id.toUpperCase())
+                                  .get();
+                                if (seller.exists) {
+                                  actvity.seller.handle = seller.data().handle;
+                                }
+                                if (actvity.buyer) {
+                                  const buyer = await fastify.firebase
+                                    .firestore()
+                                    .collection("users")
+                                    .doc(actvity.buyer.id.toUpperCase())
+                                    .get();
+                                  if (buyer.exists) {
+                                    actvity.buyer.handle = buyer.data().handle;
+                                  }
+                                }
+                              }
                         })
                     );
                     // Add the modified listings array to the response object
