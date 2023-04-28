@@ -599,9 +599,8 @@ export const Offset = (props: Props) => {
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
-        if (isLoading) return <Trans id="shared.loading" />;
+        if (isLoading) return <Trans id="shared.loading">Loading...</Trans>;
         if (!props.isConnected || !Number(balances?.[tkn])) return "0";
-        return Number(balances?.[tkn]).toFixed(2);
       })(),
       disabled: !balances?.[tkn] || !Number(balances[tkn]),
     }))

@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
+        <I18nProvider i18n={i18n}>
           <Component {...pageProps} />
         </I18nProvider>
       </StyledEngineProvider>

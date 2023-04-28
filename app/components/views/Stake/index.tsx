@@ -349,21 +349,16 @@ export const Stake = (props: Props) => {
               </button>
             </div>
             <div className={styles.stakeInput}>
-              <Trans
-                id={inputPlaceholderMessage[view].id}
-                render={({ translation }) => (
-                  <input
-                    className={styles.stakeInput_input}
-                    value={quantity}
-                    onChange={(e) => {
-                      setQuantity(e.target.value);
-                      setStatus(null);
-                    }}
-                    type="number"
-                    placeholder={translation as string}
-                    min="0"
-                  />
-                )}
+              <input
+                className={styles.stakeInput_input}
+                value={quantity}
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                  setStatus(null);
+                }}
+                type="number"
+                placeholder={t({ id: inputPlaceholderMessage[view].id })}
+                min="0"
               />
               <button
                 className={styles.stakeInput_max}
