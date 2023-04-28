@@ -1,11 +1,15 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-27 23:22+0000\n"
+"POT-Creation-Date: 2023-04-28 00:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+
+#: components/pages/Buy/index.tsx:100
+msgid "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
+msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -72,59 +76,59 @@ msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO (â€
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
-#: components/pages/Buy/index.tsx:433
+#: components/pages/Buy/index.tsx:432
 msgid "buy.answer_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:390
+#: components/pages/Buy/index.tsx:389
 msgid "buy.bond_answer_cedit_card"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:408
+#: components/pages/Buy/index.tsx:407
 msgid "buy.bond_answer_cex1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:416
+#: components/pages/Buy/index.tsx:415
 msgid "buy.bond_answer_cex2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:371
+#: components/pages/Buy/index.tsx:370
 msgid "buy.bond_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:380
+#: components/pages/Buy/index.tsx:379
 msgid "buy.bond_description_capacity"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:401
+#: components/pages/Buy/index.tsx:400
 msgid "buy.bond_question_cex"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:385
+#: components/pages/Buy/index.tsx:384
 msgid "buy.bond_question_credit_card"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:190
+#: components/pages/Buy/index.tsx:189
 msgid "buy.connect_advanced"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:185
+#: components/pages/Buy/index.tsx:184
 msgid "buy.connect_torus_sushi"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:211
 msgid "buy.connect_torus_sushi_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:229
+#: components/pages/Buy/index.tsx:228
 msgid "buy.connect_torus_sushi_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:237
+#: components/pages/Buy/index.tsx:236
 msgid "buy.connect_torus_sushi_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:243
+#: components/pages/Buy/index.tsx:242
 msgid "buy.connect_torus_sushi_description5"
 msgstr ""
 
@@ -132,27 +136,27 @@ msgstr ""
 msgid "buy.create_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:114
+#: components/pages/Buy/index.tsx:113
 msgid "buy.create_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:120
+#: components/pages/Buy/index.tsx:119
 msgid "buy.create_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:129
+#: components/pages/Buy/index.tsx:128
 msgid "buy.create_wallet_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:134
 msgid "buy.create_wallet_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:111
+#: components/pages/Buy/index.tsx:110
 msgid "buy.create_wallet_item"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:319
+#: components/pages/Buy/index.tsx:318
 msgid "buy.faq_title"
 msgstr ""
 
@@ -173,7 +177,7 @@ msgstr ""
 msgid "buy.how_to_paragraph_part_2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:143
+#: components/pages/Buy/index.tsx:142
 msgid "buy.load_wallet"
 msgstr ""
 
@@ -181,59 +185,59 @@ msgstr ""
 msgid "buy.load_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:148
+#: components/pages/Buy/index.tsx:147
 msgid "buy.load_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:158
+#: components/pages/Buy/index.tsx:157
 msgid "buy.load_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:168
+#: components/pages/Buy/index.tsx:167
 msgid "buy.load_wallet_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:427
+#: components/pages/Buy/index.tsx:426
 msgid "buy.question_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:322
+#: components/pages/Buy/index.tsx:321
 msgid "buy.question_why_matic"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:327
+#: components/pages/Buy/index.tsx:326
 msgid "buy.question_why_matic_answer"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:338
+#: components/pages/Buy/index.tsx:337
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:345
+#: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:352
+#: components/pages/Buy/index.tsx:351
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:359
+#: components/pages/Buy/index.tsx:358
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:292
+#: components/pages/Buy/index.tsx:291
 msgid "buy.staking_cta"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:295
+#: components/pages/Buy/index.tsx:294
 msgid "buy.staking_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:303
+#: components/pages/Buy/index.tsx:302
 msgid "buy.staking_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:310
+#: components/pages/Buy/index.tsx:309
 msgid "buy.staking_description3"
 msgstr ""
 
@@ -257,48 +261,44 @@ msgstr ""
 msgid "buy.summary_title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:253
+#: components/pages/Buy/index.tsx:252
 msgid "buy.swap_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:259
+#: components/pages/Buy/index.tsx:258
 msgid "buy.swap_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:275
+#: components/pages/Buy/index.tsx:274
 msgid "buy.swap_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:282
+#: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:100
-msgid "buy.swap_for_klima_description"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:250
+#: components/pages/Buy/index.tsx:249
 msgid "buy.swap_subtitle"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:179
+#: components/pages/Buy/index.tsx:178
 msgid "buy.swap_wallet"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:196
+#: components/pages/Buy/index.tsx:195
 msgid "buy.torus_login_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:204
 msgid "buy.wallet_connect_example"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:222
-#: components/pages/Buy/index.tsx:268
+#: components/pages/Buy/index.tsx:221
+#: components/pages/Buy/index.tsx:267
 msgid "buy.wallet_connect_example_qr_code"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:366
+#: components/pages/Buy/index.tsx:365
 msgid "buy.what_are_bonds"
 msgstr ""
 
