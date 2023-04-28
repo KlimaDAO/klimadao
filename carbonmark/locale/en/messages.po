@@ -187,7 +187,19 @@ msgstr "Edit Profile"
 msgid "Energy Efficiency"
 msgstr "Energy Efficiency"
 
+<<<<<<< HEAD
 #: components/pages/Purchases/index.tsx:112
+=======
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
+msgid "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
+msgstr "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
+msgid "Explore MCO2 on carbon.klimadao.finance"
+msgstr "Explore MCO2 on carbon.klimadao.finance"
+
+#: components/pages/Purchases/index.tsx:105
+>>>>>>> 05259d28 (update translations)
 msgid "Final price"
 msgstr "Final price"
 
@@ -257,6 +269,10 @@ msgstr "Loading your assets"
 msgid "Loading..."
 msgstr "Loading..."
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+msgid "Location: {0}"
+msgstr "Location: {0}"
+
 #: components/Layout/NavDrawer/index.tsx:51
 #: components/LoginButton/index.tsx:7
 msgid "Log in"
@@ -275,6 +291,10 @@ msgstr "Log out"
 msgid "Login"
 msgstr "Login"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:50
+msgid "MCO2 Token"
+msgstr "MCO2 Token"
+
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -288,6 +308,10 @@ msgstr "Marketplace | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "Methodology"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+msgid "Methodology: {0}"
+msgstr "Methodology: {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -313,6 +337,10 @@ msgstr "No listings found for this project."
 #: components/pages/Projects/index.tsx:74
 msgid "No project description found"
 msgstr "No project description found"
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+msgid "No retirement message provided."
+msgstr "No retirement message provided."
 
 #: components/Layout/AddressSection/index.tsx:21
 msgid "Not Connected"
@@ -368,6 +396,10 @@ msgstr "Privacy Policy"
 #: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
 msgstr "Privacy policy"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
+msgid "Processing data..."
+msgstr "Processing data..."
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -564,6 +596,10 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
+msgid "View on Polygonscan"
+msgstr "View on Polygonscan"
+
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
 msgstr "View the project details and other info for this purchase."
@@ -583,6 +619,10 @@ msgstr "Vintage Oldest"
 #: components/pages/Purchases/index.tsx:65
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:154
+msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
+msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
 msgid "Wrong Network"
@@ -953,6 +993,14 @@ msgstr "Approve"
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
+#: components/pages/Retirements/index.tsx:51
+msgid "shared.head.description"
+msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
+msgid "shared.loading"
+msgstr "Loading..."
+
 #: components/Layout/index.tsx:89
 msgid "shared.login"
 msgstr "Login"
@@ -1111,3 +1159,11 @@ msgstr "{0} | Profile | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} tonnes were purchased for project {0}"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
+msgid "{trimCurrentSupply} Tonnes remaining"
+msgstr "{trimCurrentSupply} Tonnes remaining"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
+msgid "{trimTotalRetired} Tonnes retired in total"
+msgstr "{trimTotalRetired} Tonnes retired in total"

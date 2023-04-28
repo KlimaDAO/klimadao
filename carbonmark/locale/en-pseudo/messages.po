@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
@@ -181,7 +187,19 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Purchases/index.tsx:112
+=======
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
+msgid "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
+msgid "Explore MCO2 on carbon.klimadao.finance"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:105
+>>>>>>> 05259d28 (update translations)
 msgid "Final price"
 msgstr ""
 
@@ -251,6 +269,10 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+msgid "Location: {0}"
+msgstr ""
+
 #: components/Layout/NavDrawer/index.tsx:51
 #: components/LoginButton/index.tsx:7
 msgid "Log in"
@@ -269,6 +291,10 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:50
+msgid "MCO2 Token"
+msgstr ""
+
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -281,6 +307,10 @@ msgstr ""
 
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+msgid "Methodology: {0}"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
@@ -306,6 +336,10 @@ msgstr ""
 
 #: components/pages/Projects/index.tsx:74
 msgid "No project description found"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+msgid "No retirement message provided."
 msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:21
@@ -361,6 +395,10 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
+msgid "Processing data..."
 msgstr ""
 
 #: components/shared/Navigation/index.tsx:69
@@ -558,6 +596,10 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
+msgid "View on Polygonscan"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
 msgstr ""
@@ -576,6 +618,10 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:65
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:154
+msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
@@ -947,6 +993,14 @@ msgstr ""
 msgid "shared.connect_to_buy"
 msgstr ""
 
+#: components/pages/Retirements/index.tsx:51
+msgid "shared.head.description"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
+msgid "shared.loading"
+msgstr ""
+
 #: components/Layout/index.tsx:89
 msgid "shared.login"
 msgstr ""
@@ -1104,4 +1158,12 @@ msgstr ""
 
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
+msgid "{trimCurrentSupply} Tonnes remaining"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
+msgid "{trimTotalRetired} Tonnes retired in total"
 msgstr ""
