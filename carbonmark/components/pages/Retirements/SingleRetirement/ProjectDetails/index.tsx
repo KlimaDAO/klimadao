@@ -4,7 +4,6 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import { normalizeProjectId } from "lib/normalizeProjectId";
 import { FC } from "react";
-
 import { ProjectDetail } from "./List";
 import * as styles from "./styles";
 
@@ -32,8 +31,8 @@ export const ProjectDetails: FC<Props> = (props) => {
           <Text t="body2">
             <Trans>
               <Trans>
-                Every KlimaDAO retirement is tied to a verified offset project.
-                Click to learn more about the project.
+                Every Carbonmark retirement is tied to a verified offset
+                project. Click to learn more about the project.
               </Trans>
             </Trans>
           </Text>

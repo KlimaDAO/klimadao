@@ -187,19 +187,7 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
-<<<<<<< HEAD
 #: components/pages/Purchases/index.tsx:112
-=======
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
-msgid "Every KlimaDAO retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr ""
-
-#: components/pages/Purchases/index.tsx:105
->>>>>>> 05259d28 (update translations)
 msgid "Final price"
 msgstr ""
 
