@@ -1,0 +1,368 @@
+##### Base level registry and bridging data #####
+
+enum Registry {
+  VERRA
+  GOLD_STANDARD
+  PURO_EARTH
+}
+
+enum RetireSource {
+  KLIMA
+  OTHER
+}
+
+enum BridgeProtocol {
+  TOUCAN
+  C3
+  MOSS
+  THALLO
+}
+
+type Token @entity {
+  "Ethereum contract address"
+  id: Bytes!
+
+  "Name of the token"
+  name: String!
+
+  "Symbol of the token"
+  symbol: String!
+
+  "Decimals of the token"
+  decimals: Int!
+
+  "Latest price in USD"
+  latestPriceUSD: BigDecimal
+
+  "Latest price update timestamp"
+  latestPriceUSDUpdated: BigInt
+
+  "Latest price in KLIMA"
+  latestPricePerKLIMA: BigDecimal
+
+  "Latest price in KLIMAupdate timestamp"
+  latestPricePerKLIMAUpdated: BigInt
+}
+
+##############################
+#### Carbon Specific Data ####
+##############################
+
+type Methodology @entity {
+  id: ID!
+
+  scope: String
+
+  approvalDate: String!
+
+  currentVersion: String!
+}
+
+type CarbonProject @entity {
+  "{Registry Enum String}-{Registry Project ID}"
+  id: ID!
+
+  "Issuing registry"
+  registry: Registry!
+
+  "Registry Project ID"
+  projectID: String!
+
+  "Name of the project"
+  name: String!
+
+  "Methodologies associated with this project. For projects having more than one, the first one is the primary methodology."
+  methodologies: String!
+
+  "Category associated with this project"
+  category: String!
+
+  "Country where the project takes place"
+  country: String!
+
+  "Region within the country where the project takes place"
+  region: String!
+
+  "Carbon offset tokens related to this project"
+  carbonOffsets: [CarbonOffset!]! @derivedFrom(field: "project")
+}
+
+type CarbonOffset @entity {
+  "Ethereum address where the token is deployed"
+  id: Bytes!
+
+  "Protocol used to bridge the tons"
+  bridgeProtocol: BridgeProtocol!
+
+  "Carbon Project this token belongs to"
+  project: CarbonProject!
+
+  "Vintage of issuance"
+  vintage: Int!
+
+  "Current token supply"
+  currentSupply: BigInt!
+
+  "Total tokens issued via bridging"
+  bridged: BigInt!
+
+  "Total tokens retired"
+  retired: BigInt!
+
+  "All bridge events for this offset"
+  bridges: [Bridge!]! @derivedFrom(field: "offset")
+
+  "All retirement events for this offset"
+  retires: [Retire!]! @derivedFrom(field: "offset")
+
+  "Current pool balances for this offset"
+  poolBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "offset")
+}
+
+type Bridge @entity {
+  "{Transaction hash}-{Log Index}"
+  id: Bytes!
+
+  "Offset bridged"
+  offset: CarbonOffset!
+
+  "Account receiving the bridged carbon"
+  account: Account!
+
+  "Amount of tokens bridged in native units"
+  amount: BigInt!
+
+  "Block timestamp of the bridge"
+  timestamp: BigInt!
+}
+
+type Retire @entity {
+  "{Account}-{Total Retirement Counter}"
+  id: Bytes!
+
+  "Carbon offset being retired"
+  offset: CarbonOffset!
+
+  "Pool offset was sourced from, if any"
+  pool: CarbonPool
+
+  "Source of the retirement"
+  source: RetireSource!
+
+  "Amount of carbon retired"
+  amount: BigInt!
+
+  "Beneficiary address"
+  beneficiaryAddress: Account!
+
+  "Beneficiary description"
+  beneficiaryName: String!
+
+  "Retiree address"
+  retiringAddress: Account!
+
+  "Retiree description"
+  retiringName: String!
+
+  "Block timestamp of retirement"
+  timestamp: BigInt!
+
+  ### Additional attributes if applicable ###
+
+  klimaRetire: KlimaRetire @derivedFrom(field: "retire")
+}
+
+type KlimaRetire @entity {
+  "{Account}-{Klima Retirement Index}"
+  id: Bytes!
+
+  "Retirement made by the aggregator"
+  retire: Retire!
+
+  "Klima retirement index"
+  index: BigInt!
+
+  "Fee charged for retirement in native units"
+  feeAmount: BigInt!
+
+  "Selective retirement"
+  specific: Boolean!
+}
+
+##############################
+###### Carbon Pool Data ######
+##############################
+
+type CarbonPool @entity {
+  "Ethereum address of the pool contract"
+  id: Bytes!
+
+  "Current supply"
+  supply: BigInt!
+
+  "Current balances of underlying project tokens"
+  offsetBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "pool")
+
+  ### Snapshots ###
+
+  dailySnapshots: [CarbonPoolDailySnapshot!]! @derivedFrom(field: "pool")
+
+  ### Event level data ###
+
+  deposits: [PoolDeposit!]! @derivedFrom(field: "pool")
+
+  redeems: [PoolRedeem!]! @derivedFrom(field: "pool")
+}
+
+type CarbonPoolDailySnapshot @entity {
+  "Ethereum address of the pool contract"
+  id: Bytes!
+
+  "Pool this snapshot belongs to"
+  pool: CarbonPool!
+
+  "Current supply"
+  supply: BigInt!
+
+  "Current balances of underlying project tokens"
+  offsetBalances: [CarbonPoolOffsetBalanceDailySnapshot!]! @derivedFrom(field: "poolSnapshot")
+}
+
+type CarbonPoolOffsetBalance @entity {
+  "{Pool Address}-{Offset Address}"
+  id: Bytes!
+
+  "Target carbon pool"
+  pool: CarbonPool!
+
+  "Offset being pooled"
+  offset: CarbonOffset!
+
+  "Current balance"
+  balance: BigInt!
+
+  "LTD deposited amount"
+  deposited: BigInt!
+
+  "LTD redeemed amount"
+  redeemed: BigInt!
+}
+
+type CarbonPoolOffsetBalanceDailySnapshot @entity {
+  "{Pool Address}-{Offset Address}"
+  id: Bytes!
+
+  "Target carbon pool"
+  pool: CarbonPool!
+
+  "Offset being pooled"
+  offset: CarbonOffset!
+
+  "The daily pool snapshot that this belongs to"
+  poolSnapshot: CarbonPoolDailySnapshot!
+
+  "Current balance"
+  balance: BigInt!
+
+  "Deposited amount"
+  deposited: BigInt!
+
+  "Redeemed amount"
+  redeemed: BigInt!
+}
+
+type PoolDeposit @entity {
+  "{Transaction hash}-{Log Index}"
+  id: Bytes!
+
+  "Account making the deposit"
+  account: Account!
+
+  "Pool that the offset was deposited in"
+  pool: CarbonPool!
+
+  "Offset deposited in the pool"
+  offset: CarbonOffset!
+
+  "Amount deposited in native units"
+  amount: BigInt!
+
+  "Block timestamp of the deposit"
+  timestamp: BigInt!
+}
+
+type PoolRedeem @entity {
+  "{Transaction hash}-{Log Index}"
+  id: Bytes!
+
+  "Account making the redemption"
+  account: Account!
+
+  "Pool that the offset was redeemed from"
+  pool: CarbonPool!
+
+  "Offset redeemed from the pool"
+  offset: CarbonOffset!
+
+  "Amount redeemed in native units"
+  amount: BigInt!
+
+  "Block timestamp of the deposit"
+  timestamp: BigInt!
+}
+
+##############################
+##### Account level data #####
+##############################
+
+type Account @entity {
+  "Ethereum address of the account"
+  id: Bytes!
+
+  ## Carbon Offset Activity ##
+  bridges: [Bridge!]! @derivedFrom(field: "account")
+  retiresBeneficiary: [Retire!]! @derivedFrom(field: "beneficiaryAddress")
+  retiresInitiator: [Retire!]! @derivedFrom(field: "retiringAddress")
+
+  ## Pool Activity ##
+  poolDeposits: [PoolDeposit!]! @derivedFrom(field: "account")
+  poolRedeems: [PoolRedeem!]! @derivedFrom(field: "account")
+
+  ## Token Balance Activity ##
+  holdings: [Holding!]! @derivedFrom(field: "account")
+  holdingSnapshots: [HoldingDailySnapshot!]! @derivedFrom(field: "account")
+}
+
+type Holding @entity {
+  "{Account}-{Token}"
+  id: Bytes!
+
+  "Account this belongs to"
+  account: Account!
+
+  "Token being held"
+  token: Token!
+
+  "Amount currently held in native units"
+  amount: BigInt!
+
+  "Timestamp last updated"
+  lastUpdated: BigInt!
+}
+
+type HoldingDailySnapshot @entity {
+  "{Account}-{Token}-{Days since Unix epoch}"
+  id: Bytes!
+
+  "Account this belongs to"
+  account: Account!
+
+  "Token being held"
+  token: Token!
+
+  "Day in Unix timestamp"
+  timestamp: BigInt!
+
+  "Amount currently held in native units"
+  amount: BigInt!
+}
