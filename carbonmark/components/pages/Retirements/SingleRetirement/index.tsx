@@ -124,7 +124,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         })}
         metaDescription={t({
           id: "retirement.head.metaDescription",
-          message: "Transparent, on-chain offsets powered by KlimaDAO.",
+          message: "Transparent, on-chain offsets powered by Carbonmark.",
         })}
         canonicalUrl={props.canonicalUrl}
       />

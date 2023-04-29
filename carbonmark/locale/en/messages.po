@@ -279,7 +279,7 @@ msgstr "Log out"
 msgid "Login"
 msgstr "Login"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
 msgid "MCO2 Token"
 msgstr "MCO2 Token"
 

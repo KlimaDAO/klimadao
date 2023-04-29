@@ -6,7 +6,7 @@ import {
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-export const FACEBOOK_SHARE_URL =
+export const LINKEDIN_SHARE_URL =
   "https://www.linkedin.com/sharing/share-offsite/?url={url}";
 
 type LinkedInHref = {
@@ -15,7 +15,7 @@ type LinkedInHref = {
 
 // https://www.linkedin.com/sharing/share-offsite/?url=https://www.klimadao.finance/
 export const getLinkedInHref = ({ url }: LinkedInHref) => {
-  const shareUrl = new URL(FACEBOOK_SHARE_URL);
+  const shareUrl = new URL(LINKEDIN_SHARE_URL);
   const search = new URLSearchParams({
     url: url,
   }).toString();
