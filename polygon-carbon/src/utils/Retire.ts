@@ -11,7 +11,8 @@ export function saveRetire(
   beneficiaryName: string,
   retiringAddress: Address,
   retiringName: string,
-  timestamp: BigInt
+  timestamp: BigInt,
+  bridgeID: string | null
 ): void {
   let retire = new Retire(id)
   retire.offset = offset
@@ -23,5 +24,6 @@ export function saveRetire(
   retire.retiringAddress = retiringAddress
   retire.retiringName = retiringName
   retire.timestamp = timestamp
+  if (bridgeID !== null) retire.bridgeID = bridgeID
   retire.save()
 }

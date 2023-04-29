@@ -214,6 +214,8 @@ templates:
       eventHandlers:
         - event: Retired(address,uint256)
           handler: handleToucanRetired
+        - event: Retired(address,uint256,uint256)
+          handler: handleRetired_1_4_0
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleOffsetTransfer
       file: ./src/TransferHandler.ts

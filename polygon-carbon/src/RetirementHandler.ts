@@ -1,6 +1,6 @@
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
-import { Retired } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { loadCarbonOffset } from './utils/CarbonOffset'
 import { saveRetire } from './utils/Retire'
 
@@ -20,7 +20,29 @@ export function saveToucanRetirement(event: Retired): void {
     '',
     event.transaction.from,
     '',
-    event.block.timestamp
+    event.block.timestamp,
+    null
+  )
+}
+
+export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
+  let offset = loadCarbonOffset(event.address)
+
+  offset.retired = offset.retired.plus(event.params.amount)
+  offset.save()
+
+  saveRetire(
+    event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
+    event.address,
+    ZERO_ADDRESS,
+    'OTHER',
+    event.params.amount,
+    event.params.sender,
+    '',
+    event.transaction.from,
+    '',
+    event.block.timestamp,
+    event.params.eventId.toString()
   )
 }
 
@@ -49,6 +71,7 @@ export function handleVCUOMinted(event: VCUOMinted): void {
     '',
     event.transaction.from,
     '',
-    event.block.timestamp
+    event.block.timestamp,
+    null
   )
 }

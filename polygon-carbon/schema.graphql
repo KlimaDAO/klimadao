@@ -140,6 +140,9 @@ type Retire @entity {
   "{Account}-{Total Retirement Counter}"
   id: Bytes!
 
+  "Protocol specific ID"
+  bridgeID: String
+
   "Carbon offset being retired"
   offset: CarbonOffset!
 
