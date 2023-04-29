@@ -40,7 +40,7 @@ export class VestingMetricUtils {
   }
 
   private static loadOrCreateFutureVestingMetric(timestamp: BigInt, lockableToken: ILockable): VestingMetric {
-    const dayTimestampString = dayFromTimestamp(timestamp)
+    const dayTimestampString = dayFromTimestamp(timestamp).toString()
     const id = this.generateId(dayTimestampString, lockableToken.getContractAddress().toHexString())
 
     let vestingMetric = VestingMetric.load(id)
@@ -54,7 +54,7 @@ export class VestingMetricUtils {
   }
 
   private static loadOrCreateVestingMetric(timestamp: BigInt, lockableToken: ILockable): VestingMetric {
-    const dayTimestampString = dayFromTimestamp(timestamp)
+    const dayTimestampString = dayFromTimestamp(timestamp).toString()
     const dayTimestamp = BigInt.fromString(dayTimestampString)
 
     const id = this.generateId(dayTimestampString, lockableToken.getContractAddress().toHexString())
@@ -75,7 +75,7 @@ export class VestingMetricUtils {
 
   private static getTheMostRecentVestingMetric(timestamp: BigInt, lockableToken: ILockable): VestingMetric {
     const prevTimestamp = timestamp.minus(DAY_IN_SECONDS)
-    const prevDayTimestampString = dayFromTimestamp(prevTimestamp)
+    const prevDayTimestampString = dayFromTimestamp(prevTimestamp).toString()
     const id = this.generateId(prevDayTimestampString, lockableToken.getContractAddress().toHexString())
 
     if (prevTimestamp.lt(lockableToken.getInitTimestamp())) {

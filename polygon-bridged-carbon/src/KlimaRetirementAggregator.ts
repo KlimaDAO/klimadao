@@ -168,7 +168,7 @@ export function handleCarbonRetired(event: CarbonRetired): void {
 }
 
 function generateDailyKlimaRetirement(klimaRetire: KlimaRetire): DailyKlimaRetirement {
-  const dayTimestamp = dayFromTimestamp(klimaRetire.timestamp)
+  const dayTimestamp = dayFromTimestamp(klimaRetire.timestamp).toString()
   const id = dayTimestamp + klimaRetire.token
 
   const dailyKlimaRetirement = loadOrCreateDailyKlimaRetirement(id)

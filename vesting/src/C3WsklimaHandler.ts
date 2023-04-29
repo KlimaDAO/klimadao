@@ -27,7 +27,7 @@ export function handleStakeLocked(event: StakeLocked): void {
   VestingMetricUtils.updateLockMetric(c3Wsklima, event.block.timestamp, lock.lockedAmount)
 
   //Update vesting metrics for future maturity date
-  const maturityTimestampString = dayFromTimestamp(lock.maturityDate)
+  const maturityTimestampString = dayFromTimestamp(lock.maturityDate).toString()
   VestingMetricUtils.updateMaturityMetric(c3Wsklima, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
 }
 
