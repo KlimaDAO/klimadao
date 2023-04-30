@@ -1,9 +1,8 @@
-import { Address, store } from '@graphprotocol/graph-ts'
+import { store } from '@graphprotocol/graph-ts'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
-import { loadCarbonOffset, updateCarbonOffsetWithCall } from './utils/CarbonOffset'
+import { loadCarbonOffset } from './utils/CarbonOffset'
 import { Retired } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
-import { saveRetire } from './utils/Retire'
 import { loadOrCreateHolding } from './utils/Holding'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
@@ -11,11 +10,6 @@ import { saveToucanRetirement } from './RetirementHandler'
 
 export function handleOffsetTransfer(event: Transfer): void {
   let offset = loadCarbonOffset(event.address)
-
-  if (offset.vintage == 1970) {
-    // Update the entity with call data
-    offset = updateCarbonOffsetWithCall(Address.fromBytes(offset.id), offset.bridgeProtocol)
-  }
 
   if (event.params.from == ZERO_ADDRESS) {
     offset.bridged = offset.bridged.plus(event.params.value)

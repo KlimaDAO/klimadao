@@ -21,6 +21,8 @@ dataSources:
       abis:
         - name: ToucanCarbonOffsetsFactory
           file: ../lib/abis/ToucanCarbonOffsetsFactory.json
+        - name: ToucanCarbonOffsets
+          file: ../lib/abis/ToucanCarbonOffsets.json
         - name: ERC20
           file: ../lib/abis/ERC20.json
       eventHandlers:

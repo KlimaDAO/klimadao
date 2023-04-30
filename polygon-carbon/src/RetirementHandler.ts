@@ -1,6 +1,7 @@
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { loadOrCreateAccount } from './utils/Account'
 import { loadCarbonOffset } from './utils/CarbonOffset'
 import { saveRetire } from './utils/Retire'
 
@@ -9,6 +10,10 @@ export function saveToucanRetirement(event: Retired): void {
 
   offset.retired = offset.retired.plus(event.params.tokenId)
   offset.save()
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.params.sender)
+  loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
     event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
@@ -30,6 +35,10 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
 
   offset.retired = offset.retired.plus(event.params.amount)
   offset.save()
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.params.sender)
+  loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
     event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
@@ -60,6 +69,10 @@ export function handleVCUOMinted(event: VCUOMinted): void {
 
   offset.retired = offset.retired.plus(retireAmount)
   offset.save()
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.params.sender)
+  loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
     event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),

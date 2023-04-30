@@ -41,6 +41,7 @@ function updateToucanCall(tokenAddress: Address, carbonOffset: CarbonOffset): Ca
 
   carbonOffset.project = project.id
   carbonOffset.vintage = stdYearFromTimestamp(attributes.value1.startTime)
+  carbonOffset.save()
 
   project.methodologies = attributes.value0.methodology
   project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
@@ -64,6 +65,7 @@ function updateC3Call(tokenAddress: Address, carbonOffset: CarbonOffset): Carbon
   let vintageParsed = BigInt.fromI64(Date.UTC(carbonOffsetERC20.getVintage().toI32(), 0) / 1000)
 
   carbonOffset.vintage = stdYearFromTimestamp(vintageParsed)
+  carbonOffset.save()
 
   project.methodologies = attributes.methodology
   project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
