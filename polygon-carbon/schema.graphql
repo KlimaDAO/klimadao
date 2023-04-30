@@ -119,9 +119,12 @@ type CarbonOffset @entity {
   poolBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "offset")
 }
 
-type Bridge @entity {
+type Bridge @entity(immutable: true) {
   "{Transaction hash}-{Log Index}"
   id: Bytes!
+
+  "Transaction hash of the event"
+  hash: Bytes!
 
   "Offset bridged"
   offset: CarbonOffset!

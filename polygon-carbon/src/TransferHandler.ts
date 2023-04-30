@@ -7,6 +7,7 @@ import { loadOrCreateHolding } from './utils/Holding'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
 import { saveToucanRetirement } from './RetirementHandler'
+import { saveBridge } from './utils/Bridge'
 
 export function handleOffsetTransfer(event: Transfer): void {
   let offset = loadCarbonOffset(event.address)
@@ -14,6 +15,14 @@ export function handleOffsetTransfer(event: Transfer): void {
   if (event.params.from == ZERO_ADDRESS) {
     offset.bridged = offset.bridged.plus(event.params.value)
     offset.currentSupply = offset.currentSupply.plus(event.params.value)
+    saveBridge(
+      event.transaction.hash,
+      event.transactionLogIndex,
+      event.address,
+      event.params.to,
+      event.params.value,
+      event.block.timestamp
+    )
   } else {
     loadOrCreateAccount(event.params.from)
     let fromHolding = loadOrCreateHolding(event.params.from, event.address)
