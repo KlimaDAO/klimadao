@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-28 00:31+0000\n"
+"POT-Creation-Date: 2023-05-01 15:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -428,7 +428,7 @@ msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
 #: components/views/Home/index.tsx:176
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "संस्थागत"
 
 #: components/views/Home/index.tsx:168
 msgid "connectModal.torus"

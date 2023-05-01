@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-04-28 00:31+0000\n"
+"POT-Creation-Date: 2023-05-01 15:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,7 +136,11 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Users/index.tsx:44
+#: components/pages/Users/SellerConnected/index.tsx:160
+msgid "Create Profile"
+msgstr ""
+
+#: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr ""
 
@@ -149,7 +153,7 @@ msgid "Data for this project and vintage"
 msgstr ""
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:99
+#: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "Data for this seller"
 msgstr ""
 
@@ -169,7 +173,7 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: components/pages/Users/ProfileButton/index.tsx:11
+#: components/pages/Users/SellerConnected/index.tsx:160
 msgid "Edit Profile"
 msgstr ""
 
@@ -229,8 +233,8 @@ msgstr ""
 msgid "Listing cost, incl. {0}% fee"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:180
-#: components/pages/Users/SellerUnconnected/index.tsx:56
+#: components/pages/Users/SellerConnected/index.tsx:174
+#: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr ""
 
@@ -283,8 +287,8 @@ msgstr ""
 msgid "New Unit Price (USDC)"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:226
-#: components/pages/Users/SellerUnconnected/index.tsx:92
+#: components/pages/Users/SellerConnected/index.tsx:219
+#: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr ""
 
@@ -325,7 +329,8 @@ msgid "Please Log In"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:60
-#: components/pages/Users/SellerConnected/index.tsx:155
+#: components/pages/Users/SellerConnected/index.tsx:135
+#: components/pages/Users/SellerConnected/index.tsx:149
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
@@ -484,11 +489,7 @@ msgstr ""
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:117
-msgid "There was an error getting your data: {error}"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:92
+#: components/pages/Users/SellerConnected/index.tsx:109
 msgid "There was an error loading your assets. {e}"
 msgstr ""
 
@@ -528,7 +529,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:220
+#: components/pages/Users/SellerConnected/index.tsx:213
 msgid "Updating your data..."
 msgstr ""
 
@@ -590,7 +591,7 @@ msgid "Your display name"
 msgstr ""
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:243
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "Your seller data"
 msgstr ""
 
@@ -699,7 +700,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:196
+#: components/pages/Users/SellerConnected/index.tsx:191
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -715,7 +716,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:253
+#: components/pages/Users/SellerConnected/index.tsx:243
 msgid "profile.edit_profile.title"
 msgstr ""
 
@@ -723,15 +724,15 @@ msgstr ""
 msgid "profile.edit_your_profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:159
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
 msgid "profile.listing.delete.error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:179
 msgid "profile.listing.edit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:208
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
@@ -856,11 +857,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:182
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:188
 msgid "seller.edit_listing.title"
 msgstr ""
 
-#: components/pages/Users/SellerUnconnected/index.tsx:79
+#: components/pages/Users/SellerUnconnected/index.tsx:70
 msgid "seller.listing.buy"
 msgstr ""
 
@@ -874,7 +875,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
 #: components/pages/Project/Purchase/PurchaseForm.tsx:179
-#: components/pages/Users/SellerUnconnected/index.tsx:69
+#: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr ""
 
@@ -891,7 +892,7 @@ msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/CreateListing/index.tsx:145
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:229
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:235
 msgid "tonnes.long"
 msgstr ""
 
@@ -899,7 +900,7 @@ msgstr ""
 msgid "transaction.create_listing.approval_description"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:244
 msgid "transaction.edit_listing.approval_description"
 msgstr ""
 
@@ -1045,7 +1046,7 @@ msgstr ""
 msgid "user.login.description"
 msgstr ""
 
-#: components/pages/Users/index.tsx:38
+#: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
 msgstr ""
 
