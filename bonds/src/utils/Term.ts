@@ -7,7 +7,7 @@ import { BigIntZero } from '../../../pairs/src/utils'
 export function createTerm(marketId: BigInt): Term {
   const term = new Term(marketId.toString())
 
-  let bondV2Contract = KlimaProV2.bind(Address.fromString(constants.PRO_KLIMA_V2))
+  let bondV2Contract = KlimaProV2.bind(constants.PRO_KLIMA_V2)
   let terms_call = bondV2Contract.try_terms(marketId)
   if (terms_call.reverted) {
     throw new Error('Term not found - Market ID: ' + marketId.toString())

@@ -24,7 +24,7 @@ export class Co2Compound implements ILockable {
   }
 
   getInitTimestamp(): BigInt {
-    return BigInt.fromString(constants.NFT_CO2COMPOUND_INIT_TIMESTAMP)
+    return constants.NFT_CO2COMPOUND_INIT_TIMESTAMP
   }
 
   //Get wsKLIMA supply via index

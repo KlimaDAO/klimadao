@@ -7,7 +7,7 @@ import { toDecimal } from '../../utils/Decimals'
 import { PriceUtil } from '../../utils/Price'
 
 export class NCT implements IToken {
-  private contractAddress: Address = Address.fromString(constants.NCT_ERC20_CONTRACT)
+  private contractAddress: Address = constants.NCT_ERC20_CONTRACT
 
   getERC20ContractAddress(): string {
     return this.contractAddress.toHexString()

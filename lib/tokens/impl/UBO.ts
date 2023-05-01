@@ -8,7 +8,7 @@ import { KLIMA } from './KLIMA'
 import { PriceUtil } from '../../utils/Price'
 
 export class UBO implements IToken {
-  private contractAddress: Address = Address.fromString(constants.UBO_ERC20_CONTRACT)
+  private contractAddress: Address = constants.UBO_ERC20_CONTRACT
   private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {

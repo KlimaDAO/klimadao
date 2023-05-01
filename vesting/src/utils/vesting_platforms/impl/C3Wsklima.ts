@@ -24,7 +24,7 @@ export class C3Wsklima implements ILockable {
   }
 
   getInitTimestamp(): BigInt {
-    return BigInt.fromString(constants.C3_WSKLIMA_INIT_TIMESTAMP)
+    return constants.C3_WSKLIMA_INIT_TIMESTAMP
   }
 
   //Get wsKLIMA supply via index

@@ -1,26 +1,26 @@
 {
-    "name": "root",
-    "private": true,
-    "packageManager": "yarn@3.4.1",
-    "workspaces": [
-        "bonds",
-        "celo-bridged-carbon",
-        "ethereum-bridged-carbon",
-        "pairs",
-        "polygon-bridged-carbon",
-        "protocol-metrics",
-        "user-carbon",
-        "vesting"
-    ],
-    "scripts": {
-        "clean": "rm -rf ./generated && rm -rf ./build",
-        "codegen": "graph codegen",
-        "build": "graph build",
-        "test": "graph test"
-    },
-    "devDependencies": {
-        "@graphprotocol/graph-cli": "^0.45.0",
-        "@graphprotocol/graph-ts": "^0.29.3",
-        "prettier": "2.7.1"
-    }
+  "name": "root",
+  "private": true,
+  "packageManager": "yarn@3.4.1",
+  "workspaces": [
+    "bonds",
+    "celo-bridged-carbon",
+    "ethereum-bridged-carbon",
+    "pairs",
+    "polygon-bridged-carbon",
+    "protocol-metrics",
+    "user-carbon",
+    "vesting"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./generated && rm -rf ./build",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "test": "graph test"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.45.0",
+    "@graphprotocol/graph-ts": "0.29.3",
+    "prettier": "2.7.1"
+  }
 }

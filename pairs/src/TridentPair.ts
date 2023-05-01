@@ -58,14 +58,10 @@ function toUnits(x: BigInt, decimals: number): BigDecimal {
 }
 
 export function handleSwap(event: SwapEvent): void {
-  let treasury_address = Address.fromString(TREASURY_ADDRESS)
-  let klima_ubo_address = Address.fromString(KLIMA_UBO_PAIR)
-  let klima_nbo_address = Address.fromString(KLIMA_NBO_PAIR)
-  let klima_address = Address.fromString(KLIMA_ERC20_V1_CONTRACT)
   let pair = getCreatePair(event.address)
   let contract = TridentPairContract.bind(event.address)
   let total_lp = toUnits(contract.totalSupply(), 18)
-  let tokenBalance = toUnits(contract.balanceOf(treasury_address), 18)
+  let tokenBalance = toUnits(contract.balanceOf(TREASURY_ADDRESS), 18)
   let ownedLP = tokenBalance.div(total_lp)
 
   let hour_timestamp = hourFromTimestamp(event.block.timestamp)
@@ -88,8 +84,8 @@ export function handleSwap(event: SwapEvent): void {
   // Klima is token0 and NBO is token1
   // Klima is token1 and USDC is token0
 
-  if (event.address == klima_ubo_address) {
-    if (event.params.tokenIn == klima_address) {
+  if (event.address == KLIMA_UBO_PAIR) {
+    if (event.params.tokenIn == KLIMA_ERC20_V1_CONTRACT) {
       price = toUnits(event.params.amountOut, token0_decimals).div(toUnits(event.params.amountIn, token1_decimals))
       token0qty = toUnits(event.params.amountOut, token0_decimals)
       token1qty = toUnits(event.params.amountIn, token1_decimals)
@@ -101,7 +97,7 @@ export function handleSwap(event: SwapEvent): void {
       klimaearnedfees = ownedLP.times(lpfees)
       volume = token0qty
     }
-    if (event.params.tokenOut == klima_address) {
+    if (event.params.tokenOut == KLIMA_ERC20_V1_CONTRACT) {
       price = toUnits(event.params.amountIn, token0_decimals).div(toUnits(event.params.amountOut, token1_decimals))
       token0qty = toUnits(event.params.amountIn, token0_decimals)
       token1qty = toUnits(event.params.amountOut, token1_decimals)
@@ -116,8 +112,8 @@ export function handleSwap(event: SwapEvent): void {
   }
   // Klima is token0 and NBO is token1
   // NBO/KLIMA
-  if (event.address == klima_nbo_address) {
-    if (event.params.tokenIn == klima_address) {
+  if (event.address == KLIMA_NBO_PAIR) {
+    if (event.params.tokenIn == KLIMA_ERC20_V1_CONTRACT) {
       price = toUnits(event.params.amountOut, token1_decimals).div(toUnits(event.params.amountIn, token0_decimals))
       token0qty = toUnits(event.params.amountOut, token1_decimals)
       token1qty = toUnits(event.params.amountIn, token0_decimals)
@@ -129,7 +125,7 @@ export function handleSwap(event: SwapEvent): void {
       klimaearnedfees = ownedLP.times(lpfees)
       volume = token0qty
     }
-    if (event.params.tokenOut == klima_address) {
+    if (event.params.tokenOut == KLIMA_ERC20_V1_CONTRACT) {
       price = toUnits(event.params.amountIn, token1_decimals).div(toUnits(event.params.amountOut, token0_decimals))
       token0qty = toUnits(event.params.amountIn, token1_decimals)
       token1qty = toUnits(event.params.amountOut, token0_decimals)

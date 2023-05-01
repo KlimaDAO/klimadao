@@ -24,7 +24,7 @@ export function handleMarketCreated(event: CreateMarket): void {
   market.purchased = BigDecimal.zero()
   market.sold = BigDecimal.zero()
 
-  let bondV2Contract = KlimaProV2.bind(Address.fromString(constants.PRO_KLIMA_V2))
+  let bondV2Contract = KlimaProV2.bind(constants.PRO_KLIMA_V2)
   let markets_call = bondV2Contract.try_markets(event.params.id)
   if (markets_call.reverted) {
     throw new Error('Market not found - Market ID: ' + event.params.id.toString())
@@ -91,7 +91,7 @@ export function handleTuned(event: Tuned): void {
   const market = loadMarket(event.params.id)
   const baseToken = new TokenFactory().getTokenForAddress(Address.fromBytes(market.baseTokenAddress))
 
-  let bondV2Contract = KlimaProV2.bind(Address.fromString(constants.PRO_KLIMA_V2))
+  let bondV2Contract = KlimaProV2.bind(constants.PRO_KLIMA_V2)
   let markets_call = bondV2Contract.try_markets(event.params.id)
   if (markets_call.reverted) {
     throw new Error('Market not found - Market ID: ' + event.params.id.toString())

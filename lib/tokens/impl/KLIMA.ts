@@ -7,7 +7,7 @@ import { toDecimal } from '../../utils/Decimals'
 import { PriceUtil } from '../../utils/Price'
 
 export class KLIMA implements IToken {
-  private contractAddress: Address = Address.fromString(constants.KLIMA_ERC20_V1_CONTRACT)
+  private contractAddress: Address = constants.KLIMA_ERC20_V1_CONTRACT
 
   getERC20ContractAddress(): string {
     return this.contractAddress.toHexString()
@@ -31,7 +31,7 @@ export class KLIMA implements IToken {
 
   getUSDPrice(blockNumber: BigInt): BigDecimal {
     //We are going through KLIMA-BCT route until Liquidity is bolstered for KLIMA USDC
-    if (blockNumber.lt(BigInt.fromString(constants.KLIMA_USDC_PAIR_BOLSTER_LIQUIDITY_BLOCK))) {
+    if (blockNumber.lt(constants.KLIMA_USDC_PAIR_BOLSTER_LIQUIDITY_BLOCK)) {
       return PriceUtil.getKLIMA_BCTRate().times(PriceUtil.getBCT_USDRate())
     }
 

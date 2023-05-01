@@ -9,7 +9,7 @@ export function convertToWsKLIMA(klimaAmount: BigDecimal): BigDecimal {
 }
 
 export function getKlimaIndex(): BigDecimal {
-  const indexCall = KlimaStakingV1.bind(Address.fromString(constants.STAKING_CONTRACT_V1)).try_index()
+  const indexCall = KlimaStakingV1.bind(constants.STAKING_CONTRACT_V1).try_index()
   if (indexCall.reverted) {
     throw new Error('Index call reverted')
   }

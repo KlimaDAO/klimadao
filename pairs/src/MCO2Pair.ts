@@ -51,11 +51,10 @@ function toUnits(x: BigInt, decimals: number): BigDecimal {
 }
 
 export function handleSwap(event: SwapEvent): void {
-  let treasury_address = Address.fromString(TREASURY_ADDRESS)
   let pair = getCreatePair(event.address)
   let contract = PairContract.bind(event.address)
   let total_lp = toUnits(contract.totalSupply(), 18)
-  let tokenBalance = toUnits(contract.balanceOf(treasury_address), 18)
+  let tokenBalance = toUnits(contract.balanceOf(TREASURY_ADDRESS), 18)
   let ownedLP = tokenBalance.div(total_lp)
 
   let hour_timestamp = hourFromTimestamp(event.block.timestamp)
