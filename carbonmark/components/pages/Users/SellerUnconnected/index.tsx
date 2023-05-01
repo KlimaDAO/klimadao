@@ -1,34 +1,28 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { Activities } from "components/Activities";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { LoginButton } from "components/LoginButton";
-import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { createProjectPurchaseLink } from "lib/createUrls";
-import {
-  getActiveListings,
-  getAllListings,
-  getSortByUpdateListings,
-} from "lib/listingsGetter";
-import { User } from "lib/types/carbonmark";
+import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { FC } from "react";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
+import { ProfileSidebar } from "../ProfileSidebar";
 import * as styles from "./styles";
 
 type Props = {
-  carbonmarkUser: User | null;
   userName: string;
+  userAddress: string;
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
   const { address, isConnected, toggleModal } = useWeb3();
-  const userData = props.carbonmarkUser;
+  const { carbonmarkUser } = useFetchUser(props.userAddress);
 
-  const allListings = getAllListings(userData?.listings ?? []);
-  const activeListings = getActiveListings(userData?.listings ?? []);
+  const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const hasListings = !!activeListings.length;
 
   const sortedListings =
@@ -43,11 +37,8 @@ export const SellerUnconnected: FC<Props> = (props) => {
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          userName={userData?.username || props.userName}
-          handle={props.carbonmarkUser?.handle}
-          isCarbonmarkUser={!!userData}
-          description={userData?.description}
-          profileImgUrl={userData?.profileImgUrl}
+          carbonmarkUser={carbonmarkUser}
+          userName={props.userName}
         />
       </div>
       <div className={styles.listings}>
@@ -95,12 +86,10 @@ export const SellerUnconnected: FC<Props> = (props) => {
           )}
         </Col>
         <Col>
-          <Stats
-            description={t`Data for this seller`}
-            allListings={allListings || []}
-            activeListings={activeListings || []}
+          <ProfileSidebar
+            user={carbonmarkUser}
+            title={t`Data for this seller`}
           />
-          <Activities activities={userData?.activities || []} />
         </Col>
       </TwoColLayout>
     </div>
