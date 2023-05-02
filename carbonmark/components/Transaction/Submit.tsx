@@ -20,7 +20,7 @@ interface Props {
   onSubmit: () => void;
   onClose: () => void;
   status: TransactionStatusMessage | null;
-  description?: string;
+  description?: React.ReactNode;
 }
 
 export const Submit: FC<Props> = (props) => {
@@ -33,7 +33,6 @@ export const Submit: FC<Props> = (props) => {
 
   const showSubmitButton = !showButtonSpinner && !success;
   const showCloseButton = !showButtonSpinner && success;
-
   return (
     <>
       <div
@@ -41,12 +40,8 @@ export const Submit: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.submit.title">
-            Please submit the transaction
-          </Trans>
-        </Text>
-        {!!props.description && <Text>{props.description}</Text>}
+        {props.description && <div>{props.description}</div>}
+
         <HighlightValue
           label={
             <Text t="body1" color="lighter">

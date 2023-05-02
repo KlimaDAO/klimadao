@@ -1,7 +1,8 @@
 import { useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
+import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import {
   approveTokenSpend,
@@ -115,6 +116,56 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
+  const CreateApproval = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="body1" color="lighter">
+          <Trans id="create.approval_1">
+            You are about to create a new listing.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="create.approval_2">
+            The first step is to grant the approval to transfer this asset from
+            your wallet to Carbonmark, the next step is to approve the actual
+            transfer and make your listing live.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="create.approval_3">
+            You can choose to remove your active listing at any time which will
+            automatically transfer the listed asset back to your wallet.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="create.approval_4">
+            Verify all information is correct and click 'approve' to continue.
+          </Trans>
+        </Text>
+      </div>
+    );
+  };
+
+  const CreateSubmit = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="body1" color="lighter">
+          <Trans id="create.submit_1">
+            The previous step granted the approval to transfer this asset from
+            your wallet to Carbonmark, your asset has not been transferred yet.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="create.submit_2">
+            To finalize the transfer of this asset to Carbonmark and make your
+            listing live, verify all information is correct and then click
+            submit below.
+          </Trans>
+        </Text>
+      </div>
+    );
+  };
+
   return (
     <Modal
       title={t({
@@ -151,11 +202,8 @@ export const CreateListing: FC<Props> = (props) => {
             value: inputValues.singleUnitPrice,
             token: "usdc",
           }}
-          approvalText={t({
-            id: "transaction.create_listing.approval_description",
-            message:
-              "You are about to transfer ownership of this asset from your wallet to Carbonmark.  You can remove your listing at any time until it has been sold.",
-          })}
+          approvalText={<CreateApproval />}
+          submitText={<CreateSubmit />}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

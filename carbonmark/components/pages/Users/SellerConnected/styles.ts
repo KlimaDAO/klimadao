@@ -99,3 +99,9 @@ export const loadingOverlay = css`
   pointer-events: none;
   opacity: 0.5;
 `;
+
+export const formatParagraph = css`
+  p {
+    margin-bottom: 1em;
+  }
+`;

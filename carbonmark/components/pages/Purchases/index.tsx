@@ -86,7 +86,14 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                   </a>
                   .
                 </Text>
-
+                <Text>
+                  <Trans>
+                    If you would like to retire some or all of the carbon
+                    credits from this purchase, go to your{" "}
+                    <Link href="/portfolio">portfolio</Link>, click the 'retire'
+                    button and follow the directions.
+                  </Trans>
+                </Text>
                 {!!props.purchase && (
                   <>
                     <div className="summary">
@@ -117,9 +124,16 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                         {props.purchase.listing.project.methodology}
                       </Text>
                       <Text t="body1">
-                        {props.purchase.listing.project.name}
+                        <Link
+                          href={createProjectLink(
+                            props.purchase.listing.project
+                          )}
+                          target="blank"
+                        >
+                          {props.purchase.listing.project.name}
+                        </Link>
                       </Text>
-                      <Text t="body3" className="country">
+                      <Text t="body1">
                         {props.purchase.listing.project.country?.id}
                       </Text>
                     </div>
