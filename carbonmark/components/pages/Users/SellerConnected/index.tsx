@@ -11,7 +11,7 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser, getUserUntil } from "lib/api";
+import { activityIsAdded, getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { AssetForListing, User } from "lib/types/carbonmark";
@@ -53,18 +53,14 @@ export const SellerConnected: FC<Props> = (props) => {
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const userActivityIsUpdated = (userFromApi: User) => {
-    // compare with current user
-    const oldUser = carbonmarkUser;
-    const newActivityLength = userFromApi.activities.length;
-    const currentActivityLength = oldUser?.activities.length || 0;
-    return newActivityLength > currentActivityLength;
-  };
-
   const handleMutateUserUntil = async () => {
+    const latestActivity = carbonmarkUser?.activities.sort(
+      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
+    )[0];
+
     const newUser = await getUserUntil({
       address: props.userAddress,
-      retryUntil: userActivityIsUpdated,
+      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
       retryInterval: 1000,
       maxAttempts: 50,
     });
