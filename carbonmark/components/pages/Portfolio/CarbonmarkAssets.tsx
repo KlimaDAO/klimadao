@@ -28,7 +28,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
 
   const isUpdatingUser = props.isLoadingUser || isLoadingAssets;
   const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
-  const emptyAssets = !isUpdatingUser && !assetWithProjectTokens;
+  const emptyAssets = !isUpdatingUser && !assetsData?.length;
 
   // load Assets every time user changed
   useEffect(() => {
