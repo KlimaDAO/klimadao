@@ -93,7 +93,7 @@ export default defineType({
     defineField({
       name: "longDescriptionMeta",
       description:
-        "Use this space to document how the short description was generated or procured, so that this work can be reproduced by others.",
+        "Use this space to document how the long description was generated or procured, so that this work can be reproduced by others.",
       type: "text",
       group: "meta",
     }),
