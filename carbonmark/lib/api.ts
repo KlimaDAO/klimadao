@@ -167,7 +167,7 @@ export const getVintages = async (): Promise<string[]> => {
   return data;
 };
 
-// poll until check for acitivity timeStamps
+// poll until check for activity timeStamps
 export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
   const latestActivity = newUser.activities.sort(
     (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
