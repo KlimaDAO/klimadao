@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-02 17:37+0000\n"
+"POT-Creation-Date: 2023-05-02 18:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "BETA"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:157
+#: components/pages/Project/Purchase/index.tsx:210
 msgid "Back to Project"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:105
+#: components/pages/Purchases/index.tsx:112
 msgid "Final price"
 msgstr ""
 
@@ -214,6 +214,10 @@ msgstr ""
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:90
+msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
 msgstr ""
 
 #: lib/getCategoryInfo.ts:83
@@ -368,7 +372,7 @@ msgstr ""
 msgid "Profile picture"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:114
+#: components/pages/Purchases/index.tsx:121
 msgid "Project"
 msgstr ""
 
@@ -377,8 +381,8 @@ msgstr ""
 msgid "Purchase Receipt | Carbonmark"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:145
-#: components/pages/Project/Purchase/index.tsx:146
+#: components/pages/Project/Purchase/index.tsx:198
+#: components/pages/Project/Purchase/index.tsx:199
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
@@ -392,7 +396,7 @@ msgstr ""
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total available: {totalAvailableQuantity}"
 msgstr ""
 
-#: components/pages/Purchases/index.tsx:96
+#: components/pages/Purchases/index.tsx:103
 msgid "Quantity purchased:"
 msgstr ""
 
@@ -497,7 +501,7 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 
-#: components/pages/Project/Purchase/index.tsx:206
+#: components/pages/Project/Purchase/index.tsx:259
 msgid "This offer no longer exists."
 msgstr ""
 
@@ -678,8 +682,48 @@ msgstr ""
 msgid "connect_modal.error_title"
 msgstr "Error de conexión"
 
-#: components/pages/Project/Purchase/index.tsx:193
+#: components/CreateListing/index.tsx:123
+msgid "create.approval_1"
+msgstr ""
+
+#: components/CreateListing/index.tsx:128
+msgid "create.approval_2"
+msgstr ""
+
+#: components/CreateListing/index.tsx:135
+msgid "create.approval_3"
+msgstr ""
+
+#: components/CreateListing/index.tsx:141
+msgid "create.approval_4"
+msgstr ""
+
+#: components/CreateListing/index.tsx:153
+msgid "create.submit_1"
+msgstr ""
+
+#: components/CreateListing/index.tsx:159
+msgid "create.submit_2"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+msgid "edit_listing.approval_1"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+msgid "edit_listing.approval_2"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
+msgid "edit_listing.submit_1"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+msgid "edit_listting.submit_2"
 msgstr ""
 
 #: components/Layout/NavMenu/index.tsx:34
@@ -730,15 +774,15 @@ msgstr ""
 msgid "profile.listing.delete.error"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:179
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
 msgid "profile.listing.edit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:208
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:246
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
-#: components/CreateListing/index.tsx:120
+#: components/CreateListing/index.tsx:171
 msgid "profile.listings_modal.title"
 msgstr ""
 
@@ -754,11 +798,27 @@ msgstr ""
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
+#: components/pages/Project/Purchase/index.tsx:146
+msgid "purchase.approval_1"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:151
+msgid "purchase.approval_2"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:158
+msgid "purchase.approval_3"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:168
+msgid "purchase.approval_4"
+msgstr ""
+
 #: components/pages/Project/Purchase/PurchaseForm.tsx:193
 msgid "purchase.button.continue"
 msgstr "Continuar"
 
-#: components/pages/Purchases/index.tsx:129
+#: components/pages/Purchases/index.tsx:143
 msgid "purchase.button.view_assets"
 msgstr ""
 
@@ -794,11 +854,19 @@ msgstr ""
 msgid "purchase.loading.allowance.error"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:218
+#: components/pages/Project/Purchase/index.tsx:180
+msgid "purchase.submit_1"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:186
+msgid "purchase.submit_2"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:271
 msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:222
+#: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
@@ -859,7 +927,7 @@ msgstr "Por favor, utilice una combinación de filtros diferente."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro término de búsqueda."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:188
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "seller.edit_listing.title"
 msgstr ""
 
@@ -871,7 +939,7 @@ msgstr "Comprar"
 msgid "seller.listing.quantity_available"
 msgstr ""
 
-#: components/Transaction/Approve.tsx:110
+#: components/Transaction/Approve.tsx:105
 msgid "shared.approve"
 msgstr ""
 
@@ -893,17 +961,9 @@ msgstr "Centro de Recursos"
 msgid "shared.resources.sort_by.header"
 msgstr "Ordenar por:"
 
-#: components/CreateListing/index.tsx:145
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:235
+#: components/CreateListing/index.tsx:196
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
 msgid "tonnes.long"
-msgstr ""
-
-#: components/CreateListing/index.tsx:154
-msgid "transaction.create_listing.approval_description"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:244
-msgid "transaction.edit_listing.approval_description"
 msgstr ""
 
 #: lib/statusMessage.ts:31
@@ -926,59 +986,51 @@ msgstr "Por favor, haga clic en \"confirmar\" en su cartera para continuar."
 msgid "transaction.status.user_rejected"
 msgstr "Usted eligió rechazar la transacción"
 
-#: components/Transaction/Approve.tsx:63
+#: components/Transaction/Approve.tsx:58
 msgid "transaction_modal.approve.amount"
 msgstr "Confirmar cantidad"
 
-#: components/Transaction/Approve.tsx:53
+#: components/Transaction/Approve.tsx:48
 msgid "transaction_modal.approve.contract_address"
 msgstr "Dirección del contrato"
 
-#: components/Transaction/Approve.tsx:79
+#: components/Transaction/Approve.tsx:74
 msgid "transaction_modal.approve.price"
 msgstr ""
 
-#: components/Transaction/Approve.tsx:45
-msgid "transaction_modal.approve.title"
-msgstr ""
-
-#: components/Transaction/index.tsx:87
+#: components/Transaction/index.tsx:86
 msgid "transaction_modal.button.go_back"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:116
+#: components/Transaction/Submit.tsx:111
 msgid "transaction_modal.close"
 msgstr "Cerrar"
 
-#: components/Transaction/Approve.tsx:118
+#: components/Transaction/Approve.tsx:113
 msgid "transaction_modal.next"
 msgstr "Siguiente"
 
-#: components/Transaction/Submit.tsx:63
+#: components/Transaction/Submit.tsx:58
 msgid "transaction_modal.submit.amount"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:108
+#: components/Transaction/Submit.tsx:103
 msgid "transaction_modal.submit.button"
 msgstr "Enviar"
 
-#: components/Transaction/Submit.tsx:53
+#: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
 msgstr "Dirección del contrato"
 
-#: components/Transaction/Submit.tsx:77
+#: components/Transaction/Submit.tsx:72
 msgid "transaction_modal.submit.price"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:45
-msgid "transaction_modal.submit.title"
-msgstr ""
-
-#: components/Transaction/index.tsx:47
+#: components/Transaction/index.tsx:46
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Aprobar"
 
-#: components/Transaction/index.tsx:57
+#: components/Transaction/index.tsx:56
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Enviar"
 
