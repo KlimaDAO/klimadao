@@ -100,11 +100,15 @@ msgstr "Browse Projects"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:42
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
 msgid "Buy"
 msgstr "Buy"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:25
+#: components/LeaveModal/index.tsx:44
+msgid "Cancel"
+msgstr "Cancel"
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
@@ -137,6 +141,10 @@ msgstr "Clear Filters"
 #: components/pages/Home/index.tsx:506
 msgid "Contact"
 msgstr "Contact"
+
+#: components/LeaveModal/index.tsx:39
+msgid "Continue"
+msgstr "Continue"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -431,11 +439,11 @@ msgstr "Resources"
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:65
+#: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
 msgstr "Retire"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:51
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
 msgstr "Retire now"
 
@@ -443,7 +451,7 @@ msgstr "Retire now"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr "Sell"
 

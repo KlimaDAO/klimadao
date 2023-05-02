@@ -1,9 +1,9 @@
-import { Anchor } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
+import LeaveModal from "components/LeaveModal";
 import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
@@ -13,7 +13,7 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { AssetForListing } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useState } from "react";
 import * as styles from "./styles";
 
 interface Props {
@@ -26,6 +26,8 @@ export const AssetProject: FC<Props> = (props) => {
   const retireLink = createRetireLink({
     retirementToken: props.asset.tokenAddress,
   });
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Card>
@@ -63,10 +65,15 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
-          href={retireLink}
-          renderLink={(linkProps) => <Anchor {...linkProps} />}
+          onClick={() => setIsOpen(true)}
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
+        <LeaveModal
+          showModal={isOpen}
+          title={t`Leaving Carbonmark`}
+          retireLink={retireLink}
+          onToggleModal={() => setIsOpen(false)}
+        />
       </div>
     </Card>
   );
