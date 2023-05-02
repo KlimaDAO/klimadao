@@ -89,6 +89,10 @@ Klima Infinity pledge dashboard is backed by a firebase database. Follow the fol
 FIREBASE_ADMIN_CERT={ "type": "service_account", "project_id": "your_database_name", "private_key_id": .... }
 ```
 
+# Diagrams
+
+See [this page in the wiki of this repo](https://github.com/KlimaDAO/klimadao/wiki/Diagrams) for architecture and other diagrams.
+
 # Contributing
 
 **The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
