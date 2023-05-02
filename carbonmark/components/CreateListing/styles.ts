@@ -6,3 +6,9 @@ export const centerContent = css`
   justify-content: center;
   align-items: center;
 `;
+
+export const formatParagraph = css`
+  p {
+    margin-bottom: 1em;
+  }
+`;
