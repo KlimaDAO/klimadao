@@ -1,7 +1,9 @@
-import { ZERO_ADDRESS } from '../../lib/utils/Constants'
+import { MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
+import { ZERO_BI } from '../../lib/utils/Decimals'
 import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
+import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
-import { loadOrCreateAccount } from './utils/Account'
+import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonOffset } from './utils/CarbonOffset'
 import { saveRetire } from './utils/Retire'
 
@@ -13,10 +15,10 @@ export function saveToucanRetirement(event: Retired): void {
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
-  loadOrCreateAccount(event.transaction.from)
+  let sender = loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
-    event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
+    event.transaction.from.concatI32(sender.totalRetirements),
     event.address,
     ZERO_ADDRESS,
     'OTHER',
@@ -28,6 +30,8 @@ export function saveToucanRetirement(event: Retired): void {
     event.block.timestamp,
     null
   )
+
+  incrementAccountRetirements(event.transaction.from)
 }
 
 export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
@@ -38,10 +42,10 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
-  loadOrCreateAccount(event.transaction.from)
+  let sender = loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
-    event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
+    event.transaction.from.concatI32(sender.totalRetirements),
     event.address,
     ZERO_ADDRESS,
     'OTHER',
@@ -53,6 +57,8 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
     event.block.timestamp,
     event.params.eventId.toString()
   )
+
+  incrementAccountRetirements(event.transaction.from)
 }
 
 export function handleVCUOMinted(event: VCUOMinted): void {
@@ -72,10 +78,10 @@ export function handleVCUOMinted(event: VCUOMinted): void {
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
-  loadOrCreateAccount(event.transaction.from)
+  let sender = loadOrCreateAccount(event.transaction.from)
 
   saveRetire(
-    event.transaction.hash.concatI32(event.transactionLogIndex.toI32()),
+    event.transaction.from.concatI32(sender.totalRetirements),
     projectAddress,
     ZERO_ADDRESS,
     'OTHER',
@@ -87,4 +93,38 @@ export function handleVCUOMinted(event: VCUOMinted): void {
     event.block.timestamp,
     null
   )
+
+  incrementAccountRetirements(event.transaction.from)
 }
+
+export function handleMossRetirement(event: CarbonOffset): void {
+  // Don't process zero amount events
+  if (event.params.carbonTon == ZERO_BI) return
+
+  let offset = loadCarbonOffset(MCO2_ERC20_CONTRACT)
+
+  offset.retired = offset.retired.plus(event.params.carbonTon)
+  offset.save()
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.params.sender)
+  let sender = loadOrCreateAccount(event.transaction.from)
+
+  saveRetire(
+    event.transaction.from.concatI32(sender.totalRetirements),
+    event.address,
+    ZERO_ADDRESS,
+    'OTHER',
+    event.params.carbonTon,
+    event.params.sender,
+    event.params.onBehalfOf,
+    event.transaction.from,
+    '',
+    event.block.timestamp,
+    null
+  )
+
+  incrementAccountRetirements(event.transaction.from)
+}
+
+export function handleMossRetirementToMainnet(): void {}

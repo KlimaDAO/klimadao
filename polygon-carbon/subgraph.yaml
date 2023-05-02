@@ -101,6 +101,28 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handlePoolTransfer
   - kind: ethereum/contract
+    name: MossCarbonOffset
+    network: matic
+    source:
+      address: '0xeDAEFCf60e12Bd331c092341D5b3d8901C1c05A8'
+      abi: CarbonChain
+      startBlock: 25259584
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/RetirementHandler.ts
+      entities:
+        - MossCarbonOffset
+      abis:
+        - name: CarbonChain
+          file: ../lib/abis/MossOffsetCarbon.json
+      eventHandlers:
+        - event: CarbonOffset(uint256,string,string,address,bytes32,indexed uint256,indexed uint256)
+          handler: handleMossRetirement
+        - event: CarbonOffsetBatch((uint256,bytes32,uint256,uint256),uint256,bytes32,uint256)
+          handler: handleMossRetirementToMainnet
+  - kind: ethereum/contract
     name: C3ProjectTokenFactory
     network: matic
     source:
@@ -196,6 +218,103 @@ dataSources:
       eventHandlers:
         - event: VCUOMinted(address,uint256)
           handler: handleVCUOMinted
+  # Retirement aggregator
+  - kind: ethereum/contract
+    name: RetireToucanCarbon
+    network: matic
+    source:
+      address: '0xCefb61aF5325C0c100cBd77eb4c9F51d17B189Ca'
+      abi: RetireToucanCarbon
+      startBlock: 25476120
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireToucanCarbon
+          file: ../lib/abis/RetireToucanCarbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: ToucanRetired(indexed address,indexed address,string,string,indexed address,address,uint256)
+          handler: handleToucanRetired
+  - kind: ethereum/contract
+    name: RetireMossCarbon
+    network: matic
+    source:
+      address: '0xa35f62dbdb93e4B772784E89B7B35736A4aeaCc5'
+      abi: RetireMossCarbon
+      startBlock: 25476110
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireMossCarbon
+          file: ../lib/abis/RetireMossCarbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: MossRetired(indexed address,indexed address,string,string,indexed address,uint256)
+          handler: handleMossRetired
+  - kind: ethereum/contract
+    name: RetireC3Carbon
+    network: matic
+    source:
+      address: '0x933AF8c652c696FB0969Eb85DDd111edb2b4E057'
+      abi: RetireC3Carbon
+      startBlock: 27175005
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: RetireC3Carbon
+          file: ../lib/abis/RetireC3Carbon.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: C3Retired(indexed address,indexed address,string,string,indexed address,address,uint256)
+          handler: handleC3Retired
+  - kind: ethereum/contract
+    name: KlimaInfinity
+    network: matic
+    source:
+      address: '0x8cE54d9625371fb2a068986d32C85De8E6e995f8'
+      abi: KlimaInfinity
+      startBlock: 36550000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/KlimaAggregator.ts
+      entities:
+        - KlimaRetire
+      abis:
+        - name: KlimaInfinity
+          file: ../lib/abis/KlimaInfinity.json
+        - name: KlimaCarbonRetirements
+          file: ../lib/abis/KlimaCarbonRetirements.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
+          handler: handleCarbonRetired
 templates:
   - name: ToucanCarbonOffsets
     kind: ethereum/contract
@@ -217,7 +336,7 @@ templates:
         - event: Retired(address,uint256)
           handler: handleToucanRetired
         - event: Retired(address,uint256,uint256)
-          handler: handleRetired_1_4_0
+          handler: handleToucanRetired_1_4_0
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleOffsetTransfer
       file: ./src/TransferHandler.ts

@@ -6,6 +6,14 @@ export function loadOrCreateAccount(accountAddress: Address): Account {
   if (account) return account as Account
 
   account = new Account(accountAddress)
+  account.totalRetirements = 0
   account.save()
   return account as Account
+}
+
+export function incrementAccountRetirements(accountAddress: Address): void {
+  let account = loadOrCreateAccount(accountAddress)
+
+  account.totalRetirements += 1
+  account.save()
 }

@@ -1,0 +1,234 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "newBatchTimeLimit", "type": "uint256" }],
+    "name": "BatchTimeLimitChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "newCMCO2", "type": "address" }],
+    "name": "CMCO2Changed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "carbonTon", "type": "uint256" },
+      { "indexed": false, "internalType": "string", "name": "transactionInfo", "type": "string" },
+      { "indexed": false, "internalType": "string", "name": "onBehalfOf", "type": "string" },
+      { "indexed": false, "internalType": "address", "name": "sender", "type": "address" },
+      { "indexed": false, "internalType": "bytes32", "name": "offsetHash", "type": "bytes32" },
+      { "indexed": true, "internalType": "uint256", "name": "transactionIndex", "type": "uint256" },
+      { "indexed": true, "internalType": "uint256", "name": "batchIndex", "type": "uint256" }
+    ],
+    "name": "CarbonOffset",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "totalCarbonOffset", "type": "uint256" },
+          { "internalType": "bytes32", "name": "hashChain", "type": "bytes32" },
+          { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "blockNumber", "type": "uint256" }
+        ],
+        "indexed": false,
+        "internalType": "struct CarbonChain.CarbonBatch",
+        "name": "newBatch",
+        "type": "tuple"
+      },
+      { "indexed": false, "internalType": "uint256", "name": "carbonTon", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "hashChain", "type": "bytes32" },
+      { "indexed": false, "internalType": "uint256", "name": "batchIndex", "type": "uint256" }
+    ],
+    "name": "CarbonOffsetBatch",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "newMemPoolLimit", "type": "uint256" }],
+    "name": "MemPoolLimitChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "newRecipient", "type": "address" }],
+    "name": "RecipientChanged",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "batches",
+    "outputs": [
+      { "internalType": "uint256", "name": "totalCarbonOffset", "type": "uint256" },
+      { "internalType": "bytes32", "name": "hashChain", "type": "bytes32" },
+      { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "blockNumber", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "carbonOffset",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "newBatchTimeLimit", "type": "uint256" }],
+    "name": "changeBatchTimeLimit",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newCMCO2", "type": "address" }],
+    "name": "changeCMCO2",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "newMemPoolLimit", "type": "uint256" }],
+    "name": "changeMemPoolLimit",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "inputs": [], "name": "createBatch", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "getBatchTimeLimit",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCMCO2",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLastBatchCreation",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMemPoolLimit",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPendingTransactionsCount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hashChain",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_cMCO2", "type": "address" },
+      { "internalType": "uint256", "name": "_memPoolLimit", "type": "uint256" },
+      { "internalType": "uint256", "name": "_batchTimeLimit", "type": "uint256" },
+      { "internalType": "address", "name": "_operator", "type": "address" }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "numberOfBatches",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "numberOfTransactions",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_carbonTon", "type": "uint256" },
+      { "internalType": "string", "name": "_transactionInfo", "type": "string" },
+      { "internalType": "string", "name": "_onBehalfOf", "type": "string" }
+    ],
+    "name": "offsetCarbon",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "shouldCreateBatch",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "totalTransactions",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "transactions",
+    "outputs": [
+      { "internalType": "uint256", "name": "carbonTon", "type": "uint256" },
+      { "internalType": "string", "name": "transactionInfo", "type": "string" },
+      { "internalType": "string", "name": "onBehalfOf", "type": "string" },
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "bytes32", "name": "offsetHash", "type": "bytes32" },
+      { "internalType": "uint256", "name": "batchNumber", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -123,9 +123,6 @@ type Bridge @entity(immutable: true) {
   "{Transaction hash}-{Log Index}"
   id: Bytes!
 
-  "Transaction hash of the event"
-  hash: Bytes!
-
   "Offset bridged"
   offset: CarbonOffset!
 
@@ -213,6 +210,10 @@ type CarbonPool @entity {
 
   dailySnapshots: [CarbonPoolDailySnapshot!]! @derivedFrom(field: "pool")
 
+  lastSnapshotDayID: Int!
+
+  nextSnapshotDayID: Int!
+
   ### Event level data ###
 
   deposits: [PoolDeposit!]! @derivedFrom(field: "pool")
@@ -227,11 +228,25 @@ type CarbonPoolDailySnapshot @entity {
   "Pool this snapshot belongs to"
   pool: CarbonPool!
 
+  "Day ID of this snapshot"
+  dayID: Int
+
   "Current supply"
   supply: BigInt!
 
+  "Change in supply during this period"
+  deltaSupply: BigInt!
+
   "Current balances of underlying project tokens"
   offsetBalances: [CarbonPoolOffsetBalanceDailySnapshot!]! @derivedFrom(field: "poolSnapshot")
+
+  deposits: [PoolDeposit!]! @derivedFrom(field: "poolSnapshotID")
+
+  redeems: [PoolRedeem!]! @derivedFrom(field: "poolSnapshotID")
+
+  lastUpdateTimestamp: BigInt!
+
+  lastUpdateBlockNumber: BigInt!
 }
 
 type CarbonPoolOffsetBalance @entity {
@@ -252,10 +267,18 @@ type CarbonPoolOffsetBalance @entity {
 
   "LTD redeemed amount"
   redeemed: BigInt!
+
+  ### Snapshots ###
+
+  dailySnapshots: [CarbonPoolOffsetBalanceDailySnapshot!]! @derivedFrom(field: "offsetBalance")
+
+  lastSnapshotDayID: Int!
+
+  nextSnapshotDayID: Int!
 }
 
 type CarbonPoolOffsetBalanceDailySnapshot @entity {
-  "{Pool Address}-{Offset Address}"
+  "{Pool Address}-{Offset Address}-{Day ID}"
   id: Bytes!
 
   "Target carbon pool"
@@ -263,6 +286,12 @@ type CarbonPoolOffsetBalanceDailySnapshot @entity {
 
   "Offset being pooled"
   offset: CarbonOffset!
+
+  "ID of the offsetBalance entity"
+  offsetBalance: CarbonPoolOffsetBalance!
+
+  "Day ID of this snapshot"
+  dayID: Int
 
   "The daily pool snapshot that this belongs to"
   poolSnapshot: CarbonPoolDailySnapshot!
@@ -275,9 +304,26 @@ type CarbonPoolOffsetBalanceDailySnapshot @entity {
 
   "Redeemed amount"
   redeemed: BigInt!
+
+  "Delta balance"
+  deltaBalance: BigInt!
+
+  "Delta Redeemed"
+  deltaRedeemed: BigInt!
+
+  "Delta Deposited"
+  deltaDeposited: BigInt!
+
+  deposits: [PoolDeposit!]! @derivedFrom(field: "poolOffsetSnapshotID")
+
+  redeems: [PoolRedeem!]! @derivedFrom(field: "poolOffsetSnapshotID")
+
+  lastUpdateTimestamp: BigInt!
+
+  lastUpdateBlockNumber: BigInt!
 }
 
-type PoolDeposit @entity {
+type PoolDeposit @entity(immutable: true) {
   "{Transaction hash}-{Log Index}"
   id: Bytes!
 
@@ -295,9 +341,15 @@ type PoolDeposit @entity {
 
   "Block timestamp of the deposit"
   timestamp: BigInt!
+
+  "{Pool}-{Day ID} for snapshot referencing"
+  poolSnapshotID: CarbonPoolDailySnapshot!
+
+  "{Pool}-{Offset}-{Day ID} for snapshot referencing"
+  poolOffsetSnapshotID: CarbonPoolOffsetBalanceDailySnapshot!
 }
 
-type PoolRedeem @entity {
+type PoolRedeem @entity(immutable: true) {
   "{Transaction hash}-{Log Index}"
   id: Bytes!
 
@@ -315,6 +367,12 @@ type PoolRedeem @entity {
 
   "Block timestamp of the deposit"
   timestamp: BigInt!
+
+  "{Pool}-{Day ID} for snapshot referencing"
+  poolSnapshotID: CarbonPoolDailySnapshot!
+
+  "{Pool}-{Offset}-{Day ID} for snapshot referencing"
+  poolOffsetSnapshotID: CarbonPoolOffsetBalanceDailySnapshot!
 }
 
 ##############################
@@ -324,6 +382,8 @@ type PoolRedeem @entity {
 type Account @entity {
   "Ethereum address of the account"
   id: Bytes!
+
+  totalRetirements: Int!
 
   ## Carbon Offset Activity ##
   bridges: [Bridge!]! @derivedFrom(field: "account")

@@ -27,3 +27,7 @@ export function saveRetire(
   if (bridgeID !== null) retire.bridgeID = bridgeID
   retire.save()
 }
+
+export function loadRetire(id: Bytes): Retire {
+  return Retire.load(id) as Retire
+}
