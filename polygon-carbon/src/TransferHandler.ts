@@ -2,11 +2,11 @@ import { store } from '@graphprotocol/graph-ts'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
 import { loadCarbonOffset } from './utils/CarbonOffset'
-import { Retired } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
+import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { loadOrCreateHolding } from './utils/Holding'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { loadOrCreateAccount } from './utils/Account'
-import { saveToucanRetirement } from './RetirementHandler'
+import { saveToucanRetirement, saveToucanRetirement_1_4_0 } from './RetirementHandler'
 import { saveBridge } from './utils/Bridge'
 
 export function handleOffsetTransfer(event: Transfer): void {
@@ -15,9 +15,10 @@ export function handleOffsetTransfer(event: Transfer): void {
   if (event.params.from == ZERO_ADDRESS) {
     offset.bridged = offset.bridged.plus(event.params.value)
     offset.currentSupply = offset.currentSupply.plus(event.params.value)
+
     saveBridge(
       event.transaction.hash,
-      event.transactionLogIndex,
+      event.transactionLogIndex.toI32(),
       event.address,
       event.params.to,
       event.params.value,
@@ -74,4 +75,8 @@ export function handlePoolTransfer(event: Transfer): void {
 
 export function handleToucanRetired(event: Retired): void {
   saveToucanRetirement(event)
+}
+
+export function handleToucanRetired_1_4_0(event: Retired_1_4_0): void {
+  saveToucanRetirement_1_4_0(event)
 }

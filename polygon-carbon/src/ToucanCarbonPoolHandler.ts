@@ -1,11 +1,22 @@
 import { Transfer } from '../generated/BCT/ERC20'
 import { Deposited, Redeemed } from '../generated/BCT/ToucanCarbonPool'
 import { handlePoolTransfer } from './TransferHandler'
-import { loadOrCreateCarbonPool, savePoolDeposit, savePoolRedeem } from './utils/CarbonPool'
-import { recordOffsetBalanceDeposit, recordOffsetBalanceRedeem } from './utils/CarbonPoolOffsetBalance'
+import { loadOrCreateAccount } from './utils/Account'
+import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool, savePoolDeposit, savePoolRedeem } from './utils/CarbonPool'
+import {
+  checkForCarbonPoolOffsetSnapshot,
+  recordOffsetBalanceDeposit,
+  recordOffsetBalanceRedeem,
+} from './utils/CarbonPoolOffsetBalance'
 import { createTokenWithCall } from './utils/Token'
 
 export function handleDeposited(event: Deposited): void {
+  checkForCarbonPoolSnapshot(event.address, event.block.timestamp, event.block.number)
+  checkForCarbonPoolOffsetSnapshot(event.address, event.params.erc20Addr, event.block.timestamp, event.block.number)
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.transaction.from)
+
   let pool = loadOrCreateCarbonPool(event.address)
 
   savePoolDeposit(
@@ -23,6 +34,12 @@ export function handleDeposited(event: Deposited): void {
   recordOffsetBalanceDeposit(event.address, event.params.erc20Addr, event.params.amount)
 }
 export function handleRedeemed(event: Redeemed): void {
+  checkForCarbonPoolSnapshot(event.address, event.block.timestamp, event.block.number)
+  checkForCarbonPoolOffsetSnapshot(event.address, event.params.erc20, event.block.timestamp, event.block.number)
+
+  // Ensure account entities are created for all addresses
+  loadOrCreateAccount(event.transaction.from)
+
   let pool = loadOrCreateCarbonPool(event.address)
 
   savePoolRedeem(

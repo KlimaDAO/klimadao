@@ -10,7 +10,6 @@ export function saveBridge(
   timestamp: BigInt
 ): void {
   let bridge = new Bridge(hash.concatI32(logIndex))
-  bridge.hash = hash
   bridge.offset = offset
   bridge.account = account
   bridge.amount = amount
