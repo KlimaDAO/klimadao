@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { Users } from "components/pages/Users";
+import { PageProps, Users } from "components/pages/Users";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -12,12 +12,6 @@ import { User } from "lib/types/carbonmark";
 
 interface Params extends ParsedUrlQuery {
   user: string;
-}
-
-interface PageProps {
-  userAddress: string;
-  userDomain: string | null;
-  carbonmarkUser: User | null;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
