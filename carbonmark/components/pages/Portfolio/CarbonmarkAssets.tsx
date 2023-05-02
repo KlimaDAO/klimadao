@@ -82,11 +82,10 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
           assets={[assetToSell]}
           showModal={!!assetToSell}
           successScreen={
-            <Text>
+            <Text align="center">
               <Trans>
-                Success. Go to your{" "}
-                <Link href={`/users/${props.address}`}>Profile page</Link> to
-                see your new listing.
+                Success! Your new listing will appear in a few moments on your{" "}
+                <Link href={`/users/${props.address}`}>Profile page</Link>.
               </Trans>
             </Text>
           }
