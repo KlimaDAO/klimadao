@@ -167,6 +167,15 @@ export const getVintages = async (): Promise<string[]> => {
   return data;
 };
 
+// poll until check for acitivity timeStamps
+export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
+  const latestActivity = newUser.activities.sort(
+    (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
+  )[0];
+
+  return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);
+};
+
 export const getUserUntil = async (params: {
   address: string;
   retryUntil: (u: User) => boolean;
