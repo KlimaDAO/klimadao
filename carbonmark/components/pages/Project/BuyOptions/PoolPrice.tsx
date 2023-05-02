@@ -3,7 +3,7 @@ import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
-import LeaveModal from "components/LeaveModal";
+import { ExitModal } from "components/ExitModal";
 import { Text } from "components/Text";
 import { createRedeemLink, createRetireLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -65,7 +65,7 @@ export const PoolPrice: FC<Props> = (props) => {
           }}
         />
       </div>
-      <LeaveModal
+      <ExitModal
         showModal={isOpen}
         title={t`Leaving Carbonmark`}
         retireLink={retireLink}

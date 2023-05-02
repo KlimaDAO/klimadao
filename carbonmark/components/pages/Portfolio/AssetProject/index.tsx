@@ -3,7 +3,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
-import LeaveModal from "components/LeaveModal";
+import { ExitModal } from "components/ExitModal";
 import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
@@ -68,7 +68,7 @@ export const AssetProject: FC<Props> = (props) => {
           onClick={() => setIsOpen(true)}
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
-        <LeaveModal
+        <ExitModal
           showModal={isOpen}
           title={t`Leaving Carbonmark`}
           retireLink={retireLink}

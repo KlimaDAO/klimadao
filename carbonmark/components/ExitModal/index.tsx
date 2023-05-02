@@ -6,9 +6,9 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Modal, ModalProps } from "components/shared/Modal";
 import * as styles from "./styles";
 
-type LeaveModalProps = Omit<ModalProps, "children"> & { retireLink: string };
+type ExitModalProps = Omit<ModalProps, "children"> & { retireLink: string };
 
-const LeaveModal = (props: LeaveModalProps) => (
+export const ExitModal = (props: ExitModalProps) => (
   <Modal {...props} className={styles.modal}>
     <div className={styles.content}>
       <div>
@@ -46,5 +46,3 @@ const LeaveModal = (props: LeaveModalProps) => (
     </div>
   </Modal>
 );
-
-export default LeaveModal;
