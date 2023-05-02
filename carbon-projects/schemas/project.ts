@@ -66,7 +66,8 @@ export default defineType({
     },
     {
       name: "description",
-      description: "Project description",
+      description:
+        "Official project description as it appears in the originating registry",
       group: "info",
       type: "string",
       validation: (r) => r.required().min(20),
@@ -210,39 +211,6 @@ export default defineType({
       group: "benefits",
       type: "boolean",
       initialValue: false,
-    }),
-    defineField({
-      name: "coverImage",
-      description: "Primary cover image to be shown on project page",
-      group: "media",
-      type: "image",
-      fields: [
-        {
-          name: "caption",
-          description:
-            "English language caption to show below the image. Can include image attribution if needed.",
-          type: "string",
-        },
-      ],
-    }),
-    defineField({
-      name: "images",
-      description: "Other images associated with this project",
-      group: "media",
-      type: "array",
-      of: [
-        {
-          type: "image",
-          fields: [
-            {
-              name: "caption",
-              description:
-                "English language caption to show below the image. Can include image attribution if needed.",
-              type: "string",
-            },
-          ],
-        },
-      ],
     }),
     defineField({
       name: "url",

@@ -25,6 +25,7 @@ type Props = {
   listings: ListingWithProject[];
   assets: AssetForListing[];
   onFinishEditing: () => void;
+  isUpdatingData: boolean;
 };
 
 const getBalanceForListing = (
@@ -166,16 +167,59 @@ export const ListingEditable: FC<Props> = (props) => {
     }
   };
 
+  const EditApproval = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="body1" color="lighter">
+          <Trans id="edit_listing.approval_1">
+            You are about to transfer ownership of this asset from your wallet
+            to Carbonmark.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="edit_listing.approval_2">
+            You can remove your listing at any time until it has been sold.
+          </Trans>
+        </Text>
+      </div>
+    );
+  };
+
+  const EditSubmit = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="body1" color="lighter">
+          <Trans id="edit_listing.submit_1">
+            The previous step granted the approval to transfer this asset from
+            your wallet to Carbonmark, your asset has not been transferred yet.
+          </Trans>
+        </Text>
+        <Text t="body1" color="lighter">
+          <Trans id="edit_listting.submit_2">
+            To finalize the transfer of this asset to Carbonmark and make your
+            listing live, verify all information is correct and then click
+            submit below.
+          </Trans>
+        </Text>
+      </div>
+    );
+  };
+
   return (
     <>
       {props.listings.map((listing) => (
-        <Listing key={listing.id} listing={listing}>
-          <CarbonmarkButton
-            label={<Trans id="profile.listing.edit">Edit</Trans>}
-            className={styles.editListingButton}
-            onClick={() => setListingToEdit(listing)}
-          />
-        </Listing>
+        <div
+          className={props.isUpdatingData ? styles.loadingOverlay : ""}
+          key={listing.id}
+        >
+          <Listing listing={listing}>
+            <CarbonmarkButton
+              label={<Trans id="profile.listing.edit">Edit</Trans>}
+              className={styles.editListingButton}
+              onClick={() => setListingToEdit(listing)}
+            />
+          </Listing>
+        </div>
       ))}
 
       <Modal
@@ -235,11 +279,8 @@ export const ListingEditable: FC<Props> = (props) => {
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
             }}
-            approvalText={t({
-              id: "transaction.edit_listing.approval_description",
-              message:
-                "You are about to transfer ownership of this asset from your wallet to Carbonmark. You can remove your listing at any time until it has been sold.",
-            })}
+            approvalText={<EditApproval />}
+            submitText={<EditSubmit />}
             onApproval={handleApproval}
             onSubmit={onUpdateListing}
             onCancel={resetLocalState}

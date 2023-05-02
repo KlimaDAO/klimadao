@@ -12,7 +12,7 @@
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
-    "@coinbase/wallet-sdk": "^3.6.6",
+    "@coinbase/wallet-sdk": "^3.7.1",
     "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",

@@ -20,7 +20,7 @@ interface Props {
   onApproval: () => void;
   onSuccess: () => void;
   status: TransactionStatusMessage | null;
-  description?: string;
+  description?: React.ReactNode;
 }
 
 export const Approve: FC<Props> = (props) => {
@@ -41,12 +41,7 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.approve.title">
-            Please confirm the transaction
-          </Trans>
-        </Text>
-        {!!props.description && <Text t="body1">{props.description}</Text>}
+        <div>{props.description && <div>{props.description}</div>}</div>
         <HighlightValue
           label={
             <Text t="body1" color="lighter">

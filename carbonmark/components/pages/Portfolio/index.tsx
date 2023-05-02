@@ -7,8 +7,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
-import { getUserUntil } from "lib/api";
-import { User } from "lib/types/carbonmark";
+import { activityIsAdded, getUserUntil } from "lib/api";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
@@ -27,20 +26,16 @@ export const Portfolio: NextPage = () => {
   const isUnregistered =
     isConnectedUser && !isLoading && carbonmarkUser === null;
 
-  const userActivityIsUpdated = (userFromApi: User) => {
-    // compare with current user
-    const oldUser = carbonmarkUser;
-    const newActivityLength = userFromApi.activities.length;
-    const currentActivityLength = oldUser?.activities.length || 0;
-    return newActivityLength > currentActivityLength;
-  };
-
   const handleMutateUser = async () => {
     if (!isConnectedUser) return;
 
+    const latestActivity = carbonmarkUser?.activities.sort(
+      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
+    )[0];
+
     const newUser = await getUserUntil({
       address,
-      retryUntil: userActivityIsUpdated,
+      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
       retryInterval: 1000,
       maxAttempts: 50,
     });

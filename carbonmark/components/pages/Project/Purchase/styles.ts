@@ -136,3 +136,9 @@ export const errorMessagePrice = css`
     margin-bottom: 0.8rem;
   }
 `;
+
+export const formatParagraph = css`
+  p {
+    margin-bottom: 1em;
+  }
+`;
