@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-02 18:08+0000\n"
+"POT-Creation-Date: 2023-05-02 21:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:160
+#: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:160
+#: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Handle should not contain any special characters"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:110
+#: components/pages/Portfolio/index.tsx:105
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Listing cost, incl. {0}% fee"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:174
+#: components/pages/Users/SellerConnected/index.tsx:170
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr ""
@@ -291,12 +291,12 @@ msgstr ""
 msgid "New Unit Price (USDC)"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:219
+#: components/pages/Users/SellerConnected/index.tsx:215
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr ""
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:98
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:97
 msgid "No listable assets found."
 msgstr ""
 
@@ -332,14 +332,14 @@ msgstr ""
 msgid "Please Log In"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:60
-#: components/pages/Users/SellerConnected/index.tsx:135
-#: components/pages/Users/SellerConnected/index.tsx:149
+#: components/pages/Portfolio/index.tsx:55
+#: components/pages/Users/SellerConnected/index.tsx:131
+#: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:70
-#: components/pages/Portfolio/index.tsx:71
+#: components/pages/Portfolio/index.tsx:65
+#: components/pages/Portfolio/index.tsx:66
 msgid "Portfolio | Carbonmark"
 msgstr ""
 
@@ -461,7 +461,7 @@ msgstr ""
 msgid "Sorry, this handle already exists"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:104
+#: components/pages/Portfolio/index.tsx:99
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr ""
 
@@ -470,7 +470,7 @@ msgid "Stats"
 msgstr ""
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:86
-msgid "Success. Go to your <0>Profile page</0> to see your new listing."
+msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr ""
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
@@ -493,7 +493,7 @@ msgstr ""
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:109
+#: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "View Registry Details <0/>"
 msgstr ""
 
-#: components/pages/Portfolio/index.tsx:72
+#: components/pages/Portfolio/index.tsx:67
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr ""
 
@@ -595,7 +595,7 @@ msgid "Your display name"
 msgstr ""
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:191
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "profile.create_new_listing"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:243
+#: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
 msgstr ""
 
