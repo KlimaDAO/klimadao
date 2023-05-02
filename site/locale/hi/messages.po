@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-02 09:33+0000\n"
+"POT-Creation-Date: 2023-05-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:379
 msgid "buy.bond_description_capacity"
-msgstr ""
+msgstr "बांड की क्षमता सीमित है और बांड हमेशा उपलब्ध नहीं होते हैं।"
 
 #: components/pages/Buy/index.tsx:400
 msgid "buy.bond_question_cex"
@@ -304,11 +304,11 @@ msgstr ""
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
-msgstr ""
+msgstr "भागीदार बनें"
 
 #: components/pages/About/Community/index.tsx:180
 msgid "community.bigcowg_logo"
-msgstr ""
+msgstr "BICOWG लोगो"
 
 #: components/pages/About/Community/index.tsx:172
 msgid "community.blockchainforclimatefondation_logo"
@@ -316,7 +316,7 @@ msgstr ""
 
 #: components/pages/About/Community/index.tsx:314
 msgid "community.come_on_in"
-msgstr ""
+msgstr "अंदर आ जाओ"
 
 #: components/pages/About/Community/index.tsx:228
 msgid "community.deltawave_logo"
@@ -353,7 +353,7 @@ msgstr ""
 
 #: components/pages/About/Community/index.tsx:95
 msgid "community.head.headline"
-msgstr ""
+msgstr "समुदाय"
 
 #: components/pages/About/Community/index.tsx:102
 msgid "community.head.metadescription"
@@ -437,7 +437,7 @@ msgstr ""
 
 #: components/pages/About/Contact/index.tsx:63
 msgid "concat.careers"
-msgstr ""
+msgstr "करियर"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:170
 #: components/pages/Pledge/index.tsx:112
@@ -478,7 +478,7 @@ msgstr "संपर्क त्रुटि"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
-msgstr ""
+msgstr "दोष रिपोर्ट"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/About/Contact/index.tsx:143
@@ -505,7 +505,7 @@ msgstr ""
 #: components/pages/About/Contact/index.tsx:17
 #: components/pages/About/Contact/index.tsx:24
 msgid "contact.head.title"
-msgstr ""
+msgstr "संपर्क करें"
 
 #: components/pages/About/Contact/index.tsx:105
 msgid "contact.media"
@@ -652,11 +652,11 @@ msgstr "500 - पृष्ठ नहीं मिला"
 
 #: components/pages/Home/index.tsx:236
 msgid "home.backed_by_carbon"
-msgstr ""
+msgstr "कार्बन द्वारा समर्थित।"
 
 #: components/pages/Home/index.tsx:327
 msgid "home.cars_annual"
-msgstr ""
+msgstr "कारें (वार्षिक)"
 
 #: components/pages/Home/index.tsx:296
 msgid "home.equivalent_to"
@@ -899,7 +899,7 @@ msgstr "2"
 
 #: components/pages/Infinity/index.tsx:261
 msgid "infinity.getStarted_calculate"
-msgstr ""
+msgstr "गणना"
 
 #: components/pages/Infinity/index.tsx:264
 msgid "infinity.getStarted_calculate_subtitle"
@@ -951,7 +951,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:450
 msgid "infinity.mission_card1_subtitle"
-msgstr ""
+msgstr "KlimaDAO . द्वारा आयोजित कार्बन टन"
 
 #: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_title"
@@ -967,7 +967,7 @@ msgstr "$10m+"
 
 #: components/pages/Infinity/index.tsx:494
 msgid "infinity.mission_card3_description"
-msgstr ""
+msgstr "KlimaDAO . के माध्यम से कार्बन टन ऑफसेट"
 
 #: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_number"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:219
 msgid "infinity.why_subtitle"
-msgstr ""
+msgstr "डेफी जो जलवायु परिवर्तन को धता बताती है"
 
 #: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_title"
@@ -1116,11 +1116,11 @@ msgstr ""
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "पुष्टि करना"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "पुष्टि करना"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
@@ -1144,7 +1144,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:87
 msgid "pledges.dashboard.assets.title"
-msgstr ""
+msgstr "कार्बन एसेट्स"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
@@ -1324,7 +1324,7 @@ msgstr "कैटेगरी"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:510
 msgid "pledges.form.input.categoryName.placeholder"
-msgstr ""
+msgstr "कैटेगरी"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:538
 msgid "pledges.form.input.categoryQuantity.label"
@@ -1332,7 +1332,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryQuantity.placeholder"
-msgstr ""
+msgstr "कार्बन टन"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:323
 msgid "pledges.form.input.description.label"
@@ -1404,7 +1404,7 @@ msgstr ""
 
 #: components/pages/Pledge/index.tsx:90
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "कार्बन प्रतिज्ञा बनाएं और अपना प्रभाव दिखाएं"
 
 #: components/pages/Pledge/index.tsx:86
 msgid "pledges.head.title"
@@ -1416,7 +1416,7 @@ msgstr "कनेक्ट हो रहा है..."
 
 #: components/pages/Pledge/index.tsx:77
 msgid "pledges.home.hero.create"
-msgstr ""
+msgstr "एक प्रतिज्ञा बनाएँ"
 
 #: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.hero.learn_more"
@@ -1488,11 +1488,11 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:71
 msgid "resources.list.filter.tag.basics"
-msgstr ""
+msgstr "मूल बातें"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:111
 msgid "resources.list.filter.tag.carbon_footprint"
-msgstr ""
+msgstr "कार्बन पदचिह्न"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:79
 msgid "resources.list.filter.tag.deep_dives"
@@ -1524,7 +1524,7 @@ msgstr "उपयोगकर्ता मार्गदर्शक"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:121
 msgid "resources.list.filter.type.blog"
-msgstr ""
+msgstr "ब्लॉग"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:129
 msgid "resources.list.filter.type.podcast"
@@ -1636,15 +1636,15 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.beneficiary.title"
-msgstr ""
+msgstr "लाभार्थी का नाम"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:184
 msgid "retirement.single.beneficiaryAddress.title"
-msgstr ""
+msgstr "लाभार्थी का पता"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:245
 msgid "retirement.single.create_a_pledge"
-msgstr ""
+msgstr "अब एक प्रतिज्ञा बनाएँ।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:231
 msgid "retirement.single.disclaimer"
@@ -1680,11 +1680,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.retirementCertificate.title"
-msgstr ""
+msgstr "प्रमाणपत्र"
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
 msgid "retirement.single.retirementDate.title"
-msgstr ""
+msgstr "दिनांक"
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
 msgid "retirement.single.timestamp.placeholder"
@@ -1716,7 +1716,7 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:65
 msgid "retirement.totals.page_headline"
-msgstr ""
+msgstr "कार्बन सेवानिवृत्ति"
 
 #: components/pages/Retirements/index.tsx:71
 msgid "retirement.totals.page_subline"
@@ -1757,19 +1757,19 @@ msgstr "अनुप्रयोग"
 
 #: components/Footer/index.tsx:49
 msgid "shared.blog"
-msgstr ""
+msgstr "ब्लॉग"
 
 #: components/Footer/index.tsx:43
 #: components/Navigation/index.tsx:133
 #: components/Navigation/index.tsx:278
 msgid "shared.bond"
-msgstr ""
+msgstr "KLIMA दाँव पर लगाएँ"
 
 #: components/Footer/index.tsx:37
 #: components/Navigation/index.tsx:117
 #: components/Navigation/index.tsx:265
 msgid "shared.buy"
-msgstr ""
+msgstr "KLIMA ख़रीदें"
 
 #: components/Navigation/index.tsx:157
 #: components/Navigation/index.tsx:302
@@ -1780,31 +1780,31 @@ msgstr "कार्बन खरीदें"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "रद्द करना"
 
 #: components/Navigation/index.tsx:352
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "कार्बन डैशबोर्ड"
 
 #: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "कार्बन डैशबोर्ड"
 
 #: components/Navigation/index.tsx:174
 #: components/Navigation/index.tsx:321
 msgid "shared.carbonmark"
-msgstr ""
+msgstr "कार्बनमार्क"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:232
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
-msgstr ""
+msgstr "समुदाय"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
+msgstr "पुष्टि करना"
 
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:241
@@ -1816,14 +1816,14 @@ msgstr "संपर्क करें"
 #: components/pages/Infinity/index.tsx:117
 #: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
-msgstr ""
+msgstr "संपर्क बिक्री"
 
 #: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
 msgid "shared.contact_us"
-msgstr ""
+msgstr "संपर्क करें"
 
 #: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105
@@ -1876,7 +1876,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:186
 msgid "shared.infinity_cta"
-msgstr ""
+msgstr "संगठनों के लिए डेफी"
 
 #: components/Navigation/index.tsx:165
 #: components/Navigation/index.tsx:310
@@ -1903,7 +1903,7 @@ msgstr "साइन इन / कनेक्ट करें"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
-msgstr ""
+msgstr "व्यक्तियों के लिए डेफी"
 
 #: components/Navigation/index.tsx:179
 #: components/Navigation/index.tsx:325
