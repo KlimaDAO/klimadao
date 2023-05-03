@@ -69,8 +69,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 }) => {
   const { asPath, locale } = useRouter();
 
-  console.log("rettt", retirement);
-
   const formattedAmount = formatTonnes({
     amount: retirement.amount,
     locale: locale || "en",

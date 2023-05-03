@@ -1,10 +1,10 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
 import { CarbonToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t } from "@lingui/macro";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { getDownloadCertificate } from "lib/api";
 import { StaticImageData } from "next/legacy/image";
 import { FC } from "react";
-import { generateCertificate } from "./generateCertificate";
 import * as styles from "./styles";
 
 export interface DownloadCertificateButtonProps {
@@ -32,6 +32,6 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
       message: "Download PDF",
     })}
     className={styles.downloadButton}
-    onClick={() => generateCertificate(props)}
+    onClick={() => getDownloadCertificate(props)}
   />
 );
