@@ -132,6 +132,8 @@ export const urls = {
   twitter: "https://twitter.com/KlimaDAO",
   twitterCarbonmark: "https://twitter.com/carbonmarkcom",
   youtube: "https://www.youtube.com/c/klimadaofinance",
+  carbonmarkContactForm:
+    "https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk",
   mediaRequestForm:
     "https://share-eu1.hsforms.com/1ILV2ALyPSqqUAeLdstfZZgfhhlr",
   partnerShipsContactForm:

@@ -1,4 +1,5 @@
 import { Anchor } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
@@ -81,8 +82,8 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
       />
       <CarbonmarkButton
         label={t`Book a demo`}
+        href={urls.carbonmarkContactForm}
         className={styles.bookDemoButton}
-        href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk"
         renderLink={(linkProps) => <Anchor {...linkProps} />}
       />
       <div className="navFooter">

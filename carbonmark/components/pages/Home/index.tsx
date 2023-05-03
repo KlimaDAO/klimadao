@@ -513,7 +513,7 @@ export const Home: NextPage<Props> = (props) => {
             <A href={urls.home}>
               <Trans>KlimaDAO</Trans>
             </A>
-            <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
+            <Link href={urls.carbonmarkContactForm}>
               <Trans>Contact</Trans>
             </Link>
           </nav>

@@ -49,7 +49,7 @@ export const Footer: FC<Props> = (props) => {
               <Trans>KlimaDAO</Trans>
             </Text>
           </Link>
-          <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
+          <Link href={urls.carbonmarkContactForm}>
             <Text t="body4">
               <Trans>Contact</Trans>
             </Text>
