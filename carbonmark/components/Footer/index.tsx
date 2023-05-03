@@ -1,16 +1,17 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
-import Link from "next/link";
-import { FC } from "react";
-
 import {
   Anchor as A,
+  GithubIcon,
   LinkedInIcon,
   TwitterIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { Trans } from "@lingui/macro";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import { Text } from "components/Text";
 import { urls as carbonmarkUrls } from "lib/constants";
+import Link from "next/link";
+import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
@@ -33,11 +34,6 @@ export const Footer: FC<Props> = (props) => {
               <Trans>Terms of Use</Trans>
             </Text>
           </Link>
-          <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
-            <Text t="body4">
-              <Trans>Contact</Trans>
-            </Text>
-          </Link>
           <Link href={carbonmarkUrls.help}>
             <Text t="body4">
               <Trans>Help</Trans>
@@ -53,13 +49,24 @@ export const Footer: FC<Props> = (props) => {
               <Trans>KlimaDAO</Trans>
             </Text>
           </Link>
+          <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
+            <Text t="body4">
+              <Trans>Contact</Trans>
+            </Text>
+          </Link>
         </nav>
         <nav className={styles.footer_icons}>
           <A href={urls.twitterCarbonmark}>
             <TwitterIcon />
           </A>
+          <A href={urls.github}>
+            <GithubIcon />
+          </A>
           <A href={urls.linkedInCarbonmark}>
             <LinkedInIcon />
+          </A>
+          <A href={urls.carbonmarkEmail}>
+            <EmailRoundedIcon />
           </A>
         </nav>
       </div>

@@ -161,6 +161,7 @@ export const urls = {
   marketplace: "https://www.carbonmark.com/projects",
   portfolio: "https://www.carbonmark.com/portfolio",
   resourcesCarbonmark: "https://www.carbonmark.com/resources",
+  carbonmarkEmail: "mailto:support@carbonmark.com",
 };
 
 export const polygonNetworks = {
