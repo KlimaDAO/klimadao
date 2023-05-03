@@ -32,14 +32,14 @@ export const content = css`
 export const cancelButton = css`
   width: 100%;
   margin-top: 1.2rem;
-  border-color: var(--warn);
-  color: var(--warn) !important;
+  color: var(--font-02);
+  border-color: var(--font-03);
 `;
 
 export const continueButton = css`
   width: 100%;
   margin-top: 2.4rem;
-  color: white !important;
+  color: #fff !important;
   background: var(--bright-blue);
   border-color: var(--bright-blue);
 `;

@@ -104,7 +104,7 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
-#: components/LeaveModal/index.tsx:44
+#: components/ExitModal/index.tsx:44
 msgid "Cancel"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: components/LeaveModal/index.tsx:39
+#: components/ExitModal/index.tsx:39
 msgid "Continue"
 msgstr ""
 

@@ -13,13 +13,13 @@ export const ExitModal = (props: ExitModalProps) => (
     <div className={styles.content}>
       <div>
         <LaunchOutlinedIcon />
-        <Trans>
+        <Trans id="exitmodal.you_will_be_taken">
           You will be taken to KlimaDAO.finance to complete this transaction.
         </Trans>
       </div>
       <div>
         <AccountBalanceWalletIcon />
-        <Trans>
+        <Trans id="exitmodal.after_you_click">
           After you click the button below to continue, you will be asked to
           connect your wallet and the project you selected here will already be
           selected for you on KlimaDAO.finance. From there, follow the
@@ -28,7 +28,7 @@ export const ExitModal = (props: ExitModalProps) => (
       </div>
       <div>
         <SpaceDashboardIcon />
-        <Trans>
+        <Trans id="exitmodal.carbon_credits_you_purchase">
           Carbon credits you purchase or any retirements you make on
           KlimaDAO.finance will also be accessible in your Carbonmark portfolio.
         </Trans>

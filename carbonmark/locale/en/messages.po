@@ -104,7 +104,7 @@ msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 msgid "Buy"
 msgstr "Buy"
 
-#: components/LeaveModal/index.tsx:44
+#: components/ExitModal/index.tsx:44
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -142,7 +142,7 @@ msgstr "Clear Filters"
 msgid "Contact"
 msgstr "Contact"
 
-#: components/LeaveModal/index.tsx:39
+#: components/ExitModal/index.tsx:39
 msgid "Continue"
 msgstr "Continue"
 
