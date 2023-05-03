@@ -169,7 +169,7 @@ export const getVintages = async (): Promise<string[]> => {
   return data;
 };
 
-export const getDownloadCertificate = async (
+export const getRetirementCertificate = async (
   params: DownloadCertificateButtonProps
 ) => {
   const filename = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
