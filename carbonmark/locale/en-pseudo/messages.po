@@ -738,6 +738,18 @@ msgstr ""
 msgid "edit_listting.submit_2"
 msgstr ""
 
+#: components/ExitModal/index.tsx:22
+msgid "exitmodal.after_you_click"
+msgstr ""
+
+#: components/ExitModal/index.tsx:31
+msgid "exitmodal.carbon_credits_you_purchase"
+msgstr ""
+
+#: components/ExitModal/index.tsx:16
+msgid "exitmodal.you_will_be_taken"
+msgstr ""
+
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
 msgstr ""
