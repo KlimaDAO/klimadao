@@ -6,7 +6,7 @@ export const formatWalletAddress = (
   connectedAddress?: string
 ) => {
   if (isConnectedAddress(address, connectedAddress)) {
-    return t({ id: "activity.you", message: "You" });
+    return t`You`;
   }
 
   return concatAddress(address);

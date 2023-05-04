@@ -28,10 +28,7 @@ export const Activity = (props: Props) => {
 
   let addressA, addressB;
   let amountA, amountB;
-  let transactionString = t({
-    id: "props.transaction.conjunction.at",
-    message: "at",
-  });
+  let transactionString = t`at`;
 
   const isPurchaseActivity = props.activity.activityType === "Purchase";
   const isSaleActivity = props.activity.activityType === "Sold";
@@ -90,10 +87,7 @@ export const Activity = (props: Props) => {
 
   /** Determine the conjunction between the labels */
   if (isPurchaseActivity || isSaleActivity) {
-    transactionString = t({
-      id: "props.transaction.conjunction",
-      message: "for",
-    });
+    transactionString = t`for`;
   }
   if (isUpdatePrice || isUpdateQuantity) {
     transactionString = "->";
