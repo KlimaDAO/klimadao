@@ -3,7 +3,7 @@ import { t } from "@lingui/macro";
 import { Text } from "components/Text";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { formatWalletAddress } from "lib/formatWalletAddress";
+import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
 import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
 import Link from "next/link";
@@ -26,7 +26,7 @@ export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
 
-  let addressA, addressB;
+  let firstActor, secondActor;
   let amountA, amountB;
   let transactionString = t`at`;
 
@@ -38,16 +38,13 @@ export const Activity = (props: Props) => {
   const seller = props.activity.seller;
   const buyer = props.activity.buyer;
 
-  const sellerID = "handle" in seller ? seller.handle : seller.id;
-  const buyerId = buyer && "handle" in buyer ? buyer.handle : buyer?.id;
-
   // type guard
   const project = isUserActivity(props.activity)
     ? props.activity.project
     : null;
 
   /** By default the seller is the "source" of all actions */
-  addressA = sellerID;
+  firstActor = seller;
 
   /** By default activities are buy or sell transactions */
   amountA =
@@ -59,13 +56,13 @@ export const Activity = (props: Props) => {
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
-    addressA = buyerId;
-    addressB = sellerID;
+    firstActor = buyer;
+    secondActor = seller;
   }
 
   if (isSaleActivity) {
-    addressA = sellerID;
-    addressB = buyerId;
+    firstActor = seller;
+    secondActor = buyer;
   }
 
   /** Price Labels */
@@ -111,23 +108,34 @@ export const Activity = (props: Props) => {
         </i>
       </Text>
       <Text t="body1">
-        {!!addressA && (
-          <Link className="account" href={`/users/${addressA}`}>
-            {addressA.length >= 11
-              ? formatWalletAddress(addressA, connectedAddress)
-              : addressA}{" "}
+        {!!firstActor && firstActor.handle ? (
+          <Link className="account" href={`/users/${firstActor.handle}`}>
+            {formatHandle(firstActor.id, firstActor.handle, connectedAddress)}{" "}
           </Link>
+        ) : (
+          !!firstActor &&
+          firstActor.id && (
+            <Link className="account" href={`/users/${firstActor.id}`}>
+              {formatWalletAddress(firstActor.id, connectedAddress)}{" "}
+            </Link>
+          )
         )}
 
         {getActivityActions()[props.activity.activityType]}
 
-        {addressB && (
-          <Link className="account" href={`/users/${addressB}`}>
+        {!!secondActor && secondActor.handle ? (
+          <Link className="account" href={`/users/${secondActor.handle}`}>
             {" "}
-            {addressB.length >= 11
-              ? formatWalletAddress(addressB, connectedAddress)
-              : addressB}
+            {formatHandle(secondActor.id, secondActor.handle, connectedAddress)}
           </Link>
+        ) : (
+          !!secondActor &&
+          secondActor.id && (
+            <Link className="account" href={`/users/${secondActor.id}`}>
+              {" "}
+              {formatWalletAddress(secondActor.id, connectedAddress)}{" "}
+            </Link>
+          )
         )}
       </Text>
       {!!amountA && !!amountB && (
