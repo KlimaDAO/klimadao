@@ -31,5 +31,5 @@ jobs:
         id: status_check
         with:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          timeoutSeconds: 240
+          timeoutSeconds: 360
           ref: ${{ inputs.branch }}
