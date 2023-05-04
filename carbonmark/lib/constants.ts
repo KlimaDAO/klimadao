@@ -17,7 +17,7 @@ const ENVIRONMENT = IS_PRODUCTION
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 
-export const connectErrorStrings = {
+export const getConnectErrorStrings = () => ({
   default: t({
     message: "We had some trouble connecting. Please try again.",
     id: "connect_modal.error_message_default",
@@ -31,7 +31,7 @@ export const connectErrorStrings = {
       "Request already processing. Please open your wallet and complete the request.",
     id: "connect_modal.error_processing",
   }),
-};
+});
 
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
