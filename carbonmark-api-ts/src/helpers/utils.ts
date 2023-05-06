@@ -1,16 +1,16 @@
 import { FastifyInstance } from "fastify";
-import { Category } from '../../graph-types';
+import { concat } from "lodash";
+import { flatten, map, pipe, split, trim, uniq } from "lodash/fp";
+import {
+  CarbonOffset,
+  CarbonOffsetsDocument,
+} from "../graphql/generated/carbon.types";
+import {
+  Category,
+  GetCategoriesDocument,
+} from "../graphql/generated/marketplace.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
-
-const { GET_COUNTRIES } = require("../queries/countries");
-const {
-  GET_CATEGORIES,
-  GET_POOLED_PROJECT_CAT,
-  GET_POOLED_PROJECT_COUNTRY,
-  GET_POOLED_PROJECT_VINTAGE,
-} = require("../queries/categories");
-const { GET_VINTAGES } = require("../queries/vintage.js");
-const { POOL_PRICE } = require("../queries/pool_price_in_usdc");
+import { extract } from "../utils/functional.utils";
 
 //  export async function getAllVintages(fastify:FastifyInstance) {
 //   const cacheKey = `vintages`;
@@ -48,32 +48,31 @@ const { POOL_PRICE } = require("../queries/pool_price_in_usdc");
 
 export async function getAllCategories(fastify: FastifyInstance) {
   const cacheKey = `categories`;
-
   const cachedResult = await fastify.lcache.get(cacheKey);
 
-  if (cachedResult) {
-    return cachedResult;
-}
+  if (cachedResult) return cachedResult;
 
-  const {data:{categories}} = await executeGraphQLQuery<{categories:Category[]}>(
+  const {
+    data: { categories },
+  } = await executeGraphQLQuery<{ categories: Category[] }>(
     process.env.GRAPH_API_URL,
-    GET_CATEGORIES
+    GetCategoriesDocument
   );
-
-
-  const uniqueValues = new Set(categories.flatMap(({id})=>id.split(',')))
-
-
-  const pooldata = await executeGraphQLQuery(
+  const {
+    data: { carbonOffsets },
+  } = await executeGraphQLQuery<{ carbonOffsets: CarbonOffset[] }>(
     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    GET_POOLED_PROJECT_CAT
+    CarbonOffsetsDocument
   );
 
-  pooldata.data.carbonOffsets.forEach((item) =>
-    uniqueValues.add(...item.methodologyCategory.split(","))
-  );
+  /** Extract the required values */
+  const values = [
+    categories.map(extract("id")),
+    carbonOffsets.map(extract("methodologyCategory")),
+  ];
+  const fn = pipe(concat, flatten, split(","), map(trim), uniq);
 
-  const result = Array.from(uniqueValues);
+  const result = fn(values);
 
   await fastify.lcache.set(cacheKey, result);
 

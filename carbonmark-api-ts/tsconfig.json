@@ -6,5 +6,5 @@
     "noImplicitAny": true
     // "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/resolvers/categories.js"]
+  "include": ["src/**/*.ts"]
 }

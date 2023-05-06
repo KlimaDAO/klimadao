@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -1332,3 +1334,26 @@ export enum _SubgraphErrorPolicy_ {
   /** If the subgraph has indexing errors, data will be omitted. The default. */
   Deny = 'deny'
 }
+
+export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
+
+
+export const GetCategoriesDocument = gql`
+    query getCategories {
+  categories {
+    id
+  }
+}
+    `;
+export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
+export function getSdk<C, E>(requester: Requester<C, E>) {
+  return {
+    getCategories(variables?: GetCategoriesQueryVariables, options?: C): Promise<GetCategoriesQuery> {
+      return requester<GetCategoriesQuery, GetCategoriesQueryVariables>(GetCategoriesDocument, variables, options) as Promise<GetCategoriesQuery>;
+    }
+  };
+}
+export type Sdk = ReturnType<typeof getSdk>;
