@@ -9,6 +9,7 @@
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
     "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "generate:types": "graphql-codegen --config src/graphql/codegen.ts",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
@@ -32,9 +33,14 @@
     "fastify-cli": "^5.7.1",
     "fastify-lcache": "^1.1.1",
     "fastify-plugin": "^4.0.0",
-    "firebase-admin": "^11.7.0"
+    "firebase-admin": "^11.7.0",
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/typescript": "3.0.4",
+    "@graphql-codegen/typescript-operations": "^3.0.4",
+    "@graphql-codegen/typescript-resolvers": "3.2.1",
     "@types/node": "^18.0.0",
     "@types/tap": "^15.0.5",
     "concurrently": "^7.0.0",

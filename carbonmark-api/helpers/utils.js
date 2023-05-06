@@ -29,7 +29,7 @@ async function getAllVintages(fastify) {
   data.data.projects.forEach((item) => uniqueValues.add(item.vintage));
 
   const pooldata = await executeGraphQLQuery(
-    SUBGRAPH_URL,
+    process.env.CARBON_OFFSETS_GRAPH_API_URL,
     GET_POOLED_PROJECT_VINTAGE
   );
 

@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 // Import the cross-fetch library for making HTTP requests
 import fetch from "cross-fetch";
+import { OperationResponse } from "firebase-admin/lib/machine-learning/machine-learning-api-client";
 
 const DEFAULT_OPTIONS = {
   watchQuery: {
@@ -29,7 +30,9 @@ export const client = new ApolloClient({
 });
 
 // Define a function that executes a GraphQL query and returns the result
-export async function executeGraphQLQuery(
+export async function executeGraphQLQuery<
+  TResponse = OperationResponse,
+>(
   link: HttpOptions["uri"],
   query: QueryOptions["query"],
   variables: QueryOptions["variables"] = {}
@@ -37,7 +40,7 @@ export async function executeGraphQLQuery(
   client.setLink(new HttpLink({ uri: link, fetch }));
 
   // Execute the query and return the result
-  return await client.query({
+  return await client.query<TResponse>({
     query,
     variables,
   });
