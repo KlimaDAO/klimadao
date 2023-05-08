@@ -136,6 +136,9 @@ export const EditProfile: FC<Props> = (props) => {
           label={"wallet address"}
           hideLabel
         />
+        <Text>
+          <span className={styles.required}>*</span> Required Field
+        </Text>
         <InputField
           id="handle"
           inputProps={{
@@ -166,6 +169,7 @@ export const EditProfile: FC<Props> = (props) => {
                 : undefined
             ),
           }}
+          required
           label={t`@Username (note: this can not be changed!)`}
           errorMessage={formState.errors.handle?.message}
         />
@@ -182,6 +186,7 @@ export const EditProfile: FC<Props> = (props) => {
               },
             }),
           }}
+          required
           label={t`Display name`}
           errorMessage={formState.errors.username?.message}
         />

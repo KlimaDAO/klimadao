@@ -31,7 +31,8 @@ export const ProfileHeader: FC<Props> = (props) => {
         {!isCarbonmarkUser && (
           <Text t="body1">
             <Trans id="profile.create_your_profile">
-              Create your profile on Carbonmark and start selling
+              To start selling you need to create your profile, click the
+              'create profile' button above to get started.
             </Trans>
           </Text>
         )}

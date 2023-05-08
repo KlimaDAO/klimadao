@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:202
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 
@@ -34,7 +34,7 @@ msgstr "500 - Server Error"
 msgid "500 - Server error occurred"
 msgstr "500 - Server error occurred"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
 msgid "@Username (note: this can not be changed!)"
 msgstr "@Username (note: this can not be changed!)"
 
@@ -42,7 +42,7 @@ msgstr "@Username (note: this can not be changed!)"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -171,11 +171,11 @@ msgstr "Description"
 msgid "Digital Carbon"
 msgstr "Digital Carbon"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "Display name"
 msgstr "Display name"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name is required"
 msgstr "Display name is required"
 
@@ -199,15 +199,15 @@ msgstr "Find the latest updates, guides, and resources to help you leverage the 
 msgid "Forestry"
 msgstr "Forestry"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle is required"
 msgstr "Handle is required"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Handle should not be an address"
 msgstr "Handle should not be an address"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
@@ -374,7 +374,7 @@ msgstr "Privacy policy"
 msgid "Profile"
 msgstr "Profile"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Profile picture"
 msgstr "Profile picture"
 
@@ -439,7 +439,7 @@ msgstr "Retire"
 msgid "Retire now"
 msgstr "Retire now"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
@@ -463,7 +463,7 @@ msgstr "Sorry, looks like we sent you the wrong way."
 msgid "Sorry, something went wrong."
 msgstr "Sorry, something went wrong."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
 msgid "Sorry, this handle already exists"
 msgstr "Sorry, this handle already exists"
 
@@ -596,7 +596,7 @@ msgstr "You chose to reject the transaction."
 msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Your display name"
 msgstr "Your display name"
 
@@ -605,7 +605,7 @@ msgstr "Your display name"
 msgid "Your seller data"
 msgstr "Your seller data"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
 msgid "Your unique handle"
 msgstr "Your unique handle"
 
@@ -756,13 +756,13 @@ msgstr "Create New Listing"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr "Create your profile on Carbonmark and start selling"
+msgstr "To start selling you need to create your profile, click the 'create profile' button above to get started."
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr "Update Listing"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
@@ -770,7 +770,7 @@ msgstr "Save Changes"
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
-#: components/pages/Users/ProfileHeader/index.tsx:41
+#: components/pages/Users/ProfileHeader/index.tsx:42
 msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description"
 
