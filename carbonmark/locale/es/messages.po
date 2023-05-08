@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 17:47+0000\n"
+"POT-Creation-Date: 2023-05-08 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,8 +62,8 @@ msgstr ""
 msgid "Available balance exceeded"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:158
-#: components/pages/Project/Purchase/PurchaseForm.tsx:167
+#: components/pages/Project/Purchase/PurchaseForm.tsx:159
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "Available:"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgid "Back to Project"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
-#: components/pages/Project/BuyOptions/SellerListing.tsx:62
+#: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr ""
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Created:"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "Lo más reciente primero"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:41
+#: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
 msgstr ""
 
@@ -247,12 +247,12 @@ msgid "Loading your assets"
 msgstr ""
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/PurchaseForm.tsx:170
+#: components/pages/Project/Purchase/PurchaseForm.tsx:171
 msgid "Loading..."
 msgstr "Cargando..."
 
 #: components/Layout/NavDrawer/index.tsx:51
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:61
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr ""
 
@@ -388,7 +388,7 @@ msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
-#: components/pages/Project/BuyOptions/SellerListing.tsx:78
+#: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr ""
 
@@ -441,7 +441,7 @@ msgstr ""
 msgid "Sell"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:58
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 msgid "Seller Listing"
 msgstr ""
 
@@ -529,7 +529,7 @@ msgstr ""
 msgid "Total quantity to list for sale"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:87
+#: components/pages/Project/BuyOptions/SellerListing.tsx:92
 msgid "Updated:"
 msgstr ""
 
@@ -646,7 +646,7 @@ msgstr ""
 msgid "blog.disclaimer.title"
 msgstr "Aviso legal:"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:105
+#: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
 msgstr "Comprar"
 
@@ -814,7 +814,7 @@ msgstr ""
 msgid "purchase.approval_4"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:193
+#: components/pages/Project/Purchase/PurchaseForm.tsx:194
 msgid "purchase.button.continue"
 msgstr "Continuar"
 
@@ -822,31 +822,31 @@ msgstr "Continuar"
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:144
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:137
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:119
+#: components/pages/Project/Purchase/PurchaseForm.tsx:120
 msgid "purchase.input.amount.placeholder"
 msgstr "Toneladas"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:130
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:214
+#: components/pages/Project/Purchase/PurchaseForm.tsx:215
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:207
+#: components/pages/Project/Purchase/PurchaseForm.tsx:208
 msgid "purchase.input.price.required"
 msgstr ""
 
@@ -943,8 +943,8 @@ msgstr ""
 msgid "shared.approve"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Project/Purchase/PurchaseForm.tsx:179
+#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr ""

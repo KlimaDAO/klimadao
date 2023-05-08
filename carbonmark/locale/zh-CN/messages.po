@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 17:47+0000\n"
+"POT-Creation-Date: 2023-05-08 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,8 +62,8 @@ msgstr "申请"
 msgid "Available balance exceeded"
 msgstr "超出可用余额"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:158
-#: components/pages/Project/Purchase/PurchaseForm.tsx:167
+#: components/pages/Project/Purchase/PurchaseForm.tsx:159
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "Available:"
 msgstr "可用的："
 
@@ -76,7 +76,7 @@ msgid "Back to Project"
 msgstr "返回项目"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
-#: components/pages/Project/BuyOptions/SellerListing.tsx:62
+#: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "最优价格"
@@ -144,7 +144,7 @@ msgstr "创建个人资料"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Created:"
 msgstr "已创建："
 
@@ -233,7 +233,7 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "最新优先"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:41
+#: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
 msgstr "挂牌成本，包括。 {0}% 费用"
 
@@ -247,12 +247,12 @@ msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/PurchaseForm.tsx:170
+#: components/pages/Project/Purchase/PurchaseForm.tsx:171
 msgid "Loading..."
 msgstr "正在加载..."
 
 #: components/Layout/NavDrawer/index.tsx:51
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "登录"
 
@@ -261,7 +261,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "登录以创建 Carbonmark 资料"
 
 #: components/Layout/NavDrawer/index.tsx:61
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "登出"
 
@@ -390,7 +390,7 @@ msgstr "购买 {0} | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
-#: components/pages/Project/BuyOptions/SellerListing.tsx:78
+#: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr "可用数量："
 
@@ -443,7 +443,7 @@ msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 msgid "Sell"
 msgstr "卖出"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:58
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 msgid "Seller Listing"
 msgstr "卖家挂牌信息"
 
@@ -531,7 +531,7 @@ msgstr "总碳停用"
 msgid "Total quantity to list for sale"
 msgstr "待售总数量"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:87
+#: components/pages/Project/BuyOptions/SellerListing.tsx:92
 msgid "Updated:"
 msgstr "已更新："
 
@@ -646,7 +646,7 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:105
+#: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
 msgstr "购买"
 
@@ -814,7 +814,7 @@ msgstr "您购买的碳资产可随时从您的<0>投资组合</0>中挂牌，�
 msgid "purchase.approval_4"
 msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:193
+#: components/pages/Project/Purchase/PurchaseForm.tsx:194
 msgid "purchase.button.continue"
 msgstr "继续"
 
@@ -822,31 +822,31 @@ msgstr "继续"
 msgid "purchase.button.view_assets"
 msgstr "查看您的资产"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
 msgid "purchase.input.amount.label"
 msgstr "您想购买多少吨碳？"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:144
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.maxAmount"
 msgstr "您超出了可用吨数"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:137
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.minimum"
 msgstr "最低购买量为 1 吨"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:119
+#: components/pages/Project/Purchase/PurchaseForm.tsx:120
 msgid "purchase.input.amount.placeholder"
 msgstr "吨"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:130
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.required"
 msgstr "金额为必填项"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:214
+#: components/pages/Project/Purchase/PurchaseForm.tsx:215
 msgid "purchase.input.price.maxAmount"
 msgstr "您超出了可用的代币数量"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:207
+#: components/pages/Project/Purchase/PurchaseForm.tsx:208
 msgid "purchase.input.price.required"
 msgstr "价格为必填项"
 
@@ -943,8 +943,8 @@ msgstr "可用数量："
 msgid "shared.approve"
 msgstr "批准"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Project/Purchase/PurchaseForm.tsx:179
+#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr "登录/连接购买"

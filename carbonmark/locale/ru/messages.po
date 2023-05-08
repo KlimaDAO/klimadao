@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 17:47+0000\n"
+"POT-Creation-Date: 2023-05-08 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,8 +62,8 @@ msgstr "Применить"
 msgid "Available balance exceeded"
 msgstr "Превышение доступного остатка"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:158
-#: components/pages/Project/Purchase/PurchaseForm.tsx:167
+#: components/pages/Project/Purchase/PurchaseForm.tsx:159
+#: components/pages/Project/Purchase/PurchaseForm.tsx:168
 msgid "Available:"
 msgstr "Доступно:"
 
@@ -76,7 +76,7 @@ msgid "Back to Project"
 msgstr "Вернуться к проекту"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
-#: components/pages/Project/BuyOptions/SellerListing.tsx:62
+#: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "Лучшая цена"
@@ -144,7 +144,7 @@ msgstr "Создать профиль"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Создавайте и редактируйте объявления, а также отслеживайте свою активность с помощью профиля Carbonmark."
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Created:"
 msgstr "Создан:"
 
@@ -233,7 +233,7 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Последние Первые"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:41
+#: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
 msgstr "Стоимость объявления, включая {0}% комиссию"
 
@@ -247,12 +247,12 @@ msgid "Loading your assets"
 msgstr "Загрузка ваших активов"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/PurchaseForm.tsx:170
+#: components/pages/Project/Purchase/PurchaseForm.tsx:171
 msgid "Loading..."
 msgstr "Загрузка..."
 
 #: components/Layout/NavDrawer/index.tsx:51
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "Войти"
 
@@ -261,7 +261,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Войдите, чтобы создать профиль Carbonmark"
 
 #: components/Layout/NavDrawer/index.tsx:61
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "Выйти"
 
@@ -388,7 +388,7 @@ msgstr "Купить {0} | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
-#: components/pages/Project/BuyOptions/SellerListing.tsx:78
+#: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr "Доступное количество:"
 
@@ -441,7 +441,7 @@ msgstr "Несколько слов о себе. Это будет видно в
 msgid "Sell"
 msgstr "Продать"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:58
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 msgid "Seller Listing"
 msgstr "Объявление продавца"
 
@@ -529,7 +529,7 @@ msgstr "Итого выведено"
 msgid "Total quantity to list for sale"
 msgstr "Общее количество для продажи"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:87
+#: components/pages/Project/BuyOptions/SellerListing.tsx:92
 msgid "Updated:"
 msgstr "Обновлено:"
 
@@ -644,7 +644,7 @@ msgstr "Информация, представленная в данном бл�
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:105
+#: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
 msgstr "Купить"
 
@@ -812,7 +812,7 @@ msgstr "Приобретенные вами углеродные активы м
 msgid "purchase.approval_4"
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:193
+#: components/pages/Project/Purchase/PurchaseForm.tsx:194
 msgid "purchase.button.continue"
 msgstr "Продолжить"
 
@@ -820,31 +820,31 @@ msgstr "Продолжить"
 msgid "purchase.button.view_assets"
 msgstr "Просмотрите свои активы"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:151
+#: components/pages/Project/Purchase/PurchaseForm.tsx:152
 msgid "purchase.input.amount.label"
 msgstr "Сколько тонн углерода вы хотите купить?"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:144
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.maxAmount"
 msgstr "Вы превысили доступное количество тонн"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:137
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.minimum"
 msgstr "Минимальное количество для покупки - 1 тонна"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:119
+#: components/pages/Project/Purchase/PurchaseForm.tsx:120
 msgid "purchase.input.amount.placeholder"
 msgstr "Тонны"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:130
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.required"
 msgstr "Необходимая сумма"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:214
+#: components/pages/Project/Purchase/PurchaseForm.tsx:215
 msgid "purchase.input.price.maxAmount"
 msgstr "Вы превысили доступное количество токенов"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:207
+#: components/pages/Project/Purchase/PurchaseForm.tsx:208
 msgid "purchase.input.price.required"
 msgstr "Укажите цену"
 
@@ -941,8 +941,8 @@ msgstr "Доступное количество:"
 msgid "shared.approve"
 msgstr "Одобрить"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Project/Purchase/PurchaseForm.tsx:179
+#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr "Войти / Подключиться, чтобы купить"
