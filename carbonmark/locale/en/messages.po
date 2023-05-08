@@ -81,7 +81,7 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Back to Project"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
@@ -100,11 +100,15 @@ msgstr "Browse Projects"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:42
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
 msgid "Buy"
 msgstr "Buy"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:25
+#: components/ExitModal/index.tsx:44
+msgid "Cancel"
+msgstr "Cancel"
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
@@ -137,6 +141,10 @@ msgstr "Clear Filters"
 #: components/pages/Home/index.tsx:506
 msgid "Contact"
 msgstr "Contact"
+
+#: components/ExitModal/index.tsx:39
+msgid "Continue"
+msgstr "Continue"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -238,6 +246,11 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "Latest First"
+
+#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+msgid "Leaving Carbonmark"
+msgstr "Leaving Carbonmark"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
@@ -392,8 +405,8 @@ msgstr "Purchase Receipt | Carbonmark"
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:60
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:36
+#: components/pages/Portfolio/AssetProject/index.tsx:62
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
@@ -431,11 +444,11 @@ msgstr "Resources"
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:65
+#: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
 msgstr "Retire"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:51
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
 msgstr "Retire now"
 
@@ -443,7 +456,7 @@ msgstr "Retire now"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr "Sell"
 
@@ -729,6 +742,18 @@ msgstr "The previous step granted the approval to transfer this asset from your 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
 msgstr "To finalize the transfer of this asset to Carbonmark and make your listing live, verify all information is correct and then click submit below."
+
+#: components/ExitModal/index.tsx:22
+msgid "exitmodal.after_you_click"
+msgstr "After you click the button below to continue, you will be asked to connect your wallet and the project you selected here will already be selected for you on KlimaDAO.finance. From there, follow the directions on that page to complete your transaction."
+
+#: components/ExitModal/index.tsx:31
+msgid "exitmodal.carbon_credits_you_purchase"
+msgstr "Carbon credits you purchase or any retirements you make on KlimaDAO.finance will also be accessible in your Carbonmark portfolio."
+
+#: components/ExitModal/index.tsx:16
+msgid "exitmodal.you_will_be_taken"
+msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"

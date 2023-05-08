@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:202
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
@@ -75,7 +81,7 @@ msgstr ""
 msgid "Back to Project"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
@@ -94,11 +100,15 @@ msgstr ""
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:42
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
 msgid "Buy"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:25
+#: components/ExitModal/index.tsx:44
+msgid "Cancel"
+msgstr ""
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 msgid "Carbon Pool"
 msgstr ""
 
@@ -130,6 +140,10 @@ msgstr ""
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:506
 msgid "Contact"
+msgstr ""
+
+#: components/ExitModal/index.tsx:39
+msgid "Continue"
 msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:119
@@ -231,6 +245,11 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
+msgstr ""
+
+#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+msgid "Leaving Carbonmark"
 msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
@@ -386,8 +405,8 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:60
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:36
+#: components/pages/Portfolio/AssetProject/index.tsx:62
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr ""
@@ -425,11 +444,11 @@ msgstr ""
 msgid "Resources | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:65
+#: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:51
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
 msgstr ""
 
@@ -437,7 +456,7 @@ msgstr ""
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr ""
 
@@ -722,6 +741,18 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
+msgstr ""
+
+#: components/ExitModal/index.tsx:22
+msgid "exitmodal.after_you_click"
+msgstr ""
+
+#: components/ExitModal/index.tsx:31
+msgid "exitmodal.carbon_credits_you_purchase"
+msgstr ""
+
+#: components/ExitModal/index.tsx:16
+msgid "exitmodal.you_will_be_taken"
 msgstr ""
 
 #: components/Layout/NavMenu/index.tsx:34
