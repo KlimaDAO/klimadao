@@ -10,6 +10,7 @@ import {
   formatWalletAddress,
   isConnectedAddress,
 } from "lib/formatWalletAddress";
+import { LO } from "lib/luckyOrange";
 import { Listing, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -48,6 +49,10 @@ export const SellerListing: FC<Props> = (props) => {
     isConnectedAddress(props.listing.seller.id, address);
 
   const sellerId = getSellerId(props.listing.seller);
+
+  function buyClickEvent() {
+    LO.track("Purchase: Buy Clicked");
+  }
 
   return (
     <Card>
@@ -106,6 +111,7 @@ export const SellerListing: FC<Props> = (props) => {
             id: "buy",
             message: "Buy",
           })}
+          onClick={buyClickEvent}
           className={styles.buyButton}
           href={
             isConnectedSeller
