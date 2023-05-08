@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 17:51+0000\n"
+"POT-Creation-Date: 2023-05-08 18:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Back to Project"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
 #: components/pages/Project/BuyOptions/SellerListing.tsx:67
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
@@ -94,11 +94,15 @@ msgstr ""
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:42
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
 msgid "Buy"
 msgstr "Achat"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:25
+#: components/ExitModal/index.tsx:44
+msgid "Cancel"
+msgstr "Annuler"
+
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
 msgid "Carbon Pool"
 msgstr ""
 
@@ -131,6 +135,10 @@ msgstr "Effacer les filtres"
 #: components/pages/Home/index.tsx:506
 msgid "Contact"
 msgstr "Nous contacter"
+
+#: components/ExitModal/index.tsx:39
+msgid "Continue"
+msgstr "Continuer"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -180,6 +188,14 @@ msgstr ""
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
 msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
+msgid "Explore MCO2 on carbon.klimadao.finance"
+msgstr "Découvrez MCO2 sur carbon.klimadao.finance"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
@@ -233,6 +249,11 @@ msgstr ""
 msgid "Latest First"
 msgstr "Le plus récent en premier"
 
+#: components/pages/Portfolio/AssetProject/index.tsx:73
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+msgid "Leaving Carbonmark"
+msgstr ""
+
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
 msgstr ""
@@ -250,6 +271,10 @@ msgstr ""
 #: components/pages/Project/Purchase/PurchaseForm.tsx:171
 msgid "Loading..."
 msgstr "Chargement..."
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+msgid "Location: {0}"
+msgstr "Lieu : {0}"
 
 #: components/Layout/NavDrawer/index.tsx:51
 #: components/LoginButton/index.tsx:10
@@ -269,6 +294,10 @@ msgstr ""
 msgid "Login"
 msgstr "Se connecter"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
+msgid "MCO2 Token"
+msgstr "Jeton MCO2"
+
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -282,6 +311,10 @@ msgstr ""
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "Méthodologie"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+msgid "Methodology: {0}"
+msgstr "Méthodologie : {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -307,6 +340,10 @@ msgstr ""
 #: components/pages/Projects/index.tsx:74
 msgid "No project description found"
 msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+msgid "No retirement message provided."
+msgstr "Aucun message de compensation fourni."
 
 #: components/Layout/AddressSection/index.tsx:21
 msgid "Not Connected"
@@ -363,6 +400,10 @@ msgstr ""
 msgid "Privacy policy"
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:148
+msgid "Processing data..."
+msgstr "Traitement des données..."
+
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
 msgid "Profile"
@@ -386,8 +427,8 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:60
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:36
+#: components/pages/Portfolio/AssetProject/index.tsx:62
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
 msgstr ""
@@ -425,11 +466,11 @@ msgstr "Ressources"
 msgid "Resources | Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:65
+#: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:51
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
 msgstr ""
 
@@ -437,7 +478,7 @@ msgstr ""
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr ""
 
@@ -558,6 +599,10 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
+msgid "View on Polygonscan"
+msgstr "Voir sur Polygonscan"
+
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
 msgstr ""
@@ -577,6 +622,10 @@ msgstr ""
 #: components/pages/Purchases/index.tsx:65
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:152
+msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
+msgstr "Nous n'avons pas fini de traiter les données de la blockchain pour cette compensation. Cela prend généralement quelques secondes, mais peut prendre plus longtemps si le réseau est encombré."
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
 msgid "Wrong Network"
@@ -722,6 +771,18 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
+msgstr ""
+
+#: components/ExitModal/index.tsx:22
+msgid "exitmodal.after_you_click"
+msgstr ""
+
+#: components/ExitModal/index.tsx:31
+msgid "exitmodal.carbon_credits_you_purchase"
+msgstr ""
+
+#: components/ExitModal/index.tsx:16
+msgid "exitmodal.you_will_be_taken"
 msgstr ""
 
 #: components/Layout/NavMenu/index.tsx:34
@@ -925,6 +986,126 @@ msgstr "Veuillez utiliser une autre combinaison de filtres."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
+#: components/pages/Retirements/Footer/index.tsx:18
+msgid "retirement.footer.aboutCarbonmark.left"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:28
+msgid "retirement.footer.aboutCarbonmark.right"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:11
+msgid "retirement.footer.aboutCarbonmark.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
+msgid "retirement.head.metaDescription"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:119
+msgid "retirement.head.metaTitle"
+msgstr "{retiree} a compensé {formattedAmount} Tonnes de carbone"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:115
+msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:253
+msgid "retirement.share.title"
+msgstr "Partagez votre impact"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:178
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "Aucun bénéficiaire associé"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:172
+msgid "retirement.single.beneficiary.title"
+msgstr "Bénéficiaire"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:186
+msgid "retirement.single.beneficiaryAddress.title"
+msgstr "Adresse du bénéficiaire"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:233
+msgid "retirement.single.disclaimer"
+msgstr "Ceci représente la compensation permanente des actifs carbone sous formes de jetons présents sur la blockchain Polygon. Cette compensation et les données associées constituent des entrées publiques immuables."
+
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
+msgid "retirement.single.download_certificate_button"
+msgstr "Télécharger le PDF"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:136
+msgid "retirement.single.header.subline"
+msgstr "Compensation d'émissions en équivalent CO2 (en tonnes)"
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+msgid "retirement.single.message.title"
+msgstr "Message de compensation"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+msgid "retirement.single.project_details.title"
+msgstr "Détails du projet"
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.quantity"
+msgstr "QUANTITÉ COMPENSÉE"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:207
+msgid "retirement.single.retirementCertificate.title"
+msgstr "Certificat"
+
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
+msgid "retirement.single.retirementDate.title"
+msgstr "Date"
+
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
+msgid "retirement.single.timestamp.placeholder"
+msgstr "Compensation carbone non horodatée"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:286
+msgid "retirement.single.view_on_polygon_scan"
+msgstr "Voir sur Polygonscan"
+
+#: components/pages/Retirements/List/index.tsx:40
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr "Aucune compensation trouvée"
+
+#: components/pages/Retirements/List/index.tsx:24
+msgid "retirement.totals.all_retirements_list.headline"
+msgstr "Toutes les compensations"
+
+#: components/pages/Retirements/index.tsx:45
+msgid "retirement.totals.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:39
+msgid "retirement.totals.head.title"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:64
+msgid "retirement.totals.page_headline"
+msgstr "Compensations carbone"
+
+#: components/pages/Retirements/index.tsx:70
+msgid "retirement.totals.page_subline"
+msgstr "pour le bénéficiaire"
+
+#: components/pages/Retirements/index.tsx:94
+msgid "retirement.totals.retired_assets"
+msgstr "Actifs compensés"
+
+#: components/pages/Retirements/index.tsx:110
+msgid "retirement.totals.retirements"
+msgstr "Compensations"
+
+#: components/pages/Retirements/index.tsx:102
+msgid "retirement.totals.total_carbon_tonnes"
+msgstr "Total des tonnes de Carbone compensées"
+
+#: components/pages/Retirements/index.tsx:116
+msgid "retirement.totals.total_retirement_transactions"
+msgstr "Total des transactions de compensation"
+
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "seller.edit_listing.title"
 msgstr ""
@@ -946,6 +1127,14 @@ msgstr ""
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr ""
+
+#: components/pages/Retirements/index.tsx:51
+msgid "shared.head.description"
+msgstr "Influez sur l'action climatique et soyez récompensés avec une monnaie numérique garantie par du carbone."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
+msgid "shared.loading"
+msgstr "Chargement..."
 
 #: components/Layout/index.tsx:89
 msgid "shared.login"
@@ -1105,3 +1294,11 @@ msgstr ""
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
+msgid "{trimCurrentSupply} Tonnes remaining"
+msgstr "{trimCurrentSupply} Tonnes restantes"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
+msgid "{trimTotalRetired} Tonnes retired in total"
+msgstr "{trimTotalRetired} Tonnes compensées au total"
