@@ -17,6 +17,12 @@ type LOQArrayElement = string | ((LO: LuckyOrange) => void);
 type LOQArray = Array<Array<LOQArrayElement>>;
 
 const LO = {
+  // FIXME remove this method
+  log(value: any) {
+    if (globalThis?.localStorage.getItem("debug") == "lo") {
+      console.log(value);
+    }
+  },
   getLOQ() {
     (<any>globalThis).LOQ = (<any>globalThis).LOQ || [];
     return (<any>globalThis).LOQ as LOQArray;
@@ -24,11 +30,11 @@ const LO = {
   track(text: string) {
     this.getLOQ().push([
       "ready",
-      function (LO: LuckyOrange) {
-        LO.$internal.ready("events").then(function () {
+      function (lucky: LuckyOrange) {
+        lucky.$internal.ready("events").then(function () {
           // FIXME: remove logs
-          console.log(`TRACK ${text}`);
-          LO.events.track(text);
+          LO.log(`TRACK ${text}`);
+          lucky.events.track(text);
         });
       },
     ]);
@@ -36,12 +42,12 @@ const LO = {
   identify(name: string, user: User) {
     this.getLOQ().push([
       "ready",
-      function (LO: LuckyOrange) {
-        LO.$internal.ready("visitor").then(function () {
+      function (lucky: LuckyOrange) {
+        lucky.$internal.ready("visitor").then(function () {
           // FIXME: remove logs
-          console.log("IDENTIFY");
-          console.log(user);
-          LO.visitor.identify(name, user);
+          LO.log("IDENTIFY");
+          LO.log(user);
+          lucky.visitor.identify(name, user);
         });
       },
     ]);

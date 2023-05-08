@@ -2,6 +2,7 @@ import { Web3ContextProvider } from "@klimadao/lib/components";
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
+import { UserTracker } from "components/UserTracker";
 import { activateLocale, loadTranslation } from "lib/i18n";
 import type { AppProps } from "next/app";
 import Script from "next/script";
@@ -62,9 +63,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Web3ContextProvider>
-        <I18nProvider i18n={i18n}>
-          <Component {...pageProps} />
-        </I18nProvider>
+        <UserTracker>
+          <I18nProvider i18n={i18n}>
+            <Component {...pageProps} />
+          </I18nProvider>
+        </UserTracker>
       </Web3ContextProvider>
       <Script
         id="google-analytics"
