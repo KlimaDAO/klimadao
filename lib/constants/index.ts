@@ -160,7 +160,7 @@ export const urls = {
   carbonmark: "https://www.carbonmark.com",
   marketplace: "https://www.carbonmark.com/projects",
   portfolio: "https://www.carbonmark.com/portfolio",
-  resourcesCarbonark: "https://www.carbonmark.com/resources",
+  resourcesCarbonmark: "https://www.carbonmark.com/resources",
 };
 
 export const polygonNetworks = {

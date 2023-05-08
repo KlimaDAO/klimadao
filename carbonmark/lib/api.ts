@@ -1,3 +1,4 @@
+import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
 import { pollUntil } from "lib/pollUntil";
 import {
   Category,
@@ -6,6 +7,7 @@ import {
   Project,
   User,
 } from "lib/types/carbonmark";
+import { createDownloadLink } from "./createDownloadLink";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {
@@ -165,6 +167,23 @@ export const getVintages = async (): Promise<string[]> => {
     throw new Error(data.message);
   }
   return data;
+};
+
+export const getRetirementCertificate = async (
+  params: DownloadCertificateButtonProps
+) => {
+  const filename = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
+  try {
+    const result = await fetch(
+      `/api/certificates/${params.beneficiaryAddress}/${params.retirementIndex}`
+    );
+    if (!result.ok) {
+      throw new Error(await result.text());
+    }
+    await createDownloadLink(await result.blob(), filename);
+  } catch (error) {
+    console.log("Error occurred downloading retirement certificate", error);
+  }
 };
 
 // poll until check for activity timeStamps
