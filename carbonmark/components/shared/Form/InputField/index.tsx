@@ -9,6 +9,7 @@ export interface InputFieldProps {
   id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
+  required?: boolean;
   infoTooltip?: string;
   hideLabel?: boolean;
   errorMessage?: string;
@@ -34,6 +35,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       <div className={styles.container}>
         <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="body1">{props.label}</Text>
+          {props.required && <span className={styles.required}>*</span>}
           {props.infoTooltip && (
             <TextInfoTooltip tooltip={props.infoTooltip}>
               <HelpOutline className={styles.tooltipHelpIcon} />
