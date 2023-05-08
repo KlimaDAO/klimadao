@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 15:33+0000\n"
+"POT-Creation-Date: 2023-05-08 17:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:202
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "推荐使用 200x200 PNG图片。将图片上传到 imgur.com 或 postimages.org 等主机，然后粘贴完整的 URL。直接上传照片即将推出！"
 
@@ -28,7 +28,7 @@ msgstr "500 - 服务器错误"
 msgid "500 - Server error occurred"
 msgstr "500 - 服务器发生错误"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
 msgid "@Username (note: this can not be changed!)"
 msgstr "@用户名（注意：用户名不可修改！）"
 
@@ -36,7 +36,7 @@ msgstr "@用户名（注意：用户名不可修改！）"
 msgid "A-Z"
 msgstr "A - Z"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -165,11 +165,11 @@ msgstr "描述"
 msgid "Digital Carbon"
 msgstr "数字碳"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "Display name"
 msgstr "显示名称"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name is required"
 msgstr "显示名称为必填项"
 
@@ -193,15 +193,15 @@ msgstr "查找最新的更新、指南和资源，以帮助您更好的运用 Ca
 msgid "Forestry"
 msgstr "林业"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle is required"
 msgstr "用户名为必填项"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Handle should not be an address"
 msgstr "用户名不应是地址"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
@@ -370,7 +370,7 @@ msgstr "隐私政策"
 msgid "Profile"
 msgstr "个人资料"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Profile picture"
 msgstr "头像"
 
@@ -435,7 +435,7 @@ msgstr "停用"
 msgid "Retire now"
 msgstr "现在停用"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
@@ -459,7 +459,7 @@ msgstr "抱歉，我们好像发送了错误路径。"
 msgid "Sorry, something went wrong."
 msgstr "抱歉，出了一些问题。"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
@@ -592,7 +592,7 @@ msgstr "您已选择拒绝交易."
 msgid "Your Wallet Address:"
 msgstr "您的钱包地址："
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Your display name"
 msgstr "您的显示名称"
 
@@ -601,7 +601,7 @@ msgstr "您的显示名称"
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
 msgid "Your unique handle"
 msgstr "您的唯一用户名"
 
@@ -752,13 +752,13 @@ msgstr "创建新挂牌"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr "在 Carbonmark 上创建您的个人资料并开始售卖"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr "更新挂牌信息"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
@@ -766,7 +766,7 @@ msgstr "保存更改"
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
-#: components/pages/Users/ProfileHeader/index.tsx:41
+#: components/pages/Users/ProfileHeader/index.tsx:42
 msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加说明"
 
