@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-04 15:33+0000\n"
+"POT-Creation-Date: 2023-05-08 15:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
-msgstr ""
+msgstr "200*200 PNG empfohlen. Laden Sie Ihr Bild auf einer Seite wie imgur.com oder postimages.org hoch und tragen Sie hier die vollständige URL ein. Direkter Bildupload folgt demnächst!"
 
 #: components/pages/errors/Custom404.tsx:13
 #: components/pages/errors/Custom404.tsx:14
@@ -22,15 +22,15 @@ msgstr "404 - Seite nicht gefunden"
 #: components/pages/errors/Custom500.tsx:14
 #: components/pages/errors/Custom500.tsx:15
 msgid "500 - Server Error"
-msgstr ""
+msgstr "500 - Serverfehler"
 
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
-msgstr ""
+msgstr "500 - Serverfehler aufgetreten"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
 msgid "@Username (note: this can not be changed!)"
-msgstr ""
+msgstr "@Benutzername (Achtung: dies kann nicht mehr verändert werden!)"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:77
 msgid "A-Z"
@@ -134,11 +134,11 @@ msgstr "Kontakt"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
-msgstr ""
+msgstr "Profil erstellen"
 
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
@@ -175,7 +175,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
@@ -214,7 +214,7 @@ msgstr ""
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
-msgstr ""
+msgstr "Hilfe"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -227,7 +227,7 @@ msgstr ""
 #: components/Footer/index.tsx:53
 #: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
-msgstr ""
+msgstr "KlimaDAO"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -272,12 +272,12 @@ msgstr "Login"
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
-msgstr ""
+msgstr "Marktplatz"
 
 #: components/pages/Projects/index.tsx:45
 #: components/pages/Projects/index.tsx:46
 msgid "Marketplace | Carbonmark"
-msgstr ""
+msgstr "Marktplatz | Carbonmark"
 
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
@@ -341,7 +341,7 @@ msgstr ""
 #: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
 msgid "Portfolio | Carbonmark"
-msgstr ""
+msgstr "Portfolio | Carbonmark"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
@@ -349,19 +349,19 @@ msgstr "Pressemeldungen"
 
 #: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Highest"
-msgstr ""
+msgstr "Höchster Preis"
 
 #: components/ProjectFilterModal/constants.tsx:13
 msgid "Price Lowest"
-msgstr ""
+msgstr "Niedrigster Preis"
 
 #: components/Footer/index.tsx:28
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Datenschutzbestimmungen"
 
 #: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
-msgstr ""
+msgstr "Datenschutzbestimmungen"
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
@@ -503,7 +503,7 @@ msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #: components/pages/Project/Purchase/index.tsx:259
 msgid "This offer no longer exists."
-msgstr ""
+msgstr "Das Angebot existiert nicht mehr."
 
 #: components/BetaBadge/index.tsx:9
 msgid "This product is still in Beta and audits have not been completed yet."
@@ -584,11 +584,11 @@ msgstr "Falsches Netzwerk"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
-msgstr ""
+msgstr "Sie haben die Transaktion abgelehnt"
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
-msgstr ""
+msgstr "Ihre Walletadresse"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
 msgid "Your display name"
@@ -726,11 +726,11 @@ msgstr ""
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
-msgstr ""
+msgstr "Marktplatz"
 
 #: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
-msgstr ""
+msgstr "Portfolio"
 
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
@@ -762,7 +762,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
-msgstr ""
+msgstr "Ihr Profil"
 
 #: components/pages/Users/ProfileHeader/index.tsx:41
 msgid "profile.edit_your_profile"
@@ -774,7 +774,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:217
 msgid "profile.listing.edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:246
 msgid "profile.listing.edit.delete_listing"
@@ -982,7 +982,7 @@ msgstr "Bitte klicke \"Bestätigen\" in deiner Wallet, um fortzufahren."
 
 #: lib/statusMessage.ts:20
 msgid "transaction.status.user_rejected"
-msgstr "Du hast die Transaktion abgebrochen"
+msgstr "Sie haben die Transaktion abgelehnt"
 
 #: components/Transaction/Approve.tsx:58
 msgid "transaction_modal.approve.amount"
@@ -1038,7 +1038,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:122
 msgid "user.edit.form.edit.price.placeholder"
-msgstr ""
+msgstr "USDC pro Tonne"
 
 #: components/CreateListing/Form/index.tsx:171
 msgid "user.edit.form.input.singleUnitPrice.label"

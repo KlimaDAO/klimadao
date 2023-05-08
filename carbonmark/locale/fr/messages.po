@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-04 15:33+0000\n"
+"POT-Creation-Date: 2023-05-08 15:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,7 +109,7 @@ msgstr ""
 #: components/pages/Home/index.tsx:52
 #: components/pages/Home/index.tsx:53
 msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr ""
+msgstr "Carbonmark |  Le Marché Universel du Carbone"
 
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
@@ -125,7 +125,7 @@ msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
-msgstr ""
+msgstr "Effacer les filtres"
 
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:506
@@ -134,7 +134,7 @@ msgstr "Nous contacter"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
-msgstr ""
+msgstr "Pays"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
@@ -159,7 +159,7 @@ msgstr ""
 
 #: components/pages/Project/index.tsx:197
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:51
 msgid "Digital Carbon"
@@ -862,7 +862,7 @@ msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:271
 msgid "purchase.transaction.modal.title.confirm"
-msgstr ""
+msgstr "Confirmer l'achat"
 
 #: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.processing"
@@ -994,7 +994,7 @@ msgstr "Adresse du contrat"
 
 #: components/Transaction/Approve.tsx:74
 msgid "transaction_modal.approve.price"
-msgstr ""
+msgstr "Confirmer le prix par tonne"
 
 #: components/Transaction/index.tsx:86
 msgid "transaction_modal.button.go_back"

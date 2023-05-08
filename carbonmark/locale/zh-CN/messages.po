@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-04 15:33+0000\n"
+"POT-Creation-Date: 2023-05-08 15:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
-msgstr ""
+msgstr "推荐使用 200x200 PNG图片。将图片上传到 imgur.com 或 postimages.org 等主机，然后粘贴完整的 URL。直接上传照片即将推出！"
 
 #: components/pages/errors/Custom404.tsx:13
 #: components/pages/errors/Custom404.tsx:14
@@ -22,15 +22,15 @@ msgstr "404 - 页面不存在"
 #: components/pages/errors/Custom500.tsx:14
 #: components/pages/errors/Custom500.tsx:15
 msgid "500 - Server Error"
-msgstr ""
+msgstr "500 - 服务器错误"
 
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
-msgstr ""
+msgstr "500 - 服务器发生错误"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
 msgid "@Username (note: this can not be changed!)"
-msgstr ""
+msgstr "@用户名（注意：用户名不可修改！）"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:77
 msgid "A-Z"
@@ -44,55 +44,55 @@ msgstr "关于"
 
 #: components/Stats/StatsListings.tsx:49
 msgid "Active listings:"
-msgstr ""
+msgstr "活动列表："
 
 #: components/Activities/index.tsx:24
 msgid "Activity"
-msgstr ""
+msgstr "活动"
 
 #: lib/getCategoryInfo.ts:77
 msgid "Agriculture"
-msgstr ""
+msgstr "农业"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
-msgstr ""
+msgstr "申请"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
-msgstr ""
+msgstr "超出可用余额"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:158
 #: components/pages/Project/Purchase/PurchaseForm.tsx:167
 msgid "Available:"
-msgstr ""
+msgstr "可用的："
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
-msgstr ""
+msgstr "测试版"
 
 #: components/pages/Project/Purchase/index.tsx:210
 msgid "Back to Project"
-msgstr ""
+msgstr "返回项目"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 #: components/pages/Project/BuyOptions/SellerListing.tsx:62
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
-msgstr ""
+msgstr "最优价格"
 
 #: lib/getCategoryInfo.ts:89
 msgid "Blue Carbon"
-msgstr ""
+msgstr "蓝碳"
 
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
-msgstr ""
+msgstr "浏览项目"
 
 #: components/Layout/NavDrawer/index.tsx:84
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
-msgstr ""
+msgstr "用🌳构建 <0>KlimaDAO</0> "
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:42
 msgid "Buy"
@@ -100,16 +100,16 @@ msgstr "购买"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:25
 msgid "Carbon Pool"
-msgstr ""
+msgstr "碳池"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
-msgstr ""
+msgstr "Carbonmark 概览"
 
 #: components/pages/Home/index.tsx:52
 #: components/pages/Home/index.tsx:53
 msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr ""
+msgstr "Carbonmark  | 通用碳市场"
 
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
@@ -121,11 +121,11 @@ msgstr "变更语言"
 
 #: components/pages/Projects/index.tsx:47
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
-msgstr ""
+msgstr "从数百个项目中选择超过 2000 万个经过验证的数字碳信用额度 - 现在购买、出售或停用碳。"
 
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
-msgstr ""
+msgstr "清除过滤器"
 
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:506
@@ -134,100 +134,100 @@ msgstr "联系方式"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
-msgstr ""
+msgstr "国家"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
-msgstr ""
+msgstr "创建个人资料"
 
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
-msgstr ""
+msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Created:"
-msgstr ""
+msgstr "已创建："
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
-msgstr ""
+msgstr "该项目和历史减排效益的数据"
 
 #: components/pages/Users/Login/index.tsx:47
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "Data for this seller"
-msgstr ""
+msgstr "该卖家的数据"
 
 #: components/pages/Project/index.tsx:197
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:51
 msgid "Digital Carbon"
-msgstr ""
+msgstr "数字碳"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
-msgstr ""
+msgstr "显示名称"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
 msgid "Display name is required"
-msgstr ""
+msgstr "显示名称为必填项"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
-msgstr ""
+msgstr "编辑个人资料"
 
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
-msgstr ""
+msgstr "能源效率"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
-msgstr ""
+msgstr "最终价格"
 
 #: components/pages/Resources/index.tsx:21
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
-msgstr ""
+msgstr "查找最新的更新、指南和资源，以帮助您更好的运用 Carbonmark 平台。"
 
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
-msgstr ""
+msgstr "林业"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
 msgid "Handle is required"
-msgstr ""
+msgstr "用户名为必填项"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
 msgid "Handle should not be an address"
-msgstr ""
+msgstr "用户名不应是地址"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
 msgid "Handle should not contain any special characters"
-msgstr ""
+msgstr "用户名不应包含任何特殊字符"
 
 #: components/pages/Portfolio/index.tsx:105
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr ""
+msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
 #: components/Footer/index.tsx:43
 #: components/pages/Home/index.tsx:509
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
-msgstr ""
+msgstr "如果您想取消此次购买的部分或全部碳信用额度，请转至您的<0>投资组合</0>，单击“停用”键并按照说明进行操作。"
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
-msgstr ""
+msgstr "工业加工"
 
 #: components/Footer/index.tsx:53
 #: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
-msgstr ""
+msgstr "KlimaDAO"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -235,16 +235,16 @@ msgstr "最新优先"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:41
 msgid "Listing cost, incl. {0}% fee"
-msgstr ""
+msgstr "挂牌成本，包括。 {0}% 费用"
 
 #: components/pages/Users/SellerConnected/index.tsx:170
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
-msgstr ""
+msgstr "挂牌信息"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:66
 msgid "Loading your assets"
-msgstr ""
+msgstr "正在加载您的资产"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/PurchaseForm.tsx:170
@@ -254,16 +254,16 @@ msgstr "正在加载..."
 #: components/Layout/NavDrawer/index.tsx:51
 #: components/LoginButton/index.tsx:7
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: components/pages/Users/Login/index.tsx:34
 msgid "Log in to create a Carbonmark profile"
-msgstr ""
+msgstr "登录以创建 Carbonmark 资料"
 
 #: components/Layout/NavDrawer/index.tsx:61
 #: components/LoginButton/index.tsx:7
 msgid "Log out"
-msgstr ""
+msgstr "登出"
 
 #: components/LoginCard/index.tsx:32
 msgid "Login"
@@ -272,12 +272,12 @@ msgstr "登录"
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
-msgstr ""
+msgstr "市场"
 
 #: components/pages/Projects/index.tsx:45
 #: components/pages/Projects/index.tsx:46
 msgid "Marketplace | Carbonmark"
-msgstr ""
+msgstr "市场 | Carbonmark"
 
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
@@ -285,28 +285,28 @@ msgstr "方法"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
-msgstr ""
+msgstr "新数量"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:120
 msgid "New Unit Price (USDC)"
-msgstr ""
+msgstr "新单价（USDC）"
 
 #: components/pages/Users/SellerConnected/index.tsx:215
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
-msgstr ""
+msgstr "无活动列表。"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:97
 msgid "No listable assets found."
-msgstr ""
+msgstr "未找到可列出的资产。"
 
 #: components/pages/Project/index.tsx:227
 msgid "No listings found for this project."
-msgstr ""
+msgstr "未找到此项目的列表。"
 
 #: components/pages/Projects/index.tsx:74
 msgid "No project description found"
-msgstr ""
+msgstr "未找到项目描述"
 
 #: components/Layout/AddressSection/index.tsx:21
 msgid "Not Connected"
@@ -318,30 +318,30 @@ msgstr "最早优先"
 
 #: lib/getCategoryInfo.ts:65
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: lib/getCategoryInfo.ts:59
 msgid "Other Nature-Based"
-msgstr ""
+msgstr "其他基于自然的"
 
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
-msgstr ""
+msgstr "支付成功"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
-msgstr ""
+msgstr "请登录"
 
 #: components/pages/Portfolio/index.tsx:55
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr ""
+msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
 #: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
 msgid "Portfolio | Carbonmark"
-msgstr ""
+msgstr "投资组合 | Carbonmark"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
@@ -349,68 +349,70 @@ msgstr "新闻稿"
 
 #: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Highest"
-msgstr ""
+msgstr "最高价格"
 
 #: components/ProjectFilterModal/constants.tsx:13
 msgid "Price Lowest"
-msgstr ""
+msgstr "最低价格"
 
 #: components/Footer/index.tsx:28
 msgid "Privacy Policy"
 msgstr ""
+"隐私政策\n"
+""
 
 #: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
-msgstr ""
+msgstr "隐私政策"
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
 msgid "Profile"
-msgstr ""
+msgstr "个人资料"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
 msgid "Profile picture"
-msgstr ""
+msgstr "头像"
 
 #: components/pages/Purchases/index.tsx:121
 msgid "Project"
-msgstr ""
+msgstr "项目"
 
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
-msgstr ""
+msgstr "购买收据 | Carbonmark"
 
 #: components/pages/Project/Purchase/index.tsx:198
 #: components/pages/Project/Purchase/index.tsx:199
 msgid "Purchase {0} | Carbonmark"
-msgstr ""
+msgstr "购买 {0} | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:36
 #: components/pages/Project/BuyOptions/SellerListing.tsx:78
 msgid "Quantity Available:"
-msgstr ""
+msgstr "可用数量："
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:113
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "挂牌数量：{listedQuantity}，未挂牌数量：{0}，可用总量：{totalAvailableQuantity}"
 
 #: components/pages/Purchases/index.tsx:103
 msgid "Quantity purchased:"
-msgstr ""
+msgstr "购买数量："
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
-msgstr ""
+msgstr "最近更新"
 
 #: components/Stats/StatsBar.tsx:42
 msgid "Remaining Supply:"
-msgstr ""
+msgstr "剩余供应："
 
 #: lib/getCategoryInfo.ts:47
 msgid "Renewable Energy"
-msgstr ""
+msgstr "再生能源"
 
 #: components/Footer/index.tsx:48
 #: components/pages/Home/index.tsx:512
@@ -423,55 +425,55 @@ msgstr "资源"
 #: components/pages/Resources/index.tsx:19
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
-msgstr ""
+msgstr "资源 | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:65
 msgid "Retire"
-msgstr ""
+msgstr "停用"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:51
 msgid "Retire now"
-msgstr ""
+msgstr "现在停用"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
-msgstr ""
+msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:69
 msgid "Sell"
-msgstr ""
+msgstr "卖出"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:58
 msgid "Seller Listing"
-msgstr ""
+msgstr "卖家挂牌信息"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
 msgid "Something went wrong. Please try again. {error}"
-msgstr ""
+msgstr "出了些问题。请再试一次。 {error}"
 
 #: components/pages/errors/Custom404.tsx:25
 msgid "Sorry, looks like we sent you the wrong way."
-msgstr ""
+msgstr "抱歉，我们好像发送了错误路径。"
 
 #: components/pages/errors/Custom500.tsx:25
 msgid "Sorry, something went wrong."
-msgstr ""
+msgstr "抱歉，出了一些问题。"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Sorry, this handle already exists"
-msgstr ""
+msgstr "抱歉，此用户名已存在"
 
 #: components/pages/Portfolio/index.tsx:99
 msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr ""
+msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
-msgstr ""
+msgstr "统计数据"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:86
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
-msgstr ""
+msgstr "成功！稍后您的新列表将显示在您的 <0> 个人资料页面</0> 上。"
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
@@ -479,23 +481,23 @@ msgstr "切换到 Polygon"
 
 #: components/Footer/index.tsx:33
 msgid "Terms of Use"
-msgstr ""
+msgstr "使用条款"
 
 #: components/pages/Home/index.tsx:503
 msgid "Terms of use"
-msgstr ""
+msgstr "使用条款"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
-msgstr ""
+msgstr "感谢您对地球的支持！请参阅下面的购买详细信息。"
 
 #: components/pages/Home/index.tsx:54
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
-msgstr ""
+msgstr "全球最大的数字碳信用选择。通过零佣金交易立即从任何项目购买、出售和停用数字碳。"
 
 #: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
-msgstr ""
+msgstr "加载您的资产时出错。 {e}"
 
 #: components/shared/InvalidNetworkModal/index.tsx:70
 msgid "This app only works on Polygon Mainnet."
@@ -503,39 +505,39 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #: components/pages/Project/Purchase/index.tsx:259
 msgid "This offer no longer exists."
-msgstr ""
+msgstr "此优惠已不存在。"
 
 #: components/BetaBadge/index.tsx:9
 msgid "This product is still in Beta and audits have not been completed yet."
-msgstr ""
+msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
-msgstr ""
+msgstr "切换排序菜单"
 
 #: components/Stats/StatsListings.tsx:42
 msgid "Tonnes listed:"
-msgstr ""
+msgstr "列出的吨数："
 
 #: components/Stats/StatsListings.tsx:35
 msgid "Tonnes sold:"
-msgstr ""
+msgstr "售出吨数："
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
-msgstr ""
+msgstr "总碳停用"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
-msgstr ""
+msgstr "待售总数量"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:87
 msgid "Updated:"
-msgstr ""
+msgstr "已更新："
 
 #: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
-msgstr ""
+msgstr "正在更新您的数据..."
 
 #: components/pages/Resources/lib/cmsDataMap.ts:61
 msgid "User Guides"
@@ -544,39 +546,39 @@ msgstr "用户指南"
 #: components/pages/Users/Login/index.tsx:32
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
-msgstr ""
+msgstr "用户资料 | Carbonmark"
 
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
-msgstr ""
+msgstr "查看注册表详细信息 <0/>"
 
 #: components/pages/Portfolio/index.tsx:67
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
-msgstr ""
+msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
-msgstr ""
+msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
-msgstr ""
+msgstr "查看此次购买的项目详情和其他信息。"
 
 #: components/ProjectFilterModal/index.tsx:133
 msgid "Vintage"
-msgstr ""
+msgstr "历史减排效益"
 
 #: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Newest"
-msgstr ""
+msgstr "最新的历史减排效益"
 
 #: components/ProjectFilterModal/constants.tsx:16
 msgid "Vintage Oldest"
-msgstr ""
+msgstr "最早的历史减排效益"
 
 #: components/pages/Purchases/index.tsx:65
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
-msgstr ""
+msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此页面以查看您的收据。"
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
 msgid "Wrong Network"
@@ -584,24 +586,24 @@ msgstr "网络错误"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
-msgstr ""
+msgstr "您已选择拒绝交易."
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
-msgstr ""
+msgstr "您的钱包地址："
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
 msgid "Your display name"
-msgstr ""
+msgstr "您的显示名称"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
 #: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
-msgstr ""
+msgstr "您的卖家数据"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
 msgid "Your unique handle"
-msgstr ""
+msgstr "您的唯一用户名"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:82
 msgid "Z-A"
@@ -609,31 +611,31 @@ msgstr "Z - A"
 
 #: components/Activities/Activities.constants.ts:6
 msgid "activity.action.createdListing"
-msgstr ""
+msgstr "创建列表"
 
 #: components/Activities/Activities.constants.ts:10
 msgid "activity.action.deletedListing"
-msgstr ""
+msgstr "删除列表"
 
 #: components/Activities/Activities.constants.ts:14
 msgid "activity.action.purchase"
-msgstr ""
+msgstr "买自"
 
 #: components/Activities/Activities.constants.ts:15
 msgid "activity.action.sold"
-msgstr ""
+msgstr "卖给"
 
 #: components/Activities/Activities.constants.ts:16
 msgid "activity.action.updatedPrice"
-msgstr ""
+msgstr "更新价格"
 
 #: components/Activities/Activities.constants.ts:20
 msgid "activity.action.updatedQuantity"
-msgstr ""
+msgstr "更新数量"
 
 #: lib/formatWalletAddress.ts:9
 msgid "activity.you"
-msgstr ""
+msgstr "您"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:93
@@ -682,59 +684,59 @@ msgstr "连接错误"
 
 #: components/CreateListing/index.tsx:123
 msgid "create.approval_1"
-msgstr ""
+msgstr "您即将创建一个新列表。"
 
 #: components/CreateListing/index.tsx:128
 msgid "create.approval_2"
-msgstr ""
+msgstr "第一步是批准将此资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并使您的挂牌生效。"
 
 #: components/CreateListing/index.tsx:135
 msgid "create.approval_3"
-msgstr ""
+msgstr "您可以随时选择删除您的正在销售的商品，这将自动将列出的资产转移回您的钱包。"
 
 #: components/CreateListing/index.tsx:141
 msgid "create.approval_4"
-msgstr ""
+msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 
 #: components/CreateListing/index.tsx:153
 msgid "create.submit_1"
-msgstr ""
+msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您的资产尚未转移。"
 
 #: components/CreateListing/index.tsx:159
 msgid "create.submit_2"
-msgstr ""
+msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
-msgstr ""
+msgstr "每个"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "edit_listing.approval_1"
-msgstr ""
+msgstr "您即将将该资产的所有权从您的钱包转移到 Carbonmark。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:180
 msgid "edit_listing.approval_2"
-msgstr ""
+msgstr "您可以随时删除您的在售商品，直到它被出售。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:192
 msgid "edit_listing.submit_1"
-msgstr ""
+msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您的资产尚未转移。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
-msgstr ""
+msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
-msgstr ""
+msgstr "市场"
 
 #: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
-msgstr ""
+msgstr "投资组合"
 
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
-msgstr ""
+msgstr "个人资料"
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -742,75 +744,75 @@ msgstr "余额"
 
 #: components/CreateListing/Form/index.tsx:180
 msgid "profile.addListing_modal.submit"
-msgstr ""
+msgstr "创建挂牌"
 
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "profile.create_new_listing"
-msgstr ""
+msgstr "创建新挂牌"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr ""
+msgstr "在 Carbonmark 上创建您的个人资料并开始售卖"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
-msgstr ""
+msgstr "更新挂牌信息"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
 msgid "profile.edit_modal.submit"
-msgstr ""
+msgstr "保存更改"
 
 #: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
-msgstr ""
+msgstr "您的个人资料"
 
 #: components/pages/Users/ProfileHeader/index.tsx:41
 msgid "profile.edit_your_profile"
-msgstr ""
+msgstr "编辑您的个人资料以添加说明"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:160
 msgid "profile.listing.delete.error"
-msgstr ""
+msgstr "无法删除挂牌。请再试一次。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:217
 msgid "profile.listing.edit"
-msgstr ""
+msgstr "编辑"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:246
 msgid "profile.listing.edit.delete_listing"
-msgstr ""
+msgstr "删除挂牌"
 
 #: components/CreateListing/index.tsx:171
 msgid "profile.listings_modal.title"
-msgstr ""
+msgstr "创建挂牌"
 
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
-msgstr ""
+msgstr "返回项目详情"
 
 #: components/Activities/Activity.tsx:93
 msgid "props.transaction.conjunction"
-msgstr ""
+msgstr "为了"
 
 #: components/Activities/Activity.tsx:31
 msgid "props.transaction.conjunction.at"
-msgstr ""
+msgstr "在"
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
-msgstr ""
+msgstr "您即将购买一项碳资产。"
 
 #: components/pages/Project/Purchase/index.tsx:151
 msgid "purchase.approval_2"
-msgstr ""
+msgstr "第一步是批准将您的支付资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并完成您的购买。"
 
 #: components/pages/Project/Purchase/index.tsx:158
 msgid "purchase.approval_3"
-msgstr ""
+msgstr "您购买的碳资产可随时从您的<0>投资组合</0>中挂牌，在Carbonmark上出售"
 
 #: components/pages/Project/Purchase/index.tsx:168
 msgid "purchase.approval_4"
-msgstr ""
+msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:193
 msgid "purchase.button.continue"
@@ -818,19 +820,19 @@ msgstr "继续"
 
 #: components/pages/Purchases/index.tsx:143
 msgid "purchase.button.view_assets"
-msgstr ""
+msgstr "查看您的资产"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:151
 msgid "purchase.input.amount.label"
-msgstr ""
+msgstr "您想购买多少吨碳？"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:144
 msgid "purchase.input.amount.maxAmount"
-msgstr ""
+msgstr "您超出了可用吨数"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:137
 msgid "purchase.input.amount.minimum"
-msgstr ""
+msgstr "最低购买量为 1 吨"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:119
 msgid "purchase.input.amount.placeholder"
@@ -838,35 +840,35 @@ msgstr "吨"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:130
 msgid "purchase.input.amount.required"
-msgstr ""
+msgstr "金额为必填项"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:214
 msgid "purchase.input.price.maxAmount"
-msgstr ""
+msgstr "您超出了可用的代币数量"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:207
 msgid "purchase.input.price.required"
-msgstr ""
+msgstr "价格为必填项"
 
 #: components/pages/Project/Purchase/index.tsx:86
 msgid "purchase.loading.allowance.error"
-msgstr ""
+msgstr "加载津贴时出了点问题"
 
 #: components/pages/Project/Purchase/index.tsx:180
 msgid "purchase.submit_1"
-msgstr ""
+msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonmark。"
 
 #: components/pages/Project/Purchase/index.tsx:186
 msgid "purchase.submit_2"
-msgstr ""
+msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Project/Purchase/index.tsx:271
 msgid "purchase.transaction.modal.title.confirm"
-msgstr ""
+msgstr "确认购买"
 
 #: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.processing"
-msgstr ""
+msgstr "正在处理购买"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:22
 msgid "resources.form.categories.header"
@@ -927,7 +929,7 @@ msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "seller.edit_listing.title"
-msgstr ""
+msgstr "编辑挂牌"
 
 #: components/pages/Users/SellerUnconnected/index.tsx:70
 msgid "seller.listing.buy"
@@ -935,17 +937,17 @@ msgstr "购买"
 
 #: components/pages/Users/Listing/index.tsx:46
 msgid "seller.listing.quantity_available"
-msgstr ""
+msgstr "可用数量："
 
 #: components/Transaction/Approve.tsx:105
 msgid "shared.approve"
-msgstr ""
+msgstr "批准"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
 #: components/pages/Project/Purchase/PurchaseForm.tsx:179
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
-msgstr ""
+msgstr "登录/连接购买"
 
 #: components/Layout/index.tsx:89
 msgid "shared.login"
@@ -962,7 +964,7 @@ msgstr "排序方式："
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
 msgid "tonnes.long"
-msgstr ""
+msgstr "吨"
 
 #: lib/statusMessage.ts:31
 msgid "transaction.status.done"
@@ -994,11 +996,11 @@ msgstr "合约地址"
 
 #: components/Transaction/Approve.tsx:74
 msgid "transaction_modal.approve.price"
-msgstr ""
+msgstr "确认每吨价格"
 
 #: components/Transaction/index.tsx:86
 msgid "transaction_modal.button.go_back"
-msgstr ""
+msgstr "返回"
 
 #: components/Transaction/Submit.tsx:111
 msgid "transaction_modal.close"
@@ -1010,7 +1012,7 @@ msgstr "下一步"
 
 #: components/Transaction/Submit.tsx:58
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "提交金额"
 
 #: components/Transaction/Submit.tsx:103
 msgid "transaction_modal.submit.button"
@@ -1022,7 +1024,7 @@ msgstr "合约地址"
 
 #: components/Transaction/Submit.tsx:72
 msgid "transaction_modal.submit.price"
-msgstr ""
+msgstr "提交每吨价格"
 
 #: components/Transaction/index.tsx:46
 msgid "transaction_modal.view.approve.title"
@@ -1034,65 +1036,65 @@ msgstr "2. 提交"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
-msgstr ""
+msgstr "无可显示的活动"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:122
 msgid "user.edit.form.edit.price.placeholder"
-msgstr ""
+msgstr "USDC / 吨"
 
 #: components/CreateListing/Form/index.tsx:171
 msgid "user.edit.form.input.singleUnitPrice.label"
-msgstr ""
+msgstr "单个单价"
 
 #: components/CreateListing/Form/index.tsx:142
 msgid "user.edit.form.input.singleUnitPrice.placeholder"
-msgstr ""
+msgstr "USDC / 吨"
 
 #: components/CreateListing/Form/index.tsx:130
 msgid "user.edit.form.input.totalAmountToSell.label"
-msgstr ""
+msgstr "总金额"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "user.listing.edit.input.quantity.minimum"
-msgstr ""
+msgstr "最低销售量为 1 吨"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:92
 msgid "user.listing.edit.input.quantity.required"
-msgstr ""
+msgstr "数量为必填项"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:66
 msgid "user.listing.edit.project.label"
-msgstr ""
+msgstr "项目"
 
 #: components/CreateListing/Form/index.tsx:65
 msgid "user.listing.form.input.select_project.label"
-msgstr ""
+msgstr "选择项目："
 
 #: components/CreateListing/Form/index.tsx:162
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:137
 msgid "user.listing.form.input.singleUnitPrice.minimum"
-msgstr ""
+msgstr "每吨最低价格为 {0}"
 
 #: components/CreateListing/Form/index.tsx:150
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:130
 msgid "user.listing.form.input.singleUnitPrice.required"
-msgstr ""
+msgstr "单价为必填项"
 
 #: components/CreateListing/Form/index.tsx:123
 msgid "user.listing.form.input.totalAmountToSell.maxAmount"
-msgstr ""
+msgstr "您超出了您的可用金额"
 
 #: components/CreateListing/Form/index.tsx:116
 msgid "user.listing.form.input.totalAmountToSell.minimum"
-msgstr ""
+msgstr "最低出售量为 1 吨"
 
 #: components/CreateListing/Form/index.tsx:101
 msgid "user.listing.form.input.totalAmountToSell.placeholder"
-msgstr ""
+msgstr "你想卖多少"
 
 #: components/CreateListing/Form/index.tsx:109
 msgid "user.listing.form.input.totalAmountToSell.required"
-msgstr ""
+msgstr "销售总额为必填项"
 
 #: components/LoginCard/index.tsx:24
 msgid "user.login.description"
@@ -1100,8 +1102,8 @@ msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
-msgstr ""
+msgstr "{0} | 简介 | Carbonmark"
 
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
-msgstr ""
+msgstr "为项目 {0} 购买了 {amount} 吨"
