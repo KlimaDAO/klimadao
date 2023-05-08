@@ -3,6 +3,7 @@ import React, { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
 
 interface RenderLinkProps {
   href: string;
+  onClick?: () => void;
   children: ReactElement;
   className?: string;
 }
@@ -41,6 +42,7 @@ export const BaseButton: FC<BaseProps> = (props) => {
   if (props.href && props.renderLink)
     return props.renderLink({
       href: props.href,
+      onClick: props.onClick,
       className: buttonStyle,
       children: <>{props.label}</>,
     });

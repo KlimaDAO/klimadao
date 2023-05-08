@@ -16,7 +16,6 @@ interface LuckyOrange {
 type LOQArrayElement = string | ((LO: LuckyOrange) => void);
 type LOQArray = Array<Array<LOQArrayElement>>;
 
-//declare let LOQ: LOQArray;
 const LO = {
   getLOQ() {
     (<any>globalThis).LOQ = (<any>globalThis).LOQ || [];
@@ -27,6 +26,7 @@ const LO = {
       "ready",
       function (LO: LuckyOrange) {
         LO.$internal.ready("events").then(function () {
+          // FIXME: remove logs
           console.log(`TRACK ${text}`);
           LO.events.track(text);
         });
@@ -38,9 +38,10 @@ const LO = {
       "ready",
       function (LO: LuckyOrange) {
         LO.$internal.ready("visitor").then(function () {
-          LO.visitor.identify(name, user);
-          console.log("`IDENTIFY");
+          // FIXME: remove logs
+          console.log("IDENTIFY");
           console.log(user);
+          LO.visitor.identify(name, user);
         });
       },
     ]);

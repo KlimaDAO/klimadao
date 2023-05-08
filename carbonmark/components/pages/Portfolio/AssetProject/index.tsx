@@ -65,7 +65,13 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
+<<<<<<< HEAD
           onClick={() => setIsOpen(true)}
+=======
+          href={retireLink}
+          renderLink={(linkProps) => <Anchor {...linkProps} />}
+          onClick={() => LO.track("Retire: Retire Button Clicked")}
+>>>>>>> 94fc05b0 (carbonmark - Luckyorange buy and retire events for pool assets)
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
         <ExitModal
