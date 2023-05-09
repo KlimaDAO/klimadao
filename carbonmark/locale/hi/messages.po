@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 12:57+0000\n"
+"POT-Creation-Date: 2023-05-09 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -113,7 +113,7 @@ msgstr "Carbonmark का संक्षिप्त विवरण"
 #: components/pages/Home/index.tsx:52
 #: components/pages/Home/index.tsx:53
 msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr ""
+msgstr "Carbonmark | द यूनिवर्सल कार्बन मार्केटप्लेस"
 
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
@@ -125,11 +125,11 @@ msgstr "भाषा बदलें"
 
 #: components/pages/Projects/index.tsx:47
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
-msgstr ""
+msgstr "सैकड़ों प्रॉजेक्ट्स में से 20 मिलियन से भी अधिक सत्यापित डिजिटल कार्बन क्रेडिट्स में से चुनें - अभी कार्बन ख़रीदें, बेचें या रिटायर करें।"
 
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
-msgstr ""
+msgstr "फ़िल्टर्स हटाएँ"
 
 #: components/Footer/index.tsx:38
 #: components/pages/Home/index.tsx:506
@@ -138,60 +138,60 @@ msgstr "संपर्क करें"
 
 #: components/ExitModal/index.tsx:39
 msgid "Continue"
-msgstr "जारी रखना"
+msgstr "जारी रखें"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
-msgstr ""
+msgstr "देश"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
-msgstr ""
+msgstr "प्रोफ़ाइल बनाएँ"
 
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
-msgstr ""
+msgstr "सूची बनाएँ और संपादित करें, और अपनी Carbonmark प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Created:"
-msgstr ""
+msgstr "बन गई:"
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
-msgstr ""
+msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
 #: components/pages/Users/Login/index.tsx:47
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "Data for this seller"
-msgstr ""
+msgstr "इस विक्रेता संबंधी डेटा"
 
 #: components/pages/Project/index.tsx:197
 msgid "Description"
-msgstr ""
+msgstr "विवरण"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:51
 msgid "Digital Carbon"
-msgstr ""
+msgstr "डिजिटल कार्बन"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
 msgid "Display name"
-msgstr ""
+msgstr "प्रदर्शित नाम"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name is required"
-msgstr ""
+msgstr "प्रदर्शित नाम आवश्यक है"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
-msgstr ""
+msgstr "प्रोफ़ाइल संपादित करें"
 
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
-msgstr ""
+msgstr "ऊर्जा दक्षता"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "प्रत्येक KlimaDAO रिटायरमेंट एक सत्यापित ऑफ़सेट प्रॉजेक्ट से जुड़ा हुआ है। इस प्रॉजेक्ट के बारे में और जानने के लिए क्लिक करें।"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
@@ -199,51 +199,51 @@ msgstr "MCO2 को Carbon.klimadao.finance पर एक्सप्लोर �
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
-msgstr ""
+msgstr "अंतिम मूल्य"
 
 #: components/pages/Resources/index.tsx:21
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
-msgstr ""
+msgstr "Carbonmark प्लैटफ़ॉर्म का लाभ उठाने में सहायता के लिए, नवीनतम अपडेट, गाइड और संसाधन खोजें।"
 
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
-msgstr ""
+msgstr "वानिकी"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
 msgid "Handle is required"
-msgstr ""
+msgstr "हैंडल आवश्यक है"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Handle should not be an address"
-msgstr ""
+msgstr "हैंडल को कोई ऐड्रेस नहीं होना चाहिए"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "Handle should not contain any special characters"
-msgstr ""
+msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
 #: components/pages/Portfolio/index.tsx:105
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr ""
+msgstr "क्या आपने अपनी Carbonmark <0>प्रोफाइल</0> पहले ही बना ली है?"
 
 #: components/Footer/index.tsx:43
 #: components/pages/Home/index.tsx:509
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
-msgstr ""
+msgstr "सहायता"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
-msgstr ""
+msgstr "अगर आप इस ख़रीदारी में से कुछ या सभी कार्बन क्रेडिट्स रिटायर करना चाहते हैं, तो अपने <0>पोर्टफोलियो</0>पर जाएँ, 'रिटायर' बटन पर क्लिक करें और निर्देशों का पालन करें।"
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
-msgstr ""
+msgstr "औद्योगिक उपचारण"
 
 #: components/Footer/index.tsx:53
 #: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
-msgstr ""
+msgstr "KlimaDAO"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -252,20 +252,20 @@ msgstr "नवीनतम पहले"
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:70
 msgid "Leaving Carbonmark"
-msgstr ""
+msgstr "Carbonmark छोड़ना"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
-msgstr ""
+msgstr "सूचीकरण लागत, {0}% शुल्क सहित"
 
 #: components/pages/Users/SellerConnected/index.tsx:170
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
-msgstr ""
+msgstr "सूचियाँ"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:66
 msgid "Loading your assets"
-msgstr ""
+msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/PurchaseForm.tsx:171
@@ -279,16 +279,16 @@ msgstr "स्थान:{0}"
 #: components/Layout/NavDrawer/index.tsx:51
 #: components/LoginButton/index.tsx:10
 msgid "Log in"
-msgstr ""
+msgstr "लॉग इन"
 
 #: components/pages/Users/Login/index.tsx:34
 msgid "Log in to create a Carbonmark profile"
-msgstr ""
+msgstr "Carbonmark प्रोफ़ाइल बनाने के लिए लॉगिन करें"
 
 #: components/Layout/NavDrawer/index.tsx:61
 #: components/LoginButton/index.tsx:10
 msgid "Log out"
-msgstr ""
+msgstr "लॉग आउट"
 
 #: components/LoginCard/index.tsx:32
 msgid "Login"
@@ -301,12 +301,12 @@ msgstr "MCO2 टोकन"
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
-msgstr ""
+msgstr "मार्केटप्लेस"
 
 #: components/pages/Projects/index.tsx:45
 #: components/pages/Projects/index.tsx:46
 msgid "Marketplace | Carbonmark"
-msgstr ""
+msgstr "मार्केटप्लेस | Carbonmark"
 
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
@@ -318,140 +318,140 @@ msgstr "कार्यप्रणाली: {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
-msgstr ""
+msgstr "नयी मात्रा"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:120
 msgid "New Unit Price (USDC)"
-msgstr ""
+msgstr "नया यूनिट मूल्य (USDC)"
 
 #: components/pages/Users/SellerConnected/index.tsx:215
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
-msgstr ""
+msgstr "शून्य सक्रिय सूचियाँ"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:97
 msgid "No listable assets found."
-msgstr ""
+msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
 #: components/pages/Project/index.tsx:227
 msgid "No listings found for this project."
-msgstr ""
+msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #: components/pages/Projects/index.tsx:74
 msgid "No project description found"
-msgstr ""
+msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
 msgid "No retirement message provided."
-msgstr "कोई रिटायरमेंट टाइमस्टैम्प प्रदान नहीं किया गया"
+msgstr "कोई रिटायरमेंट संदेश प्रदान नहीं किया गया"
 
 #: components/Layout/AddressSection/index.tsx:21
 msgid "Not Connected"
-msgstr "कनेक्ट नहीं हैं"
+msgstr "कनेक्शन नहीं है"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
-msgstr "सबसे पुराना पहले"
+msgstr "प्राचीनतम पहले"
 
 #: lib/getCategoryInfo.ts:65
 msgid "Other"
-msgstr ""
+msgstr "अन्य"
 
 #: lib/getCategoryInfo.ts:59
 msgid "Other Nature-Based"
-msgstr ""
+msgstr "अन्य प्रकृति-अनुरूप"
 
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
-msgstr ""
+msgstr "भुगतान सफल हुआ"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
-msgstr ""
+msgstr "कृपया लॉगिन करें"
 
 #: components/pages/Portfolio/index.tsx:55
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr ""
+msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में त्रुटि हुई: {e}।"
 
 #: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
 msgid "Portfolio | Carbonmark"
-msgstr ""
+msgstr "पोर्टफ़ोलियो | Carbonmark"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
-msgstr "प्रेस प्रकाशनी"
+msgstr "प्रेस विज्ञप्तियाँ"
 
 #: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Highest"
-msgstr ""
+msgstr "मूल्य उच्चतम"
 
 #: components/ProjectFilterModal/constants.tsx:13
 msgid "Price Lowest"
-msgstr ""
+msgstr "मूल्य न्यूनतम"
 
 #: components/Footer/index.tsx:28
 msgid "Privacy Policy"
-msgstr ""
+msgstr "गोपनीयता नीति"
 
 #: components/pages/Home/index.tsx:500
 msgid "Privacy policy"
-msgstr ""
+msgstr "गोपनीयता नीति"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:148
 msgid "Processing data..."
-msgstr "डाटा प्रोसेसिंग..."
+msgstr "डेटा प्रोसेसिंग..."
 
 #: components/shared/Navigation/index.tsx:69
 #: components/shared/Navigation/index.tsx:106
 msgid "Profile"
-msgstr ""
+msgstr "प्रोफ़ाइल"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
 msgid "Profile picture"
-msgstr ""
+msgstr "प्रोफ़ाइल फोटो"
 
 #: components/pages/Purchases/index.tsx:121
 msgid "Project"
-msgstr ""
+msgstr "प्रॉजेक्ट"
 
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
-msgstr ""
+msgstr "विक्रय रसीद | Carbonmark"
 
 #: components/pages/Project/Purchase/index.tsx:198
 #: components/pages/Project/Purchase/index.tsx:199
 msgid "Purchase {0} | Carbonmark"
-msgstr ""
+msgstr "ख़रीद | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:62
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:39
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Quantity Available:"
-msgstr ""
+msgstr "उपलब्ध मात्रा:"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:113
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "सूचीबद्ध मात्रा: {listedQuantity}, असूचीबद्ध मात्रा: {0}, कुल उपलब्ध: {totalAvailableQuantity}"
 
 #: components/pages/Purchases/index.tsx:103
 msgid "Quantity purchased:"
-msgstr ""
+msgstr "विक्रीत मात्रा:"
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
-msgstr ""
+msgstr "हाल में अपडेटेड"
 
 #: components/Stats/StatsBar.tsx:42
 msgid "Remaining Supply:"
-msgstr ""
+msgstr "शेष आपूर्त्ति"
 
 #: lib/getCategoryInfo.ts:47
 msgid "Renewable Energy"
-msgstr ""
+msgstr "नवीकरणीय ऊर्जा"
 
 #: components/Footer/index.tsx:48
 #: components/pages/Home/index.tsx:512
@@ -464,55 +464,55 @@ msgstr "संसाधन"
 #: components/pages/Resources/index.tsx:19
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
-msgstr ""
+msgstr "संसाधन | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
-msgstr ""
+msgstr "रिटायर"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
-msgstr ""
+msgstr "अभी रिटायर करें"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "Say a few words about yourself. This will be visible in your seller profile."
-msgstr ""
+msgstr "अपने बारे में कुछ शब्द कहें। यह आपके सेलर प्रोफ़ाइल में दिखाई देगा।"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
-msgstr ""
+msgstr "बेचें"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
 msgid "Seller Listing"
-msgstr ""
+msgstr "विक्रय सूचीकरण"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
 msgid "Something went wrong. Please try again. {error}"
-msgstr ""
+msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें। {error}"
 
 #: components/pages/errors/Custom404.tsx:25
 msgid "Sorry, looks like we sent you the wrong way."
-msgstr ""
+msgstr "क्षमा करें, शायद हमने आपको ग़लत रास्ते भेज दिया।"
 
 #: components/pages/errors/Custom500.tsx:25
 msgid "Sorry, something went wrong."
-msgstr ""
+msgstr "क्षमा करें, कुछ गड़बड़ हो गई।"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
 msgid "Sorry, this handle already exists"
-msgstr ""
+msgstr "क्षमा करें, यह हैंडल पहले से मौजूद है"
 
 #: components/pages/Portfolio/index.tsx:99
 msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr ""
+msgstr "क्षमा करें। हमें Carbonmark पर आपके यूज़र का कोई डेटा नहीं मिला।"
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
-msgstr ""
+msgstr "आँकड़े"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:86
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
-msgstr ""
+msgstr "सफलता! आपकी नई लिस्टिंग कुछ ही पलों में आपके <0>प्रोफ़ाइल पेज</0> पर दिखाई देगी।"
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
@@ -520,84 +520,84 @@ msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
 
 #: components/Footer/index.tsx:33
 msgid "Terms of Use"
-msgstr ""
+msgstr "उपयोग की शर्तें"
 
 #: components/pages/Home/index.tsx:503
 msgid "Terms of use"
-msgstr ""
+msgstr "उपयोग की शर्तें"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
-msgstr ""
+msgstr "पृथ्वी का समर्थन करने के लिए धन्यवाद! ख़रीद विवरण नीचे देखें।"
 
 #: components/pages/Home/index.tsx:54
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
-msgstr ""
+msgstr "दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा संकलन। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन ख़रीदें, बेचें और रिटायर करें।"
 
 #: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
-msgstr ""
+msgstr "आपकी संपत्तियाँ लोड करने में त्रुटि हुई। {e}"
 
 #: components/shared/InvalidNetworkModal/index.tsx:70
 msgid "This app only works on Polygon Mainnet."
-msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर काम करता है।"
+msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर ही काम करता है।"
 
 #: components/pages/Project/Purchase/index.tsx:259
 msgid "This offer no longer exists."
-msgstr ""
+msgstr "यह ऑफ़र अब मौजूद नहीं है।"
 
 #: components/BetaBadge/index.tsx:9
 msgid "This product is still in Beta and audits have not been completed yet."
-msgstr ""
+msgstr "यह उत्पाद अभी भी बीटा चरण में है और अभी तक ऑडिट पूरा नहीं हुआ है।"
 
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
-msgstr ""
+msgstr "सॉर्ट मेन्यू टॉगल करें"
 
 #: components/Stats/StatsListings.tsx:42
 msgid "Tonnes listed:"
-msgstr ""
+msgstr "सूचीबद्ध टन"
 
 #: components/Stats/StatsListings.tsx:35
 msgid "Tonnes sold:"
-msgstr ""
+msgstr "टन बिक्री"
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
-msgstr ""
+msgstr "कुल रिटायरमेन्ट्स:"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
-msgstr ""
+msgstr "बिक्री हेतु सूचीबद्ध की जानेवाली मात्रा"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:92
 msgid "Updated:"
-msgstr ""
+msgstr "अपडेटेड:"
 
 #: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
-msgstr ""
+msgstr "आपका डेटा अपडेट हो रहा है..."
 
 #: components/pages/Resources/lib/cmsDataMap.ts:61
 msgid "User Guides"
-msgstr "उपयोगकर्ता मार्गदर्शक"
+msgstr "उपयोगकर्त्ता मार्गदर्शिका"
 
 #: components/pages/Users/Login/index.tsx:32
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
-msgstr ""
+msgstr "यूज़र प्रोफ़ाइल | Carbonmark"
 
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
-msgstr ""
+msgstr "रजिस्ट्री विवरण देखें <0/>"
 
 #: components/pages/Portfolio/index.tsx:67
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
-msgstr ""
+msgstr "अपने पोर्टफ़ोलियो में अपने स्वामित्व वाले डिजिटल कार्बन का संपूर्ण विवरण देखें।"
 
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
-msgstr ""
+msgstr "Carbonmark पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
 msgid "View on Polygonscan"
@@ -605,70 +605,70 @@ msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखे�
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
-msgstr ""
+msgstr "इस ख़रीद के लिए प्रॉजेक्ट विवरण व अन्य जानकारी देखें।"
 
 #: components/ProjectFilterModal/index.tsx:133
 msgid "Vintage"
-msgstr ""
+msgstr "विंटेज"
 
 #: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Newest"
-msgstr ""
+msgstr "विंटेज नवीनतम"
 
 #: components/ProjectFilterModal/constants.tsx:16
 msgid "Vintage Oldest"
-msgstr ""
+msgstr "विंटेज प्राचीनतम"
 
 #: components/pages/Purchases/index.tsx:65
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
-msgstr ""
+msgstr "हम अभी आपकी सफल ख़रीदारी को प्रोसेस ही कर रहे हैं। अपनी रसीद देखने के लिए कृपया कुछ मिनटों में इस पृष्ठ पर वापस आएँ।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:152
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
-msgstr "हमने इस सेवानिवृत्ति के लिए ब्लॉकचैन डेटा को संसाधित करना समाप्त नहीं किया है। इसमें आमतौर पर कुछ सेकंड लगते हैं, लेकिन नेटवर्क भीड़भाड़ होने पर इसमें अधिक समय लग सकता है।"
+msgstr "हमने इस रिटायरमेन्ट के लिए ब्लॉकचेन डेटा प्रोसेसिंग अभी ख़त्म नहीं की है। इसमें आमतौर पर कुछ सेकंड लगते हैं, लेकिन नेटवर्क में ट्रैफ़िक होने पर इसमें अधिक समय लग जाता है।"
 
 #: components/shared/InvalidNetworkModal/index.tsx:64
 msgid "Wrong Network"
-msgstr "गलत नेटवर्क"
+msgstr "ग़लत नेटवर्क"
 
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
-msgstr ""
+msgstr "आप"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
-msgstr ""
+msgstr "आपने लेन-देन को अस्वीकार करना चुना है।"
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
-msgstr ""
+msgstr "आपका वॉलेट पता:"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Your display name"
-msgstr ""
+msgstr "आपका प्रदर्शित होने वाला नाम"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
 #: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
-msgstr ""
+msgstr "आपका विक्रेता डेटा"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
 msgid "Your unique handle"
-msgstr ""
+msgstr "आपका यूनिक हैंडल"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:82
 msgid "Z-A"
-msgstr "ज़ेड तू ए"
+msgstr "Z-A"
 
 #: components/Activities/Activity.tsx:31
 msgid "at"
-msgstr ""
+msgstr "पर"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.description"
-msgstr "KlimaDAO (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य सूचना के उद्देश्यों के लिए है और यह बेचने के लिए एक औपचारिक प्रस्ताव या प्रस्ताव की याचना नहीं है। किसी भी अधिकार क्षेत्र में प्रतिभूतियों से संबंधित कोई भी प्रतिभूति, विकल्प, वायदा, या अन्य डेरिवेटिव ख़रीदें और इसकी सामग्री प्रतिभूति क़ानूनों द्वारा निर्धारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी को ऐसी प्रतिभूतियों को ख़रीदने या बेचने या रखने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और सभी दायित्व को अस्वीकार करता है। उसके। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने के लिए कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, समान या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत का स्थान लेती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो KlimaDAO और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इस ब्लॉग पोस्ट में जानकारी। इसके अतिरिक्त, KlimaDAO इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
+msgstr "KlimaDAO (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य ज्ञानवर्द्धन संबंधी उद्देश्यों के चलते दी गयी है और यह किसी भी न्यायक्षेत्र में कोई प्रतिभूति, ऑप्शंस, फ़्यूचर्स, या प्रतिभूतियों से संबंधित अन्य डेरिवेटिव्ज़ को ख़रीदने अथवा बेचने हेतु कोई औपचारिक प्रस्ताव या उकसावा नहीं है और इसकी सामग्री प्रतिभूति क़ानूनों पर आधारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी पर ऐसी प्रतिभूतियों को ख़रीदने या बेचने या होल्ड करने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और समस्त दायित्व को अस्वीकार करता है। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने का कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, मिलती-जुलती या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत को सुपरसीड करती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो KlimaDAO और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इसके अतिरिक्त, KlimaDAO इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
 
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
@@ -676,7 +676,7 @@ msgstr "अस्वीकरण:"
 
 #: components/Activities/Activities.constants.ts:8
 msgid "bought from"
-msgstr ""
+msgstr "से ख़रीदा गया"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
@@ -684,23 +684,23 @@ msgstr "ख़रीदें"
 
 #: components/Layout/index.tsx:84
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "संस्थागत"
 
 #: components/Layout/index.tsx:76
 msgid "connectModal.torus"
-msgstr "सामाजिक या ईमेल"
+msgstr "सोशल या ईमेल"
 
 #: components/Layout/index.tsx:80
 msgid "connectModal.wallet"
-msgstr "वॉलेट कनेक्ट करें"
+msgstr "कोई वॉलेट कनेक्ट करें"
 
 #: components/Layout/index.tsx:93
 msgid "connect_modal.connecting"
-msgstr "संपर्क"
+msgstr "कनेक्ट हो रहा है..."
 
 #: lib/constants.ts:21
 msgid "connect_modal.error_message_default"
-msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
+msgstr "कनेक्शन में कुछ गड़बड़ी हो गई। कृपया पुन: प्रयास करें।"
 
 #: lib/constants.ts:25
 msgid "connect_modal.error_message_refused"
@@ -708,7 +708,7 @@ msgstr "उपयोगकर्ता ने कनेक्शन अस्व
 
 #: lib/constants.ts:29
 msgid "connect_modal.error_processing"
-msgstr ""
+msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #: components/Layout/index.tsx:97
 msgid "connect_modal.error_title"
@@ -716,55 +716,55 @@ msgstr "संपर्क त्रुटि"
 
 #: components/CreateListing/index.tsx:123
 msgid "create.approval_1"
-msgstr ""
+msgstr "आप एक नई लिस्टिंग बनाने वाले हैं।"
 
 #: components/CreateListing/index.tsx:128
 msgid "create.approval_2"
-msgstr ""
+msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी लिस्टिंग को लाइव करना है।"
 
 #: components/CreateListing/index.tsx:135
 msgid "create.approval_3"
-msgstr ""
+msgstr "आप किसी भी समय अपनी सक्रिय लिस्टिंग को हटाना चुन सकते हैं जो सूचीबद्ध संपत्ति को अपने आप आपके वॉलेट में वापस स्थानांतरित कर देगा।"
 
 #: components/CreateListing/index.tsx:141
 msgid "create.approval_4"
-msgstr ""
+msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
 #: components/CreateListing/index.tsx:153
 msgid "create.submit_1"
-msgstr ""
+msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
 #: components/CreateListing/index.tsx:159
 msgid "create.submit_2"
-msgstr ""
+msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
-msgstr ""
+msgstr "सूची बनाएँ"
 
 #: components/Activities/Activities.constants.ts:7
 msgid "deleted listing"
-msgstr ""
+msgstr "सूची मिटाएँ"
 
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
-msgstr ""
+msgstr "प्रत्येक"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "edit_listing.approval_1"
-msgstr ""
+msgstr "आप इस संपत्ति के स्वामित्व को अपने वॉलेट से Carbonmark को स्थानांतरित करने वाले हैं।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:180
 msgid "edit_listing.approval_2"
-msgstr ""
+msgstr "आप अपनी लिस्टिंग को बिकने से पहले किसी भी समय हटा सकते हैं।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:192
 msgid "edit_listing.submit_1"
-msgstr ""
+msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
-msgstr ""
+msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
@@ -776,23 +776,23 @@ msgstr "KlimaDAO.finance पर आपके द्वारा ख़रीदे 
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
-msgstr ""
+msgstr "इस लेन-देन को पूरा करने के लिए आपको KlimaDAO.finance पर ले जाया जाएगा।"
 
 #: components/Activities/Activity.tsx:87
 msgid "for"
-msgstr ""
+msgstr "के लिए"
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
-msgstr ""
+msgstr "मार्केटप्लेस"
 
 #: components/Layout/NavMenu/index.tsx:48
 msgid "menu.portfolio"
-msgstr ""
+msgstr "पोर्टफ़ोलियो"
 
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
-msgstr ""
+msgstr "प्रोफ़ाइल"
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -800,47 +800,47 @@ msgstr "जमाराशियाँ"
 
 #: components/CreateListing/Form/index.tsx:180
 msgid "profile.addListing_modal.submit"
-msgstr ""
+msgstr "सूची बनाएँ"
 
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "profile.create_new_listing"
-msgstr ""
+msgstr "नयी सूची बनाएँ"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr ""
+msgstr "बिक्री शुरू करने के लिए आपको अपना प्रोफ़ाइल बनानी होगी, आरंभ करने के लिए ऊपर दिए गए 'प्रोफ़ाइल बनाएँ' बटन पर क्लिक करें।"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
-msgstr ""
+msgstr "सूचीकरण अपडेट करें"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
 msgid "profile.edit_modal.submit"
-msgstr ""
+msgstr "बदलाव सेव करें"
 
 #: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
-msgstr ""
+msgstr "आपकी प्रोफ़ाइल"
 
 #: components/pages/Users/ProfileHeader/index.tsx:42
 msgid "profile.edit_your_profile"
-msgstr ""
+msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:160
 msgid "profile.listing.delete.error"
-msgstr ""
+msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:217
 msgid "profile.listing.edit"
-msgstr ""
+msgstr "संपादित करें"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:246
 msgid "profile.listing.edit.delete_listing"
-msgstr ""
+msgstr "सूची मिटाएँ"
 
 #: components/CreateListing/index.tsx:171
 msgid "profile.listings_modal.title"
-msgstr ""
+msgstr "कोई सूची बनाएँ"
 
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
@@ -848,11 +848,11 @@ msgstr "वापस प्रॉजेक्ट के विवरण पर"
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
-msgstr ""
+msgstr "आप एक कार्बन संपत्ति ख़रीदने वाले हैं।"
 
 #: components/pages/Project/Purchase/index.tsx:151
 msgid "purchase.approval_2"
-msgstr ""
+msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
 #: components/pages/Project/Purchase/index.tsx:158
 msgid "purchase.approval_3"
@@ -860,27 +860,27 @@ msgstr "आपके द्वारा ख़रीदे गए Carbon ऐसे�
 
 #: components/pages/Project/Purchase/index.tsx:168
 msgid "purchase.approval_4"
-msgstr ""
+msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:194
 msgid "purchase.button.continue"
-msgstr "जारी रखना"
+msgstr "जारी रखें"
 
 #: components/pages/Purchases/index.tsx:143
 msgid "purchase.button.view_assets"
-msgstr ""
+msgstr "अपनी संपत्ति देखें"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:152
 msgid "purchase.input.amount.label"
-msgstr ""
+msgstr "आप कितने टन कार्बन ख़रीदना चाहते हैं?"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:145
 msgid "purchase.input.amount.maxAmount"
-msgstr ""
+msgstr "आप टनों की उपलब्ध मात्रा को पार कर गए हैं"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.minimum"
-msgstr ""
+msgstr "ख़रीद की न्यूनतम राशि 1 टन है"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:120
 msgid "purchase.input.amount.placeholder"
@@ -892,35 +892,35 @@ msgstr "राशि की आवश्यकता"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:215
 msgid "purchase.input.price.maxAmount"
-msgstr ""
+msgstr "आपने टोकन की अपनी उपलब्ध राशि पार कर ली है"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:208
 msgid "purchase.input.price.required"
-msgstr ""
+msgstr "मूल्य आवश्यक है"
 
 #: components/pages/Project/Purchase/index.tsx:86
 msgid "purchase.loading.allowance.error"
-msgstr ""
+msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
 #: components/pages/Project/Purchase/index.tsx:180
 msgid "purchase.submit_1"
-msgstr ""
+msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली।"
 
 #: components/pages/Project/Purchase/index.tsx:186
 msgid "purchase.submit_2"
-msgstr ""
+msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/pages/Project/Purchase/index.tsx:271
 msgid "purchase.transaction.modal.title.confirm"
-msgstr ""
+msgstr "ख़रीद की पुष्टि करें"
 
 #: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.processing"
-msgstr ""
+msgstr "विक्रय संपन्न करना"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:22
 msgid "resources.form.categories.header"
-msgstr "श्रेणियाँ"
+msgstr "कैटेगरीज़"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:25
 msgid "resources.form.categories.subheader"
@@ -928,11 +928,11 @@ msgstr "एक या अधिक चुनें"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:39
 msgid "resources.form.filters.clear_all"
-msgstr "सभी साफ करें"
+msgstr "सबकुछ मिटाएँ"
 
 #: components/pages/Resources/ResourcesList/index.tsx:172
 msgid "resources.form.input.search.label"
-msgstr "खोज"
+msgstr "सर्च करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:163
 msgid "resources.form.input.search.placeholder"
@@ -944,12 +944,12 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:21
 msgid "resources.form.input.sort_by.select"
-msgstr "चुने"
+msgstr "चुनें"
 
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
-msgstr "मेनू द्वारा क्रमबद्ध टॉगल करें"
+msgstr "सॉर्टेड बाइ मेन्यू टॉगल करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:297
 msgid "resources.mobile_modal.button.show_results"
@@ -961,23 +961,23 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:235
 msgid "resources.page.list.no_search_results.title"
-msgstr "माफ़ करना। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
+msgstr "क्षमा करें। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:227
 msgid "resources.page.list.on_fetch_error"
-msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
+msgstr "क्षमा कीजिए! कुछ गड़बड़ हो गयी।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:248
 msgid "resources.page.list.search_submit.no_filter_results"
-msgstr "कृपया किसी भिन्न फ़िल्टर संयोजन का उपयोग करें।"
+msgstr "कृपया किसी भिन्न फ़िल्टर कॉम्बिनेशन का उपयोग करें।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr "टाइपो के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज शब्द आज़माएँ।"
+msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
 #: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
+msgstr "Carbonmark कार्बन बाज़ारों के लिए एक ऑल-इन-वन प्लैटफ़ॉर्म है। इस पर लाखों कार्बन क्रेडिट उपलब्ध होने के साथ, यह प्लैटफ़ॉर्म उपयोगकर्त्ताओं को बिना किसी अतिरिक्त शुल्क के डिजिटल कार्बन क्रेडिट जल्दी से सूचीबद्ध करने, प्राप्त करने और ऑफ़सेट करने देता है।"
 
 #: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutCarbonmark.right"
@@ -989,15 +989,15 @@ msgstr "Carbonmark के बारे में"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.head.metaDescription"
-msgstr ""
+msgstr "Carbonmark द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:119
 msgid "retirement.head.metaTitle"
-msgstr "{retiree} सेवानिवृत्त {formattedAmount} टन कार्बन"
+msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्बन"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.title"
-msgstr ""
+msgstr "Carbonmark | Carbon रिटायरमेंट रसीद"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:253
 msgid "retirement.share.title"
@@ -1017,11 +1017,11 @@ msgstr "लाभार्थी का पता"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:233
 msgid "retirement.single.disclaimer"
-msgstr "यह Polygon (पॉलीगॉन) ब्लॉकचेन पर टोकनयुक्त कार्बन परिसंपत्तियों के स्थायी रिटायरमेंट का प्रतिनिधित्व करता है। यह रिटायरमेंट और संबंधित डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
+msgstr "यह Polygon (पॉलीगॉन) ब्लॉकचेन पर टोकनयुक्त कार्बन परिसंपत्तियों के स्थायी रिटायरमेंट को इंगित करता है। यह रिटायरमेंट और संबंधित डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
 msgid "retirement.single.download_certificate_button"
-msgstr "PDF (पीडीएफ़) डाउनलोड करें"
+msgstr "PDF डाउनलोड करें"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:136
 msgid "retirement.single.header.subline"
@@ -1057,7 +1057,7 @@ msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखे�
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
-msgstr "कोई रिटायरमेंट नहीं मिली"
+msgstr "कोई रिटायरमेंट नहीं मिला"
 
 #: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
@@ -1097,7 +1097,7 @@ msgstr "कुल रिटायरमेंट लेनदेन"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:226
 msgid "seller.edit_listing.title"
-msgstr ""
+msgstr "सूची संपादित करें"
 
 #: components/pages/Users/SellerUnconnected/index.tsx:70
 msgid "seller.listing.buy"
@@ -1105,7 +1105,7 @@ msgstr "ख़रीदें"
 
 #: components/pages/Users/Listing/index.tsx:46
 msgid "seller.listing.quantity_available"
-msgstr ""
+msgstr "उपलब्ध मात्रा:"
 
 #: components/Transaction/Approve.tsx:105
 msgid "shared.approve"
@@ -1115,11 +1115,11 @@ msgstr "मंज़ूरी दें"
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
-msgstr ""
+msgstr "साइन इन / कनेक्ट टु बाय"
 
 #: components/pages/Retirements/index.tsx:51
 msgid "shared.head.description"
-msgstr "जलवायु कार्रवाई करें और एक कार्बन-समर्थित डिजिटल मुद्रा के साथ पुरस्कार अर्जित करें।"
+msgstr "जलवायु प्रयत्न करें और कार्बन-समर्थित डिजिटल मुद्रा के रूप में पुरस्कार अर्जित करें।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "shared.loading"
@@ -1131,7 +1131,7 @@ msgstr "लॉग इन करें"
 
 #: components/pages/Blog/Post/index.tsx:76
 msgid "shared.resourcecenter"
-msgstr "संसाधन"
+msgstr "संसाधन केंद्र"
 
 #: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "shared.resources.sort_by.header"
@@ -1139,12 +1139,12 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/Activities/Activities.constants.ts:9
 msgid "sold to"
-msgstr ""
+msgstr "को बेचा गया"
 
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
 msgid "tonnes.long"
-msgstr ""
+msgstr "टन"
 
 #: lib/statusMessage.ts:31
 msgid "transaction.status.done"
@@ -1156,7 +1156,7 @@ msgstr "❌ एरर: कुछ गड़बड़ हो गयी..."
 
 #: lib/statusMessage.ts:41
 msgid "transaction.status.network_confirmation"
-msgstr "लेन-देन शुरू किया। नेटवर्क पुष्टि की प्रतीक्षा कर रहा है।"
+msgstr "लेन-देन शुरू किया गया। नेटवर्क पुष्टि की प्रतीक्षा कर रहा है।"
 
 #: lib/statusMessage.ts:36
 msgid "transaction.status.user_confirmation"
@@ -1172,15 +1172,15 @@ msgstr "राशि की पुष्टि करें"
 
 #: components/Transaction/Approve.tsx:48
 msgid "transaction_modal.approve.contract_address"
-msgstr "अनुबंध का पता"
+msgstr "कॉन्ट्रैक्ट पता"
 
 #: components/Transaction/Approve.tsx:74
 msgid "transaction_modal.approve.price"
-msgstr ""
+msgstr "प्रति टन मूल्य की पुष्टि करें"
 
 #: components/Transaction/index.tsx:86
 msgid "transaction_modal.button.go_back"
-msgstr ""
+msgstr "वापस जाएँ"
 
 #: components/Transaction/Submit.tsx:111
 msgid "transaction_modal.close"
@@ -1188,11 +1188,11 @@ msgstr "बंद करें"
 
 #: components/Transaction/Approve.tsx:113
 msgid "transaction_modal.next"
-msgstr "इसके बाद"
+msgstr "अगला"
 
 #: components/Transaction/Submit.tsx:58
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "जमा की जाने वाली राशि"
 
 #: components/Transaction/Submit.tsx:103
 msgid "transaction_modal.submit.button"
@@ -1200,11 +1200,11 @@ msgstr "सबमिट करें"
 
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
-msgstr "अनुबंध का पता"
+msgstr "कॉन्ट्रैक्ट पता"
 
 #: components/Transaction/Submit.tsx:72
 msgid "transaction_modal.submit.price"
-msgstr ""
+msgstr "जमा की जाने वाला मूल्य प्रति टन"
 
 #: components/Transaction/index.tsx:46
 msgid "transaction_modal.view.approve.title"
@@ -1216,85 +1216,85 @@ msgstr "2. जमा करें"
 
 #: components/Activities/Activities.constants.ts:10
 msgid "updated price"
-msgstr ""
+msgstr "अपडेटेड प्राइस"
 
 #: components/Activities/Activities.constants.ts:11
 msgid "updated quantity"
-msgstr ""
+msgstr "अपडेटेड मात्रा"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
-msgstr ""
+msgstr "शून्य गतिविधियाँ मौजूद"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:122
 msgid "user.edit.form.edit.price.placeholder"
-msgstr ""
+msgstr "USDC प्रति टन"
 
 #: components/CreateListing/Form/index.tsx:171
 msgid "user.edit.form.input.singleUnitPrice.label"
-msgstr ""
+msgstr "एकल यूनिट मूल्य"
 
 #: components/CreateListing/Form/index.tsx:142
 msgid "user.edit.form.input.singleUnitPrice.placeholder"
-msgstr ""
+msgstr "USDC प्रति टन"
 
 #: components/CreateListing/Form/index.tsx:130
 msgid "user.edit.form.input.totalAmountToSell.label"
-msgstr ""
+msgstr "कुल राशि"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "user.listing.edit.input.quantity.minimum"
-msgstr ""
+msgstr "बेचने के लिए न्यूनतम मात्रा 1 टन है"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:92
 msgid "user.listing.edit.input.quantity.required"
-msgstr ""
+msgstr "मात्रा आवश्यक है"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:66
 msgid "user.listing.edit.project.label"
-msgstr ""
+msgstr "प्रॉजेक्ट"
 
 #: components/CreateListing/Form/index.tsx:65
 msgid "user.listing.form.input.select_project.label"
-msgstr ""
+msgstr "प्रॉजेक्ट चुनें:"
 
 #: components/CreateListing/Form/index.tsx:162
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:137
 msgid "user.listing.form.input.singleUnitPrice.minimum"
-msgstr ""
+msgstr "प्रति टन न्यूनतम मूल्य है {0}"
 
 #: components/CreateListing/Form/index.tsx:150
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:130
 msgid "user.listing.form.input.singleUnitPrice.required"
-msgstr ""
+msgstr "एकल मूल्य आवश्यक है"
 
 #: components/CreateListing/Form/index.tsx:123
 msgid "user.listing.form.input.totalAmountToSell.maxAmount"
-msgstr ""
+msgstr "आप अपनी उपलब्ध राशि को पार कर गए हैं"
 
 #: components/CreateListing/Form/index.tsx:116
 msgid "user.listing.form.input.totalAmountToSell.minimum"
-msgstr ""
+msgstr "बेचने के लिए न्यूनतम राशि 1 टन है"
 
 #: components/CreateListing/Form/index.tsx:101
 msgid "user.listing.form.input.totalAmountToSell.placeholder"
-msgstr ""
+msgstr "आप कितने बेचना चाहते हैं"
 
 #: components/CreateListing/Form/index.tsx:109
 msgid "user.listing.form.input.totalAmountToSell.required"
-msgstr ""
+msgstr "बेची जाने वाली कुल मात्रा आवश्यक है"
 
 #: components/LoginCard/index.tsx:24
 msgid "user.login.description"
-msgstr "यह सुविधा केवल उन उपयोगकर्ताओं के लिए उपलब्ध है जो लॉग इन हैं। आप नीचे दिए गए बटन के माध्यम से लॉग इन कर सकते हैं या खाता बना सकते हैं।"
+msgstr "यह सुविधा केवल उन उपयोगकर्ताओं के लिए उपलब्ध है जिन्होंने लॉगिन कर रखा है। आप नीचे दिए गए बटन से लॉग इन कर सकते हैं या खाता बना सकते हैं।"
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
-msgstr ""
+msgstr "{0} | प्रोफ़ाइल | Carbonmark"
 
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
-msgstr ""
+msgstr "{amount} टन {0} प्रॉजेक्ट के लिए ख़रीदे गए थे"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
 msgid "{trimCurrentSupply} Tonnes remaining"
