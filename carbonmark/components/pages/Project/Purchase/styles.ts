@@ -95,12 +95,14 @@ export const price = css`
   align-self: start;
   padding: 0.8rem 1.6rem;
   background-color: var(--yellow);
-  align-items: center;
   border-radius: var(--border-radius);
 `;
 
 export const formContainer = css`
   max-width: 42rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const inputsContainer = css`
@@ -108,6 +110,7 @@ export const inputsContainer = css`
   align-content: start;
   gap: 1.6rem;
   overflow: hidden;
+  margin-bottom: 2rem;
 `;
 
 export const availableAmount = css`

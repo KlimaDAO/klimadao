@@ -251,13 +251,14 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className={styles.price}>
-                  <Text t="h4">
-                    {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
-                    <Trans>each</Trans>
-                  </Text>
-                </div>
                 <div className={styles.formContainer}>
+                  <div className={styles.price}>
+                    <Text t="h4">
+                      {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
+                      <Trans>each</Trans>
+                    </Text>
+                  </div>
+
                   {isActiveListing ? (
                     <PurchaseForm
                       onSubmit={onContinue}
@@ -270,9 +271,9 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
                       <Trans>This offer no longer exists.</Trans>
                     </Text>
                   )}
-                </div>
 
-                {errorMessage && <Text>{errorMessage}</Text>}
+                  {errorMessage && <Text>{errorMessage}</Text>}
+                </div>
               </Card>
             </Col>
             {/* <Col></Col> */}

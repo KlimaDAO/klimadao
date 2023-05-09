@@ -102,6 +102,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     LO.track("Purchase: Continue Clicked");
     props.onSubmit(values);
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>
