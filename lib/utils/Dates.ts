@@ -1,5 +1,15 @@
 import { BigInt } from '@graphprotocol/graph-ts'
 
+export function dayTimestamp(timestamp: BigInt): string {
+  let day_ts = timestamp.toI32() - (timestamp.toI32() % 86400)
+  return day_ts.toString()
+}
+
+export function hourTimestamp(timestamp: BigInt): string {
+  let day_ts = timestamp.toI32() - (timestamp.toI32() % 3600)
+  return day_ts.toString()
+}
+
 export function dayFromTimestamp(timestamp: BigInt): i32 {
   let day_ts = timestamp.toI32() - (timestamp.toI32() % 86400)
   return day_ts / 86400
