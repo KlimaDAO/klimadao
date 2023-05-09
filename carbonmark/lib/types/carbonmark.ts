@@ -42,7 +42,7 @@ export interface User {
   handle: string;
   username: string;
   description: string;
-  profileImgUrl?: string;
+  profileImgUrl: string | null;
   wallet: string;
   listings: ListingWithProject[];
   activities: UserActivity[];
