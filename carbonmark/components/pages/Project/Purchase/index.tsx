@@ -10,6 +10,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
@@ -205,68 +206,77 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
       />
 
       <Layout>
-        <div className={styles.fullWidthBack}>
-          <Link
-            href={createProjectLink(props.project)}
-            className={styles.backToResults}
-          >
-            <ArrowBack className="arrow" />
-            <Trans>Back to Project</Trans>
-          </Link>
-        </div>
+        <div className={styles.container}>
+          <div className={styles.backToProjectButton}>
+            <Link
+              href={createProjectLink(props.project)}
+              className={styles.backToResults}
+            >
+              <ArrowBack className="arrow" />
+              <Trans>Back to Project</Trans>
+            </Link>
+          </div>
 
-        <div className={styles.fullWidth}>
-          <Card>
-            <div className={styles.projectHeader}>
-              <ProjectImage category={getCategoryFromProject(props.project)} />
-              <div className={styles.imageGradient}></div>
-              <div className="stack">
-                {!!props.listing.seller && (
+          <TwoColLayout>
+            <Col>
+              <Card>
+                <div className={styles.projectHeader}>
+                  <ProjectImage
+                    category={getCategoryFromProject(props.project)}
+                  />
+                  <div className={styles.imageGradient}></div>
                   <div className="stack">
-                    <Text t="h5" className={styles.projectHeaderText}>
-                      <Link
-                        href={createSellerLink(props.listing.seller.handle)}
-                      >
-                        @{props.listing.seller.handle}
-                      </Link>
+                    {!!props.listing.seller && (
+                      <div className="stack">
+                        <Text t="h5" className={styles.projectHeaderText}>
+                          <Link
+                            href={createSellerLink(props.listing.seller.handle)}
+                          >
+                            @{props.listing.seller.handle}
+                          </Link>
+                        </Text>
+                      </div>
+                    )}
+                    <Text t="h3" className={styles.projectHeaderText}>
+                      {props.project.name}
                     </Text>
+                    <div className={styles.projectHeaderTags}>
+                      <Text t="body1" className={styles.projectHeaderText}>
+                        {props.project.registry}-{props.project.projectID}
+                      </Text>
+                      <Vintage vintage={props.project.vintage} />
+                      <Category
+                        category={getCategoryFromProject(props.project)}
+                      />
+                    </div>
                   </div>
-                )}
-                <Text t="h3" className={styles.projectHeaderText}>
-                  {props.project.name}
-                </Text>
-                <div className={styles.projectHeaderTags}>
-                  <Text t="body1" className={styles.projectHeaderText}>
-                    {props.project.registry}-{props.project.projectID}
-                  </Text>
-                  <Vintage vintage={props.project.vintage} />
-                  <Category category={getCategoryFromProject(props.project)} />
                 </div>
-              </div>
-            </div>
-            <div className={styles.price}>
-              <Text t="h4">
-                {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
-                <Trans>each</Trans>
-              </Text>
-            </div>
-            <div className={styles.formContainer}>
-              {isActiveListing ? (
-                <PurchaseForm
-                  onSubmit={onContinue}
-                  listing={props.listing}
-                  values={inputValues}
-                  isLoading={isLoadingAllowance}
-                />
-              ) : (
-                <Text>
-                  <Trans>This offer no longer exists.</Trans>
-                </Text>
-              )}
-            </div>
+                <div className={styles.price}>
+                  <Text t="h4">
+                    {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
+                    <Trans>each</Trans>
+                  </Text>
+                </div>
+                <div className={styles.formContainer}>
+                  {isActiveListing ? (
+                    <PurchaseForm
+                      onSubmit={onContinue}
+                      listing={props.listing}
+                      values={inputValues}
+                      isLoading={isLoadingAllowance}
+                    />
+                  ) : (
+                    <Text>
+                      <Trans>This offer no longer exists.</Trans>
+                    </Text>
+                  )}
+                </div>
 
-            {errorMessage && <Text>{errorMessage}</Text>}
-          </Card>
+                {errorMessage && <Text>{errorMessage}</Text>}
+              </Card>
+            </Col>
+            {/* <Col></Col> */}
+          </TwoColLayout>
         </div>
 
         <Modal

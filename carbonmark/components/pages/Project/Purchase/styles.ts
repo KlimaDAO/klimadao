@@ -1,8 +1,11 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const fullWidth = css`
-  grid-column: full;
+export const container = css`
+  grid-column: main;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 2.4rem;
 `;
 
 export const projectHeaderTags = css`
@@ -13,8 +16,7 @@ export const projectHeaderTags = css`
   align-items: center;
 `;
 
-export const fullWidthBack = css`
-  grid-column: full;
+export const backToProjectButton = css`
   align-items: center;
   margin-top: 0rem;
   display: flex;
