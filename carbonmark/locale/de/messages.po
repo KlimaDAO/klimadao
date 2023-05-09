@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 18:17+0000\n"
+"POT-Creation-Date: 2023-05-09 19:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,12 +85,16 @@ msgstr "Niedrigster Preis"
 msgid "Blue Carbon"
 msgstr "Blue Carbon"
 
+#: components/Layout/NavDrawer/index.tsx:84
+msgid "Book a demo"
+msgstr ""
+
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr "Projekte durchsuchen"
 
-#: components/Layout/NavDrawer/index.tsx:84
+#: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
@@ -110,8 +114,8 @@ msgstr "CO2-Pool"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark-Übersicht"
 
-#: components/pages/Home/index.tsx:52
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "Carbonmark | Der Universelle CO2-Marktplatz"
 
@@ -131,8 +135,8 @@ msgstr "Kaufen, verkaufen, CO2-Fußabdruck ausgleichen: Über 20 Millionen verif
 msgid "Clear Filters"
 msgstr "Filter löschen"
 
-#: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:506
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:517
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -225,8 +229,8 @@ msgstr "Name sollte keine Sonderzeichen enthalten"
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Haben Sie schon Ihr <0>Carbonmark-Profil</0> erstellt?"
 
-#: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:509
+#: components/Footer/index.tsx:39
+#: components/pages/Home/index.tsx:508
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -240,8 +244,8 @@ msgstr "Falls Sie einige CO2-Credits aus diesem Kauf nutzen möchten, um Ihren C
 msgid "Industrial Processing"
 msgstr "Industrielle Verarbeitung"
 
-#: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:515
+#: components/Footer/index.tsx:49
+#: components/pages/Home/index.tsx:514
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -276,7 +280,7 @@ msgstr "Lade..."
 msgid "Location: {0}"
 msgstr "Standort: {0}"
 
-#: components/Layout/NavDrawer/index.tsx:51
+#: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "Anmelden"
@@ -285,7 +289,7 @@ msgstr "Anmelden"
 msgid "Log in to create a Carbonmark profile"
 msgstr "Anmelden, um Carbonmark-Profil zu erstellen"
 
-#: components/Layout/NavDrawer/index.tsx:61
+#: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "Abmelden"
@@ -392,11 +396,11 @@ msgstr "Höchster Preis"
 msgid "Price Lowest"
 msgstr "Niedrigster Preis"
 
-#: components/Footer/index.tsx:28
+#: components/Footer/index.tsx:29
 msgid "Privacy Policy"
 msgstr "Datenschutzbestimmungen"
 
-#: components/pages/Home/index.tsx:500
+#: components/pages/Home/index.tsx:502
 msgid "Privacy policy"
 msgstr "Datenschutzbestimmungen"
 
@@ -453,8 +457,8 @@ msgstr "Verbleibendes Angebot:"
 msgid "Renewable Energy"
 msgstr "Erneuerbare Energie"
 
-#: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:512
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:511
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -518,11 +522,11 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr "Zu Polygon wechseln"
 
-#: components/Footer/index.tsx:33
+#: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr ""
 
-#: components/pages/Home/index.tsx:503
+#: components/pages/Home/index.tsx:505
 msgid "Terms of use"
 msgstr ""
 
@@ -530,7 +534,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
 

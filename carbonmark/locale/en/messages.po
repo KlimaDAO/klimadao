@@ -91,12 +91,16 @@ msgstr "Best Price"
 msgid "Blue Carbon"
 msgstr "Blue Carbon"
 
+#: components/Layout/NavDrawer/index.tsx:84
+msgid "Book a demo"
+msgstr "Book a demo"
+
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr "Browse Projects"
 
-#: components/Layout/NavDrawer/index.tsx:84
+#: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
@@ -116,8 +120,8 @@ msgstr "Carbon Pool"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark Overview"
 
-#: components/pages/Home/index.tsx:52
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "Carbonmark | The Universal Carbon Marketplace"
 
@@ -137,8 +141,8 @@ msgstr "Choose from over 20 million verified digital carbon credits from hundred
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
-#: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:506
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:517
 msgid "Contact"
 msgstr "Contact"
 
@@ -231,8 +235,8 @@ msgstr "Handle should not contain any special characters"
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
-#: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:509
+#: components/Footer/index.tsx:39
+#: components/pages/Home/index.tsx:508
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -246,8 +250,8 @@ msgstr "If you would like to retire some or all of the carbon credits from this 
 msgid "Industrial Processing"
 msgstr "Industrial Processing"
 
-#: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:515
+#: components/Footer/index.tsx:49
+#: components/pages/Home/index.tsx:514
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -282,7 +286,7 @@ msgstr "Loading..."
 msgid "Location: {0}"
 msgstr "Location: {0}"
 
-#: components/Layout/NavDrawer/index.tsx:51
+#: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "Log in"
@@ -291,7 +295,7 @@ msgstr "Log in"
 msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
-#: components/Layout/NavDrawer/index.tsx:61
+#: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "Log out"
@@ -398,11 +402,11 @@ msgstr "Price Highest"
 msgid "Price Lowest"
 msgstr "Price Lowest"
 
-#: components/Footer/index.tsx:28
+#: components/Footer/index.tsx:29
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/pages/Home/index.tsx:500
+#: components/pages/Home/index.tsx:502
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -459,8 +463,8 @@ msgstr "Remaining Supply:"
 msgid "Renewable Energy"
 msgstr "Renewable Energy"
 
-#: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:512
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:511
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -524,11 +528,11 @@ msgstr "Success! Your new listing will appear in a few moments on your <0>Profil
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 
-#: components/Footer/index.tsx:33
+#: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr "Terms of Use"
 
-#: components/pages/Home/index.tsx:503
+#: components/pages/Home/index.tsx:505
 msgid "Terms of use"
 msgstr "Terms of use"
 
@@ -536,7 +540,7 @@ msgstr "Terms of use"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 

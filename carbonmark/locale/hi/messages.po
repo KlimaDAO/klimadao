@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 18:17+0000\n"
+"POT-Creation-Date: 2023-05-09 19:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,12 +85,16 @@ msgstr "सर्वोत्तम क़ीमत"
 msgid "Blue Carbon"
 msgstr "ब्लू कार्बन"
 
+#: components/Layout/NavDrawer/index.tsx:84
+msgid "Book a demo"
+msgstr ""
+
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr "प्रॉजेक्ट्स ब्राउज़ करें"
 
-#: components/Layout/NavDrawer/index.tsx:84
+#: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "<0>KlimaDAO</0> द्वारा 🌳 के साथ निर्मित"
 
@@ -110,8 +114,8 @@ msgstr "कार्बन पूल"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark का संक्षिप्त विवरण"
 
-#: components/pages/Home/index.tsx:52
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "Carbonmark | द यूनिवर्सल कार्बन मार्केटप्लेस"
 
@@ -131,8 +135,8 @@ msgstr "सैकड़ों प्रॉजेक्ट्स में से
 msgid "Clear Filters"
 msgstr "फ़िल्टर्स हटाएँ"
 
-#: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:506
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:517
 msgid "Contact"
 msgstr "संपर्क करें"
 
@@ -225,8 +229,8 @@ msgstr "हैंडल में कोई विशेष वर्ण नह�
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "क्या आपने अपनी Carbonmark <0>प्रोफाइल</0> पहले ही बना ली है?"
 
-#: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:509
+#: components/Footer/index.tsx:39
+#: components/pages/Home/index.tsx:508
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -240,8 +244,8 @@ msgstr "अगर आप इस ख़रीदारी में से कुछ
 msgid "Industrial Processing"
 msgstr "औद्योगिक उपचारण"
 
-#: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:515
+#: components/Footer/index.tsx:49
+#: components/pages/Home/index.tsx:514
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -276,7 +280,7 @@ msgstr "लोड हो रहा है..."
 msgid "Location: {0}"
 msgstr "स्थान:{0}"
 
-#: components/Layout/NavDrawer/index.tsx:51
+#: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "लॉग इन"
@@ -285,7 +289,7 @@ msgstr "लॉग इन"
 msgid "Log in to create a Carbonmark profile"
 msgstr "Carbonmark प्रोफ़ाइल बनाने के लिए लॉगिन करें"
 
-#: components/Layout/NavDrawer/index.tsx:61
+#: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "लॉग आउट"
@@ -392,11 +396,11 @@ msgstr "मूल्य उच्चतम"
 msgid "Price Lowest"
 msgstr "मूल्य न्यूनतम"
 
-#: components/Footer/index.tsx:28
+#: components/Footer/index.tsx:29
 msgid "Privacy Policy"
 msgstr "गोपनीयता नीति"
 
-#: components/pages/Home/index.tsx:500
+#: components/pages/Home/index.tsx:502
 msgid "Privacy policy"
 msgstr "गोपनीयता नीति"
 
@@ -453,8 +457,8 @@ msgstr "शेष आपूर्त्ति"
 msgid "Renewable Energy"
 msgstr "नवीकरणीय ऊर्जा"
 
-#: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:512
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:511
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -518,11 +522,11 @@ msgstr "सफलता! आपकी नई लिस्टिंग कुछ 
 msgid "Switch to Polygon"
 msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
 
-#: components/Footer/index.tsx:33
+#: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr "उपयोग की शर्तें"
 
-#: components/pages/Home/index.tsx:503
+#: components/pages/Home/index.tsx:505
 msgid "Terms of use"
 msgstr "उपयोग की शर्तें"
 
@@ -530,7 +534,7 @@ msgstr "उपयोग की शर्तें"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "पृथ्वी का समर्थन करने के लिए धन्यवाद! ख़रीद विवरण नीचे देखें।"
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा संकलन। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन ख़रीदें, बेचें और रिटायर करें।"
 

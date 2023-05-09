@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 18:17+0000\n"
+"POT-Creation-Date: 2023-05-09 19:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,12 +85,16 @@ msgstr "最优价格"
 msgid "Blue Carbon"
 msgstr "蓝碳"
 
+#: components/Layout/NavDrawer/index.tsx:84
+msgid "Book a demo"
+msgstr ""
+
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr "浏览项目"
 
-#: components/Layout/NavDrawer/index.tsx:84
+#: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "用🌳构建 <0>KlimaDAO</0> "
 
@@ -110,8 +114,8 @@ msgstr "碳池"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark 概览"
 
-#: components/pages/Home/index.tsx:52
-#: components/pages/Home/index.tsx:53
+#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr "Carbonmark  | 通用碳市场"
 
@@ -131,8 +135,8 @@ msgstr "从数百个项目中选择超过 2000 万个经过验证的数字碳信
 msgid "Clear Filters"
 msgstr "清除过滤器"
 
-#: components/Footer/index.tsx:38
-#: components/pages/Home/index.tsx:506
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:517
 msgid "Contact"
 msgstr "联系方式"
 
@@ -225,8 +229,8 @@ msgstr "用户名不应包含任何特殊字符"
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
-#: components/Footer/index.tsx:43
-#: components/pages/Home/index.tsx:509
+#: components/Footer/index.tsx:39
+#: components/pages/Home/index.tsx:508
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -240,8 +244,8 @@ msgstr "如果您想取消此次购买的部分或全部碳信用额度，请转
 msgid "Industrial Processing"
 msgstr "工业加工"
 
-#: components/Footer/index.tsx:53
-#: components/pages/Home/index.tsx:515
+#: components/Footer/index.tsx:49
+#: components/pages/Home/index.tsx:514
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -276,7 +280,7 @@ msgstr "正在加载..."
 msgid "Location: {0}"
 msgstr "位置：{0}"
 
-#: components/Layout/NavDrawer/index.tsx:51
+#: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "登录"
@@ -285,7 +289,7 @@ msgstr "登录"
 msgid "Log in to create a Carbonmark profile"
 msgstr "登录以创建 Carbonmark 资料"
 
-#: components/Layout/NavDrawer/index.tsx:61
+#: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "登出"
@@ -392,13 +396,13 @@ msgstr "最高价格"
 msgid "Price Lowest"
 msgstr "最低价格"
 
-#: components/Footer/index.tsx:28
+#: components/Footer/index.tsx:29
 msgid "Privacy Policy"
 msgstr ""
 "隐私政策\n"
 ""
 
-#: components/pages/Home/index.tsx:500
+#: components/pages/Home/index.tsx:502
 msgid "Privacy policy"
 msgstr "隐私政策"
 
@@ -455,8 +459,8 @@ msgstr "剩余供应："
 msgid "Renewable Energy"
 msgstr "再生能源"
 
-#: components/Footer/index.tsx:48
-#: components/pages/Home/index.tsx:512
+#: components/Footer/index.tsx:44
+#: components/pages/Home/index.tsx:511
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -520,11 +524,11 @@ msgstr "成功！稍后您的新列表将显示在您的 <0> 个人资料页面<
 msgid "Switch to Polygon"
 msgstr "切换到 Polygon"
 
-#: components/Footer/index.tsx:33
+#: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr "使用条款"
 
-#: components/pages/Home/index.tsx:503
+#: components/pages/Home/index.tsx:505
 msgid "Terms of use"
 msgstr "使用条款"
 
@@ -532,7 +536,7 @@ msgstr "使用条款"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "感谢您对地球的支持！请参阅下面的购买详细信息。"
 
-#: components/pages/Home/index.tsx:54
+#: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "全球最大的数字碳信用选择。通过零佣金交易立即从任何项目购买、出售和停用数字碳。"
 
