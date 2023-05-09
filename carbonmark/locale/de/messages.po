@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 19:05+0000\n"
+"POT-Creation-Date: 2023-05-09 23:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,7 +87,7 @@ msgstr "Blue Carbon"
 
 #: components/Layout/NavDrawer/index.tsx:84
 msgid "Book a demo"
-msgstr ""
+msgstr "Demo reservieren"
 
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
@@ -256,7 +256,7 @@ msgstr "Neueste Einträge zuerst"
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:70
 msgid "Leaving Carbonmark"
-msgstr ""
+msgstr "Carbonmark verlassen"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
@@ -492,7 +492,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
-msgstr ""
+msgstr "Etwas ist schiefgelaufen. Versuchen Sie es bitte noch einmal. {error}"
 
 #: components/pages/errors/Custom404.tsx:25
 msgid "Sorry, looks like we sent you the wrong way."
@@ -500,7 +500,7 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:25
 msgid "Sorry, something went wrong."
-msgstr ""
+msgstr "Sorry! Etwas ist schiefgelaufen."
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
 msgid "Sorry, this handle already exists"
@@ -512,7 +512,7 @@ msgstr ""
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
-msgstr ""
+msgstr "Statistiken"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:86
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
@@ -524,11 +524,11 @@ msgstr "Zu Polygon wechseln"
 
 #: components/Footer/index.tsx:34
 msgid "Terms of Use"
-msgstr ""
+msgstr "Nutzungsbedingungen"
 
 #: components/pages/Home/index.tsx:505
 msgid "Terms of use"
-msgstr ""
+msgstr "Nutzungsbedingungen"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
@@ -580,7 +580,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
-msgstr ""
+msgstr "Ihre Daten werden aktualisiert..."
 
 #: components/pages/Resources/lib/cmsDataMap.ts:61
 msgid "User Guides"
@@ -589,7 +589,7 @@ msgstr "Nutzerguides"
 #: components/pages/Users/Login/index.tsx:32
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
-msgstr ""
+msgstr "Benutzerprofil | Carbonmark"
 
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
@@ -638,7 +638,7 @@ msgstr "Falsches Netzwerk"
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
-msgstr ""
+msgstr "Sie"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
 msgid "You chose to reject the transaction."
@@ -655,7 +655,7 @@ msgstr "Ihr Anzeigename"
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
 #: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
-msgstr ""
+msgstr "Ihre Verkäuferdaten"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
 msgid "Your unique handle"
@@ -732,7 +732,7 @@ msgstr ""
 
 #: components/CreateListing/index.tsx:141
 msgid "create.approval_4"
-msgstr ""
+msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen/Approve\", um fortzufahren."
 
 #: components/CreateListing/index.tsx:153
 msgid "create.submit_1"
@@ -1119,7 +1119,7 @@ msgstr "Genehmigen"
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
-msgstr ""
+msgstr "Zum Kaufen anmelden/verbinden"
 
 #: components/pages/Retirements/index.tsx:51
 msgid "shared.head.description"
@@ -1294,7 +1294,7 @@ msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen 
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
-msgstr ""
+msgstr "{0} | Profil | Carbonmark"
 
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
