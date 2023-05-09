@@ -1,6 +1,7 @@
 import { cx } from "@emotion/css";
 import {
   Anchor as A,
+  GithubIcon,
   GridContainer,
   LinkedInIcon,
   LogoWithClaim,
@@ -15,6 +16,7 @@ import { getImageSizes } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
@@ -502,9 +504,6 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/blog/terms-of-use">
               <Trans>Terms of use</Trans>
             </Link>
-            <Link href="https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk">
-              <Trans>Contact</Trans>
-            </Link>
             <Link href={carbonmarkUrls.help}>
               <Trans>Help</Trans>
             </Link>
@@ -514,13 +513,22 @@ export const Home: NextPage<Props> = (props) => {
             <A href={urls.home}>
               <Trans>KlimaDAO</Trans>
             </A>
+            <Link href={urls.carbonmarkContactForm}>
+              <Trans>Contact</Trans>
+            </Link>
           </nav>
           <nav className={styles.footerIcons}>
             <A href={urls.twitterCarbonmark}>
               <TwitterIcon />
             </A>
+            <A href={urls.github}>
+              <GithubIcon />
+            </A>
             <A href={urls.linkedInCarbonmark}>
               <LinkedInIcon />
+            </A>
+            <A href={urls.carbonmarkEmail}>
+              <EmailRoundedIcon />
             </A>
           </nav>
         </div>
