@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 15:34+0000\n"
+"POT-Creation-Date: 2023-05-09 18:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:202
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "200x200 PNG की सलाह दी जाती है। अपनी इमेज को imgur.com या postimages.org जैसे होस्ट पर अपलोड करें और पूरा URL पेस्ट करें। सीधे फोटो अपलोड करने का ऑप्शन जल्द ही आ रहा है!"
 
@@ -28,7 +28,7 @@ msgstr "500 - सर्वर त्रुटि"
 msgid "500 - Server error occurred"
 msgstr "500 - सर्वर त्रुटि हो गई"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
 msgstr "@यूज़रनेम (ध्यान रहे: इसे बदला नहीं जा सकता!)"
 
@@ -36,7 +36,7 @@ msgstr "@यूज़रनेम (ध्यान रहे: इसे बदल�
 msgid "A-Z"
 msgstr "A-Z"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -173,11 +173,11 @@ msgstr "विवरण"
 msgid "Digital Carbon"
 msgstr "डिजिटल कार्बन"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
 msgstr "प्रदर्शित नाम"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "प्रदर्शित नाम आवश्यक है"
 
@@ -209,15 +209,15 @@ msgstr "Carbonmark प्लैटफ़ॉर्म का लाभ उठान�
 msgid "Forestry"
 msgstr "वानिकी"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "हैंडल आवश्यक है"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "Handle should not be an address"
 msgstr "हैंडल को कोई ऐड्रेस नहीं होना चाहिए"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
 msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
@@ -409,7 +409,7 @@ msgstr "डेटा प्रोसेसिंग..."
 msgid "Profile"
 msgstr "प्रोफ़ाइल"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
 msgid "Profile picture"
 msgstr "प्रोफ़ाइल फोटो"
 
@@ -474,7 +474,7 @@ msgstr "रिटायर"
 msgid "Retire now"
 msgstr "अभी रिटायर करें"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "अपने बारे में कुछ शब्द कहें। यह आपके सेलर प्रोफ़ाइल में दिखाई देगा।"
 
@@ -486,7 +486,7 @@ msgstr "बेचें"
 msgid "Seller Listing"
 msgstr "विक्रय सूचीकरण"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें। {error}"
 
@@ -498,7 +498,7 @@ msgstr "क्षमा करें, शायद हमने आपको ग़
 msgid "Sorry, something went wrong."
 msgstr "क्षमा करें, कुछ गड़बड़ हो गई।"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
 msgid "Sorry, this handle already exists"
 msgstr "क्षमा करें, यह हैंडल पहले से मौजूद है"
 
@@ -636,7 +636,7 @@ msgstr "ग़लत नेटवर्क"
 msgid "You"
 msgstr "आप"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
 msgid "You chose to reject the transaction."
 msgstr "आपने लेन-देन को अस्वीकार करना चुना है।"
 
@@ -644,7 +644,7 @@ msgstr "आपने लेन-देन को अस्वीकार कर�
 msgid "Your Wallet Address:"
 msgstr "आपका वॉलेट पता:"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "Your display name"
 msgstr "आपका प्रदर्शित होने वाला नाम"
 
@@ -653,7 +653,7 @@ msgstr "आपका प्रदर्शित होने वाला न�
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
 msgid "Your unique handle"
 msgstr "आपका यूनिक हैंडल"
 
@@ -814,7 +814,7 @@ msgstr "बिक्री शुरू करने के लिए आपक�
 msgid "profile.editListing_modal.submit"
 msgstr "सूचीकरण अपडेट करें"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 

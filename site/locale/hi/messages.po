@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 15:33+0000\n"
+"POT-Creation-Date: 2023-05-09 18:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:100
 msgid "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
-msgstr ""
+msgstr "<0>KLIMA के लिए स्वॉप करें।</0> Sushi एक विकेन्द्रीकृत एक्सचेंज है, जिसमें आप न्यूनतम संभव कीमत पर अपने कुछ MATIC टोकन KLIMA टोकन के बदले बेच सकते हैं।"
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -154,7 +154,7 @@ msgstr "उन्नत: यदि आप टोरस का उपयोग �
 
 #: components/pages/Buy/index.tsx:110
 msgid "buy.create_wallet_item"
-msgstr "1. वॉलेट बनाएं"
+msgstr "1. वॉलेट बनाएँ"
 
 #: components/pages/Buy/index.tsx:318
 msgid "buy.faq_title"

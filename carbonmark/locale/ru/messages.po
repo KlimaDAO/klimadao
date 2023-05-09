@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-09 15:34+0000\n"
+"POT-Creation-Date: 2023-05-09 18:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:202
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "Рекомендуется PNG размером 200x200. Загрузите изображение на хост, например, imgur.com или postimages.org, и вставьте полный URL. Прямая загрузка фотографий скоро появится!"
 
@@ -28,7 +28,7 @@ msgstr "500 - Ошибка сервера"
 msgid "500 - Server error occurred"
 msgstr "500 - Произошла ошибка сервера"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:173
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
 msgstr "@Username (внимание: это нельзя изменить!)"
 
@@ -36,7 +36,7 @@ msgstr "@Username (внимание: это нельзя изменить!)"
 msgid "A-Z"
 msgstr "А-Я"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:213
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -173,11 +173,11 @@ msgstr "Описание"
 msgid "Digital Carbon"
 msgstr "Цифровой углерод"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:190
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
 msgstr "Отображаемое имя"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "Укажите отображаемое имя."
 
@@ -209,15 +209,15 @@ msgstr "Найдите последние обновления, руководс
 msgid "Forestry"
 msgstr "Лесное хозяйство"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "Требуется никнейм"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
 msgid "Handle should not be an address"
 msgstr "Никнейм не должен быть адресом"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
 msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
@@ -409,7 +409,7 @@ msgstr "Обработка данных..."
 msgid "Profile"
 msgstr "Профиль"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:201
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
 msgid "Profile picture"
 msgstr "Изображение профиля"
 
@@ -474,7 +474,7 @@ msgstr "Выбито"
 msgid "Retire now"
 msgstr "Выбито сейчас"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Несколько слов о себе. Это будет видно в вашем профиле продавца."
 
@@ -486,7 +486,7 @@ msgstr "Продать"
 msgid "Seller Listing"
 msgstr "Объявление продавца"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:114
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз. {ошибка}"
 
@@ -498,7 +498,7 @@ msgstr "Извините, похоже, мы отправили вас не ту
 msgid "Sorry, something went wrong."
 msgstr "Извините, что-то пошло не так."
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
 msgid "Sorry, this handle already exists"
 msgstr "Извините, этот никнейм уже существует"
 
@@ -636,7 +636,7 @@ msgstr "Неверная сеть"
 msgid "You"
 msgstr "Вы"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
@@ -644,7 +644,7 @@ msgstr "Вы решили отклонить транзакцию."
 msgid "Your Wallet Address:"
 msgstr "Адрес вашего кошелька:"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "Your display name"
 msgstr "Ваше отображаемое имя"
 
@@ -653,7 +653,7 @@ msgstr "Ваше отображаемое имя"
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:146
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
 msgid "Your unique handle"
 msgstr "Ваша уникальный никнейм"
 
@@ -814,7 +814,7 @@ msgstr "Чтобы начать продавать, вам необходимо 
 msgid "profile.editListing_modal.submit"
 msgstr "Обновить объявления"
 
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
