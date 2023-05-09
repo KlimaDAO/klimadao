@@ -14,12 +14,7 @@ import { ProfileLogo } from "../../ProfileLogo";
 import * as styles from "./styles";
 
 type Props = {
-  user: {
-    handle?: string;
-    username?: string;
-    description?: string;
-    profileImgUrl?: string;
-  } | null;
+  user: User | null;
   onSubmit: (data: User) => void;
   isCarbonmarkUser: boolean;
 };

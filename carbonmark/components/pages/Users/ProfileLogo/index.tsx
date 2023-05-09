@@ -5,7 +5,7 @@ import * as styles from "./styles";
 
 type Props = {
   isCarbonmarkUser: boolean;
-  profileImgUrl?: string;
+  profileImgUrl?: string | null;
   className?: string;
   hasBorder?: boolean;
 };
@@ -23,7 +23,7 @@ export const ProfileLogo: FC<Props> = (props) => {
     >
       {props.isCarbonmarkUser && hasValidImageUrl ? (
         <img
-          src={props.profileImgUrl}
+          src={props.profileImgUrl || ""}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             setHasValidImageUrl(false);
