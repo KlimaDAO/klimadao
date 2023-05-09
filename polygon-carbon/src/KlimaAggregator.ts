@@ -16,6 +16,9 @@ export function handleMossRetired(event: MossRetired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
+  loadOrCreateAccount(event.params.retiringAddress)
+
   let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
@@ -34,6 +37,9 @@ export function handleToucanRetired(event: ToucanRetired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
+  loadOrCreateAccount(event.params.retiringAddress)
+
   let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
@@ -52,6 +58,9 @@ export function handleC3Retired(event: C3Retired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
+  loadOrCreateAccount(event.params.retiringAddress)
+
   let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool
@@ -70,6 +79,9 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
   let sender = loadOrCreateAccount(event.transaction.from)
+  loadOrCreateAccount(event.params.beneficiaryAddress)
+  loadOrCreateAccount(event.params.retiringAddress)
+
   let retire = loadRetire(event.transaction.from.concatI32(sender.totalRetirements - 1))
 
   if (event.params.carbonPool != ZERO_ADDRESS) retire.pool = event.params.carbonPool

@@ -1,6 +1,6 @@
 import { ToucanCarbonOffsets } from '../../generated/templates'
 import { TokenCreated } from '../../generated/ToucanFactory/ToucanCarbonOffsetsFactory'
-import { createCarbonOffset, updateCarbonOffsetWithCall } from '../utils/CarbonOffset'
+import { loadOrCreateCarbonOffset, updateCarbonOffsetWithCall } from '../utils/CarbonOffset'
 import { createTokenWithCall } from '../utils/Token'
 
 export function handleNewTCO2(event: TokenCreated): void {
@@ -8,7 +8,7 @@ export function handleNewTCO2(event: TokenCreated): void {
   // address of the new token contract
 
   ToucanCarbonOffsets.create(event.params.tokenAddress)
-  createCarbonOffset(event.params.tokenAddress, 'TOUCAN')
+  loadOrCreateCarbonOffset(event.params.tokenAddress, 'TOUCAN')
   createTokenWithCall(event.params.tokenAddress)
   updateCarbonOffsetWithCall(event.params.tokenAddress, 'TOUCAN')
 }

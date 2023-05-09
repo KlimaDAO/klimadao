@@ -4,7 +4,8 @@ import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
 import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
-import { loadCarbonOffset } from './utils/CarbonOffset'
+import { loadCarbonOffset, loadOrCreateCarbonOffset } from './utils/CarbonOffset'
+import { loadOrCreateCarbonProject } from './utils/CarbonProject'
 import { saveRetire } from './utils/Retire'
 
 export function saveToucanRetirement(event: Retired): void {
@@ -101,7 +102,17 @@ export function handleMossRetirement(event: CarbonOffset): void {
   // Don't process zero amount events
   if (event.params.carbonTon == ZERO_BI) return
 
-  let offset = loadCarbonOffset(MCO2_ERC20_CONTRACT)
+  let offset = loadOrCreateCarbonOffset(MCO2_ERC20_CONTRACT, 'MOSS')
+
+  // Set up project/default info for Moss "project"
+
+  if (offset.vintage == 1970) {
+    offset.vintage = 2021
+    offset.project = 'Moss'
+    offset.save()
+
+    loadOrCreateCarbonProject('VERRA', 'Moss')
+  }
 
   offset.retired = offset.retired.plus(event.params.carbonTon)
   offset.save()
@@ -112,7 +123,7 @@ export function handleMossRetirement(event: CarbonOffset): void {
 
   saveRetire(
     event.transaction.from.concatI32(sender.totalRetirements),
-    event.address,
+    MCO2_ERC20_CONTRACT,
     ZERO_ADDRESS,
     'OTHER',
     event.params.carbonTon,
@@ -127,4 +138,4 @@ export function handleMossRetirement(event: CarbonOffset): void {
   incrementAccountRetirements(event.transaction.from)
 }
 
-export function handleMossRetirementToMainnet(): void {}
+export function handleMossRetirementToMainnet(): void { }

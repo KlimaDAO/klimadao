@@ -52,8 +52,8 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
-        # - event: Transfer(indexed address,indexed address,uint256)
-        #   handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
   - kind: ethereum/contract
     name: NCT
     network: matic
@@ -78,8 +78,8 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
-        # - event: Transfer(indexed address,indexed address,uint256)
-        #   handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
   - kind: ethereum/contract
     name: MossCarbon
     network: matic

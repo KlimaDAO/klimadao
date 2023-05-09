@@ -7,7 +7,7 @@ import { ToucanCarbonOffsets } from '../../generated/templates/ToucanCarbonOffse
 import { loadOrCreateCarbonProject } from './CarbonProject'
 import { MethodologyCategories } from './MethodologyCategories'
 
-export function createCarbonOffset(tokenAddress: Address, bridge: string): void {
+export function loadOrCreateCarbonOffset(tokenAddress: Address, bridge: string): CarbonOffset {
   let offset = CarbonOffset.load(tokenAddress)
   if (offset == null) {
     offset = new CarbonOffset(tokenAddress)
@@ -19,6 +19,7 @@ export function createCarbonOffset(tokenAddress: Address, bridge: string): void 
     offset.retired = ZERO_BI
     offset.save()
   }
+  return offset as CarbonOffset
 }
 
 export function loadCarbonOffset(tokenAddress: Address): CarbonOffset {
