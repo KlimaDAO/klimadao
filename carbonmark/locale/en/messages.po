@@ -637,6 +637,11 @@ msgstr "We haven't finished processing the blockchain data for this retirement. 
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
+msgstr "You"
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
@@ -662,33 +667,9 @@ msgstr "Your unique handle"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: components/Activities/Activities.constants.ts:6
-msgid "activity.action.createdListing"
-msgstr "created listing"
-
-#: components/Activities/Activities.constants.ts:10
-msgid "activity.action.deletedListing"
-msgstr "deleted listing"
-
-#: components/Activities/Activities.constants.ts:14
-msgid "activity.action.purchase"
-msgstr "bought from"
-
-#: components/Activities/Activities.constants.ts:15
-msgid "activity.action.sold"
-msgstr "sold to"
-
-#: components/Activities/Activities.constants.ts:16
-msgid "activity.action.updatedPrice"
-msgstr "updated price"
-
-#: components/Activities/Activities.constants.ts:20
-msgid "activity.action.updatedQuantity"
-msgstr "updated quantity"
-
-#: lib/formatWalletAddress.ts:9
-msgid "activity.you"
-msgstr "You"
+#: components/Activities/Activity.tsx:31
+msgid "at"
+msgstr "at"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:93
@@ -698,6 +679,10 @@ msgstr "The information provided in this blog post pertaining to KlimaDAO (“Kl
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
+
+#: components/Activities/Activities.constants.ts:8
+msgid "bought from"
+msgstr "bought from"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
@@ -759,6 +744,14 @@ msgstr "The previous step granted the approval to transfer this asset from your 
 msgid "create.submit_2"
 msgstr "To finalize the transfer of this asset to Carbonmark and make your listing live, verify all information is correct and then click submit below."
 
+#: components/Activities/Activities.constants.ts:6
+msgid "created listing"
+msgstr "created listing"
+
+#: components/Activities/Activities.constants.ts:7
+msgid "deleted listing"
+msgstr "deleted listing"
+
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
 msgstr "each"
@@ -790,6 +783,10 @@ msgstr "Carbon credits you purchase or any retirements you make on KlimaDAO.fina
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
 msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
+
+#: components/Activities/Activity.tsx:87
+msgid "for"
+msgstr "for"
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
@@ -854,14 +851,6 @@ msgstr "Create a Listing"
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
-
-#: components/Activities/Activity.tsx:93
-msgid "props.transaction.conjunction"
-msgstr "for"
-
-#: components/Activities/Activity.tsx:31
-msgid "props.transaction.conjunction.at"
-msgstr "at"
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
@@ -1154,6 +1143,10 @@ msgstr "Resource Center"
 msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 
+#: components/Activities/Activities.constants.ts:9
+msgid "sold to"
+msgstr "sold to"
+
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
 msgid "tonnes.long"
@@ -1226,6 +1219,14 @@ msgstr "1. Approve"
 #: components/Transaction/index.tsx:56
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Submit"
+
+#: components/Activities/Activities.constants.ts:10
+msgid "updated price"
+msgstr "updated price"
+
+#: components/Activities/Activities.constants.ts:11
+msgid "updated quantity"
+msgstr "updated quantity"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
