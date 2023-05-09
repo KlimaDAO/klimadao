@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 19:06+0000\n"
+"POT-Creation-Date: 2023-05-09 12:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,7 +191,7 @@ msgstr "Энергоэффективность"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "Каждое выбивание углерода KlimaDAO привязана к проверенному проекту компенсации. Нажмите, чтобы узнать больше о проекте."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
@@ -252,7 +252,7 @@ msgstr "Последние Первые"
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:70
 msgid "Leaving Carbonmark"
-msgstr ""
+msgstr "Покинуть Carbonmark"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
@@ -631,6 +631,11 @@ msgstr "Мы еще не закончили обработку данных бл
 msgid "Wrong Network"
 msgstr "Неверная сеть"
 
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
+msgstr "Вы"
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
@@ -656,33 +661,9 @@ msgstr "Ваша уникальный никнейм"
 msgid "Z-A"
 msgstr "Я-А"
 
-#: components/Activities/Activities.constants.ts:6
-msgid "activity.action.createdListing"
-msgstr "созданное объявление "
-
-#: components/Activities/Activities.constants.ts:10
-msgid "activity.action.deletedListing"
-msgstr "удаленное объявление"
-
-#: components/Activities/Activities.constants.ts:14
-msgid "activity.action.purchase"
-msgstr "купил у"
-
-#: components/Activities/Activities.constants.ts:15
-msgid "activity.action.sold"
-msgstr "проданный"
-
-#: components/Activities/Activities.constants.ts:16
-msgid "activity.action.updatedPrice"
-msgstr "обновленная цена"
-
-#: components/Activities/Activities.constants.ts:20
-msgid "activity.action.updatedQuantity"
-msgstr "обновленное количество"
-
-#: lib/formatWalletAddress.ts:9
-msgid "activity.you"
-msgstr "Вы"
+#: components/Activities/Activity.tsx:31
+msgid "at"
+msgstr "на"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:93
@@ -692,6 +673,10 @@ msgstr "Информация, представленная в данном бл�
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
+
+#: components/Activities/Activities.constants.ts:8
+msgid "bought from"
+msgstr "купил у"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
@@ -753,6 +738,14 @@ msgstr "На предыдущем этапе было получено разр�
 msgid "create.submit_2"
 msgstr "Чтобы завершить передачу этого актива в Carbonmark и сделать ваше объявление активным, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
+#: components/Activities/Activities.constants.ts:6
+msgid "created listing"
+msgstr "созданное объявление"
+
+#: components/Activities/Activities.constants.ts:7
+msgid "deleted listing"
+msgstr "удаленное объявление"
+
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
 msgstr "каждый"
@@ -775,15 +768,19 @@ msgstr "Чтобы завершить передачу этого актива �
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
-msgstr ""
+msgstr "После того, как вы нажмете на кнопку ниже, чтобы продолжить, вам будет предложено подключить ваш кошелек, и проект, который вы выбрали здесь, уже будет выбран для вас на сайте KlimaDAO.finance. Далее следуйте указаниям на этой странице, чтобы завершить транзакцию.."
 
 #: components/ExitModal/index.tsx:31
 msgid "exitmodal.carbon_credits_you_purchase"
-msgstr ""
+msgstr "Углеродные кредиты, которые вы приобретаете, или любые выбытия, которые вы делаете на KlimaDAO.finance, также будут доступны в вашем портфеле Carbonmark."
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
-msgstr ""
+msgstr "Вы будете перенаправлены на KlimaDAO.finance для завершения этой транзакции."
+
+#: components/Activities/Activity.tsx:87
+msgid "for"
+msgstr "для"
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
@@ -811,7 +808,7 @@ msgstr "Создать новое объявление"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr ""
+msgstr "Чтобы начать продавать, вам необходимо создать свой профиль, нажмите кнопку «Создать профиль» выше, чтобы начать."
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
@@ -848,14 +845,6 @@ msgstr "Создать объявление"
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
 msgstr "Вернуться к деталям проекта"
-
-#: components/Activities/Activity.tsx:93
-msgid "props.transaction.conjunction"
-msgstr "для"
-
-#: components/Activities/Activity.tsx:31
-msgid "props.transaction.conjunction.at"
-msgstr "на"
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
@@ -988,19 +977,19 @@ msgstr "Проверьте свой запрос на наличие опеча�
 
 #: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
+msgstr "Carbonmark — это универсальная платформа для углеродных рынков. Имея миллионы доступных углеродных кредитов, платформа позволяет пользователям быстро перечислять, приобретать и компенсировать цифровые углеродные кредиты без дополнительных комиссий."
 
 #: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutCarbonmark.right"
-msgstr ""
+msgstr "Цель Carbonmark - снизить барьеры для входа на цифровой углеродный рынок и предоставить участникам рынка возможность лучше взаимодействовать друг с другом. Узнайте больше на нашей странице <0>ресурсы</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.aboutCarbonmark.title"
-msgstr ""
+msgstr "О Carbonmark"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.head.metaDescription"
-msgstr ""
+msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:119
 msgid "retirement.head.metaTitle"
@@ -1008,7 +997,7 @@ msgstr "{retiree} изъято из эксплуатации {formattedAmount} �
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.title"
-msgstr ""
+msgstr "Карбонмарк | Квитанция о выводе"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:253
 msgid "retirement.share.title"
@@ -1076,11 +1065,11 @@ msgstr "Итого выведено"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "Carbonmark - Углеродные отчисления для бенефициара {0}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "Carbonmark - Углеродные отчисления для бенефициара {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
@@ -1147,6 +1136,10 @@ msgstr "Информационный центр"
 #: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "shared.resources.sort_by.header"
 msgstr "Сортировать по"
+
+#: components/Activities/Activities.constants.ts:9
+msgid "sold to"
+msgstr "проданный"
 
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
@@ -1220,6 +1213,14 @@ msgstr "1. Одобрить"
 #: components/Transaction/index.tsx:56
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Отправить"
+
+#: components/Activities/Activities.constants.ts:10
+msgid "updated price"
+msgstr "обновленная цена"
+
+#: components/Activities/Activities.constants.ts:11
+msgid "updated quantity"
+msgstr "обновленное количество"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"

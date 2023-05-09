@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 19:06+0000\n"
+"POT-Creation-Date: 2023-05-09 12:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,7 +191,7 @@ msgstr "能源效率"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "每个 Carbonmark 碳停用都与经过验证的抵消项目相关联。单击以了解有关该项目的更多信息。"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
@@ -252,7 +252,7 @@ msgstr "最新优先"
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:70
 msgid "Leaving Carbonmark"
-msgstr ""
+msgstr "离开Carbonmark"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:42
 msgid "Listing cost, incl. {0}% fee"
@@ -633,6 +633,11 @@ msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常
 msgid "Wrong Network"
 msgstr "网络错误"
 
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
+msgstr "您"
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
@@ -658,33 +663,9 @@ msgstr "您的唯一用户名"
 msgid "Z-A"
 msgstr "Z - A"
 
-#: components/Activities/Activities.constants.ts:6
-msgid "activity.action.createdListing"
-msgstr "创建列表"
-
-#: components/Activities/Activities.constants.ts:10
-msgid "activity.action.deletedListing"
-msgstr "删除列表"
-
-#: components/Activities/Activities.constants.ts:14
-msgid "activity.action.purchase"
-msgstr "买自"
-
-#: components/Activities/Activities.constants.ts:15
-msgid "activity.action.sold"
-msgstr "卖给"
-
-#: components/Activities/Activities.constants.ts:16
-msgid "activity.action.updatedPrice"
-msgstr "更新价格"
-
-#: components/Activities/Activities.constants.ts:20
-msgid "activity.action.updatedQuantity"
-msgstr "更新数量"
-
-#: lib/formatWalletAddress.ts:9
-msgid "activity.you"
-msgstr "您"
+#: components/Activities/Activity.tsx:31
+msgid "at"
+msgstr "在"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:93
@@ -694,6 +675,10 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
+
+#: components/Activities/Activities.constants.ts:8
+msgid "bought from"
+msgstr "买自"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
@@ -755,6 +740,14 @@ msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您�
 msgid "create.submit_2"
 msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
+#: components/Activities/Activities.constants.ts:6
+msgid "created listing"
+msgstr "创建列表"
+
+#: components/Activities/Activities.constants.ts:7
+msgid "deleted listing"
+msgstr "删除列表"
+
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
 msgstr "每个"
@@ -777,15 +770,19 @@ msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
-msgstr ""
+msgstr "单击下面的按钮继续后，系统会要求您连接钱包，且您在此处选择的项目已经在 KlimaDAO.finance 上了。然后按照该页面上的说明完成您的交易。"
 
 #: components/ExitModal/index.tsx:31
 msgid "exitmodal.carbon_credits_you_purchase"
-msgstr ""
+msgstr "您在 KlimaDAO.finance 上购买的碳信用额度或停用碳，都可以在您的 Carbonmark 投资组合中访问。"
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
-msgstr ""
+msgstr "您将被带到 KlimaDAO.finance 界面以完成此交易。"
+
+#: components/Activities/Activity.tsx:87
+msgid "for"
+msgstr "为了"
 
 #: components/Layout/NavMenu/index.tsx:34
 msgid "menu.marketplace"
@@ -813,7 +810,7 @@ msgstr "创建新挂牌"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr ""
+msgstr "要开始买卖您需要创建个人资料，请单击上面的“创建个人资料”按钮开始。"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
@@ -850,14 +847,6 @@ msgstr "创建挂牌"
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
 msgstr "返回项目详情"
-
-#: components/Activities/Activity.tsx:93
-msgid "props.transaction.conjunction"
-msgstr "为了"
-
-#: components/Activities/Activity.tsx:31
-msgid "props.transaction.conjunction.at"
-msgstr "在"
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
@@ -990,19 +979,19 @@ msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
+msgstr "Carbonmark 是一个碳市场的一体化平台。该平台拥有数百万的碳信用额度，允许用户快速挂牌、获取和抵消数字碳信用额度，无需额外费用。"
 
 #: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutCarbonmark.right"
-msgstr ""
+msgstr "Carbonmark 旨在减少进入数字碳市场的障碍，并鼓励市场参与者能够更好地相互交流。在我们的 <0> 资源 </0>页中了解更多。"
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.aboutCarbonmark.title"
-msgstr ""
+msgstr "关于 Carbonmark"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.head.metaDescription"
-msgstr ""
+msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:119
 msgid "retirement.head.metaTitle"
@@ -1010,7 +999,7 @@ msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.title"
-msgstr ""
+msgstr "Carbonmark | 碳停用收据"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:253
 msgid "retirement.share.title"
@@ -1078,11 +1067,11 @@ msgstr "所有停用"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "Carbonmark - 受益人的碳停用 {0}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "Carbonmark - 受益人的碳停用 {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
@@ -1149,6 +1138,10 @@ msgstr "资源中心"
 #: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "shared.resources.sort_by.header"
 msgstr "排序方式："
+
+#: components/Activities/Activities.constants.ts:9
+msgid "sold to"
+msgstr "卖给"
 
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
@@ -1222,6 +1215,14 @@ msgstr "1. 批准"
 #: components/Transaction/index.tsx:56
 msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
+
+#: components/Activities/Activities.constants.ts:10
+msgid "updated price"
+msgstr "更新价格"
+
+#: components/Activities/Activities.constants.ts:11
+msgid "updated quantity"
+msgstr "更新数量"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"

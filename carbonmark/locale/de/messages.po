@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-08 19:06+0000\n"
+"POT-Creation-Date: 2023-05-09 12:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,7 +191,7 @@ msgstr "Energieeffizienz"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "Jeder CO2-Ausgleich über Carbonmark geschieht durch ein verifiziertes CO2-Projekt. Klicken Sie hier, um mehr über das Projekt zu erfahren."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
@@ -464,15 +464,15 @@ msgstr "Ressourcen"
 #: components/pages/Resources/index.tsx:19
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
-msgstr ""
+msgstr "Ressourcen | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:67
 msgid "Retire"
-msgstr ""
+msgstr "Ausgleichen"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:56
 msgid "Retire now"
-msgstr ""
+msgstr "Jetzt ausgleichen"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -480,7 +480,7 @@ msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
-msgstr ""
+msgstr "Verkaufen"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
 msgid "Seller Listing"
@@ -631,6 +631,11 @@ msgstr "Wir haben die Verarbeitung der Blockchaindaten für diesen Ausgleich noc
 msgid "Wrong Network"
 msgstr "Falsches Netzwerk"
 
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "You chose to reject the transaction."
 msgstr "Sie haben die Transaktion abgelehnt"
@@ -641,7 +646,7 @@ msgstr "Ihre Walletadresse"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Your display name"
-msgstr ""
+msgstr "Ihr Anzeigename"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
 #: components/pages/Users/SellerConnected/index.tsx:233
@@ -656,32 +661,8 @@ msgstr ""
 msgid "Z-A"
 msgstr "Z-A"
 
-#: components/Activities/Activities.constants.ts:6
-msgid "activity.action.createdListing"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:10
-msgid "activity.action.deletedListing"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:14
-msgid "activity.action.purchase"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:15
-msgid "activity.action.sold"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:16
-msgid "activity.action.updatedPrice"
-msgstr ""
-
-#: components/Activities/Activities.constants.ts:20
-msgid "activity.action.updatedQuantity"
-msgstr ""
-
-#: lib/formatWalletAddress.ts:9
-msgid "activity.you"
+#: components/Activities/Activity.tsx:31
+msgid "at"
 msgstr ""
 
 #. Long sentence
@@ -692,6 +673,10 @@ msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO (�
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
+
+#: components/Activities/Activities.constants.ts:8
+msgid "bought from"
+msgstr ""
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:110
 msgid "buy"
@@ -753,6 +738,14 @@ msgstr ""
 msgid "create.submit_2"
 msgstr ""
 
+#: components/Activities/Activities.constants.ts:6
+msgid "created listing"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:7
+msgid "deleted listing"
+msgstr ""
+
 #: components/pages/Project/Purchase/index.tsx:246
 msgid "each"
 msgstr ""
@@ -775,14 +768,18 @@ msgstr ""
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
-msgstr ""
+msgstr "Sobald Sie über den Button unten fortfahren, werden Sie gebeten, Ihre Wallet zu verbinden. Das von Ihnen ausgewählte Projekt wird anschließend bereits auf klimadao.finance für Sie ausgewählt sein. Folgen Sie dort den weiteren Anweisungen, um Ihre Transaktion zu beenden."
 
 #: components/ExitModal/index.tsx:31
 msgid "exitmodal.carbon_credits_you_purchase"
-msgstr ""
+msgstr "Von Ihnen auf klimadao.finance gekaufte oder ausgegliche CO2-Credits werden auch in Ihrem Carbonmark-Portfolio abrufbar sein."
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
+msgstr "Sie werden zu klimadao.finance weitergeleitet, um diese Transaktion abzuschließen."
+
+#: components/Activities/Activity.tsx:87
+msgid "for"
 msgstr ""
 
 #: components/Layout/NavMenu/index.tsx:34
@@ -819,7 +816,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:232
 msgid "profile.edit_modal.submit"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
@@ -848,14 +845,6 @@ msgstr "Einen Eintrag erstellen"
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
 msgstr "Zurück zu den Projektdetails"
-
-#: components/Activities/Activity.tsx:93
-msgid "props.transaction.conjunction"
-msgstr ""
-
-#: components/Activities/Activity.tsx:31
-msgid "props.transaction.conjunction.at"
-msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:146
 msgid "purchase.approval_1"
@@ -988,15 +977,15 @@ msgstr "Überprüfen Sie Ihre Suche auf Tippfehler oder versuchen Sie es mit ein
 
 #: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
+msgstr "Carbonmark ist eine All-in-One-Plattform für CO2-Märkte. Die Plattform erlaubt es Nutzern, digitale CO2-Zertifikate schnell einzukaufen, zu verkaufen oder für den Ausgleich des CO2-Fußabdrucks zu nutzen. Millionen Zertifikate sind bereits verfügbar."
 
 #: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutCarbonmark.right"
-msgstr ""
+msgstr "Es ist Carbonmarks Ziel, die Teilnahme am Digitalen CO2-Markt zu vereinfachen und Marktteilnehmer zu befähigen, leichter miteinander zu interagieren. Erfahren Sie mehr auf unserer <0>Ressourcen-Seite</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.aboutCarbonmark.title"
-msgstr ""
+msgstr "Über Carbonmark"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.head.metaDescription"
@@ -1008,7 +997,7 @@ msgstr "{retiree} hat {formattedAmount} Tonnen CO2 ausgeglichen"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.title"
-msgstr ""
+msgstr "Carbonmark | Quittung für CO2-Ausgleich"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:253
 msgid "retirement.share.title"
@@ -1076,11 +1065,11 @@ msgstr "Alle CO2-Ausgleiche"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "Carbonmark - CO2-Ausgleich für {0}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "Carbonmark - CO2-Ausgleich für {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
@@ -1147,6 +1136,10 @@ msgstr "Ressourcen"
 #: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "shared.resources.sort_by.header"
 msgstr "Sortieren nach:"
+
+#: components/Activities/Activities.constants.ts:9
+msgid "sold to"
+msgstr ""
 
 #: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:273
@@ -1221,6 +1214,14 @@ msgstr "1. Genehmigen"
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Absenden"
 
+#: components/Activities/Activities.constants.ts:10
+msgid "updated price"
+msgstr ""
+
+#: components/Activities/Activities.constants.ts:11
+msgid "updated quantity"
+msgstr ""
+
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
 msgstr "Keine Aktivitäten zum Anzeigen"
@@ -1235,7 +1236,7 @@ msgstr ""
 
 #: components/CreateListing/Form/index.tsx:142
 msgid "user.edit.form.input.singleUnitPrice.placeholder"
-msgstr ""
+msgstr "USDC pro Tonne"
 
 #: components/CreateListing/Form/index.tsx:130
 msgid "user.edit.form.input.totalAmountToSell.label"
@@ -1255,7 +1256,7 @@ msgstr "Projekt"
 
 #: components/CreateListing/Form/index.tsx:65
 msgid "user.listing.form.input.select_project.label"
-msgstr ""
+msgstr "Projekt auswählen:"
 
 #: components/CreateListing/Form/index.tsx:162
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:137
