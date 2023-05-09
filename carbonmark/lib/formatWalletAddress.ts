@@ -18,7 +18,7 @@ export const formatHandle = (
   connectedAddress?: string
 ) => {
   if (isConnectedAddress(address, connectedAddress)) {
-    return t({ id: "activity.you", message: "You" });
+    return t`You`;
   }
 
   if (handle.length >= 11) return concatAddress(handle);
