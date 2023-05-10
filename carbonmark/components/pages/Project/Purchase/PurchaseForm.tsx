@@ -9,6 +9,7 @@ import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { LO } from "lib/luckyOrange";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { Listing } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
@@ -98,9 +99,9 @@ export const PurchaseForm: FC<Props> = (props) => {
     });
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
+    LO.track("Purchase: Continue Clicked");
     props.onSubmit(values);
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>

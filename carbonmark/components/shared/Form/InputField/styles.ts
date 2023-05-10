@@ -13,6 +13,10 @@ export const inputLabel = css`
   gap: 0.4rem;
 `;
 
+export const required = css`
+  color: var(--warning-red);
+`;
+
 export const tooltipHelpIcon = css`
   width: 2rem;
   height: 2rem;

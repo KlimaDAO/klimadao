@@ -1,8 +1,11 @@
+import { Anchor } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
 import { BetaBadge } from "components/BetaBadge";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
@@ -77,7 +80,12 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         connectedAddress={address}
         connectedDomain={connectedDomain}
       />
-
+      <CarbonmarkButton
+        label={t`Book a demo`}
+        href={urls.carbonmarkContactForm}
+        className={styles.bookDemoButton}
+        renderLink={(linkProps) => <Anchor {...linkProps} />}
+      />
       <div className="navFooter">
         <div className="hr" />
         <Text t="body1" align="center">

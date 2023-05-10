@@ -1,6 +1,5 @@
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
-import { Activities } from "components/Activities";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
@@ -8,52 +7,66 @@ import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
-import { Stats } from "components/Stats";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { getUser } from "lib/api";
+import { activityIsAdded, getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import {
-  getActiveListings,
-  getAllListings,
-  getSortByUpdateListings,
-} from "lib/listingsGetter";
-import { pollUntil } from "lib/pollUntil";
+import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
+import { ProfileSidebar } from "../ProfileSidebar";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 import * as styles from "./styles";
 
 type Props = {
-  carbonmarkUser: User | null;
   userName: string;
   userAddress: string;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const [user, setUser] = useState<User | null>(props.carbonmarkUser);
+
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
+  const [isPending, setIsPending] = useState(false);
+
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [isUpdatingUser, setIsUpdatingUser] = useState(false);
+
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isCarbonmarkUser = !!user;
-  const hasAssets = !!user?.assets?.length;
-  const allListings = getAllListings(user?.listings ?? []);
-  const activeListings = getActiveListings(user?.listings ?? []);
+  const hasAssets = !!carbonmarkUser?.assets?.length;
+  const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
+
+  const isCarbonmarkUser = !isLoading && !!carbonmarkUser;
+  const isUnregistered = !isLoading && carbonmarkUser === null;
 
   const scrollToTop = () =>
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const handleMutateUserUntil = async () => {
+    const latestActivity = carbonmarkUser?.activities.sort(
+      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
+    )[0];
+
+    const newUser = await getUserUntil({
+      address: props.userAddress,
+      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
+      retryInterval: 1000,
+      maxAttempts: 50,
+    });
+
+    return newUser;
+  };
 
   // load Assets every time user changed
   useEffect(() => {
@@ -68,7 +81,7 @@ export const SellerConnected: FC<Props> = (props) => {
           setIsLoadingAssets(true);
 
           const assetWithProjectTokens = getAssetsWithProjectTokens(
-            user.assets
+            carbonmarkUser.assets
           );
 
           if (assetWithProjectTokens.length) {
@@ -97,81 +110,58 @@ export const SellerConnected: FC<Props> = (props) => {
 
       getProjectData();
     }
-  }, [user]);
+  }, [carbonmarkUser]);
 
-  const onEditProfile = async (data: User) => {
+  const onEditProfile = async (profileData: User) => {
     try {
-      setErrorMessage("");
-      if (isCarbonmarkUser) {
-        setUser((prev) => ({ ...prev, ...data }));
-      } else {
-        // for a new user, get all data from backend
-        const newUser = await getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-        setUser((prev) => ({ ...prev, ...newUser }));
-      }
-    } catch (error) {
-      console.error("GET NEW USER DATA error", error);
-      setErrorMessage(t`There was an error getting your data: ${error}`);
-    } finally {
+      // get fresh data again
+      const userFromApi = await getUser({
+        user: props.userAddress,
+        type: "wallet",
+      });
+
+      // Merge with data from Updated Profile as backend might be slow!
+      const newUser = { ...userFromApi, ...profileData };
+
+      // Update the cache only, do not revalidate
+      await mutate(newUser, false);
       setShowEditProfileModal(false);
+    } catch (e) {
+      console.error(e);
+      t`Please refresh the page. There was an error updating your data: ${e}.`;
     }
   };
 
   const onUpdateUser = async () => {
-    if (!user) return; // TS typeguard
-
     try {
       scrollToTop();
-      setErrorMessage("");
-      setIsUpdatingUser(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-
-      // API is updated when new activity exists
-      const activityIsAdded = (value: User) => {
-        const newActivityLength = value.activities.length;
-        const currentActivityLength = user.activities.length;
-        return newActivityLength > currentActivityLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: activityIsAdded,
-        ms: 1000,
-        maxAttempts: 50,
+      setIsPending(true);
+      await mutate(handleMutateUserUntil, {
+        populateCache: true,
       });
-
-      setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
-      console.error("LOAD USER ACTIVITY error", e);
+      console.error(e);
       setErrorMessage(
         t`Please refresh the page. There was an error updating your data: ${e}.`
       );
     } finally {
-      setIsUpdatingUser(false);
+      setIsPending(false);
     }
   };
 
   return (
     <div ref={scrollToRef} className={styles.container}>
       <div className={styles.userControlsRow}>
-        <ProfileButton onClick={() => setShowEditProfileModal(true)} />
+        <ProfileButton
+          label={isUnregistered ? t`Create Profile` : t`Edit Profile`}
+          onClick={() => setShowEditProfileModal(true)}
+        />
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          handle={props.carbonmarkUser?.handle}
-          userName={user?.username || props.userName}
-          isCarbonmarkUser={isCarbonmarkUser}
-          description={user?.description}
-          profileImgUrl={user?.profileImgUrl}
+          carbonmarkUser={carbonmarkUser}
+          userName={props.userName}
         />
       </div>
       <div className={styles.listings}>
@@ -186,36 +176,35 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        <CarbonmarkButton
-          label={
-            isLoadingAssets ? (
-              <Spinner />
-            ) : (
-              <>
-                <span className={styles.addListingButtonText}>
-                  <Trans id="profile.create_new_listing">
-                    Create New Listing
-                  </Trans>
-                </span>
-                <span className={styles.addListingButtonIcon}>
-                  <AddIcon />
-                </span>
-              </>
-            )
-          }
-          disabled={
-            isLoadingAssets ||
-            !hasAssets ||
-            isUpdatingUser ||
-            !assetsData?.length
-          }
-          onClick={() => setShowCreateListingModal(true)}
-        />
+        {isCarbonmarkUser && (
+          <CarbonmarkButton
+            label={
+              isLoadingAssets ? (
+                <Spinner />
+              ) : (
+                <>
+                  <span className={styles.addListingButtonText}>
+                    <Trans id="profile.create_new_listing">
+                      Create New Listing
+                    </Trans>
+                  </span>
+                  <span className={styles.addListingButtonIcon}>
+                    <AddIcon />
+                  </span>
+                </>
+              )
+            }
+            disabled={
+              isLoadingAssets || !hasAssets || isPending || !assetsData?.length
+            }
+            onClick={() => setShowCreateListingModal(true)}
+          />
+        )}
       </div>
 
       <TwoColLayout>
         <Col>
-          {isUpdatingUser && (
+          {isPending && (
             <Card>
               <SpinnerWithLabel label={t`Updating your data...`} />
             </Card>
@@ -232,19 +221,16 @@ export const SellerConnected: FC<Props> = (props) => {
               listings={sortedListings}
               onFinishEditing={onUpdateUser}
               assets={assetsData || []}
+              isUpdatingData={isPending}
             />
           )}
         </Col>
 
         <Col>
-          <Stats
-            allListings={allListings || []}
-            activeListings={activeListings || []}
-            description={t`Your seller data`}
-          />
-          <Activities
-            activities={user?.activities || []}
-            isLoading={isUpdatingUser}
+          <ProfileSidebar
+            user={carbonmarkUser}
+            isPending={isPending}
+            title={t`Your seller data`}
           />
         </Col>
       </TwoColLayout>
@@ -258,7 +244,7 @@ export const SellerConnected: FC<Props> = (props) => {
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
         <EditProfile
-          user={user}
+          user={carbonmarkUser}
           onSubmit={onEditProfile}
           isCarbonmarkUser={isCarbonmarkUser}
         />

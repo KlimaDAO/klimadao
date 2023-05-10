@@ -15,7 +15,7 @@ import {
   RetirementToken,
   urls,
 } from "@klimadao/lib/constants";
-import { formatUnits, safeAdd } from "@klimadao/lib/utils";
+import { formatUnits, getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -284,9 +284,15 @@ export const Offset = (props: Props) => {
     if (isRetiringOwnCarbon) {
       return quantity;
     }
-    if (!cost) return "0";
-    const withSlippage = utils.parseUnits(cost).div(utils.parseUnits("100"));
-    return safeAdd(cost, formatUnits(withSlippage, 18));
+    if (!cost || cost === "loading") return "0";
+    const onePercent = utils
+      .parseUnits(cost, getTokenDecimals(paymentMethod))
+      .div("100");
+    const val = safeAdd(
+      cost,
+      formatUnits(onePercent, getTokenDecimals(paymentMethod))
+    );
+    return val;
   };
 
   const handleApprove = async () => {
@@ -352,15 +358,11 @@ export const Offset = (props: Props) => {
       } else if (paymentMethod === "fiat") {
         return; // type guard
       } else {
-        const withSlippage = utils
-          .parseUnits(cost)
-          .div(utils.parseUnits("100"));
-        const maxAmountIn = safeAdd(cost, formatUnits(withSlippage, 18));
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
           inputToken: paymentMethod,
-          maxAmountIn: maxAmountIn,
+          maxAmountIn: getApprovalValue(),
           retirementToken: selectedRetirementToken,
           quantity,
           beneficiaryAddress,

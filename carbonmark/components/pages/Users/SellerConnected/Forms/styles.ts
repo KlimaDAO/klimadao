@@ -42,3 +42,7 @@ export const editLabelProjectName = css`
 export const profileLogo = css`
   justify-self: center;
 `;
+
+export const required = css`
+  color: var(--warning-red);
+`;

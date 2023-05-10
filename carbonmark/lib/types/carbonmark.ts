@@ -42,7 +42,7 @@ export interface User {
   handle: string;
   username: string;
   description: string;
-  profileImgUrl?: string;
+  profileImgUrl: string | null;
   wallet: string;
   listings: ListingWithProject[];
   activities: UserActivity[];
@@ -123,11 +123,11 @@ export interface ProjectActivity {
   activityType: ActivityActionT;
   seller: {
     id: string;
-    handle: string;
+    handle?: string;
   };
   buyer: null | {
     id: string;
-    handle: string;
+    handle?: string;
   };
 }
 
@@ -170,12 +170,12 @@ export interface UserActivity {
     registry: string;
   };
   seller: {
-    // TODO: api needs to pass handle
     id: string;
+    handle?: string;
   };
   buyer: null | {
-    // TODO: api needs to pass handle
     id: string;
+    handle?: string;
   };
 }
 

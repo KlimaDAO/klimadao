@@ -151,3 +151,9 @@ export const logo = css`
     max-width: 18rem;
   }
 `;
+
+export const bookDemoButton = css`
+  min-height: 3.6rem;
+  color: var(--font-02) !important;
+  border-color: var(--font-03);
+`;

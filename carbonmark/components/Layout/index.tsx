@@ -6,7 +6,7 @@ import { BetaBadge } from "components/BetaBadge";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
-import { connectErrorStrings } from "lib/constants";
+import { getConnectErrorStrings } from "lib/constants";
 import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
 import "tippy.js/dist/tippy.css";
@@ -72,7 +72,7 @@ export const Layout: FC<Props> = (props: Props) => {
       <InvalidNetworkModal />
       {renderModal &&
         renderModal({
-          errors: connectErrorStrings,
+          errors: getConnectErrorStrings(),
           torusText: t({
             message: "social or email",
             id: "connectModal.torus",

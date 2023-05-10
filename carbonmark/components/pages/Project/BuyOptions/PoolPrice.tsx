@@ -1,13 +1,14 @@
-import { Anchor, PoolIcon } from "@klimadao/lib/components";
+import { PoolIcon } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
+import { ExitModal } from "components/ExitModal";
 import { Text } from "components/Text";
 import { createRedeemLink, createRetireLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
-import { FC } from "react";
+import { FC, useState } from "react";
 import * as styles from "./styles";
 
 type Props = {
@@ -17,6 +18,8 @@ type Props = {
 };
 
 export const PoolPrice: FC<Props> = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [retireLink, setRetireLink] = useState("");
   return (
     <Card>
       <div className={styles.sellerInfo}>
@@ -36,26 +39,38 @@ export const PoolPrice: FC<Props> = (props) => {
         <Trans>Quantity Available:</Trans>{" "}
         {formatToTonnes(props.price.leftToSell)}
       </Text>
-
       <div className={styles.buttons}>
         <ButtonPrimary
           label={t`Buy`}
-          href={createRedeemLink({
-            projectTokenAddress: props.project.projectAddress,
-            poolName: props.price.name.toLowerCase(),
-          })}
-          renderLink={(linkProps) => <Anchor {...linkProps} />}
+          onClick={() => {
+            setIsOpen(true);
+            setRetireLink(
+              createRedeemLink({
+                projectTokenAddress: props.project.projectAddress,
+                poolName: props.price.name.toLowerCase(),
+              })
+            );
+          }}
         />
-
         <CarbonmarkButton
           label={t`Retire now`}
-          href={createRetireLink({
-            retirementToken: props.price.name.toLowerCase(),
-            projectTokens: props.project.projectAddress,
-          })}
-          renderLink={(linkProps) => <Anchor {...linkProps} />}
+          onClick={() => {
+            setIsOpen(true);
+            setRetireLink(
+              createRetireLink({
+                retirementToken: props.price.name.toLowerCase(),
+                projectTokens: props.project.projectAddress,
+              })
+            );
+          }}
         />
       </div>
+      <ExitModal
+        showModal={isOpen}
+        title={t`Leaving Carbonmark`}
+        retireLink={retireLink}
+        onToggleModal={() => setIsOpen(false)}
+      />
     </Card>
   );
 };

@@ -132,6 +132,8 @@ export const urls = {
   twitter: "https://twitter.com/KlimaDAO",
   twitterCarbonmark: "https://twitter.com/carbonmarkcom",
   youtube: "https://www.youtube.com/c/klimadaofinance",
+  carbonmarkContactForm:
+    "https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr",
   mediaRequestForm:
     "https://share-eu1.hsforms.com/1ILV2ALyPSqqUAeLdstfZZgfhhlr",
   partnerShipsContactForm:
@@ -160,7 +162,8 @@ export const urls = {
   carbonmark: "https://www.carbonmark.com",
   marketplace: "https://www.carbonmark.com/projects",
   portfolio: "https://www.carbonmark.com/portfolio",
-  resourcesCarbonark: "https://www.carbonmark.com/resources",
+  resourcesCarbonmark: "https://www.carbonmark.com/resources",
+  carbonmarkEmail: "mailto:support@carbonmark.com",
 };
 
 export const polygonNetworks = {
