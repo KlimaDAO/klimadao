@@ -25,7 +25,8 @@ export function handleDeposited(event: Deposited): void {
     event.address,
     event.params.erc20Addr,
     event.params.amount,
-    event.block.timestamp
+    event.block.timestamp,
+    event.block.number
   )
 
   pool.supply = pool.supply.plus(event.params.amount)
@@ -48,7 +49,8 @@ export function handleRedeemed(event: Redeemed): void {
     event.address,
     event.params.erc20,
     event.params.amount,
-    event.block.timestamp
+    event.block.timestamp,
+    event.block.number
   )
 
   pool.supply = pool.supply.minus(event.params.amount)

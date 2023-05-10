@@ -30,7 +30,8 @@ export function handleDeposited(event: Deposited): void {
     event.address,
     event.params.tokenERC2OAddress,
     event.params.amount,
-    event.block.timestamp
+    event.block.timestamp,
+    event.block.number
   )
 
   pool.supply = pool.supply.plus(event.params.amount)
@@ -58,7 +59,8 @@ export function handleRedeemed(event: Redeemed): void {
     event.address,
     event.params.tokenERC2OAddress,
     event.params.amount,
-    event.block.timestamp
+    event.block.timestamp,
+    event.block.number
   )
 
   pool.supply = pool.supply.minus(event.params.amount)

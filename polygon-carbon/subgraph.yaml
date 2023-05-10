@@ -52,8 +52,8 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
+        # - event: Transfer(indexed address,indexed address,uint256)
+        #   handler: handleTransfer
   - kind: ethereum/contract
     name: NCT
     network: matic
@@ -78,8 +78,33 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
+        # - event: Transfer(indexed address,indexed address,uint256)
+        #   handler: handleTransfer
+  # Toucan cross chain bridge
+  - kind: ethereum/contract
+    name: ToucanCrossChainMessenger
+    network: matic
+    source:
+      address: '0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf'
+      abi: ToucanCrossChainMessenger
+      startBlock: 31390596
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCrossChainMessengerHandler.ts
+      entities:
+        - ToucanCrossChainMessenger
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanCrossChainMessenger
+          file: ../lib/abis/ToucanCrosschainMessenger.json
+      eventHandlers:
+        - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,indexed address,uint256,bytes32)
+          handler: handleBridgeRequestReceived
+        - event: BridgeRequestSent(uint32,indexed uint32,indexed address,indexed address,uint256,uint256,bytes32)
+          handler: handleBridgeRequestSent
   - kind: ethereum/contract
     name: MossCarbon
     network: matic
@@ -120,8 +145,8 @@ dataSources:
       eventHandlers:
         - event: CarbonOffset(uint256,string,string,address,bytes32,indexed uint256,indexed uint256)
           handler: handleMossRetirement
-        - event: CarbonOffsetBatch((uint256,bytes32,uint256,uint256),uint256,bytes32,uint256)
-          handler: handleMossRetirementToMainnet
+        # - event: CarbonOffsetBatch((uint256,bytes32,uint256,uint256),uint256,bytes32,uint256)
+        #   handler: handleMossRetirementToMainnet
   - kind: ethereum/contract
     name: C3ProjectTokenFactory
     network: matic

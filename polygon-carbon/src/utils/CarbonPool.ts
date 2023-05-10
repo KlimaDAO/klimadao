@@ -2,6 +2,7 @@ import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { CarbonPool, CarbonPoolDailySnapshot, PoolDeposit, PoolRedeem } from '../../generated/schema'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { dayFromTimestamp } from '../../../lib/utils/Dates'
+import { loadOrCreateCarbonPoolOffsetBalanceDailySnapshot } from './CarbonPoolOffsetBalance'
 
 export function loadOrCreateCarbonPool(poolAddress: Address): CarbonPool {
   let pool = CarbonPool.load(poolAddress)
@@ -26,7 +27,8 @@ export function savePoolDeposit(
   pool: Address,
   offset: Address,
   amount: BigInt,
-  timestamp: BigInt
+  timestamp: BigInt,
+  blockNumber: BigInt
 ): void {
   let deposit = new PoolDeposit(id)
   deposit.account = account
@@ -37,6 +39,10 @@ export function savePoolDeposit(
   deposit.poolSnapshotID = pool.concatI32(dayFromTimestamp(timestamp))
   deposit.poolOffsetSnapshotID = pool.concat(offset).concatI32(dayFromTimestamp(timestamp))
   deposit.save()
+
+  // Ensure snapshot entities exists
+  loadOrCreateCarbonPoolDailySnapshot(pool, dayFromTimestamp(timestamp), timestamp, blockNumber)
+  loadOrCreateCarbonPoolOffsetBalanceDailySnapshot(pool, offset, dayFromTimestamp(timestamp), timestamp, blockNumber)
 }
 
 export function savePoolRedeem(
@@ -45,7 +51,8 @@ export function savePoolRedeem(
   pool: Address,
   offset: Address,
   amount: BigInt,
-  timestamp: BigInt
+  timestamp: BigInt,
+  blockNumber: BigInt
 ): void {
   let redeem = new PoolRedeem(id)
   redeem.account = account
@@ -56,6 +63,10 @@ export function savePoolRedeem(
   redeem.poolSnapshotID = pool.concatI32(dayFromTimestamp(timestamp))
   redeem.poolOffsetSnapshotID = pool.concat(offset).concatI32(dayFromTimestamp(timestamp))
   redeem.save()
+
+  // Ensure snapshot entities exists
+  loadOrCreateCarbonPoolDailySnapshot(pool, dayFromTimestamp(timestamp), timestamp, blockNumber)
+  loadOrCreateCarbonPoolOffsetBalanceDailySnapshot(pool, offset, dayFromTimestamp(timestamp), timestamp, blockNumber)
 }
 
 /** Snapshot management */
@@ -97,7 +108,9 @@ export function takeCarbonPoolDailySnapshot(
   let priorSnapshot = loadOrCreateCarbonPoolDailySnapshot(poolAddress, priorDay, timestamp, blockNumber)
   let newSnapshot = loadOrCreateCarbonPoolDailySnapshot(poolAddress, pool.lastSnapshotDayID, timestamp, blockNumber)
 
-  newSnapshot.deltaSupply = newSnapshot.supply.minus(priorSnapshot.supply)
+  newSnapshot.deltaSupply = pool.supply.minus(priorSnapshot.supply)
+  newSnapshot.lastUpdateTimestamp = timestamp
+  newSnapshot.lastUpdateBlockNumber = blockNumber
   newSnapshot.save()
 }
 
