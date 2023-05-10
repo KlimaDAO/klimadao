@@ -358,15 +358,11 @@ export const Offset = (props: Props) => {
       } else if (paymentMethod === "fiat") {
         return; // type guard
       } else {
-        const withSlippage = utils
-          .parseUnits(cost)
-          .div(utils.parseUnits("100"));
-        const maxAmountIn = safeAdd(cost, formatUnits(withSlippage, 18));
         retirement = await retireCarbonTransaction({
           address: props.address,
           provider: props.provider,
           inputToken: paymentMethod,
-          maxAmountIn: maxAmountIn,
+          maxAmountIn: getApprovalValue(),
           retirementToken: selectedRetirementToken,
           quantity,
           beneficiaryAddress,
