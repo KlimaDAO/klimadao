@@ -138,4 +138,4 @@ export function handleMossRetirement(event: CarbonOffset): void {
   incrementAccountRetirements(event.transaction.from)
 }
 
-export function handleMossRetirementToMainnet(): void { }
+// export function handleMossRetirementToMainnet(): void {}

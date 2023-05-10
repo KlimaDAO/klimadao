@@ -15,6 +15,7 @@ export function loadOrCreateCarbonOffset(tokenAddress: Address, bridge: string):
     offset.project = ''
     offset.vintage = 1970
     offset.currentSupply = ZERO_BI
+    offset.crossChainSupply = ZERO_BI
     offset.bridged = ZERO_BI
     offset.retired = ZERO_BI
     offset.save()
@@ -72,4 +73,10 @@ function updateC3Call(tokenAddress: Address, carbonOffset: CarbonOffset): Carbon
   project.category = MethodologyCategories.getMethodologyCategory(project.methodologies)
   project.save()
   return carbonOffset
+}
+
+export function updateCarbonOffsetCrossChain(offsetAddress: Address, amount: BigInt): void {
+  let offset = loadCarbonOffset(offsetAddress)
+  offset.crossChainSupply = offset.crossChainSupply.plus(amount)
+  offset.save()
 }

@@ -9,6 +9,7 @@ export function loadOrCreateCarbonPool(poolAddress: Address): CarbonPool {
 
   pool = new CarbonPool(poolAddress)
   pool.supply = ZERO_BI
+  pool.crossChainSupply = ZERO_BI
   pool.lastSnapshotDayID = 0
   pool.nextSnapshotDayID = 0
   pool.save()
@@ -119,4 +120,11 @@ export function loadOrCreateCarbonPoolDailySnapshot(
     snapshot.save()
   }
   return snapshot as CarbonPoolDailySnapshot
+}
+
+export function updateCarbonPoolCrossChain(poolAddress: Address, amount: BigInt): void {
+  let pool = loadCarbonPool(poolAddress)
+  // pool.supply = pool.supply.plus(amount) // account for the reduction by sending to zero address
+  pool.crossChainSupply = pool.crossChainSupply.plus(amount)
+  pool.save()
 }

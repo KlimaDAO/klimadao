@@ -18,6 +18,11 @@ enum BridgeProtocol {
   THALLO
 }
 
+enum CrossChainBridgeDirection {
+  SENT
+  RECEIVED
+}
+
 type Token @entity {
   "Ethereum contract address"
   id: Bytes!
@@ -109,6 +114,9 @@ type CarbonOffset @entity {
   "Total tokens retired"
   retired: BigInt!
 
+  "Total tokens bridged to other chains"
+  crossChainSupply: BigInt!
+
   "All bridge events for this offset"
   bridges: [Bridge!]! @derivedFrom(field: "offset")
 
@@ -131,6 +139,32 @@ type Bridge @entity(immutable: true) {
 
   "Amount of tokens bridged in native units"
   amount: BigInt!
+
+  "Block timestamp of the bridge"
+  timestamp: BigInt!
+}
+
+type CrossChainBridge @entity(immutable: true) {
+  "{Transaction hash}-{Log Index}"
+  id: Bytes!
+
+  "Transaction hash of the event"
+  hash: Bytes!
+
+  "ID of the pool being bridged, if any"
+  pool: CarbonPool
+
+  "ID of the offset being bridged, if any"
+  offset: CarbonOffset
+
+  "Amount of tokens bridged"
+  amount: BigInt!
+
+  "Bridging address"
+  bridger: Bytes!
+
+  "Bridge direction"
+  direction: CrossChainBridgeDirection!
 
   "Block timestamp of the bridge"
   timestamp: BigInt!
@@ -202,6 +236,9 @@ type CarbonPool @entity {
 
   "Current supply"
   supply: BigInt!
+
+  "Total tokens bridged to other chains"
+  crossChainSupply: BigInt!
 
   "Current balances of underlying project tokens"
   offsetBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "pool")
