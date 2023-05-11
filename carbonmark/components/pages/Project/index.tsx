@@ -6,6 +6,7 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
+import Carousel from "components/Carousel/Carousel";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
@@ -28,8 +29,8 @@ import {
   CategoryName,
   Methodology,
   PriceFlagged,
-  Project as ProjectType,
   ProjectBuyOption,
+  Project as ProjectType,
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
@@ -46,6 +47,15 @@ export type PageProps = {
 
 const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
   (option as PriceFlagged).isPoolProject !== undefined;
+
+const images = [
+  "https://placehold.co/680x500?font=roboto&text=Slide+1",
+  "https://placehold.co/680x500?font=roboto&text=Slide+2",
+  "https://placehold.co/680x500?font=roboto&text=Slide+3",
+  "https://placehold.co/680x500?font=roboto&text=Slide+4",
+  "https://placehold.co/680x500?font=roboto&text=Slide+5",
+  "https://placehold.co/680x500?font=roboto&text=Slide+6",
+];
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
@@ -158,7 +168,6 @@ const Page: NextPage<PageProps> = (props) => {
               </>
             )}
           </div>
-
           <div className={styles.methodology}>
             <Text t="h5" color="lighter" align="end">
               <Trans>Methodology</Trans>
@@ -181,9 +190,18 @@ const Page: NextPage<PageProps> = (props) => {
             hasMap: !!project.location,
           })}
         >
+          <div style={{
+            gridArea: 'map',
+            height: '100%',
+            minWidth: '100%',
+            width: '100%',
+          }}>
+            <div style={{ display: 'grid', gridColumn: '1/3' }}>
+              <Carousel options={{ loop: true }} images={images} />
+            </div>
+          </div>
           {project.location && (
             <div className="mapColumn">
-               
               <ProjectMap
                 lat={project.location?.geometry.coordinates[1]}
                 lng={project.location?.geometry.coordinates[0]}
