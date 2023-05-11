@@ -1,13 +1,14 @@
 interface User {
-  user: string;
-  name: string;
+  wallet: string;
+  user: string | undefined;
+  name: string | undefined;
 }
 interface LuckyOrange {
   events: {
     track: (text: string) => void;
   };
   visitor: {
-    identify: (name: string, user: User) => void;
+    identify: (user: User) => void;
   };
   $internal: {
     ready: (type: string) => Promise<void>;
@@ -39,7 +40,7 @@ const LO = {
       },
     ]);
   },
-  identify(name: string, user: User) {
+  identify(user: User) {
     this.getLOQ().push([
       "ready",
       function (lucky: LuckyOrange) {
@@ -47,7 +48,7 @@ const LO = {
           // FIXME: remove logs
           LO.log("IDENTIFY");
           LO.log(user);
-          lucky.visitor.identify(name, user);
+          lucky.visitor.identify(user);
         });
       },
     ]);

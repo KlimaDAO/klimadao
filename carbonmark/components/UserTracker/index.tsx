@@ -10,15 +10,17 @@ interface Props {
 /** Init the web3Modal and expose via react context  */
 export const UserTracker: FC<Props> = (props) => {
   const { address } = useWeb3();
-  const { carbonmarkUser } = useFetchUser(address);
+  const { carbonmarkUser, isLoading } = useFetchUser(address);
   useEffect(() => {
-    if (carbonmarkUser) {
-      LO.identify("wallet", {
-        user: carbonmarkUser.handle,
-        name: carbonmarkUser.username,
+    // Start tracking only if we finished loading carbonmarkUser data
+    if (address && !isLoading) {
+      LO.identify({
+        wallet: address,
+        user: carbonmarkUser ? carbonmarkUser.handle : undefined,
+        name: carbonmarkUser ? carbonmarkUser.username : undefined,
       });
-      LO.track("login");
+      LO.track("Login");
     }
-  }, [carbonmarkUser]);
+  }, [isLoading]);
   return <>{props.children}</>;
 };
