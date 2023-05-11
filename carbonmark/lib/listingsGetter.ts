@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { formatUnits } from "@klimadao/lib/utils";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import {
@@ -81,3 +82,15 @@ export const flagPrices = (prices: Price[]): PriceFlagged[] =>
     ...price,
     isPoolProject: true,
   }));
+
+export const createLinkWithLocaleSubPath = (
+  url: string,
+  locale = "en"
+): string => {
+  // ensure that the locale is added right after the main Site URL
+  // klimadao.finance/LOCALE/the/other/sub/page
+  if (url.startsWith(urls.home)) {
+    return url.replace(urls.home, `${urls.home}/${locale}`);
+  }
+  return `${url}/${locale}`;
+};

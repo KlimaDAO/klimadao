@@ -43,6 +43,24 @@ export const getCarbonmarkAllowance = async (params: {
   return ethers.utils.formatUnits(allowance, 18);
 };
 
+export const getAggregatorV2Allowance = async (params: {
+  userAddress: string;
+  tokenAddress: string;
+}): Promise<string> => {
+  const tokenContract = new Contract(
+    params.tokenAddress,
+    IERC20.abi,
+    getStaticProvider()
+  );
+
+  const allowance = await tokenContract.allowance(
+    params.userAddress,
+    getAddress("retirementAggregatorV2")
+  );
+
+  return ethers.utils.formatUnits(allowance, 18);
+};
+
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
 export const approveTokenSpend = async (params: {
   /** Name of a known token like "usdc" */

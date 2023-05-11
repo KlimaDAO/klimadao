@@ -2,7 +2,7 @@ import { subgraphs } from "@klimadao/lib/constants";
 
 export const getProjectTokenInfo = async (address: string) => {
   try {
-    const result = await fetch(subgraphs.carbonmark, {
+    const result = await fetch(subgraphs.carbonmarkMatic, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

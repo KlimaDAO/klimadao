@@ -274,7 +274,9 @@ export const subgraphs = {
   userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
-  carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
+  carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
+  carbonmarkMatic:
+    "https://api.thegraph.com/subgraphs/name/najada/marketplace-matic", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
 };
 
 /** Definitions of available registries */
