@@ -220,6 +220,10 @@ export type AssetForListing = {
   };
 };
 
+export type AssetForRetirement = AssetForListing & {
+  tokenSymbol: string;
+};
+
 export type Methodology = {
   id: string;
   name: string;
@@ -268,6 +272,18 @@ export type Balance = {
   tokenName: CarbonmarkToken;
   balance: string;
 };
+
+export type TxnStatus =
+  | "userConfirmation"
+  | "networkConfirmation"
+  | "done"
+  | "error"
+  | "claimExceeded";
+
+export interface AppNotificationStatus {
+  statusType: TxnStatus | undefined;
+  message: string | undefined;
+}
 
 // add more methods here later
 export type CarbonmarkPaymentMethod = "usdc" | "fiat";

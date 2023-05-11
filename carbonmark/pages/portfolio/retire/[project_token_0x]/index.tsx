@@ -1,6 +1,6 @@
-import { PageProps, Retire } from "components/pages/Retire";
-import { getProjectTokenInfo } from "lib/graphQueries";
+import { Retire, RetirePageProps } from "components/pages/Retire";
 import { loadTranslation } from "lib/i18n";
+import { getProjectTokenInfo } from "lib/retireQueries";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -15,7 +15,7 @@ interface Params extends ParsedUrlQuery {
   project_token_0x: string;
 }
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
+export const getStaticProps: GetStaticProps<RetirePageProps, Params> = async (
   ctx
 ) => {
   const { params } = ctx;
