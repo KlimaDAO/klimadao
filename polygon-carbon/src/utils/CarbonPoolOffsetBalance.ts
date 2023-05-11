@@ -99,9 +99,11 @@ export function takeCarbonPoolOffsetBalanceDailySnapshot(
     blockNumber
   )
 
-  newSnapshot.deltaBalance = newSnapshot.balance.minus(priorSnapshot.balance)
-  newSnapshot.deltaDeposited = newSnapshot.deposited.minus(priorSnapshot.deposited)
-  newSnapshot.deltaRedeemed = newSnapshot.redeemed.minus(priorSnapshot.redeemed)
+  newSnapshot.deltaBalance = offsetBalance.balance.minus(priorSnapshot.balance)
+  newSnapshot.deltaDeposited = offsetBalance.deposited.minus(priorSnapshot.deposited)
+  newSnapshot.deltaRedeemed = offsetBalance.redeemed.minus(priorSnapshot.redeemed)
+  newSnapshot.lastUpdateTimestamp = timestamp
+  newSnapshot.lastUpdateBlockNumber = blockNumber
   newSnapshot.save()
 }
 

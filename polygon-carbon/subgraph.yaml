@@ -99,12 +99,18 @@ dataSources:
         - name: ERC20
           file: ../lib/abis/ERC20.json
         - name: ToucanCrossChainMessenger
-          file: ../lib/abis/ToucanCrosschainMessenger.json
+          file: ../lib/abis/ToucanCrosschainMessenger_Combined.json
       eventHandlers:
+        # v1.0.0
         - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,indexed address,uint256,bytes32)
-          handler: handleBridgeRequestReceived
+          handler: handleBridgeRequestReceived_1_0_0
         - event: BridgeRequestSent(uint32,indexed uint32,indexed address,indexed address,uint256,uint256,bytes32)
-          handler: handleBridgeRequestSent
+          handler: handleBridgeRequestSent_1_0_0
+        # v1.1.0
+        - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,address,indexed address,uint256,bytes32)
+          handler: handleBridgeRequestReceived_1_1_0
+        - event: BridgeRequestSent(uint32,indexed uint32,indexed address,address,indexed address,uint256,uint256,bytes32)
+          handler: handleBridgeRequestSent_1_1_0
   - kind: ethereum/contract
     name: MossCarbon
     network: matic
