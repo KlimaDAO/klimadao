@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-11 15:34+0000\n"
+"POT-Creation-Date: 2023-05-11 17:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,12 +71,12 @@ msgstr "उपलब्ध:"
 msgid "BETA"
 msgstr "बीटा"
 
-#: components/pages/Project/Purchase/index.tsx:210
+#: components/pages/Project/Purchase/index.tsx:214
 msgid "Back to Project"
 msgstr "वापस प्रॉजेक्ट पर"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
-#: components/pages/Project/BuyOptions/SellerListing.tsx:67
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:33
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "सर्वोत्तम क़ीमत"
@@ -98,7 +98,7 @@ msgstr "प्रॉजेक्ट्स ब्राउज़ करें"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "<0>KlimaDAO</0> द्वारा 🌳 के साथ निर्मित"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
 msgstr "ख़रीदें"
 
@@ -106,7 +106,7 @@ msgstr "ख़रीदें"
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 msgid "Carbon Pool"
 msgstr "कार्बन पूल"
 
@@ -156,7 +156,7 @@ msgstr "प्रोफ़ाइल बनाएँ"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "सूची बनाएँ और संपादित करें, और अपनी Carbonmark प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:88
+#: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "बन गई:"
 
@@ -253,8 +253,8 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "नवीनतम पहले"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:73
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Carbonmark छोड़ना"
 
@@ -281,7 +281,7 @@ msgid "Location: {0}"
 msgstr "स्थान:{0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log in"
 msgstr "लॉग इन"
 
@@ -290,7 +290,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Carbonmark प्रोफ़ाइल बनाने के लिए लॉगिन करें"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log out"
 msgstr "लॉग आउट"
 
@@ -426,14 +426,14 @@ msgstr "प्रॉजेक्ट"
 msgid "Purchase Receipt | Carbonmark"
 msgstr "विक्रय रसीद | Carbonmark"
 
-#: components/pages/Project/Purchase/index.tsx:198
-#: components/pages/Project/Purchase/index.tsx:199
+#: components/pages/Project/Purchase/index.tsx:202
+#: components/pages/Project/Purchase/index.tsx:203
 msgid "Purchase {0} | Carbonmark"
 msgstr "ख़रीद {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:62
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:40
+#: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
 msgstr "उपलब्ध मात्रा:"
 
@@ -470,11 +470,11 @@ msgstr "संसाधन"
 msgid "Resources | Carbonmark"
 msgstr "संसाधन | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:67
+#: components/pages/Portfolio/AssetProject/index.tsx:68
 msgid "Retire"
 msgstr "रिटायर"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "अभी रिटायर करें"
 
@@ -482,11 +482,11 @@ msgstr "अभी रिटायर करें"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "अपने बारे में कुछ शब्द कहें। यह आपके सेलर प्रोफ़ाइल में दिखाई देगा।"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "बेचें"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:63
+#: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr "विक्रय सूचीकरण"
 
@@ -546,7 +546,7 @@ msgstr "आपकी संपत्तियाँ लोड करने म�
 msgid "This app only works on Polygon Mainnet."
 msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर ही काम करता है।"
 
-#: components/pages/Project/Purchase/index.tsx:259
+#: components/pages/Project/Purchase/index.tsx:263
 msgid "This offer no longer exists."
 msgstr "यह ऑफ़र अब मौजूद नहीं है।"
 
@@ -574,7 +574,7 @@ msgstr "कुल रिटायरमेन्ट्स:"
 msgid "Total quantity to list for sale"
 msgstr "बिक्री हेतु सूचीबद्ध की जानेवाली मात्रा"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:92
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
 msgstr "अपडेटेड:"
 
@@ -682,7 +682,7 @@ msgstr "अस्वीकरण:"
 msgid "bought from"
 msgstr "से ख़रीदा गया"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:110
+#: components/pages/Project/BuyOptions/SellerListing.tsx:106
 msgid "buy"
 msgstr "ख़रीदें"
 
@@ -750,7 +750,7 @@ msgstr "सूची बनाएँ"
 msgid "deleted listing"
 msgstr "सूची मिटाएँ"
 
-#: components/pages/Project/Purchase/index.tsx:246
+#: components/pages/Project/Purchase/index.tsx:250
 msgid "each"
 msgstr "प्रत्येक"
 
@@ -850,19 +850,19 @@ msgstr "कोई सूची बनाएँ"
 msgid "project.single.button.back_to_project_details"
 msgstr "वापस प्रॉजेक्ट के विवरण पर"
 
-#: components/pages/Project/Purchase/index.tsx:146
+#: components/pages/Project/Purchase/index.tsx:150
 msgid "purchase.approval_1"
 msgstr "आप एक कार्बन संपत्ति ख़रीदने वाले हैं।"
 
-#: components/pages/Project/Purchase/index.tsx:151
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "purchase.approval_2"
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
-#: components/pages/Project/Purchase/index.tsx:158
+#: components/pages/Project/Purchase/index.tsx:162
 msgid "purchase.approval_3"
 msgstr "आपके द्वारा ख़रीदे गए कार्बन ऐसेट्स आपके <0>portfolio</0> से बिक्री के लिए Carbonmark पर कभी भी सूचीबद्ध किए जा सकते हैं।"
 
-#: components/pages/Project/Purchase/index.tsx:168
+#: components/pages/Project/Purchase/index.tsx:172
 msgid "purchase.approval_4"
 msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
@@ -902,23 +902,23 @@ msgstr "आपने टोकन की अपनी उपलब्ध रा�
 msgid "purchase.input.price.required"
 msgstr "मूल्य आवश्यक है"
 
-#: components/pages/Project/Purchase/index.tsx:86
+#: components/pages/Project/Purchase/index.tsx:88
 msgid "purchase.loading.allowance.error"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
-#: components/pages/Project/Purchase/index.tsx:180
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "purchase.submit_1"
 msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली।"
 
-#: components/pages/Project/Purchase/index.tsx:186
+#: components/pages/Project/Purchase/index.tsx:190
 msgid "purchase.submit_2"
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
-#: components/pages/Project/Purchase/index.tsx:271
+#: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "ख़रीद की पुष्टि करें"
 
-#: components/pages/Project/Purchase/index.tsx:275
+#: components/pages/Project/Purchase/index.tsx:279
 msgid "purchase.transaction.modal.title.processing"
 msgstr "विक्रय संपन्न करना"
 
@@ -1115,7 +1115,7 @@ msgstr "उपलब्ध मात्रा:"
 msgid "shared.approve"
 msgstr "मंज़ूरी दें"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/BuyOptions/SellerListing.tsx:96
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"

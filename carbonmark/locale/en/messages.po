@@ -77,12 +77,12 @@ msgstr "Available:"
 msgid "BETA"
 msgstr "BETA"
 
-#: components/pages/Project/Purchase/index.tsx:210
+#: components/pages/Project/Purchase/index.tsx:214
 msgid "Back to Project"
 msgstr "Back to Project"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
-#: components/pages/Project/BuyOptions/SellerListing.tsx:67
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:33
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "Best Price"
@@ -104,7 +104,7 @@ msgstr "Browse Projects"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Built with 🌳 by <0>KlimaDAO</0>"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
 msgstr "Buy"
 
@@ -112,7 +112,7 @@ msgstr "Buy"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
@@ -162,7 +162,7 @@ msgstr "Create Profile"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Create and edit listings, and track your activity with your Carbonmark profile."
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:88
+#: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Created:"
 
@@ -259,8 +259,8 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Latest First"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:73
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Leaving Carbonmark"
 
@@ -287,7 +287,7 @@ msgid "Location: {0}"
 msgstr "Location: {0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log in"
 msgstr "Log in"
 
@@ -296,7 +296,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log out"
 msgstr "Log out"
 
@@ -432,14 +432,14 @@ msgstr "Project"
 msgid "Purchase Receipt | Carbonmark"
 msgstr "Purchase Receipt | Carbonmark"
 
-#: components/pages/Project/Purchase/index.tsx:198
-#: components/pages/Project/Purchase/index.tsx:199
+#: components/pages/Project/Purchase/index.tsx:202
+#: components/pages/Project/Purchase/index.tsx:203
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:62
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:40
+#: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
 
@@ -476,11 +476,11 @@ msgstr "Resources"
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:67
+#: components/pages/Portfolio/AssetProject/index.tsx:68
 msgid "Retire"
 msgstr "Retire"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "Retire now"
 
@@ -488,11 +488,11 @@ msgstr "Retire now"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Sell"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:63
+#: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
@@ -552,7 +552,7 @@ msgstr "There was an error loading your assets. {e}"
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
 
-#: components/pages/Project/Purchase/index.tsx:259
+#: components/pages/Project/Purchase/index.tsx:263
 msgid "This offer no longer exists."
 msgstr "This offer no longer exists."
 
@@ -580,7 +580,7 @@ msgstr "Total Retirements:"
 msgid "Total quantity to list for sale"
 msgstr "Total quantity to list for sale"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:92
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
 msgstr "Updated:"
 
@@ -688,7 +688,7 @@ msgstr "Disclaimer:"
 msgid "bought from"
 msgstr "bought from"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:110
+#: components/pages/Project/BuyOptions/SellerListing.tsx:106
 msgid "buy"
 msgstr "Buy"
 
@@ -756,7 +756,7 @@ msgstr "created listing"
 msgid "deleted listing"
 msgstr "deleted listing"
 
-#: components/pages/Project/Purchase/index.tsx:246
+#: components/pages/Project/Purchase/index.tsx:250
 msgid "each"
 msgstr "each"
 
@@ -856,19 +856,19 @@ msgstr "Create a Listing"
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
-#: components/pages/Project/Purchase/index.tsx:146
+#: components/pages/Project/Purchase/index.tsx:150
 msgid "purchase.approval_1"
 msgstr "You are about to purchase a carbon asset."
 
-#: components/pages/Project/Purchase/index.tsx:151
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "purchase.approval_2"
 msgstr "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
 
-#: components/pages/Project/Purchase/index.tsx:158
+#: components/pages/Project/Purchase/index.tsx:162
 msgid "purchase.approval_3"
 msgstr "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
 
-#: components/pages/Project/Purchase/index.tsx:168
+#: components/pages/Project/Purchase/index.tsx:172
 msgid "purchase.approval_4"
 msgstr "Verify all information is correct and click 'approve' to continue."
 
@@ -908,23 +908,23 @@ msgstr "You exceeded your available amount of tokens"
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/index.tsx:86
+#: components/pages/Project/Purchase/index.tsx:88
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:180
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "purchase.submit_1"
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Project/Purchase/index.tsx:186
+#: components/pages/Project/Purchase/index.tsx:190
 msgid "purchase.submit_2"
 msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 
-#: components/pages/Project/Purchase/index.tsx:271
+#: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:275
+#: components/pages/Project/Purchase/index.tsx:279
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
@@ -1121,7 +1121,7 @@ msgstr "Quantity Available:"
 msgid "shared.approve"
 msgstr "Approve"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/BuyOptions/SellerListing.tsx:96
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"

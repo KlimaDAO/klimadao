@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-11 15:34+0000\n"
+"POT-Creation-Date: 2023-05-11 17:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,12 +71,12 @@ msgstr "Доступно:"
 msgid "BETA"
 msgstr "БЕТА"
 
-#: components/pages/Project/Purchase/index.tsx:210
+#: components/pages/Project/Purchase/index.tsx:214
 msgid "Back to Project"
 msgstr "Вернуться к проекту"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
-#: components/pages/Project/BuyOptions/SellerListing.tsx:67
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:33
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "Лучшая цена"
@@ -98,7 +98,7 @@ msgstr "Обзор проектов"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "Создано с помощью 🌳 от <0>KlimaDAO</0>"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
 msgstr "Купить"
 
@@ -106,7 +106,7 @@ msgstr "Купить"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 msgid "Carbon Pool"
 msgstr "Углеродный пул"
 
@@ -156,7 +156,7 @@ msgstr "Создать профиль"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Создавайте и редактируйте объявления, а также отслеживайте свою активность с помощью профиля Carbonmark."
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:88
+#: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Создан:"
 
@@ -253,8 +253,8 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Последние Первые"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:73
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Покинуть Carbonmark"
 
@@ -281,7 +281,7 @@ msgid "Location: {0}"
 msgstr "Местоположение: {0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log in"
 msgstr "Войти"
 
@@ -290,7 +290,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Войдите, чтобы создать профиль Carbonmark"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log out"
 msgstr "Выйти"
 
@@ -426,14 +426,14 @@ msgstr "Проект"
 msgid "Purchase Receipt | Carbonmark"
 msgstr "Квитанция о покупке | Carbonmark"
 
-#: components/pages/Project/Purchase/index.tsx:198
-#: components/pages/Project/Purchase/index.tsx:199
+#: components/pages/Project/Purchase/index.tsx:202
+#: components/pages/Project/Purchase/index.tsx:203
 msgid "Purchase {0} | Carbonmark"
 msgstr "Купить {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:62
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:40
+#: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
 msgstr "Доступное количество:"
 
@@ -470,11 +470,11 @@ msgstr "Источники"
 msgid "Resources | Carbonmark"
 msgstr "Ресурсы | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:67
+#: components/pages/Portfolio/AssetProject/index.tsx:68
 msgid "Retire"
 msgstr "Выбито"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "Выбито сейчас"
 
@@ -482,11 +482,11 @@ msgstr "Выбито сейчас"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Несколько слов о себе. Это будет видно в вашем профиле продавца."
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Продать"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:63
+#: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr "Объявление продавца"
 
@@ -546,7 +546,7 @@ msgstr "Произошла ошибка при загрузке ваших ак�
 msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
-#: components/pages/Project/Purchase/index.tsx:259
+#: components/pages/Project/Purchase/index.tsx:263
 msgid "This offer no longer exists."
 msgstr "Это предложение больше не существует."
 
@@ -574,7 +574,7 @@ msgstr "Итого выведено"
 msgid "Total quantity to list for sale"
 msgstr "Общее количество для продажи"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:92
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
 msgstr "Обновлено:"
 
@@ -682,7 +682,7 @@ msgstr "Отказ от ответственности"
 msgid "bought from"
 msgstr "купил у"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:110
+#: components/pages/Project/BuyOptions/SellerListing.tsx:106
 msgid "buy"
 msgstr "Купить"
 
@@ -750,7 +750,7 @@ msgstr "созданное объявление"
 msgid "deleted listing"
 msgstr "удаленное объявление"
 
-#: components/pages/Project/Purchase/index.tsx:246
+#: components/pages/Project/Purchase/index.tsx:250
 msgid "each"
 msgstr "каждый"
 
@@ -850,19 +850,19 @@ msgstr "Создать объявление"
 msgid "project.single.button.back_to_project_details"
 msgstr "Вернуться к деталям проекта"
 
-#: components/pages/Project/Purchase/index.tsx:146
+#: components/pages/Project/Purchase/index.tsx:150
 msgid "purchase.approval_1"
 msgstr "Вы собираетесь приобрести углеродный актив."
 
-#: components/pages/Project/Purchase/index.tsx:151
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "purchase.approval_2"
 msgstr "Первый шаг - дать разрешение на перевод платежного актива из вашего кошелька в Carbonmark, следующий шаг - одобрить фактический перевод и завершить покупку."
 
-#: components/pages/Project/Purchase/index.tsx:158
+#: components/pages/Project/Purchase/index.tsx:162
 msgid "purchase.approval_3"
 msgstr "Приобретенные вами углеродные активы могут быть выставлены на продажу на Carbonmark в любое время из вашего <0>портфолио</0>."
 
-#: components/pages/Project/Purchase/index.tsx:168
+#: components/pages/Project/Purchase/index.tsx:172
 msgid "purchase.approval_4"
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
@@ -902,23 +902,23 @@ msgstr "Вы превысили доступное количество токе
 msgid "purchase.input.price.required"
 msgstr "Укажите цену"
 
-#: components/pages/Project/Purchase/index.tsx:86
+#: components/pages/Project/Purchase/index.tsx:88
 msgid "purchase.loading.allowance.error"
 msgstr "что-то пошло не так при загрузке пособия"
 
-#: components/pages/Project/Purchase/index.tsx:180
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "purchase.submit_1"
 msgstr "На предыдущем этапе было получено разрешение на перевод платежного актива из вашего кошелька в Carbonmark."
 
-#: components/pages/Project/Purchase/index.tsx:186
+#: components/pages/Project/Purchase/index.tsx:190
 msgid "purchase.submit_2"
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
-#: components/pages/Project/Purchase/index.tsx:271
+#: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Подтвердить покупку"
 
-#: components/pages/Project/Purchase/index.tsx:275
+#: components/pages/Project/Purchase/index.tsx:279
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Обработка покупки"
 
@@ -1115,7 +1115,7 @@ msgstr "Доступное количество:"
 msgid "shared.approve"
 msgstr "Одобрить"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/BuyOptions/SellerListing.tsx:96
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"

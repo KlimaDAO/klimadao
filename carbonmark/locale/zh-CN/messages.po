@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-11 15:34+0000\n"
+"POT-Creation-Date: 2023-05-11 17:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,12 +71,12 @@ msgstr "可用的："
 msgid "BETA"
 msgstr "测试版"
 
-#: components/pages/Project/Purchase/index.tsx:210
+#: components/pages/Project/Purchase/index.tsx:214
 msgid "Back to Project"
 msgstr "返回项目"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:32
-#: components/pages/Project/BuyOptions/SellerListing.tsx:67
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:33
+#: components/pages/Project/BuyOptions/SellerListing.tsx:63
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
 msgstr "最优价格"
@@ -98,7 +98,7 @@ msgstr "浏览项目"
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
 msgstr "用🌳构建 <0>KlimaDAO</0> "
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:44
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
 msgstr "购买"
 
@@ -106,7 +106,7 @@ msgstr "购买"
 msgid "Cancel"
 msgstr "取消"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:28
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 msgid "Carbon Pool"
 msgstr "碳池"
 
@@ -156,7 +156,7 @@ msgstr "创建个人资料"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:88
+#: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "已创建："
 
@@ -253,8 +253,8 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "最新优先"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:73
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "离开Carbonmark"
 
@@ -281,7 +281,7 @@ msgid "Location: {0}"
 msgstr "位置：{0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log in"
 msgstr "登录"
 
@@ -290,7 +290,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "登录以创建 Carbonmark 资料"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:10
+#: components/LoginButton/index.tsx:7
 msgid "Log out"
 msgstr "登出"
 
@@ -428,14 +428,14 @@ msgstr "项目"
 msgid "Purchase Receipt | Carbonmark"
 msgstr "购买收据 | Carbonmark"
 
-#: components/pages/Project/Purchase/index.tsx:198
-#: components/pages/Project/Purchase/index.tsx:199
+#: components/pages/Project/Purchase/index.tsx:202
+#: components/pages/Project/Purchase/index.tsx:203
 msgid "Purchase {0} | Carbonmark"
 msgstr "购买 {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:62
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:39
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:40
+#: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
 msgstr "可用数量："
 
@@ -472,11 +472,11 @@ msgstr "资源"
 msgid "Resources | Carbonmark"
 msgstr "资源 | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:67
+#: components/pages/Portfolio/AssetProject/index.tsx:68
 msgid "Retire"
 msgstr "停用"
 
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "现在停用"
 
@@ -484,11 +484,11 @@ msgstr "现在停用"
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "卖出"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:63
+#: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr "卖家挂牌信息"
 
@@ -548,7 +548,7 @@ msgstr "加载您的资产时出错。 {e}"
 msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
-#: components/pages/Project/Purchase/index.tsx:259
+#: components/pages/Project/Purchase/index.tsx:263
 msgid "This offer no longer exists."
 msgstr "此优惠已不存在。"
 
@@ -576,7 +576,7 @@ msgstr "总碳停用"
 msgid "Total quantity to list for sale"
 msgstr "待售总数量"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:92
+#: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
 msgstr "已更新："
 
@@ -684,7 +684,7 @@ msgstr "免责声明："
 msgid "bought from"
 msgstr "买自"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:110
+#: components/pages/Project/BuyOptions/SellerListing.tsx:106
 msgid "buy"
 msgstr "购买"
 
@@ -752,7 +752,7 @@ msgstr "创建列表"
 msgid "deleted listing"
 msgstr "删除列表"
 
-#: components/pages/Project/Purchase/index.tsx:246
+#: components/pages/Project/Purchase/index.tsx:250
 msgid "each"
 msgstr "每个"
 
@@ -852,19 +852,19 @@ msgstr "创建挂牌"
 msgid "project.single.button.back_to_project_details"
 msgstr "返回项目详情"
 
-#: components/pages/Project/Purchase/index.tsx:146
+#: components/pages/Project/Purchase/index.tsx:150
 msgid "purchase.approval_1"
 msgstr "您即将购买一项碳资产。"
 
-#: components/pages/Project/Purchase/index.tsx:151
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "purchase.approval_2"
 msgstr "第一步是批准将您的支付资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并完成您的购买。"
 
-#: components/pages/Project/Purchase/index.tsx:158
+#: components/pages/Project/Purchase/index.tsx:162
 msgid "purchase.approval_3"
 msgstr "您购买的碳资产可随时从您的<0>投资组合</0>中挂牌，在Carbonmark上出售"
 
-#: components/pages/Project/Purchase/index.tsx:168
+#: components/pages/Project/Purchase/index.tsx:172
 msgid "purchase.approval_4"
 msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 
@@ -904,23 +904,23 @@ msgstr "您超出了可用的代币数量"
 msgid "purchase.input.price.required"
 msgstr "价格为必填项"
 
-#: components/pages/Project/Purchase/index.tsx:86
+#: components/pages/Project/Purchase/index.tsx:88
 msgid "purchase.loading.allowance.error"
 msgstr "加载津贴时出了点问题"
 
-#: components/pages/Project/Purchase/index.tsx:180
+#: components/pages/Project/Purchase/index.tsx:184
 msgid "purchase.submit_1"
 msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonmark。"
 
-#: components/pages/Project/Purchase/index.tsx:186
+#: components/pages/Project/Purchase/index.tsx:190
 msgid "purchase.submit_2"
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
-#: components/pages/Project/Purchase/index.tsx:271
+#: components/pages/Project/Purchase/index.tsx:275
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "确认购买"
 
-#: components/pages/Project/Purchase/index.tsx:275
+#: components/pages/Project/Purchase/index.tsx:279
 msgid "purchase.transaction.modal.title.processing"
 msgstr "正在处理购买"
 
@@ -1117,7 +1117,7 @@ msgstr "可用数量："
 msgid "shared.approve"
 msgstr "批准"
 
-#: components/pages/Project/BuyOptions/SellerListing.tsx:100
+#: components/pages/Project/BuyOptions/SellerListing.tsx:96
 #: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
