@@ -1,11 +1,11 @@
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import {
-  PoolToken,
   addresses,
+  PoolToken,
   poolTokens,
   urls,
 } from "@klimadao/lib/constants";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { ethers, providers } from "ethers";
 import type {
@@ -49,14 +49,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
   const { locale } = useRouter();
 
-  const {
-    tokenAddress,
-    tokenName,
-    balance,
-    tokenType,
-    tokenSymbol,
-    project
-  } = asset;
+  const { tokenAddress, tokenName, balance, tokenType, tokenSymbol, project } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<AppNotificationStatus | null>(null);
@@ -176,6 +169,7 @@ export const RetireForm = (props: RetireFormProps) => {
             {project && <ProjectImage category="Other" />}
           </div>
         )}
+        
 
         <div className={styles.offsetCard_ui}>
           <Text t="caption" color="lightest">

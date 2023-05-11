@@ -25,7 +25,11 @@ export const getStaticProps: GetStaticProps<RetirePageProps, Params> = async (
   }
 
   try {
-    const project = await getProjectTokenInfo(params.project_token_0x);
+    const project = await getProjectTokenInfo((params.project_token_0x).toLowerCase());
+    
+    if (project.length === 0) {
+      throw new Error("No project found");
+    }
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
