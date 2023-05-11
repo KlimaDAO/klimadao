@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-10 00:56+0000\n"
+"POT-Creation-Date: 2023-05-11 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1621,7 +1621,7 @@ msgstr "Achetez, mettez en jeu et soyez récompensé."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.head.metaDescription"
-msgstr "Compensations carbones transparentes, activées par la blockchain et alimentées par KlimaDAO."
+msgstr "Des compensations transparentes et sur la chaîne, réalisées par KlimaDAO."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.head.metaTitle"
