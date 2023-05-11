@@ -10,6 +10,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink, createRetireLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
+import { LO } from "lib/luckyOrange";
 import { AssetForListing } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -65,13 +66,10 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
-<<<<<<< HEAD
-          onClick={() => setIsOpen(true)}
-=======
-          href={retireLink}
-          renderLink={(linkProps) => <Anchor {...linkProps} />}
-          onClick={() => LO.track("Retire: Retire Button Clicked")}
->>>>>>> 94fc05b0 (carbonmark - Luckyorange buy and retire events for pool assets)
+          onClick={() => {
+            LO.track("Retire: Retire Button Clicked");
+            setIsOpen(true);
+          }}
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
         <ExitModal

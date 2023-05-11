@@ -14,6 +14,7 @@ import { Vintage } from "components/Vintage";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
+import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
@@ -57,6 +58,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
     setStatus(null);
     setIsLoadingAllowance(false);
     setIsProcessing(false);
+    LO.track("Purchase: Purchase Modal Closed");
   };
 
   const onModalClose = !isPending ? resetStateAndCancel : undefined;
@@ -102,8 +104,8 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
   };
 
   const handleApproval = async () => {
+    LO.track("Purchase: Approve Clicked");
     if (!provider || !inputValues) return;
-
     try {
       await approveTokenSpend({
         tokenName: "usdc",
@@ -118,6 +120,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
   };
 
   const onMakePurchase = async () => {
+    LO.track("Purchase: Submit Clicked");
     if (!provider || !inputValues) return;
 
     try {
@@ -132,6 +135,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
 
       if (result.hash) {
         push(`/purchases/${result.hash}`);
+        LO.track("Purchase: Purchase Completed");
       }
     } catch (e) {
       console.error("makePurchase error", e);

@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-/** Init the web3Modal and expose via react context  */
+/** A component that tracks user logins  */
 export const UserTracker: FC<Props> = (props) => {
   const { address } = useWeb3();
   const { carbonmarkUser, isLoading } = useFetchUser(address);

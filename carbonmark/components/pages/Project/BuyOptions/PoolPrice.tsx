@@ -44,7 +44,7 @@ export const PoolPrice: FC<Props> = (props) => {
         <ButtonPrimary
           label={t`Buy`}
           onClick={() => {
-            LO.track("Purchase: Buy Clicked")
+            LO.track("Purchase - Pool: Buy Clicked");
             setIsOpen(true);
             setRetireLink(
               createRedeemLink({
@@ -57,7 +57,7 @@ export const PoolPrice: FC<Props> = (props) => {
         <CarbonmarkButton
           label={t`Retire now`}
           onClick={() => {
-            LO.track("Retire: Retire Button Clicked")
+            LO.track("Retire - Pool: Retire Button Clicked");
             setIsOpen(true);
             setRetireLink(
               createRetireLink({
