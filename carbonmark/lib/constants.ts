@@ -59,7 +59,6 @@ export const config = {
 } as const;
 
 export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
-// export const DEFAULT_NETWORK = "mainnet";
 
 export const urls = {
   api: {

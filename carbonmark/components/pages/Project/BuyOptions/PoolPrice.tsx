@@ -48,7 +48,7 @@ export const PoolPrice: FC<Props> = (props) => {
             setIsOpen(true);
             setRetireLink(
               createRedeemLink({
-                projectTokenAddress: props.project.projectAddress,
+                projectTokenAddress: props.project.tokenAddress,
                 poolName: props.price.name.toLowerCase(),
               })
             );
@@ -62,7 +62,7 @@ export const PoolPrice: FC<Props> = (props) => {
             setRetireLink(
               createRetireLink({
                 retirementToken: props.price.name.toLowerCase(),
-                projectTokens: props.project.projectAddress,
+                projectTokens: props.project.tokenAddress,
               })
             );
           }}

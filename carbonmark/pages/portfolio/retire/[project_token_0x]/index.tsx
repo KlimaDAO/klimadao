@@ -1,6 +1,6 @@
 import { Retire, RetirePageProps } from "components/pages/Retire";
 import { loadTranslation } from "lib/i18n";
-import { getProjectTokenInfo } from "lib/retireQueries";
+import { getProjectInfoFromPolygonBridgedCarbon } from "lib/retireQueries";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps<RetirePageProps, Params> = async (
   }
 
   try {
-    const project = await getProjectTokenInfo(
+    const project = await getProjectInfoFromPolygonBridgedCarbon(
       params.project_token_0x.toLowerCase()
     );
 

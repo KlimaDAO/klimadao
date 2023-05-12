@@ -21,7 +21,7 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       retirementMessage,
       onStatus,
       tokenSymbol,
-      projectAddress,
+      tokenAddress,
       setRetireModalOpen,
       setRetirementTransactionHash,
       setRetirementTotals,
@@ -31,7 +31,7 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       retirement = await retireProjectTokenTransaction({
         address,
         symbol: tokenSymbol,
-        projectTokenAddress: projectAddress,
+        tokenAddress,
         signer: provider.getSigner(),
         quantity,
         beneficiaryAddress,
@@ -57,7 +57,7 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
 export const retireProjectTokenTransaction = async (params: {
   address: string;
   symbol: string;
-  projectTokenAddress: string;
+  tokenAddress: string;
   signer: providers.JsonRpcSigner;
   quantity: string;
   beneficiaryAddress: string;
@@ -73,7 +73,7 @@ export const retireProjectTokenTransaction = async (params: {
   }
   try {
     const args = [
-      params.projectTokenAddress,
+      params.tokenAddress,
       utils.parseUnits(params.quantity, 18),
       params.beneficiaryAddress || (await params.signer.getAddress()),
       params.beneficiaryName,
