@@ -14,6 +14,7 @@ import {
   updateListingTransaction,
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
+import { LO } from "lib/luckyOrange";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing, ListingWithProject } from "lib/types/carbonmark";
 import { FC, useState } from "react";
@@ -132,6 +133,7 @@ export const ListingEditable: FC<Props> = (props) => {
         singleUnitPrice: inputValues.newSingleUnitPrice,
         onStatus: onUpdateStatus,
       });
+      LO.track("Listing: Listing Updated");
 
       resetLocalState();
       props.onFinishEditing();
@@ -151,6 +153,7 @@ export const ListingEditable: FC<Props> = (props) => {
         provider,
         onStatus: onUpdateStatus,
       });
+      LO.track("Listing: Listing Deleted");
 
       setListingToEdit(null);
       props.onFinishEditing();
@@ -216,7 +219,10 @@ export const ListingEditable: FC<Props> = (props) => {
             <CarbonmarkButton
               label={<Trans id="profile.listing.edit">Edit</Trans>}
               className={styles.editListingButton}
-              onClick={() => setListingToEdit(listing)}
+              onClick={() => {
+                LO.track("Listing: Edit Clicked");
+                setListingToEdit(listing);
+              }}
             />
           </Listing>
         </div>

@@ -9,12 +9,12 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
+import { LO } from "lib/luckyOrange";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
-
 type Props = {
   assets: AssetForListing[];
   showModal: boolean;
@@ -55,6 +55,7 @@ export const CreateListing: FC<Props> = (props) => {
   };
 
   const onAddListingFormSubmit = async (values: FormValues) => {
+    LO.track("Listing: Create Listing Clicked");
     setIsLoading(true);
     try {
       if (!address) return;
@@ -80,6 +81,7 @@ export const CreateListing: FC<Props> = (props) => {
   };
 
   const handleApproval = async () => {
+    LO.track("Listing: Approve Clicked");
     if (!provider || !inputValues) return;
 
     try {
@@ -106,7 +108,7 @@ export const CreateListing: FC<Props> = (props) => {
         tokenType: inputValues.tokenType,
         onStatus: onUpdateStatus,
       });
-
+      LO.track("Listing: Listing Created");
       props.onSubmit();
       setSuccess(true);
       !props.successScreen && resetStateAndCloseModal(); // close only if no success screen provided
