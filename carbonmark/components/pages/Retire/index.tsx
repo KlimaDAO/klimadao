@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetireForm } from "./RetireForm";
-import { RetireSidebar } from "./RetireSidebar";
+import { RetirementSidebar } from "./RetirementSidebar";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
@@ -168,10 +168,11 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
                 </>
               )}
             </Col>
-
-            <Col>
-              <RetireSidebar user={carbonmarkUser} isPending={isPending} />
-            </Col>
+            {retirementAsset && (
+              <Col>
+                <RetirementSidebar retirementAsset={retirementAsset} />
+              </Col>
+            )}
           </TwoColLayout>
         </div>
       </Layout>
