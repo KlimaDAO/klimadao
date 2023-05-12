@@ -1350,6 +1350,13 @@ export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: any }> };
 
+export type GetPurchasesByIdQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['Bytes']>;
+}>;
+
+
+export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: any, price: any, timeStamp: any, listing: { __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, methodology: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
+
 
 export const GetCategoriesDocument = gql`
     query getCategories {
@@ -1372,6 +1379,52 @@ export const GetVintagesDocument = gql`
   }
 }
     `;
+export const GetPurchasesByIdDocument = gql`
+    query getPurchasesById($id: Bytes) {
+  purchases(first: 1, where: {id: $id}) {
+    id
+    amount
+    listing {
+      id
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      batches
+      batchPrices
+      singleUnitPrice
+      createdAt
+      updatedAt
+      seller {
+        id
+      }
+      project {
+        id
+        key
+        projectID
+        name
+        methodology
+        vintage
+        projectAddress
+        registry
+        category {
+          id
+        }
+        country {
+          id
+        }
+        updatedAt
+      }
+    }
+    price
+    timeStamp
+    user {
+      id
+    }
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -1383,6 +1436,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     getVintages(variables?: GetVintagesQueryVariables, options?: C): Promise<GetVintagesQuery> {
       return requester<GetVintagesQuery, GetVintagesQueryVariables>(GetVintagesDocument, variables, options) as Promise<GetVintagesQuery>;
+    },
+    getPurchasesById(variables?: GetPurchasesByIdQueryVariables, options?: C): Promise<GetPurchasesByIdQuery> {
+      return requester<GetPurchasesByIdQuery, GetPurchasesByIdQueryVariables>(GetPurchasesByIdDocument, variables, options) as Promise<GetPurchasesByIdQuery>;
     }
   };
 }
