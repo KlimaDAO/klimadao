@@ -51,18 +51,6 @@ export const detailsText = css`
   gap: 1.6rem;
 `;
 
-export const offsetCard_header = css`
-  display: grid;
-  max-width: 100%;
-`;
-
-export const bannerImageContainer = css`
-  position: relative;
-  width: 100%;
-  height: 200px;
-  max-width: 100%;
-`;
-
 export const newReleasesIcon = css`
   color: var(--klima-green);
   margin-inline-end: 0.4rem;
@@ -74,7 +62,6 @@ export const offsetCard_ui = css`
   gap: 2.4rem;
 
   ${breakpoints.medium} {
-    border: 2px solid var(--surface-03);
     padding: 2.4rem;
     border-radius: 1.2rem;
   }
@@ -234,8 +221,51 @@ export const connect_button = css`
   width: 100%;
 `;
 
-export const tags = css`
+export const offsetCard_header = css`
+  display: grid;
+  max-width: 100%;
+`;
+
+export const bannerImageContainer = css`
+  position: relative;
+  width: 100%;
+  height: 200px;
+  max-width: 100%;
+  padding: 2.4rem;
+`;
+
+export const projectName = css`
+  color: white;
+  font-weight: 700;
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+`;
+
+export const projectKeyStyle = css`
+  color: white !important;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+`;
+export const details = css`
   display: flex;
-  gap: 1.6rem;
   flex-direction: row;
+  gap: 1.6rem;
+`;
+
+export const info = css`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2.4rem;
 `;
