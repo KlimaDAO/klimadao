@@ -27,8 +27,6 @@ export const RetireModal: FC<Props> = (props) => {
     props.isApproved ? "submit" : "approve"
   );
 
-  console.log("props", props);
-
   const statusType = props.status?.statusType;
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";

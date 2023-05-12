@@ -16,7 +16,6 @@ import type {
 import { useEffect, useState } from "react";
 import { RetirementSuccessModal } from "../RetirementSuccessModal";
 // import TCO2 from "public/icons/TCO2.png";
-import { ParkOutlined } from "@mui/icons-material";
 import { ProjectImage } from "components/ProjectImage";
 
 import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
@@ -49,7 +48,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
   const { locale } = useRouter();
 
-  const { tokenAddress, tokenName, balance, tokenType, tokenSymbol, project } = asset;
+  const { tokenAddress, tokenName, balance, tokenSymbol, project } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<AppNotificationStatus | null>(null);
@@ -169,7 +168,6 @@ export const RetireForm = (props: RetireFormProps) => {
             {project && <ProjectImage category="Other" />}
           </div>
         )}
-        
 
         <div className={styles.offsetCard_ui}>
           <Text t="caption" color="lightest">
@@ -329,11 +327,11 @@ export const RetireForm = (props: RetireFormProps) => {
         </div>
       </div>
       {retireModalOpen && (
+        // {true && (
         <RetireModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
-              <ParkOutlined />
-              <Trans id="offset.retire_carbon">Retire Carbon</Trans>
+              <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
             </Text>
           }
           value={retirement.quantity}
@@ -371,8 +369,6 @@ export const RetireForm = (props: RetireFormProps) => {
           isApproved={isApproved}
         />
       )}
-      {/* {console.log("retirementTransactionHash", retirementTransactionHash)}
-      {console.log('retirementTotals', retirementTotals)} */}
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}

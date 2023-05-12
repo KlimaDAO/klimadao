@@ -5,8 +5,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 export const container = css`
   display: grid;
   gap: 2rem;
-  background-color: var(--surface-02);
-  border: 2px solid var(--surface-03);
+  background-color: white;
   padding: 2.4rem;
   border-radius: 1.2rem;
 `;
@@ -27,7 +26,6 @@ export const viewSwitch = css`
   align-items: center;
   border-radius: 0.8rem;
   padding: 0.4rem;
-  background-color: var(--surface-01);
 `;
 
 export const switchButton = css`
@@ -36,8 +34,10 @@ export const switchButton = css`
   align-items: center;
   display: flex;
   justify-content: center;
-  background-color: var(--surface-01);
+  background-color: var(--bright-blue);
   min-height: 4.8rem;
+  color: white;
+  border-radius: 0.8rem;
 
   &:hover {
     opacity: 0.8;
@@ -45,11 +45,11 @@ export const switchButton = css`
 
   &[data-active="false"] {
     color: var(--font-01);
+    background-color: var(--surface-02);
   }
 
   &[data-active="true"] {
     font-weight: bold;
-    border-bottom: 3px solid var(--klima-green);
   }
 
   &:disabled {
@@ -72,6 +72,13 @@ export const buttonRow = css`
   display: flex;
   justify-content: center;
 `;
+export const buttonColumn = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+`;
 
 export const buttonRow_spinner = css`
   padding: 0 0.8rem;
@@ -81,6 +88,15 @@ export const buttonRow_spinner = css`
 `;
 
 export const submitButton = css`
+  background-color: var(--bright-blue);
+  color: white !important;
+  width: 100%;
+`;
+
+export const backButton = css`
+  background-color: white;
+  color: var(--font-01);
+  border: 2px solid var(--font-01);
   width: 100%;
 `;
 
@@ -115,7 +131,7 @@ export const value = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--surface-01);
+  background-color: var(--surface-02);
   color: var(--font-01);
   height: 5.6rem;
   border-radius: 1rem;

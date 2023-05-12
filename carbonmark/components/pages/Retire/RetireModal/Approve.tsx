@@ -4,7 +4,6 @@ import { FC } from "react";
 
 import { concatAddress } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
-import SendRounded from "@mui/icons-material/SendRounded";
 import { getStatusMessage } from "lib/statusMessage";
 import { AppNotificationStatus } from "lib/types/carbonmark";
 import { HighlightValue } from "./HighlightValue";
@@ -87,7 +86,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showApproveButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="shared.approve">Approve</Trans>}
             onClick={() => props.onApproval()}
             className={styles.submitButton}
@@ -95,7 +93,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showNextButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="transaction_modal.next">Next</Trans>}
             onClick={() => props.onSuccess()}
             className={styles.submitButton}
