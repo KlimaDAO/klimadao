@@ -1,13 +1,16 @@
 import { FastifyInstance } from "fastify";
 import { concat } from "lodash";
-import { flatten, map, pipe, split, trim, uniq } from "lodash/fp";
+import { flatten, map, pipe, split, trim, uniq, uniqBy } from "lodash/fp";
 import {
   CarbonOffset,
-  CarbonOffsetsDocument,
+  GetCarbonOffsetsCategoriesDocument,
+  GetCarbonOffsetsCountriesDocument,
 } from "../graphql/generated/carbon.types";
 import {
   Category,
+  Country,
   GetCategoriesDocument,
+  GetCountriesDocument,
 } from "../graphql/generated/marketplace.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 import { extract } from "../utils/functional.utils";
@@ -46,70 +49,92 @@ import { extract } from "../utils/functional.utils";
 //   return result;
 // }
 
+// This function retrieves all categories from two different sources (marketplace and carbon offsets),
+// combines them, removes duplicates, and returns the result as an array of objects with an "id" property.
 export async function getAllCategories(fastify: FastifyInstance) {
+  // Define cache key for caching the result
   const cacheKey = `categories`;
+  // Try to get the cached result
   const cachedResult = await fastify.lcache.get(cacheKey);
 
+  // If the cached result exists, return it
   if (cachedResult) return cachedResult;
 
+  // Fetch categories from the marketplace
   const {
     data: { categories },
   } = await executeGraphQLQuery<{ categories: Category[] }>(
     process.env.GRAPH_API_URL,
     GetCategoriesDocument
   );
+  // Fetch carbon offsets categories
   const {
     data: { carbonOffsets },
   } = await executeGraphQLQuery<{ carbonOffsets: CarbonOffset[] }>(
     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    CarbonOffsetsDocument
+    GetCarbonOffsetsCategoriesDocument
   );
 
-  /** Extract the required values */
+  // Extract the required values from the fetched data
   const values = [
     categories.map(extract("id")),
     carbonOffsets.map(extract("methodologyCategory")),
   ];
-  const fn = pipe(concat, flatten, split(","), map(trim), uniq);
 
-  const result = fn(values);
+  // This function pipeline combines and deduplicates categories from different sources
+  // and maps them to objects with an "id" property
+  const fn = pipe(
+    concat,
+    flatten,
+    split(","),
+    map(trim),
+    uniq,
+    map((val: Country) => ({ id: val }))
+  );
 
-  await fastify.lcache.set(cacheKey, result);
+  // Apply the function pipeline to the extracted values
+  const result: Category[] = fn(values);
 
+  // Cache the result before returning it
+  await fastify.lcache.set(cacheKey, { payload: result });
+
+  // Return the combined and deduplicated categories
   return result;
 }
 
-//  export async function getAllCountries(fastify:FastifyInstance) {
-//   const cacheKey = `countries`;
+export async function getAllCountries(fastify: FastifyInstance) {
+  const cacheKey = `countries`;
 
-//   const cachedResult = await fastify.lcache.get(cacheKey);
+  const cachedResult = await fastify.lcache.get(cacheKey);
 
-//   if (cachedResult) {
-//     return cachedResult;
-//   }
+  if (cachedResult) {
+    return cachedResult;
+  }
 
-//   const data = await executeGraphQLQuery(
-//     process.env.GRAPH_API_URL,
-//     GET_COUNTRIES
-//   );
+  const marketplaceCountries = await executeGraphQLQuery<{
+    countries: Country[];
+  }>(process.env.GRAPH_API_URL, GetCountriesDocument);
 
-//   const uniqueValues = new Set();
+  const offsetsCountries = await executeGraphQLQuery<{
+    carbonOffsets: CarbonOffset[];
+  }>(
+    process.env.CARBON_OFFSETS_GRAPH_API_URL,
+    GetCarbonOffsetsCountriesDocument
+  ).then(({ data }) =>
+    data.carbonOffsets.map(({ country }) => ({ id: country }))
+  );
 
-//   data.data.countries.forEach((item) => uniqueValues.add(item.id));
+  const fn = pipe(concat, flatten, uniqBy("id"));
 
-//   const pooldata = await executeGraphQLQuery(
-//     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-//     GET_POOLED_PROJECT_COUNTRY
-//   );
+  const result: Country[] = fn([
+    marketplaceCountries.data.countries,
+    offsetsCountries,
+  ]);
 
-//   pooldata.data.carbonOffsets.forEach((item) => uniqueValues.add(item.country));
+  await fastify.lcache.set(cacheKey, { payload: result });
 
-//   const result = Array.from(uniqueValues);
-
-//   await fastify.lcache.set(cacheKey, result);
-
-//   return result;
-// }
+  return result;
+}
 
 // export function convertArrayToObjects(arr) {
 //   return arr.map(export function (item) {

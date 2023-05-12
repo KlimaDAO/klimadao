@@ -1,5 +1,11 @@
-query carbonOffsets {
+query getCarbonOffsetsCategories {
   carbonOffsets {
     methodologyCategory
+  }
+}
+
+query getCarbonOffsetsCountries {
+  carbonOffsets {
+    country
   }
 }

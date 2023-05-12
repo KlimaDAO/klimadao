@@ -2825,24 +2825,39 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type CarbonOffsetsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCarbonOffsetsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', methodologyCategory: string }> };
+export type GetCarbonOffsetsCategoriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', methodologyCategory: string }> };
+
+export type GetCarbonOffsetsCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export const CarbonOffsetsDocument = gql`
-    query carbonOffsets {
+export type GetCarbonOffsetsCountriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', country: string }> };
+
+
+export const GetCarbonOffsetsCategoriesDocument = gql`
+    query getCarbonOffsetsCategories {
   carbonOffsets {
     methodologyCategory
+  }
+}
+    `;
+export const GetCarbonOffsetsCountriesDocument = gql`
+    query getCarbonOffsetsCountries {
+  carbonOffsets {
+    country
   }
 }
     `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
-    carbonOffsets(variables?: CarbonOffsetsQueryVariables, options?: C): Promise<CarbonOffsetsQuery> {
-      return requester<CarbonOffsetsQuery, CarbonOffsetsQueryVariables>(CarbonOffsetsDocument, variables, options) as Promise<CarbonOffsetsQuery>;
+    getCarbonOffsetsCategories(variables?: GetCarbonOffsetsCategoriesQueryVariables, options?: C): Promise<GetCarbonOffsetsCategoriesQuery> {
+      return requester<GetCarbonOffsetsCategoriesQuery, GetCarbonOffsetsCategoriesQueryVariables>(GetCarbonOffsetsCategoriesDocument, variables, options) as Promise<GetCarbonOffsetsCategoriesQuery>;
+    },
+    getCarbonOffsetsCountries(variables?: GetCarbonOffsetsCountriesQueryVariables, options?: C): Promise<GetCarbonOffsetsCountriesQuery> {
+      return requester<GetCarbonOffsetsCountriesQuery, GetCarbonOffsetsCountriesQueryVariables>(GetCarbonOffsetsCountriesDocument, variables, options) as Promise<GetCarbonOffsetsCountriesQuery>;
     }
   };
 }

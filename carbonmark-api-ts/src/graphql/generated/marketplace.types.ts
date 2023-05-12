@@ -1340,10 +1340,22 @@ export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
 
+export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
+
 
 export const GetCategoriesDocument = gql`
     query getCategories {
   categories {
+    id
+  }
+}
+    `;
+export const GetCountriesDocument = gql`
+    query getCountries {
+  countries {
     id
   }
 }
@@ -1353,6 +1365,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
     getCategories(variables?: GetCategoriesQueryVariables, options?: C): Promise<GetCategoriesQuery> {
       return requester<GetCategoriesQuery, GetCategoriesQueryVariables>(GetCategoriesDocument, variables, options) as Promise<GetCategoriesQuery>;
+    },
+    getCountries(variables?: GetCountriesQueryVariables, options?: C): Promise<GetCountriesQuery> {
+      return requester<GetCountriesQuery, GetCountriesQueryVariables>(GetCountriesDocument, variables, options) as Promise<GetCountriesQuery>;
     }
   };
 }

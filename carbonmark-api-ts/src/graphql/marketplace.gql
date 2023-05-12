@@ -3,3 +3,9 @@ query getCategories {
     id
   }
 }
+
+query getCountries {
+  countries {
+    id
+  }
+}
