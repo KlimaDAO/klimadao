@@ -1345,6 +1345,11 @@ export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
 
+export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: any }> };
+
 
 export const GetCategoriesDocument = gql`
     query getCategories {
@@ -1360,6 +1365,13 @@ export const GetCountriesDocument = gql`
   }
 }
     `;
+export const GetVintagesDocument = gql`
+    query getVintages {
+  projects {
+    vintage
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -1368,6 +1380,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     getCountries(variables?: GetCountriesQueryVariables, options?: C): Promise<GetCountriesQuery> {
       return requester<GetCountriesQuery, GetCountriesQueryVariables>(GetCountriesDocument, variables, options) as Promise<GetCountriesQuery>;
+    },
+    getVintages(variables?: GetVintagesQueryVariables, options?: C): Promise<GetVintagesQuery> {
+      return requester<GetVintagesQuery, GetVintagesQueryVariables>(GetVintagesDocument, variables, options) as Promise<GetVintagesQuery>;
     }
   };
 }

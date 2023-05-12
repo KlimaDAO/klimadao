@@ -9,3 +9,9 @@ query getCarbonOffsetsCountries {
     country
   }
 }
+
+query getCarbonOffsetsVintages {
+  carbonOffsets {
+    vintageYear
+  }
+}

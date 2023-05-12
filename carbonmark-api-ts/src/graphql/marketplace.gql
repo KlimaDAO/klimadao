@@ -9,3 +9,9 @@ query getCountries {
     id
   }
 }
+
+query getVintages {
+  projects {
+    vintage
+  }
+}

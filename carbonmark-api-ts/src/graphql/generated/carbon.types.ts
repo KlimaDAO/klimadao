@@ -2835,6 +2835,11 @@ export type GetCarbonOffsetsCountriesQueryVariables = Exact<{ [key: string]: nev
 
 export type GetCarbonOffsetsCountriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', country: string }> };
 
+export type GetCarbonOffsetsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCarbonOffsetsVintagesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', vintageYear: string }> };
+
 
 export const GetCarbonOffsetsCategoriesDocument = gql`
     query getCarbonOffsetsCategories {
@@ -2850,6 +2855,13 @@ export const GetCarbonOffsetsCountriesDocument = gql`
   }
 }
     `;
+export const GetCarbonOffsetsVintagesDocument = gql`
+    query getCarbonOffsetsVintages {
+  carbonOffsets {
+    vintageYear
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -2858,6 +2870,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     getCarbonOffsetsCountries(variables?: GetCarbonOffsetsCountriesQueryVariables, options?: C): Promise<GetCarbonOffsetsCountriesQuery> {
       return requester<GetCarbonOffsetsCountriesQuery, GetCarbonOffsetsCountriesQueryVariables>(GetCarbonOffsetsCountriesDocument, variables, options) as Promise<GetCarbonOffsetsCountriesQuery>;
+    },
+    getCarbonOffsetsVintages(variables?: GetCarbonOffsetsVintagesQueryVariables, options?: C): Promise<GetCarbonOffsetsVintagesQuery> {
+      return requester<GetCarbonOffsetsVintagesQuery, GetCarbonOffsetsVintagesQueryVariables>(GetCarbonOffsetsVintagesDocument, variables, options) as Promise<GetCarbonOffsetsVintagesQuery>;
     }
   };
 }

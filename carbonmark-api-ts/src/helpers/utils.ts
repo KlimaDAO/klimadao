@@ -5,49 +5,54 @@ import {
   CarbonOffset,
   GetCarbonOffsetsCategoriesDocument,
   GetCarbonOffsetsCountriesDocument,
+  GetCarbonOffsetsVintagesDocument,
 } from "../graphql/generated/carbon.types";
 import {
   Category,
   Country,
   GetCategoriesDocument,
   GetCountriesDocument,
+  GetVintagesDocument,
+  Project,
 } from "../graphql/generated/marketplace.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 import { extract } from "../utils/functional.utils";
 
-//  export async function getAllVintages(fastify:FastifyInstance) {
-//   const cacheKey = `vintages`;
+export async function getAllVintages(fastify: FastifyInstance) {
+  const cacheKey = `vintages`;
 
-//   const cachedResult = await fastify.lcache.get(cacheKey);
+  const cachedResult = await fastify.lcache.get(cacheKey);
 
-//   if (cachedResult) {
-//     return cachedResult;
-//   }
+  if (cachedResult) {
+    return cachedResult;
+  }
 
-//   const data = await executeGraphQLQuery(
-//     process.env.GRAPH_API_URL,
-//     GET_VINTAGES
-//   );
+  const { data } = await executeGraphQLQuery<{ projects: Project[] }>(
+    process.env.GRAPH_API_URL,
+    GetVintagesDocument
+  );
 
-//   const uniqueValues = new Set();
+  const uniqueValues = new Set<string>();
 
-//   data.data.projects.forEach((item) => uniqueValues.add(item.vintage));
+  data.projects.forEach((item) => uniqueValues.add(item.vintage));
 
-//   const pooldata = await executeGraphQLQuery(
-//     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-//     GET_POOLED_PROJECT_VINTAGE
-//   );
+  const pooldata = await executeGraphQLQuery<{
+    carbonOffsets: CarbonOffset[];
+  }>(
+    process.env.CARBON_OFFSETS_GRAPH_API_URL,
+    GetCarbonOffsetsVintagesDocument
+  );
 
-//   pooldata.data.carbonOffsets.forEach((item) =>
-//     uniqueValues.add(item.vintageYear)
-//   );
+  pooldata.data.carbonOffsets.forEach((item) =>
+    uniqueValues.add(item.vintageYear)
+  );
 
-//   const result = Array.from(uniqueValues);
+  const result = Array.from(uniqueValues).sort();
 
-//   await fastify.lcache.set(cacheKey, result);
+  await fastify.lcache.set(cacheKey, { payload: result });
 
-//   return result;
-// }
+  return result;
+}
 
 // This function retrieves all categories from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as an array of objects with an "id" property.
