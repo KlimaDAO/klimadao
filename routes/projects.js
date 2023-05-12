@@ -416,11 +416,12 @@ module.exports = async function (fastify, opts) {
             };
 
             const results = await sanity.fetch(fetchProjects, params);
+            console.log(results);
             project.description = results.description;
             project.location = results.geolocation;
             project.name = results.name;
             project.methodologies = results.methodologies;
-            project.images = results.projectContent ? results.projectContent[0].images : [];
+            project.images = results.projectContent.length >0  ? results.projectContent[0].images : [];
             project.url = results.url
           } else if (project.registry == "GS") {
             var results = await fetch(
