@@ -40,28 +40,28 @@ export const offsetCard = css`
   }
 `;
 
-  export const stackText = css`
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    width: 100%;
-  `;
+export const stackText = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+`;
 
-  export const detailsText = css`
-    gap: 1.6rem;
-  `;
+export const detailsText = css`
+  gap: 1.6rem;
+`;
 
-  export const offsetCard_header = css`
-    display: grid;
-    max-width: 100%;
-  `;
+export const offsetCard_header = css`
+  display: grid;
+  max-width: 100%;
+`;
 
-  export const bannerImageContainer = css`
+export const bannerImageContainer = css`
   position: relative;
   width: 100%;
   height: 200px;
   max-width: 100%;
-  `;
+`;
 
 export const newReleasesIcon = css`
   color: var(--klima-green);
@@ -138,21 +138,21 @@ export const buttonContainer = css`
 `;
 
 export const submitButton = css`
-  color: white !important; 
-  background-color: #0019FF; 
+  color: white !important;
+  background-color: #0019ff;
   width: 100%;
-  border: none; 
-  padding: 1em; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   &:hover {
-    background-color: #0012cc; 
+    background-color: #0012cc;
   }
 `;
 
 export const backButton = css`
-background-color: white;
-border: 2px solid #626266;
+  background-color: white;
+  border: 2px solid #626266;
   width: 100%;
 `;
 export const input = css`
