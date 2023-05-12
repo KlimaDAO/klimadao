@@ -420,7 +420,7 @@ module.exports = async function (fastify, opts) {
             project.location = results.geolocation;
             project.name = results.name;
             project.methodologies = results.methodologies;
-            project.images = results.projectContent[0].images;
+            project.images = results.projectContent ? results.projectContent[0].images : [];
             project.url = results.url
           } else if (project.registry == "GS") {
             var results = await fetch(
