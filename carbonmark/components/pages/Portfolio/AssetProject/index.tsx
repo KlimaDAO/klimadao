@@ -70,7 +70,6 @@ export const AssetProject: FC<Props> = (props) => {
             LO.track("Retire: Retire Button Clicked");
             setIsOpen(true);
           }}
-          href={retireLink}
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
         <ExitModal
