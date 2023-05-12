@@ -45,8 +45,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
   const { locale } = useRouter();
 
-  const { tokenAddress, tokenName, balance, tokenSymbol, project } = asset;
-
+  const { tokenName, balance, tokenSymbol, project } = asset;
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
@@ -88,12 +87,12 @@ export const RetireForm = (props: RetireFormProps) => {
 
   useEffect(() => {
     async function getApproval() {
-      if (provider && tokenAddress) {
+      if (provider && project.tokenAddress) {
         await hasApproval({
           quantity: retirement.quantity,
           address,
           provider,
-          projectAddress: tokenAddress,
+          tokenAddress: project.tokenAddress,
         }).then((isApproved) => {
           setIsApproved(isApproved);
         });
@@ -145,16 +144,16 @@ export const RetireForm = (props: RetireFormProps) => {
       setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
     }
   };
-
+  console.log("FORM COMPOSITE", project);
   return (
     <div>
       <div className={styles.offsetCard}>
         {project ? (
           <RetirementBanner
-            projectName={project?.name}
-            category={project.category}
+            projectName={project.name}
+            category={project.methodologyCategory}
             vintage={project.vintage}
-            projectKey={project.key}
+            projectKey={project.projectID}
           />
         ) : (
           <div className={styles.bannerImageContainer}>
@@ -336,7 +335,7 @@ export const RetireForm = (props: RetireFormProps) => {
               provider,
               retirementQuantity: retirement.quantity,
               updateStatus: updateStatus,
-              projectAddress: tokenAddress,
+              tokenAddress: project.tokenAddress,
             })
           }
           onSubmit={() =>
@@ -350,7 +349,7 @@ export const RetireForm = (props: RetireFormProps) => {
               onStatus: updateStatus,
               retirementToken: tokenName,
               tokenSymbol: tokenSymbol,
-              projectAddress: tokenAddress,
+              tokenAddress: project.tokenAddress,
               setRetireModalOpen,
               setRetirementTransactionHash,
               setRetirementTotals,

@@ -13,11 +13,11 @@ export const hasApproval = async (params: {
   quantity: string;
   address: string;
   provider: providers.JsonRpcProvider;
-  projectAddress: string;
+  tokenAddress: string;
 }) => {
   const aggregatorAllowance = await getAggregatorV2Allowance({
     userAddress: params.address,
-    tokenAddress: params.projectAddress,
+    tokenAddress: params.tokenAddress,
   });
   console.log("aggregatorAllowance", aggregatorAllowance);
 
@@ -30,12 +30,12 @@ export const hasApproval = async (params: {
 export const approveProjectToken = async (params: {
   value: string;
   signer: providers.JsonRpcSigner;
-  projectTokenAddress: string;
+  tokenAddress: string;
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
     const contract = new Contract(
-      params.projectTokenAddress,
+      params.tokenAddress,
       IERC20.abi,
       params.signer
     );
@@ -64,7 +64,7 @@ interface HandleApproveProps {
   provider?: providers.JsonRpcProvider;
   retirementQuantity: string;
   updateStatus: (statusType: TxnStatus, message?: string) => void;
-  projectAddress: string;
+  tokenAddress: string;
 }
 
 export const handleApprove = async (props: HandleApproveProps) => {
@@ -75,7 +75,7 @@ export const handleApprove = async (props: HandleApproveProps) => {
       value: getApprovalValue(props.retirementQuantity),
       signer: props.provider.getSigner(),
       onStatus: props.updateStatus,
-      projectTokenAddress: props.projectAddress,
+      tokenAddress: props.tokenAddress,
     });
     console.log("Approved Value: ", approvedValue);
   } catch (e) {

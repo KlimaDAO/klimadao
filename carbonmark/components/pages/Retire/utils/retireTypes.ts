@@ -13,7 +13,7 @@ export interface RetireCarbonTransactionProps {
   onStatus: (status: TxnStatus, message?: string | undefined) => void;
   retirementToken: string;
   tokenSymbol: string;
-  projectAddress: string;
+  tokenAddress: string;
   setRetireModalOpen: Dispatch<boolean>;
   setRetirementTransactionHash: Dispatch<string>;
   setRetirementTotals: Dispatch<number>;

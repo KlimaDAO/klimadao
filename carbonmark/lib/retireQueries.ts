@@ -1,25 +1,40 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
-export const getProjectTokenInfo = async (address: string) => {
+export const getProjectInfoFromPolygonBridgedCarbon = async (
+  address: string
+) => {
   try {
-    const result = await fetch(subgraphs.carbonmarkMatic, {
+    const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `
         query ProjectTokenInfo($address: String) {
-          projects(where: {projectAddress: $address}) {
-            id
+          carbonOffsets(where: {id: $address}) {
             projectID
-            projectAddress
-            methodology
-            name
-            projectType
-            region
-            registry
-            updatedAt
+            vintageYear
             vintage
-            key
+            totalRetired
+            tokenAddress
+            totalBridged
+            standard
+            storageMethod
+            id
+            registry
+            region
+            name
+            methodologyCategory
+            methodology
+            method
+            lastUpdate
+            klimaRanking
+            isCorsiaCompliant
+            emissionType
+            currentSupply
+            country
+            correspAdjustment
+            coBenefits
+            category
           }
         }
                 `,
@@ -37,7 +52,7 @@ export const getProjectTokenInfo = async (address: string) => {
     }
 
     const data = await result.json();
-    return data.data.projects;
+    return data.data.carbonOffsets;
   } catch (error) {
     console.error("Error fetching project token info:", error);
     return null;

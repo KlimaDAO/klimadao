@@ -8,7 +8,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
-import { addProjectsToAssets } from "lib/actions";
+import { createCompositeAsset } from "lib/actions";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import type { AssetForRetirement, Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -57,29 +57,22 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   useEffect(() => {
     if (isConnected && !isLoading && loadingTriggered && carbonmarkUser) {
-      async function createRetirementAsset() {
+      function createRetirementAsset() {
         // unlikely, but this allows for duplicate projects
         const targetProject = Array.isArray(props.project)
           ? props.project[0]
           : undefined;
-
         if (targetProject && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
-            return asset.token.id == targetProject.projectAddress;
+            return asset.token.id == targetProject.tokenAddress;
           })[0];
 
-          const retireProjectAsset = await addProjectsToAssets({
-            assets: [asset],
+          const compositeAsset = createCompositeAsset({
+            asset,
+            project: targetProject,
           });
-          let compositeAsset: AssetForRetirement;
-          if (retireProjectAsset && retireProjectAsset.length > 0) {
-            // Assuming that assetForListing is available in this scope
-            compositeAsset = {
-              ...retireProjectAsset[0],
-              tokenSymbol: asset.token.symbol,
-            };
-            setRetirementAsset(compositeAsset);
-          }
+
+          setRetirementAsset(compositeAsset);
         }
       }
       createRetirementAsset();

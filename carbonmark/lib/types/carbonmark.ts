@@ -7,7 +7,8 @@ export interface Project {
   name: string | "";
   methodologies: Array<Methodology>;
   vintage: string;
-  projectAddress: string;
+  // projectAddress: string;
+  tokenAddress: string;
   registry: string;
   listings: Listing[] | null;
   price: BigNumber;
@@ -28,7 +29,8 @@ export interface Project {
   totalRetired: string | null; // pool project only
   currentSupply: string | null; // pool project only
   prices?: Price[];
-  url: string; // link to the projects registry detail page
+  url: string;
+  methodologyCategory: CategoryName;
 }
 
 export type Price = {
@@ -220,10 +222,13 @@ export type AssetForListing = {
   };
 };
 
-export type AssetForRetirement = AssetForListing & {
-  tokenSymbol: string;
+export type AssetForRetirement = {
+  tokenName: string;
+  balance: string;
+  tokenType: "1" | "2";
+  tokenSymbol: string; // 1: C3T, 2: TCO2
+  project: Project;
 };
-
 export type Methodology = {
   id: string;
   name: string;
