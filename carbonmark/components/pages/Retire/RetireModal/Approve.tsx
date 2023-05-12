@@ -2,9 +2,8 @@ import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
-import { getStatusMessage } from "lib/statusMessage";
-import { AppNotificationStatus } from "lib/types/carbonmark";
-import { StaticImageData } from "next/image";
+import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
+// import { StaticImageData } from "next/image";
 import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
 
@@ -15,12 +14,12 @@ import * as styles from "./styles";
 
 interface Props {
   value: string;
-  tokenIcon: StaticImageData;
+  // tokenIcon: StaticImageData;
   tokenName: string;
   spenderAddress: string;
   onApproval: () => void;
   onSuccess: () => void;
-  status: AppNotificationStatus | null;
+  status: TransactionStatusMessage | null;
 }
 
 export const Approve: FC<Props> = (props) => {
@@ -74,7 +73,7 @@ export const Approve: FC<Props> = (props) => {
         <div className={styles.statusMessage}>
           {success && <CheckIcon />}
           <Text t="caption" color="lighter" align="center">
-            {getStatusMessage(props.status.statusType)}
+            {getStatusMessage(props.status)}
           </Text>
         </div>
       )}

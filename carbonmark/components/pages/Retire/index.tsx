@@ -116,6 +116,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
       );
     } finally {
       setIsPending(false);
+      console.log("finally", isPending);
     }
   };
 

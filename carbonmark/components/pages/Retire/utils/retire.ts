@@ -20,7 +20,6 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       beneficiaryName,
       retirementMessage,
       onStatus,
-      retirementToken,
       tokenSymbol,
       projectAddress,
       setRetireModalOpen,

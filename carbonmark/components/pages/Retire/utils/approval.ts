@@ -3,8 +3,7 @@ import { addresses } from "@klimadao/lib/constants";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, providers, utils } from "ethers";
 import { getAggregatorV2Allowance } from "lib/actions";
-import { OnStatusHandler } from "lib/statusMessage";
-import { TxnStatus } from "lib/types/carbonmark";
+import { OnStatusHandler, TxnStatus } from "lib/statusMessage";
 
 export const getApprovalValue = (quantity: string): string => {
   return quantity;
@@ -64,7 +63,7 @@ export const approveProjectToken = async (params: {
 interface HandleApproveProps {
   provider?: providers.JsonRpcProvider;
   retirementQuantity: string;
-  updateStatus: (statusType: TxnStatus | null, message?: string) => void;
+  updateStatus: (statusType: TxnStatus, message?: string) => void;
   projectAddress: string;
 }
 

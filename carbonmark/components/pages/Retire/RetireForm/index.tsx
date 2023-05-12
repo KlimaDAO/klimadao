@@ -8,11 +8,8 @@ import {
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { ethers, providers } from "ethers";
-import type {
-  AppNotificationStatus,
-  AssetForRetirement,
-  TxnStatus,
-} from "lib/types/carbonmark";
+import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
+import type { AssetForRetirement } from "lib/types/carbonmark";
 import { useEffect, useState } from "react";
 import { RetirementSuccessModal } from "../RetirementSuccessModal";
 // import TCO2 from "public/icons/TCO2.png";
@@ -51,18 +48,14 @@ export const RetireForm = (props: RetireFormProps) => {
   const { tokenAddress, tokenName, balance, tokenSymbol, project } = asset;
 
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
-  const [status, setStatus] = useState<AppNotificationStatus | null>(null);
+  const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
 
-  const updateStatus = (statusType: TxnStatus | null, message?: string) => {
-    if (!statusType) {
-      setStatus(null);
-    } else {
-      setStatus({ statusType, message });
-    }
+  const updateStatus = (status: TxnStatus, message?: string) => {
+    setStatus({ statusType: status, message: message });
   };
 
   const [retirement, setRetirement] = useState({
@@ -327,7 +320,6 @@ export const RetireForm = (props: RetireFormProps) => {
         </div>
       </div>
       {retireModalOpen && (
-        // {true && (
         <RetireModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
