@@ -163,13 +163,13 @@ export const RetireForm = (props: RetireFormProps) => {
         )}
 
         <div className={styles.offsetCard_ui}>
-          <Text t="caption" color="lightest">
+          <Text t="caption" color="lighter">
             <Trans>
               Retire carbon credits for yourself, or on behalf of another person
               or organization.
             </Trans>
           </Text>
-          <Text t="caption" color="lightest">
+          <Text t="caption" color="lighter">
             <Trans>
               The information below will be broadcast publicly to verify your
               environmental claim. This transaction is permanent; the
