@@ -388,10 +388,8 @@ module.exports = async function (fastify, opts) {
                     let updatedData = {
                         username: username,
                         description: description,
-                        updatedAt: Date.now()
-                    }
-                    if (profileImgUrl){
-                        updatedData.profileImgUrl = profileImgUrl;
+                        updatedAt: Date.now(),
+                        profileImgUrl: profileImgUrl ?? null
                     }
                     // Try updating the user document with the specified data
                     await fastify.firebase.firestore()
