@@ -133,7 +133,13 @@ module.exports = async function (fastify, opts) {
                             handle: { type: 'string' },
                             username: { type: 'string' },
                             description: { type: 'string' },
-                            profileImgUrl: { type: 'string' },
+                            profileImgUrl:  {
+                                'anyOf': [{
+                                  type: 'string'
+                                }, {
+                                  type: 'null'
+                                }]
+                            },
                             updatedAt: { type: 'number' },
                             createdAt: { type: 'number' },
                             wallet: { type: 'string' },
@@ -199,7 +205,6 @@ module.exports = async function (fastify, opts) {
                             listing.seller = { ...seller.data(), ...listing.seller };
                         }),
                         activities.map(async (actvity) => {
-                              if (actvity.activityType != "Sold") {
               
                                 const seller = await fastify.firebase
                                   .firestore()
@@ -219,7 +224,6 @@ module.exports = async function (fastify, opts) {
                                     actvity.buyer.handle = buyer.data().handle;
                                   }
                                 }
-                              }
                         })
                     );
                     // Add the modified listings array to the response object
@@ -364,7 +368,13 @@ module.exports = async function (fastify, opts) {
                             username: { type: 'string' },
                             wallet: { type: 'string' },
                             description: { type: 'string' },
-                            profileImgUrl: { type: 'string' }
+                            profileImgUrl:  {
+                                'anyOf': [{
+                                  type: 'string'
+                                }, {
+                                  type: 'null'
+                                }]
+                            },
                         }
                     },
 
