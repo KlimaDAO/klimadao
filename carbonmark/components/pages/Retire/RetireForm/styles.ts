@@ -247,7 +247,7 @@ export const projectName = css`
 
 export const projectKeyStyle = css`
   color: white !important;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
