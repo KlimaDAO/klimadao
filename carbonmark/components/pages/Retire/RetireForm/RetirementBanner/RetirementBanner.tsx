@@ -1,7 +1,7 @@
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
-import { Vintage } from "components/Vintage";
 import { Registry } from "components/Registry";
+import { Vintage } from "components/Vintage";
 
 import { FC } from "react";
 
@@ -17,7 +17,6 @@ type Props = {
 
 export const RetirementBanner: FC<Props> = (props) => {
   const { category, vintage, projectKey, projectName } = props;
-  console.log('projectKey', projectKey)
   return (
     <div className={styles.offsetCard_header}>
       <div className={styles.bannerImageContainer}>
@@ -28,7 +27,7 @@ export const RetirementBanner: FC<Props> = (props) => {
             <h4 className={styles.projectKeyStyle}>{projectKey}</h4>
             <Vintage vintage={vintage} />
             <Category category={category} />
-            <Registry projectKey={projectKey}/>
+            <Registry projectKey={projectKey} />
           </div>
         </div>
       </div>
