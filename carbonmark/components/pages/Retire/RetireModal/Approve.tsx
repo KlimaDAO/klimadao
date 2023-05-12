@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
-import { FC } from "react";
-
 import { concatAddress } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import { getStatusMessage } from "lib/statusMessage";
 import { AppNotificationStatus } from "lib/types/carbonmark";
+import { StaticImageData } from "next/image";
+import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
