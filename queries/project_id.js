@@ -35,7 +35,7 @@ const GET_PROJECT_BY_ID = gql`
                             id
                         }
                     }
-                    activities {
+                    activities(orderBy: timeStamp,orderDirection: desc, first:10) {
                         id
                         amount
                         previousAmount
