@@ -19,7 +19,6 @@ export const hasApproval = async (params: {
     userAddress: params.address,
     tokenAddress: params.tokenAddress,
   });
-  console.log("aggregatorAllowance", aggregatorAllowance);
 
   return (
     !!Number(aggregatorAllowance) &&

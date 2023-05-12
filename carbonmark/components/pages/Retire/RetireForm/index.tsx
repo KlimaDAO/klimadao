@@ -144,7 +144,7 @@ export const RetireForm = (props: RetireFormProps) => {
       setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
     }
   };
-  console.log("FORM COMPOSITE", project);
+
   return (
     <div>
       <div className={styles.offsetCard}>
@@ -214,9 +214,6 @@ export const RetireForm = (props: RetireFormProps) => {
                 max={retirement.maxQuantity}
               />
             </div>
-            <button onClick={() => console.log("retirement", retirement)}>
-              Retirement
-            </button>
           </div>
 
           {/* attr: beneficiaryName  */}
