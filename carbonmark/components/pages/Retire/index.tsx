@@ -10,7 +10,7 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
 import { activityIsAdded, getUserUntil } from "lib/api";
-import type { AssetForRetirement, Project } from "lib/types/carbonmark";
+import type { AssetForRetirement, PcbProject } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -20,7 +20,7 @@ import { RetirementSidebar } from "./RetirementSidebar";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
-  project: Project;
+  project: PcbProject;
   translation: Messages;
   fixedThemeName: string;
 };

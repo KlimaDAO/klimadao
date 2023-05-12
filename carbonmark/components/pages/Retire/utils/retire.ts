@@ -87,19 +87,15 @@ export const retireProjectTokenTransaction = async (params: {
       provider: params.signer,
     });
 
-    console.log("params", utils.parseUnits(params.quantity, 6).toString());
     const method = params.symbol.startsWith("TCO2")
       ? "toucanRetireExactTCO2"
       : "c3RetireExactC3T";
 
     params.onStatus("userConfirmation");
 
-    console.log("args", args);
-
     const newRetirementIndex: BigNumber = await aggregator.callStatic[method](
       ...args
     );
-    console.log("newRetirementIndex", newRetirementIndex);
 
     const txn = await aggregator[method](...args);
     params.onStatus("networkConfirmation");

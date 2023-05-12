@@ -22,7 +22,7 @@ import {
   Asset,
   AssetForListing,
   AssetForRetirement,
-  Project,
+  PcbProject,
 } from "lib/types/carbonmark";
 import {
   getCategoryFromProject,
@@ -313,7 +313,7 @@ export const addProjectsToAssets = async (params: {
 
 interface CompositeAssetParams {
   asset: Asset;
-  project: Project;
+  project: PcbProject;
 }
 
 export const createCompositeAsset = (
