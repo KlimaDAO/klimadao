@@ -1,5 +1,5 @@
 import { Trans } from "@lingui/macro";
-import { AppNotificationStatus } from "lib/types/carbonmark";
+import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, ReactNode, useState } from "react";
 
 import { Modal } from "components/Modal";
@@ -17,7 +17,7 @@ interface Props {
   onCloseModal: () => void;
   onApproval: () => void;
   onSubmit: () => void;
-  status: AppNotificationStatus | null;
+  status: TransactionStatusMessage | null;
   onResetStatus: () => void;
   isApproved: boolean;
 }
@@ -28,6 +28,7 @@ export const RetireModal: FC<Props> = (props) => {
   );
 
   const statusType = props.status?.statusType;
+
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
 
@@ -61,7 +62,7 @@ export const RetireModal: FC<Props> = (props) => {
         {view === "approve" && (
           <Approve
             value={props.approvalValue || props.value}
-            tokenIcon={props.tokenIcon}
+            // tokenIcon={props.tokenIcon}
             tokenName={props.tokenName}
             spenderAddress={props.spenderAddress}
             onApproval={props.onApproval}

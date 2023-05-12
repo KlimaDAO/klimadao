@@ -4,25 +4,23 @@ import { FC } from "react";
 
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
-import { getStatusMessage } from "lib/statusMessage";
-// import { AppNotificationStatus } from "state/app";
+import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { HighlightValue } from "./HighlightValue";
-
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
-import { StaticImageData } from "next/image";
+import { HighlightValue } from "./HighlightValue";
+// import { StaticImageData } from "next/image";
 import * as styles from "./styles";
 
 interface Props {
   value: string;
-  tokenIcon: StaticImageData;
+  // tokenIcon: StaticImageData;
   tokenName: string;
   spenderAddress: string;
   onSubmit: () => void;
   onClose: () => void;
-  status: true | null;
+  status: TransactionStatusMessage | null;
 }
 
 export const Submit: FC<Props> = (props) => {
@@ -66,7 +64,7 @@ export const Submit: FC<Props> = (props) => {
             </Text>
           }
           value={props.value || "0"}
-          icon={props.tokenIcon}
+          // icon={props.tokenIcon}
           iconName={props.tokenName}
         />
       </div>

@@ -1,5 +1,5 @@
 import { BigNumber, providers } from "ethers";
-import { TxnStatus } from "lib/types/carbonmark";
+import { TxnStatus } from "lib/statusMessage";
 import { Dispatch } from "react";
 
 // Retire transaction preparation
@@ -10,7 +10,7 @@ export interface RetireCarbonTransactionProps {
   beneficiaryAddress: string;
   beneficiaryName: string;
   retirementMessage: string;
-  onStatus: (statusType: TxnStatus | null, message?: string) => void;
+  onStatus: (status: TxnStatus, message?: string | undefined) => void;
   retirementToken: string;
   tokenSymbol: string;
   projectAddress: string;
