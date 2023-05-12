@@ -17,7 +17,13 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
     region,
     registry,
     url,
-    registryProjectId
+    registryProjectId,
+    "projectContent": *[references(^._id)]{
+      images[]{
+        caption,
+        'url': asset->url
+      }
+    }
   }`
 
   const fetchAllProjects = groq`
