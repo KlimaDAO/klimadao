@@ -1,7 +1,7 @@
 import { store } from '@graphprotocol/graph-ts'
-import { ZERO_ADDRESS } from '../../lib/utils/Constants'
+import { MCO2_ERC20_CONTRACT, ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { Transfer } from '../generated/BCT/ERC20'
-import { loadCarbonOffset } from './utils/CarbonOffset'
+import { loadCarbonOffset, loadOrCreateCarbonOffset } from './utils/CarbonOffset'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { loadOrCreateHolding } from './utils/Holding'
 import { ZERO_BI } from '../../lib/utils/Decimals'
@@ -10,6 +10,7 @@ import { saveToucanRetirement, saveToucanRetirement_1_4_0 } from './RetirementHa
 import { saveBridge } from './utils/Bridge'
 
 export function handleOffsetTransfer(event: Transfer): void {
+  if (event.address == MCO2_ERC20_CONTRACT) loadOrCreateCarbonOffset(MCO2_ERC20_CONTRACT, 'MOSS')
   let offset = loadCarbonOffset(event.address)
 
   if (event.params.from == ZERO_ADDRESS) {

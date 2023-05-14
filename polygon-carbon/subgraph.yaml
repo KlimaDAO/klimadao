@@ -80,7 +80,7 @@ dataSources:
           handler: handleRedeemed
         # - event: Transfer(indexed address,indexed address,uint256)
         #   handler: handleTransfer
-  # Toucan cross chain bridge
+  # Toucan cross chain bridges
   - kind: ethereum/contract
     name: ToucanCrossChainMessenger
     network: matic
@@ -112,6 +112,30 @@ dataSources:
         - event: BridgeRequestSent(uint32,indexed uint32,indexed address,address,indexed address,uint256,uint256,bytes32)
           handler: handleBridgeRequestSent_1_1_0
   - kind: ethereum/contract
+    name: ToucanRegenBridge
+    network: matic
+    source:
+      address: '0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC'
+      abi: ToucanRegenBridge
+      startBlock: 40568139
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCrossChainMessengerHandler.ts
+      entities:
+        - ToucanCrossChainMessenger
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: ToucanRegenBridge
+          file: ../lib/abis/ToucanRegenBridge.json
+      eventHandlers:
+        - event: Bridge(address,string,address,uint256)
+          handler: handleToucanRegenBridge
+        - event: Issue(string,address,address,uint256,string)
+          handler: handleToucanRegenIssue
+  - kind: ethereum/contract
     name: MossCarbon
     network: matic
     source:
@@ -130,7 +154,7 @@ dataSources:
           file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handlePoolTransfer
+          handler: handleOffsetTransfer
   - kind: ethereum/contract
     name: MossCarbonOffset
     network: matic

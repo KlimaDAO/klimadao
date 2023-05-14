@@ -4,6 +4,7 @@ import {
   BridgeRequestSent,
   BridgeRequestSent1 as BridgeRequestSent_1_1_0,
 } from '../generated/ToucanCrossChainMessenger/ToucanCrossChainMessenger'
+import { Bridge, Issue } from '../generated/ToucanRegenBridge/ToucanRegenBridge'
 import { ZERO_BI } from '../../lib/utils/Decimals'
 import { saveCrossChainOffsetBridge, saveCrossChainPoolBridge } from './utils/CrosschainBridge'
 import { updateCarbonOffsetCrossChain } from './utils/CarbonOffset'
@@ -67,6 +68,30 @@ export function handleBridgeRequestSent_1_1_0(event: BridgeRequestSent_1_1_0): v
   )
 }
 
+export function handleToucanRegenBridge(event: Bridge): void {
+  processBridgeRequest(
+    event.params.tco2,
+    event.params.amount,
+    event.transaction.hash,
+    event.transactionLogIndex.toI32(),
+    event.params.sender,
+    'SENT',
+    event.block.timestamp
+  )
+}
+
+export function handleToucanRegenIssue(event: Issue): void {
+  processBridgeRequest(
+    event.params.tco2,
+    event.params.amount,
+    event.transaction.hash,
+    event.transactionLogIndex.toI32(),
+    event.params.recipient,
+    'RECEIVED',
+    event.block.timestamp
+  )
+}
+
 function processBridgeRequest(
   token: Address,
   amount: BigInt,
@@ -84,12 +109,12 @@ function processBridgeRequest(
   if (offset == null) {
     // We are briding a pool token
 
-    updateCarbonPoolCrossChain(token, amount)
+    updateCarbonPoolCrossChain(token, direction == 'SENT' ? amount : ZERO_BI.minus(amount))
     saveCrossChainPoolBridge(hash.concatI32(logIndex), hash, token, amount, bridger, direction, timestamp)
   } else {
     // We are briding an offset token
 
-    updateCarbonOffsetCrossChain(token, amount)
+    updateCarbonOffsetCrossChain(token, direction == 'SENT' ? amount : ZERO_BI.minus(amount))
     saveCrossChainOffsetBridge(hash.concatI32(logIndex), hash, token, amount, bridger, direction, timestamp)
   }
 }
