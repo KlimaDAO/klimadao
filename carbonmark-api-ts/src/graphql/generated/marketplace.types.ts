@@ -1357,6 +1357,13 @@ export type GetPurchasesByIdQueryVariables = Exact<{
 
 export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: any, price: any, timeStamp: any, listing: { __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, methodology: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
 
+export type GetUserByWalletQueryVariables = Exact<{
+  wallet?: InputMaybe<Scalars['Bytes']>;
+}>;
+
+
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, project: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null }, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: any | null, previousAmount?: any | null, price?: any | null, previousPrice?: any | null, timeStamp?: any | null, activityType: ActivityType, project?: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null, purchases?: Array<{ __typename?: 'Purchase', id: any }> | null }> };
+
 
 export const GetCategoriesDocument = gql`
     query getCategories {
@@ -1425,6 +1432,72 @@ export const GetPurchasesByIdDocument = gql`
   }
 }
     `;
+export const GetUserByWalletDocument = gql`
+    query getUserByWallet($wallet: Bytes) {
+  users(where: {id: $wallet}) {
+    listings {
+      id
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      batches
+      batchPrices
+      singleUnitPrice
+      createdAt
+      updatedAt
+      project {
+        name
+        category {
+          id
+        }
+        id
+        key
+        projectID
+        methodology
+        vintage
+        projectAddress
+        registry
+      }
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      amount
+      previousAmount
+      price
+      previousPrice
+      timeStamp
+      activityType
+      project {
+        name
+        category {
+          id
+        }
+        id
+        key
+        projectID
+        methodology
+        vintage
+        projectAddress
+        registry
+      }
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
+    }
+    purchases {
+      id
+    }
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -1439,6 +1512,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     getPurchasesById(variables?: GetPurchasesByIdQueryVariables, options?: C): Promise<GetPurchasesByIdQuery> {
       return requester<GetPurchasesByIdQuery, GetPurchasesByIdQueryVariables>(GetPurchasesByIdDocument, variables, options) as Promise<GetPurchasesByIdQuery>;
+    },
+    getUserByWallet(variables?: GetUserByWalletQueryVariables, options?: C): Promise<GetUserByWalletQuery> {
+      return requester<GetUserByWalletQuery, GetUserByWalletQueryVariables>(GetUserByWalletDocument, variables, options) as Promise<GetUserByWalletQuery>;
     }
   };
 }

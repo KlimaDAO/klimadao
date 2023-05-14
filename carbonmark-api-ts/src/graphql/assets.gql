@@ -1,0 +1,14 @@
+query getHoldingsByWallet($wallet: Bytes) {
+  accounts(where: { id: $wallet }) {
+    holdings {
+      id
+      token {
+        id
+        name
+        symbol
+        decimals
+      }
+      amount
+    }
+  }
+}

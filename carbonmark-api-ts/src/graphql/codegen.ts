@@ -25,7 +25,7 @@ const config: CodegenConfig = {
         "typescript-operations",
         "typescript-generic-sdk",
       ],
-      documents: "src/graphql/polygon-bridged-carbon.gql",
+      documents: "src/graphql/offsets.gql",
     },
   },
 };
