@@ -5,6 +5,10 @@ import {
   FastifyRequest,
 } from "fastify";
 import {
+  GetHoldingsByWalletDocument,
+  GetHoldingsByWalletQuery,
+} from "../../graphql/generated/carbon-holdings.types";
+import {
   GetUserByWalletDocument,
   GetUserByWalletQuery,
 } from "../../graphql/generated/marketplace.types";
@@ -122,17 +126,18 @@ const handler = (fastify: FastifyInstance) =>
       response.activities = [];
     }
 
-    // const assetsData = await executeGraphQLQuery(
-    //   process.env.ASSETS_GRAPH_API_URL,
-    //   GET_USER_ASSETS,
-    //   { wallet }
-    // );
+    const assetsData = await executeGraphQLQuery<GetHoldingsByWalletQuery>(
+      process.env.ASSETS_GRAPH_API_URL,
+      GetHoldingsByWalletDocument,
+      { wallet }
+    );
 
-    // if (assetsData.data.accounts.length) {
-    //   response.assets = assetsData.data.accounts[0].holdings;
-    // } else {
-    //   response.assets = [];
-    // }
+    if (assetsData.data.accounts.length) {
+      response.assets = assetsData.data.accounts[0].holdings;
+    } else {
+      response.assets = [];
+    }
+
     // Return the response object
     return reply.send(response);
   };
