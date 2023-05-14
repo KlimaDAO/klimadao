@@ -14,7 +14,7 @@ export const section = css`
 export const retirementFooter = css`
   grid-column: main;
   display: grid;
-  gap: 2.8rem;
+  gap: 0.8rem;
 `;
 
 export const footerContent = css`

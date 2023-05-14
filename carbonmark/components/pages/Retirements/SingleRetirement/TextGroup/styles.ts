@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 export const textGroup = css`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 
   .address {
     word-break: break-all;

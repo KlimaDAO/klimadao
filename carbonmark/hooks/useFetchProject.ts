@@ -12,6 +12,5 @@ export const useFetchProject = (
     fetcher,
     options
   );
-
   return { project, ...rest };
 };

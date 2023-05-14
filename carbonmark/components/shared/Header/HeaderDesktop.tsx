@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 import { CarbonmarkLogoFull } from "components/Logos/CarbonmarkLogoFull";
+import { useRouter } from "next/router";
 import { PageName } from "../Navigation";
 
 interface Props {
@@ -14,10 +15,12 @@ interface Props {
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
+  const { pathname } = useRouter();
   return (
     <header
       className={
-        props.transparent
+        props.transparent ||
+        pathname === "/retirements/[beneficiary]/[retirement_index]"
           ? styles.headerTransparentDesktop
           : styles.headerDesktop
       }

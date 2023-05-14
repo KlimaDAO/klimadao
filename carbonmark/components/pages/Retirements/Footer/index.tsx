@@ -1,39 +1,24 @@
-import { Text } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
+import { Text } from "components/Text";
 import { FC } from "react";
 import * as styles from "./styles";
 
-export const RetirementFooter: FC = () => {
-  return (
-    <div className={styles.retirementFooter}>
-      <Text t="caption" align="center" color="lightest" uppercase>
-        <Trans id="retirement.footer.aboutCarbonmark.title">
-          About Carbonmark
+export const RetirementFooter: FC = () => (
+  <div className={styles.retirementFooter}>
+    <Text t="button" color="lightest" uppercase style={{ color: "#8B8FAE" }}>
+      <Trans id="retirement.footer.aboutCarbonmark.title">
+        About Carbonmark
+      </Trans>
+    </Text>
+    <div className={styles.footerContent}>
+      <Text color="lightest">
+        <Trans id="retirement.footer.aboutCarbonmark.left">
+          With over 20 million verified digital carbon credits from hundreds of
+          projects, Carbonmark offers the largest selection of digital carbon
+          credits worldwide. Buy, sell, and retire digital carbon from any
+          project instantly with zero-commission trading. Get started today.
         </Trans>
       </Text>
-      <div className={styles.footerContent}>
-        <div className="column">
-          <Text>
-            <Trans id="retirement.footer.aboutCarbonmark.left">
-              Carbonmark is an all-in-one platform for the carbon markets. With
-              millions of carbon credits available, the platform allows users to
-              quickly list, acquire and offset Digital Carbon Credits with no
-              additional fees.
-            </Trans>
-          </Text>
-        </div>
-        <div className="column">
-          <Text>
-            <Trans id="retirement.footer.aboutCarbonmark.right">
-              Carbonmark aims to reduce barriers to entry to the Digital Carbon
-              Market, and empower market participants to better interact with
-              one another. Learn more on our{" "}
-              <a href={urls.resourcesCarbonmark}>resources</a> page.
-            </Trans>
-          </Text>
-        </div>
-      </div>
     </div>
-  );
-};
+  </div>
+);

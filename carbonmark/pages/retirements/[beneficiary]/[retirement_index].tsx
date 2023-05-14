@@ -22,7 +22,7 @@ interface Params extends ParsedUrlQuery {
 export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire;
+  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo remove any and fix types
   retirementIndex: Params["retirement_index"];
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */

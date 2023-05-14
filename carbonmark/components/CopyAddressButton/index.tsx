@@ -34,6 +34,7 @@ export const CopyAddressButton: FC<Props> = (props) => {
       icon={copied ? <Check /> : <ContentCopy />}
       onClick={() => cachedAddress && doCopy(cachedAddress)}
       iconPos="suffix"
+      shape="circle"
     />
   );
 };
