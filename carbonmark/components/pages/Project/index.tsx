@@ -29,8 +29,8 @@ import {
   CategoryName,
   Methodology,
   PriceFlagged,
-  ProjectBuyOption,
   Project as ProjectType,
+  ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
@@ -47,15 +47,6 @@ export type PageProps = {
 
 const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
   (option as PriceFlagged).isPoolProject !== undefined;
-
-const images = [
-  "https://placehold.co/680x500?font=roboto&text=Slide+1",
-  "https://placehold.co/680x500?font=roboto&text=Slide+2",
-  "https://placehold.co/680x500?font=roboto&text=Slide+3",
-  "https://placehold.co/680x500?font=roboto&text=Slide+4",
-  "https://placehold.co/680x500?font=roboto&text=Slide+5",
-  "https://placehold.co/680x500?font=roboto&text=Slide+6",
-];
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
@@ -190,24 +181,31 @@ const Page: NextPage<PageProps> = (props) => {
             hasMap: !!project.location,
           })}
         >
-          <div style={{
-            gridArea: 'map',
-            height: '100%',
-            minWidth: '100%',
-            width: '100%',
-          }}>
-            <div style={{ display: 'grid', gridColumn: '1/3' }}>
-              <Carousel options={{ loop: true }} images={images} />
+          {project.images.length ? (
+            <div
+              style={{
+                gridArea: "map",
+                height: "100%",
+                minWidth: "100%",
+                width: "100%",
+              }}
+            >
+              <div style={{ display: "grid", gridColumn: "1/3" }}>
+                <Carousel options={{ loop: true }} images={project?.images} />
+              </div>
             </div>
-          </div>
-          {project.location && (
-            <div className="mapColumn">
-              <ProjectMap
-                lat={project.location?.geometry.coordinates[1]}
-                lng={project.location?.geometry.coordinates[0]}
-                zoom={5}
-              />
-            </div>
+          ) : (
+            <>
+              {project.location && (
+                <div className="mapColumn">
+                  <ProjectMap
+                    lat={project.location?.geometry.coordinates[1]}
+                    lng={project.location?.geometry.coordinates[0]}
+                    zoom={5}
+                  />
+                </div>
+              )}
+            </>
           )}
           <div className="descriptionColumn">
             <div className="description">

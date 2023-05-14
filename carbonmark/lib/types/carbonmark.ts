@@ -7,6 +7,7 @@ export interface Project {
   name: string | "";
   methodologies: Array<Methodology>;
   vintage: string;
+  images: any;
   projectAddress: string;
   registry: string;
   listings: Listing[] | null;

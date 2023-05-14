@@ -78,7 +78,7 @@ module.exports = async (phase, { defaultConfig }) => {
       localeDetection: false,
     },
     images: {
-      domains: ["placehold.co", "cdn.sanity.io"],
+      domains: ["cdn.sanity.io"],
       deviceSizes,
     },
     experimental: {

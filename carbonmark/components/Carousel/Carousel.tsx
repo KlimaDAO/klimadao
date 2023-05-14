@@ -60,9 +60,9 @@ const Carousel: React.FC<PropType> = (props) => {
     <div className={styles.carousel}>
       <div ref={mainRef} className={styles.viewport}>
         <div className={styles.container}>
-          {props.images.map((image: any, index: any) => (
+          {props?.images?.map((image: any, index: any) => (
             <div className={styles.slide} key={index}>
-              <img src={image} className={styles.slideImg} alt="alt" />
+              <img src={image.url} className={styles.slideImg} alt="alt" />
             </div>
           ))}
         </div>
@@ -70,11 +70,11 @@ const Carousel: React.FC<PropType> = (props) => {
       <div className={styles.thumbs}>
         <div ref={thumbsRef} className={styles.thumbsViewport}>
           <div className={styles.thumbsContainer}>
-            {props.images.map((image: any, index: any) => (
+            {props?.images?.map((image: any, index: any) => (
               <Thumb
                 key={index}
-                totalLength={props.images.length}
-                imgSrc={image}
+                totalLength={props?.images?.length}
+                imgSrc={image.url}
                 onClick={() => onThumbClick(index)}
                 selected={index === selectedIndex}
               />
