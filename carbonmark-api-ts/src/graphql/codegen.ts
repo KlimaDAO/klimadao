@@ -25,7 +25,17 @@ const config: CodegenConfig = {
         "typescript-operations",
         "typescript-generic-sdk",
       ],
-      documents: "src/graphql/offsets.gql",
+      documents: "src/graphql/bridged-carbon.gql",
+    },
+    "src/graphql/generated/carbon-holdings.types.ts": {
+      schema:
+        "https://api.thegraph.com/subgraphs/name/cujowolf/polygon-carbon-holdings-mumbai",
+      plugins: [
+        "typescript",
+        "typescript-operations",
+        "typescript-generic-sdk",
+      ],
+      documents: "src/graphql/carbon-holdings.gql",
     },
   },
 };
