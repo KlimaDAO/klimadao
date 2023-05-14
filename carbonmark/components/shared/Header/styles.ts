@@ -18,10 +18,6 @@ export const headerDesktop = css`
   }
 `;
 
-export const lightBackground = css`
-  background: transparent;
-`;
-
 export const menuDesktop = css`
   display: grid;
   grid-column: main;
