@@ -7,11 +7,11 @@ export type CategoryType = Static<typeof Category>;
 
 const schema = {
   response: {
-    200: Type.Array(Category),
+    "2xx": Type.Array(Category),
   },
 };
 
-const categories: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+const categories: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.get("/categories", { schema }, async (request, reply) => {
     const categories = await getAllCategories(fastify);
     return reply.status(200).send(categories);

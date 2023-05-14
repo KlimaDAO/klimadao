@@ -1,5 +1,5 @@
 // purchases.ts
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
 import {
   GetPurchasesByIdDocument,
   GetPurchasesByIdQuery,
@@ -23,10 +23,8 @@ async function handler(
   return reply.send(JSON.stringify(data?.purchases[0]));
 }
 
-export default async function (fastify: FastifyInstance): Promise<void> {
-  fastify.route({
-    method: "GET",
-    url: "/purchases/:id",
-    handler,
-  });
-}
+const purchases: FastifyPluginAsync = async (fastify): Promise<void> => {
+  fastify.get("/purchases/:id", handler);
+};
+
+export default purchases;

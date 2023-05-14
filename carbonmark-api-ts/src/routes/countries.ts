@@ -9,7 +9,7 @@ export type CategoryType = Static<typeof Country>;
 
 const schema = {
   response: {
-    200: Type.Array(Country),
+    "2xx": Type.Array(Country),
   },
 };
 
