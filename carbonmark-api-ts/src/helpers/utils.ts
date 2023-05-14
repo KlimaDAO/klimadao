@@ -2,18 +2,22 @@ import { FastifyInstance } from "fastify";
 import { concat } from "lodash";
 import { flatten, map, pipe, split, trim, uniq, uniqBy } from "lodash/fp";
 import {
-  CarbonOffset,
   GetCarbonOffsetsCategoriesDocument,
+  GetCarbonOffsetsCategoriesQuery,
   GetCarbonOffsetsCountriesDocument,
+  GetCarbonOffsetsCountriesQuery,
   GetCarbonOffsetsVintagesDocument,
+  GetCarbonOffsetsVintagesQuery,
 } from "../graphql/generated/carbon.types";
 import {
   Category,
   Country,
   GetCategoriesDocument,
+  GetCategoriesQuery,
   GetCountriesDocument,
+  GetCountriesQuery,
   GetVintagesDocument,
-  Project,
+  GetVintagesQuery,
 } from "../graphql/generated/marketplace.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 import { extract } from "../utils/functional.utils";
@@ -27,7 +31,7 @@ export async function getAllVintages(fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const { data } = await executeGraphQLQuery<{ projects: Project[] }>(
+  const { data } = await executeGraphQLQuery<GetVintagesQuery>(
     process.env.GRAPH_API_URL,
     GetVintagesDocument
   );
@@ -36,9 +40,7 @@ export async function getAllVintages(fastify: FastifyInstance) {
 
   data.projects.forEach((item) => uniqueValues.add(item.vintage));
 
-  const pooldata = await executeGraphQLQuery<{
-    carbonOffsets: CarbonOffset[];
-  }>(
+  const pooldata = await executeGraphQLQuery<GetCarbonOffsetsVintagesQuery>(
     process.env.CARBON_OFFSETS_GRAPH_API_URL,
     GetCarbonOffsetsVintagesDocument
   );
@@ -68,14 +70,14 @@ export async function getAllCategories(fastify: FastifyInstance) {
   // Fetch categories from the marketplace
   const {
     data: { categories },
-  } = await executeGraphQLQuery<{ categories: Category[] }>(
+  } = await executeGraphQLQuery<GetCategoriesQuery>(
     process.env.GRAPH_API_URL,
     GetCategoriesDocument
   );
   // Fetch carbon offsets categories
   const {
     data: { carbonOffsets },
-  } = await executeGraphQLQuery<{ carbonOffsets: CarbonOffset[] }>(
+  } = await executeGraphQLQuery<GetCarbonOffsetsCategoriesQuery>(
     process.env.CARBON_OFFSETS_GRAPH_API_URL,
     GetCarbonOffsetsCategoriesDocument
   );
@@ -116,18 +118,18 @@ export async function getAllCountries(fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const marketplaceCountries = await executeGraphQLQuery<{
-    countries: Country[];
-  }>(process.env.GRAPH_API_URL, GetCountriesDocument);
-
-  const offsetsCountries = await executeGraphQLQuery<{
-    carbonOffsets: CarbonOffset[];
-  }>(
-    process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    GetCarbonOffsetsCountriesDocument
-  ).then(({ data }) =>
-    data.carbonOffsets.map(({ country }) => ({ id: country }))
+  const marketplaceCountries = await executeGraphQLQuery<GetCountriesQuery>(
+    process.env.GRAPH_API_URL,
+    GetCountriesDocument
   );
+
+  const offsetsCountries =
+    await executeGraphQLQuery<GetCarbonOffsetsCountriesQuery>(
+      process.env.CARBON_OFFSETS_GRAPH_API_URL,
+      GetCarbonOffsetsCountriesDocument
+    ).then(({ data }) =>
+      data.carbonOffsets.map(({ country }) => ({ id: country }))
+    );
 
   const fn = pipe(concat, flatten, uniqBy("id"));
 
