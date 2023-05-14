@@ -26,6 +26,7 @@
     "@fastify/jwt": "^6.7.1",
     "@fastify/response-validation": "^2.3.1",
     "@fastify/sensible": "^5.0.0",
+    "@fastify/session": "^10.3.0",
     "@fastify/swagger": "^8.3.1",
     "@fastify/type-provider-typebox": "^3.1.0",
     "@mgcrea/fastify-session": "^1.1.0",
@@ -36,7 +37,8 @@
     "fastify-lcache": "^1.1.1",
     "fastify-plugin": "^4.0.0",
     "firebase-admin": "^11.7.0",
-    "graphql": "^16.6.0"
+    "ethers": "^5.7.2",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
