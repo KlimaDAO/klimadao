@@ -14,7 +14,7 @@ import {
 } from "../../graphql/generated/marketplace.types";
 import { executeGraphQLQuery } from "../../utils/apollo-client";
 interface Params {
-  userIdentifier: string;
+  walletOrHandle: string;
 }
 
 interface Querystring {
@@ -53,7 +53,7 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // Destructure the userIdentifier parameter from the request object
-    const { userIdentifier } = request.params;
+    const { walletOrHandle } = request.params;
     // Destructure the type query parameter from the request object
     var { type } = request.query;
 
@@ -64,7 +64,7 @@ const handler = (fastify: FastifyInstance) =>
       user = await fastify.firebase
         .firestore()
         .collection("users")
-        .doc(userIdentifier.toUpperCase())
+        .doc(walletOrHandle.toUpperCase())
         .get();
       // If the document doesn't exist, return a 404 error
       if (!user.exists) {
@@ -75,7 +75,7 @@ const handler = (fastify: FastifyInstance) =>
       let usersRef = fastify.firebase.firestore().collection("users");
       //const users = await usersRef.where('handle', '==', userIdentifier).get();
       const userSnapshot = await usersRef
-        .where("handle", "==", userIdentifier.toLowerCase())
+        .where("handle", "==", walletOrHandle.toLowerCase())
         .limit(1)
         .get();
       // If no documents are found, return a 404 error
@@ -143,7 +143,7 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 const get: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/users/:userIdentifier", { schema }, handler(fastify));
+  fastify.get("/users/:walletOrHandle", { schema }, handler(fastify));
 };
 
 export default get;

@@ -10,6 +10,8 @@ const schema = {
   body: {
     type: "object",
     properties: {
+      //@todo update to hash length
+      wallet: { type: "string", minLength: 3 },
       handle: { type: "string", minLength: 3 },
       username: { type: "string", minLength: 2 },
       description: { type: "string", minLength: 2, maxLength: 500 },
