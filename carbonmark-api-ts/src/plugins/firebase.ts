@@ -1,11 +1,10 @@
-"use strict";
-
+import fb from "@now-ims/fastify-firebase";
 import fp from "fastify-plugin";
-const fb = require("@now-ims/fastify-firebase");
-const admin = require("firebase-admin");
+import * as admin from "firebase-admin";
 
 // Read the .env file.
-require("dotenv").config({ path: "../.env.local" });
+import * as dotenv from "dotenv";
+dotenv.config({ path: "../.env.local" });
 
 /**
  * This plugin adds the Firebase Admin SDK to Fastify
@@ -21,3 +20,9 @@ module.exports = fp(async function (fastify) {
     cert: admin.credential.cert(JSON.parse(process.env.FIREBASE_ADMIN_CERT)),
   });
 });
+
+declare module "fastify" {
+  export interface FastifyInstance {
+    firebase: admin.app.App;
+  }
+}
