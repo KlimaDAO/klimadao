@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-11 17:48+0000\n"
+"POT-Creation-Date: 2023-05-15 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,7 +97,7 @@ msgstr "Sélectionnez le réservoir de carbone"
 
 #: components/views/Offset/index.tsx:685
 msgid "Select carbon token to retire"
-msgstr "Sélectionnez le jeton carbone de compensation"
+msgstr "Sélectionnez le jeton carbone à retirer du marché"
 
 #: components/views/Offset/index.tsx:686
 msgid "Select token"
@@ -367,7 +367,7 @@ msgstr "<0>app.klimadao.finance</0> est le seul domaine officiel."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
-msgstr "⚠️ Vérifiez l'URL et mettez cette page en signet !"
+msgstr "⚠️ Vérifiez l'URL et mettez cette page dans vos favoris !"
 
 #: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
@@ -638,11 +638,11 @@ msgstr "Entrez la quantité à compenser"
 
 #: components/views/Offset/index.tsx:940
 msgid "offset.retire_carbon"
-msgstr "Compenser des émissions Carbone"
+msgstr "Retirer du marché des crédits Carbone"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific"
-msgstr "Compenser spécifiquement les jetons d'un projet (facultatif)"
+msgstr "Retirer du marché spécifiquement les jetons d'un projet (facultatif)"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:62
 msgid "offset.retire_specific_tooltip"
@@ -650,15 +650,15 @@ msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et
 
 #: components/views/Offset/index.tsx:790
 msgid "offset.retirement_credit"
-msgstr "A qui cette compensation carbone sera-t-elle créditée ?"
+msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
 
 #: components/views/Offset/index.tsx:824
 msgid "offset.retirement_message"
-msgstr "Message de compensation carbone"
+msgstr "Message de retrait du marché"
 
 #: components/views/Offset/index.tsx:833
 msgid "offset.retirement_purpose"
-msgstr "Décrivez le but de cette compensation"
+msgstr "Décrivez le but de ce retrait du marché"
 
 #: components/views/Offset/index.tsx:878
 msgid "offset.retiring"
@@ -722,7 +722,7 @@ msgstr "Tonnes disponibles : {0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:112
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr "Autoriser le projet par défaut du pool à être compensé. Cette option permet d'éviter de payer des frais supplémentaires."
+msgstr "Autoriser le projet par défaut du pool à être retirer du marché. Cette option permet d'éviter de payer des frais supplémentaires."
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:89
 msgid "offset.selectiveRetirement.search_input_type"
@@ -746,7 +746,7 @@ msgstr "Un grand merci. En participant au marché volontaire du carbone, vous re
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:35
 msgid "offset.successModal.body2"
-msgstr "Cliquez sur le bouton ci-dessous pour afficher votre retrait. Pensez à partager la page pour nous soutenir dans notre cheminement vers un marché du carbone plus transparent, plus accessible et plus rémunérateur !"
+msgstr "Cliquez sur le bouton ci-dessous pour afficher votre retrait de marché. Pensez à partager la page pour nous soutenir dans notre cheminement vers un marché du carbone plus transparent, plus accessible et plus rémunérateur !"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:47
 msgid "offset.successModal.cta"
@@ -754,7 +754,7 @@ msgstr "VOIR MON RETRAIT"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:16
 msgid "offset.successModal.title"
-msgstr "Compensation réussi !"
+msgstr "Retrait du marché réussi !"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:33
 msgid "offset.tonnes_of_carbon_retired"
@@ -762,11 +762,11 @@ msgstr "Tonnes de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:51
 msgid "offset.view_retirements"
-msgstr "Voir les Compensations"
+msgstr "Voir les Retraits du marché"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:24
 msgid "offset.you_have_retired"
-msgstr "Vous avez compensé"
+msgstr "Vous avez retiré du marché"
 
 #: components/views/Offset/index.tsx:844
 #: components/views/Redeem/index.tsx:437
@@ -843,7 +843,7 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en 
 
 #: components/views/Redeem/index.tsx:364
 msgid "redeem.description"
-msgstr "Acquérir des jetons pour un projet de compensation carbone spécifique. Les jetons du projet seront rachetés auprès d'un pool de carbone et transférés dans votre portefeuille, afin que vous puissiez les échanger ou les compenser plus tard."
+msgstr "Acquérir des jetons pour un projet de compensation carbone spécifique. Les jetons du projet seront rachetés auprès d'un pool de carbone et transférés dans votre portefeuille, afin que vous puissiez les échanger ou les retirer du marché plus tard."
 
 #: components/views/errors/Custom404.tsx:16
 msgid "shared.404"
@@ -899,7 +899,7 @@ msgstr "ENTRER LE MONTANT"
 
 #: components/views/Offset/index.tsx:489
 msgid "shared.enter_retirement_message"
-msgstr "Entrez le message de compensation"
+msgstr "Entrez le message de retrait du marché"
 
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
@@ -971,7 +971,7 @@ msgstr "Redirection vers la paiement..."
 
 #: components/views/Offset/index.tsx:547
 msgid "shared.retire"
-msgstr "Compenser des émissions carbone"
+msgstr "Retirer du marché des crédits carbone"
 
 #: components/views/Bond/index.tsx:405
 msgid "shared.sold_out"
@@ -1021,7 +1021,7 @@ msgstr "Montant à mettre en jeu"
 
 #: components/views/Stake/index.tsx:58
 msgid "stake.inputplaceholder.unstake"
-msgstr "Montant à retirer"
+msgstr "Montant de la mise à enlever"
 
 #: components/views/Stake/index.tsx:316
 msgid "stake.lifi"
@@ -1059,12 +1059,12 @@ msgstr "Mettre en jeu des KLIMA"
 
 #: components/views/Stake/index.tsx:348
 msgid "stake.unstake"
-msgstr "Retirer"
+msgstr "Enlever sa mise"
 
 #: components/views/Stake/index.tsx:269
 #: components/views/Stake/index.tsx:474
 msgid "stake.unstake_klima"
-msgstr "Retirer KLIMA"
+msgstr "Enlever sa mise de KLIMA"
 
 #: actions/utils.ts:32
 msgid "status.done"
