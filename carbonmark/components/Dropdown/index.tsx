@@ -29,7 +29,9 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   const defaultOption = options.find(({ id }) => id === initial) ?? options[0];
   const [selected, setSelected] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen((current) => !current);
+
+  const disableToggle = options.length <= 1;
+  const toggle = () => !disableToggle && setIsOpen((current) => !current);
   const close = () => setIsOpen(false);
 
   // always close dropdown if label changed
@@ -53,6 +55,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
             ))}
           </div>
         }
+        disabled={disableToggle}
         arrow={false}
         interactive={true}
         onClickOutside={toggle}
@@ -75,14 +78,14 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
           onClick={toggle}
           role="button"
           type="button"
-          className={styles.dropdownHeader}
+          className={cx(styles.dropdownHeader, { disableToggle })}
         >
           {renderLabel(selected)}
           {isOpen ? (
             <ArrowDropUpIcon fontSize="large" />
-          ) : (
+          ) : !disableToggle ? (
             <ArrowDropDownIcon fontSize="large" />
-          )}
+          ) : null}
         </button>
       </Tippy>
     </div>

@@ -18,6 +18,12 @@ export const dropdownHeader = css`
   svg {
     fill: var(--blue-yellow);
   }
+
+  &.disableToggle {
+    &:hover {
+      cursor: default;
+    }
+  }
 `;
 
 export const tippyContainer = css`
