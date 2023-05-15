@@ -1,4 +1,4 @@
-import { useWeb3 } from "@klimadao/lib/utils";
+import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
@@ -8,6 +8,7 @@ import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Listing, Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
@@ -15,10 +16,11 @@ import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Price } from "./Price";
 import { ProjectHeader } from "./ProjectHeader";
-import { FormValues, PurchaseInputs } from "./PurchaseInputs";
+import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
 import * as styles from "./styles";
-
+import { TotalValues } from "./TotalValues";
+import { FormValues } from "./types";
 export interface Props {
   project: Project;
   listing: Listing;
@@ -140,6 +142,11 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
+  const singleUnitPrice = formatUnits(
+    props.listing.singleUnitPrice,
+    getTokenDecimals("usdc")
+  );
+
   return (
     <FormProvider {...methods}>
       <TwoColLayout>
@@ -160,7 +167,11 @@ export const PurchaseForm: FC<Props> = (props) => {
             </div>
           </Card>
         </Col>
-        {/* <Col></Col> */}
+        <Col>
+          <Card>
+            <TotalValues singlePrice={singleUnitPrice} />
+          </Card>
+        </Col>
       </TwoColLayout>
 
       <PurchaseModal

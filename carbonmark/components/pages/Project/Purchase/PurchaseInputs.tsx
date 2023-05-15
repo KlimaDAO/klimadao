@@ -8,67 +8,17 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getUSDCBalance } from "lib/actions";
-import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import {
-  Control,
-  SubmitHandler,
-  useFormContext,
-  useWatch,
-} from "react-hook-form";
+import { SubmitHandler, useFormContext } from "react-hook-form";
 import * as styles from "./styles";
-
-type TotalValueProps = {
-  control: Control<FormValues>;
-  singlePrice: string;
-  setValue: (field: "price", value: string) => void;
-  errorMessage?: string;
-};
-
-const TotalValue: FC<TotalValueProps> = (props) => {
-  const { locale } = useRouter();
-  const amount = useWatch({ name: "amount", control: props.control });
-  const price = Number(props.singlePrice) * Number(amount);
-  const totalPrice = price + price * CARBONMARK_FEE || 0;
-  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
-  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
-  useEffect(() => {
-    // setValue on client only to prevent infinite loop
-    props.setValue("price", totalPriceFormatted);
-  }, [amount]);
-
-  return (
-    <>
-      <HighlightValue
-        label={t`Listing cost, incl. ${CARBONMARK_FEE * 100}% fee`}
-        value={formatToPrice(totalPriceFormatted, locale)}
-        icon={carbonmarkPaymentMethodMap["usdc"].icon}
-        warn={!!props.errorMessage}
-      />
-      {!!props.errorMessage && (
-        <Text t="body1" className={styles.errorMessagePrice}>
-          {props.errorMessage}
-        </Text>
-      )}
-    </>
-  );
-};
-
-export type FormValues = {
-  listingId: string;
-  amount: string;
-  price: string;
-  paymentMethod: CarbonmarkPaymentMethod;
-};
+import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
@@ -80,10 +30,7 @@ type Props = {
 export const PurchaseInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
-  const singleUnitPrice = formatUnits(
-    props.listing.singleUnitPrice,
-    getTokenDecimals("usdc")
-  );
+
   const [balance, setBalance] = useState<string | null>(null);
 
   useEffect(() => {
@@ -100,7 +47,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
     !balance && getBalance();
   }, [address]);
 
-  const { register, handleSubmit, formState, control, setValue, clearErrors } =
+  const { register, handleSubmit, formState, control, clearErrors } =
     useFormContext<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
@@ -166,13 +113,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
           label={t`How many tonnes of carbon do you want to buy?`}
           errorMessage={formState.errors.amount?.message}
           hideLabel
-        />
-
-        <TotalValue
-          singlePrice={singleUnitPrice}
-          control={control}
-          setValue={setValue}
-          errorMessage={formState.errors.price?.message}
         />
 
         <div className={styles.paymentLabel}>
