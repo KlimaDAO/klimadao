@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-15 15:34+0000\n"
+"POT-Creation-Date: 2023-05-15 23:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "挂牌成本，包括。 {0}% 费用"
 msgid "Listings"
 msgstr "挂牌信息"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:66
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
@@ -333,7 +333,7 @@ msgstr "新单价（USDC）"
 msgid "No active listings."
 msgstr "无活动列表。"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:97
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
@@ -516,7 +516,7 @@ msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数
 msgid "Stats"
 msgstr "统计数据"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:86
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "成功！稍后您的新列表将显示在您的 <0> 个人资料页面</0> 上。"
 
@@ -720,27 +720,27 @@ msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 msgid "connect_modal.error_title"
 msgstr "连接错误"
 
-#: components/CreateListing/index.tsx:123
+#: components/CreateListing/index.tsx:125
 msgid "create.approval_1"
 msgstr "您即将创建一个新列表。"
 
-#: components/CreateListing/index.tsx:128
+#: components/CreateListing/index.tsx:130
 msgid "create.approval_2"
 msgstr "第一步是批准将此资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并使您的挂牌生效。"
 
-#: components/CreateListing/index.tsx:135
+#: components/CreateListing/index.tsx:137
 msgid "create.approval_3"
 msgstr "您可以随时选择删除您的正在销售的商品，这将自动将列出的资产转移回您的钱包。"
 
-#: components/CreateListing/index.tsx:141
+#: components/CreateListing/index.tsx:143
 msgid "create.approval_4"
 msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 
-#: components/CreateListing/index.tsx:153
+#: components/CreateListing/index.tsx:155
 msgid "create.submit_1"
 msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您的资产尚未转移。"
 
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:161
 msgid "create.submit_2"
 msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
@@ -756,19 +756,19 @@ msgstr "删除列表"
 msgid "each"
 msgstr "每个"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
 msgid "edit_listing.approval_1"
 msgstr "您即将将该资产的所有权从您的钱包转移到 Carbonmark。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "edit_listing.approval_2"
 msgstr "您可以随时删除您的在售商品，直到它被出售。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "edit_listing.submit_1"
 msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您的资产尚未转移。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "edit_listting.submit_2"
 msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
@@ -832,19 +832,19 @@ msgstr "您的个人资料"
 msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加说明"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
 msgid "profile.listing.edit"
 msgstr "编辑"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:246
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
-#: components/CreateListing/index.tsx:171
+#: components/CreateListing/index.tsx:173
 msgid "profile.listings_modal.title"
 msgstr "创建挂牌"
 
@@ -1101,7 +1101,7 @@ msgstr "总碳退休吨数"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "总碳停用交易"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
 msgid "seller.edit_listing.title"
 msgstr "编辑挂牌"
 
@@ -1147,8 +1147,8 @@ msgstr "排序方式："
 msgid "sold to"
 msgstr "卖给"
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr "吨"
 

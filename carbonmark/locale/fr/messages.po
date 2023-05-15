@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-15 15:34+0000\n"
+"POT-Creation-Date: 2023-05-15 23:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "Coût de référencement, frais de {0}% inclus"
 msgid "Listings"
 msgstr "Annonces"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:66
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
 msgstr "Chargement de vos actifs"
 
@@ -333,7 +333,7 @@ msgstr "Nouveau Prix Unitaire (USDC)"
 msgid "No active listings."
 msgstr "Aucune annonce active."
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:97
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
 msgstr "Aucun actif à vendre n'a été trouvé."
 
@@ -514,7 +514,7 @@ msgstr "Désolé. Nous n'avons pas trouvé de données Carbonmark pour votre uti
 msgid "Stats"
 msgstr "Stats"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:86
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "Succès ! Votre nouvelle annonce apparaîtra dans quelques instants sur votre <0>page de profil</0>."
 
@@ -718,27 +718,27 @@ msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et v
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
 
-#: components/CreateListing/index.tsx:123
+#: components/CreateListing/index.tsx:125
 msgid "create.approval_1"
 msgstr "Vous êtes sur le point de créer une nouvelle annonce."
 
-#: components/CreateListing/index.tsx:128
+#: components/CreateListing/index.tsx:130
 msgid "create.approval_2"
 msgstr "La première étape consiste à donner l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, l'étape suivante consiste à approuver le transfert effectif et à mettre votre annonce en ligne."
 
-#: components/CreateListing/index.tsx:135
+#: components/CreateListing/index.tsx:137
 msgid "create.approval_3"
 msgstr "Vous pouvez choisir de supprimer votre annonce active à tout moment, ce qui aura pour effet de transférer automatiquement l'actif de retour vers votre portefeuille."
 
-#: components/CreateListing/index.tsx:141
+#: components/CreateListing/index.tsx:143
 msgid "create.approval_4"
 msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"approuver\" pour continuer."
 
-#: components/CreateListing/index.tsx:153
+#: components/CreateListing/index.tsx:155
 msgid "create.submit_1"
 msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, votre actif n'a pas encore été transféré."
 
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:161
 msgid "create.submit_2"
 msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer \" ci-dessous."
 
@@ -754,19 +754,19 @@ msgstr "annonce supprimée"
 msgid "each"
 msgstr "chaque"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
 msgid "edit_listing.approval_1"
 msgstr "Vous êtes sur le point de transférer la propriété de cet actif de votre portefeuille à Carbonmark."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "edit_listing.approval_2"
 msgstr "Vous pouvez enlever votre annonce à tout moment jusqu'à ce qu'elle soit vendue."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "edit_listing.submit_1"
 msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille , votre actif n'a pas encore été transféré."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "edit_listting.submit_2"
 msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer\" ci-dessous."
 
@@ -830,19 +830,19 @@ msgstr "Votre Profil"
 msgid "profile.edit_your_profile"
 msgstr "Modifier votre profil pour ajouter une description"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
 msgid "profile.listing.delete.error"
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
 msgid "profile.listing.edit"
 msgstr "Modifier"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:246
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
 msgid "profile.listing.edit.delete_listing"
 msgstr "Supprimer l'annonce"
 
-#: components/CreateListing/index.tsx:171
+#: components/CreateListing/index.tsx:173
 msgid "profile.listings_modal.title"
 msgstr "Créer une annonce"
 
@@ -1099,7 +1099,7 @@ msgstr "Total des Tonnes de Carbone Retirées du Marché"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total des Transactions de Retraits du marché"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
 msgid "seller.edit_listing.title"
 msgstr "Modifier l'annonce"
 
@@ -1145,8 +1145,8 @@ msgstr "Trier par :"
 msgid "sold to"
 msgstr "vendu à"
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr "tonnes"
 

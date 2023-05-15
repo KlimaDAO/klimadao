@@ -273,7 +273,7 @@ msgstr "Listing cost, incl. {0}% fee"
 msgid "Listings"
 msgstr "Listings"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:66
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
@@ -339,7 +339,7 @@ msgstr "New Unit Price (USDC)"
 msgid "No active listings."
 msgstr "No active listings."
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:97
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
@@ -520,7 +520,7 @@ msgstr "Sorry. We could not find any data on Carbonmark for your user."
 msgid "Stats"
 msgstr "Stats"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:86
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 
@@ -724,27 +724,27 @@ msgstr "Request already processing. Please open your wallet and complete the req
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/CreateListing/index.tsx:123
+#: components/CreateListing/index.tsx:125
 msgid "create.approval_1"
 msgstr "You are about to create a new listing."
 
-#: components/CreateListing/index.tsx:128
+#: components/CreateListing/index.tsx:130
 msgid "create.approval_2"
 msgstr "The first step is to grant the approval to transfer this asset from your wallet to Carbonmark, the next step is to approve the actual transfer and make your listing live."
 
-#: components/CreateListing/index.tsx:135
+#: components/CreateListing/index.tsx:137
 msgid "create.approval_3"
 msgstr "You can choose to remove your active listing at any time which will automatically transfer the listed asset back to your wallet."
 
-#: components/CreateListing/index.tsx:141
+#: components/CreateListing/index.tsx:143
 msgid "create.approval_4"
 msgstr "Verify all information is correct and click 'approve' to continue."
 
-#: components/CreateListing/index.tsx:153
+#: components/CreateListing/index.tsx:155
 msgid "create.submit_1"
 msgstr "The previous step granted the approval to transfer this asset from your wallet to Carbonmark, your asset has not been transferred yet."
 
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:161
 msgid "create.submit_2"
 msgstr "To finalize the transfer of this asset to Carbonmark and make your listing live, verify all information is correct and then click submit below."
 
@@ -760,19 +760,19 @@ msgstr "deleted listing"
 msgid "each"
 msgstr "each"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
 msgid "edit_listing.approval_1"
 msgstr "You are about to transfer ownership of this asset from your wallet to Carbonmark."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "edit_listing.approval_2"
 msgstr "You can remove your listing at any time until it has been sold."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "edit_listing.submit_1"
 msgstr "The previous step granted the approval to transfer this asset from your wallet to Carbonmark, your asset has not been transferred yet."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "edit_listting.submit_2"
 msgstr "To finalize the transfer of this asset to Carbonmark and make your listing live, verify all information is correct and then click submit below."
 
@@ -836,19 +836,19 @@ msgstr "Your Profile"
 msgid "profile.edit_your_profile"
 msgstr "Edit your profile to add a description"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
 msgid "profile.listing.delete.error"
 msgstr "Could not delete listing. Please try again."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
 msgid "profile.listing.edit"
 msgstr "Edit"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:246
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
 msgid "profile.listing.edit.delete_listing"
 msgstr "Delete Listing"
 
-#: components/CreateListing/index.tsx:171
+#: components/CreateListing/index.tsx:173
 msgid "profile.listings_modal.title"
 msgstr "Create a Listing"
 
@@ -1105,7 +1105,7 @@ msgstr "Total Carbon Tonnes Retired"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total Retirement Transactions"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
 msgid "seller.edit_listing.title"
 msgstr "Edit Listing"
 
@@ -1151,8 +1151,8 @@ msgstr "Sort by:"
 msgid "sold to"
 msgstr "sold to"
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr "tonnes"
 

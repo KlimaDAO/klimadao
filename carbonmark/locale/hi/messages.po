@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-15 15:34+0000\n"
+"POT-Creation-Date: 2023-05-15 23:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "सूचीकरण लागत, {0}% शुल्क सहित"
 msgid "Listings"
 msgstr "सूचियाँ"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:66
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
 msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
@@ -333,7 +333,7 @@ msgstr "नया यूनिट मूल्य (USDC)"
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:97
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
@@ -514,7 +514,7 @@ msgstr "क्षमा करें। हमें Carbonmark पर आपक
 msgid "Stats"
 msgstr "आँकड़े"
 
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:86
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "सफलता! आपकी नई लिस्टिंग कुछ ही पलों में आपके <0>Profile page</0> पर दिखाई देगी।"
 
@@ -718,27 +718,27 @@ msgstr "अनुरोध पहले से प्रोसेस हो र�
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
-#: components/CreateListing/index.tsx:123
+#: components/CreateListing/index.tsx:125
 msgid "create.approval_1"
 msgstr "आप एक नई लिस्टिंग बनाने वाले हैं।"
 
-#: components/CreateListing/index.tsx:128
+#: components/CreateListing/index.tsx:130
 msgid "create.approval_2"
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी लिस्टिंग को लाइव करना है।"
 
-#: components/CreateListing/index.tsx:135
+#: components/CreateListing/index.tsx:137
 msgid "create.approval_3"
 msgstr "आप किसी भी समय अपनी सक्रिय लिस्टिंग को हटाना चुन सकते हैं जो सूचीबद्ध संपत्ति को अपने आप आपके वॉलेट में वापस स्थानांतरित कर देगा।"
 
-#: components/CreateListing/index.tsx:141
+#: components/CreateListing/index.tsx:143
 msgid "create.approval_4"
 msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
-#: components/CreateListing/index.tsx:153
+#: components/CreateListing/index.tsx:155
 msgid "create.submit_1"
 msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
-#: components/CreateListing/index.tsx:159
+#: components/CreateListing/index.tsx:161
 msgid "create.submit_2"
 msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
@@ -754,19 +754,19 @@ msgstr "सूची मिटाएँ"
 msgid "each"
 msgstr "प्रत्येक"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
 msgid "edit_listing.approval_1"
 msgstr "आप इस संपत्ति के स्वामित्व को अपने वॉलेट से Carbonmark को स्थानांतरित करने वाले हैं।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "edit_listing.approval_2"
 msgstr "आप अपनी लिस्टिंग को बिकने से पहले किसी भी समय हटा सकते हैं।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "edit_listing.submit_1"
 msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "edit_listting.submit_2"
 msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
@@ -830,19 +830,19 @@ msgstr "आपकी प्रोफ़ाइल"
 msgid "profile.edit_your_profile"
 msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
 msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
 msgid "profile.listing.edit"
 msgstr "संपादित करें"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:246
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
-#: components/CreateListing/index.tsx:171
+#: components/CreateListing/index.tsx:173
 msgid "profile.listings_modal.title"
 msgstr "कोई सूची बनाएँ"
 
@@ -1099,7 +1099,7 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "कुल रिटायरमेंट लेनदेन"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
 msgid "seller.edit_listing.title"
 msgstr "सूची संपादित करें"
 
@@ -1145,8 +1145,8 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 msgid "sold to"
 msgstr "को बेचा गया"
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr "टन"
 
