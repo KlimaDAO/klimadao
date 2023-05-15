@@ -6,6 +6,7 @@ import { Text } from "components/Text";
 import type { AssetForRetirement } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
+
 interface Props {
   retirementAsset: AssetForRetirement;
 }

@@ -6,7 +6,6 @@ import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
-import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
 import { activityIsAdded, getUserUntil } from "lib/api";
@@ -16,7 +15,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetireForm } from "./RetireForm";
-import { RetirementSidebar } from "./RetirementSidebar";
 import * as styles from "./styles";
 
 export type RetirePageProps = {
@@ -126,48 +124,39 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
           <div className={styles.portfolioControls}>
             <LoginButton />
           </div>
-          <TwoColLayout>
-            <Col>
-              {!isConnectedUser && (
-                <LoginCard isLoading={isLoading} onLogin={toggleModal} />
-              )}
-              {errorMessage && (
-                <Text t="h5" className={styles.errorMessage}>
-                  {errorMessage}
-                </Text>
-              )}
-              {isCarbonmarkUser && retirementAsset && (
-                <RetireForm
-                  address={address}
-                  asset={retirementAsset}
-                  isConnected={isConnected}
-                  onUpdateUser={onUpdateUser}
-                  provider={provider}
-                />
-              )}
-              {isUnregistered && (
-                <>
-                  <Text>
-                    <Trans>
-                      Sorry. We could not find any data on Carbonmark for your
-                      user.
-                    </Trans>
-                  </Text>
-                  <Text>
-                    <Trans>
-                      Have you already created your Carbonmark{" "}
-                      <Link href={`/users/${address}`}>Profile</Link>?
-                    </Trans>
-                  </Text>
-                </>
-              )}
-            </Col>
-            {retirementAsset && (
-              <Col>
-                <RetirementSidebar retirementAsset={retirementAsset} />
-              </Col>
-            )}
-          </TwoColLayout>
+
+          {!isConnectedUser && (
+            <LoginCard isLoading={isLoading} onLogin={toggleModal} />
+          )}
+          {errorMessage && (
+            <Text t="h5" className={styles.errorMessage}>
+              {errorMessage}
+            </Text>
+          )}
+          {isCarbonmarkUser && retirementAsset && (
+            <RetireForm
+              address={address}
+              asset={retirementAsset}
+              isConnected={isConnected}
+              onUpdateUser={onUpdateUser}
+              provider={provider}
+            />
+          )}
+          {isUnregistered && (
+            <>
+              <Text>
+                <Trans>
+                  Sorry. We could not find any data on Carbonmark for your user.
+                </Trans>
+              </Text>
+              <Text>
+                <Trans>
+                  Have you already created your Carbonmark{" "}
+                  <Link href={`/users/${address}`}>Profile</Link>?
+                </Trans>
+              </Text>
+            </>
+          )}
         </div>
       </Layout>
     </>
