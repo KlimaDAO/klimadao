@@ -1,5 +1,8 @@
+import { Anchor } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
@@ -197,6 +200,21 @@ export const PurchaseForm: FC<Props> = (props) => {
             },
           ]}
         />
+        <div className={styles.paymentHelp}>
+          <HelpOutline className={styles.helpIcon} />
+          <div className={styles.paymentText}>
+            <Text t="body3">
+              {t`Currently, Carbonmark only accepts Polygon USDC Payments.`}{" "}
+              <Anchor>{t`Learn how
+            to acquire USDC on Polygon.`}</Anchor>
+            </Text>
+            <Text t="body3">
+              {t`If you’d like to retire this project with another form of cryptocurrency, 
+            or with a credit card, you can do so at`}{" "}
+              <Anchor href={urls.app}>app.klimadao.finance.</Anchor>
+            </Text>
+          </div>
+        </div>
         <Text t="body3" className={styles.availableAmount}>
           <Trans>Available:</Trans>{" "}
           {!balance ? (

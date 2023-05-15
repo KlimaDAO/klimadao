@@ -126,6 +126,22 @@ export const paymentDropDownHeader = css`
   gap: 1rem;
 `;
 
+export const paymentHelp = css`
+  display: flex;
+  gap: 0.8rem;
+`;
+
+export const paymentText = css`
+  display: grid;
+  gap: 0.4rem;
+`;
+
+export const helpIcon = css`
+  width: 2rem;
+  height: 2rem;
+  color: var(--font-02);
+`;
+
 export const availableAmount = css`
   margin-top: -1rem;
   margin-left: 1rem;
