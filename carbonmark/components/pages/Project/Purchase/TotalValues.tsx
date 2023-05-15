@@ -14,6 +14,7 @@ import { FormValues } from "./types";
 
 type TotalValuesProps = {
   singleUnitPrice: string;
+  balance: string | null;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {

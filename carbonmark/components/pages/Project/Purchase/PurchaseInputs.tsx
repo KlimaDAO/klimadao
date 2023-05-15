@@ -8,14 +8,13 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
@@ -25,27 +24,12 @@ type Props = {
   listing: Listing;
   values: null | FormValues;
   isLoading: boolean;
+  balance: string | null;
 };
 
 export const PurchaseInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
-
-  const [balance, setBalance] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!address) return;
-
-    const getBalance = async () => {
-      const balance = await getUSDCBalance({
-        userAddress: address,
-      });
-
-      setBalance(balance);
-    };
-
-    !balance && getBalance();
-  }, [address]);
 
   const { register, handleSubmit, formState, control, clearErrors } =
     useFormContext<FormValues>();
@@ -119,7 +103,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <Text>{t`Pay with:`}</Text>
           <Text t="body3">
             {t`Balance:`}{" "}
-            {!balance ? <i>{t`Loading...`}</i> : formatToPrice(balance, locale)}
+            {!props.balance ? (
+              <i>{t`Loading...`}</i>
+            ) : (
+              formatToPrice(props.balance, locale)
+            )}
           </Text>
         </div>
 
@@ -199,6 +187,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
         id="price"
         inputProps={{
           type: "hidden",
+          max: Number(props.balance || "0"),
           ...register("price", {
             required: {
               value: true,
@@ -208,7 +197,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
               }),
             },
             max: {
-              value: Number(balance),
+              value: Number(props.balance || "0"),
               message: t({
                 id: "purchase.input.price.maxAmount",
                 message: "You exceeded your available amount of tokens",
