@@ -1,27 +1,53 @@
+import { Anchor } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import type { AssetForRetirement } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
-
 interface Props {
   retirementAsset: AssetForRetirement;
 }
 
 export const RetirementSidebar: FC<Props> = (props) => {
-  const { tokenName, tokenSymbol } = props.retirementAsset;
+  const { tokenSymbol, project } = props.retirementAsset;
   return (
     <Card>
-      <Text t="h4">
-        <Trans id="portfolio.balances.title">Asset Details</Trans>
+      <Text t="h4" className={styles.bold}>
+        <Trans id="portfolio.asset_details.title">Asset Details</Trans>
       </Text>
-      <div className={styles.list}>
-        <div className={styles.listItem} key={tokenName}>
-          <div className={styles.itemWithIcon}>
-            <Text t="body1">{tokenSymbol}</Text>
-          </div>
-        </div>
+      <div className={styles.group}>
+        <Text t="body2" color="lighter">
+          <Trans>Asset ID</Trans>
+        </Text>
+        <Text t="body1" className={styles.bold}>
+          <Trans>{tokenSymbol}</Trans>
+        </Text>
+      </div>
+
+      <div className={styles.linkWithIcon}>
+        <Anchor
+          className="link"
+          href={`https://polygonscan.com/address/${project.tokenAddress}`}
+        >
+          <span className="svg">
+            <Text t="body2" color="lighter">
+              <Trans>
+                View on PolygonScan <LaunchIcon fontSize="inherit" />
+              </Trans>
+            </Text>
+          </span>
+        </Anchor>
+      </div>
+
+      <div className={styles.group}>
+        <Text t="body2" color="lighter">
+          <Trans>Balance (available to retire)</Trans>
+        </Text>
+        <Text t="body1" className={styles.bold}>
+          {Math.round(Number(project.currentSupply))} tonnes
+        </Text>
       </div>
     </Card>
   );

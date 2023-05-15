@@ -1,27 +1,24 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const list = css`
-  display: grid;
-  gap: 1.2rem;
+export const group = css`
+display: flex;
+flex-direction: column;
+gap: 0.2rem; 
 `;
 
-export const listItem = css`
-  display: flex;
-  flex-direction: row;
-  gap: 1.2rem;
-  ${breakpoints.desktop} {
-    justify-content: space-between;
-  }
+export const bold = css`
+  font-weight: 700;
+  font-size: 1.6rem;
+  font-family: 'Poppins';
 `;
 
-export const itemWithIcon = css`
+export const linkWithIcon = css`
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.5rem;
+  text-decoration: underline;
 
-  .icon {
-    width: 2rem;
+  svg {
+    vertical-align: middle;
   }
 `;

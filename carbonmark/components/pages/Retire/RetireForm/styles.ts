@@ -47,8 +47,13 @@ export const stackText = css`
   width: 100%;
 `;
 
+export const required = css`
+  font-size: 16px !important;
+`;
+
 export const detailsText = css`
   gap: 1.6rem;
+  font-size: 12px !important;
 `;
 
 export const newReleasesIcon = css`
@@ -126,7 +131,7 @@ export const buttonContainer = css`
 
 export const submitButton = css`
   color: white !important;
-  background-color: #0019ff;
+  background-color: var(--bright-blue);
   width: 100%;
   border: none;
   padding: 1em;
