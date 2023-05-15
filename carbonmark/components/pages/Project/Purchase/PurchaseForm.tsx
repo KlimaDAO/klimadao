@@ -158,7 +158,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         hasApproval={hasApproval()}
         amount={{
           value: inputValues?.price || "0",
-          token: "usdc",
+          token: inputValues?.paymentMethod || "usdc",
         }}
         isProcessing={isProcessing}
         status={status}

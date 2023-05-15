@@ -12,10 +12,10 @@ import { HighlightValue } from "components/Transaction/HighlightValue";
 import { getUSDCBalance } from "lib/actions";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
-import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import { CarbonmarkToken, Listing } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -46,7 +46,7 @@ const TotalValue: FC<TotalValueProps> = (props) => {
       <HighlightValue
         label={t`Listing cost, incl. ${CARBONMARK_FEE * 100}% fee`}
         value={formatToPrice(totalPriceFormatted, locale)}
-        icon={carbonmarkTokenInfoMap["usdc"].icon}
+        icon={carbonmarkPaymentMethodMap["usdc"].icon}
         warn={!!props.errorMessage}
       />
       {!!props.errorMessage && (
@@ -62,7 +62,7 @@ export type FormValues = {
   listingId: string;
   amount: string;
   price: string;
-  paymentMethod: string;
+  paymentMethod: CarbonmarkPaymentMethod;
 };
 
 type Props = {
@@ -186,7 +186,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
 
         <Dropdown
           name="paymentMethod"
-          initial={carbonmarkTokenInfoMap["usdc"].key}
+          initial={carbonmarkPaymentMethodMap["usdc"].id}
           className={styles.paymentDropdown}
           aria-label={t`Toggle payment method`}
           renderLabel={(selected) => (
@@ -194,24 +194,28 @@ export const PurchaseInputs: FC<Props> = (props) => {
               <Image
                 className="icon"
                 src={
-                  carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].icon
+                  carbonmarkPaymentMethodMap[
+                    selected.id as CarbonmarkPaymentMethod
+                  ].icon
                 }
                 width={28}
                 height={28}
-                alt={carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].key}
+                alt={
+                  carbonmarkPaymentMethodMap[
+                    selected.id as CarbonmarkPaymentMethod
+                  ].id
+                }
               />{" "}
               {selected.label}
             </div>
           )}
           control={control}
-          options={[
-            {
-              id: carbonmarkTokenInfoMap["usdc"].key,
-              label: carbonmarkTokenInfoMap["usdc"].label,
-              value: carbonmarkTokenInfoMap["usdc"].key,
-              icon: carbonmarkTokenInfoMap["usdc"].icon,
-            },
-          ]}
+          options={Object.values(carbonmarkPaymentMethodMap).map((val) => ({
+            id: val.id,
+            label: val.label,
+            value: val.id,
+            icon: val.icon,
+          }))}
         />
         <div className={styles.paymentHelp}>
           <HelpOutline className={styles.helpIcon} />
