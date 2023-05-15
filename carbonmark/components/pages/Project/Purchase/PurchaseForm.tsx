@@ -121,6 +121,14 @@ export const PurchaseForm: FC<Props> = (props) => {
           label={"listing ID"}
           hideLabel
         />
+
+        <div className={styles.amountLabel}>
+          <Text>{t`How many tonnes of carbon do you want to buy?`}</Text>
+          <Text t="body3">
+            <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
+          </Text>
+        </div>
+
         <InputField
           id="amount"
           inputProps={{
@@ -156,15 +164,11 @@ export const PurchaseForm: FC<Props> = (props) => {
               },
             }),
           }}
-          label={t({
-            id: "purchase.input.amount.label",
-            message: "How many tonnes of carbon do you want to buy?",
-          })}
+          label={t`How many tonnes of carbon do you want to buy?`}
           errorMessage={formState.errors.amount?.message}
+          hideLabel
         />
-        <Text t="body3">
-          <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
-        </Text>
+
         <TotalValue
           singlePrice={singleUnitPrice}
           control={control}

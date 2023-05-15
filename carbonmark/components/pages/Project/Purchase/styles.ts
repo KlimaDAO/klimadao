@@ -113,6 +113,11 @@ export const inputsContainer = css`
   margin-bottom: 2rem;
 `;
 
+export const amountLabel = css`
+  display: grid;
+  gap: 0.4rem;
+`;
+
 export const paymentLabel = css`
   display: flex;
   align-items: center;
