@@ -5,61 +5,33 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
-import LaunchIcon from "@mui/icons-material/Launch";
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { CopyAddressButton } from "components/CopyAddressButton";
-import { FacebookButton } from "components/FacebookButton";
+import { t } from "@lingui/macro";
 import { Footer } from "components/Footer";
-import { LinkedInButton } from "components/LinkedInButton";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
 import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
-import { TweetButton } from "components/TweetButton";
 import { Col } from "components/TwoColLayout";
 import { useFetchProject } from "hooks/useFetchProject";
-import { urls } from "lib/constants";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { NextPage } from "next";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
 import { BeneficiaryDetails } from "./BeneficiaryDetails";
-import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
+import { ShareDetails } from "./ShareDetails";
 import * as styles from "./styles";
-
-const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
-  dynamic(
-    () =>
-      import("./DownloadCertificateButton").then(
-        (mod) => mod.DownloadCertificateButton
-      ),
-    {
-      ssr: false,
-      loading: () => (
-        <ButtonPrimary
-          disabled
-          variant="blue"
-          label={t({
-            id: "shared.loading",
-            message: "Loading...",
-          })}
-        />
-      ),
-    }
-  );
+import { TransactionDetails } from "./TransactionDetails";
 
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
-  const { asPath, locale } = useRouter();
+  const { locale } = useRouter();
 
   const { project } = useFetchProject(
     `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
@@ -129,212 +101,14 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             <RetirementHeader formattedAmount={formattedAmount} />
             <BeneficiaryDetails beneficiary={retirement.beneficiary} />
             <RetirementMessage message={retirement.retirementMessage} />
-
-            {/* ------- Share this retirement card ------- */}
-            <div
-              className={styles.retirementContent}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.8rem",
-              }}
-            >
-              <Text t="button" color="lightest">
-                Share this retirement
-              </Text>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1.6rem",
-                  marginBottom: "1.4rem",
-                }}
-              >
-                {retirement ? (
-                  <DownloadCertificateButton
-                    projectId={""}
-                    // tokenData={tokenData}
-                    beneficiaryName={retirement.beneficiary}
-                    beneficiaryAddress={props.beneficiaryAddress}
-                    retirement={retirement}
-                    retirementIndex={props.retirementIndex}
-                    retirementMessage={retirement.retirementMessage}
-                    retirementUrl={`${urls.baseUrl}/${asPath}`}
-                    // projectId={normalizeProjectId({
-                    //   id: retirement.offset.projectID,
-                    //   standard: retirement.offset.standard,
-                    // })}
-                  />
-                ) : null}
-                <div className={styles.share_content}>
-                  <div className="buttons">
-                    <TweetButton
-                      title={`${retiree} retired ${formattedAmount} Tonnes of carbon`}
-                      tags={["Carbonmark", "Offset"]}
-                    />
-                    <FacebookButton />
-                    <LinkedInButton />
-                    <CopyAddressButton />
-                  </div>
-                </div>
-              </div>
-
-              {/* ------ Make into link component ----- */}
-              <Text
-                t="button"
-                color="lightest"
-                uppercase
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1.45rem",
-                  color: "var(--bright-blue)",
-                }}
-              >
-                Create your own retirement
-                <LaunchIcon />
-              </Text>
-              {/* ------ Make into link component ----- */}
-            </div>
-
-            {/* -------- Mutable Transaction Records Component -------- */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <section style={{ marginBottom: "1.4rem" }}>
-                <div className={styles.mutableTextGroup}>
-                  <Text t="button" color="lightest" uppercase>
-                    Mutable transaction record
-                  </Text>
-                </div>
-
-                <div className={styles.mutableTextGroup}>
-                  <Text
-                    t="button"
-                    color="lightest"
-                    uppercase
-                    style={{ fontSize: "1.2rem" }}
-                  >
-                    <Trans id="retirement.single.title.beneficiary.address">
-                      Beneficiary Address:
-                    </Trans>
-                  </Text>
-                  <Text style={{ fontSize: "1.4rem" }}>
-                    {retirement.beneficiaryAddress ||
-                      t({
-                        id: "retirement.single.beneficiary.address.placeholder",
-                        message: "No beneficiary address available",
-                      })}
-                  </Text>
-                </div>
-
-                <div className={styles.mutableTextGroup}>
-                  <Text
-                    t="button"
-                    color="lightest"
-                    uppercase
-                    style={{ fontSize: "1.2rem" }}
-                  >
-                    <Trans id="retirement.single.title.transaction.id">
-                      Transaction ID
-                    </Trans>
-                  </Text>
-                  <Text style={{ fontSize: "1.4rem" }}>
-                    {retirement.transaction?.id ||
-                      t({
-                        id: "retirement.single.transaction.id.placeholder",
-                        message: "No transaction id available",
-                      })}
-                  </Text>
-                </div>
-              </section>
-
-              {/* ----- Retired Assets Component ----- */}
-              <div className={styles.gridLayout} style={{ maxWidth: "80%" }}>
-                <Col className="column">
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Asset Retired:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {tokenData?.label}
-                    </Text>
-                  </div>
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Project:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {retirement.offset.projectID}
-                    </Text>
-                  </div>
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Type:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {retirement.offset.methodologyCategory}
-                    </Text>
-                  </div>
-                </Col>
-                <Col className="column">
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Methodology:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {retirement.offset.methodology}
-                    </Text>
-                  </div>
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Country/Region:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {retirement.offset.country || retirement.offset.region}
-                    </Text>
-                  </div>
-                  <div className={styles.mutableTextGroupHorizontal}>
-                    <Text
-                      t="button"
-                      color="lightest"
-                      uppercase
-                      style={{ fontSize: "1.2rem" }}
-                    >
-                      Vintage:
-                    </Text>
-                    <Text style={{ fontSize: "1.4rem" }}>
-                      {retirement.offset.vintage}
-                    </Text>
-                  </div>
-                </Col>
-              </div>
-              {/* ----- Retired Assets Component ----- */}
-            </div>
-            {/* -------- Mutable Transaction Records Component -------- */}
+            <ShareDetails
+              retiree={retiree}
+              formattedAmount={formattedAmount}
+              beneficiaryName={retirement.beneficiary}
+              retirementIndex={props.retirementIndex}
+              beneficiaryAddress={props.beneficiaryAddress}
+            />
+            <TransactionDetails retirement={retirement} tokenData={tokenData} />
           </Col>
           <Col>
             <div
@@ -369,7 +143,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               </div>
 
               {/* <ProjectDetails offset={retirement.offset} /> */}
-              <>{console.log("retirement", retirement)}</>
               <div
                 style={{
                   margin: "2rem 0",
@@ -386,16 +159,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             </div>
           </Col>
         </div>
-
-        {/* <RetirementHeader
-          overline={retirement.beneficiary}
-          title={`${formattedAmount}t`}
-          subline={
-            <Trans id="retirement.single.header.subline">
-              CO2-Equivalent Emissions Offset (Metric Tonnes)
-            </Trans>
-          }
-        /> */}
 
         {/* <div className={styles.retirementContent}>
           <RetirementMessage message={retirement.retirementMessage} />
@@ -501,60 +264,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Section className={styles.section} style={{ paddingTop: 0 }}>
         <RetirementFooter />
       </Section>
-
-      {/* <Section variant="gray" className={styles.section}>
-        <div className={styles.share_content}>
-          <Image
-            alt="Sunset Mountains"
-            src={sunsetMountains}
-            layout="fill"
-            objectFit="cover"
-            sizes={getImageSizes({ large: "1072px" })}
-            placeholder="blur"
-            className="image"
-          />
-          <Text className="title" t="h3">
-            <Trans id="retirement.share.title">Share your impact</Trans>
-          </Text>
-          <div className="buttons">
-            <TweetButton
-              title={`${retiree} retired ${formattedAmount} Tonnes of carbon`}
-              tags={["Carbonmark", "Offset"]}
-            />
-            <FacebookButton />
-            <LinkedInButton />
-            <CopyAddressButton variant="lightGray" shape="circle" />
-          </div>
-        </div>
-      </Section> */}
-
       {/* {!retirement.pending && retirement.offset && (
         <Section variant="gray" className={styles.section}>
           <ProjectDetails offset={retirement.offset} />
         </Section>
       )}
      */}
-      {/* <Section
-        variant="gray"
-        className={cx(styles.section, styles.sectionButtons)}
-      >
-        <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="gray" />
-          {!retirement.pending && retirement.transaction.id && (
-            <ButtonPrimary
-              href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
-              target="_blank"
-              variant="gray"
-              rel="noopener noreferrer"
-              label={t({
-                id: "retirement.single.view_on_polygon_scan",
-                message: "View on Polygonscan",
-              })}
-              className={styles.buttonViewOnPolygon}
-            />
-          )}
-        </div>
-      </Section> */}
       <Footer />
     </GridContainer>
   );
