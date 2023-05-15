@@ -9,7 +9,7 @@ interface Props {
 
 /** A component that tracks user logins  */
 export const UserTracker: FC<Props> = (props) => {
-  const { address } = useWeb3();
+  const { address, isConnectionFromCache } = useWeb3();
   const { carbonmarkUser, isLoading } = useFetchUser(address);
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data
@@ -19,7 +19,9 @@ export const UserTracker: FC<Props> = (props) => {
         user: carbonmarkUser ? carbonmarkUser.handle : undefined,
         name: carbonmarkUser ? carbonmarkUser.username : undefined,
       });
-      LO.track("Login");
+      if (!isConnectionFromCache) {
+        LO.track("Login");
+      }
     }
   }, [isLoading]);
   return <>{props.children}</>;
