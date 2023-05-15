@@ -14,11 +14,6 @@ export interface DownloadCertificateButtonProps {
   retirementIndex: string;
   retirementMessage: string;
   retirementUrl: string;
-  // tokenData: {
-  //   key: string;
-  //   icon: StaticImageData;
-  //   label: Uppercase<CarbonToken>;
-  // };
 }
 
 export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
