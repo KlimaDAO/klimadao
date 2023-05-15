@@ -7,7 +7,6 @@ import {
 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CopyAddressButton } from "components/CopyAddressButton";
 import { FacebookButton } from "components/FacebookButton";
@@ -28,8 +27,10 @@ import { useRouter } from "next/router";
 import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
 import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
+import { BeneficiaryDetails } from "./BeneficiaryDetails";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { RetirementDate } from "./RetirementDate";
+import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import * as styles from "./styles";
 
@@ -61,7 +62,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   const { asPath, locale } = useRouter();
 
   const { project } = useFetchProject(
-    retirement.offset.projectID + "-" + retirement.offset.vintageYear
+    `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
   );
 
   const formattedAmount = formatTonnes({
@@ -121,82 +122,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
-
       <Section className={styles.section}>
         <div className={styles.gridLayout}>
           <Col className="column">
-            <RetirementDate timestamp={retirement?.timestamp} />
-            <div style={{ margin: "2rem 0 0" }}>
-              <Text t="h5" color="lightest">
-                Proof of
-              </Text>
-              <Text
-                t="h3"
-                style={{
-                  color: "var(--font-01)",
-                }}
-              >
-                Carbon Credit Retirement
-              </Text>
-            </div>
-
-            <div style={{ margin: "2rem 0 0" }}>
-              <Text
-                t="h1"
-                style={{
-                  fontSize: "16rem",
-                  lineHeight: "16rem",
-                  color: "var(--bright-blue)",
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                {`${formattedAmount}`}t
-              </Text>
-              <Text t="button" color="lightest">
-                Verified tonnes of carbon retired
-              </Text>
-            </div>
-
-            {/* Beneficiary Card... */}
-            <div className={styles.retirementContent}>
-              <div className={styles.profileLogo}>
-                <PermIdentityOutlinedIcon className="placeholderIcon" />
-              </div>
-
-              <div className={styles.textGroup}>
-                <Text t="button" color="lightest" uppercase>
-                  <Trans id="retirement.single.beneficiary.title">
-                    Beneficiary:
-                  </Trans>
-                </Text>
-                <Text t="h4">
-                  {retirement.beneficiary ||
-                    t({
-                      id: "retirement.single.beneficiary.placeholder",
-                      message: "No beneficiary name provided",
-                    })}
-                </Text>
-
-                {/* ------ Make into link component ----- */}
-                <Text
-                  t="button"
-                  color="lightest"
-                  uppercase
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1.45rem",
-                    marginTop: "0.2rem",
-                    color: "var(--bright-blue)",
-                  }}
-                >
-                  View Carbonmark Profile
-                  <LaunchIcon />
-                </Text>
-                {/* ------ Make into link component ----- */}
-              </div>
-            </div>
-
+            <RetirementDate timestamp={retirement.timestamp} />
+            <RetirementHeader formattedAmount={formattedAmount} />
+            <BeneficiaryDetails beneficiary={retirement.beneficiary} />
             <RetirementMessage message={retirement.retirementMessage} />
 
             {/* ------- Share this retirement card ------- */}
@@ -221,13 +152,14 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               >
                 {retirement ? (
                   <DownloadCertificateButton
+                    projectId={""}
+                    // tokenData={tokenData}
                     beneficiaryName={retirement.beneficiary}
                     beneficiaryAddress={props.beneficiaryAddress}
                     retirement={retirement}
                     retirementIndex={props.retirementIndex}
                     retirementMessage={retirement.retirementMessage}
                     retirementUrl={`${urls.baseUrl}/${asPath}`}
-                    // tokenData={tokenData}
                     // projectId={normalizeProjectId({
                     //   id: retirement.offset.projectID,
                     //   standard: retirement.offset.standard,
@@ -402,7 +334,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               </div>
               {/* ----- Retired Assets Component ----- */}
             </div>
-
             {/* -------- Mutable Transaction Records Component -------- */}
           </Col>
           <Col>
