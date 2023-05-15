@@ -43,7 +43,9 @@ export const Submit: FC<Props> = (props) => {
       >
         <Text>
           <Trans id="transaction_modal.submit.confirm_transaction">
-            Please submit the transaction.
+            The previous step granted the approval to transfer your carbon asset
+            from your wallet to Carbonmark, your retirement has not been
+            completed yet.
           </Trans>
         </Text>
         <HighlightValue

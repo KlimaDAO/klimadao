@@ -1,4 +1,4 @@
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import {
   addresses,
   PoolToken,
@@ -12,7 +12,7 @@ import { ethers, providers } from "ethers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement } from "lib/types/carbonmark";
 import { useEffect, useState } from "react";
-import { RetirementSuccessModal } from "../RetirementSuccessModal";
+import { RetirementStatusModal } from "../RetirementStatusModal";
 // import TCO2 from "public/icons/TCO2.png";
 import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { ProjectImage } from "components/ProjectImage";
@@ -97,11 +97,6 @@ export const RetireForm = (props: RetireFormProps) => {
     setStatus(null);
     setIsApproved(false);
   };
-
-  const showSpinner =
-    props.isConnected &&
-    (status?.statusType === "userConfirmation" ||
-      status?.statusType === "networkConfirmation");
 
   useEffect(() => {
     async function getApproval() {
@@ -323,28 +318,22 @@ export const RetireForm = (props: RetireFormProps) => {
                 </Text>
               </div>
               <div className={styles.buttonRow}>
-                {showSpinner ? (
-                  <div className={styles.buttonRow_spinner}>
-                    <Spinner />
-                  </div>
-                ) : (
-                  <div className={styles.buttonContainer}>
-                    <ButtonPrimary
-                      label={t({
-                        id: "retire.submit_button",
-                        message: "Retire Carbon",
-                      })}
-                      onClick={() => setRetireModalOpen(true)}
-                      className={styles.submitButton}
-                      disabled={retirement.quantity === "0"}
-                    />
-                    <ButtonPrimary
-                      label={t({ id: "retire.back_button", message: "back" })}
-                      href="/portfolio"
-                      className={styles.backButton}
-                    />
-                  </div>
-                )}
+                <div className={styles.buttonContainer}>
+                  <ButtonPrimary
+                    label={t({
+                      id: "retire.submit_button",
+                      message: "Retire Carbon",
+                    })}
+                    onClick={() => setRetireModalOpen(true)}
+                    className={styles.submitButton}
+                    disabled={retirement.quantity === "0"}
+                  />
+                  <ButtonPrimary
+                    label={t({ id: "retire.back_button", message: "back" })}
+                    href="/portfolio"
+                    className={styles.backButton}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -397,8 +386,9 @@ export const RetireForm = (props: RetireFormProps) => {
           isApproved={isApproved}
         />
       )}
+
       {retirementTransactionHash && (
-        <RetirementSuccessModal
+        <RetirementStatusModal
           onSuccessModalClose={handleOnSuccessModalClose}
           retirementUrl={createLinkWithLocaleSubPath(
             `${urls.retirements}/${

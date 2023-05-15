@@ -71,7 +71,6 @@ export const required = css`
 export const detailsText = css`
   gap: 1.6rem;
   font-size: 12px !important;
-
 `;
 
 export const newReleasesIcon = css`
@@ -209,7 +208,6 @@ export const connect_button = css`
 export const offsetCard_header = css`
   display: grid;
   max-width: 100%;
-  
 `;
 
 export const bannerImageContainer = css`
@@ -232,8 +230,7 @@ export const info = css`
   flex-wrap: wrap;
 
   p {
-    font-family: 'Poppins';
-
+    font-family: "Poppins";
   }
 `;
 
@@ -274,19 +271,17 @@ export const projectKeyStyle = css`
 `;
 export const details = css`
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 1.6rem;
 
   p {
-
     @media (max-width: 376px) {
       font-size: 12px;
     }
-  
+
     ${breakpoints.small} {
       font-size: 14px;
     }
-
   }
 `;
