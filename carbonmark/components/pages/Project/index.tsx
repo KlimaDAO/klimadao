@@ -28,8 +28,8 @@ import {
   CategoryName,
   Methodology,
   PriceFlagged,
-  Project as ProjectType,
   ProjectBuyOption,
+  Project as ProjectType,
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
@@ -49,8 +49,6 @@ const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
-
-  console.log("project in Pool Page", project);
 
   // Typeguard, project should always be defined from static page props!
   if (!project) {

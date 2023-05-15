@@ -29,7 +29,6 @@ const Page: NextPage = () => {
   const sortKey = String(query["sort"]);
 
   const { projects, isLoading, isValidating } = useFetchProjects();
-  console.log("projects", projects);
 
   const sortFn = get(PROJECT_SORT_FNS, sortKey) ?? identity;
 
