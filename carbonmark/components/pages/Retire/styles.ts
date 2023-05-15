@@ -6,10 +6,10 @@ export const container = css`
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
+  border-radius: 1.2rem;
 `;
 
 export const portfolioControls = css`
-  grid-column: main;
   flex-direction: row-reverse;
   display: none;
 

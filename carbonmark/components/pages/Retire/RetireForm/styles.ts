@@ -3,23 +3,6 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as common from "@klimadao/lib/theme/common";
 import * as typography from "@klimadao/lib/theme/typography";
 
-export const columnRight = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1 / 3;
-  align-content: start;
-
-  ${breakpoints.desktop} {
-    grid-column: 2 / 3;
-  }
-`;
-
-export const beneficiary = css`
-  display: grid;
-  gap: 0.8rem;
-  align-content: start;
-`;
-
 export const offsetCard = css`
   display: grid;
   background-color: white;
@@ -29,47 +12,15 @@ export const offsetCard = css`
   grid-column: 1 / 3;
 
   ${breakpoints.desktop} {
-    grid-column: cardsleft;
-    grid-row: 2 / auto;
-    gap: 4.8rem;
+    gap: 2.8rem;
     align-items: start;
   }
-
-  ${breakpoints.desktopLarge} {
-    padding: 3.2rem;
-  }
 `;
-
-export const stackText = css`
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  width: 100%;
-`;
-
-export const required = css`
-  font-size: 16px !important;
-`;
-
-export const detailsText = css`
-  gap: 1.6rem;
-  font-size: 12px !important;
-`;
-
-export const newReleasesIcon = css`
-  color: var(--klima-green);
-  margin-inline-end: 0.4rem;
-  margin-bottom: -0.4rem;
-`;
-
 export const offsetCard_ui = css`
   display: grid;
   gap: 2.4rem;
-
-  ${breakpoints.medium} {
-    padding: 2.4rem;
-    border-radius: 1.2rem;
-  }
+  padding: 2.4rem;
+  border-radius: 1.2rem;
 
   ${breakpoints.desktop} {
     justify-self: center;
@@ -98,6 +49,35 @@ export const offsetCard_ui = css`
     width: 3.2rem;
     height: 3.2rem;
   }
+`;
+
+export const beneficiary = css`
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+`;
+
+export const stackText = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+`;
+
+export const required = css`
+  font-size: 16px !important;
+`;
+
+export const detailsText = css`
+  gap: 1.6rem;
+  font-size: 12px !important;
+
+`;
+
+export const newReleasesIcon = css`
+  color: var(--klima-green);
+  margin-inline-end: 0.4rem;
+  margin-bottom: -0.4rem;
 `;
 
 export const offsetCard_header_title = css`
@@ -229,6 +209,7 @@ export const connect_button = css`
 export const offsetCard_header = css`
   display: grid;
   max-width: 100%;
+  
 `;
 
 export const bannerImageContainer = css`
@@ -238,16 +219,50 @@ export const bannerImageContainer = css`
   max-width: 100%;
   padding: 2.4rem;
 `;
+export const info = css`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2.4rem;
+  flex-wrap: wrap;
+
+  p {
+    font-family: 'Poppins';
+
+  }
+`;
+
+export const projectImageWrapper = css`
+  overflow: hidden;
+  img {
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+  }
+`;
 
 export const projectName = css`
   color: white;
   font-weight: 700;
   font-size: 2em;
   font-family: "Poppins", sans-serif;
-  flex: none;
-  order: 0;
   align-self: stretch;
-  flex-grow: 0;
+
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
+
+  ${breakpoints.small} {
+    font-size: 20px;
+  }
+
+  ${breakpoints.medium} {
+    font-size: 1.5em;
+  }
 `;
 
 export const projectKeyStyle = css`
@@ -259,18 +274,19 @@ export const projectKeyStyle = css`
 `;
 export const details = css`
   display: flex;
+  flex-wrap: wrap; 
   flex-direction: row;
   gap: 1.6rem;
-`;
 
-export const info = css`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 0.8rem;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 2.4rem;
+  p {
+
+    @media (max-width: 376px) {
+      font-size: 12px;
+    }
+  
+    ${breakpoints.small} {
+      font-size: 14px;
+    }
+
+  }
 `;

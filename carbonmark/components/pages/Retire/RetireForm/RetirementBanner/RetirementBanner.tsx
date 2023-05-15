@@ -11,21 +11,25 @@ import * as styles from "../styles";
 type Props = {
   projectName?: string;
   projectKey: string;
-  vintage: string;
+  vintageYear: string;
   category: CategoryName;
 };
 
 export const RetirementBanner: FC<Props> = (props) => {
-  const { category, vintage, projectKey, projectName } = props;
+  const { category, vintageYear, projectKey, projectName } = props;
+
   return (
     <div className={styles.offsetCard_header}>
       <div className={styles.bannerImageContainer}>
-        <ProjectImage category={category} />
+        <div className={styles.projectImageWrapper}>
+          <ProjectImage category={category} />
+        </div>
+
         <div className={styles.info}>
           <h3 className={styles.projectName}>{projectName}</h3>
           <div className={styles.details}>
             <h4 className={styles.projectKeyStyle}>{projectKey}</h4>
-            <Vintage vintage={vintage} />
+            <Vintage vintage={vintageYear} />
             <Category category={category} />
             <Registry projectKey={projectKey} />
           </div>
