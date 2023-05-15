@@ -162,7 +162,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           })}
           errorMessage={formState.errors.amount?.message}
         />
-        <Text t="body3" className={styles.availableAmount}>
+        <Text t="body3">
           <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
         </Text>
         <TotalValue
@@ -171,6 +171,15 @@ export const PurchaseForm: FC<Props> = (props) => {
           setValue={setValue}
           errorMessage={formState.errors.price?.message}
         />
+
+        <div className={styles.paymentLabel}>
+          <Text>{t`Pay with:`}</Text>
+          <Text t="body3">
+            {t`Balance:`}{" "}
+            {!balance ? <i>{t`Loading...`}</i> : formatToPrice(balance, locale)}
+          </Text>
+        </div>
+
         <Dropdown
           name="paymentMethod"
           initial={carbonmarkTokenInfoMap["usdc"].key}
@@ -215,16 +224,6 @@ export const PurchaseForm: FC<Props> = (props) => {
             </Text>
           </div>
         </div>
-        <Text t="body3" className={styles.availableAmount}>
-          <Trans>Available:</Trans>{" "}
-          {!balance ? (
-            <i>
-              <Trans>Loading...</Trans>
-            </i>
-          ) : (
-            formatToPrice(balance, locale)
-          )}
-        </Text>
 
         {!address && !isConnected && (
           <ButtonPrimary

@@ -113,6 +113,12 @@ export const inputsContainer = css`
   margin-bottom: 2rem;
 `;
 
+export const paymentLabel = css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const paymentDropdown = css`
   button {
     width: 100%;
@@ -140,12 +146,6 @@ export const helpIcon = css`
   width: 2rem;
   height: 2rem;
   color: var(--font-02);
-`;
-
-export const availableAmount = css`
-  margin-top: -1rem;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
 `;
 
 export const spinnerWrap = css`
