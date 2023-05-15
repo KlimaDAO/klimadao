@@ -1,281 +1,174 @@
-import { Anchor } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
-import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
-import HelpOutline from "@mui/icons-material/HelpOutline";
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { Dropdown } from "components/Dropdown";
-import { InputField } from "components/shared/Form/InputField";
-import { Spinner } from "components/shared/Spinner";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { HighlightValue } from "components/Transaction/HighlightValue";
-import { getUSDCBalance } from "lib/actions";
-import { CARBONMARK_FEE } from "lib/constants";
-import { formatToPrice } from "lib/formatNumbers";
-import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { Col, TwoColLayout } from "components/TwoColLayout";
+import { approveTokenSpend, makePurchase } from "lib/actions";
 import { LO } from "lib/luckyOrange";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import { CarbonmarkToken, Listing } from "lib/types/carbonmark";
-import Image from "next/legacy/image";
+import { getAllowance } from "lib/networkAware/getAllowance";
+import { getContract } from "lib/networkAware/getContract";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
+import { Listing, Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
-import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
+import { FC, useState } from "react";
+import { Price } from "./Price";
+import { ProjectHeader } from "./ProjectHeader";
+import { FormValues, PurchaseInputs } from "./PurchaseInputs";
+import { PurchaseModal } from "./PurchaseModal";
 import * as styles from "./styles";
 
-type TotalValueProps = {
-  control: Control<FormValues>;
-  singlePrice: string;
-  setValue: (field: "price", value: string) => void;
-  errorMessage?: string;
-};
-
-const TotalValue: FC<TotalValueProps> = (props) => {
-  const { locale } = useRouter();
-  const amount = useWatch({ name: "amount", control: props.control });
-  const price = Number(props.singlePrice) * Number(amount);
-  const totalPrice = price + price * CARBONMARK_FEE || 0;
-  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
-  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
-  useEffect(() => {
-    // setValue on client only to prevent infinite loop
-    props.setValue("price", totalPriceFormatted);
-  }, [amount]);
-
-  return (
-    <>
-      <HighlightValue
-        label={t`Listing cost, incl. ${CARBONMARK_FEE * 100}% fee`}
-        value={formatToPrice(totalPriceFormatted, locale)}
-        icon={carbonmarkTokenInfoMap["usdc"].icon}
-        warn={!!props.errorMessage}
-      />
-      {!!props.errorMessage && (
-        <Text t="body1" className={styles.errorMessagePrice}>
-          {props.errorMessage}
-        </Text>
-      )}
-    </>
-  );
-};
-
-export type FormValues = {
-  listingId: string;
-  amount: string;
-  price: string;
-  paymentMethod: string;
-};
-
-type Props = {
-  onSubmit: (values: FormValues) => void;
+export interface Props {
+  project: Project;
   listing: Listing;
-  values: null | FormValues;
-  isLoading: boolean;
-};
+}
 
 export const PurchaseForm: FC<Props> = (props) => {
-  const { locale } = useRouter();
-  const { address, isConnected, toggleModal } = useWeb3();
-  const singleUnitPrice = formatUnits(
-    props.listing.singleUnitPrice,
-    getTokenDecimals("usdc")
-  );
-  const [balance, setBalance] = useState<string | null>(null);
+  const { push } = useRouter();
+  const { address, provider } = useWeb3();
+  const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [inputValues, setInputValues] = useState<FormValues | null>(null);
+  const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
+  const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!address) return;
+  const isPending =
+    status?.statusType === "userConfirmation" ||
+    status?.statusType === "networkConfirmation" ||
+    isProcessing;
 
-    const getBalance = async () => {
-      const balance = await getUSDCBalance({
-        userAddress: address,
+  const showTransactionView = !!inputValues && !!allowanceValue;
+
+  const resetStateAndCancel = () => {
+    setInputValues(null);
+    setAllowanceValue(null);
+    setStatus(null);
+    setIsLoadingAllowance(false);
+    setIsProcessing(false);
+    LO.track("Purchase: Purchase Modal Closed");
+  };
+
+  const onModalClose = !isPending ? resetStateAndCancel : undefined;
+
+  const onUpdateStatus = (status: TxnStatus, message?: string) => {
+    setStatus({ statusType: status, message: message });
+  };
+
+  const onContinue = async (values: FormValues) => {
+    setIsLoadingAllowance(true);
+    try {
+      if (!address) return;
+      const allowance = await getAllowance({
+        contract: getContract({
+          contractName: "usdc",
+          provider: getStaticProvider(),
+        }),
+        address,
+        spender: "carbonmark",
+        token: "usdc",
+      });
+      setAllowanceValue(allowance.usdc.carbonmark);
+      setInputValues(values);
+    } catch (e) {
+      console.error(e);
+      setErrorMessage(
+        t({
+          id: "purchase.loading.allowance.error",
+          message: "something went wrong loading the allowance",
+        })
+      );
+    } finally {
+      setIsLoadingAllowance(false);
+    }
+  };
+
+  const hasApproval = () => {
+    return (
+      !!allowanceValue &&
+      !!inputValues &&
+      Number(allowanceValue) >= Number(inputValues.price)
+    );
+  };
+
+  const handleApproval = async () => {
+    LO.track("Purchase: Approve Clicked");
+    if (!provider || !inputValues) return;
+    try {
+      await approveTokenSpend({
+        tokenName: "usdc",
+        spender: "carbonmark",
+        signer: provider.getSigner(),
+        value: inputValues.price,
+        onStatus: onUpdateStatus,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const onMakePurchase = async () => {
+    LO.track("Purchase: Submit Clicked");
+    if (!provider || !inputValues) return;
+
+    try {
+      setIsProcessing(true);
+      const result = await makePurchase({
+        listingId: inputValues.listingId,
+        amount: inputValues.amount,
+        price: inputValues.price,
+        provider,
+        onStatus: onUpdateStatus,
       });
 
-      setBalance(balance);
-    };
-
-    !balance && getBalance();
-  }, [address]);
-
-  const { register, handleSubmit, formState, control, setValue, clearErrors } =
-    useForm<FormValues>({
-      mode: "onChange",
-      defaultValues: {
-        listingId: props.listing.id,
-        ...props.values,
-      },
-    });
-
-  const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
-    LO.track("Purchase: Continue Clicked");
-    props.onSubmit(values);
+      if (result.hash) {
+        push(`/purchases/${result.hash}`);
+        LO.track("Purchase: Purchase Completed");
+      }
+    } catch (e) {
+      console.error("makePurchase error", e);
+      setIsProcessing(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.inputsContainer}>
-        <InputField
-          id="listingId"
-          inputProps={{
-            type: "hidden",
-            ...register("listingId"),
-          }}
-          label={"listing ID"}
-          hideLabel
-        />
+    <>
+      <TwoColLayout>
+        <Col>
+          <Card>
+            <ProjectHeader project={props.project} listing={props.listing} />
+            <div className={styles.formContainer}>
+              <Price price={props.listing.singleUnitPrice} />
 
-        <div className={styles.amountLabel}>
-          <Text>{t`How many tonnes of carbon do you want to buy?`}</Text>
-          <Text t="body3">
-            <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
-          </Text>
-        </div>
+              <PurchaseInputs
+                onSubmit={onContinue}
+                listing={props.listing}
+                values={inputValues}
+                isLoading={isLoadingAllowance}
+              />
 
-        <InputField
-          id="amount"
-          inputProps={{
-            placeholder: t({
-              id: "purchase.input.amount.placeholder",
-              message: "Tonnes",
-            }),
-            type: "number",
-            min: 1,
-            max: Number(formatUnits(props.listing.leftToSell)),
-            ...register("amount", {
-              onChange: () => clearErrors("price"),
-              required: {
-                value: true,
-                message: t({
-                  id: "purchase.input.amount.required",
-                  message: "Amount is required",
-                }),
-              },
-              min: {
-                value: 1,
-                message: t({
-                  id: "purchase.input.amount.minimum",
-                  message: "The minimum amount to buy is 1 Tonne",
-                }),
-              },
-              max: {
-                value: Number(formatUnits(props.listing.leftToSell)),
-                message: t({
-                  id: "purchase.input.amount.maxAmount",
-                  message: "You exceeded the available amount of tonnes",
-                }),
-              },
-            }),
-          }}
-          label={t`How many tonnes of carbon do you want to buy?`}
-          errorMessage={formState.errors.amount?.message}
-          hideLabel
-        />
-
-        <TotalValue
-          singlePrice={singleUnitPrice}
-          control={control}
-          setValue={setValue}
-          errorMessage={formState.errors.price?.message}
-        />
-
-        <div className={styles.paymentLabel}>
-          <Text>{t`Pay with:`}</Text>
-          <Text t="body3">
-            {t`Balance:`}{" "}
-            {!balance ? <i>{t`Loading...`}</i> : formatToPrice(balance, locale)}
-          </Text>
-        </div>
-
-        <Dropdown
-          name="paymentMethod"
-          initial={carbonmarkTokenInfoMap["usdc"].key}
-          className={styles.paymentDropdown}
-          aria-label={t`Toggle payment method`}
-          renderLabel={(selected) => (
-            <div className={styles.paymentDropDownHeader}>
-              <Image
-                className="icon"
-                src={
-                  carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].icon
-                }
-                width={28}
-                height={28}
-                alt={carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].key}
-              />{" "}
-              {selected.label}
+              {errorMessage && <Text>{errorMessage}</Text>}
             </div>
-          )}
-          control={control}
-          options={[
-            {
-              id: carbonmarkTokenInfoMap["usdc"].key,
-              label: carbonmarkTokenInfoMap["usdc"].label,
-              value: carbonmarkTokenInfoMap["usdc"].key,
-              icon: carbonmarkTokenInfoMap["usdc"].icon,
-            },
-          ]}
-        />
-        <div className={styles.paymentHelp}>
-          <HelpOutline className={styles.helpIcon} />
-          <div className={styles.paymentText}>
-            <Text t="body3">
-              {t`Currently, Carbonmark only accepts Polygon USDC Payments.`}{" "}
-              <Anchor>{t`Learn how
-            to acquire USDC on Polygon.`}</Anchor>
-            </Text>
-            <Text t="body3">
-              {t`If you’d like to retire this project with another form of cryptocurrency, 
-            or with a credit card, you can do so at`}{" "}
-              <Anchor href={urls.app}>app.klimadao.finance.</Anchor>
-            </Text>
-          </div>
-        </div>
+          </Card>
+        </Col>
+        {/* <Col></Col> */}
+      </TwoColLayout>
 
-        {!address && !isConnected && (
-          <ButtonPrimary
-            label={t({
-              id: "shared.connect_to_buy",
-              message: "Sign In / Connect To Buy",
-            })}
-            onClick={toggleModal}
-          />
-        )}
-
-        {address && isConnected && (
-          <ButtonPrimary
-            label={
-              props.isLoading ? (
-                <Spinner />
-              ) : (
-                <Trans id="purchase.button.continue">Continue</Trans>
-              )
-            }
-            onClick={handleSubmit(onSubmit)}
-          />
-        )}
-      </div>
-      <InputField
-        id="price"
-        inputProps={{
-          type: "hidden",
-          ...register("price", {
-            required: {
-              value: true,
-              message: t({
-                id: "purchase.input.price.required",
-                message: "Price is required",
-              }),
-            },
-            max: {
-              value: Number(balance),
-              message: t({
-                id: "purchase.input.price.maxAmount",
-                message: "You exceeded your available amount of tokens",
-              }),
-            },
-          }),
+      <PurchaseModal
+        hasApproval={hasApproval()}
+        amount={{
+          value: inputValues?.price || "0",
+          token: "usdc",
         }}
-        label={"Price"}
-        hideLabel
+        isProcessing={isProcessing}
+        status={status}
+        showModal={showTransactionView}
+        onModalClose={onModalClose}
+        handleApproval={handleApproval}
+        onSubmit={onMakePurchase}
+        onCancel={resetStateAndCancel}
+        onResetStatus={() => setStatus(null)}
       />
-    </form>
+    </>
   );
 };
