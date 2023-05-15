@@ -6,7 +6,6 @@ export const container = css`
   display: grid;
   gap: 2rem;
   background-color: white;
-  padding: 2.4rem;
   border-radius: 1.2rem;
 `;
 
@@ -17,6 +16,13 @@ export const contentContainer = css`
   &.success {
     opacity: 0.3;
   }
+`;
+
+export const details = css`
+  font-family: "DM Sans";
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
 `;
 
 export const viewSwitch = css`
@@ -94,9 +100,10 @@ export const submitButton = css`
 `;
 
 export const backButton = css`
+  font-family: "Poppins";
   background-color: white;
-  color: var(--font-01);
-  border: 2px solid var(--font-01);
+  color: black;
+  border: 1px solid var(--font-01);
   width: 100%;
 `;
 
@@ -125,6 +132,22 @@ export const valueContainer = css`
   .value.warn {
     color: var(--warn);
   }
+`;
+
+export const processingRetirement = css`
+  margin: 0 auto;
+  padding-bottom: 1.6rem;
+
+  p {
+    ${breakpoints.small} {
+      font-size: 2rem;
+
+  }
+
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
+
 `;
 
 export const value = css`

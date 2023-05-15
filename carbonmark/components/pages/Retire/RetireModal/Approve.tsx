@@ -41,28 +41,29 @@ export const Approve: FC<Props> = (props) => {
       >
         <Text>
           <Trans id="transaction_modal.approve.allow_amount">
-            You must first give permission to our smart contract to transfer
-            tokens on your behalf.
+            The first step is to grant the approval to transfer your carbon
+            asset from your wallet to Carbonmark, the next step is to approve
+            the actual transfer and complete your retirement.
           </Trans>
         </Text>
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <label className={styles.details}>
               <Trans id="transaction_modal.approve.approve_quantity.contract_address">
                 Contract address
               </Trans>
-            </Text>
+            </label>
           }
           value={concatAddress(props.spenderAddress)}
           valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
         <HighlightValue
           label={
-            <Text t="caption" color="lighter">
+            <label className={styles.details}>
               <Trans id="transaction_modal.approve_quantity.quantity">
-                Quantity to approve
+                Confirm Amount
               </Trans>
-            </Text>
+            </label>
           }
           value={props.value || "0"}
           // icon={props.tokenIcon}
