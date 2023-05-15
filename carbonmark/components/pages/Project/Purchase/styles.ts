@@ -189,3 +189,12 @@ export const formatParagraph = css`
     margin-bottom: 1em;
   }
 `;
+
+export const totalCost = css`
+  display: flex;
+  gap: 0.8rem;
+`;
+
+export const error = css`
+  color: var(--warn);
+`;
