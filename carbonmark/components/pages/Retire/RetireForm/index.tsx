@@ -175,7 +175,7 @@ export const RetireForm = (props: RetireFormProps) => {
               information cannot be changed once your transaction is complete.
             </Trans>
           </Text>
-          <Text t="caption" color="lightest">
+          <Text t="body2" color="lightest" className={styles.required}>
             <Trans>
               <span style={{ color: "red" }}>* </span> Required Field
             </Trans>
@@ -253,7 +253,7 @@ export const RetireForm = (props: RetireFormProps) => {
                   value={retirement.beneficiaryAddress}
                 />
               </div>
-              <Text t="body8" color="lightest">
+              <Text t="body8" color="lightest" className={styles.detailsText}>
                 <Trans id="offset.default_retirement_address">
                   Defaults to the connected wallet address
                 </Trans>
