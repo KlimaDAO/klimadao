@@ -8,7 +8,6 @@ import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
@@ -19,6 +18,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { Price } from "./Price";
 import { ProjectHeader } from "./ProjectHeader";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 import { PurchaseModal } from "./PurchaseModal";
@@ -30,7 +30,7 @@ export interface ProjectPurchasePageProps {
 }
 
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
-  const { locale, push } = useRouter();
+  const { push } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -167,12 +167,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
                   listing={props.listing}
                 />
                 <div className={styles.formContainer}>
-                  <div className={styles.price}>
-                    <Text t="h4">
-                      {formatBigToPrice(props.listing.singleUnitPrice, locale)}{" "}
-                      <Trans>each</Trans>
-                    </Text>
-                  </div>
+                  <Price price={props.listing.singleUnitPrice} />
 
                   {isActiveListing ? (
                     <PurchaseForm
