@@ -1,3 +1,4 @@
+import { formatUnits } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
 import { HighlightValue } from "components/Transaction/HighlightValue";
@@ -12,10 +13,15 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  singlePrice: string;
+  singleUnitPrice: string;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const singleUnitPrice = formatUnits(
+    props.singleUnitPrice,
+    getTokenDecimals("usdc")
+  );
+
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
 

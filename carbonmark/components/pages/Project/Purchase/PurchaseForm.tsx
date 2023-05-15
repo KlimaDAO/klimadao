@@ -1,4 +1,3 @@
-import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
@@ -142,11 +141,6 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
-  const singleUnitPrice = formatUnits(
-    props.listing.singleUnitPrice,
-    getTokenDecimals("usdc")
-  );
-
   return (
     <FormProvider {...methods}>
       <TwoColLayout>
@@ -169,7 +163,9 @@ export const PurchaseForm: FC<Props> = (props) => {
         </Col>
         <Col>
           <Card>
-            <TotalValues singlePrice={singleUnitPrice} />
+            <TotalValues
+              singleUnitPrice={props.listing.singleUnitPrice}
+            />
           </Card>
         </Col>
       </TwoColLayout>
