@@ -9,8 +9,8 @@ export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;
   /** Normalized id with prefix like VCS-123 */
-  // projectId: string;
-  retirement: KlimaRetire | any;
+  projectId: string;
+  retirement: KlimaRetire;
   retirementIndex: string;
   retirementMessage: string;
   retirementUrl: string;
