@@ -4,10 +4,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
-import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { Transaction } from "components/Transaction";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { approveTokenSpend, makePurchase } from "lib/actions";
 import { createProjectLink } from "lib/createUrls";
@@ -24,6 +21,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { ProjectHeader } from "./ProjectHeader";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
+import { PurchaseModal } from "./PurchaseModal";
 import * as styles from "./styles";
 
 export interface ProjectPurchasePageProps {
@@ -141,59 +139,6 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
     }
   };
 
-  const PurchaseApproval = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.approval_1">
-            You are about to purchase a carbon asset.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.approval_2">
-            The first step is to grant the approval to transfer your payment
-            asset from your wallet to Carbonmark, the next step is to approve
-            the actual transfer and complete your purchase.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.approval_3">
-            Carbon assets you purchase can be listed for sale on Carbonmark at
-            any time from your{" "}
-            <Link href="/portfolio" target="blank">
-              portfolio
-            </Link>
-            .
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.approval_4">
-            Verify all information is correct and click 'approve' to continue.
-          </Trans>
-        </Text>
-      </div>
-    );
-  };
-
-  const PurchaseSubmit = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.submit_1">
-            The previous step granted the approval to transfer your payment
-            asset from your wallet to Carbonmark.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="purchase.submit_2">
-            Your purchase has not been completed yet. To finalize your purchase,
-            verify all information is correct and then click 'submit' below.
-          </Trans>
-        </Text>
-      </div>
-    );
-  };
-
   return (
     <>
       <PageHead
@@ -250,43 +195,21 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
           </TwoColLayout>
         </div>
 
-        <Modal
-          title={
-            !isProcessing
-              ? t({
-                  id: "purchase.transaction.modal.title.confirm",
-                  message: "Confirm Purchase",
-                })
-              : t({
-                  id: "purchase.transaction.modal.title.processing",
-                  message: "Processing Purchase",
-                })
-          }
+        <PurchaseModal
+          hasApproval={hasApproval()}
+          amount={{
+            value: inputValues?.price || "0",
+            token: "usdc",
+          }}
+          isProcessing={isProcessing}
+          status={status}
           showModal={showTransactionView}
-          onToggleModal={onModalClose}
-        >
-          {!!inputValues && !isProcessing && (
-            <Transaction
-              hasApproval={hasApproval()}
-              amount={{
-                value: inputValues.price,
-                token: "usdc",
-              }}
-              approvalText={<PurchaseApproval />}
-              submitText={<PurchaseSubmit />}
-              onApproval={handleApproval}
-              onSubmit={onMakePurchase}
-              onCancel={resetStateAndCancel}
-              status={status}
-              onResetStatus={() => setStatus(null)}
-            />
-          )}
-          {isProcessing && (
-            <div className={styles.spinnerWrap}>
-              <Spinner />
-            </div>
-          )}
-        </Modal>
+          onModalClose={onModalClose}
+          handleApproval={handleApproval}
+          onSubmit={onMakePurchase}
+          onCancel={resetStateAndCancel}
+          onResetStatus={() => setStatus(null)}
+        />
       </Layout>
     </>
   );
