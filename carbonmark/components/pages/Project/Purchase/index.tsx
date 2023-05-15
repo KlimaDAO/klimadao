@@ -22,6 +22,7 @@ import { Price } from "./Price";
 import { ProjectHeader } from "./ProjectHeader";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 import { PurchaseModal } from "./PurchaseModal";
+import { InactivePurchase } from "./InactivePurchase";
 import * as styles from "./styles";
 
 export interface ProjectPurchasePageProps {
@@ -181,6 +182,9 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
                       <Trans>This offer no longer exists.</Trans>
                     </Text>
                   )}
+          {!isActiveListing && (
+            <InactivePurchase project={props.project} listing={props.listing} />
+          )}
 
                   {errorMessage && <Text>{errorMessage}</Text>}
                 </div>

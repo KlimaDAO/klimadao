@@ -98,6 +98,14 @@ export const price = css`
   border-radius: var(--border-radius);
 `;
 
+export const inactivePurchase = css`
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+`;
+
 export const formContainer = css`
   max-width: 42rem;
   align-self: center;
