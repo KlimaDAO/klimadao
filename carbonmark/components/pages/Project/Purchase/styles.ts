@@ -113,6 +113,19 @@ export const inputsContainer = css`
   margin-bottom: 2rem;
 `;
 
+export const paymentDropdown = css`
+  button {
+    width: 100%;
+    gap: 1rem;
+  }
+`;
+
+export const paymentDropDownHeader = css`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
 export const availableAmount = css`
   margin-top: -1rem;
   margin-left: 1rem;

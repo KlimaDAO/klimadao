@@ -1,6 +1,7 @@
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
@@ -11,7 +12,8 @@ import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { LO } from "lib/luckyOrange";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import { Listing } from "lib/types/carbonmark";
+import { CarbonmarkToken, Listing } from "lib/types/carbonmark";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
@@ -57,6 +59,7 @@ export type FormValues = {
   listingId: string;
   amount: string;
   price: string;
+  paymentMethod: string;
 };
 
 type Props = {
@@ -164,6 +167,35 @@ export const PurchaseForm: FC<Props> = (props) => {
           control={control}
           setValue={setValue}
           errorMessage={formState.errors.price?.message}
+        />
+        <Dropdown
+          name="paymentMethod"
+          initial={carbonmarkTokenInfoMap["usdc"].key}
+          className={styles.paymentDropdown}
+          aria-label={t`Toggle payment method`}
+          renderLabel={(selected) => (
+            <div className={styles.paymentDropDownHeader}>
+              <Image
+                className="icon"
+                src={
+                  carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].icon
+                }
+                width={28}
+                height={28}
+                alt={carbonmarkTokenInfoMap[selected.id as CarbonmarkToken].key}
+              />{" "}
+              {selected.label}
+            </div>
+          )}
+          control={control}
+          options={[
+            {
+              id: carbonmarkTokenInfoMap["usdc"].key,
+              label: carbonmarkTokenInfoMap["usdc"].label,
+              value: carbonmarkTokenInfoMap["usdc"].key,
+              icon: carbonmarkTokenInfoMap["usdc"].icon,
+            },
+          ]}
         />
         <Text t="body3" className={styles.availableAmount}>
           <Trans>Available:</Trans>{" "}
