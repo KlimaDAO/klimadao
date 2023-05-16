@@ -152,7 +152,7 @@ export const processingRetirement = css`
 
 export const value = css`
   display: flex;
- 
+
   align-items: center;
   background-color: var(--surface-02);
   color: var(--font-01);

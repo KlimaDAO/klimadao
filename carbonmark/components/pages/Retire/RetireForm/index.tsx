@@ -6,20 +6,20 @@ import {
   poolTokens,
   urls,
 } from "@klimadao/lib/constants";
-import { useEffect, useState } from "react";
+import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import { ProjectImage } from "components/ProjectImage";
+import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ethers, providers } from "ethers";
+import { carbonTokenInfoMap } from "lib/getTokenInfo";
+import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement } from "lib/types/carbonmark";
-import { RetirementStatusModal } from "../RetirementStatusModal";
-import { breakpoints } from "@klimadao/lib/theme/breakpoints";
-import { ProjectImage } from "components/ProjectImage";
-import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
-import { Col, TwoColLayout } from "components/TwoColLayout";
-import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
+import { RetirementStatusModal } from "../RetirementStatusModal";
 import { RetireModal } from "../RetireModal";
 import {
   getApprovalValue,
@@ -27,7 +27,7 @@ import {
   hasApproval,
 } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-import { carbonTokenInfoMap } from "lib/getTokenInfo";
+import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
 
 import * as styles from "./styles";
 
@@ -78,13 +78,13 @@ export const RetireForm = (props: RetireFormProps) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const getTokenPrefix = (tokenName : string) => {
-    const parts = tokenName.split('-');
-    return parts[0].toLowerCase();  // return the first part before the dash
+  const getTokenPrefix = (tokenName: string) => {
+    const parts = tokenName.split("-");
+    return parts[0].toLowerCase(); // return the first part before the dash
   };
-  
-  const carbonTokenInfo = carbonTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonToken];
 
+  const carbonTokenInfo =
+    carbonTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonToken];
 
   const updateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
@@ -312,7 +312,10 @@ export const RetireForm = (props: RetireFormProps) => {
                 />
               </div>
               {isLargeOrBelow ? (
-                <RetirementSidebar retirementAsset={asset} icon={carbonTokenInfo.icon} />
+                <RetirementSidebar
+                  retirementAsset={asset}
+                  icon={carbonTokenInfo.icon}
+                />
               ) : null}
               <div className="disclaimer">
                 <GppMaybeOutlined style={{ color: "#FFB800" }} />
@@ -347,11 +350,14 @@ export const RetireForm = (props: RetireFormProps) => {
         </Col>
         {!isLargeOrBelow ? (
           <Col>
-            <RetirementSidebar retirementAsset={asset} icon={carbonTokenInfo.icon} />
+            <RetirementSidebar
+              retirementAsset={asset}
+              icon={carbonTokenInfo.icon}
+            />
           </Col>
         ) : null}
       </TwoColLayout>
-      
+
       {retireModalOpen && (
         <RetireModal
           title={
