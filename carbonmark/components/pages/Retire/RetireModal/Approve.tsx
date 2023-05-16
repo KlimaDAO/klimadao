@@ -4,17 +4,17 @@ import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 // import { StaticImageData } from "next/image";
-import { FC } from "react";
-import { HighlightValue } from "./HighlightValue";
-
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { StaticImageData } from "next/image";
+import { FC } from "react";
+import { RetireValue } from "./RetireValues";
 
 import { urls } from "@klimadao/lib/constants";
 import * as styles from "./styles";
 
 interface Props {
   value: string;
-  // tokenIcon: StaticImageData;
+  tokenIcon: StaticImageData;
   tokenName: string;
   spenderAddress: string;
   onApproval: () => void;
@@ -46,7 +46,7 @@ export const Approve: FC<Props> = (props) => {
             the actual transfer and complete your retirement.
           </Trans>
         </Text>
-        <HighlightValue
+        <RetireValue
           label={
             <label className={styles.details}>
               <Trans id="transaction_modal.approve.approve_quantity.contract_address">
@@ -57,7 +57,7 @@ export const Approve: FC<Props> = (props) => {
           value={concatAddress(props.spenderAddress)}
           valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
-        <HighlightValue
+        <RetireValue
           label={
             <label className={styles.details}>
               <Trans id="transaction_modal.approve_quantity.quantity">
@@ -66,7 +66,7 @@ export const Approve: FC<Props> = (props) => {
             </label>
           }
           value={props.value || "0"}
-          // icon={props.tokenIcon}
+          icon={props.tokenIcon}
           iconName={props.tokenName}
         />
       </div>

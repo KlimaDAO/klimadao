@@ -152,7 +152,7 @@ export const processingRetirement = css`
 
 export const value = css`
   display: flex;
-  justify-content: space-between;
+ 
   align-items: center;
   background-color: var(--surface-02);
   color: var(--font-01);
@@ -161,7 +161,7 @@ export const value = css`
   padding: 0.4rem 0.8rem;
 
   .icon {
-    min-width: 4.8rem;
+    margin-right: 0.8rem;
     align-self: center;
   }
 

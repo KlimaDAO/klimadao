@@ -1,21 +1,22 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import {
   addresses,
+  CarbonToken,
   PoolToken,
   poolTokens,
   urls,
 } from "@klimadao/lib/constants";
+import { useEffect, useState } from "react";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
-import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ethers, providers } from "ethers";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement } from "lib/types/carbonmark";
-import { useEffect, useState } from "react";
 import { RetirementStatusModal } from "../RetirementStatusModal";
-// import TCO2 from "public/icons/TCO2.png";
 import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { ProjectImage } from "components/ProjectImage";
+import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
+import { Col, TwoColLayout } from "components/TwoColLayout";
 import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
 import { useRouter } from "next/router";
 import { RetirementSidebar } from "../RetirementSidebar";
@@ -26,11 +27,9 @@ import {
   hasApproval,
 } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
-import * as styles from "./styles";
+import { carbonTokenInfoMap } from "lib/getTokenInfo";
 
-// import { CarbonBalancesCard } from "components/CarbonBalancesCard";
-// import { tokenInfo } from "lib/getTokenInfo";
+import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
   !!poolTokens.includes(str as PoolToken);
@@ -78,6 +77,14 @@ export const RetireForm = (props: RetireFormProps) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const getTokenPrefix = (tokenName : string) => {
+    const parts = tokenName.split('-');
+    return parts[0].toLowerCase();  // return the first part before the dash
+  };
+  
+  const carbonTokenInfo = carbonTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonToken];
+
 
   const updateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
@@ -305,7 +312,7 @@ export const RetireForm = (props: RetireFormProps) => {
                 />
               </div>
               {isLargeOrBelow ? (
-                <RetirementSidebar retirementAsset={asset} />
+                <RetirementSidebar retirementAsset={asset} icon={carbonTokenInfo.icon} />
               ) : null}
               <div className="disclaimer">
                 <GppMaybeOutlined style={{ color: "#FFB800" }} />
@@ -340,10 +347,11 @@ export const RetireForm = (props: RetireFormProps) => {
         </Col>
         {!isLargeOrBelow ? (
           <Col>
-            <RetirementSidebar retirementAsset={asset} />
+            <RetirementSidebar retirementAsset={asset} icon={carbonTokenInfo.icon} />
           </Col>
         ) : null}
       </TwoColLayout>
+      
       {retireModalOpen && (
         <RetireModal
           title={
@@ -351,6 +359,7 @@ export const RetireForm = (props: RetireFormProps) => {
               <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
             </Text>
           }
+          tokenIcon={carbonTokenInfo.icon}
           value={retirement.quantity}
           approvalValue={getApprovalValue(retirement.quantity)}
           tokenName={tokenName}
