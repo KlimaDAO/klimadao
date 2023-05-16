@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 export const group = css`
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0rem;
 `;
 
 export const bold = css`

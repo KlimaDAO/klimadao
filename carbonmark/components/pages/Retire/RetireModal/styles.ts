@@ -30,7 +30,6 @@ export const viewSwitch = css`
   grid-template-columns: 1fr 1fr;
   justify-content: stretch;
   align-items: center;
-  border-radius: 0.8rem;
   padding: 0.4rem;
 `;
 
@@ -43,7 +42,7 @@ export const switchButton = css`
   background-color: var(--bright-blue);
   min-height: 4.8rem;
   color: white;
-  border-radius: 0.8rem;
+  border-radius: 4px;
 
   &:hover {
     opacity: 0.8;

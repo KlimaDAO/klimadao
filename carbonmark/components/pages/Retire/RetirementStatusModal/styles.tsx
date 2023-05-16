@@ -10,13 +10,19 @@ export const title = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 `;
 
+export const modalContent = css`
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+`;
 export const viewButton = css`
   background-color: var(--bright-blue);
   color: white !important;
   width: 100%;
+  margin-top: 1.6rem;
 `;
 
 export const portfolioButton = css`
@@ -25,18 +31,4 @@ export const portfolioButton = css`
   color: black;
   border: 1px solid var(--font-01);
   width: 100%;
-`;
-
-export const modalContent = css`
-  display: grid;
-  gap: 1.6rem;
-  .success {
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    align-items: center;
-    svg {
-      color: var(--klima-green);
-    }
-  }
 `;

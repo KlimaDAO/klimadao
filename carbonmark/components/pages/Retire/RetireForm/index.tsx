@@ -28,7 +28,6 @@ import {
 } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
 import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
-
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -53,6 +52,8 @@ export const RetireForm = (props: RetireFormProps) => {
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
+  const [readyForRetireModal, setReadyForRetireModal] =
+    useState<boolean>(false);
 
   const [isLargeOrBelow, setIsLargeOrBelow] = useState(
     window.innerWidth <= breakpoints.large
@@ -78,6 +79,25 @@ export const RetireForm = (props: RetireFormProps) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (
+      retirement.quantity > "0" &&
+      retirement.beneficiaryName !== "" &&
+      retirement.retirementMessage !== "" &&
+      (retirement.beneficiaryAddress === "" ||
+        ethers.utils.isAddress(retirement.beneficiaryAddress))
+    ) {
+      setReadyForRetireModal(true);
+    } else {
+      setReadyForRetireModal(false);
+    }
+  }, [
+    retirement.quantity,
+    retirement.beneficiaryName,
+    retirement.retirementMessage,
+    retirement.beneficiaryAddress,
+  ]);
+
   const getTokenPrefix = (tokenName: string) => {
     const parts = tokenName.split("-");
     return parts[0].toLowerCase(); // return the first part before the dash
@@ -90,20 +110,20 @@ export const RetireForm = (props: RetireFormProps) => {
     setStatus({ statusType: status, message: message });
   };
 
-  const handleOnSuccessModalClose = () => {
-    setRetirement({
-      quantity: "0",
-      maxQuantity: parseFloat(balance),
-      beneficiaryName: "",
-      beneficiaryAddress: "",
-      retirementMessage: "",
-    });
-    setRetirementTransactionHash("");
-    setRetirementTotals(0);
-    setRetireModalOpen(false);
-    setStatus(null);
-    setIsApproved(false);
-  };
+  // const handleOnSuccessModalClose = () => {
+  //   setRetirement({
+  //     quantity: "0",
+  //     maxQuantity: parseFloat(balance),
+  //     beneficiaryName: "",
+  //     beneficiaryAddress: "",
+  //     retirementMessage: "",
+  //   });
+  //   setRetirementTransactionHash("");
+  //   setRetirementTotals(0);
+  //   setRetireModalOpen(false);
+  //   setStatus(null);
+  //   setIsApproved(false);
+  // };
 
   useEffect(() => {
     async function getApproval() {
@@ -146,19 +166,6 @@ export const RetireForm = (props: RetireFormProps) => {
             }));
           }
         }
-      }
-    } else if (field === "beneficiaryAddress") {
-      // only allows valid address
-      if (ethers.utils.isAddress(newValue)) {
-        setRetirement((prevState) => ({
-          ...prevState,
-          beneficiaryAddress: newValue,
-        }));
-      } else {
-        setRetirement((prevState) => ({
-          ...prevState,
-          beneficiaryAddress: "",
-        }));
       }
     } else {
       setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
@@ -212,7 +219,7 @@ export const RetireForm = (props: RetireFormProps) => {
                       </Trans>
                     </Text>
                     <Text
-                      t="caption"
+                      t="body8"
                       color="lightest"
                       className={styles.detailsText}
                     >
@@ -278,8 +285,23 @@ export const RetireForm = (props: RetireFormProps) => {
                         message: "Beneficiary wallet address (optional)",
                       })}
                       value={retirement.beneficiaryAddress}
+                      id="beneficiaryAddress"
+                      data-error={
+                        retirement.beneficiaryAddress &&
+                        !ethers.utils.isAddress(retirement.beneficiaryAddress)
+                      }
                     />
                   </div>
+                  {retirement.beneficiaryAddress &&
+                    !ethers.utils.isAddress(retirement.beneficiaryAddress) && (
+                      <Text
+                        t="caption"
+                        color="lighter"
+                        className={styles.warningText}
+                      >
+                        Please enter a valid wallet address
+                      </Text>
+                    )}
                   <Text
                     t="body8"
                     color="lightest"
@@ -336,7 +358,7 @@ export const RetireForm = (props: RetireFormProps) => {
                     })}
                     onClick={() => setRetireModalOpen(true)}
                     className={styles.submitButton}
-                    disabled={retirement.quantity === "0"}
+                    disabled={!readyForRetireModal}
                   />
                   <ButtonPrimary
                     label={t({ id: "retire.back_button", message: "back" })}
@@ -404,7 +426,6 @@ export const RetireForm = (props: RetireFormProps) => {
 
       {retirementTransactionHash && (
         <RetirementStatusModal
-          onSuccessModalClose={handleOnSuccessModalClose}
           retirementUrl={createLinkWithLocaleSubPath(
             `${urls.retirements}/${
               retirement.beneficiaryAddress || props.address
