@@ -1,21 +1,18 @@
 import { cx } from "@emotion/css";
 import { Trans } from "@lingui/macro";
 import { FC } from "react";
-
 import CheckIcon from "@mui/icons-material/Check";
-import SendRounded from "@mui/icons-material/SendRounded";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
-
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
-import { HighlightValue } from "./HighlightValue";
-// import { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
+import { RetireValue } from "./RetireValues";
 import * as styles from "./styles";
 
 interface Props {
   value: string;
-  // tokenIcon: StaticImageData;
+  tokenIcon: StaticImageData;
   tokenName: string;
   spenderAddress: string;
   onSubmit: () => void;
@@ -41,14 +38,21 @@ export const Submit: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.submit.confirm_transaction">
+        <Text t="caption">
+          <Trans id="transaction_modal.submit.confirm_transaction_1">
             The previous step granted the approval to transfer your carbon asset
             from your wallet to Carbonmark, your retirement has not been
             completed yet.
           </Trans>
         </Text>
-        <HighlightValue
+        <Text t="caption">
+          <Trans id="transaction_modal.submit.confirm_transaction_2">
+            The previous step granted the approval to transfer your carbon asset
+            from your wallet to Carbonmark, your retirement has not been
+            completed yet.
+          </Trans>
+        </Text>
+        <RetireValue
           label={
             <Text t="caption" color="lighter">
               <Trans id="transaction_modal.submit.contract_address">
@@ -59,14 +63,14 @@ export const Submit: FC<Props> = (props) => {
           value={concatAddress(props.spenderAddress)}
           valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
-        <HighlightValue
+        <RetireValue
           label={
             <Text t="caption" color="lighter">
               <Trans id="transaction_modal.submit.amount">Confirm amount</Trans>
             </Text>
           }
           value={props.value || "0"}
-          // icon={props.tokenIcon}
+          icon={props.tokenIcon}
           iconName={props.tokenName}
         />
       </div>
@@ -86,7 +90,6 @@ export const Submit: FC<Props> = (props) => {
         )}
         {showSubmitButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="transaction_modal.submit.button">Submit</Trans>}
             onClick={() => props.onSubmit()}
             className={styles.submitButton}

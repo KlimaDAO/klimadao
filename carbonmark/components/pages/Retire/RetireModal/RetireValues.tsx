@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import * as styles from "./styles";
 
-interface HighlightValueProps {
+interface RetireValueProps {
   label: ReactNode;
   value: string;
   icon?: StaticImageData;
@@ -17,7 +17,7 @@ interface HighlightValueProps {
   valueHref?: string;
 }
 
-export const HighlightValue: FC<HighlightValueProps> = (props) => {
+export const RetireValue: FC<RetireValueProps> = (props) => {
   return (
     <div className={styles.valueContainer}>
       <div className="label">{props.label}</div>
@@ -26,8 +26,8 @@ export const HighlightValue: FC<HighlightValueProps> = (props) => {
           <Image
             className="icon"
             src={props.icon}
-            width={48}
-            height={48}
+            width={28}
+            height={28}
             alt={props.iconName || ""}
           />
         )}

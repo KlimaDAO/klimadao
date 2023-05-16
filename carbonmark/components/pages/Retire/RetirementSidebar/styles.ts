@@ -12,6 +12,13 @@ export const bold = css`
   font-family: "Poppins";
 `;
 
+export const icon = css`
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+`;
+
 export const linkWithIcon = css`
   display: flex;
   align-items: center;

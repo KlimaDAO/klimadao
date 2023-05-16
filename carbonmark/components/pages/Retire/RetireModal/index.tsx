@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, ReactNode, useEffect, useState } from "react";
-
+import { StaticImageData } from "next/image";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { LargeSpinner } from "components/LargeSpinner";
 import { Modal } from "components/Modal";
@@ -14,6 +14,7 @@ interface Props {
   title: ReactNode;
   value: string;
   approvalValue?: string;
+  tokenIcon: StaticImageData;
   tokenName: string;
   spenderAddress: string;
   onCloseModal: () => void;
@@ -92,7 +93,7 @@ export const RetireModal: FC<Props> = (props) => {
           {view === "approve" && (
             <Approve
               value={props.approvalValue || props.value}
-              // tokenIcon={props.tokenIcon}
+              tokenIcon={props.tokenIcon}
               tokenName={props.tokenName}
               spenderAddress={props.spenderAddress}
               onApproval={props.onApproval}
@@ -106,7 +107,7 @@ export const RetireModal: FC<Props> = (props) => {
           {view === "submit" && (
             <Submit
               value={props.value}
-              // tokenIcon={props.tokenIcon}
+              tokenIcon={props.tokenIcon}
               tokenName={props.tokenName}
               spenderAddress={props.spenderAddress}
               onSubmit={props.onSubmit}

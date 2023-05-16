@@ -6,9 +6,12 @@ import { Text } from "components/Text";
 import type { AssetForRetirement } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
+import { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface Props {
   retirementAsset: AssetForRetirement;
+  icon: StaticImageData;
 }
 
 export const RetirementSidebar: FC<Props> = (props) => {
@@ -23,6 +26,7 @@ export const RetirementSidebar: FC<Props> = (props) => {
           <Trans>Asset ID</Trans>
         </Text>
         <Text t="body1" className={styles.bold}>
+          <Image src={props.icon} className={styles.icon} alt="icon" />
           <Trans>{tokenSymbol}</Trans>
         </Text>
       </div>

@@ -37,13 +37,15 @@ export const RetirementStatusModal: FC<Props> = (props) => (
         className={styles.viewButton}
         target="_blank"
         label={
-          <Trans id="offset.successModal.cta">VIE AND SHARE CERTIFICATE</Trans>
+          <Trans id="offset.successModal.cta_1">
+            VIEW AND SHARE CERTIFICATE
+          </Trans>
         }
       />
       <ButtonPrimary
         href={"/portfolio"}
         className={styles.portfolioButton}
-        label={<Trans id="offset.successModal.cta">RETIRE MORE CARBON</Trans>}
+        label={<Trans id="offset.successModal.cta_2">RETIRE MORE CARBON</Trans>}
       />
     </div>
   </Modal>
