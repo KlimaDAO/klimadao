@@ -34,6 +34,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const totalPrice = price + price * CARBONMARK_FEE || 0;
   const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
   const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
+
   useEffect(() => {
     // setValue on client only to prevent infinite loop
     setValue("price", totalPriceFormatted);
@@ -46,29 +47,42 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   return (
     <>
       <Text t="h4">{t`Total price`}</Text>
-      <Text>{t`Amount to purchase`}</Text>
-      <Text t="body2">
-        {formatToTonnes(amount || "0", locale)} {t`Tonnes`}
-      </Text>
-      <Text>{t`Price per tonne`}</Text>
-      <Text t="body2">{formatToPrice(singleUnitPrice, locale)}</Text>
-      <Text>{t`Carbonmark fee`}</Text>
-      <Text t="body2">{`${CARBONMARK_FEE * 100}%`}</Text>
 
-      <div></div>
-      <Text>{t`Total cost`}</Text>
-      <div className={cx(styles.totalCost)}>
-        <Image
-          className="icon"
-          src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-          width={36}
-          height={36}
-          alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-        />
-        <Text t="h3" className={cx({ error: exceededBalance })}>
-          {formatToPrice(totalPriceFormatted, locale)}
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Amount to purchase`}</Text>
+        <Text t="h5">
+          {formatToTonnes(amount || "0", locale)} {t`Tonnes`}
         </Text>
       </div>
+
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Price per tonne`}</Text>
+        <Text t="h5">{formatToPrice(singleUnitPrice, locale)}</Text>
+      </div>
+
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Carbonmark fee`}</Text>
+        <Text t="h5">{`${CARBONMARK_FEE * 100}%`}</Text>
+      </div>
+
+      <div></div>
+
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Total cost`}</Text>
+        <div className={cx(styles.totalCost)}>
+          <Image
+            className="icon"
+            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+            width={36}
+            height={36}
+            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+          />
+          <Text t="h3" className={cx({ error: exceededBalance })}>
+            {formatToPrice(totalPriceFormatted, locale)}
+          </Text>
+        </div>
+      </div>
+
       {formState.errors.price?.message && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {formState.errors.price?.message}

@@ -190,6 +190,11 @@ export const formatParagraph = css`
   }
 `;
 
+export const totalsText = css`
+  display: grid;
+  gap: 0.8rem;
+`;
+
 export const totalCost = css`
   display: flex;
   gap: 0.8rem;
