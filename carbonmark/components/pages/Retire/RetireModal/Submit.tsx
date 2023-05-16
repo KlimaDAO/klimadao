@@ -1,12 +1,12 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
-import { FC } from "react";
-import CheckIcon from "@mui/icons-material/Check";
-import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
+import CheckIcon from "@mui/icons-material/Check";
+import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 import { StaticImageData } from "next/image";
+import { FC } from "react";
 import { RetireValue } from "./RetireValues";
 import * as styles from "./styles";
 

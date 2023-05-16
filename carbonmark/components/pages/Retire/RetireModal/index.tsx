@@ -1,11 +1,11 @@
-import { Trans } from "@lingui/macro";
-import { TransactionStatusMessage } from "lib/statusMessage";
-import { FC, ReactNode, useEffect, useState } from "react";
-import { StaticImageData } from "next/image";
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 import { LargeSpinner } from "components/LargeSpinner";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
+import { TransactionStatusMessage } from "lib/statusMessage";
+import { StaticImageData } from "next/image";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { Approve } from "./Approve";
 import * as styles from "./styles";
 import { Submit } from "./Submit";

@@ -4,10 +4,9 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import type { AssetForRetirement } from "lib/types/carbonmark";
+import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";
-import { StaticImageData } from "next/image";
-import Image from "next/image";
 
 interface Props {
   retirementAsset: AssetForRetirement;
