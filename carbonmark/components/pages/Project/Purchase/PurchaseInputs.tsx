@@ -19,7 +19,12 @@ import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
+import {
+  Control,
+  SubmitHandler,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 import * as styles from "./styles";
 
 type TotalValueProps = {
@@ -96,13 +101,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
   }, [address]);
 
   const { register, handleSubmit, formState, control, setValue, clearErrors } =
-    useForm<FormValues>({
-      mode: "onChange",
-      defaultValues: {
-        listingId: props.listing.id,
-        ...props.values,
-      },
-    });
+    useFormContext<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
     LO.track("Purchase: Continue Clicked");

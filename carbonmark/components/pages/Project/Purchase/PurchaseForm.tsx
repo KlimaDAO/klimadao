@@ -12,6 +12,7 @@ import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Listing, Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { Price } from "./Price";
 import { ProjectHeader } from "./ProjectHeader";
 import { FormValues, PurchaseInputs } from "./PurchaseInputs";
@@ -32,6 +33,14 @@ export const PurchaseForm: FC<Props> = (props) => {
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const methods = useForm<FormValues>({
+    mode: "onChange",
+    defaultValues: {
+      listingId: props.listing.id,
+      ...inputValues,
+    },
+  });
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -132,7 +141,7 @@ export const PurchaseForm: FC<Props> = (props) => {
   };
 
   return (
-    <>
+    <FormProvider {...methods}>
       <TwoColLayout>
         <Col>
           <Card>
@@ -169,6 +178,6 @@ export const PurchaseForm: FC<Props> = (props) => {
         onCancel={resetStateAndCancel}
         onResetStatus={() => setStatus(null)}
       />
-    </>
+    </FormProvider>
   );
 };
