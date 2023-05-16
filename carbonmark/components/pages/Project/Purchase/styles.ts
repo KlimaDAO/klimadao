@@ -195,7 +195,12 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
-export const totalCost = css`
+export const divider = css`
+  height: 0.1rem;
+  background-color: var(--font-03);
+`;
+
+export const iconAndText = css`
   display: flex;
   gap: 0.8rem;
 `;

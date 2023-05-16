@@ -57,19 +57,37 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Price per tonne`}</Text>
-        <Text t="h5">{formatToPrice(singleUnitPrice, locale)}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <Image
+            className="icon"
+            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+            width={20}
+            height={20}
+            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+          />
+          <Text t="h5">{formatToPrice(singleUnitPrice, locale)}</Text>
+        </div>
       </div>
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Carbonmark fee`}</Text>
-        <Text t="h5">{`${CARBONMARK_FEE * 100}%`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <Image
+            className="icon"
+            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+            width={20}
+            height={20}
+            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+          />
+          <Text t="h5">{`${CARBONMARK_FEE * 100}%`}</Text>
+        </div>
       </div>
 
-      <div></div>
+      <div className={styles.divider}></div>
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
-        <div className={cx(styles.totalCost)}>
+        <div className={cx(styles.iconAndText)}>
           <Image
             className="icon"
             src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
