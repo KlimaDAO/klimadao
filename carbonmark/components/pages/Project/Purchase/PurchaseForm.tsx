@@ -18,6 +18,7 @@ import { ProjectHeader } from "./ProjectHeader";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
 import * as styles from "./styles";
+import { SubmitButton } from "./SubmitButton";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
 
@@ -170,8 +171,12 @@ export const PurchaseForm: FC<Props> = (props) => {
                 onSubmit={onContinue}
                 listing={props.listing}
                 values={inputValues}
-                isLoading={isLoadingAllowance}
                 balance={balance}
+              />
+
+              <SubmitButton
+                onSubmit={onContinue}
+                isLoading={isLoadingAllowance}
               />
 
               {errorMessage && <Text>{errorMessage}</Text>}

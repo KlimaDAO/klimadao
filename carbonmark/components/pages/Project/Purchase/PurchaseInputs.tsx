@@ -1,12 +1,10 @@
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
+import { formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
@@ -23,13 +21,11 @@ type Props = {
   onSubmit: (values: FormValues) => void;
   listing: Listing;
   values: null | FormValues;
-  isLoading: boolean;
   balance: string | null;
 };
 
 export const PurchaseInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, isConnected, toggleModal } = useWeb3();
 
   const { register, handleSubmit, formState, control, clearErrors } =
     useFormContext<FormValues>();
@@ -159,29 +155,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
             </Text>
           </div>
         </div>
-
-        {!address && !isConnected && (
-          <ButtonPrimary
-            label={t({
-              id: "shared.connect_to_buy",
-              message: "Sign In / Connect To Buy",
-            })}
-            onClick={toggleModal}
-          />
-        )}
-
-        {address && isConnected && (
-          <ButtonPrimary
-            label={
-              props.isLoading ? (
-                <Spinner />
-              ) : (
-                <Trans id="purchase.button.continue">Continue</Trans>
-              )
-            }
-            onClick={handleSubmit(onSubmit)}
-          />
-        )}
       </div>
       <InputField
         id="price"
