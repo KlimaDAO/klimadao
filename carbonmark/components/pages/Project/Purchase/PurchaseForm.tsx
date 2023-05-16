@@ -177,6 +177,7 @@ export const PurchaseForm: FC<Props> = (props) => {
               <SubmitButton
                 onSubmit={onContinue}
                 isLoading={isLoadingAllowance}
+                className={styles.showOnDesktop}
               />
 
               {errorMessage && <Text>{errorMessage}</Text>}
@@ -190,6 +191,11 @@ export const PurchaseForm: FC<Props> = (props) => {
               balance={balance}
             />
           </Card>
+          <SubmitButton
+            onSubmit={onContinue}
+            isLoading={isLoadingAllowance}
+            className={styles.hideOnDesktop}
+          />
         </Col>
       </TwoColLayout>
 

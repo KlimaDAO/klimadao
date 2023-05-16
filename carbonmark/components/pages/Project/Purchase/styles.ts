@@ -199,6 +199,19 @@ export const error = css`
   color: var(--warn);
 `;
 
+export const showOnDesktop = css`
+  display: none;
+  ${breakpoints.large} {
+    display: initial;
+  }
+`;
+
+export const hideOnDesktop = css`
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
 export const submitSpinner = css`
   color: var(--white);
 `;

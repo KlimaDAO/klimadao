@@ -11,6 +11,7 @@ import { FormValues } from "./types";
 type Props = {
   onSubmit: (values: FormValues) => void;
   isLoading: boolean;
+  className?: string;
 };
 
 export const SubmitButton: FC<Props> = (props) => {
@@ -26,6 +27,7 @@ export const SubmitButton: FC<Props> = (props) => {
   if (!address && !isConnected) {
     return (
       <ButtonPrimary
+        className={props.className}
         label={t`Sign In / Connect To Buy`}
         onClick={toggleModal}
       />
@@ -34,6 +36,7 @@ export const SubmitButton: FC<Props> = (props) => {
 
   return (
     <ButtonPrimary
+      className={props.className}
       label={
         props.isLoading ? (
           <Spinner className={styles.submitSpinner} />
