@@ -30,11 +30,6 @@ export const retirementContent = css`
   gap: 1.6rem;
   padding: 2rem;
   margin: 2rem 0 2rem;
-
-  // ${breakpoints.medium} {
-  //   gap: 5.2rem;
-  //   padding: 5.2rem;
-  // }
 `;
 
 export const profileLogo = css`
