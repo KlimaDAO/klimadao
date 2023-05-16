@@ -198,3 +198,7 @@ export const totalCost = css`
 export const error = css`
   color: var(--warn);
 `;
+
+export const submitSpinner = css`
+  color: var(--white);
+`;

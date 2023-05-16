@@ -5,6 +5,7 @@ import { Spinner } from "components/shared/Spinner";
 import { LO } from "lib/luckyOrange";
 import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";
+import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type Props = {
@@ -33,7 +34,13 @@ export const SubmitButton: FC<Props> = (props) => {
 
   return (
     <ButtonPrimary
-      label={true ? <Spinner /> : <Trans>Continue</Trans>}
+      label={
+        props.isLoading ? (
+          <Spinner className={styles.submitSpinner} />
+        ) : (
+          <Trans>Continue</Trans>
+        )
+      }
       onClick={handleSubmit(onSubmit)}
     />
   );
