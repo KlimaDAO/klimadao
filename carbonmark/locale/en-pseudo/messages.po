@@ -34,7 +34,7 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:202
+#: components/pages/Retire/RetireForm/index.tsx:195
 msgid "<0>* </0> Required Field"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:26
+#: components/pages/Retire/RetirementSidebar/index.tsx:23
 msgid "Asset ID"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:188
+#: components/pages/Retire/RetireForm/index.tsx:181
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:194
+#: components/pages/Retire/RetireForm/index.tsx:187
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:41
+#: components/pages/Retire/RetirementSidebar/index.tsx:37
 msgid "View on PolygonScan <0/>"
 msgstr ""
 
@@ -887,67 +887,67 @@ msgstr ""
 msgid "menu.profile"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:210
+#: components/pages/Retire/RetireForm/index.tsx:203
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:219
+#: components/pages/Retire/RetireForm/index.tsx:212
 msgid "offset.amount_in_tonnes_2"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:288
+#: components/pages/Retire/RetireForm/index.tsx:281
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:232
+#: components/pages/Retire/RetireForm/index.tsx:225
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:359
+#: components/pages/Retire/RetireForm/index.tsx:351
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:276
+#: components/pages/Retire/RetireForm/index.tsx:269
 msgid "offset.retirement_beneficiary_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:263
+#: components/pages/Retire/RetireForm/index.tsx:256
 msgid "offset.retirement_beneficiary_name"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:252
+#: components/pages/Retire/RetireForm/index.tsx:245
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:297
+#: components/pages/Retire/RetireForm/index.tsx:290
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:308
+#: components/pages/Retire/RetireForm/index.tsx:301
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:29
+#: components/pages/Retire/RetirementStatusModal/index.tsx:27
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:40
+#: components/pages/Retire/RetirementStatusModal/index.tsx:38
 msgid "offset.successModal.cta_1"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:48
+#: components/pages/Retire/RetirementStatusModal/index.tsx:46
 msgid "offset.successModal.cta_2"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:20
+#: components/pages/Retire/RetirementStatusModal/index.tsx:19
 msgid "offset.successModal.title"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:320
+#: components/pages/Retire/RetireForm/index.tsx:313
 msgid "offset_disclaimer"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:22
+#: components/pages/Retire/RetirementSidebar/index.tsx:19
 msgid "portfolio.asset_details.title"
 msgstr ""
 
@@ -1120,11 +1120,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:339
+#: components/pages/Retire/RetireForm/index.tsx:332
 msgid "retire.back_button"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:330
+#: components/pages/Retire/RetireForm/index.tsx:323
 msgid "retire.submit_button"
 msgstr ""
 
@@ -1309,7 +1309,7 @@ msgid "seller.listing.quantity_available"
 msgstr ""
 
 #: components/Transaction/Approve.tsx:105
-#: components/pages/Retire/RetireModal/Approve.tsx:89
+#: components/pages/Retire/RetireModal/Approve.tsx:94
 msgid "shared.approve"
 msgstr ""
 
@@ -1388,14 +1388,18 @@ msgid "transaction.status.user_rejected"
 msgstr ""
 
 #: components/pages/Retire/RetireModal/Approve.tsx:43
-msgid "transaction_modal.approve.allow_amount"
+msgid "transaction_modal.approve.allow_amount_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/Approve.tsx:49
+msgid "transaction_modal.approve.allow_amount_2"
 msgstr ""
 
 #: components/Transaction/Approve.tsx:58
 msgid "transaction_modal.approve.amount"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/Approve.tsx:52
+#: components/pages/Retire/RetireModal/Approve.tsx:57
 msgid "transaction_modal.approve.approve_quantity.contract_address"
 msgstr ""
 
@@ -1407,7 +1411,7 @@ msgstr ""
 msgid "transaction_modal.approve.price"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/Approve.tsx:63
+#: components/pages/Retire/RetireModal/Approve.tsx:68
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr ""
 
@@ -1425,7 +1429,7 @@ msgid "transaction_modal.go_back"
 msgstr ""
 
 #: components/Transaction/Approve.tsx:113
-#: components/pages/Retire/RetireModal/Approve.tsx:96
+#: components/pages/Retire/RetireModal/Approve.tsx:101
 msgid "transaction_modal.next"
 msgstr ""
 
@@ -1548,7 +1552,7 @@ msgstr ""
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:30
+#: components/pages/Retire/RetirementSidebar/index.tsx:26
 msgid "{tokenSymbol}"
 msgstr ""
 

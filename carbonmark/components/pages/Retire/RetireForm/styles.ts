@@ -19,7 +19,9 @@ export const offsetCard = css`
 export const offsetCard_ui = css`
   display: grid;
   gap: 2.4rem;
-  padding: 2.4rem;
+  padding-top: 0.5rem;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
   border-radius: 1.2rem;
 
   ${breakpoints.desktop} {
@@ -60,7 +62,7 @@ export const beneficiary = css`
 export const stackText = css`
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
   width: 100%;
 `;
 
@@ -195,6 +197,12 @@ export const input = css`
     font-size: 1.4rem;
     color: var(--warn);
   }
+`;
+
+export const warningText = css`
+  gap: 1.6rem;
+  font-size: 12px !important;
+  color: red;
 `;
 
 export const error = css`

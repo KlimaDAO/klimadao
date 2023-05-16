@@ -39,11 +39,16 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <Text>
-          <Trans id="transaction_modal.approve.allow_amount">
+        <Text t="caption">
+          <Trans id="transaction_modal.approve.allow_amount_1">
             The first step is to grant the approval to transfer your carbon
-            asset from your wallet to Carbonmark, the next step is to approve
-            the actual transfer and complete your retirement.
+            asset from your wallet to Carbonmark.
+          </Trans>
+        </Text>
+        <Text t="caption">
+          <Trans id="transaction_modal.approve.allow_amount_2">
+            The next step is to approve the actual transfer and complete your
+            retirement.
           </Trans>
         </Text>
         <RetireValue
