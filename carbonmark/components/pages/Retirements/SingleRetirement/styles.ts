@@ -100,39 +100,6 @@ export const mutableTextGroupHorizontal = css`
   align-items: center;
 `;
 
-export const retirementHeader = css`
-  position: relative;
-  overflow: hidden;
-  grid-column: main;
-  padding: 2.4rem 1.6rem;
-  // border-radius: 1.2rem 1.2rem 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 2rem;
-
-  .stack {
-    display: grid;
-    gap: 1.6rem;
-  }
-
-  ${breakpoints.medium} {
-    padding: 7.2rem 0;
-  }
-`;
-
-export const imageGradient = css`
-  background: blue; // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
 export const metaData = css`
   display: flex;
   flex-direction: column;

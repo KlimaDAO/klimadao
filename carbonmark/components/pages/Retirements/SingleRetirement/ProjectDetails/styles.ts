@@ -1,58 +1,52 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
-
-export const section = css`
-  padding-top: 5rem;
-  padding-bottom: 4rem;
-  ${breakpoints.medium} {
-    padding-top: 9rem;
-    padding-bottom: 4rem;
-  }
-`;
 
 export const projectDetails = css`
-  background-color: var(--surface-01);
-  border-radius: 1.2rem;
-  grid-column: main;
-  display: grid;
-  gap: 2.4rem;
-  padding: 2.4rem;
-
-  ${breakpoints.medium} {
-    padding: 5.2rem;
-  }
+  width: 100%;
+  padding: 3rem 4rem;
+  border: 1px solid var(--manatee);
 `;
 
-export const title = css`
-  display: grid;
+export const textGroup = css`
   gap: 0.8rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const list = css`
-  display: grid;
-  gap: 1.2rem;
+export const imageWrapper = css`
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  grid-column: main;
+  padding: 7.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+`;
 
-  .link {
-    color: var(--font-01);
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
+export const placeholder = css`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+`;
 
-    .svg {
-      display: inline-flex;
-      align-self: center;
-      top: 0.125em; // em to perfectly align with inline breaks
-      position: relative;
-      left: 0.4rem;
-    }
-  }
+export const officialText = css`
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2.1rem;
+`;
 
-  .button_link {
-    align-items: flex-start;
-    display: flex;
-    a {
-      color: var(--klima-green);
-    }
-  }
+export const profileLink = css`
+  display: flex;
+  gap: 1.45rem;
+  margin-top: 0.2rem;
+  align-items: center;
+  color: var(--bright-blue);
 `;

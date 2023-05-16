@@ -53,33 +53,37 @@ export const TransactionDetails: FC<Props> = (props) => (
         <Col className="column">
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Asset Retired:
+              <Trans id="retirement.single.title.asset.retired">
+                Asset Retired:
+              </Trans>
             </Text>
             <Text>{props.tokenData?.label}</Text>
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Project:
+              <Trans id="retirement.single.title.project">Project:</Trans>
             </Text>
             <Text>{props.retirement.offset.projectID}</Text>
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Type:
+              <Trans id="retirement.single.title.type">Type:</Trans>
             </Text>
             <Text>{props.retirement.offset.methodologyCategory}</Text>
           </div>
-        </Col>
-        <Col className="column">
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Methodology:
+              <Trans id="retirement.single.title.methodology">
+                Methodology:
+              </Trans>
             </Text>
             <Text>{props.retirement.offset.methodology}</Text>
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Country/Region:
+              <Trans id="retirement.single.title.country.region">
+                Country/Region:
+              </Trans>
             </Text>
             <Text>
               {props.retirement.offset.country ||
@@ -88,7 +92,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              Vintage:
+              <Trans id="retirement.single.title.vintage">Vintage:</Trans>
             </Text>
             <Text>{props.retirement.offset.vintage}</Text>
           </div>
