@@ -13,10 +13,10 @@ export const section = css`
 export const gridLayout = css`
   display: grid;
   grid-column: main;
-
   column-gap: 4rem;
+
   ${breakpoints.desktop} {
-    grid-template-columns: 1.25fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   & .column {

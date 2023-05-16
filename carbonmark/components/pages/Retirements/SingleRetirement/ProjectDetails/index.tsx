@@ -1,3 +1,5 @@
+import { Anchor as A } from "@klimadao/lib/components";
+import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -12,6 +14,12 @@ import * as styles from "./styles";
 type Props = {
   description: Project["description"];
   retirement: Partial<KlimaRetire & { category: CategoryName }>;
+};
+
+const constructVerraUrl = (id: string) => {
+  const split = id.split("-");
+  const resourceIdentifier = split[split.length - 1]; // might not have prefix
+  return `${verra.projectDetailPage}/${resourceIdentifier}`;
 };
 
 export const ProjectDetails: FC<Props> = (props) => (
@@ -41,10 +49,21 @@ export const ProjectDetails: FC<Props> = (props) => (
         </Text>
         <Text>{props?.description}</Text>
       </div>
-      <Text t="button" uppercase className={styles.profileLink}>
-        Learn More
-        <LaunchIcon />
-      </Text>
+      {props?.retirement?.offset && (
+        <Text t="button" uppercase>
+          <A
+            className={styles.profileLink}
+            href={
+              props.retirement.offset.bridge === "Moss"
+                ? "https://mco2token.moss.earth/"
+                : constructVerraUrl(props.retirement.offset.projectID)
+            }
+          >
+            Learn More
+            <LaunchIcon />
+          </A>
+        </Text>
+      )}
     </div>
     <div className={styles.officialText}>
       <Image

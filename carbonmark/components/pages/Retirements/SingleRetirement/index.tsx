@@ -5,6 +5,7 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
+
 import { t, Trans } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
@@ -117,7 +118,10 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             <Col className="column">
               <RetirementDate timestamp={retirement.timestamp} />
               <RetirementHeader formattedAmount={formattedAmount} />
-              <BeneficiaryDetails beneficiary={retirement.beneficiary} />
+              <BeneficiaryDetails
+                beneficiary={retirement.beneficiary}
+                beneficiaryAddress={props.beneficiaryAddress}
+              />
               <RetirementMessage message={retirement.retirementMessage} />
               <ShareDetails
                 retiree={retiree}

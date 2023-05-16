@@ -18,15 +18,16 @@ export const beneficiaryLogo = css`
   justify-content: center;
   flex-shrink: 0;
 
-  .imgUrl {
-    object-fit: fill;
-    border-radius: 50%;
+  div {
     width: 8rem;
     height: 8rem;
   }
 
-  &.hasBorder {
-    border: 1px solid gray;
+  .imgUrl {
+    object-fit: fill;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
   }
 
   .placeholderIcon {

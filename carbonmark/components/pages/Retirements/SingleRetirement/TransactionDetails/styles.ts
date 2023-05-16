@@ -12,14 +12,14 @@ export const gridLayout = css`
   max-width: 80%;
   column-gap: 4rem;
   grid-column: main;
-  margin-top: 1.4rem;
+  margin-top: 0.6rem;
 
   & .column {
     row-gap: 0 !important;
   }
 
   ${breakpoints.desktop} {
-    grid-template-columns: 1.25fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 

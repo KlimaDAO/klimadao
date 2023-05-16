@@ -7,7 +7,6 @@ export const queryKlimaRetireByIndex = async (
   index: number
 ): Promise<KlimaRetire | null> => {
   try {
-    console.log("BigNumber.from(index)", BigNumber.from(index));
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
