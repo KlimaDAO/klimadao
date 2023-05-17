@@ -154,7 +154,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
         id="price"
         inputProps={{
           type: "hidden",
-          max: Number(props.balance || "0"),
           ...register("price", {
             required: {
               value: true,
