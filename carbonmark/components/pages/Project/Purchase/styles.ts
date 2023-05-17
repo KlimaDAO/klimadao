@@ -212,7 +212,7 @@ export const error = css`
 export const showOnDesktop = css`
   display: none;
   ${breakpoints.large} {
-    display: initial;
+    display: flex;
   }
 `;
 
