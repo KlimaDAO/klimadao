@@ -434,6 +434,7 @@ export const RetireForm = (props: RetireFormProps) => {
             }/${retirementTotals}`,
             locale
           )}
+          showModal={!!retirementTransactionHash}
         />
       )}
     </div>

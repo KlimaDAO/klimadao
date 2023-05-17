@@ -1,8 +1,6 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { LargeSpinner } from "components/LargeSpinner";
-// import { Modal } from "components/Modal";
-import { Text } from "@klimadao/lib/components";
 import { Modal } from "components/shared/Modal";
 import { Transaction } from "components/Transaction";
 import { TransactionStatusMessage } from "lib/statusMessage";
@@ -95,7 +93,7 @@ export const RetireModal: FC<Props> = (props) => {
     <Modal
       title={
         processingRetirement ? (
-          <div className={styles.processingRetirement}>
+          <div>
             <Text t="h3">Processing Retirement</Text>
           </div>
         ) : (

@@ -15,6 +15,7 @@ export const spinner = css`
   height: 120px;
   border: 6px solid #fceabe;
   border-radius: 50%;
+  margin: 0 auto;
 
   &:before {
     content: "";
