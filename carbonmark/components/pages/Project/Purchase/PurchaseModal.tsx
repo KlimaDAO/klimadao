@@ -3,6 +3,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import Link from "next/link";
@@ -106,6 +107,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           onCancel={props.onCancel}
           status={props.status}
           onResetStatus={props.onResetStatus}
+          spenderAddress={getAddress("carbonmark")}
         />
       )}
       {props.isProcessing && (
