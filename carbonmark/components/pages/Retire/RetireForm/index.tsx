@@ -15,7 +15,7 @@ import { ethers, providers } from "ethers";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import type { AssetForRetirement } from "lib/types/carbonmark";
+import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
@@ -27,7 +27,7 @@ import {
   hasApproval,
 } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-import { RetirementBanner } from "./RetirementBanner/RetirementBanner";
+import { RetirementBanner } from "./RetirementBanner";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -46,6 +46,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const { locale } = useRouter();
 
   const { tokenName, balance, tokenSymbol, project } = asset;
+
   const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [isApproved, setIsApproved] = useState<boolean>(false);
@@ -388,9 +389,9 @@ export const RetireForm = (props: RetireFormProps) => {
             </Text>
           }
           tokenIcon={carbonTokenInfo.icon}
+          tokenName={carbonTokenInfo.key as CarbonmarkToken}
           value={retirement.quantity}
           approvalValue={getApprovalValue(retirement.quantity)}
-          tokenName={tokenName}
           spenderAddress={addresses["mainnet"].retirementAggregatorV2}
           onCloseModal={() => setRetireModalOpen(false)}
           onApproval={() =>
@@ -419,11 +420,12 @@ export const RetireForm = (props: RetireFormProps) => {
             })
           }
           status={status}
+          setStatus={setStatus}
           onResetStatus={() => setStatus(null)}
           isApproved={isApproved}
+          showModal={retireModalOpen}
         />
       )}
-
       {retirementTransactionHash && (
         <RetirementStatusModal
           retirementUrl={createLinkWithLocaleSubPath(

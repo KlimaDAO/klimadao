@@ -1,11 +1,11 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as typography from "theme/typography";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
   display: grid;
   gap: 2rem;
-  padding-top: 2.4rem;
+  background-color: white;
   border-radius: 1.2rem;
 `;
 
@@ -18,14 +18,19 @@ export const contentContainer = css`
   }
 `;
 
+export const details = css`
+  font-family: "DM Sans";
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+`;
+
 export const viewSwitch = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: stretch;
   align-items: center;
-  border-radius: 0.8rem;
   padding: 0.4rem;
-  background-color: var(--surface-02);
 `;
 
 export const switchButton = css`
@@ -34,8 +39,10 @@ export const switchButton = css`
   align-items: center;
   display: flex;
   justify-content: center;
-  background-color: var(--surface-02);
+  background-color: var(--bright-blue);
   min-height: 4.8rem;
+  color: white;
+  border-radius: 4px;
 
   &:hover {
     opacity: 0.8;
@@ -43,11 +50,11 @@ export const switchButton = css`
 
   &[data-active="false"] {
     color: var(--font-01);
+    background-color: var(--surface-02);
   }
 
   &[data-active="true"] {
     font-weight: bold;
-    border-bottom: 3px solid var(--bright-blue);
   }
 
   &:disabled {
@@ -62,12 +69,19 @@ export const statusMessage = css`
   gap: 0.8rem;
 
   & svg {
-    color: var(--bright-blue);
+    color: var(--klima-green);
   }
 `;
 
 export const buttonRow = css`
   display: flex;
+  justify-content: center;
+`;
+export const buttonColumn = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
   justify-content: center;
 `;
 
@@ -79,6 +93,16 @@ export const buttonRow_spinner = css`
 `;
 
 export const submitButton = css`
+  background-color: var(--bright-blue);
+  color: white !important;
+  width: 100%;
+`;
+
+export const backButton = css`
+  font-family: "Poppins";
+  background-color: white;
+  color: black;
+  border: 1px solid var(--font-01);
   width: 100%;
 `;
 
@@ -109,19 +133,34 @@ export const valueContainer = css`
   }
 `;
 
+export const processingRetirement = css`
+  margin: 0 auto;
+  padding-bottom: 1.6rem;
+
+  p {
+    ${breakpoints.small} {
+      font-size: 2rem;
+
+  }
+
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
+
+`;
+
 export const value = css`
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  background-color: var(--surface-01);
+  background-color: var(--surface-02);
   color: var(--font-01);
   height: 5.6rem;
   border-radius: 1rem;
-  border: 1px solid var(--font-01);
   padding: 0.4rem 0.8rem;
 
   .icon {
-    min-width: 4.8rem;
+    margin-right: 0.8rem;
     align-self: center;
   }
 

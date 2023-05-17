@@ -2,12 +2,12 @@ import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
-import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
+import { StaticImageData } from "next/image";
 import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
 import * as styles from "./styles";
@@ -21,6 +21,7 @@ interface Props {
   onSuccess: () => void;
   status: TransactionStatusMessage | null;
   description?: React.ReactNode;
+  tokenIcon?: StaticImageData;
 }
 
 export const Approve: FC<Props> = (props) => {
@@ -33,7 +34,6 @@ export const Approve: FC<Props> = (props) => {
 
   const showApproveButton = !showButtonSpinner && !success;
   const showNextButton = !showButtonSpinner && success;
-
   return (
     <>
       <div
@@ -41,7 +41,8 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <div>{props.description && <div>{props.description}</div>}</div>
+        <div>{props.description && <div>{props.description} </div>}</div>
+
         <HighlightValue
           label={
             <Text t="body1" color="lighter">
@@ -67,23 +68,6 @@ export const Approve: FC<Props> = (props) => {
           }
           iconName={props.amount.token}
         />
-        {!!props.price && (
-          <HighlightValue
-            label={
-              <Text t="body1" color="lighter">
-                <Trans id="transaction_modal.approve.price">
-                  Confirm price per tonne
-                </Trans>
-              </Text>
-            }
-            value={props.price.value}
-            icon={
-              props.price.token &&
-              carbonmarkTokenInfoMap[props.price.token].icon
-            }
-            iconName={props.price.token}
-          />
-        )}
       </div>
       {!!props.status && (
         <div className={styles.statusMessage}>
@@ -101,7 +85,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showApproveButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="shared.approve">Approve</Trans>}
             onClick={() => props.onApproval()}
             className={styles.submitButton}
@@ -109,7 +92,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showNextButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="transaction_modal.next">Next</Trans>}
             onClick={() => props.onSuccess()}
             className={styles.submitButton}

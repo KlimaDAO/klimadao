@@ -15,6 +15,7 @@ import {
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing, ListingWithProject } from "lib/types/carbonmark";
 import { FC, useState } from "react";
@@ -285,6 +286,7 @@ export const ListingEditable: FC<Props> = (props) => {
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
             }}
+            spenderAddress={getAddress("carbonmark")}
             approvalText={<EditApproval />}
             submitText={<EditSubmit />}
             onApproval={handleApproval}

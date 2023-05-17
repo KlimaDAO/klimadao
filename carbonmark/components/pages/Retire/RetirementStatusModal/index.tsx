@@ -16,7 +16,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
       <div className={styles.title}>
         <CelebrationOutlined fontSize="large" />
 
-        <Trans id="offset.successModal.title">
+        <Trans>
           <Text t="h4">Retirement Successful!</Text>
         </Trans>
       </div>
@@ -34,16 +34,12 @@ export const RetirementStatusModal: FC<Props> = (props) => (
         href={props.retirementUrl}
         className={styles.viewButton}
         target="_blank"
-        label={
-          <Trans id="offset.successModal.cta_1">
-            VIEW AND SHARE CERTIFICATE
-          </Trans>
-        }
+        label={<Trans>View and share certificate</Trans>}
       />
       <ButtonPrimary
         href={"/portfolio"}
         className={styles.portfolioButton}
-        label={<Trans id="offset.successModal.cta_2">RETIRE MORE CARBON</Trans>}
+        label={<Trans>Retire more carbon</Trans>}
       />
     </div>
   </Modal>

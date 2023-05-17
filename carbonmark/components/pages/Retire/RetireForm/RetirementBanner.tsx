@@ -6,7 +6,7 @@ import { Vintage } from "components/Vintage";
 import { FC } from "react";
 
 import { CategoryName } from "lib/types/carbonmark";
-import * as styles from "../styles";
+import * as styles from "./styles";
 
 type Props = {
   projectName?: string;

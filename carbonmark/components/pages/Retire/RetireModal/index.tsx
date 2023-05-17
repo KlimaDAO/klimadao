@@ -1,44 +1,48 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { LargeSpinner } from "components/LargeSpinner";
-import { Modal } from "components/Modal";
-import { Text } from "components/Text";
+// import { Modal } from "components/Modal";
+import { Text } from "@klimadao/lib/components";
+import { Modal } from "components/shared/Modal";
+import { Transaction } from "components/Transaction";
 import { TransactionStatusMessage } from "lib/statusMessage";
+import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/image";
 import { FC, ReactNode, useEffect, useState } from "react";
-import { Approve } from "./Approve";
 import * as styles from "./styles";
-import { Submit } from "./Submit";
 
 interface Props {
   title: ReactNode;
   value: string;
-  approvalValue?: string;
+  approvalValue: string;
   tokenIcon: StaticImageData;
-  tokenName: string;
+  tokenName: CarbonmarkToken;
   spenderAddress: string;
   onCloseModal: () => void;
   onApproval: () => void;
   onSubmit: () => void;
   status: TransactionStatusMessage | null;
+  setStatus: (status: TransactionStatusMessage | null) => void;
   onResetStatus: () => void;
   isApproved: boolean;
+  showModal: boolean;
 }
 
 export const RetireModal: FC<Props> = (props) => {
-  const [view, setView] = useState<"approve" | "submit">(
+  const [txnView, setTxnView] = useState<"approve" | "submit">(
     props.isApproved ? "submit" : "approve"
   );
+
   const [processingRetirement, setProcessingRetirement] = useState(false);
 
   useEffect(() => {
     if (
       props.status?.statusType === "networkConfirmation" &&
-      view === "submit"
+      txnView === "submit"
     ) {
       setProcessingRetirement(true);
     }
-  }, [props.status, view]);
+  }, [props.status, txnView]);
 
   const statusType = props.status?.statusType;
 
@@ -46,6 +50,46 @@ export const RetireModal: FC<Props> = (props) => {
     statusType === "userConfirmation" || statusType === "networkConfirmation";
 
   const onModalClose = !isPending ? props.onCloseModal : undefined;
+
+  const RetireApproval = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="caption">
+          <Trans id="transaction_modal.approve.allow_amount_1">
+            The first step is to grant the approval to transfer your carbon
+            asset from your wallet to Carbonmark.
+          </Trans>
+        </Text>
+        <Text t="caption">
+          <Trans id="transaction_modal.approve.allow_amount_2">
+            The next step is to approve the actual transfer and complete your
+            retirement.
+          </Trans>
+        </Text>{" "}
+      </div>
+    );
+  };
+
+  const RetireSubmit = () => {
+    return (
+      <div className={styles.formatParagraph}>
+        <Text t="caption">
+          <Trans id="transaction_modal.submit.confirm_transaction_1">
+            The previous step granted the approval to transfer your carbon asset
+            from your wallet to Carbonmark, your retirement has not been
+            completed yet.
+          </Trans>
+        </Text>
+        <Text t="caption">
+          <Trans id="transaction_modal.submit.confirm_transaction_2">
+            The previous step granted the approval to transfer your carbon asset
+            from your wallet to Carbonmark, your retirement has not been
+            completed yet.
+          </Trans>
+        </Text>
+      </div>
+    );
+  };
 
   return (
     <Modal
@@ -58,6 +102,7 @@ export const RetireModal: FC<Props> = (props) => {
           props.title
         )
       }
+      showModal={true}
       onToggleModal={processingRetirement ? undefined : onModalClose}
     >
       {processingRetirement ? (
@@ -65,62 +110,40 @@ export const RetireModal: FC<Props> = (props) => {
           <LargeSpinner />
         </div>
       ) : (
-        <div className={styles.container}>
-          <div className={styles.viewSwitch}>
-            <button
-              className={styles.switchButton}
-              onClick={() => {
-                setView("approve");
-              }}
-              data-active={view === "approve"}
-              disabled={view === "submit" || isPending}
-            >
-              <Trans id="transaction_modal.view.approve.title">
-                1. Approve
-              </Trans>
-            </button>
-            <button
-              className={styles.switchButton}
-              onClick={() => {
-                setView("submit");
-              }}
-              data-active={view === "submit"}
-              disabled={view === "approve" || isPending}
-            >
-              <Trans id="transaction_modal.view.submit.title">2. Submit</Trans>
-            </button>
-          </div>
-          {view === "approve" && (
-            <Approve
-              value={props.approvalValue || props.value}
-              tokenIcon={props.tokenIcon}
-              tokenName={props.tokenName}
-              spenderAddress={props.spenderAddress}
-              onApproval={props.onApproval}
-              onSuccess={() => {
-                props.onResetStatus();
-                setView("submit");
-              }}
-              status={props.status}
-            />
-          )}
-          {view === "submit" && (
-            <Submit
-              value={props.value}
-              tokenIcon={props.tokenIcon}
-              tokenName={props.tokenName}
-              spenderAddress={props.spenderAddress}
-              onSubmit={props.onSubmit}
-              onClose={props.onCloseModal}
-              status={props.status}
-            />
-          )}
-          <ButtonPrimary
-            label={<Trans id="transaction_modal.go_back">Go Back</Trans>}
-            className={styles.backButton}
-            onClick={props.onCloseModal}
-          />
-        </div>
+        <Transaction
+          hasApproval={props.isApproved}
+          amount={{
+            value: props.value,
+            token: props.tokenName,
+          }}
+          price={{
+            value: props.approvalValue,
+            token: props.tokenName,
+          }}
+          spenderAddress={props.spenderAddress}
+          onApproval={props.onApproval}
+          onSubmit={props.onSubmit}
+          onCancel={props.onCloseModal}
+          status={props.status}
+          onResetStatus={props.onResetStatus}
+          approvalText={<RetireApproval />}
+          submitText={<RetireSubmit />}
+          onViewChange={setTxnView}
+          onGoBack={() => {
+            props.setStatus(null);
+          }}
+        />
+      )}
+      {(props.status?.statusType && props.status?.statusType !== "error") ||
+      processingRetirement ? null : (
+        <ButtonPrimary
+          label={<Trans id="transaction_modal.go_back">Go Back</Trans>}
+          className={styles.backButton}
+          onClick={() => {
+            props.onCloseModal();
+            props.setStatus(null);
+          }}
+        />
       )}
     </Modal>
   );

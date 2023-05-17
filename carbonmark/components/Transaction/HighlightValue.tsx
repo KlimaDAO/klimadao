@@ -1,19 +1,23 @@
 import { cx } from "@emotion/css";
-import { Text } from "components/Text";
 import { StaticImageData } from "next/image";
-import Image from "next/legacy/image";
 import { FC, ReactNode } from "react";
-import * as styles from "./styles";
 
-interface HighlightValueProps {
+import { Anchor, Text } from "@klimadao/lib/components";
+import Image from "next/image";
+
+import * as styles from "../pages/Retire/RetireModal/styles";
+
+interface RetireValueProps {
   label: ReactNode;
   value: string;
   icon?: StaticImageData;
   iconName?: string;
   warn?: boolean;
+  /** If you want to wrap the value in a hyperlink, e.g. to polygonscan*/
+  valueHref?: string;
 }
 
-export const HighlightValue: FC<HighlightValueProps> = (props) => {
+export const HighlightValue: FC<RetireValueProps> = (props) => {
   return (
     <div className={styles.valueContainer}>
       <div className="label">{props.label}</div>
@@ -22,20 +26,38 @@ export const HighlightValue: FC<HighlightValueProps> = (props) => {
           <Image
             className="icon"
             src={props.icon}
-            width={48}
-            height={48}
+            width={28}
+            height={28}
             alt={props.iconName || ""}
           />
         )}
 
-        <Text
-          t="body1"
-          className={cx("value", {
-            warn: !!props.warn,
-          })}
-        >
-          {props.value}
-        </Text>
+        {props.valueHref ? (
+          <Anchor
+            href={props.valueHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Text
+              t="body3"
+              className={cx("value", {
+                warn: !!props.warn,
+              })}
+              style={{ textDecoration: "underline" }}
+            >
+              {props.value}
+            </Text>
+          </Anchor>
+        ) : (
+          <Text
+            t="body3"
+            className={cx("value", {
+              warn: !!props.warn,
+            })}
+          >
+            {props.value}
+          </Text>
+        )}
       </div>
     </div>
   );

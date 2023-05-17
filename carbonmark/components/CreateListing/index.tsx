@@ -4,6 +4,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { getAddress } from "ethers/lib/utils";
 import {
   approveTokenSpend,
   createListingTransaction,
@@ -206,6 +207,7 @@ export const CreateListing: FC<Props> = (props) => {
           }}
           approvalText={<CreateApproval />}
           submitText={<CreateSubmit />}
+          spenderAddress={getAddress("carbonmark")}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

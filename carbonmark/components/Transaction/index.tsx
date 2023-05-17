@@ -1,9 +1,7 @@
 import { Trans } from "@lingui/macro";
-import { FC, useState } from "react";
-
-import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
+import { StaticImageData } from "next/image";
+import { FC, useEffect, useState } from "react";
 import { Approve } from "./Approve";
 import * as styles from "./styles";
 import { Submit } from "./Submit";
@@ -21,16 +19,23 @@ interface Props {
   approvalText?: React.ReactNode;
   submitText?: React.ReactNode;
   onGoBack?: () => void;
+  spenderAddress: string;
+  tokenIcon?: StaticImageData;
+  tokenName?: string;
+  onViewChange?: (newView: "approve" | "submit") => void;
 }
 
 export const Transaction: FC<Props> = (props) => {
   const [view, setView] = useState<"approve" | "submit">(
     props.hasApproval ? "submit" : "approve"
   );
-
   const statusType = props.status?.statusType;
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
+
+  useEffect(() => {
+    props.onViewChange?.(view);
+  }, [view, props]);
 
   return (
     <div className={styles.container}>
@@ -61,7 +66,7 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.approvalText}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -75,17 +80,10 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.submitText}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={props.spenderAddress}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}
-        />
-      )}
-      {!!props.onGoBack && (
-        <CarbonmarkButton
-          label={<Trans id="transaction_modal.button.go_back">Go back</Trans>}
-          disabled={isPending}
-          onClick={props.onGoBack}
         />
       )}
     </div>

@@ -18,7 +18,7 @@ export const RetirementSidebar: FC<Props> = (props) => {
   return (
     <Card>
       <Text t="h4" className={styles.bold}>
-        <Trans id="portfolio.asset_details.title">Asset Details</Trans>
+        <Trans>Asset Details</Trans>
       </Text>
       <div className={styles.group}>
         <Text t="body2" color="lighter">

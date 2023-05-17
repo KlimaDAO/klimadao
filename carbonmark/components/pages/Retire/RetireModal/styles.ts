@@ -18,6 +18,13 @@ export const contentContainer = css`
   }
 `;
 
+export const formatParagraph = css`
+  p {
+    margin-bottom: 1em;
+    font-family: "DM Sans";
+  }
+`;
+
 export const details = css`
   font-family: "DM Sans";
   display: flex;
@@ -104,6 +111,7 @@ export const backButton = css`
   color: black;
   border: 1px solid var(--font-01);
   width: 100%;
+  margin-top: 0.8rem;
 `;
 
 export const spinner_container = css`
@@ -134,8 +142,11 @@ export const valueContainer = css`
 `;
 
 export const processingRetirement = css`
-  margin: 0 auto;
-  padding-bottom: 1.6rem;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 1.6rem;
+margin-top: 2rem;
 
   p {
     ${breakpoints.small} {
