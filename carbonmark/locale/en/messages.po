@@ -417,7 +417,7 @@ msgstr "Privacy Policy"
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:104
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "Processing data..."
 msgstr "Processing data..."
 
@@ -664,7 +664,7 @@ msgstr "Vintage Oldest"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:108
+#: components/pages/Retirements/SingleRetirement/index.tsx:110
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
@@ -1016,35 +1016,55 @@ msgstr "With over 20 million verified digital carbon credits from hundreds of pr
 msgid "retirement.footer.aboutCarbonmark.title"
 msgstr "About Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by Carbonmark."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} retired {formattedAmount} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.title"
 msgstr "Carbonmark | Carbon Retirement Receipt"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:56
+msgid "retirement.single.asset_retired.title"
+msgstr "Asset Retired:"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:32
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "No beneficiary address available"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:23
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:32
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:19
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:28
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary:"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:26
+msgid "retirement.single.beneficiary_address.title"
+msgstr "Beneficiary Address:"
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr "Carbon Credit Retirement"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:84
+msgid "retirement.single.country_region.title"
+msgstr "Country/Region:"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
+msgid "retirement.single.create_own_retirement.title"
+msgstr "Create your own retirement"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:17
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:83
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1052,69 +1072,77 @@ msgstr "This represents the permanent retirement of a digital carbon asset. This
 msgid "retirement.single.message.title"
 msgstr "Retirement Message:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:76
+msgid "retirement.single.methodology.title"
+msgstr "Methodology:"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.official_certificate.title"
 msgstr "Official Certificate for On-Chain Carbon Retirement Provided by Carbonmark.com"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:64
+msgid "retirement.single.project.title"
+msgstr "Project:"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:21
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.quantity"
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr "Proof of"
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
 msgstr "QUANTITY RETIRED"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:45
+msgid "retirement.single.share_retirement.title"
+msgstr "Share this retirement"
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:56
-msgid "retirement.single.title.asset.retired"
-msgstr "Asset Retired:"
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:26
-msgid "retirement.single.title.beneficiary.address"
-msgstr "Beneficiary Address:"
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:84
-msgid "retirement.single.title.country.region"
-msgstr "Country/Region:"
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:76
-msgid "retirement.single.title.methodology"
-msgstr "Methodology:"
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:64
-msgid "retirement.single.title.project"
-msgstr "Project:"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:46
+msgid "retirement.single.transaction_id.placeholder"
+msgstr "No transaction id available"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
-msgid "retirement.single.title.transaction.id"
+msgid "retirement.single.transaction_id.title"
 msgstr "Transaction ID"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:19
-msgid "retirement.single.title.transaction.record"
+msgid "retirement.single.transaction_record.title"
 msgstr "Mutable transaction record"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:70
-msgid "retirement.single.title.type"
+msgid "retirement.single.type.title"
 msgstr "Type:"
 
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
+msgstr "Verified tonnes of carbon retired"
+
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:95
-msgid "retirement.single.title.vintage"
+msgid "retirement.single.vintage.title"
 msgstr "Vintage:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:46
-msgid "retirement.single.transaction.id.placeholder"
-msgstr "No transaction id available"
+#: components/pages/Retirements/List/index.tsx:40
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr "No retirements found"
+
+#: components/pages/Retirements/List/index.tsx:24
+msgid "retirement.totals.all_retirements_list.headline"
+msgstr "All Retirements"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
@@ -1173,7 +1201,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:33
 msgid "shared.loading"
 msgstr "Loading..."
 

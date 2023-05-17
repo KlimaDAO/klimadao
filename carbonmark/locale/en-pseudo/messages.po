@@ -417,7 +417,7 @@ msgstr ""
 msgid "Privacy policy"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:104
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "Processing data..."
 msgstr ""
 
@@ -664,7 +664,7 @@ msgstr ""
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:108
+#: components/pages/Retirements/SingleRetirement/index.tsx:110
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
@@ -1016,35 +1016,55 @@ msgstr ""
 msgid "retirement.footer.aboutCarbonmark.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:56
+msgid "retirement.single.asset_retired.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:32
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:23
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:32
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:19
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:28
 msgid "retirement.single.beneficiary.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:26
+msgid "retirement.single.beneficiary_address.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:84
+msgid "retirement.single.country_region.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
+msgid "retirement.single.create_own_retirement.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:17
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:83
 msgid "retirement.single.immutable_public_records.title"
 msgstr ""
 
@@ -1052,68 +1072,76 @@ msgstr ""
 msgid "retirement.single.message.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:76
+msgid "retirement.single.methodology.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.official_certificate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:64
+msgid "retirement.single.project.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
 msgid "retirement.single.project_description.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:21
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.project_details.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_name.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.quantity"
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:45
+msgid "retirement.single.share_retirement.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:56
-msgid "retirement.single.title.asset.retired"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:26
-msgid "retirement.single.title.beneficiary.address"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:84
-msgid "retirement.single.title.country.region"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:76
-msgid "retirement.single.title.methodology"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:64
-msgid "retirement.single.title.project"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:46
+msgid "retirement.single.transaction_id.placeholder"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
-msgid "retirement.single.title.transaction.id"
+msgid "retirement.single.transaction_id.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:19
-msgid "retirement.single.title.transaction.record"
+msgid "retirement.single.transaction_record.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:70
-msgid "retirement.single.title.type"
+msgid "retirement.single.type.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:95
-msgid "retirement.single.title.vintage"
+msgid "retirement.single.vintage.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:46
-msgid "retirement.single.transaction.id.placeholder"
+#: components/pages/Retirements/List/index.tsx:40
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr ""
+
+#: components/pages/Retirements/List/index.tsx:24
+msgid "retirement.totals.all_retirements_list.headline"
 msgstr ""
 
 #: components/pages/Retirements/index.tsx:45
@@ -1173,7 +1201,7 @@ msgstr ""
 msgid "shared.head.description"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:33
 msgid "shared.loading"
 msgstr ""
 
