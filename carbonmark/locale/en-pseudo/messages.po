@@ -96,8 +96,12 @@ msgstr ""
 msgid "Back to Project"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:47
+#: components/pages/Retire/RetirementSidebar/index.tsx:50
 msgid "Balance (available to retire)"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+msgid "Balance: {0}"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
@@ -1327,8 +1331,8 @@ msgstr ""
 msgid "status.user_rejected"
 msgstr ""
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr ""
 

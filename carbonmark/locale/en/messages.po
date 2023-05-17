@@ -96,9 +96,13 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Back to Project"
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:47
+#: components/pages/Retire/RetirementSidebar/index.tsx:50
 msgid "Balance (available to retire)"
 msgstr "Balance (available to retire)"
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+msgid "Balance: {0}"
+msgstr "Balance: {0}"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -1331,8 +1335,8 @@ msgstr "Please click 'confirm' in your wallet to continue."
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
 
-#: components/CreateListing/index.tsx:196
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:273
+#: components/CreateListing/index.tsx:198
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
 msgid "tonnes.long"
 msgstr "tonnes"
 
