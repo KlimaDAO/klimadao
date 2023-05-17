@@ -54,6 +54,10 @@ msgstr ""
 msgid "Agriculture"
 msgstr ""
 
+#: components/pages/Project/Purchase/TotalValues.tsx:52
+msgid "Amount to purchase"
+msgstr ""
+
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
 msgstr ""
@@ -62,17 +66,24 @@ msgstr ""
 msgid "Available balance exceeded"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:159
-#: components/pages/Project/Purchase/PurchaseForm.tsx:168
-msgid "Available:"
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:86
+msgid "Available supply exceeded"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:54
+msgid "Available: {0}"
 msgstr ""
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:214
+#: components/pages/Project/Purchase/index.tsx:37
 msgid "Back to Project"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+msgid "Balance: {0}"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
@@ -114,6 +125,10 @@ msgstr ""
 msgid "Carbonmark Overview"
 msgstr ""
 
+#: components/pages/Project/Purchase/TotalValues.tsx:73
+msgid "Carbonmark fee"
+msgstr ""
+
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
@@ -141,6 +156,7 @@ msgid "Contact"
 msgstr ""
 
 #: components/ExitModal/index.tsx:39
+#: components/pages/Project/Purchase/SubmitButton.tsx:44
 msgid "Continue"
 msgstr ""
 
@@ -158,6 +174,10 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:141
+msgid "Currently, Carbonmark only accepts Polygon USDC Payments."
 msgstr ""
 
 #: components/pages/Project/index.tsx:237
@@ -236,8 +256,19 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:52
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:90
+msgid "How many tonnes of carbon do you want to buy?"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:146
+msgid ""
+"If you’d like to retire this project with another form of cryptocurrency, \n"
+"or with a credit card, you can do so at"
 msgstr ""
 
 #: lib/getCategoryInfo.ts:83
@@ -253,13 +284,15 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
+msgid ""
+"Learn how\n"
+"to acquire USDC on Polygon."
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
-msgstr ""
-
-#: components/pages/Project/Purchase/PurchaseForm.tsx:42
-msgid "Listing cost, incl. {0}% fee"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:170
@@ -272,7 +305,6 @@ msgid "Loading your assets"
 msgstr ""
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/PurchaseForm.tsx:171
 msgid "Loading..."
 msgstr ""
 
@@ -365,6 +397,10 @@ msgstr ""
 msgid "Other Nature-Based"
 msgstr ""
 
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:96
+msgid "Pay with:"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
 msgstr ""
@@ -394,6 +430,10 @@ msgstr ""
 
 #: components/ProjectFilterModal/constants.tsx:13
 msgid "Price Lowest"
+msgstr ""
+
+#: components/pages/Project/Purchase/TotalValues.tsx:59
+msgid "Price per tonne"
 msgstr ""
 
 #: components/Footer/index.tsx:29
@@ -426,8 +466,8 @@ msgstr ""
 msgid "Purchase Receipt | Carbonmark"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:202
-#: components/pages/Project/Purchase/index.tsx:203
+#: components/pages/Project/Purchase/index.tsx:24
+#: components/pages/Project/Purchase/index.tsx:25
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
@@ -490,6 +530,10 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
+#: components/pages/Project/Purchase/SubmitButton.tsx:31
+msgid "Sign In / Connect To Buy"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
 msgstr ""
@@ -546,7 +590,7 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:263
+#: components/pages/Project/Purchase/InactivePurchase.tsx:23
 msgid "This offer no longer exists."
 msgstr ""
 
@@ -554,8 +598,16 @@ msgstr ""
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr ""
 
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:108
+msgid "Toggle payment method"
+msgstr ""
+
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
+msgstr ""
+
+#: components/pages/Project/Purchase/TotalValues.tsx:54
+msgid "Tonnes"
 msgstr ""
 
 #: components/Stats/StatsListings.tsx:42
@@ -568,6 +620,14 @@ msgstr ""
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
+msgstr ""
+
+#: components/pages/Project/Purchase/TotalValues.tsx:89
+msgid "Total cost"
+msgstr ""
+
+#: components/pages/Project/Purchase/TotalValues.tsx:49
+msgid "Total price"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
@@ -646,6 +706,10 @@ msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
+msgstr ""
+
+#: components/pages/Project/Purchase/TotalValues.tsx:111
+msgid "Your balance:"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
@@ -750,7 +814,7 @@ msgstr ""
 msgid "deleted listing"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:250
+#: components/pages/Project/Purchase/Price.tsx:18
 msgid "each"
 msgstr ""
 
@@ -850,75 +914,63 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:150
+#: components/pages/Project/Purchase/PurchaseModal.tsx:32
 msgid "purchase.approval_1"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:155
+#: components/pages/Project/Purchase/PurchaseModal.tsx:37
 msgid "purchase.approval_2"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:162
+#: components/pages/Project/Purchase/PurchaseModal.tsx:44
 msgid "purchase.approval_3"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:172
+#: components/pages/Project/Purchase/PurchaseModal.tsx:54
 msgid "purchase.approval_4"
-msgstr ""
-
-#: components/pages/Project/Purchase/PurchaseForm.tsx:194
-msgid "purchase.button.continue"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:143
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:152
-msgid "purchase.input.amount.label"
-msgstr ""
-
-#: components/pages/Project/Purchase/PurchaseForm.tsx:145
-msgid "purchase.input.amount.maxAmount"
-msgstr ""
-
-#: components/pages/Project/Purchase/PurchaseForm.tsx:138
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:79
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:120
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:61
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:131
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:72
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:215
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:167
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:208
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:160
 msgid "purchase.input.price.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:88
+#: components/pages/Project/Purchase/PurchaseForm.tsx:103
 msgid "purchase.loading.allowance.error"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:184
+#: components/pages/Project/Purchase/PurchaseModal.tsx:66
 msgid "purchase.submit_1"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:190
+#: components/pages/Project/Purchase/PurchaseModal.tsx:72
 msgid "purchase.submit_2"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:275
+#: components/pages/Project/Purchase/PurchaseModal.tsx:86
 msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:279
+#: components/pages/Project/Purchase/PurchaseModal.tsx:90
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
@@ -1116,7 +1168,6 @@ msgid "shared.approve"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:96
-#: components/pages/Project/Purchase/PurchaseForm.tsx:180
 #: components/pages/Users/SellerUnconnected/index.tsx:60
 msgid "shared.connect_to_buy"
 msgstr ""

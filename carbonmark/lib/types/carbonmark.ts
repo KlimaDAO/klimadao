@@ -268,3 +268,6 @@ export type Balance = {
   tokenName: CarbonmarkToken;
   balance: string;
 };
+
+// add more methods here later
+export type CarbonmarkPaymentMethod = "usdc";
