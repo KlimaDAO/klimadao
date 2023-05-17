@@ -139,7 +139,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <div className={styles.paymentText}>
             <Text t="body3">
               {t`Currently, Carbonmark only accepts Polygon USDC Payments.`}{" "}
-              <Anchor>{t`Learn how
+              <Anchor href="https://www.klimadao.finance/buy">{t`Learn how
             to acquire USDC on Polygon.`}</Anchor>
             </Text>
             <Text t="body3">
