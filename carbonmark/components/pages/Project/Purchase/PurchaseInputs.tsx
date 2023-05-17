@@ -51,7 +51,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
         <div className={styles.amountLabel}>
           <Text>{t`How many tonnes of carbon do you want to buy?`}</Text>
           <Text t="body3">
-            <Trans>Available:</Trans> {formatUnits(props.listing.leftToSell)}
+            <Trans>Available: {formatUnits(props.listing.leftToSell)}</Trans>
           </Text>
         </div>
 
@@ -83,10 +83,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
               },
               max: {
                 value: Number(formatUnits(props.listing.leftToSell)),
-                message: t({
-                  id: "purchase.input.amount.maxAmount",
-                  message: "You exceeded the available amount of tonnes",
-                }),
+                message: t`Available supply exceeded`,
               },
             }),
           }}
@@ -97,14 +94,11 @@ export const PurchaseInputs: FC<Props> = (props) => {
 
         <div className={styles.paymentLabel}>
           <Text>{t`Pay with:`}</Text>
-          <Text t="body3">
-            {t`Balance:`}{" "}
-            {!props.balance ? (
-              <i>{t`Loading...`}</i>
-            ) : (
-              formatToPrice(props.balance, locale)
-            )}
-          </Text>
+          {!!props.balance && (
+            <Text t="body3">
+              {t`Balance: ${formatToPrice(props.balance, locale)}`}
+            </Text>
+          )}
         </div>
 
         <Dropdown
