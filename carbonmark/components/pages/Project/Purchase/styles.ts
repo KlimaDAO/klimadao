@@ -8,6 +8,14 @@ export const container = css`
   gap: 2.4rem;
 `;
 
+export const loginButton = css`
+  display: none;
+  ${breakpoints.desktop} {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+`;
+
 export const projectHeaderTags = css`
   display: flex;
   flex-wrap: wrap;
