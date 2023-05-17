@@ -16,14 +16,14 @@ export const TransactionDetails: FC<Props> = (props) => (
     <div className={styles.details}>
       <div className={styles.textGroup}>
         <Text t="button" color="lightest" uppercase>
-          <Trans id="retirement.single.title.transaction.record">
+          <Trans id="retirement.single.transaction_record.title">
             Mutable transaction record
           </Trans>
         </Text>
       </div>
       <div className={styles.textGroup}>
         <Text t="button" color="lightest" uppercase>
-          <Trans id="retirement.single.title.beneficiary.address">
+          <Trans id="retirement.single.beneficiary_address.title">
             Beneficiary Address:
           </Trans>
         </Text>
@@ -37,14 +37,14 @@ export const TransactionDetails: FC<Props> = (props) => (
       </div>
       <div className={styles.textGroup}>
         <Text t="button" color="lightest" uppercase>
-          <Trans id="retirement.single.title.transaction.id">
+          <Trans id="retirement.single.transaction_id.title">
             Transaction ID
           </Trans>
         </Text>
         <Text>
           {props.retirement.transaction?.id ||
             t({
-              id: "retirement.single.transaction.id.placeholder",
+              id: "retirement.single.transaction_id.placeholder",
               message: "No transaction id available",
             })}
         </Text>
@@ -53,7 +53,7 @@ export const TransactionDetails: FC<Props> = (props) => (
         <Col className="column">
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.asset.retired">
+              <Trans id="retirement.single.asset_retired.title">
                 Asset Retired:
               </Trans>
             </Text>
@@ -61,19 +61,19 @@ export const TransactionDetails: FC<Props> = (props) => (
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.project">Project:</Trans>
+              <Trans id="retirement.single.project.title">Project:</Trans>
             </Text>
             <Text>{props.retirement.offset.projectID}</Text>
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.type">Type:</Trans>
+              <Trans id="retirement.single.type.title">Type:</Trans>
             </Text>
             <Text>{props.retirement.offset.methodologyCategory}</Text>
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.methodology">
+              <Trans id="retirement.single.methodology.title">
                 Methodology:
               </Trans>
             </Text>
@@ -81,7 +81,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.country.region">
+              <Trans id="retirement.single.country_region.title">
                 Country/Region:
               </Trans>
             </Text>
@@ -92,7 +92,7 @@ export const TransactionDetails: FC<Props> = (props) => (
           </div>
           <div className={cx(styles.textGroup, "row")}>
             <Text t="button" color="lightest" uppercase>
-              <Trans id="retirement.single.title.vintage">Vintage:</Trans>
+              <Trans id="retirement.single.vintage.title">Vintage:</Trans>
             </Text>
             <Text>{props.retirement.offset.vintage}</Text>
           </div>

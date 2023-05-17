@@ -6,6 +6,7 @@ import {
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 
+import { cx } from "@emotion/css";
 import { t, Trans } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
@@ -130,10 +131,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                 retirementIndex={props.retirementIndex}
                 beneficiaryAddress={props.beneficiaryAddress}
               />
-              <TransactionDetails
-                tokenData={tokenData}
-                retirement={retirement}
-              />
+              <div className={styles.visibleDesktop}>
+                <TransactionDetails
+                  tokenData={tokenData}
+                  retirement={retirement}
+                />
+              </div>
             </Col>
           )}
           <Col className="column">
@@ -141,6 +144,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               retirement={retirement}
               description={project?.description}
             />
+            <div className={cx(styles.visibleMobile)}>
+              <TransactionDetails
+                tokenData={tokenData}
+                retirement={retirement}
+              />
+            </div>
           </Col>
         </div>
       </Section>

@@ -1,4 +1,4 @@
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CopyAddressButton } from "components/CopyAddressButton";
@@ -30,7 +30,6 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
       loading: () => (
         <ButtonPrimary
           disabled
-          variant="blue"
           label={t({
             id: "shared.loading",
             message: "Loading...",
@@ -43,7 +42,9 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
 export const ShareDetails: FC<Props> = (props) => (
   <div className={styles.shareCard}>
     <Text t="button" color="lightest">
-      Share this retirement
+      <Trans id="retirement.single.share_retirement.title">
+        Share this retirement
+      </Trans>
     </Text>
     <div className={styles.content}>
       {props.beneficiaryName && props.beneficiaryAddress ? (
@@ -66,7 +67,9 @@ export const ShareDetails: FC<Props> = (props) => (
       </div>
     </div>
     <Text t="button" uppercase className={styles.profileLink}>
-      Create your own retirement
+      <Trans id="retirement.single.create_own_retirement.title">
+        Create your own retirement
+      </Trans>
       <LaunchIcon />
     </Text>
   </div>

@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const RetirementMessage: FC<Props> = ({ message }) => (
-  <div className={styles.retirementMessage_textGroup}>
+  <div className={styles.retirementMessage}>
     <Text t="button" color="lightest" uppercase>
       <Trans id="retirement.single.message.title">Retirement Message:</Trans>
     </Text>

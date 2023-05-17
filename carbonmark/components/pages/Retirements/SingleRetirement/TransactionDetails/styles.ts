@@ -4,7 +4,13 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const details = css`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+
+  ${breakpoints.desktop} {
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+  }
 `;
 
 export const gridLayout = css`
@@ -38,6 +44,7 @@ export const textGroup = css`
 
   & p {
     font-size: 1.2rem;
+    overflow-wrap: anywhere;
 
     :last-child {
       font-size: 1.4rem;

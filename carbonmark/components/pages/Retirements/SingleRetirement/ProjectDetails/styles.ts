@@ -1,9 +1,14 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const projectDetails = css`
   width: 100%;
-  padding: 3rem 4rem;
+  padding: 2rem 1.5rem;
   border: 1px solid var(--manatee);
+
+  ${breakpoints.desktop} {
+    padding: 3rem 4rem;
+  }
 `;
 
 export const textGroup = css`

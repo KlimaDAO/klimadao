@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const shareCard = css`
   gap: 0.8rem;
@@ -7,13 +8,36 @@ export const shareCard = css`
   margin: 2rem 0;
   flex-direction: column;
   background-color: var(--surface-02);
+
+  p {
+    text-align: center;
+  }
+
+  ${breakpoints.desktop} {
+    p {
+      text-align: left;
+    }
+  }
 `;
 
 export const content = css`
+  gap: 1.6rem;
   display: flex;
   align-items: center;
-  gap: 1.6rem;
-  margin-bottom: 1.4rem;
+  flex-direction: column-reverse;
+
+  button {
+    width: 100%;
+  }
+
+  ${breakpoints.desktop} {
+    flex-direction: row;
+    margin-bottom: 1.4rem;
+
+    button {
+      width: auto;
+    }
+  }
 `;
 
 export const socialLinks = css`
@@ -54,9 +78,13 @@ export const socialLinks = css`
 `;
 
 export const profileLink = css`
-  display: flex;
+  display: none;
   gap: 1.45rem;
   margin-top: 0.2rem;
   align-items: center;
   color: var(--bright-blue);
+
+  ${breakpoints.desktop} {
+    display: flex;
+  }
 `;
