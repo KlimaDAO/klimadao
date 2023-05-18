@@ -14,8 +14,7 @@ export const UserTracker: FC<Props> = (props) => {
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data
     if (address && !isLoading) {
-      LO.identify({
-        wallet: address,
+      LO.identify(address, {
         user: carbonmarkUser ? carbonmarkUser.handle : undefined,
         name: carbonmarkUser ? carbonmarkUser.username : undefined,
       });
