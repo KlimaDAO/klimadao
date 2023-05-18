@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { getRetirementCertificate } from "lib/api";
 import { FC } from "react";
@@ -18,6 +19,7 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
       id: "retirement.single.download_certificate_button",
       message: "Download PDF",
     })}
+    icon={<FileDownloadOutlinedIcon />}
     className={styles.downloadButton}
     onClick={() => getRetirementCertificate(props)}
   />
