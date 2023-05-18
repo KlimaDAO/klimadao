@@ -1,5 +1,4 @@
 interface User {
-  wallet: string;
   user: string | undefined;
   name: string | undefined;
 }
@@ -8,7 +7,7 @@ interface LuckyOrange {
     track: (text: string) => void;
   };
   visitor: {
-    identify: (user: User) => void;
+    identify: (id: string, user: User) => void;
   };
   $internal: {
     ready: (type: string) => Promise<void>;
@@ -40,15 +39,16 @@ const LO = {
       },
     ]);
   },
-  identify(user: User) {
+  identify(id: string, user: User) {
     this.getLOQ().push([
       "ready",
       function (lucky: LuckyOrange) {
         lucky.$internal.ready("visitor").then(function () {
           // FIXME: remove logs
           LO.log("IDENTIFY");
+          LO.log(id);
           LO.log(user);
-          lucky.visitor.identify(user);
+          lucky.visitor.identify(id, user);
         });
       },
     ]);
