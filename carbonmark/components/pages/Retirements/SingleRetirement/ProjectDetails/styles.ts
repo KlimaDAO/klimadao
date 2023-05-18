@@ -54,4 +54,8 @@ export const profileLink = css`
   margin-top: 0.2rem;
   align-items: center;
   color: var(--bright-blue);
+
+  a {
+    color: var(--bright-blue);
+  }
 `;

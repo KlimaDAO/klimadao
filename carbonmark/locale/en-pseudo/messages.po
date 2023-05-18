@@ -1008,12 +1008,12 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:15
-msgid "retirement.footer.aboutCarbonmark.content"
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:9
-msgid "retirement.footer.aboutCarbonmark.title"
+#: components/pages/Retirements/Footer/index.tsx:11
+msgid "retirement.footer.about_carbonmark.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:92
@@ -1060,11 +1060,11 @@ msgstr ""
 msgid "retirement.single.create_own_retirement.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:17
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:83
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
 msgid "retirement.single.immutable_public_records.title"
 msgstr ""
 
@@ -1076,7 +1076,7 @@ msgstr ""
 msgid "retirement.single.methodology.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
 msgstr ""
 
@@ -1084,15 +1084,15 @@ msgstr ""
 msgid "retirement.single.project.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:47
 msgid "retirement.single.project_description.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:30
 msgid "retirement.single.project_details.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "retirement.single.project_name.title"
 msgstr ""
 

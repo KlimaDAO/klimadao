@@ -1008,12 +1008,12 @@ msgstr "Please use a different filter combination."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
-#: components/pages/Retirements/Footer/index.tsx:15
-msgid "retirement.footer.aboutCarbonmark.content"
-msgstr "With over 20 million verified digital carbon credits from hundreds of projects, Carbonmark offers the largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading. Get started today."
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
+msgstr "With over 20 million verified digital carbon credits from hundreds of projects, Carbonmark offers the largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading. <0>Get started today</0>."
 
-#: components/pages/Retirements/Footer/index.tsx:9
-msgid "retirement.footer.aboutCarbonmark.title"
+#: components/pages/Retirements/Footer/index.tsx:11
+msgid "retirement.footer.about_carbonmark.title"
 msgstr "About Carbonmark"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:92
@@ -1060,11 +1060,11 @@ msgstr "Country/Region:"
 msgid "retirement.single.create_own_retirement.title"
 msgstr "Create your own retirement"
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:17
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:83
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1076,23 +1076,23 @@ msgstr "Retirement Message:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodology:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
-msgstr "Official Certificate for On-Chain Carbon Retirement Provided by Carbonmark.com"
+msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbonmark.com</0>"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:64
 msgid "retirement.single.project.title"
 msgstr "Project:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:47
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:30
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 
