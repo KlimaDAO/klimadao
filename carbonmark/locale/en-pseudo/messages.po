@@ -182,6 +182,10 @@ msgstr ""
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr ""
 
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+msgid "Create your own retirement"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr ""
@@ -273,6 +277,16 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+msgid "Learn More"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
+msgid ""
+"Learn how\n"
+"to acquire USDC on Polygon."
 msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
@@ -630,6 +644,10 @@ msgstr ""
 #: components/pages/Users/Login/index.tsx:32
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+msgid "View Carbonmark Profile"
 msgstr ""
 
 #: components/pages/Project/index.tsx:210
@@ -1036,11 +1054,11 @@ msgstr ""
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:33
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
@@ -1056,15 +1074,11 @@ msgstr ""
 msgid "retirement.single.country_region.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
-msgid "retirement.single.create_own_retirement.title"
-msgstr ""
-
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:80
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.immutable_public_records.title"
 msgstr ""
 
@@ -1076,7 +1090,7 @@ msgstr ""
 msgid "retirement.single.methodology.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "retirement.single.official_certificate.title"
 msgstr ""
 
@@ -1084,15 +1098,15 @@ msgstr ""
 msgid "retirement.single.project.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_description.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:23
 msgid "retirement.single.project_details.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:34
 msgid "retirement.single.project_name.title"
 msgstr ""
 

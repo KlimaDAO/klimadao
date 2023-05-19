@@ -182,6 +182,10 @@ msgstr "Create Profile"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Create and edit listings, and track your activity with your Carbonmark profile."
 
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+msgid "Create your own retirement"
+msgstr "Create your own retirement"
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Created:"
@@ -274,6 +278,18 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "Latest First"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+msgid "Learn More"
+msgstr "Learn More"
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
+msgid ""
+"Learn how\n"
+"to acquire USDC on Polygon."
+msgstr ""
+"Learn how\n"
+"to acquire USDC on Polygon."
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -631,6 +647,10 @@ msgstr "User Guides"
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
 msgstr "User Profile | Carbonmark"
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:50
+msgid "View Carbonmark Profile"
+msgstr "View Carbonmark Profile"
 
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
@@ -1036,11 +1056,11 @@ msgstr "Asset Retired:"
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "No beneficiary address available"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:37
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:33
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary:"
 
@@ -1056,15 +1076,11 @@ msgstr "Carbon Credit Retirement"
 msgid "retirement.single.country_region.title"
 msgstr "Country/Region:"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
-msgid "retirement.single.create_own_retirement.title"
-msgstr "<0>Create your own retirement</0>"
-
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:80
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1076,7 +1092,7 @@ msgstr "Retirement Message:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodology:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "retirement.single.official_certificate.title"
 msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbonmark.com</0>"
 
@@ -1084,15 +1100,15 @@ msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbo
 msgid "retirement.single.project.title"
 msgstr "Project:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:23
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:34
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 

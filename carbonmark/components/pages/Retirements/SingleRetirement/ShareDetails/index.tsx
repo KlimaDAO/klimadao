@@ -68,11 +68,9 @@ export const ShareDetails: FC<Props> = (props) => (
         </div>
       </div>
     </div>
-    <Text t="button" uppercase className={styles.profileLink}>
-      <Trans id="retirement.single.create_own_retirement.title">
-        <A href={urls.projects}>Create your own retirement</A>
-      </Trans>
+    <A className={styles.profileLink} href={urls.projects}>
+      {t`Create your own retirement`}
       <LaunchIcon />
-    </Text>
+    </A>
   </div>
 );

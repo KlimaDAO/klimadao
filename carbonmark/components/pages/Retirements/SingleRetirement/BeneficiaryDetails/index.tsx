@@ -1,8 +1,12 @@
+import { Anchor as A } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
+import { urls } from "lib/constants";
+import isUndefined from "lodash/isUndefined";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -12,6 +16,7 @@ type Props = {
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
+  const { address } = useWeb3();
   const { carbonmarkUser } = useFetchUser(props.beneficiaryAddress);
   return (
     <div className={styles.beneficiaryCard}>
@@ -34,10 +39,17 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
               message: "No beneficiary name provided",
             })}
         </Text>
-        <Text t="button" uppercase className={styles.profileLink}>
-          View Carbonmark Profile
+        <A
+          className={styles.profileLink}
+          href={
+            isUndefined(address)
+              ? `${urls.users}/login`
+              : `${urls.users}/${address}`
+          }
+        >
+          {t`View Carbonmark Profile`}
           <LaunchIcon />
-        </Text>
+        </A>
       </div>
     </div>
   );

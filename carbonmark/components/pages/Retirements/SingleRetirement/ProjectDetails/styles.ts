@@ -51,11 +51,13 @@ export const officialText = css`
 export const profileLink = css`
   display: flex;
   gap: 1.45rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.042rem;
   margin-top: 0.2rem;
   align-items: center;
+  text-transform: uppercase;
   color: var(--bright-blue);
-
-  a {
-    color: var(--bright-blue);
-  }
+  font-family: var(--font-family-secondary);
 `;

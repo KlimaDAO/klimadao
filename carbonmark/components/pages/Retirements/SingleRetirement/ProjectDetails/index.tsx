@@ -1,6 +1,6 @@
 import { Anchor as A } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
@@ -44,15 +44,13 @@ export const ProjectDetails: FC<Props> = (props) => (
         <Text>{props?.description}</Text>
       </div>
       {props?.retirement?.offset && (
-        <Text t="button" uppercase>
-          <A
-            className={styles.profileLink}
-            href={`${urls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`}
-          >
-            Learn More
-            <LaunchIcon />
-          </A>
-        </Text>
+        <A
+          className={styles.profileLink}
+          href={`${urls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`}
+        >
+          {t`Learn More`}
+          <LaunchIcon />
+        </A>
       )}
     </div>
     <div className={styles.officialText}>
