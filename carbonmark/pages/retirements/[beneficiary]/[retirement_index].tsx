@@ -6,6 +6,7 @@ import {
 } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { utils } from "ethers";
+import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -22,11 +23,12 @@ interface Params extends ParsedUrlQuery {
 export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types after...
+  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
   retirementIndex: Params["retirement_index"];
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
+  projectDescription?: string;
 }
 
 // second param should always be a number
@@ -66,11 +68,12 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    let retirement: KlimaRetire | PendingKlimaRetire;
+    let retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       loadTranslation(locale),
     ]);
+
     if (subgraphData) {
       retirement = subgraphData;
     } else {
@@ -100,6 +103,10 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
+    const { description } = await getCarbonmarkProject(
+      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+    );
+
     return {
       props: {
         beneficiaryAddress: beneficiaryAddress,
@@ -107,6 +114,7 @@ export const getStaticProps: GetStaticProps<
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         retirement: retirement || null,
         retirementIndex: params.retirement_index,
+        projectDescription: description,
         translation,
         fixedThemeName: "theme-light",
       },

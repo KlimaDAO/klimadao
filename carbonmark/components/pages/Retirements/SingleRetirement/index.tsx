@@ -14,7 +14,6 @@ import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
-import { useFetchProject } from "hooks/useFetchProject";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -35,9 +34,6 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   ...props
 }) => {
   const { locale } = useRouter();
-  const { project } = useFetchProject(
-    `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-  );
 
   const formattedAmount = formatTonnes({
     amount: retirement.amount,
@@ -146,7 +142,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           <Col className="column">
             <ProjectDetails
               retirement={retirement}
-              description={project?.description}
+              description={props?.projectDescription}
             />
             <div className={cx(styles.visibleMobile)}>
               <TransactionDetails
