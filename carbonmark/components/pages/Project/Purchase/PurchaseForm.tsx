@@ -1,6 +1,7 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
+import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { approveTokenSpend, getUSDCBalance, makePurchase } from "lib/actions";
@@ -14,7 +15,6 @@ import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Price } from "./Price";
-import { ProjectHeader } from "./ProjectHeader";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
 import * as styles from "./styles";
