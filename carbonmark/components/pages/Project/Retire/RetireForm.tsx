@@ -4,7 +4,11 @@ import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { approveTokenSpend, getUSDCBalance } from "lib/actions";
+import {
+  approveTokenSpend,
+  getUSDCBalance,
+  retireCarbonTransaction,
+} from "lib/actions";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
@@ -39,7 +43,7 @@ export const RetireForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectAddress: props.project.id,
+      projectAddress: props.project.projectAddress,
       ...inputValues,
     },
   });
@@ -106,7 +110,7 @@ export const RetireForm: FC<Props> = (props) => {
     return (
       !!allowanceValue &&
       !!inputValues &&
-      Number(allowanceValue) >= Number(inputValues.quantity)
+      Number(allowanceValue) >= Number(inputValues.totalPrice)
     );
   };
 
@@ -114,8 +118,8 @@ export const RetireForm: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
     try {
       await approveTokenSpend({
-        tokenName: "usdc",
-        spender: "carbonmark",
+        tokenName: inputValues.paymentMethod,
+        spender: "retirementAggregatorV2",
         signer: provider.getSigner(),
         value: inputValues.quantity,
         onStatus: onUpdateStatus,
@@ -130,6 +134,19 @@ export const RetireForm: FC<Props> = (props) => {
 
     try {
       setIsProcessing(true);
+      await retireCarbonTransaction({
+        provider,
+        address,
+        projectAddress: props.project.projectAddress,
+        paymentMethod: inputValues.paymentMethod,
+        maxAmountIn: "88", // TODO
+        retirementToken: inputValues.retirementToken,
+        quantity: inputValues.quantity,
+        beneficiaryAddress: inputValues.beneficiaryAddress,
+        beneficiaryName: inputValues.beneficiaryName,
+        retirementMessage: inputValues.retirementMessage,
+        onStatus: onUpdateStatus,
+      });
     } catch (e) {
       console.error("makeRetirement error", e);
       setIsProcessing(false);
