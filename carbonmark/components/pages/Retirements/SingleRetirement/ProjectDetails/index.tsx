@@ -1,5 +1,4 @@
 import { Anchor as A } from "@klimadao/lib/components";
-import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -15,12 +14,6 @@ import * as styles from "./styles";
 type Props = {
   description: Project["description"];
   retirement: Partial<KlimaRetire & { category: CategoryName }>;
-};
-
-const constructVerraUrl = (id: string) => {
-  const split = id.split("-");
-  const resourceIdentifier = split[split.length - 1]; // might not have prefix
-  return `${verra.projectDetailPage}/${resourceIdentifier}`;
 };
 
 export const ProjectDetails: FC<Props> = (props) => (
