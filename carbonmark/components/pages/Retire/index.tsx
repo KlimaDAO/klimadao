@@ -48,7 +48,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   useEffect(() => {
     if (!isConnected && !isLoading && loadingTriggered) {
-      console.log("redirecting to portfolio");
+      console.log("Not connected: redirecting to portfolio");
       router.push("/portfolio");
     }
   }, [isConnected, isLoading, loadingTriggered]);
@@ -60,11 +60,16 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
         const targetProject = Array.isArray(props.project)
           ? props.project[0]
           : undefined;
+
         if (targetProject && carbonmarkUser?.assets) {
           const asset = carbonmarkUser?.assets.filter((asset) => {
             return asset.token.id == targetProject.tokenAddress;
           })[0];
-
+          if (!asset) {
+            console.log("Project not a user asset: redirecting to portfolio");
+            router.push("/portfolio");
+            return;
+          }
           const compositeAsset = createCompositeAsset({
             asset,
             project: targetProject,

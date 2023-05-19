@@ -1,4 +1,4 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { LargeSpinner } from "components/LargeSpinner";
 import { Modal } from "components/shared/Modal";
@@ -13,8 +13,11 @@ interface Props {
   title: ReactNode;
   value: string;
   approvalValue: string;
-  tokenIcon: StaticImageData;
-  tokenName: CarbonmarkToken;
+  token: {
+    key: string;
+    icon: StaticImageData;
+    label: Uppercase<CarbonmarkToken>;
+  };
   spenderAddress: string;
   onCloseModal: () => void;
   onApproval: () => void;
@@ -31,7 +34,7 @@ export const RetireModal: FC<Props> = (props) => {
     props.isApproved ? "submit" : "approve"
   );
 
-  const [processingRetirement, setProcessingRetirement] = useState(false);
+  const [processingRetirement, setProcessingRetirement] = useState(true);
 
   useEffect(() => {
     if (
@@ -93,7 +96,7 @@ export const RetireModal: FC<Props> = (props) => {
     <Modal
       title={
         processingRetirement ? (
-          <div>
+          <div className={styles.processingTitle}>
             <Text t="h3">Processing Retirement</Text>
           </div>
         ) : (
@@ -112,11 +115,11 @@ export const RetireModal: FC<Props> = (props) => {
           hasApproval={props.isApproved}
           amount={{
             value: props.value,
-            token: props.tokenName,
+            token: props.token.key as CarbonmarkToken,
           }}
           price={{
             value: props.approvalValue,
-            token: props.tokenName,
+            token: props.token.key as CarbonmarkToken,
           }}
           spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}
@@ -127,17 +130,8 @@ export const RetireModal: FC<Props> = (props) => {
           approvalText={<RetireApproval />}
           submitText={<RetireSubmit />}
           onViewChange={setTxnView}
+          showPrice={false}
           onGoBack={() => {
-            props.setStatus(null);
-          }}
-        />
-      )}
-      {(props.status?.statusType && props.status?.statusType !== "error") ||
-      processingRetirement ? null : (
-        <ButtonPrimary
-          label={<Trans id="transaction_modal.go_back">Go Back</Trans>}
-          className={styles.backButton}
-          onClick={() => {
             props.onCloseModal();
             props.setStatus(null);
           }}

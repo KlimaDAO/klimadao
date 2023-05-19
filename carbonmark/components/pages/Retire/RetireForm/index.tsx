@@ -1,7 +1,6 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import {
   addresses,
-  CarbonToken,
   PoolToken,
   poolTokens,
   urls,
@@ -12,8 +11,8 @@ import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { ProjectImage } from "components/ProjectImage";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ethers, providers } from "ethers";
-import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { createLinkWithLocaleSubPath } from "lib/listingsGetter";
+import { createLinkWithLocaleSubPath } from "lib/createUrls";
+import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
@@ -101,11 +100,16 @@ export const RetireForm = (props: RetireFormProps) => {
 
   const getTokenPrefix = (tokenName: string) => {
     const parts = tokenName.split("-");
-    return parts[0].toLowerCase(); // return the first part before the dash
+
+    if (parts[0].toUpperCase() === "C3T") {
+      return "c3";
+    }
+
+    return parts[0].toLowerCase();
   };
 
   const carbonTokenInfo =
-    carbonTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonToken];
+    carbonmarkTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonmarkToken];
 
   const updateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
@@ -388,8 +392,9 @@ export const RetireForm = (props: RetireFormProps) => {
               <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
             </Text>
           }
-          tokenIcon={carbonTokenInfo.icon}
-          tokenName={carbonTokenInfo.key as CarbonmarkToken}
+          token={carbonTokenInfo}
+          // tokenIcon={carbonTokenInfo.icon}
+          // tokenName={carbonTokenInfo.key as CarbonmarkToken}
           value={retirement.quantity}
           approvalValue={getApprovalValue(retirement.quantity)}
           spenderAddress={addresses["mainnet"].retirementAggregatorV2}

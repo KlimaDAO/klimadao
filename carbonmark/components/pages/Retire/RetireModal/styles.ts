@@ -141,12 +141,19 @@ export const valueContainer = css`
   }
 `;
 
+export const processingTitle = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const processingRetirement = css`
 display: flex;
 justify-content: center;
 align-items: center;
 padding-bottom: 1.6rem;
 margin-top: 2rem;
+flex-direction: column;
 
   p {
     ${breakpoints.small} {

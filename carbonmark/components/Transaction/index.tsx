@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/macro";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { StaticImageData } from "next/image";
 import { FC, useEffect, useState } from "react";
@@ -23,6 +24,7 @@ interface Props {
   tokenIcon?: StaticImageData;
   tokenName?: string;
   onViewChange?: (newView: "approve" | "submit") => void;
+  showPrice?: boolean;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -84,6 +86,13 @@ export const Transaction: FC<Props> = (props) => {
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}
+        />
+      )}
+      {!!props.onGoBack && (
+        <CarbonmarkButton
+          label={<Trans id="transaction_modal.button.go_back">Go back</Trans>}
+          disabled={isPending}
+          onClick={props.onGoBack}
         />
       )}
     </div>

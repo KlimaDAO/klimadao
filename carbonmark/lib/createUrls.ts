@@ -65,3 +65,15 @@ export const createRedeemLink = (params: {
 
   return `${urls.redeem}?${searchParams}`;
 };
+
+export const createLinkWithLocaleSubPath = (
+  url: string,
+  locale = "en"
+): string => {
+  // ensure that the locale is added right after the main Site URL
+  // klimadao.finance/LOCALE/the/other/sub/page
+  if (url.startsWith(urls.home)) {
+    return url.replace(urls.home, `${urls.home}/${locale}`);
+  }
+  return `${url}/${locale}`;
+};
