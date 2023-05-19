@@ -94,7 +94,7 @@ export const TransactionDetails: FC<Props> = (props) => (
             <Text t="button" color="lightest" uppercase>
               <Trans id="retirement.single.vintage.title">Vintage:</Trans>
             </Text>
-            <Text>{props.retirement.offset.vintage}</Text>
+            <Text>{props.retirement.offset.vintageYear}</Text>
           </div>
         </Col>
       </div>
