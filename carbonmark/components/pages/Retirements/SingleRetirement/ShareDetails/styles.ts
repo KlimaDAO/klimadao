@@ -84,6 +84,11 @@ export const profileLink = css`
   align-items: center;
   color: var(--bright-blue);
 
+  a {
+    font-weight: 600;
+    font-family: var(--font-family-secondary);
+  }
+
   ${breakpoints.desktop} {
     display: flex;
   }

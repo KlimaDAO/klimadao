@@ -58,7 +58,7 @@ export const config = {
   },
 } as const;
 
-export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
+export const DEFAULT_NETWORK = "mainnet"; // config.networks[ENVIRONMENT];
 
 export const urls = {
   api: {
@@ -71,6 +71,7 @@ export const urls = {
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
+  projects: "/projects",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",

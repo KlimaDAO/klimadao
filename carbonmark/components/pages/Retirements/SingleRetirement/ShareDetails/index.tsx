@@ -1,3 +1,4 @@
+import { Anchor as A } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -6,6 +7,7 @@ import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
 import { Text } from "components/Text";
 import { TweetButton } from "components/TweetButton";
+import { urls } from "lib/constants";
 import dynamic from "next/dynamic";
 import { FC } from "react";
 import { DownloadCertificateButtonProps } from "../DownloadCertificateButton";
@@ -68,7 +70,7 @@ export const ShareDetails: FC<Props> = (props) => (
     </div>
     <Text t="button" uppercase className={styles.profileLink}>
       <Trans id="retirement.single.create_own_retirement.title">
-        Create your own retirement
+        <A href={urls.projects}>Create your own retirement</A>
       </Trans>
       <LaunchIcon />
     </Text>

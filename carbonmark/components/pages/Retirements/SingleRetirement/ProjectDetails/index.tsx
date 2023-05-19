@@ -54,11 +54,7 @@ export const ProjectDetails: FC<Props> = (props) => (
         <Text t="button" uppercase>
           <A
             className={styles.profileLink}
-            href={
-              props.retirement.offset.bridge === "Moss"
-                ? "https://mco2token.moss.earth/"
-                : constructVerraUrl(props.retirement.offset.projectID)
-            }
+            href={`${urls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`}
           >
             Learn More
             <LaunchIcon />

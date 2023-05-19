@@ -1056,15 +1056,15 @@ msgstr "Carbon Credit Retirement"
 msgid "retirement.single.country_region.title"
 msgstr "Country/Region:"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
 msgid "retirement.single.create_own_retirement.title"
-msgstr "Create your own retirement"
+msgstr "<0>Create your own retirement</0>"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:80
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1076,7 +1076,7 @@ msgstr "Retirement Message:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodology:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:73
 msgid "retirement.single.official_certificate.title"
 msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbonmark.com</0>"
 
@@ -1104,7 +1104,7 @@ msgstr "Proof of"
 msgid "retirement.single.quantity.title"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:45
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
 msgid "retirement.single.share_retirement.title"
 msgstr "Share this retirement"
 
@@ -1201,7 +1201,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:33
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
 msgid "shared.loading"
 msgstr "Loading..."
 

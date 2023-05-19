@@ -19,7 +19,7 @@ export const RetirementFooter: FC = () => (
           projects, Carbonmark offers the largest selection of digital carbon
           credits worldwide. Buy, sell, and retire digital carbon from any
           project instantly with zero-commission trading.{" "}
-          <A href={urls.baseUrl}>Get started today</A>.
+          <A href={urls.projects}>Get started today</A>.
         </Trans>
       </Text>
     </div>

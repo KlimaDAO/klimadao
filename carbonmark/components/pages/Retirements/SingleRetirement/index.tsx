@@ -119,11 +119,15 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             <Col className="column">
               <RetirementDate timestamp={retirement.timestamp} />
               <RetirementHeader formattedAmount={formattedAmount} />
-              <BeneficiaryDetails
-                beneficiary={retirement.beneficiary}
-                beneficiaryAddress={props.beneficiaryAddress}
-              />
-              <RetirementMessage message={retirement.retirementMessage} />
+              {retirement.beneficiary && props.beneficiaryAddress && (
+                <BeneficiaryDetails
+                  beneficiary={retirement.beneficiary}
+                  beneficiaryAddress={props.beneficiaryAddress}
+                />
+              )}
+              {retirement.retirementMessage && (
+                <RetirementMessage message={retirement.retirementMessage} />
+              )}
               <ShareDetails
                 retiree={retiree}
                 formattedAmount={formattedAmount}
