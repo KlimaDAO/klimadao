@@ -36,7 +36,6 @@
     "fastify-swagger": "^5.2.0",
     "firebase": "^9.9.4",
     "firebase-admin": "^11.5.0",
-    "graph-cli": "^0.0.1",
     "graphql": "^16.6.0",
     "groq": "^3.5.0",
     "i": "^0.3.7",
