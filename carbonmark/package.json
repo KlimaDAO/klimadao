@@ -23,7 +23,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
     "@portabletext/react": "^2.0.3",
-    "@sanity/client": "^3.4.1",
+    "@sanity/client": "^6.1.1",
     "@tippyjs/react": "^4.2.6",
     "ethers": "^5.7.2",
     "firebase-admin": "^11.7.0",
