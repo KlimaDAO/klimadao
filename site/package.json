@@ -44,7 +44,7 @@
     "@lingui/macro": "^4.1.2",
     "@next/bundle-analyzer": "^13.3.1",
     "@types/lodash": "^4.14.194",
-    "@types/node": "16.18.25",
+    "@types/node": "^20.2.3",
     "@types/react": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
