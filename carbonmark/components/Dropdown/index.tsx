@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
@@ -129,5 +130,6 @@ const DropdownButton: FC<DropdownButtonProps> = (props) => (
       />
     )}{" "}
     {props.label}
+    {props.disabled && <span>{t`Coming soon`}</span>}
   </button>
 );

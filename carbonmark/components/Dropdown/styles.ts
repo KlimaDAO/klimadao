@@ -70,4 +70,10 @@ export const dropdownButton = css`
   &:disabled:hover {
     color: var(--font-01);
   }
+
+  span {
+    background: var(--white);
+    padding: 0.4rem;
+    margin-left: 2rem;
+  }
 `;
