@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "^2.2.9",
-    "tap": "^16.1.0"
+    "tap": "^16.1.0",
+    "typescript": "^5.0.4"
   }
 }
