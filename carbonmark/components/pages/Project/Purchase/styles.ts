@@ -233,3 +233,8 @@ export const hideOnDesktop = css`
 export const submitSpinner = css`
   color: var(--white);
 `;
+
+export const labelWithInput = css`
+  display: grid;
+  gap: 0.8rem;
+`;
