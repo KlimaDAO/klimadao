@@ -6,10 +6,10 @@ import {
   TorusProvider,
   TypedProvider,
   WalletConnectProvider,
-  web3InitialState,
   Web3ModalState,
   Web3State,
   WrappedProvider,
+  web3InitialState,
 } from "../../components/Web3Context/types";
 import { urls } from "../../constants";
 

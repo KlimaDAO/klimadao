@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
-import { getCategoryFilters, PROJECT_SORT_OPTIONS } from "./constants";
+import { PROJECT_SORT_OPTIONS, getCategoryFilters } from "./constants";
 import * as styles from "./styles";
 
 type ModalFieldValues = {

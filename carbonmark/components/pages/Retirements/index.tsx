@@ -6,7 +6,7 @@ import {
 } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Footer } from "components/Footer";

@@ -33,10 +33,10 @@ export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 // KNS
 export {
+  KNSContract,
   getAddressByKNS,
   getKNSProfile,
   isKNSDomain,
-  KNSContract,
 } from "./kns";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";

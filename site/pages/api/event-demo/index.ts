@@ -10,7 +10,7 @@ import {
   RetirementData,
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
-import { Contract, ContractTransaction, utils, Wallet } from "ethers";
+import { Contract, ContractTransaction, Wallet, utils } from "ethers";
 import { NextApiHandler } from "next";
 
 if (!LIVE_OFFSET_WALLET_MNEMONIC) {

@@ -5,8 +5,8 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
-import * as styles from "./styles";
 import { Submit } from "./Submit";
+import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {

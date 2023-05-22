@@ -28,8 +28,8 @@ import {
   CategoryName,
   Methodology,
   PriceFlagged,
-  Project as ProjectType,
   ProjectBuyOption,
+  Project as ProjectType,
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";

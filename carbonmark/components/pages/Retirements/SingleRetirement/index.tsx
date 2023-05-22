@@ -13,14 +13,14 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
 import { LinkedInButton } from "components/LinkedInButton";
 import { PageHead } from "components/PageHead";
-import { Navigation } from "components/shared/Navigation";
 import { TweetButton } from "components/TweetButton";
+import { Navigation } from "components/shared/Navigation";
 import { urls } from "lib/constants";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { normalizeProjectId } from "lib/normalizeProjectId";
@@ -39,8 +39,8 @@ import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
-import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
+import * as styles from "./styles";
 
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
   dynamic(

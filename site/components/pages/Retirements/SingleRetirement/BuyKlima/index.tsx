@@ -1,7 +1,7 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import Image from "next/image";
 import { useRouter } from "next/router";

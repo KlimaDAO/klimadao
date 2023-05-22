@@ -17,9 +17,9 @@ import { Price } from "./Price";
 import { ProjectHeader } from "./ProjectHeader";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
-import * as styles from "./styles";
 import { SubmitButton } from "./SubmitButton";
 import { TotalValues } from "./TotalValues";
+import * as styles from "./styles";
 import { FormValues } from "./types";
 
 export interface Props {

@@ -10,8 +10,8 @@ import {
 import { providers, utils } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 import {
-  RedeemablePoolToken,
   RedeemPaymentMethod,
+  RedeemablePoolToken,
   redeemPaymentMethods,
 } from "lib/hooks/useRedeemParams";
 import { Thunk } from "state";
