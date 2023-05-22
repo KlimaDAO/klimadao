@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-22 15:34+0000\n"
+"POT-Creation-Date: 2023-05-22 16:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,11 +66,11 @@ msgstr "申请"
 msgid "Available balance exceeded"
 msgstr "超出可用余额"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:86
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:54
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr "测试版"
 msgid "Back to Project"
 msgstr "返回项目"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr "碳池"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark 概览"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:73
+#: components/pages/Project/Purchase/TotalValues.tsx:74
 msgid "Carbonmark fee"
 msgstr ""
 
@@ -149,6 +149,10 @@ msgstr "从数百个项目中选择超过 2000 万个经过验证的数字碳信
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
 msgstr "清除过滤器"
+
+#: components/Dropdown/index.tsx:133
+msgid "Coming soon"
+msgstr ""
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -175,10 +179,6 @@ msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "已创建："
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:141
-msgid "Currently, Carbonmark only accepts Polygon USDC Payments."
-msgstr ""
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
@@ -256,20 +256,13 @@ msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 msgid "Help"
 msgstr "帮助"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:52
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:90
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "您想购买多少吨碳？"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
 msgstr "如果您想取消此次购买的部分或全部碳信用额度，请转至您的<0>投资组合</0>，单击“停用”键并按照说明进行操作。"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:146
-msgid ""
-"If you’d like to retire this project with another form of cryptocurrency, \n"
-"or with a credit card, you can do so at"
-msgstr ""
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
@@ -283,12 +276,6 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "最新优先"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
-msgid ""
-"Learn how\n"
-"to acquire USDC on Polygon."
-msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -397,7 +384,7 @@ msgstr "其他"
 msgid "Other Nature-Based"
 msgstr "其他基于自然的"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:96
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 msgid "Pay with:"
 msgstr ""
 
@@ -467,6 +454,10 @@ msgstr "项目"
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
 msgstr "购买收据 | Carbonmark"
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:53
+msgid "Purchase amount (tonnes):"
+msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
@@ -600,7 +591,11 @@ msgstr "此优惠已不存在。"
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:108
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:145
+msgid "To purchase this project using a different form of payment,"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
 msgstr ""
 
@@ -624,7 +619,7 @@ msgstr "售出吨数："
 msgid "Total Retirements:"
 msgstr "总碳停用"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:89
+#: components/pages/Project/Purchase/TotalValues.tsx:93
 msgid "Total cost"
 msgstr ""
 
@@ -710,7 +705,7 @@ msgstr "您已选择拒绝交易."
 msgid "Your Wallet Address:"
 msgstr "您的钱包地址："
 
-#: components/pages/Project/Purchase/TotalValues.tsx:111
+#: components/pages/Project/Purchase/TotalValues.tsx:120
 msgid "Your balance:"
 msgstr ""
 
@@ -936,23 +931,23 @@ msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 msgid "purchase.button.view_assets"
 msgstr "查看您的资产"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:79
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:80
 msgid "purchase.input.amount.minimum"
 msgstr "最低购买量为 1 吨"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:61
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:62
 msgid "purchase.input.amount.placeholder"
 msgstr "吨"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:72
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:73
 msgid "purchase.input.amount.required"
 msgstr "金额为必填项"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:167
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:166
 msgid "purchase.input.price.maxAmount"
 msgstr "您超出了可用的代币数量"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:160
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:159
 msgid "purchase.input.price.required"
 msgstr "价格为必填项"
 

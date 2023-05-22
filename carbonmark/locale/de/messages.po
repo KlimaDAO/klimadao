@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-22 15:34+0000\n"
+"POT-Creation-Date: 2023-05-22 16:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,11 +66,11 @@ msgstr "Anwenden"
 msgid "Available balance exceeded"
 msgstr "Verfügbares Guthaben überschritten"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:86
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:54
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Zurück zum Projekt"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr "CO2-Pool"
 msgid "Carbonmark Overview"
 msgstr "Carbonmark-Übersicht"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:73
+#: components/pages/Project/Purchase/TotalValues.tsx:74
 msgid "Carbonmark fee"
 msgstr ""
 
@@ -149,6 +149,10 @@ msgstr "Kaufen, verkaufen, CO2-Fußabdruck ausgleichen: Über 20 Millionen verif
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
 msgstr "Filter löschen"
+
+#: components/Dropdown/index.tsx:133
+msgid "Coming soon"
+msgstr ""
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -175,10 +179,6 @@ msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktiv
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Erstellt:"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:141
-msgid "Currently, Carbonmark only accepts Polygon USDC Payments."
-msgstr ""
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
@@ -256,20 +256,13 @@ msgstr "Haben Sie schon Ihr <0>Carbonmark-Profil</0> erstellt?"
 msgid "Help"
 msgstr "Hilfe"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:52
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:90
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Wie viele Tonnen CO2 möchten Sie kaufen?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
 msgstr "Falls Sie einige CO2-Credits aus diesem Kauf nutzen möchten, um Ihren CO2-Fußabdruck auszugleichen, klicken Sie bitte auf den \"Ausgleichen\"-Button in Ihrem <0>Portfolio</0>."
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:146
-msgid ""
-"If you’d like to retire this project with another form of cryptocurrency, \n"
-"or with a credit card, you can do so at"
-msgstr ""
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
@@ -283,12 +276,6 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "Neueste Einträge zuerst"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
-msgid ""
-"Learn how\n"
-"to acquire USDC on Polygon."
-msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -397,7 +384,7 @@ msgstr "Andere"
 msgid "Other Nature-Based"
 msgstr "Andere naturbasierte Credits"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:96
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 msgid "Pay with:"
 msgstr ""
 
@@ -465,6 +452,10 @@ msgstr "Projekt"
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
 msgstr "Kaufbeleg | Carbonmark"
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:53
+msgid "Purchase amount (tonnes):"
+msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
@@ -598,7 +589,11 @@ msgstr "Das Angebot existiert nicht mehr."
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "Dieses Produkt befindet sich noch in der Betaphase und Audits sind noch nicht abgeschlossen."
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:108
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:145
+msgid "To purchase this project using a different form of payment,"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
 msgstr ""
 
@@ -622,7 +617,7 @@ msgstr "Verkaufte Tonnen:"
 msgid "Total Retirements:"
 msgstr "Gesamter CO2-Ausgleich"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:89
+#: components/pages/Project/Purchase/TotalValues.tsx:93
 msgid "Total cost"
 msgstr ""
 
@@ -708,7 +703,7 @@ msgstr "Sie haben die Transaktion abgelehnt"
 msgid "Your Wallet Address:"
 msgstr "Ihre Walletadresse"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:111
+#: components/pages/Project/Purchase/TotalValues.tsx:120
 msgid "Your balance:"
 msgstr ""
 
@@ -934,23 +929,23 @@ msgstr "Überprüfen Sie, ob alle Informationen korrekt sind, und klicken Sie au
 msgid "purchase.button.view_assets"
 msgstr "Sehen Sie sich Ihre Assets an"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:79
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:80
 msgid "purchase.input.amount.minimum"
 msgstr "Die Mindestkaufmenge beträgt 1 Tonne"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:61
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:62
 msgid "purchase.input.amount.placeholder"
 msgstr "Tonnen"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:72
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:73
 msgid "purchase.input.amount.required"
 msgstr "Menge ist erforderlich"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:167
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:166
 msgid "purchase.input.price.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:160
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:159
 msgid "purchase.input.price.required"
 msgstr "Preis ist erforderlich"
 

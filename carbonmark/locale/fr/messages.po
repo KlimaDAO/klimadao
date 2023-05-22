@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-22 15:34+0000\n"
+"POT-Creation-Date: 2023-05-22 16:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,11 +66,11 @@ msgstr "Appliquer"
 msgid "Available balance exceeded"
 msgstr "Solde disponible dépassé"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:86
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
 msgstr "Dépassement de l'offre disponible"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:54
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
 msgstr "Disponible : {0}"
 
@@ -82,7 +82,7 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Retour au projet"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr "Solde : {0}"
 
@@ -125,7 +125,7 @@ msgstr "Réserve de Carbone"
 msgid "Carbonmark Overview"
 msgstr "Vue d'ensemble de Carbonmark"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:73
+#: components/pages/Project/Purchase/TotalValues.tsx:74
 msgid "Carbonmark fee"
 msgstr "Frais de Carbonmark"
 
@@ -149,6 +149,10 @@ msgstr "Choisissez parmi plus de 20 millions de crédits carbone numériques vé
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
 msgstr "Effacer les filtres"
+
+#: components/Dropdown/index.tsx:133
+msgid "Coming soon"
+msgstr ""
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -175,10 +179,6 @@ msgstr "Créez et modifiez vos annonces et suivez votre activité grâce à votr
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Créé :"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:141
-msgid "Currently, Carbonmark only accepts Polygon USDC Payments."
-msgstr "Actuellement, Carbonmark n'accepte que les Paiements USDC de Polygon."
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
@@ -256,22 +256,13 @@ msgstr "Avez-vous déjà créé votre <0>profil</0> Carbonmark  ?"
 msgid "Help"
 msgstr "Aide"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:52
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:90
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Combien de tonnes de carbone voulez-vous acheter ?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
 msgstr "Si vous souhaitez retirer du marché une partie ou la totalité des crédits carbone de cet achat, allez dans votre <0>portefeuille</0>, cliquez sur le bouton \"retirer du marché\" et suivez les instructions."
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:146
-msgid ""
-"If you’d like to retire this project with another form of cryptocurrency, \n"
-"or with a credit card, you can do so at"
-msgstr ""
-"Si vous souhaitez retirer ce projet du marché avec une autre forme de crypto-monnaie, \n"
-"ou avec une carte de crédit, vous pouvez le faire à l'adresse suivante"
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
@@ -285,14 +276,6 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "Le plus récent en premier"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
-msgid ""
-"Learn how\n"
-"to acquire USDC on Polygon."
-msgstr ""
-"Apprenez comment\n"
-"acquérir de l'USDC sur Polygon."
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -401,7 +384,7 @@ msgstr "Autre"
 msgid "Other Nature-Based"
 msgstr "Autres basés sur la nature"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:96
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 msgid "Pay with:"
 msgstr "Payer avec :"
 
@@ -469,6 +452,10 @@ msgstr "Projet"
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
 msgstr "Reçu d'achat | Carbonmark"
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:53
+msgid "Purchase amount (tonnes):"
+msgstr ""
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
@@ -602,7 +589,11 @@ msgstr "Cette offre n'existe plus."
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "Ce produit est encore en version bêta et des audits n'ont pas encore été réalisés."
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:108
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:145
+msgid "To purchase this project using a different form of payment,"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
 msgstr "Basculer de mode de paiement"
 
@@ -626,7 +617,7 @@ msgstr "Tonnes vendues :"
 msgid "Total Retirements:"
 msgstr "Total des retraits du marché :"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:89
+#: components/pages/Project/Purchase/TotalValues.tsx:93
 msgid "Total cost"
 msgstr "Coût total"
 
@@ -712,7 +703,7 @@ msgstr "Vous avez choisi de rejeter la transaction."
 msgid "Your Wallet Address:"
 msgstr "Votre Adresse de Portefeuille"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:111
+#: components/pages/Project/Purchase/TotalValues.tsx:120
 msgid "Your balance:"
 msgstr "Votre solde :"
 
@@ -938,23 +929,23 @@ msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"ap
 msgid "purchase.button.view_assets"
 msgstr "Voir vos actifs"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:79
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:80
 msgid "purchase.input.amount.minimum"
 msgstr "La quantité minimale à acheter est de 1 Tonne"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:61
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:62
 msgid "purchase.input.amount.placeholder"
 msgstr "Tonnes"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:72
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:73
 msgid "purchase.input.amount.required"
 msgstr "Le montant est requis"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:167
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:166
 msgid "purchase.input.price.maxAmount"
 msgstr "Vous avez dépassé votre nombre de jetons disponibles"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:160
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:159
 msgid "purchase.input.price.required"
 msgstr "Le prix est requis"
 
