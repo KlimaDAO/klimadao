@@ -58,31 +58,29 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Price per tonne`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <Image
-            className="icon"
-            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-            width={20}
-            height={20}
-            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-          />
-          <Text t="h5">
-            {Number(singleUnitPrice).toLocaleString(locale, {
-              minimumFractionDigits: 2,
-            })}
-          </Text>
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
+          <Text t="h5">{formatToPrice(singleUnitPrice, locale, false)}</Text>
         </div>
       </div>
 
       <div className={styles.totalsText}>
         <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <Image
-            className="icon"
-            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-            width={20}
-            height={20}
-            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-          />
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
           <Text t="h5" className={styles.feeColor}>
             {formatToPrice(CARBONMARK_FEE, locale, false)}
           </Text>
@@ -94,13 +92,14 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <Image
-            className="icon"
-            src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-            width={36}
-            height={36}
-            alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-          />
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={36}
+              height={36}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
           <Text t="h3" className={cx({ error: exceededBalance })}>
             {carbonmarkPaymentMethodMap[paymentMethod || "usdc"].label}{" "}
             {formatToPrice(totalPriceFormatted, locale, false)}
