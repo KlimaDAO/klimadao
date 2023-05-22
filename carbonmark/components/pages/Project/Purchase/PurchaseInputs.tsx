@@ -49,7 +49,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
         />
 
         <div className={styles.amountLabel}>
-          <Text>{t`How many tonnes of carbon do you want to buy?`}</Text>
+          <Text>{t`Purchase amount (tonnes):`}</Text>
           <Text t="body3">
             <Trans>Available: {formatUnits(props.listing.leftToSell)}</Trans>
           </Text>
