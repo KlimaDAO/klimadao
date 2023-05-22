@@ -50,7 +50,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Amount to purchase`}</Text>
-        <Text t="h5">
+        <Text t="h5" className={styles.breakText}>
           {formatToTonnes(amount || "0", locale)} {t`Tonnes`}
         </Text>
       </div>
@@ -100,7 +100,10 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
             />
           </div>
-          <Text t="h3" className={cx({ error: exceededBalance })}>
+          <Text
+            t="h3"
+            className={cx(styles.breakText, { error: exceededBalance })}
+          >
             {carbonmarkPaymentMethodMap[paymentMethod || "usdc"].label}{" "}
             {formatToPrice(totalPriceFormatted, locale, false)}
           </Text>

@@ -250,3 +250,7 @@ export const labelWithInput = css`
 export const feeColor = css`
   color: var(--bright-blue);
 `;
+
+export const breakText = css`
+  overflow-wrap: anywhere;
+`;
