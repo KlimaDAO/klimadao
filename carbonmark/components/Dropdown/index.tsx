@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
@@ -20,6 +21,7 @@ type Option<T> = {
   value: T;
   label: string;
   icon?: StaticImageData;
+  disabled?: boolean;
 };
 
 export function Dropdown<V, T extends FieldValues = FieldValues>(
@@ -58,6 +60,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
                 icon={option.icon}
                 onClick={() => setSelected(option)}
                 active={selected?.value === option.value}
+                disabled={option.disabled}
               />
             ))}
           </div>
@@ -104,6 +107,7 @@ type DropdownButtonProps = {
   icon?: StaticImageData;
   onClick: () => void;
   active: boolean;
+  disabled?: boolean;
 };
 
 const DropdownButton: FC<DropdownButtonProps> = (props) => (
@@ -114,6 +118,7 @@ const DropdownButton: FC<DropdownButtonProps> = (props) => (
     type="button"
     aria-label={props.label}
     data-active={props.active}
+    disabled={props.disabled}
   >
     {props.icon && (
       <Image
@@ -125,5 +130,6 @@ const DropdownButton: FC<DropdownButtonProps> = (props) => (
       />
     )}{" "}
     {props.label}
+    {props.disabled && <span>{t`Coming soon`}</span>}
   </button>
 );

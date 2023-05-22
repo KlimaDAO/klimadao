@@ -211,6 +211,14 @@ export const divider = css`
 export const iconAndText = css`
   display: flex;
   gap: 0.8rem;
+
+  .icon {
+    flex-shrink: 0;
+  }
+
+  .error {
+    color: var(--warn);
+  }
 `;
 
 export const error = css`
@@ -232,4 +240,17 @@ export const hideOnDesktop = css`
 
 export const submitSpinner = css`
   color: var(--white);
+`;
+
+export const labelWithInput = css`
+  display: grid;
+  gap: 0.8rem;
+`;
+
+export const feeColor = css`
+  color: var(--bright-blue);
+`;
+
+export const breakText = css`
+  overflow-wrap: anywhere;
 `;

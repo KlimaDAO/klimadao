@@ -8,12 +8,29 @@ export const formatBigToPrice = (value: BigNumberish, locale = "en") => {
   return formatToPrice(toNumber, locale);
 };
 
-export const formatToPrice = (value: string | number, locale = "en") => {
+export const formatToPrice = (
+  value: string | number,
+  locale = "en",
+  showSymbol = true
+) => {
   const toNumber = Number(value);
-  return new Intl.NumberFormat(locale, {
+
+  if (showSymbol) {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "USD",
+    }).format(toNumber);
+  }
+
+  const currencyFractionDigits = new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD",
-  }).format(toNumber);
+  }).resolvedOptions().maximumFractionDigits;
+
+  return toNumber.toLocaleString(locale, {
+    maximumFractionDigits: currencyFractionDigits,
+    minimumFractionDigits: 2,
+  });
 };
 
 export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {

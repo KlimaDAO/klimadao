@@ -270,4 +270,4 @@ export type Balance = {
 };
 
 // add more methods here later
-export type CarbonmarkPaymentMethod = "usdc";
+export type CarbonmarkPaymentMethod = "usdc" | "fiat";

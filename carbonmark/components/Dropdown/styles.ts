@@ -62,4 +62,18 @@ export const dropdownButton = css`
     padding: 1rem;
     min-height: 4.8rem;
   }
+
+  &:disabled {
+    opacity: 50%;
+    cursor: default;
+  }
+  &:disabled:hover {
+    color: var(--font-01);
+  }
+
+  span {
+    background: var(--white);
+    padding: 0.4rem;
+    margin-left: 2rem;
+  }
 `;
