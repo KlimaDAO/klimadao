@@ -36,8 +36,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "recharts": "^2.5.0",
-    "swr": "^2.1.5",
-    "yup": "^0.32.11"
+    "swr": "^2.1.5"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.6",
