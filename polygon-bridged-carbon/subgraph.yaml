@@ -303,7 +303,7 @@ dataSources:
         - name: ERC20
           file: ../lib/abis/ERC20.json
         - name: ToucanCrossChainMessenger
-          file: ../lib/abis/ToucanCrosschainMessenger.json
+          file: ../lib/abis/ToucanCrosschainMessenger_Combined.json
       eventHandlers:
         - event: BridgeRequestReceived(indexed uint32,uint32,indexed address,indexed address,uint256,bytes32)
           handler: handleBridgeRequestReceived
