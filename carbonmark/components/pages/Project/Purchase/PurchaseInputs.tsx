@@ -132,6 +132,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
             label: val.label,
             value: val.id,
             icon: val.icon,
+            disabled: val.disabled,
           }))}
         />
         <div className={styles.paymentHelp}>
