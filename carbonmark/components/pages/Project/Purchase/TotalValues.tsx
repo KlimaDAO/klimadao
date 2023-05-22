@@ -70,7 +70,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       </div>
 
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Carbonmark fee`}</Text>
+        <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
           <Image
             className="icon"
@@ -80,6 +80,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
           />
           <Text t="h5">{`${CARBONMARK_FEE * 100}%`}</Text>
+          <Text t="h5" className={styles.feeColor}>
         </div>
       </div>
 

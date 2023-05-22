@@ -238,3 +238,7 @@ export const labelWithInput = css`
   display: grid;
   gap: 0.8rem;
 `;
+
+export const feeColor = css`
+  color: var(--bright-blue);
+`;
