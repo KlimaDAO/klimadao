@@ -9,8 +9,8 @@
     "./site"
   ],
   "engines": {
-    "npm": ">=8.0.0",
-    "node": ">=16.0.0"
+    "npm": ">=8.x",
+    "node": "18.x"
   },
   "scripts": {
     "dev-all": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\" \"npm:dev-carbonmark\"",
