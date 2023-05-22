@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
-    "@faker-js/faker": "^7.6.0",
+    "@faker-js/faker": "^8.0.1",
     "@fakerjs/sentence": "^1.0.0",
     "@fastify/autoload": "^5.4.0",
     "@fastify/bearer-auth": "^8.0.1",
