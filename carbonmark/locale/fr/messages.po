@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-18 16:59+0000\n"
+"POT-Creation-Date: 2023-05-22 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,7 @@ msgstr "Agriculture"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:52
 msgid "Amount to purchase"
-msgstr ""
+msgstr "Montant de l'achat"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -68,11 +68,11 @@ msgstr "Solde disponible dépassé"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:86
 msgid "Available supply exceeded"
-msgstr ""
+msgstr "Dépassement de l'offre disponible"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:54
 msgid "Available: {0}"
-msgstr ""
+msgstr "Disponible : {0}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
@@ -84,7 +84,7 @@ msgstr "Retour au projet"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 msgid "Balance: {0}"
-msgstr ""
+msgstr "Solde : {0}"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -127,7 +127,7 @@ msgstr "Vue d'ensemble de Carbonmark"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:73
 msgid "Carbonmark fee"
-msgstr ""
+msgstr "Frais de Carbonmark"
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
@@ -178,7 +178,7 @@ msgstr "Créé :"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:141
 msgid "Currently, Carbonmark only accepts Polygon USDC Payments."
-msgstr ""
+msgstr "Actuellement, Carbonmark n'accepte que les Paiements USDC de Polygon."
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
@@ -270,6 +270,8 @@ msgid ""
 "If you’d like to retire this project with another form of cryptocurrency, \n"
 "or with a credit card, you can do so at"
 msgstr ""
+"Si vous souhaitez retirer ce projet du marché avec une autre forme de crypto-monnaie, \n"
+"ou avec une carte de crédit, vous pouvez le faire à l'adresse suivante"
 
 #: lib/getCategoryInfo.ts:83
 msgid "Industrial Processing"
@@ -289,6 +291,8 @@ msgid ""
 "Learn how\n"
 "to acquire USDC on Polygon."
 msgstr ""
+"Apprenez comment\n"
+"acquérir de l'USDC sur Polygon."
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -399,7 +403,7 @@ msgstr "Autres basés sur la nature"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:96
 msgid "Pay with:"
-msgstr ""
+msgstr "Payer avec :"
 
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
@@ -434,7 +438,7 @@ msgstr "Prix le plus bas"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
 msgid "Price per tonne"
-msgstr ""
+msgstr "Prix par tonne"
 
 #: components/Footer/index.tsx:29
 msgid "Privacy Policy"
@@ -600,7 +604,7 @@ msgstr "Ce produit est encore en version bêta et des audits n'ont pas encore é
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:108
 msgid "Toggle payment method"
-msgstr ""
+msgstr "Basculer de mode de paiement"
 
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
@@ -624,11 +628,11 @@ msgstr "Total des retraits du marché :"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:89
 msgid "Total cost"
-msgstr ""
+msgstr "Coût total"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:49
 msgid "Total price"
-msgstr ""
+msgstr "Prix total"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
@@ -710,7 +714,7 @@ msgstr "Votre Adresse de Portefeuille"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:111
 msgid "Your balance:"
-msgstr ""
+msgstr "Votre solde :"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "Your display name"

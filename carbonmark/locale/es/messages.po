@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-18 16:59+0000\n"
+"POT-Creation-Date: 2023-05-22 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
-msgstr ""
+msgstr "Se recomienda un PNG de 200x200. Sube tu imagen a un host como imgur.com o postimages.org, y pega la URL completa. Pronto podrás subir fotos directamente."
 
 #: components/pages/errors/Custom404.tsx:13
 #: components/pages/errors/Custom404.tsx:14
@@ -22,15 +22,15 @@ msgstr "404 Pagina no encontrada"
 #: components/pages/errors/Custom500.tsx:14
 #: components/pages/errors/Custom500.tsx:15
 msgid "500 - Server Error"
-msgstr ""
+msgstr "500 - Se ha producido un error en el servidor"
 
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
-msgstr ""
+msgstr "500 - Se ha producido un error en el servidor"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
-msgstr ""
+msgstr "@Nombredeusuario (nota: ¡no se puede cambiar!)"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:77
 msgid "A-Z"
@@ -44,11 +44,11 @@ msgstr "Acerca de"
 
 #: components/Stats/StatsListings.tsx:49
 msgid "Active listings:"
-msgstr ""
+msgstr "Listados activos:"
 
 #: components/Activities/index.tsx:24
 msgid "Activity"
-msgstr ""
+msgstr "Actividad"
 
 #: lib/getCategoryInfo.ts:77
 msgid "Agriculture"
@@ -1043,7 +1043,7 @@ msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.aboutCarbonmark.title"
-msgstr ""
+msgstr "Acerca de Carbonmark"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.head.metaDescription"

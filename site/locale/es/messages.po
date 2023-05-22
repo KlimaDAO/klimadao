@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-18 16:59+0000\n"
+"POT-Creation-Date: 2023-05-22 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:100
 msgid "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
-msgstr ""
+msgstr "<0>Intercambia por KLIMA.</0> Sushi es un Exchange Descentralizado donde puedes intercambiar algunos de tus tokens MATIC por tokens KLIMA al precio más bajo posible."
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -447,7 +447,7 @@ msgstr "Carreras profesionales"
 #: components/pages/Pledge/PledgeDashboard/index.tsx:170
 #: components/pages/Pledge/index.tsx:112
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "institucional"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
@@ -474,7 +474,7 @@ msgstr "El usuario rechazó la conexión."
 
 #: lib/constants.ts:26
 msgid "connect_modal.error_processing"
-msgstr ""
+msgstr "Solicitud ya procesada. Por favor, abra su monedero y complete la solicitud."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:183
 #: components/pages/Pledge/index.tsx:125
@@ -1807,7 +1807,7 @@ msgstr "Dashboard de carbono"
 #: components/Navigation/index.tsx:174
 #: components/Navigation/index.tsx:321
 msgid "shared.carbonmark"
-msgstr ""
+msgstr "Carbonmark"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:232
