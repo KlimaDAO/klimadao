@@ -65,7 +65,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             height={20}
             alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
           />
-          <Text t="h5">{formatToPrice(singleUnitPrice, locale)}</Text>
+          <Text t="h5">
+            {Number(singleUnitPrice).toLocaleString(locale, {
+              minimumFractionDigits: 2,
+            })}
+          </Text>
         </div>
       </div>
 
@@ -79,8 +83,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             height={20}
             alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
           />
-          <Text t="h5">{`${CARBONMARK_FEE * 100}%`}</Text>
           <Text t="h5" className={styles.feeColor}>
+            {formatToPrice(CARBONMARK_FEE, locale, false)}
+          </Text>
         </div>
       </div>
 
@@ -97,7 +102,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
           />
           <Text t="h3" className={cx({ error: exceededBalance })}>
-            {formatToPrice(totalPriceFormatted, locale)}
+            {carbonmarkPaymentMethodMap[paymentMethod || "usdc"].label}{" "}
+            {formatToPrice(totalPriceFormatted, locale, false)}
           </Text>
         </div>
       </div>
