@@ -181,18 +181,9 @@ const Page: NextPage<PageProps> = (props) => {
             hasMap: !!project.location,
           })}
         >
-          {project.images.length ? (
-            <div
-              style={{
-                gridArea: "map",
-                height: "100%",
-                minWidth: "100%",
-                width: "100%",
-              }}
-            >
-              <div style={{ display: "grid", gridColumn: "1/3" }}>
-                <Carousel options={{ loop: true }} images={project?.images} />
-              </div>
+          {project?.images?.length ? (
+            <div className={styles.carouselWrapper}>
+              <Carousel images={project.images} />
             </div>
           ) : (
             <>
