@@ -10,14 +10,14 @@ import { bgNCT } from "./images/bgNCT";
 import { bgUBO } from "./images/bgUBO";
 
 import { logoBCT } from "./images/logoBCT";
-import { logoKlima } from "./images/logoKlima";
 import { logoMCO2 } from "./images/logoMCO2";
 import { logoNBO } from "./images/logoNBO";
 import { logoNCT } from "./images/logoNCT";
 import { logoUBO } from "./images/logoUBO";
 
+import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
-import { PoppinsExtraLight } from "./fonts/poppinsExtraLightbase64";
+import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
 
 type Params = {
   retirement: KlimaRetire;
@@ -27,10 +27,12 @@ type Params = {
 };
 
 const KLIMA_GREEN = "#00cc33";
+const BLUE = "#0019FF";
+const GRAY = "#626266";
 const PRIMARY_FONT_COLOR = "#313131";
 const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
-  margin: 42.5,
+  margin: 20,
   transactionDetails: 358,
   projectDetails: 419,
   tokenImage: { x: 411, y: 448 },
@@ -68,21 +70,28 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   });
 
   const setupFonts = () => {
-    doc.registerFont("Bold", Buffer.from(PoppinsBold, "base64"));
-    doc.registerFont("Normal", Buffer.from(PoppinsExtraLight, "base64"));
+    doc.registerFont("Poppins Bold", Buffer.from(PoppinsBold, "base64"));
+    doc.registerFont(
+      "Poppins Semibold",
+      Buffer.from(PoppinsSemiBold, "base64")
+    );
+    doc.registerFont("DM Sans", Buffer.from(DMSansRegular, "base64"));
   };
 
   const printHeader = (): void => {
-    const klimaLogoBuffer = Buffer.from(logoKlima, "base64");
-    doc.image(klimaLogoBuffer, spacing.margin, spacing.margin, {
-      width: 170,
-      height: 28,
-    });
+    // const klimaLogoBuffer = Buffer.from(logoKlima, "base64");
+    // doc.image(klimaLogoBuffer, spacing.margin, spacing.margin, {
+    //   width: 170,
+    //   height: 28,
+    // });
 
-    doc.font("Bold");
+    doc.font("Poppins Bold");
+    doc.fontSize(16);
+    doc.fillColor(GRAY);
+    doc.text("Proof of", spacing.margin, 20);
     doc.fontSize(24);
-    doc.text("Certificate for On-chain", spacing.margin, 77);
-    doc.text("Carbon Retirement", spacing.margin, 105);
+    doc.fillColor(BLUE);
+    doc.text("Carbon Credit Retirement", spacing.margin, 35);
 
     doc.lineWidth(3);
     doc.moveTo(spacing.margin, 148);
@@ -109,12 +118,12 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
         : trimWithLocale(params.retirement.amount, 2, "en");
 
     doc.fontSize(28);
-    doc.font("Normal");
+    doc.font("Poppins Semibold");
     doc.text(`${retirementAmount} tonnes`, spacing.margin, 169);
 
     const beneficaryText =
       params.retirement.beneficiary || params.retirement.beneficiaryAddress;
-    doc.font("Bold");
+    doc.font("Poppins Bold");
     doc.lineGap(-13);
     doc.text(beneficaryText, spacing.margin, 200, { width: 450 });
 
@@ -123,7 +132,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
 
     const retirementMessage = params.retirement.retirementMessage;
-    doc.font("Normal");
+    doc.font("Poppins Semibold");
     doc.fontSize(12);
     doc.lineGap(-1.5);
     doc.text(
@@ -136,26 +145,26 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printTransactionDetails = (): void => {
     doc.fontSize(11);
-    doc.font("Bold");
+    doc.font("Poppins Bold");
     doc.text(
       "Beneficiary Address:",
       spacing.margin,
       spacing.transactionDetails
     );
-    doc.font("Normal");
+    doc.font("Poppins Semibold");
     doc.text(
       params.retirement.beneficiaryAddress,
       spacing.margin,
       spacing.transactionDetails + 15
     );
 
-    doc.font("Bold");
+    doc.font("Poppins Bold");
     doc.text(
       "Transaction ID:",
       spacing.margin,
       spacing.transactionDetails + 30
     );
-    doc.font("Normal");
+    doc.font("Poppins Semibold");
     doc.text(
       params.retirement.transaction.id,
       spacing.margin,
@@ -230,10 +239,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     let startPosition = spacing.projectDetails;
     projectDetails.forEach((detail) => {
       const label = `${detail.label}:`;
-      doc.font("Bold");
+      doc.font("Poppins Bold");
       doc.text(label, spacing.margin, startPosition);
 
-      doc.font("Normal");
+      doc.font("Poppins Semibold");
       doc.text(
         `${detail.value}`,
         spacing.margin + doc.widthOfString(label) + 9,
@@ -246,7 +255,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printMossProjectDetails = () => {
     const linkText = "Learn more ";
-    doc.font("Bold");
+    doc.font("Poppins Bold");
     doc.fillColor(SECONDARY_FONT_COLOR);
     doc.text(linkText, spacing.margin, spacing.projectDetails + 30, {
       link: `${urls.carbonDashboard}/MCO2`,
@@ -261,7 +270,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printRetirementLink = (): void => {
     const text = "View this retirement on ";
-    doc.font("Bold");
+    doc.font("Poppins Bold");
     doc.text(text, spacing.margin, spacing.retirementLink);
     doc.fillColor(KLIMA_GREEN);
     doc.text(
