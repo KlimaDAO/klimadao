@@ -61,116 +61,126 @@ export const RetireInputs: FC<Props> = (props) => {
           hideLabel
         />
 
-        <div className={styles.quantityLabel}>
-          <Text>{t`How many tonnes of carbon would you like to retire?`}</Text>
-          <Text t="body3">
-            <Trans>Available: {props.price.leftToSell}</Trans>
-          </Text>
+        <div className={styles.labelWithInput}>
+          <div className={styles.quantityLabel}>
+            <Text>{t`How many tonnes of carbon would you like to retire?`}</Text>
+            <Text t="body3">
+              <Trans>Available: {props.price.leftToSell}</Trans>
+            </Text>
+            <InputField
+              id="quantity"
+              inputProps={{
+                placeholder: t`Tonnes`,
+                type: "number",
+                min: 1,
+                max: Number(props.price.leftToSell),
+                ...register("quantity", {
+                  onChange: () => clearErrors("totalPrice"),
+                  required: {
+                    value: true,
+                    message: t`Quantity is required`,
+                  },
+                  min: {
+                    value: 1,
+                    message: t`The minimum amount to buy is 1 Tonne`,
+                  },
+                  max: {
+                    value: Number(props.price.leftToSell),
+                    message: t`Available supply exceeded`,
+                  },
+                }),
+              }}
+              label={t`How many tonnes of carbon do you want to buy?`}
+              errorMessage={formState.errors.quantity?.message}
+              hideLabel
+            />
+          </div>
+        </div>
+
+        <div className={styles.labelWithInput}>
           <InputField
-            id="quantity"
+            id="beneficiaryName"
             inputProps={{
-              placeholder: t`Tonnes`,
-              type: "number",
-              min: 1,
-              max: Number(props.price.leftToSell),
-              ...register("quantity", {
-                onChange: () => clearErrors("totalPrice"),
+              placeholder: t`Beneficiary name`,
+              ...register("beneficiaryName", {
                 required: {
                   value: true,
-                  message: t`Quantity is required`,
-                },
-                min: {
-                  value: 1,
-                  message: t`The minimum amount to buy is 1 Tonne`,
-                },
-                max: {
-                  value: Number(props.price.leftToSell),
-                  message: t`Available supply exceeded`,
+                  message: t`Beneficiary Name is required`,
                 },
               }),
             }}
-            label={t`How many tonnes of carbon do you want to buy?`}
-            errorMessage={formState.errors.quantity?.message}
+            label={t`Who will this retirement be credited to?`}
+            errorMessage={formState.errors.beneficiaryName?.message}
+          />
+          <InputField
+            id="beneficiaryAddress"
+            inputProps={{
+              placeholder: t`Beneficiary wallet address (optional)`,
+              ...register("beneficiaryAddress"),
+            }}
+            label={t`Beneficiary Address`}
             hideLabel
+          />
+          <Text t="body3">{t`Defaults to the connected wallet address`}</Text>
+        </div>
+
+        <div className={styles.labelWithInput}>
+          <TextareaField
+            id="retirementMessage"
+            textareaProps={{
+              placeholder: t`Describe the purpose of this retirement`,
+              ...register("retirementMessage"),
+            }}
+            label={t`Retirement Message`}
           />
         </div>
 
-        <InputField
-          id="beneficiaryName"
-          inputProps={{
-            placeholder: t`Beneficiary name`,
-            ...register("beneficiaryName", {
-              required: {
-                value: true,
-                message: t`Beneficiary Name is required`,
-              },
-            }),
-          }}
-          label={t`Who will this retirement be credited to?`}
-          errorMessage={formState.errors.beneficiaryName?.message}
-        />
-        <InputField
-          id="beneficiaryAddress"
-          inputProps={{
-            placeholder: t`Beneficiary wallet address (optional)`,
-            ...register("beneficiaryAddress"),
-          }}
-          label={t`Beneficiary Address`}
-          hideLabel
-        />
-        <Text t="body3">{t`Defaults to the connected wallet address`}</Text>
+        <div className={styles.labelWithInput}>
+          <div className={styles.paymentLabel}>
+            <Text>{t`Pay with:`}</Text>
+            {!!props.balance && (
+              <Text t="body3">
+                {t`Balance: ${formatToPrice(props.balance, locale)}`}
+              </Text>
+            )}
+          </div>
 
-        <TextareaField
-          id="retirementMessage"
-          textareaProps={{
-            placeholder: t`Describe the purpose of this retirement`,
-            ...register("retirementMessage"),
-          }}
-          label={t`Retirement Message`}
-        />
-
-        <div className={styles.paymentLabel}>
-          <Text>{t`Pay with:`}</Text>
-          {!!props.balance && (
-            <Text t="body3">
-              {t`Balance: ${formatToPrice(props.balance, locale)}`}
-            </Text>
-          )}
+          <Dropdown
+            name="paymentMethod"
+            initial={carbonmarkPaymentMethodMap["usdc"].id}
+            className={styles.paymentDropdown}
+            aria-label={t`Toggle payment method`}
+            renderLabel={(selected) => (
+              <div className={styles.paymentDropDownHeader}>
+                <Image
+                  className="icon"
+                  src={
+                    carbonmarkPaymentMethodMap[
+                      selected.id as CarbonmarkPaymentMethod
+                    ].icon
+                  }
+                  width={28}
+                  height={28}
+                  alt={
+                    carbonmarkPaymentMethodMap[
+                      selected.id as CarbonmarkPaymentMethod
+                    ].id
+                  }
+                />{" "}
+                {selected.label}
+              </div>
+            )}
+            control={control}
+            options={Object.values(carbonmarkPaymentMethodMap).map((val) => ({
+              id: val.id,
+              label: val.label,
+              value: val.id,
+              icon: val.icon,
+              disabled: val.disabled,
+            }))}
+          />
         </div>
 
-        <Dropdown
-          name="paymentMethod"
-          initial={carbonmarkPaymentMethodMap["usdc"].id}
-          className={styles.paymentDropdown}
-          aria-label={t`Toggle payment method`}
-          renderLabel={(selected) => (
-            <div className={styles.paymentDropDownHeader}>
-              <Image
-                className="icon"
-                src={
-                  carbonmarkPaymentMethodMap[
-                    selected.id as CarbonmarkPaymentMethod
-                  ].icon
-                }
-                width={28}
-                height={28}
-                alt={
-                  carbonmarkPaymentMethodMap[
-                    selected.id as CarbonmarkPaymentMethod
-                  ].id
-                }
-              />{" "}
-              {selected.label}
-            </div>
-          )}
-          control={control}
-          options={Object.values(carbonmarkPaymentMethodMap).map((val) => ({
-            id: val.id,
-            label: val.label,
-            value: val.id,
-            icon: val.icon,
-          }))}
-        />
         <div className={styles.paymentHelp}>
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>

@@ -61,13 +61,13 @@ export const formContainer = css`
   align-self: center;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.6rem;
 `;
 
 export const inputsContainer = css`
   display: grid;
   align-content: start;
-  gap: 1.6rem;
+  gap: 2rem;
   overflow: hidden;
   margin-bottom: 2rem;
 `;
@@ -104,6 +104,11 @@ export const paymentHelp = css`
 export const paymentText = css`
   display: grid;
   gap: 0.4rem;
+`;
+
+export const labelWithInput = css`
+  display: grid;
+  gap: 0.8rem;
 `;
 
 export const helpIcon = css`
@@ -146,6 +151,14 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
+export const feeColor = css`
+  color: var(--bright-blue);
+`;
+
+export const breakText = css`
+  overflow-wrap: anywhere;
+`;
+
 export const divider = css`
   height: 0.1rem;
   background-color: var(--font-03);
@@ -154,6 +167,14 @@ export const divider = css`
 export const iconAndText = css`
   display: flex;
   gap: 0.8rem;
+
+  .icon {
+    flex-shrink: 0;
+  }
+
+  .error {
+    color: var(--warn);
+  }
 `;
 
 export const error = css`
