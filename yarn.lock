@@ -4573,9 +4573,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"polygon-carbon@workspace:polygon-carbon":
+"polygon-carbon@workspace:polygon-digital-carbon":
   version: 0.0.0-use.local
-  resolution: "polygon-carbon@workspace:polygon-carbon"
+  resolution: "polygon-carbon@workspace:polygon-digital-carbon"
   dependencies:
     "@graphprotocol/graph-cli": 0.45.0
     "@graphprotocol/graph-ts": 0.29.3
