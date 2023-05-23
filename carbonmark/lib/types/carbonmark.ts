@@ -1,5 +1,10 @@
 import { BigNumber } from "ethers";
 
+export interface CarouselImage {
+  url: string;
+  caption: string;
+}
+
 export interface Project {
   id: string;
   key: string;
@@ -7,7 +12,7 @@ export interface Project {
   name: string | "";
   methodologies: Array<Methodology>;
   vintage: string;
-  images: any;
+  images: Array<CarouselImage>;
   projectAddress: string;
   registry: string;
   listings: Listing[] | null;

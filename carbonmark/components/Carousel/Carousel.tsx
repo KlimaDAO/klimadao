@@ -4,13 +4,9 @@ import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeft
 import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import { CarouselImage } from "lib/types/carbonmark";
 import { useCallback, useEffect, useState } from "react";
 import * as styles from "./styles";
-
-interface CarouselImage {
-  url: string;
-  caption: string;
-}
 
 type PropType = {
   images: Array<CarouselImage>;
