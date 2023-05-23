@@ -709,7 +709,7 @@ msgstr "You chose to reject the transaction."
 msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:120
+#: components/pages/Project/Purchase/TotalValues.tsx:119
 msgid "Your balance:"
 msgstr "Your balance:"
 

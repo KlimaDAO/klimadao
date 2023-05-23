@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-23 15:34+0000\n"
+"POT-Creation-Date: 2023-05-23 17:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -703,7 +703,7 @@ msgstr "Vous avez choisi de rejeter la transaction."
 msgid "Your Wallet Address:"
 msgstr "Votre Adresse de Portefeuille"
 
-#: components/pages/Project/Purchase/TotalValues.tsx:120
+#: components/pages/Project/Purchase/TotalValues.tsx:119
 msgid "Your balance:"
 msgstr "Votre solde :"
 
