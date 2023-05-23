@@ -8,31 +8,14 @@ import { CarouselImage } from "lib/types/carbonmark";
 import { useCallback, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-type PropType = {
+type CarouselProps = {
   images: Array<CarouselImage>;
   options?: EmblaOptionsType;
 };
 
-const Thumb: React.FC<any> = (props) => (
-  <div className={styles.thumbsSlide}>
-    <button
-      type="button"
-      onClick={props.onClick}
-      className={styles.thumbsSlideButton}
-    >
-      {props.selected && <div className={styles.selected} />}
-      <img
-        src={props.img}
-        alt={props.caption}
-        className={styles.thumbsSlideImg}
-      />
-    </button>
-  </div>
-);
-
 const maxThumbSlides = 5;
 
-const Carousel: React.FC<PropType> = (props) => {
+const Carousel: React.FC<CarouselProps> = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [mainRef, mainApi] = useEmblaCarousel(props.options);
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
@@ -77,8 +60,8 @@ const Carousel: React.FC<PropType> = (props) => {
     <div className={styles.carousel}>
       <div ref={mainRef} className={styles.viewport}>
         <div className={styles.container}>
-          {props.images.map((image: any, index: number) => (
-            <div className={styles.slide} key={index}>
+          {props.images.map((image: CarouselImage, index: number) => (
+            <div className={styles.slide} key={`slide-${index}`}>
               <TextInfoTooltip tooltip={image.caption}>
                 <InfoOutlinedIcon width={20} height={20} />
               </TextInfoTooltip>
@@ -99,15 +82,23 @@ const Carousel: React.FC<PropType> = (props) => {
         )}
         <div ref={thumbsRef} className={styles.thumbsViewport}>
           <div className={styles.thumbsContainer}>
-            {props?.images?.map((image: any, index: number) => (
-              <Thumb
-                img={image.url}
-                key={`thumbnail-${index}`}
-                caption={image.caption}
-                onClick={() => onThumbClick(index)}
-                selected={index === selectedIndex}
-                totalLength={props?.images?.length}
-              />
+            {props.images.map((image: CarouselImage, index: number) => (
+              <div key={`thumbnail-${index}`} className={styles.thumbsSlide}>
+                <button
+                  type="button"
+                  onClick={() => onThumbClick(index)}
+                  className={styles.thumbsSlideButton}
+                >
+                  {index === selectedIndex && (
+                    <div className={styles.selected} />
+                  )}
+                  <img
+                    src={image.url}
+                    alt={image.caption}
+                    className={styles.thumbsSlideImg}
+                  />
+                </button>
+              </div>
             ))}
           </div>
         </div>
