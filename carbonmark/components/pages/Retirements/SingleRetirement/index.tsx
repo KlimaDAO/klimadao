@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { GridContainer, Section } from "@klimadao/lib/components";
 import {
   concatAddress,
@@ -5,8 +6,6 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-
-import { cx } from "@emotion/css";
 import { t, Trans } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
@@ -71,6 +70,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
     : retirement.offset.bridge === "Toucan"
     ? "tco2"
     : "c3t";
+  const isMossOffset = retirement?.offset?.bridge === "Moss";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
 
@@ -142,6 +142,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
           <Col className="column">
             <ProjectDetails
               retirement={retirement}
+              isMossOffset={isMossOffset}
               description={props?.projectDescription}
             />
             <div className={cx(styles.visibleMobile)}>

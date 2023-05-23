@@ -28,7 +28,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  projectDescription?: string;
+  projectDescription?: string | null;
 }
 
 // second param should always be a number
@@ -103,9 +103,11 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const { description } = await getCarbonmarkProject(
+    const { description = null } = await getCarbonmarkProject(
       `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
     );
+
+    console.log("description", description);
 
     return {
       props: {
