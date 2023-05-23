@@ -455,6 +455,10 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
 }): Promise<RetirementReceipt> => {
+  if (params.paymentMethod === "fiat") {
+    throw Error("Unsupported payment method");
+  }
+
   enum TransferMode {
     EXTERNAL = 0,
     INTERNAL = 1,

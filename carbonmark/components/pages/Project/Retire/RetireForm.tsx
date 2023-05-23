@@ -117,13 +117,14 @@ export const RetireForm: FC<Props> = (props) => {
   const handleApproval = async () => {
     if (!provider || !inputValues) return;
     try {
-      await approveTokenSpend({
-        tokenName: inputValues.paymentMethod,
-        spender: "retirementAggregatorV2",
-        signer: provider.getSigner(),
-        value: inputValues.quantity,
-        onStatus: onUpdateStatus,
-      });
+      inputValues.paymentMethod !== "fiat" &&
+        (await approveTokenSpend({
+          tokenName: inputValues.paymentMethod,
+          spender: "retirementAggregatorV2",
+          signer: provider.getSigner(),
+          value: inputValues.quantity,
+          onStatus: onUpdateStatus,
+        }));
     } catch (e) {
       console.error(e);
     }
@@ -203,7 +204,10 @@ export const RetireForm: FC<Props> = (props) => {
         hasApproval={hasApproval()}
         amount={{
           value: inputValues?.quantity || "0",
-          token: inputValues?.paymentMethod || "usdc",
+          token:
+            (inputValues?.paymentMethod !== "fiat" &&
+              inputValues?.paymentMethod) ||
+            "usdc",
         }}
         isProcessing={isProcessing}
         status={status}
