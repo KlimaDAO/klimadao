@@ -393,8 +393,6 @@ export const RetireForm = (props: RetireFormProps) => {
             </Text>
           }
           token={carbonTokenInfo}
-          // tokenIcon={carbonTokenInfo.icon}
-          // tokenName={carbonTokenInfo.key as CarbonmarkToken}
           value={retirement.quantity}
           approvalValue={getApprovalValue(retirement.quantity)}
           spenderAddress={addresses["mainnet"].retirementAggregatorV2}

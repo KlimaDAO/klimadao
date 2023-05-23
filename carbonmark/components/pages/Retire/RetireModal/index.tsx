@@ -34,7 +34,7 @@ export const RetireModal: FC<Props> = (props) => {
     props.isApproved ? "submit" : "approve"
   );
 
-  const [processingRetirement, setProcessingRetirement] = useState(true);
+  const [processingRetirement, setProcessingRetirement] = useState(false);
 
   useEffect(() => {
     if (
