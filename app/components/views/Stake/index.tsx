@@ -364,7 +364,9 @@ export const Stake = (props: Props) => {
                     min="0"
                   />
                 )}
-              />
+              >
+                Amount to stake
+              </Trans>
               <button
                 className={styles.stakeInput_max}
                 type="button"

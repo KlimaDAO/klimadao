@@ -338,7 +338,9 @@ export const Wrap: FC<Props> = (props) => {
                     min="0"
                   />
                 )}
-              />
+              >
+                sKLIMA to wrap
+              </Trans>
               <button
                 className={styles.stakeInput_max}
                 type="button"
