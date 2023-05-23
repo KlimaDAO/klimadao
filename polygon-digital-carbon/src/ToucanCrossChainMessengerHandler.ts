@@ -6,7 +6,7 @@ import {
 } from '../generated/ToucanCrossChainMessenger/ToucanCrossChainMessenger'
 import { Bridge, Issue } from '../generated/ToucanRegenBridge/ToucanRegenBridge'
 import { ZERO_BI } from '../../lib/utils/Decimals'
-import { saveCrossChainOffsetBridge, saveCrossChainPoolBridge } from './utils/CrosschainBridge'
+import { saveCrossChainOffsetBridge, saveCrossChainPoolBridge } from './utils/CrossChainBridge'
 import { updateCarbonOffsetCrossChain } from './utils/CarbonOffset'
 import { updateCarbonPoolCrossChain } from './utils/CarbonPool'
 import { CarbonOffset } from '../generated/schema'
