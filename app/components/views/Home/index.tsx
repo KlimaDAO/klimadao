@@ -178,10 +178,7 @@ export const Home: FC = () => {
                 id: "connectModal.institutional",
               }),
               titles: {
-                connect: t({
-                  id: "shared.login",
-                  message: "Login",
-                }),
+                connect: t`Login`,
                 loading: t({
                   id: "connect_modal.connecting",
                   message: "Connecting...",

@@ -37,7 +37,7 @@ export const AboutHeader: FC<Props> = (props) => {
               data-active={isPageActive("contact")}
             >
               <Link href="/contact">
-                <Trans id="shared.contact_us">Contact Us</Trans>
+                <Trans>Contact Us</Trans>
                 <ArrowBack className="arrow" />
               </Link>
             </li>
@@ -64,7 +64,7 @@ export const AboutHeader: FC<Props> = (props) => {
               renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonPrimary
-              label={t({ id: "shared.contact", message: "Contact" })}
+              label={t`Contact`}
               href={"/contact"}
               variant={isPageActive("contact") ? null : "gray"}
               renderLink={(linkProps) => <Link {...linkProps} />}

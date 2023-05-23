@@ -31,28 +31,28 @@ export const Footer: FC<Props> = (props) => {
       <div className={cx(styles.footer_content, "footer_content")}>
         <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">
-            <Trans id="shared.home">Home</Trans>
+            <Trans>Home</Trans>
           </Link>
           <Link href="/buy">
-            <Trans id="shared.buy">Buy</Trans>
+            <Trans>Buy</Trans>
           </Link>
           <a href={createLinkWithLocaleQuery(urls.stake, locale)}>
-            <Trans id="shared.stake">Stake</Trans>
+            <Trans>Stake</Trans>
           </a>
           <a href={createLinkWithLocaleQuery(urls.app, locale)}>
-            <Trans id="shared.bond">App</Trans>
+            <Trans>App</Trans>
           </a>
           <A href={urls.officialDocs}>
-            <Trans id="shared.docs">Docs</Trans>
+            <Trans>Docs</Trans>
           </A>
           <Link href="/blog">
-            <Trans id="shared.blog">Blog</Trans>
+            <Trans>Blog</Trans>
           </Link>
           <Link href="/contact">
-            <Trans id="shared.contact">Contact</Trans>
+            <Trans>Contact</Trans>
           </Link>
           <Link href="/disclaimer">
-            <Trans id="shared.disclaimer">Disclaimer</Trans>
+            <Trans>Disclaimer</Trans>
           </Link>
         </nav>
 

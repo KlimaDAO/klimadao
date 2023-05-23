@@ -240,7 +240,7 @@ export const Redeem = (props: Props) => {
       };
     } else if (!quantity || !Number(quantity)) {
       return {
-        label: t({ id: "shared.enter_quantity", message: "Enter quantity" }),
+        label: t`Enter Quantity`,
         disabled: true,
       };
     } else if (insufficientProjectQuantity) {
@@ -261,15 +261,12 @@ export const Redeem = (props: Props) => {
       };
     } else if (insufficientBalance()) {
       return {
-        label: t({
-          id: "shared.insufficient_balance",
-          message: "Insufficient balance",
-        }),
+        label: t`Insufficient balance`,
         disabled: true,
       };
     } else if (!hasApproval()) {
       return {
-        label: t({ id: "shared.approve", message: "Approve" }),
+        label: t`Approve`,
         onClick: () => setShowTransactionModal(true),
       };
     }
@@ -322,7 +319,7 @@ export const Redeem = (props: Props) => {
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
-        if (isLoading) return <Trans id="shared.loading">Loading...</Trans>;
+        if (isLoading) return <Trans>Loading...</Trans>;
         if (!props.isConnected || !Number(balances?.[tkn])) return "0";
         return Number(balances?.[tkn]).toFixed(2);
       })(),

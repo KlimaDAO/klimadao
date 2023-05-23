@@ -203,12 +203,12 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (isLoading) {
       return {
-        label: t({ id: "shared.loading", message: "Loading..." }),
+        label: t`Loading...`,
         disabled: true,
       };
     } else if (!value) {
       return {
-        label: t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" }),
+        label: t`Enter Quantity`,
         disabled: true,
       };
     } else if (
@@ -221,15 +221,12 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (value && insufficientBalance()) {
       return {
-        label: t({
-          id: "shared.insufficient_balance",
-          message: "INSUFFICIENT BALANCE",
-        }),
+        label: t`Insufficient balance`,
         disabled: true,
       };
     } else if (!hasApproval()) {
       return {
-        label: t({ id: "shared.approve", message: "APPROVE" }),
+        label: t`Approve`,
         onClick: () => setShowTransactionModal(true),
       };
     } else if (view === WRAP) {

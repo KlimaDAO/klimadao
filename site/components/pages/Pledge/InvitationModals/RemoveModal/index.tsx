@@ -45,10 +45,7 @@ export const RemoveModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
-      loading: t({
-        id: "shared.loading",
-        message: "Loading",
-      }),
+      loading: t`Loading...`,
       signing: t({
         id: "pledge.invitation.signing",
         message: "Signing",

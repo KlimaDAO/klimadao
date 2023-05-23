@@ -238,20 +238,17 @@ export const Stake = (props: Props) => {
       };
     } else if (!value) {
       return {
-        label: t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" }),
+        label: t`Enter Quantity`,
         disabled: true,
       };
     } else if (value && insufficientBalance()) {
       return {
-        label: t({
-          id: "shared.insufficient_balance",
-          message: "INSUFFICIENT BALANCE",
-        }),
+        label: t`Insufficient balance`,
         disabled: true,
       };
     } else if (!hasApproval()) {
       return {
-        label: t({ id: "shared.approve", message: "APPROVE" }),
+        label: t`Approve`,
         onClick: () => setShowTransactionModal(true),
       };
     } else if (view === "stake") {
@@ -431,21 +428,21 @@ export const Stake = (props: Props) => {
               {fiveDayRatePercent ? (
                 trimWithPlaceholder(fiveDayRatePercent, 2, locale) + "%"
               ) : (
-                <Trans id="shared.loading">Loading...</Trans>
+                <Trans>Loading...</Trans>
               )}
             </div>
             <div className={styles.infoTable_value}>
               {stakingAKR ? (
                 trimWithPlaceholder(stakingAKR, 0, locale) + "%"
               ) : (
-                <Trans id="shared.loading">Loading...</Trans>
+                <Trans>Loading...</Trans>
               )}
             </div>
             <div className={styles.infoTable_value}>
               {currentIndex ? (
                 trimWithPlaceholder(currentIndex, 2, locale) + " sKLIMA"
               ) : (
-                <Trans id="shared.loading">Loading...</Trans>
+                <Trans>Loading...</Trans>
               )}
             </div>
           </div>

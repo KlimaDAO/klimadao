@@ -93,10 +93,7 @@ export const Navigation: FC<Props> = ({
             active={activePage === "Community"}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Contact Us",
-              id: "shared.contact_us",
-            })}
+            name={t`Contact Us`}
             key="contact"
             active={activePage === "Contact"}
             url="/contact"
@@ -114,10 +111,7 @@ export const Navigation: FC<Props> = ({
 
         <DropdownItemDesktop name={t({ message: "App", id: "shared.app" })}>
           <LinkItemDesktop
-            name={t({
-              message: "Buy Klima",
-              id: "shared.buy",
-            })}
+            name={t`Buy Klima`}
             key="buy klima"
             url={createLinkWithLocaleQuery(urls.buy, locale)}
           />
@@ -130,42 +124,27 @@ export const Navigation: FC<Props> = ({
             url={createLinkWithLocaleQuery(urls.stake, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Bond Klima",
-              id: "shared.bond",
-            })}
+            name={t`Bond Klima`}
             key="bond"
             url={createLinkWithLocaleQuery(urls.bonds, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Wrap sKlima",
-              id: "shared.wrap",
-            })}
+            name={t`Wrap sKlima`}
             key="wrap"
             url={createLinkWithLocaleQuery(urls.wrap, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Offset",
-              id: "shared.offset",
-            })}
+            name={t`Offset`}
             key="offset"
             url={createLinkWithLocaleQuery(urls.offset, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Buy Carbon",
-              id: "shared.buy_carbon",
-            })}
+            name={t`Buy Carbon`}
             key="buy carbon"
             url={createLinkWithLocaleQuery(urls.redeem, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Info",
-              id: "shared.info",
-            })}
+            name={t`Info`}
             key="info"
             url={createLinkWithLocaleQuery(urls.info, locale)}
           />
@@ -238,10 +217,7 @@ export const Navigation: FC<Props> = ({
                   url="/community"
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Contact Us",
-                    id: "shared.contact",
-                  })}
+                  name={t`Contact Us`}
                   key="contact"
                   active={activePage === "Contact"}
                   url="/contact"
@@ -258,11 +234,11 @@ export const Navigation: FC<Props> = ({
               ]}
             />
             <NavItemMobile
-              name={t({ message: "App", id: "shared.app" })}
+              name={t`App`}
               id="App"
               subMenu={[
                 <NavItemMobile
-                  name={t({ message: "Buy Klima", id: "shared.buy" })}
+                  name={t`Buy Klima`}
                   key="buy klima"
                   url="/buy"
                 />,
@@ -283,34 +259,22 @@ export const Navigation: FC<Props> = ({
                   url={createLinkWithLocaleQuery(urls.bonds, locale)}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Wrap sKlima",
-                    id: "shared.wrap",
-                  })}
+                  name={t`Wrap sKlima`}
                   key="wrap"
                   url={createLinkWithLocaleQuery(urls.wrap, locale)}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Offset",
-                    id: "shared.offset",
-                  })}
+                  name={t`Offset`}
                   key="offset"
                   url={createLinkWithLocaleQuery(urls.offset, locale)}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Buy Carbon",
-                    id: "shared.buy_carbon",
-                  })}
+                  name={t`Buy Carbon`}
                   key="buy carbon"
                   url={createLinkWithLocaleQuery(urls.redeem, locale)}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Info",
-                    id: "shared.info",
-                  })}
+                  name={t`Info`}
                   key="info"
                   url={createLinkWithLocaleQuery(urls.info, locale)}
                 />,

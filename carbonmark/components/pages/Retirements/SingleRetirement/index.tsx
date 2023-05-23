@@ -51,14 +51,7 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
     {
       ssr: false,
       loading: () => (
-        <ButtonPrimary
-          disabled
-          variant="blue"
-          label={t({
-            id: "shared.loading",
-            message: "Loading...",
-          })}
-        />
+        <ButtonPrimary disabled variant="blue" label={t`Loading...`} />
       ),
     }
   );

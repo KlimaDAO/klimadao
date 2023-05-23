@@ -124,10 +124,7 @@ export const Community: NextPage = () => (
               corporations and everyone in-between.
             </Trans>
           </Text>
-          <ButtonPrimary
-            href={"/contact"}
-            label={t({ id: "shared.contact_us", message: "Contact Us" })}
-          />
+          <ButtonPrimary href={"/contact"} label={t`Contact Us`} />
           <Image
             alt={t({
               id: "community.tree_grove",
@@ -369,10 +366,7 @@ export const Community: NextPage = () => (
               help you find the right person to talk to.
             </Trans>
           </Text>
-          <ButtonPrimary
-            href={"/contact"}
-            label={t({ id: "shared.contact_us", message: "Contact Us" })}
-          />
+          <ButtonPrimary href={"/contact"} label={t`Contact Us`} />
         </div>
       </div>
     </Section>

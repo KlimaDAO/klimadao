@@ -59,10 +59,7 @@ export const SortyByDropDown: FC<Props> = (props) => {
           onClick={onToggle}
           role="button"
           className={styles.dropdownHeader}
-          aria-label={t({
-            id: "resources.list.select.sort_by.toggle",
-            message: "Toggle Sorted by menu",
-          })}
+          aria-label={t`Toggle sorted by menu`}
         >
           {label}
           {isOpen ? (

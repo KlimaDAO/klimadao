@@ -115,7 +115,7 @@ export const RetirementsCard: FC<Props> = (props) => {
           </Text>
         ) : (
           <Text t="h4" color="lightest">
-            <Trans id="shared.loading">Loading...</Trans>
+            <Trans>Loading...</Trans>
           </Text>
         )}
 
