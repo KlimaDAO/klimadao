@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-22 16:43+0000\n"
+"POT-Creation-Date: 2023-05-23 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,7 @@ msgstr "农业"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:52
 msgid "Amount to purchase"
-msgstr ""
+msgstr "购买金额"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -68,11 +68,11 @@ msgstr "超出可用余额"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
-msgstr ""
+msgstr "超出可用供应"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
-msgstr ""
+msgstr "可用：{0}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
@@ -84,7 +84,7 @@ msgstr "返回项目"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
-msgstr ""
+msgstr "余额：{0}"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -127,7 +127,7 @@ msgstr "Carbonmark 概览"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
 msgid "Carbonmark fee"
-msgstr ""
+msgstr "Carbonmark 费"
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
@@ -152,7 +152,7 @@ msgstr "清除过滤器"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
-msgstr ""
+msgstr "即将推出"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -386,7 +386,7 @@ msgstr "其他基于自然的"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 msgid "Pay with:"
-msgstr ""
+msgstr "使用...支付"
 
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
@@ -421,7 +421,7 @@ msgstr "最低价格"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
 msgid "Price per tonne"
-msgstr ""
+msgstr "每吨价格"
 
 #: components/Footer/index.tsx:29
 msgid "Privacy Policy"
@@ -457,7 +457,7 @@ msgstr "购买收据 | Carbonmark"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:53
 msgid "Purchase amount (tonnes):"
-msgstr ""
+msgstr "采购量（吨）："
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
@@ -593,11 +593,11 @@ msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:145
 msgid "To purchase this project using a different form of payment,"
-msgstr ""
+msgstr "使用不同的付款方式购买此项目，"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
-msgstr ""
+msgstr "切换付款方式"
 
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
@@ -621,11 +621,11 @@ msgstr "总碳停用"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:93
 msgid "Total cost"
-msgstr ""
+msgstr "总成本"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:49
 msgid "Total price"
-msgstr ""
+msgstr "总价"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
@@ -707,7 +707,7 @@ msgstr "您的钱包地址："
 
 #: components/pages/Project/Purchase/TotalValues.tsx:120
 msgid "Your balance:"
-msgstr ""
+msgstr "您的余额："
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
 msgid "Your display name"

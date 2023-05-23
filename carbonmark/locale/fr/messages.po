@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-22 16:43+0000\n"
+"POT-Creation-Date: 2023-05-23 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,7 +152,7 @@ msgstr "Effacer les filtres"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
-msgstr ""
+msgstr "Prochainement"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -455,7 +455,7 @@ msgstr "Reçu d'achat | Carbonmark"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:53
 msgid "Purchase amount (tonnes):"
-msgstr ""
+msgstr "Quantité achetée (tonnes) :"
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
@@ -591,7 +591,7 @@ msgstr "Ce produit est encore en version bêta et des audits n'ont pas encore é
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:145
 msgid "To purchase this project using a different form of payment,"
-msgstr ""
+msgstr "Pour acheter ce projet en utilisant un autre moyen de paiement,"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
