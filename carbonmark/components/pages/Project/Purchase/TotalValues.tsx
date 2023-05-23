@@ -104,7 +104,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             t="h3"
             className={cx(styles.breakText, { error: exceededBalance })}
           >
-            {carbonmarkPaymentMethodMap[paymentMethod || "usdc"].label}{" "}
             {formatToPrice(totalPriceFormatted, locale, false)}
           </Text>
         </div>
