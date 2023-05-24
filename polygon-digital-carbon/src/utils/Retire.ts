@@ -21,6 +21,7 @@ export function saveRetire(
   retire.amount = amount
   retire.beneficiaryAddress = beneficiary
   retire.beneficiaryName = beneficiaryName
+  retire.retirementMessage = ''
   retire.retiringAddress = retiringAddress
   retire.retiringName = retiringName
   retire.timestamp = timestamp

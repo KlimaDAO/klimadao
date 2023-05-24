@@ -9,6 +9,8 @@ import { loadOrCreateAccount } from './utils/Account'
 import { saveToucanRetirement, saveToucanRetirement_1_4_0 } from './RetirementHandler'
 import { saveBridge } from './utils/Bridge'
 import { CrossChainBridge } from '../generated/schema'
+import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/CarbonPool'
+import { checkForCarbonPoolOffsetSnapshot } from './utils/CarbonPoolOffsetBalance'
 
 export function handleOffsetTransfer(event: Transfer): void {
   if (event.address == MCO2_ERC20_CONTRACT) loadOrCreateCarbonOffset(MCO2_ERC20_CONTRACT, 'MOSS')
@@ -55,6 +57,19 @@ export function handleOffsetTransfer(event: Transfer): void {
   }
 
   offset.save()
+
+  // Also save supply changes for MCO2
+  if (event.address == MCO2_ERC20_CONTRACT && (event.params.to == ZERO_ADDRESS || event.params.from == ZERO_ADDRESS)) {
+    checkForCarbonPoolSnapshot(event.address, event.block.timestamp, event.block.number)
+    checkForCarbonPoolOffsetSnapshot(event.address, event.address, event.block.timestamp, event.block.number)
+
+    let pool = loadOrCreateCarbonPool(event.address)
+
+    if (event.params.to == ZERO_ADDRESS) pool.supply = pool.supply.minus(event.params.value)
+    else pool.supply = pool.supply.plus(event.params.value)
+
+    pool.save()
+  }
 }
 
 export function handlePoolTransfer(event: Transfer): void {

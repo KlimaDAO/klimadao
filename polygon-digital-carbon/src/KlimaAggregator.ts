@@ -27,6 +27,7 @@ export function handleMossRetired(event: MossRetired): void {
   retire.beneficiaryAddress = event.params.beneficiaryAddress
   retire.beneficiaryName = event.params.beneficiaryString
   retire.retiringAddress = event.params.retiringAddress
+  retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
   saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
@@ -48,6 +49,7 @@ export function handleToucanRetired(event: ToucanRetired): void {
   retire.beneficiaryAddress = event.params.beneficiaryAddress
   retire.beneficiaryName = event.params.beneficiaryString
   retire.retiringAddress = event.params.retiringAddress
+  retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
   saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
@@ -69,6 +71,7 @@ export function handleC3Retired(event: C3Retired): void {
   retire.beneficiaryAddress = event.params.beneficiaryAddress
   retire.beneficiaryName = event.params.beneficiaryString
   retire.retiringAddress = event.params.retiringAddress
+  retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
   saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)
@@ -90,6 +93,7 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   retire.beneficiaryAddress = event.params.beneficiaryAddress
   retire.beneficiaryName = event.params.beneficiaryString
   retire.retiringAddress = event.params.retiringAddress
+  retire.retirementMessage = event.params.retirementMessage
   retire.save()
 
   saveKlimaRetire(event.transaction.from, retire.id, index, event.params.retiredAmount.div(BigInt.fromI32(100)), false)

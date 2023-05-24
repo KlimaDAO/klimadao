@@ -195,6 +195,9 @@ type Retire @entity {
   "Beneficiary description"
   beneficiaryName: String!
 
+  "Specific retirement message"
+  retirementMessage: String!
+
   "Retiree address"
   retiringAddress: Account!
 

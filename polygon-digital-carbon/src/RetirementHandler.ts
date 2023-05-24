@@ -124,7 +124,7 @@ export function handleMossRetirement(event: CarbonOffset): void {
   saveRetire(
     event.transaction.from.concatI32(sender.totalRetirements),
     MCO2_ERC20_CONTRACT,
-    ZERO_ADDRESS,
+    MCO2_ERC20_CONTRACT,
     'OTHER',
     event.params.carbonTon,
     event.params.sender,
