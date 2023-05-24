@@ -4,6 +4,7 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
+import { getFullProjectId } from "lib/projectGetter";
 import { Price, Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -16,11 +17,12 @@ export interface ProjectRetirePageProps {
 }
 
 export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
+  const fullProjectid = getFullProjectId(props.project);
   return (
     <>
       <PageHead
-        title={t`Retire from ${props.project.projectID} | Carbonmark`}
-        mediaTitle={t`Retire from ${props.project.name} | Carbonmark`}
+        title={t`Retire from ${fullProjectid} | Carbonmark`}
+        mediaTitle={t`Retire from ${fullProjectid} | Carbonmark`}
         metaDescription={`${props.project.description}`}
       />
 

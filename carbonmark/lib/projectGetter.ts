@@ -7,13 +7,13 @@ export const getCategoryFromProject = (project: Project) =>
 export const getMethodologyFromProject = (project: Project) =>
   project.methodologies?.[0]?.id ?? "Unknown";
 
-export const getProjectName = (project: Project) =>
+export const getFullProjectId = (project: Project) =>
   `${project.key}-${project.vintage}`;
 
 export const createProjectTokenName = (
   project: Project,
   tokenType: CarbonToken
 ) => {
-  const projectName = getProjectName(project);
-  return `${tokenType.toUpperCase()}-${projectName}`;
+  const projectID = getFullProjectId(project);
+  return `${tokenType.toUpperCase()}-${projectID}`;
 };
