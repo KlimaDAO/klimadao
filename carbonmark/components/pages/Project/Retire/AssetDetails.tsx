@@ -1,21 +1,24 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
-import { CarbonToken } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
+import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { Price } from "lib/types/carbonmark";
+import { createProjectTokenName } from "lib/projectGetter";
+import { Price, Project } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type TotalValuesProps = {
   price: Price;
+  project: Project;
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
-  const tokenName = props.price.name.toLowerCase() as CarbonToken;
-  const tokenData = carbonTokenInfoMap[tokenName];
+  const tokenType = getPoolTokenType(props.price.name);
+  const tokenData = carbonTokenInfoMap[tokenType];
+  const projectTokenName = createProjectTokenName(props.project, tokenType);
 
   return (
     <>
@@ -31,9 +34,11 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
             height={20}
             alt={tokenData.label}
           />
-          <Text t="h5">{tokenData.label}</Text>
+          <Text t="h5">{projectTokenName}</Text>
         </div>
-        <Anchor href="">{t`View on PolygonScan`}</Anchor>
+        <Anchor
+          href={`https://polygonscan.com/address/${props.project.projectAddress}`}
+        >{t`View on PolygonScan`}</Anchor>
       </div>
     </>
   );

@@ -182,7 +182,7 @@ export const RetireForm: FC<Props> = (props) => {
         </Col>
         <Col>
           <Card>
-            <AssetDetails price={props.price} />
+            <AssetDetails price={props.price} project={props.project} />
           </Card>
           <div className={styles.reverseOrder}>
             <Card>
