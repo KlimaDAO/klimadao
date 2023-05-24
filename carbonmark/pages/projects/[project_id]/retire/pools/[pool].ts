@@ -1,15 +1,17 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import {
   ProjectRetire,
   ProjectRetirePageProps,
 } from "components/pages/Project/Retire";
 import { getCarbonmarkProject } from "lib/carbonmark";
+import { isPoolToken } from "lib/getPoolData";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;
-  token_address: string;
+  pool: PoolToken;
 }
 
 export const getStaticProps: GetStaticProps<
@@ -18,19 +20,19 @@ export const getStaticProps: GetStaticProps<
 > = async (ctx) => {
   const { params, locale } = ctx;
 
-  if (!params || !params?.project_id) {
+  const poolName = !!params?.pool && params.pool.toLowerCase();
+
+  if (!params || !params?.project_id || !poolName || !isPoolToken(poolName)) {
     throw new Error("No matching params found");
   }
 
   try {
     const project = await getCarbonmarkProject(params.project_id);
 
-    // check if price for this token address is correct
+    // check if price for pool exists for this project
     const poolPrice =
       !!project.prices?.length &&
-      project.prices.find(
-        (price) => price.tokenAddress === params?.token_address
-      );
+      project.prices.find((price) => price.name.toLowerCase() === poolName);
 
     if (!poolPrice) {
       throw new Error("No matching pool price found");
