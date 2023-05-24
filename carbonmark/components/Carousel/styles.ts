@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const carousel = css`
   display: grid;
@@ -38,19 +39,20 @@ export const slide = css`
 
 export const slideImg = css`
   display: block;
-  height: 32rem;
+  height: 23rem;
   width: 100%;
   object-fit: cover;
+
+  ${breakpoints.large} {
+    height: 32rem;
+  }
 `;
 
 export const thumbs = css`
   display: flex;
   position: relative;
   align-items: center;
-
-  --thumbs-slide-spacing: 0.7rem;
-  --thumbs-slide-height: 9rem;
-  margin-top: var(--thumbs-slide-spacing);
+  margin-top: 0.7rem;
 `;
 
 export const thumbsViewport = css`
@@ -61,7 +63,7 @@ export const thumbsViewport = css`
 export const selected = css`
   inset: 0;
   position: absolute;
-  border: 0.2rem solid #ffb800;
+  border: 0.2rem solid var(--yellow);
 `;
 
 export const arrows = css`
@@ -115,8 +117,13 @@ export const thumbsContainer = css`
 export const thumbsSlide = css`
   min-width: 0;
   position: relative;
-  max-height: 9rem;
-  flex: 0 0 16.66%;
+  max-height: 6rem;
+  flex: 0 0 21%;
+
+  ${breakpoints.large} {
+    flex: 0 0 16.66%;
+    max-height: 9rem;
+  }
 `;
 
 export const thumbsSlideButton = css`
@@ -137,7 +144,7 @@ export const thumbsSlideButton = css`
 
 export const thumbsSlideImg = css`
   display: block;
-  height: var(--thumbs-slide-height);
+  height: 9rem;
   width: 100%;
   object-fit: cover;
   max-height: 6rem;

@@ -4,6 +4,7 @@ import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeft
 import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import { useResponsive } from "hooks/useResponsive";
 import { CarouselImage } from "lib/types/carbonmark";
 import { useCallback, useEffect, useState } from "react";
 import * as styles from "./styles";
@@ -13,10 +14,10 @@ type CarouselProps = {
   options?: EmblaOptionsType;
 };
 
-const maxThumbSlides = 5;
-
 const Carousel: React.FC<CarouselProps> = (props) => {
+  const { isMobile } = useResponsive();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [maxSlidesToShow, setMaxSlidesToShow] = useState(5);
   const [mainRef, mainApi] = useEmblaCarousel(props.options);
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
@@ -54,6 +55,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     onSelect();
     mainApi.on("select", onSelect);
     mainApi.on("reInit", onSelect);
+    isMobile && setMaxSlidesToShow(4);
   }, [mainApi, onSelect]);
 
   return (
@@ -75,7 +77,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         </div>
       </div>
       <div className={styles.thumbs}>
-        {props.images.length > maxThumbSlides && selectedIndex !== 0 && (
+        {props.images.length > maxSlidesToShow && selectedIndex !== 0 && (
           <div onClick={onPreviousClick} className={cx(styles.arrows, "left")}>
             <KeyboardArrowLeftOutlinedIcon />
           </div>
@@ -102,7 +104,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             ))}
           </div>
         </div>
-        {props.images.length > maxThumbSlides &&
+        {props.images.length > maxSlidesToShow &&
           selectedIndex !== props.images.length - 1 && (
             <div onClick={onNextClick} className={cx(styles.arrows, "right")}>
               <KeyboardArrowRightOutlinedIcon />
