@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-23 17:55+0000\n"
+"POT-Creation-Date: 2023-05-24 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,62 +52,62 @@ msgstr "Actividad"
 
 #: lib/getCategoryInfo.ts:77
 msgid "Agriculture"
-msgstr ""
+msgstr "Agricultura"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:52
 msgid "Amount to purchase"
-msgstr ""
+msgstr "Importe de la compra"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
-msgstr ""
+msgstr "Saldo disponible superado"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
-msgstr ""
+msgstr "Suministro disponible excedido"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
-msgstr ""
+msgstr "Disponible: {0}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
-msgstr ""
+msgstr "BETA"
 
 #: components/pages/Project/Purchase/index.tsx:37
 msgid "Back to Project"
-msgstr ""
+msgstr "Volver al proyecto"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
-msgstr ""
+msgstr "Saldo: {0}"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
 #: components/pages/Project/index.tsx:156
 msgid "Best Price"
-msgstr ""
+msgstr "Mejor precio"
 
 #: lib/getCategoryInfo.ts:89
 msgid "Blue Carbon"
-msgstr ""
+msgstr "Carbono azul"
 
 #: components/Layout/NavDrawer/index.tsx:84
 msgid "Book a demo"
-msgstr ""
+msgstr "Reservar una demostración"
 
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
-msgstr ""
+msgstr "Explorar proyectos"
 
 #: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
-msgstr ""
+msgstr "Construido con 🌳 por <0>KlimaDAO</0>"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
@@ -119,20 +119,20 @@ msgstr "Cancelar"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:29
 msgid "Carbon Pool"
-msgstr ""
+msgstr "Fondo de carbono"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
-msgstr ""
+msgstr "Visión general de Carbonmark"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
 msgid "Carbonmark fee"
-msgstr ""
+msgstr "Tasa Carbonmark"
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr ""
+msgstr "Carbonmark | El mercado universal del carbono"
 
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
@@ -144,15 +144,15 @@ msgstr "Cambiar idioma"
 
 #: components/pages/Projects/index.tsx:47
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
-msgstr ""
+msgstr "Elija entre más de 20 millones de créditos de carbono digitales verificados de cientos de proyectos: compre, venda o retire carbono ahora."
 
 #: components/ProjectFilterModal/index.tsx:145
 msgid "Clear Filters"
-msgstr ""
+msgstr "Despejar filtros"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
-msgstr ""
+msgstr "Muy pronto"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -166,19 +166,19 @@ msgstr "Continuar"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
-msgstr ""
+msgstr "Crear perfil"
 
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
-msgstr ""
+msgstr "Cree y edite anuncios, y siga su actividad con su perfil Carbonmark."
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
-msgstr ""
+msgstr "Creado:"
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
@@ -187,35 +187,35 @@ msgstr ""
 #: components/pages/Users/Login/index.tsx:47
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "Data for this seller"
-msgstr ""
+msgstr "Datos de este vendedor"
 
 #: components/pages/Project/index.tsx:197
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:51
 msgid "Digital Carbon"
-msgstr ""
+msgstr "Carbono digital"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
-msgstr ""
+msgstr "Mostrar nombre"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
-msgstr ""
+msgstr "Se requiere nombre para mostrar"
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editar perfil"
 
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
-msgstr ""
+msgstr "Eficiencia energética"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr ""
+msgstr "Cada retirada de Carbonmark está vinculada a un proyecto de compensación verificado. Haga clic para obtener más información sobre el proyecto."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
 msgid "Explore MCO2 on carbon.klimadao.finance"
@@ -223,15 +223,15 @@ msgstr "Explore MCO2 en carbon.klimadao.finance"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
-msgstr ""
+msgstr "Precio final"
 
 #: components/pages/Resources/index.tsx:21
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
-msgstr ""
+msgstr "Encuentre las últimas actualizaciones, guías y recursos que le ayudarán a aprovechar la plataforma Carbonmark."
 
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
-msgstr ""
+msgstr "Ingeniería Forestal"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
@@ -833,11 +833,11 @@ msgstr ""
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
-msgstr ""
+msgstr "Después de hacer clic en el botón de abajo para continuar, se le pedirá que conecte su monedero y el proyecto que ha seleccionado aquí ya estará seleccionado para usted en KlimaDAO.finance. A partir de ahí, siga las instrucciones de esa página para completar su transacción."
 
 #: components/ExitModal/index.tsx:31
 msgid "exitmodal.carbon_credits_you_purchase"
-msgstr ""
+msgstr "Los créditos de carbono que adquiera o las retiradas que realice en KlimaDAO.finance también estarán accesibles en su portafolio de Carbonmark."
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
@@ -865,11 +865,11 @@ msgstr "Saldos"
 
 #: components/CreateListing/Form/index.tsx:180
 msgid "profile.addListing_modal.submit"
-msgstr ""
+msgstr "Crear listado"
 
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "profile.create_new_listing"
-msgstr ""
+msgstr "Crear nuevo listado"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
@@ -889,27 +889,27 @@ msgstr ""
 
 #: components/pages/Users/ProfileHeader/index.tsx:42
 msgid "profile.edit_your_profile"
-msgstr ""
+msgstr "Edita tu perfil para añadir una descripción"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:163
 msgid "profile.listing.delete.error"
-msgstr ""
+msgstr "No se ha podido eliminar el anuncio. Por favor, inténtelo de nuevo."
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:220
 msgid "profile.listing.edit"
-msgstr ""
+msgstr "Editar"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:252
 msgid "profile.listing.edit.delete_listing"
-msgstr ""
+msgstr "Eliminar listado"
 
 #: components/CreateListing/index.tsx:173
 msgid "profile.listings_modal.title"
-msgstr ""
+msgstr "Crear un listado"
 
 #: components/pages/Purchases/index.tsx:48
 msgid "project.single.button.back_to_project_details"
-msgstr ""
+msgstr "Volver a los detalles del proyecto"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:32
 msgid "purchase.approval_1"
@@ -921,7 +921,7 @@ msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:44
 msgid "purchase.approval_3"
-msgstr ""
+msgstr "Los activos de carbono que adquiera pueden ponerse a la venta en Carbonmark en cualquier momento desde su <0>portafolio</0>."
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:54
 msgid "purchase.approval_4"
@@ -941,7 +941,7 @@ msgstr "Toneladas"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:73
 msgid "purchase.input.amount.required"
-msgstr ""
+msgstr "Cantidad es requerida"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:166
 msgid "purchase.input.price.maxAmount"
@@ -965,7 +965,7 @@ msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:86
 msgid "purchase.transaction.modal.title.confirm"
-msgstr ""
+msgstr "Confirmar compra"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:90
 msgid "purchase.transaction.modal.title.processing"
@@ -1030,11 +1030,11 @@ msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro
 
 #: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
+msgstr "Carbonmark es una plataforma todo en uno para los mercados de carbono. Con millones de créditos de carbono disponibles, la plataforma permite a los usuarios listar, adquirir y compensar rápidamente créditos de carbono digitales sin costes adicionales."
 
 #: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutCarbonmark.right"
-msgstr ""
+msgstr "Carbonmark pretende reducir las barreras de acceso al mercado digital del carbono y facilitar la interacción entre los participantes. Más información en nuestra página de <0>recursos</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.aboutCarbonmark.title"
@@ -1050,7 +1050,7 @@ msgstr "{retiree} ha retirado {formattedAmount} Toneladas de carbono"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.title"
-msgstr ""
+msgstr "Carbonmark | Recibo de retirada de carbono"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:253
 msgid "retirement.share.title"
@@ -1118,11 +1118,11 @@ msgstr "Todos los retiros"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "Carbonmark - Retiradas de carbono para el beneficiario {0}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "Carbonmark - Retiradas de carbono para el beneficiario {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
@@ -1150,7 +1150,7 @@ msgstr "Total de transacciones de retirada"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:232
 msgid "seller.edit_listing.title"
-msgstr ""
+msgstr "Editar listado"
 
 #: components/pages/Users/SellerUnconnected/index.tsx:70
 msgid "seller.listing.buy"
@@ -1162,7 +1162,7 @@ msgstr ""
 
 #: components/Transaction/Approve.tsx:105
 msgid "shared.approve"
-msgstr ""
+msgstr "Aprobar"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:96
 #: components/pages/Users/SellerUnconnected/index.tsx:60
@@ -1228,11 +1228,11 @@ msgstr "Dirección del contrato"
 
 #: components/Transaction/Approve.tsx:74
 msgid "transaction_modal.approve.price"
-msgstr ""
+msgstr "Confirmar precio por tonelada"
 
 #: components/Transaction/index.tsx:86
 msgid "transaction_modal.button.go_back"
-msgstr ""
+msgstr "Volver"
 
 #: components/Transaction/Submit.tsx:111
 msgid "transaction_modal.close"
