@@ -6,7 +6,7 @@ import {
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { isPoolToken } from "lib/getPoolData";
 import { loadTranslation } from "lib/i18n";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
@@ -14,7 +14,7 @@ interface Params extends ParsedUrlQuery {
   pool: PoolToken;
 }
 
-export const getStaticProps: GetStaticProps<
+export const getServerSideProps: GetServerSideProps<
   ProjectRetirePageProps,
   Params
 > = async (ctx) => {
@@ -51,7 +51,6 @@ export const getStaticProps: GetStaticProps<
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 10,
     };
   } catch (e) {
     console.error(
@@ -60,16 +59,8 @@ export const getStaticProps: GetStaticProps<
     );
     return {
       notFound: true,
-      revalidate: 10,
     };
   }
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
 };
 
 export default ProjectRetire;
