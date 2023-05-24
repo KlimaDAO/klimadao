@@ -185,14 +185,8 @@ export const RetireInputs: FC<Props> = (props) => {
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
             <Text t="body3">
-              {t`Currently, Carbonmark only accepts Polygon USDC Payments.`}{" "}
-              <Anchor href="https://www.klimadao.finance/buy">{t`Learn how
-            to acquire USDC on Polygon.`}</Anchor>
-            </Text>
-            <Text t="body3">
-              {t`If you’d like to retire this project with another form of cryptocurrency, 
-            or with a credit card, you can do so at`}{" "}
-              <Anchor href={urls.app}>app.klimadao.finance.</Anchor>
+              {t`To purchase this project using a different form of payment,`}{" "}
+              <Anchor href={urls.app}>click here</Anchor>.
             </Text>
           </div>
         </div>
