@@ -8,6 +8,8 @@ import { bgMCO2 } from "./images/bgMCO2";
 import { bgNBO } from "./images/bgNBO";
 import { bgNCT } from "./images/bgNCT";
 import { bgUBO } from "./images/bgUBO";
+import { carbonmarkLogo } from "./images/carbonmarkLogo";
+import { certificateBackground } from "./images/certificateBackground";
 
 import { logoBCT } from "./images/logoBCT";
 import { logoMCO2 } from "./images/logoMCO2";
@@ -37,7 +39,7 @@ const spacing = {
   transactionDetails: 358,
   projectDetails: 419,
   tokenImage: { x: 411, y: 448 },
-  retirementLink: 555,
+  footer: 563,
 };
 
 type FeatureImageMappingKey = keyof typeof featureImageMap;
@@ -79,13 +81,40 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.registerFont("DMSans", Buffer.from(DMSansRegular, "base64"));
   };
 
-  const printHeader = (): void => {
-    // const klimaLogoBuffer = Buffer.from(logoKlima, "base64");
-    // doc.image(klimaLogoBuffer, spacing.margin, spacing.margin, {
-    //   width: 170,
-    //   height: 28,
-    // });
+  const printBackground = (): void => {
+    const backgroundBuffer = Buffer.from(certificateBackground, "base64");
 
+    doc.image(backgroundBuffer, 0, 0, {
+      width: doc.page.width,
+      height: doc.page.height,
+    });
+  };
+
+  const printFooter = (): void => {
+    const carbonmarkLogoBuffer = Buffer.from(carbonmarkLogo, "base64");
+
+    doc.image(carbonmarkLogoBuffer, spacing.margin, 550, {
+      width: 42,
+      height: 40,
+    });
+
+    const text =
+      "Official Certificate for Digital Carbon Retirement Provided by ";
+    doc.font("DMSans");
+    doc.fontSize(12);
+    doc.fillColor(GRAY);
+    doc.text(text, spacing.margin + 50, spacing.footer);
+    doc.fillColor(BLUE);
+    doc.text(
+      "Carbonmark.com",
+      spacing.margin + 50 + doc.widthOfString(text),
+      spacing.footer,
+      { link: urls.carbonmark }
+    );
+    doc.fillColor(PRIMARY_FONT_COLOR);
+  };
+
+  const printHeader = (): void => {
     doc.font("Poppins-Bold");
     doc.fontSize(16);
     doc.fillColor(GRAY);
@@ -123,10 +152,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       characterSpacing: 0.3,
     });
 
-    doc.text("BENEFICIARY:", spacing.margin, 220, {
-      characterSpacing: 0.3,
-    });
-
     const beneficaryText =
       params.retirement.beneficiary || params.retirement.beneficiaryAddress;
     doc.text("BENEFICIARY:", spacing.margin, 220, {
@@ -136,7 +161,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Bold");
     doc.fontSize(20);
     doc.fillColor(BLACK);
-    doc.text(beneficaryText, spacing.margin, 240, { width: 375 });
+    // doc.text(beneficaryText, spacing.margin, 245, { width: 375 });
+    doc.text("Kristofferson Enterprises LLC.", spacing.margin, 245, {
+      width: 375,
+    });
 
     const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
       width: 375,
@@ -304,28 +332,15 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     );
   };
 
-  const printRetirementLink = (): void => {
-    const text = "View this retirement on ";
-    doc.font("Poppins-Bold");
-    doc.text(text, spacing.margin, spacing.retirementLink);
-    doc.fillColor(KLIMA_GREEN);
-    doc.text(
-      "klimadao.finance",
-      spacing.margin + doc.widthOfString(text),
-      spacing.retirementLink,
-      { link: params.retirementUrl }
-    );
-    doc.fillColor(PRIMARY_FONT_COLOR);
-  };
-
   setupFonts();
+  printBackground();
   printHeader();
   printFeatureImage();
   printRetirementDetails();
   // printTransactionDetails();
   // printProjectDetails();
   if (isMossRetirement) printMossProjectDetails();
-  // printRetirementLink();
+  printFooter();
 
   return doc;
 };
