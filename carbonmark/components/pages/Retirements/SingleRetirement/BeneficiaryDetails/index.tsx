@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
-  const { carbonmarkUser } = useFetchUser(props.beneficiaryAddress);
+  const { carbonmarkUser } = useFetchUser(props.beneficiary);
   return (
     <div className={styles.beneficiaryCard}>
       {!!carbonmarkUser && (

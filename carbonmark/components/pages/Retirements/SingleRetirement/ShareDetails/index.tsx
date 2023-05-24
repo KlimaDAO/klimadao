@@ -60,7 +60,7 @@ export const ShareDetails: FC<Props> = (props) => (
         <div className="buttons">
           <TweetButton
             title={`${props.retiree} retired ${props.formattedAmount} Tonnes of carbon`}
-            tags={["Carbonmark", "Offset"]}
+            tags={["Carbonmark", "retirement"]}
           />
           <FacebookButton />
           <LinkedInButton />

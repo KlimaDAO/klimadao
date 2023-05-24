@@ -13,6 +13,7 @@ import * as styles from "./styles";
 
 type Props = {
   isMossOffset: boolean;
+  category: CategoryName | null;
   description: Project["description"] | null;
   retirement: Partial<KlimaRetire & { category: CategoryName }>;
 };
@@ -29,7 +30,7 @@ export const ProjectDetails: FC<Props> = (props) => {
         </Text>
         <div className={styles.imageWrapper}>
           <div className={styles.placeholder}>
-            <ProjectImage category={props?.retirement?.category ?? "Other"} />
+            <ProjectImage category={props?.category ?? "Other"} />
           </div>
         </div>
         <div className={styles.textGroup}>

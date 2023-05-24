@@ -11,6 +11,7 @@ import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { INFURA_ID } from "lib/shared/secrets";
+import { Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -28,7 +29,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  projectDescription?: string | null;
+  project?: Project | null;
 }
 
 // second param should always be a number
@@ -103,20 +104,18 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const { description = null } = await getCarbonmarkProject(
+    const project = await getCarbonmarkProject(
       `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
     );
 
-    console.log("description", description);
-
     return {
       props: {
+        project: project || null,
         beneficiaryAddress: beneficiaryAddress,
         canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         retirement: retirement || null,
         retirementIndex: params.retirement_index,
-        projectDescription: description,
         translation,
         fixedThemeName: "theme-light",
       },
