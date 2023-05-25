@@ -24,7 +24,6 @@ type Params = {
   retiredToken: RetirementToken | null;
 };
 
-const KLIMA_GREEN = "#00cc33";
 const BLUE = "#0019FF";
 const GRAY = "#626266";
 const BLACK = "#000000";
