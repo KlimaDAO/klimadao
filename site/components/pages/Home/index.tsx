@@ -7,21 +7,18 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { NextPage } from "next";
-import Image from "next/legacy/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useRef } from "react";
-
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
-
+import { NextPage } from "next";
+import Image from "next/legacy/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import burningForest from "public/burning-forest.jpg";
 import cars from "public/cars.jpg";
 import dummyswap from "public/dummyswap.png";
@@ -31,7 +28,7 @@ import oceans from "public/oceans.jpg";
 import sprouts from "public/sprouts.jpg";
 import steams from "public/steams.jpg";
 import windmills from "public/windmills.jpg";
-
+import { useRef } from "react";
 import * as styles from "./styles";
 
 export interface Props {
