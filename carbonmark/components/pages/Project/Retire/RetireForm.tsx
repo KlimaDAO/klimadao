@@ -4,14 +4,11 @@ import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
-  approveTokenSpend,
-  getUSDCBalance,
+  getRetirementAllowance,
   retireCarbonTransaction,
-} from "lib/actions";
-import { getAllowance } from "lib/networkAware/getAllowance";
-import { getContract } from "lib/networkAware/getContract";
-import { getStaticProvider } from "lib/networkAware/getStaticProvider";
+} from "lib/actions.retire";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
@@ -87,17 +84,17 @@ export const RetireForm: FC<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     setIsLoadingAllowance(true);
     try {
-      if (!address) return;
-      const allowance = await getAllowance({
-        contract: getContract({
-          contractName: "usdc",
-          provider: getStaticProvider(),
-        }),
-        address,
-        spender: "carbonmark",
-        token: "usdc",
+      if (!address || values.paymentMethod === "fiat") return;
+
+      const allowance = await getRetirementAllowance({
+        userAddress: address,
+        token: values.paymentMethod,
       });
-      setAllowanceValue(allowance.usdc.carbonmark);
+
+      allowance &&
+        setAllowanceValue(
+          allowance[values.paymentMethod].retirementAggregatorV2
+        );
       setInputValues(values);
     } catch (e) {
       console.error(e);
@@ -107,6 +104,7 @@ export const RetireForm: FC<Props> = (props) => {
     }
   };
 
+  // compare with total price including fees
   const hasApproval = () => {
     return (
       !!allowanceValue &&
@@ -115,6 +113,7 @@ export const RetireForm: FC<Props> = (props) => {
     );
   };
 
+  // approve with total price including fees
   const handleApproval = async () => {
     if (!provider || !inputValues) return;
     try {
@@ -123,7 +122,7 @@ export const RetireForm: FC<Props> = (props) => {
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
           signer: provider.getSigner(),
-          value: inputValues.quantity,
+          value: inputValues.totalPrice,
           onStatus: onUpdateStatus,
         }));
     } catch (e) {
