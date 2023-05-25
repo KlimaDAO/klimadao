@@ -1,10 +1,11 @@
 import { Anchor as A } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
-import { urls } from "lib/constants";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { CategoryName, Project } from "lib/types/carbonmark";
 import Image from "next/image";
 import carbonmarkLogo from "public/carbonmark.svg";
@@ -57,7 +58,7 @@ export const ProjectDetails: FC<Props> = (props) => {
             href={
               isMossOffset
                 ? "https://mco2token.moss.earth/"
-                : `${urls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`
+                : `${carbonmarkUrls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`
             }
           >
             {t`Learn More`}
@@ -75,7 +76,7 @@ export const ProjectDetails: FC<Props> = (props) => {
         <Text t="body2" color="lightest">
           <Trans id="retirement.single.official_certificate.title">
             Official Certificate for On-Chain Carbon Retirement Provided by{" "}
-            <A href={urls.baseUrl}>Carbonmark.com</A>
+            <A href={urls.carbonmark}>Carbonmark.com</A>
           </Trans>
         </Text>
       </div>

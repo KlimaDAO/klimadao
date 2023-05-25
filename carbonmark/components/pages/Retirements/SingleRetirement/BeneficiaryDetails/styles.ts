@@ -26,8 +26,8 @@ export const beneficiaryLogo = css`
   .imgUrl {
     object-fit: fill;
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   .placeholderIcon {

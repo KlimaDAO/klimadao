@@ -279,7 +279,7 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Latest First"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:62
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
 msgid "Learn More"
 msgstr "Learn More"
 
@@ -592,7 +592,6 @@ msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
 #: components/ProjectFilterModal/index.tsx:107
-#: components/pages/Project/SortOptions/index.tsx:44
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
@@ -1073,7 +1072,7 @@ msgstr "Country/Region:"
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:85
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1085,7 +1084,7 @@ msgstr "Retirement Message:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodology:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:78
 msgid "retirement.single.official_certificate.title"
 msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbonmark.com</0>"
 
@@ -1093,15 +1092,15 @@ msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbo
 msgid "retirement.single.project.title"
 msgstr "Project:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 
@@ -1131,7 +1130,7 @@ msgstr "Transaction ID"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
-msgstr "Mutable transaction record"
+msgstr "Immutable transaction record"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
 msgid "retirement.single.type.title"

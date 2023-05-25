@@ -279,7 +279,7 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:62
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
 msgid "Learn More"
 msgstr ""
 
@@ -592,7 +592,6 @@ msgid "Toggle payment method"
 msgstr ""
 
 #: components/ProjectFilterModal/index.tsx:107
-#: components/pages/Project/SortOptions/index.tsx:44
 msgid "Toggle sort menu"
 msgstr ""
 
@@ -1073,7 +1072,7 @@ msgstr ""
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:85
 msgid "retirement.single.immutable_public_records.title"
 msgstr ""
 
@@ -1085,7 +1084,7 @@ msgstr ""
 msgid "retirement.single.methodology.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:78
 msgid "retirement.single.official_certificate.title"
 msgstr ""
 
@@ -1093,15 +1092,15 @@ msgstr ""
 msgid "retirement.single.project.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:46
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
 msgid "retirement.single.project_description.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
 msgid "retirement.single.project_details.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
 msgid "retirement.single.project_name.title"
 msgstr ""
 

@@ -25,7 +25,7 @@ export const TransactionDetails: FC<Props> = (props) => (
       <div className={styles.textGroup}>
         <Text t="button" color="lightest" uppercase>
           <Trans id="retirement.single.transaction_record.title">
-            Mutable transaction record
+            Immutable transaction record
           </Trans>
         </Text>
       </div>
