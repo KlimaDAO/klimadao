@@ -11,12 +11,6 @@ import { bgUBO } from "./images/bgUBO";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
 
-import { logoBCT } from "./images/logoBCT";
-import { logoMCO2 } from "./images/logoMCO2";
-import { logoNBO } from "./images/logoNBO";
-import { logoNCT } from "./images/logoNCT";
-import { logoUBO } from "./images/logoUBO";
-
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
 import { PoppinsSemiBold } from "./fonts/poppinsSemiBoldbase64";
@@ -51,15 +45,6 @@ const featureImageMap = {
   ubo: bgUBO,
   nbo: bgNBO,
   mco2: bgMCO2,
-};
-
-type TokenImageMappingKey = keyof typeof tokenImageMap;
-const tokenImageMap = {
-  bct: logoBCT,
-  nct: logoNCT,
-  ubo: logoUBO,
-  nbo: logoNBO,
-  mco2: logoMCO2,
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
@@ -165,11 +150,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.fillColor(BLACK);
     // doc.text(beneficaryText, spacing.margin, 245, { width: 375 });
     doc.text("Kristofferson Enterprises LLC.", spacing.margin, 245, {
-      width: 375,
+      width: 360,
     });
 
     const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
-      width: 375,
+      width: 360,
     });
 
     const retirementMessage = params.retirement.retirementMessage;
@@ -179,11 +164,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       `“${retirementMessage}”`,
       spacing.margin,
       240 + beneficiaryNameBlockHeight + 20,
-      { width: 375 }
+      { width: 360 }
     );
 
     const retirementMessageBlockHeight = doc.heightOfString(retirementMessage, {
-      width: 375,
+      width: 360,
     });
 
     const disclaimer =
@@ -194,7 +179,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       disclaimer,
       spacing.margin,
       240 + beneficiaryNameBlockHeight + 20 + retirementMessageBlockHeight + 20,
-      { width: 375 }
+      { width: 360 }
     );
   };
 
@@ -211,9 +196,9 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printProjectDetails = (): void => {
     // fill box first before rendering box border
-    doc.rect(doc.page.width - 20 - 365, 20, 365, 500);
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 500);
     doc.fill(WHITE);
-    doc.rect(doc.page.width - 20 - 365, 20, 365, 500);
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 500);
     doc.strokeColor(MANATEE);
     doc.stroke();
 
@@ -222,7 +207,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.fillColor(SECONDARY_HEADER_COLOR);
     doc.text(
       "Retirement Details",
-      doc.page.width - 365,
+      doc.page.width - 360,
       36 // 20 + 16
     );
   };
