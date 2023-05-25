@@ -32,8 +32,10 @@ const KLIMA_GREEN = "#00cc33";
 const BLUE = "#0019FF";
 const GRAY = "#626266";
 const BLACK = "#000000";
+const WHITE = "#ffffff";
+const MANATEE = "#8B8FAE";
 const PRIMARY_FONT_COLOR = "#313131";
-const SECONDARY_FONT_COLOR = "#767676";
+const SECONDARY_HEADER_COLOR = "#3B3B3D";
 const spacing = {
   margin: 20,
   transactionDetails: 358,
@@ -90,6 +92,16 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
   };
 
+  const printHeader = (): void => {
+    doc.font("Poppins-Bold");
+    doc.fontSize(16);
+    doc.fillColor(GRAY);
+    doc.text("Proof of", spacing.margin, 20);
+    doc.fontSize(24);
+    doc.fillColor(BLUE);
+    doc.text("Carbon Credit Retirement", spacing.margin, 37);
+  };
+
   const printFooter = (): void => {
     const carbonmarkLogoBuffer = Buffer.from(carbonmarkLogo, "base64");
 
@@ -112,16 +124,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { link: urls.carbonmark }
     );
     doc.fillColor(PRIMARY_FONT_COLOR);
-  };
-
-  const printHeader = (): void => {
-    doc.font("Poppins-Bold");
-    doc.fontSize(16);
-    doc.fillColor(GRAY);
-    doc.text("Proof of", spacing.margin, 20);
-    doc.fontSize(24);
-    doc.fillColor(BLUE);
-    doc.text("Carbon Credit Retirement", spacing.margin, 37);
   };
 
   const printRetirementDetails = (): void => {
@@ -207,6 +209,24 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
   };
 
+  const printProjectDetails = (): void => {
+    // fill box first before rendering box border
+    doc.rect(doc.page.width - 20 - 365, 20, 365, 500);
+    doc.fill(WHITE);
+    doc.rect(doc.page.width - 20 - 365, 20, 365, 500);
+    doc.strokeColor(MANATEE);
+    doc.stroke();
+
+    doc.font("Poppins-Bold");
+    doc.fontSize(16);
+    doc.fillColor(SECONDARY_HEADER_COLOR);
+    doc.text(
+      "Retirement Details",
+      doc.page.width - 365,
+      36 // 20 + 16
+    );
+  };
+
   const printTransactionDetails = (): void => {
     doc.fontSize(11);
     doc.font("Poppins-Bold");
@@ -239,7 +259,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     );
   };
 
-  const printProjectDetails = (): void => {
+  const printProjectDetailss = (): void => {
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
     const formattedRetirementDate = `${retirementDate.getDate()}/${
       retirementDate.getMonth() + 1
@@ -317,29 +337,13 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
   };
 
-  const printMossProjectDetails = () => {
-    const linkText = "Learn more ";
-    doc.font("Poppins-Bold");
-    doc.fillColor(SECONDARY_FONT_COLOR);
-    doc.text(linkText, spacing.margin, spacing.projectDetails + 30, {
-      link: `${urls.carbonDashboard}/MCO2`,
-    });
-    doc.fillColor(PRIMARY_FONT_COLOR);
-    doc.text(
-      "about the projects that back the MCO2 pools",
-      spacing.margin + doc.widthOfString(linkText),
-      spacing.projectDetails + 30
-    );
-  };
-
   setupFonts();
   printBackground();
   printHeader();
-  printFeatureImage();
+  // printFeatureImage();
   printRetirementDetails();
   // printTransactionDetails();
-  // printProjectDetails();
-  if (isMossRetirement) printMossProjectDetails();
+  printProjectDetails();
   printFooter();
 
   return doc;
