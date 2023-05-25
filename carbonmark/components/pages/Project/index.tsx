@@ -183,7 +183,7 @@ const Page: NextPage<PageProps> = (props) => {
         >
           {project?.images?.length ? (
             <div className={styles.carouselWrapper}>
-              <Carousel images={project.images} />
+              <Carousel images={project.images} location={project.location} />
             </div>
           ) : (
             <>
