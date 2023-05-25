@@ -3,11 +3,13 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import PDFKit from "pdfkit";
 
-import { bgBCT } from "./images/bgBCT";
-import { bgMCO2 } from "./images/bgMCO2";
-import { bgNBO } from "./images/bgNBO";
-import { bgNCT } from "./images/bgNCT";
-import { bgUBO } from "./images/bgUBO";
+import { agricultureBanner } from "./images/bannerAgriculture";
+import { energyEfficiencyBanner } from "./images/bannerEnergyEfficiency";
+import { forestryBanner } from "./images/bannerForestry";
+import { industrialProcessingBanner } from "./images/bannerIndustrialProcessing";
+import { otherBanner } from "./images/bannerOther";
+import { otherNatureBasedBanner } from "./images/bannerOtherNatureBased";
+import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
 
@@ -38,16 +40,19 @@ const spacing = {
   footer: 563,
 };
 
-type FeatureImageMappingKey = keyof typeof featureImageMap;
-const featureImageMap = {
-  bct: bgBCT,
-  nct: bgNCT,
-  ubo: bgUBO,
-  nbo: bgNBO,
-  mco2: bgMCO2,
+type CategoryBannerMappingKey = keyof typeof catergoryBannerMap;
+const catergoryBannerMap = {
+  Agriculture: agricultureBanner,
+  "Energy Efficiency": energyEfficiencyBanner,
+  Forestry: forestryBanner,
+  "Industrial Processing": industrialProcessingBanner,
+  Other: otherBanner,
+  "Other Nature Based": otherNatureBasedBanner,
+  "Renewable Energy": renewableEnergyBanner,
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
+  console.log(params);
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
 
@@ -183,14 +188,17 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     );
   };
 
-  const printFeatureImage = async (): Promise<void> => {
-    const featureImage =
-      featureImageMap[params.retiredToken as FeatureImageMappingKey];
-    const featureImageBuffer = Buffer.from(featureImage, "base64");
+  const printCategoryBanner = async (): Promise<void> => {
+    // const categoryBanner =
+    //   catergoryBannerMap[
+    //     params.retirement.offset.methodologyCategory as CategoryBannerMappingKey
+    //   ];
+    const categoryBanner = catergoryBannerMap["Industrial Processing"];
+    const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
 
-    doc.image(featureImageBuffer, spacing.margin + 490, 0, {
-      width: doc.page.width / 3,
-      height: doc.page.height,
+    doc.image(categoryBannerBuffer, doc.page.width - 360, 68, {
+      width: 320,
+      height: 120,
     });
   };
 
@@ -208,43 +216,37 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.text(
       "Retirement Details",
       doc.page.width - 360,
-      36 // 20 + 16
-    );
-  };
-
-  const printTransactionDetails = (): void => {
-    doc.fontSize(11);
-    doc.font("Poppins-Bold");
-    doc.text(
-      "Beneficiary Address:",
-      spacing.margin,
-      spacing.transactionDetails
-    );
-    doc.font("Poppins-Semibold");
-    doc.text(
-      params.retirement.beneficiaryAddress,
-      spacing.margin,
-      spacing.transactionDetails + 15
+      36 // page margin + box padding
     );
 
-    doc.font("Poppins-Bold");
-    doc.text(
-      "Transaction ID:",
-      spacing.margin,
-      spacing.transactionDetails + 30
-    );
     doc.font("Poppins-Semibold");
-    doc.text(
-      params.retirement.transaction.id,
-      spacing.margin,
-      spacing.transactionDetails + 45,
+    doc.fontSize(12);
+    doc.fillColor(GRAY);
+    doc.text("PROJECT RETIRED", doc.page.width - 360, 200);
+
+    doc.font("DMSans");
+    doc.fontSize(16);
+    doc.fillColor(BLACK);
+    doc.text(params.retirement.offset.name, doc.page.width - 360, 218, {
+      width: 320,
+    });
+
+    const projectNameBlockHeight = doc.heightOfString(
+      params.retirement.offset.name,
       {
-        link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+        width: 320,
       }
     );
-  };
+    doc.font("Poppins-Semibold");
+    doc.fontSize(12);
+    doc.fillColor(GRAY);
+    doc.text(
+      "LEARN MORE",
+      doc.page.width - 360,
+      200 + projectNameBlockHeight + 20,
+      { underline: true }
+    );
 
-  const printProjectDetailss = (): void => {
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
     const formattedRetirementDate = `${retirementDate.getDate()}/${
       retirementDate.getMonth() + 1
@@ -252,83 +254,99 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     let projectDetails = [
       {
-        label: "Project",
-        value: params.retirement.offset.name,
-      },
-      {
-        label: "Asset Retired",
+        label: "ASSET RETIRED:",
         value: params.retiredToken?.toUpperCase(),
       },
       {
-        label: "Retired on",
-        value: formattedRetirementDate,
+        label: "PROJECT:",
+        value: params.retirement.offset.projectID,
       },
       {
-        label: "Methodology",
-        value: params.retirement.offset.methodology,
-      },
-      {
-        label: "Type",
+        label: "TYPE: ",
         value: params.retirement.offset.methodologyCategory,
       },
       {
-        label: "Country/Region",
+        label: "METHODOLOGY:",
+        value: params.retirement.offset.methodology,
+      },
+      {
+        label: "COUNTRY/REGION:",
         value:
           params.retirement.offset.country || params.retirement.offset.region,
       },
       {
-        label: "Vintage",
+        label: "VINTAGE: ",
         value: new Date(Number(params.retirement.offset.vintage) * 1000)
           .getFullYear()
           .toString(),
       },
     ];
 
-    if (isMossRetirement) {
-      projectDetails = [
-        {
-          label: "Asset Retired",
-          value: params.retiredToken?.toUpperCase(),
-        },
-        {
-          label: "Retired on",
-          value: formattedRetirementDate,
-        },
-      ];
-    }
-
-    const tokenImage =
-      tokenImageMap[params.retiredToken as TokenImageMappingKey];
-    const tokenImageBuffer = Buffer.from(tokenImage, "base64");
-    doc.image(tokenImageBuffer, spacing.tokenImage.x, spacing.tokenImage.y, {
-      width: 80,
-      height: 80,
-    });
-
-    let startPosition = spacing.projectDetails;
+    let startPosition = 200 + projectNameBlockHeight + 50;
     projectDetails.forEach((detail) => {
-      const label = `${detail.label}:`;
-      doc.font("Poppins-Bold");
-      doc.text(label, spacing.margin, startPosition);
-
       doc.font("Poppins-Semibold");
+      doc.fontSize(10);
+      doc.fillColor(GRAY);
+      doc.text(detail.label, doc.page.width - 360, startPosition, {
+        characterSpacing: 0.3,
+      });
+
+      doc.font("DMSans");
+      doc.fontSize(12);
+      doc.fillColor(BLACK);
       doc.text(
         `${detail.value}`,
-        spacing.margin + doc.widthOfString(label) + 9,
-        startPosition
+        doc.page.width - 360 + doc.widthOfString(detail.label) + 2,
+        startPosition - 1
       );
 
-      startPosition += 16;
+      startPosition += 20;
     });
+
+    doc.lineWidth(1);
+    doc.moveTo(doc.page.width - 360, startPosition + 10);
+    doc.lineTo(doc.page.width - 40, startPosition + 10);
+    doc.strokeColor(MANATEE);
+    doc.stroke();
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(8);
+    doc.fillColor(GRAY);
+    doc.text("BENEFICIARY ADDRESS", doc.page.width - 360, startPosition + 20, {
+      characterSpacing: 0.3,
+    });
+
+    doc.font("DMSans");
+    doc.fontSize(10);
+    doc.text(
+      params.retirement.beneficiaryAddress,
+      doc.page.width - 360,
+      startPosition + 32,
+      { width: 320 }
+    );
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(8);
+    doc.text("TRANSACTION ID", doc.page.width - 360, startPosition + 52, {
+      characterSpacing: 0.3,
+    });
+
+    doc.font("DMSans");
+    doc.fontSize(10);
+    doc.text(
+      params.retirement.transaction.id,
+      doc.page.width - 360,
+      startPosition + 64,
+      { width: 320 }
+    );
   };
 
   setupFonts();
   printBackground();
   printHeader();
-  // printFeatureImage();
   printRetirementDetails();
-  // printTransactionDetails();
   printProjectDetails();
+  printCategoryBanner();
   printFooter();
 
   return doc;
