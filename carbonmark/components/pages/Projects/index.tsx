@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { SWRConfig } from "swr";
+import { SortOptions } from "../Project/SortOptions";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
@@ -52,7 +53,9 @@ const Page: NextPage = () => {
           <ProjectsController />
           <LoginButton className="desktopLogin" />
         </div>
-
+        <div className={styles.sortOptions}>
+          <SortOptions />
+        </div>
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>

@@ -23,6 +23,13 @@ export const projectsControls = css`
   }
 `;
 
+export const sortOptions = css`
+  gap: 2rem;
+  display: flex;
+  grid-column: full;
+  align-items: center;
+`;
+
 export const projectsList = css`
   grid-column: full;
   justify-self: center;

@@ -27,6 +27,13 @@ export const label = css`
   font-size: 1.6rem !important;
 `;
 
+export const subtitle = css`
+  ${typography.body1};
+  margin-left: 0.6rem;
+  color: var(--font-02);
+  font-size: 1.4rem !important;
+`;
+
 export const toggle = css`
   width: 100%;
   padding: 1rem 0.4rem;

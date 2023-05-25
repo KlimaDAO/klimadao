@@ -4,8 +4,9 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
-import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { Text } from "components/Text";
+import { useFetchProjects } from "hooks/useFetchProjects";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
@@ -39,12 +40,16 @@ type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
 
-  //Set the default values and override with any existing url params
+  const { projects } = useFetchProjects();
+
+  // Set the default values and override with any existing url params
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, reset, handleSubmit } = useForm<ModalFieldValues>({
+  const { control, reset, handleSubmit, watch } = useForm<ModalFieldValues>({
     defaultValues,
   });
+
+  const watchers = watch(["country", "category", "vintage"]);
 
   /**
    * Because we're prefilling these queries in getStaticProps
@@ -94,46 +99,49 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
       undefined,
       { shallow: true } // don't refetch props nor reload page
     );
-    //Close the modal on submit
+    // Close the modal on submit
     props.onToggleModal?.();
   };
 
-  const initialSort = router.query.sort ? String(router.query.sort) : undefined;
+  const getAccordionSubtitle = (index: number) => {
+    if (watchers?.[index].length > 0) {
+      return `${watchers[index].length} Selected`;
+    } else {
+      return "";
+    }
+  };
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Dropdown
-          name="sort"
-          initial={initialSort ?? "recently-updated"}
-          className="dropdown"
-          aria-label={t`Toggle sort menu`}
-          renderLabel={(selected) => `Sort By: ${selected?.label}`}
-          control={control}
-          options={Object.entries(PROJECT_SORT_OPTIONS).map(
-            ([option, label]) => ({
-              id: option,
-              label: label,
-              value: option,
-            })
-          )}
-        />
         {/* Disabled until data can be provided by APIs */}
-        <Accordion label={t`Country`} loading={countriesLoading}>
+        <Accordion
+          label={t`Country`}
+          subtitle={getAccordionSubtitle(0)}
+          loading={countriesLoading}
+        >
           <CheckboxGroup
             options={countryOptions}
             name="country"
             control={control}
           />
         </Accordion>
-        <Accordion label={t`Category`} loading={categoriesLoading}>
+        <Accordion
+          label={t`Category`}
+          subtitle={getAccordionSubtitle(1)}
+          loading={categoriesLoading}
+        >
           <CheckboxGroup
             options={categoryOptions}
             name="category"
             control={control}
           />
         </Accordion>
-        <Accordion label={t`Vintage`} loading={vintagesLoading}>
+        <Accordion
+          label={t`Vintage`}
+          subtitle={getAccordionSubtitle(2)}
+          loading={vintagesLoading}
+        >
           <CheckboxGroup
             options={vintageOptions}
             name="vintage"
@@ -148,6 +156,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           label={t`Clear Filters`}
           onClick={() => reset(omit(DEFAULTS, "sort"))}
         />
+        <Text t="h5" align="center">
+          {projects.length} Results
+        </Text>
       </form>
     </Modal>
   );
