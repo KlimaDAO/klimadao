@@ -1,41 +1,61 @@
 import { cx } from "@emotion/css";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
+import { getConsumptionCost } from "lib/actions.retire";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { Price } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  singleUnitPrice: string;
+  singleUnitPrice: Price["singleUnitPrice"];
   balance: string | null;
+  pool: Lowercase<Price["name"]>;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [costs, setCosts] = useState("");
 
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
-  const price = Number(props.singleUnitPrice) * Number(amount);
-  const totalPrice = price + price * CARBONMARK_FEE || 0;
-  const totalPriceTrimmed = totalPrice.toFixed(getTokenDecimals("usdc")); // deal with js math overflows
-  const totalPriceFormatted = parseFloat(totalPriceTrimmed).toString(); // trim trailing zeros
-
   useEffect(() => {
-    // setValue on client only to prevent infinite loop
-    setValue("totalPrice", totalPriceFormatted);
+    const newCosts = async () => {
+      setIsLoading(true);
+
+      const totalPrice = await getConsumptionCost({
+        inputToken: paymentMethod,
+        retirementToken: props.pool,
+        quantity: amount,
+        getSpecific: true,
+      });
+
+      setCosts(totalPrice);
+      setIsLoading(false);
+    };
+
+    if (!!amount && !!paymentMethod) {
+      newCosts();
+    }
   }, [amount]);
 
+  useEffect(() => {
+    if (!!costs) {
+      setValue("totalPrice", costs);
+    }
+  }, [costs]);
+
   const exceededBalance =
-    !!props.balance && Number(props.balance) <= Number(totalPriceFormatted);
+    !!props.balance && Number(props.balance) <= Number(costs);
   const currentBalance = formatToPrice(props.balance || "0", locale);
 
   return (
@@ -100,7 +120,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             t="h3"
             className={cx(styles.breakText, { error: exceededBalance })}
           >
-            {formatToPrice(totalPriceFormatted, locale, false)}
+            {isLoading ? t`Loading...` : Number(costs)?.toLocaleString(locale)}
           </Text>
         </div>
       </div>

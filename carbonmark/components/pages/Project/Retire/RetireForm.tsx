@@ -44,6 +44,7 @@ export const RetireForm: FC<Props> = (props) => {
     mode: "onChange",
     defaultValues: {
       projectAddress: props.project.projectAddress,
+      paymentMethod: "usdc",
       ...inputValues,
     },
   });
@@ -189,6 +190,9 @@ export const RetireForm: FC<Props> = (props) => {
               <TotalValues
                 singleUnitPrice={props.price.singleUnitPrice}
                 balance={balance}
+                pool={
+                  props.price.name.toLowerCase() as Lowercase<PriceType["name"]>
+                }
               />
             </Card>
           </div>
