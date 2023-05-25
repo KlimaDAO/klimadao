@@ -9,6 +9,8 @@ type Props = {
 
 export const Registry: FC<Props> = (props) => {
   return (
-    <Text className={styles.registry}>{getRegistry(props.projectKey)}</Text>
+    <Text t="body2" className={styles.registry}>
+      {getRegistry(props.projectKey)}
+    </Text>
   );
 };

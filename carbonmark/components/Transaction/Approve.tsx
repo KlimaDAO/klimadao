@@ -22,7 +22,6 @@ interface Props {
   status: TransactionStatusMessage | null;
   description?: React.ReactNode;
   tokenIcon?: StaticImageData;
-  showPrice?: boolean;
 }
 
 export const Approve: FC<Props> = (props) => {
@@ -42,7 +41,7 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <div>{props.description && <div>{props.description} </div>}</div>
+        {props.description && <div>{props.description} </div>}
 
         <HighlightValue
           label={
@@ -69,25 +68,23 @@ export const Approve: FC<Props> = (props) => {
           }
           iconName={props.amount.token}
         />
-        {props.showPrice
-          ? !!props.price && (
-              <HighlightValue
-                label={
-                  <Text t="body1" color="lighter">
-                    <Trans id="transaction_modal.approve.price">
-                      Confirm price per tonne
-                    </Trans>
-                  </Text>
-                }
-                value={props.price.value}
-                icon={
-                  props.price.token &&
-                  carbonmarkTokenInfoMap[props.price.token].icon
-                }
-                iconName={props.price.token}
-              />
-            )
-          : null}
+        {!!props.price && (
+          <HighlightValue
+            label={
+              <Text t="body1" color="lighter">
+                <Trans id="transaction_modal.approve.price">
+                  Confirm price per tonne
+                </Trans>
+              </Text>
+            }
+            value={props.price.value}
+            icon={
+              props.price.token &&
+              carbonmarkTokenInfoMap[props.price.token].icon
+            }
+            iconName={props.price.token}
+          />
+        )}
       </div>
       {!!props.status && (
         <div className={styles.statusMessage}>

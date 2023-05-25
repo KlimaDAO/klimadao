@@ -53,19 +53,23 @@ export const Submit: FC<Props> = (props) => {
           value={concatAddress(props.spenderAddress)}
           valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
-        <HighlightValue
-          label={
-            <Text t="caption" color="lighter">
-              <Trans id="transaction_modal.submit.amount">Confirm amount</Trans>
-            </Text>
-          }
-          value={props.amount.value || "0"}
-          icon={
-            props.amount.token &&
-            carbonmarkTokenInfoMap[props.amount.token].icon
-          }
-          iconName={props.amount.token}
-        />
+        {!!props.price && (
+          <HighlightValue
+            label={
+              <Text t="caption" color="lighter">
+                <Trans id="transaction_modal.submit.amount">
+                  Confirm amount
+                </Trans>
+              </Text>
+            }
+            value={props.amount.value}
+            icon={
+              props.amount.token &&
+              carbonmarkTokenInfoMap[props.amount.token].icon
+            }
+            iconName={props.amount.token}
+          />
+        )}
       </div>
       {!!props.status && (
         <div className={styles.statusMessage}>

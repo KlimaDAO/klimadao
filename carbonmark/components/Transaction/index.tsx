@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { StaticImageData } from "next/image";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Approve } from "./Approve";
 import * as styles from "./styles";
 import { Submit } from "./Submit";
@@ -24,7 +24,6 @@ interface Props {
   tokenIcon?: StaticImageData;
   tokenName?: string;
   onViewChange?: (newView: "approve" | "submit") => void;
-  showPrice?: boolean;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -34,10 +33,6 @@ export const Transaction: FC<Props> = (props) => {
   const statusType = props.status?.statusType;
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
-
-  useEffect(() => {
-    props.onViewChange?.(view);
-  }, [view, props]);
 
   return (
     <div className={styles.container}>

@@ -7,6 +7,7 @@ import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
+  polygonScanUrl: string;
   retirementUrl: string;
   showModal: boolean;
 };
@@ -28,7 +29,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
       <Text t="body6">
         <Trans id="offset.successModal.body1">
           Thank you for supporting the planet! View transaction on{" "}
-          <Link href={props.retirementUrl}>polygonscan.</Link>
+          <Link href={props.polygonScanUrl}>PolygonScan.</Link>
         </Trans>
       </Text>
 

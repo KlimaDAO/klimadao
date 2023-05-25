@@ -4,18 +4,19 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
-import { getAddress } from "ethers/lib/utils";
 import {
   approveTokenSpend,
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
 import { LO } from "lib/luckyOrange";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
+
 type Props = {
   assets: AssetForListing[];
   showModal: boolean;
@@ -191,7 +192,6 @@ export const CreateListing: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
-
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}

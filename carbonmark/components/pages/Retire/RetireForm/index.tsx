@@ -8,13 +8,16 @@ import {
 import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { Vintage } from "components/Vintage";
 import { ethers, providers } from "ethers";
 import { createLinkWithLocaleSubPath } from "lib/createUrls";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
+import { CategoryName } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
@@ -26,7 +29,8 @@ import {
   hasApproval,
 } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-import { RetirementBanner } from "./RetirementBanner";
+
+import { Registry } from "components/Registry";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -82,8 +86,6 @@ export const RetireForm = (props: RetireFormProps) => {
   useEffect(() => {
     if (
       retirement.quantity > "0" &&
-      retirement.beneficiaryName !== "" &&
-      retirement.retirementMessage !== "" &&
       (retirement.beneficiaryAddress === "" ||
         ethers.utils.isAddress(retirement.beneficiaryAddress))
     ) {
@@ -104,7 +106,6 @@ export const RetireForm = (props: RetireFormProps) => {
     if (parts[0].toUpperCase() === "C3T") {
       return "c3";
     }
-
     return parts[0].toLowerCase();
   };
 
@@ -183,18 +184,27 @@ export const RetireForm = (props: RetireFormProps) => {
         <Col>
           <div className={styles.offsetCard}>
             {project ? (
-              <RetirementBanner
-                projectName={project.name}
-                category={project.methodologyCategory}
-                vintageYear={project.vintageYear}
-                projectKey={project.projectID}
-              />
+              <div className={styles.projectHeader}>
+                <ProjectImage category={project.category as CategoryName} />
+                <div className={styles.imageGradient} />
+                <Text t="h3" className={styles.projectHeaderText}>
+                  {project.name || "Error - No project name found"}
+                </Text>
+                <div className={styles.tags}>
+                  <Text className={styles.projectIDText}>
+                    {project.projectID}
+                  </Text>
+                  <Vintage vintage={project.vintageYear} />
+
+                  <Category category={project.category as CategoryName} />
+                  <Registry projectKey={project.registry} />
+                </div>
+              </div>
             ) : (
-              <div className={styles.bannerImageContainer}>
+              <div className={styles.projectIDText}>
                 {project && <ProjectImage category="Other" />}
               </div>
             )}
-
             <div className={styles.offsetCard_ui}>
               <Text t="caption" color="lighter">
                 <Trans>
@@ -220,7 +230,8 @@ export const RetireForm = (props: RetireFormProps) => {
                   <div className={styles.stackText}>
                     <Text t="caption" color="lighter">
                       <Trans id="offset.amount_in_tonnes">
-                        How many tonnes of carbon would you like to offset?
+                        How many tonnes of carbon would you like to offset?{" "}
+                        <span style={{ color: "red" }}>* </span>
                       </Trans>
                     </Text>
                     <Text
@@ -348,9 +359,11 @@ export const RetireForm = (props: RetireFormProps) => {
                 <GppMaybeOutlined style={{ color: "#FFB800" }} />
                 <Text t="caption">
                   <Trans id="offset_disclaimer">
-                    Be careful not to expose any sensitive personal information.
-                    Your message can not be edited and will permanently exist on
-                    a public blockchain.
+                    Be careful not to include any sensitive personal information
+                    (such as an email address) in your retirement name or
+                    message. The information you enter here cannot be edited
+                    once it is submitted and will permanently exist on a public
+                    blockchain.
                   </Trans>
                 </Text>
               </div>
@@ -385,56 +398,58 @@ export const RetireForm = (props: RetireFormProps) => {
         ) : null}
       </TwoColLayout>
 
-      {retireModalOpen && (
-        <RetireModal
-          title={
-            <Text t="h4" className={styles.offsetCard_header_title}>
-              <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
-            </Text>
-          }
-          token={carbonTokenInfo}
-          value={retirement.quantity}
-          approvalValue={getApprovalValue(retirement.quantity)}
-          spenderAddress={addresses["mainnet"].retirementAggregatorV2}
-          onCloseModal={() => setRetireModalOpen(false)}
-          onApproval={() =>
-            handleApprove({
-              provider,
-              retirementQuantity: retirement.quantity,
-              updateStatus: updateStatus,
-              tokenAddress: project.tokenAddress,
-            })
-          }
-          onSubmit={() =>
-            handleRetire({
-              address,
-              provider,
-              quantity: retirement.quantity,
-              beneficiaryAddress: retirement.beneficiaryAddress,
-              beneficiaryName: retirement.beneficiaryName,
-              retirementMessage: retirement.retirementMessage,
-              onStatus: updateStatus,
-              retirementToken: tokenName,
-              tokenSymbol: tokenSymbol,
-              tokenAddress: project.tokenAddress,
-              setRetireModalOpen,
-              setRetirementTransactionHash,
-              setRetirementTotals,
-            })
-          }
-          status={status}
-          setStatus={setStatus}
-          onResetStatus={() => setStatus(null)}
-          isApproved={isApproved}
-          showModal={retireModalOpen}
-        />
-      )}
+      <RetireModal
+        title={
+          <Text t="h4" className={styles.offsetCard_header_title}>
+            <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
+          </Text>
+        }
+        token={carbonTokenInfo}
+        value={retirement.quantity}
+        approvalValue={getApprovalValue(retirement.quantity)}
+        spenderAddress={addresses["mainnet"].retirementAggregatorV2}
+        onCloseModal={() => setRetireModalOpen(false)}
+        onApproval={() =>
+          handleApprove({
+            provider,
+            retirementQuantity: retirement.quantity,
+            updateStatus: updateStatus,
+            tokenAddress: project.tokenAddress,
+          })
+        }
+        onSubmit={() =>
+          handleRetire({
+            address,
+            provider,
+            quantity: retirement.quantity,
+            beneficiaryAddress: retirement.beneficiaryAddress,
+            beneficiaryName: retirement.beneficiaryName,
+            retirementMessage: retirement.retirementMessage,
+            onStatus: updateStatus,
+            retirementToken: tokenName,
+            tokenSymbol: tokenSymbol,
+            tokenAddress: project.tokenAddress,
+            setRetireModalOpen,
+            setRetirementTransactionHash,
+            setRetirementTotals,
+          })
+        }
+        status={status}
+        setStatus={setStatus}
+        onResetStatus={() => setStatus(null)}
+        isApproved={isApproved}
+        showModal={retireModalOpen}
+      />
       {retirementTransactionHash && (
         <RetirementStatusModal
           retirementUrl={createLinkWithLocaleSubPath(
             `${urls.retirements}/${
               retirement.beneficiaryAddress || props.address
             }/${retirementTotals}`,
+            locale
+          )}
+          polygonScanUrl={createLinkWithLocaleSubPath(
+            `${urls.polygonscan}/${project.tokenAddress}/${retirementTotals}`,
             locale
           )}
           showModal={!!retirementTransactionHash}

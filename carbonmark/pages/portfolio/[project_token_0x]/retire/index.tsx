@@ -1,23 +1,24 @@
 import { Retire, RetirePageProps } from "components/pages/Retire";
 import { loadTranslation } from "lib/i18n";
 import { getProjectInfoFromPolygonBridgedCarbon } from "lib/retireQueries";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
-};
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: [],
+//     fallback: "blocking",
+//   };
+// };
 
 interface Params extends ParsedUrlQuery {
   project_token_0x: string;
 }
 
-export const getStaticProps: GetStaticProps<RetirePageProps, Params> = async (
-  ctx
-) => {
+export const getServerSideProps: GetServerSideProps<
+  RetirePageProps,
+  Params
+> = async (ctx): Promise<GetServerSidePropsResult<RetirePageProps>> => {
   const { params } = ctx;
 
   if (!params || !params?.project_token_0x) {
@@ -28,10 +29,15 @@ export const getStaticProps: GetStaticProps<RetirePageProps, Params> = async (
     const project = await getProjectInfoFromPolygonBridgedCarbon(
       params.project_token_0x.toLowerCase()
     );
-
     if (project.length === 0) {
-      throw new Error("No project found");
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/portfolio",
+        },
+      };
     }
+
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {

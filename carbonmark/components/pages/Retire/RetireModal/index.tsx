@@ -1,12 +1,12 @@
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { LargeSpinner } from "components/LargeSpinner";
-import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import { Transaction } from "components/Transaction";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/image";
 import { FC, ReactNode, useEffect, useState } from "react";
+import { CustomizableModal } from "../CustomizableModal";
 import * as styles from "./styles";
 
 interface Props {
@@ -57,16 +57,21 @@ export const RetireModal: FC<Props> = (props) => {
       <div className={styles.formatParagraph}>
         <Text t="caption">
           <Trans id="transaction_modal.approve.allow_amount_1">
-            The first step is to grant the approval to transfer your carbon
-            asset from your wallet to Carbonmark.
+            You are about to retire a carbon asset.
           </Trans>
         </Text>
         <Text t="caption">
           <Trans id="transaction_modal.approve.allow_amount_2">
-            The next step is to approve the actual transfer and complete your
-            retirement.
+            The first step is to grant the approval to transfer your carbon
+            asset from your wallet to Carbonmark, the next step is to approve
+            the actual transfer and complete your retirement.
           </Trans>
-        </Text>{" "}
+        </Text>
+        <Text t="caption">
+          <Trans id="transaction_modal.approve.allow_amount_3">
+            Verify all information is correct and click 'approve' to continue.{" "}
+          </Trans>
+        </Text>
       </div>
     );
   };
@@ -83,9 +88,8 @@ export const RetireModal: FC<Props> = (props) => {
         </Text>
         <Text t="caption">
           <Trans id="transaction_modal.submit.confirm_transaction_2">
-            The previous step granted the approval to transfer your carbon asset
-            from your wallet to Carbonmark, your retirement has not been
-            completed yet.
+            To finalize your retirement, verify all information is correct and
+            then click 'submit' below.
           </Trans>
         </Text>
       </div>
@@ -93,32 +97,33 @@ export const RetireModal: FC<Props> = (props) => {
   };
 
   return (
-    <Modal
+    <CustomizableModal
       title={
         processingRetirement ? (
-          <div className={styles.processingTitle}>
-            <Text t="h3">Processing Retirement</Text>
+          <div>
+            <Text className={styles.processingTitle} t="h3">
+              Processing Retirement
+            </Text>
           </div>
         ) : (
           props.title
         )
       }
-      showModal={true}
+      maxWidth={processingRetirement ? "43rem" : "50rem"}
+      height={processingRetirement ? "26rem" : "fit-content"}
+      maxHeight="calc(100vh - 8rem)"
+      showModal={props.showModal}
       onToggleModal={processingRetirement ? undefined : onModalClose}
     >
       {processingRetirement ? (
         <div className={styles.processingRetirement}>
-          <LargeSpinner />
+          <Spinner className={styles.processingSpinner} />
         </div>
       ) : (
         <Transaction
           hasApproval={props.isApproved}
           amount={{
             value: props.value,
-            token: props.token.key as CarbonmarkToken,
-          }}
-          price={{
-            value: props.approvalValue,
             token: props.token.key as CarbonmarkToken,
           }}
           spenderAddress={props.spenderAddress}
@@ -130,13 +135,12 @@ export const RetireModal: FC<Props> = (props) => {
           approvalText={<RetireApproval />}
           submitText={<RetireSubmit />}
           onViewChange={setTxnView}
-          showPrice={false}
           onGoBack={() => {
             props.onCloseModal();
             props.setStatus(null);
           }}
         />
       )}
-    </Modal>
+    </CustomizableModal>
   );
 };

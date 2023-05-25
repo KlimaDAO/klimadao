@@ -4,30 +4,100 @@ import * as common from "@klimadao/lib/theme/common";
 import * as typography from "@klimadao/lib/theme/typography";
 
 export const offsetCard = css`
-  display: grid;
   background-color: white;
   align-content: start;
   border-radius: 1.2rem;
   gap: 2.4rem;
-  grid-column: 1 / 3;
-
   ${breakpoints.desktop} {
     gap: 2.8rem;
     align-items: start;
   }
 `;
-export const offsetCard_ui = css`
+
+export const projectHeader = css`
+  grid-column: full;
+  position: relative;
+  padding: 2rem 1rem;
   display: grid;
-  gap: 2.4rem;
-  padding-top: 0.5rem;
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
-  border-radius: 1.2rem;
+  gap: 0.4rem;
+
+  ${breakpoints.medium} {
+    padding: 4rem 2rem;
+  }
 
   ${breakpoints.desktop} {
+    gap: 0.8rem;
+    padding: 4rem 3rem;
+    grid-column: main;
+  }
+`;
+
+export const projectHeaderText = css`
+  color: white;
+  z-index: 1;
+  font-size: 1em;
+
+  ${breakpoints.small} {
+    font-size: 1.25em;
+  }
+
+  ${breakpoints.medium} {
+    font-size: 1.5em;
+  }
+
+  ${breakpoints.desktop} {
+    font-size: 2em;
+  }
+`;
+
+export const tags = css`
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  z-index: 1;
+  align-items: center;
+  line-height: 1.8em;
+`;
+
+export const projectIDText = css`
+  color: white;
+  z-index: 1;
+  font-family: ${typography.h5};
+  font-weight: 700;
+`;
+
+export const imageGradient = css`
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
+export const offsetCard_ui = css`
+  display: grid;
+  gap: 1.6rem;
+  padding-top: 3.4rem;
+  width: 90%;
+  margin: 0 auto;
+
+  ${breakpoints.medium} {
+    gap: 2rem;
+    width: 85%;
+  }
+
+  ${breakpoints.large} {
+    gap: 2.4rem;
+    width: 80%;
+  }
+
+  ${breakpoints.desktop} {
+    gap: 2.8rem;
     justify-self: center;
     max-width: 48rem;
-    width: 100%;
+    width: 75%;
   }
 
   .mini_token_label {
@@ -35,6 +105,7 @@ export const offsetCard_ui = css`
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    width: 90%;
   }
 
   .disclaimer {
@@ -44,6 +115,13 @@ export const offsetCard_ui = css`
     padding: 1.6rem;
     border-radius: 0.8rem;
     border: 0.2rem solid rgb(255, 184, 0);
+    .mini_token_label {
+      color: var(--font-01);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 90%;
+    }
   }
 
   .disclaimer svg {
@@ -51,12 +129,6 @@ export const offsetCard_ui = css`
     width: 3.2rem;
     height: 3.2rem;
   }
-`;
-
-export const beneficiary = css`
-  display: grid;
-  gap: 0.8rem;
-  align-content: start;
 `;
 
 export const stackText = css`
@@ -75,6 +147,12 @@ export const detailsText = css`
   font-size: 12px !important;
 `;
 
+export const beneficiary = css`
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+`;
+
 export const newReleasesIcon = css`
   color: var(--klima-green);
   margin-inline-end: 0.4rem;
@@ -85,6 +163,11 @@ export const offsetCard_header_title = css`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+`;
+
+export const offsetCard_header = css`
+  display: grid;
+  max-width: 100%;
 `;
 
 export const buttonRow = css`
@@ -207,89 +290,4 @@ export const warningText = css`
 
 export const error = css`
   color: var(--warn);
-`;
-
-export const connect_button = css`
-  width: 100%;
-`;
-
-export const offsetCard_header = css`
-  display: grid;
-  max-width: 100%;
-`;
-
-export const bannerImageContainer = css`
-  position: relative;
-  width: 100%;
-  height: 200px;
-  max-width: 100%;
-  padding: 2.4rem;
-`;
-export const info = css`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 0.8rem;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 2.4rem;
-  flex-wrap: wrap;
-
-  p {
-    font-family: "Poppins";
-  }
-`;
-
-export const projectImageWrapper = css`
-  overflow: hidden;
-  img {
-    border-top-left-radius: 1.2rem;
-    border-top-right-radius: 1.2rem;
-  }
-`;
-
-export const projectName = css`
-  color: white;
-  font-weight: 700;
-  font-size: 2em;
-  font-family: "Poppins", sans-serif;
-  align-self: stretch;
-
-  @media (max-width: 376px) {
-    font-size: 16px;
-  }
-
-  ${breakpoints.small} {
-    font-size: 20px;
-  }
-
-  ${breakpoints.medium} {
-    font-size: 1.5em;
-  }
-`;
-
-export const projectKeyStyle = css`
-  color: white !important;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-`;
-export const details = css`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 1.6rem;
-
-  p {
-    @media (max-width: 376px) {
-      font-size: 12px;
-    }
-
-    ${breakpoints.small} {
-      font-size: 14px;
-    }
-  }
 `;

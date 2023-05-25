@@ -34,11 +34,11 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:210
+#: components/pages/Retire/RetireForm/index.tsx:224
 msgid "<0>* </0> Required Field"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:20
+#: components/pages/Retire/RetirementStatusModal/index.tsx:21
 msgid "<0>Retirement Successful!</0>"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgid "Handle should not contain any special characters"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/index.tsx:153
+#: components/pages/Retire/index.tsx:158
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr ""
 
@@ -408,7 +408,7 @@ msgid "Please Log In"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:55
-#: components/pages/Retire/index.tsx:106
+#: components/pages/Retire/index.tsx:111
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
@@ -517,11 +517,11 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:196
+#: components/pages/Retire/RetireForm/index.tsx:210
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:44
+#: components/pages/Retire/RetirementStatusModal/index.tsx:45
 msgid "Retire more carbon"
 msgstr ""
 
@@ -529,8 +529,8 @@ msgstr ""
 msgid "Retire now"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:117
-#: components/pages/Retire/index.tsx:118
+#: components/pages/Retire/index.tsx:122
+#: components/pages/Retire/index.tsx:123
 msgid "Retire | Carbonmark"
 msgstr ""
 
@@ -567,7 +567,7 @@ msgid "Sorry, this handle already exists"
 msgstr ""
 
 #: components/pages/Portfolio/index.tsx:99
-#: components/pages/Retire/index.tsx:148
+#: components/pages/Retire/index.tsx:153
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr ""
 
@@ -595,7 +595,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:202
+#: components/pages/Retire/RetireForm/index.tsx:216
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr ""
 
@@ -688,7 +688,7 @@ msgstr ""
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:119
+#: components/pages/Retire/index.tsx:124
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
@@ -696,7 +696,7 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:39
+#: components/pages/Retire/RetirementStatusModal/index.tsx:40
 msgid "View and share certificate"
 msgstr ""
 
@@ -827,23 +827,23 @@ msgstr ""
 msgid "create.approval_1"
 msgstr ""
 
-#: components/CreateListing/index.tsx:131
+#: components/CreateListing/index.tsx:129
 msgid "create.approval_2"
 msgstr ""
 
-#: components/CreateListing/index.tsx:138
+#: components/CreateListing/index.tsx:136
 msgid "create.approval_3"
 msgstr ""
 
-#: components/CreateListing/index.tsx:144
+#: components/CreateListing/index.tsx:142
 msgid "create.approval_4"
 msgstr ""
 
-#: components/CreateListing/index.tsx:156
+#: components/CreateListing/index.tsx:154
 msgid "create.submit_1"
 msgstr ""
 
-#: components/CreateListing/index.tsx:162
+#: components/CreateListing/index.tsx:160
 msgid "create.submit_2"
 msgstr ""
 
@@ -903,51 +903,51 @@ msgstr ""
 msgid "menu.profile"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:218
+#: components/pages/Retire/RetireForm/index.tsx:232
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:227
+#: components/pages/Retire/RetireForm/index.tsx:242
 msgid "offset.amount_in_tonnes_2"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:311
+#: components/pages/Retire/RetireForm/index.tsx:326
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:240
+#: components/pages/Retire/RetireForm/index.tsx:255
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:388
+#: components/pages/Retire/RetireForm/index.tsx:404
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:284
+#: components/pages/Retire/RetireForm/index.tsx:299
 msgid "offset.retirement_beneficiary_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:271
+#: components/pages/Retire/RetireForm/index.tsx:286
 msgid "offset.retirement_beneficiary_name"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:260
+#: components/pages/Retire/RetireForm/index.tsx:275
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:320
+#: components/pages/Retire/RetireForm/index.tsx:335
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:331
+#: components/pages/Retire/RetireForm/index.tsx:346
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:29
+#: components/pages/Retire/RetirementStatusModal/index.tsx:30
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:346
+#: components/pages/Retire/RetireForm/index.tsx:361
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -995,7 +995,7 @@ msgstr ""
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
-#: components/CreateListing/index.tsx:174
+#: components/CreateListing/index.tsx:172
 msgid "profile.listings_modal.title"
 msgstr ""
 
@@ -1120,11 +1120,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:365
+#: components/pages/Retire/RetireForm/index.tsx:382
 msgid "retire.back_button"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:356
+#: components/pages/Retire/RetireForm/index.tsx:373
 msgid "retire.submit_button"
 msgstr ""
 
@@ -1308,7 +1308,7 @@ msgstr ""
 msgid "seller.listing.quantity_available"
 msgstr ""
 
-#: components/Transaction/Approve.tsx:88
+#: components/Transaction/Approve.tsx:105
 msgid "shared.approve"
 msgstr ""
 
@@ -1361,7 +1361,7 @@ msgstr ""
 msgid "status.user_rejected"
 msgstr ""
 
-#: components/CreateListing/index.tsx:199
+#: components/CreateListing/index.tsx:196
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:280
 msgid "tonnes.long"
 msgstr ""
@@ -1386,12 +1386,16 @@ msgstr ""
 msgid "transaction.status.user_rejected"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/index.tsx:56
+#: components/pages/Retire/RetireModal/index.tsx:60
 msgid "transaction_modal.approve.allow_amount_1"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/index.tsx:62
+#: components/pages/Retire/RetireModal/index.tsx:65
 msgid "transaction_modal.approve.allow_amount_2"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:72
+msgid "transaction_modal.approve.allow_amount_3"
 msgstr ""
 
 #: components/Transaction/Approve.tsx:59
@@ -1402,31 +1406,35 @@ msgstr ""
 msgid "transaction_modal.approve.contract_address"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:94
+#: components/Transaction/Approve.tsx:75
+msgid "transaction_modal.approve.price"
+msgstr ""
+
+#: components/Transaction/index.tsx:88
+msgid "transaction_modal.button.go_back"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:98
 msgid "transaction_modal.close"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/index.tsx:138
-msgid "transaction_modal.go_back"
-msgstr ""
-
-#: components/Transaction/Approve.tsx:95
+#: components/Transaction/Approve.tsx:112
 msgid "transaction_modal.next"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:59
+#: components/Transaction/Submit.tsx:60
 msgid "transaction_modal.submit.amount"
 msgstr ""
 
-#: components/Transaction/Submit.tsx:86
+#: components/Transaction/Submit.tsx:90
 msgid "transaction_modal.submit.button"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/index.tsx:75
+#: components/pages/Retire/RetireModal/index.tsx:84
 msgid "transaction_modal.submit.confirm_transaction_1"
 msgstr ""
 
-#: components/pages/Retire/RetireModal/index.tsx:82
+#: components/pages/Retire/RetireModal/index.tsx:91
 msgid "transaction_modal.submit.confirm_transaction_2"
 msgstr ""
 
@@ -1434,11 +1442,11 @@ msgstr ""
 msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
-#: components/Transaction/index.tsx:51
+#: components/Transaction/index.tsx:48
 msgid "transaction_modal.view.approve.title"
 msgstr ""
 
-#: components/Transaction/index.tsx:61
+#: components/Transaction/index.tsx:58
 msgid "transaction_modal.view.submit.title"
 msgstr ""
 

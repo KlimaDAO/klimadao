@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import * as styles from "../pages/Retire/RetireModal/styles";
 
-interface RetireValueProps {
+interface HighlightValueProps {
   label: ReactNode;
   value: string;
   icon?: StaticImageData;
@@ -17,7 +17,7 @@ interface RetireValueProps {
   valueHref?: string;
 }
 
-export const HighlightValue: FC<RetireValueProps> = (props) => {
+export const HighlightValue: FC<HighlightValueProps> = (props) => {
   return (
     <div className={styles.valueContainer}>
       <div className="label">{props.label}</div>
