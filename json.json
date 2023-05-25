@@ -1,0 +1,106 @@
+{
+    "id": "0x8",
+    "key": "VCS-981",
+    "projectID": "981",
+    "name": "Pacajai REDD+ Project",
+    "vintage": "2014",
+    "projectAddress": "0xabfd6760151c7f9361cc5b03bbeebe2d7c0251da",
+    "registry": "VCS",
+    "country": {
+        "id": "Brazil"
+    },
+    "listings": [
+        {
+            "id": "0x19",
+            "totalAmountToSell": "2000000000000000000",
+            "leftToSell": "1000000000000000000",
+            "tokenAddress": "0xabfd6760151c7f9361cc5b03bbeebe2d7c0251da",
+            "active": true,
+            "deleted": false,
+            "batches": [],
+            "batchPrices": [],
+            "singleUnitPrice": "20000000",
+            "createdAt": "1680072735",
+            "updatedAt": "1680073082",
+            "seller": {
+                "profileImgUrl": "",
+                "description": "Just testing this",
+                "handle": "albertodeoz",
+                "username": "Alberto",
+                "id": "0xc0215dead8a5b4835545bfb668a065ca4b8cad6c"
+            },
+            "selected": false
+        }
+    ],
+    "activities": [
+        {
+            "id": "0x3ee7e33ddab4b7b7f3fec3d36ddd094c0a282bee4e1b8ad0af1d83e5f2132052Purchase",
+            "amount": "1000000000000000000",
+            "previousAmount": null,
+            "price": "20000000",
+            "previousPrice": null,
+            "timeStamp": "1680073082",
+            "activityType": "Purchase",
+            "seller": {
+                "id": "0xc0215dead8a5b4835545bfb668a065ca4b8cad6c",
+                "handle": "albertodeoz"
+            },
+            "buyer": {
+                "id": "0x251d2948190b83277f2d038f82ca121445875a76"
+            }
+        },
+        {
+            "id": "0x2dcbaab564650c349a5c6033cb377fcb3c85e6186a201b1caaa066bfb4295b4aCreatedListing",
+            "amount": "2000000000000000000",
+            "previousAmount": null,
+            "price": "20000000",
+            "previousPrice": null,
+            "timeStamp": "1680072735",
+            "activityType": "CreatedListing",
+            "seller": {
+                "id": "0xc0215dead8a5b4835545bfb668a065ca4b8cad6c",
+                "handle": "albertodeoz"
+            },
+            "buyer": null
+        }
+    ],
+    "isPoolProject": true,
+    "totalBridged": "15579",
+    "totalRetired": "0.502",
+    "currentSupply": "7804.498",
+    "prices": [
+        {
+            "leftToSell": "15546.729385540101416778",
+            "tokenAddress": "0xd838290e877e0188a4a44700463419ed96c16107",
+            "singleUnitPrice": "1.916680",
+            "name": "NCT"
+        },
+        {
+            "leftToSell": "720.479968656883258472",
+            "tokenAddress": "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
+            "singleUnitPrice": "1.588035",
+            "name": "NBO"
+        }
+    ],
+    "description": "REDD Project to stop deforestation within private parcels amounting to  135, 105 Ha at the edge of the deforestation frontier in Brazil. The project will generate multiple climate, social, and biodiversity benefits.",
+    "location": {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -51.188205,
+                -2.893955
+            ]
+        }
+    },
+    "methodologies": [
+        {
+            "id": "VM0015",
+            "category": "Forestry",
+            "name": "Methodology for Avoided Unplanned Deforestation"
+        }
+    ],
+    "images": null,
+    "url": "https://registry.verra.org/app/projectDetail/VCS/981",
+    "price": "1588035"
+}
