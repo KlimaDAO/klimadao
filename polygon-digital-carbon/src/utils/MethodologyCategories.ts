@@ -55,6 +55,7 @@ export class MethodologyCategories {
     map.set('ACM0018', 'Renewable Energy')
 
     //Energy Efficiency
+    map.set('AM0014', 'Energy Efficiency')
     map.set('AM0038', 'Energy Efficiency')
     map.set('AM0043', 'Energy Efficiency')
     map.set('AM0044', 'Energy Efficiency')
@@ -111,7 +112,6 @@ export class MethodologyCategories {
     map.set('VM0007', 'Forestry')
     map.set('VM0024', 'Forestry')
     map.set('VM0027', 'Forestry')
-    map.set('VM0033', 'Forestry')
     map.set('VM0036', 'Forestry')
     map.set('VM0003', 'Forestry')
     map.set('VM0004', 'Forestry')
@@ -128,11 +128,13 @@ export class MethodologyCategories {
     map.set('VM0035', 'Forestry')
     map.set('VM0037', 'Forestry')
     map.set('AR-ACM0003', 'Forestry')
-    map.set('AR-AM0014', 'Forestry')
     map.set('AR-AMS0003', 'Forestry')
     map.set('AR-AMS0007', 'Forestry')
     map.set('AR-ACM0001', 'Forestry')
-    map.set('AM0014', 'Forestry')
+
+    // Blue Carbon
+    map.set('AR-AM0014', 'Blue Carbon')
+    map.set('VM0033', 'Blue Carbon')
 
     //Other nature based
     map.set('VM0021', 'Other Nature-Based')
