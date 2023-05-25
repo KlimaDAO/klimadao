@@ -1,4 +1,7 @@
-import { HomeIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowTopRightOnSquareIcon,
+  HomeIcon,
+} from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -31,17 +34,23 @@ export default function RootLayout({
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center">
+                  <div className="lg:flex lg:flex-1 lg:items-center">
                     <Link href="/">
                       <span className="sr-only">Home</span>
                       <HomeIcon className="w-8" />
                     </Link>
                   </div>
-
-                  {/* Logo (lg-) */}
-                  <Link href="/" className="lg:hidden">
-                    <span className="sr-only">Home</span>
-                    <HomeIcon className="w-8" />
+                  <Link
+                    href="https://carbonmark.com/retirements/0xa17B52d5E17254B03dFdf7b4dfF2fc0C6108FaAc"
+                    target="_blank"
+                  >
+                    <button
+                      type="button"
+                      className="flex items-center rounded-md bg-indigo-50 px-2.5 py-1.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
+                    >
+                      View Retirements{" "}
+                      <ArrowTopRightOnSquareIcon className="w-5 ml-2" />
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -66,7 +75,6 @@ export default function RootLayout({
               >
                 Carbonmark
               </a>
-              , {new Date().getFullYear()}
             </p>
           </div>
         </footer>

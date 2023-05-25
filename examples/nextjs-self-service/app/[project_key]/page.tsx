@@ -36,7 +36,11 @@ export default async function Example(props: Props) {
                 <h2 className="text-lg font-medium text-gray-900">
                   Retirement details
                 </h2>
-
+                <p className="text-sm mt-3">
+                  All retirement details are written to a blockchain as
+                  permanent public record. Do not expose any personal or
+                  sensitive information.
+                </p>
                 <RetireCarbonForm
                   defaultQuantity={QUANTITY}
                   pool={cheapestPool}

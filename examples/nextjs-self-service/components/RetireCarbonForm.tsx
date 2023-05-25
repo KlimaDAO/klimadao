@@ -5,8 +5,11 @@ import {
   ArrowTopRightOnSquareIcon,
   CheckIcon,
   FireIcon,
+  XCircleIcon,
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import { Spinner } from "./Spinner";
 
@@ -15,35 +18,48 @@ export function RetireCarbonForm(props: {
   projectTokenAddress: string;
   pool: Pool;
 }) {
-  const [modalState, setModalState] = useState<null | "pending" | "success">(
-    null
-  );
+  const router = useRouter();
+  const [modalState, setModalState] = useState<
+    null | "pending" | "success" | "error"
+  >(null);
   const [beneficiaryName, setBeneficiaryName] = useState("");
-  const [message, setMessage] = useState("");
+  const [retirementMessage, setRetirementMessage] = useState("");
+  const [retirementUrl, setRetirementUrl] = useState("");
 
   const handleSubmit = async () => {
     setModalState("pending");
-    await fetch("/api/retire", {
-      method: "POST",
-      body: JSON.stringify({
-        beneficiaryName,
-        message,
-        quantity: props.defaultQuantity,
-        pool: props.pool,
-        projectTokenAddress: props.projectTokenAddress,
-      }),
-      headers: {
-        Authorization: "",
-      },
-    });
-    setModalState("success");
+    try {
+      const res = await fetch("/api/retire", {
+        method: "POST",
+        body: JSON.stringify({
+          beneficiaryName,
+          retirementMessage,
+          quantity: props.defaultQuantity,
+          pool: props.pool,
+          projectTokenAddress: props.projectTokenAddress,
+        }),
+        headers: {
+          Authorization: "",
+        },
+      });
+      if (!res.ok) {
+        setModalState("error");
+      } else {
+        const { url } = await res.json();
+        router.prefetch(url); // Give the page a head-start to generate
+        setRetirementUrl(url);
+        setModalState("success");
+      }
+    } catch (e) {
+      setModalState("error");
+    }
   };
 
   const handleCloseModal = () => {
     if (modalState === "pending") return;
     setModalState(null);
     setBeneficiaryName("");
-    setMessage("");
+    setRetirementMessage("");
   };
 
   return (
@@ -82,10 +98,10 @@ export function RetireCarbonForm(props: {
           <div className="mt-1">
             <input
               type="text"
-              value={message}
+              value={retirementMessage}
               maxLength={120}
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => setRetirementMessage(e.target.value)}
             />
           </div>
         </div>
@@ -117,7 +133,7 @@ export function RetireCarbonForm(props: {
           <button
             type="submit"
             className="w-full flex items-center justify-center gap-2 rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:opacity-50 disabled:bg-indigo-600"
-            disabled={!beneficiaryName || !message}
+            disabled={!beneficiaryName || !retirementMessage}
           >
             <FireIcon className="w-6" /> Retire Carbon
           </button>
@@ -153,12 +169,18 @@ export function RetireCarbonForm(props: {
                     <div
                       className={classNames(
                         "mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100",
-                        { "bg-indigo-100": modalState === "pending" }
+                        {
+                          "bg-indigo-100": modalState === "pending",
+                          "bg-red-100": modalState === "error",
+                        }
                       )}
                     >
                       {modalState === "pending" && <Spinner />}
                       {modalState === "success" && (
                         <CheckIcon className="w-6 text-green-900" />
+                      )}
+                      {modalState === "error" && (
+                        <XCircleIcon className="w-6 text-red-900" />
                       )}
                     </div>
                     <div className="mt-3 text-center sm:mt-5">
@@ -168,26 +190,37 @@ export function RetireCarbonForm(props: {
                       >
                         {modalState === "pending"
                           ? "Processing transaction"
+                          : modalState === "error"
+                          ? "Error"
                           : "Retirement successful"}
                       </Dialog.Title>
                       <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                          Please wait a few seconds while the blockchain
-                          verifies your retirement transaction.
-                        </p>
+                        {modalState === "pending" && (
+                          <p className="text-sm text-gray-500">
+                            Please wait a few seconds while the blockchain
+                            verifies your retirement transaction.
+                          </p>
+                        )}
+                        {modalState === "error" && (
+                          <p className="text-sm text-gray-500">
+                            Something went wrong. Please double check your
+                            inputs and try again.
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
                   {modalState === "success" && (
                     <div className="mt-5 sm:mt-6">
-                      <button
-                        type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => {}}
-                      >
-                        View Retirement
-                        <ArrowTopRightOnSquareIcon className="w-4 ml-2 self-center" />
-                      </button>
+                      <Link href={retirementUrl} target="_blank">
+                        <button
+                          type="button"
+                          className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                          View Retirement
+                          <ArrowTopRightOnSquareIcon className="w-4 ml-2 self-center" />
+                        </button>
+                      </Link>
                     </div>
                   )}
                 </Dialog.Panel>

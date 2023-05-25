@@ -1,9 +1,15 @@
 import { CurrentPoolPrice } from "@/components/PoolPrice";
+import { Spinner } from "@/components/Spinner";
+import Amazon from "@/public/amazon.jpg";
+import Gas from "@/public/gas.jpg";
 import Hydropower from "@/public/hydropower.jpg";
 import Mongolia from "@/public/mongolia.jpg";
+import Turbine from "@/public/turbine.jpg";
+import Wind from "@/public/wind.jpg";
 import { Pool } from "@/types";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 /*
   Default projects
@@ -45,15 +51,7 @@ const defaultProjects: ProjectCard[] = [
     name: "Henan Xinxiang 24MW Biomass Based Cogeneration",
     address: "0xd6ed6fae5b6535cae8d92f40f5ff653db807a4ea",
     pool: "ubo",
-    imageSrc: Hydropower,
-    poolDefault: true,
-  },
-  {
-    id: "VCS-981-2014",
-    name: "Pacajai REDD+ Project",
-    address: "0xb6ea7a53fc048d6d3b80b968d696e39482b7e578",
-    pool: "nbo",
-    imageSrc: Hydropower,
+    imageSrc: Gas,
     poolDefault: true,
   },
 ];
@@ -71,15 +69,7 @@ const featuredProjects: ProjectCard[] = [
     name: "Saint Nikola Wind Farm",
     address: "0x9732344d41d48b0b11d11bce29095e45bda6081f",
     pool: "bct",
-    imageSrc: Hydropower,
-    poolDefault: false,
-  },
-  {
-    id: "VCS-674-2014",
-    name: "Rimba Raya Biodiversity Reserve",
-    address: "0x62896f42cf1371b268db56e50d67c34f3eb1ad7a",
-    pool: "nct",
-    imageSrc: Mongolia,
+    imageSrc: Wind,
     poolDefault: false,
   },
   {
@@ -87,7 +77,15 @@ const featuredProjects: ProjectCard[] = [
     name: "Wind Power Generation Project In Gujarat, India",
     address: "0xcced78964f1dbbf0b1c65b2068dbda2f103a8d79",
     pool: "bct",
-    imageSrc: Hydropower,
+    imageSrc: Turbine,
+    poolDefault: false,
+  },
+  {
+    id: "VCS-875-2014",
+    name: "Florestal Santa Maria Project",
+    address: "0x65e217285f8c3bf615784c72e5874aa8ac35ef9d",
+    pool: "nct",
+    imageSrc: Amazon,
     poolDefault: false,
   },
 ];
@@ -133,11 +131,13 @@ const ProjectCardRow = (props: {
                   {project.id}
                 </Link>
               </h3>
-              {/* @ts-expect-error Async Server Component */}
-              <CurrentPoolPrice
-                pool={project.pool}
-                mode={project.poolDefault ? "default" : "selective"}
-              />
+              <Suspense fallback={<Spinner className="opacity-30" />}>
+                {/* @ts-expect-error Async Server Component */}
+                <CurrentPoolPrice
+                  pool={project.pool}
+                  mode={project.poolDefault ? "default" : "selective"}
+                />
+              </Suspense>
             </div>
             <p className="mt-1 text-sm text-gray-500">{project.name}</p>
           </div>
@@ -150,8 +150,8 @@ const ProjectCardRow = (props: {
 export default function Example() {
   return (
     <div className="flex-grow">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h1 className="text-2xl font-medium">Carbon Retirement API Demo</h1>
+      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1 className="text-3xl font-medium">Carbon Retirement API Demo</h1>
         <p className="text-sm max-w-3xl mt-2">
           This application demonstrates how easy it is to add carbon credit
           retirements to any frontend or backend application. In fact, it's
@@ -165,15 +165,6 @@ export default function Example() {
             href="https://github.com/KlimaDAO/klimadao/tree/staging/examples/nextjs-self-service"
           >
             source code and README
-          </a>{" "}
-          and be sure to view our{" "}
-          <a
-            className="font-semibold text-indigo-700 underline"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/KlimaDAO/klimadao/tree/staging/examples"
-          >
-            other examples
           </a>
           .
         </p>

@@ -48,20 +48,20 @@ const InfoCard = (props: {
 export function ProjectInfoCardSkeleton() {
   return (
     <InfoCard
-      name={<div className="w-full h-5 bg-gray-300 rounded animate-pulse" />}
+      name={<div className="w-full h-5 bg-gray-200 rounded animate-pulse" />}
       badges={
         <>
-          <div className="bg-gray-300 rounded w-14 h-5 animate-pulse" />
-          <div className="bg-gray-300 rounded w-16 h-5 animate-pulse" />
-          <div className="bg-gray-300 rounded w-20 h-5 animate-pulse" />
+          <div className="bg-gray-200 rounded w-14 h-5 animate-pulse" />
+          <div className="bg-gray-200 rounded w-16 h-5 animate-pulse" />
+          <div className="bg-gray-200 rounded w-20 h-5 animate-pulse" />
         </>
       }
       prices={
         <>
-          <div className="w-full h-5 animate-pulse rounded bg-gray-300" />
-          <div className="w-full h-5 animate-pulse rounded bg-gray-300" />
+          <div className="w-full h-5 animate-pulse rounded bg-gray-200" />
+          <div className="w-full h-5 animate-pulse rounded bg-gray-200" />
           <div className="flex items-center justify-between border-t border-gray-200 pt-6">
-            <div className="w-full bg-gray-300 rounded animate-pulse h-6" />
+            <div className="w-full bg-gray-200 rounded animate-pulse h-6" />
           </div>
         </>
       }
@@ -91,32 +91,8 @@ export async function ProjectInfoCard(props: {
   });
 
   const total = (props.quantity * Number(latestPoolPrice)).toFixed(4);
-
   return (
     <InfoCard
-      prices={
-        <>
-          <div className="flex items-center justify-between">
-            <dt className="text-sm">Market price (1 Tonne)</dt>
-            <dd className="text-sm font-medium text-gray-900">
-              <span className="text-gray-500 font-medium">USDC</span> $
-              {Number(latestPoolPrice).toFixed(2)}
-            </dd>
-          </div>
-          <div className="flex items-center justify-between">
-            <dt className="text-sm">Quantity to retire</dt>
-            <dd className="text-sm font-medium text-gray-900">
-              {props.quantity} Tonne(s)
-            </dd>
-          </div>
-          <div className="flex items-center justify-between border-t border-gray-200 pt-6">
-            <dt className="text-base font-medium">Total retirement cost</dt>
-            <dd className="text-base font-medium text-gray-900">
-              <span className="text-gray-500 font-medium">USDC</span> ${total}
-            </dd>
-          </div>
-        </>
-      }
       name={<h4 className="text-sm font-semibold">{projectInfo.name}</h4>}
       badges={
         <>
@@ -129,6 +105,37 @@ export async function ProjectInfoCard(props: {
           <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
             {projectInfo.methodologies[0].category}
           </span>
+        </>
+      }
+      prices={
+        <>
+          <div className="flex items-center justify-between">
+            <dt className="text-sm text-gray-500">Market price (incl. fees)</dt>
+            <dd className="text-sm font-semibold text-gray-900">
+              ${Number(latestPoolPrice).toFixed(2)}{" "}
+              <span className="font-medium text-gray-500">/ Tonne</span>
+            </dd>
+          </div>
+          <div className="flex items-center justify-between">
+            <dt className="text-sm text-gray-500">Remaining supply</dt>
+            <dd className="text-sm font-semibold text-gray-900">
+              {Number(cheapestPoolPrice.leftToSell).toLocaleString(undefined, {
+                maximumFractionDigits: 0,
+              })}{" "}
+              <span className="font-medium text-gray-500">Tonnes</span>
+            </dd>
+          </div>
+          <div className="flex items-center justify-between">
+            <dt className="text-sm text-gray-500">Quantity to retire</dt>
+            <dd className="text-sm font-semibold text-gray-900">
+              {props.quantity}{" "}
+              <span className="font-medium text-gray-500">Tonnes</span>
+            </dd>
+          </div>
+          <div className="flex items-center justify-between border-t border-gray-200 pt-6">
+            <dt className="text-base font-medium">Total retirement cost</dt>
+            <dd className="text-base font-semibold text-gray-900">${total}</dd>
+          </div>
         </>
       }
     />
