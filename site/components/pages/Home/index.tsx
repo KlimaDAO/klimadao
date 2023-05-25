@@ -1,4 +1,5 @@
 import {
+  Anchor as A,
   ButtonPrimary,
   ButtonSecondary,
   Section,
@@ -8,19 +9,16 @@ import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { NextPage } from "next";
-import Image from "next/legacy/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useRef } from "react";
-
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
-
+import { NextPage } from "next";
+import Image from "next/legacy/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import burningForest from "public/burning-forest.jpg";
 import cars from "public/cars.jpg";
 import dummyswap from "public/dummyswap.png";
@@ -30,7 +28,7 @@ import oceans from "public/oceans.jpg";
 import sprouts from "public/sprouts.jpg";
 import steams from "public/steams.jpg";
 import windmills from "public/windmills.jpg";
-
+import { useRef } from "react";
 import * as styles from "./styles";
 
 export interface Props {
@@ -104,9 +102,9 @@ export const Home: NextPage<Props> = (props) => {
                 </Trans>
               </div>
               <Text t="body3">
-                <Trans id="home.fight_climate_change" comment="Long sentence">
-                  Fight climate change and earn rewards with KLIMA, a digital
-                  currency backed by real carbon assets.
+                <Trans id="home.transparent_neutral" comment="Long sentence">
+                  Transparent, neutral, public resources to accelerate climate
+                  finance on a global scale.
                 </Trans>
               </Text>
               <div className="hero_button">
@@ -152,21 +150,22 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="h2_alt" as="h2" color="lightest">
               <span>
                 <Trans
-                  id="home.klima_defies_climate_change"
+                  id="home.public_good_for_the_planet"
                   comment="Long sentence"
                 >
-                  KlimaDAO is DeFi that defies climate change
+                  Public good for the planet
                 </Trans>
               </span>
             </Text>
             <div>
               <Text t="body3" color="lighter" className="klimaVideo_caption">
-                <Trans id="home.klima_is_the_center" comment="Long sentence">
-                  KlimaDAO is the center of a new green economy. Built on the
-                  energy efficient Polygon network, KlimaDAO uses a stack of
-                  technologies to reduce market fragmentation and accelerate the
-                  delivery of climate finance to sustainability projects
-                  globally.
+                <Trans id="home.developed_by_klima" comment="Long sentence">
+                  Developed by KlimaDAO, the Digital Carbon Market (DCM) enables
+                  the scale-up of climate finance - with over $4 billion traded
+                  to date. Explore the DCM via{" "}
+                  <A href={urls.carbonmark}>Carbonmark.com</A> - the universal
+                  marketplace - and the{" "}
+                  <A href={urls.carbonDashboard}>Carbon Dashboard</A>.
                 </Trans>
               </Text>
             </div>
@@ -184,17 +183,17 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.ctaButtonContainer}>
           <ButtonSecondary
             label={t({
-              id: "shared.infinity_cta",
-              message: "DEFI FOR ORGANIZATIONS",
+              id: "shared.dcm_cta",
+              message: "EXPLORE THE DCM",
             })}
-            href="/infinity"
+            href={urls.carbonDashboard}
           />
           <ButtonPrimary
             label={t({
-              id: "shared.loveletter_cta",
-              message: "DEFI FOR INDIVIDUALS",
+              id: "shared.carbonmark_cta",
+              message: "OFFSET YOUR FOOTPRINT",
             })}
-            href={urls.loveletter}
+            href={urls.carbonmark}
           />
         </div>
 
@@ -207,14 +206,12 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.mechanicsSection}>
           <div className="mechanics_textGroup">
             <Text t="h2" as="h2">
-              <Trans id="home.mechanics">MECHANICS</Trans>
+              <Trans id="home.benefits">BENEFITS</Trans>
             </Text>
             <Text t="body3">
-              <Trans id="home.the_dao_sell_bonds" comment="Long sentence">
-                The DAO sells bonds and distributes rewards to KLIMA holders.
-                Every bond we sell adds to an ever-growing green treasury, or
-                improves liquidity for key environmental assets. A win-win for
-                people and planet.
+              <Trans id="home.klima_is_creating" comment="Long sentence">
+                KlimaDAO is creating a public and open-source social and
+                technology layer to shape the future of the carbon markets.
               </Trans>
             </Text>
           </div>
@@ -233,7 +230,9 @@ export const Home: NextPage<Props> = (props) => {
                   /01
                 </Text>
                 <Text t="h1" className="align-end">
-                  <Trans id="home.backed_by_carbon">Backed by Carbon.</Trans>
+                  <Trans id="home.transparent_and_efficient">
+                    Transparent and efficient
+                  </Trans>
                 </Text>
               </div>
             </div>
@@ -251,7 +250,9 @@ export const Home: NextPage<Props> = (props) => {
                   /02
                 </Text>
                 <Text t="h1" className="align-start">
-                  <Trans id="home.strong_incentives">Strong incentives.</Trans>
+                  <Trans id="home.neutral_and_trusted">
+                    Neutral and trusted
+                  </Trans>
                 </Text>
               </div>
             </div>
@@ -269,7 +270,9 @@ export const Home: NextPage<Props> = (props) => {
                   /03
                 </Text>
                 <Text t="h1" className="align-end">
-                  <Trans id="home.massive impact">Massive impact.</Trans>
+                  <Trans id="home.public_and_open-source">
+                    Public and open-source
+                  </Trans>
                 </Text>
               </div>
             </div>
@@ -281,10 +284,10 @@ export const Home: NextPage<Props> = (props) => {
           <div className="carbon_counterGroup">
             <Text t="h3" as="h2" color="lightest" align="center">
               <Trans
-                id="home.tons_of_carbon_absorbed_by_klimadao"
-                comment="TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
+                id="home.tonnes_of_carbon_held_by_klimadao"
+                comment="TONNES OF <0>CARBON HELD</0> BY KLIMADAO"
               >
-                TONS OF <span>CARBON ABSORBED</span> BY KLIMADAO
+                TONNES OF <span>CARBON HELD</span> BY KLIMADAO
               </Trans>
             </Text>
             <Text className="carbon_counter" align="center">
@@ -381,7 +384,9 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.sproutsSection}>
           <div className="sprouts_col1">
             <Text t="h1" as="h2" uppercase>
-              <Trans id="invest_in_the_future">Invest in the future.</Trans>
+              <Trans id="home.govern_the_market">
+                Govern the market, for the planet
+              </Trans>
             </Text>
             <Image
               src={sprouts}
@@ -396,26 +401,14 @@ export const Home: NextPage<Props> = (props) => {
                 001
               </Text>
               <div className="sprouts_col2_textGroup">
-                <Trans
-                  id="home.reserve_asset_of_the_carbon_economy"
-                  comment="<0>Reserve Asset</0><1>Of the carbon economy</1>"
-                >
-                  <Text t="h2" uppercase>
-                    Reserve Asset
-                  </Text>
-                  <Text t="h4" color="lightest" uppercase>
-                    Of the carbon economy
-                  </Text>
-                </Trans>
                 <Text t="body3" color="lighter">
                   <Trans
-                    id="home.every_klima_token_is_backed"
+                    id="home.join_over_100k_members"
                     comment="Long sentence"
                   >
-                    Every KLIMA token is backed by a real-world carbon asset.
-                    Tokens are used to offset carbon emissions, interact with
-                    DeFi applications, and get exposure to the rapidly growing
-                    global carbon market.
+                    Join over 100,000 members who hold the $KLIMA token, using
+                    it to steward KlimaDAO's resources and grow the Digital
+                    Carbon Market.
                   </Trans>
                 </Text>
               </div>
@@ -425,25 +418,14 @@ export const Home: NextPage<Props> = (props) => {
                 002
               </Text>
               <div className="sprouts_col2_textGroup">
-                <Trans
-                  id="home.monthly_rewards_for_token_holders"
-                  comment="<0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
-                >
-                  <Text t="h2" uppercase>
-                    {props.monthlyStakingRewards}% MONTHLY REWARDS
-                  </Text>
-                  <Text t="h4" color="lightest" uppercase>
-                    FOR TOKEN HOLDERS
-                  </Text>
-                </Trans>
                 <Text t="body3" color="lighter">
                   <Trans
-                    id="home.klima_tokens_are_minted"
+                    id="home.take_climate_action_now"
                     comment="Long sentence"
                   >
-                    KLIMA tokens are minted and distributed automatically every
-                    ~7 hours to staked KLIMA holders. Grow your KLIMA holdings
-                    as we usher in a more sustainable future together.
+                    Take climate action now by using{" "}
+                    <A href={urls.carbonmark}>Carbonmark</A> to buy, sell, or
+                    retire digital carbon.
                   </Trans>
                 </Text>
               </div>
