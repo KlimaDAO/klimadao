@@ -7,7 +7,7 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { NextPage } from "next";
 import Image from "next/legacy/image";
@@ -164,7 +164,7 @@ export const Home: NextPage<Props> = (props) => {
               <Text t="body3" color="lighter" className="klimaVideo_caption">
                 <Trans id="home.developed_by_klima" comment="Long sentence">
                   Developed by KlimaDAO, the Digital Carbon Market (DCM) enables
-                  the scale-up of climate finance - with over $7 billion traded
+                  the scale-up of climate finance - with over $4 billion traded
                   to date. Explore the DCM via{" "}
                   <A href={urls.carbonmark}>Carbonmark.com</A> - the universal
                   marketplace - and the{" "}
@@ -404,26 +404,14 @@ export const Home: NextPage<Props> = (props) => {
                 001
               </Text>
               <div className="sprouts_col2_textGroup">
-                <Trans
-                  id="home.reserve_asset_of_the_carbon_economy"
-                  comment="<0>Reserve Asset</0><1>Of the carbon economy</1>"
-                >
-                  <Text t="h2" uppercase>
-                    Reserve Asset
-                  </Text>
-                  <Text t="h4" color="lightest" uppercase>
-                    Of the carbon economy
-                  </Text>
-                </Trans>
                 <Text t="body3" color="lighter">
                   <Trans
-                    id="home.every_klima_token_is_backed"
+                    id="home.join_over_100k_members"
                     comment="Long sentence"
                   >
-                    Every KLIMA token is backed by a real-world carbon asset.
-                    Tokens are used to offset carbon emissions, interact with
-                    DeFi applications, and get exposure to the rapidly growing
-                    global carbon market.
+                    Join over 100,000 members who hold the $KLIMA token, using
+                    it to steward KlimaDAO's resources and grow the Digital
+                    Carbon Market.
                   </Trans>
                 </Text>
               </div>
@@ -433,25 +421,14 @@ export const Home: NextPage<Props> = (props) => {
                 002
               </Text>
               <div className="sprouts_col2_textGroup">
-                <Trans
-                  id="home.monthly_rewards_for_token_holders"
-                  comment="<0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
-                >
-                  <Text t="h2" uppercase>
-                    {props.monthlyStakingRewards}% MONTHLY REWARDS
-                  </Text>
-                  <Text t="h4" color="lightest" uppercase>
-                    FOR TOKEN HOLDERS
-                  </Text>
-                </Trans>
                 <Text t="body3" color="lighter">
                   <Trans
-                    id="home.klima_tokens_are_minted"
+                    id="home.take_climate_action_now"
                     comment="Long sentence"
                   >
-                    KLIMA tokens are minted and distributed automatically every
-                    ~7 hours to staked KLIMA holders. Grow your KLIMA holdings
-                    as we usher in a more sustainable future together.
+                    Take climate action now by using{" "}
+                    <A href={urls.carbonmark}>Carbonmark</A> to buy, sell, or
+                    retire digital carbon.
                   </Trans>
                 </Text>
               </div>

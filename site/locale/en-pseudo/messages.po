@@ -673,20 +673,15 @@ msgstr ""
 msgid "home.equivalent_to"
 msgstr ""
 
-#. Long sentence
-#: components/pages/Home/index.tsx:419
-msgid "home.every_klima_token_is_backed"
-msgstr ""
-
 #: components/SocialProof/index.tsx:19
 msgid "home.featured_on"
 msgstr ""
 
-#: components/pages/Home/index.tsx:470
+#: components/pages/Home/index.tsx:447
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:444
 msgid "home.get_klima"
 msgstr ""
 
@@ -699,13 +694,13 @@ msgid "home.hectares_of_forest"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:215
-msgid "home.klima_is_creating"
+#: components/pages/Home/index.tsx:408
+msgid "home.join_over_100k_members"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:448
-msgid "home.klima_tokens_are_minted"
+#: components/pages/Home/index.tsx:215
+msgid "home.klima_is_creating"
 msgstr ""
 
 #: components/pages/Home/index.tsx:84
@@ -720,33 +715,28 @@ msgstr ""
 msgid "home.liters_if_gasoline"
 msgstr ""
 
-#. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:436
-msgid "home.monthly_rewards_for_token_holders"
-msgstr ""
-
 #: components/pages/Home/index.tsx:256
 msgid "home.neutral_and_trusted"
 msgstr ""
 
-#: components/pages/Home/index.tsx:499
+#: components/pages/Home/index.tsx:476
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:507
+#: components/pages/Home/index.tsx:484
 msgid "home.newletter.get_the_latest_updates"
 msgstr ""
 
-#: components/pages/Home/index.tsx:524
+#: components/pages/Home/index.tsx:501
 msgid "home.newletter.never_shared_never_spammed"
 msgstr ""
 
-#: components/pages/Home/index.tsx:518
+#: components/pages/Home/index.tsx:495
 msgid "home.newletter.sign_up"
 msgstr ""
 
-#: components/pages/Home/index.tsx:504
+#: components/pages/Home/index.tsx:481
 msgid "home.newsletter"
 msgstr ""
 
@@ -759,17 +749,17 @@ msgstr ""
 msgid "home.public_good_for_the_planet"
 msgstr ""
 
-#. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:407
-msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr ""
-
-#: components/pages/Home/index.tsx:477
+#: components/pages/Home/index.tsx:454
 msgid "home.see_tutorial"
 msgstr ""
 
 #: components/pages/Home/index.tsx:363
 msgid "home.source"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:425
+msgid "home.take_climate_action_now"
 msgstr ""
 
 #. TONNES OF <0>CARBON HELD</0> BY KLIMADAO

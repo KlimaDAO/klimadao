@@ -667,26 +667,21 @@ msgstr "Cars (annual)"
 #. Long sentence
 #: components/pages/Home/index.tsx:165
 msgid "home.developed_by_klima"
-msgstr "Developed by KlimaDAO, the Digital Carbon Market (DCM) enables the scale-up of climate finance - with over $7 billion traded to date. Explore the DCM via <0>Carbonmark.com</0> - the universal marketplace - and the <1>Carbon Dashboard</1>."
+msgstr "Developed by KlimaDAO, the Digital Carbon Market (DCM) enables the scale-up of climate finance - with over $4 billion traded to date. Explore the DCM via <0>Carbonmark.com</0> - the universal marketplace - and the <1>Carbon Dashboard</1>."
 
 #: components/pages/Home/index.tsx:302
 msgid "home.equivalent_to"
 msgstr "EQUIVALENT TO"
 
-#. Long sentence
-#: components/pages/Home/index.tsx:419
-msgid "home.every_klima_token_is_backed"
-msgstr "Every KLIMA token is backed by a real-world carbon asset. Tokens are used to offset carbon emissions, interact with DeFi applications, and get exposure to the rapidly growing global carbon market."
-
 #: components/SocialProof/index.tsx:19
 msgid "home.featured_on"
 msgstr "KlimaDAO featured on"
 
-#: components/pages/Home/index.tsx:470
+#: components/pages/Home/index.tsx:447
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:444
 msgid "home.get_klima"
 msgstr "GET KLIMA"
 
@@ -699,14 +694,14 @@ msgid "home.hectares_of_forest"
 msgstr "Hectares of forest"
 
 #. Long sentence
+#: components/pages/Home/index.tsx:408
+msgid "home.join_over_100k_members"
+msgstr "Join over 100,000 members who hold the $KLIMA token, using it to steward KlimaDAO's resources and grow the Digital Carbon Market."
+
+#. Long sentence
 #: components/pages/Home/index.tsx:215
 msgid "home.klima_is_creating"
 msgstr "KlimaDAO is creating a public and open-source social and technology layer to shape the future of the carbon markets."
-
-#. Long sentence
-#: components/pages/Home/index.tsx:448
-msgid "home.klima_tokens_are_minted"
-msgstr "KLIMA tokens are minted and distributed automatically every ~7 hours to staked KLIMA holders. Grow your KLIMA holdings as we usher in a more sustainable future together."
 
 #: components/pages/Home/index.tsx:84
 msgid "home.latest_news"
@@ -720,33 +715,28 @@ msgstr "LEARN MORE"
 msgid "home.liters_if_gasoline"
 msgstr "Liters of gasoline"
 
-#. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:436
-msgid "home.monthly_rewards_for_token_holders"
-msgstr "<0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
-
 #: components/pages/Home/index.tsx:256
 msgid "home.neutral_and_trusted"
 msgstr "Neutral and trusted"
 
-#: components/pages/Home/index.tsx:499
+#: components/pages/Home/index.tsx:476
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "All the Alpha, straight to your inbox"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:507
+#: components/pages/Home/index.tsx:484
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
 
-#: components/pages/Home/index.tsx:524
+#: components/pages/Home/index.tsx:501
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Never shared. Never spammed."
 
-#: components/pages/Home/index.tsx:518
+#: components/pages/Home/index.tsx:495
 msgid "home.newletter.sign_up"
 msgstr "Sign up"
 
-#: components/pages/Home/index.tsx:504
+#: components/pages/Home/index.tsx:481
 msgid "home.newsletter"
 msgstr "Newsletter"
 
@@ -759,18 +749,18 @@ msgstr "Public and open-source"
 msgid "home.public_good_for_the_planet"
 msgstr "Public good for the planet"
 
-#. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:407
-msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr "<0>Reserve Asset</0><1>Of the carbon economy</1>"
-
-#: components/pages/Home/index.tsx:477
+#: components/pages/Home/index.tsx:454
 msgid "home.see_tutorial"
 msgstr "See Tutorial"
 
 #: components/pages/Home/index.tsx:363
 msgid "home.source"
 msgstr "Source"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:425
+msgid "home.take_climate_action_now"
+msgstr "Take climate action now by using <0>Carbonmark</0> to buy, sell, or retire digital carbon."
 
 #. TONNES OF <0>CARBON HELD</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:289
