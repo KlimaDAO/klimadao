@@ -5,10 +5,6 @@ import { Contract, providers, utils } from "ethers";
 import { getAggregatorV2Allowance } from "lib/actions";
 import { OnStatusHandler, TxnStatus } from "lib/statusMessage";
 
-export const getApprovalValue = (quantity: string): string => {
-  return quantity;
-};
-
 export const hasApproval = async (params: {
   quantity: string;
   address: string;
@@ -70,15 +66,14 @@ export const handleApprove = async (props: HandleApproveProps) => {
   try {
     if (!props.provider) return;
 
-    const approvedValue = await approveProjectToken({
-      value: getApprovalValue(props.retirementQuantity),
+    await approveProjectToken({
+      value: props.retirementQuantity,
       signer: props.provider.getSigner(),
       onStatus: props.updateStatus,
       tokenAddress: props.tokenAddress,
     });
-    console.log("Approved Value: ", approvedValue);
   } catch (e) {
-    console.log("handleApprove error", e);
+    console.error("handleApprove error", e);
   }
   return;
 };

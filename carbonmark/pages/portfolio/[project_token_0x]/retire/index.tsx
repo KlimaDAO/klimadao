@@ -4,13 +4,6 @@ import { getProjectInfoFromPolygonBridgedCarbon } from "lib/retireQueries";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-// export const getStaticPaths = async () => {
-//   return {
-//     paths: [],
-//     fallback: "blocking",
-//   };
-// };
-
 interface Params extends ParsedUrlQuery {
   project_token_0x: string;
 }
@@ -50,7 +43,6 @@ export const getServerSideProps: GetServerSideProps<
         project,
         fixedThemeName: "theme-light",
       },
-      notFound: undefined,
     };
   } catch (e) {
     console.error("Failed to generate Retire Page", e);

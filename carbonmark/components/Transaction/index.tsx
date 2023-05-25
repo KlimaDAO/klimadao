@@ -1,7 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { StaticImageData } from "next/image";
 import { FC, useState } from "react";
 import { Approve } from "./Approve";
 import * as styles from "./styles";
@@ -21,8 +20,6 @@ interface Props {
   submitText?: React.ReactNode;
   onGoBack?: () => void;
   spenderAddress: string;
-  tokenIcon?: StaticImageData;
-  tokenName?: string;
   onViewChange?: (newView: "approve" | "submit") => void;
 }
 

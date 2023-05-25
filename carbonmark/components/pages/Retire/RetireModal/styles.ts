@@ -25,13 +25,6 @@ export const formatParagraph = css`
   }
 `;
 
-export const details = css`
-  font-family: "DM Sans";
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.01em;
-`;
-
 export const viewSwitch = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -103,15 +96,6 @@ export const submitButton = css`
   background-color: var(--bright-blue);
   color: white !important;
   width: 100%;
-`;
-
-export const backButton = css`
-  font-family: "Poppins";
-  background-color: white;
-  color: black;
-  border: 1px solid var(--font-01);
-  width: 100%;
-  margin-top: 0.8rem;
 `;
 
 export const spinner_container = css`

@@ -18,13 +18,6 @@ export const contentContainer = css`
   }
 `;
 
-export const details = css`
-  font-family: "DM Sans";
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.01em;
-`;
-
 export const viewSwitch = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
