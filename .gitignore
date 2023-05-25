@@ -73,6 +73,7 @@ typings/
 build
 bonds/build
 pairs/build
+polygon-digital-carbon/build
 protocol-metrics/build
 user-carbon/build
 vesting/build
@@ -81,6 +82,7 @@ vesting/build
 generated/
 bonds/generated
 pairs/generated
+polygon-digital-carbon/generated
 protocol-metrics/generated
 user-carbon/generated
 vesting/generated

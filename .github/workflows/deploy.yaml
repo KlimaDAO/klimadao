@@ -63,7 +63,7 @@ jobs:
               PREFIX="staging-"
           fi;
 
-          if [[ "${{ matrix.value }}" =~ .*"bridged-carbon".* ]]
+          if [[ "${{ matrix.value }}" =~ .*"-carbon".* ]]
           then
               echo "subgraph=${PREFIX}${{ matrix.value }}" >> $GITHUB_OUTPUT
           else
