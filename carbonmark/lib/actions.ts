@@ -1,9 +1,8 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
-import { addresses, RetirementToken } from "@klimadao/lib/constants";
+import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getProject } from "lib/api";
@@ -23,7 +22,6 @@ import {
   Asset,
   AssetForListing,
   AssetForRetirement,
-  CarbonmarkPaymentMethod,
   PcbProject,
 } from "lib/types/carbonmark";
 import {
@@ -440,89 +438,4 @@ export const getUSDCBalance = async (params: { userAddress: string }) => {
   });
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance, getTokenDecimals("usdc"));
-};
-
-export const retireCarbonTransaction = async (params: {
-  address: string;
-  provider: providers.JsonRpcProvider;
-  paymentMethod: CarbonmarkPaymentMethod;
-  maxAmountIn: string;
-  retirementToken: RetirementToken;
-  quantity: string;
-  beneficiaryAddress: string;
-  beneficiaryName: string;
-  retirementMessage: string;
-  onStatus: OnStatusHandler;
-  projectAddress: string;
-}): Promise<RetirementReceipt> => {
-  if (params.paymentMethod === "fiat") {
-    throw Error("Unsupported payment method");
-  }
-
-  enum TransferMode {
-    EXTERNAL = 0,
-    INTERNAL = 1,
-    EXTERNAL_INTERNAL = 2,
-    INTERNAL_TOLERANT = 3,
-  }
-
-  try {
-    // retire transaction
-    const retireContract = getContract({
-      contractName: "retirementAggregatorV2",
-      provider: params.provider.getSigner(),
-    });
-
-    params.onStatus("userConfirmation");
-
-    const parsedMaxAmountIn = utils.parseUnits(
-      params.maxAmountIn,
-      getTokenDecimals(params.paymentMethod)
-    );
-
-    let txn;
-    if (!!params.projectAddress) {
-      txn = await retireContract.retireExactCarbonSpecific(
-        addresses["mainnet"][params.paymentMethod],
-        addresses["mainnet"][params.retirementToken],
-        params.projectAddress,
-        parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
-        "",
-        params.beneficiaryAddress || params.address,
-        params.beneficiaryName,
-        params.retirementMessage,
-        TransferMode.EXTERNAL
-      );
-    } else {
-      txn = await retireContract.retireExactCarbonDefault(
-        addresses["mainnet"][params.paymentMethod],
-        addresses["mainnet"][params.retirementToken],
-        parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
-        "",
-        params.beneficiaryAddress || params.address,
-        params.beneficiaryName,
-        params.retirementMessage,
-        TransferMode.EXTERNAL
-      );
-    }
-    params.onStatus("networkConfirmation");
-    const receipt: RetirementReceipt = await txn.wait(1);
-    return receipt;
-  } catch (e: any) {
-    if (e.code === 4001) {
-      params.onStatus("error", "userRejected");
-      throw e;
-    }
-    params.onStatus("error");
-    console.error(e);
-    throw e;
-  }
 };
