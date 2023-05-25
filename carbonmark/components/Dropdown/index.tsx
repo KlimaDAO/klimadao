@@ -13,7 +13,7 @@ type Props<V, T extends FieldValues> = {
   options: Option<V>[];
   name: Path<T>;
   control: Control<T>;
-  onChange: any;
+  onChange?: (value: string | number | unknown) => void;
   renderLabel: (option: Option<V>) => string | ReactNode;
 } & Pick<HTMLAttributes<HTMLDivElement>, "className">;
 
@@ -49,7 +49,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   // always close dropdown if label changed
   useEffect(() => {
     field.onChange(selected?.value);
-    props.onChange(selected?.value);
+    props?.onChange?.(selected?.value);
     close();
   }, [selected]);
 
