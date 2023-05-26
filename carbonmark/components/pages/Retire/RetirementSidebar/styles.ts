@@ -6,6 +6,12 @@ export const group = css`
   gap: 0rem;
 `;
 
+export const elementSpacing = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
 export const bold = css`
   font-weight: 700;
   font-size: 1.6rem;

@@ -15,18 +15,23 @@ export const offsetCard = css`
 `;
 
 export const projectHeader = css`
-  grid-column: full;
   position: relative;
   padding: 2rem 1rem;
-  display: grid;
-  gap: 0.4rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: start;
 
   ${breakpoints.medium} {
     padding: 4rem 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    min-height: 10rem;
   }
 
   ${breakpoints.desktop} {
-    gap: 0.8rem;
     padding: 4rem 3rem;
     grid-column: main;
   }
@@ -38,7 +43,7 @@ export const projectHeaderText = css`
   font-size: 1em;
 
   ${breakpoints.small} {
-    font-size: 1.25em;
+    font-size: 1em;
   }
 
   ${breakpoints.medium} {
@@ -56,16 +61,14 @@ export const tags = css`
   flex-wrap: wrap;
   z-index: 1;
   align-items: center;
-  line-height: 1.8em;
+  justify-items: center;
+  line-height: 26px;
 `;
 
 export const projectIDText = css`
   color: white;
   z-index: 1;
-  font-family: ${typography.h5};
-  font-weight: 700;
 `;
-
 export const imageGradient = css`
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   z-index: 1;

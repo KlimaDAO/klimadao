@@ -167,7 +167,7 @@ export const RetireForm = (props: RetireFormProps) => {
                   {project.name || "Error - No project name found"}
                 </Text>
                 <div className={styles.tags}>
-                  <Text className={styles.projectIDText}>
+                  <Text t="h5" className={styles.projectIDText}>
                     {project.projectID}
                   </Text>
                   <Vintage vintage={project.vintageYear} />
@@ -333,6 +333,7 @@ export const RetireForm = (props: RetireFormProps) => {
               </div>
               {isLargeOrBelow ? (
                 <RetirementSidebar
+                  balance={balance}
                   retirementAsset={asset}
                   icon={carbonTokenInfo.icon}
                 />
@@ -373,6 +374,7 @@ export const RetireForm = (props: RetireFormProps) => {
         {!isLargeOrBelow ? (
           <Col>
             <RetirementSidebar
+              balance={balance}
               retirementAsset={asset}
               icon={carbonTokenInfo.icon}
             />
@@ -427,7 +429,7 @@ export const RetireForm = (props: RetireFormProps) => {
           retirementUrl={`${urls.retirements}/${
             retirement.beneficiaryAddress || props.address
           }/${retirementTotals}`}
-          polygonScanUrl={`${urls.polygonscan}/${project.tokenAddress}/${retirementTotals}`}
+          polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
           showModal={!!retirementTransactionHash}
         />
       )}
