@@ -99,7 +99,7 @@ const ProjectCardRow = (props: {
     <>
       <div className="flex items-center justify-between space-x-4 mt-12">
         <div>
-          <h2 className="text-lg font-medium text-gray-900">{props.title}</h2>
+          <h2 className="text-2xl font-medium text-gray-900">{props.title}</h2>
           <p className="text-md">{props.description}</p>
         </div>
       </div>
@@ -154,10 +154,10 @@ export default function Example() {
         <h1 className="text-3xl font-medium">Carbon Retirement API Demo</h1>
         <p className="text-sm max-w-3xl mt-2">
           This application demonstrates how easy it is to add carbon credit
-          retirements to any frontend or backend application. In fact, it's
-          possible for anyone to build a complete carbon offset retail
-          storefront using only public, open-source infrastructure. To learn
-          more about how it works, check out the{" "}
+          retirements to any frontend or backend application. All the carbon
+          asset data, prices and retirements you see here are powered by{" "}
+          <b>public, open-source infrastructure</b>. To see how it works
+          under-the-hood check out the{" "}
           <a
             className="font-semibold text-indigo-700 underline"
             target="_blank"
@@ -169,8 +169,9 @@ export default function Example() {
           .
         </p>
         <p className="text-sm max-w-3xl mt-2">
-          All prices shown are the real-time market-rates for real carbon
-          assets. Select a project to continue 👇
+          All prices shown are the{" "}
+          <b>real-time market-rates for verified carbon projects</b>. Select a
+          project to continue 👇
         </p>
         <ProjectCardRow
           projects={defaultProjects}
@@ -182,6 +183,10 @@ export default function Example() {
           title="Featured projects"
           description="These projects have newer vintages, but will incur a project selection fee."
         />
+        <p className="text-xs text-gray-500 mt-8">
+          📷 Photos are placeholders from Unsplash.com. Real project photos are
+          coming soon!
+        </p>
       </div>
     </div>
   );

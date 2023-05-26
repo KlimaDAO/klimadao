@@ -30,6 +30,7 @@ export function RetireCarbonForm(props: {
     setModalState("pending");
     try {
       const res = await fetch("/api/retire", {
+        // const res = await fetch("/api/provide-services", {
         method: "POST",
         body: JSON.stringify({
           beneficiaryName,

@@ -15,8 +15,15 @@ enum TransferMode {
 }
 
 // 0xa17B52d5E17254B03dFdf7b4dfF2fc0C6108FaAc
-export const API_DEMO_WALLET_PHRASE = process.env.API_DEMO_WALLET_PHRASE;
+const API_DEMO_WALLET_PHRASE = process.env.API_DEMO_WALLET_PHRASE;
 
+/**
+ * The 'Self Service' DIY retirement demo.
+ * In this example the wallet funds are managed by you. No credit card payments, invoices, or API credentials are required.
+ * The application communicates directly with a smart contract on the Polygon blockchain.
+ * The wallet is pre-funded with a balance of USDC tokens, which are used to pay for the carbon assets,
+ * As well as MATIC tokens, which are used to pay for the gas fees (a few cents per txn).
+ */
 export async function POST(req: Request) {
   try {
     if (!API_DEMO_WALLET_PHRASE) {
@@ -31,20 +38,17 @@ export async function POST(req: Request) {
     const RetirementAggregator = getAggregatorContract(ServerWallet);
 
     // A spend approval needs to be given to the retirement aggregator contract.
-    // To avoid having to do an extra approval transaction for every retirement quantity, just do the max approval one time by uncommenting this:
+    // 👇 To avoid having to do a spend-approval transaction for every retirement, uncomment this to do a single approval for the maximum quantity 👇
     // await approveMaxUsdc(ServerWallet);
-
-    // add 2% slippage allowance
-    const quantityWithSlippage = (body.quantity * 1.02).toFixed(
-      getTokenInfo("usdc").decimals
-    );
 
     const paymentTokenAddress = getTokenInfo("usdc").address;
     const poolTokenAddress = getTokenInfo(body.pool).address;
+
     // slippage prevention - specify the max amount of USDC that can be spent. 3 cent max for demo purposes
     // It's up to the developer how they want to determine the max.
     // e.g. the tonne price shown to the customer, or the most recent quoted price, plus a small buffer
     const maxAmountIn = parseUnits("0.03", getTokenInfo("usdc").decimals);
+
     const amountToRetire = parseUnits(
       body.quantity.toString(),
       getTokenInfo(body.pool).decimals
@@ -96,6 +100,7 @@ export async function POST(req: Request) {
     // In the worst case we might get skipped for 10 blocks (20 seconds)
     // 👉 consider if your serverless environment or webhook handler has a timeout!
     const receipt: TransactionReceipt = await txn.wait(1);
+
     // the receipt can be parsed to get the final cost after slippage and actual gas paid.
     // const values = receipt.logs.reduce(parseLog);
     return NextResponse.json({
