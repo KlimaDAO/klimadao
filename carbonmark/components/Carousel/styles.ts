@@ -26,14 +26,25 @@ export const slide = css`
   padding-left: 1rem;
   position: relative;
 
-  svg {
+  .icon-wrapper {
     cursor: pointer;
     position: absolute;
-    color: white;
-    width: 2rem;
-    height: 2rem;
-    right: 0.75rem !important;
-    bottom: 0.75rem !important;
+    background: white;
+    width: 3.2rem;
+    height: 3.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    border-radius: 50%;
+
+    svg {
+      top: 50%;
+      left: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      position: absolute;
+      color: var(--font-03);
+      transform: translate(-50%, -50%);
+    }
   }
 `;
 
