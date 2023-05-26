@@ -162,7 +162,7 @@ export default function Example() {
             className="font-semibold text-indigo-700 underline"
             target="_blank"
             rel="noreferrer"
-            href="https://github.com/KlimaDAO/klimadao/tree/staging/examples/nextjs-self-service"
+            href="https://github.com/KlimaDAO/klimadao/tree/staging/examples/nextjs-typescript-integration"
           >
             source code and README
           </a>

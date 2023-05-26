@@ -18,14 +18,17 @@ This application contains a few interesting code snippets
 ### Fetch project details from carbonmark.com
 
 Note: the carbonmark APIs used here are in beta and are expected to change.
+https://github.com/KlimaDAO/klimadao/blob/staging/examples/nextjs-typescript-integration/utils/fetchProjectInfo.ts#L43
 
 ### Fetch real time carbon prices
 
 Leverage the KlimaDAO Retirement Aggregator directly to fetch real time price information.
+https://github.com/KlimaDAO/klimadao/blob/staging/examples/nextjs-typescript-integration/utils/fetchPoolPrice.ts
 
 ### Execute transactions directly, from a serverless function
 
 Using NextJS Route Handlers, we create a [Vercel serverless function](https://vercel.com/docs/concepts/functions/serverless-functions/quickstart). The serverless function controls a wallet, which is used to execute the carbon retirement transactions.
+https://github.com/KlimaDAO/klimadao/blob/staging/examples/nextjs-typescript-integration/app/api/retire/route.ts#L29
 
 ### Retire carbon using the Provide ECO API
 
