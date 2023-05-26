@@ -161,7 +161,9 @@ export const RetireForm = (props: RetireFormProps) => {
           <div className={styles.offsetCard}>
             {project ? (
               <div className={styles.projectHeader}>
-                <ProjectImage category={project.category as CategoryName} />
+                <ProjectImage
+                  category={project.methodologyCategory as CategoryName}
+                />
                 <div className={styles.imageGradient} />
                 <Text t="h3" className={styles.projectHeaderText}>
                   {project.name || "Error - No project name found"}
@@ -171,8 +173,9 @@ export const RetireForm = (props: RetireFormProps) => {
                     {project.projectID}
                   </Text>
                   <Vintage vintage={project.vintageYear} />
-
-                  <Category category={project.category as CategoryName} />
+                  <Category
+                    category={project.methodologyCategory as CategoryName}
+                  />
                   <Registry projectKey={project.registry} />
                 </div>
               </div>

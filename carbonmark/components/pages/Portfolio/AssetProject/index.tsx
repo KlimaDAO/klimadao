@@ -72,6 +72,14 @@ export const AssetProject: FC<Props> = (props) => {
           }}
         />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
+        {/* TESTING ONLY */}
+        <CarbonmarkButton
+          label="Testing Retire"
+          onClick={() => {
+            window.location.href = `/portfolio/${props.asset.tokenAddress}/retire`;
+          }}
+        />
+        {/* ABOVE IS TESTING ONLY */}
         <ExitModal
           showModal={isOpen}
           title={t`Leaving Carbonmark`}
