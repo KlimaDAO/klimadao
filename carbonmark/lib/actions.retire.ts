@@ -38,7 +38,6 @@ export const getConsumptionCost = async (params: {
 }): Promise<string> => {
   if (params.inputToken === "fiat") return "0"; // typeguard
 
-  console.log("CC params", params);
   const retirementAggregatorContract = getContract({
     contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
@@ -56,7 +55,6 @@ export const getConsumptionCost = async (params: {
         getAddress(params.retirementToken),
         parsed
       );
-    console.log("sourceAmount", sourceAmount);
   } else {
     sourceAmount =
       await retirementAggregatorContract.getSourceAmountDefaultRetirement(
