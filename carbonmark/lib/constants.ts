@@ -71,6 +71,8 @@ export const urls = {
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
+  projects: "/projects",
+  users: "/users",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",

@@ -1,65 +1,91 @@
-import { Text } from "@klimadao/lib/components";
-import { verra } from "@klimadao/lib/constants";
+import { Anchor as A } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { t, Trans } from "@lingui/macro";
-import { normalizeProjectId } from "lib/normalizeProjectId";
+import LaunchIcon from "@mui/icons-material/Launch";
+import { ProjectImage } from "components/ProjectImage";
+import { Text } from "components/Text";
+import { urls as carbonmarkUrls } from "lib/constants";
+import { CategoryName, Project } from "lib/types/carbonmark";
+import Image from "next/image";
+import carbonmarkLogo from "public/carbonmark.svg";
 import { FC } from "react";
-import { ProjectDetail } from "./List";
 import * as styles from "./styles";
 
 type Props = {
-  offset: KlimaRetire["offset"];
-};
-
-const constructVerraUrl = (id: string) => {
-  const split = id.split("-");
-  const resourceIdentifier = split[split.length - 1]; // might not have prefix
-  return `${verra.projectDetailPage}/${resourceIdentifier}`;
+  isMossOffset: boolean;
+  category: CategoryName | null;
+  description: Project["description"] | null;
+  retirement: Partial<KlimaRetire & { category: CategoryName }>;
 };
 
 export const ProjectDetails: FC<Props> = (props) => {
-  const isMossOffset = props.offset.bridge === "Moss";
+  const isMossOffset = props?.retirement?.offset?.bridge === "Moss";
   return (
-    <div className={styles.projectDetails}>
-      <div className={styles.title}>
-        <Text t="h3">
+    <>
+      <div className={styles.projectDetails}>
+        <Text t="h4" color="lighter">
           <Trans id="retirement.single.project_details.title">
             Project Details
           </Trans>
         </Text>
-        <div>
-          <Text t="body2">
-            <Trans>
-              <Trans>
-                Every Carbonmark retirement is tied to a verified offset
-                project. Click to learn more about the project.
-              </Trans>
+        <div className={styles.imageWrapper}>
+          <div className={styles.placeholder}>
+            <ProjectImage category={props?.category ?? "Other"} />
+          </div>
+        </div>
+        <div className={styles.textGroup}>
+          <Text t="button" color="lightest">
+            <Trans id="retirement.single.project_name.title">
+              Project Name
             </Trans>
           </Text>
+          <Text>{props?.retirement?.offset?.name}</Text>
         </div>
+        {props?.description && (
+          <div className={styles.textGroup}>
+            <Text t="button" color="lightest">
+              <Trans id="retirement.single.project_description.title">
+                Description
+              </Trans>
+            </Text>
+            <Text>{props.description}</Text>
+          </div>
+        )}
+        {props?.retirement?.offset && (
+          <A
+            className={styles.profileLink}
+            href={
+              isMossOffset
+                ? "https://mco2token.moss.earth/"
+                : `${carbonmarkUrls.projects}/${props.retirement.offset.projectID}-${props.retirement.offset.vintageYear}`
+            }
+          >
+            {t`Learn More`}
+            <LaunchIcon />
+          </A>
+        )}
       </div>
-      <ProjectDetail
-        projectLink={
-          isMossOffset
-            ? "https://mco2token.moss.earth/"
-            : constructVerraUrl(props.offset.projectID)
-        }
-        headline={
-          isMossOffset
-            ? t`MCO2 Token`
-            : props.offset.name ||
-              normalizeProjectId({
-                id: props.offset.projectID,
-                standard: props.offset.standard,
-              })
-        }
-        tokenAddress={props.offset.tokenAddress}
-        isMossOffset={isMossOffset}
-        totalRetired={props.offset.totalRetired}
-        currentSupply={props.offset.currentSupply}
-        methodology={props.offset.methodology}
-        location={props.offset.country || props.offset.region}
-      />
-    </div>
+      <div className={styles.officialText}>
+        <Image
+          width={42}
+          height={42}
+          src={carbonmarkLogo}
+          alt="Carbonmark Logo"
+        />
+        <Text t="body2" color="lightest">
+          <Trans id="retirement.single.official_certificate.title">
+            Official Certificate for On-Chain Carbon Retirement Provided by{" "}
+            <A href={urls.carbonmark}>Carbonmark.com</A>
+          </Trans>
+        </Text>
+      </div>
+      <Text t="body2" color="lightest">
+        <Trans id="retirement.single.immutable_public_records.title">
+          This represents the permanent retirement of a digital carbon asset.
+          This retirement and the associated data are immutable public records.
+        </Trans>
+      </Text>
+    </>
   );
 };

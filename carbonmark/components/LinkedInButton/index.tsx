@@ -49,7 +49,6 @@ export const LinkedInButton: FC<Props> = ({ url, ...baseProps }) => {
       target="_blank"
       disabled={!shareURL}
       icon={<LinkedInIcon />}
-      variant="lightGray"
       shape="circle"
       {...baseProps}
     />

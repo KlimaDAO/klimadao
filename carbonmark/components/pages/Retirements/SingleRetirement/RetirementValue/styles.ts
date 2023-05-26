@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 
-export const retirementValue_textGroup = css`
+export const retirementValue = css`
   display: flex;
   align-items: center;
   flex-direction: column;

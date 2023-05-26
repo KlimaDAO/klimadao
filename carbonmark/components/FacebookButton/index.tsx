@@ -21,7 +21,6 @@ export const FacebookButton: FC<Props> = (props) => {
       target="_blank"
       disabled={!shareUrl}
       icon={<FacebookIcon />}
-      variant="lightGray"
       shape="circle"
       {...props}
     />

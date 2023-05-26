@@ -55,7 +55,6 @@ export const TweetButton: FC<Props> = ({ title, url, tags, ...props }) => {
       target="_blank"
       disabled={!shareURL}
       icon={<TwitterIcon />}
-      variant="lightGray"
       shape="circle"
       {...props}
     />

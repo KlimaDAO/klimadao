@@ -1,54 +1,33 @@
-import { cx } from "@emotion/css";
-import { Text } from "@klimadao/lib/components";
-import { getImageSizes } from "@klimadao/lib/utils";
-import Image from "next/legacy/image";
-import greenHills from "public/green_hills.png";
-import leafImage from "public/leaf.svg";
-import { FC, ReactNode } from "react";
+import { Trans } from "@lingui/macro";
+import { Text } from "components/Text";
+import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  overline: ReactNode;
-  title: ReactNode;
-  subline: ReactNode;
+  formattedAmount: string;
 };
 
-export const RetirementHeader: FC<Props> = (props) => {
-  return (
-    <div className={styles.retirementHeader}>
-      <Image
-        alt="Green Hill"
-        src={greenHills}
-        layout="fill"
-        objectFit="cover"
-        sizes={getImageSizes({ large: "1072px" })}
-        placeholder="blur"
-      />
-      <div className={styles.imageGradient}></div>
-      <div className="stack">
-        <Image
-          alt="Leaf Picture"
-          width={32}
-          height={32}
-          src={leafImage}
-          className={styles.leafImage}
-        />
-        <Text
-          t="h5"
-          align="center"
-          className={cx(styles.retirementHeaderText, styles.overline)}
-        >
-          {props.overline}
-        </Text>
-      </div>
-      <div className="stack">
-        <Text t="h3" align="center" className={styles.retirementHeaderText}>
-          {props.title}
-        </Text>
-        <Text t="badge" align="center" className={styles.retirementHeaderText}>
-          {props.subline}
-        </Text>
-      </div>
+export const RetirementHeader: FC<Props> = (props) => (
+  <>
+    <div className={styles.retirementGroup}>
+      <Text t="h5" color="lightest">
+        <Trans id="retirement.single.proof_of.title">Proof of</Trans>
+      </Text>
+      <Text t="h3">
+        <Trans id="retirement.single.carbon_credit_retirement.title">
+          Carbon Credit Retirement
+        </Trans>
+      </Text>
     </div>
-  );
-};
+    <div className={styles.retirementGroup}>
+      <Text t="h1" className="amount">
+        {props.formattedAmount}t
+      </Text>
+      <Text t="button" color="lightest">
+        <Trans id="retirement.single.verified_tonnes.title">
+          Verified tonnes of carbon retired
+        </Trans>
+      </Text>
+    </div>
+  </>
+);

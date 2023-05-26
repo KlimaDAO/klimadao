@@ -41,6 +41,7 @@ export const queryKlimaRetireByIndex = async (
                 registry 
                 standard
                 vintage
+                vintageYear
                 methodology
                 methodologyCategory
                 category

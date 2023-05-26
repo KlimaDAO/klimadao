@@ -1,50 +1,32 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const retirementHeader = css`
-  position: relative;
-  overflow: hidden;
-  grid-column: main;
-  padding: 2.4rem 1.6rem;
-  border-radius: 1.2rem 1.2rem 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.8rem;
+export const retirementGroup = css`
+  margin: 2rem 0 0;
 
-  .stack {
-    display: grid;
-    gap: 1.6rem;
+  & .amount {
+    font-size: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    color: var(--bright-blue);
+    letter-spacing: -0.04em;
   }
 
-  ${breakpoints.medium} {
-    padding: 7.2rem 0;
+  p {
+    text-align: center;
   }
-`;
 
-export const overline = css`
-  font-weight: bold;
-`;
+  ${breakpoints.desktop} {
+    text-align: left;
 
-export const retirementHeaderText = css`
-  color: var(--white);
-  word-break: break-word;
-  font-size: 1.4rem;
-  font-weight: 600;
-  z-index: 1;
-`;
+    & .amount {
+      font-size: 16rem;
+      line-height: 16rem;
+      text-align: left;
+    }
 
-export const imageGradient = css`
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
-export const leafImage = css`
-  z-index: 1;
+    p {
+      text-align: left;
+    }
+  }
 `;
