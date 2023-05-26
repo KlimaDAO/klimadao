@@ -1,14 +1,16 @@
-import { useWeb3 } from "@klimadao/lib/utils";
+import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { utils } from "ethers";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
+import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
@@ -102,6 +104,22 @@ export const RetireForm: FC<Props> = (props) => {
     } finally {
       setIsLoadingAllowance(false);
     }
+  };
+
+  const getApprovalValue = (): string => {
+    if (!inputValues?.totalPrice) return "0";
+
+    const onePercent = utils
+      .parseUnits(
+        inputValues.totalPrice,
+        getTokenDecimals(inputValues.paymentMethod)
+      )
+      .div("100");
+    const val = safeAdd(
+      inputValues.totalPrice,
+      formatUnits(onePercent, getTokenDecimals(inputValues.paymentMethod))
+    );
+    return val;
   };
 
   // compare with total price including fees
@@ -206,7 +224,14 @@ export const RetireForm: FC<Props> = (props) => {
       <RetireModal
         hasApproval={hasApproval()}
         amount={{
-          value: inputValues?.quantity || "0",
+          value: inputValues?.totalPrice || "0",
+          token:
+            (inputValues?.paymentMethod !== "fiat" &&
+              inputValues?.paymentMethod) ||
+            "usdc",
+        }}
+        approvalValue={{
+          value: getApprovalValue(),
           token:
             (inputValues?.paymentMethod !== "fiat" &&
               inputValues?.paymentMethod) ||

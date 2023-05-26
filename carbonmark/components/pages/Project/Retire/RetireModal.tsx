@@ -5,13 +5,16 @@ import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
-import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";
 
 export interface Props {
   hasApproval: boolean;
   amount: {
+    value: string;
+    token: CarbonmarkToken;
+  };
+  approvalValue?: {
     value: string;
     token: CarbonmarkToken;
   };
@@ -29,26 +32,19 @@ const RetireApproval: FC = () => {
   return (
     <div className={styles.formatParagraph}>
       <Text t="body1" color="lighter">
-        <Trans id="retire.approval_1">
-          You are about to retire a carbon asset.
+        <Trans>You are about to retire a carbon asset from a pool.</Trans>
+      </Text>
+      <Text t="body1" color="lighter">
+        <Trans>here we can say more about this.</Trans>
+      </Text>
+      <Text t="body4" color="lighter">
+        <Trans>
+          The approval amount below adds an extra 1% due to volatile transaction
+          fees.
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="retire.approval_2">
-          The first step is to grant the approval to transfer your payment asset
-          from your wallet to Carbonmark, the next step is to approve the actual
-          transfer and complete your retire.
-        </Trans>
-      </Text>
-      <Text t="body1" color="lighter">
-        <Trans id="retire.approval_3">
-          Carbon assets you retire can be listed for sale on Carbonmark at any
-          time from your{" "}
-          <Link href="/portfolio" target="blank">
-            portfolio
-          </Link>
-          .
-        </Trans>
+        <Trans>We need more text here</Trans>
       </Text>
       <Text t="body1" color="lighter">
         <Trans id="retire.approval_4">
@@ -65,7 +61,7 @@ const RetireSubmit: FC = () => {
       <Text t="body1" color="lighter">
         <Trans id="retire.submit_1">
           The previous step granted the approval to transfer your payment asset
-          from your wallet to Carbonmark.
+          from your wallet.
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
@@ -100,6 +96,7 @@ export const RetireModal: FC<Props> = (props) => {
         <Transaction
           hasApproval={props.hasApproval}
           amount={props.amount}
+          approvalValue={props.approvalValue}
           approvalText={<RetireApproval />}
           submitText={<RetireSubmit />}
           onApproval={props.handleApproval}
