@@ -11,6 +11,7 @@ interface Props {
   hasApproval: boolean;
   amount: Value;
   price?: Value;
+  approvalValue?: Value;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;
@@ -56,7 +57,7 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={props.amount}
+          amount={props.approvalValue || props.amount}
           price={props.price}
           description={props.approvalText}
           spenderAddress={props.spenderAddress}
