@@ -87,53 +87,59 @@ module.exports = async function (fastify, opts) {
       const projects = data.data.projects.map(function (project) {
         const uniqueValues = [];
 
-
         if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
-
-          let indexes = pooledProjectsData.carbonOffsets.map((item, idx) => (item.projectID === project.registry + '-' + project.projectID &&
-            item.vintageYear === project.vintage) ? idx : '').filter(String);
+          let indexes = pooledProjectsData.carbonOffsets
+            .map((item, idx) =>
+              item.projectID === project.registry + "-" + project.projectID &&
+              item.vintageYear === project.vintage
+                ? idx
+                : ""
+            )
+            .filter(String);
           // var index = pooledProjectsData.carbonOffsets.findIndex(
           //   (item) =>
 
-
           //     item.projectID === project.registry + '-' + project.projectID &&
           //     item.vintageYear === project.vintage
-
 
           // );
           if (indexes && indexes.length) {
             project.isPoolProject = true;
 
-            indexes.forEach(index => {
+            indexes.forEach((index) => {
               pooledProjectsData.carbonOffsets[index].display = false;
               // console.log( pooledProjectsData.carbonOffsets[index].display )
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
-                1
+                parseFloat(
+                  pooledProjectsData.carbonOffsets[index].balanceUBO
+                ) >= 1
               ) {
                 uniqueValues.push(
                   poolPrices.find((obj) => obj.name === "ubo").price
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
-                1
+                parseFloat(
+                  pooledProjectsData.carbonOffsets[index].balanceNBO
+                ) >= 1
               ) {
                 uniqueValues.push(
                   poolPrices.find((obj) => obj.name === "nbo").price
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
-                1
+                parseFloat(
+                  pooledProjectsData.carbonOffsets[index].balanceNCT
+                ) >= 1
               ) {
                 uniqueValues.push(
                   poolPrices.find((obj) => obj.name === "ntc").price
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
-                1
+                parseFloat(
+                  pooledProjectsData.carbonOffsets[index].balanceBCT
+                ) >= 1
               ) {
                 uniqueValues.push(
                   poolPrices.find((obj) => obj.name === "btc").price
@@ -161,8 +167,8 @@ module.exports = async function (fastify, opts) {
 
           let lowestPrice = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
+                a.length < b.length ? a : a.length === b.length && a < b ? a : b
+              )
             : "0";
           price = lowestPrice;
         }
@@ -204,8 +210,8 @@ module.exports = async function (fastify, opts) {
 
         let country = project.country.length
           ? {
-            id: project.country,
-          }
+              id: project.country,
+            }
           : null;
 
         const cmsData = findProjectWithRegistryIdAndRegistry(
@@ -232,20 +238,19 @@ module.exports = async function (fastify, opts) {
           country: country,
           price: uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
+                a.length < b.length ? a : a.length === b.length && a < b ? a : b
+              )
             : "0",
           activities: null,
           listings: null,
         };
 
-        
         return singleProject;
       });
 
       const filteredItems = projects
         .concat(pooledProjects)
-        .filter((project) => project!= null && project.price !== "0");
+        .filter((project) => project != null && project.price !== "0");
 
       // Send the transformed projects array as a JSON string in the response
       // return reply.send(JSON.stringify(projects));
@@ -363,8 +368,8 @@ module.exports = async function (fastify, opts) {
             project = { ...data.data.carbonOffsets[0] };
             let country = project.country.length
               ? {
-                id: project.country,
-              }
+                  id: project.country,
+                }
               : null;
 
             project = {
@@ -420,7 +425,7 @@ module.exports = async function (fastify, opts) {
             project.location = results.geolocation;
             project.name = results.name;
             project.methodologies = results.methodologies;
-            project.url = results.url
+            project.url = results.url;
           } else if (project.registry == "GS") {
             var results = await fetch(
               `https://api.goldstandard.org/projects/${id[1]}`
@@ -430,11 +435,10 @@ module.exports = async function (fastify, opts) {
             project.location = null;
           }
 
-
           project.price = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
+                a.length < b.length ? a : a.length === b.length && a < b ? a : b
+              )
             : "0";
 
           if (project.activities) {
@@ -443,7 +447,6 @@ module.exports = async function (fastify, opts) {
             await Promise.all(
               activities.map(async (actvity) => {
                 if (actvity.activityType != "Sold") {
-
                   const seller = await fastify.firebase
                     .firestore()
                     .collection("users")
@@ -465,7 +468,9 @@ module.exports = async function (fastify, opts) {
                 }
               })
             );
-            project.activities = activities.filter((activity) => activity.activityType !== "Sold");
+            project.activities = activities.filter(
+              (activity) => activity.activityType !== "Sold"
+            );
           }
 
           return reply.send(JSON.stringify(project));
