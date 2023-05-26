@@ -22,9 +22,9 @@ import { RetireInputs } from "./RetireInputs";
 import { RetireModal } from "./RetireModal";
 import * as styles from "./styles";
 import { SubmitButton } from "./SubmitButton";
+import { SuccessScreen } from "./SuccessScreen";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
-
 export interface Props {
   project: Project;
   price: PriceType;
@@ -39,6 +39,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
+  const [transactionHash, setTransactionHash] = useState<string | null>(null);
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -76,6 +77,7 @@ export const RetireForm: FC<Props> = (props) => {
     setStatus(null);
     setIsLoadingAllowance(false);
     setIsProcessing(false);
+    setTransactionHash(null);
   };
 
   const onModalClose = !isPending ? resetStateAndCancel : undefined;
@@ -154,7 +156,7 @@ export const RetireForm: FC<Props> = (props) => {
 
     try {
       setIsProcessing(true);
-      await retireCarbonTransaction({
+      const receipt = await retireCarbonTransaction({
         provider,
         address,
         projectAddress: props.project.projectAddress,
@@ -167,8 +169,11 @@ export const RetireForm: FC<Props> = (props) => {
         retirementMessage: inputValues.retirementMessage,
         onStatus: onUpdateStatus,
       });
+      receipt.transactionHash && setTransactionHash(receipt.transactionHash);
+      setIsProcessing(false);
     } catch (e) {
       console.error("makeRetirement error", e);
+    } finally {
       setIsProcessing(false);
     }
   };
@@ -246,6 +251,16 @@ export const RetireForm: FC<Props> = (props) => {
         onSubmit={onMakeRetirement}
         onCancel={resetStateAndCancel}
         onResetStatus={() => setStatus(null)}
+        successScreen={
+          <SuccessScreen
+            project={props.project}
+            totalPrice={inputValues?.totalPrice}
+            transactionHash={transactionHash}
+            paymentMethod={inputValues?.paymentMethod}
+            address={address}
+          />
+        }
+        showSuccessScreen={!!transactionHash}
       />
     </FormProvider>
   );

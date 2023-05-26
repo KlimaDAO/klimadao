@@ -203,3 +203,19 @@ export const reverseOrder = css`
     order: -1;
   }
 `;
+
+export const successScreen = css`
+  margin-top: 3.2rem;
+  display: grid;
+  gap: 2rem;
+
+  .headline {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .summary {
+    display: grid;
+    gap: 1.2rem;
+  }
+`;

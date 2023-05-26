@@ -26,6 +26,8 @@ export interface Props {
   onSubmit: () => void;
   onCancel: () => void;
   onResetStatus: () => void;
+  successScreen?: React.ReactNode;
+  showSuccessScreen: boolean;
 }
 
 const RetireApproval: FC = () => {
@@ -76,23 +78,19 @@ const RetireSubmit: FC = () => {
 };
 
 export const RetireModal: FC<Props> = (props) => {
+  const showTransaction = !props.isProcessing && !props.showSuccessScreen;
+  const showSuccessScreen = !props.isProcessing && props.showSuccessScreen;
+  const title =
+    (props.isProcessing && t`Processing Retirement`) ||
+    (showSuccessScreen && t`Retirement successful`) ||
+    t`Confirm Retirement`;
   return (
     <Modal
-      title={
-        !props.isProcessing
-          ? t({
-              id: "retire.transaction.modal.title.confirm",
-              message: "Confirm retire",
-            })
-          : t({
-              id: "retire.transaction.modal.title.processing",
-              message: "Processing retire",
-            })
-      }
+      title={title}
       showModal={props.showModal}
       onToggleModal={props.onModalClose}
     >
-      {!props.isProcessing && (
+      {showTransaction && (
         <Transaction
           hasApproval={props.hasApproval}
           amount={props.amount}
@@ -106,11 +104,14 @@ export const RetireModal: FC<Props> = (props) => {
           onResetStatus={props.onResetStatus}
         />
       )}
+
       {props.isProcessing && (
         <div className={styles.spinnerWrap}>
           <Spinner />
         </div>
       )}
+
+      {showSuccessScreen && props.successScreen}
     </Modal>
   );
 };
