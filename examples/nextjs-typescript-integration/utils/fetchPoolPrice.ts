@@ -10,6 +10,7 @@ import { getTokenInfo } from "./getTokenInfo";
  */
 export async function fetchPoolPrice(params: {
   pool: Pool;
+  /** Each pool has a different fee for selective retirements */
   mode: "default" | "selective";
   quantity: number;
 }): Promise<string> {

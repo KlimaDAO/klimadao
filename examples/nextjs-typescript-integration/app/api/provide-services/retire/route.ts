@@ -6,13 +6,13 @@ const PROVIDE_SERVICES_PASSWORD = process.env.PROVIDE_SERVICES_PASSWORD;
 
 let provideAuth: ProvideAuthResponse | null = null;
 
+/**
+ * 1. Login using your provide.services account to get your DID
+ */
 async function getProvideAuthentication(): Promise<ProvideAuthResponse> {
   if (provideAuth) {
     return provideAuth;
   }
-
-  // 1. Login using your provide.services account to get your DID
-  // https://ident.provide.services/api/v1/authenticate
   const res = await fetch(
     "https://ident.provide.services/api/v1/authenticate",
     {
@@ -30,7 +30,29 @@ async function getProvideAuthentication(): Promise<ProvideAuthResponse> {
   return provideAuth;
 }
 
-async function getProvideRefreshToken() {}
+/**
+ * 2. Generate long-dated refresh token
+ */
+async function getProvideRefreshToken() {
+  if (!provideAuth?.token) throw new Error("No provideAuth token found");
+
+  const res = await fetch("https://ident.provide.services/api/v1/tokens", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${provideAuth.token.access_token}`,
+    },
+    body: JSON.stringify({
+      scope: "offline_access",
+      organization_id: "{{eco_organizationid}}",
+      user_id: provideAuth.user.id,
+    }),
+  });
+
+  provideAuth = (await res.json()) as ProvideAuthResponse;
+
+  return provideAuth;
+}
 
 /**
  * The Provide Services Fiat-to-retirement API

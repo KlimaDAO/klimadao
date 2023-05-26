@@ -5,7 +5,7 @@ import {
   ArrowTopRightOnSquareIcon,
   CheckIcon,
   FireIcon,
-  XCircleIcon,
+  XCircleIcon
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
@@ -29,8 +29,8 @@ export function RetireCarbonForm(props: {
   const handleSubmit = async () => {
     setModalState("pending");
     try {
+      // const res = await fetch("/api/provide-services/retire", {
       const res = await fetch("/api/retire", {
-        // const res = await fetch("/api/provide-services", {
         method: "POST",
         body: JSON.stringify({
           beneficiaryName,
