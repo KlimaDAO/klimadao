@@ -1,6 +1,6 @@
 // All actions related to Retirement Aggregator
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { addresses, PoolToken, RetirementToken } from "@klimadao/lib/constants";
+import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { Contract, providers, utils } from "ethers";
@@ -107,7 +107,7 @@ export const retireCarbonTransaction = async (params: {
   provider: providers.JsonRpcProvider;
   paymentMethod: CarbonmarkPaymentMethod;
   maxAmountIn: string;
-  retirementToken: RetirementToken;
+  retirementToken: PoolToken;
   quantity: string;
   beneficiaryAddress: string;
   beneficiaryName: string;
@@ -143,8 +143,8 @@ export const retireCarbonTransaction = async (params: {
     let txn;
     if (!!params.projectAddress) {
       txn = await retireContract.retireExactCarbonSpecific(
-        addresses["mainnet"][params.paymentMethod],
-        addresses["mainnet"][params.retirementToken],
+        getAddress(params.paymentMethod),
+        getAddress(params.retirementToken),
         params.projectAddress,
         parsedMaxAmountIn,
         utils.parseUnits(
@@ -159,8 +159,8 @@ export const retireCarbonTransaction = async (params: {
       );
     } else {
       txn = await retireContract.retireExactCarbonDefault(
-        addresses["mainnet"][params.paymentMethod],
-        addresses["mainnet"][params.retirementToken],
+        getAddress(params.paymentMethod),
+        getAddress(params.retirementToken),
         parsedMaxAmountIn,
         utils.parseUnits(
           params.quantity,

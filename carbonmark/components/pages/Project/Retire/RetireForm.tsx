@@ -1,3 +1,4 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
@@ -158,8 +159,8 @@ export const RetireForm: FC<Props> = (props) => {
         address,
         projectAddress: props.project.projectAddress,
         paymentMethod: inputValues.paymentMethod,
-        maxAmountIn: "88", // TODO
-        retirementToken: inputValues.retirementToken,
+        maxAmountIn: getApprovalValue(),
+        retirementToken: props.price.name.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
         beneficiaryAddress: inputValues.beneficiaryAddress,
         beneficiaryName: inputValues.beneficiaryName,
