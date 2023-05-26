@@ -32,6 +32,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   useEffect(() => {
     const newCosts = async () => {
       setIsLoading(true);
+      setError("");
 
       try {
         const totalPrice = await getConsumptionCost({
