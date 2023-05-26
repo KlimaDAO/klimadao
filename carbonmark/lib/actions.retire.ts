@@ -52,15 +52,16 @@ export const getConsumptionCost = async (params: {
   if (params.getSpecific) {
     sourceAmount =
       await retirementAggregatorContract.getSourceAmountSpecificRetirement(
-        addresses["mainnet"][params.inputToken],
-        addresses["mainnet"][params.retirementToken],
+        getAddress(params.inputToken),
+        getAddress(params.retirementToken),
         parsed
       );
+    console.log("sourceAmount", sourceAmount);
   } else {
     sourceAmount =
       await retirementAggregatorContract.getSourceAmountDefaultRetirement(
-        addresses["mainnet"][params.inputToken],
-        addresses["mainnet"][params.retirementToken],
+        getAddress(params.inputToken),
+        getAddress(params.retirementToken),
         parsed
       );
   }
