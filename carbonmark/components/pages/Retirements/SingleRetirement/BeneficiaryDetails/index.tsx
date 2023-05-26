@@ -38,7 +38,9 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         </Text>
         <A
           className={styles.profileLink}
-          href={`${urls.users}/${carbonmarkUser?.handle}`}
+          href={`${urls.users}/${
+            carbonmarkUser?.handle || props.beneficiaryAddress
+          }`}
         >
           {t`View Carbonmark Profile`}
           <LaunchIcon />
