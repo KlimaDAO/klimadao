@@ -1,8 +1,8 @@
 # NextJS Example Integrations
 
-This application demonstrates how easy it is to add carbon credit retirements (aka offsets) to any application.
+https://integration-demo.carbonmark.com/
 
-In this demo webapp, 1 kilogram of carbon is retired every time the user clicks a button. The user can specify the carbon project to retire, and attach a retirement message and beneficiary name. Retirements are created in real-time at the current market rate, as determined by supply & demand in public carbon liquidity pools. All the project data, prices and retirements you see here are powered by public, open-source infrastructure.
+This application demonstrates how easy it is to add carbon credit retirements (aka offsets) to any application. In this demo webapp, 1 kilogram of carbon is retired every time the user clicks a button. The user can specify the carbon project to retire, and attach a retirement message and beneficiary name. Retirements are created in real-time at the current market rate, as determined by supply & demand in public carbon liquidity pools. All the project data, prices and retirements you see here are powered by public, open-source infrastructure.
 
 **🏷️ COMING SOON:**
 
