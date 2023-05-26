@@ -6,7 +6,11 @@ export const group = css`
   gap: 0rem;
 `;
 
-export const elementSpacing = css`
+export const assetWrapper = css`
+  background-color: var(--surface-01);
+  border-radius: 0.8rem;
+  box-shadow: var(--shadow-01);
+  padding: 1.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
