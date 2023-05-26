@@ -214,48 +214,7 @@ export const backButton = css`
 export const input = css`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-
-  textarea {
-    width: 100%;
-    background-color: var(--surface-02);
-    border-radius: 0.8rem;
-    border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 0.8rem;
-    min-height: 2.4rem;
-    color: var(--font-01);
-    resize: none;
-    padding-top: 0.8rem;
-    overflow-y: hidden;
-    min-height: 16rem;
-  }
-
-  input {
-    width: 100%;
-    background-color: var(--surface-02);
-    border-radius: 0.8rem;
-    border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 0.8rem;
-    min-height: 4.8rem;
-    color: var(--font-01);
-  }
-
-  label {
-    display: flex;
-    gap: 0.8rem;
-    color: white;
-    align-items: center;
-  }
-
-  .number_input_container {
-    min-height: 4.8rem;
-    display: grid;
-    grid-template-columns: 1fr min-content;
-    z-index: 1; /* cover advanced-settings border */
-
-    input[data-error="true"] {
-      border: 0.175rem solid var(--warn);
-    }
+  gap: 0.5rem;
   }
 
   .button_max {

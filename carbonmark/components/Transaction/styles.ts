@@ -91,14 +91,6 @@ export const submitButton = css`
   width: 100%;
 `;
 
-export const backButton = css`
-  font-family: "Poppins";
-  background-color: white;
-  color: black;
-  border: 1px solid var(--font-01);
-  width: 100%;
-`;
-
 export const spinner_container = css`
   padding: 0.8rem;
   display: flex;

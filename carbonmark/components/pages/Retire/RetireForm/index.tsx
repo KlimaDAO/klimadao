@@ -1,36 +1,28 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import {
-  addresses,
-  PoolToken,
-  poolTokens,
-  urls,
-} from "@klimadao/lib/constants";
+import { Text } from "@klimadao/lib/components";
+import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
 import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
+import { InputField, TextareaField } from "components/shared/Form";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { ethers, providers } from "ethers";
-import { createLinkWithLocaleSubPath } from "lib/createUrls";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { CategoryName } from "lib/types/carbonmark";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
 import { RetireModal } from "../RetireModal";
-import {
-  getApprovalValue,
-  handleApprove,
-  hasApproval,
-} from "../utils/approval";
+import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
 
 import { Registry } from "components/Registry";
+import { getAddress } from "lib/networkAware/getAddress";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -46,7 +38,6 @@ interface RetireFormProps {
 
 export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
-  const { locale } = useRouter();
 
   const { tokenName, balance, tokenSymbol, project } = asset;
 
@@ -115,21 +106,6 @@ export const RetireForm = (props: RetireFormProps) => {
   const updateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
   };
-
-  // const handleOnSuccessModalClose = () => {
-  //   setRetirement({
-  //     quantity: "0",
-  //     maxQuantity: parseFloat(balance),
-  //     beneficiaryName: "",
-  //     beneficiaryAddress: "",
-  //     retirementMessage: "",
-  //   });
-  //   setRetirementTransactionHash("");
-  //   setRetirementTotals(0);
-  //   setRetireModalOpen(false);
-  //   setStatus(null);
-  //   setIsApproved(false);
-  // };
 
   useEffect(() => {
     async function getApproval() {
@@ -225,7 +201,7 @@ export const RetireForm = (props: RetireFormProps) => {
                   <span style={{ color: "red" }}>* </span> Required Field
                 </Trans>
               </Text>
-              <div className={styles.input}>
+              <div>
                 <label>
                   <div className={styles.stackText}>
                     <Text t="caption" color="lighter">
@@ -245,23 +221,24 @@ export const RetireForm = (props: RetireFormProps) => {
                     </Text>
                   </div>
                 </label>
-
                 <div className="number_input_container">
-                  <input
-                    type="number"
-                    onChange={(event) =>
-                      handleRetirementChange("quantity", event)
-                    }
-                    placeholder={t({
-                      id: "offset.offset_quantity",
-                      message: "Enter quantity to offset",
-                    })}
-                    value={retirement.quantity}
-                    className={
-                      retirement.quantity > balance ? styles.error : ""
-                    }
-                    min="0"
-                    max={retirement.maxQuantity}
+                  <InputField
+                    id="quantity"
+                    inputProps={{
+                      type: "number",
+                      min: "0",
+                      max: retirement.maxQuantity.toString(),
+                      onChange: (event) =>
+                        handleRetirementChange("quantity", event),
+                      placeholder: t({
+                        id: "offset.offset_quantity",
+                        message: "Enter quantity to offset",
+                      }),
+                      value: retirement.quantity,
+                    }}
+                    label={"quantity"}
+                    hideLabel
+                    required
                   />
                 </div>
               </div>
@@ -269,7 +246,6 @@ export const RetireForm = (props: RetireFormProps) => {
               {/* attr: beneficiaryName  */}
               <div className={styles.beneficiary}>
                 <div className={styles.input}>
-                  {" "}
                   <label>
                     <Text t="caption" color="lighter">
                       <Trans id="offset.retirement_credit">
@@ -278,34 +254,37 @@ export const RetireForm = (props: RetireFormProps) => {
                     </Text>
                   </label>
                   <div>
-                    <input
-                      type="text"
-                      onChange={(event) =>
-                        handleRetirementChange("beneficiaryName", event)
-                      }
-                      placeholder={t({
-                        id: "offset.retirement_beneficiary_name",
-                        message: "Beneficiary Name",
-                      })}
-                      value={retirement.beneficiaryName}
+                    <InputField
+                      id="beneficiaryName"
+                      inputProps={{
+                        type: "text",
+                        onChange: (event) =>
+                          handleRetirementChange("beneficiaryName", event),
+                        placeholder: t({
+                          id: "offset.retirement_beneficiary_name",
+                          message: "Beneficiary Name",
+                        }),
+                        value: retirement.beneficiaryName,
+                      }}
+                      label={"beneficiaryName"}
+                      hideLabel
                     />
                   </div>
                   <div>
-                    <input
-                      type="text"
-                      onChange={(event) =>
-                        handleRetirementChange("beneficiaryAddress", event)
-                      }
-                      placeholder={t({
-                        id: "offset.retirement_beneficiary_address",
-                        message: "Beneficiary wallet address (optional)",
-                      })}
-                      value={retirement.beneficiaryAddress}
+                    <InputField
                       id="beneficiaryAddress"
-                      data-error={
-                        retirement.beneficiaryAddress &&
-                        !ethers.utils.isAddress(retirement.beneficiaryAddress)
-                      }
+                      inputProps={{
+                        type: "text",
+                        onChange: (event) =>
+                          handleRetirementChange("beneficiaryAddress", event),
+                        placeholder: t({
+                          id: "offset.retirement_beneficiary_address",
+                          message: "Beneficiary wallet address (optional)",
+                        }),
+                        value: retirement.beneficiaryAddress,
+                      }}
+                      label={"beneficiaryAddress"}
+                      hideLabel
                     />
                   </div>
                   {retirement.beneficiaryAddress &&
@@ -337,16 +316,19 @@ export const RetireForm = (props: RetireFormProps) => {
                     </Trans>
                   </Text>
                 </label>
-                <textarea
-                  value={retirement.retirementMessage}
-                  maxLength={280}
-                  onChange={(event) =>
-                    handleRetirementChange("retirementMessage", event)
-                  }
-                  placeholder={t({
-                    id: "offset.retirement_purpose",
-                    message: "Describe the purpose of this retirement",
-                  })}
+                <TextareaField
+                  id="retirementMessage"
+                  textareaProps={{
+                    rows: 6,
+                    onChange: (event) =>
+                      handleRetirementChange("retirementMessage", event),
+                    placeholder: t({
+                      id: "offset.retirement_retirement_message",
+                      message: "Retirement Message",
+                    }),
+                    value: retirement.retirementMessage,
+                  }}
+                  label={""}
                 />
               </div>
               {isLargeOrBelow ? (
@@ -369,7 +351,7 @@ export const RetireForm = (props: RetireFormProps) => {
               </div>
               <div className={styles.buttonRow}>
                 <div className={styles.buttonContainer}>
-                  <ButtonPrimary
+                  <CarbonmarkButton
                     label={t({
                       id: "retire.submit_button",
                       message: "Retire Carbon",
@@ -378,7 +360,7 @@ export const RetireForm = (props: RetireFormProps) => {
                     className={styles.submitButton}
                     disabled={!readyForRetireModal}
                   />
-                  <ButtonPrimary
+                  <CarbonmarkButton
                     label={t({ id: "retire.back_button", message: "back" })}
                     href="/portfolio"
                     className={styles.backButton}
@@ -406,8 +388,8 @@ export const RetireForm = (props: RetireFormProps) => {
         }
         token={carbonTokenInfo}
         value={retirement.quantity}
-        approvalValue={getApprovalValue(retirement.quantity)}
-        spenderAddress={addresses["mainnet"].retirementAggregatorV2}
+        approvalValue={retirement.quantity}
+        spenderAddress={getAddress("retirementAggregatorV2")}
         onCloseModal={() => setRetireModalOpen(false)}
         onApproval={() =>
           handleApprove({
@@ -442,16 +424,10 @@ export const RetireForm = (props: RetireFormProps) => {
       />
       {retirementTransactionHash && (
         <RetirementStatusModal
-          retirementUrl={createLinkWithLocaleSubPath(
-            `${urls.retirements}/${
-              retirement.beneficiaryAddress || props.address
-            }/${retirementTotals}`,
-            locale
-          )}
-          polygonScanUrl={createLinkWithLocaleSubPath(
-            `${urls.polygonscan}/${project.tokenAddress}/${retirementTotals}`,
-            locale
-          )}
+          retirementUrl={`${urls.retirements}/${
+            retirement.beneficiaryAddress || props.address
+          }/${retirementTotals}`}
+          polygonScanUrl={`${urls.polygonscan}/${project.tokenAddress}/${retirementTotals}`}
           showModal={!!retirementTransactionHash}
         />
       )}
