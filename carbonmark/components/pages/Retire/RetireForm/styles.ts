@@ -31,27 +31,23 @@ export const projectHeader = css`
     min-height: 10rem;
   }
 
+  ${breakpoints.large} {
+    min-height: 18rem;
+  }
+
   ${breakpoints.desktop} {
     padding: 4rem 3rem;
-    grid-column: main;
+    min-height: 20rem;
   }
 `;
 
 export const projectHeaderText = css`
   color: white;
   z-index: 1;
-  font-size: 1em;
+  font-size: 1.4em;
 
-  ${breakpoints.small} {
+  @media (max-width: 375px) {
     font-size: 1em;
-  }
-
-  ${breakpoints.medium} {
-    font-size: 1.5em;
-  }
-
-  ${breakpoints.desktop} {
-    font-size: 2em;
   }
 `;
 

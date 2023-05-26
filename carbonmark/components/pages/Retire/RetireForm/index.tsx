@@ -176,7 +176,7 @@ export const RetireForm = (props: RetireFormProps) => {
                   <Category
                     category={project.methodologyCategory as CategoryName}
                   />
-                  <Registry projectKey={project.registry} />
+                  <Registry registry={project.registry} />
                 </div>
               </div>
             ) : (
