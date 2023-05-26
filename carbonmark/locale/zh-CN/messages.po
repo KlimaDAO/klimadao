@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-26 19:50+0000\n"
+"POT-Creation-Date: 2023-05-26 20:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -176,6 +176,10 @@ msgstr "创建个人资料"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+msgid "Create your own retirement"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "已创建："
@@ -212,14 +216,6 @@ msgstr "编辑个人资料"
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
 msgstr "能源效率"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
-msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr "每个 Carbonmark 碳停用都与经过验证的抵消项目相关联。单击以了解有关该项目的更多信息。"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "在 carbon.klimadao.finance 上探索 MCO2"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
@@ -277,6 +273,10 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "最新优先"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+msgid "Learn More"
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
@@ -294,10 +294,6 @@ msgstr "正在加载您的资产"
 #: components/SpinnerWithLabel/index.tsx:15
 msgid "Loading..."
 msgstr "正在加载..."
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
-msgid "Location: {0}"
-msgstr "位置：{0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:7
@@ -317,10 +313,6 @@ msgstr "登出"
 msgid "Login"
 msgstr "登录"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
-msgid "MCO2 Token"
-msgstr "MCO2 代币"
-
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -334,10 +326,6 @@ msgstr "市场 | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "方法"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
-msgid "Methodology: {0}"
-msgstr "方法: {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -364,7 +352,7 @@ msgstr "未找到此项目的列表。"
 msgid "No project description found"
 msgstr "未找到项目描述"
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
 msgstr "未提供碳停用信息"
 
@@ -433,7 +421,7 @@ msgstr ""
 msgid "Privacy policy"
 msgstr "隐私政策"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:148
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
 msgstr "处理数据..."
 
@@ -648,6 +636,10 @@ msgstr "用户指南"
 msgid "User Profile | Carbonmark"
 msgstr "用户资料 | Carbonmark"
 
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
+msgid "View Carbonmark Profile"
+msgstr ""
+
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
@@ -659,10 +651,6 @@ msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
-msgid "View on Polygonscan"
-msgstr "在 Polygonscan 上查看"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -684,7 +672,7 @@ msgstr "最早的历史减排效益"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此页面以查看您的收据。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常需要几秒钟，但如果网络拥塞，可能需要更长时间。"
 
@@ -1028,85 +1016,129 @@ msgstr "请组合使用不同的过滤器。"
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
-#: components/pages/Retirements/Footer/index.tsx:18
-msgid "retirement.footer.aboutCarbonmark.left"
-msgstr "Carbonmark 是一个碳市场的一体化平台。该平台拥有数百万的碳信用额度，允许用户快速挂牌、获取和抵消数字碳信用额度，无需额外费用。"
-
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutCarbonmark.right"
-msgstr "Carbonmark 旨在减少进入数字碳市场的障碍，并鼓励市场参与者能够更好地相互交流。在我们的 <0> 资源 </0>页中了解更多。"
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:11
-msgid "retirement.footer.aboutCarbonmark.title"
+msgid "retirement.footer.about_carbonmark.title"
 msgstr "关于 Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaDescription"
 msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:253
-msgid "retirement.share.title"
-msgstr "分享您的影响力"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+msgid "retirement.single.asset_retired.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:178
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+msgid "retirement.single.beneficiary.address.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "未提供受益人姓名"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:172
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
 msgid "retirement.single.beneficiary.title"
-msgstr "受益人"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:186
-msgid "retirement.single.beneficiaryAddress.title"
-msgstr "受益人地址"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+msgid "retirement.single.beneficiary_address.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:233
-msgid "retirement.single.disclaimer"
-msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。此停用和相关数据是不可变的公共记录。"
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+msgid "retirement.single.country_region.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "下载PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
-msgid "retirement.single.header.subline"
-msgstr "二氧化碳当量排放抵消（公吨）"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+msgid "retirement.single.immutable_public_records.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
-msgstr "停用消息"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+msgid "retirement.single.methodology.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.official_certificate.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+msgid "retirement.single.project.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+msgid "retirement.single.project_description.title"
+msgstr "描述"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.project_details.title"
 msgstr "项目详情"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.quantity"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+msgid "retirement.single.project_name.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
 msgstr "停用的数量"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:207
-msgid "retirement.single.retirementCertificate.title"
-msgstr "证书"
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
+msgid "retirement.single.share_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
-msgid "retirement.single.retirementDate.title"
-msgstr "日期"
-
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供碳停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:286
-msgid "retirement.single.view_on_polygon_scan"
-msgstr "在 Polygonscan 上查看"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+msgid "retirement.single.transaction_id.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+msgid "retirement.single.transaction_id.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+msgid "retirement.single.transaction_record.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+msgid "retirement.single.type.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+msgid "retirement.single.vintage.title"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1173,7 +1205,7 @@ msgstr "登录/连接购买"
 msgid "shared.head.description"
 msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
 msgid "shared.loading"
 msgstr "正在加载..."
 
@@ -1347,11 +1379,3 @@ msgstr "{0} | 简介 | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "为项目 {0} 购买了 {amount} 吨"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
-msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr "{trimCurrentSupply} 剩余吨数"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr "{trimTotalRetired} 总停用吨数"

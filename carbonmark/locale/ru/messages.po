@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-26 19:50+0000\n"
+"POT-Creation-Date: 2023-05-26 20:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -176,6 +176,10 @@ msgstr "Создать профиль"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Создавайте и редактируйте объявления, а также отслеживайте свою активность с помощью профиля Carbonmark."
 
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+msgid "Create your own retirement"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "Создан:"
@@ -212,14 +216,6 @@ msgstr "Редактировать профиль"
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
 msgstr "Энергоэффективность"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
-msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr "Каждое выбивание углерода KlimaDAO привязана к проверенному проекту компенсации. Нажмите, чтобы узнать больше о проекте."
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "Узнайте больше о MCO2 на сайте carbon.klimadao.finance"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
@@ -277,6 +273,10 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Последние Первые"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+msgid "Learn More"
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
@@ -294,10 +294,6 @@ msgstr "Загрузка ваших активов"
 #: components/SpinnerWithLabel/index.tsx:15
 msgid "Loading..."
 msgstr "Загрузка..."
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
-msgid "Location: {0}"
-msgstr "Местоположение: {0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:7
@@ -317,10 +313,6 @@ msgstr "Выйти"
 msgid "Login"
 msgstr "Авторизоваться"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
-msgid "MCO2 Token"
-msgstr "Токен MCO2"
-
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -334,10 +326,6 @@ msgstr "Торговая площадка | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "Методология"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
-msgid "Methodology: {0}"
-msgstr "Методология: {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -364,7 +352,7 @@ msgstr "Не найдено объявлений для этого проект�
 msgid "No project description found"
 msgstr "Описание проекта не найдено"
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
 msgstr "Сообщение о выводе не предоставляется."
 
@@ -431,7 +419,7 @@ msgstr "Политика конфиденциальности"
 msgid "Privacy policy"
 msgstr "Политика конфиденциальности"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:148
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
 msgstr "Обработка данных..."
 
@@ -646,6 +634,10 @@ msgstr "Руководства пользователя"
 msgid "User Profile | Carbonmark"
 msgstr "Профиль пользователя | Carbonmark"
 
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
+msgid "View Carbonmark Profile"
+msgstr ""
+
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
@@ -657,10 +649,6 @@ msgstr "Просмотрите полный обзор цифрового угл
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
-msgid "View on Polygonscan"
-msgstr "Посмотреть на Polygonscan"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -682,7 +670,7 @@ msgstr "Старейшие Винтаж"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "Мы все еще обрабатываем вашу успешную покупку. Пожалуйста, посетите эту страницу снова через несколько минут, чтобы увидеть вашу квитанцию"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Мы еще не закончили обработку данных блокчейна для этого вывода. Обычно это занимает несколько секунд, но может занять больше времени, если сеть перегружена."
 
@@ -1026,85 +1014,129 @@ msgstr "Пожалуйста, используйте другую комбина
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Проверьте свой запрос на наличие опечаток или попробуйте другой поисковый запрос."
 
-#: components/pages/Retirements/Footer/index.tsx:18
-msgid "retirement.footer.aboutCarbonmark.left"
-msgstr "Carbonmark — это универсальная платформа для углеродных рынков. Имея миллионы доступных углеродных кредитов, платформа позволяет пользователям быстро перечислять, приобретать и компенсировать цифровые углеродные кредиты без дополнительных комиссий."
-
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutCarbonmark.right"
-msgstr "Цель Carbonmark - снизить барьеры для входа на цифровой углеродный рынок и предоставить участникам рынка возможность лучше взаимодействовать друг с другом. Узнайте больше на нашей странице <0>ресурсы</0>."
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:11
-msgid "retirement.footer.aboutCarbonmark.title"
+msgid "retirement.footer.about_carbonmark.title"
 msgstr "О Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} изъято из эксплуатации {formattedAmount} тонн углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "retirement.head.title"
 msgstr "Карбонмарк | Квитанция о выводе"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:253
-msgid "retirement.share.title"
-msgstr "Поделитесь своим влиянием"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+msgid "retirement.single.asset_retired.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:178
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+msgid "retirement.single.beneficiary.address.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Имя получателя не указано"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:172
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
 msgid "retirement.single.beneficiary.title"
-msgstr "Бенефициар"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:186
-msgid "retirement.single.beneficiaryAddress.title"
-msgstr "Адрес получателя"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+msgid "retirement.single.beneficiary_address.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:233
-msgid "retirement.single.disclaimer"
-msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+msgid "retirement.single.country_region.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "Скачать PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
-msgid "retirement.single.header.subline"
-msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+msgid "retirement.single.immutable_public_records.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
-msgstr "Сообщение о использовании"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+msgid "retirement.single.methodology.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.official_certificate.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+msgid "retirement.single.project.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+msgid "retirement.single.project_description.title"
+msgstr "Описание"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.project_details.title"
 msgstr "Детали проекта"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.quantity"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+msgid "retirement.single.project_name.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:207
-msgid "retirement.single.retirementCertificate.title"
-msgstr "Сертификат"
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
+msgid "retirement.single.share_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
-msgid "retirement.single.retirementDate.title"
-msgstr "Дата"
-
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:286
-msgid "retirement.single.view_on_polygon_scan"
-msgstr "Посмотреть на Polygonscan"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+msgid "retirement.single.transaction_id.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+msgid "retirement.single.transaction_id.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+msgid "retirement.single.transaction_record.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+msgid "retirement.single.type.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+msgid "retirement.single.vintage.title"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1171,7 +1203,7 @@ msgstr "Войти / Подключиться, чтобы купить"
 msgid "shared.head.description"
 msgstr "Стимулируйте действия по защите климата и получайте вознаграждения с цифровой валютой обеспеченной реальными углеродными активами."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
 msgid "shared.loading"
 msgstr "Загрузка..."
 
@@ -1345,11 +1377,3 @@ msgstr "{0} | Профиль | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} тонн было закуплено для проекта {0}"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
-msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr "{trimCurrentSupply} Оставшиеся тонны"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr "{trimTotalRetired} Всего выбыло тонн"

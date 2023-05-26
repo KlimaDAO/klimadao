@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-26 19:50+0000\n"
+"POT-Creation-Date: 2023-05-26 20:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -176,6 +176,10 @@ msgstr "प्रोफ़ाइल बनाएँ"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "सूची बनाएँ और संपादित करें, और अपनी Carbonmark प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
 
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+msgid "Create your own retirement"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
 msgstr "बन गई:"
@@ -212,14 +216,6 @@ msgstr "प्रोफ़ाइल संपादित करें"
 #: lib/getCategoryInfo.ts:71
 msgid "Energy Efficiency"
 msgstr "ऊर्जा दक्षता"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
-msgid "Every Carbonmark retirement is tied to a verified offset project. Click to learn more about the project."
-msgstr "प्रत्येक KlimaDAO रिटायरमेंट एक सत्यापित ऑफ़सेट प्रॉजेक्ट से जुड़ा हुआ है। इस प्रॉजेक्ट के बारे में और जानने के लिए क्लिक करें।"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:68
-msgid "Explore MCO2 on carbon.klimadao.finance"
-msgstr "MCO2 को Carbon.klimadao.finance पर एक्सप्लोर करें"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
@@ -277,6 +273,10 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "नवीनतम पहले"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+msgid "Learn More"
+msgstr ""
+
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
@@ -294,10 +294,6 @@ msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 #: components/SpinnerWithLabel/index.tsx:15
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
-msgid "Location: {0}"
-msgstr "स्थान:{0}"
 
 #: components/Layout/NavDrawer/index.tsx:54
 #: components/LoginButton/index.tsx:7
@@ -317,10 +313,6 @@ msgstr "लॉग आउट"
 msgid "Login"
 msgstr "लॉग इन करें"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
-msgid "MCO2 Token"
-msgstr "MCO2 टोकन"
-
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -334,10 +326,6 @@ msgstr "मार्केटप्लेस | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
-msgid "Methodology: {0}"
-msgstr "कार्यप्रणाली: {0}"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -364,7 +352,7 @@ msgstr "इस प्रॉजेक्ट हेतु कोई सूची �
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:23
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
 msgstr "कोई रिटायरमेंट संदेश प्रदान नहीं किया गया"
 
@@ -431,7 +419,7 @@ msgstr "गोपनीयता नीति"
 msgid "Privacy policy"
 msgstr "गोपनीयता नीति"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:148
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
 msgstr "डेटा प्रोसेसिंग..."
 
@@ -646,6 +634,10 @@ msgstr "उपयोगकर्त्ता मार्गदर्शिक�
 msgid "User Profile | Carbonmark"
 msgstr "यूज़र प्रोफ़ाइल | Carbonmark"
 
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
+msgid "View Carbonmark Profile"
+msgstr ""
+
 #: components/pages/Project/index.tsx:210
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
@@ -657,10 +649,6 @@ msgstr "अपने पोर्टफ़ोलियो में अपने �
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Carbonmark पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
-msgid "View on Polygonscan"
-msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -682,7 +670,7 @@ msgstr "विंटेज प्राचीनतम"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "हम अभी आपकी सफल ख़रीदारी को प्रोसेस ही कर रहे हैं। अपनी रसीद देखने के लिए कृपया कुछ मिनटों में इस पृष्ठ पर वापस आएँ।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "हमने इस रिटायरमेन्ट के लिए ब्लॉकचेन डेटा प्रोसेसिंग अभी ख़त्म नहीं की है। इसमें आमतौर पर कुछ सेकंड लगते हैं, लेकिन नेटवर्क में ट्रैफ़िक होने पर इसमें अधिक समय लग जाता है।"
 
@@ -1026,85 +1014,129 @@ msgstr "कृपया किसी भिन्न फ़िल्टर क�
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
-#: components/pages/Retirements/Footer/index.tsx:18
-msgid "retirement.footer.aboutCarbonmark.left"
-msgstr "Carbonmark कार्बन बाज़ारों के लिए एक ऑल-इन-वन प्लैटफ़ॉर्म है। इस पर लाखों कार्बन क्रेडिट उपलब्ध होने के साथ, यह प्लैटफ़ॉर्म उपयोगकर्त्ताओं को बिना किसी अतिरिक्त शुल्क के डिजिटल कार्बन क्रेडिट जल्दी से सूचीबद्ध करने, प्राप्त करने और ऑफ़सेट करने देता है।"
-
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutCarbonmark.right"
-msgstr "Carbonmark का उद्देश्य डिजिटल कार्बन मार्केट में प्रवेश-संबंधी बाधाओं को कम करना और बाज़ार सहभागियों को एक-दूसरे के साथ बेहतर आदान-प्रदान करने के लिए समर्थ बनाना है। हमारे <0>resources</0> पृष्ठ पर और जानकारी प्राप्त करें।"
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:11
-msgid "retirement.footer.aboutCarbonmark.title"
+msgid "retirement.footer.about_carbonmark.title"
 msgstr "Carbonmark के बारे में"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaDescription"
 msgstr "Carbonmark द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्बन"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "retirement.head.title"
 msgstr "Carbonmark | Carbon रिटायरमेंट रसीद"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:253
-msgid "retirement.share.title"
-msgstr "अपना प्रभाव साझा करें"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
+msgid "retirement.single.asset_retired.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:178
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
+msgid "retirement.single.beneficiary.address.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "कोई लाभार्थी-नाम प्रदान नहीं किया गया"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:172
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
 msgid "retirement.single.beneficiary.title"
-msgstr "लाभार्थी का नाम"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:186
-msgid "retirement.single.beneficiaryAddress.title"
-msgstr "लाभार्थी का पता"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
+msgid "retirement.single.beneficiary_address.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:233
-msgid "retirement.single.disclaimer"
-msgstr "यह Polygon (पॉलीगॉन) ब्लॉकचेन पर टोकनयुक्त कार्बन परिसंपत्तियों के स्थायी रिटायरमेंट को इंगित करता है। यह रिटायरमेंट और संबंधित डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
+msgid "retirement.single.carbon_credit_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+msgid "retirement.single.country_region.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
 msgstr "PDF डाउनलोड करें"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
-msgid "retirement.single.header.subline"
-msgstr "CO2-समतुल्य उत्सर्जन ऑफ़सेट (मीट्रिक टन में)"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+msgid "retirement.single.immutable_public_records.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
-msgstr "रिटायरमेंट सन्देश"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+msgid "retirement.single.methodology.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.official_certificate.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+msgid "retirement.single.project.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+msgid "retirement.single.project_description.title"
+msgstr "विवरण"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.project_details.title"
 msgstr "प्रॉजेक्ट का विवरण"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.quantity"
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+msgid "retirement.single.project_name.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
+msgid "retirement.single.proof_of.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
+msgid "retirement.single.quantity.title"
 msgstr "रिटायर की गयी मात्रा"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:207
-msgid "retirement.single.retirementCertificate.title"
-msgstr "प्रमाणपत्र"
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
+msgid "retirement.single.share_retirement.title"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
-msgid "retirement.single.retirementDate.title"
-msgstr "दिनांक"
-
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
 msgstr "कोई रिटायरमेंट टाइमस्टैम्प प्रदान नहीं किया गया"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:286
-msgid "retirement.single.view_on_polygon_scan"
-msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
+msgid "retirement.single.transaction_id.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
+msgid "retirement.single.transaction_id.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
+msgid "retirement.single.transaction_record.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+msgid "retirement.single.type.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
+msgid "retirement.single.verified_tonnes.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+msgid "retirement.single.vintage.title"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1171,7 +1203,7 @@ msgstr "साइन इन / कनेक्ट टु बाय"
 msgid "shared.head.description"
 msgstr "क्लआीमेट ऐक्शन प्रयत्न करें और कार्बन-समर्थित डिजिटल मुद्रा के रूप में पुरस्कार अर्जित करें।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
@@ -1345,11 +1377,3 @@ msgstr "{0} | प्रोफ़ाइल | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} टन {0} प्रॉजेक्ट के लिए ख़रीदे गए थे"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
-msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr "{trimCurrentSupply} टन शेष"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr "{trimTotalRetired} कुल रिटायर किए गए कार्बन टन"

@@ -279,7 +279,7 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Latest First"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "Learn More"
 msgstr "Learn More"
 
@@ -640,7 +640,7 @@ msgstr "User Guides"
 msgid "User Profile | Carbonmark"
 msgstr "User Profile | Carbonmark"
 
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:43
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
@@ -1072,7 +1072,7 @@ msgstr "Country/Region:"
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:85
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
 msgid "retirement.single.immutable_public_records.title"
 msgstr "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records."
 
@@ -1084,7 +1084,7 @@ msgstr "Retirement Message:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodology:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
 msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbonmark.com</0>"
 
@@ -1092,15 +1092,15 @@ msgstr "Official Certificate for On-Chain Carbon Retirement Provided by <0>Carbo
 msgid "retirement.single.project.title"
 msgstr "Project:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:49
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
 msgid "retirement.single.project_description.title"
 msgstr "Description"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:29
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:40
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
 msgid "retirement.single.project_name.title"
 msgstr "Project Name"
 
