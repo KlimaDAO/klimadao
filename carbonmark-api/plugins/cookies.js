@@ -9,5 +9,5 @@
 // module.exports = fp(async function (fastify, opts) {
 //     fastify.register(fastifyCookie);
 //     // fastify.register(fastifySession, {secret: 'env_key'});
-   
+
 // })
