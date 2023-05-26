@@ -51,16 +51,6 @@ export const RetireInputs: FC<Props> = (props) => {
           person or organization.
         </Text>
 
-        <InputField
-          id="projectAddress"
-          inputProps={{
-            type: "hidden",
-            ...register("projectAddress"),
-          }}
-          label={"Project Address"}
-          hideLabel
-        />
-
         <div className={styles.labelWithInput}>
           <div className={styles.quantityLabel}>
             <Text>{t`How many tonnes of carbon would you like to retire?`}</Text>
