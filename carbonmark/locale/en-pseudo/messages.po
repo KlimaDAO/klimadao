@@ -34,7 +34,7 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:200
+#: components/pages/Retire/RetireForm/index.tsx:203
 msgid "<0>* </0> Required Field"
 msgstr ""
 
@@ -76,11 +76,11 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:21
+#: components/pages/Retire/RetirementSidebar/index.tsx:23
 msgid "Asset Details"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:25
+#: components/pages/Retire/RetirementSidebar/index.tsx:27
 msgid "Asset ID"
 msgstr ""
 
@@ -90,6 +90,14 @@ msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:36
+msgid "Available to retire"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:36
+msgid "Available to retire"
 msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
@@ -302,7 +310,7 @@ msgid ""
 "to acquire USDC on Polygon."
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:85
+#: components/pages/Portfolio/AssetProject/index.tsx:81
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr ""
@@ -519,7 +527,7 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:186
+#: components/pages/Retire/RetireForm/index.tsx:189
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
@@ -585,6 +593,10 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr ""
 
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+msgid "TESTING RETIRE"
+msgstr ""
+
 #: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr ""
@@ -597,7 +609,7 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:192
+#: components/pages/Retire/RetireForm/index.tsx:195
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr ""
 
@@ -702,7 +714,7 @@ msgstr ""
 msgid "View and share certificate"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:40
+#: components/pages/Retire/RetirementSidebar/index.tsx:49
 msgid "View on PolygonScan <0/>"
 msgstr ""
 
@@ -905,43 +917,43 @@ msgstr ""
 msgid "menu.profile"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:208
+#: components/pages/Retire/RetireForm/index.tsx:211
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:218
+#: components/pages/Retire/RetireForm/index.tsx:221
 msgid "offset.amount_in_tonnes_2"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:305
+#: components/pages/Retire/RetireForm/index.tsx:308
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:233
+#: components/pages/Retire/RetireForm/index.tsx:236
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:386
+#: components/pages/Retire/RetireForm/index.tsx:391
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:280
+#: components/pages/Retire/RetireForm/index.tsx:283
 msgid "offset.retirement_beneficiary_address"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:263
+#: components/pages/Retire/RetireForm/index.tsx:266
 msgid "offset.retirement_beneficiary_name"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:251
+#: components/pages/Retire/RetireForm/index.tsx:254
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:314
+#: components/pages/Retire/RetireForm/index.tsx:317
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:325
+#: components/pages/Retire/RetireForm/index.tsx:328
 msgid "offset.retirement_retirement_message"
 msgstr ""
 
@@ -949,7 +961,7 @@ msgstr ""
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:343
+#: components/pages/Retire/RetireForm/index.tsx:347
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -1122,11 +1134,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:364
+#: components/pages/Retire/RetireForm/index.tsx:368
 msgid "retire.back_button"
 msgstr ""
 
-#: components/pages/Retire/RetireForm/index.tsx:355
+#: components/pages/Retire/RetireForm/index.tsx:359
 msgid "retire.submit_button"
 msgstr ""
 
@@ -1392,7 +1404,7 @@ msgstr ""
 msgid "transaction_modal.approve.price"
 msgstr ""
 
-#: components/Transaction/index.tsx:86
+#: components/Transaction/index.tsx:85
 msgid "transaction_modal.button.go_back"
 msgstr ""
 
@@ -1428,11 +1440,11 @@ msgstr ""
 msgid "transaction_modal.submit.price"
 msgstr ""
 
-#: components/Transaction/index.tsx:46
+#: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr ""
 
-#: components/Transaction/index.tsx:56
+#: components/Transaction/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr ""
 
@@ -1518,7 +1530,7 @@ msgstr ""
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:29
+#: components/pages/Retire/RetirementSidebar/index.tsx:31
 msgid "{tokenSymbol}"
 msgstr ""
 
