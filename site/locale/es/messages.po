@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-25 16:16+0000\n"
+"POT-Creation-Date: 2023-05-26 19:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -663,7 +663,7 @@ msgstr "500 - Página no encontrada"
 
 #: components/pages/Home/index.tsx:209
 msgid "home.benefits"
-msgstr ""
+msgstr "BENEFICIOS"
 
 #: components/pages/Home/index.tsx:330
 msgid "home.cars_annual"
@@ -672,7 +672,7 @@ msgstr "automóvil (anual)"
 #. Long sentence
 #: components/pages/Home/index.tsx:162
 msgid "home.developed_by_klima"
-msgstr ""
+msgstr "Desarrollado por KlimaDAO, el Mercado Digital del Carbono (MCD) permite ampliar la financiación de la lucha contra el cambio climático, con más de 4.000 millones de dólares negociados hasta la fecha. Explore el DCM a través de <0>Carbonmark.com</0> -el mercado universal- y el <1>Carbon Dashboard</1>."
 
 #: components/pages/Home/index.tsx:299
 msgid "home.equivalent_to"
@@ -692,7 +692,7 @@ msgstr "Obtener KLIMA"
 
 #: components/pages/Home/index.tsx:387
 msgid "home.govern_the_market"
-msgstr ""
+msgstr "Gobernemos el mercado, por el planeta"
 
 #: components/pages/Home/index.tsx:313
 msgid "home.hectares_of_forest"
@@ -701,12 +701,12 @@ msgstr "hectáreas de bosque"
 #. Long sentence
 #: components/pages/Home/index.tsx:405
 msgid "home.join_over_100k_members"
-msgstr ""
+msgstr "Únase a los más de 100.000 miembros que poseen el token $KLIMA, utilizándolo para administrar los recursos de KlimaDAO y hacer crecer el Mercado Digital del Carbono."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:212
 msgid "home.klima_is_creating"
-msgstr ""
+msgstr "KlimaDAO está creando una base social y tecnológica pública y de código abierto para dar forma al futuro de los mercados del carbono."
 
 #: components/pages/Home/index.tsx:81
 msgid "home.latest_news"
@@ -722,7 +722,7 @@ msgstr "litros de gasolina"
 
 #: components/pages/Home/index.tsx:253
 msgid "home.neutral_and_trusted"
-msgstr ""
+msgstr "Neutral y de confianza"
 
 #: components/pages/Home/index.tsx:473
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -747,12 +747,12 @@ msgstr "Boletin informativo"
 
 #: components/pages/Home/index.tsx:273
 msgid "home.public_and_open-source"
-msgstr ""
+msgstr "Público y de código abierto"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:152
 msgid "home.public_good_for_the_planet"
-msgstr ""
+msgstr "Bien público para el planeta"
 
 #: components/pages/Home/index.tsx:451
 msgid "home.see_tutorial"
@@ -765,21 +765,21 @@ msgstr "Fuente"
 #. Long sentence
 #: components/pages/Home/index.tsx:422
 msgid "home.take_climate_action_now"
-msgstr ""
+msgstr "Actúa ahora contra el cambio climático utilizando <0>Carbonmark</0> para comprar, vender o retirar carbono digital."
 
 #. TONNES OF <0>CARBON HELD</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:286
 msgid "home.tonnes_of_carbon_held_by_klimadao"
-msgstr ""
+msgstr "TONELADAS DE <0>CARBONO RETENIDAS</0> POR KLIMADAO"
 
 #: components/pages/Home/index.tsx:233
 msgid "home.transparent_and_efficient"
-msgstr ""
+msgstr "Transparente y eficaz"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:105
 msgid "home.transparent_neutral"
-msgstr ""
+msgstr "Recursos públicos transparentes y neutrales para acelerar la financiación de la lucha contra el cambio climático a escala mundial."
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:92
@@ -1801,7 +1801,7 @@ msgstr "Carbonmark"
 
 #: components/pages/Home/index.tsx:192
 msgid "shared.carbonmark_cta"
-msgstr ""
+msgstr "COMPENSA TU HUELLA"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:232
@@ -1835,7 +1835,7 @@ msgstr "Contáctenos"
 
 #: components/pages/Home/index.tsx:185
 msgid "shared.dcm_cta"
-msgstr ""
+msgstr "EXPLORE EL DCM"
 
 #: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105

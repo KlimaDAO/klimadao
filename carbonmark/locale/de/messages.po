@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-25 16:16+0000\n"
+"POT-Creation-Date: 2023-05-26 19:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -591,7 +591,7 @@ msgstr "Dieses Produkt befindet sich noch in der Betaphase und Audits sind noch 
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:145
 msgid "To purchase this project using a different form of payment,"
-msgstr ""
+msgstr "Um dieses Projekt mit einer anderen Zahlungsmethode zu kaufen,"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 msgid "Toggle payment method"
@@ -664,7 +664,7 @@ msgstr "Auf Polygonscan ansehen"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
-msgstr ""
+msgstr "Projektdetails und weitere Informationen über diesen Kauf ansehen."
 
 #: components/ProjectFilterModal/index.tsx:133
 msgid "Vintage"
@@ -751,7 +751,7 @@ msgstr ""
 
 #: components/Layout/index.tsx:76
 msgid "connectModal.torus"
-msgstr ""
+msgstr "Social- oder E-Mail-Login"
 
 #: components/Layout/index.tsx:80
 msgid "connectModal.wallet"
@@ -787,7 +787,7 @@ msgstr "Im ersten Schritt bewilligen Sie den Asset-Transfer aus Ihrer Wallet zu 
 
 #: components/CreateListing/index.tsx:137
 msgid "create.approval_3"
-msgstr ""
+msgstr "Sie können Ihren aktiven Eintrag jederzeit entfernen. Das Asset wird danach automatisch zurück in Ihre Wallet transferiert."
 
 #: components/CreateListing/index.tsx:143
 msgid "create.approval_4"
@@ -803,11 +803,11 @@ msgstr "Um den Transfer des Assets zu Carbonmark abzuschließen und Ihren Eintra
 
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
-msgstr ""
+msgstr "Eintrag erstellt"
 
 #: components/Activities/Activities.constants.ts:7
 msgid "deleted listing"
-msgstr ""
+msgstr "Eintrag gelöscht"
 
 #: components/pages/Project/Purchase/Price.tsx:18
 msgid "each"
@@ -815,7 +815,7 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:177
 msgid "edit_listing.approval_1"
-msgstr ""
+msgstr "Sie sind dabei, das Eigentumsrecht an diesem Asset von ihrer Wallet an Carbonmark zu übertragen."
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "edit_listing.approval_2"
@@ -871,7 +871,7 @@ msgstr "Neuen Eintrag erstellen"
 
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
-msgstr ""
+msgstr "Sie müssen ein Profil erstellen, um verkaufen zu können. Klicken Sie oben auf \"Profil erstellen\", um zu beginnen."
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
@@ -951,7 +951,7 @@ msgstr "Preis ist erforderlich"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:103
 msgid "purchase.loading.allowance.error"
-msgstr ""
+msgstr "Beim Laden des Guthabens ist etwas schiefgelaufen"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:66
 msgid "purchase.submit_1"
@@ -1189,7 +1189,7 @@ msgstr "Sortieren nach:"
 
 #: components/Activities/Activities.constants.ts:9
 msgid "sold to"
-msgstr ""
+msgstr "Verkauft an"
 
 #: components/CreateListing/index.tsx:198
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:279
@@ -1266,11 +1266,11 @@ msgstr "2. Absenden"
 
 #: components/Activities/Activities.constants.ts:10
 msgid "updated price"
-msgstr ""
+msgstr "Aktualisierter Preis"
 
 #: components/Activities/Activities.constants.ts:11
 msgid "updated quantity"
-msgstr ""
+msgstr "Aktualisierte Menge"
 
 #: components/Activities/index.tsx:29
 msgid "user.activities.empty_state"
