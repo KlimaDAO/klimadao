@@ -1,15 +1,32 @@
-# NextJS Retirement Aggregator Integration
+# NextJS Example Integrations
 
-In this example we demonstrate how to add carbon offset retirements to a NextJS application.
+This application demonstrates how easy it is to add carbon credit retirements (aka offsets) to any application.
 
-In this demo application, 1 gram of carbon is offset every time the user clicks the "Offset Carbon" button. The user can also specify the carbon project to retire, and attach a retirement message and beneficiary name.
+In this demo webapp, 1 kilogram of carbon is retired every time the user clicks a button. The user can specify the carbon project to retire, and attach a retirement message and beneficiary name. Retirements are created in real-time at the current market rate, as determined by supply & demand in public carbon liquidity pools. All the project data, prices and retirements you see here are powered by public, open-source infrastructure.
 
-Retirements are created in real-time at the going market rate, plus a 1% network fee for the KlimaDAO Retirement Aggregator. This is an example of a 'self-service' approach, where the cost of the retirement is deducted from a wallet that is pre-funded with USDC (to pay for the retirements) and MATIC (to pay for the Polygon network transaction gas). It is up to the developer to ensure the wallet is funded, and handle failed transactions.
+**🏷️ COMING SOON:**
 
-# Overview
+We will update this example to demonstrate how you can:
 
-1. When the user clicks 'submit', a POST is sent to a NextJS API route (a serverless function running on Vercel/AWS) with the retirement details.
-2. The API route validates and authenticates the request.
-3. Wallet credentials (`BIP39 Mnemonic` i.e. a "Seed Phrase") are exposed to the server runtime as an environment variable, and used to instantiate a wallet with Ethers.js.
-4. Ethers.js signs the retirement transaction and broadcasts it to the Polygon network.
-5. When the transaction is completed, Carbonmark generates a retirement certificate page which can be shared with the user.
+- [ ] Choose a specific listing from a seller on Carbonmark.com and retire it at a fixed price from your application.
+- [ ] Pay for your carbon retirements with a credit card, powered by the Provide.services ECO API.
+
+## Application Overview
+
+This application contains a few interesting code snippets
+
+### Fetch project details from carbonmark.com
+
+Note: the carbonmark APIs used here are in beta and are expected to change.
+
+### Fetch real time carbon prices
+
+Leverage the KlimaDAO Retirement Aggregator directly to fetch real time price information.
+
+### Execute transactions directly, from a serverless function
+
+Using NextJS Route Handlers, we create a [Vercel serverless function](https://vercel.com/docs/concepts/functions/serverless-functions/quickstart). The serverless function controls a wallet, which is used to execute the carbon retirement transactions.
+
+### Retire carbon using the Provide ECO API
+
+**🏷️**COMING SOON

@@ -1,3 +1,7 @@
+/**
+ * This interface is incomplete and subject to change in the near future.
+ * More complete types and carbonmark API documentation will be published in the near future.
+ */
 export interface ProjectInfo {
   /**
    * [registry]-[projectID]-[vintage]
@@ -37,6 +41,10 @@ export interface ProjectInfo {
  * At the moment, CORS blocks browser requests, so this is a server-only function.
  * */
 export async function fetchProjectInfo(
+  /**
+   * {REGISTRY_KEY}-{PROJECT_ID}-{VINTAGE}
+   * @example "VCS-191-2009"
+   * */
   project_key: string
 ): Promise<ProjectInfo> {
   const res = await fetch(

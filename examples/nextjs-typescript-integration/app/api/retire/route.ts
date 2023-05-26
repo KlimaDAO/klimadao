@@ -4,7 +4,7 @@ import { getStaticProvider } from "@/utils/getStaticProvider";
 import { getTokenInfo } from "@/utils/getTokenInfo";
 import { isDefaultProjectAddress } from "@/utils/isDefaultProjectAddress";
 import { validateReqBody } from "@/utils/validateReqBody";
-import { TransactionReceipt, Wallet, parseUnits } from "ethers";
+import { parseUnits, TransactionReceipt, Wallet } from "ethers";
 import { NextResponse } from "next/server";
 
 enum TransferMode {
@@ -18,11 +18,13 @@ enum TransferMode {
 const API_DEMO_WALLET_PHRASE = process.env.API_DEMO_WALLET_PHRASE;
 
 /**
- * The 'Self Service' DIY retirement demo.
- * In this example the wallet funds are managed by you. No credit card payments, invoices, or API credentials are required.
- * The application communicates directly with a smart contract on the Polygon blockchain.
- * The wallet is pre-funded with a balance of USDC tokens, which are used to pay for the carbon assets,
- * As well as MATIC tokens, which are used to pay for the gas fees (a few cents per txn).
+ * Execute transactions from a serverless function.
+ * In this example wallet funds are controlled by you.
+ * Don't want to deal with wallets, gas and blockchain transactions? See our Provide Services example integration instead.
+ *
+ * The application instantiates a wallet using a seed phrase, and then dispatches transactions to the Retirement Aggregator smart contract.
+ * The wallet is pre-funded with a balance of USDC tokens, which is used to pay for the carbon.
+ * The wallet also holds MATIC tokens, which are used to pay for the Polygon network fees (a few cents per txn).
  */
 export async function POST(req: Request) {
   try {
