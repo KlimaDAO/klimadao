@@ -140,7 +140,7 @@ export const RetireForm: FC<Props> = (props) => {
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
           signer: provider.getSigner(),
-          value: inputValues.totalPrice,
+          value: getApprovalValue(),
           onStatus: onUpdateStatus,
         }));
     } catch (e) {
