@@ -96,7 +96,7 @@ msgstr "Available supply exceeded"
 msgid "Available to retire"
 msgstr "Available to retire"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:54
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
 msgstr "Available: {0}"
 
@@ -108,7 +108,7 @@ msgstr "BETA"
 msgid "Back to Project"
 msgstr "Back to Project"
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr "Balance: {0}"
 
@@ -299,14 +299,6 @@ msgstr "KlimaDAO"
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
 msgstr "Latest First"
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
-msgid ""
-"Learn how\n"
-"to acquire USDC on Polygon."
-msgstr ""
-"Learn how\n"
-"to acquire USDC on Polygon."
 
 #: components/pages/Portfolio/AssetProject/index.tsx:81
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73

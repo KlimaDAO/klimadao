@@ -36,16 +36,17 @@ export const RetireModal: FC<Props> = (props) => {
 
   const [processingRetirement, setProcessingRetirement] = useState(false);
 
+  const statusType = props.status?.statusType;
+
   useEffect(() => {
-    if (
-      props.status?.statusType === "networkConfirmation" &&
-      txnView === "submit"
-    ) {
+    setTxnView(props.isApproved ? "submit" : "approve");
+  }, [props.isApproved]);
+
+  useEffect(() => {
+    if (statusType === "networkConfirmation" && txnView === "submit") {
       setProcessingRetirement(true);
     }
   }, [props.status, txnView]);
-
-  const statusType = props.status?.statusType;
 
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
@@ -134,7 +135,6 @@ export const RetireModal: FC<Props> = (props) => {
           onResetStatus={props.onResetStatus}
           approvalText={<RetireApproval />}
           submitText={<RetireSubmit />}
-          onViewChange={setTxnView}
           onGoBack={() => {
             props.onCloseModal();
             props.setStatus(null);

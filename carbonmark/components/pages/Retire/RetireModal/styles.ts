@@ -9,19 +9,9 @@ export const container = css`
   border-radius: 1.2rem;
 `;
 
-export const contentContainer = css`
-  display: grid;
-  gap: 2rem;
-
-  &.success {
-    opacity: 0.3;
-  }
-`;
-
 export const formatParagraph = css`
   p {
-    margin-bottom: 1em;
-    font-family: "DM Sans";
+    margin-bottom: 1.6rem;
   }
 `;
 

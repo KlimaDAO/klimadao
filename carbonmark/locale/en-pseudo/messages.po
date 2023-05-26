@@ -96,10 +96,6 @@ msgstr ""
 msgid "Available to retire"
 msgstr ""
 
-#: components/pages/Retire/RetirementSidebar/index.tsx:36
-msgid "Available to retire"
-msgstr ""
-
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
 msgstr ""
@@ -112,7 +108,7 @@ msgstr ""
 msgid "Back to Project"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:99
+#: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr ""
 
@@ -302,12 +298,6 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
-msgstr ""
-
-#: components/pages/Project/Purchase/PurchaseInputs.tsx:142
-msgid ""
-"Learn how\n"
-"to acquire USDC on Polygon."
 msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:81

@@ -20,7 +20,6 @@ interface Props {
   submitText?: React.ReactNode;
   onGoBack?: () => void;
   spenderAddress: string;
-  onViewChange?: (newView: "approve" | "submit") => void;
 }
 
 export const Transaction: FC<Props> = (props) => {
