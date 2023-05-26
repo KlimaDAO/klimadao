@@ -17,7 +17,7 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
   const { carbonmarkUser } = useFetchUser(props.beneficiaryAddress);
   return (
     <div className={styles.beneficiaryCard}>
-      {!!carbonmarkUser && (
+      {!!carbonmarkUser && !!carbonmarkUser.profileImgUrl && (
         <div className={styles.beneficiaryLogo}>
           <ProfileLogo
             isCarbonmarkUser={!!carbonmarkUser}
