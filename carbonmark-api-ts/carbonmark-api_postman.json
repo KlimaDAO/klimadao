@@ -1,0 +1,272 @@
+{
+    "info": {
+        "name": "carbonmark-api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getCategories",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/categories",
+                    "path": [
+                        "categories"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getUserByWallet",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/users/0X2091316A25C0829FDD2C05412EF2D3CA6CCEAF53?type=wallet",
+                    "query": [
+                        {
+                            "key": "type",
+                            "value": "wallet"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users",
+                        "0X2091316A25C0829FDD2C05412EF2D3CA6CCEAF53"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getUserByHandle",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/users/emc",
+                    "query": [
+                        {
+                            "key": "type",
+                            "value": "wallet",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users",
+                        "emc"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getCountries",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/countries",
+                    "path": [
+                        "countries"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getProject",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/projects?country=Indonesia,China&category=Renewable Energy&vintage=2019&search=150MW",
+                    "query": [
+                        {
+                            "key": "country",
+                            "value": "Indonesia,China"
+                        },
+                        {
+                            "key": "category",
+                            "value": "Renewable Energy"
+                        },
+                        {
+                            "key": "vintage",
+                            "value": "2019"
+                        },
+                        {
+                            "key": "search",
+                            "value": "150MW"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "projects"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getAllProjects",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/projects",
+                    "query": [
+                        {
+                            "key": "country",
+                            "value": "Indonesia",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "projects"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getVintages",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/vintages",
+                    "path": [
+                        "vintages"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "getPurchases",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/purchases/0xddd717b90d8f5fef7fe930ac850de72c8390d041520de1bf50c490042ba71fa9",
+                    "path": [
+                        "purchases",
+                        "0xddd717b90d8f5fef7fe930ac850de72c8390d041520de1bf50c490042ba71fa9"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "updateUserByWallet",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:3000/users/0X2091316A25C0829FDD2C05412EF2D3CA6CCEAF53",
+                    "path": [
+                        "users",
+                        "0X2091316A25C0829FDD2C05412EF2D3CA6CCEAF53"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"wallet\": \"0X2091316A25C0829FDD2C05412EF2D3CA6CCEAF53\",\n  \"description\": \"A test description\"\n}"
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/users/login",
+                    "path": [
+                        "users",
+                        "login"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"wallet\":\"0x3c121eb2177072f22c6edab8617cac2031128bf8\"\n}"
+                }
+            }
+        },
+        {
+            "name": "verify",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/users/login/verify",
+                    "path": [
+                        "users",
+                        "login",
+                        "verify"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"wallet\":\"0x3c121eb2177072f22c6edab8617cac2031128bf8\",\n  \"signature\":\"0x0286b55d752563c9d2bf559112a20c314de66ccc57e6339d8a8015c32d1c1b2344fed64403e12bbfb865ab975671e63dc8d20e75c78181eeb70ef9fe19a0e7f501\"\n}"
+                }
+            }
+        }
+    ]
+}
