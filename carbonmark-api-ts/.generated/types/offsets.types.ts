@@ -2840,6 +2840,24 @@ export type GetCarbonOffsetsVintagesQueryVariables = Exact<{ [key: string]: neve
 
 export type GetCarbonOffsetsVintagesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', vintageYear: string }> };
 
+export type GetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
+  key: Scalars['String'];
+  vintageStr?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+
+export type FindCarbonOffsetsQueryVariables = Exact<{
+  country?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+  category?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+  search?: InputMaybe<Scalars['String']>;
+  vintage?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+}>;
+
+
+export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: any, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+
 
 export const GetCarbonOffsetsCategoriesDocument = gql`
     query getCarbonOffsetsCategories {
@@ -2862,6 +2880,63 @@ export const GetCarbonOffsetsVintagesDocument = gql`
   }
 }
     `;
+export const GetCarbonOffsetsByProjectAndVintageDocument = gql`
+    query getCarbonOffsetsByProjectAndVintage($key: String!, $vintageStr: String) {
+  carbonOffsets(where: {projectID: $key, vintageYear: $vintageStr}) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    currentSupply
+    storageMethod
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}
+    `;
+export const FindCarbonOffsetsDocument = gql`
+    query findCarbonOffsets($country: [String!], $category: [String!], $search: String, $vintage: [String!]) {
+  carbonOffsets(
+    first: 1000
+    where: {methodologyCategory_in: $category, country_in: $country, name_contains_nocase: $search, vintageYear_in: $vintage}
+  ) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    storageMethod
+    lastUpdate
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -2873,6 +2948,12 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     getCarbonOffsetsVintages(variables?: GetCarbonOffsetsVintagesQueryVariables, options?: C): Promise<GetCarbonOffsetsVintagesQuery> {
       return requester<GetCarbonOffsetsVintagesQuery, GetCarbonOffsetsVintagesQueryVariables>(GetCarbonOffsetsVintagesDocument, variables, options) as Promise<GetCarbonOffsetsVintagesQuery>;
+    },
+    getCarbonOffsetsByProjectAndVintage(variables: GetCarbonOffsetsByProjectAndVintageQueryVariables, options?: C): Promise<GetCarbonOffsetsByProjectAndVintageQuery> {
+      return requester<GetCarbonOffsetsByProjectAndVintageQuery, GetCarbonOffsetsByProjectAndVintageQueryVariables>(GetCarbonOffsetsByProjectAndVintageDocument, variables, options) as Promise<GetCarbonOffsetsByProjectAndVintageQuery>;
+    },
+    findCarbonOffsets(variables?: FindCarbonOffsetsQueryVariables, options?: C): Promise<FindCarbonOffsetsQuery> {
+      return requester<FindCarbonOffsetsQuery, FindCarbonOffsetsQueryVariables>(FindCarbonOffsetsDocument, variables, options) as Promise<FindCarbonOffsetsQuery>;
     }
   };
 }

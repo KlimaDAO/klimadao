@@ -125,3 +125,86 @@ query getUserByWallet($wallet: Bytes) {
     }
   }
 }
+
+query getProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [BigInt!]
+) {
+  projects(
+    where: {
+      category_: { id_in: $category }
+      country_: { id_in: $country }
+      name_contains_nocase: $search
+      vintage_in: $vintage
+    }
+  ) {
+    id
+    key
+    projectID
+    name
+    vintage
+    projectAddress
+    registry
+    listings {
+      singleUnitPrice
+      leftToSell
+      active
+      deleted
+    }
+    country {
+      id
+    }
+    updatedAt
+  }
+}
+
+query getProjectsById($key: String, $vintageStr: BigInt) {
+  projects(where: { key: $key, vintage: $vintageStr }) {
+    id
+    key
+    projectID
+    name
+    vintage
+    projectAddress
+    registry
+    country {
+      id
+    }
+    listings {
+      id
+      seller {
+        id
+      }
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      batches
+      batchPrices
+      singleUnitPrice
+      createdAt
+      updatedAt
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      amount
+      previousAmount
+      price
+      previousPrice
+      timeStamp
+      activityType
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
+    }
+  }
+}
