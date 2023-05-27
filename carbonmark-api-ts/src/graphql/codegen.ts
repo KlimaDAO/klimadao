@@ -28,6 +28,11 @@ const config: CodegenConfig = {
       documents: "src/graphql/assets.gql",
       plugins,
     },
+    [`${GENERATED_DIR}/tokens.types.ts`]: {
+      schema: "https://api.thegraph.com/subgraphs/name/klimadao/klimadao-pairs",
+      documents: "src/graphql/tokens.gql",
+      plugins,
+    },
   },
 };
 
