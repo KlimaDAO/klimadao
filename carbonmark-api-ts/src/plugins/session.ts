@@ -1,5 +1,3 @@
-"use strict";
-
 import fc from "@fastify/cookie";
 import fs from "@mgcrea/fastify-session";
 import fp from "fastify-plugin";

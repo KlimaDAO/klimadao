@@ -1,5 +1,3 @@
-"use strict";
-
 import responseValidation from "@fastify/response-validation";
 import fp from "fastify-plugin";
 /**

@@ -37,23 +37,22 @@ export async function getAllVintages(fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const { data } = await executeGraphQLQuery<GetVintagesQuery>(
+  const { data: vintagesData } = await executeGraphQLQuery<GetVintagesQuery>(
     process.env.GRAPH_API_URL,
     GetVintagesDocument
   );
 
   const uniqueValues = new Set<string>();
 
-  data.projects.forEach((item) => uniqueValues.add(item.vintage));
+  vintagesData?.projects.forEach((item) => uniqueValues.add(item.vintage));
 
-  const pooldata = await executeGraphQLQuery<GetCarbonOffsetsVintagesQuery>(
-    process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    GetCarbonOffsetsVintagesDocument
-  );
+  const { data: poolData } =
+    await executeGraphQLQuery<GetCarbonOffsetsVintagesQuery>(
+      process.env.CARBON_OFFSETS_GRAPH_API_URL,
+      GetCarbonOffsetsVintagesDocument
+    );
 
-  pooldata.data.carbonOffsets.forEach((item) =>
-    uniqueValues.add(item.vintageYear)
-  );
+  poolData?.carbonOffsets.forEach((item) => uniqueValues.add(item.vintageYear));
 
   const result = Array.from(uniqueValues).sort();
 
@@ -74,24 +73,21 @@ export async function getAllCategories(fastify: FastifyInstance) {
   if (cachedResult) return cachedResult;
 
   // Fetch categories from the marketplace
-  const {
-    data: { categories },
-  } = await executeGraphQLQuery<GetCategoriesQuery>(
+  const { data: categoryData } = await executeGraphQLQuery<GetCategoriesQuery>(
     process.env.GRAPH_API_URL,
     GetCategoriesDocument
   );
   // Fetch carbon offsets categories
-  const {
-    data: { carbonOffsets },
-  } = await executeGraphQLQuery<GetCarbonOffsetsCategoriesQuery>(
-    process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    GetCarbonOffsetsCategoriesDocument
-  );
+  const { data: offsetData } =
+    await executeGraphQLQuery<GetCarbonOffsetsCategoriesQuery>(
+      process.env.CARBON_OFFSETS_GRAPH_API_URL,
+      GetCarbonOffsetsCategoriesDocument
+    );
 
   // Extract the required values from the fetched data
   const values = [
-    categories.map(extract("id")),
-    carbonOffsets.map(extract("methodologyCategory")),
+    categoryData?.categories.map(extract("id")),
+    offsetData?.carbonOffsets.map(extract("methodologyCategory")),
   ];
 
   // This function pipeline combines and deduplicates categories from different sources
@@ -133,14 +129,12 @@ export async function getAllCountries(fastify: FastifyInstance) {
     await executeGraphQLQuery<GetCarbonOffsetsCountriesQuery>(
       process.env.CARBON_OFFSETS_GRAPH_API_URL,
       GetCarbonOffsetsCountriesDocument
-    ).then(({ data }) =>
-      data.carbonOffsets.map(({ country }) => ({ id: country }))
     );
 
   const fn = pipe(concat, flatten, uniqBy("id"));
 
   const result: Country[] = fn([
-    marketplaceCountries.data.countries,
+    marketplaceCountries.data?.countries,
     offsetsCountries,
   ]);
 
@@ -220,15 +214,15 @@ const getPoolPrice = async (
 ) => {
   const CACHE_KEY = `${pool.address} ${process.env.VERCEL_ENV}`;
   const cachedResult = await fastify.lcache.get<GetPairQuery>(CACHE_KEY);
-  let result = cachedResult.payload.pair;
+  let result = cachedResult?.payload.pair;
 
   if (!result) {
-    const { data: pair } = await executeGraphQLQuery<GetPairQuery>(
+    const { data: pairData } = await executeGraphQLQuery<GetPairQuery>(
       process.env.POOL_PRICES_GRAPH_API_URL,
       GetPairDocument,
       { id: pool.address }
     );
-    result = pair.pair;
+    result = pairData?.pair;
     await fastify.lcache.set(CACHE_KEY, { payload: result });
   }
 

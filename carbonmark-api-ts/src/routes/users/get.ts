@@ -90,7 +90,7 @@ const handler = (fastify: FastifyInstance) =>
     // Get the wallet address of the user
     var wallet = user.id.toLowerCase();
     // Query the GraphQL API with the wallet address to get more user data
-    const { data } = await executeGraphQLQuery<GetUserByWalletQuery>(
+    const { data: userData } = await executeGraphQLQuery<GetUserByWalletQuery>(
       process.env.GRAPH_API_URL,
       GetUserByWalletDocument,
       { wallet }
@@ -98,10 +98,10 @@ const handler = (fastify: FastifyInstance) =>
     // Add the wallet address to the response object
     response.wallet = wallet;
     // If the users array in the data is not empty
-    if (data.users.length) {
+    if (userData?.users.length) {
       // Create a new listings array with the listings from the data, and add a "selected" property set to false
       const listings =
-        data.users[0].listings?.map((item) => ({
+        userData.users[0].listings?.map((item) => ({
           ...item,
           selected: false,
         })) ?? [];
@@ -119,21 +119,22 @@ const handler = (fastify: FastifyInstance) =>
       // Add the modified listings array to the response object
       response.listings = listings;
       // Add the activities array from the data to the response object
-      response.activities = data.users[0].activities;
+      response.activities = userData.users[0].activities;
     } else {
       // If the users array in the data is empty, add empty arrays for listings and activities to the response object
       response.listings = [];
       response.activities = [];
     }
 
-    const assetsData = await executeGraphQLQuery<GetHoldingsByWalletQuery>(
-      process.env.ASSETS_GRAPH_API_URL,
-      GetHoldingsByWalletDocument,
-      { wallet }
-    );
+    const { data: assetsData } =
+      await executeGraphQLQuery<GetHoldingsByWalletQuery>(
+        process.env.ASSETS_GRAPH_API_URL,
+        GetHoldingsByWalletDocument,
+        { wallet }
+      );
 
-    if (assetsData.data.accounts.length) {
-      response.assets = assetsData.data.accounts[0].holdings;
+    if (assetsData?.accounts.length) {
+      response.assets = assetsData?.accounts[0].holdings;
     } else {
       response.assets = [];
     }

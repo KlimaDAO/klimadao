@@ -65,10 +65,10 @@ const schema = {
 };
 
 type Querystring = {
-  country: string;
-  category: string;
-  search: string;
-  vintage: string;
+  country?: string;
+  category?: string;
+  search?: string;
+  vintage?: string;
 };
 
 const isMatchingProject = (offset: CarbonOffset, project: Project) =>
@@ -84,9 +84,10 @@ const handler = (fastify: FastifyInstance) =>
     const args = request.query;
 
     const category =
-      args.category.split(",") ?? (await getAllCategories(fastify));
-    const country = args.country.split(",") ?? (await getAllCountries(fastify));
-    const vintage = args.vintage.split(",") ?? (await getAllVintages(fastify));
+      args.category?.split(",") ?? (await getAllCategories(fastify));
+    const country =
+      args.country?.split(",") ?? (await getAllCountries(fastify));
+    const vintage = args.vintage?.split(",") ?? (await getAllVintages(fastify));
     const search = args.search ?? "";
 
     const sanity = getSanityClient();
@@ -94,21 +95,22 @@ const handler = (fastify: FastifyInstance) =>
 
     const poolPrices = await calculatePoolPrices(fastify);
 
-    const data = await executeGraphQLQuery<FindProjectsQuery>(
+    const { data: projectsData } = await executeGraphQLQuery<FindProjectsQuery>(
       process.env.GRAPH_API_URL,
       FindProjectsDocument,
       { country, category, search, vintage }
     );
 
-    let pooledProjectsData = (
+    console.log("PROJECTS DATA", projectsData);
+
+    let { data: pooledProjectsData } =
       await executeGraphQLQuery<FindCarbonOffsetsQuery>(
         process.env.CARBON_OFFSETS_GRAPH_API_URL,
         FindCarbonOffsetsDocument,
         { country, category, search, vintage }
-      )
-    ).data;
+      );
 
-    const projects = data.data.projects.map(function (project: any) {
+    const projects = projectsData?.projects.map(function (project: any) {
       const uniqueValues: (string | undefined)[] = [];
 
       if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
@@ -129,35 +131,35 @@ const handler = (fastify: FastifyInstance) =>
             pooledProjectsData.carbonOffsets[index].display = false;
 
             if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
+              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceUBO) >=
               1
             ) {
               uniqueValues.push(
-                poolPrices.find((obj: any) => obj.name === "ubo")?.price
+                poolPrices.find((obj) => obj.name === "ubo")?.price
               );
             }
             if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
+              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceNBO) >=
               1
             ) {
               uniqueValues.push(
-                poolPrices.find((obj: any) => obj.name === "nbo")?.price
+                poolPrices.find((obj) => obj.name === "nbo")?.price
               );
             }
             if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
+              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceNCT) >=
               1
             ) {
               uniqueValues.push(
-                poolPrices.find((obj: any) => obj.name === "ntc")?.price
+                poolPrices.find((obj) => obj.name === "ntc")?.price
               );
             }
             if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
+              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceBCT) >=
               1
             ) {
               uniqueValues.push(
-                poolPrices.find((obj: any) => obj.name === "btc")?.price
+                poolPrices.find((obj) => obj.name === "btc")?.price
               );
             }
           });
@@ -199,7 +201,7 @@ const handler = (fastify: FastifyInstance) =>
       return { ...project, price };
     });
 
-    const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
+    const pooledProjects = pooledProjectsData?.carbonOffsets.map(function (
       project: any
     ) {
       if (project.display == false) {
@@ -270,7 +272,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     const filteredItems = projects
-      .concat(pooledProjects)
+      ?.concat(pooledProjects)
       .filter((project) => project != null && project.price !== "0");
 
     // Send the transformed projects array as a JSON string in the response
