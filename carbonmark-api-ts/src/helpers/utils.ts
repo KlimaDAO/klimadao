@@ -2,14 +2,6 @@ import { FastifyInstance } from "fastify";
 import { concat } from "lodash";
 import { flatten, map, pipe, split, trim, uniq, uniqBy } from "lodash/fp";
 import {
-  GetCarbonOffsetsCategoriesDocument,
-  GetCarbonOffsetsCategoriesQuery,
-  GetCarbonOffsetsCountriesDocument,
-  GetCarbonOffsetsCountriesQuery,
-  GetCarbonOffsetsVintagesDocument,
-  GetCarbonOffsetsVintagesQuery,
-} from "../graphql/generated/carbon.types";
-import {
   Category,
   Country,
   GetCategoriesDocument,
@@ -18,7 +10,15 @@ import {
   GetCountriesQuery,
   GetVintagesDocument,
   GetVintagesQuery,
-} from "../graphql/generated/marketplace.types";
+} from "../../.generated/types/marketplace.types";
+import {
+  GetCarbonOffsetsCategoriesDocument,
+  GetCarbonOffsetsCategoriesQuery,
+  GetCarbonOffsetsCountriesDocument,
+  GetCarbonOffsetsCountriesQuery,
+  GetCarbonOffsetsVintagesDocument,
+  GetCarbonOffsetsVintagesQuery,
+} from "../../.generated/types/offsets.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 import { extract } from "../utils/functional.utils";
 

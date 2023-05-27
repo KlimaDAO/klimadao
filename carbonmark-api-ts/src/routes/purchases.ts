@@ -3,7 +3,7 @@ import { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
 import {
   GetPurchasesByIdDocument,
   GetPurchasesByIdQuery,
-} from "../graphql/generated/marketplace.types";
+} from "../../.generated/types/marketplace.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 
 interface Params {

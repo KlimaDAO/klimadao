@@ -7,11 +7,11 @@ import {
 import {
   GetHoldingsByWalletDocument,
   GetHoldingsByWalletQuery,
-} from "../../graphql/generated/carbon-holdings.types";
+} from "../../../.generated/types/assets.types";
 import {
   GetUserByWalletDocument,
   GetUserByWalletQuery,
-} from "../../graphql/generated/marketplace.types";
+} from "../../../.generated/types/marketplace.types";
 import { executeGraphQLQuery } from "../../utils/apollo-client";
 interface Params {
   walletOrHandle: string;
