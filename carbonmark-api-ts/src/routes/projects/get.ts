@@ -101,8 +101,6 @@ const handler = (fastify: FastifyInstance) =>
       { country, category, search, vintage }
     );
 
-    console.log("PROJECTS DATA", projectsData);
-
     let { data: pooledProjectsData } =
       await executeGraphQLQuery<FindCarbonOffsetsQuery>(
         process.env.CARBON_OFFSETS_GRAPH_API_URL,
