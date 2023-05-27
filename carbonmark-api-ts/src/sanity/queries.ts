@@ -1,6 +1,4 @@
-import groq from "groq";
-
-const fetchProjects = groq`*[_type == 'project' && registry == $registry && registryProjectId == $registryProjectId][0] {
+export const fetchProjects = `*[_type == 'project' && registry == $registry && registryProjectId == $registryProjectId][0] {
     country,
     description,
     "geolocation": {
@@ -18,7 +16,7 @@ const fetchProjects = groq`*[_type == 'project' && registry == $registry && regi
     registryProjectId
   }`;
 
-const fetchAllProjects = groq`
+export const fetchAllProjects = `
   *[_type == 'project'] {
     "id": id.current,
     description,
@@ -27,5 +25,3 @@ const fetchAllProjects = groq`
     methodologies[]->{  "id": id.current, category, name },
     name,
   }`;
-
-export { fetchProjects, fetchAllProjects };

@@ -19,8 +19,14 @@ import {
   GetCarbonOffsetsVintagesDocument,
   GetCarbonOffsetsVintagesQuery,
 } from "../../.generated/types/offsets.types";
+
+import {
+  GetPairDocument,
+  GetPairQuery,
+} from "../../.generated/types/tokens.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
 import { extract } from "../utils/functional.utils";
+import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 export async function getAllVintages(fastify: FastifyInstance) {
   const cacheKey = `vintages`;
@@ -200,87 +206,78 @@ export async function getAllCountries(fastify: FastifyInstance) {
 //   return [uniqueValues, prices];
 // }
 
-// const getPoolPrice = async (pool, decimals, fastify) => {
-//   const CACHE_KEY = pool.address + process.env.VERCEL_ENV;
-//   let result = await fastify.lcache.get(CACHE_KEY);
+export type TokenPrice = {
+  priceInUsd: string;
+  price: string;
+  name: string;
+};
 
-//   if (!result) {
-//     result = await executeGraphQLQuery(
-//       process.env.POOL_PRICES_GRAPH_API_URL,
-//       POOL_PRICE,
-//       { id: pool.address }
-//     );
-//     await fastify.lcache.set(CACHE_KEY, result);
-//   }
+/** @todo refactor this */
+const getPoolPrice = async (
+  pool: TokenPool,
+  decimals: number,
+  fastify: FastifyInstance
+) => {
+  const CACHE_KEY = `${pool.address} ${process.env.VERCEL_ENV}`;
+  const cachedResult = await fastify.lcache.get<GetPairQuery>(CACHE_KEY);
+  let result = cachedResult.payload.pair;
 
-//   var feeAmount = 0;
-//   if (pool.feeAdd) {
-//     feeAmount = Number(result.data.pair.currentprice) * pool.fee;
-//   } else {
-//     feeAmount =
-//       (1 / (1 - pool.fee) - 1) * Number(result.data.pair.currentprice);
-//   }
+  if (!result) {
+    const { data: pair } = await executeGraphQLQuery<GetPairQuery>(
+      process.env.POOL_PRICES_GRAPH_API_URL,
+      GetPairDocument,
+      { id: pool.address }
+    );
+    result = pair.pair;
+    await fastify.lcache.set(CACHE_KEY, { payload: result });
+  }
 
-//   var priceWithFee = Number(result.data.pair.currentprice) + feeAmount;
-//   var priceTrimmed = parseFloat(priceWithFee.toFixed(6));
-//   var priceFormatted = priceTrimmed * decimals;
+  var feeAmount = 0;
+  if (pool.feeAdd) {
+    feeAmount = Number(result?.currentprice) * pool.fee;
+  } else {
+    feeAmount = (1 / (1 - pool.fee) - 1) * Number(result?.currentprice);
+  }
 
-//   const priceResult = {
-//     priceInUsd: priceWithFee.toFixed(6),
-//     price: priceFormatted.toFixed(0),
-//     name: pool.name,
-//   };
+  var priceWithFee = Number(result?.currentprice) + feeAmount;
+  var priceTrimmed = parseFloat(priceWithFee.toFixed(6));
+  var priceFormatted = priceTrimmed * decimals;
 
-//   return priceResult;
-// };
+  const priceResult: TokenPrice = {
+    priceInUsd: priceWithFee.toFixed(6),
+    price: priceFormatted.toFixed(0),
+    name: pool.name,
+  };
 
-//  export async function calculatePoolPrices(fastify) {
-//   var decimals;
-//   if (process.env.VERCEL_ENV == "production") {
-//     decimals = 1e6;
-//   } else {
-//     decimals = 1e18;
-//   }
+  return priceResult;
+};
 
-//   var pools = [
-//     {
-//       name: "ubo",
-//       address: process.env.LP_UBO_POOL,
-//       feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
-//       fee: 0.0225,
-//     },
-//     {
-//       name: "nbo",
-//       address: process.env.LP_NBO_POOL,
-//       feeAdd: true,
-//       fee: 0.0225,
-//     },
-//     {
-//       name: "ntc",
-//       address: process.env.LP_NTC_POOL,
-//       feeAdd: false, // Toucan contracts: fee is subtracted from whatever value you input
-//       fee: 0.1,
-//     },
-//     {
-//       name: "btc",
-//       address: process.env.LP_BTC_POOL,
-//       feeAdd: false,
-//       fee: 0.25,
-//     },
-//   ];
+/** @todo refactor this */
+export async function calculatePoolPrices(fastify: FastifyInstance) {
+  var decimals: number;
+  if (process.env.VERCEL_ENV == "production") {
+    decimals = 1e6;
+  } else {
+    decimals = 1e18;
+  }
 
-//   const resultsPromises = pools.map((pool) => {
-//     return getPoolPrice(pool, decimals, fastify);
-//   });
+  const resultsPromises = TOKEN_POOLS.map((pool) => {
+    return getPoolPrice(pool, decimals, fastify);
+  });
 
-//   const results = await Promise.all(resultsPromises);
+  const results = await Promise.all(resultsPromises);
 
-//   return results;
-// }
+  return results;
+}
 
-// export function findProjectWithRegistryIdAndRegistry(projects, registryId, registry) {
-//   return projects.find(
-//     (project) =>
-//       project.registryProjectId === registryId && project.registry === registry
-//   );
-// }
+export function findProjectWithRegistryIdAndRegistry(
+  projects: unknown[],
+  registryId: unknown,
+  registry: unknown
+) {
+  return projects.find(
+    (project) =>
+      //@ts-ignore -- We need typing on sanity queries
+      project.registryProjectId === registryId && project.registry === registry
+  );
+}

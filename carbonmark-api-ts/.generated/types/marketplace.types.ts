@@ -1364,7 +1364,7 @@ export type GetUserByWalletQueryVariables = Exact<{
 
 export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, project: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null }, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: any | null, previousAmount?: any | null, price?: any | null, previousPrice?: any | null, timeStamp?: any | null, activityType: ActivityType, project?: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null, purchases?: Array<{ __typename?: 'Purchase', id: any }> | null }> };
 
-export type GetProjectsQueryVariables = Exact<{
+export type FindProjectsQueryVariables = Exact<{
   country?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   category?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search?: InputMaybe<Scalars['String']>;
@@ -1372,7 +1372,7 @@ export type GetProjectsQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, listings?: Array<{ __typename?: 'Listing', singleUnitPrice: any, leftToSell: any, active?: boolean | null, deleted?: boolean | null }> | null, country?: { __typename?: 'Country', id: string } | null }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, listings?: Array<{ __typename?: 'Listing', singleUnitPrice: any, leftToSell: any, active?: boolean | null, deleted?: boolean | null }> | null, country?: { __typename?: 'Country', id: string } | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1516,8 +1516,8 @@ export const GetUserByWalletDocument = gql`
   }
 }
     `;
-export const GetProjectsDocument = gql`
-    query getProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
+export const FindProjectsDocument = gql`
+    query findProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
   projects(
     where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
   ) {
@@ -1609,8 +1609,8 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     getUserByWallet(variables?: GetUserByWalletQueryVariables, options?: C): Promise<GetUserByWalletQuery> {
       return requester<GetUserByWalletQuery, GetUserByWalletQueryVariables>(GetUserByWalletDocument, variables, options) as Promise<GetUserByWalletQuery>;
     },
-    getProjects(variables?: GetProjectsQueryVariables, options?: C): Promise<GetProjectsQuery> {
-      return requester<GetProjectsQuery, GetProjectsQueryVariables>(GetProjectsDocument, variables, options) as Promise<GetProjectsQuery>;
+    findProjects(variables?: FindProjectsQueryVariables, options?: C): Promise<FindProjectsQuery> {
+      return requester<FindProjectsQuery, FindProjectsQueryVariables>(FindProjectsDocument, variables, options) as Promise<FindProjectsQuery>;
     },
     getProjectsById(variables?: GetProjectsByIdQueryVariables, options?: C): Promise<GetProjectsByIdQuery> {
       return requester<GetProjectsByIdQuery, GetProjectsByIdQueryVariables>(GetProjectsByIdDocument, variables, options) as Promise<GetProjectsByIdQuery>;

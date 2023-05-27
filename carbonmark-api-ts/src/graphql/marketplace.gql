@@ -126,7 +126,7 @@ query getUserByWallet($wallet: Bytes) {
   }
 }
 
-query getProjects(
+query findProjects(
   $country: [String!]
   $category: [String!]
   $search: String
