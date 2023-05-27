@@ -25,6 +25,7 @@ import {
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
 import { executeGraphQLQuery } from "../../utils/apollo-client";
+import { extract } from "../../utils/functional.utils";
 
 const schema = {
   querystring: {
@@ -84,10 +85,15 @@ const handler = (fastify: FastifyInstance) =>
     const args = request.query;
 
     const category =
-      args.category?.split(",") ?? (await getAllCategories(fastify));
+      args.category?.split(",") ??
+      (await (await getAllCategories(fastify)).map(extract("id")));
+
     const country =
-      args.country?.split(",") ?? (await getAllCountries(fastify));
+      args.country?.split(",") ??
+      (await getAllCountries(fastify)).map(extract("id"));
+
     const vintage = args.vintage?.split(",") ?? (await getAllVintages(fastify));
+
     const search = args.search ?? "";
 
     const sanity = getSanityClient();

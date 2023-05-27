@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { concat } from "lodash";
-import { flatten, map, pipe, split, trim, uniq, uniqBy } from "lodash/fp";
+import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
   Country,
@@ -25,13 +25,13 @@ import {
   GetPairQuery,
 } from "../../.generated/types/tokens.types";
 import { executeGraphQLQuery } from "../utils/apollo-client";
-import { extract } from "../utils/functional.utils";
+import { extract, notNil } from "../utils/functional.utils";
 import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 export async function getAllVintages(fastify: FastifyInstance) {
   const cacheKey = `vintages`;
 
-  const cachedResult = await fastify.lcache.get(cacheKey);
+  const cachedResult = await fastify.lcache.get<string[]>(cacheKey)?.payload;
 
   if (cachedResult) {
     return cachedResult;
@@ -67,7 +67,7 @@ export async function getAllCategories(fastify: FastifyInstance) {
   // Define cache key for caching the result
   const cacheKey = `categories`;
   // Try to get the cached result
-  const cachedResult = await fastify.lcache.get(cacheKey);
+  const cachedResult = await fastify.lcache.get<Category[]>(cacheKey)?.payload;
 
   // If the cached result exists, return it
   if (cachedResult) return cachedResult;
@@ -114,28 +114,36 @@ export async function getAllCategories(fastify: FastifyInstance) {
 export async function getAllCountries(fastify: FastifyInstance) {
   const cacheKey = `countries`;
 
-  const cachedResult = await fastify.lcache.get(cacheKey);
+  const cachedResult = await fastify.lcache.get<Country[]>(cacheKey)?.payload;
 
   if (cachedResult) {
     return cachedResult;
   }
 
-  const marketplaceCountries = await executeGraphQLQuery<GetCountriesQuery>(
-    process.env.GRAPH_API_URL,
-    GetCountriesDocument
-  );
+  const { data: marketplaceCountries } =
+    await executeGraphQLQuery<GetCountriesQuery>(
+      process.env.GRAPH_API_URL,
+      GetCountriesDocument
+    );
 
-  const offsetsCountries =
+  const { data: offsetsCountries } =
     await executeGraphQLQuery<GetCarbonOffsetsCountriesQuery>(
       process.env.CARBON_OFFSETS_GRAPH_API_URL,
       GetCarbonOffsetsCountriesDocument
     );
 
-  const fn = pipe(concat, flatten, uniqBy("id"));
+  const fn = pipe(
+    concat,
+    flatten,
+    uniq,
+    filter(notNil),
+    map((id) => ({ id }))
+  );
 
+  //@ts-ignore
   const result: Country[] = fn([
-    marketplaceCountries.data?.countries,
-    offsetsCountries,
+    marketplaceCountries?.countries?.map(extract("id")),
+    offsetsCountries?.carbonOffsets.map(extract("country")),
   ]);
 
   await fastify.lcache.set(cacheKey, { payload: result });
