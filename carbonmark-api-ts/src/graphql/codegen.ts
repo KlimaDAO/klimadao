@@ -17,7 +17,7 @@ const config: CodegenConfig = {
       plugins: ["typescript"],
       // documents: "src/graphql/poolprices.gql",
     },
-    "src/graphql/generated/carbon.types.ts": {
+    "src/graphql/generated/offsets.types.ts": {
       schema:
         "https://api.thegraph.com/subgraphs/name/klimadao/polygon-bridged-carbon",
       plugins: [
@@ -25,9 +25,9 @@ const config: CodegenConfig = {
         "typescript-operations",
         "typescript-generic-sdk",
       ],
-      documents: "src/graphql/bridged-carbon.gql",
+      documents: "src/graphql/offsets.gql",
     },
-    "src/graphql/generated/carbon-holdings.types.ts": {
+    "src/graphql/generated/assets.types.ts": {
       schema:
         "https://api.thegraph.com/subgraphs/name/cujowolf/polygon-carbon-holdings-mumbai",
       plugins: [
@@ -35,7 +35,7 @@ const config: CodegenConfig = {
         "typescript-operations",
         "typescript-generic-sdk",
       ],
-      documents: "src/graphql/carbon-holdings.gql",
+      documents: "src/graphql/assets.gql",
     },
   },
 };

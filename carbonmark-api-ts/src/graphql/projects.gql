@@ -1,0 +1,145 @@
+query getProjects(
+  $country: [String]
+  $category: [String]
+  $search: String
+  $vintage: [String]
+) {
+  projects(
+    where: {
+      category_: { id_in: $category }
+      country_: { id_in: $country }
+      name_contains_nocase: $search
+      vintage_in: $vintage
+    }
+  ) {
+    id
+    key
+    projectID
+    name
+    vintage
+    projectAddress
+    registry
+    listings {
+      singleUnitPrice
+      leftToSell
+      active
+      deleted
+    }
+    country {
+      id
+    }
+    updatedAt
+  }
+}
+
+query getProjectsById($key: String, $vintageStr: String) {
+  projects(where: { key: $key, vintage: $vintageStr }) {
+    id
+    key
+    projectID
+    name
+    vintage
+    projectAddress
+    registry
+    country {
+      id
+    }
+    listings {
+      id
+      seller
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      batches
+      batchPrices
+      singleUnitPrice
+      createdAt
+      updatedAt
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      amount
+      previousAmount
+      price
+      previousPrice
+      timeStamp
+      activityType
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
+    }
+  }
+}
+
+query carbonOffsets($key: String!, $vintageStr: BigInt!) {
+  carbonOffsets(where: { projectID: $key, vintageYear: $vintageStr }) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    currentSupply
+    storageMethod
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}
+
+query getPooledProjects(
+  $country: [String]
+  $category: [String]
+  $search: String
+  $vintage: [String]
+) {
+  carbonOffsets(
+    first: 1000
+    where: {
+      methodologyCategory_in: $category
+      country_in: $country
+      name_contains_nocase: $search
+      vintageYear_in: $vintage
+    }
+  ) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    storageMethod
+    lastUpdate
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}
