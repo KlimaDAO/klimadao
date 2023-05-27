@@ -7,6 +7,6 @@ import fp from "fastify-plugin";
  *
  * @see https://github.com/fastify/fastify-response-validation
  */
-module.exports = fp(async function (fastify) {
+export default fp(async function (fastify) {
   fastify.register(responseValidation);
 });

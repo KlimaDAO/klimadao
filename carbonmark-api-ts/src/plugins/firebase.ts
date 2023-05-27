@@ -12,7 +12,7 @@ dotenv.config({ path: "../.env.local" });
  *
  * @see https://github.com/now-ims/fastify-firebase
  */
-module.exports = fp(async function (fastify) {
+export default fp(async function (fastify) {
   if (!process.env.FIREBASE_ADMIN_CERT) {
     throw new Error("Environment variable FIREBASE_ADMIN_CERT is undefined");
   }

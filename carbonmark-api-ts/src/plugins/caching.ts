@@ -8,7 +8,7 @@ import fp from "fastify-plugin";
  *
  * @see https://github.com/denbon05/fastify-lcache
  */
-module.exports = fp(async function (fastify) {
+export default fp(async function (fastify) {
   fastify.register(fastifyCaching, { ttlInMinutes: 1 });
 });
 
