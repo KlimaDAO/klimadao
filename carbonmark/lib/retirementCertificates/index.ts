@@ -188,11 +188,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   };
 
   const printCategoryBanner = async (): Promise<void> => {
-    // const categoryBanner =
-    //   catergoryBannerMap[
-    //     params.retirement.offset.methodologyCategory as CategoryBannerMappingKey
-    //   ];
-    const categoryBanner = catergoryBannerMap["Industrial Processing"];
+    const categoryBanner =
+      catergoryBannerMap[
+        params.retirement.offset.methodologyCategory as CategoryBannerMappingKey
+      ];
+    // const categoryBanner = catergoryBannerMap["Industrial Processing"];
     const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
 
     doc.image(categoryBannerBuffer, doc.page.width - 360, 68, {
@@ -221,7 +221,9 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text("PROJECT RETIRED", doc.page.width - 360, 200);
+    doc.text("PROJECT RETIRED", doc.page.width - 360, 200, {
+      characterSpacing: 0.3,
+    });
 
     doc.font("DMSans");
     doc.fontSize(16);
@@ -234,6 +236,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       params.retirement.offset.name,
       {
         width: 320,
+        characterSpacing: 0.3,
       }
     );
     doc.font("Poppins-Semibold");
