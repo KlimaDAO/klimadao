@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   BigDecimal: any;
-  BigInt: any;
+  BigInt: string;
   Bytes: any;
 };
 
@@ -1348,21 +1348,21 @@ export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typ
 export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: any }> };
+export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
 
 export type GetPurchasesByIdQueryVariables = Exact<{
   id?: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: any, price: any, timeStamp: any, listing: { __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, methodology: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
+export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, timeStamp: string, listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, methodology: string, vintage: string, projectAddress: any, registry: string, updatedAt?: string | null, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet?: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, project: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null }, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: any | null, previousAmount?: any | null, price?: any | null, previousPrice?: any | null, timeStamp?: any | null, activityType: ActivityType, project?: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: any, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null, purchases?: Array<{ __typename?: 'Purchase', id: any }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, project: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null }, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, project?: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null, purchases?: Array<{ __typename?: 'Purchase', id: any }> | null }> };
 
 export type FindProjectsQueryVariables = Exact<{
   country?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -1372,7 +1372,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: any, projectAddress: any, registry: string, updatedAt?: any | null, listings?: Array<{ __typename?: 'Listing', singleUnitPrice: any, leftToSell: any, active?: boolean | null, deleted?: boolean | null }> | null, country?: { __typename?: 'Country', id: string } | null }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, updatedAt?: string | null, listings?: Array<{ __typename?: 'Listing', singleUnitPrice: string, leftToSell: string, active?: boolean | null, deleted?: boolean | null }> | null, country?: { __typename?: 'Country', id: string } | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1380,7 +1380,7 @@ export type GetProjectsByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: any, projectAddress: any, registry: string, country?: { __typename?: 'Country', id: string } | null, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: any, leftToSell: any, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<any> | null, batchPrices?: Array<any> | null, singleUnitPrice: any, createdAt?: any | null, updatedAt?: any | null, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: any | null, previousAmount?: any | null, price?: any | null, previousPrice?: any | null, timeStamp?: any | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null }> };
+export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, country?: { __typename?: 'Country', id: string } | null, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null }> };
 
 
 export const GetCategoriesDocument = gql`

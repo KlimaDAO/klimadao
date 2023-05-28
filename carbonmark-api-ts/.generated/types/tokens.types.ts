@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   BigDecimal: any;
-  BigInt: any;
+  BigInt: string;
   Bytes: any;
 };
 

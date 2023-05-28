@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   BigDecimal: any;
-  BigInt: any;
+  BigInt: string;
   Bytes: any;
 };
 
@@ -487,7 +487,7 @@ export type GetHoldingsByWalletQueryVariables = Exact<{
 }>;
 
 
-export type GetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: any, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
+export type GetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
 
 
 export const GetHoldingsByWalletDocument = gql`

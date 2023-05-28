@@ -9,6 +9,12 @@ const plugins = [
 
 const config: CodegenConfig = {
   overwrite: true,
+  config: {
+    scalars: {
+      // We need to define the typescript type for BigInt
+      BigInt: "string",
+    },
+  },
   generates: {
     [`${GENERATED_DIR}/marketplace.types.ts`]: {
       schema: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",

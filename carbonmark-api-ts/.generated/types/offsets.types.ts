@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   BigDecimal: any;
-  BigInt: any;
+  BigInt: string;
   Bytes: any;
 };
 
@@ -2856,7 +2856,7 @@ export type FindCarbonOffsetsQueryVariables = Exact<{
 }>;
 
 
-export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: any, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
 
 
 export const GetCarbonOffsetsCategoriesDocument = gql`
