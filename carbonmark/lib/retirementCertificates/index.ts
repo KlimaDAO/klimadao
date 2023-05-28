@@ -31,6 +31,7 @@ const WHITE = "#ffffff";
 const MANATEE = "#8B8FAE";
 const PRIMARY_FONT_COLOR = "#313131";
 const SECONDARY_HEADER_COLOR = "#3B3B3D";
+
 const spacing = {
   margin: 20,
   transactionDetails: 358,
@@ -112,29 +113,39 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       spacing.footer,
       { link: urls.carbonmark }
     );
-    doc.fillColor(PRIMARY_FONT_COLOR);
   };
 
   const printRetirementDetails = (): void => {
     const retirementAmount =
       Number(params.retirement.amount) < 0.01
-        ? "< 0.01"
+        ? "< 0.01t"
         : trimWithLocale(params.retirement.amount, 2, "en");
+
+    const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
+    const formattedDate = new Intl.DateTimeFormat("en", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    })
+      .format(retirementDate)
+      .toUpperCase();
 
     doc.font("Poppins-Semibold");
     doc.fontSize(14);
     doc.fillColor(GRAY);
-    doc.text("APRIL 24, 2023", spacing.margin, 92, {
+    doc.text(formattedDate, spacing.margin, 92, {
       characterSpacing: 0.3,
     });
 
     doc.font("Poppins-Bold");
     doc.fontSize(60);
     doc.fillColor(BLACK);
-    doc.text(`2,000t`, spacing.margin, 100, {
+    // doc.text(`2,000t`, spacing.margin, 100, {
+    //   characterSpacing: -2,
+    // });
+    doc.text(`${retirementAmount}t`, spacing.margin, 100, {
       characterSpacing: -2,
     });
-    // doc.text(`${retirementAmount}t`, spacing.margin, 169);
 
     doc.font("Poppins-Semibold");
     doc.fontSize(14);
@@ -152,10 +163,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Bold");
     doc.fontSize(20);
     doc.fillColor(BLACK);
-    // doc.text(beneficaryText, spacing.margin, 245, { width: 375 });
-    doc.text("Kristofferson Enterprises LLC.", spacing.margin, 245, {
-      width: 360,
-    });
+    doc.text(beneficaryText, spacing.margin, 245, { width: 360 });
+    // doc.text("Kristofferson Enterprises LLC.", spacing.margin, 245, {
+    //   width: 360,
+    // });
 
     const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
       width: 360,
