@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-29 15:34+0000\n"
+"POT-Creation-Date: 2023-05-30 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -275,7 +275,7 @@ msgstr "Neueste Einträge zuerst"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "Learn More"
-msgstr ""
+msgstr "Erfahren Sie mehr"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -1060,7 +1060,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
 msgid "retirement.single.country_region.title"
-msgstr ""
+msgstr "Land/Region:"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
@@ -1076,7 +1076,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
 msgid "retirement.single.methodology.title"
-msgstr ""
+msgstr "Methodik:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
@@ -1084,7 +1084,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
 msgid "retirement.single.project.title"
-msgstr ""
+msgstr "Projekt:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
 msgid "retirement.single.project_description.title"
@@ -1096,7 +1096,7 @@ msgstr "Projektinformationen"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
 msgid "retirement.single.project_name.title"
-msgstr ""
+msgstr "Projektname"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
 msgid "retirement.single.proof_of.title"
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
 msgid "retirement.single.transaction_id.title"
-msgstr ""
+msgstr "Transaktions-ID"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
@@ -1128,7 +1128,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
 msgid "retirement.single.type.title"
-msgstr ""
+msgstr "Typ:"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
 msgid "retirement.single.verified_tonnes.title"
@@ -1136,7 +1136,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
 msgid "retirement.single.vintage.title"
-msgstr ""
+msgstr "Jahrgang:"
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
