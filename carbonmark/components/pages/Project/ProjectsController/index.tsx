@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
@@ -13,6 +12,7 @@ type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCount, setSelectedCount] = useState(0);
 
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
@@ -26,6 +26,16 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   };
 
   const toggleModal = () => setModalOpen((prev) => !prev);
+
+  const onSelected = (selectedFilters: any) => {
+    setSelectedCount(
+      selectedFilters.reduce(
+        (count: number, current: Array<string>) => count + current.length,
+        0
+      )
+    );
+  };
+
   return (
     <div {...props} className={cx(styles.projectsController, props.className)}>
       <SearchInput
@@ -43,11 +53,14 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         className={styles.filterButton}
         icon={<TuneIcon />}
         onClick={toggleModal}
-        label={<Trans>Filters</Trans>}
+        label={
+          <span>Filters {selectedCount > 0 ? `(${selectedCount})` : ""}</span>
+        }
       />
       <ProjectFilterModal
         showModal={modalOpen}
         onToggleModal={toggleModal}
+        selectedFilters={onSelected}
         closeOnBackgroundClick
       />
     </div>
