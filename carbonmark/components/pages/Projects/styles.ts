@@ -30,6 +30,25 @@ export const sortOptions = css`
   align-items: center;
 `;
 
+export const pillContainer = css`
+  gap: 0.4rem;
+  display: flex;
+  grid-column: full;
+  align-items: center;
+`;
+
+export const pill = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  background: #8b8fae;
+  border-radius: 4rem;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+`;
+
 export const projectsList = css`
   grid-column: full;
   justify-self: center;

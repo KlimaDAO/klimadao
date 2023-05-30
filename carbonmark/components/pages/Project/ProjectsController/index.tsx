@@ -7,9 +7,14 @@ import { useRouter } from "next/router";
 import { FC, HTMLAttributes, useState } from "react";
 import * as styles from "./styles";
 
-type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
+type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
+  selectedFilters: (filters: Array<string>) => void;
+};
 
-export const ProjectsController: FC<ProjectControllerProps> = (props) => {
+export const ProjectsController: FC<ProjectControllerProps> = ({
+  selectedFilters,
+  ...props
+}) => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCount, setSelectedCount] = useState(0);
@@ -27,9 +32,10 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
 
   const toggleModal = () => setModalOpen((prev) => !prev);
 
-  const onSelected = (selectedFilters: any) => {
+  const onSelected = (filters: Array<Array<string>>) => {
+    selectedFilters(filters.flat());
     setSelectedCount(
-      selectedFilters.reduce(
+      filters.reduce(
         (count: number, current: Array<string>) => count + current.length,
         0
       )

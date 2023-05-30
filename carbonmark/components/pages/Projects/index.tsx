@@ -21,12 +21,15 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import { SortOptions } from "../Project/SortOptions";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
   const { locale, query } = useRouter();
+
+  const [selectedFilters, setSelectedFilters] = useState<Array<string>>();
 
   const sortKey = String(query["sort"]);
 
@@ -35,6 +38,12 @@ const Page: NextPage = () => {
   const sortFn = get(PROJECT_SORT_FNS, sortKey) ?? identity;
 
   const sortedProjects = sortFn(projects);
+
+  useEffect(() => {
+    return () => {
+      setSelectedFilters([]);
+    };
+  }, []);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
@@ -50,9 +59,20 @@ const Page: NextPage = () => {
       />
       <Layout>
         <div className={styles.projectsControls}>
-          <ProjectsController />
+          <ProjectsController
+            selectedFilters={(filters: any) => setSelectedFilters(filters)}
+          />
           <LoginButton className="desktopLogin" />
         </div>
+        {selectedFilters?.length ? (
+          <div className={styles.pillContainer}>
+            {selectedFilters?.map((filter: string, key: number) => (
+              <div key={key} className={styles.pill}>
+                {filter}
+              </div>
+            ))}
+          </div>
+        ) : null}
         <div className={styles.sortOptions}>
           <SortOptions />
         </div>
