@@ -1,5 +1,7 @@
 // All actions related to Retirement Aggregator
+import C3PoolToken from "@klimadao/lib/abi/C3PoolToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import ToucanPoolToken from "@klimadao/lib/abi/ToucanPoolToken.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
@@ -183,4 +185,33 @@ export const retireCarbonTransaction = async (params: {
     console.error(e);
     throw e;
   }
+};
+
+// Same for Redeem and Retire
+export const getFeeFactor = async (tokenName: PoolToken) => {
+  if (tokenName === "mco2") {
+    return 0;
+  }
+
+  if (tokenName === "bct" || tokenName === "nct") {
+    const contract = new Contract(
+      getAddress(tokenName),
+      ToucanPoolToken.abi,
+      getStaticProvider()
+    );
+
+    const feeRedeemDivider = await contract.feeRedeemDivider();
+    const feeRedeemPercentage = await contract.feeRedeemPercentageInBase();
+
+    return feeRedeemPercentage / feeRedeemDivider;
+  }
+
+  const contract = new Contract(
+    getAddress(tokenName),
+    C3PoolToken.abi,
+    getStaticProvider()
+  );
+
+  const feeRedeem = await contract.feeRedeem();
+  return feeRedeem / 10000;
 };
