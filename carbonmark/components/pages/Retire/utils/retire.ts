@@ -44,13 +44,17 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
         // this opens RetirementSuccessModal
         setRetirementTransactionHash(retirement.receipt.transactionHash);
         setRetirementTotals(retirement.retirementTotals);
+      } else {
       }
-      // close TransactionModal
-    } else {
-      console.log("Not a pool token");
     }
-  } catch (e) {
-    return;
+  } catch (e: any) {
+    if (e.code === 4001) {
+      props.onStatus("error", "userRejected");
+      throw e;
+    }
+    props.onStatus("error");
+    console.error(e);
+    throw e;
   }
 };
 

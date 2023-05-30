@@ -275,8 +275,6 @@ export const subgraphs = {
   cujoRefiHoldings:
     "https://api.thegraph.com/subgraphs/name/cujowolf/klima-refi-current-holdings",
   carbonmark: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new", // TODO: ensure when switching drom testnet to mainnet that this is still correct!
-  carbonmarkMatic:
-    "https://api.thegraph.com/subgraphs/name/najada/marketplace-matic",
 };
 
 /** Definitions of available registries */

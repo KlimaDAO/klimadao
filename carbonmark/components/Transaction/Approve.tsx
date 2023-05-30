@@ -7,7 +7,6 @@ import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
-import { StaticImageData } from "next/image";
 import { FC } from "react";
 import { HighlightValue } from "./HighlightValue";
 import * as styles from "./styles";
@@ -21,7 +20,6 @@ interface Props {
   onSuccess: () => void;
   status: TransactionStatusMessage | null;
   description?: React.ReactNode;
-  tokenIcon?: StaticImageData;
 }
 
 export const Approve: FC<Props> = (props) => {

@@ -5,14 +5,13 @@ import { Transaction } from "components/Transaction";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/image";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode } from "react";
 import { CustomizableModal } from "../CustomizableModal";
 import * as styles from "./styles";
 
 interface Props {
   title: ReactNode;
   value: string;
-  approvalValue: string;
   token: {
     key: string;
     icon: StaticImageData;
@@ -27,26 +26,19 @@ interface Props {
   onResetStatus: () => void;
   isApproved: boolean;
   showModal: boolean;
+  processingRetirement: boolean;
+  setProcessingRetirement: (processingRetirement: boolean) => void;
 }
 
 export const RetireModal: FC<Props> = (props) => {
-  const [txnView, setTxnView] = useState<"approve" | "submit">(
-    props.isApproved ? "submit" : "approve"
-  );
-
-  const [processingRetirement, setProcessingRetirement] = useState(false);
+  const { processingRetirement, setProcessingRetirement } = props;
 
   const statusType = props.status?.statusType;
 
-  useEffect(() => {
-    setTxnView(props.isApproved ? "submit" : "approve");
-  }, [props.isApproved]);
-
-  useEffect(() => {
-    if (statusType === "networkConfirmation" && txnView === "submit") {
-      setProcessingRetirement(true);
-    }
-  }, [props.status, txnView]);
+  const onSubmit = () => {
+    setProcessingRetirement(true);
+    props.onSubmit();
+  };
 
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
@@ -129,7 +121,7 @@ export const RetireModal: FC<Props> = (props) => {
           }}
           spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}
-          onSubmit={props.onSubmit}
+          onSubmit={onSubmit}
           onCancel={props.onCloseModal}
           status={props.status}
           onResetStatus={props.onResetStatus}

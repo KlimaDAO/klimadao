@@ -56,7 +56,7 @@ export const Submit: FC<Props> = (props) => {
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
-              <Trans id="transaction_modal.submit.amount">Confirm amount</Trans>
+              <Trans id="transaction_modal.submit.amount">Submit amount</Trans>
             </Text>
           }
           value={props.amount.value}
@@ -71,7 +71,7 @@ export const Submit: FC<Props> = (props) => {
             label={
               <Text t="caption" color="lighter">
                 <Trans id="transaction_modal.submit.price">
-                  Confirm price per tonne:
+                  Submit price per tonne:
                 </Trans>
               </Text>
             }

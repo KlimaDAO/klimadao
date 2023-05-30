@@ -1,6 +1,5 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
-import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -31,8 +30,6 @@ export const isPoolToken = (str: string): str is PoolToken =>
 interface RetireFormProps {
   address: string;
   asset: AssetForRetirement;
-  isConnected: boolean;
-  onUpdateUser: () => void;
   provider?: providers.JsonRpcProvider;
 }
 
@@ -49,10 +46,7 @@ export const RetireForm = (props: RetireFormProps) => {
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
-
-  const [isLargeOrBelow, setIsLargeOrBelow] = useState(
-    window.innerWidth <= breakpoints.large
-  );
+  const [processingRetirement, setProcessingRetirement] = useState(false);
 
   const [retirement, setRetirement] = useState({
     quantity: "0",
@@ -61,18 +55,6 @@ export const RetireForm = (props: RetireFormProps) => {
     beneficiaryAddress: "",
     retirementMessage: "",
   });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeOrBelow(window.innerWidth <= breakpoints.large);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     if (
@@ -159,31 +141,30 @@ export const RetireForm = (props: RetireFormProps) => {
       <TwoColLayout>
         <Col>
           <div className={styles.offsetCard}>
-            {project ? (
-              <div className={styles.projectHeader}>
-                <ProjectImage
-                  category={project.methodologyCategory as CategoryName}
-                />
-                <div className={styles.imageGradient} />
-                <Text t="h3" className={styles.projectHeaderText}>
-                  {project.name || "Error - No project name found"}
+            <div className={styles.projectHeader}>
+              <ProjectImage
+                category={
+                  (project.methodologyCategory as CategoryName) || "Other"
+                }
+              />
+              <div className={styles.imageGradient} />
+              <Text t="h3" className={styles.projectHeaderText}>
+                {project.name || "Error - No project name found"}
+              </Text>
+              <div className={styles.tags}>
+                <Text t="h5" className={styles.projectIDText}>
+                  {project.projectID}
                 </Text>
-                <div className={styles.tags}>
-                  <Text t="h5" className={styles.projectIDText}>
-                    {project.projectID}
-                  </Text>
-                  <Vintage vintage={project.vintageYear} />
-                  <Category
-                    category={project.methodologyCategory as CategoryName}
-                  />
-                  <Registry registry={project.registry} />
-                </div>
+                <Vintage vintage={project.vintageYear} />
+                <Category
+                  category={
+                    (project.methodologyCategory as CategoryName) || "Other"
+                  }
+                />
+                <Registry registry={project.registry} />
               </div>
-            ) : (
-              <div className={styles.projectIDText}>
-                {project && <ProjectImage category="Other" />}
-              </div>
-            )}
+            </div>
+
             <div className={styles.offsetCard_ui}>
               <Text t="caption" color="lighter">
                 <Trans>
@@ -281,7 +262,6 @@ export const RetireForm = (props: RetireFormProps) => {
                         onChange: (event) =>
                           handleRetirementChange("beneficiaryAddress", event),
                         placeholder: t({
-                          id: "offset.retirement_beneficiary_address",
                           message: "Beneficiary wallet address (optional)",
                         }),
                         value: retirement.beneficiaryAddress,
@@ -334,13 +314,15 @@ export const RetireForm = (props: RetireFormProps) => {
                   label={""}
                 />
               </div>
-              {isLargeOrBelow ? (
+              <div className={styles.sideBarBelowLarge}>
+                {" "}
                 <RetirementSidebar
                   balance={balance}
                   retirementAsset={asset}
                   icon={carbonTokenInfo.icon}
                 />
-              ) : null}
+              </div>
+
               <div className="disclaimer">
                 <GppMaybeOutlined style={{ color: "#FFB800" }} />
                 <Text t="caption">
@@ -374,15 +356,14 @@ export const RetireForm = (props: RetireFormProps) => {
             </div>
           </div>
         </Col>
-        {!isLargeOrBelow ? (
-          <Col>
-            <RetirementSidebar
-              balance={balance}
-              retirementAsset={asset}
-              icon={carbonTokenInfo.icon}
-            />
-          </Col>
-        ) : null}
+
+        <Col className={styles.sideBarLargeAndAbove}>
+          <RetirementSidebar
+            balance={balance}
+            retirementAsset={asset}
+            icon={carbonTokenInfo.icon}
+          />
+        </Col>
       </TwoColLayout>
 
       <RetireModal
@@ -392,8 +373,9 @@ export const RetireForm = (props: RetireFormProps) => {
           </Text>
         }
         token={carbonTokenInfo}
+        processingRetirement={processingRetirement}
+        setProcessingRetirement={setProcessingRetirement}
         value={retirement.quantity}
-        approvalValue={retirement.quantity}
         spenderAddress={getAddress("retirementAggregatorV2")}
         onCloseModal={() => setRetireModalOpen(false)}
         onApproval={() =>
@@ -419,6 +401,9 @@ export const RetireForm = (props: RetireFormProps) => {
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,
+          }).catch((e) => {
+            console.error("Error handling retirement:", e);
+            setProcessingRetirement(false);
           })
         }
         status={status}

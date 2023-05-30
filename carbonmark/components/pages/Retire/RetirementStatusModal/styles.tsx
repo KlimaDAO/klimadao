@@ -1,10 +1,6 @@
 import { css } from "@emotion/css";
 
 export const title = css`
-  fontfamily: "Poppins";
-  fontstyle: normal;
-  fontweight: 700;
-  fontsize: 20px;
   lineheight: 28px;
   color: #3b3b3d;
   display: flex;
@@ -23,12 +19,4 @@ export const viewButton = css`
   color: white !important;
   width: 100%;
   margin-top: 1.6rem;
-`;
-
-export const portfolioButton = css`
-  font-family: "Poppins";
-  background-color: white;
-  color: black;
-  border: 1px solid var(--font-01);
-  width: 100%;
 `;

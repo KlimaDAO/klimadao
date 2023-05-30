@@ -1,6 +1,7 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { CelebrationOutlined } from "@mui/icons-material";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Modal } from "components/shared/Modal";
 import Link from "next/link";
 import { FC } from "react";
@@ -18,9 +19,9 @@ export const RetirementStatusModal: FC<Props> = (props) => (
       <div className={styles.title}>
         <CelebrationOutlined fontSize="large" />
 
-        <Trans>
-          <Text t="h4">Retirement Successful!</Text>
-        </Trans>
+        <Text t="h4">
+          <Trans>Retirement Successful!</Trans>
+        </Text>
       </div>
     }
     showModal={true}
@@ -33,15 +34,14 @@ export const RetirementStatusModal: FC<Props> = (props) => (
         </Trans>
       </Text>
 
-      <ButtonPrimary
+      <CarbonmarkButton
         href={props.retirementUrl}
         className={styles.viewButton}
         target="_blank"
         label={<Trans>View and share certificate</Trans>}
       />
-      <ButtonPrimary
+      <CarbonmarkButton
         href={"/portfolio"}
-        className={styles.portfolioButton}
         label={<Trans>Retire more carbon</Trans>}
       />
     </div>

@@ -1,5 +1,5 @@
 import { Anchor } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
 import type { AssetForRetirement } from "lib/types/carbonmark";
@@ -34,7 +34,7 @@ export const RetirementSidebar: FC<Props> = (props) => {
           <Trans>Available to retire</Trans>
         </Text>
         <Text t="body1" className={styles.bold}>
-          {Number(props.balance)} tonnes
+          {Number(props.balance)} {t`tonnes`}
         </Text>
       </div>
       <div className={styles.linkWithIcon}>

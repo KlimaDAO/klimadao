@@ -8,7 +8,6 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
-import { activityIsAdded, getUserUntil } from "lib/api";
 import type { AssetForRetirement, PcbProject } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -25,9 +24,7 @@ export type RetirePageProps = {
 
 export const Retire: NextPage<RetirePageProps> = (props) => {
   const { isConnected, address, toggleModal, provider } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address);
-  const [isPending, setIsPending] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { carbonmarkUser, isLoading } = useFetchUser(address);
   const [loadingTriggered, setLoadingTriggered] = useState(false);
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
@@ -48,7 +45,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   useEffect(() => {
     if (!isConnected && !isLoading && loadingTriggered) {
-      console.log("Not connected: redirecting to portfolio");
       router.push("/portfolio");
     }
   }, [isConnected, isLoading, loadingTriggered]);
@@ -66,7 +62,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
             return asset.token.id == targetProject.tokenAddress;
           })[0];
           if (!asset) {
-            console.log("Project not a user asset: redirecting to portfolio");
             router.push("/portfolio");
             return;
           }
@@ -81,40 +76,6 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
       createRetirementAsset();
     }
   }, [isConnected, isLoading, loadingTriggered, carbonmarkUser]);
-
-  const handleMutateUser = async () => {
-    if (!isConnectedUser) return;
-
-    const latestActivity = carbonmarkUser?.activities.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-    )[0];
-
-    const newUser = await getUserUntil({
-      address,
-      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 1000,
-      maxAttempts: 50,
-    });
-
-    return newUser;
-  };
-
-  const onUpdateUser = async () => {
-    try {
-      setIsPending(true);
-      await mutate(handleMutateUser, {
-        populateCache: true,
-      });
-    } catch (e) {
-      console.error(e);
-      setErrorMessage(
-        t`Please refresh the page. There was an error updating your data: ${e}.`
-      );
-    } finally {
-      setIsPending(false);
-      console.log("finally", isPending);
-    }
-  };
 
   return (
     <>
@@ -133,17 +94,10 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
           {!isConnectedUser && (
             <LoginCard isLoading={isLoading} onLogin={toggleModal} />
           )}
-          {errorMessage && (
-            <Text t="h5" className={styles.errorMessage}>
-              {errorMessage}
-            </Text>
-          )}
           {isCarbonmarkUser && retirementAsset && (
             <RetireForm
               address={address}
               asset={retirementAsset}
-              isConnected={isConnected}
-              onUpdateUser={onUpdateUser}
               provider={provider}
             />
           )}

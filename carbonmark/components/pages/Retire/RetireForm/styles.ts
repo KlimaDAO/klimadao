@@ -51,6 +51,20 @@ export const projectHeaderText = css`
   }
 `;
 
+export const sideBarBelowLarge = css`
+  display: grid;
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
+export const sideBarLargeAndAbove = css`
+  display: none;
+  ${breakpoints.large} {
+    display: grid;
+  }
+`;
+
 export const tags = css`
   display: flex;
   gap: 2rem;
@@ -214,7 +228,6 @@ export const input = css`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  }
 
   .button_max {
     ${common.iconButton};

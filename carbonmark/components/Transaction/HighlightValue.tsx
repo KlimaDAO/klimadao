@@ -5,7 +5,7 @@ import { FC, ReactNode } from "react";
 import { Anchor, Text } from "@klimadao/lib/components";
 import Image from "next/image";
 
-import * as styles from "../pages/Retire/RetireModal/styles";
+import * as styles from "./styles";
 
 interface HighlightValueProps {
   label: ReactNode;
