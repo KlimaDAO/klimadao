@@ -49,7 +49,7 @@ const RetireApproval: FC = () => {
         <Trans>We need more text here</Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="retire.approval_4">
+        <Trans>
           Verify all information is correct and click 'approve' to continue.
         </Trans>
       </Text>
@@ -61,13 +61,13 @@ const RetireSubmit: FC = () => {
   return (
     <div className={styles.formatParagraph}>
       <Text t="body1" color="lighter">
-        <Trans id="retire.submit_1">
+        <Trans>
           The previous step granted the approval to transfer your payment asset
           from your wallet.
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="retire.submit_2">
+        <Trans>
           Your retirement has not been completed yet. To finalize your
           retirement, verify all information is correct and then click 'submit'
           below.
