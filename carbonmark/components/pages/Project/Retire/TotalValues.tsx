@@ -1,8 +1,11 @@
 import { cx } from "@emotion/css";
+import { trimWithLocale } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Text } from "components/Text";
-import { getConsumptionCost } from "lib/actions.retire";
-import { CARBONMARK_FEE } from "lib/constants";
+import { getConsumptionCost, getFeeFactor } from "lib/actions.retire";
+import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -24,10 +27,25 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
   const [costs, setCosts] = useState("");
+  const [feesFactor, setFeesFactor] = useState(0);
   const [error, setError] = useState("");
+  const [isToggled, setIsToggled] = useState(false);
 
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
+
+  const redemptionFee = (Number(props.singleUnitPrice) / 100) * feesFactor;
+  const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
+  const swapFee = Number(props.singleUnitPrice) * SUSHI_SWAP_FEE;
+  const networkFees = redemptionFee + aggregatorFee + swapFee;
+
+  useEffect(() => {
+    const selectiveFee = async () => {
+      const factor = await getFeeFactor(props.pool);
+      setFeesFactor(factor);
+    };
+    selectiveFee();
+  }, []);
 
   useEffect(() => {
     const newCosts = async () => {
@@ -113,6 +131,108 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
+      <div className={styles.totalsText}>
+        <Text>{t`Network fees`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
+          <div className={styles.withToggle}>
+            <Text t="h5">{trimWithLocale(networkFees, 5, locale)}</Text>
+            <Text
+              t="body3"
+              color="lighter"
+              onClick={() => setIsToggled((prev) => !prev)}
+              className={styles.toggleFees}
+            >
+              {isToggled ? t`Hide Details` : t`Show Details`}
+              {isToggled ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </Text>
+          </div>
+        </div>
+        {isToggled && (
+          <div className={styles.fees}>
+            <div className={styles.feeBreakdown}>
+              <div className={cx(styles.iconAndText)}>
+                <div className="icon">
+                  <Image
+                    src={
+                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                    }
+                    width={20}
+                    height={20}
+                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+                  />
+                </div>
+                <Text t="body2">{trimWithLocale(swapFee, 5, locale)}</Text>
+              </div>
+              <div className={styles.feeText}>
+                <Text t="body2">{t`Sushi Swap`}</Text>
+                <Text t="body2">
+                  {`(${trimWithLocale(
+                    SUSHI_SWAP_FEE * 100,
+                    2,
+                    locale
+                  )}% per swap)`}
+                </Text>
+              </div>
+            </div>
+
+            <div className={styles.feeBreakdown}>
+              <div className={cx(styles.iconAndText)}>
+                <div className="icon">
+                  <Image
+                    src={
+                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                    }
+                    width={20}
+                    height={20}
+                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+                  />
+                </div>
+                <Text t="body2">
+                  {trimWithLocale(aggregatorFee, 5, locale)}
+                </Text>
+              </div>
+              <div className={styles.feeText}>
+                <Text t="body2">{t`KlimaDAO Contracts`}</Text>
+                <Text t="body2">
+                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 2, locale)}%)`}
+                </Text>
+              </div>
+            </div>
+
+            <div className={styles.feeBreakdown}>
+              <div className={cx(styles.iconAndText)}>
+                <div className="icon">
+                  <Image
+                    src={
+                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                    }
+                    width={20}
+                    height={20}
+                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+                  />
+                </div>
+                <Text t="body2">
+                  {trimWithLocale(redemptionFee, 5, locale)}
+                </Text>
+              </div>
+              <div className={styles.feeText}>
+                <Text t="body2">{t`Redemption Fee`}</Text>
+                <Text t="body2">
+                  {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
+                </Text>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       <div className={styles.divider}></div>
 
       <div className={styles.totalsText}>

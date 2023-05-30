@@ -151,6 +151,40 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
+export const withToggle = css`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const toggleFees = css`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const fees = css`
+  background-color: var(--surface-02);
+  padding: 0.4rem;
+  display: grid;
+  gap: 0.8rem;
+  border-top: 2px solid var(--manatee);
+  border-bottom: 2px solid var(--manatee);
+`;
+
+export const feeBreakdown = css`
+  background-color: var(--surface-02);
+  display: grid;
+  padding: 0.4rem;
+`;
+
+export const feeText = css`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+`;
+
 export const feeColor = css`
   color: var(--bright-blue);
 `;
@@ -161,7 +195,7 @@ export const breakText = css`
 
 export const divider = css`
   height: 0.1rem;
-  background-color: var(--font-03);
+  background-color: var(--manatee);
 `;
 
 export const iconAndText = css`
