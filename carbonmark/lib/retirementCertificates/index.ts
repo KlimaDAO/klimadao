@@ -148,7 +148,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const printRetirementDetails = (): void => {
     const retirementAmount =
       Number(params.retirement.amount) < 0.01
-        ? "< 0.01t"
+        ? "< 0.01"
         : trimWithLocale(params.retirement.amount, 2, "en");
 
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
@@ -250,6 +250,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
     const transactionDetailsHeight = 100;
 
+    if (isMossRetirement) {
+      return positionOfProjectDetails + transactionDetailsHeight - 20;
+    }
+
     return (
       positionOfProjectDetails +
       projectDetails.length * 22 +
@@ -318,7 +322,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       doc.fontSize(12);
       doc.fillColor(BLACK);
       doc.text(
-        detail.value,
+        `${detail.value}`,
         doc.page.width - 360 + doc.widthOfString(detail.label) + 2,
         startPosition - 1
       );
@@ -364,11 +368,86 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     );
   };
 
+  const printMossProjectDetails = (): void => {
+    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.fill(WHITE);
+    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.strokeColor(MANATEE);
+    doc.stroke();
+
+    doc.font("Poppins-Bold");
+    doc.fontSize(16);
+    doc.fillColor(SECONDARY_HEADER_COLOR);
+    doc.text(
+      "Retirement Details",
+      doc.page.width - 360,
+      36 // page margin + box padding
+    );
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(12);
+    doc.fillColor(GRAY);
+    doc.text("PROJECT NAME", doc.page.width - 360, 200, {
+      characterSpacing: 0.3,
+    });
+
+    doc.font("DMSans");
+    doc.fontSize(16);
+    doc.fillColor(BLACK);
+    doc.text(params.retirement.offset.name, doc.page.width - 360, 218, {
+      width: 320,
+    });
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(12);
+    doc.fillColor(GRAY);
+    doc.text("LEARN MORE", doc.page.width - 360, 200 + 20 + 20, {
+      underline: true,
+    });
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(8);
+    doc.fillColor(GRAY);
+    doc.text("BENEFICIARY ADDRESS", doc.page.width - 360, 200 + 50 + 20, {
+      characterSpacing: 0.3,
+    });
+
+    doc.font("DMSans");
+    doc.fontSize(10);
+    doc.text(
+      params.retirement.beneficiaryAddress,
+      doc.page.width - 360,
+      200 + 50 + 32,
+      { width: 320 }
+    );
+
+    doc.font("Poppins-Semibold");
+    doc.fontSize(8);
+    doc.text("TRANSACTION ID", doc.page.width - 360, 200 + 50 + 52, {
+      characterSpacing: 0.3,
+    });
+
+    doc.font("DMSans");
+    doc.fontSize(10);
+    doc.text(
+      params.retirement.transaction.id,
+      doc.page.width - 360,
+      200 + 50 + 64,
+      { width: 320 }
+    );
+  };
+
   setupFonts();
   printBackground();
   printHeader();
   printRetirementDetails();
-  printProjectDetails();
+
+  if (isMossRetirement) {
+    printMossProjectDetails();
+  } else {
+    printProjectDetails();
+  }
+
   printCategoryBanner();
   printFooter();
 
