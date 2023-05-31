@@ -158,6 +158,20 @@ export const withToggle = css`
   align-items: baseline;
 `;
 
+export const externalLink = css`
+  color: var(--font-01);
+  text-decoration: underline;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  &:hover,
+  &:visited {
+    color: var(--font-02);
+    text-decoration: none;
+  }
+`;
+
 export const toggleFees = css`
   cursor: pointer;
   display: flex;

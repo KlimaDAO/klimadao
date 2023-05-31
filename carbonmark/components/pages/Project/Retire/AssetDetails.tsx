@@ -1,6 +1,7 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
@@ -27,18 +28,24 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Retiring Token`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <Image
-            className="icon"
-            src={tokenData.icon}
-            width={20}
-            height={20}
-            alt={tokenData.label}
-          />
+          <div className="icon">
+            <Image
+              src={tokenData.icon}
+              width={20}
+              height={20}
+              alt={tokenData.label}
+            />
+          </div>
           <Text t="h5">{projectTokenName}</Text>
         </div>
         <Anchor
+          className={styles.iconAndText}
           href={`https://polygonscan.com/address/${props.project.projectAddress}`}
-        >{t`View on PolygonScan`}</Anchor>
+        >
+          <Text className={styles.externalLink} t="body2">
+            {t`View on PolygonScan`} <LaunchIcon />
+          </Text>
+        </Anchor>
       </div>
     </>
   );
