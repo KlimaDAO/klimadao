@@ -233,7 +233,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           </div>
         )}
       </div>
-      <div className={styles.divider}></div>
+      {!isToggled && <div className={styles.divider}></div>}
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
