@@ -53,9 +53,38 @@ const catergoryBannerMap = {
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  console.log(params);
+  // console.log(params);
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
+  const projectDetails = [
+    {
+      label: "ASSET RETIRED:",
+      value: params.retiredToken?.toUpperCase(),
+    },
+    {
+      label: "PROJECT:",
+      value: params.retirement.offset.projectID,
+    },
+    {
+      label: "TYPE: ",
+      value: params.retirement.offset.methodologyCategory,
+    },
+    {
+      label: "METHODOLOGY:",
+      value: params.retirement.offset.methodology,
+    },
+    {
+      label: "COUNTRY/REGION:",
+      value:
+        params.retirement.offset.country || params.retirement.offset.region,
+    },
+    {
+      label: "VINTAGE: ",
+      value: new Date(Number(params.retirement.offset.vintage) * 1000)
+        .getFullYear()
+        .toString(),
+    },
+  ];
 
   const doc = new PDFKit({
     layout: "landscape",
@@ -168,9 +197,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.fontSize(20);
     doc.fillColor(BLACK);
     doc.text(beneficaryText, spacing.margin, 245, { width: 360 });
-    // doc.text("Kristofferson Enterprises LLC.", spacing.margin, 245, {
-    //   width: 360,
-    // });
 
     const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
       width: 360,
@@ -203,11 +229,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   };
 
   const printCategoryBanner = async (): Promise<void> => {
-    const categoryBanner =
-      catergoryBannerMap[
-        params.retirement.offset.methodologyCategory as CategoryBannerMappingKey
-      ];
-    // const categoryBanner = catergoryBannerMap["Industrial Processing"];
+    const category = isMossRetirement
+      ? "Other"
+      : (params.retirement.offset
+          .methodologyCategory as CategoryBannerMappingKey);
+    const categoryBanner = catergoryBannerMap[category];
     const categoryBannerBuffer = Buffer.from(categoryBanner, "base64");
 
     doc.image(categoryBannerBuffer, doc.page.width - 360, 68, {
@@ -216,11 +242,26 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     });
   };
 
+  const calculateBoxHeight = (): number => {
+    const projectNameBlockHeight = doc.heightOfString(
+      params.retirement.offset.name,
+      { width: 320, characterSpacing: 0.3 }
+    );
+    const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
+    const transactionDetailsHeight = 100;
+
+    return (
+      positionOfProjectDetails +
+      projectDetails.length * 22 +
+      transactionDetailsHeight
+    );
+  };
+
   const printProjectDetails = (): void => {
     // fill box first before rendering box border
-    doc.rect(doc.page.width - 20 - 360, 20, 360, 500);
+    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
     doc.fill(WHITE);
-    doc.rect(doc.page.width - 20 - 360, 20, 360, 500);
+    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
     doc.strokeColor(MANATEE);
     doc.stroke();
 
@@ -236,7 +277,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text("PROJECT RETIRED", doc.page.width - 360, 200, {
+    doc.text("PROJECT NAME", doc.page.width - 360, 200, {
       characterSpacing: 0.3,
     });
 
@@ -264,36 +305,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { underline: true }
     );
 
-    let projectDetails = [
-      {
-        label: "ASSET RETIRED:",
-        value: params.retiredToken?.toUpperCase(),
-      },
-      {
-        label: "PROJECT:",
-        value: params.retirement.offset.projectID,
-      },
-      {
-        label: "TYPE: ",
-        value: params.retirement.offset.methodologyCategory,
-      },
-      {
-        label: "METHODOLOGY:",
-        value: params.retirement.offset.methodology,
-      },
-      {
-        label: "COUNTRY/REGION:",
-        value:
-          params.retirement.offset.country || params.retirement.offset.region,
-      },
-      {
-        label: "VINTAGE: ",
-        value: new Date(Number(params.retirement.offset.vintage) * 1000)
-          .getFullYear()
-          .toString(),
-      },
-    ];
-
     let startPosition = 200 + projectNameBlockHeight + 50;
     projectDetails.forEach((detail) => {
       doc.font("Poppins-Semibold");
@@ -307,7 +318,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       doc.fontSize(12);
       doc.fillColor(BLACK);
       doc.text(
-        `${detail.value}`,
+        detail.value,
         doc.page.width - 360 + doc.widthOfString(detail.label) + 2,
         startPosition - 1
       );
