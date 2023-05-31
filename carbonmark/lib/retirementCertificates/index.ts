@@ -30,7 +30,6 @@ const GRAY = "#626266";
 const BLACK = "#000000";
 const WHITE = "#ffffff";
 const MANATEE = "#8B8FAE";
-const PRIMARY_FONT_COLOR = "#313131";
 const SECONDARY_HEADER_COLOR = "#3B3B3D";
 
 const spacing = {
