@@ -19,11 +19,13 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
     url,
     registryProjectId,
     "projectContent": *[references(^._id)]{
+      shortDescription,
+      longDescription,
       images[]{
         caption,
         'url': asset->url
       }
-    }
+    }[0]
   }`
 
   const fetchAllProjects = groq`
@@ -34,6 +36,10 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
     registryProjectId,
     methodologies[]->{  "id": id.current, category, name },
     name,
+    "projectContent": *[references(^._id)]{
+      shortDescription,
+      longDescription
+    }[0]
   }`
 
   module.exports = {

@@ -45,20 +45,27 @@ module.exports = async function (fastify, opts) {
     handler: async function (request, reply) {
       var { country, category, search, vintage } = request.query;
 
+
+      const [categories, countries, vintages] = await Promise.all([
+        getAllCategories(fastify),
+        getAllCountries(fastify),
+        getAllVintages(fastify)
+      ]);
+
       if (category) {
         category = category.split(",");
       } else {
-        category = await getAllCategories(fastify);
+        category = categories;
       }
       if (country) {
         country = country.split(",");
       } else {
-        country = await getAllCountries(fastify);
+        country = countries;
       }
       if (vintage) {
         vintage = vintage.split(",");
       } else {
-        vintage = await getAllVintages(fastify);
+        vintage = vintages;
       }
 
       if (!search) {
@@ -66,31 +73,47 @@ module.exports = async function (fastify, opts) {
       }
 
       const sanity = getSanityClient();
-      const projectsCmsData = await sanity.fetch(fetchAllProjects);
 
-      const poolPrices = await calculatePoolPrices(fastify);
 
-      const data = await executeGraphQLQuery(
-        process.env.GRAPH_API_URL,
-        GET_PROJECTS,
-        { country, category, search, vintage }
-      );
-
-      let pooledProjectsData = (
-        await executeGraphQLQuery(
+      const [data, pooledProjectsData, projectsCmsData, poolPrices] = await Promise.all([
+        executeGraphQLQuery(
+          process.env.GRAPH_API_URL,
+          GET_PROJECTS,
+          { country, category, search, vintage }
+        ),
+        executeGraphQLQuery(
           process.env.CARBON_OFFSETS_GRAPH_API_URL,
           POOLED_PROJECTS,
           { country, category, search, vintage }
-        )
-      ).data;
+        ),
+        sanity.fetch(fetchAllProjects),
+        calculatePoolPrices(fastify)
+      ]);
 
+
+
+      // const data = await executeGraphQLQuery(
+      //   process.env.GRAPH_API_URL,
+      //   GET_PROJECTS,
+      //   { country, category, search, vintage }
+      // );
+
+      // let pooledProjectsData = (
+      //   await executeGraphQLQuery(
+      //     process.env.CARBON_OFFSETS_GRAPH_API_URL,
+      //     POOLED_PROJECTS,
+      //     { country, category, search, vintage }
+      //   )
+      // ).data;
+
+    
       const projects = data.data.projects.map(function (project) {
         const uniqueValues = [];
 
 
-        if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
+        if (pooledProjectsData.data && pooledProjectsData.data.carbonOffsets) {
 
-          let indexes = pooledProjectsData.carbonOffsets.map((item, idx) => (item.projectID === project.registry + '-' + project.projectID &&
+          let indexes = pooledProjectsData.data.carbonOffsets.map((item, idx) => (item.projectID === project.registry + '-' + project.projectID &&
             item.vintageYear === project.vintage) ? idx : '').filter(String);
           // var index = pooledProjectsData.carbonOffsets.findIndex(
           //   (item) =>
@@ -105,10 +128,10 @@ module.exports = async function (fastify, opts) {
             project.isPoolProject = true;
 
             indexes.forEach(index => {
-              pooledProjectsData.carbonOffsets[index].display = false;
+              pooledProjectsData.data.carbonOffsets[index].display = false;
               // console.log( pooledProjectsData.carbonOffsets[index].display )
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
+                parseFloat(pooledProjectsData.data.carbonOffsets[index].balanceUBO) >=
                 1
               ) {
                 uniqueValues.push(
@@ -116,7 +139,7 @@ module.exports = async function (fastify, opts) {
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
+                parseFloat(pooledProjectsData.data.carbonOffsets[index].balanceNBO) >=
                 1
               ) {
                 uniqueValues.push(
@@ -124,7 +147,7 @@ module.exports = async function (fastify, opts) {
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
+                parseFloat(pooledProjectsData.data.carbonOffsets[index].balanceNCT) >=
                 1
               ) {
                 uniqueValues.push(
@@ -132,7 +155,7 @@ module.exports = async function (fastify, opts) {
                 );
               }
               if (
-                parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
+                parseFloat(pooledProjectsData.data.carbonOffsets[index].balanceBCT) >=
                 1
               ) {
                 uniqueValues.push(
@@ -176,12 +199,15 @@ module.exports = async function (fastify, opts) {
           : undefined;
         project.name = cmsData ? cmsData.name : project.name;
         project.methodologies = cmsData ? cmsData.methodologies : [];
+        project.short_description = cmsData.projectContent ? cmsData.projectContent.shortDescription : undefined;
+        project.long_description = cmsData.projectContent ? cmsData.projectContent.longDescription : undefined;
+
         delete project.listings;
 
         return { ...project, price };
       });
 
-      const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
+      const pooledProjects = pooledProjectsData.data.carbonOffsets.map(function (
         project
       ) {
         if (project.display == false) {
@@ -329,7 +355,6 @@ module.exports = async function (fastify, opts) {
             { key: key, vintageStr: vintageStr }
           );
           if (data.data.carbonOffsets[0]) {
-            console.log(data.data.carbonOffsets);
             let poolProject = { ...data.data.carbonOffsets[0] };
             project.isPoolProject = true;
             project.totalBridged = poolProject.totalBridged;
@@ -392,7 +417,6 @@ module.exports = async function (fastify, opts) {
             project.prices = [];
             prices = [];
             if (data.data.carbonOffsets && data.data.carbonOffsets.length) {
-              console.log(data.data.carbonOffsets);
               data.data.carbonOffsets.map(function (carbonProject) {
                 [uniqueValues, prices] = calculateProjectPoolPrices(
                   carbonProject,
@@ -416,12 +440,14 @@ module.exports = async function (fastify, opts) {
             };
 
             const results = await sanity.fetch(fetchProjects, params);
-            console.log(results);
             project.description = results.description;
             project.location = results.geolocation;
             project.name = results.name;
             project.methodologies = results.methodologies;
-            project.images = results.projectContent.length >0  ? results.projectContent[0].images : [];
+
+            project.images = results.projectContent ? results.projectContent.images : [];
+            project.long_description = results.projectContent ? results.projectContent.longDescription : undefined;
+
             project.url = results.url
           } else if (project.registry == "GS") {
             var results = await fetch(

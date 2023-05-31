@@ -5,7 +5,7 @@ function getSanityClient() {
         projectId: "l6of5nwi",
         dataset: "production",
         apiVersion: "2023-02-04",
-        useCdn: true,
+        useCdn: false,
     });
   }
 
