@@ -224,7 +224,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
                 </Text>
               </div>
               <div className={styles.feeText}>
-                <Text t="body2">{t`Redemption Fee`}</Text>
+                <Text t="body2">
+                  {props.pool.toUpperCase()} {t`redemption Fee`}
+                </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
                 </Text>
