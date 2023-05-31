@@ -300,7 +300,11 @@ msgstr "KlimaDAO"
 msgid "Latest First"
 msgstr "Latest First"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+msgid "Learn More"
+msgstr "Learn More"
+
+#: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Leaving Carbonmark"
@@ -586,10 +590,6 @@ msgstr "Success! Your new listing will appear in a few moments on your <0>Profil
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:77
-msgid "TESTING RETIRE"
-msgstr "TESTING RETIRE"
-
 #: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr "Terms of Use"
@@ -710,10 +710,6 @@ msgstr "View and share certificate"
 #: components/pages/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
 msgstr "View on PolygonScan <0/>"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
-msgid "View on Polygonscan"
-msgstr "View on Polygonscan"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -1131,9 +1127,9 @@ msgstr "back"
 msgid "retire.submit_button"
 msgstr "Retire Carbon"
 
-#: components/pages/Retirements/Footer/index.tsx:18
-msgid "retirement.footer.aboutCarbonmark.left"
-msgstr "Carbonmark is an all-in-one platform for the carbon markets. With millions of carbon credits available, the platform allows users to quickly list, acquire and offset Digital Carbon Credits with no additional fees."
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
+msgstr "With over 20 million verified digital carbon credits from hundreds of projects, Carbonmark offers the largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading. <0>Get started today</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.about_carbonmark.title"
@@ -1522,11 +1518,3 @@ msgstr "{amount} tonnes were purchased for project {0}"
 #: components/pages/Retire/RetirementSidebar/index.tsx:29
 msgid "{tokenSymbol}"
 msgstr "{tokenSymbol}"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
-msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr "{trimCurrentSupply} Tonnes remaining"
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "{trimTotalRetired} Tonnes retired in total"
-msgstr "{trimTotalRetired} Tonnes retired in total"

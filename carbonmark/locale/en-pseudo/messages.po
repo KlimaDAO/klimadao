@@ -300,7 +300,11 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+msgid "Learn More"
+msgstr ""
+
+#: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr ""
@@ -586,10 +590,6 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:77
-msgid "TESTING RETIRE"
-msgstr ""
-
 #: components/Footer/index.tsx:34
 msgid "Terms of Use"
 msgstr ""
@@ -709,10 +709,6 @@ msgstr ""
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:74
-msgid "View on Polygonscan"
 msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
@@ -1131,12 +1127,8 @@ msgstr ""
 msgid "retire.submit_button"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:18
-msgid "retirement.footer.aboutCarbonmark.left"
-msgstr ""
-
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutCarbonmark.right"
+#: components/pages/Retirements/Footer/index.tsx:17
+msgid "retirement.footer.about_carbonmark.content"
 msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:11
@@ -1525,12 +1517,4 @@ msgstr ""
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:29
 msgid "{tokenSymbol}"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:62
-msgid "{trimCurrentSupply} Tonnes remaining"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
-msgid "{trimTotalRetired} Tonnes retired in total"
 msgstr ""
