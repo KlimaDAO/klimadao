@@ -1,6 +1,5 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FC } from "react";
 
 import { Text } from "@klimadao/lib/components";
@@ -16,11 +15,11 @@ type Props = {
 };
 
 export const Article: FC<Props> = (props) => {
-  const { locale } = useRouter();
-
-  const formattedDate = new Date(props.article.publishedAt).toLocaleDateString(
-    locale
-  );
+  const formattedDate = new Date(props.article.publishedAt)
+    .toDateString()
+    .split(" ")
+    .slice(1)
+    .join(" ");
 
   return (
     <div className={styles.article}>

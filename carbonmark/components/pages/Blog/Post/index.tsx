@@ -40,9 +40,11 @@ export const PostPage = (props: PostProps) => {
     );
   }
 
-  const publishedDate = `Published ${new Date(
-    props.post.publishedAt
-  ).toDateString()}`;
+  const publishedDate = `Published ${new Date(props.post.publishedAt)
+    .toDateString()
+    .split(" ")
+    .slice(1)
+    .join(" ")}`;
   return (
     <>
       <GridContainer>

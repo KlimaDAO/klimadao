@@ -10,7 +10,11 @@ interface BlogPostCardProps {
 }
 
 export const BlogPostCard = (props: BlogPostCardProps) => {
-  const date = new Date(props.post.publishedAt).toLocaleDateString("en");
+  const date = new Date(props.post.publishedAt)
+    .toDateString()
+    .split(" ")
+    .slice(1)
+    .join(" ");
 
   return (
     <Link href={`/blog/${props.post.slug}`} className={styles.card}>

@@ -12,7 +12,11 @@ interface CardProps {
 }
 
 export function PodcastCard(props: CardProps) {
-  const date = new Date(props.podcast.publishedAt).toLocaleDateString("en");
+  const date = new Date(props.podcast.publishedAt)
+    .toDateString()
+    .split(" ")
+    .slice(1)
+    .join(" ");
   return (
     <A
       className={styles.card}
