@@ -5,7 +5,7 @@ import {
   ArrowTopRightOnSquareIcon,
   CheckIcon,
   FireIcon,
-  XCircleIcon
+  XCircleIcon,
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
