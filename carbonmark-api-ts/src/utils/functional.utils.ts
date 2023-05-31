@@ -1,4 +1,4 @@
-import { filter, isNil, negate } from "lodash/fp";
+import { isEmpty, isNil, negate, overEvery } from "lodash/fp";
 
 /** Pulls the direct value from an object */
 export const extract =
@@ -8,4 +8,8 @@ export const extract =
     obj[key] ?? (fallback as T[K]);
 
 /** Predicate for null or undefined (not falsey) */
-export const notNil = filter(negate(isNil));
+export const notNil = <T>(a: T): a is NonNullable<T> => !isNil(a);
+
+export const notEmpty = negate(isEmpty);
+
+export const notEmptyOrNil = overEvery([notNil, notEmpty]);

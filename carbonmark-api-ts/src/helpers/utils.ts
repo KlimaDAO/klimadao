@@ -10,8 +10,10 @@ import {
   GetCountriesQuery,
   GetVintagesDocument,
   GetVintagesQuery,
+  Listing,
 } from "../../.generated/types/marketplace.types";
 import {
+  CarbonOffset,
   GetCarbonOffsetsCategoriesDocument,
   GetCarbonOffsetsCategoriesQuery,
   GetCarbonOffsetsCountriesDocument,
@@ -157,56 +159,62 @@ export async function getAllCountries(fastify: FastifyInstance) {
 //   });
 // }
 
-// export function calculateProjectPoolPrices(
-//   poolProject,
-//   uniqueValues,
-//   poolPrices,
-//   prices = []
-// ) {
-//   var prices = prices;
-//   if (parseFloat(poolProject.balanceNBO) >= 1) {
-//     uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo").price);
+export type PriceType = Pick<
+  Listing,
+  "leftToSell" | "tokenAddress" | "singleUnitPrice"
+> & {
+  name: string;
+};
 
-//     prices.push({
-//       leftToSell: poolProject.balanceNBO,
-//       tokenAddress: process.env.NBO_POOL,
-//       singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo").priceInUsd,
-//       name: "NBO",
-//     });
-//   }
-//   if (parseFloat(poolProject.balanceUBO) >= 1) {
-//     uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo").price);
+export function calculateProjectPoolPrices(
+  poolProject: Partial<CarbonOffset>,
+  uniqueValues: string[],
+  poolPrices: TokenPrice[],
+  prices: PriceType[] = []
+): [string[], typeof prices] {
+  if (parseFloat(poolProject.balanceNBO) >= 1) {
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo")!.price);
 
-//     prices.push({
-//       leftToSell: poolProject.balanceUBO,
-//       tokenAddress: process.env.UBO_POOL,
-//       singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo").priceInUsd,
-//       name: "UBO",
-//     });
-//   }
-//   if (parseFloat(poolProject.balanceNCT) >= 1) {
-//     uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc").price);
+    prices.push({
+      leftToSell: poolProject.balanceNBO,
+      tokenAddress: process.env.NBO_POOL!,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")!.priceInUsd,
+      name: "NBO",
+    });
+  }
+  if (parseFloat(poolProject.balanceUBO) >= 1) {
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo")!.price);
 
-//     prices.push({
-//       leftToSell: poolProject.balanceNCT,
-//       tokenAddress: process.env.NTC_POOL,
-//       singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc").priceInUsd,
-//       name: "NCT",
-//     });
-//   }
-//   if (parseFloat(poolProject.balanceBCT) >= 1) {
-//     uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
+    prices.push({
+      leftToSell: poolProject.balanceUBO,
+      tokenAddress: process.env.UBO_POOL!,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")!.priceInUsd,
+      name: "UBO",
+    });
+  }
+  if (parseFloat(poolProject.balanceNCT) >= 1) {
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc")!.price);
 
-//     prices.push({
-//       leftToSell: poolProject.balanceBCT,
-//       tokenAddress: process.env.BTC_POOL,
-//       singleUnitPrice: poolPrices.find((obj) => obj.name === "btc").priceInUsd,
-//       name: "BCT",
-//     });
-//   }
+    prices.push({
+      leftToSell: poolProject.balanceNCT,
+      tokenAddress: process.env.NTC_POOL!,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")!.priceInUsd,
+      name: "NCT",
+    });
+  }
+  if (parseFloat(poolProject.balanceBCT) >= 1) {
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "btc")!.price);
 
-//   return [uniqueValues, prices];
-// }
+    prices.push({
+      leftToSell: poolProject.balanceBCT,
+      tokenAddress: process.env.BTC_POOL!,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")!.priceInUsd,
+      name: "BCT",
+    });
+  }
+
+  return [uniqueValues, prices];
+}
 
 export type TokenPrice = {
   priceInUsd: string;

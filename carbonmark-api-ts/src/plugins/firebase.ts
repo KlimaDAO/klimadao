@@ -21,8 +21,10 @@ export default fp(async function (fastify) {
   });
 });
 
+export type FirebaseInstance = admin.app.App;
+
 declare module "fastify" {
   export interface FastifyInstance {
-    firebase: admin.app.App;
+    firebase: FirebaseInstance;
   }
 }
