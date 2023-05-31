@@ -34,7 +34,6 @@ export enum OrderDirection {
 }
 
 export type Pair = {
-  __typename?: 'Pair';
   currentprice: Scalars['BigDecimal'];
   id: Scalars['ID'];
   lastupdate: Scalars['String'];
@@ -176,7 +175,6 @@ export enum Pair_OrderBy {
 }
 
 export type Query = {
-  __typename?: 'Query';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   pair?: Maybe<Pair>;
@@ -247,7 +245,6 @@ export type QueryTokensArgs = {
 };
 
 export type Subscription = {
-  __typename?: 'Subscription';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   pair?: Maybe<Pair>;
@@ -318,7 +315,6 @@ export type SubscriptionTokensArgs = {
 };
 
 export type Swap = {
-  __typename?: 'Swap';
   close: Scalars['BigDecimal'];
   high: Scalars['BigDecimal'];
   id: Scalars['ID'];
@@ -472,7 +468,6 @@ export enum Swap_OrderBy {
 }
 
 export type Token = {
-  __typename?: 'Token';
   decimals: Scalars['Int'];
   id: Scalars['ID'];
   name: Scalars['String'];
@@ -550,7 +545,6 @@ export enum Token_OrderBy {
 }
 
 export type _Block_ = {
-  __typename?: '_Block_';
   /** The hash of the block */
   hash?: Maybe<Scalars['Bytes']>;
   /** The block number */
@@ -561,7 +555,6 @@ export type _Block_ = {
 
 /** The type for the top-level _meta field */
 export type _Meta_ = {
-  __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
    * will be null if the _meta field has a block constraint that asks for
@@ -588,7 +581,7 @@ export type GetPairQueryVariables = Exact<{
 }>;
 
 
-export type GetPairQuery = { __typename?: 'Query', pair?: { __typename?: 'Pair', currentprice: any } | null };
+export type GetPairQuery = { pair?: { currentprice: any } | null };
 
 
 export const GetPairDocument = gql`

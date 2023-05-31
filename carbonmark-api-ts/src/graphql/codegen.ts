@@ -14,6 +14,7 @@ const config: CodegenConfig = {
       // We need to define the typescript type for BigInt
       BigInt: "string",
     },
+    skipTypename: true,
   },
   generates: {
     [`${GENERATED_DIR}/marketplace.types.ts`]: {

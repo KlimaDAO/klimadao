@@ -18,7 +18,6 @@ export type Scalars = {
 };
 
 export type Activity = {
-  __typename?: 'Activity';
   activityType: ActivityType;
   amount?: Maybe<Scalars['BigInt']>;
   buyer?: Maybe<User>;
@@ -267,7 +266,6 @@ export type Block_Height = {
 };
 
 export type Category = {
-  __typename?: 'Category';
   id: Scalars['String'];
 };
 
@@ -307,7 +305,6 @@ export enum Category_OrderBy {
 }
 
 export type Country = {
-  __typename?: 'Country';
   id: Scalars['String'];
 };
 
@@ -347,7 +344,6 @@ export enum Country_OrderBy {
 }
 
 export type Listing = {
-  __typename?: 'Listing';
   active?: Maybe<Scalars['Boolean']>;
   activities?: Maybe<Array<Activity>>;
   batchPrices?: Maybe<Array<Scalars['BigInt']>>;
@@ -537,7 +533,6 @@ export enum OrderDirection {
 }
 
 export type Project = {
-  __typename?: 'Project';
   activities?: Maybe<Array<Activity>>;
   category?: Maybe<Category>;
   country?: Maybe<Country>;
@@ -826,7 +821,6 @@ export enum Project_OrderBy {
 }
 
 export type Purchase = {
-  __typename?: 'Purchase';
   amount: Scalars['BigInt'];
   id: Scalars['Bytes'];
   listing: Listing;
@@ -938,7 +932,6 @@ export enum Purchase_OrderBy {
 }
 
 export type Query = {
-  __typename?: 'Query';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   activities: Array<Activity>;
@@ -1089,7 +1082,6 @@ export type QueryUsersArgs = {
 };
 
 export type Subscription = {
-  __typename?: 'Subscription';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   activities: Array<Activity>;
@@ -1240,7 +1232,6 @@ export type SubscriptionUsersArgs = {
 };
 
 export type User = {
-  __typename?: 'User';
   activities?: Maybe<Array<Activity>>;
   id: Scalars['Bytes'];
   listings?: Maybe<Array<Listing>>;
@@ -1302,7 +1293,6 @@ export enum User_OrderBy {
 }
 
 export type _Block_ = {
-  __typename?: '_Block_';
   /** The hash of the block */
   hash?: Maybe<Scalars['Bytes']>;
   /** The block number */
@@ -1313,7 +1303,6 @@ export type _Block_ = {
 
 /** The type for the top-level _meta field */
 export type _Meta_ = {
-  __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
    * will be null if the _meta field has a block constraint that asks for
@@ -1338,31 +1327,31 @@ export enum _SubgraphErrorPolicy_ {
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
+export type GetCategoriesQuery = { categories: Array<{ id: string }> };
 
 export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
+export type GetCountriesQuery = { countries: Array<{ id: string }> };
 
 export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
+export type GetVintagesQuery = { projects: Array<{ vintage: string }> };
 
 export type GetPurchasesByIdQueryVariables = Exact<{
   id?: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, timeStamp: string, listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, methodology: string, vintage: string, projectAddress: any, registry: string, updatedAt?: string | null, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
+export type GetPurchasesByIdQuery = { purchases: Array<{ id: any, amount: string, price: string, timeStamp: string, listing: { id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { id: any }, project: { id: string, key: string, projectID: string, name: string, methodology: string, vintage: string, projectAddress: any, registry: string, updatedAt?: string | null, category?: { id: string } | null, country?: { id: string } | null } }, user: { id: any } }> };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet?: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, project: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null }, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, project?: { __typename?: 'Project', name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null, purchases?: Array<{ __typename?: 'Purchase', id: any }> | null }> };
+export type GetUserByWalletQuery = { users: Array<{ listings?: Array<{ id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, project: { name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { id: string } | null }, seller: { id: any } }> | null, activities?: Array<{ id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, project?: { name: string, id: string, key: string, projectID: string, methodology: string, vintage: string, projectAddress: any, registry: string, category?: { id: string } | null } | null, seller: { id: any }, buyer?: { id: any } | null }> | null, purchases?: Array<{ id: any }> | null }> };
 
 export type FindProjectsQueryVariables = Exact<{
   country?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -1372,7 +1361,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, updatedAt?: string | null, listings?: Array<{ __typename?: 'Listing', singleUnitPrice: string, leftToSell: string, active?: boolean | null, deleted?: boolean | null }> | null, country?: { __typename?: 'Country', id: string } | null }> };
+export type FindProjectsQuery = { projects: Array<{ id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country?: { id: string } | null, listings?: Array<{ id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { id: any } }> | null, activities?: Array<{ id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, seller: { id: any }, buyer?: { id: any } | null }> | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1380,9 +1369,65 @@ export type GetProjectsByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, country?: { __typename?: 'Country', id: string } | null, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { __typename?: 'User', id: any } }> | null, activities?: Array<{ __typename?: 'Activity', id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer?: { __typename?: 'User', id: any } | null }> | null }> };
+export type GetProjectsByIdQuery = { projects: Array<{ id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country?: { id: string } | null, listings?: Array<{ id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { id: any } }> | null, activities?: Array<{ id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, seller: { id: any }, buyer?: { id: any } | null }> | null }> };
 
+export type ListingFragmentFragment = { id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { id: any } };
 
+export type ProjectFragmentFragment = { id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country?: { id: string } | null, listings?: Array<{ id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, seller: { id: any } }> | null, activities?: Array<{ id: string, amount?: string | null, previousAmount?: string | null, price?: string | null, previousPrice?: string | null, timeStamp?: string | null, activityType: ActivityType, seller: { id: any }, buyer?: { id: any } | null }> | null };
+
+export const ListingFragmentFragmentDoc = gql`
+    fragment ListingFragment on Listing {
+  id
+  totalAmountToSell
+  leftToSell
+  tokenAddress
+  active
+  deleted
+  batches
+  batchPrices
+  singleUnitPrice
+  createdAt
+  updatedAt
+  seller {
+    id
+  }
+}
+    `;
+export const ProjectFragmentFragmentDoc = gql`
+    fragment ProjectFragment on Project {
+  id
+  key
+  projectID
+  name
+  vintage
+  projectAddress
+  registry
+  methodology
+  projectType
+  region
+  country {
+    id
+  }
+  listings {
+    ...ListingFragment
+  }
+  activities {
+    id
+    amount
+    previousAmount
+    price
+    previousPrice
+    timeStamp
+    activityType
+    seller {
+      id
+    }
+    buyer {
+      id
+    }
+  }
+}
+    ${ListingFragmentFragmentDoc}`;
 export const GetCategoriesDocument = gql`
     query getCategories {
   categories {
@@ -1521,76 +1566,17 @@ export const FindProjectsDocument = gql`
   projects(
     where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
   ) {
-    id
-    key
-    projectID
-    name
-    vintage
-    projectAddress
-    registry
-    listings {
-      singleUnitPrice
-      leftToSell
-      active
-      deleted
-    }
-    country {
-      id
-    }
-    updatedAt
+    ...ProjectFragment
   }
 }
-    `;
+    ${ProjectFragmentFragmentDoc}`;
 export const GetProjectsByIdDocument = gql`
     query getProjectsById($key: String, $vintageStr: BigInt) {
   projects(where: {key: $key, vintage: $vintageStr}) {
-    id
-    key
-    projectID
-    name
-    vintage
-    projectAddress
-    registry
-    country {
-      id
-    }
-    listings {
-      id
-      seller {
-        id
-      }
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      batches
-      batchPrices
-      singleUnitPrice
-      createdAt
-      updatedAt
-      seller {
-        id
-      }
-    }
-    activities {
-      id
-      amount
-      previousAmount
-      price
-      previousPrice
-      timeStamp
-      activityType
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
-    }
+    ...ProjectFragment
   }
 }
-    `;
+    ${ProjectFragmentFragmentDoc}`;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
