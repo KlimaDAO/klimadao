@@ -253,3 +253,7 @@ export const successScreen = css`
     gap: 1.2rem;
   }
 `;
+
+export const required = css`
+  color: var(--warn);
+`;

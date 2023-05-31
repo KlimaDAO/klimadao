@@ -50,10 +50,16 @@ export const RetireInputs: FC<Props> = (props) => {
           You can retire these credits for yourself or on behalf of another
           person or organization.
         </Text>
+        <Text>
+          <span className={styles.required}>* </span> {t`Required Field`}
+        </Text>
 
         <div className={styles.labelWithInput}>
           <div className={styles.quantityLabel}>
-            <Text>{t`How many tonnes of carbon would you like to retire?`}</Text>
+            <Text>
+              {t`How many tonnes of carbon would you like to retire?`}{" "}
+              <span className={styles.required}>*</span>
+            </Text>
             <Text t="body3">
               <Trans>Available: {props.price.leftToSell}</Trans>
             </Text>
@@ -88,6 +94,10 @@ export const RetireInputs: FC<Props> = (props) => {
         </div>
 
         <div className={styles.labelWithInput}>
+          <Text>
+            {t`Who will this retirement be credited to?`}{" "}
+            <span className={styles.required}>*</span>
+          </Text>
           <InputField
             id="beneficiaryName"
             inputProps={{
@@ -101,6 +111,7 @@ export const RetireInputs: FC<Props> = (props) => {
             }}
             label={t`Who will this retirement be credited to?`}
             errorMessage={formState.errors.beneficiaryName?.message}
+            hideLabel
           />
           <InputField
             id="beneficiaryAddress"
