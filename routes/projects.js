@@ -15,6 +15,7 @@ const {
 } = require("../helpers/utils.js");
 const { getSanityClient } = require("../sanity.js");
 const { fetchProjects, fetchAllProjects } = require("../sanity/queries.js");
+const { GET_TOKEN_ADDRESS } = require("../queries/token_address.js");
 
 module.exports = async function (fastify, opts) {
   // @TODO: merge with other projects from the poooool
@@ -300,16 +301,27 @@ module.exports = async function (fastify, opts) {
       },
       handler: async function (request, reply) {
         var { id } = request.params;
-        id = id.split("-");
-        var key = `${id[0]}-${id[1]}`;
-        var vintageStr = id[2];
-        var vintage = new Date(id[2]).getTime() / 1000;
+        var projectId = id.split("-");
+        var key = `${projectId[0]}-${projectId[1]}`;
+        var vintageStr = projectId[2];
+var poolProject;
 
-        const poolPrices = await calculatePoolPrices(fastify);
+        const [poolPrices, c3TokenAddress, tco2TokenAddress] = await Promise.all([
+          calculatePoolPrices(fastify),
+          executeGraphQLQuery(
+            process.env.ASSETS_GRAPH_API_URL,
+            GET_TOKEN_ADDRESS,
+            { symbol: `C3T-${key}-${vintageStr}` }
+          ),
+          executeGraphQLQuery(
+            process.env.ASSETS_GRAPH_API_URL,
+            GET_TOKEN_ADDRESS,
+            { symbol: `TCO2-${key}-${vintageStr}` }
+          )
+        ]);
 
         var uniqueValues = [];
         var prices = [];
-        var poolProject;
         var data = await executeGraphQLQuery(
           process.env.GRAPH_API_URL,
           GET_PROJECT_BY_ID,
@@ -431,17 +443,20 @@ module.exports = async function (fastify, opts) {
         }
 
         if (project) {
+          project.c3TokenAddress = c3TokenAddress.data && c3TokenAddress.data.tokens.length ? c3TokenAddress.data.tokens[0].id : undefined;
+          project.tco2TokenAddress = tco2TokenAddress.data && tco2TokenAddress.data.tokens.length ? tco2TokenAddress.data.tokens[0].id : undefined;
+
           if (project.registry == "VCS") {
             const sanity = getSanityClient();
 
             const params = {
               registry: project.registry,
-              registryProjectId: id[1],
+              registryProjectId: projectId[1],
             };
 
             const results = await sanity.fetch(fetchProjects, params);
-            project.description = results.description;
-            project.location = results.geolocation;
+            project.description = results.description ?? undefined;
+            project.location = results.geolocation ?? undefined;
             project.name = results.name;
             project.methodologies = results.methodologies;
 
