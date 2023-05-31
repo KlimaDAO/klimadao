@@ -1,4 +1,4 @@
-import { RetirementToken, urls } from "@klimadao/lib/constants";
+import { RetirementToken, urls, verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import PDFKit from "pdfkit";
@@ -52,8 +52,13 @@ const catergoryBannerMap = {
   "Renewable Energy": renewableEnergyBanner,
 };
 
+const constructVerraUrl = (id: string) => {
+  const split = id.split("-");
+  const resourceIdentifier = split[split.length - 1]; // might not have prefix
+  return `${verra.projectDetailPage}/${resourceIdentifier}`;
+};
+
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  // console.log(params);
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
   const projectDetails = [
@@ -306,7 +311,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       "LEARN MORE",
       doc.page.width - 360,
       200 + projectNameBlockHeight + 20,
-      { underline: true }
+      {
+        underline: true,
+        link: constructVerraUrl(params.retirement.offset.projectID),
+      }
     );
 
     let startPosition = 200 + projectNameBlockHeight + 50;
@@ -339,7 +347,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Poppins-Semibold");
     doc.fontSize(8);
     doc.fillColor(GRAY);
-    doc.text("BENEFICIARY ADDRESS", doc.page.width - 360, startPosition + 20, {
+    doc.text("BENEFICIARY ADDRESS", doc.page.width - 360, startPosition + 25, {
       characterSpacing: 0.3,
     });
 
@@ -348,13 +356,13 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.text(
       params.retirement.beneficiaryAddress,
       doc.page.width - 360,
-      startPosition + 32,
+      startPosition + 37,
       { width: 320 }
     );
 
     doc.font("Poppins-Semibold");
     doc.fontSize(8);
-    doc.text("TRANSACTION ID", doc.page.width - 360, startPosition + 52, {
+    doc.text("TRANSACTION ID", doc.page.width - 360, startPosition + 57, {
       characterSpacing: 0.3,
     });
 
@@ -363,7 +371,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.text(
       params.retirement.transaction.id,
       doc.page.width - 360,
-      startPosition + 64,
+      startPosition + 69,
       { width: 320 }
     );
   };
@@ -403,6 +411,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.fillColor(GRAY);
     doc.text("LEARN MORE", doc.page.width - 360, 200 + 20 + 20, {
       underline: true,
+      link: "https://mco2token.moss.earth/",
     });
 
     doc.font("Poppins-Semibold");
