@@ -12,6 +12,7 @@ import { otherNatureBasedBanner } from "./images/bannerOtherNatureBased";
 import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
+import { dateIcon } from "./images/dateIcon";
 
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
@@ -130,19 +131,22 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       .format(retirementDate)
       .toUpperCase();
 
+    const backgroundBuffer = Buffer.from(dateIcon, "base64");
+    doc.image(backgroundBuffer, spacing.margin, 92, {
+      width: 20,
+      height: 20,
+    });
+
     doc.font("Poppins-Semibold");
     doc.fontSize(14);
     doc.fillColor(GRAY);
-    doc.text(formattedDate, spacing.margin, 92, {
+    doc.text(formattedDate, spacing.margin + 25, 92, {
       characterSpacing: 0.3,
     });
 
     doc.font("Poppins-Bold");
     doc.fontSize(60);
     doc.fillColor(BLACK);
-    // doc.text(`2,000t`, spacing.margin, 100, {
-    //   characterSpacing: -2,
-    // });
     doc.text(`${retirementAmount}t`, spacing.margin, 100, {
       characterSpacing: -2,
     });
@@ -259,11 +263,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       200 + projectNameBlockHeight + 20,
       { underline: true }
     );
-
-    const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
-    const formattedRetirementDate = `${retirementDate.getDate()}/${
-      retirementDate.getMonth() + 1
-    }/${retirementDate.getFullYear()}`;
 
     let projectDetails = [
       {
