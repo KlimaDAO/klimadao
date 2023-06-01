@@ -200,7 +200,7 @@ module.exports = async function (fastify, opts) {
           : undefined;
         project.name = cmsData ? cmsData.name : project.name;
         project.methodologies = cmsData ? cmsData.methodologies : [];
-        project.short_description = cmsData.projectContent ? cmsData.projectContent.shortDescription : undefined;
+        project.short_description = cmsData.projectContent ? cmsData.projectContent.shortDescription.slice(0, 200) : undefined;
         project.long_description = cmsData.projectContent ? cmsData.projectContent.longDescription : undefined;
 
         delete project.listings;
