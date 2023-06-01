@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 15:33+0000\n"
+"POT-Creation-Date: 2023-06-01 19:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -442,7 +442,7 @@ msgstr "Karriere"
 #: components/pages/Pledge/PledgeDashboard/index.tsx:170
 #: components/pages/Pledge/index.tsx:112
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "institutionell"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 #: components/pages/Pledge/index.tsx:104
@@ -681,7 +681,7 @@ msgstr "KLIMA KAUFEN"
 
 #: components/pages/Home/index.tsx:387
 msgid "home.govern_the_market"
-msgstr ""
+msgstr "Den Markt verwalten - für unseren Planeten"
 
 #: components/pages/Home/index.tsx:313
 msgid "home.hectares_of_forest"
@@ -690,12 +690,12 @@ msgstr "Hektar Wald"
 #. Long sentence
 #: components/pages/Home/index.tsx:405
 msgid "home.join_over_100k_members"
-msgstr ""
+msgstr "Schließen Sie sich über 100.000 Mitgliedern an, die KLIMA-Tokens besitzen, um KlimaDAOs Ressource zu verwalten und den Digitalen CO2-Markt auszubauen."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:212
 msgid "home.klima_is_creating"
-msgstr ""
+msgstr "KlimaDAO schafft eine öffentliche und quelloffene soziale und technologische Basis, um die Zukunft der CO2-Märkte zu gestalten."
 
 #: components/pages/Home/index.tsx:81
 msgid "home.latest_news"
@@ -711,7 +711,7 @@ msgstr "Liter Benzin"
 
 #: components/pages/Home/index.tsx:253
 msgid "home.neutral_and_trusted"
-msgstr ""
+msgstr "Neutral und vertrauenswürdig"
 
 #: components/pages/Home/index.tsx:473
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -741,7 +741,7 @@ msgstr "Öffentlich und Open-Source"
 #. Long sentence
 #: components/pages/Home/index.tsx:152
 msgid "home.public_good_for_the_planet"
-msgstr ""
+msgstr "Öffentliches Gut für den Planeten"
 
 #: components/pages/Home/index.tsx:451
 msgid "home.see_tutorial"
@@ -754,7 +754,7 @@ msgstr "Quelle"
 #. Long sentence
 #: components/pages/Home/index.tsx:422
 msgid "home.take_climate_action_now"
-msgstr ""
+msgstr "Handeln Sie jetzt für den Klimaschutz, indem Sie <0>Carbonmark</0> nutzen, um digitale CO2-Assets zu kaufen, zu verkaufen oder damit Ihren Fußabdruck auszugleichen."
 
 #. TONNES OF <0>CARBON HELD</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:286
@@ -768,7 +768,7 @@ msgstr "Transparent und effizient"
 #. Long sentence
 #: components/pages/Home/index.tsx:105
 msgid "home.transparent_neutral"
-msgstr ""
+msgstr "Transparente, neutrale und öffentliche Ressourcen, um die Finanzierung von Klimaprojekten auf einer globalen Ebene zu beschleunigen."
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:92
