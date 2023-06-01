@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-31 15:34+0000\n"
+"POT-Creation-Date: 2023-06-01 11:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -717,11 +717,11 @@ msgid "at"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:93
+#: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.description"
 msgstr ""
 
-#: components/pages/Blog/Post/index.tsx:90
+#: components/pages/Blog/Post/index.tsx:94
 msgid "blog.disclaimer.title"
 msgstr ""
 
@@ -1211,7 +1211,7 @@ msgstr ""
 msgid "shared.login"
 msgstr ""
 
-#: components/pages/Blog/Post/index.tsx:76
+#: components/pages/Blog/Post/index.tsx:80
 msgid "shared.resourcecenter"
 msgstr ""
 

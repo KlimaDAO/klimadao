@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-31 15:34+0000\n"
+"POT-Creation-Date: 2023-06-01 11:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -178,7 +178,7 @@ msgstr "Cree y edite anuncios, y siga su actividad con su perfil Carbonmark."
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
 msgid "Create your own retirement"
-msgstr ""
+msgstr "Cree su propia retirada"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
@@ -186,7 +186,7 @@ msgstr "Creado:"
 
 #: components/pages/Project/index.tsx:237
 msgid "Data for this project and vintage"
-msgstr ""
+msgstr "Datos para este proyecto y vintage"
 
 #: components/pages/Users/Login/index.tsx:47
 #: components/pages/Users/SellerUnconnected/index.tsx:91
@@ -275,7 +275,7 @@ msgstr "Lo más reciente primero"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "Learn More"
-msgstr ""
+msgstr "Más información"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
@@ -717,13 +717,13 @@ msgid "at"
 msgstr "a"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:93
+#: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.description"
 msgstr ""
 "La información proporcionada en este post relativo a KlimaDAO (\"KlimaDAO\"), sus criptoactivos, activos comerciales, estrategia y operaciones, tiene únicamente fines informativos generales y no es una oferta formal de venta ni una solicitud de oferta de compra de valores, opciones, futuros u otros derivados relacionados con valores en ninguna jurisdicción y su contenido no está prescrito por las leyes de valores.\n"
 " La información contenida en este post no debe ser considerada como un consejo para comprar o vender o mantener dichos valores o como una oferta para venderlos. Esta post no tiene en cuenta ni proporciona ningún tipo de asesoramiento fiscal, jurídico o de inversión, ni opinión sobre los objetivos de inversión específicos o la situación financiera de ninguna persona.  KlimaDAO y sus agentes, asesores, directores, funcionarios, empleados y accionistas no ofrecen ninguna declaración ni garantía, expresa o implícita, en cuanto a la exactitud de dicha información y KlimaDAO renuncia expresamente a toda responsabilidad que pueda basarse en dicha información o en errores u omisiones de la misma. KlimaDAO se reserva el derecho de modificar o sustituir la información contenida en este documento, en parte o en su totalidad, en cualquier momento, y no se compromete a facilitar al destinatario el acceso a la información modificada ni a notificárselo. La información contenida en este post sustituye a cualquier post o conversación anterior relativa a la misma información, similar o relacionada. Cualquier información, representación o declaración que no esté contenida en el presente documento no deberá ser considerada para ningún propósito. Ni KlimaDAO ni ninguno de sus representantes tendrán responsabilidad alguna, contractual, extracontractual, fiduciaria o de otro tipo, frente a usted o a cualquier persona que resulte del uso de la información contenida en esta entrada de blog por parte de usted o de cualquiera de sus representantes, o por las omisiones de la información contenida en este post. Además, KlimaDAO no asume ninguna obligación de comentar las expectativas o declaraciones de terceros con respecto a los asuntos tratados en este post."
 
-#: components/pages/Blog/Post/index.tsx:90
+#: components/pages/Blog/Post/index.tsx:94
 msgid "blog.disclaimer.title"
 msgstr "Aviso legal:"
 
@@ -1040,11 +1040,11 @@ msgstr "Carbonmark | Recibo de retirada de carbono"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.asset_retired.title"
-msgstr ""
+msgstr "Activo retirado:"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
-msgstr ""
+msgstr "No se dispone de la dirección del beneficiario"
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
@@ -1052,19 +1052,19 @@ msgstr "No se ha facilitado el nombre del beneficiario"
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
 msgid "retirement.single.beneficiary.title"
-msgstr ""
+msgstr "Beneficiario:"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
 msgid "retirement.single.beneficiary_address.title"
-msgstr ""
+msgstr "Dirección del beneficiario:"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
 msgid "retirement.single.carbon_credit_retirement.title"
-msgstr ""
+msgstr "Retirada de créditos de carbono"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
 msgid "retirement.single.country_region.title"
-msgstr ""
+msgstr "País/Región:"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
@@ -1076,19 +1076,19 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
-msgstr ""
+msgstr "Mensaje de retirada:"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
 msgid "retirement.single.methodology.title"
-msgstr ""
+msgstr "Metodología:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
-msgstr ""
+msgstr "Certificado oficial de retirada de carbono On-Chain proporcionado por <0>Carbonmark.com</0>"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
 msgid "retirement.single.project.title"
-msgstr ""
+msgstr "Proyecto:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
 msgid "retirement.single.project_description.title"
@@ -1100,11 +1100,11 @@ msgstr "Detalles del proyecto"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
 msgid "retirement.single.project_name.title"
-msgstr ""
+msgstr "Nombre del proyecto"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
 msgid "retirement.single.proof_of.title"
-msgstr ""
+msgstr "Prueba de"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
 msgid "retirement.single.quantity.title"
@@ -1112,7 +1112,7 @@ msgstr "CANTIDAD RETIRADA"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
 msgid "retirement.single.share_retirement.title"
-msgstr ""
+msgstr "Compartir este retiro"
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:28
 msgid "retirement.single.timestamp.placeholder"
@@ -1120,7 +1120,7 @@ msgstr "No se proporcionó una marca de tiempo de retiro"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
 msgid "retirement.single.transaction_id.placeholder"
-msgstr ""
+msgstr "No hay identificador de transacción disponible"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
 msgid "retirement.single.transaction_id.title"
@@ -1128,7 +1128,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
-msgstr ""
+msgstr "Registro de transacciones inmutable"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
 msgid "retirement.single.type.title"
@@ -1215,7 +1215,7 @@ msgstr "Cargando..."
 msgid "shared.login"
 msgstr "Iniciar sesión"
 
-#: components/pages/Blog/Post/index.tsx:76
+#: components/pages/Blog/Post/index.tsx:80
 msgid "shared.resourcecenter"
 msgstr "Centro de Recursos"
 
