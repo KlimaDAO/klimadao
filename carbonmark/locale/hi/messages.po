@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 11:51+0000\n"
+"POT-Creation-Date: 2023-06-01 12:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,6 +27,10 @@ msgstr "500 - सर्वर त्रुटि"
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
 msgstr "500 - सर्वर त्रुटि हो गई"
+
+#: components/pages/Retire/RetireForm/index.tsx:184
+msgid "<0>* </0> Required Field"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
@@ -62,12 +66,24 @@ msgstr ""
 msgid "Apply"
 msgstr "आवेदन करें"
 
+#: components/pages/Retire/RetirementSidebar/index.tsx:21
+msgid "Asset Details"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:25
+msgid "Asset ID"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
 msgstr "उपलब्ध जमाराशि बढ़ गयी"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:34
+msgid "Available to retire"
 msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
@@ -84,6 +100,10 @@ msgstr "वापस प्रॉजेक्ट पर"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:264
+msgid "Beneficiary wallet address (optional)"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
@@ -242,6 +262,7 @@ msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
 #: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:112
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "क्या आपने अपनी Carbonmark <0>Profile</0> पहले ही बना ली है?"
 
@@ -493,9 +514,26 @@ msgstr "संसाधन | Carbonmark"
 msgid "Retire"
 msgstr "रिटायर"
 
+#: components/pages/Retire/RetireForm/index.tsx:170
+msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+msgid "Retire more carbon"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "अभी रिटायर करें"
+
+#: components/pages/Retire/index.tsx:83
+#: components/pages/Retire/index.tsx:84
+msgid "Retire | Carbonmark"
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+msgid "Retirement Successful!"
+msgstr "रिटायरमेंट सफल हुआ!"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -530,6 +568,7 @@ msgid "Sorry, this handle already exists"
 msgstr "क्षमा करें, यह हैंडल पहले से मौजूद है"
 
 #: components/pages/Portfolio/index.tsx:99
+#: components/pages/Retire/index.tsx:107
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "क्षमा करें। हमें Carbonmark पर आपके यूज़र का कोई डेटा नहीं मिला।"
 
@@ -556,6 +595,10 @@ msgstr "उपयोग की शर्तें"
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "पृथ्वी का समर्थन करने के लिए धन्यवाद! ख़रीद विवरण नीचे देखें।"
+
+#: components/pages/Retire/RetireForm/index.tsx:176
+msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
+msgstr ""
 
 #: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
@@ -646,9 +689,21 @@ msgstr "रजिस्ट्री विवरण देखें <0/>"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "अपने पोर्टफ़ोलियो में अपने स्वामित्व वाले डिजिटल कार्बन का संपूर्ण विवरण देखें।"
 
+#: components/pages/Retire/index.tsx:85
+msgid "View a complete overview of the digital carbon that you own in your Retire."
+msgstr ""
+
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Carbonmark पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+msgid "View and share certificate"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:47
+msgid "View on PolygonScan <0/>"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -765,27 +820,27 @@ msgstr "अनुरोध पहले से प्रोसेस हो र�
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
-#: components/CreateListing/index.tsx:125
+#: components/CreateListing/index.tsx:127
 msgid "create.approval_1"
 msgstr "आप एक नई लिस्टिंग बनाने वाले हैं।"
 
-#: components/CreateListing/index.tsx:130
+#: components/CreateListing/index.tsx:132
 msgid "create.approval_2"
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी लिस्टिंग को लाइव करना है।"
 
-#: components/CreateListing/index.tsx:137
+#: components/CreateListing/index.tsx:139
 msgid "create.approval_3"
 msgstr "आप किसी भी समय अपनी सक्रिय लिस्टिंग को हटाना चुन सकते हैं जो सूचीबद्ध संपत्ति को अपने आप आपके वॉलेट में वापस स्थानांतरित कर देगा।"
 
-#: components/CreateListing/index.tsx:143
+#: components/CreateListing/index.tsx:145
 msgid "create.approval_4"
 msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
-#: components/CreateListing/index.tsx:155
+#: components/CreateListing/index.tsx:157
 msgid "create.submit_1"
 msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
-#: components/CreateListing/index.tsx:161
+#: components/CreateListing/index.tsx:163
 msgid "create.submit_2"
 msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
@@ -801,19 +856,19 @@ msgstr "सूची मिटाएँ"
 msgid "each"
 msgstr "प्रत्येक"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:178
 msgid "edit_listing.approval_1"
 msgstr "आप इस संपत्ति के स्वामित्व को अपने वॉलेट से Carbonmark को स्थानांतरित करने वाले हैं।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:184
 msgid "edit_listing.approval_2"
 msgstr "आप अपनी लिस्टिंग को बिकने से पहले किसी भी समय हटा सकते हैं।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:196
 msgid "edit_listing.submit_1"
 msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "edit_listting.submit_2"
 msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
@@ -844,6 +899,50 @@ msgstr "पोर्टफ़ोलियो"
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
 msgstr "प्रोफ़ाइल"
+
+#: components/pages/Retire/RetireForm/index.tsx:192
+msgid "offset.amount_in_tonnes"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:202
+msgid "offset.amount_in_tonnes_2"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:288
+msgid "offset.default_retirement_address"
+msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
+
+#: components/pages/Retire/RetireForm/index.tsx:217
+msgid "offset.offset_quantity"
+msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
+
+#: components/pages/Retire/RetireForm/index.tsx:372
+msgid "offset.retire_carbon"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:247
+msgid "offset.retirement_beneficiary_name"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:235
+msgid "offset.retirement_credit"
+msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
+
+#: components/pages/Retire/RetireForm/index.tsx:297
+msgid "offset.retirement_message"
+msgstr "रिटायरमेंट संदेश"
+
+#: components/pages/Retire/RetireForm/index.tsx:308
+msgid "offset.retirement_retirement_message"
+msgstr "रिटायरमेंट सन्देश"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+msgid "offset.successModal.body1"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:329
+msgid "offset_disclaimer"
+msgstr ""
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -877,19 +976,19 @@ msgstr "आपकी प्रोफ़ाइल"
 msgid "profile.edit_your_profile"
 msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
 msgid "profile.listing.edit"
 msgstr "संपादित करें"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:253
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
-#: components/CreateListing/index.tsx:173
+#: components/CreateListing/index.tsx:175
 msgid "profile.listings_modal.title"
 msgstr "कोई सूची बनाएँ"
 
@@ -897,19 +996,19 @@ msgstr "कोई सूची बनाएँ"
 msgid "project.single.button.back_to_project_details"
 msgstr "वापस प्रॉजेक्ट के विवरण पर"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:32
+#: components/pages/Project/Purchase/PurchaseModal.tsx:33
 msgid "purchase.approval_1"
 msgstr "आप एक कार्बन संपत्ति ख़रीदने वाले हैं।"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:37
+#: components/pages/Project/Purchase/PurchaseModal.tsx:38
 msgid "purchase.approval_2"
 msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:44
+#: components/pages/Project/Purchase/PurchaseModal.tsx:45
 msgid "purchase.approval_3"
 msgstr "आपके द्वारा ख़रीदे गए कार्बन ऐसेट्स आपके <0>portfolio</0> से बिक्री के लिए Carbonmark पर कभी भी सूचीबद्ध किए जा सकते हैं।"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:54
+#: components/pages/Project/Purchase/PurchaseModal.tsx:55
 msgid "purchase.approval_4"
 msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
@@ -941,19 +1040,19 @@ msgstr "मूल्य आवश्यक है"
 msgid "purchase.loading.allowance.error"
 msgstr "कुछ गड़बड़ हो गई जानकारी लोड हो रही है"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:66
+#: components/pages/Project/Purchase/PurchaseModal.tsx:67
 msgid "purchase.submit_1"
 msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली।"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:72
+#: components/pages/Project/Purchase/PurchaseModal.tsx:73
 msgid "purchase.submit_2"
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:86
+#: components/pages/Project/Purchase/PurchaseModal.tsx:87
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "ख़रीद की पुष्टि करें"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:90
+#: components/pages/Project/Purchase/PurchaseModal.tsx:91
 msgid "purchase.transaction.modal.title.processing"
 msgstr "विक्रय संपन्न करना"
 
@@ -1013,6 +1112,14 @@ msgstr "कृपया किसी भिन्न फ़िल्टर क�
 #: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
+
+#: components/pages/Retire/RetireForm/index.tsx:350
+msgid "retire.back_button"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:341
+msgid "retire.submit_button"
+msgstr "कार्बन रिटायर करें"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
@@ -1178,7 +1285,7 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "कुल रिटायरमेंट लेनदेन"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:233
 msgid "seller.edit_listing.title"
 msgstr "सूची संपादित करें"
 
@@ -1190,7 +1297,7 @@ msgstr "ख़रीदें"
 msgid "seller.listing.quantity_available"
 msgstr "उपलब्ध मात्रा:"
 
-#: components/Transaction/Approve.tsx:105
+#: components/Transaction/Approve.tsx:103
 msgid "shared.approve"
 msgstr "मंज़ूरी दें"
 
@@ -1223,8 +1330,12 @@ msgstr "इसके अनुसार क्रमबद्ध करें"
 msgid "sold to"
 msgstr "को बेचा गया"
 
-#: components/CreateListing/index.tsx:198
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
+#: components/pages/Retire/RetirementSidebar/index.tsx:37
+msgid "tonnes"
+msgstr "टन"
+
+#: components/CreateListing/index.tsx:199
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:280
 msgid "tonnes.long"
 msgstr "टन"
 
@@ -1248,19 +1359,31 @@ msgstr "जारी रखने के लिए कृपया अपने 
 msgid "transaction.status.user_rejected"
 msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
-#: components/Transaction/Approve.tsx:58
+#: components/pages/Retire/RetireModal/index.tsx:52
+msgid "transaction_modal.approve.allow_amount_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:57
+msgid "transaction_modal.approve.allow_amount_2"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:64
+msgid "transaction_modal.approve.allow_amount_3"
+msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
+
+#: components/Transaction/Approve.tsx:57
 msgid "transaction_modal.approve.amount"
 msgstr "राशि की पुष्टि करें"
 
-#: components/Transaction/Approve.tsx:48
+#: components/Transaction/Approve.tsx:47
 msgid "transaction_modal.approve.contract_address"
 msgstr "कॉन्ट्रैक्ट पता"
 
-#: components/Transaction/Approve.tsx:74
+#: components/Transaction/Approve.tsx:73
 msgid "transaction_modal.approve.price"
 msgstr "प्रति टन मूल्य की पुष्टि करें"
 
-#: components/Transaction/index.tsx:86
+#: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "वापस जाएँ"
 
@@ -1268,11 +1391,11 @@ msgstr "वापस जाएँ"
 msgid "transaction_modal.close"
 msgstr "बंद करें"
 
-#: components/Transaction/Approve.tsx:113
+#: components/Transaction/Approve.tsx:110
 msgid "transaction_modal.next"
 msgstr "अगला"
 
-#: components/Transaction/Submit.tsx:58
+#: components/Transaction/Submit.tsx:59
 msgid "transaction_modal.submit.amount"
 msgstr "जमा की जाने वाली राशि"
 
@@ -1280,19 +1403,27 @@ msgstr "जमा की जाने वाली राशि"
 msgid "transaction_modal.submit.button"
 msgstr "सबमिट करें"
 
+#: components/pages/Retire/RetireModal/index.tsx:76
+msgid "transaction_modal.submit.confirm_transaction_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:83
+msgid "transaction_modal.submit.confirm_transaction_2"
+msgstr ""
+
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
 msgstr "कॉन्ट्रैक्ट पता"
 
-#: components/Transaction/Submit.tsx:72
+#: components/Transaction/Submit.tsx:73
 msgid "transaction_modal.submit.price"
-msgstr "जमा की जाने वाला मूल्य प्रति टन"
+msgstr ""
 
-#: components/Transaction/index.tsx:46
+#: components/Transaction/index.tsx:44
 msgid "transaction_modal.view.approve.title"
 msgstr "मंज़ूरी दें"
 
-#: components/Transaction/index.tsx:56
+#: components/Transaction/index.tsx:54
 msgid "transaction_modal.view.submit.title"
 msgstr "2. जमा करें"
 
@@ -1377,3 +1508,7 @@ msgstr "{0} | प्रोफ़ाइल | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} टन {0} प्रॉजेक्ट के लिए ख़रीदे गए थे"
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:29
+msgid "{tokenSymbol}"
+msgstr ""

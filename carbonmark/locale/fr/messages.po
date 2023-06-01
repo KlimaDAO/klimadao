@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 11:51+0000\n"
+"POT-Creation-Date: 2023-06-01 12:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,6 +27,10 @@ msgstr "500 - Erreur du Serveur"
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
 msgstr "500 - Une erreur de serveur est survenue"
+
+#: components/pages/Retire/RetireForm/index.tsx:184
+msgid "<0>* </0> Required Field"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
@@ -62,6 +66,14 @@ msgstr "Montant de l'achat"
 msgid "Apply"
 msgstr "Appliquer"
 
+#: components/pages/Retire/RetirementSidebar/index.tsx:21
+msgid "Asset Details"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:25
+msgid "Asset ID"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
 msgstr "Solde disponible dépassé"
@@ -69,6 +81,10 @@ msgstr "Solde disponible dépassé"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
 msgstr "Dépassement de l'offre disponible"
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:34
+msgid "Available to retire"
+msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
@@ -85,6 +101,10 @@ msgstr "Retour au projet"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr "Solde : {0}"
+
+#: components/pages/Retire/RetireForm/index.tsx:264
+msgid "Beneficiary wallet address (optional)"
+msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -242,6 +262,7 @@ msgid "Handle should not contain any special characters"
 msgstr "Le pseudonyme ne doit pas contenir de caractères spéciaux"
 
 #: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:112
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Avez-vous déjà créé votre <0>profil</0> Carbonmark  ?"
 
@@ -493,9 +514,26 @@ msgstr "Ressources | Carbonmark"
 msgid "Retire"
 msgstr "Retirer du marché"
 
+#: components/pages/Retire/RetireForm/index.tsx:170
+msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+msgid "Retire more carbon"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "Retirer du marché"
+
+#: components/pages/Retire/index.tsx:83
+#: components/pages/Retire/index.tsx:84
+msgid "Retire | Carbonmark"
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+msgid "Retirement Successful!"
+msgstr "Retrait du marché réussi !"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -530,6 +568,7 @@ msgid "Sorry, this handle already exists"
 msgstr "Désolé, ce pseudonyme existe déjà"
 
 #: components/pages/Portfolio/index.tsx:99
+#: components/pages/Retire/index.tsx:107
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Désolé. Nous n'avons pas trouvé de données Carbonmark pour votre utilisateur."
 
@@ -556,6 +595,10 @@ msgstr "Conditions d'utilisation"
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Merci de votre contribution pour la planète ! Vous pouvez voir les détails d'achat ci-dessous."
+
+#: components/pages/Retire/RetireForm/index.tsx:176
+msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
+msgstr ""
 
 #: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
@@ -646,9 +689,21 @@ msgstr "Voir les détails du registre <0/>"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans votre Portefeuille."
 
+#: components/pages/Retire/index.tsx:85
+msgid "View a complete overview of the digital carbon that you own in your Retire."
+msgstr ""
+
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Voir et acheter ce projet de compensation carbone sur Carbonmark"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+msgid "View and share certificate"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:47
+msgid "View on PolygonScan <0/>"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -765,27 +820,27 @@ msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et v
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
 
-#: components/CreateListing/index.tsx:125
+#: components/CreateListing/index.tsx:127
 msgid "create.approval_1"
 msgstr "Vous êtes sur le point de créer une nouvelle annonce."
 
-#: components/CreateListing/index.tsx:130
+#: components/CreateListing/index.tsx:132
 msgid "create.approval_2"
 msgstr "La première étape consiste à donner l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, l'étape suivante consiste à approuver le transfert effectif et à mettre votre annonce en ligne."
 
-#: components/CreateListing/index.tsx:137
+#: components/CreateListing/index.tsx:139
 msgid "create.approval_3"
 msgstr "Vous pouvez choisir de supprimer votre annonce active à tout moment, ce qui aura pour effet de transférer automatiquement l'actif de retour vers votre portefeuille."
 
-#: components/CreateListing/index.tsx:143
+#: components/CreateListing/index.tsx:145
 msgid "create.approval_4"
 msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"approuver\" pour continuer."
 
-#: components/CreateListing/index.tsx:155
+#: components/CreateListing/index.tsx:157
 msgid "create.submit_1"
 msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, votre actif n'a pas encore été transféré."
 
-#: components/CreateListing/index.tsx:161
+#: components/CreateListing/index.tsx:163
 msgid "create.submit_2"
 msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer \" ci-dessous."
 
@@ -801,19 +856,19 @@ msgstr "annonce supprimée"
 msgid "each"
 msgstr "chaque"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:178
 msgid "edit_listing.approval_1"
 msgstr "Vous êtes sur le point de transférer la propriété de cet actif de votre portefeuille à Carbonmark."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:184
 msgid "edit_listing.approval_2"
 msgstr "Vous pouvez enlever votre annonce à tout moment jusqu'à ce qu'elle soit vendue."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:196
 msgid "edit_listing.submit_1"
 msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille , votre actif n'a pas encore été transféré."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "edit_listting.submit_2"
 msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer\" ci-dessous."
 
@@ -844,6 +899,50 @@ msgstr "Portefeuille"
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
 msgstr "Profil"
+
+#: components/pages/Retire/RetireForm/index.tsx:192
+msgid "offset.amount_in_tonnes"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:202
+msgid "offset.amount_in_tonnes_2"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:288
+msgid "offset.default_retirement_address"
+msgstr "Par défaut, l'adresse du portefeuille connecté"
+
+#: components/pages/Retire/RetireForm/index.tsx:217
+msgid "offset.offset_quantity"
+msgstr "Entrez la quantité à compenser"
+
+#: components/pages/Retire/RetireForm/index.tsx:372
+msgid "offset.retire_carbon"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:247
+msgid "offset.retirement_beneficiary_name"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:235
+msgid "offset.retirement_credit"
+msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
+
+#: components/pages/Retire/RetireForm/index.tsx:297
+msgid "offset.retirement_message"
+msgstr "Message de retrait du marché"
+
+#: components/pages/Retire/RetireForm/index.tsx:308
+msgid "offset.retirement_retirement_message"
+msgstr "Message de Retrait du marché"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+msgid "offset.successModal.body1"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:329
+msgid "offset_disclaimer"
+msgstr ""
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -877,19 +976,19 @@ msgstr "Votre Profil"
 msgid "profile.edit_your_profile"
 msgstr "Modifier votre profil pour ajouter une description"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
 msgid "profile.listing.edit"
 msgstr "Modifier"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:253
 msgid "profile.listing.edit.delete_listing"
 msgstr "Supprimer l'annonce"
 
-#: components/CreateListing/index.tsx:173
+#: components/CreateListing/index.tsx:175
 msgid "profile.listings_modal.title"
 msgstr "Créer une annonce"
 
@@ -897,19 +996,19 @@ msgstr "Créer une annonce"
 msgid "project.single.button.back_to_project_details"
 msgstr "Retour aux détails du projet"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:32
+#: components/pages/Project/Purchase/PurchaseModal.tsx:33
 msgid "purchase.approval_1"
 msgstr "Vous êtes sur le point d'acheter un actif carbone."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:37
+#: components/pages/Project/Purchase/PurchaseModal.tsx:38
 msgid "purchase.approval_2"
 msgstr "La première étape est de donner l'autorisation à Carbonmark de transférer le type d'actif utilisé lors du paiement de votre portefeuille, l'étape suivante est d'approuver le transfert et de finaliser votre achat."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:44
+#: components/pages/Project/Purchase/PurchaseModal.tsx:45
 msgid "purchase.approval_3"
 msgstr "Vous pouvez à tout moment mettre en vente les actifs carbone que vous achetez sur Carbonmark à partir de votre <0>portefeuille</0>."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:54
+#: components/pages/Project/Purchase/PurchaseModal.tsx:55
 msgid "purchase.approval_4"
 msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"approuver\" pour continuer."
 
@@ -941,19 +1040,19 @@ msgstr "Le prix est requis"
 msgid "purchase.loading.allowance.error"
 msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:66
+#: components/pages/Project/Purchase/PurchaseModal.tsx:67
 msgid "purchase.submit_1"
 msgstr "L'étape précédente a accordé l'autorisation à Carbonmark de transférer votre actif de paiement de votre portefeuille ."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:72
+#: components/pages/Project/Purchase/PurchaseModal.tsx:73
 msgid "purchase.submit_2"
 msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, vérifiez que toutes les informations sont correctes et cliquez sur \"envoyer\" ci-dessous."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:86
+#: components/pages/Project/Purchase/PurchaseModal.tsx:87
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirmer l'achat"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:90
+#: components/pages/Project/Purchase/PurchaseModal.tsx:91
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Traitement de l'achat en cours"
 
@@ -1013,6 +1112,14 @@ msgstr "Veuillez utiliser une autre combinaison de filtres."
 #: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
+
+#: components/pages/Retire/RetireForm/index.tsx:350
+msgid "retire.back_button"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:341
+msgid "retire.submit_button"
+msgstr "Retirer du marché des crédits Carbone"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
@@ -1178,7 +1285,7 @@ msgstr "Total des Tonnes de Carbone Retirées du Marché"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total des Transactions de Retraits du marché"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:233
 msgid "seller.edit_listing.title"
 msgstr "Modifier l'annonce"
 
@@ -1190,7 +1297,7 @@ msgstr "Acheter"
 msgid "seller.listing.quantity_available"
 msgstr "Quantité Disponible :"
 
-#: components/Transaction/Approve.tsx:105
+#: components/Transaction/Approve.tsx:103
 msgid "shared.approve"
 msgstr "Approuver"
 
@@ -1223,8 +1330,12 @@ msgstr "Trier par :"
 msgid "sold to"
 msgstr "vendu à"
 
-#: components/CreateListing/index.tsx:198
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
+#: components/pages/Retire/RetirementSidebar/index.tsx:37
+msgid "tonnes"
+msgstr "tonnes"
+
+#: components/CreateListing/index.tsx:199
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:280
 msgid "tonnes.long"
 msgstr "tonnes"
 
@@ -1248,19 +1359,31 @@ msgstr "Veuillez cliquer sur « confirmer » dans votre portefeuille pour cont
 msgid "transaction.status.user_rejected"
 msgstr "Vous avez rejeté la transaction"
 
-#: components/Transaction/Approve.tsx:58
+#: components/pages/Retire/RetireModal/index.tsx:52
+msgid "transaction_modal.approve.allow_amount_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:57
+msgid "transaction_modal.approve.allow_amount_2"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:64
+msgid "transaction_modal.approve.allow_amount_3"
+msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"approuver\" pour continuer."
+
+#: components/Transaction/Approve.tsx:57
 msgid "transaction_modal.approve.amount"
 msgstr "Confirmer le montant"
 
-#: components/Transaction/Approve.tsx:48
+#: components/Transaction/Approve.tsx:47
 msgid "transaction_modal.approve.contract_address"
 msgstr "Adresse du contrat"
 
-#: components/Transaction/Approve.tsx:74
+#: components/Transaction/Approve.tsx:73
 msgid "transaction_modal.approve.price"
 msgstr "Confirmer le prix par tonne"
 
-#: components/Transaction/index.tsx:86
+#: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Retour"
 
@@ -1268,11 +1391,11 @@ msgstr "Retour"
 msgid "transaction_modal.close"
 msgstr "Fermer"
 
-#: components/Transaction/Approve.tsx:113
+#: components/Transaction/Approve.tsx:110
 msgid "transaction_modal.next"
 msgstr "Suivant"
 
-#: components/Transaction/Submit.tsx:58
+#: components/Transaction/Submit.tsx:59
 msgid "transaction_modal.submit.amount"
 msgstr "Envoyer le montant"
 
@@ -1280,19 +1403,27 @@ msgstr "Envoyer le montant"
 msgid "transaction_modal.submit.button"
 msgstr "Envoyer"
 
+#: components/pages/Retire/RetireModal/index.tsx:76
+msgid "transaction_modal.submit.confirm_transaction_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:83
+msgid "transaction_modal.submit.confirm_transaction_2"
+msgstr ""
+
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
 msgstr "Adresse du contrat"
 
-#: components/Transaction/Submit.tsx:72
+#: components/Transaction/Submit.tsx:73
 msgid "transaction_modal.submit.price"
-msgstr "Envoyer le prix par tonne"
+msgstr ""
 
-#: components/Transaction/index.tsx:46
+#: components/Transaction/index.tsx:44
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Approuver"
 
-#: components/Transaction/index.tsx:56
+#: components/Transaction/index.tsx:54
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Envoyer"
 
@@ -1377,3 +1508,7 @@ msgstr "{0} | Profil | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} tonnes ont été achetées pour le projet {0}"
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:29
+msgid "{tokenSymbol}"
+msgstr ""

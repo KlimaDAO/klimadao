@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 11:51+0000\n"
+"POT-Creation-Date: 2023-06-01 12:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,6 +27,10 @@ msgstr "500 - Ошибка сервера"
 #: components/pages/errors/Custom500.tsx:22
 msgid "500 - Server error occurred"
 msgstr "500 - Произошла ошибка сервера"
+
+#: components/pages/Retire/RetireForm/index.tsx:184
+msgid "<0>* </0> Required Field"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
@@ -62,6 +66,14 @@ msgstr "Сумма покупки"
 msgid "Apply"
 msgstr "Применить"
 
+#: components/pages/Retire/RetirementSidebar/index.tsx:21
+msgid "Asset Details"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:25
+msgid "Asset ID"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
 msgstr "Превышение доступного остатка"
@@ -69,6 +81,10 @@ msgstr "Превышение доступного остатка"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 msgid "Available supply exceeded"
 msgstr "Доступный запас превышен"
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:34
+msgid "Available to retire"
+msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
@@ -85,6 +101,10 @@ msgstr "Вернуться к проекту"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 msgid "Balance: {0}"
 msgstr "Баланс: {0}"
+
+#: components/pages/Retire/RetireForm/index.tsx:264
+msgid "Beneficiary wallet address (optional)"
+msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -242,6 +262,7 @@ msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
 #: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:112
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Вы уже создали свой профиль Carbonmark <0>Profile</0>?"
 
@@ -493,9 +514,26 @@ msgstr "Ресурсы | Carbonmark"
 msgid "Retire"
 msgstr "Выбито"
 
+#: components/pages/Retire/RetireForm/index.tsx:170
+msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+msgid "Retire more carbon"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
 msgstr "Выбито сейчас"
+
+#: components/pages/Retire/index.tsx:83
+#: components/pages/Retire/index.tsx:84
+msgid "Retire | Carbonmark"
+msgstr ""
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+msgid "Retirement Successful!"
+msgstr "Использование успешно!"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -530,6 +568,7 @@ msgid "Sorry, this handle already exists"
 msgstr "Извините, этот никнейм уже существует"
 
 #: components/pages/Portfolio/index.tsx:99
+#: components/pages/Retire/index.tsx:107
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Извините. Мы не смогли найти никаких данных по Carbonmark для вашего пользователя."
 
@@ -556,6 +595,10 @@ msgstr "Условия использования"
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Спасибо за поддержку планеты! Подробности покупки смотрите ниже."
+
+#: components/pages/Retire/RetireForm/index.tsx:176
+msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
+msgstr ""
 
 #: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
@@ -646,9 +689,21 @@ msgstr "Просмотр сведений о реестре <0/>"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Просмотрите полный обзор цифрового углерода, которым вы владеете, в своем портфолио."
 
+#: components/pages/Retire/index.tsx:85
+msgid "View a complete overview of the digital carbon that you own in your Retire."
+msgstr ""
+
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+msgid "View and share certificate"
+msgstr ""
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:47
+msgid "View on PolygonScan <0/>"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -765,27 +820,27 @@ msgstr "Запрос уже обрабатывается. Пожалуйста, 
 msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
-#: components/CreateListing/index.tsx:125
+#: components/CreateListing/index.tsx:127
 msgid "create.approval_1"
 msgstr "Вы собираетесь создать новое объявление."
 
-#: components/CreateListing/index.tsx:130
+#: components/CreateListing/index.tsx:132
 msgid "create.approval_2"
 msgstr "Первый шаг - дать разрешение на перевод этого актива из вашего кошелька в Carbonmark, следующий шаг - одобрить фактический перевод и сделать ваше объявление активным."
 
-#: components/CreateListing/index.tsx:137
+#: components/CreateListing/index.tsx:139
 msgid "create.approval_3"
 msgstr "Вы можете в любой момент удалить активное объявление, что автоматически вернет актив обратно в ваш кошелек."
 
-#: components/CreateListing/index.tsx:143
+#: components/CreateListing/index.tsx:145
 msgid "create.approval_4"
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
-#: components/CreateListing/index.tsx:155
+#: components/CreateListing/index.tsx:157
 msgid "create.submit_1"
 msgstr "На предыдущем этапе было получено разрешение на перевод этого актива из вашего кошелька в Carbonmark, ваш актив еще не переведен."
 
-#: components/CreateListing/index.tsx:161
+#: components/CreateListing/index.tsx:163
 msgid "create.submit_2"
 msgstr "Чтобы завершить передачу этого актива в Carbonmark и сделать ваше объявление активным, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
@@ -801,19 +856,19 @@ msgstr "удаленное объявление"
 msgid "each"
 msgstr "каждый"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:177
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:178
 msgid "edit_listing.approval_1"
 msgstr "Вы собираетесь передать право собственности на этот актив из своего кошелька в Carbonmark."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:184
 msgid "edit_listing.approval_2"
 msgstr "Вы можете удалить свое объявление в любое время, пока оно не будет продано."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:196
 msgid "edit_listing.submit_1"
 msgstr "На предыдущем этапе было получено разрешение на перевод этого актива из вашего кошелька в Carbonmark, ваш актив еще не переведен."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "edit_listting.submit_2"
 msgstr "Чтобы завершить передачу этого актива в Carbonmark и сделать ваше объявление активным, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
@@ -844,6 +899,50 @@ msgstr "Портфолио"
 #: components/Layout/NavMenu/index.tsx:41
 msgid "menu.profile"
 msgstr "Профиль"
+
+#: components/pages/Retire/RetireForm/index.tsx:192
+msgid "offset.amount_in_tonnes"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:202
+msgid "offset.amount_in_tonnes_2"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:288
+msgid "offset.default_retirement_address"
+msgstr "По умолчанию используется адрес подключенного кошелька"
+
+#: components/pages/Retire/RetireForm/index.tsx:217
+msgid "offset.offset_quantity"
+msgstr "Введите количество для компенсации"
+
+#: components/pages/Retire/RetireForm/index.tsx:372
+msgid "offset.retire_carbon"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:247
+msgid "offset.retirement_beneficiary_name"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:235
+msgid "offset.retirement_credit"
+msgstr "Кому будет зачислено это выбивание?"
+
+#: components/pages/Retire/RetireForm/index.tsx:297
+msgid "offset.retirement_message"
+msgstr "Сообщение о выводе"
+
+#: components/pages/Retire/RetireForm/index.tsx:308
+msgid "offset.retirement_retirement_message"
+msgstr "Сообщение о использовании"
+
+#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+msgid "offset.successModal.body1"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:329
+msgid "offset_disclaimer"
+msgstr ""
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -877,19 +976,19 @@ msgstr "Ваш профиль"
 msgid "profile.edit_your_profile"
 msgstr "Отредактируйте свой профиль, чтобы добавить описание"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:163
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
 msgstr "Не удалось удалить объявление. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:220
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
 msgid "profile.listing.edit"
 msgstr "Редактировать"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:252
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:253
 msgid "profile.listing.edit.delete_listing"
 msgstr "Удалить объявление"
 
-#: components/CreateListing/index.tsx:173
+#: components/CreateListing/index.tsx:175
 msgid "profile.listings_modal.title"
 msgstr "Создать объявление"
 
@@ -897,19 +996,19 @@ msgstr "Создать объявление"
 msgid "project.single.button.back_to_project_details"
 msgstr "Вернуться к деталям проекта"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:32
+#: components/pages/Project/Purchase/PurchaseModal.tsx:33
 msgid "purchase.approval_1"
 msgstr "Вы собираетесь приобрести углеродный актив."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:37
+#: components/pages/Project/Purchase/PurchaseModal.tsx:38
 msgid "purchase.approval_2"
 msgstr "Первый шаг - дать разрешение на перевод платежного актива из вашего кошелька в Carbonmark, следующий шаг - одобрить фактический перевод и завершить покупку."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:44
+#: components/pages/Project/Purchase/PurchaseModal.tsx:45
 msgid "purchase.approval_3"
 msgstr "Приобретенные вами углеродные активы могут быть выставлены на продажу на Carbonmark в любое время из вашего <0>портфолио</0>."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:54
+#: components/pages/Project/Purchase/PurchaseModal.tsx:55
 msgid "purchase.approval_4"
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
@@ -941,19 +1040,19 @@ msgstr "Укажите цену"
 msgid "purchase.loading.allowance.error"
 msgstr "что-то пошло не так при загрузке пособия"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:66
+#: components/pages/Project/Purchase/PurchaseModal.tsx:67
 msgid "purchase.submit_1"
 msgstr "На предыдущем этапе было получено разрешение на перевод платежного актива из вашего кошелька в Carbonmark."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:72
+#: components/pages/Project/Purchase/PurchaseModal.tsx:73
 msgid "purchase.submit_2"
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:86
+#: components/pages/Project/Purchase/PurchaseModal.tsx:87
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Подтвердить покупку"
 
-#: components/pages/Project/Purchase/PurchaseModal.tsx:90
+#: components/pages/Project/Purchase/PurchaseModal.tsx:91
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Обработка покупки"
 
@@ -1013,6 +1112,14 @@ msgstr "Пожалуйста, используйте другую комбина
 #: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Проверьте свой запрос на наличие опечаток или попробуйте другой поисковый запрос."
+
+#: components/pages/Retire/RetireForm/index.tsx:350
+msgid "retire.back_button"
+msgstr ""
+
+#: components/pages/Retire/RetireForm/index.tsx:341
+msgid "retire.submit_button"
+msgstr "Вывод карбона"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
@@ -1178,7 +1285,7 @@ msgstr "Всего выбыло тонн углерода"
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Всего транзакции выбивания"
 
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:232
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:233
 msgid "seller.edit_listing.title"
 msgstr "Редактировать объявление"
 
@@ -1190,7 +1297,7 @@ msgstr "Купить"
 msgid "seller.listing.quantity_available"
 msgstr "Доступное количество:"
 
-#: components/Transaction/Approve.tsx:105
+#: components/Transaction/Approve.tsx:103
 msgid "shared.approve"
 msgstr "Одобрить"
 
@@ -1223,8 +1330,12 @@ msgstr "Сортировать по"
 msgid "sold to"
 msgstr "проданный"
 
-#: components/CreateListing/index.tsx:198
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:279
+#: components/pages/Retire/RetirementSidebar/index.tsx:37
+msgid "tonnes"
+msgstr "тонны"
+
+#: components/CreateListing/index.tsx:199
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:280
 msgid "tonnes.long"
 msgstr "тонны"
 
@@ -1248,19 +1359,31 @@ msgstr "Пожалуйста, нажмите \"подтвердить\" в ва�
 msgid "transaction.status.user_rejected"
 msgstr "Вы решили отклонить транзакцию"
 
-#: components/Transaction/Approve.tsx:58
+#: components/pages/Retire/RetireModal/index.tsx:52
+msgid "transaction_modal.approve.allow_amount_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:57
+msgid "transaction_modal.approve.allow_amount_2"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:64
+msgid "transaction_modal.approve.allow_amount_3"
+msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
+
+#: components/Transaction/Approve.tsx:57
 msgid "transaction_modal.approve.amount"
 msgstr "Подтвердить сумму"
 
-#: components/Transaction/Approve.tsx:48
+#: components/Transaction/Approve.tsx:47
 msgid "transaction_modal.approve.contract_address"
 msgstr "Адрес контракта"
 
-#: components/Transaction/Approve.tsx:74
+#: components/Transaction/Approve.tsx:73
 msgid "transaction_modal.approve.price"
 msgstr "Подтвердить цену за тонну"
 
-#: components/Transaction/index.tsx:86
+#: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Вернуться назад"
 
@@ -1268,11 +1391,11 @@ msgstr "Вернуться назад"
 msgid "transaction_modal.close"
 msgstr "Закрыть"
 
-#: components/Transaction/Approve.tsx:113
+#: components/Transaction/Approve.tsx:110
 msgid "transaction_modal.next"
 msgstr "Следующий"
 
-#: components/Transaction/Submit.tsx:58
+#: components/Transaction/Submit.tsx:59
 msgid "transaction_modal.submit.amount"
 msgstr "Подтвердить сумму"
 
@@ -1280,19 +1403,27 @@ msgstr "Подтвердить сумму"
 msgid "transaction_modal.submit.button"
 msgstr "Отправить"
 
+#: components/pages/Retire/RetireModal/index.tsx:76
+msgid "transaction_modal.submit.confirm_transaction_1"
+msgstr ""
+
+#: components/pages/Retire/RetireModal/index.tsx:83
+msgid "transaction_modal.submit.confirm_transaction_2"
+msgstr ""
+
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
 msgstr "Адрес контракта"
 
-#: components/Transaction/Submit.tsx:72
+#: components/Transaction/Submit.tsx:73
 msgid "transaction_modal.submit.price"
-msgstr "Подтвердить цену за тонну"
+msgstr ""
 
-#: components/Transaction/index.tsx:46
+#: components/Transaction/index.tsx:44
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Одобрить"
 
-#: components/Transaction/index.tsx:56
+#: components/Transaction/index.tsx:54
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Отправить"
 
@@ -1377,3 +1508,7 @@ msgstr "{0} | Профиль | Carbonmark"
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
 msgstr "{amount} тонн было закуплено для проекта {0}"
+
+#: components/pages/Retire/RetirementSidebar/index.tsx:29
+msgid "{tokenSymbol}"
+msgstr ""
