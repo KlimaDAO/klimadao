@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 12:00+0000\n"
+"POT-Creation-Date: 2023-06-01 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -672,7 +672,7 @@ msgstr "automóvil (anual)"
 #. Long sentence
 #: components/pages/Home/index.tsx:162
 msgid "home.developed_by_klima"
-msgstr "Desarrollado por KlimaDAO, el Mercado Digital del Carbono (MCD) permite ampliar la financiación de la lucha contra el cambio climático, con más de 4.000 millones de dólares negociados hasta la fecha. Explore el DCM a través de <0>Carbonmark.com</0> -el mercado universal- y el <1>Carbon Dashboard</1>."
+msgstr "Desarrollado por KlimaDAO, el Mercado Digital del Carbono (DCM) permite ampliar la financiación de la lucha contra el cambio climático, con más de 4.000 millones de dólares negociados hasta la fecha. Explore el DCM a través de <0>Carbonmark.com</0> -el mercado universal- y el <1>Carbon Dashboard</1>."
 
 #: components/pages/Home/index.tsx:299
 msgid "home.equivalent_to"
