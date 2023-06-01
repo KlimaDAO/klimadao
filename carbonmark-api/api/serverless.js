@@ -1,17 +1,16 @@
-'use strict'
-
+"use strict";
 
 // Require the framework
-const Fastify = require('fastify')
-require('dotenv').config()
+const Fastify = require("fastify");
+require("dotenv").config();
 // Instantiate Fastify with some config
 
 const app = Fastify({
-  logger: true
-})
+  logger: true,
+});
 
 // Register your application as a normal plugin.
-app.register(require('../app.js'))
+app.register(require("../app.js"));
 
 module.exports = async (req, res) => {
   await app.ready();

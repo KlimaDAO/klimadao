@@ -1,49 +1,44 @@
-const { gql } = require('@apollo/client');
-
+const { gql } = require("@apollo/client");
 
 const GET_USER_LISTING = gql`
-query users($wallet: Bytes!){
-    users( where: {
-        id: $wallet
+  query users($wallet: Bytes!) {
+    users(where: { id: $wallet }) {
+      listings {
+        id
+        totalAmountToSell
+        leftToSell
+        tokenAddress
+        active
+        deleted
+        batches
+        batchPrices
+        singleUnitPrice
+        project {
+          name
+          category
         }
-    )
-    {
-        listings {
-            id,
-            totalAmountToSell
-            leftToSell
-            tokenAddress
-            active
-            deleted
-            batches
-            batchPrices
-            singleUnitPrice
-            project {
-                name
-                category
-            }
+      }
+      activities {
+        id
+        amount
+        previousAmount
+        price
+        previousPrice
+        timeStamp
+        activityType
+        project {
+          key
         }
-        activities {
-            id
-            amount
-            previousAmount
-            price 
-            previousPrice
-            timeStamp
-            activityType
-            project {
-                key
-            }
-            seller {
-                id
-            }
-            buyer {
-                id
-            }
+        seller {
+          id
         }
-        purchases {
-            id
+        buyer {
+          id
         }
+      }
+      purchases {
+        id
+      }
     }
-}
-`
+  }
+`;

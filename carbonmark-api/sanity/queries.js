@@ -1,8 +1,6 @@
-const  groq  = require("groq");
+const groq = require("groq");
 
-
-
-const fetchProjects =  groq`*[_type == 'project' && registry == $registry && registryProjectId == $registryProjectId][0] {
+const fetchProjects = groq`*[_type == 'project' && registry == $registry && registryProjectId == $registryProjectId][0] {
     country,
     description,
     "geolocation": {
@@ -26,9 +24,9 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
         'url': asset->url
       }
     }[0]
-  }`
+  }`;
 
-  const fetchAllProjects = groq`
+const fetchAllProjects = groq`
   *[_type == 'project'] {
     "id": id.current,
     description,
@@ -40,9 +38,9 @@ const fetchProjects =  groq`*[_type == 'project' && registry == $registry && reg
       shortDescription,
       longDescription
     }[0]
-  }`
+  }`;
 
-  module.exports = {
-    fetchProjects,
-    fetchAllProjects
+module.exports = {
+  fetchProjects,
+  fetchAllProjects,
 };
