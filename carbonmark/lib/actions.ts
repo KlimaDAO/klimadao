@@ -18,7 +18,12 @@ import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
-import { Asset, AssetForListing } from "lib/types/carbonmark";
+import {
+  Asset,
+  AssetForListing,
+  AssetForRetirement,
+  PcbProject,
+} from "lib/types/carbonmark";
 import {
   getCategoryFromProject,
   getMethodologyFromProject,
@@ -38,6 +43,24 @@ export const getCarbonmarkAllowance = async (params: {
   const allowance = await tokenContract.allowance(
     params.userAddress,
     getAddress("carbonmark")
+  );
+
+  return ethers.utils.formatUnits(allowance, 18);
+};
+
+export const getAggregatorV2Allowance = async (params: {
+  userAddress: string;
+  tokenAddress: string;
+}): Promise<string> => {
+  const tokenContract = new Contract(
+    params.tokenAddress,
+    IERC20.abi,
+    getStaticProvider()
+  );
+
+  const allowance = await tokenContract.allowance(
+    params.userAddress,
+    getAddress("retirementAggregatorV2")
   );
 
   return ethers.utils.formatUnits(allowance, 18);
@@ -286,6 +309,30 @@ export const addProjectsToAssets = async (params: {
   } catch (e) {
     throw e;
   }
+};
+
+interface CompositeAssetParams {
+  asset: Asset;
+  project: PcbProject;
+}
+
+export const createCompositeAsset = (
+  params: CompositeAssetParams
+): AssetForRetirement => {
+  const { asset, project } = params;
+  if (!project) {
+    throw new Error("Project field is not defined in the asset");
+  }
+
+  const compositeAsset: AssetForRetirement = {
+    tokenName: asset.token.name,
+    balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+    tokenType: getTokenType(asset),
+    tokenSymbol: asset.token.symbol,
+    project,
+  };
+
+  return compositeAsset;
 };
 
 export const getProjectInfoFromApi = async (

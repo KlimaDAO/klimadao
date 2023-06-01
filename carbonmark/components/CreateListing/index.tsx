@@ -10,11 +10,13 @@ import {
   getCarbonmarkAllowance,
 } from "lib/actions";
 import { LO } from "lib/luckyOrange";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
+
 type Props = {
   assets: AssetForListing[];
   showModal: boolean;
@@ -190,7 +192,6 @@ export const CreateListing: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
-
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
@@ -206,6 +207,7 @@ export const CreateListing: FC<Props> = (props) => {
           }}
           approvalText={<CreateApproval />}
           submitText={<CreateSubmit />}
+          spenderAddress={getAddress("carbonmark")}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

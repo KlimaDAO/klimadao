@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
+import { Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
-import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Spinner } from "components/shared/Spinner";
-import { Text } from "components/Text";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 import { FC } from "react";
@@ -33,6 +33,7 @@ export const Submit: FC<Props> = (props) => {
 
   const showSubmitButton = !showButtonSpinner && !success;
   const showCloseButton = !showButtonSpinner && success;
+
   return (
     <>
       <div
@@ -40,21 +41,21 @@ export const Submit: FC<Props> = (props) => {
           success,
         })}
       >
-        {props.description && <div>{props.description}</div>}
-
+        {props.description && <div>{props.description} </div>}
         <HighlightValue
           label={
-            <Text t="body1" color="lighter">
+            <Text t="caption" color="lighter">
               <Trans id="transaction_modal.submit.contract_address">
                 Contract address
               </Trans>
             </Text>
           }
           value={concatAddress(props.spenderAddress)}
+          valueHref={urls.polygonscan + `/address/${props.spenderAddress}`}
         />
         <HighlightValue
           label={
-            <Text t="body1" color="lighter">
+            <Text t="caption" color="lighter">
               <Trans id="transaction_modal.submit.amount">Submit amount</Trans>
             </Text>
           }
@@ -68,9 +69,9 @@ export const Submit: FC<Props> = (props) => {
         {!!props.price && (
           <HighlightValue
             label={
-              <Text t="body1" color="lighter">
+              <Text t="caption" color="lighter">
                 <Trans id="transaction_modal.submit.price">
-                  Submit price per tonne
+                  Submit price per tonne:
                 </Trans>
               </Text>
             }
@@ -86,7 +87,7 @@ export const Submit: FC<Props> = (props) => {
       {!!props.status && (
         <div className={styles.statusMessage}>
           {success && <CheckIcon />}
-          <Text t="body1" color="lighter" align="center">
+          <Text t="caption" color="lighter" align="center">
             {getStatusMessage(props.status)}
           </Text>
         </div>
@@ -99,7 +100,6 @@ export const Submit: FC<Props> = (props) => {
         )}
         {showSubmitButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="transaction_modal.submit.button">Submit</Trans>}
             onClick={() => props.onSubmit()}
             className={styles.submitButton}

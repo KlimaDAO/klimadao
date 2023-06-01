@@ -28,7 +28,46 @@ export interface Project {
   totalRetired: string | null; // pool project only
   currentSupply: string | null; // pool project only
   prices?: Price[];
-  url: string; // link to the projects registry detail page
+  url: string;
+  methodologyCategory: CategoryName;
+}
+
+export interface PcbProject {
+  id: string;
+  projectID: string;
+  name: string;
+  methodology: string;
+  vintage: string;
+  tokenAddress: string;
+  registry: string;
+  country: Country | null;
+  location?: {
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
+  };
+  description?: string;
+  isPoolProject?: boolean;
+  totalBridged: string | null;
+  totalRetired: string | null;
+  currentSupply: string | null;
+  prices?: Price[];
+  url?: string;
+  methodologyCategory: CategoryName;
+  category: string;
+  coBenefits: string;
+  correspAdjustment: string;
+  emissionType: string;
+  isCorsiaCompliant: boolean;
+  klimaRanking: string;
+  lastUpdate: string;
+  method: string;
+  region: string;
+  standard: string;
+  storageMethod: string;
+  vintageYear: string;
 }
 
 export type Price = {
@@ -220,6 +259,13 @@ export type AssetForListing = {
   };
 };
 
+export type AssetForRetirement = {
+  tokenName: string;
+  balance: string;
+  tokenType: "1" | "2";
+  tokenSymbol: string; // 1: C3T, 2: TCO2
+  project: PcbProject;
+};
 export type Methodology = {
   id: string;
   name: string;

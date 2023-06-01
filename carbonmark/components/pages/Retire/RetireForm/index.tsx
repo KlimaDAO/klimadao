@@ -1,0 +1,426 @@
+import { Text } from "@klimadao/lib/components";
+import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { Category } from "components/Category";
+import { ProjectImage } from "components/ProjectImage";
+import { InputField, TextareaField } from "components/shared/Form";
+import { Col, TwoColLayout } from "components/TwoColLayout";
+import { Vintage } from "components/Vintage";
+import { ethers, providers } from "ethers";
+import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
+import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
+import { CategoryName } from "lib/types/carbonmark";
+import { useEffect, useState } from "react";
+import { RetirementSidebar } from "../RetirementSidebar";
+import { RetirementStatusModal } from "../RetirementStatusModal";
+import { RetireModal } from "../RetireModal";
+import { handleApprove, hasApproval } from "../utils/approval";
+import { handleRetire } from "../utils/retire";
+
+import { Registry } from "components/Registry";
+import { getAddress } from "lib/networkAware/getAddress";
+import * as styles from "./styles";
+
+export const isPoolToken = (str: string): str is PoolToken =>
+  !!poolTokens.includes(str as PoolToken);
+
+interface RetireFormProps {
+  address: string;
+  asset: AssetForRetirement;
+  provider?: providers.JsonRpcProvider;
+}
+
+export const RetireForm = (props: RetireFormProps) => {
+  const { address, asset, provider } = props;
+
+  const { tokenName, balance, tokenSymbol, project } = asset;
+
+  const [retireModalOpen, setRetireModalOpen] = useState<boolean>(false);
+  const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
+  const [isApproved, setIsApproved] = useState<boolean>(false);
+  const [retirementTransactionHash, setRetirementTransactionHash] =
+    useState<string>("");
+  const [retirementTotals, setRetirementTotals] = useState<number>(0);
+  const [readyForRetireModal, setReadyForRetireModal] =
+    useState<boolean>(false);
+  const [processingRetirement, setProcessingRetirement] = useState(false);
+
+  const [retirement, setRetirement] = useState({
+    quantity: "0",
+    maxQuantity: parseFloat(balance),
+    beneficiaryName: "",
+    beneficiaryAddress: "",
+    retirementMessage: "",
+  });
+
+  useEffect(() => {
+    if (
+      retirement.quantity > "0" &&
+      (retirement.beneficiaryAddress === "" ||
+        ethers.utils.isAddress(retirement.beneficiaryAddress))
+    ) {
+      setReadyForRetireModal(true);
+    } else {
+      setReadyForRetireModal(false);
+    }
+  }, [
+    retirement.quantity,
+    retirement.beneficiaryName,
+    retirement.retirementMessage,
+    retirement.beneficiaryAddress,
+  ]);
+
+  const getTokenPrefix = (tokenName: string) => {
+    const parts = tokenName.split("-");
+
+    if (parts[0].toUpperCase() === "C3T") {
+      return "c3";
+    }
+    return parts[0].toLowerCase();
+  };
+
+  const carbonTokenInfo =
+    carbonmarkTokenInfoMap[getTokenPrefix(tokenSymbol) as CarbonmarkToken];
+
+  const updateStatus = (status: TxnStatus, message?: string) => {
+    setStatus({ statusType: status, message: message });
+  };
+
+  useEffect(() => {
+    async function getApproval() {
+      if (provider && project.tokenAddress) {
+        await hasApproval({
+          quantity: retirement.quantity,
+          address,
+          provider,
+          tokenAddress: project.tokenAddress,
+        }).then((isApproved) => {
+          setIsApproved(isApproved);
+        });
+      }
+    }
+    getApproval();
+  }, [retirement.quantity, provider]);
+
+  const handleRetirementChange = (
+    field: string,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const newValue = event.target.value;
+
+    if (field === "quantity") {
+      if (newValue === "") {
+        setRetirement((prevState) => ({ ...prevState, quantity: newValue }));
+      } else {
+        const newQuantity = parseFloat(newValue);
+
+        if (newQuantity >= 0) {
+          if (newQuantity <= retirement.maxQuantity) {
+            setRetirement((prevState) => ({
+              ...prevState,
+              quantity: newValue,
+            }));
+          } else {
+            setRetirement((prevState) => ({
+              ...prevState,
+              quantity: prevState.maxQuantity.toString(),
+            }));
+          }
+        }
+      }
+    } else {
+      setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
+    }
+  };
+
+  return (
+    <div>
+      <TwoColLayout>
+        <Col>
+          <div className={styles.offsetCard}>
+            <div className={styles.projectHeader}>
+              <ProjectImage
+                category={
+                  (project.methodologyCategory as CategoryName) || "Other"
+                }
+              />
+              <div className={styles.imageGradient} />
+              <Text t="h3" className={styles.projectHeaderText}>
+                {project.name || "Error - No project name found"}
+              </Text>
+              <div className={styles.tags}>
+                <Text t="h5" className={styles.projectIDText}>
+                  {project.projectID}
+                </Text>
+                <Vintage vintage={project.vintageYear} />
+                <Category
+                  category={
+                    (project.methodologyCategory as CategoryName) || "Other"
+                  }
+                />
+                <Registry registry={project.registry} />
+              </div>
+            </div>
+
+            <div className={styles.offsetCard_ui}>
+              <Text t="caption" color="lighter">
+                <Trans>
+                  Retire carbon credits for yourself, or on behalf of another
+                  person or organization.
+                </Trans>
+              </Text>
+              <Text t="caption" color="lighter">
+                <Trans>
+                  The information below will be broadcast publicly to verify
+                  your environmental claim. This transaction is permanent; the
+                  information cannot be changed once your transaction is
+                  complete.
+                </Trans>
+              </Text>
+              <Text t="body2" color="lightest" className={styles.required}>
+                <Trans>
+                  <span style={{ color: "red" }}>* </span> Required Field
+                </Trans>
+              </Text>
+              <div>
+                <label>
+                  <div className={styles.stackText}>
+                    <Text t="caption" color="lighter">
+                      <Trans id="offset.amount_in_tonnes">
+                        How many tonnes of carbon would you like to offset?{" "}
+                        <span style={{ color: "red" }}>* </span>
+                      </Trans>
+                    </Text>
+                    <Text
+                      t="body8"
+                      color="lightest"
+                      className={styles.detailsText}
+                    >
+                      <Trans id="offset.amount_in_tonnes_2">
+                        Available: {balance}
+                      </Trans>
+                    </Text>
+                  </div>
+                </label>
+                <div className="number_input_container">
+                  <InputField
+                    id="quantity"
+                    inputProps={{
+                      type: "number",
+                      min: "0",
+                      max: retirement.maxQuantity.toString(),
+                      onChange: (event) =>
+                        handleRetirementChange("quantity", event),
+                      placeholder: t({
+                        id: "offset.offset_quantity",
+                        message: "Enter quantity to offset",
+                      }),
+                      value: retirement.quantity,
+                    }}
+                    label={"quantity"}
+                    hideLabel
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* attr: beneficiaryName  */}
+              <div className={styles.beneficiary}>
+                <div className={styles.input}>
+                  <label>
+                    <Text t="caption" color="lighter">
+                      <Trans id="offset.retirement_credit">
+                        Who will this retirement be credited to?
+                      </Trans>
+                    </Text>
+                  </label>
+                  <div>
+                    <InputField
+                      id="beneficiaryName"
+                      inputProps={{
+                        type: "text",
+                        onChange: (event) =>
+                          handleRetirementChange("beneficiaryName", event),
+                        placeholder: t({
+                          id: "offset.retirement_beneficiary_name",
+                          message: "Beneficiary Name",
+                        }),
+                        value: retirement.beneficiaryName,
+                      }}
+                      label={"beneficiaryName"}
+                      hideLabel
+                    />
+                  </div>
+                  <div>
+                    <InputField
+                      id="beneficiaryAddress"
+                      inputProps={{
+                        type: "text",
+                        onChange: (event) =>
+                          handleRetirementChange("beneficiaryAddress", event),
+                        placeholder: t({
+                          message: "Beneficiary wallet address (optional)",
+                        }),
+                        value: retirement.beneficiaryAddress,
+                      }}
+                      label={"beneficiaryAddress"}
+                      hideLabel
+                    />
+                  </div>
+                  {retirement.beneficiaryAddress &&
+                    !ethers.utils.isAddress(retirement.beneficiaryAddress) && (
+                      <Text
+                        t="caption"
+                        color="lighter"
+                        className={styles.warningText}
+                      >
+                        Please enter a valid wallet address
+                      </Text>
+                    )}
+                  <Text
+                    t="body8"
+                    color="lightest"
+                    className={styles.detailsText}
+                  >
+                    <Trans id="offset.default_retirement_address">
+                      Defaults to the connected wallet address
+                    </Trans>
+                  </Text>
+                </div>
+              </div>
+              <div className={styles.input}>
+                <label>
+                  <Text t="caption" color="lighter">
+                    <Trans id="offset.retirement_message">
+                      Retirement message
+                    </Trans>
+                  </Text>
+                </label>
+                <TextareaField
+                  id="retirementMessage"
+                  textareaProps={{
+                    rows: 6,
+                    onChange: (event) =>
+                      handleRetirementChange("retirementMessage", event),
+                    placeholder: t({
+                      id: "offset.retirement_retirement_message",
+                      message: "Retirement Message",
+                    }),
+                    value: retirement.retirementMessage,
+                  }}
+                  label={""}
+                />
+              </div>
+              <div className={styles.sideBarBelowLarge}>
+                {" "}
+                <RetirementSidebar
+                  balance={balance}
+                  retirementAsset={asset}
+                  icon={carbonTokenInfo.icon}
+                />
+              </div>
+
+              <div className="disclaimer">
+                <GppMaybeOutlined style={{ color: "#FFB800" }} />
+                <Text t="caption">
+                  <Trans id="offset_disclaimer">
+                    Be careful not to include any sensitive personal information
+                    (such as an email address) in your retirement name or
+                    message. The information you enter here cannot be edited
+                    once it is submitted and will permanently exist on a public
+                    blockchain.
+                  </Trans>
+                </Text>
+              </div>
+              <div className={styles.buttonRow}>
+                <div className={styles.buttonContainer}>
+                  <CarbonmarkButton
+                    label={t({
+                      id: "retire.submit_button",
+                      message: "Retire Carbon",
+                    })}
+                    onClick={() => setRetireModalOpen(true)}
+                    className={styles.submitButton}
+                    disabled={!readyForRetireModal}
+                  />
+                  <CarbonmarkButton
+                    label={t({ id: "retire.back_button", message: "back" })}
+                    href="/portfolio"
+                    className={styles.backButton}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Col>
+
+        <Col className={styles.sideBarLargeAndAbove}>
+          <RetirementSidebar
+            balance={balance}
+            retirementAsset={asset}
+            icon={carbonTokenInfo.icon}
+          />
+        </Col>
+      </TwoColLayout>
+
+      <RetireModal
+        title={
+          <Text t="h4" className={styles.offsetCard_header_title}>
+            <Trans id="offset.retire_carbon">Confirm Retirement</Trans>
+          </Text>
+        }
+        token={carbonTokenInfo}
+        processingRetirement={processingRetirement}
+        setProcessingRetirement={setProcessingRetirement}
+        value={retirement.quantity}
+        spenderAddress={getAddress("retirementAggregatorV2")}
+        onCloseModal={() => setRetireModalOpen(false)}
+        onApproval={() =>
+          handleApprove({
+            provider,
+            retirementQuantity: retirement.quantity,
+            updateStatus: updateStatus,
+            tokenAddress: project.tokenAddress,
+          })
+        }
+        onSubmit={() =>
+          handleRetire({
+            address,
+            provider,
+            quantity: retirement.quantity,
+            beneficiaryAddress: retirement.beneficiaryAddress,
+            beneficiaryName: retirement.beneficiaryName,
+            retirementMessage: retirement.retirementMessage,
+            onStatus: updateStatus,
+            retirementToken: tokenName,
+            tokenSymbol: tokenSymbol,
+            tokenAddress: project.tokenAddress,
+            setRetireModalOpen,
+            setRetirementTransactionHash,
+            setRetirementTotals,
+          }).catch((e) => {
+            console.error("Error handling retirement:", e);
+            setProcessingRetirement(false);
+          })
+        }
+        status={status}
+        setStatus={setStatus}
+        onResetStatus={() => setStatus(null)}
+        isApproved={isApproved}
+        showModal={retireModalOpen}
+      />
+      {retirementTransactionHash && (
+        <RetirementStatusModal
+          retirementUrl={`${urls.retirements}/${
+            retirement.beneficiaryAddress || props.address
+          }/${retirementTotals}`}
+          polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+          showModal={!!retirementTransactionHash}
+        />
+      )}
+    </div>
+  );
+};
