@@ -43,11 +43,6 @@ export const PostPage = (props: PostProps) => {
     month: "long",
     year: "numeric",
   }).format(publishedDate);
-  // const publishedDate = `Published ${new Date(props.post.publishedAt)
-  //   .toDateString()
-  //   .split(" ")
-  //   .slice(1)
-  //   .join(" ")}`;
 
   return (
     <>
