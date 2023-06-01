@@ -19,7 +19,7 @@ interface PostProps {
 }
 
 export const PostPage = (props: PostProps) => {
-  const { asPath } = useRouter();
+  const { asPath, locale } = useRouter();
   const activePage =
     asPath === carbonmarkUrls.about
       ? "About"
@@ -39,10 +39,14 @@ export const PostPage = (props: PostProps) => {
       </>
     );
   }
+  const publishedDate = new Date(props.post.publishedAt);
 
-  const publishedDate = `Published ${new Date(
-    props.post.publishedAt
-  ).toDateString()}`;
+  const formattedDate = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(publishedDate);
+
   return (
     <>
       <GridContainer>
@@ -81,7 +85,7 @@ export const PostPage = (props: PostProps) => {
               </Text>
 
               <Text t="h5" as="p" className={styles.date}>
-                {publishedDate}
+                {formattedDate}
               </Text>
               <PortableTextRenderer value={props.post.body} />
               {props.post.showDisclaimer && (

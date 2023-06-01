@@ -26,7 +26,7 @@ const components: PortableTextComponents = {
       );
     },
   },
-  listItem: ({ children }) => <li>{children}</li>,
+  listItem: ({ children }) => <li className={styles.li}>{children}</li>,
 
   marks: {
     link: ({ children, value }) => {
