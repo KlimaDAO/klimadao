@@ -1,15 +1,15 @@
-import { utils } from "ethers";
-import isNumber from "lodash/isNumber";
-import { NextApiRequest, NextApiResponse } from "next/types";
-
 import { urls } from "@klimadao/lib/constants";
 import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-
+import { utils } from "ethers";
 import { IS_PRODUCTION } from "lib/constants";
 import { generateCertificate } from "lib/retirementCertificates";
+import { getAddressByDomain } from "lib/shared/getAddressByDomain";
+import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
+import isNumber from "lodash/isNumber";
+import { NextApiRequest, NextApiResponse } from "next/types";
 
 type Query = {
   beneficiaryAddress: string;
@@ -36,13 +36,17 @@ export default async function handler(
       return res.status(404).send("Not found");
     }
 
-    if (!utils.isAddress(beneficiaryAddress)) {
-      return res.status(400).send("Invalid beneficiary address");
+    const resolvedAddress = getIsDomainInURL(beneficiaryAddress)
+      ? await getAddressByDomain(beneficiaryAddress)
+      : beneficiaryAddress;
+
+    if (!utils.isAddress(resolvedAddress)) {
+      return res.status(400).send("Invalid beneficiary address or domain");
     }
 
     /** Retirement indexes start from 0, url starts from 1 */
     const index = Number(retirementIndex) - 1;
-    const retirement = await queryKlimaRetireByIndex(beneficiaryAddress, index);
+    const retirement = await queryKlimaRetireByIndex(resolvedAddress, index);
 
     /** Validate fetched data */
     if (!retirement) {
