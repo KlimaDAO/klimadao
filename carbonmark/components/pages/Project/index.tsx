@@ -204,7 +204,9 @@ const Page: NextPage<PageProps> = (props) => {
                 <Trans>Description</Trans>
               </Text>
               <Text t="body1">
-                {project.description ?? "No project description found"}
+                {project.long_description ||
+                  project.description ||
+                  "No project description found"}
               </Text>
             </div>
             {notNil(project.url) && (
