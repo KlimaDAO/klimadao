@@ -2,6 +2,7 @@ import { Text } from "components/Text";
 import { PostDetails } from "lib/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import defaultImage from "public/cover-default.png";
 import * as styles from "./styles";
 
@@ -10,17 +11,21 @@ interface BlogPostCardProps {
 }
 
 export const BlogPostCard = (props: BlogPostCardProps) => {
-  const date = new Date(props.post.publishedAt)
-    .toDateString()
-    .split(" ")
-    .slice(1)
-    .join(" ");
+  const { locale } = useRouter();
+
+  const publishedDate = new Date(props.post.publishedAt);
+
+  const formattedDate = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(publishedDate);
 
   return (
     <Link href={`/blog/${props.post.slug}`} className={styles.card}>
       <div className="content">
         <Text t="h5" className="date">
-          {date}
+          {formattedDate}
         </Text>
         <Text t="h5" className="title" color="lighter">
           {props.post.title}

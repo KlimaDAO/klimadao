@@ -14,6 +14,7 @@ import { Post } from "lib/queries";
 
 import defaultImage from "public/cover-default.png";
 
+import { useRouter } from "next/router";
 import * as styles from "./styles";
 
 interface PostProps {
@@ -21,6 +22,7 @@ interface PostProps {
 }
 
 export const PostPage = (props: PostProps) => {
+  const { locale } = useRouter();
   if (!props.post) {
     return (
       <>
@@ -34,11 +36,18 @@ export const PostPage = (props: PostProps) => {
     );
   }
 
-  const publishedDate = `Published ${new Date(props.post.publishedAt)
-    .toDateString()
-    .split(" ")
-    .slice(1)
-    .join(" ")}`;
+  const publishedDate = new Date(props.post.publishedAt);
+
+  const formattedDate = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(publishedDate);
+  // const publishedDate = `Published ${new Date(props.post.publishedAt)
+  //   .toDateString()
+  //   .split(" ")
+  //   .slice(1)
+  //   .join(" ")}`;
 
   return (
     <>
@@ -77,7 +86,7 @@ export const PostPage = (props: PostProps) => {
             </Text>
 
             <Text t="h5" as="p" className={styles.date}>
-              {publishedDate}
+              {formattedDate}
             </Text>
             <PortableTextRenderer value={props.post.body} />
             {props.post.showDisclaimer && (
