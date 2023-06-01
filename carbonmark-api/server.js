@@ -11,7 +11,7 @@ const closeWithGrace = require("close-with-grace");
 
 // Instantiate Fastify with some config
 const app = Fastify({
-  logger: true,
+  logger: false,
 });
 
 // Register your application as a normal plugin.
