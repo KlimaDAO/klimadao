@@ -42,7 +42,8 @@
     "i": "^0.3.7",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.7",
-    "npm": "^9.5.1"
+    "npm": "^9.5.1",
+    "statuses": "^2.0.1"
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "^2.2.9",
