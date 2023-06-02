@@ -6,7 +6,6 @@
   </a>
 
 <h2 align="center">Carbonmark Api</h2>
-
   <p align="center">
     A BFF API for Carbonmark
     <br />
