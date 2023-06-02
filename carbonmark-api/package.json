@@ -1,7 +1,6 @@
 {
-  "name": "marketplace_api",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with Fastify-CLI.",
+  "name": "@klimadao/carbonmark-api",
+  "private": true,
   "main": "app.js",
   "directories": {
     "test": "test"
@@ -11,9 +10,6 @@
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.7.3",
     "@faker-js/faker": "^7.6.0",
@@ -21,10 +17,10 @@
     "@fastify/autoload": "^5.4.0",
     "@fastify/bearer-auth": "^8.0.1",
     "@fastify/cookie": "^8.3.0",
-    "@fastify/jwt": "^6.3.2",
+    "@fastify/jwt": "^6.7.1",
     "@fastify/response-validation": "^2.1.0",
     "@fastify/sensible": "^5.0.0",
-    "@fastify/swagger": "^7.5.1",
+    "@fastify/swagger": "^7.6.1",
     "@mgcrea/fastify-session": "^0.16.0",
     "@mgcrea/fastify-session-sodium-crypto": "^0.8.7",
     "@now-ims/fastify-firebase": "^1.1.3",
