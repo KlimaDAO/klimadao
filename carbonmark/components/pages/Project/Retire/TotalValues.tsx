@@ -49,10 +49,16 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   useEffect(() => {
     const newCosts = async () => {
-      setIsLoading(true);
       setError("");
 
+      if (Number(amount) <= 0) {
+        setCosts("0");
+        setIsLoading(false);
+        return;
+      }
+
       try {
+        setIsLoading(true);
         const totalPrice = await getConsumptionCost({
           inputToken: paymentMethod,
           retirementToken: props.pool,
@@ -262,6 +268,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       {formState.errors.totalPrice?.message && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {formState.errors.totalPrice?.message}
+        </Text>
+      )}
+      {formState.errors.quantity?.message && (
+        <Text t="body1" className={styles.errorMessagePrice}>
+          {formState.errors.quantity?.message}
         </Text>
       )}
       {exceededBalance && (
