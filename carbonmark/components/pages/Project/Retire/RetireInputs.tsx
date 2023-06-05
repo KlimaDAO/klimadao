@@ -96,20 +96,12 @@ export const RetireInputs: FC<Props> = (props) => {
         </div>
 
         <div className={styles.labelWithInput}>
-          <Text>
-            {t`Who will this retirement be credited to?`}{" "}
-            <span className={styles.required}>*</span>
-          </Text>
+          <Text>{t`Who will this retirement be credited to?`}</Text>
           <InputField
             id="beneficiaryName"
             inputProps={{
               placeholder: t`Beneficiary name`,
-              ...register("beneficiaryName", {
-                required: {
-                  value: true,
-                  message: t`Beneficiary Name is required`,
-                },
-              }),
+              ...register("beneficiaryName"),
             }}
             label={t`Who will this retirement be credited to?`}
             errorMessage={formState.errors.beneficiaryName?.message}
