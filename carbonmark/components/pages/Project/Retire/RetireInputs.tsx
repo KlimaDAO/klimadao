@@ -205,7 +205,7 @@ export const RetireInputs: FC<Props> = (props) => {
           ...register("totalPrice", {
             required: {
               value: true,
-              message: t`totalPrice is required`,
+              message: t`Could not calculate Total Cost`,
             },
             max: {
               value: Number(props.balance || "0"),
