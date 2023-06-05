@@ -39,7 +39,7 @@ export const SubmitButton: FC<Props> = (props) => {
         props.isLoading ? (
           <Spinner className={styles.submitSpinner} />
         ) : (
-          <Trans>Continue</Trans>
+          <Trans>RETIRE CARBON</Trans>
         )
       }
       onClick={handleSubmit(onSubmit)}
