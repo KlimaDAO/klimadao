@@ -1,6 +1,7 @@
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
@@ -191,6 +192,18 @@ export const RetireInputs: FC<Props> = (props) => {
               <Anchor href={urls.app}>click here</Anchor>.
             </Text>
           </div>
+        </div>
+
+        <div className={styles.disclaimer}>
+          <GppMaybeOutlined />
+          <Text t="body3">
+            <Trans>
+              Be careful not to include any sensitive personal information (such
+              as an email address) in your retirement name or message. The
+              information you enter here cannot be edited once it is submitted
+              and will permanently exist on a public blockchain.
+            </Trans>
+          </Text>
         </div>
       </div>
       <InputField

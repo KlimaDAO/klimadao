@@ -271,3 +271,18 @@ export const successScreen = css`
 export const required = css`
   color: var(--warn);
 `;
+
+export const disclaimer = css`
+  color: var(--font-01);
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--yellow);
+
+  svg {
+    color: var(--yellow);
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+`;
