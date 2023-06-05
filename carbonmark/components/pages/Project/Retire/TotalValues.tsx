@@ -69,9 +69,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         setCosts(totalPrice);
       } catch (e) {
         console.error("e", e);
-        setError(
-          t`Could not load the costs. Are you sure you are connected to the correct network?`
-        );
+        setError(t`There was an error loading the total cost.`);
       } finally {
         setIsLoading(false);
       }
