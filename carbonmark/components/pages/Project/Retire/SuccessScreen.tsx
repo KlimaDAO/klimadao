@@ -4,7 +4,6 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Text } from "components/Text";
 import { urls } from "lib/constants";
-import { createProjectLink } from "lib/createUrls";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { CarbonmarkPaymentMethod, Project } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
@@ -64,7 +63,7 @@ export const SuccessScreen: FC<Props> = (props) => {
           label={<Trans>See your retirements</Trans>}
         />
         <CarbonmarkButton
-          href={createProjectLink(props.project)}
+          href={"/projects"}
           label={<Trans>Retire more Carbon</Trans>}
         />
       </>
