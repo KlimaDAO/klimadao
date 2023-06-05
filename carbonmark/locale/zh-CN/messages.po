@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-01 19:57+0000\n"
+"POT-Creation-Date: 2023-06-05 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgstr "500 - 服务器发生错误"
 
 #: components/pages/Retire/RetireForm/index.tsx:184
 msgid "<0>* </0> Required Field"
-msgstr ""
+msgstr "<0>*</0>必填项目"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
@@ -68,11 +68,11 @@ msgstr "申请"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:21
 msgid "Asset Details"
-msgstr ""
+msgstr "资产详情"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:25
 msgid "Asset ID"
-msgstr ""
+msgstr "资产编号"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
@@ -84,7 +84,7 @@ msgstr "超出可用供应"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:34
 msgid "Available to retire"
-msgstr ""
+msgstr "可停用"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
@@ -104,7 +104,7 @@ msgstr "余额：{0}"
 
 #: components/pages/Retire/RetireForm/index.tsx:264
 msgid "Beneficiary wallet address (optional)"
-msgstr ""
+msgstr "收益人钱包地址（可选）"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -518,11 +518,11 @@ msgstr "停用"
 
 #: components/pages/Retire/RetireForm/index.tsx:170
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
-msgstr ""
+msgstr "为自己或代表其他人或组织停用碳信用额度。"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:45
 msgid "Retire more carbon"
-msgstr ""
+msgstr "停用更多的碳"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
@@ -531,7 +531,7 @@ msgstr "现在停用"
 #: components/pages/Retire/index.tsx:83
 #: components/pages/Retire/index.tsx:84
 msgid "Retire | Carbonmark"
-msgstr ""
+msgstr "碳停用 | Carbonmark"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:23
 msgid "Retirement Successful!"
@@ -600,7 +600,7 @@ msgstr "感谢您对地球的支持！请参阅下面的购买详细信息。"
 
 #: components/pages/Retire/RetireForm/index.tsx:176
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
-msgstr ""
+msgstr "以下信息将公开广播以验证您的环保声明。该交易是永久性的；一旦您的交易完成，信息将无法更改。"
 
 #: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
@@ -693,7 +693,7 @@ msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
 #: components/pages/Retire/index.tsx:85
 msgid "View a complete overview of the digital carbon that you own in your Retire."
-msgstr ""
+msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
 #: components/pages/Project/index.tsx:117
 msgid "View and purchase this carbon offset project on Carbonmark"
@@ -701,11 +701,11 @@ msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:41
 msgid "View and share certificate"
-msgstr ""
+msgstr "查看和共享证书"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
-msgstr ""
+msgstr "在 PolygonScan <0/> 上查看"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -904,11 +904,11 @@ msgstr "个人资料"
 
 #: components/pages/Retire/RetireForm/index.tsx:192
 msgid "offset.amount_in_tonnes"
-msgstr ""
+msgstr "您想抵消多少吨碳？ <0>*</0>"
 
 #: components/pages/Retire/RetireForm/index.tsx:202
 msgid "offset.amount_in_tonnes_2"
-msgstr ""
+msgstr "可用：{balance}"
 
 #: components/pages/Retire/RetireForm/index.tsx:288
 msgid "offset.default_retirement_address"
@@ -920,11 +920,11 @@ msgstr "输入要抵消的数量"
 
 #: components/pages/Retire/RetireForm/index.tsx:372
 msgid "offset.retire_carbon"
-msgstr ""
+msgstr "确认退休"
 
 #: components/pages/Retire/RetireForm/index.tsx:247
 msgid "offset.retirement_beneficiary_name"
-msgstr ""
+msgstr "受益人姓名"
 
 #: components/pages/Retire/RetireForm/index.tsx:235
 msgid "offset.retirement_credit"
@@ -940,11 +940,11 @@ msgstr "停用消息"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:31
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "感谢您对地球的支持！在 <0>PolygonScan </0> 上查看交易。"
 
 #: components/pages/Retire/RetireForm/index.tsx:329
 msgid "offset_disclaimer"
-msgstr ""
+msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -1117,7 +1117,7 @@ msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #: components/pages/Retire/RetireForm/index.tsx:350
 msgid "retire.back_button"
-msgstr ""
+msgstr "返回"
 
 #: components/pages/Retire/RetireForm/index.tsx:341
 msgid "retire.submit_button"
@@ -1363,11 +1363,11 @@ msgstr "您已选择拒绝交易"
 
 #: components/pages/Retire/RetireModal/index.tsx:52
 msgid "transaction_modal.approve.allow_amount_1"
-msgstr ""
+msgstr "您即将停用一项碳资产。"
 
 #: components/pages/Retire/RetireModal/index.tsx:57
 msgid "transaction_modal.approve.allow_amount_2"
-msgstr ""
+msgstr "第一步是批准将您的碳资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并完成您的碳停用。"
 
 #: components/pages/Retire/RetireModal/index.tsx:64
 msgid "transaction_modal.approve.allow_amount_3"
@@ -1407,11 +1407,11 @@ msgstr "提交"
 
 #: components/pages/Retire/RetireModal/index.tsx:76
 msgid "transaction_modal.submit.confirm_transaction_1"
-msgstr ""
+msgstr "上一步已批准将您的碳资产从您的钱包转移到 Carbonmark，您的碳停用尚未完成。"
 
 #: components/pages/Retire/RetireModal/index.tsx:83
 msgid "transaction_modal.submit.confirm_transaction_2"
-msgstr ""
+msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
@@ -1419,7 +1419,7 @@ msgstr "合约地址"
 
 #: components/Transaction/Submit.tsx:73
 msgid "transaction_modal.submit.price"
-msgstr ""
+msgstr "提交每吨价格："
 
 #: components/Transaction/index.tsx:44
 msgid "transaction_modal.view.approve.title"
@@ -1513,4 +1513,4 @@ msgstr "为项目 {0} 购买了 {amount} 吨"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:29
 msgid "{tokenSymbol}"
-msgstr ""
+msgstr "{tokenSymbol}"
