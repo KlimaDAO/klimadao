@@ -172,7 +172,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
                 <Text t="body2">{trimWithLocale(swapFee, 5, locale)}</Text>
               </div>
               <div className={styles.feeText}>
-                <Text t="body2">{t`Sushi Swap`}</Text>
+                <Text t="body2">SushiSwap</Text>
                 <Text t="body2">
                   {`(${trimWithLocale(
                     SUSHI_SWAP_FEE * 100,
