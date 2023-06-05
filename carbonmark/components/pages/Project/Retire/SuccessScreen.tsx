@@ -33,7 +33,7 @@ export const SuccessScreen: FC<Props> = (props) => {
           target="_blank"
           rel="noreferrer"
         >
-          polygonscan
+          PolygonScan
         </a>
         .
       </Text>
