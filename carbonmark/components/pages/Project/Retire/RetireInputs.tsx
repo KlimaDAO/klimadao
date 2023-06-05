@@ -6,7 +6,7 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
-import { formatToPrice } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
@@ -61,7 +61,8 @@ export const RetireInputs: FC<Props> = (props) => {
               <span className={styles.required}>*</span>
             </Text>
             <Text t="body3">
-              <Trans>Available: {props.price.leftToSell}</Trans>
+              <Trans>Available:</Trans>{" "}
+              {formatToTonnes(props.price.leftToSell, locale)}
             </Text>
             <InputField
               id="quantity"
