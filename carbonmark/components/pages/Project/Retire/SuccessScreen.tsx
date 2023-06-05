@@ -40,7 +40,7 @@ export const SuccessScreen: FC<Props> = (props) => {
       <>
         <div className="summary">
           <Text t="body1" color="lighter">
-            <Trans>Total sale price</Trans>
+            <Trans>Total sale cost</Trans>
           </Text>
           <div className={styles.iconAndText}>
             <div className="icon">
