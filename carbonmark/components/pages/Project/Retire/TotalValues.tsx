@@ -34,9 +34,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
-  const redemptionFee = (Number(props.singleUnitPrice) / 100) * feesFactor;
+  const redemptionFee = Number(costs || 0) * feesFactor;
   const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
-  const swapFee = Number(props.singleUnitPrice) * SUSHI_SWAP_FEE;
+  const swapFee = Number(costs || 0) * SUSHI_SWAP_FEE;
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
@@ -149,7 +149,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <div className={styles.withToggle}>
-            <Text t="h5">{trimWithLocale(networkFees, 5, locale)}</Text>
+            <Text t="h5">
+              {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
+            </Text>
             <Text
               t="body3"
               color="lighter"
@@ -208,7 +210,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               <div className={styles.feeText}>
                 <Text t="body2">{t`KlimaDAO Contracts`}</Text>
                 <Text t="body2">
-                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 2, locale)}%)`}
+                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 5, locale)}%)`}
                 </Text>
               </div>
             </div>
