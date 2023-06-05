@@ -180,7 +180,7 @@ export const RetireInputs: FC<Props> = (props) => {
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
             <Text t="body3">
-              {t`To purchase this project using a different form of payment,`}{" "}
+              {t`To retire this project using a different form of payment,`}{" "}
               <Anchor href={urls.app}>click here</Anchor>.
             </Text>
           </div>
