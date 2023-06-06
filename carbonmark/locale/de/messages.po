@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-05 22:23+0000\n"
+"POT-Creation-Date: 2023-06-06 00:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -108,7 +108,7 @@ msgstr "Wallet-Adresse des Begünstigten (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:156
+#: components/pages/Project/index.tsx:157
 msgid "Best Price"
 msgstr "Niedrigster Preis"
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Created:"
 msgstr "Erstellt:"
 
-#: components/pages/Project/index.tsx:237
+#: components/pages/Project/index.tsx:244
 msgid "Data for this project and vintage"
 msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 
@@ -213,7 +213,7 @@ msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 msgid "Data for this seller"
 msgstr "Informationen über diesen Verkäufer"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:204
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -365,7 +365,7 @@ msgstr "Keine aktiven Einträge."
 msgid "No listable assets found."
 msgstr "Keine eintragbaren Assets gefunden."
 
-#: components/pages/Project/index.tsx:227
+#: components/pages/Project/index.tsx:234
 msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
@@ -681,7 +681,7 @@ msgstr "Benutzerprofil | Carbonmark"
 msgid "View Carbonmark Profile"
 msgstr "Carbonmark-Profil anzeigen"
 
-#: components/pages/Project/index.tsx:210
+#: components/pages/Project/index.tsx:217
 msgid "View Registry Details <0/>"
 msgstr "Registrierungsdetails anzeigen <0/>"
 
@@ -693,7 +693,7 @@ msgstr "Komplettansicht aller digitalen CO2-Assets in Ihrem Besitz in Ihrem Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
-#: components/pages/Project/index.tsx:117
+#: components/pages/Project/index.tsx:118
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Betrachten und kaufen Sie dieses CO2-Ausgleichsprojekt auf Carbonmark"
 

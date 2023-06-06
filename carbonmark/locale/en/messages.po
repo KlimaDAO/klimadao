@@ -114,7 +114,7 @@ msgstr "Beneficiary wallet address (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:156
+#: components/pages/Project/index.tsx:157
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -210,7 +210,7 @@ msgstr "Create your own retirement"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:237
+#: components/pages/Project/index.tsx:244
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -219,7 +219,7 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:204
 msgid "Description"
 msgstr "Description"
 
@@ -371,7 +371,7 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:227
+#: components/pages/Project/index.tsx:234
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -687,7 +687,7 @@ msgstr "User Profile | Carbonmark"
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
-#: components/pages/Project/index.tsx:210
+#: components/pages/Project/index.tsx:217
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
@@ -699,7 +699,7 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Project/index.tsx:117
+#: components/pages/Project/index.tsx:118
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 

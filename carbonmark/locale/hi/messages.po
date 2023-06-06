@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-05 22:23+0000\n"
+"POT-Creation-Date: 2023-06-06 00:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:156
+#: components/pages/Project/index.tsx:157
 msgid "Best Price"
 msgstr "सर्वोत्तम क़ीमत"
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Created:"
 msgstr "बन गई:"
 
-#: components/pages/Project/index.tsx:237
+#: components/pages/Project/index.tsx:244
 msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
@@ -213,7 +213,7 @@ msgstr "इस प्रॉजेक्ट और विंटेज के ल�
 msgid "Data for this seller"
 msgstr "इस विक्रेता संबंधी डेटा"
 
-#: components/pages/Project/index.tsx:197
+#: components/pages/Project/index.tsx:204
 msgid "Description"
 msgstr "विवरण"
 
@@ -365,7 +365,7 @@ msgstr "शून्य सक्रिय सूचियाँ"
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
-#: components/pages/Project/index.tsx:227
+#: components/pages/Project/index.tsx:234
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
@@ -681,7 +681,7 @@ msgstr "यूज़र प्रोफ़ाइल | Carbonmark"
 msgid "View Carbonmark Profile"
 msgstr ""
 
-#: components/pages/Project/index.tsx:210
+#: components/pages/Project/index.tsx:217
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
@@ -693,7 +693,7 @@ msgstr "अपने पोर्टफ़ोलियो में अपने �
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
-#: components/pages/Project/index.tsx:117
+#: components/pages/Project/index.tsx:118
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Carbonmark पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
