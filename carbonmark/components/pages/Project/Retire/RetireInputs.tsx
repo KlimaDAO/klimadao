@@ -63,7 +63,7 @@ export const RetireInputs: FC<Props> = (props) => {
             </Text>
             <Text t="body3">
               <Trans>Available:</Trans>{" "}
-              {formatToTonnes(props.price.leftToSell, locale)}
+              {formatToTonnes(props.price.leftToSell, locale, 2)}
             </Text>
             <InputField
               id="quantity"

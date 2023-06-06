@@ -3,11 +3,13 @@ import { Anchor } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
+import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
 import { Price, Project } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -17,9 +19,11 @@ type TotalValuesProps = {
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
+  const { locale } = useRouter();
   const tokenType = getPoolTokenType(props.price.name);
   const tokenData = carbonTokenInfoMap[tokenType];
   const projectTokenName = createProjectTokenName(props.project, tokenType);
+  const availableTonnes = formatToTonnes(props.price.leftToSell, locale, 2);
 
   return (
     <>
@@ -38,6 +42,14 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
           </div>
           <Text t="h5">{projectTokenName}</Text>
         </div>
+      </div>
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Available to retire`}</Text>
+        <Text t="h5">
+          {availableTonnes} {t`Tonnes`}
+        </Text>
+      </div>
+      <div className={styles.totalsText}>
         <Anchor
           className={styles.iconAndText}
           href={`https://polygonscan.com/address/${props.project.projectAddress}`}
