@@ -76,7 +76,7 @@ msgstr "Amount to retire"
 msgid "Apply"
 msgstr "Apply"
 
-#: components/pages/Project/Retire/AssetDetails.tsx:26
+#: components/pages/Project/Retire/AssetDetails.tsx:30
 #: components/pages/Retire/RetirementSidebar/index.tsx:21
 msgid "Asset Details"
 msgstr "Asset Details"
@@ -94,6 +94,7 @@ msgstr "Available balance exceeded"
 msgid "Available supply exceeded"
 msgstr "Available supply exceeded"
 
+#: components/pages/Project/Retire/AssetDetails.tsx:47
 #: components/pages/Retire/RetirementSidebar/index.tsx:34
 msgid "Available to retire"
 msgstr "Available to retire"
@@ -326,9 +327,12 @@ msgid "Hide Details"
 msgstr "Hide Details"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:91
-#: components/pages/Project/Retire/RetireInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "How many tonnes of carbon do you want to buy?"
+
+#: components/pages/Project/Retire/RetireInputs.tsx:91
+msgid "How many tonnes of carbon do you want to retire?"
+msgstr "How many tonnes of carbon do you want to retire?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:61
 msgid "How many tonnes of carbon would you like to retire?"
@@ -565,7 +569,7 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total availab
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Project/Retire/SubmitButton.tsx:42
+#: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
 msgstr "RETIRE CARBON"
 
@@ -640,7 +644,7 @@ msgstr "Retirement Successful!"
 msgid "Retirement successful"
 msgstr "Retirement successful"
 
-#: components/pages/Project/Retire/AssetDetails.tsx:29
+#: components/pages/Project/Retire/AssetDetails.tsx:33
 msgid "Retiring Token"
 msgstr "Retiring Token"
 
@@ -665,7 +669,7 @@ msgid "Show Details"
 msgstr "Show Details"
 
 #: components/pages/Project/Purchase/SubmitButton.tsx:31
-#: components/pages/Project/Retire/SubmitButton.tsx:29
+#: components/pages/Project/Retire/SubmitButton.tsx:30
 msgid "Sign In / Connect To Buy"
 msgstr "Sign In / Connect To Buy"
 
@@ -731,8 +735,8 @@ msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and
 msgstr "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 
 #: components/pages/Project/Retire/RetireInputs.tsx:83
-msgid "The minimum amount to buy is 1 Tonne"
-msgstr "The minimum amount to buy is 1 Tonne"
+msgid "The minimum amount to retire is 1 Tonne"
+msgstr "The minimum amount to retire is 1 Tonne"
 
 #: components/pages/Project/Retire/RetireModal.tsx:65
 msgid "The previous step granted the approval to transfer your payment asset from your wallet."
@@ -776,6 +780,7 @@ msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:54
+#: components/pages/Project/Retire/AssetDetails.tsx:49
 #: components/pages/Project/Retire/RetireInputs.tsx:71
 #: components/pages/Project/Retire/TotalValues.tsx:100
 msgid "Tonnes"
@@ -859,7 +864,7 @@ msgstr "View and purchase this carbon offset project on Carbonmark"
 msgid "View and share certificate"
 msgstr "View and share certificate"
 
-#: components/pages/Project/Retire/AssetDetails.tsx:46
+#: components/pages/Project/Retire/AssetDetails.tsx:58
 msgid "View on PolygonScan"
 msgstr "View on PolygonScan"
 
@@ -926,7 +931,7 @@ msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:119
-#: components/pages/Project/Retire/TotalValues.tsx:280
+#: components/pages/Project/Retire/TotalValues.tsx:275
 msgid "Your balance:"
 msgstr "Your balance:"
 
@@ -1523,7 +1528,7 @@ msgstr "Sort by:"
 msgid "sold to"
 msgstr "sold to"
 
-#: components/pages/Project/Retire/RetireForm.tsx:106
+#: components/pages/Project/Retire/RetireForm.tsx:109
 msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
