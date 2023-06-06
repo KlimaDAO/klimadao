@@ -80,7 +80,7 @@ export const RetireInputs: FC<Props> = (props) => {
                   },
                   min: {
                     value: 1,
-                    message: t`The minimum amount to buy is 1 Tonne`,
+                    message: t`The minimum amount to retire is 1 Tonne`,
                   },
                   max: {
                     value: Number(props.price.leftToSell),
@@ -88,7 +88,7 @@ export const RetireInputs: FC<Props> = (props) => {
                   },
                 }),
               }}
-              label={t`How many tonnes of carbon do you want to buy?`}
+              label={t`How many tonnes of carbon do you want to retire?`}
               errorMessage={formState.errors.quantity?.message}
               hideLabel
             />
