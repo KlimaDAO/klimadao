@@ -15,7 +15,7 @@ import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { AssetDetails } from "./AssetDetails";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
@@ -50,6 +50,8 @@ export const RetireForm: FC<Props> = (props) => {
     },
   });
 
+  const quantity = useWatch({ name: "quantity", control: methods.control });
+
   useEffect(() => {
     if (!address) return;
 
@@ -70,6 +72,7 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
+  const disableSubmit = !!address && (!quantity || Number(quantity) <= 0);
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -198,6 +201,7 @@ export const RetireForm: FC<Props> = (props) => {
                 onSubmit={onContinue}
                 isLoading={isLoadingAllowance}
                 className={styles.showOnDesktop}
+                disabled={disableSubmit}
               />
 
               {errorMessage && <Text>{errorMessage}</Text>}
@@ -223,6 +227,7 @@ export const RetireForm: FC<Props> = (props) => {
             onSubmit={onContinue}
             isLoading={isLoadingAllowance}
             className={styles.hideOnDesktop}
+            disabled={disableSubmit}
           />
         </Col>
       </TwoColLayout>

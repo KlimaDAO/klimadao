@@ -11,6 +11,7 @@ type Props = {
   onSubmit: (values: FormValues) => void;
   isLoading: boolean;
   className?: string;
+  disabled: boolean;
 };
 
 export const SubmitButton: FC<Props> = (props) => {
@@ -28,6 +29,7 @@ export const SubmitButton: FC<Props> = (props) => {
         className={props.className}
         label={t`Sign In / Connect To Buy`}
         onClick={toggleModal}
+        disabled={props.disabled}
       />
     );
   }
@@ -43,6 +45,7 @@ export const SubmitButton: FC<Props> = (props) => {
         )
       }
       onClick={handleSubmit(onSubmit)}
+      disabled={props.disabled}
     />
   );
 };
