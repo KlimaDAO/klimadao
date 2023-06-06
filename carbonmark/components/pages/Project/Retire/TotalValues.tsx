@@ -270,11 +270,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           {formState.errors.totalPrice?.message}
         </Text>
       )}
-      {formState.errors.quantity?.message && (
-        <Text t="body1" className={styles.errorMessagePrice}>
-          {formState.errors.quantity?.message}
-        </Text>
-      )}
       {exceededBalance && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {t`Your balance:`} {currentBalance}
