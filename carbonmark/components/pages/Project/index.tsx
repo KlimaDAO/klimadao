@@ -6,6 +6,7 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
+import Carousel from "components/Carousel/Carousel";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
@@ -158,7 +159,6 @@ const Page: NextPage<PageProps> = (props) => {
               </>
             )}
           </div>
-
           <div className={styles.methodology}>
             <Text t="h5" color="lighter" align="end">
               <Trans>Methodology</Trans>
@@ -181,15 +181,22 @@ const Page: NextPage<PageProps> = (props) => {
             hasMap: !!project.location,
           })}
         >
-          {project.location && (
-            <div className="mapColumn">
-               
-              <ProjectMap
-                lat={project.location?.geometry.coordinates[1]}
-                lng={project.location?.geometry.coordinates[0]}
-                zoom={5}
-              />
+          {project?.images?.length ? (
+            <div className={styles.carouselWrapper}>
+              <Carousel images={project.images} location={project.location} />
             </div>
+          ) : (
+            <>
+              {project.location && (
+                <div className="mapColumn">
+                  <ProjectMap
+                    lat={project.location?.geometry.coordinates[1]}
+                    lng={project.location?.geometry.coordinates[0]}
+                    zoom={5}
+                  />
+                </div>
+              )}
+            </>
           )}
           <div className="descriptionColumn">
             <div className="description">

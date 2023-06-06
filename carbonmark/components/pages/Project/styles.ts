@@ -195,3 +195,10 @@ export const infoContent = css`
     color: #303030;
   }
 `;
+
+export const carouselWrapper = css`
+  grid-area: map;
+  height: 100%;
+  min-width: 100%;
+  width: 100%;
+`;
