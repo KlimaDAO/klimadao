@@ -7,6 +7,7 @@ import { urls } from "lib/constants";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { CarbonmarkPaymentMethod, Project } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
+import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -16,6 +17,7 @@ type Props = {
   transactionHash: string | null;
   paymentMethod?: CarbonmarkPaymentMethod;
   address?: string;
+  retirementIndex: number | null;
 };
 
 export const SuccessScreen: FC<Props> = (props) => {
@@ -59,8 +61,9 @@ export const SuccessScreen: FC<Props> = (props) => {
         </div>
 
         <ButtonPrimary
-          href={`/retirements/${props.address}`}
-          label={<Trans>See your retirements</Trans>}
+          href={`/retirements/${props.address}/${props.retirementIndex}`}
+          label={<Trans>See your retirement receipt</Trans>}
+          renderLink={(linkProps) => <Link {...linkProps} />}
         />
         <CarbonmarkButton
           href={"/projects"}

@@ -40,6 +40,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
+  const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -173,6 +174,7 @@ export const RetireForm: FC<Props> = (props) => {
         onStatus: onUpdateStatus,
       });
       receipt.transactionHash && setTransactionHash(receipt.transactionHash);
+      receipt.retirementIndex && setRetirementIndex(receipt.retirementIndex);
       setIsProcessing(false);
     } catch (e) {
       console.error("makeRetirement error", e);
@@ -263,6 +265,7 @@ export const RetireForm: FC<Props> = (props) => {
             transactionHash={transactionHash}
             paymentMethod={inputValues?.paymentMethod}
             address={address}
+            retirementIndex={retirementIndex}
           />
         }
         showSuccessScreen={!!transactionHash}

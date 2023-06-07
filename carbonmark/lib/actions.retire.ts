@@ -5,7 +5,8 @@ import ToucanPoolToken from "@klimadao/lib/abi/ToucanPoolToken.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
-import { Contract, providers, utils } from "ethers";
+import { BigNumber, Contract, providers, utils } from "ethers";
+import { isDefaultProjectAddress } from "lib/getPoolData";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
@@ -114,7 +115,7 @@ export const retireCarbonTransaction = async (params: {
   retirementMessage: string;
   onStatus: OnStatusHandler;
   projectAddress: string;
-}): Promise<RetirementReceipt> => {
+}): Promise<{ transactionHash: string; retirementIndex: number }> => {
   if (params.paymentMethod === "fiat") {
     throw Error("Unsupported payment method");
   }
@@ -140,8 +141,29 @@ export const retireCarbonTransaction = async (params: {
       getTokenDecimals(params.paymentMethod)
     );
 
+    const retirements: BigNumber = await retireContract.getTotalRetirements(
+      params.beneficiaryAddress || params.address
+    );
+
+    const retirementIndex = (retirements.toNumber() || 0) + 1;
+
     let txn;
-    if (!!params.projectAddress) {
+    if (isDefaultProjectAddress(params.projectAddress)) {
+      txn = await retireContract.retireExactCarbonDefault(
+        getAddress(params.paymentMethod),
+        getAddress(params.retirementToken),
+        parsedMaxAmountIn,
+        utils.parseUnits(
+          params.quantity,
+          getTokenDecimals(params.retirementToken)
+        ),
+        "",
+        params.beneficiaryAddress || params.address,
+        params.beneficiaryName,
+        params.retirementMessage,
+        TransferMode.EXTERNAL
+      );
+    } else {
       txn = await retireContract.retireExactCarbonSpecific(
         getAddress(params.paymentMethod),
         getAddress(params.retirementToken),
@@ -157,25 +179,10 @@ export const retireCarbonTransaction = async (params: {
         params.retirementMessage,
         TransferMode.EXTERNAL
       );
-    } else {
-      txn = await retireContract.retireExactCarbonDefault(
-        getAddress(params.paymentMethod),
-        getAddress(params.retirementToken),
-        parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
-        "",
-        params.beneficiaryAddress || params.address,
-        params.beneficiaryName,
-        params.retirementMessage,
-        TransferMode.EXTERNAL
-      );
     }
     params.onStatus("networkConfirmation");
     const receipt: RetirementReceipt = await txn.wait(1);
-    return receipt;
+    return { transactionHash: receipt.transactionHash, retirementIndex };
   } catch (e: any) {
     if (e.code === 4001) {
       params.onStatus("error", "userRejected");
