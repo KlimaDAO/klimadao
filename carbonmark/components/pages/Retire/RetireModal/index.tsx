@@ -102,7 +102,7 @@ export const RetireModal: FC<Props> = (props) => {
           props.title
         )
       }
-      overflowY="hidden"
+      overflowY={processingRetirement ? "hidden" : "auto"}
       maxWidth={processingRetirement ? "43rem" : "50rem"}
       height={processingRetirement ? "26rem" : "fit-content"}
       maxHeight="calc(100vh - 8rem)"
