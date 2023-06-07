@@ -11,7 +11,7 @@ import * as styles from "./styles";
 
 export interface Props {
   project: Project;
-  listing: Listing;
+  listing?: Listing;
 }
 
 export const ProjectHeader: FC<Props> = (props) => {
@@ -20,7 +20,7 @@ export const ProjectHeader: FC<Props> = (props) => {
       <ProjectImage category={getCategoryFromProject(props.project)} />
       <div className={styles.imageGradient}></div>
       <div className="stack">
-        {!!props.listing.seller && (
+        {!!props.listing?.seller && (
           <div className="stack">
             <Text t="h5" className={styles.projectHeaderText}>
               <Link href={createSellerLink(props.listing.seller.handle)}>

@@ -56,30 +56,23 @@ export const price = css`
   border-radius: var(--border-radius);
 `;
 
-export const inactivePurchase = css`
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-`;
-
 export const formContainer = css`
   max-width: 42rem;
   align-self: center;
   display: flex;
   flex-direction: column;
+  gap: 1.6rem;
 `;
 
 export const inputsContainer = css`
   display: grid;
   align-content: start;
-  gap: 1.6rem;
+  gap: 2rem;
   overflow: hidden;
   margin-bottom: 2rem;
 `;
 
-export const amountLabel = css`
+export const quantityLabel = css`
   display: grid;
   gap: 0.4rem;
 `;
@@ -111,6 +104,11 @@ export const paymentHelp = css`
 export const paymentText = css`
   display: grid;
   gap: 0.4rem;
+`;
+
+export const labelWithInput = css`
+  display: grid;
+  gap: 0.8rem;
 `;
 
 export const helpIcon = css`
@@ -153,9 +151,65 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
+export const withToggle = css`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const externalLink = css`
+  color: var(--font-01);
+  text-decoration: underline;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  &:hover,
+  &:visited {
+    color: var(--font-02);
+    text-decoration: none;
+  }
+`;
+
+export const toggleFees = css`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const fees = css`
+  background-color: var(--surface-02);
+  padding: 0.4rem;
+  display: grid;
+  gap: 0.8rem;
+  border-top: 2px solid var(--manatee);
+  border-bottom: 2px solid var(--manatee);
+`;
+
+export const feeBreakdown = css`
+  background-color: var(--surface-02);
+  display: grid;
+  padding: 0.4rem;
+`;
+
+export const feeText = css`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+`;
+
+export const feeColor = css`
+  color: var(--bright-blue);
+`;
+
+export const breakText = css`
+  overflow-wrap: anywhere;
+`;
+
 export const divider = css`
   height: 0.1rem;
-  background-color: var(--font-03);
+  background-color: var(--manatee);
 `;
 
 export const iconAndText = css`
@@ -192,15 +246,43 @@ export const submitSpinner = css`
   color: var(--white);
 `;
 
-export const labelWithInput = css`
+export const reverseOrder = css`
+  ${breakpoints.large} {
+    order: -1;
+  }
+`;
+
+export const successScreen = css`
+  margin-top: 3.2rem;
   display: grid;
-  gap: 0.8rem;
+  gap: 2rem;
+
+  .headline {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .summary {
+    display: grid;
+    gap: 1.2rem;
+  }
 `;
 
-export const feeColor = css`
-  color: var(--bright-blue);
+export const required = css`
+  color: var(--warn);
 `;
 
-export const breakText = css`
-  overflow-wrap: anywhere;
+export const disclaimer = css`
+  color: var(--font-01);
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--yellow);
+
+  svg {
+    color: var(--yellow);
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 `;

@@ -1,3 +1,4 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import { BigNumber } from "ethers";
 
 export interface CarouselImage {
@@ -80,7 +81,7 @@ export type Price = {
   leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
   tokenAddress: string;
   singleUnitPrice: string; // NOT A BIGNUMBER ! Already formatted in USDCs
-  name: string;
+  name: Uppercase<PoolToken>;
 };
 
 export interface User {

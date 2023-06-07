@@ -38,8 +38,12 @@ export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {
   return formatToTonnes(toNumber, locale);
 };
 
-export const formatToTonnes = (value: string | number, locale = "en") => {
-  return trimWithLocale(value, 4, locale);
+export const formatToTonnes = (
+  value: string | number,
+  locale = "en",
+  decimals = 4
+) => {
+  return trimWithLocale(value, decimals, locale);
 };
 
 export const formatList = (
