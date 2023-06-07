@@ -4,7 +4,6 @@ import {
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 import { utils } from "ethers";
-import { IS_PRODUCTION } from "lib/constants";
 import { generateCertificate } from "lib/retirementCertificates";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -21,10 +20,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    if (IS_PRODUCTION) {
-      return res.status(404).send("Not found");
-    }
-
     const { beneficiaryAddress, retirementIndex } = req.query as Query;
 
     /** Validate address params */
