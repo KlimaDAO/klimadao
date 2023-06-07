@@ -37,7 +37,7 @@ export const getConsumptionCost = async (params: {
   inputToken: CarbonmarkPaymentMethod;
   retirementToken: PoolToken;
   quantity: string;
-  getSpecific: boolean;
+  isDefaultProject: boolean;
 }): Promise<string> => {
   if (params.inputToken === "fiat") return "0"; // typeguard
 
@@ -51,16 +51,16 @@ export const getConsumptionCost = async (params: {
   );
 
   let sourceAmount: any;
-  if (params.getSpecific) {
+  if (params.isDefaultProject) {
     sourceAmount =
-      await retirementAggregatorContract.getSourceAmountSpecificRetirement(
+      await retirementAggregatorContract.getSourceAmountDefaultRetirement(
         getAddress(params.inputToken),
         getAddress(params.retirementToken),
         parsed
       );
   } else {
     sourceAmount =
-      await retirementAggregatorContract.getSourceAmountDefaultRetirement(
+      await retirementAggregatorContract.getSourceAmountSpecificRetirement(
         getAddress(params.inputToken),
         getAddress(params.retirementToken),
         parsed
@@ -141,6 +141,8 @@ export const retireCarbonTransaction = async (params: {
       getTokenDecimals(params.paymentMethod)
     );
 
+    console.log("retireContract", retireContract);
+    console.log("is default", isDefaultProjectAddress(params.projectAddress));
     const retirements: BigNumber = await retireContract.getTotalRetirements(
       params.beneficiaryAddress || params.address
     );

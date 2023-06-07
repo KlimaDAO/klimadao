@@ -8,6 +8,7 @@ import { getConsumptionCost, getFeeFactor } from "lib/actions.retire";
 import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
+import { isDefaultProjectAddress } from "lib/getPoolData";
 import { Price } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -20,6 +21,7 @@ type TotalValuesProps = {
   singleUnitPrice: Price["singleUnitPrice"];
   balance: string | null;
   pool: Lowercase<Price["name"]>;
+  projectAddress: string;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
@@ -63,7 +65,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           inputToken: paymentMethod,
           retirementToken: props.pool,
           quantity: amount,
-          getSpecific: true,
+          isDefaultProject: isDefaultProjectAddress(props.projectAddress),
         });
 
         setCosts(totalPrice);

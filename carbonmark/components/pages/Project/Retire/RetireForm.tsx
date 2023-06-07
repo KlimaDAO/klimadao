@@ -222,6 +222,7 @@ export const RetireForm: FC<Props> = (props) => {
                 pool={
                   props.price.name.toLowerCase() as Lowercase<PriceType["name"]>
                 }
+                projectAddress={props.project.projectAddress}
               />
             </Card>
           </div>
