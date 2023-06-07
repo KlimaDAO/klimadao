@@ -419,6 +419,8 @@ export const RetireForm = (props: RetireFormProps) => {
           }/${retirementTotals}`}
           polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
           showModal={!!retirementTransactionHash}
+          user={props.address}
+          retirementIndex={retirementTotals}
         />
       )}
     </div>

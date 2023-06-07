@@ -11,6 +11,8 @@ type Props = {
   polygonScanUrl: string;
   retirementUrl: string;
   showModal: boolean;
+  user: string;
+  retirementIndex: number;
 };
 
 export const RetirementStatusModal: FC<Props> = (props) => (
@@ -33,17 +35,19 @@ export const RetirementStatusModal: FC<Props> = (props) => (
           <Link href={props.polygonScanUrl}>PolygonScan.</Link>
         </Trans>
       </Text>
-
-      <CarbonmarkButton
-        href={props.retirementUrl}
-        className={styles.viewButton}
-        target="_blank"
-        label={<Trans>View and share certificate</Trans>}
-      />
-      <CarbonmarkButton
-        href={"/portfolio"}
-        label={<Trans>Retire more carbon</Trans>}
-      />
+      <Link href={`/retirements/${props.user}/${props.retirementIndex}`}>
+        <CarbonmarkButton
+          className={styles.viewButton}
+          target="_blank"
+          label={<Trans>View and share certificate</Trans>}
+        />
+      </Link>
+      <Link href={"/portfolio"}>
+        <CarbonmarkButton
+          className={styles.fullWidthButton}
+          label={<Trans>Retire more carbon</Trans>}
+        />
+      </Link>
     </div>
   </Modal>
 );

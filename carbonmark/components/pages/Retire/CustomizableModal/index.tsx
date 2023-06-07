@@ -41,6 +41,13 @@ export const CustomizableModal: FC<CustomizableModalProps> = ({
 
   if (!props.showModal) return null;
 
+  const TitleComponent =
+    typeof props.title === "string" ? (
+      <Text t="h4">{props.title}</Text>
+    ) : (
+      props.title
+    );
+
   return (
     <div aria-modal={true} className={props.className}>
       <div className={styles.modalBackground} onClick={handleBackgroundClick} />
@@ -53,7 +60,7 @@ export const CustomizableModal: FC<CustomizableModalProps> = ({
           ref={focusTrapRef}
         >
           <div className="title">
-            <Text t="h4">{props.title}</Text>
+            {TitleComponent}
 
             {showCloseButton && (
               <button onClick={props.onToggleModal}>

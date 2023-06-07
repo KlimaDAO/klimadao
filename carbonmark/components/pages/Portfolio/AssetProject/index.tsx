@@ -1,20 +1,19 @@
-import { t, Trans } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
-import { ExitModal } from "components/ExitModal";
 import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
-import { createProjectLink, createRetireLink } from "lib/createUrls";
+import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { AssetForListing } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
@@ -24,11 +23,6 @@ interface Props {
 
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const retireLink = createRetireLink({
-    retirementToken: props.asset.tokenAddress,
-  });
-
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Card>
@@ -63,21 +57,17 @@ export const AssetProject: FC<Props> = (props) => {
         <Trans>Quantity Available:</Trans>{" "}
         {formatToTonnes(props.asset.balance, locale)}
       </Text>
+
       <div className={styles.buttons}>
-        <ButtonPrimary
-          label={<Trans>Retire</Trans>}
-          onClick={() => {
-            LO.track("Retire: Retire Button Clicked");
-            setIsOpen(true);
-          }}
-        />
+        <Link href={`/portfolio/${props.asset.tokenAddress}/retire`}>
+          <ButtonPrimary
+            label={<Trans>Retire</Trans>}
+            onClick={() => {
+              LO.track("Retire: Retire Button Clicked");
+            }}
+          />
+        </Link>
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
-        <ExitModal
-          showModal={isOpen}
-          title={t`Leaving Carbonmark`}
-          retireLink={retireLink}
-          onToggleModal={() => setIsOpen(false)}
-        />
       </div>
     </Card>
   );

@@ -28,3 +28,10 @@ export const loadingOverlay = css`
   pointer-events: none;
   opacity: 0.5;
 `;
+
+export const spinnerContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
