@@ -34,24 +34,19 @@ export interface Props {
 const RetireApproval: FC = () => {
   return (
     <div className={styles.formatParagraph}>
-      <Text t="body1" color="lighter">
-        <Trans>You are about to retire a carbon asset from a pool.</Trans>
+      <Text>
+        <Trans>You are about to retire a carbon asset.</Trans>
       </Text>
-      <Text t="body1" color="lighter">
-        <Trans>here we can say more about this.</Trans>
-      </Text>
-      <Text t="body4" color="lighter">
+      <Text>
         <Trans>
-          The approval amount below adds an extra 1% due to volatile transaction
-          fees.
+          The first step is to grant the approval to transfer your carbon asset
+          from your wallet to Carbonmark, the next step is to approve the actual
+          transfer and complete your retirement.
         </Trans>
       </Text>
-      <Text t="body1" color="lighter">
-        <Trans>We need more text here</Trans>
-      </Text>
-      <Text t="body1" color="lighter">
+      <Text>
         <Trans>
-          Verify all information is correct and click 'approve' to continue.
+          Verify all information is correct and click 'approve' to continue.{" "}
         </Trans>
       </Text>
     </div>
@@ -61,17 +56,17 @@ const RetireApproval: FC = () => {
 const RetireSubmit: FC = () => {
   return (
     <div className={styles.formatParagraph}>
-      <Text t="body1" color="lighter">
+      <Text>
         <Trans>
-          The previous step granted the approval to transfer your payment asset
-          from your wallet.
+          The previous step granted the approval to transfer your carbon asset
+          from your wallet to Carbonmark, your retirement has not been completed
+          yet.
         </Trans>
       </Text>
-      <Text t="body1" color="lighter">
+      <Text>
         <Trans>
-          Your retirement has not been completed yet. To finalize your
-          retirement, verify all information is correct and then click 'submit'
-          below.
+          To finalize your retirement, verify all information is correct and
+          then click 'submit' below.
         </Trans>
       </Text>
     </div>
