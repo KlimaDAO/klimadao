@@ -60,6 +60,10 @@ export const mapAndDescription = css`
   .description {
     display: grid;
     gap: 0.8rem;
+
+    & p:last-child {
+      white-space: pre-line;
+    }
   }
 
   ${breakpoints.desktop} {

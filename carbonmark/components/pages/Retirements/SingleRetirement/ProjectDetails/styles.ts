@@ -7,7 +7,7 @@ export const projectDetails = css`
   border: 1px solid var(--manatee);
 
   ${breakpoints.desktop} {
-    padding: 3rem 4rem;
+    padding: 3rem 3.5rem;
   }
 `;
 
@@ -20,6 +20,10 @@ export const textGroup = css`
   p > a {
     color: inherit;
     text-decoration: underline;
+  }
+
+  .description {
+    white-space: pre-line;
   }
 `;
 
