@@ -24,6 +24,15 @@ type TotalValuesProps = {
   projectAddress: string;
 };
 
+const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
+  const singleSwap = costs * SUSHI_SWAP_FEE;
+  if (pool === "bct") {
+    return singleSwap * 2;
+  }
+
+  return singleSwap;
+};
+
 export const TotalValues: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
@@ -38,7 +47,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   const redemptionFee = Number(costs || 0) * feesFactor;
   const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
-  const swapFee = Number(costs || 0) * SUSHI_SWAP_FEE;
+  const swapFee = getSwapFee(Number(costs || 0), props.pool);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
