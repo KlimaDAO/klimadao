@@ -59,14 +59,14 @@ export const AssetProject: FC<Props> = (props) => {
       </Text>
 
       <div className={styles.buttons}>
-        <Link href={`/portfolio/${props.asset.tokenAddress}/retire`}>
-          <ButtonPrimary
-            label={<Trans>Retire</Trans>}
-            onClick={() => {
-              LO.track("Retire: Retire Button Clicked");
-            }}
-          />
-        </Link>
+        <ButtonPrimary
+          label={<Trans>Retire</Trans>}
+          href={`/portfolio/${props.asset.tokenAddress}/retire`}
+          renderLink={(linkProps) => <Link {...linkProps} />}
+          onClick={() => {
+            LO.track("Retire: Retire Button Clicked");
+          }}
+        />
         <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
       </div>
     </Card>
