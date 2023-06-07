@@ -9,6 +9,7 @@ export type CustomizableModalProps = {
   showModal: boolean;
   closeOnBackgroundClick?: boolean;
   title: ReactNode;
+  overflowY?: string;
   width?: string;
   maxWidth?: string;
   height?: string;
@@ -22,6 +23,7 @@ export const CustomizableModal: FC<CustomizableModalProps> = ({
   maxWidth = "55rem",
   height = "fit-content",
   maxHeight = "calc(100vh - 10rem)",
+  overflowY = "auto",
   ...props
 }) => {
   const showCloseButton = !!props.onToggleModal;
@@ -55,7 +57,7 @@ export const CustomizableModal: FC<CustomizableModalProps> = ({
         <div
           className={cx(
             "modalContent",
-            styles.modalContent(width, maxWidth, height, maxHeight)
+            styles.modalContent(width, maxWidth, height, maxHeight, overflowY)
           )}
           ref={focusTrapRef}
         >
