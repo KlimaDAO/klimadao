@@ -122,6 +122,7 @@ export const ProjectDetails: FC<Props> = (props) => {
       </Text>
       <div className={styles.buttons}>
         <CopyAddressButton
+          shape="default"
           label="Copy Link"
           iconPos="prefix"
           variant="transparent"
