@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 21:45+0000\n"
+"POT-Creation-Date: 2023-06-08 21:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,7 +134,7 @@ msgstr "Dirección del monedero del beneficiario (opcional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:157
+#: components/pages/Project/index.tsx:159
 msgid "Best Price"
 msgstr "Mejor precio"
 
@@ -206,7 +206,7 @@ msgid "Confirm Retirement"
 msgstr "Confirmar Retiro"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:517
+#: components/pages/Home/index.tsx:519
 msgid "Contact"
 msgstr "Contacto"
 
@@ -239,7 +239,7 @@ msgstr "Cree su propia retirada"
 msgid "Created:"
 msgstr "Creado:"
 
-#: components/pages/Project/index.tsx:244
+#: components/pages/Project/index.tsx:255
 msgid "Data for this project and vintage"
 msgstr "Datos para este proyecto y vintage"
 
@@ -256,7 +256,7 @@ msgstr "Por defecto, la dirección del monedero conectado"
 msgid "Describe the purpose of this retirement"
 msgstr "Describa el objetivo de esta retirada"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:206
 msgid "Description"
 msgstr "Descripción"
 
@@ -310,7 +310,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "¿Ha creado ya su Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:510
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -341,7 +341,7 @@ msgid "Industrial Processing"
 msgstr "Procesado industrial"
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:516
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -407,7 +407,7 @@ msgstr "Marketplace"
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
-#: components/pages/Project/index.tsx:164
+#: components/pages/Project/index.tsx:166
 msgid "Methodology"
 msgstr "Metodología"
 
@@ -436,11 +436,11 @@ msgstr "No hay listados activos."
 msgid "No listable assets found."
 msgstr "No se han encontrado activos enumerables."
 
-#: components/pages/Project/index.tsx:234
+#: components/pages/Project/index.tsx:245
 msgid "No listings found for this project."
 msgstr "No se han encontrado anuncios para este proyecto."
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "No se ha encontrado descripción del proyecto"
 
@@ -513,7 +513,7 @@ msgstr "Precio por tonelada"
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
-#: components/pages/Home/index.tsx:502
+#: components/pages/Home/index.tsx:504
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
@@ -591,7 +591,7 @@ msgid "Required Field"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:511
+#: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -711,7 +711,7 @@ msgstr "Cambiar a Polygon"
 msgid "Terms of Use"
 msgstr "Condiciones de uso"
 
-#: components/pages/Home/index.tsx:505
+#: components/pages/Home/index.tsx:507
 msgid "Terms of use"
 msgstr "Condiciones de uso"
 
@@ -849,7 +849,7 @@ msgstr "Compruebe que toda la información es correcta y haga clic en \"aprobar\
 msgid "View Carbonmark Profile"
 msgstr "Ver el perfil de Carbonmark"
 
-#: components/pages/Project/index.tsx:217
+#: components/pages/Project/index.tsx:228
 msgid "View Registry Details <0/>"
 msgstr "Ver detalles del registro <0/>"
 
@@ -861,7 +861,7 @@ msgstr "Vea una visión completa del carbono digital que posee en su Portafolio.
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Vea un resumen completo del carbono digital que posee en su Retiro."
 
-#: components/pages/Project/index.tsx:118
+#: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Vea y compre este proyecto de compensación de carbono en Carbonmark"
 

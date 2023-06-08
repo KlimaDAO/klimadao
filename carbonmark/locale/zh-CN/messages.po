@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 21:45+0000\n"
+"POT-Creation-Date: 2023-06-08 21:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,7 +134,7 @@ msgstr "收益人钱包地址（可选）"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:157
+#: components/pages/Project/index.tsx:159
 msgid "Best Price"
 msgstr "最优价格"
 
@@ -206,7 +206,7 @@ msgid "Confirm Retirement"
 msgstr "确认退休"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:517
+#: components/pages/Home/index.tsx:519
 msgid "Contact"
 msgstr "联系方式"
 
@@ -239,7 +239,7 @@ msgstr "创造你自己的碳停用"
 msgid "Created:"
 msgstr "已创建："
 
-#: components/pages/Project/index.tsx:244
+#: components/pages/Project/index.tsx:255
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
@@ -256,7 +256,7 @@ msgstr "默认的已连接钱包地址"
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:206
 msgid "Description"
 msgstr "描述"
 
@@ -310,7 +310,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:510
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -341,7 +341,7 @@ msgid "Industrial Processing"
 msgstr "工业加工"
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:516
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -407,7 +407,7 @@ msgstr "市场"
 msgid "Marketplace | Carbonmark"
 msgstr "市场 | Carbonmark"
 
-#: components/pages/Project/index.tsx:164
+#: components/pages/Project/index.tsx:166
 msgid "Methodology"
 msgstr "方法"
 
@@ -436,11 +436,11 @@ msgstr "无活动列表。"
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
-#: components/pages/Project/index.tsx:234
+#: components/pages/Project/index.tsx:245
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "未找到项目描述"
 
@@ -515,7 +515,7 @@ msgstr ""
 "隐私政策\n"
 ""
 
-#: components/pages/Home/index.tsx:502
+#: components/pages/Home/index.tsx:504
 msgid "Privacy policy"
 msgstr "隐私政策"
 
@@ -593,7 +593,7 @@ msgid "Required Field"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:511
+#: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -713,7 +713,7 @@ msgstr "切换到 Polygon"
 msgid "Terms of Use"
 msgstr "使用条款"
 
-#: components/pages/Home/index.tsx:505
+#: components/pages/Home/index.tsx:507
 msgid "Terms of use"
 msgstr "使用条款"
 
@@ -851,7 +851,7 @@ msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
-#: components/pages/Project/index.tsx:217
+#: components/pages/Project/index.tsx:228
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
@@ -863,7 +863,7 @@ msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
-#: components/pages/Project/index.tsx:118
+#: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 

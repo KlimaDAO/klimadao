@@ -140,7 +140,7 @@ msgstr "Beneficiary wallet address (optional)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:157
+#: components/pages/Project/index.tsx:159
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -245,7 +245,7 @@ msgstr "Create your own retirement"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:246
+#: components/pages/Project/index.tsx:255
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -262,7 +262,7 @@ msgstr "Defaults to the connected wallet address"
 msgid "Describe the purpose of this retirement"
 msgstr "Describe the purpose of this retirement"
 
-#: components/pages/Project/index.tsx:204
+#: components/pages/Project/index.tsx:206
 msgid "Description"
 msgstr "Description"
 
@@ -413,7 +413,7 @@ msgstr "Marketplace"
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
-#: components/pages/Project/index.tsx:164
+#: components/pages/Project/index.tsx:166
 msgid "Methodology"
 msgstr "Methodology"
 
@@ -442,7 +442,7 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:236
+#: components/pages/Project/index.tsx:245
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
@@ -855,7 +855,7 @@ msgstr "Verify all information is correct and click 'approve' to continue."
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
-#: components/pages/Project/index.tsx:219
+#: components/pages/Project/index.tsx:228
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
@@ -867,7 +867,7 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Project/index.tsx:118
+#: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
