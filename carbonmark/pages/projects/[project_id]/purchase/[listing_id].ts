@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<
     return {
       props: {
         project,
-        listing,
+        purchase: listing,
         translation,
         fixedThemeName: "theme-light",
       },

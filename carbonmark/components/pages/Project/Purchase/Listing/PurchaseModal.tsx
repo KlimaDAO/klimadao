@@ -8,7 +8,7 @@ import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import Link from "next/link";
 import { FC } from "react";
-import * as styles from "./styles";
+import * as styles from "../styles";
 
 export interface Props {
   hasApproval: boolean;

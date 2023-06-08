@@ -4,19 +4,30 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
-import { Listing, Project } from "lib/types/carbonmark";
+import { isPoolToken } from "lib/getPoolData";
+import { Listing, Price, Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
-import { PurchaseForm } from "./PurchaseForm";
+import { ListingPurchase } from "./Listing";
+
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
   project: Project;
-  listing: Listing;
+  purchase: Listing | Price;
 }
 
+const getIsPoolPurchase = (purchase: Price): purchase is Price =>
+  purchase.name !== undefined && isPoolToken(purchase.name);
+const getIsListingPurchase = (purchase: Listing): purchase is Listing =>
+  purchase.id !== undefined;
+
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
-  const isActiveListing = props.listing.active && !props.listing.deleted;
+  const isPoolPurchase = getIsPoolPurchase(props.purchase as Price);
+  const isListingPurchase =
+    !isPoolPurchase && getIsListingPurchase(props.purchase as Listing);
+
+  const isNone = !isPoolPurchase && !isListingPurchase;
 
   return (
     <>
@@ -40,12 +51,19 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
           <div className={styles.loginButton}>
             <LoginButton className="desktopLogin" />
           </div>
-          {!isActiveListing && (
-            <InactivePurchase project={props.project} listing={props.listing} />
+
+          {isListingPurchase && (
+            <ListingPurchase
+              project={props.project}
+              listing={props.purchase as Listing}
+            />
           )}
 
-          {isActiveListing && (
-            <PurchaseForm project={props.project} listing={props.listing} />
+          {isNone && (
+            <InactivePurchase
+              project={props.project}
+              singleUnitPrice={props.purchase.singleUnitPrice || "0"}
+            />
           )}
         </div>
       </Layout>

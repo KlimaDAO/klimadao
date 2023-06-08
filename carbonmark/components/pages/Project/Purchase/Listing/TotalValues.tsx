@@ -10,7 +10,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
-import * as styles from "./styles";
+import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {

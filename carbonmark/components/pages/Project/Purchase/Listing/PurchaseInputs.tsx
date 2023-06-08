@@ -14,7 +14,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";
-import * as styles from "./styles";
+import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type Props = {

@@ -4,13 +4,13 @@ import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Listing, Project } from "lib/types/carbonmark";
 import { FC } from "react";
-import { Price } from "./Price";
+import { Price } from "./Listing/Price";
 import * as styles from "./styles";
 
 export interface Props {
   project: Project;
   seller?: Listing["seller"];
-  singleUnitPrice: string;
+  singleUnitPrice?: Listing["singleUnitPrice"];
 }
 
 export const InactivePurchase: FC<Props> = (props) => {
@@ -18,7 +18,7 @@ export const InactivePurchase: FC<Props> = (props) => {
     <Card>
       <ProjectHeader project={props.project} seller={props.seller} />
       <div className={styles.inactivePurchase}>
-        <Price price={props.singleUnitPrice} />
+        {props.singleUnitPrice && <Price price={props.singleUnitPrice} />}
 
         <Text>
           <Trans>This offer no longer exists.</Trans>
