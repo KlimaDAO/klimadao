@@ -9,15 +9,16 @@ import * as styles from "./styles";
 
 export interface Props {
   project: Project;
-  listing: Listing;
+  seller?: Listing["seller"];
+  singleUnitPrice: string;
 }
 
 export const InactivePurchase: FC<Props> = (props) => {
   return (
     <Card>
-      <ProjectHeader project={props.project} listing={props.listing} />
+      <ProjectHeader project={props.project} seller={props.seller} />
       <div className={styles.inactivePurchase}>
-        <Price price={props.listing.singleUnitPrice} />
+        <Price price={props.singleUnitPrice} />
 
         <Text>
           <Trans>This offer no longer exists.</Trans>

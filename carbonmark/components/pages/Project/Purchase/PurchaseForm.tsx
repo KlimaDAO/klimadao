@@ -163,7 +163,10 @@ export const PurchaseForm: FC<Props> = (props) => {
       <TwoColLayout>
         <Col>
           <Card>
-            <ProjectHeader project={props.project} listing={props.listing} />
+            <ProjectHeader
+              project={props.project}
+              seller={props.listing.seller}
+            />
             <div className={styles.formContainer}>
               <Price price={props.listing.singleUnitPrice} />
 
