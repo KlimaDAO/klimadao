@@ -87,7 +87,7 @@ module.exports = async function (fastify, opts) {
         const dbUser = users[wallet];
 
         // Create the signed message to verify
-        const signedMessage = `${process.env.AUTHENTICATION_MESSAGE}${dbUser.nonce}`;
+        const signedMessage = `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${dbUser.nonce}`;
 
         // Verify the signature
         const signerWalletAddress = ethers.utils.verifyMessage(
@@ -96,9 +96,12 @@ module.exports = async function (fastify, opts) {
         );
 
         // If the signature is invalid, send a 401 Unauthorized response
-        // if (signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()) {
-        //     return reply.code(401).send('Unauthorized: Invalid signature');
-        // }
+        if (
+          signerWalletAddress.toLowerCase() !==
+          dbUser.walletAddress.toLowerCase()
+        ) {
+          return reply.code(401).send("Unauthorized: Invalid signature");
+        }
 
         // Create a JWT token for the user
         const token = fastify.jwt.sign({ wallet });
@@ -133,7 +136,18 @@ module.exports = async function (fastify, opts) {
               handle: { type: "string" },
               username: { type: "string" },
               description: { type: "string" },
-              profileImgUrl: { type: "string" },
+              profileImgUrl: {
+                anyOf: [
+                  {
+                    type: "string",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+              },
+              updatedAt: { type: "number" },
+              createdAt: { type: "number" },
               wallet: { type: "string" },
               listings: { type: "array" },
               activities: { type: "array" },
@@ -148,8 +162,6 @@ module.exports = async function (fastify, opts) {
         const { userIdentifier } = request.params;
         // Destructure the type query parameter from the request object
         var { type } = request.query;
-        // Log the type to the console
-        console.log(type);
         var user;
         if (type == "wallet") {
           // Query the Firestore database for the document with a matching wallet address
@@ -197,6 +209,7 @@ module.exports = async function (fastify, opts) {
             selected: false,
           }));
 
+          const activities = data.data.users[0].activities;
           await Promise.all(
             listings.map(async (listing) => {
               const seller = await fastify.firebase
@@ -205,6 +218,26 @@ module.exports = async function (fastify, opts) {
                 .doc(listing.seller.id.toUpperCase())
                 .get();
               listing.seller = { ...seller.data(), ...listing.seller };
+            }),
+            activities.map(async (actvity) => {
+              const seller = await fastify.firebase
+                .firestore()
+                .collection("users")
+                .doc(actvity.seller.id.toUpperCase())
+                .get();
+              if (seller.exists) {
+                actvity.seller.handle = seller.data().handle;
+              }
+              if (actvity.buyer) {
+                const buyer = await fastify.firebase
+                  .firestore()
+                  .collection("users")
+                  .doc(actvity.buyer.id.toUpperCase())
+                  .get();
+                if (buyer.exists) {
+                  actvity.buyer.handle = buyer.data().handle;
+                }
+              }
             })
           );
           // Add the modified listings array to the response object
@@ -226,7 +259,6 @@ module.exports = async function (fastify, opts) {
           GET_USER_ASSETS,
           { wallet }
         );
-        console.log(assetsData);
         if (assetsData.data.accounts.length) {
           response.assets = assetsData.data.accounts[0].holdings;
         } else {
@@ -259,6 +291,8 @@ module.exports = async function (fastify, opts) {
               handle: { type: "string" },
               username: { type: "string" },
               wallet: { type: "string" },
+              updatedAt: { type: "number" },
+              createdAt: { type: "number" },
             },
           },
           403: {
@@ -274,6 +308,17 @@ module.exports = async function (fastify, opts) {
         // Destructure the wallet, username, handle, and description properties from the request body
         const { wallet, username, handle, description, profileImgUrl } =
           request.body;
+
+        let createData = {
+          username,
+          handle: handle.toLowerCase(),
+          description,
+          createdAt: Date.now(),
+          updatedAt: Date.now(),
+        };
+        if (profileImgUrl) {
+          createData.profileImgUrl = profileImgUrl;
+        }
 
         // Query the Firestore database for the user document with the specified wallet address
         const user = await fastify.firebase
@@ -310,17 +355,13 @@ module.exports = async function (fastify, opts) {
             .firestore()
             .collection("users")
             .doc(wallet.toUpperCase())
-            .set({
-              username,
-              handle: handle.toLowerCase(),
-              description,
-              profileImgUrl,
-            });
+            .set(createData);
           // If the document is successfully created, return the request body
           return reply.send(request.body);
         } catch (err) {
+          console.error(err);
           // If an error occurs, return the error in the response
-          return reply.error({ error: err });
+          return reply.code(403).send({ error: err });
         }
       },
     }),
@@ -347,7 +388,16 @@ module.exports = async function (fastify, opts) {
               username: { type: "string" },
               wallet: { type: "string" },
               description: { type: "string" },
-              profileImgUrl: { type: "string" },
+              profileImgUrl: {
+                anyOf: [
+                  {
+                    type: "string",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+              },
             },
           },
         },
@@ -360,10 +410,10 @@ module.exports = async function (fastify, opts) {
           let updatedData = {
             username: username,
             description: description,
+            updatedAt: Date.now(),
+            profileImgUrl:
+              profileImgUrl && profileImgUrl.length ? profileImgUrl : null,
           };
-          if (profileImgUrl) {
-            updatedData.profileImgUrl = profileImgUrl;
-          }
           // Try updating the user document with the specified data
           await fastify.firebase
             .firestore()
@@ -373,6 +423,7 @@ module.exports = async function (fastify, opts) {
           // If the update is successful, return the request body
           return reply.send(request.body);
         } catch (err) {
+          console.error(err);
           // If an error occurs, return a 404 error with a message
           return reply
             .code(403)

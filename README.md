@@ -9,6 +9,8 @@ This repo contains 6 packages.
 `@klimadao/carbonmark` -> The NextJS project that powers the carbonmark web application at carbonmark.com.
 The backend Node.js web-service and smart contracts are located in separate repositories.
 
+`@klimadao/carbonmark-api` -> A [Fastify](https://www.fastify.io/) API acting as a Backend-for-Frontend for Carbonmark
+
 `@klimadao/cms` -> A Sanity CMS that powers our blog, deployed to [klimadao.sanity.studio](https://klimadao.sanity.studio). NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder.
 
 `@klimadao/lib` -> Components and utilities that are shared between packages.

@@ -32,7 +32,7 @@ const GET_USER_DATA = gql`
           id
         }
       }
-      activities {
+      activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
         id
         amount
         previousAmount
