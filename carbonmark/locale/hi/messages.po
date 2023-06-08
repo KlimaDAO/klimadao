@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-07 15:34+0000\n"
+"POT-Creation-Date: 2023-06-08 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgstr "500 - सर्वर त्रुटि हो गई"
 
 #: components/pages/Retire/RetireForm/index.tsx:184
 msgid "<0>* </0> Required Field"
-msgstr ""
+msgstr "<0>*</0> आवश्यक क्षेत्र"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
 msgid "@Username (note: this can not be changed!)"
@@ -60,11 +60,11 @@ msgstr "कृषि"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:52
 msgid "Amount to purchase"
-msgstr ""
+msgstr "खरीदने की राशि"
 
 #: components/pages/Project/Retire/TotalValues.tsx:109
 msgid "Amount to retire"
-msgstr ""
+msgstr "रिटायरमैंट की राशि"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -73,33 +73,33 @@ msgstr "आवेदन करें"
 #: components/pages/Project/Retire/AssetDetails.tsx:30
 #: components/pages/Retire/RetirementSidebar/index.tsx:21
 msgid "Asset Details"
-msgstr ""
+msgstr "एसेट विवरण"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:25
 msgid "Asset ID"
-msgstr ""
+msgstr "एसेट आईडी"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
-msgstr "उपलब्ध जमाराशि बढ़ गयी"
+msgstr "उपलब्ध जमाराशि पार हो गई"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
 #: components/pages/Project/Retire/RetireInputs.tsx:87
 msgid "Available supply exceeded"
-msgstr ""
+msgstr "उपलब्ध आपूर्तिराशि पार हो गई"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:47
 #: components/pages/Retire/RetirementSidebar/index.tsx:34
 msgid "Available to retire"
-msgstr ""
+msgstr "रिटायर होने के लिए उपलब्ध है"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:65
 msgid "Available:"
-msgstr ""
+msgstr "उपलब्ध:"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
-msgstr ""
+msgstr "उपलब्ध: {0}"
 
 #: components/BetaBadge/index.tsx:13
 msgid "BETA"
@@ -113,11 +113,11 @@ msgstr "वापस प्रॉजेक्ट पर"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
 #: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Balance: {0}"
-msgstr ""
+msgstr "जमाराशि: {0}"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:192
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
-msgstr ""
+msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:116
 msgid "Beneficiary Address"
@@ -130,7 +130,7 @@ msgstr "लाभार्थी का नाम"
 #: components/pages/Project/Retire/RetireInputs.tsx:113
 #: components/pages/Retire/RetireForm/index.tsx:264
 msgid "Beneficiary wallet address (optional)"
-msgstr ""
+msgstr "लाभार्थी वॉलेट पता (वैकल्पिक)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:33
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
@@ -153,7 +153,7 @@ msgstr "प्रॉजेक्ट्स ब्राउज़ करें"
 
 #: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
-msgstr "<0>KlimaDAO</0> द्वारा 🌳 के साथ निर्मित"
+msgstr "<0>क्लीमाडाओ</0> द्वारा 🌳 के साथ निर्मित"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:45
 msgid "Buy"
@@ -169,17 +169,17 @@ msgstr "कार्बन पूल"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "Carbonmark Overview"
-msgstr "Carbonmark का संक्षिप्त विवरण"
+msgstr "कार्बनमार्क का संक्षिप्त विवरण"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
 #: components/pages/Project/Retire/TotalValues.tsx:133
 msgid "Carbonmark fee"
-msgstr ""
+msgstr "कार्बनमार्क शुल्क"
 
 #: components/pages/Home/index.tsx:54
 #: components/pages/Home/index.tsx:55
 msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr "Carbonmark | द यूनिवर्सल कार्बन मार्केटप्लेस"
+msgstr "कार्बनमार्क | द यूनिवर्सल कार्बन मार्केटप्लेस"
 
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
@@ -199,11 +199,11 @@ msgstr "फ़िल्टर्स हटाएँ"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
-msgstr ""
+msgstr "जल्द आ रहा है"
 
 #: components/pages/Project/Retire/RetireModal.tsx:82
 msgid "Confirm Retirement"
-msgstr ""
+msgstr "रिटायरमेंट की पुष्टि करें"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Home/index.tsx:517
@@ -217,7 +217,7 @@ msgstr "जारी रखें"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:208
 msgid "Could not calculate Total Cost"
-msgstr ""
+msgstr "कुल लागत की गणना नहीं सकी"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -229,11 +229,11 @@ msgstr "प्रोफ़ाइल बनाएँ"
 
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
-msgstr "सूची बनाएँ और संपादित करें, और अपनी Carbonmark प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
+msgstr "सूची बनाएँ और संपादित करें, और अपनी कार्बनमार्क प्रोफ़ाइल के माध्यम से अपनी गतिविधि को ट्रैक करें।"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
 msgid "Create your own retirement"
-msgstr ""
+msgstr "अपनी खुद की रिटयरमेंट बनाएँ"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:84
 msgid "Created:"
@@ -286,7 +286,7 @@ msgstr "अंतिम मूल्य"
 
 #: components/pages/Resources/index.tsx:21
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
-msgstr "Carbonmark प्लैटफ़ॉर्म का लाभ उठाने में सहायता के लिए, नवीनतम अपडेट, गाइड और संसाधन खोजें।"
+msgstr "कार्बनमार्क प्लैटफ़ॉर्म का लाभ उठाने में सहायता के लिए, नवीनतम अपडेट, गाइड और संसाधन खोजें।"
 
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
@@ -307,7 +307,7 @@ msgstr "हैंडल में कोई विशेष वर्ण नह�
 #: components/pages/Portfolio/index.tsx:105
 #: components/pages/Retire/index.tsx:112
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
-msgstr "क्या आपने अपनी Carbonmark <0>Profile</0> पहले ही बना ली है?"
+msgstr "क्या आपने अपनी कार्बनमार्क <0>Profile</0> पहले ही बना ली है?"
 
 #: components/Footer/index.tsx:39
 #: components/pages/Home/index.tsx:508
@@ -318,7 +318,7 @@ msgstr "सहायता"
 
 #: components/pages/Project/Retire/TotalValues.tsx:170
 msgid "Hide Details"
-msgstr ""
+msgstr "विवरण छुपाओ"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
@@ -326,11 +326,11 @@ msgstr "आप कितने टन कार्बन ख़रीदना च�
 
 #: components/pages/Project/Retire/RetireInputs.tsx:91
 msgid "How many tonnes of carbon do you want to retire?"
-msgstr ""
+msgstr "आप कितने टन कार्बन रिटायर करना चाहते हैं?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:61
 msgid "How many tonnes of carbon would you like to retire?"
-msgstr ""
+msgstr "आप कितने टन कार्बन रिटायर करना चाहते हैं?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -343,11 +343,11 @@ msgstr "औद्योगिक उपचारण"
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:514
 msgid "KlimaDAO"
-msgstr "KlimaDAO"
+msgstr "क्लीमाडाओ"
 
 #: components/pages/Project/Retire/TotalValues.tsx:220
 msgid "KlimaDAO Contracts"
-msgstr ""
+msgstr "क्लीमाडाओ अनुबंध"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -355,12 +355,12 @@ msgstr "नवीनतम पहले"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
 msgid "Learn More"
-msgstr ""
+msgstr "और जानें"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
-msgstr "Carbonmark छोड़ना"
+msgstr "कार्बनमार्क छोड़ना"
 
 #: components/pages/Users/SellerConnected/index.tsx:170
 #: components/pages/Users/SellerUnconnected/index.tsx:47
@@ -369,7 +369,7 @@ msgstr "सूचियाँ"
 
 #: components/pages/Project/Retire/TotalValues.tsx:162
 msgid "Loading"
-msgstr ""
+msgstr "लोड हो रहा है"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
@@ -387,7 +387,7 @@ msgstr "लॉग इन"
 
 #: components/pages/Users/Login/index.tsx:34
 msgid "Log in to create a Carbonmark profile"
-msgstr "Carbonmark प्रोफ़ाइल बनाने के लिए लॉगिन करें"
+msgstr "कार्बनमार्क प्रोफ़ाइल बनाने के लिए लॉगिन करें"
 
 #: components/Layout/NavDrawer/index.tsx:64
 #: components/LoginButton/index.tsx:7
@@ -406,7 +406,7 @@ msgstr "मार्केटप्लेस"
 #: components/pages/Projects/index.tsx:45
 #: components/pages/Projects/index.tsx:46
 msgid "Marketplace | Carbonmark"
-msgstr "मार्केटप्लेस | Carbonmark"
+msgstr "मार्केटप्लेस | कार्बनमार्क"
 
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
@@ -414,7 +414,7 @@ msgstr "कार्यप्रणाली"
 
 #: components/pages/Project/Retire/TotalValues.tsx:150
 msgid "Network fees"
-msgstr ""
+msgstr "नेटवर्क शुल्क"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -464,7 +464,7 @@ msgstr "अन्य प्रकृति-अनुरूप"
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
 #: components/pages/Project/Retire/RetireInputs.tsx:135
 msgid "Pay with:"
-msgstr ""
+msgstr "भुगतान यँत्र:"
 
 #: components/pages/Purchases/index.tsx:61
 msgid "Payment Successful"
@@ -478,12 +478,12 @@ msgstr "कृपया लॉगिन करें"
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में त्रुटि हुई: {e}।"
+msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में गलती हुई: {e}।"
 
 #: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
 msgid "Portfolio | Carbonmark"
-msgstr "पोर्टफ़ोलियो | Carbonmark"
+msgstr "पोर्टफ़ोलियो | कार्बनमार्क"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
@@ -500,7 +500,7 @@ msgstr "मूल्य न्यूनतम"
 #: components/pages/Project/Purchase/TotalValues.tsx:59
 #: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Price per tonne"
-msgstr ""
+msgstr "कीमत प्रति टन"
 
 #: components/Footer/index.tsx:29
 msgid "Privacy Policy"
@@ -512,7 +512,7 @@ msgstr "गोपनीयता नीति"
 
 #: components/pages/Project/Retire/RetireModal.tsx:80
 msgid "Processing Retirement"
-msgstr ""
+msgstr "रिटायरमेंट प्रोसेसिंग"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
@@ -534,16 +534,16 @@ msgstr "प्रॉजेक्ट"
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
-msgstr "विक्रय रसीद | Carbonmark"
+msgstr "विक्रय रसीद | कार्बनमार्क"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:53
 msgid "Purchase amount (tonnes):"
-msgstr ""
+msgstr "खरीद मात्रा (टन):"
 
 #: components/pages/Project/Purchase/index.tsx:24
 #: components/pages/Project/Purchase/index.tsx:25
 msgid "Purchase {0} | Carbonmark"
-msgstr "ख़रीद {0} | Carbonmark"
+msgstr "ख़रीद {0} | कार्बनमार्क"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:63
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
@@ -565,7 +565,7 @@ msgstr "विक्रीत मात्रा:"
 
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
-msgstr ""
+msgstr "कार्बन रिटायर करें"
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
@@ -581,7 +581,7 @@ msgstr "नवीकरणीय ऊर्जा"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:55
 msgid "Required Field"
-msgstr ""
+msgstr "आवश्यक क्षेत्र"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -594,7 +594,7 @@ msgstr "संसाधन"
 #: components/pages/Resources/index.tsx:19
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
-msgstr "संसाधन | Carbonmark"
+msgstr "संसाधन | कार्बनमार्क"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:68
 msgid "Retire"
@@ -602,20 +602,20 @@ msgstr "रिटायर"
 
 #: components/pages/Retire/RetireForm/index.tsx:170
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
-msgstr ""
+msgstr "अपने लिए या किसी अन्य व्यक्ति या संगठन की ओर से कार्बन क्रेडिट रिटायर करें।"
 
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr ""
+msgstr "{fullProjectid} से रिटायर करें | कार्बनमार्क"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
-msgstr ""
+msgstr "अधिक कार्बन रिटायर करें"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:45
 msgid "Retire more carbon"
-msgstr ""
+msgstr "अधिक कार्बन रिटायर करें"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:58
 msgid "Retire now"
@@ -624,7 +624,7 @@ msgstr "अभी रिटायर करें"
 #: components/pages/Retire/index.tsx:83
 #: components/pages/Retire/index.tsx:84
 msgid "Retire | Carbonmark"
-msgstr ""
+msgstr "रिटायर | कार्बनमार्क"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:129
 msgid "Retirement Message"
@@ -686,7 +686,7 @@ msgstr "क्षमा करें, यह हैंडल पहले से
 #: components/pages/Portfolio/index.tsx:99
 #: components/pages/Retire/index.tsx:107
 msgid "Sorry. We could not find any data on Carbonmark for your user."
-msgstr "क्षमा करें। हमें Carbonmark पर आपके यूज़र का कोई डेटा नहीं मिला।"
+msgstr "क्षमा करें। हमें कार्बनमार्क पर आपके यूज़र का कोई डेटा नहीं मिला।"
 
 #: components/Stats/index.tsx:23
 msgid "Stats"
@@ -694,11 +694,11 @@ msgstr "आँकड़े"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
-msgstr "सफलता! आपकी नई लिस्टिंग कुछ ही पलों में आपके <0>Profile page</0> पर दिखाई देगी।"
+msgstr "सफलता! आपकी नई लिस्टिंग कुछ ही पलों में आपके <0>प्रोफ़ाइल पेज</0> पर दिखाई देगी।"
 
 #: components/shared/InvalidNetworkModal/index.tsx:74
 msgid "Switch to Polygon"
-msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
+msgstr "पॉलिगॉन पर स्विच करें"
 
 #: components/Footer/index.tsx:34
 msgid "Terms of Use"
@@ -710,7 +710,7 @@ msgstr "उपयोग की शर्तें"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:28
 msgid "Thank you for supporting the planet!"
-msgstr ""
+msgstr "पृथ्वी का समर्थन करने के लिए धन्यवाद!"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
@@ -718,11 +718,11 @@ msgstr "पृथ्वी का समर्थन करने के लि�
 
 #: components/pages/Project/Retire/RetireModal.tsx:41
 msgid "The first step is to grant the approval to transfer your carbon asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your retirement."
-msgstr ""
+msgstr "पहला कदम अपनी कार्बन संपत्ति को अपने वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंजूरी देना और अपनी सेवानिवृत्ति को पूरा करना है।"
 
 #: components/pages/Retire/RetireForm/index.tsx:176
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
-msgstr ""
+msgstr "आपके पर्यावरणीय दावे को सत्यापित करने के लिए नीचे दी गई जानकारी सार्वजनिक रूप से प्रसारित की जाएगी। यह लेन-देन स्थायी है; आपके लेन-देन पूरे हो जाने के बाद जानकारी को बदला नहीं जा सकता।"
 
 #: components/pages/Home/index.tsx:56
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
@@ -730,15 +730,15 @@ msgstr "दुनिया भर में डिजिटल कार्ब�
 
 #: components/pages/Project/Retire/RetireInputs.tsx:83
 msgid "The minimum amount to retire is 1 Tonne"
-msgstr ""
+msgstr "सेवानिवृत्त होने के लिए न्यूनतम राशि 1 टन है"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
-msgstr ""
+msgstr "पिछले चरण में आपकी कार्बन संपत्ति को आपके वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति दी गई थी, आपकी रिटायरमैंट अभी तक पूरी नहीं हुई है।"
 
 #: components/pages/Project/Retire/TotalValues.tsx:83
 msgid "There was an error loading the total cost."
-msgstr ""
+msgstr "कुल लागत लोड करने में गलती हुई थी."
 
 #: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
@@ -746,7 +746,7 @@ msgstr "आपकी संपत्तियाँ लोड करने म�
 
 #: components/shared/InvalidNetworkModal/index.tsx:70
 msgid "This app only works on Polygon Mainnet."
-msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर ही काम करता है।"
+msgstr "यह ऐप केवल पॉलीगॉन मेननेट पर ही काम करता है।"
 
 #: components/pages/Project/Purchase/InactivePurchase.tsx:23
 msgid "This offer no longer exists."
@@ -758,24 +758,24 @@ msgstr "यह उत्पाद अभी भी बीटा चरण मे
 
 #: components/pages/Project/Retire/RetireModal.tsx:67
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
-msgstr ""
+msgstr "अपनी रिटायरमैंट को अंतिम रूप देने के लिए, सत्यापित करें कि सभी जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:145
 msgid "To purchase this project using a different form of payment,"
-msgstr ""
+msgstr "भुगतान के किसी भिन्न प्रकार का उपयोग करके इस प्रोजेक्ट को खरीदने के लिए,"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:183
 msgid "To retire this project using a different form of payment,"
-msgstr ""
+msgstr "भुगतान के किसी भिन्न प्रकार का उपयोग करके इस प्रोजेक्ट को समाप्त करने के लिए,"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
 #: components/pages/Project/Retire/RetireInputs.tsx:147
 msgid "Toggle payment method"
-msgstr ""
+msgstr "भुगतान विधि टॉगल करें"
 
 #: components/ProjectFilterModal/index.tsx:107
 msgid "Toggle sort menu"
-msgstr "सॉर्ट मेन्यू टॉगल करें"
+msgstr "सॉर्ट मेनू टॉगल करें"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
@@ -794,7 +794,7 @@ msgstr "टन बिक्री"
 
 #: components/pages/Project/Retire/TotalValues.tsx:106
 msgid "Total Price"
-msgstr ""
+msgstr "कुल कीमत"
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
@@ -803,11 +803,11 @@ msgstr "कुल रिटायरमेन्ट्स:"
 #: components/pages/Project/Purchase/TotalValues.tsx:93
 #: components/pages/Project/Retire/TotalValues.tsx:258
 msgid "Total cost"
-msgstr ""
+msgstr "कुल लागत"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:49
 msgid "Total price"
-msgstr ""
+msgstr "कुल कीमत"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
@@ -815,7 +815,7 @@ msgstr "बिक्री हेतु सूचीबद्ध की जा�
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
 msgid "Total sale cost"
-msgstr ""
+msgstr "कुल बिक्री लागत"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
@@ -832,7 +832,7 @@ msgstr "उपयोगकर्त्ता मार्गदर्शिक�
 #: components/pages/Users/Login/index.tsx:32
 #: components/pages/Users/Login/index.tsx:33
 msgid "User Profile | Carbonmark"
-msgstr "यूज़र प्रोफ़ाइल | Carbonmark"
+msgstr "यूज़र प्रोफ़ाइल | कार्बनमार्क"
 
 #: components/pages/Project/Retire/RetireModal.tsx:48
 msgid "Verify all information is correct and click 'approve' to continue."
@@ -840,7 +840,7 @@ msgstr "सत्यापित करें कि संपूर्ण ज�
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
-msgstr ""
+msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
 #: components/pages/Project/index.tsx:217
 msgid "View Registry Details <0/>"
@@ -856,7 +856,7 @@ msgstr ""
 
 #: components/pages/Project/index.tsx:118
 msgid "View and purchase this carbon offset project on Carbonmark"
-msgstr "Carbonmark पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
+msgstr "कार्बनमार्क पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:41
 msgid "View and share certificate"
@@ -953,7 +953,7 @@ msgstr "पर"
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:97
 msgid "blog.disclaimer.description"
-msgstr "KlimaDAO (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य ज्ञानवर्द्धन संबंधी उद्देश्यों के चलते दी गयी है और यह किसी भी न्यायक्षेत्र में कोई प्रतिभूति, ऑप्शंस, फ़्यूचर्स, या प्रतिभूतियों से संबंधित अन्य डेरिवेटिव्ज़ को ख़रीदने अथवा बेचने हेतु कोई औपचारिक प्रस्ताव या उकसावा नहीं है और इसकी सामग्री प्रतिभूति क़ानूनों पर आधारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी पर ऐसी प्रतिभूतियों को ख़रीदने या बेचने या होल्ड करने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और समस्त दायित्व को अस्वीकार करता है। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने का कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, मिलती-जुलती या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत को सुपरसीड करती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो KlimaDAO और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इसके अतिरिक्त, KlimaDAO इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
+msgstr "क्लीमाडाओ (“KlimaDAO”), इसकी क्रिप्टो-संपत्ति, व्यावसायिक संपत्ति, रणनीति और संचालन से संबंधित इस ब्लॉग पोस्ट में प्रदान की गई जानकारी केवल सामान्य ज्ञानवर्द्धन संबंधी उद्देश्यों के चलते दी गयी है और यह किसी भी न्यायक्षेत्र में कोई प्रतिभूति, ऑप्शंस, फ़्यूचर्स, या प्रतिभूतियों से संबंधित अन्य डेरिवेटिव्ज़ को ख़रीदने अथवा बेचने हेतु कोई औपचारिक प्रस्ताव या उकसावा नहीं है और इसकी सामग्री प्रतिभूति क़ानूनों पर आधारित नहीं है। इस ब्लॉग पोस्ट में निहित जानकारी पर ऐसी प्रतिभूतियों को ख़रीदने या बेचने या होल्ड करने की सलाह या ऐसी प्रतिभूतियों को बेचने के प्रस्ताव के रूप में भरोसा नहीं किया जाना चाहिए। यह ब्लॉग पोस्ट किसी व्यक्ति के विशिष्ट निवेश उद्देश्यों या वित्तीय स्थिति के बारे में कोई कर, क़ानूनी या निवेश सलाह या राय प्रदान नहीं करता है और न ही इसे ध्यान में रखता है। KlimaDAO और उसके एजेंट, सलाहकार, निदेशक, अधिकारी, कर्मचारी और शेयरधारक ऐसी जानकारी की सटीकता के रूप में व्यक्त या निहित कोई प्रतिनिधित्व या वारंटी नहीं देते हैं और KlimaDAO स्पष्ट रूप से ऐसी जानकारी या त्रुटियों या चूक पर आधारित किसी भी और समस्त दायित्व को अस्वीकार करता है। KlimaDAO किसी भी समय, आंशिक रूप से या पूरी तरह से, इसमें निहित जानकारी को संशोधित करने या बदलने का अधिकार सुरक्षित रखता है, और प्राप्तकर्ता को संशोधित जानकारी तक पहुंच प्रदान करने या उसके प्राप्तकर्ता को सूचित करने का कोई दायित्व नहीं लेता है। इस ब्लॉग पोस्ट में निहित जानकारी समान, मिलती-जुलती या संबंधित जानकारी से संबंधित किसी भी पूर्व ब्लॉग पोस्ट या बातचीत को सुपरसीड करती है। कोई भी सूचना, अभ्यावेदन या कथन जो इसमें शामिल नहीं है, किसी भी उद्देश्य के लिए उस पर भरोसा नहीं किया जाएगा। आपके या आपके किसी प्रतिनिधि द्वारा इस ब्लॉग पोस्ट में दी गई जानकारी के उपयोग के परिणामस्वरूप या आपके द्वारा या आपके किसी भी प्रतिनिधि द्वारा चूक के परिणामस्वरूप न तो क्लीमाडाओ और न ही इसके किसी प्रतिनिधि का, अनुबंध, अपकृत्य, विश्वास या अन्यथा, आपके या किसी भी व्यक्ति के लिए कोई दायित्व नहीं होगा। इसके अतिरिक्त, क्लीमाडाओ इस ब्लॉग पोस्ट में चर्चा किए गए मामलों के संबंध में तृतीय पक्षों की अपेक्षाओं, या उनके द्वारा दिए गए बयानों पर टिप्पणी करने के लिए कोई दायित्व नहीं लेता है।"
 
 #: components/pages/Blog/Post/index.tsx:94
 msgid "blog.disclaimer.title"
@@ -1005,7 +1005,7 @@ msgstr "आप एक नई लिस्टिंग बनाने वाल�
 
 #: components/CreateListing/index.tsx:132
 msgid "create.approval_2"
-msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी लिस्टिंग को लाइव करना है।"
+msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी लिस्टिंग को लाइव करना है।"
 
 #: components/CreateListing/index.tsx:139
 msgid "create.approval_3"
@@ -1017,11 +1017,11 @@ msgstr "सत्यापित करें कि संपूर्ण ज�
 
 #: components/CreateListing/index.tsx:157
 msgid "create.submit_1"
-msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
+msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
 #: components/CreateListing/index.tsx:163
 msgid "create.submit_2"
-msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
+msgstr "इस संपत्ति के कार्बनमार्क में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
@@ -1038,7 +1038,7 @@ msgstr "प्रत्येक"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:178
 msgid "edit_listing.approval_1"
-msgstr "आप इस संपत्ति के स्वामित्व को अपने वॉलेट से Carbonmark को स्थानांतरित करने वाले हैं।"
+msgstr "आप इस संपत्ति के स्वामित्व को अपने वॉलेट से कार्बनमार्क में स्थानांतरित करने वाले हैं।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:184
 msgid "edit_listing.approval_2"
@@ -1046,11 +1046,11 @@ msgstr "आप अपनी लिस्टिंग को बिकने स�
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:196
 msgid "edit_listing.submit_1"
-msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
+msgstr "पिछले चरण में आपके ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली, लेकिन अभी तक आपका ऐसेट हस्तांतरित नहीं हो सका।"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:202
 msgid "edit_listting.submit_2"
-msgstr "इस संपत्ति के Carbonmark में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
+msgstr "इस संपत्ति के कार्बनमार्क में स्थानांतरण को अंतिम रूप देने और अपनी लिस्टिंग को लाइव करने के लिए, सत्यापित करें कि सम्पूर्ण जानकारी सही है और फिर नीचे सबमिट पर क्लिक करें।"
 
 #: components/ExitModal/index.tsx:22
 msgid "exitmodal.after_you_click"
@@ -1058,7 +1058,7 @@ msgstr "जैसे ही आप कन्टिन्यू बटन क्�
 
 #: components/ExitModal/index.tsx:31
 msgid "exitmodal.carbon_credits_you_purchase"
-msgstr "KlimaDAO.finance पर आपके द्वारा ख़रीदे गए कार्बन क्रेडिट्स या आपके द्वारा किया गया कोई भी रिटायरमेंट आपके Carbonmark पोर्टफोलियो में भी उपलब्ध होगा।"
+msgstr "KlimaDAO.finance पर आपके द्वारा ख़रीदे गए कार्बन क्रेडिट्स या आपके द्वारा किया गया कोई भी रिटायरमेंट आपके कार्बनमार्क पोर्टफोलियो में भी उपलब्ध होगा।"
 
 #: components/ExitModal/index.tsx:16
 msgid "exitmodal.you_will_be_taken"
@@ -1082,11 +1082,11 @@ msgstr "प्रोफ़ाइल"
 
 #: components/pages/Retire/RetireForm/index.tsx:192
 msgid "offset.amount_in_tonnes"
-msgstr ""
+msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?<0>* </0>"
 
 #: components/pages/Retire/RetireForm/index.tsx:202
 msgid "offset.amount_in_tonnes_2"
-msgstr ""
+msgstr "उपलब्ध: {balance}"
 
 #: components/pages/Retire/RetireForm/index.tsx:288
 msgid "offset.default_retirement_address"
@@ -1098,11 +1098,11 @@ msgstr "ऑफ़सेट करने के लिए मात्रा दर�
 
 #: components/pages/Retire/RetireForm/index.tsx:372
 msgid "offset.retire_carbon"
-msgstr ""
+msgstr "रिटायरमेंट की पुष्टि करें"
 
 #: components/pages/Retire/RetireForm/index.tsx:247
 msgid "offset.retirement_beneficiary_name"
-msgstr ""
+msgstr "लाभार्थी का नाम"
 
 #: components/pages/Retire/RetireForm/index.tsx:235
 msgid "offset.retirement_credit"
@@ -1118,11 +1118,11 @@ msgstr "रिटायरमेंट सन्देश"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:31
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "ग्रह का समर्थन करने के लिए धन्यवाद! <0>पॉलिगॉनस्कैन पर लेन-देन देखें।</0>"
 
 #: components/pages/Retire/RetireForm/index.tsx:329
 msgid "offset_disclaimer"
-msgstr ""
+msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
 #: components/pages/Portfolio/Balances/index.tsx:48
 msgid "portfolio.balances.title"
@@ -1182,11 +1182,11 @@ msgstr "आप एक कार्बन संपत्ति ख़रीदन�
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:38
 msgid "purchase.approval_2"
-msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से Carbonmark में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
+msgstr "पहला कदम इस संपत्ति को अपनी वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंज़ूरी देना और अपनी ख़रीदारी संपन्न करनी है।"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:45
 msgid "purchase.approval_3"
-msgstr "आपके द्वारा ख़रीदे गए कार्बन ऐसेट्स आपके <0>portfolio</0> से बिक्री के लिए Carbonmark पर कभी भी सूचीबद्ध किए जा सकते हैं।"
+msgstr "आपके द्वारा ख़रीदे गए कार्बन ऐसेट्स आपके <0>पोर्टफोलियो</0> से बिक्री के लिए कार्बनमार्क पर कभी भी सूचीबद्ध किए जा सकते हैं।"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:55
 msgid "purchase.approval_4"
@@ -1222,7 +1222,7 @@ msgstr "कुछ गड़बड़ हो गई जानकारी लोड ह
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:67
 msgid "purchase.submit_1"
-msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से Carbonmark में हस्तांतरण को मंज़ूरी मिली।"
+msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली।"
 
 #: components/pages/Project/Purchase/PurchaseModal.tsx:73
 msgid "purchase.submit_2"
@@ -1271,7 +1271,7 @@ msgstr "चुनें"
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
-msgstr "सॉर्टेड बाइ मेन्यू टॉगल करें"
+msgstr "मेनू द्वारा क्रमबद्ध टॉगल करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:297
 msgid "resources.mobile_modal.button.show_results"
@@ -1307,15 +1307,15 @@ msgstr "कार्बन रिटायर करें"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
-msgstr ""
+msgstr "सैकड़ों परियोजनाओं से 20 मिलियन से अधिक सत्यापित डिजिटल कार्बन क्रेडिट के साथ, कार्बनमार्क दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा चयन प्रदान करता है। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन खरीदें, बेचें और रिटायर करें। <0>आज ही शुरू करें</0> ."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.about_carbonmark.title"
-msgstr "Carbonmark के बारे में"
+msgstr "कार्बनमार्क के बारे में"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.head.metaDescription"
-msgstr "Carbonmark द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
+msgstr "कार्बनमार्क द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.head.metaTitle"
@@ -1323,15 +1323,15 @@ msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:80
 msgid "retirement.head.title"
-msgstr "Carbonmark | Carbon रिटायरमेंट रसीद"
+msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.asset_retired.title"
-msgstr ""
+msgstr "रिटायर कीया गया एसेट"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
-msgstr ""
+msgstr "कोई लाभार्थी का पता उपलब्ध नहीं है"
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
@@ -1339,11 +1339,11 @@ msgstr "कोई लाभार्थी-नाम प्रदान नह�
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
 msgid "retirement.single.beneficiary.title"
-msgstr ""
+msgstr "लाभार्थी:"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:34
 msgid "retirement.single.beneficiary_address.title"
-msgstr ""
+msgstr "लाभार्थी का पता"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
 msgid "retirement.single.carbon_credit_retirement.title"
@@ -1351,7 +1351,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
 msgid "retirement.single.country_region.title"
-msgstr ""
+msgstr "देश/क्षेत्र:"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
 msgid "retirement.single.download_certificate_button"
@@ -1359,7 +1359,7 @@ msgstr "PDF डाउनलोड करें"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
 msgid "retirement.single.immutable_public_records.title"
-msgstr ""
+msgstr "यह एक डिजिटल कार्बन संपत्ति की स्थायी रिटायरमैंट का प्रतिनिधित्व करता है। यह रिटायरमैंट और संबद्ध डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
@@ -1367,15 +1367,15 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
 msgid "retirement.single.methodology.title"
-msgstr ""
+msgstr "कार्यप्रणाली:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.official_certificate.title"
-msgstr ""
+msgstr "<0>Carbonmark.com द्वारा प्रदान किया गया ऑन-चेन कार्बन रिटायरमेंट का आधिकारिक प्रमाणपत्र</0>"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
 msgid "retirement.single.project.title"
-msgstr ""
+msgstr "प्रॉजेक्ट:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
 msgid "retirement.single.project_description.title"
@@ -1387,11 +1387,11 @@ msgstr "प्रॉजेक्ट का विवरण"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
 msgid "retirement.single.project_name.title"
-msgstr ""
+msgstr "परियोजना का नाम"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:14
 msgid "retirement.single.proof_of.title"
-msgstr ""
+msgstr "सबूत"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:17
 msgid "retirement.single.quantity.title"
@@ -1407,23 +1407,23 @@ msgstr "कोई रिटायरमेंट टाइमस्टैम्�
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
 msgid "retirement.single.transaction_id.placeholder"
-msgstr ""
+msgstr "कोई लेनदेन आईडी उपलब्ध नहीं है"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
 msgid "retirement.single.transaction_id.title"
-msgstr ""
+msgstr "लेन-देन आईडी"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:27
 msgid "retirement.single.transaction_record.title"
-msgstr ""
+msgstr "अपरिवर्तनीय लेनदेन रिकॉर्ड"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
 msgid "retirement.single.type.title"
-msgstr ""
+msgstr "प्रकार:"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:27
 msgid "retirement.single.verified_tonnes.title"
-msgstr ""
+msgstr "सत्यापित टन कार्बन रिटायर्ड"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
 msgid "retirement.single.vintage.title"
@@ -1439,11 +1439,11 @@ msgstr "कुल रिटायरमेंट्स"
 
 #: components/pages/Retirements/index.tsx:45
 msgid "retirement.totals.head.metaTitle"
-msgstr "Carbonmark - लाभार्थी के लिए Carbon रिटायरमेन्ट्स {0}"
+msgstr "कार्बनमार्क - लाभार्थी के लिए कार्बन रिटायरमेन्ट्स {0}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr "Carbonmark - लाभार्थी के लिए Carbon रिटायरमेन्ट्स {0}"
+msgstr "कार्बनमार्क - लाभार्थी के लिए कार्बन रिटायरमेन्ट्स {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
@@ -1541,7 +1541,7 @@ msgstr "लेन-देन शुरू किया गया। नेटव�
 
 #: lib/statusMessage.ts:36
 msgid "transaction.status.user_confirmation"
-msgstr "जारी रखने के लिए कृपया अपने वॉलेट में 'confirm' (कन्फ़र्म) पर क्लिक करें।"
+msgstr "जारी रखने के लिए कृपया अपने वॉलेट में कन्फ़र्म ('confirm') पर क्लिक करें।"
 
 #: lib/statusMessage.ts:20
 msgid "transaction.status.user_rejected"
@@ -1553,7 +1553,7 @@ msgstr ""
 
 #: components/pages/Retire/RetireModal/index.tsx:57
 msgid "transaction_modal.approve.allow_amount_2"
-msgstr ""
+msgstr "पहला कदम अपनी कार्बन संपत्ति को अपने वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति देना है, अगला कदम वास्तविक हस्तांतरण को मंजूरी देना और अपनी सेवानिवृत्ति को पूरा करना है।"
 
 #: components/pages/Retire/RetireModal/index.tsx:64
 msgid "transaction_modal.approve.allow_amount_3"
@@ -1569,7 +1569,7 @@ msgstr "कॉन्ट्रैक्ट पता"
 
 #: components/Transaction/Approve.tsx:73
 msgid "transaction_modal.approve.price"
-msgstr "प्रति टन मूल्य की पुष्टि करें"
+msgstr "प्रति टन राशि की पुष्टि करें"
 
 #: components/Transaction/index.tsx:85
 msgid "transaction_modal.button.go_back"
@@ -1593,11 +1593,11 @@ msgstr "सबमिट करें"
 
 #: components/pages/Retire/RetireModal/index.tsx:76
 msgid "transaction_modal.submit.confirm_transaction_1"
-msgstr ""
+msgstr "पिछले चरण में आपकी कार्बन संपत्ति को आपके वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति दी गई थी, आपकी रिटायरमैंट अभी तक पूरी नहीं हुई है।"
 
 #: components/pages/Retire/RetireModal/index.tsx:83
 msgid "transaction_modal.submit.confirm_transaction_2"
-msgstr ""
+msgstr "अपनी रिटायरमैंट को अंतिम रूप देने के लिए, सत्यापित करें कि सभी जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/Transaction/Submit.tsx:48
 msgid "transaction_modal.submit.contract_address"
@@ -1605,7 +1605,7 @@ msgstr "कॉन्ट्रैक्ट पता"
 
 #: components/Transaction/Submit.tsx:73
 msgid "transaction_modal.submit.price"
-msgstr ""
+msgstr "प्रति टन कीमत सबमिट करें:"
 
 #: components/Transaction/index.tsx:45
 msgid "transaction_modal.view.approve.title"
@@ -1691,7 +1691,7 @@ msgstr "यह सुविधा केवल उन उपयोगकर्�
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
-msgstr "{0} | प्रोफ़ाइल | Carbonmark"
+msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
 
 #: components/pages/Purchases/index.tsx:28
 msgid "{amount} tonnes were purchased for project {0}"
