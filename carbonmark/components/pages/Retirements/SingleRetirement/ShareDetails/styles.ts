@@ -20,6 +20,12 @@ export const shareCard = css`
   }
 `;
 
+export const downloadButton = css`
+  background-color: var(--font-02) !important;
+  color: var(--white);
+  gap: 1.5rem;
+`;
+
 export const content = css`
   gap: 1.6rem;
   display: flex;

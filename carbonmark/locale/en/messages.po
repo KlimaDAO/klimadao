@@ -237,7 +237,7 @@ msgstr "Create Profile"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Create and edit listings, and track your activity with your Carbonmark profile."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:57
 msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
@@ -1360,6 +1360,7 @@ msgid "retirement.single.country_region.title"
 msgstr "Country/Region:"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
 msgid "retirement.single.download_certificate_button"
 msgstr "Download PDF"
 
@@ -1403,7 +1404,7 @@ msgstr "Proof of"
 msgid "retirement.single.quantity.title"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
 msgid "retirement.single.share_retirement.title"
 msgstr "Share this retirement"
 
@@ -1499,10 +1500,6 @@ msgstr "Sign In / Connect To Buy"
 #: components/pages/Retirements/index.tsx:51
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
-msgid "shared.loading"
-msgstr "Loading..."
 
 #: components/Layout/index.tsx:89
 msgid "shared.login"
