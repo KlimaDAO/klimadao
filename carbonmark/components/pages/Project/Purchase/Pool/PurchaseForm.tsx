@@ -180,6 +180,7 @@ export const PurchaseForm: FC<Props> = (props) => {
             <TotalValues
               singleUnitPrice={props.price.singleUnitPrice}
               balance={balance}
+              pool={props.price.name.toLowerCase() as PoolToken}
             />
           </Card>
           <SubmitButton
