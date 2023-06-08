@@ -162,8 +162,6 @@ module.exports = async function (fastify, opts) {
         const { userIdentifier } = request.params;
         // Destructure the type query parameter from the request object
         var { type } = request.query;
-        // Log the type to the console
-        console.log(type);
         var user;
         if (type == "wallet") {
           // Query the Firestore database for the document with a matching wallet address
@@ -261,7 +259,6 @@ module.exports = async function (fastify, opts) {
           GET_USER_ASSETS,
           { wallet }
         );
-        console.log(assetsData);
         if (assetsData.data.accounts.length) {
           response.assets = assetsData.data.accounts[0].holdings;
         } else {
@@ -362,7 +359,7 @@ module.exports = async function (fastify, opts) {
           // If the document is successfully created, return the request body
           return reply.send(request.body);
         } catch (err) {
-          console.log(err);
+          console.error(err);
           // If an error occurs, return the error in the response
           return reply.code(403).send({ error: err });
         }
@@ -426,7 +423,7 @@ module.exports = async function (fastify, opts) {
           // If the update is successful, return the request body
           return reply.send(request.body);
         } catch (err) {
-          console.log(err);
+          console.error(err);
           // If an error occurs, return a 404 error with a message
           return reply
             .code(403)
