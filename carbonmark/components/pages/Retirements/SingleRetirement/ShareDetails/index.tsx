@@ -29,7 +29,6 @@ export const ShareDetails: FC<Props> = (props) => (
       </Trans>
     </Text>
     <div className={styles.content}>
-      <>{console.log("beee", props)}</>
       {props.beneficiaryAddress ? (
         <ButtonPrimary
           label={t({
