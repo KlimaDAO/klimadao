@@ -7,6 +7,7 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
+import { utils } from "ethers";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import {
@@ -111,10 +112,17 @@ export const RetireInputs: FC<Props> = (props) => {
             id="beneficiaryAddress"
             inputProps={{
               placeholder: t`Beneficiary wallet address (optional)`,
-              ...register("beneficiaryAddress"),
+              ...register("beneficiaryAddress", {
+                validate: {
+                  isAddress: (v) =>
+                    utils.isAddress(v) || // allow polygon addresses only
+                    t`Not a valid polygon address`,
+                },
+              }),
             }}
             label={t`Beneficiary Address`}
             hideLabel
+            errorMessage={formState.errors.beneficiaryAddress?.message}
           />
           <Text t="body3">{t`Defaults to the connected wallet address`}</Text>
         </div>
