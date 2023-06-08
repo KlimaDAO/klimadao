@@ -16,6 +16,11 @@ export const textGroup = css`
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
+
+  p > a {
+    color: inherit;
+    text-decoration: underline;
+  }
 `;
 
 export const imageWrapper = css`
@@ -60,4 +65,38 @@ export const profileLink = css`
   text-transform: uppercase;
   color: var(--bright-blue);
   font-family: var(--font-family-secondary);
+`;
+
+export const buttons = css`
+  gap: 1.2rem;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+
+  ${breakpoints.desktop} {
+    flex-direction: row;
+  }
+
+  & .copyButton {
+    background-color: transparent !important;
+
+    & svg path {
+      fill: var(--font-02);
+    }
+  }
+
+  & a,
+  & .copyButton {
+    width: 100%;
+    border: 0.1rem solid;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    min-height: 3.9rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-color: var(--font-03);
+    color: var(--font-02) !important;
+    font-family: var(--font-family-secondary);
+  }
 `;

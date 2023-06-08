@@ -59,16 +59,6 @@ export const TransactionDetails: FC<Props> = (props) => (
       </div>
       <div className={styles.gridLayout}>
         <Col className="column">
-          {props.tokenData?.label && (
-            <div className={cx(styles.textGroup, "row")}>
-              <Text t="button" color="lightest" uppercase>
-                <Trans id="retirement.single.asset_retired.title">
-                  Asset Retired:
-                </Trans>
-              </Text>
-              <Text>{props.tokenData.label}</Text>
-            </div>
-          )}
           {props.retirement?.offset?.projectID && (
             <div className={cx(styles.textGroup, "row")}>
               <Text t="button" color="lightest" uppercase>
