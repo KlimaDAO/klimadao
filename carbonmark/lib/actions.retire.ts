@@ -22,7 +22,7 @@ export const getRetirementAllowance = async (params: {
 
   const allowance = await getAllowance({
     contract: getContract({
-      contractName: "usdc",
+      contractName: params.token,
       provider: getStaticProvider(),
     }),
     address: params.userAddress,
@@ -141,8 +141,6 @@ export const retireCarbonTransaction = async (params: {
       getTokenDecimals(params.paymentMethod)
     );
 
-    console.log("retireContract", retireContract);
-    console.log("is default", isDefaultProjectAddress(params.projectAddress));
     const retirements: BigNumber = await retireContract.getTotalRetirements(
       params.beneficiaryAddress || params.address
     );
