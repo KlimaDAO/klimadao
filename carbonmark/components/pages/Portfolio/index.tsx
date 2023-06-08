@@ -4,6 +4,7 @@ import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { LoginCard } from "components/LoginCard";
 import { PageHead } from "components/PageHead";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
@@ -16,7 +17,7 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address, toggleModal } = useWeb3();
+  const { isConnected, address, toggleModal, initializing } = useWeb3();
   const { carbonmarkUser, isLoading, mutate } = useFetchUser(address);
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -74,8 +75,13 @@ export const Portfolio: NextPage = () => {
           </div>
           <TwoColLayout>
             <Col>
-              {!isConnectedUser && (
+              {!isConnectedUser && !initializing && (
                 <LoginCard isLoading={isLoading} onLogin={toggleModal} />
+              )}
+              {!isConnectedUser && initializing && (
+                <div className={styles.spinnerContainer}>
+                  <Spinner />
+                </div>
               )}
 
               {errorMessage && (

@@ -20,3 +20,7 @@ export const viewButton = css`
   width: 100%;
   margin-top: 1.6rem;
 `;
+
+export const fullWidthButton = css`
+  width: 100%;
+`;

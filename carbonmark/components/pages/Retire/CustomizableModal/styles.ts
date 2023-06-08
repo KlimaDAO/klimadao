@@ -30,13 +30,14 @@ export const modalContent = (
   width: string,
   maxWidth: string,
   height: string,
-  maxHeight: string
+  maxHeight: string,
+  overflowY: string
 ) => css`
   ${width >= maxWidth ? "" : `width: ${width};`};
   max-width: ${maxWidth};
   height: ${height};
   max-height: ${maxHeight};
-  overflow-y: auto;
+  overflow-y: ${overflowY};
   border-radius: 1.2rem;
   background-color: var(--surface-01);
   pointer-events: fill;

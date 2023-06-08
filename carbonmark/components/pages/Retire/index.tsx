@@ -25,10 +25,8 @@ export type RetirePageProps = {
 export const Retire: NextPage<RetirePageProps> = (props) => {
   const { isConnected, address, toggleModal, provider } = useWeb3();
   const { carbonmarkUser, isLoading } = useFetchUser(address);
-  const [loadingTriggered, setLoadingTriggered] = useState(false);
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
-
   const isConnectedUser = isConnected && address;
 
   const isCarbonmarkUser = isConnectedUser && !isLoading && !!carbonmarkUser;
@@ -38,19 +36,13 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (isLoading) {
-      setLoadingTriggered(true);
-    }
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (!isConnected && !isLoading && loadingTriggered) {
+    if (!isConnected && !isLoading) {
       router.push("/portfolio");
     }
-  }, [isConnected, isLoading, loadingTriggered]);
+  }, [isConnected, isLoading]);
 
   useEffect(() => {
-    if (isConnected && !isLoading && loadingTriggered && carbonmarkUser) {
+    if (isConnected && !isLoading && carbonmarkUser) {
       function createRetirementAsset() {
         // unlikely, but this allows for duplicate projects
         const targetProject = Array.isArray(props.project)
@@ -75,7 +67,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
       }
       createRetirementAsset();
     }
-  }, [isConnected, isLoading, loadingTriggered, carbonmarkUser]);
+  }, [isConnected, isLoading, carbonmarkUser]);
 
   return (
     <>
@@ -84,13 +76,11 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
         mediaTitle={t`Retire | Carbonmark`}
         metaDescription={t`View a complete overview of the digital carbon that you own in your Retire. `}
       />
-
       <Layout>
         <div className={styles.container}>
           <div className={styles.portfolioControls}>
             <LoginButton />
           </div>
-
           {!isConnectedUser && (
             <LoginCard isLoading={isLoading} onLogin={toggleModal} />
           )}
