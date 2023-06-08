@@ -15,6 +15,7 @@ import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as styles from "../styles";
+import { AssetDetails } from "./AssetDetails";
 import { Price } from "./Price";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
@@ -182,6 +183,9 @@ export const PurchaseForm: FC<Props> = (props) => {
               balance={balance}
               pool={props.price.name.toLowerCase() as PoolToken}
             />
+          </Card>
+          <Card>
+            <AssetDetails price={props.price} project={props.project} />
           </Card>
           <SubmitButton
             onSubmit={onContinue}
