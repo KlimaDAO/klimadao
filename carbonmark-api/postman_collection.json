@@ -8,6 +8,19 @@
 	"item": [
 		{
 			"name": "getCategories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -27,6 +40,19 @@
 		},
 		{
 			"name": "getUserByWallet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -59,6 +85,19 @@
 		},
 		{
 			"name": "getUserByHandle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -92,6 +131,19 @@
 		},
 		{
 			"name": "getCountries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -111,6 +163,19 @@
 		},
 		{
 			"name": "getProject",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -148,6 +213,19 @@
 		},
 		{
 			"name": "getAllProjects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -167,6 +245,19 @@
 		},
 		{
 			"name": "getProjectById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -193,6 +284,19 @@
 		},
 		{
 			"name": "getVintages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -212,6 +316,19 @@
 		},
 		{
 			"name": "getPurchases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -316,7 +433,11 @@
 					"script": {
 						"exec": [
 							"var jsonData = pm.response.json();",
-							"pm.environment.set(\"nonce\", jsonData.nonce);"
+							"pm.environment.set(\"nonce\", jsonData.nonce);",
+							"",
+							"pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"})"
 						],
 						"type": "text/javascript"
 					}
