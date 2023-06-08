@@ -41,7 +41,6 @@ export const mapAndDescription = css`
   }
   .descriptionColumn {
     display: grid;
-    gap: 2.2rem;
     align-content: flex-start;
     grid-area: description;
   }
@@ -57,12 +56,38 @@ export const mapAndDescription = css`
     }
   }
 
+  .expandedText {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    color: var(--font-03);
+    text-decoration: underline;
+  }
+
   .description {
     display: grid;
     gap: 0.8rem;
 
     & p:last-child {
       white-space: pre-line;
+      &.collapsed {
+        overflow: hidden;
+        height: 272px;
+        text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(
+          180deg,
+          #000000 72.8%,
+          rgba(0, 0, 0, 0) 93.39%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
     }
   }
 
