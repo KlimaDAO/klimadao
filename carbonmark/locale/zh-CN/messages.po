@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 20:59+0000\n"
+"POT-Creation-Date: 2023-06-08 21:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "最新优先"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:98
 msgid "Learn More"
 msgstr "了解更多"
 
@@ -411,6 +411,10 @@ msgstr "市场 | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "方法"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+msgid "Moss"
+msgstr ""
 
 #: components/pages/Project/Retire/TotalValues.tsx:150
 msgid "Network fees"
@@ -1331,10 +1335,6 @@ msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
-msgid "retirement.single.asset_retired.title"
-msgstr "已停用的资产："
-
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "无可用的受益人地址"
@@ -1355,7 +1355,7 @@ msgstr "受益人地址："
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "碳信用停用"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
 msgstr "国家/地区："
 
@@ -1364,7 +1364,7 @@ msgstr "国家/地区："
 msgid "retirement.single.download_certificate_button"
 msgstr "下载PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
 msgstr "这代表数字碳资产的永久停用。该碳停用和相关数据是不可变的公共记录。"
 
@@ -1372,27 +1372,35 @@ msgstr "这代表数字碳资产的永久停用。该碳停用和相关数据是
 msgid "retirement.single.message.title"
 msgstr "碳停用信息："
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
 msgid "retirement.single.methodology.title"
 msgstr "方法："
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.moss_offset.description"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+msgid "retirement.single.moss_offset.name"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com</0> 提供的链上碳排放官方证书"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.project.title"
 msgstr "项目："
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.project_description.title"
 msgstr "描述"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.title"
 msgstr "项目详情"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
 msgid "retirement.single.project_name.title"
 msgstr "项目名称"
 
@@ -1424,7 +1432,7 @@ msgstr "交易ID"
 msgid "retirement.single.transaction_record.title"
 msgstr "不可变的交易记录"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
 msgid "retirement.single.type.title"
 msgstr "类型："
 
@@ -1432,7 +1440,11 @@ msgstr "类型："
 msgid "retirement.single.verified_tonnes.title"
 msgstr "核实停用碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:137
+msgid "retirement.single.view_on_polygon_scan"
+msgstr "在 Polygonscan 上查看"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
 msgid "retirement.single.vintage.title"
 msgstr "历史减排效益："
 

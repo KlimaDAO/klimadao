@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 20:59+0000\n"
+"POT-Creation-Date: 2023-06-08 21:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Latest First"
 msgstr "Lo más reciente primero"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:98
 msgid "Learn More"
 msgstr "Más información"
 
@@ -411,6 +411,10 @@ msgstr "Marketplace | Carbonmark"
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "Metodología"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+msgid "Moss"
+msgstr ""
 
 #: components/pages/Project/Retire/TotalValues.tsx:150
 msgid "Network fees"
@@ -1333,10 +1337,6 @@ msgstr "{retiree} ha retirado {formattedAmount} Toneladas de carbono"
 msgid "retirement.head.title"
 msgstr "Carbonmark | Recibo de retirada de carbono"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
-msgid "retirement.single.asset_retired.title"
-msgstr "Activo retirado:"
-
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "No se dispone de la dirección del beneficiario"
@@ -1357,7 +1357,7 @@ msgstr "Dirección del beneficiario:"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "Retirada de créditos de carbono"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
 msgstr "País/Región:"
 
@@ -1366,7 +1366,7 @@ msgstr "País/Región:"
 msgid "retirement.single.download_certificate_button"
 msgstr "Descargar PDF"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Esto representa la retirada permanente de un activo digital de carbono. Esta retirada y los datos asociados son registros públicos inmutables."
 
@@ -1374,27 +1374,35 @@ msgstr "Esto representa la retirada permanente de un activo digital de carbono. 
 msgid "retirement.single.message.title"
 msgstr "Mensaje de retirada:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
 msgid "retirement.single.methodology.title"
 msgstr "Metodología:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.moss_offset.description"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+msgid "retirement.single.moss_offset.name"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
 msgstr "Certificado oficial de retirada de carbono On-Chain proporcionado por <0>Carbonmark.com</0>"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.project.title"
 msgstr "Proyecto:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.project_description.title"
 msgstr "Descripción"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.title"
 msgstr "Detalles del proyecto"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
 msgid "retirement.single.project_name.title"
 msgstr "Nombre del proyecto"
 
@@ -1426,7 +1434,7 @@ msgstr "ID de transacción"
 msgid "retirement.single.transaction_record.title"
 msgstr "Registro de transacciones inmutable"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
 msgid "retirement.single.type.title"
 msgstr "Tipo:"
 
@@ -1434,7 +1442,11 @@ msgstr "Tipo:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Toneladas verificadas de carbono retiradas"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:137
+msgid "retirement.single.view_on_polygon_scan"
+msgstr "Ver en Polygonscan"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
 msgid "retirement.single.vintage.title"
 msgstr "Vintage:"
 

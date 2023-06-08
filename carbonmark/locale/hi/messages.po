@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 20:59+0000\n"
+"POT-Creation-Date: 2023-06-08 21:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -353,7 +353,7 @@ msgstr "क्लीमाडाओ अनुबंध"
 msgid "Latest First"
 msgstr "नवीनतम पहले"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:98
 msgid "Learn More"
 msgstr "और जानें"
 
@@ -411,6 +411,10 @@ msgstr "मार्केटप्लेस | कार्बनमार्क
 #: components/pages/Project/index.tsx:164
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+msgid "Moss"
+msgstr ""
 
 #: components/pages/Project/Retire/TotalValues.tsx:150
 msgid "Network fees"
@@ -1329,10 +1333,6 @@ msgstr "{retiree} रिटायर्ड {formattedAmount} टन कार्
 msgid "retirement.head.title"
 msgstr "कार्बनमार्क | कार्बन रिटायरमेंट रसीद"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
-msgid "retirement.single.asset_retired.title"
-msgstr "रिटायर कीया गया एसेट"
-
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "कोई लाभार्थी का पता उपलब्ध नहीं है"
@@ -1353,7 +1353,7 @@ msgstr "लाभार्थी का पता"
 msgid "retirement.single.carbon_credit_retirement.title"
 msgstr "कार्बन क्रेडिट रिटायरमेंट"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
 msgstr "देश/क्षेत्र:"
 
@@ -1362,7 +1362,7 @@ msgstr "देश/क्षेत्र:"
 msgid "retirement.single.download_certificate_button"
 msgstr "PDF डाउनलोड करें"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
 msgstr "यह एक डिजिटल कार्बन संपत्ति की स्थायी रिटायरमैंट का प्रतिनिधित्व करता है। यह रिटायरमैंट और संबद्ध डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
@@ -1370,27 +1370,35 @@ msgstr "यह एक डिजिटल कार्बन संपत्त�
 msgid "retirement.single.message.title"
 msgstr "रिटायरमेंट संदेश:"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:81
 msgid "retirement.single.methodology.title"
 msgstr "कार्यप्रणाली:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+msgid "retirement.single.moss_offset.description"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+msgid "retirement.single.moss_offset.name"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com द्वारा प्रदान किया गया ऑन-चेन कार्बन रिटायरमेंट का आधिकारिक प्रमाणपत्र</0>"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.project.title"
 msgstr "प्रॉजेक्ट:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:48
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
 msgid "retirement.single.project_description.title"
 msgstr "विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:28
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.title"
 msgstr "प्रॉजेक्ट का विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:39
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
 msgid "retirement.single.project_name.title"
 msgstr "परियोजना का नाम"
 
@@ -1422,7 +1430,7 @@ msgstr "लेन-देन आईडी"
 msgid "retirement.single.transaction_record.title"
 msgstr "अपरिवर्तनीय लेनदेन रिकॉर्ड"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:83
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:73
 msgid "retirement.single.type.title"
 msgstr "प्रकार:"
 
@@ -1430,7 +1438,11 @@ msgstr "प्रकार:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr " कार्बन के सत्यापित रिटायर्ड टन"
 
-#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:137
+msgid "retirement.single.view_on_polygon_scan"
+msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
+
+#: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:106
 msgid "retirement.single.vintage.title"
 msgstr "विंटेज:"
 
