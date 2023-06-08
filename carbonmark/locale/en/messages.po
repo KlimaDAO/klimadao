@@ -310,8 +310,8 @@ msgstr "Handle should not be an address"
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
-#: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/index.tsx:112
+#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Retire/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
@@ -363,7 +363,6 @@ msgstr "Latest First"
 msgid "Learn More"
 msgstr "Learn More"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Leaving Carbonmark"
@@ -488,14 +487,14 @@ msgstr "Payment Successful"
 msgid "Please Log In"
 msgstr "Please Log In"
 
-#: components/pages/Portfolio/index.tsx:55
+#: components/pages/Portfolio/index.tsx:56
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
-#: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
+#: components/pages/Portfolio/index.tsx:67
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
@@ -559,7 +558,7 @@ msgstr "Purchase amount (tonnes):"
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:57
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -610,7 +609,7 @@ msgstr "Resources"
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:68
+#: components/pages/Portfolio/AssetProject/index.tsx:63
 msgid "Retire"
 msgstr "Retire"
 
@@ -627,7 +626,7 @@ msgstr "Retire from {fullProjectid} | Carbonmark"
 msgid "Retire more Carbon"
 msgstr "Retire more Carbon"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+#: components/pages/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
 msgstr "Retire more carbon"
 
@@ -635,8 +634,8 @@ msgstr "Retire more carbon"
 msgid "Retire now"
 msgstr "Retire now"
 
-#: components/pages/Retire/index.tsx:83
-#: components/pages/Retire/index.tsx:84
+#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:76
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
@@ -644,7 +643,7 @@ msgstr "Retire | Carbonmark"
 msgid "Retirement Message"
 msgstr "Retirement Message"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+#: components/pages/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
 msgstr "Retirement Successful!"
 
@@ -664,7 +663,7 @@ msgstr "Say a few words about yourself. This will be visible in your seller prof
 msgid "See your retirement receipt"
 msgstr "See your retirement receipt"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:74
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr "Sell"
 
@@ -697,8 +696,8 @@ msgstr "Sorry, something went wrong."
 msgid "Sorry, this handle already exists"
 msgstr "Sorry, this handle already exists"
 
-#: components/pages/Portfolio/index.tsx:99
-#: components/pages/Retire/index.tsx:107
+#: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:97
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Sorry. We could not find any data on Carbonmark for your user."
 
@@ -860,11 +859,11 @@ msgstr "View Carbonmark Profile"
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
-#: components/pages/Portfolio/index.tsx:67
+#: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
-#: components/pages/Retire/index.tsx:85
+#: components/pages/Retire/index.tsx:77
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
@@ -872,7 +871,7 @@ msgstr "View a complete overview of the digital carbon that you own in your Reti
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+#: components/pages/Retire/RetirementStatusModal/index.tsx:43
 msgid "View and share certificate"
 msgstr "View and share certificate"
 
@@ -1130,7 +1129,7 @@ msgstr "Retirement message"
 msgid "offset.retirement_retirement_message"
 msgstr "Retirement Message"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+#: components/pages/Retire/RetirementStatusModal/index.tsx:33
 msgid "offset.successModal.body1"
 msgstr "Thank you for supporting the planet! View transaction on <0>PolygonScan.</0>"
 

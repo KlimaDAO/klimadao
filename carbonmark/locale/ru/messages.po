@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 21:14+0000\n"
+"POT-Creation-Date: 2023-06-08 21:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -304,8 +304,8 @@ msgstr "Никнейм не должен быть адресом"
 msgid "Handle should not contain any special characters"
 msgstr "Никнейм не должен содержать никаких специальных символов"
 
-#: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/index.tsx:112
+#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Retire/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Вы уже создали свой профиль Carbonmark <0>Profile</0>?"
 
@@ -357,7 +357,6 @@ msgstr "Последние Первые"
 msgid "Learn More"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "Покинуть Carbonmark"
@@ -482,14 +481,14 @@ msgstr "Оплата прошла успешно"
 msgid "Please Log In"
 msgstr "Пожалуйста, войдите"
 
-#: components/pages/Portfolio/index.tsx:55
+#: components/pages/Portfolio/index.tsx:56
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Пожалуйста, обновите страницу. При обновлении данных произошла ошибка: {e}."
 
-#: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
+#: components/pages/Portfolio/index.tsx:67
 msgid "Portfolio | Carbonmark"
 msgstr "Портфолио | Carbonmark"
 
@@ -553,7 +552,7 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr "Купить {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:57
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -604,7 +603,7 @@ msgstr "Источники"
 msgid "Resources | Carbonmark"
 msgstr "Ресурсы | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:68
+#: components/pages/Portfolio/AssetProject/index.tsx:63
 msgid "Retire"
 msgstr "Выбито"
 
@@ -621,7 +620,7 @@ msgstr ""
 msgid "Retire more Carbon"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+#: components/pages/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
 msgstr ""
 
@@ -629,8 +628,8 @@ msgstr ""
 msgid "Retire now"
 msgstr "Выбито сейчас"
 
-#: components/pages/Retire/index.tsx:83
-#: components/pages/Retire/index.tsx:84
+#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:76
 msgid "Retire | Carbonmark"
 msgstr ""
 
@@ -638,7 +637,7 @@ msgstr ""
 msgid "Retirement Message"
 msgstr "Сообщение о использовании"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+#: components/pages/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
 msgstr "Использование успешно!"
 
@@ -658,7 +657,7 @@ msgstr "Несколько слов о себе. Это будет видно в
 msgid "See your retirement receipt"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:74
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr "Продать"
 
@@ -691,8 +690,8 @@ msgstr "Извините, что-то пошло не так."
 msgid "Sorry, this handle already exists"
 msgstr "Извините, этот никнейм уже существует"
 
-#: components/pages/Portfolio/index.tsx:99
-#: components/pages/Retire/index.tsx:107
+#: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:97
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Извините. Мы не смогли найти никаких данных по Carbonmark для вашего пользователя."
 
@@ -854,11 +853,11 @@ msgstr ""
 msgid "View Registry Details <0/>"
 msgstr "Просмотр сведений о реестре <0/>"
 
-#: components/pages/Portfolio/index.tsx:67
+#: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Просмотрите полный обзор цифрового углерода, которым вы владеете, в своем портфолио."
 
-#: components/pages/Retire/index.tsx:85
+#: components/pages/Retire/index.tsx:77
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
@@ -866,7 +865,7 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Посмотреть и приобрести этот проект компенсации выбросов углерода на Carbonmark"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+#: components/pages/Retire/RetirementStatusModal/index.tsx:43
 msgid "View and share certificate"
 msgstr ""
 
@@ -1124,7 +1123,7 @@ msgstr "Сообщение о выводе"
 msgid "offset.retirement_retirement_message"
 msgstr "Сообщение о использовании"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+#: components/pages/Retire/RetirementStatusModal/index.tsx:33
 msgid "offset.successModal.body1"
 msgstr ""
 

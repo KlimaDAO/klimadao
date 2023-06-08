@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 21:14+0000\n"
+"POT-Creation-Date: 2023-06-08 21:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -304,8 +304,8 @@ msgstr "用户名不应是地址"
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
-#: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/index.tsx:112
+#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Retire/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
@@ -357,7 +357,6 @@ msgstr "最新优先"
 msgid "Learn More"
 msgstr "了解更多"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:77
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:73
 msgid "Leaving Carbonmark"
 msgstr "离开Carbonmark"
@@ -482,14 +481,14 @@ msgstr "支付成功"
 msgid "Please Log In"
 msgstr "请登录"
 
-#: components/pages/Portfolio/index.tsx:55
+#: components/pages/Portfolio/index.tsx:56
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
-#: components/pages/Portfolio/index.tsx:65
 #: components/pages/Portfolio/index.tsx:66
+#: components/pages/Portfolio/index.tsx:67
 msgid "Portfolio | Carbonmark"
 msgstr "投资组合 | Carbonmark"
 
@@ -555,7 +554,7 @@ msgstr "采购量（吨）："
 msgid "Purchase {0} | Carbonmark"
 msgstr "购买 {0} | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:57
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -606,7 +605,7 @@ msgstr "资源"
 msgid "Resources | Carbonmark"
 msgstr "资源 | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:68
+#: components/pages/Portfolio/AssetProject/index.tsx:63
 msgid "Retire"
 msgstr "停用"
 
@@ -623,7 +622,7 @@ msgstr ""
 msgid "Retire more Carbon"
 msgstr ""
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:45
+#: components/pages/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
 msgstr "停用更多的碳"
 
@@ -631,8 +630,8 @@ msgstr "停用更多的碳"
 msgid "Retire now"
 msgstr "现在停用"
 
-#: components/pages/Retire/index.tsx:83
-#: components/pages/Retire/index.tsx:84
+#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:76
 msgid "Retire | Carbonmark"
 msgstr "碳停用 | Carbonmark"
 
@@ -640,7 +639,7 @@ msgstr "碳停用 | Carbonmark"
 msgid "Retirement Message"
 msgstr "停用消息"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:23
+#: components/pages/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
 msgstr "停用成功！"
 
@@ -660,7 +659,7 @@ msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 msgid "See your retirement receipt"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:74
+#: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
 msgstr "卖出"
 
@@ -693,8 +692,8 @@ msgstr "抱歉，出了一些问题。"
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
-#: components/pages/Portfolio/index.tsx:99
-#: components/pages/Retire/index.tsx:107
+#: components/pages/Portfolio/index.tsx:105
+#: components/pages/Retire/index.tsx:97
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
@@ -856,11 +855,11 @@ msgstr "查看 Carbonmark 配置文件"
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
-#: components/pages/Portfolio/index.tsx:67
+#: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
-#: components/pages/Retire/index.tsx:85
+#: components/pages/Retire/index.tsx:77
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -868,7 +867,7 @@ msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:41
+#: components/pages/Retire/RetirementStatusModal/index.tsx:43
 msgid "View and share certificate"
 msgstr "查看和共享证书"
 
@@ -1126,7 +1125,7 @@ msgstr "停用消息"
 msgid "offset.retirement_retirement_message"
 msgstr "停用消息"
 
-#: components/pages/Retire/RetirementStatusModal/index.tsx:31
+#: components/pages/Retire/RetirementStatusModal/index.tsx:33
 msgid "offset.successModal.body1"
 msgstr "感谢您对地球的支持！在 <0>PolygonScan </0> 上查看交易。"
 
