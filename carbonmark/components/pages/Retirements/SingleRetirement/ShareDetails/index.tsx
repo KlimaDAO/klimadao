@@ -29,7 +29,7 @@ export const ShareDetails: FC<Props> = (props) => (
       </Trans>
     </Text>
     <div className={styles.content}>
-      {props.beneficiaryAddress ? (
+      {props.beneficiaryAddress && (
         <ButtonPrimary
           label={t({
             id: "retirement.single.download_certificate_button",
@@ -39,7 +39,7 @@ export const ShareDetails: FC<Props> = (props) => (
           className={styles.downloadButton}
           onClick={() => getRetirementCertificate(props)}
         />
-      ) : null}
+      )}
       <div className={styles.socialLinks}>
         <div className="buttons">
           <TweetButton
