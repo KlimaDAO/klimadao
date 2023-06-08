@@ -24,6 +24,8 @@ export interface Props {
   onSubmit: () => void;
   onCancel: () => void;
   onResetStatus: () => void;
+  successScreen?: React.ReactNode;
+  showSuccessScreen: boolean;
 }
 
 const PurchaseApproval: FC = () => {
@@ -78,13 +80,20 @@ const PurchaseSubmit: FC = () => {
 };
 
 export const PurchaseModal: FC<Props> = (props) => {
+  const showTransaction = !props.isProcessing && !props.showSuccessScreen;
+  const showSuccessScreen = !props.isProcessing && props.showSuccessScreen;
+  const title =
+    (props.isProcessing && t`Processing Purchase`) ||
+    (showSuccessScreen && t`Purchase successful`) ||
+    t`Confirm Purchase`;
+
   return (
     <Modal
-      title={!props.isProcessing ? t`Confirm Purchase` : t`Processing Purchase`}
+      title={title}
       showModal={props.showModal}
       onToggleModal={props.onModalClose}
     >
-      {!props.isProcessing && (
+      {showTransaction && (
         <Transaction
           hasApproval={props.hasApproval}
           amount={props.amount}
@@ -103,6 +112,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
+      {showSuccessScreen && props.successScreen}
     </Modal>
   );
 };

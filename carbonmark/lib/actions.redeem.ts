@@ -39,7 +39,9 @@ export const redeemCarbonTransaction = async (params: {
   maxCost: string;
   quantity: string;
   onStatus: OnStatusHandler;
-}) => {
+}): Promise<{
+  transactionHash: string;
+}> => {
   try {
     if (params.paymentMethod === "fiat") {
       throw Error("Unsupported payment method");
@@ -68,8 +70,8 @@ export const redeemCarbonTransaction = async (params: {
     );
 
     params.onStatus("networkConfirmation");
-    await txn.wait(1);
-    params.onStatus("done");
+    const receipt = await txn.wait(1);
+    return { transactionHash: receipt.transactionHash };
   } catch (e: any) {
     if (e.code === 4001) {
       params.onStatus("error", "userRejected");

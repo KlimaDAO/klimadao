@@ -239,6 +239,22 @@ export const feeText = css`
   gap: 0.8rem;
 `;
 
+export const successScreen = css`
+  margin-top: 3.2rem;
+  display: grid;
+  gap: 2rem;
+
+  .headline {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .summary {
+    display: grid;
+    gap: 1.2rem;
+  }
+`;
+
 export const externalLink = css`
   color: var(--font-01);
   text-decoration: underline;

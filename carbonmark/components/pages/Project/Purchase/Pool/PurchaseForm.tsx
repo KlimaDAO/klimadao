@@ -20,6 +20,7 @@ import { Price } from "./Price";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
 import { SubmitButton } from "./SubmitButton";
+import { SuccessScreen } from "./SuccessScreen";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
 
@@ -37,6 +38,7 @@ export const PurchaseForm: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
+  const [transactionHash, setTransactionHash] = useState<string | null>(null);
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -135,7 +137,7 @@ export const PurchaseForm: FC<Props> = (props) => {
 
     try {
       setIsProcessing(true);
-      await redeemCarbonTransaction({
+      const result = await redeemCarbonTransaction({
         paymentMethod: inputValues.paymentMethod,
         pool: props.price.name.toLowerCase() as PoolToken,
         maxCost: inputValues.totalPrice,
@@ -144,8 +146,11 @@ export const PurchaseForm: FC<Props> = (props) => {
         provider,
         onStatus: onUpdateStatus,
       });
+      result.transactionHash && setTransactionHash(result.transactionHash);
+      setIsProcessing(false);
     } catch (e) {
       console.error("onMakeRedeem error", e);
+    } finally {
       setIsProcessing(false);
     }
   };
@@ -212,6 +217,18 @@ export const PurchaseForm: FC<Props> = (props) => {
         onSubmit={onMakeRedeem}
         onCancel={resetStateAndCancel}
         onResetStatus={() => setStatus(null)}
+        successScreen={
+          <SuccessScreen
+            project={props.project}
+            totalPrice={inputValues?.totalPrice}
+            transactionHash={transactionHash}
+            paymentMethod={inputValues?.paymentMethod}
+            address={address}
+            price={props.price}
+            quantity={inputValues?.quantity || "0"}
+          />
+        }
+        showSuccessScreen={!!transactionHash}
       />
     </FormProvider>
   );
