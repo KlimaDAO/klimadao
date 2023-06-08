@@ -10,6 +10,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
 import { ListingPurchase } from "./Listing";
+import { PoolPurchase } from "./Pool";
 
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
@@ -18,7 +19,7 @@ export interface ProjectPurchasePageProps {
 }
 
 const getIsPoolPurchase = (purchase: Price): purchase is Price =>
-  purchase.name !== undefined && isPoolToken(purchase.name);
+  purchase.name !== undefined && isPoolToken(purchase.name.toLowerCase());
 const getIsListingPurchase = (purchase: Listing): purchase is Listing =>
   purchase.id !== undefined;
 
@@ -52,6 +53,13 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
             <LoginButton className="desktopLogin" />
           </div>
 
+          {isPoolPurchase && (
+            <PoolPurchase
+              project={props.project}
+              price={props.purchase as Price}
+            />
+          )}
+
           {isListingPurchase && (
             <ListingPurchase
               project={props.project}
@@ -59,12 +67,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
             />
           )}
 
-          {isNone && (
-            <InactivePurchase
-              project={props.project}
-              singleUnitPrice={props.purchase.singleUnitPrice || "0"}
-            />
-          )}
+          {isNone && <InactivePurchase project={props.project} />}
         </div>
       </Layout>
     </>
