@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 15:35+0000\n"
+"POT-Creation-Date: 2023-06-08 20:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,7 +84,7 @@ msgid "Available balance exceeded"
 msgstr "Verfügbares Guthaben überschritten"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:87
-#: components/pages/Project/Retire/RetireInputs.tsx:87
+#: components/pages/Project/Retire/RetireInputs.tsx:88
 msgid "Available supply exceeded"
 msgstr "Verfügbarer Vorrat überschritten"
 
@@ -93,7 +93,7 @@ msgstr "Verfügbarer Vorrat überschritten"
 msgid "Available to retire"
 msgstr ""
 
-#: components/pages/Project/Retire/RetireInputs.tsx:65
+#: components/pages/Project/Retire/RetireInputs.tsx:66
 msgid "Available:"
 msgstr ""
 
@@ -111,23 +111,23 @@ msgid "Back to Project"
 msgstr "Zurück zum Projekt"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
-#: components/pages/Project/Retire/RetireInputs.tsx:138
+#: components/pages/Project/Retire/RetireInputs.tsx:146
 msgid "Balance: {0}"
 msgstr "Guthaben: {0}"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:192
+#: components/pages/Project/Retire/RetireInputs.tsx:200
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Achten Sie darauf, keine persönlichen Daten (wie E-Mail-Adressen) im Ausgleichsnamen oder der -nachricht anzugeben. Die hier eingegebenen Informationen werden auf einer öffentlichen Blockchain für immer einsehbar sein und können nicht bearbeitet werden."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:116
+#: components/pages/Project/Retire/RetireInputs.tsx:123
 msgid "Beneficiary Address"
 msgstr "Empfängeradresse"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:103
+#: components/pages/Project/Retire/RetireInputs.tsx:104
 msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:113
+#: components/pages/Project/Retire/RetireInputs.tsx:114
 #: components/pages/Retire/RetireForm/index.tsx:264
 msgid "Beneficiary wallet address (optional)"
 msgstr "Wallet-Adresse des Begünstigten (optional)"
@@ -215,7 +215,7 @@ msgstr "Kontakt"
 msgid "Continue"
 msgstr "Weiter"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:208
+#: components/pages/Project/Retire/RetireInputs.tsx:216
 msgid "Could not calculate Total Cost"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr "Profil erstellen"
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktivität mit Ihrem Carbonmark-Profil"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:72
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:56
 msgid "Create your own retirement"
 msgstr ""
 
@@ -248,11 +248,11 @@ msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 msgid "Data for this seller"
 msgstr "Informationen über diesen Verkäufer"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:119
+#: components/pages/Project/Retire/RetireInputs.tsx:127
 msgid "Defaults to the connected wallet address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:126
+#: components/pages/Project/Retire/RetireInputs.tsx:134
 msgid "Describe the purpose of this retirement"
 msgstr "Beschreibe den Zweck dieses Ausgleichs"
 
@@ -324,11 +324,11 @@ msgstr ""
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Wie viele Tonnen CO2 möchten Sie kaufen?"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:91
+#: components/pages/Project/Retire/RetireInputs.tsx:92
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr ""
 
-#: components/pages/Project/Retire/RetireInputs.tsx:61
+#: components/pages/Project/Retire/RetireInputs.tsx:62
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr ""
 
@@ -449,6 +449,10 @@ msgstr "Keine Nachricht an den CO2-Ausgleich angehängt."
 msgid "Not Connected"
 msgstr "Nicht verbunden"
 
+#: components/pages/Project/Retire/RetireInputs.tsx:119
+msgid "Not a valid polygon address"
+msgstr ""
+
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
 msgstr "Älteste Einträge zuerst"
@@ -462,7 +466,7 @@ msgid "Other Nature-Based"
 msgstr "Andere naturbasierte Credits"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
-#: components/pages/Project/Retire/RetireInputs.tsx:135
+#: components/pages/Project/Retire/RetireInputs.tsx:143
 msgid "Pay with:"
 msgstr "Bezahlen mit:"
 
@@ -551,7 +555,7 @@ msgstr "{0} kaufen | Carbonmark"
 msgid "Quantity Available:"
 msgstr "Verfügbare Menge:"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:79
+#: components/pages/Project/Retire/RetireInputs.tsx:80
 msgid "Quantity is required"
 msgstr "Menge ist erforderlich"
 
@@ -579,7 +583,7 @@ msgstr "Verbleibendes Angebot:"
 msgid "Renewable Energy"
 msgstr "Erneuerbare Energie"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:55
+#: components/pages/Project/Retire/RetireInputs.tsx:56
 msgid "Required Field"
 msgstr ""
 
@@ -626,7 +630,7 @@ msgstr "Jetzt ausgleichen"
 msgid "Retire | Carbonmark"
 msgstr "Ausgleichen | Carbonmark"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:129
+#: components/pages/Project/Retire/RetireInputs.tsx:137
 msgid "Retirement Message"
 msgstr "Ausgleichsnachricht"
 
@@ -728,7 +732,7 @@ msgstr "Die unten angegebenen Informationen werden öffentlich einsehbar sein, u
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr "Die weltweit größte Auswahl aus digitalen CO2-Credits. Kaufen und verkaufen Sie digitales CO2 und gleichen Sie sofort provisionsfrei Ihren CO2-Fußabdruck aus."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:83
+#: components/pages/Project/Retire/RetireInputs.tsx:84
 msgid "The minimum amount to retire is 1 Tonne"
 msgstr ""
 
@@ -764,12 +768,12 @@ msgstr "Verifizieren Sie die Informationen und klicken Sie unten auf \"Absenden\
 msgid "To purchase this project using a different form of payment,"
 msgstr "Um dieses Projekt mit einer anderen Zahlungsmethode zu kaufen,"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:183
+#: components/pages/Project/Retire/RetireInputs.tsx:191
 msgid "To retire this project using a different form of payment,"
 msgstr ""
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
-#: components/pages/Project/Retire/RetireInputs.tsx:147
+#: components/pages/Project/Retire/RetireInputs.tsx:155
 msgid "Toggle payment method"
 msgstr "Zahlungsmethode ändern"
 
@@ -779,7 +783,7 @@ msgstr "Sortiermenü einschalten"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
-#: components/pages/Project/Retire/RetireInputs.tsx:71
+#: components/pages/Project/Retire/RetireInputs.tsx:72
 #: components/pages/Project/Retire/TotalValues.tsx:111
 msgid "Tonnes"
 msgstr "Tonnen"
@@ -894,8 +898,8 @@ msgstr "Ihr Kauf wird noch verarbeitet. Aktualisieren Sie diese Seite in wenigen
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Wir haben die Verarbeitung der Blockchaindaten für diesen Ausgleich noch nicht abgeschlossen. Dies dauert etwas länger, wenn das Netzwerk überlastet ist."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:99
-#: components/pages/Project/Retire/RetireInputs.tsx:106
+#: components/pages/Project/Retire/RetireInputs.tsx:100
+#: components/pages/Project/Retire/RetireInputs.tsx:107
 msgid "Who will this retirement be credited to?"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
@@ -916,7 +920,7 @@ msgstr ""
 msgid "You chose to reject the transaction."
 msgstr "Sie haben die Transaktion abgelehnt"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:212
+#: components/pages/Project/Retire/RetireInputs.tsx:220
 msgid "You exceeded your available amount of tokens"
 msgstr "Sie haben Ihre verfügbare Menge an Tokens überschritten"
 
@@ -1354,6 +1358,7 @@ msgid "retirement.single.country_region.title"
 msgstr "Land/Region:"
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
 msgid "retirement.single.download_certificate_button"
 msgstr "PFD herunterladen"
 
@@ -1397,7 +1402,7 @@ msgstr "Beweis für"
 msgid "retirement.single.quantity.title"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
 msgid "retirement.single.share_retirement.title"
 msgstr "Diesen Ausgleich teilen"
 
@@ -1493,10 +1498,6 @@ msgstr "Zum Kaufen anmelden/verbinden"
 #: components/pages/Retirements/index.tsx:51
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:35
-msgid "shared.loading"
-msgstr "Lade..."
 
 #: components/Layout/index.tsx:89
 msgid "shared.login"
