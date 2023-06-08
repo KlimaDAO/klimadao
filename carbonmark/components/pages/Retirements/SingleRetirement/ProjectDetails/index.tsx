@@ -82,7 +82,7 @@ export const ProjectDetails: FC<Props> = (props) => {
                 <A href={urls.carbonDashboard}>carbon.klimadao.finance</A>.
               </Trans>
             ) : (
-              props.description
+              <Text className="description">{props.description}</Text>
             )}
           </Text>
         </div>

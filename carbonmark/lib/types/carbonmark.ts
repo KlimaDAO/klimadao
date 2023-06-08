@@ -30,6 +30,8 @@ export interface Project {
     };
   };
   description?: string;
+  short_description?: string;
+  long_description?: string;
   isPoolProject?: boolean; // pool project only
   totalBridged: string | null; // pool project only
   totalRetired: string | null; // pool project only

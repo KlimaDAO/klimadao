@@ -71,7 +71,9 @@ const Page: NextPage = () => {
                 <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
                 <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
                 <Text t="body1" className={styles.cardDescription}>
-                  {project.description || t`No project description found`}
+                  {project.short_description ||
+                    project.description ||
+                    t`No project description found`}
                 </Text>
                 <div className={styles.tags}>
                   <Vintage vintage={project.vintage} />

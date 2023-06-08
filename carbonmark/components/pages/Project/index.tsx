@@ -34,6 +34,7 @@ import {
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
+import { useState } from "react";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
@@ -50,6 +51,7 @@ const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Typeguard, project should always be defined from static page props!
   if (!project) {
@@ -203,10 +205,19 @@ const Page: NextPage<PageProps> = (props) => {
               <Text t="h5" color="lighter">
                 <Trans>Description</Trans>
               </Text>
-              <Text t="body1">
-                {project.description ?? "No project description found"}
+              <Text t="body1" className={cx({ collapsed: !isExpanded })}>
+                {project.long_description ||
+                  project.description ||
+                  "No project description found"}
               </Text>
             </div>
+            <Text
+              role="button"
+              className="expandedText"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+            </Text>
             {notNil(project.url) && (
               <Anchor
                 target="_blank"

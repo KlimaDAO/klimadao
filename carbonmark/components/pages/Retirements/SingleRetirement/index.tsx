@@ -143,7 +143,9 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             <ProjectDetails
               retirement={retirement}
               isMossOffset={isMossOffset}
-              description={props.project?.description}
+              description={
+                props.project?.long_description || props.project?.description
+              }
               category={props.project?.methodologies?.[0]?.category || null}
             />
             <div className={cx(styles.visibleMobile)}>

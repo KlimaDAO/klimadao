@@ -212,7 +212,7 @@ msgid "Confirm Retirement"
 msgstr "Confirm Retirement"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:517
+#: components/pages/Home/index.tsx:519
 msgid "Contact"
 msgstr "Contact"
 
@@ -245,7 +245,7 @@ msgstr "Create your own retirement"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Project/index.tsx:244
+#: components/pages/Project/index.tsx:246
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -316,7 +316,7 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:510
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -347,7 +347,7 @@ msgid "Industrial Processing"
 msgstr "Industrial Processing"
 
 #: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:516
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -442,11 +442,11 @@ msgstr "No active listings."
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
-#: components/pages/Project/index.tsx:234
+#: components/pages/Project/index.tsx:236
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -519,7 +519,7 @@ msgstr "Price per tonne"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/pages/Home/index.tsx:502
+#: components/pages/Home/index.tsx:504
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -597,7 +597,7 @@ msgid "Required Field"
 msgstr "Required Field"
 
 #: components/Footer/index.tsx:44
-#: components/pages/Home/index.tsx:511
+#: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -717,7 +717,7 @@ msgstr "Switch to Polygon"
 msgid "Terms of Use"
 msgstr "Terms of Use"
 
-#: components/pages/Home/index.tsx:505
+#: components/pages/Home/index.tsx:507
 msgid "Terms of use"
 msgstr "Terms of use"
 
@@ -855,7 +855,7 @@ msgstr "Verify all information is correct and click 'approve' to continue."
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
-#: components/pages/Project/index.tsx:217
+#: components/pages/Project/index.tsx:219
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
