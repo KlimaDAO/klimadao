@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-09 17:07+0000\n"
+"POT-Creation-Date: 2023-06-09 17:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -111,15 +111,15 @@ msgid "Back to Project"
 msgstr "वापस प्रॉजेक्ट पर"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
-#: components/pages/Project/Retire/RetireInputs.tsx:146
+#: components/pages/Project/Retire/RetireInputs.tsx:147
 msgid "Balance: {0}"
 msgstr "जमाराशि: {0}"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:200
+#: components/pages/Project/Retire/RetireInputs.tsx:201
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "अपने रिटायरमैंट नाम या संदेश में किसी भी संवेदनशील व्यक्तिगत जानकारी (जैसे ईमेल पता) को शामिल करते सयय सावधान रहें। आपके द्वारा यहां दर्ज की गई जानकारी को एक बार जमा करने के बाद संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:123
+#: components/pages/Project/Retire/RetireInputs.tsx:124
 msgid "Beneficiary Address"
 msgstr "लाभार्थी का पता"
 
@@ -215,7 +215,7 @@ msgstr "संपर्क करें"
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:216
+#: components/pages/Project/Retire/RetireInputs.tsx:217
 msgid "Could not calculate Total Cost"
 msgstr "कुल लागत की गणना नहीं सकी"
 
@@ -248,11 +248,11 @@ msgstr "इस प्रॉजेक्ट और विंटेज के ल�
 msgid "Data for this seller"
 msgstr "इस विक्रेता संबंधी डेटा"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:127
+#: components/pages/Project/Retire/RetireInputs.tsx:128
 msgid "Defaults to the connected wallet address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:134
+#: components/pages/Project/Retire/RetireInputs.tsx:135
 msgid "Describe the purpose of this retirement"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
@@ -452,7 +452,7 @@ msgstr "कोई रिटायरमेंट संदेश प्रदा
 msgid "Not Connected"
 msgstr "कनेक्शन नहीं है"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:119
+#: components/pages/Project/Retire/RetireInputs.tsx:120
 msgid "Not a valid polygon address"
 msgstr ""
 
@@ -469,7 +469,7 @@ msgid "Other Nature-Based"
 msgstr "अन्य प्रकृति-अनुरूप"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
-#: components/pages/Project/Retire/RetireInputs.tsx:143
+#: components/pages/Project/Retire/RetireInputs.tsx:144
 msgid "Pay with:"
 msgstr "भुगतान यँत्र:"
 
@@ -633,7 +633,7 @@ msgstr "अभी रिटायर करें"
 msgid "Retire | Carbonmark"
 msgstr "रिटायर | कार्बनमार्क"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:137
+#: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
 msgstr "रिटायरमेंट सन्देश"
 
@@ -736,8 +736,8 @@ msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and
 msgstr "दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा संकलन। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन ख़रीदें, बेचें और रिटायर करें।"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:84
-msgid "The minimum amount to retire is 1 Tonne"
-msgstr "सेवानिवृत्त होने के लिए न्यूनतम राशि 1 टन है"
+msgid "The minimum amount to retire is 0.001 Tonnes"
+msgstr ""
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -771,12 +771,12 @@ msgstr "अपनी रिटायरमैंट को अंतिम र�
 msgid "To purchase this project using a different form of payment,"
 msgstr "भुगतान के किसी भिन्न प्रकार का उपयोग करके इस प्रोजेक्ट को खरीदने के लिए,"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:191
+#: components/pages/Project/Retire/RetireInputs.tsx:192
 msgid "To retire this project using a different form of payment,"
 msgstr "भुगतान के किसी भिन्न प्रकार का उपयोग करके इस प्रोजेक्ट को समाप्त करने के लिए,"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
-#: components/pages/Project/Retire/RetireInputs.tsx:155
+#: components/pages/Project/Retire/RetireInputs.tsx:156
 msgid "Toggle payment method"
 msgstr "भुगतान विधि टॉगल करें"
 
@@ -923,7 +923,7 @@ msgstr "आप कार्बन एसेट को रिटायर कर�
 msgid "You chose to reject the transaction."
 msgstr "आपने लेन-देन को अस्वीकार करना चुना है।"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:220
+#: components/pages/Project/Retire/RetireInputs.tsx:221
 msgid "You exceeded your available amount of tokens"
 msgstr "आपने टोकन की अपनी उपलब्ध राशि पार कर ली है"
 
