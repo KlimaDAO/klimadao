@@ -21,6 +21,7 @@
     "build-app-vercel": "cd ./lib && npm run build && cd ../app && npm run build",
     "build-carbonmark": "npm run build-lib && npm run build --workspace=carbonmark",
     "build-carbonmark-vercel": "cd ./lib && npm run build && cd ../carbonmark && npm run build",
+    "build-carbonmark-api": "vercel build",
     "export-app": "cd ./lib && npm run build && cd ../app && IS_STATIC_EXPORT=true npm run build && IS_STATIC_EXPORT=true npm run export",
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
@@ -36,6 +37,7 @@
     "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev && npm run -w carbonmark lingui:extract:dev"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "vercel": "^30.2.1"
   }
 }
