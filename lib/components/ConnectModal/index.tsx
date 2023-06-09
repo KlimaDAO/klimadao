@@ -18,7 +18,7 @@ import {
   TwitterIcon,
   WalletConnectIcon,
 } from "../.";
-import { useFocusTrap, useWeb3 } from "../../utils";
+import { useFocusTrap, useScrollLock, useWeb3 } from "../../utils";
 import * as styles from "./styles";
 
 // ems modules and javascript are strange so we import like this
@@ -75,11 +75,10 @@ export const ConnectModal = (props: ConnectModalProps) => {
   useEffect(() => {
     if (props.showModal) {
       setStep("connect");
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
     }
   }, [props.showModal]);
+
+  useScrollLock(props.showModal);
 
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "injected";

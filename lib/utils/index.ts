@@ -52,5 +52,6 @@ export { trimWithLocale } from "./trimWithLocale";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
+export { useScrollLock } from "./useScrollLock";
 export { useTabListener } from "./useTabListener";
 export { useWeb3 } from "./useWeb3";

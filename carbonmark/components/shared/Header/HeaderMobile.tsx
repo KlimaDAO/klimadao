@@ -1,6 +1,7 @@
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import * as styles from "./styles";
 
+import { useScrollLock } from "@klimadao/lib/utils";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import Link from "next/link";
 import { NavMobile } from "../Navigation/NavMobile";
@@ -14,16 +15,7 @@ interface Props {
 
 export const HeaderMobile: FC<Props> = (props) => {
   const [isToggled, setIsToggled] = useState(false);
-
-  useEffect(() => {
-    isToggled
-      ? document.body.classList.add("scroll-lock")
-      : document.body.classList.remove("scroll-lock");
-
-    return () => {
-      document.body.classList.remove("scroll-lock");
-    };
-  }, [isToggled]);
+  useScrollLock(isToggled);
 
   return (
     <div
