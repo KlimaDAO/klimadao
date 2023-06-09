@@ -10,7 +10,7 @@ import TCO2 from "public/icons/TCO2.png";
 import UBO from "public/icons/UBO.png";
 import USDC from "public/icons/USDC.png";
 
-type CarbonmarkTokenMap = {
+export type CarbonmarkTokenMap = {
   [key in CarbonmarkToken]: {
     key: string;
     icon: StaticImageData;

@@ -6,10 +6,12 @@ import {
 } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { utils } from "ethers";
+import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 import { INFURA_ID } from "lib/shared/secrets";
+import { Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -22,11 +24,12 @@ interface Params extends ParsedUrlQuery {
 export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
-  retirement: KlimaRetire | PendingKlimaRetire;
+  retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
   retirementIndex: Params["retirement_index"];
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
+  project?: Project | null;
 }
 
 // second param should always be a number
@@ -66,11 +69,12 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    let retirement: KlimaRetire | PendingKlimaRetire;
+    let retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       loadTranslation(locale),
     ]);
+
     if (subgraphData) {
       retirement = subgraphData;
     } else {
@@ -100,8 +104,13 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
+    const project = await getCarbonmarkProject(
+      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+    );
+
     return {
       props: {
+        project: project || null,
         beneficiaryAddress: beneficiaryAddress,
         canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,

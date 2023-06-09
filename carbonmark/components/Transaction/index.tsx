@@ -1,9 +1,7 @@
 import { Trans } from "@lingui/macro";
-import { FC, useState } from "react";
-
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
+import { FC, useState } from "react";
 import { Approve } from "./Approve";
 import * as styles from "./styles";
 import { Submit } from "./Submit";
@@ -13,6 +11,7 @@ interface Props {
   hasApproval: boolean;
   amount: Value;
   price?: Value;
+  approvalValue?: Value;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;
@@ -21,13 +20,13 @@ interface Props {
   approvalText?: React.ReactNode;
   submitText?: React.ReactNode;
   onGoBack?: () => void;
+  spenderAddress: string;
 }
 
 export const Transaction: FC<Props> = (props) => {
   const [view, setView] = useState<"approve" | "submit">(
     props.hasApproval ? "submit" : "approve"
   );
-
   const statusType = props.status?.statusType;
   const isPending =
     statusType === "userConfirmation" || statusType === "networkConfirmation";
@@ -58,10 +57,10 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={props.amount}
+          amount={props.approvalValue || props.amount}
           price={props.price}
           description={props.approvalText}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -75,7 +74,7 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.submitText}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={props.spenderAddress}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}

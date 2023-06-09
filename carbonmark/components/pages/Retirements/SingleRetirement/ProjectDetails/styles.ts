@@ -1,58 +1,106 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const section = css`
-  padding-top: 5rem;
-  padding-bottom: 4rem;
-  ${breakpoints.medium} {
-    padding-top: 9rem;
-    padding-bottom: 4rem;
-  }
-`;
-
 export const projectDetails = css`
-  background-color: var(--surface-01);
-  border-radius: 1.2rem;
-  grid-column: main;
-  display: grid;
-  gap: 2.4rem;
-  padding: 2.4rem;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--manatee);
 
-  ${breakpoints.medium} {
-    padding: 5.2rem;
+  ${breakpoints.desktop} {
+    padding: 3rem 3.5rem;
   }
 `;
 
-export const title = css`
-  display: grid;
+export const textGroup = css`
   gap: 0.8rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+
+  p > a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .description {
+    white-space: pre-line;
+  }
 `;
 
-export const list = css`
-  display: grid;
+export const imageWrapper = css`
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  grid-column: main;
+  padding: 7.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+`;
+
+export const placeholder = css`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+`;
+
+export const officialText = css`
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2.1rem;
+`;
+
+export const profileLink = css`
+  display: flex;
+  gap: 1.45rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.042rem;
+  margin-top: 0.2rem;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--bright-blue);
+  font-family: var(--font-family-secondary);
+`;
+
+export const buttons = css`
   gap: 1.2rem;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
 
-  .link {
-    color: var(--font-01);
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
+  ${breakpoints.desktop} {
+    flex-direction: row;
+  }
 
-    .svg {
-      display: inline-flex;
-      align-self: center;
-      top: 0.125em; // em to perfectly align with inline breaks
-      position: relative;
-      left: 0.4rem;
+  & .copyButton {
+    background-color: transparent !important;
+
+    & svg path {
+      fill: var(--font-02);
     }
   }
 
-  .button_link {
-    align-items: flex-start;
-    display: flex;
-    a {
-      color: var(--klima-green);
-    }
+  & a,
+  & .copyButton {
+    width: 100%;
+    border: 0.1rem solid;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    min-height: 3.9rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-color: var(--font-03);
+    color: var(--font-02) !important;
+    font-family: var(--font-family-secondary);
   }
 `;

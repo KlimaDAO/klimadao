@@ -2,7 +2,6 @@ import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
-import SendRounded from "@mui/icons-material/SendRounded";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
@@ -33,7 +32,6 @@ export const Approve: FC<Props> = (props) => {
 
   const showApproveButton = !showButtonSpinner && !success;
   const showNextButton = !showButtonSpinner && success;
-
   return (
     <>
       <div
@@ -41,7 +39,8 @@ export const Approve: FC<Props> = (props) => {
           success,
         })}
       >
-        <div>{props.description && <div>{props.description}</div>}</div>
+        {props.description && <div>{props.description} </div>}
+
         <HighlightValue
           label={
             <Text t="body1" color="lighter">
@@ -101,7 +100,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showApproveButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="shared.approve">Approve</Trans>}
             onClick={() => props.onApproval()}
             className={styles.submitButton}
@@ -109,7 +107,6 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showNextButton && (
           <ButtonPrimary
-            icon={<SendRounded />}
             label={<Trans id="transaction_modal.next">Next</Trans>}
             onClick={() => props.onSuccess()}
             className={styles.submitButton}

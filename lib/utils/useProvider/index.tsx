@@ -46,7 +46,10 @@ export const useProvider = (): Web3ModalState => {
     window.location.reload();
   };
 
-  const connect = async (wallet?: string): Promise<void> => {
+  const connect = async (
+    wallet?: string,
+    useCache?: boolean
+  ): Promise<void> => {
     const connectedWallet = localStorage.getItem("web3-wallet");
     try {
       let provider: TypedProvider;
@@ -127,6 +130,7 @@ export const useProvider = (): Web3ModalState => {
         network,
         isConnected: true,
         initializing: false,
+        isConnectionFromCache: useCache || false,
       };
       setWeb3State(newState);
     } catch (e: any) {
@@ -148,7 +152,7 @@ export const useProvider = (): Web3ModalState => {
   useEffect(() => {
     const wallet = localStorage.getItem("web3-wallet");
     if (wallet) {
-      connect();
+      connect(wallet, true);
     } else {
       setWeb3State((s) => ({ ...s, initializing: false }));
     }

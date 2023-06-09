@@ -6,6 +6,7 @@ import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Activities } from "components/Activities";
+import Carousel from "components/Carousel/Carousel";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
@@ -33,6 +34,7 @@ import {
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";
+import { useState } from "react";
 import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
@@ -49,6 +51,7 @@ const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Typeguard, project should always be defined from static page props!
   if (!project) {
@@ -158,7 +161,6 @@ const Page: NextPage<PageProps> = (props) => {
               </>
             )}
           </div>
-
           <div className={styles.methodology}>
             <Text t="h5" color="lighter" align="end">
               <Trans>Methodology</Trans>
@@ -181,25 +183,41 @@ const Page: NextPage<PageProps> = (props) => {
             hasMap: !!project.location,
           })}
         >
-          {project.location && (
-            <div className="mapColumn">
-               
-              <ProjectMap
-                lat={project.location?.geometry.coordinates[1]}
-                lng={project.location?.geometry.coordinates[0]}
-                zoom={5}
-              />
+          {project?.images?.length ? (
+            <div className={styles.carouselWrapper}>
+              <Carousel images={project.images} location={project.location} />
             </div>
+          ) : (
+            <>
+              {project.location && (
+                <div className="mapColumn">
+                  <ProjectMap
+                    lat={project.location?.geometry.coordinates[1]}
+                    lng={project.location?.geometry.coordinates[0]}
+                    zoom={5}
+                  />
+                </div>
+              )}
+            </>
           )}
           <div className="descriptionColumn">
             <div className="description">
               <Text t="h5" color="lighter">
                 <Trans>Description</Trans>
               </Text>
-              <Text t="body1">
-                {project.description ?? "No project description found"}
+              <Text t="body1" className={cx({ collapsed: !isExpanded })}>
+                {project.long_description ||
+                  project.description ||
+                  "No project description found"}
               </Text>
             </div>
+            <Text
+              role="button"
+              className="expandedText"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+            </Text>
             {notNil(project.url) && (
               <Anchor
                 target="_blank"

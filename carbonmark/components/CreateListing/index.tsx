@@ -9,6 +9,8 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
+import { LO } from "lib/luckyOrange";
+import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AssetForListing } from "lib/types/carbonmark";
 import { FC, useState } from "react";
@@ -55,6 +57,7 @@ export const CreateListing: FC<Props> = (props) => {
   };
 
   const onAddListingFormSubmit = async (values: FormValues) => {
+    LO.track("Listing: Create Listing Clicked");
     setIsLoading(true);
     try {
       if (!address) return;
@@ -80,6 +83,7 @@ export const CreateListing: FC<Props> = (props) => {
   };
 
   const handleApproval = async () => {
+    LO.track("Listing: Approve Clicked");
     if (!provider || !inputValues) return;
 
     try {
@@ -106,7 +110,7 @@ export const CreateListing: FC<Props> = (props) => {
         tokenType: inputValues.tokenType,
         onStatus: onUpdateStatus,
       });
-
+      LO.track("Listing: Listing Created");
       props.onSubmit();
       setSuccess(true);
       !props.successScreen && resetStateAndCloseModal(); // close only if no success screen provided
@@ -188,7 +192,6 @@ export const CreateListing: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
-
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
@@ -204,6 +207,7 @@ export const CreateListing: FC<Props> = (props) => {
           }}
           approvalText={<CreateApproval />}
           submitText={<CreateSubmit />}
+          spenderAddress={getAddress("carbonmark")}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

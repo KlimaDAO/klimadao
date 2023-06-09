@@ -139,7 +139,9 @@ export const Home: NextPage<Props> = (props) => {
                           formatBigToPrice(project.price, locale)}
                       </Text>
                       <Text as="h5">{project?.name}</Text>
-                      <Text t="body1">{project?.description}</Text>
+                      <Text t="body1">
+                        {project?.short_description || project?.description}
+                      </Text>
                       <div className={styles.tags}>
                         <Category category={getCategoryFromProject(project)} />
                         <Vintage vintage={project.vintage} />

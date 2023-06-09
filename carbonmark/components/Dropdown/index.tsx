@@ -1,7 +1,9 @@
 import { cx } from "@emotion/css";
+import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
+import Image, { StaticImageData } from "next/legacy/image";
 import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { Control, FieldValues, Path, useController } from "react-hook-form";
 import * as styles from "./styles";
@@ -14,7 +16,13 @@ type Props<V, T extends FieldValues> = {
   renderLabel: (option: Option<V>) => string | ReactNode;
 } & Pick<HTMLAttributes<HTMLDivElement>, "className">;
 
-type Option<T> = { id: string; value: T; label: string };
+type Option<T> = {
+  id: string;
+  value: T;
+  label: string;
+  icon?: StaticImageData;
+  disabled?: boolean;
+};
 
 export function Dropdown<V, T extends FieldValues = FieldValues>(
   props: Props<V, T>
@@ -29,7 +37,9 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   const defaultOption = options.find(({ id }) => id === initial) ?? options[0];
   const [selected, setSelected] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen((current) => !current);
+
+  const disableToggle = options.length <= 1;
+  const toggle = () => !disableToggle && setIsOpen((current) => !current);
   const close = () => setIsOpen(false);
 
   // always close dropdown if label changed
@@ -47,12 +57,15 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
               <DropdownButton
                 key={option.id}
                 label={option.label}
+                icon={option.icon}
                 onClick={() => setSelected(option)}
                 active={selected?.value === option.value}
+                disabled={option.disabled}
               />
             ))}
           </div>
         }
+        disabled={disableToggle}
         arrow={false}
         interactive={true}
         onClickOutside={toggle}
@@ -75,14 +88,14 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
           onClick={toggle}
           role="button"
           type="button"
-          className={styles.dropdownHeader}
+          className={cx(styles.dropdownHeader, { disableToggle })}
         >
           {renderLabel(selected)}
           {isOpen ? (
             <ArrowDropUpIcon fontSize="large" />
-          ) : (
+          ) : !disableToggle ? (
             <ArrowDropDownIcon fontSize="large" />
-          )}
+          ) : null}
         </button>
       </Tippy>
     </div>
@@ -91,8 +104,10 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
 
 type DropdownButtonProps = {
   label: string;
+  icon?: StaticImageData;
   onClick: () => void;
   active: boolean;
+  disabled?: boolean;
 };
 
 const DropdownButton: FC<DropdownButtonProps> = (props) => (
@@ -103,7 +118,18 @@ const DropdownButton: FC<DropdownButtonProps> = (props) => (
     type="button"
     aria-label={props.label}
     data-active={props.active}
+    disabled={props.disabled}
   >
+    {props.icon && (
+      <Image
+        className="icon"
+        src={props.icon}
+        width={28}
+        height={28}
+        alt={props.label || ""}
+      />
+    )}{" "}
     {props.label}
+    {props.disabled && <span>{t`Coming soon`}</span>}
   </button>
 );

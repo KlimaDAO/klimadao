@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-05-10 00:56+0000\n"
+"POT-Creation-Date: 2023-06-08 21:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,11 +68,11 @@ msgid "Wrong Network"
 msgstr "网络错误"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:87
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.description"
 msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资产、商业资产、战略和运营的信息仅供一般参考之用，并非正式的出售要约或要约邀请在任何司法管辖区购买与证券相关的任何证券、期权、期货或其他衍生品，其内容不受证券法的规定。本博文中包含的信息不应被视为购买或出售或持有此类证券的建议或出售此类证券的要约。本博文不考虑也不提供关于任何人的具体投资目标或财务状况的任何税务、法律或投资建议或意见。 KlimaDAO 及其代理人、顾问、董事、管理人员、员工和股东对此类信息的准确性不作任何明示或暗示的陈述或保证，且 KlimaDAO 明确否认可能基于此类信息或错误或遗漏的任何和所有责任。 KlimaDAO 保留随时部分或全部修改或替换此处包含的信息的权利，并且不承担向接收者提供访问修改后的信息或通知接收者的义务。本博文中包含的信息将取代之前任何关于相同、相似或相关信息的博文或对话。不得出于任何目的依赖此处未包含的任何信息、陈述或声明。 KlimaDAO 或其任何代表，均不对您或任何人因您或您的任何代表使用本博客文章中的信息或遗漏而导致的合同、侵权、信托或其他方式产生的结果承担任何责任。此外，KlimaDAO 不承担评论第三方对本博文中讨论的事项的期望或声明的义务。"
 
-#: components/pages/Blog/Post/index.tsx:84
+#: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
@@ -652,134 +652,128 @@ msgstr "500 - 页面不存在"
 msgid "error.page.500.title"
 msgstr "500 - 页面不存在"
 
-#: components/pages/Home/index.tsx:236
-msgid "home.backed_by_carbon"
-msgstr "由碳支持。"
+#: components/pages/Home/index.tsx:209
+msgid "home.benefits"
+msgstr "福利待遇"
 
-#: components/pages/Home/index.tsx:327
+#: components/pages/Home/index.tsx:330
 msgid "home.cars_annual"
 msgstr "汽车（每年）"
 
-#: components/pages/Home/index.tsx:296
+#. Long sentence
+#: components/pages/Home/index.tsx:162
+msgid "home.developed_by_klima"
+msgstr "由KlimaDAO开发的数字碳市场（DCM）使气候融资的规模扩大 - 迄今为止，交易额超过40亿美元。通过<0>Carbonmark.com</0>--通用市场--和<1>碳仪表板</1>探索DCM。"
+
+#: components/pages/Home/index.tsx:299
 msgid "home.equivalent_to"
 msgstr "相当于"
-
-#. Long sentence
-#: components/pages/Home/index.tsx:411
-msgid "home.every_klima_token_is_backed"
-msgstr "每一个KLIMA代币都由一个真实的碳资产支持。代币被用于抵消碳排放、与DeFi应用程序交互，并了解快速增长的全球碳市场。"
 
 #: components/SocialProof/index.tsx:19
 msgid "home.featured_on"
 msgstr "KlimaDAO 精选于"
 
-#. Long sentence
-#: components/pages/Home/index.tsx:107
-msgid "home.fight_climate_change"
-msgstr "使用由真实碳资产支持的数字货币KLIMA，对抗气候变化并获得奖励。"
-
-#: components/pages/Home/index.tsx:462
+#: components/pages/Home/index.tsx:444
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "了解当今不断增长的碳经济。获取、抵押和获得奖励。为气候进行金融活动。"
 
-#: components/pages/Home/index.tsx:459
+#: components/pages/Home/index.tsx:441
 msgid "home.get_klima"
 msgstr "获取 KLIMA"
 
-#: components/pages/Home/index.tsx:310
+#: components/pages/Home/index.tsx:387
+msgid "home.govern_the_market"
+msgstr "治理市场，为了地球"
+
+#: components/pages/Home/index.tsx:313
 msgid "home.hectares_of_forest"
 msgstr "公顷森林"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:154
-msgid "home.klima_defies_climate_change"
-msgstr "KlimaDAO 是对抗气候变化的 DeFi"
+#: components/pages/Home/index.tsx:405
+msgid "home.join_over_100k_members"
+msgstr "加入超过10万名持有KLIMA代币的会员，用它来管理KlimaDAO的资源和发展数字碳市场。"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:164
-msgid "home.klima_is_the_center"
-msgstr "KlimaDAO 是新绿色经济的中心。 KlimaDAO 建立在节能的 Polygon 网络之上，使用一系列技术来减少市场分散化，并加速向全球可持续发展项目提供气候融资。"
+#: components/pages/Home/index.tsx:212
+msgid "home.klima_is_creating"
+msgstr "KlimaDAO正在创建一个公共和开源的社会，同时在技术层面上塑造碳市场的未来。"
 
-#. Long sentence
-#: components/pages/Home/index.tsx:440
-msgid "home.klima_tokens_are_minted"
-msgstr "KLIMA 代币约每 7 小时自动铸造一次并分配给质押的 KLIMA 持有者。增加您的 KLIMA 资产，跟我们共同开创一个更可持续的未来。"
-
-#: components/pages/Home/index.tsx:83
+#: components/pages/Home/index.tsx:81
 msgid "home.latest_news"
 msgstr "📰 最新消息："
 
-#: components/pages/Home/index.tsx:139
+#: components/pages/Home/index.tsx:137
 msgid "home.learn_more"
 msgstr "了解更多"
 
-#: components/pages/Home/index.tsx:342
+#: components/pages/Home/index.tsx:345
 msgid "home.liters_if_gasoline"
 msgstr "...升汽油"
 
-#: components/pages/Home/index.tsx:272
-msgid "home.massive impact"
-msgstr "巨大的影响。"
+#: components/pages/Home/index.tsx:253
+msgid "home.neutral_and_trusted"
+msgstr "中立和信任"
 
-#: components/pages/Home/index.tsx:210
-msgid "home.mechanics"
-msgstr "基本规则"
-
-#. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:428
-msgid "home.monthly_rewards_for_token_holders"
-msgstr "<0>{0}% 每月奖励</0><1>对代币持有者</1>"
-
-#: components/pages/Home/index.tsx:491
+#: components/pages/Home/index.tsx:473
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "所有 Alpha 版，直接发送到您的收件箱"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:499
+#: components/pages/Home/index.tsx:481
 msgid "home.newletter.get_the_latest_updates"
 msgstr "在我们构建碳经济的未来时，获取有关 KlimaDAO 的最新更新。"
 
-#: components/pages/Home/index.tsx:516
+#: components/pages/Home/index.tsx:498
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "永不共享。永不发送垃圾邮件。"
 
-#: components/pages/Home/index.tsx:510
+#: components/pages/Home/index.tsx:492
 msgid "home.newletter.sign_up"
 msgstr "注册"
 
-#: components/pages/Home/index.tsx:496
+#: components/pages/Home/index.tsx:478
 msgid "home.newsletter"
 msgstr "通讯"
 
-#. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:399
-msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr "<0>储备资产</0><1>碳经济的</1>"
+#: components/pages/Home/index.tsx:273
+msgid "home.public_and_open-source"
+msgstr "公共和开源"
 
-#: components/pages/Home/index.tsx:469
+#. Long sentence
+#: components/pages/Home/index.tsx:152
+msgid "home.public_good_for_the_planet"
+msgstr "为地球的公共利益"
+
+#: components/pages/Home/index.tsx:451
 msgid "home.see_tutorial"
 msgstr "见教程"
 
-#: components/pages/Home/index.tsx:357
+#: components/pages/Home/index.tsx:360
 msgid "home.source"
 msgstr "来源"
 
-#: components/pages/Home/index.tsx:254
-msgid "home.strong_incentives"
-msgstr "强有力的激励措施"
+#. Long sentence
+#: components/pages/Home/index.tsx:422
+msgid "home.take_climate_action_now"
+msgstr "现在就采取气候行动吧，通过使用<0>Carbonmark</0>来购买、出售或停用数字碳。"
+
+#. TONNES OF <0>CARBON HELD</0> BY KLIMADAO
+#: components/pages/Home/index.tsx:286
+msgid "home.tonnes_of_carbon_held_by_klimadao"
+msgstr "Klimadao<0>持有的碳</0>吨数"
+
+#: components/pages/Home/index.tsx:233
+msgid "home.transparent_and_efficient"
+msgstr "透明和高效"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:213
-msgid "home.the_dao_sell_bonds"
-msgstr "DAO 出售债券并向 KLIMA 持有者分配奖励。我们出售的每一张债券都会加入一个不断增长的绿色财库中，或者提高关键环境资产的流动性。这是一个人类和地球的双赢局面。"
-
-#. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:283
-msgid "home.tons_of_carbon_absorbed_by_klimadao"
-msgstr "由KLIMADAO实施的 <0>碳吸收</0>吨"
+#: components/pages/Home/index.tsx:105
+msgid "home.transparent_neutral"
+msgstr "透明、中立的公共资源，在全球范围内加速气候融资。"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:94
+#: components/pages/Home/index.tsx:92
 msgid "home.welcome_to_klimadao"
 msgstr "<0>欢迎来到</0><1>KlimaDAO</1>"
 
@@ -1024,10 +1018,6 @@ msgstr "对抗气候变化的 DeFi"
 #: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_title"
 msgstr "为什么选择 KlimaDAO？"
-
-#: components/pages/Home/index.tsx:384
-msgid "invest_in_the_future"
-msgstr "投资于未来。"
 
 #: components/pages/Infinity/index.tsx:439
 msgid "mission.header"
@@ -1797,6 +1787,10 @@ msgstr "碳仪表板"
 msgid "shared.carbonmark"
 msgstr "Carbonmark"
 
+#: components/pages/Home/index.tsx:192
+msgid "shared.carbonmark_cta"
+msgstr "抵消你的碳足迹"
+
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:232
 #: components/pages/About/AboutHeader/index.tsx:31
@@ -1827,6 +1821,10 @@ msgstr "联系销售"
 msgid "shared.contact_us"
 msgstr "联系我们"
 
+#: components/pages/Home/index.tsx:185
+msgid "shared.dcm_cta"
+msgstr "探索DCM"
+
 #: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105
 #: components/Navigation/index.tsx:250
@@ -1842,7 +1840,7 @@ msgid "shared.docs"
 msgstr "官方文档"
 
 #: components/Navigation/index.tsx:63
-#: components/pages/Home/index.tsx:115
+#: components/pages/Home/index.tsx:113
 msgid "shared.enter_app"
 msgstr "进入应用"
 
@@ -1855,7 +1853,7 @@ msgid "shared.get_started"
 msgstr "开始"
 
 #: components/pages/Buy/index.tsx:29
-#: components/pages/Home/index.tsx:69
+#: components/pages/Home/index.tsx:67
 #: components/pages/Retirements/index.tsx:52
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1875,10 +1873,6 @@ msgstr "如何购买 Klima"
 #: components/pages/Infinity/index.tsx:692
 msgid "shared.infinity.get_started"
 msgstr "开始"
-
-#: components/pages/Home/index.tsx:186
-msgid "shared.infinity_cta"
-msgstr "面向组织的 DEFI"
 
 #: components/Navigation/index.tsx:165
 #: components/Navigation/index.tsx:310
@@ -1902,10 +1896,6 @@ msgstr "登录"
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 msgid "shared.login_connect"
 msgstr "登录/连接"
-
-#: components/pages/Home/index.tsx:193
-msgid "shared.loveletter_cta"
-msgstr "面向个人的 DEFI"
 
 #: components/Navigation/index.tsx:179
 #: components/Navigation/index.tsx:325
@@ -1932,7 +1922,7 @@ msgstr "消除"
 
 #: components/Navigation/index.tsx:185
 #: components/Navigation/index.tsx:334
-#: components/pages/Blog/Post/index.tsx:70
+#: components/pages/Blog/Post/index.tsx:76
 msgid "shared.resourcecenter"
 msgstr "资源中心"
 

@@ -7,6 +7,7 @@ import { ExitModal } from "components/ExitModal";
 import { Text } from "components/Text";
 import { createRedeemLink, createRetireLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
+import { LO } from "lib/luckyOrange";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
 import { FC, useState } from "react";
 import * as styles from "./styles";
@@ -43,6 +44,7 @@ export const PoolPrice: FC<Props> = (props) => {
         <ButtonPrimary
           label={t`Buy`}
           onClick={() => {
+            LO.track("Purchase - Pool: Buy Clicked");
             setIsOpen(true);
             setRetireLink(
               createRedeemLink({
@@ -55,6 +57,7 @@ export const PoolPrice: FC<Props> = (props) => {
         <CarbonmarkButton
           label={t`Retire now`}
           onClick={() => {
+            LO.track("Retire - Pool: Retire Button Clicked");
             setIsOpen(true);
             setRetireLink(
               createRetireLink({

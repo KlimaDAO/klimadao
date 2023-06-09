@@ -4,8 +4,6 @@
   "workspaces": [
     "./app",
     "./carbonmark",
-    "./carbonmark-api",
-    "./carbonmark-api-ts",
     "./lib",
     "./site"
   ],

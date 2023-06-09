@@ -50,10 +50,6 @@ export const SellerListing: FC<Props> = (props) => {
 
   const sellerId = getSellerId(props.listing.seller);
 
-  function buyClickEvent() {
-    LO.track("Purchase: Buy Clicked");
-  }
-
   return (
     <Card>
       {props.listing.seller && (
@@ -111,7 +107,7 @@ export const SellerListing: FC<Props> = (props) => {
             id: "buy",
             message: "Buy",
           })}
-          onClick={buyClickEvent}
+          onClick={() => LO.track("Purchase: Buy Clicked")}
           className={styles.buyButton}
           href={
             isConnectedSeller

@@ -1,4 +1,10 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import { BigNumber } from "ethers";
+
+export interface CarouselImage {
+  url: string;
+  caption: string;
+}
 
 export interface Project {
   id: string;
@@ -7,6 +13,7 @@ export interface Project {
   name: string | "";
   methodologies: Array<Methodology>;
   vintage: string;
+  images: Array<CarouselImage>;
   projectAddress: string;
   registry: string;
   listings: Listing[] | null;
@@ -23,19 +30,60 @@ export interface Project {
     };
   };
   description?: string;
+  short_description?: string;
+  long_description?: string;
   isPoolProject?: boolean; // pool project only
   totalBridged: string | null; // pool project only
   totalRetired: string | null; // pool project only
   currentSupply: string | null; // pool project only
   prices?: Price[];
-  url: string; // link to the projects registry detail page
+  url: string;
+  methodologyCategory: CategoryName;
+}
+
+export interface PcbProject {
+  id: string;
+  projectID: string;
+  name: string;
+  methodology: string;
+  vintage: string;
+  tokenAddress: string;
+  registry: string;
+  country: Country | null;
+  location?: {
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
+  };
+  description?: string;
+  isPoolProject?: boolean;
+  totalBridged: string | null;
+  totalRetired: string | null;
+  currentSupply: string | null;
+  prices?: Price[];
+  url?: string;
+  methodologyCategory: CategoryName;
+  category: string;
+  coBenefits: string;
+  correspAdjustment: string;
+  emissionType: string;
+  isCorsiaCompliant: boolean;
+  klimaRanking: string;
+  lastUpdate: string;
+  method: string;
+  region: string;
+  standard: string;
+  storageMethod: string;
+  vintageYear: string;
 }
 
 export type Price = {
   leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
   tokenAddress: string;
   singleUnitPrice: string; // NOT A BIGNUMBER ! Already formatted in USDCs
-  name: string;
+  name: Uppercase<PoolToken>;
 };
 
 export interface User {
@@ -220,6 +268,13 @@ export type AssetForListing = {
   };
 };
 
+export type AssetForRetirement = {
+  tokenName: string;
+  balance: string;
+  tokenType: "1" | "2";
+  tokenSymbol: string; // 1: C3T, 2: TCO2
+  project: PcbProject;
+};
 export type Methodology = {
   id: string;
   name: string;
@@ -268,3 +323,6 @@ export type Balance = {
   tokenName: CarbonmarkToken;
   balance: string;
 };
+
+// add more methods here later
+export type CarbonmarkPaymentMethod = "usdc" | "fiat";

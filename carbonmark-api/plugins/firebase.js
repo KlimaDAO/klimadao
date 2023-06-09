@@ -4,9 +4,6 @@ const fp = require("fastify-plugin");
 const fb = require("firebase-admin");
 var admin = require("firebase-admin");
 
-// Read the .env file.
-require("dotenv").config({ path: "../.env.local" });
-
 /**
  * This plugin adds the Firebase Admin SDK to Fastify
  * so we can easy use Firebase Auth, Firestore ect,

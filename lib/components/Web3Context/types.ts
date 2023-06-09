@@ -55,6 +55,7 @@ export interface ConnectedWeb3State {
   signer: providers.JsonRpcSigner;
   network: providers.Network;
   initializing: false;
+  isConnectionFromCache: boolean;
 }
 
 export interface DisconnectedWeb3State {
@@ -93,6 +94,7 @@ export type Web3ModalState = Web3State & {
   renderModal: (props: RenderModalProps) => JSX.Element;
   toggleModal: () => void;
   initializing: boolean;
+  isConnectionFromCache: boolean | undefined;
 };
 
 export const web3InitialState: Web3ModalState = {
@@ -104,6 +106,7 @@ export const web3InitialState: Web3ModalState = {
   signer: undefined,
   network: undefined,
   showModal: false,
+  isConnectionFromCache: undefined,
   renderModal: () => undefined as unknown as JSX.Element,
   toggleModal: () => undefined,
 };

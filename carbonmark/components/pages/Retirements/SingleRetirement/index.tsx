@@ -1,73 +1,38 @@
 import { cx } from "@emotion/css";
-import {
-  CopyAddressButton,
-  GridContainer,
-  Section,
-  Spinner,
-  Text,
-} from "@klimadao/lib/components";
+import { GridContainer, Section } from "@klimadao/lib/components";
 import {
   concatAddress,
   formatTonnes,
-  getImageSizes,
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
-import { LinkedInButton } from "components/LinkedInButton";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
-import { TweetButton } from "components/TweetButton";
-import { urls } from "lib/constants";
+import { Spinner } from "components/shared/Spinner";
+import { Text } from "components/Text";
+import { Col } from "components/TwoColLayout";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
-import { normalizeProjectId } from "lib/normalizeProjectId";
 import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
-import sunsetMountains from "public/sunset-mountains.jpg";
 import { useEffect } from "react";
 import { RetirementFooter } from "../Footer";
-import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
+import { BeneficiaryDetails } from "./BeneficiaryDetails";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
-import { RetirementValue } from "./RetirementValue";
+import { ShareDetails } from "./ShareDetails";
 import * as styles from "./styles";
-import { TextGroup } from "./TextGroup";
-
-const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
-  dynamic(
-    () =>
-      import("./DownloadCertificateButton").then(
-        (mod) => mod.DownloadCertificateButton
-      ),
-    {
-      ssr: false,
-      loading: () => (
-        <ButtonPrimary
-          disabled
-          variant="blue"
-          label={t({
-            id: "shared.loading",
-            message: "Loading...",
-          })}
-        />
-      ),
-    }
-  );
+import { TransactionDetails } from "./TransactionDetails";
 
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
   ...props
 }) => {
-  const { asPath, locale } = useRouter();
+  const { locale } = useRouter();
 
   const formattedAmount = formatTonnes({
     amount: retirement.amount,
@@ -100,12 +65,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
 
   const poolTokenName =
     !retirement.pending && getRetirementTokenByAddress(retirement.pool); // can be null
-  console.log("poolTokenName", poolTokenName);
   const projectTokenName = retirement.pending
     ? null
     : retirement.offset.bridge === "Toucan"
     ? "tco2"
     : "c3t";
+  const isMossOffset = retirement?.offset?.bridge === "Moss";
   const carbonTokenName = poolTokenName || projectTokenName;
   const tokenData = carbonTokenName && carbonTokenInfoMap[carbonTokenName];
 
@@ -127,19 +92,8 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
-
-      <Section variant="gray" className={styles.section}>
-        <RetirementHeader
-          overline={retirement.beneficiary}
-          title={`${formattedAmount}t`}
-          subline={
-            <Trans id="retirement.single.header.subline">
-              CO2-Equivalent Emissions Offset (Metric Tonnes)
-            </Trans>
-          }
-        />
-        <div className={styles.retirementContent}>
-          <RetirementMessage message={retirement.retirementMessage} />
+      <Section className={styles.section}>
+        <div className={styles.gridLayout}>
           {retirement.pending && (
             <div className={styles.pending}>
               <div className="spinnerTitle">
@@ -148,7 +102,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                   <Trans>Processing data...</Trans>
                 </Text>
               </div>
-              <Text t="caption" align="center">
+              <Text t="button" align="center">
                 <Trans>
                   We haven't finished processing the blockchain data for this
                   retirement. This usually takes a few seconds, but might take
@@ -157,140 +111,54 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               </Text>
             </div>
           )}
-          {tokenData && (
-            <RetirementValue
-              value={formattedAmount}
-              label={tokenData.label}
-              icon={tokenData.icon}
-            />
-          )}
           {!retirement.pending && tokenData && (
-            <div className={styles.metaData}>
-              <div className="column">
-                <TextGroup
-                  title={
-                    <Trans id="retirement.single.beneficiary.title">
-                      Beneficiary
-                    </Trans>
-                  }
-                  text={
-                    retirement.beneficiary ||
-                    t({
-                      id: "retirement.single.beneficiary.placeholder",
-                      message: "No beneficiary name provided",
-                    })
-                  }
+            <Col className="column">
+              <RetirementDate timestamp={retirement.timestamp} />
+              <RetirementHeader formattedAmount={formattedAmount} />
+              {retirement.beneficiary && props.beneficiaryAddress && (
+                <BeneficiaryDetails
+                  beneficiary={retirement.beneficiary}
+                  beneficiaryAddress={props.beneficiaryAddress}
                 />
-                <TextGroup
-                  title={
-                    <Trans id="retirement.single.beneficiaryAddress.title">
-                      Beneficiary Address
-                    </Trans>
-                  }
-                  text={
-                    <Link
-                      href={`/retirements/${
-                        props.nameserviceDomain || props.beneficiaryAddress
-                      }`}
-                      className="address"
-                    >
-                      {props.nameserviceDomain ||
-                        concatAddress(props.beneficiaryAddress)}
-                    </Link>
-                  }
+              )}
+              {retirement.retirementMessage && (
+                <RetirementMessage message={retirement.retirementMessage} />
+              )}
+              <ShareDetails
+                retiree={retiree}
+                formattedAmount={formattedAmount}
+                beneficiaryName={retirement.beneficiary}
+                retirementIndex={props.retirementIndex}
+                beneficiaryAddress={props.beneficiaryAddress}
+              />
+              <div className={styles.visibleDesktop}>
+                <TransactionDetails
+                  tokenData={tokenData}
+                  retirement={retirement}
                 />
               </div>
-              <div className="column">
-                <RetirementDate timestamp={retirement.timestamp} />
-                <TextGroup
-                  title={
-                    <Trans id="retirement.single.retirementCertificate.title">
-                      Certificate
-                    </Trans>
-                  }
-                  text={
-                    retirement ? (
-                      <DownloadCertificateButton
-                        beneficiaryName={retirement.beneficiary}
-                        beneficiaryAddress={props.beneficiaryAddress}
-                        retirement={retirement}
-                        retirementIndex={props.retirementIndex}
-                        retirementMessage={retirement.retirementMessage}
-                        retirementUrl={`${urls.baseUrl}/${asPath}`}
-                        tokenData={tokenData}
-                        projectId={normalizeProjectId({
-                          id: retirement.offset.projectID,
-                          standard: retirement.offset.standard,
-                        })}
-                      />
-                    ) : null
-                  }
-                />
-              </div>
+            </Col>
+          )}
+          <Col className="column">
+            <ProjectDetails
+              retirement={retirement}
+              isMossOffset={isMossOffset}
+              description={
+                props.project?.long_description || props.project?.description
+              }
+              category={props.project?.methodologies?.[0]?.category || null}
+            />
+            <div className={cx(styles.visibleMobile)}>
+              <TransactionDetails
+                tokenData={tokenData}
+                retirement={retirement}
+              />
             </div>
-          )}
-          <Text t="caption" align="start" className={styles.data_description}>
-            <Trans id="retirement.single.disclaimer">
-              This represents the permanent retirement of tokenized carbon
-              assets on the Polygon blockchain. This retirement and the
-              associated data are immutable public records.
-            </Trans>
-          </Text>
+          </Col>
         </div>
       </Section>
-      <Section variant="gray" className={styles.section}>
-        <div className={styles.share_content}>
-          <Image
-            alt="Sunset Mountains"
-            src={sunsetMountains}
-            layout="fill"
-            objectFit="cover"
-            sizes={getImageSizes({ large: "1072px" })}
-            placeholder="blur"
-            className="image"
-          />
-          <Text className="title" t="h3">
-            <Trans id="retirement.share.title">Share your impact</Trans>
-          </Text>
-          <div className="buttons">
-            <TweetButton
-              title={`${retiree} retired ${formattedAmount} Tonnes of carbon`}
-              tags={["Carbonmark", "Offset"]}
-            />
-            <FacebookButton />
-            <LinkedInButton />
-            <CopyAddressButton variant="lightGray" shape="circle" />
-          </div>
-        </div>
-      </Section>
-      {!retirement.pending && retirement.offset && (
-        <Section variant="gray" className={styles.section}>
-          <ProjectDetails offset={retirement.offset} />
-        </Section>
-      )}
-      <Section variant="gray" className={styles.section}>
+      <Section className={styles.section} style={{ paddingTop: 0 }}>
         <RetirementFooter />
-      </Section>
-      <Section
-        variant="gray"
-        className={cx(styles.section, styles.sectionButtons)}
-      >
-        <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="gray" />
-          {!retirement.pending && retirement.transaction.id && (
-            <ButtonPrimary
-              href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
-              target="_blank"
-              variant="gray"
-              rel="noopener noreferrer"
-              label={t({
-                id: "retirement.single.view_on_polygon_scan",
-                message: "View on Polygonscan",
-              })}
-              className={styles.buttonViewOnPolygon}
-            />
-          )}
-        </div>
       </Section>
       <Footer />
     </GridContainer>

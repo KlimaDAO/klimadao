@@ -29,11 +29,12 @@ export const CopyAddressButton: FC<Props> = (props) => {
     <ButtonPrimary
       /** Transparent by default */
       variant={"transparent"}
+      iconPos="suffix"
+      shape="circle"
       {...props}
       className={className}
       icon={copied ? <Check /> : <ContentCopy />}
       onClick={() => cachedAddress && doCopy(cachedAddress)}
-      iconPos="suffix"
     />
   );
 };

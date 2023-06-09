@@ -4,6 +4,7 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { addProjectsToAssets } from "lib/actions";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
+import { LO } from "lib/luckyOrange";
 import { AssetForListing, User } from "lib/types/carbonmark";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -71,7 +72,13 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
             className={isUpdatingUser ? styles.loadingOverlay : ""}
             key={a.tokenAddress}
           >
-            <AssetProject asset={a} onSell={() => setAssetToSell(a)} />
+            <AssetProject
+              asset={a}
+              onSell={() => {
+                LO.track("Listing: Sell Clicked");
+                setAssetToSell(a);
+              }}
+            />
           </div>
         ))}
 

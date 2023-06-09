@@ -17,6 +17,9 @@ const ENVIRONMENT = IS_PRODUCTION
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 
+export const SUSHI_SWAP_FEE = 0.003; // 0.3% per swap
+export const AGGREGATOR_FEE = 0.01; // 1% per tonnage
+
 export const getConnectErrorStrings = () => ({
   default: t({
     message: "We had some trouble connecting. Please try again.",
@@ -71,6 +74,8 @@ export const urls = {
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
+  projects: "/projects",
+  users: "/users",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",

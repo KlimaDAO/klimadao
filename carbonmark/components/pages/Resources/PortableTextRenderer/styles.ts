@@ -43,6 +43,11 @@ export const ul = css`
   margin: 1.2rem;
   margin-inline-start: 1.5rem;
 `;
+export const li = css`
+  ${typography.body5}
+  margin: 1.2rem;
+  margin-inline-start: 1.5rem;
+`;
 
 export const ol = css`
   ${typography.body2}

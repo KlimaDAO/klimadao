@@ -1,13 +1,13 @@
 interface User {
-  user: string;
-  name: string;
+  user: string | undefined;
+  name: string | undefined;
 }
 interface LuckyOrange {
   events: {
     track: (text: string) => void;
   };
   visitor: {
-    identify: (name: string, user: User) => void;
+    identify: (id: string, user: User) => void;
   };
   $internal: {
     ready: (type: string) => Promise<void>;
@@ -16,8 +16,13 @@ interface LuckyOrange {
 type LOQArrayElement = string | ((LO: LuckyOrange) => void);
 type LOQArray = Array<Array<LOQArrayElement>>;
 
-//declare let LOQ: LOQArray;
 const LO = {
+  // FIXME remove this method
+  log(value: any) {
+    if (globalThis?.localStorage.getItem("debug") == "lo") {
+      console.log(value);
+    }
+  },
   getLOQ() {
     (<any>globalThis).LOQ = (<any>globalThis).LOQ || [];
     return (<any>globalThis).LOQ as LOQArray;
@@ -25,22 +30,25 @@ const LO = {
   track(text: string) {
     this.getLOQ().push([
       "ready",
-      function (LO: LuckyOrange) {
-        LO.$internal.ready("events").then(function () {
-          console.log(`TRACK ${text}`);
-          LO.events.track(text);
+      function (lucky: LuckyOrange) {
+        lucky.$internal.ready("events").then(function () {
+          // FIXME: remove logs
+          LO.log(`TRACK ${text}`);
+          lucky.events.track(text);
         });
       },
     ]);
   },
-  identify(name: string, user: User) {
+  identify(id: string, user: User) {
     this.getLOQ().push([
       "ready",
-      function (LO: LuckyOrange) {
-        LO.$internal.ready("visitor").then(function () {
-          LO.visitor.identify(name, user);
-          console.log("`IDENTIFY");
-          console.log(user);
+      function (lucky: LuckyOrange) {
+        lucky.$internal.ready("visitor").then(function () {
+          // FIXME: remove logs
+          LO.log("IDENTIFY");
+          LO.log(id);
+          LO.log(user);
+          lucky.visitor.identify(id, user);
         });
       },
     ]);
