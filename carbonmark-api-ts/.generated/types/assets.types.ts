@@ -15,6 +15,7 @@ export type Scalars = {
   BigDecimal: any;
   BigInt: string;
   Bytes: any;
+  Int8: any;
 };
 
 export type Account = {
