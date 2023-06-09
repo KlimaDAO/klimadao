@@ -71,7 +71,7 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: 1,
+                min: 0.001,
                 max: Number(props.price.leftToSell),
                 ...register("quantity", {
                   onChange: () => clearErrors("totalPrice"),
@@ -80,8 +80,8 @@ export const RetireInputs: FC<Props> = (props) => {
                     message: t`Quantity is required`,
                   },
                   min: {
-                    value: 1,
-                    message: t`The minimum amount to retire is 1 Tonne`,
+                    value: 0.001,
+                    message: t`The minimum amount to retire is 0.001 Tonnes`,
                   },
                   max: {
                     value: Number(props.price.leftToSell),
@@ -115,6 +115,7 @@ export const RetireInputs: FC<Props> = (props) => {
               ...register("beneficiaryAddress", {
                 validate: {
                   isAddress: (v) =>
+                    v === "" || // no beneficiary, fallback to default address
                     utils.isAddress(v) || // allow polygon addresses only
                     t`Not a valid polygon address`,
                 },
