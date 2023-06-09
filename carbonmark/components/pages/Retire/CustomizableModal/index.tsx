@@ -1,8 +1,8 @@
 import { cx } from "@emotion/css";
-import { useFocusTrap } from "@klimadao/lib/utils";
+import { useFocusTrap, useScrollLock } from "@klimadao/lib/utils";
 import Close from "@mui/icons-material/Close";
 import { Text } from "components/Text";
-import { FC, HTMLAttributes, ReactNode, useEffect } from "react";
+import { FC, HTMLAttributes, ReactNode } from "react";
 import * as styles from "./styles";
 
 export type CustomizableModalProps = {
@@ -28,14 +28,7 @@ export const CustomizableModal: FC<CustomizableModalProps> = ({
 }) => {
   const showCloseButton = !!props.onToggleModal;
   const focusTrapRef = useFocusTrap();
-
-  useEffect(() => {
-    if (props.showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [props.showModal]);
+  useScrollLock(props.showModal);
 
   const handleBackgroundClick = props.closeOnBackgroundClick
     ? props.onToggleModal
