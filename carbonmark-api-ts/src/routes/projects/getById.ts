@@ -1,273 +1,231 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
-import { isNil, map, merge } from "lodash";
-import { assign } from "lodash/fp";
-import {
-  GetProjectsByIdDocument,
-  GetProjectsByIdQuery,
-  Listing,
-} from "../../../.generated/types/marketplace.types";
-import {
-  CarbonOffset,
-  GetCarbonOffsetsByProjectAndVintageDocument,
-  GetCarbonOffsetsByProjectAndVintageQuery,
-} from "../../../.generated/types/offsets.types";
-import {
-  calculatePoolPrices,
-  calculateProjectPoolPrices,
-  PriceType,
-} from "../../helpers/utils";
-import { FirebaseInstance } from "../../plugins/firebase";
-import { getSanityClient } from "../../sanity/sanity";
-import { executeGraphQLQuery } from "../../utils/apollo-client";
-import { extract, notNil } from "../../utils/functional.utils";
-import { PoolProject } from "./projects.types";
+// import {
+//   FastifyInstance,
+//   FastifyPluginAsync,
+//   FastifyReply,
+//   FastifyRequest,
+// } from "fastify";
+// import { isNil, merge } from "lodash";
+// import { assign } from "lodash/fp";
+// import { Listing } from "../../../.generated/types/marketplace.types";
+// import { CarbonOffset } from "../../../.generated/types/offsets.types";
+// import {
+//   calculatePoolPrices,
+//   calculateProjectPoolPrices,
+//   PriceType,
+// } from "../../helpers/utils";
+// import { getSanityClient } from "../../sanity/sanity";
+// import { extract } from "../../utils/functional.utils";
+// import { gqlSdk } from "../../utils/gqlSdk";
+// import {
+//   deconstructListingId,
+//   isListingActive,
+//   updateListingUser,
+// } from "../../utils/marketplace.utils";
+// import { PoolProject } from "./projects.types";
 
-const schema = {
-  querystring: {
-    type: "object",
-    properties: {
-      category: {
-        type: "string",
-      },
-      country: {
-        type: "string",
-      },
-      search: {
-        type: "string",
-      },
-    },
-  },
-  tags: ["project"],
-};
+// const schema = {
+//   querystring: {
+//     type: "object",
+//     properties: {
+//       category: {
+//         type: "string",
+//       },
+//       country: {
+//         type: "string",
+//       },
+//       search: {
+//         type: "string",
+//       },
+//     },
+//   },
+//   tags: ["project"],
+// };
 
-interface Params {
-  id: string;
-}
+// interface Params {
+//   id: string;
+// }
 
-export type Nullable<T> = {
-  [P in keyof T]: T[P] | null | undefined;
-};
+// export type Nullable<T> = {
+//   [P in keyof T]: T[P] | null | undefined;
+// };
 
-/**
- * Expects project id to be of type <registrar>-<id>-<vintage>
- * @todo add a regular expression test
- */
-const deconstructId = (str: string) => {
-  const id = str.split("-");
-  var key = `${id[0]}-${id[1]}`;
-  var vintage = id[2];
-  return {
-    key,
-    vintage,
-  };
-};
+// const handler = (fastify: FastifyInstance) =>
+//   async function (
+//     request: FastifyRequest<{ Params: Params }>,
+//     reply: FastifyReply
+//   ) {
+//     const { key, vintage: vintageStr } = deconstructListingId(
+//       request.params.id
+//     );
+//     const args = { vintageStr, key };
 
-const isListingActive = (listing: Partial<Listing>) =>
-  notNil(listing.leftToSell) &&
-  !/^0+$/.test(listing.leftToSell) &&
-  listing.active != false &&
-  listing.deleted != true;
+//     const [poolPrices, { projects }, { carbonOffsets }] = await Promise.all([
+//       calculatePoolPrices(fastify),
+//       gqlSdk.marketplace.getProjectsById(args),
+//       gqlSdk.offsets.getCarbonOffsetsByProjectAndVintage(args),
+//     ]);
 
-const getFirebaseUser = async (id: string, fb: FirebaseInstance) =>
-  await fb.firestore().collection("users").doc(id).get();
+//     const project = projects?.[0];
+//     const offset = carbonOffsets?.[0];
 
-const updateListingUser =
-  (fb: FirebaseInstance) => async (listing: Partial<Listing>) => {
-    const sellerId = listing.seller?.id.toUpperCase();
-    const { data } = await getFirebaseUser(sellerId, fb);
-    const seller = merge({ ...data() }, listing.seller);
-    return { ...listing, seller };
-  };
+//     // Unselect all listings
+//     let updatedListings: Partial<Listing>[] = project?.listings.map(
+//       assign({ selected: false })
+//     );
 
-const handler = (fastify: FastifyInstance) =>
-  async function (
-    request: FastifyRequest<{ Params: Params }>,
-    reply: FastifyReply
-  ) {
-    const { key, vintage } = deconstructId(request.params.id);
-    const poolPrices = await calculatePoolPrices(fastify);
+//     const res = await Promise.all(
+//       updatedListings.map(updateListingUser(fastify.firebase))
+//     );
 
-    const { data: { projects } = {} } =
-      await executeGraphQLQuery<GetProjectsByIdQuery>(
-        process.env.GRAPH_API_URL,
-        GetProjectsByIdDocument,
-        { key, vintage }
-      );
+//     // Extract prices
+//     const listingPrices = updatedListings
+//       ?.filter(isListingActive)
+//       .map(extract("singleUnitPrice"));
 
-    const { data: { carbonOffsets } = {} } =
-      await executeGraphQLQuery<GetCarbonOffsetsByProjectAndVintageQuery>(
-        process.env.CARBON_OFFSETS_GRAPH_API_URL,
-        GetCarbonOffsetsByProjectAndVintageDocument,
-        { key: key, vintageStr: vintage }
-      );
+//     /** */
+//     if (offset) {
+//       const poolProject: PoolProject & Partial<CarbonOffset> = offset;
+//       poolProject.isPoolProject = true;
 
-    const project = projects?.[0];
-    const offset = carbonOffsets?.[0];
+//       carbonOffsets?.map(function (carbonProject) {
+//         const [uniqueValues, pricetypes] = calculateProjectPoolPrices(
+//           carbonProject,
+//           uniqueValues,
+//           poolPrices,
+//           pricetypes
+//         );
+//       });
+//       offset.prices = pricetypes;
+//     }
 
-    // Unselect all listings
-    let updatedListings: Partial<Listing>[] = map(
-      project?.listings,
-      assign({ selected: false })
-    );
+//     //
+//     if (isNil(offset)) {
+//       merge(offset, {
+//         totalBridged: null,
+//         totalRetired: null,
+//         currentSupply: null,
+//       });
+//     }
 
-    const res = await Promise.all(
-      updatedListings.map(updateListingUser(fastify.firebase))
-    );
+//     if (isNil(project)) {
+//       {
+//         const poolProject = { ...carbonOffsets?.[0] };
+//         if (poolProject) {
+//           let country = poolProject.country?.length
+//             ? {
+//                 id: poolProject.country,
+//               }
+//             : null;
 
-    // Extract prices
-    const listingPrices = updatedListings
-      ?.filter(isListingActive)
-      .map(extract("singleUnitPrice"));
+//           const result: any = {
+//             id: poolProject.id,
+//             isPoolProject: true,
+//             key: poolProject.projectID,
+//             projectID: poolProject.projectID?.split("-")[1] ?? "",
+//             name: poolProject.name,
+//             methodology: poolProject.methodology,
+//             vintage: poolProject.vintageYear,
+//             projectAddress: poolProject.tokenAddress,
+//             registry: poolProject.projectID?.split("-")[0] ?? "",
+//             updatedAt: poolProject.lastUpdate,
+//             category: {
+//               id: poolProject.methodologyCategory,
+//             },
+//             country: country,
+//             activities: null,
+//             listings: null,
+//             totalBridged: project.totalBridged,
+//             totalRetired: project.totalRetired,
+//             currentSupply: project.currentSupply,
+//           };
 
-    /** */
-    if (offset) {
-      const poolProject: PoolProject & Partial<CarbonOffset> = offset;
-      poolProject.isPoolProject = true;
+//           result.prices = [];
 
-      carbonOffsets?.map(function (carbonProject) {
-        const [uniqueValues, pricetypes] = calculateProjectPoolPrices(
-          carbonProject,
-          uniqueValues,
-          poolPrices,
-          pricetypes
-        );
-      });
-      offset.prices = pricetypes;
-    }
+//           let pricetypes: PriceType[] = [];
+//           if (carbonOffsets && carbonOffsets.length) {
+//             carbonOffsets.map(function (carbonProject) {
+//               [uniqueValues, pricetypes] = calculateProjectPoolPrices(
+//                 carbonProject,
+//                 uniqueValues,
+//                 poolPrices,
+//                 pricetypes
+//               );
+//             });
+//             result.prices = prices;
+//           }
+//         }
+//       }
+//     }
 
-    //
-    if (isNil(offset)) {
-      merge(offset, {
-        totalBridged: null,
-        totalRetired: null,
-        currentSupply: null,
-      });
-    }
+//     if (project) {
+//       if (project.registry == "VCS") {
+//         const sanity = getSanityClient();
 
-    if (isNil(project)) {
-      {
-        const poolProject = { ...carbonOffsets?.[0] };
-        if (poolProject) {
-          let country = poolProject.country?.length
-            ? {
-                id: poolProject.country,
-              }
-            : null;
+//         const params = {
+//           registry: project.registry,
+//           registryProjectId: id[1],
+//         };
 
-          const result: any = {
-            id: poolProject.id,
-            isPoolProject: true,
-            key: poolProject.projectID,
-            projectID: poolProject.projectID?.split("-")[1] ?? "",
-            name: poolProject.name,
-            methodology: poolProject.methodology,
-            vintage: poolProject.vintageYear,
-            projectAddress: poolProject.tokenAddress,
-            registry: poolProject.projectID?.split("-")[0] ?? "",
-            updatedAt: poolProject.lastUpdate,
-            category: {
-              id: poolProject.methodologyCategory,
-            },
-            country: country,
-            activities: null,
-            listings: null,
-            totalBridged: project.totalBridged,
-            totalRetired: project.totalRetired,
-            currentSupply: project.currentSupply,
-          };
+//         const results = await sanity.fetch(fetchProjects, params);
+//         project.description = results.description;
+//         project.location = results.geolocation;
+//         project.name = results.name;
+//         project.methodologies = results.methodologies;
+//         project.url = results.url;
+//       } else if (project.registry == "GS") {
+//         var results = await fetch(
+//           `https://api.goldstandard.org/projects/${id[1]}`
+//         );
+//         results = JSON.parse(await results.text());
+//         project.description = results.description;
+//         project.location = null;
+//       }
 
-          result.prices = [];
+//       project.price = uniqueValues.length
+//         ? uniqueValues.reduce((a, b) =>
+//             a.length < b.length ? a : a.length === b.length && a < b ? a : b
+//           )
+//         : "0";
 
-          let pricetypes: PriceType[] = [];
-          if (carbonOffsets && carbonOffsets.length) {
-            carbonOffsets.map(function (carbonProject) {
-              [uniqueValues, pricetypes] = calculateProjectPoolPrices(
-                carbonProject,
-                uniqueValues,
-                poolPrices,
-                pricetypes
-              );
-            });
-            result.prices = prices;
-          }
-        }
-      }
-    }
+//       if (project.activities) {
+//         const activities = project.activities;
 
-    if (project) {
-      if (project.registry == "VCS") {
-        const sanity = getSanityClient();
+//         await Promise.all(
+//           activities.map(async (actvity) => {
+//             if (actvity.activityType != "Sold") {
+//               const seller = await fastify.firebase
+//                 .firestore()
+//                 .collection("users")
+//                 .doc(actvity.seller.id.toUpperCase())
+//                 .get();
+//               if (seller.exists) {
+//                 actvity.seller.handle = seller.data().handle;
+//               }
+//               if (actvity.buyer) {
+//                 const buyer = await fastify.firebase
+//                   .firestore()
+//                   .collection("users")
+//                   .doc(actvity.buyer.id.toUpperCase())
+//                   .get();
+//                 if (buyer.exists) {
+//                   actvity.buyer.handle = buyer.data().handle;
+//                 }
+//               }
+//             }
+//           })
+//         );
+//         project.activities = activities.filter(
+//           (activity) => activity.activityType !== "Sold"
+//         );
+//       }
 
-        const params = {
-          registry: project.registry,
-          registryProjectId: id[1],
-        };
+//       return reply.send(JSON.stringify(project));
+//     }
+//     return reply.notFound();
+//   };
 
-        const results = await sanity.fetch(fetchProjects, params);
-        project.description = results.description;
-        project.location = results.geolocation;
-        project.name = results.name;
-        project.methodologies = results.methodologies;
-        project.url = results.url;
-      } else if (project.registry == "GS") {
-        var results = await fetch(
-          `https://api.goldstandard.org/projects/${id[1]}`
-        );
-        results = JSON.parse(await results.text());
-        project.description = results.description;
-        project.location = null;
-      }
+// const getById: FastifyPluginAsync = async (fastify): Promise<void> => {
+//   fastify.get("/projects/:id", { schema }, handler(fastify));
+// };
 
-      project.price = uniqueValues.length
-        ? uniqueValues.reduce((a, b) =>
-            a.length < b.length ? a : a.length === b.length && a < b ? a : b
-          )
-        : "0";
-
-      if (project.activities) {
-        const activities = project.activities;
-
-        await Promise.all(
-          activities.map(async (actvity) => {
-            if (actvity.activityType != "Sold") {
-              const seller = await fastify.firebase
-                .firestore()
-                .collection("users")
-                .doc(actvity.seller.id.toUpperCase())
-                .get();
-              if (seller.exists) {
-                actvity.seller.handle = seller.data().handle;
-              }
-              if (actvity.buyer) {
-                const buyer = await fastify.firebase
-                  .firestore()
-                  .collection("users")
-                  .doc(actvity.buyer.id.toUpperCase())
-                  .get();
-                if (buyer.exists) {
-                  actvity.buyer.handle = buyer.data().handle;
-                }
-              }
-            }
-          })
-        );
-        project.activities = activities.filter(
-          (activity) => activity.activityType !== "Sold"
-        );
-      }
-
-      return reply.send(JSON.stringify(project));
-    }
-    return reply.notFound();
-  };
-
-const getById: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/projects/:id", { schema }, handler(fastify));
-};
-
-export default getById;
+// export default getById;

@@ -1,4 +1,5 @@
-import { DocumentNode } from 'graphql';
+import { GraphQLClient } from 'graphql-request';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -2923,23 +2924,28 @@ export const FindCarbonOffsetsDocument = gql`
   }
 }
     `;
-export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
-export function getSdk<C, E>(requester: Requester<C, E>) {
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getCarbonOffsetsCategories(variables?: GetCarbonOffsetsCategoriesQueryVariables, options?: C): Promise<GetCarbonOffsetsCategoriesQuery> {
-      return requester<GetCarbonOffsetsCategoriesQuery, GetCarbonOffsetsCategoriesQueryVariables>(GetCarbonOffsetsCategoriesDocument, variables, options) as Promise<GetCarbonOffsetsCategoriesQuery>;
+    getCarbonOffsetsCategories(variables?: GetCarbonOffsetsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsCategoriesQuery>(GetCarbonOffsetsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCategories', 'query');
     },
-    getCarbonOffsetsCountries(variables?: GetCarbonOffsetsCountriesQueryVariables, options?: C): Promise<GetCarbonOffsetsCountriesQuery> {
-      return requester<GetCarbonOffsetsCountriesQuery, GetCarbonOffsetsCountriesQueryVariables>(GetCarbonOffsetsCountriesDocument, variables, options) as Promise<GetCarbonOffsetsCountriesQuery>;
+    getCarbonOffsetsCountries(variables?: GetCarbonOffsetsCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsCountriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsCountriesQuery>(GetCarbonOffsetsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCountries', 'query');
     },
-    getCarbonOffsetsVintages(variables?: GetCarbonOffsetsVintagesQueryVariables, options?: C): Promise<GetCarbonOffsetsVintagesQuery> {
-      return requester<GetCarbonOffsetsVintagesQuery, GetCarbonOffsetsVintagesQueryVariables>(GetCarbonOffsetsVintagesDocument, variables, options) as Promise<GetCarbonOffsetsVintagesQuery>;
+    getCarbonOffsetsVintages(variables?: GetCarbonOffsetsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsVintagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsVintagesQuery>(GetCarbonOffsetsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsVintages', 'query');
     },
-    getCarbonOffsetsByProjectAndVintage(variables: GetCarbonOffsetsByProjectAndVintageQueryVariables, options?: C): Promise<GetCarbonOffsetsByProjectAndVintageQuery> {
-      return requester<GetCarbonOffsetsByProjectAndVintageQuery, GetCarbonOffsetsByProjectAndVintageQueryVariables>(GetCarbonOffsetsByProjectAndVintageDocument, variables, options) as Promise<GetCarbonOffsetsByProjectAndVintageQuery>;
+    getCarbonOffsetsByProjectAndVintage(variables: GetCarbonOffsetsByProjectAndVintageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsByProjectAndVintageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsByProjectAndVintageQuery>(GetCarbonOffsetsByProjectAndVintageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsByProjectAndVintage', 'query');
     },
-    findCarbonOffsets(variables?: FindCarbonOffsetsQueryVariables, options?: C): Promise<FindCarbonOffsetsQuery> {
-      return requester<FindCarbonOffsetsQuery, FindCarbonOffsetsQueryVariables>(FindCarbonOffsetsDocument, variables, options) as Promise<FindCarbonOffsetsQuery>;
+    findCarbonOffsets(variables?: FindCarbonOffsetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindCarbonOffsetsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FindCarbonOffsetsQuery>(FindCarbonOffsetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findCarbonOffsets', 'query');
     }
   };
 }

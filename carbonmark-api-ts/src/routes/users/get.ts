@@ -4,15 +4,8 @@ import {
   FastifyReply,
   FastifyRequest,
 } from "fastify";
-import {
-  GetHoldingsByWalletDocument,
-  GetHoldingsByWalletQuery,
-} from "../../../.generated/types/assets.types";
-import {
-  GetUserByWalletDocument,
-  GetUserByWalletQuery,
-} from "../../../.generated/types/marketplace.types";
-import { executeGraphQLQuery } from "../../utils/apollo-client";
+import { notEmpty } from "../../utils/functional.utils";
+import { gqlSdk } from "../../utils/gqlSdk";
 interface Params {
   walletOrHandle: string;
 }
@@ -89,19 +82,18 @@ const handler = (fastify: FastifyInstance) =>
     var response = user.data() ?? {};
     // Get the wallet address of the user
     var wallet = user.id.toLowerCase();
+
     // Query the GraphQL API with the wallet address to get more user data
-    const { data: userData } = await executeGraphQLQuery<GetUserByWalletQuery>(
-      process.env.GRAPH_API_URL,
-      GetUserByWalletDocument,
-      { wallet }
-    );
+    const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
+
     // Add the wallet address to the response object
     response.wallet = wallet;
+
     // If the users array in the data is not empty
-    if (userData?.users.length) {
+    if (notEmpty(users)) {
       // Create a new listings array with the listings from the data, and add a "selected" property set to false
       const listings =
-        userData.users[0].listings?.map((item) => ({
+        users[0].listings?.map((item) => ({
           ...item,
           selected: false,
         })) ?? [];
@@ -119,22 +111,17 @@ const handler = (fastify: FastifyInstance) =>
       // Add the modified listings array to the response object
       response.listings = listings;
       // Add the activities array from the data to the response object
-      response.activities = userData.users[0].activities;
+      response.activities = users[0].activities;
     } else {
       // If the users array in the data is empty, add empty arrays for listings and activities to the response object
       response.listings = [];
       response.activities = [];
     }
 
-    const { data: assetsData } =
-      await executeGraphQLQuery<GetHoldingsByWalletQuery>(
-        process.env.ASSETS_GRAPH_API_URL,
-        GetHoldingsByWalletDocument,
-        { wallet }
-      );
+    const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
 
-    if (assetsData?.accounts.length) {
-      response.assets = assetsData?.accounts[0].holdings;
+    if (accounts.length) {
+      response.assets = accounts[0].holdings;
     } else {
       response.assets = [];
     }

@@ -1,4 +1,5 @@
-import { DocumentNode } from 'graphql';
+import { GraphQLClient } from 'graphql-request';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -500,11 +501,16 @@ export const GetHoldingsByWalletDocument = gql`
   }
 }
     `;
-export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
-export function getSdk<C, E>(requester: Requester<C, E>) {
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, options?: C): Promise<GetHoldingsByWalletQuery> {
-      return requester<GetHoldingsByWalletQuery, GetHoldingsByWalletQueryVariables>(GetHoldingsByWalletDocument, variables, options) as Promise<GetHoldingsByWalletQuery>;
+    getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByWalletQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
     }
   };
 }

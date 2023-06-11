@@ -5,16 +5,8 @@ import {
   FastifyRequest,
 } from "fastify";
 import { compact, isNumber } from "lodash";
-import {
-  FindProjectsDocument,
-  FindProjectsQuery,
-  Project,
-} from "../../../.generated/types/marketplace.types";
-import {
-  CarbonOffset,
-  FindCarbonOffsetsDocument,
-  FindCarbonOffsetsQuery,
-} from "../../../.generated/types/offsets.types";
+import { Project } from "../../../.generated/types/marketplace.types";
+import { CarbonOffset } from "../../../.generated/types/offsets.types";
 import {
   calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,
@@ -24,8 +16,8 @@ import {
 } from "../../helpers/utils";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { executeGraphQLQuery } from "../../utils/apollo-client";
-import { extract } from "../../utils/functional.utils";
+import { extract, notEmpty } from "../../utils/functional.utils";
+import { gqlSdk } from "../../utils/gqlSdk";
 
 const schema = {
   querystring: {
@@ -101,25 +93,19 @@ const handler = (fastify: FastifyInstance) =>
 
     const poolPrices = await calculatePoolPrices(fastify);
 
-    const { data: projectsData } = await executeGraphQLQuery<FindProjectsQuery>(
-      process.env.GRAPH_API_URL,
-      FindProjectsDocument,
-      { country, category, search, vintage }
+    const queryArgs = { country, category, search, vintage };
+
+    const { projects: fetchedProjects } = await gqlSdk.marketplace.findProjects(
+      queryArgs
     );
+    const { carbonOffsets } = await gqlSdk.offsets.findCarbonOffsets(queryArgs);
 
-    let { data: pooledProjectsData } =
-      await executeGraphQLQuery<FindCarbonOffsetsQuery>(
-        process.env.CARBON_OFFSETS_GRAPH_API_URL,
-        FindCarbonOffsetsDocument,
-        { country, category, search, vintage }
-      );
-
-    const projects = projectsData?.projects.map(function (project: any) {
+    const projects = fetchedProjects.map(function (project: any) {
       const uniqueValues: (string | undefined)[] = [];
 
-      if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
+      if (notEmpty(carbonOffsets)) {
         //Find the indexes of the projects that match the offsets
-        let indexes = pooledProjectsData.carbonOffsets
+        let indexes = carbonOffsets
           .map((item: any, idx: number) =>
             isMatchingProject(item, project) ? idx : undefined
           )
@@ -134,34 +120,22 @@ const handler = (fastify: FastifyInstance) =>
             //@ts-ignore see above
             pooledProjectsData.carbonOffsets[index].display = false;
 
-            if (
-              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceUBO) >=
-              1
-            ) {
+            if (parseFloat(carbonOffsets[index].balanceUBO) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "ubo")?.price
               );
             }
-            if (
-              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceNBO) >=
-              1
-            ) {
+            if (parseFloat(carbonOffsets[index].balanceNBO) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "nbo")?.price
               );
             }
-            if (
-              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceNCT) >=
-              1
-            ) {
+            if (parseFloat(carbonOffsets[index].balanceNCT) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "ntc")?.price
               );
             }
-            if (
-              parseFloat(pooledProjectsData?.carbonOffsets[index].balanceBCT) >=
-              1
-            ) {
+            if (parseFloat(carbonOffsets[index].balanceBCT) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "btc")?.price
               );
@@ -205,9 +179,7 @@ const handler = (fastify: FastifyInstance) =>
       return { ...project, price };
     });
 
-    const pooledProjects = pooledProjectsData?.carbonOffsets.map(function (
-      project: any
-    ) {
+    const pooledProjects = carbonOffsets.map(function (project: any) {
       if (project.display == false) {
         return null;
       }

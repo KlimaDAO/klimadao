@@ -1,4 +1,5 @@
-import { DocumentNode } from 'graphql';
+import { GraphQLClient } from 'graphql-request';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -592,11 +593,16 @@ export const GetPairDocument = gql`
   }
 }
     `;
-export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
-export function getSdk<C, E>(requester: Requester<C, E>) {
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getPair(variables: GetPairQueryVariables, options?: C): Promise<GetPairQuery> {
-      return requester<GetPairQuery, GetPairQueryVariables>(GetPairDocument, variables, options) as Promise<GetPairQuery>;
+    getPair(variables: GetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPairQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
     }
   };
 }

@@ -1,4 +1,5 @@
-import { DocumentNode } from 'graphql';
+import { GraphQLClient } from 'graphql-request';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -1578,29 +1579,34 @@ export const GetProjectsByIdDocument = gql`
   }
 }
     ${ProjectFragmentFragmentDoc}`;
-export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
-export function getSdk<C, E>(requester: Requester<C, E>) {
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getCategories(variables?: GetCategoriesQueryVariables, options?: C): Promise<GetCategoriesQuery> {
-      return requester<GetCategoriesQuery, GetCategoriesQueryVariables>(GetCategoriesDocument, variables, options) as Promise<GetCategoriesQuery>;
+    getCategories(variables?: GetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
     },
-    getCountries(variables?: GetCountriesQueryVariables, options?: C): Promise<GetCountriesQuery> {
-      return requester<GetCountriesQuery, GetCountriesQueryVariables>(GetCountriesDocument, variables, options) as Promise<GetCountriesQuery>;
+    getCountries(variables?: GetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCountriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
     },
-    getVintages(variables?: GetVintagesQueryVariables, options?: C): Promise<GetVintagesQuery> {
-      return requester<GetVintagesQuery, GetVintagesQueryVariables>(GetVintagesDocument, variables, options) as Promise<GetVintagesQuery>;
+    getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
-    getPurchasesById(variables?: GetPurchasesByIdQueryVariables, options?: C): Promise<GetPurchasesByIdQuery> {
-      return requester<GetPurchasesByIdQuery, GetPurchasesByIdQueryVariables>(GetPurchasesByIdDocument, variables, options) as Promise<GetPurchasesByIdQuery>;
+    getPurchasesById(variables?: GetPurchasesByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesByIdQuery>(GetPurchasesByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchasesById', 'query');
     },
-    getUserByWallet(variables?: GetUserByWalletQueryVariables, options?: C): Promise<GetUserByWalletQuery> {
-      return requester<GetUserByWalletQuery, GetUserByWalletQueryVariables>(GetUserByWalletDocument, variables, options) as Promise<GetUserByWalletQuery>;
+    getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
     },
-    findProjects(variables?: FindProjectsQueryVariables, options?: C): Promise<FindProjectsQuery> {
-      return requester<FindProjectsQuery, FindProjectsQueryVariables>(FindProjectsDocument, variables, options) as Promise<FindProjectsQuery>;
+    findProjects(variables?: FindProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FindProjectsQuery>(FindProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findProjects', 'query');
     },
-    getProjectsById(variables?: GetProjectsByIdQueryVariables, options?: C): Promise<GetProjectsByIdQuery> {
-      return requester<GetProjectsByIdQuery, GetProjectsByIdQueryVariables>(GetProjectsByIdDocument, variables, options) as Promise<GetProjectsByIdQuery>;
+    getProjectsById(variables?: GetProjectsByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsByIdQuery>(GetProjectsByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectsById', 'query');
     }
   };
 }

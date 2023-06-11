@@ -1,45 +1,41 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const GENERATED_DIR = ".generated/types";
+const DOCUMENTS_DIR = "src/graphql";
+const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
+
 const plugins = [
   "typescript",
   "typescript-operations",
-  "typescript-generic-sdk",
+  "typescript-graphql-request",
 ];
+
+const schema = {
+  marketplace: `${GRAPH_API_ROOT}/najada/marketplace-new`,
+  tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
+  assets: `${GRAPH_API_ROOT}/cujowolf/polygon-carbon-holdings-mumbai`,
+  offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
+};
+
+// Generate configuration for each schema entry
+const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
+  (acc, [key, schema]) => ({
+    ...acc,
+    [`${GENERATED_DIR}/${key}.types.ts`]: {
+      schema,
+      documents: `${DOCUMENTS_DIR}/${key}.gql`,
+      plugins,
+    },
+  }),
+  {}
+);
 
 const config: CodegenConfig = {
   overwrite: true,
+  generates,
   config: {
-    scalars: {
-      // We need to define the typescript type for BigInt
-      BigInt: "string",
-    },
+    scalars: { BigInt: "string", ID: "string" },
     skipTypename: true,
-  },
-  generates: {
-    [`${GENERATED_DIR}/marketplace.types.ts`]: {
-      schema: "https://api.thegraph.com/subgraphs/name/najada/marketplace-new",
-      documents: "src/graphql/marketplace.gql",
-      plugins,
-    },
-
-    [`${GENERATED_DIR}/offsets.types.ts`]: {
-      schema:
-        "https://api.thegraph.com/subgraphs/name/klimadao/polygon-bridged-carbon",
-      documents: "src/graphql/offsets.gql",
-      plugins,
-    },
-    [`${GENERATED_DIR}/assets.types.ts`]: {
-      schema:
-        "https://api.thegraph.com/subgraphs/name/cujowolf/polygon-carbon-holdings-mumbai",
-      documents: "src/graphql/assets.gql",
-      plugins,
-    },
-    [`${GENERATED_DIR}/tokens.types.ts`]: {
-      schema: "https://api.thegraph.com/subgraphs/name/klimadao/klimadao-pairs",
-      documents: "src/graphql/tokens.gql",
-      plugins,
-    },
   },
 };
 
