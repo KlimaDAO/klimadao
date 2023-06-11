@@ -1,4 +1,3 @@
-// Import the cross-fetch library for making HTTP requests
 import { GraphQLClient } from "graphql-request";
 import { getSdk as assetsSdk } from "../../.generated/types/assets.types";
 import { getSdk as marketplaceSdk } from "../../.generated/types/marketplace.types";

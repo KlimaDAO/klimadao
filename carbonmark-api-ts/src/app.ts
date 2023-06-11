@@ -1,6 +1,13 @@
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
+import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
 import { join } from "path";
+
+const result = dotenv.config();
+
+if (result.error) {
+  console.error("Error loading .env file:", result.error);
+}
 
 export type AppOptions = {
   // Place your custom options for app below here.
@@ -13,10 +20,6 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
-  // Place here your custom code!
-
-  // Do not touch the following lines
-
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused
   // through your application
@@ -29,7 +32,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   // define your routes in one of these
   void fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
-    options: opts,
+    options: { ...opts, prefix: "/api" },
     dirNameRoutePrefix: false,
   });
 

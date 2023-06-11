@@ -45,10 +45,15 @@ export async function getAllCategories(fastify: FastifyInstance) {
   // Define cache key for caching the result
   const cacheKey = `categories`;
   // Try to get the cached result
-  const cachedResult = await fastify.lcache.get<Category[]>(cacheKey)?.payload;
+  try {
+    const cachedResult = await fastify.lcache.get<Category[]>(cacheKey)
+      ?.payload;
 
-  // If the cached result exists, return it
-  if (cachedResult) return cachedResult;
+    // If the cached result exists, return it
+    if (cachedResult) return cachedResult;
+  } catch (error) {
+    console.debug(error);
+  }
 
   // Fetch categories from the marketplace & carbon offsets categories
   const [{ categories }, { carbonOffsets }] = await Promise.all([
