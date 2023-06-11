@@ -1,4 +1,4 @@
-import { RetirementToken, urls, verra } from "@klimadao/lib/constants";
+import { RetirementToken, urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import PDFKit from "pdfkit";
@@ -14,6 +14,7 @@ import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
+import { launchIcon } from "./images/launchIcon";
 
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
@@ -51,12 +52,6 @@ const catergoryBannerMap = {
   Other: otherBanner,
   "Other Nature Based": otherNatureBasedBanner,
   "Renewable Energy": renewableEnergyBanner,
-};
-
-const constructVerraUrl = (id: string) => {
-  const split = id.split("-");
-  const resourceIdentifier = split[split.length - 1]; // might not have prefix
-  return `${verra.projectDetailPage}/${resourceIdentifier}`;
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
@@ -162,8 +157,8 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       .format(retirementDate)
       .toUpperCase();
 
-    const backgroundBuffer = Buffer.from(dateIcon, "base64");
-    doc.image(backgroundBuffer, spacing.margin, 92, {
+    const dateIconBuffer = Buffer.from(dateIcon, "base64");
+    doc.image(dateIconBuffer, spacing.margin, 92, {
       width: 20,
       height: 20,
     });
@@ -301,16 +296,29 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
         characterSpacing: 0.3,
       }
     );
+    const projectDetailsLink = `${urls.carbonmark}/projects/${params.retirement.offset.projectID}-${params.retirement.offset.vintageYear}`;
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
     doc.text(
       "LEARN MORE",
       doc.page.width - 360,
-      200 + projectNameBlockHeight + 20,
+      200 + projectNameBlockHeight + 21,
       {
         underline: true,
-        link: `${urls.carbonmark}/projects/${params.retirement.offset.projectID}-${params.retirement.offset.vintageYear}`,
+        link: projectDetailsLink,
+      }
+    );
+
+    const launchIconBuffer = Buffer.from(launchIcon, "base64");
+    doc.image(
+      launchIconBuffer,
+      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
+      200 + projectNameBlockHeight + 21,
+      {
+        width: 18,
+        height: 18,
+        link: projectDetailsLink as PDFKit.Mixins.AnnotationOption, // error in types provided by library
       }
     );
 
