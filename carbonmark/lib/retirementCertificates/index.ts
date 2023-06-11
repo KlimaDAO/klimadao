@@ -60,6 +60,7 @@ const constructVerraUrl = (id: string) => {
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
+  console.log(params);
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
   const projectDetails = [
@@ -247,7 +248,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const calculateBoxHeight = (): number => {
     const projectNameBlockHeight = doc.heightOfString(
       params.retirement.offset.name,
-      { width: 320, characterSpacing: 0.3 }
+      { width: 300, characterSpacing: 0.3 }
     );
     const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
     const transactionDetailsHeight = 100;
@@ -258,7 +259,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     return (
       positionOfProjectDetails +
-      projectDetails.length * 23 +
+      projectDetails.length * 23.5 +
       transactionDetailsHeight
     );
   };
