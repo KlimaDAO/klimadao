@@ -60,7 +60,6 @@ const constructVerraUrl = (id: string) => {
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  console.log(params);
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
   const projectDetails = [
