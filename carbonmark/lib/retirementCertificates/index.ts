@@ -7,6 +7,7 @@ import { agricultureBanner } from "./images/bannerAgriculture";
 import { energyEfficiencyBanner } from "./images/bannerEnergyEfficiency";
 import { forestryBanner } from "./images/bannerForestry";
 import { industrialProcessingBanner } from "./images/bannerIndustrialProcessing";
+import { mossBanner } from "./images/bannerMoss";
 import { otherBanner } from "./images/bannerOther";
 import { otherNatureBasedBanner } from "./images/bannerOtherNatureBased";
 import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
@@ -46,6 +47,7 @@ const catergoryBannerMap = {
   "Energy Efficiency": energyEfficiencyBanner,
   Forestry: forestryBanner,
   "Industrial Processing": industrialProcessingBanner,
+  Moss: mossBanner,
   Other: otherBanner,
   "Other Nature Based": otherNatureBasedBanner,
   "Renewable Energy": renewableEnergyBanner,
@@ -234,7 +236,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printCategoryBanner = async (): Promise<void> => {
     const category = isMossRetirement
-      ? "Other"
+      ? "Moss"
       : (params.retirement.offset
           .methodologyCategory as CategoryBannerMappingKey);
     const categoryBanner = catergoryBannerMap[category];
@@ -401,7 +403,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(16);
     doc.fillColor(BLACK);
-    doc.text(params.retirement.offset.name, doc.page.width - 360, 218, {
+    doc.text("MOSS Earth MCO2", doc.page.width - 360, 218, {
       width: 320,
     });
 
