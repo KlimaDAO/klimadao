@@ -64,10 +64,6 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
   const projectDetails = [
     {
-      label: "ASSET RETIRED:",
-      value: params.retiredToken?.toUpperCase(),
-    },
-    {
       label: "PROJECT:",
       value: params.retirement.offset.projectID,
     },
@@ -101,12 +97,12 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   });
 
   const setupFonts = () => {
+    doc.registerFont("DMSans", Buffer.from(DMSansRegular, "base64"));
     doc.registerFont("Poppins-Bold", Buffer.from(PoppinsBold, "base64"));
     doc.registerFont(
       "Poppins-Semibold",
       Buffer.from(PoppinsSemiBold, "base64")
     );
-    doc.registerFont("DMSans", Buffer.from(DMSansRegular, "base64"));
   };
 
   const printBackground = (): void => {
@@ -262,7 +258,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     return (
       positionOfProjectDetails +
-      projectDetails.length * 22 +
+      projectDetails.length * 23 +
       transactionDetailsHeight
     );
   };
@@ -376,7 +372,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { width: 320 }
     );
 
-    doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 98, {
+    doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 100, {
       underline: true,
       link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
     });
@@ -451,7 +447,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       { width: 320 }
     );
 
-    doc.text("View on PolygonScan", doc.page.width - 360, 200 + 50 + 98, {
+    doc.text("View on PolygonScan", doc.page.width - 360, 200 + 50 + 100, {
       underline: true,
       link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
     });
