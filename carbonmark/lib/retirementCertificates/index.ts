@@ -184,45 +184,52 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       characterSpacing: 0.3,
     });
 
-    const beneficaryText =
-      params.retirement.beneficiary || params.retirement.beneficiaryAddress;
-    doc.text("BENEFICIARY:", spacing.margin, 220, {
-      characterSpacing: 0.3,
-    });
+    const beneficary = params.retirement.beneficiary;
+    if (beneficary) {
+      doc.text("BENEFICIARY:", spacing.margin, 220, {
+        characterSpacing: 0.3,
+      });
 
-    doc.font("Poppins-Bold");
-    doc.fontSize(20);
-    doc.fillColor(BLACK);
-    doc.text(beneficaryText, spacing.margin, 245, { width: 360 });
+      doc.font("Poppins-Bold");
+      doc.fontSize(20);
+      doc.fillColor(BLACK);
+      doc.text(beneficary, spacing.margin, 245, { width: 360 });
+    }
 
-    const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
-      width: 360,
-    });
+    const beneficiaryNameBlockHeight = beneficary
+      ? doc.heightOfString(beneficary, {
+          width: 360,
+        }) + 20
+      : 0;
 
     const retirementMessage = params.retirement.retirementMessage;
-    doc.font("DMSans");
-    doc.fontSize(16);
-    doc.text(
-      `“${retirementMessage}”`,
-      spacing.margin,
-      240 + beneficiaryNameBlockHeight + 20,
-      { width: 360 }
-    );
+    if (retirementMessage) {
+      doc.font("DMSans");
+      doc.fontSize(16);
+      doc.text(
+        `“${retirementMessage}”`,
+        spacing.margin,
+        240 + beneficiaryNameBlockHeight,
+        { width: 360 }
+      );
+    }
 
-    const retirementMessageBlockHeight = doc.heightOfString(retirementMessage, {
-      width: 360,
-    });
+    const retirementMessageBlockHeight = retirementMessage
+      ? doc.heightOfString(retirementMessage, {
+          width: 360,
+        }) + 20
+      : 0;
 
     const disclaimer =
       "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records.";
+    const disclaimerYSpacing =
+      !beneficiaryNameBlockHeight && !retirementMessageBlockHeight
+        ? 210
+        : 240 + beneficiaryNameBlockHeight + retirementMessageBlockHeight;
+    doc.font("DMSans");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text(
-      disclaimer,
-      spacing.margin,
-      240 + beneficiaryNameBlockHeight + 20 + retirementMessageBlockHeight + 20,
-      { width: 360 }
-    );
+    doc.text(disclaimer, spacing.margin, disclaimerYSpacing, { width: 360 });
   };
 
   const printCategoryBanner = async (): Promise<void> => {
