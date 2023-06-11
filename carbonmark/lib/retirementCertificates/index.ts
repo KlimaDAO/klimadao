@@ -375,6 +375,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       startPosition + 69,
       { width: 320 }
     );
+
+    doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 98, {
+      underline: true,
+      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+    });
   };
 
   const printMossProjectDetails = (): void => {
@@ -445,6 +450,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       200 + 50 + 64,
       { width: 320 }
     );
+
+    doc.text("View on PolygonScan", doc.page.width - 360, 200 + 50 + 98, {
+      underline: true,
+      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+    });
   };
 
   setupFonts();
