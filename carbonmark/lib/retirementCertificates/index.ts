@@ -310,7 +310,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       200 + projectNameBlockHeight + 20,
       {
         underline: true,
-        link: constructVerraUrl(params.retirement.offset.projectID),
+        link: `${urls.carbonmark}/projects/${params.retirement.offset.projectID}-${params.retirement.offset.vintageYear}`,
       }
     );
 
