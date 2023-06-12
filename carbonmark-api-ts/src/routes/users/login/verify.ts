@@ -42,7 +42,7 @@ const handler = (fastify: FastifyInstance) =>
     const dbUser = users[wallet];
 
     // Create the signed message to verify
-    const signedMessage = `${process.env.AUTHENTICATION_MESSAGE}${dbUser.nonce}`;
+    const signedMessage = `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${dbUser.nonce}`;
 
     // Verify the signature
     const signerWalletAddress = ethers.utils.verifyMessage(
