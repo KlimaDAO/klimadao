@@ -45,9 +45,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
-  const redemptionFee = Number(costs || 0) * feesFactor;
-  const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
-  const swapFee = getSwapFee(Number(costs || 0), props.pool);
+  const redemptionFee =
+    (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
+  const aggregatorFee =
+    (!isPoolDefault && Number(amount || 0) * AGGREGATOR_FEE) || 0;
+  const swapFee =
+    (!isPoolDefault && getSwapFee(Number(costs || 0), poolName)) || 0;
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
@@ -161,15 +164,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Text t="h5">
               {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
             </Text>
-            <Text
-              t="body3"
-              color="lighter"
-              onClick={() => setIsToggled((prev) => !prev)}
-              className={styles.toggleFees}
-            >
-              {isToggled ? t`Hide Details` : t`Show Details`}
-              {isToggled ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-            </Text>
+            {!isPoolDefault && (
+              <Text
+                t="body3"
+                color="lighter"
+                onClick={() => setIsToggled((prev) => !prev)}
+                className={styles.toggleFees}
+              >
+                {isToggled ? t`Hide Details` : t`Show Details`}
+                {isToggled ? (
+                  <KeyboardArrowUpIcon />
+                ) : (
+                  <KeyboardArrowDownIcon />
+                )}
+              </Text>
+            )}
           </div>
         </div>
         {isToggled && (
