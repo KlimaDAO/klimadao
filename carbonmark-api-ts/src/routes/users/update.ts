@@ -50,7 +50,7 @@ const handler = (fastify: FastifyInstance) =>
       request.body;
 
     try {
-      let updatedData = {
+      const updatedData = {
         username,
         description,
         handle,
@@ -74,7 +74,7 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 const update: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.put<{ Body: Body }>(
+  await fastify.put<{ Body: Body }>(
     "/users/:wallet",
     { onRequest: [fastify.authenticate], schema },
     handler(fastify)

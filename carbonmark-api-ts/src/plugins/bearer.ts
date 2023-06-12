@@ -3,11 +3,11 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import fp from "fastify-plugin";
 
 export default fp(async (fastify) => {
-  fastify.register(fastifyJwt, {
+  await fastify.register(fastifyJwt, {
     secret: "supersecret", //@todo use a real secret
   });
 
-  fastify.decorate(
+  await fastify.decorate(
     "authenticate",
     async (request: FastifyRequest, reply: FastifyReply) => {
       try {

@@ -1,5 +1,3 @@
-("");
-
 import fp from "fastify-plugin";
 
 /*
@@ -11,7 +9,8 @@ Since fastify-openapi-docs uses an onRoute hook, you have to either:
 See: https://www.fastify.io/docs/latest/Guides/Migration-Guide-V4/#synchronous-route-definitions
 */
 export default fp(async function (fastify) {
-  fastify.register(require("@fastify/swagger"), {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires -- this package does not yet support es module imports
+  await fastify.register(require("@fastify/swagger"), {
     routePrefix: "/documentation",
     swagger: {
       info: {

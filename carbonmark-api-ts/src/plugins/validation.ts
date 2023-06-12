@@ -6,5 +6,5 @@ import fp from "fastify-plugin";
  * @see https://github.com/fastify/fastify-response-validation
  */
 export default fp(async function (fastify) {
-  fastify.register(responseValidation);
+  await fastify.register(responseValidation);
 });

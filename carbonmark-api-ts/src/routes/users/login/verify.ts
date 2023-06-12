@@ -32,10 +32,7 @@ const schema = {
 };
 
 const handler = (fastify: FastifyInstance) =>
-  async function (
-    request: FastifyRequest<{ Body: Body }>,
-    reply: FastifyReply
-  ) {
+  function (request: FastifyRequest<{ Body: Body }>, reply: FastifyReply) {
     const users = request.server.users;
 
     // Destructure the wallet address and signature from the request body
@@ -73,8 +70,8 @@ const handler = (fastify: FastifyInstance) =>
     return reply.send({ token });
   };
 
-const verify: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.post("/users/login/verify", { schema }, handler(fastify));
+const verify: FastifyPluginAsync = async (fastify): Promise<void> => {
+  await fastify.post("/users/login/verify", { schema }, handler(fastify));
 };
 
 export default verify;

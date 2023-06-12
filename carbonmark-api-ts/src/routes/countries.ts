@@ -14,7 +14,7 @@ const schema = {
 };
 
 const countries: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/countries", { schema }, async function (_, reply) {
+  await fastify.get("/countries", { schema }, async function (_, reply) {
     const countries = await getAllCountries(fastify);
     return reply.status(200).send(countries);
   });

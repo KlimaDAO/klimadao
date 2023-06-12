@@ -23,10 +23,7 @@ type Body = {
   wallet: string;
 };
 
-async function handler(
-  request: FastifyRequest<{ Body: Body }>,
-  reply: FastifyReply
-) {
+function handler(request: FastifyRequest<{ Body: Body }>, reply: FastifyReply) {
   const users = request.server.users;
 
   // Get the wallet address from the request body
@@ -36,7 +33,7 @@ async function handler(
     return reply.code(400).send("Bad Request");
   }
   // Check if the wallet address is already in the users object
-  if (!!users[walletAddress]) {
+  if (users[walletAddress]) {
     // If the wallet address is found, return the nonce associated with it
     return reply.send({ nonce: users[walletAddress].nonce });
   }
@@ -49,6 +46,6 @@ async function handler(
 }
 
 const login: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.post("/users/login", { schema }, handler);
+  await fastify.post("/users/login", { schema }, handler);
 };
 export default login;

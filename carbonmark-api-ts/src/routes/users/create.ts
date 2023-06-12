@@ -68,7 +68,7 @@ const handler = (fastify: FastifyInstance) =>
       });
     }
 
-    let usersRef = fastify.firebase.firestore().collection("users");
+    const usersRef = fastify.firebase.firestore().collection("users");
 
     const userSnapshot = await usersRef
       .where("handle", "==", handle.toLowerCase())
@@ -102,8 +102,8 @@ const handler = (fastify: FastifyInstance) =>
     }
   };
 
-const create: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.post<{ Body: Body }>(
+const create: FastifyPluginAsync = async (fastify): Promise<void> => {
+  await fastify.post<{ Body: Body }>(
     "/users",
     { onRequest: [fastify.authenticate], schema },
     handler(fastify)

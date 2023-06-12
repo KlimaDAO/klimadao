@@ -105,7 +105,7 @@ const handler = (fastify: FastifyInstance) =>
 
       if (notEmpty(carbonOffsets)) {
         //Find the indexes of the projects that match the offsets
-        let indexes = carbonOffsets
+        const indexes = carbonOffsets
           .map((item: any, idx: number) =>
             isMatchingProject(item, project) ? idx : undefined
           )
@@ -117,8 +117,9 @@ const handler = (fastify: FastifyInstance) =>
           indexes.forEach((index) => {
             //We want to hide the offsets that have existing projects.
             //This is a terrible way of doing it @todo use ids to filter
-            //@ts-ignore see above
-            pooledProjectsData.carbonOffsets[index].display = false;
+            //@todo remove this
+            //@ts-ignore -- assigning a new attribute to the type that doesn't exist
+            carbonOffsets[index].display = false;
 
             if (parseFloat(carbonOffsets[index].balanceUBO) >= 1) {
               uniqueValues.push(
@@ -156,7 +157,7 @@ const handler = (fastify: FastifyInstance) =>
           }
         });
 
-        let lowestPrice = uniqueValues.length
+        const lowestPrice = uniqueValues.length
           ? compact(uniqueValues).reduce((a, b) =>
               a.length < b.length ? a : a.length === b.length && a < b ? a : b
             )
@@ -206,7 +207,7 @@ const handler = (fastify: FastifyInstance) =>
         );
       }
 
-      let country = project.country.length
+      const country = project.country.length
         ? {
             id: project.country,
           }
@@ -219,7 +220,7 @@ const handler = (fastify: FastifyInstance) =>
         project.projectID.split("-")[0]
       );
 
-      let singleProject = {
+      const singleProject = {
         id: project.id,
         isPoolProject: true,
         description: cmsData ? cmsData.description.slice(0, 200) : undefined,
@@ -257,7 +258,7 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 const get: FastifyPluginAsync = async (fastify) => {
-  fastify.get("/projects", { schema }, handler(fastify));
+  await fastify.get("/projects", { schema }, handler(fastify));
 };
 
 export default get;

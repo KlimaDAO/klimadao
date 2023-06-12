@@ -9,7 +9,7 @@ type UserNonce = {
  * Add a shared users object to the fastify instance
  */
 export default fp(async (fastify) => {
-  fastify.decorate("users", {});
+  await fastify.decorate("users", {});
 });
 
 declare module "fastify" {

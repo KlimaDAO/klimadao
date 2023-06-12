@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true,
-    "noImplicitAny": true
-    // "allowJs": true
+    //@todo set this to true
+    "noImplicitAny": false
   },
   "include": ["src/**/*.ts"]
 }

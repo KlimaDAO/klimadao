@@ -24,8 +24,8 @@ export const isListingActive = (listing: Partial<Listing>) =>
  */
 export const deconstructListingId = (str: string) => {
   const id = str.split("-");
-  var key = `${id[0]}-${id[1]}`;
-  var vintage = id[2];
+  const key = `${id[0]}-${id[1]}`;
+  const vintage = id[2];
   return {
     key,
     vintage,

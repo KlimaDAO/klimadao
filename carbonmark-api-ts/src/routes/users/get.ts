@@ -48,9 +48,9 @@ const handler = (fastify: FastifyInstance) =>
     // Destructure the userIdentifier parameter from the request object
     const { walletOrHandle } = request.params;
     // Destructure the type query parameter from the request object
-    var { type } = request.query;
+    const { type } = request.query;
 
-    var user;
+    let user;
 
     if (type == "wallet") {
       // Query the Firestore database for the document with a matching wallet address
@@ -65,7 +65,7 @@ const handler = (fastify: FastifyInstance) =>
       }
     } else {
       // Query the Firestore database for documents with a matching handle
-      let usersRef = fastify.firebase.firestore().collection("users");
+      const usersRef = fastify.firebase.firestore().collection("users");
       //const users = await usersRef.where('handle', '==', userIdentifier).get();
       const userSnapshot = await usersRef
         .where("handle", "==", walletOrHandle.toLowerCase())
@@ -79,9 +79,9 @@ const handler = (fastify: FastifyInstance) =>
       user = userSnapshot.docs[0];
     }
     // Create a response object with the data from the retrieved user document
-    var response = user.data() ?? {};
+    const response = user.data() ?? {};
     // Get the wallet address of the user
-    var wallet = user.id.toLowerCase();
+    const wallet = user.id.toLowerCase();
 
     // Query the GraphQL API with the wallet address to get more user data
     const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
@@ -131,7 +131,7 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 const get: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/users/:walletOrHandle", { schema }, handler(fastify));
+  await fastify.get("/users/:walletOrHandle", { schema }, handler(fastify));
 };
 
 export default get;

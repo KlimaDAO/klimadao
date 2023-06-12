@@ -18,7 +18,7 @@ async function handler(
 }
 
 const purchases: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/purchases/:id", handler);
+  await fastify.get("/purchases/:id", handler);
 };
 
 export default purchases;

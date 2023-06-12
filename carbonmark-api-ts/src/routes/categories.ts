@@ -12,7 +12,7 @@ const schema = {
 };
 
 const categories: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/categories", { schema }, async (request, reply) => {
+  await fastify.get("/categories", { schema }, async (request, reply) => {
     const categories = await getAllCategories(fastify);
     return reply.status(200).send(categories);
   });

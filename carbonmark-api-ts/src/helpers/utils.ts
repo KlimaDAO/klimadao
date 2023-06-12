@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { concat } from "lodash";
+import { compact, concat } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
@@ -110,7 +110,7 @@ export async function getAllCountries(fastify: FastifyInstance) {
     map((id) => ({ id }))
   );
 
-  //@ts-ignore
+  //@ts-ignore -- @todo provide typing to lodash functions
   const result: Country[] = fn([
     countries?.map(extract("id")),
     carbonOffsets.map(extract("country")),
@@ -121,61 +121,59 @@ export async function getAllCountries(fastify: FastifyInstance) {
   return result;
 }
 
-export type PriceType = Pick<
-  Listing,
-  "leftToSell" | "tokenAddress" | "singleUnitPrice"
-> & {
-  name: string;
-};
+export type PriceType = Pick<Listing, "leftToSell" | "tokenAddress"> &
+  Partial<Pick<Listing, "singleUnitPrice">> & {
+    name: string;
+  };
 
 export function calculateProjectPoolPrices(
   poolProject: Partial<CarbonOffset>,
-  uniqueValues: string[],
+  uniqueValues: (string | undefined)[],
   poolPrices: TokenPrice[],
   prices: PriceType[] = []
 ): [string[], typeof prices] {
   if (parseFloat(poolProject.balanceNBO) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo")!.price);
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo")?.price);
 
     prices.push({
       leftToSell: poolProject.balanceNBO,
-      tokenAddress: process.env.NBO_POOL!,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")!.priceInUsd,
+      tokenAddress: process.env.NBO_POOL,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")?.priceInUsd,
       name: "NBO",
     });
   }
   if (parseFloat(poolProject.balanceUBO) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo")!.price);
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo")?.price);
 
     prices.push({
       leftToSell: poolProject.balanceUBO,
-      tokenAddress: process.env.UBO_POOL!,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")!.priceInUsd,
+      tokenAddress: process.env.UBO_POOL,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")?.priceInUsd,
       name: "UBO",
     });
   }
   if (parseFloat(poolProject.balanceNCT) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc")!.price);
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc")?.price);
 
     prices.push({
       leftToSell: poolProject.balanceNCT,
-      tokenAddress: process.env.NTC_POOL!,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")!.priceInUsd,
+      tokenAddress: process.env.NTC_POOL,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")?.priceInUsd,
       name: "NCT",
     });
   }
   if (parseFloat(poolProject.balanceBCT) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "btc")!.price);
+    uniqueValues.push(poolPrices.find((obj) => obj.name === "btc")?.price);
 
     prices.push({
       leftToSell: poolProject.balanceBCT,
-      tokenAddress: process.env.BTC_POOL!,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")!.priceInUsd,
+      tokenAddress: process.env.BTC_POOL,
+      singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")?.priceInUsd,
       name: "BCT",
     });
   }
 
-  return [uniqueValues, prices];
+  return [compact(uniqueValues), prices];
 }
 
 export type TokenPrice = {
@@ -200,16 +198,16 @@ const getPoolPrice = async (
     await fastify.lcache.set(CACHE_KEY, { payload: result });
   }
 
-  var feeAmount = 0;
+  let feeAmount = 0;
   if (pool.feeAdd) {
     feeAmount = Number(result?.currentprice) * pool.fee;
   } else {
     feeAmount = (1 / (1 - pool.fee) - 1) * Number(result?.currentprice);
   }
 
-  var priceWithFee = Number(result?.currentprice) + feeAmount;
-  var priceTrimmed = parseFloat(priceWithFee.toFixed(6));
-  var priceFormatted = priceTrimmed * decimals;
+  const priceWithFee = Number(result?.currentprice) + feeAmount;
+  const priceTrimmed = parseFloat(priceWithFee.toFixed(6));
+  const priceFormatted = priceTrimmed * decimals;
 
   const priceResult: TokenPrice = {
     priceInUsd: priceWithFee.toFixed(6),
@@ -222,7 +220,7 @@ const getPoolPrice = async (
 
 /** @todo refactor this */
 export async function calculatePoolPrices(fastify: FastifyInstance) {
-  var decimals: number;
+  let decimals: number;
   if (process.env.VERCEL_ENV == "production") {
     decimals = 1e6;
   } else {

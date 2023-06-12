@@ -23,7 +23,7 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 const vintages: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get("/vintages", { schema }, handler(fastify));
+  await fastify.get("/vintages", { schema }, handler(fastify));
 };
 
 export default vintages;
