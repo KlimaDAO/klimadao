@@ -100,16 +100,40 @@ const handler = (fastify: FastifyInstance) =>
           selected: false,
         })) ?? [];
 
-      await Promise.all(
-        listings?.map(async (listing) => {
+      const activities = users[0].activities ?? [];
+
+      await Promise.all([
+        ...listings.map(async (listing) => {
           const seller = await fastify.firebase
             .firestore()
             .collection("users")
             .doc(listing.seller.id.toUpperCase())
             .get();
           listing.seller = { ...seller.data(), ...listing.seller };
-        })
-      );
+        }),
+        ...activities.map(async (actvity: any) => {
+          if (actvity.activityType != "Sold") {
+            const seller = await fastify.firebase
+              .firestore()
+              .collection("users")
+              .doc(actvity.seller.id.toUpperCase())
+              .get();
+            if (seller.exists) {
+              actvity.seller.handle = seller.data()?.handle;
+            }
+            if (actvity.buyer) {
+              const buyer = await fastify.firebase
+                .firestore()
+                .collection("users")
+                .doc(actvity.buyer.id.toUpperCase())
+                .get();
+              if (buyer.exists) {
+                actvity.buyer.handle = buyer.data()?.handle;
+              }
+            }
+          }
+        }),
+      ]);
       // Add the modified listings array to the response object
       response.listings = listings;
       // Add the activities array from the data to the response object
