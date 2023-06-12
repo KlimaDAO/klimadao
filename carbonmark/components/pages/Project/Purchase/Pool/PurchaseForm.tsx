@@ -183,11 +183,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         </Col>
         <Col>
           <Card>
-            <TotalValues
-              singleUnitPrice={props.price.singleUnitPrice}
-              balance={balance}
-              pool={props.price.name.toLowerCase() as PoolToken}
-            />
+            <TotalValues balance={balance} price={props.price} />
           </Card>
           <Card>
             <AssetDetails price={props.price} project={props.project} />

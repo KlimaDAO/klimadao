@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { PoolToken } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -18,9 +19,8 @@ import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  singleUnitPrice: string;
   balance: string | null;
-  pool: Lowercase<Price["name"]>;
+  price: Price;
 };
 
 // SAME DOUBLED FOR BCT WHEN REDEEM ???
@@ -34,6 +34,8 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const poolName = props.price.name.toLowerCase() as PoolToken;
+
   const { locale } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [feesFactor, setFeesFactor] = useState(0);
@@ -48,12 +50,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   const redemptionFee = Number(costs || 0) * feesFactor;
   const aggregatorFee = Number(quantity || 0) * AGGREGATOR_FEE;
-  const swapFee = getSwapFee(Number(costs || 0), props.pool);
+  const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
     const selectiveFee = async () => {
-      const factor = await getFeeFactor(props.pool);
+      const factor = await getFeeFactor(poolName);
       setFeesFactor(factor);
     };
     selectiveFee();
@@ -73,7 +75,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         setIsLoading(true);
         const totalPrice = await getRedeemCost({
           paymentMethod: paymentMethod,
-          pool: props.pool,
+          pool: poolName,
           quantity,
         });
 
@@ -124,7 +126,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <Text t="h5">
-            {formatToPrice(props.singleUnitPrice, locale, false)}
+            {formatToPrice(props.price.singleUnitPrice, locale, false)}
           </Text>
         </div>
       </div>
@@ -242,7 +244,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
-                  {props.pool.toUpperCase()} {t`redemption Fee`}
+                  {props.price.name} {t`redemption Fee`}
                 </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
