@@ -81,7 +81,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
         connectedDomain={connectedDomain}
       />
       <CarbonmarkButton
-        label={t`Book a demo`}
+        label={<Trans>Book a demo</Trans>}
         href={urls.carbonmarkContactForm}
         className={styles.bookDemoButton}
         renderLink={(linkProps) => <Anchor {...linkProps} />}

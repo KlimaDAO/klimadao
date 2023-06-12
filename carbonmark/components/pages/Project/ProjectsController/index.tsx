@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { Trans } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
@@ -42,7 +43,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         className={styles.filterButton}
         icon={<TuneIcon />}
         onClick={toggleModal}
-        label={<span>Filters</span>}
+        label={<Trans>Filters</Trans>}
       />
       <ProjectFilterModal
         showModal={modalOpen}

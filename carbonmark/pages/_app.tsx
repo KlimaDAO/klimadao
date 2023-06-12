@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const firstRender = useRef(true);
   const { translation, fixedThemeName } = pageProps;
 
-  const locale = router.locale || (router.defaultLocale as string);
+  const locale = "de"; // router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
   if (translation && firstRender.current) {
     activateLocale(locale, translation);
@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Web3ContextProvider>
         <UserTracker>
-          <I18nProvider i18n={i18n}>
+          <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
             <Component {...pageProps} />
           </I18nProvider>
         </UserTracker>

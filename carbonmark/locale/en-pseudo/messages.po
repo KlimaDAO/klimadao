@@ -6,6 +6,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/pages/Home/index.tsx:362
+msgid "0% listing fee"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
@@ -184,6 +194,10 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+#: components/pages/Home/index.tsx:172
+msgid "Buy or retire carbon"
+msgstr ""
+
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
 msgstr ""
@@ -215,12 +229,20 @@ msgstr ""
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr ""
 
+#: components/pages/Home/index.tsx:492
+msgid "Carbonmark's role"
+msgstr ""
+
 #: components/ProjectFilterModal/index.tsx:126
 msgid "Category"
 msgstr ""
 
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
+msgstr ""
+
+#: components/pages/Home/index.tsx:210
+msgid "Choose a project and quantity"
 msgstr ""
 
 #: components/pages/Projects/index.tsx:47
@@ -271,8 +293,20 @@ msgstr ""
 msgid "Create Profile"
 msgstr ""
 
+#: components/pages/Home/index.tsx:223
+msgid "Create a profile and get connected"
+msgstr ""
+
+#: components/pages/Home/index.tsx:283
+msgid "Create a seller profile"
+msgstr ""
+
 #: components/pages/Users/index.tsx:36
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
+msgstr ""
+
+#: components/pages/Home/index.tsx:317
+msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:56
@@ -312,6 +346,10 @@ msgstr ""
 msgid "Digital Carbon"
 msgstr ""
 
+#: components/pages/Home/index.tsx:268
+msgid "Digitize your carbon by using a supported bridge"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
 msgstr ""
@@ -332,6 +370,14 @@ msgstr ""
 msgid "Energy Efficiency"
 msgstr ""
 
+#: components/pages/Home/index.tsx:465
+msgid "FAQs"
+msgstr ""
+
+#: components/pages/Project/ProjectsController/index.tsx:46
+msgid "Filters"
+msgstr ""
+
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
 msgstr ""
@@ -340,8 +386,24 @@ msgstr ""
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 msgstr ""
 
+#: components/pages/Home/index.tsx:344
+msgid "For carbon traders"
+msgstr ""
+
+#: components/pages/Home/index.tsx:389
+msgid "For project developers"
+msgstr ""
+
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
+msgstr ""
+
+#: components/pages/Home/index.tsx:79
+msgid "Get Started"
+msgstr ""
+
+#: components/pages/Home/index.tsx:394
+msgid "Get paid immediately: transactions are resolved in seconds"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -394,6 +456,14 @@ msgstr ""
 msgid "Industrial Processing"
 msgstr ""
 
+#: components/pages/Home/index.tsx:370
+msgid "Instant settlement of all trades"
+msgstr ""
+
+#: components/pages/Home/index.tsx:438
+msgid "Introducing Carbonmark"
+msgstr ""
+
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:515
 msgid "KlimaDAO"
@@ -402,6 +472,10 @@ msgstr ""
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
 #: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
+msgstr ""
+
+#: components/pages/Home/index.tsx:528
+msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
@@ -435,7 +509,7 @@ msgid "Loading..."
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:9
 msgid "Log in"
 msgstr ""
 
@@ -444,7 +518,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:7
+#: components/LoginButton/index.tsx:9
 msgid "Log out"
 msgstr ""
 
@@ -570,6 +644,10 @@ msgstr ""
 msgid "Portfolio | Carbonmark"
 msgstr ""
 
+#: components/pages/Home/index.tsx:522
+msgid "Powered by"
+msgstr ""
+
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
 msgstr ""
@@ -674,6 +752,16 @@ msgstr ""
 msgid "RETIRE CARBON"
 msgstr ""
 
+#: components/pages/Home/index.tsx:449
+#: components/pages/Home/index.tsx:476
+#: components/pages/Home/index.tsx:503
+msgid "Read more"
+msgstr ""
+
+#: components/pages/Home/index.tsx:355
+msgid "Real-time price and transaction data powered by the blockchain"
+msgstr ""
+
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
 msgstr ""
@@ -718,6 +806,10 @@ msgstr ""
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
+msgstr ""
+
+#: components/pages/Home/index.tsx:236
+msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr ""
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:70
@@ -780,6 +872,14 @@ msgstr ""
 msgid "Sell"
 msgstr ""
 
+#: components/pages/Home/index.tsx:314
+msgid "Sell carbon"
+msgstr ""
+
+#: components/pages/Home/index.tsx:410
+msgid "Sell your digital carbon directly to buyers"
+msgstr ""
+
 #: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr ""
@@ -824,6 +924,21 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
+#: components/pages/Home/index.tsx:205
+#: components/pages/Home/index.tsx:263
+msgid "Step 1"
+msgstr ""
+
+#: components/pages/Home/index.tsx:218
+#: components/pages/Home/index.tsx:278
+msgid "Step 2"
+msgstr ""
+
+#: components/pages/Home/index.tsx:231
+#: components/pages/Home/index.tsx:291
+msgid "Step 3"
+msgstr ""
+
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr ""
@@ -848,6 +963,10 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
+#: components/pages/Home/index.tsx:68
+msgid "The Universal Carbon Marketplace"
+msgstr ""
+
 #: components/pages/Project/Retire/RetireModal.tsx:41
 msgid "The first step is to grant the approval to transfer your carbon asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your retirement."
 msgstr ""
@@ -861,6 +980,7 @@ msgid "The information below will be broadcast publicly to verify your environme
 msgstr ""
 
 #: components/pages/Home/index.tsx:56
+#: components/pages/Home/index.tsx:71
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
 
@@ -1155,6 +1275,10 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:82
 msgid "Z-A"
+msgstr ""
+
+#: components/pages/Home/index.tsx:441
+msgid "Zero-fee carbon credit trading - instantaneous, transparent, and always available. Learn more about what Carbonmark can do for you as a carbon credit trader."
 msgstr ""
 
 #: components/Activities/Activity.tsx:31
@@ -1914,6 +2038,10 @@ msgstr ""
 
 #: components/LoginCard/index.tsx:24
 msgid "user.login.description"
+msgstr ""
+
+#: components/shared/Navigation/LinkItemDesktop.tsx:21
+msgid "{0}"
 msgstr ""
 
 #: components/pages/Users/index.tsx:30
