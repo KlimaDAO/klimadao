@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-09 17:34+0000\n"
+"POT-Creation-Date: 2023-06-12 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -739,7 +739,7 @@ msgstr "全球最大的数字碳信用选择。通过零佣金交易立即从任
 
 #: components/pages/Project/Retire/RetireInputs.tsx:84
 msgid "The minimum amount to retire is 0.001 Tonnes"
-msgstr ""
+msgstr "最低碳停用量为 0.001 吨"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
