@@ -16,7 +16,7 @@ import {
 } from "../../helpers/utils";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract, notEmpty } from "../../utils/functional.utils";
+import { notEmpty } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 
 const schema = {
@@ -58,10 +58,10 @@ const schema = {
 };
 
 type Querystring = {
-  country?: string;
-  category?: string;
+  country?: string | string[];
+  category?: string | string[];
   search?: string;
-  vintage?: string;
+  vintage?: string | string[];
 };
 
 const isMatchingProject = (offset: CarbonOffset, project: Project) =>
@@ -74,31 +74,53 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // @TODO: merge with other projects from the poooool
-    const args = request.query;
+    let { country, category, search, vintage } = { ...request.query };
+    const [categories, countries, vintages] = await Promise.all([
+      getAllCategories(fastify),
+      getAllCountries(fastify),
+      getAllVintages(fastify),
+    ]);
 
-    const category =
-      args.category?.split(",") ??
-      (await getAllCategories(fastify)).map(extract("id"));
+    if (category) {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
+      category = (category as string).split(",");
+    } else {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
+      category = categories as unknown as string[];
+    }
+    if (country) {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
+      country = (country as string).split(",");
+    } else {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
+      country = countries as unknown as string[];
+    }
+    if (vintage) {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
+      vintage = (vintage as string).split(",");
+    } else {
+      vintage = vintages;
+    }
 
-    const country =
-      args.country?.split(",") ??
-      (await getAllCountries(fastify)).map(extract("id"));
-
-    const vintage = args.vintage?.split(",") ?? (await getAllVintages(fastify));
-
-    const search = args.search ?? "";
+    if (!search) {
+      search = "";
+    }
 
     const sanity = getSanityClient();
-    const projectsCmsData = await sanity.fetch(fetchAllProjects);
-
-    const poolPrices = await calculatePoolPrices(fastify);
 
     const queryArgs = { country, category, search, vintage };
 
-    const { projects: fetchedProjects } = await gqlSdk.marketplace.findProjects(
-      queryArgs
-    );
-    const { carbonOffsets } = await gqlSdk.offsets.findCarbonOffsets(queryArgs);
+    const [
+      { projects: fetchedProjects },
+      { carbonOffsets },
+      projectsCmsData,
+      poolPrices,
+    ] = await Promise.all([
+      gqlSdk.marketplace.findProjects(queryArgs),
+      gqlSdk.offsets.findCarbonOffsets(queryArgs),
+      sanity.fetch(fetchAllProjects),
+      calculatePoolPrices(fastify),
+    ]);
 
     const projects = fetchedProjects.map(function (project: any) {
       const uniqueValues: (string | undefined)[] = [];
@@ -175,6 +197,12 @@ const handler = (fastify: FastifyInstance) =>
         : undefined;
       project.name = cmsData ? cmsData.name : project.name;
       project.methodologies = cmsData ? cmsData.methodologies : [];
+      project.short_description = cmsData.projectContent
+        ? cmsData.projectContent.shortDescription
+        : undefined;
+      project.long_description = cmsData.projectContent
+        ? cmsData.projectContent.longDescription
+        : undefined;
       delete project.listings;
 
       return { ...project, price };

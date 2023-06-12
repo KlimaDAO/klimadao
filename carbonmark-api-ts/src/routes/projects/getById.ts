@@ -215,10 +215,9 @@ const handler = (fastify: FastifyInstance) =>
         project.name = results.name;
         project.methodologies = results.methodologies;
 
-        project.images =
-          results.projectContent.length > 0
-            ? results.projectContent[0].images
-            : [];
+        project.images = results.projectContent
+          ? results.projectContent.images
+          : [];
         project.long_description = results.projectContent
           ? results.projectContent.longDescription
           : undefined;

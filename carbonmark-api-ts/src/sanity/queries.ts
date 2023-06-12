@@ -15,11 +15,13 @@ export const fetchProjects = `*[_type == 'project' && registry == $registry && r
     url,
     registryProjectId,
     "projectContent": *[references(^._id)]{
+      shortDescription,
+      longDescription,
       images[]{
         caption,
         'url': asset->url
       }
-    }
+    }[0]
   }`;
 
 export const fetchAllProjects = `
@@ -30,4 +32,8 @@ export const fetchAllProjects = `
     registryProjectId,
     methodologies[]->{  "id": id.current, category, name },
     name,
+    "projectContent": *[references(^._id)]{
+      shortDescription,
+      longDescription
+    }[0]
   }`;
