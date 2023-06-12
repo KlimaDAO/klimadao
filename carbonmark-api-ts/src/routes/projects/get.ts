@@ -198,7 +198,7 @@ const handler = (fastify: FastifyInstance) =>
       project.name = cmsData ? cmsData.name : project.name;
       project.methodologies = cmsData ? cmsData.methodologies : [];
       project.short_description = cmsData.projectContent
-        ? cmsData.projectContent.shortDescription
+        ? cmsData.projectContent.shortDescription.slice(0, 200)
         : undefined;
       project.long_description = cmsData.projectContent
         ? cmsData.projectContent.longDescription
