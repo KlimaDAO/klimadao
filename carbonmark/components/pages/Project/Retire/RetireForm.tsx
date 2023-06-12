@@ -216,14 +216,7 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
           <div className={styles.reverseOrder}>
             <Card>
-              <TotalValues
-                singleUnitPrice={props.price.singleUnitPrice}
-                balance={balance}
-                pool={
-                  props.price.name.toLowerCase() as Lowercase<PriceType["name"]>
-                }
-                projectAddress={props.project.projectAddress}
-              />
+              <TotalValues price={props.price} balance={balance} />
             </Card>
           </div>
           <SubmitButton

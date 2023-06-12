@@ -18,10 +18,8 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  singleUnitPrice: Price["singleUnitPrice"];
+  price: Price;
   balance: string | null;
-  pool: Lowercase<Price["name"]>;
-  projectAddress: string;
 };
 
 const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
@@ -34,6 +32,7 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const poolName = props.price.name.toLowerCase() as Lowercase<Price["name"]>;
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
@@ -52,7 +51,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   useEffect(() => {
     const selectiveFee = async () => {
-      const factor = await getFeeFactor(props.pool);
+      const factor = await getFeeFactor(poolName);
       setFeesFactor(factor);
     };
     selectiveFee();
@@ -72,7 +71,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         setIsLoading(true);
         const totalPrice = await getConsumptionCost({
           inputToken: paymentMethod,
-          retirementToken: props.pool,
+          retirementToken: poolName,
           quantity: amount,
           isDefaultProject: isDefaultProjectAddress(props.projectAddress),
         });
@@ -124,7 +123,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <Text t="h5">
-            {formatToPrice(props.singleUnitPrice, locale, false)}
+            {formatToPrice(props.price.singleUnitPrice, locale, false)}
           </Text>
         </div>
       </div>
@@ -242,7 +241,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
-                  {props.pool.toUpperCase()} {t`redemption Fee`}
+                  {props.price.name} {t`redemption Fee`}
                 </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
