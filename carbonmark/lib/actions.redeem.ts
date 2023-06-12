@@ -36,6 +36,7 @@ export const redeemCarbonTransaction = async (params: {
   paymentMethod: CarbonmarkPaymentMethod;
   pool: PoolToken;
   projectTokenAddress: string;
+  isPoolDefault: boolean;
   maxCost: string;
   quantity: string;
   onStatus: OnStatusHandler;
@@ -53,21 +54,46 @@ export const redeemCarbonTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
 
-    const method =
-      params.pool === "nct" || params.pool === "bct"
-        ? "toucanRedeemExactCarbonPoolSpecific"
-        : "c3RedeemPoolSpecific";
-
     params.onStatus("userConfirmation");
-    const txn = await aggregator[method](
-      getAddress(params.paymentMethod),
-      getAddress(params.pool),
-      utils.parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
-      [params.projectTokenAddress],
-      [utils.parseUnits(params.quantity, 18)],
-      0,
-      0
-    );
+
+    let txn;
+
+    if (params.isPoolDefault) {
+      const method =
+        params.pool === "nct" || params.pool === "bct"
+          ? "toucanRedeemExactCarbonPoolDefault"
+          : "c3RedeemPoolDefault";
+
+      txn = await aggregator[method](
+        getAddress(params.paymentMethod),
+        getAddress(params.pool),
+        utils.parseUnits(
+          params.maxCost,
+          getTokenDecimals(params.paymentMethod)
+        ),
+        utils.parseUnits(params.quantity, 18),
+        0, // correct here ??
+        0 // correct here ??
+      );
+    } else {
+      const method =
+        params.pool === "nct" || params.pool === "bct"
+          ? "toucanRedeemExactCarbonPoolSpecific"
+          : "c3RedeemPoolSpecific";
+
+      txn = await aggregator[method](
+        getAddress(params.paymentMethod),
+        getAddress(params.pool),
+        utils.parseUnits(
+          params.maxCost,
+          getTokenDecimals(params.paymentMethod)
+        ),
+        [params.projectTokenAddress],
+        [utils.parseUnits(params.quantity, 18)],
+        0,
+        0
+      );
+    }
 
     params.onStatus("networkConfirmation");
     const receipt = await txn.wait(1);
