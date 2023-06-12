@@ -31,6 +31,8 @@ const schema = {
         username: { type: "string" },
         description: { type: "string" },
         profileImgUrl: { type: "string" },
+        updatedAt: { type: "number" },
+        createdAt: { type: "number" },
         wallet: { type: "string" },
         listings: { type: "array" },
         activities: { type: "array" },

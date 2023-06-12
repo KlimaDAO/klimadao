@@ -55,6 +55,7 @@ const handler = (fastify: FastifyInstance) =>
         description,
         handle,
         profileImgUrl,
+        updatedAt: Date.now(),
       };
 
       // Try updating the user document with the specified data
@@ -66,6 +67,7 @@ const handler = (fastify: FastifyInstance) =>
       // If the update is successful, return the request body
       return reply.send(request.body);
     } catch (err) {
+      console.error(err);
       // If an error occurs, return a 404 error with a message
       return reply
         .code(403)

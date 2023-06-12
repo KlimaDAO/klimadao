@@ -32,6 +32,8 @@ const schema = {
         handle: { type: "string" },
         username: { type: "string" },
         wallet: { type: "string" },
+        updatedAt: { type: "number" },
+        createdAt: { type: "number" },
       },
     },
     "403": {
@@ -52,6 +54,17 @@ const handler = (fastify: FastifyInstance) =>
     // Destructure the wallet, username, handle, and description properties from the request body
     const { wallet, username, handle, description, profileImgUrl } =
       request.body;
+
+    const createData: any = {
+      username,
+      handle: handle.toLowerCase(),
+      description,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    };
+    if (profileImgUrl) {
+      createData.profileImgUrl = profileImgUrl;
+    }
 
     // Query the Firestore database for the user document with the specified wallet address
     const user = await fastify.firebase
@@ -89,14 +102,12 @@ const handler = (fastify: FastifyInstance) =>
         .collection("users")
         .doc(wallet.toUpperCase())
         .set({
-          username,
-          handle: handle.toLowerCase(),
-          description,
-          profileImgUrl,
+          createData,
         });
       // If the document is successfully created, return the request body
       return reply.send(request.body);
     } catch (err) {
+      console.error(err);
       // If an error occurs, return the error in the response
       return reply.code(403).send({ error: err });
     }
