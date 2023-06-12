@@ -13,7 +13,13 @@ export const fetchProjects = `*[_type == 'project' && registry == $registry && r
     region,
     registry,
     url,
-    registryProjectId
+    registryProjectId,
+    "projectContent": *[references(^._id)]{
+      images[]{
+        caption,
+        'url': asset->url
+      }
+    }
   }`;
 
 export const fetchAllProjects = `
