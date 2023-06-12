@@ -63,8 +63,8 @@ const handler = (fastify: FastifyInstance) =>
         username,
         description,
         handle,
-        profileImgUrl,
         updatedAt: Date.now(),
+        profileImgUrl: profileImgUrl ?? null,
       };
 
       // Try updating the user document with the specified data
