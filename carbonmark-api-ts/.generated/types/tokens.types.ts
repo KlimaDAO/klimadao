@@ -585,11 +585,25 @@ export type GetPairQueryVariables = Exact<{
 
 export type GetPairQuery = { pair?: { currentprice: any } | null };
 
+export type GetBySymbolQueryVariables = Exact<{
+  symbol?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetBySymbolQuery = { tokens: Array<{ id: string }> };
+
 
 export const GetPairDocument = gql`
     query getPair($id: ID!) {
   pair(id: $id) {
     currentprice
+  }
+}
+    `;
+export const GetBySymbolDocument = gql`
+    query getBySymbol($symbol: String) {
+  tokens(where: {symbol: $symbol}) {
+    id
   }
 }
     `;
@@ -603,6 +617,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     getPair(variables: GetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPairQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
+    },
+    getBySymbol(variables?: GetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBySymbolQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query');
     }
   };
 }

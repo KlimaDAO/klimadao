@@ -3,3 +3,9 @@ query getPair($id: ID!) {
     currentprice
   }
 }
+
+query getBySymbol($symbol: String) {
+  tokens(where: { symbol: $symbol }) {
+    id
+  }
+}
