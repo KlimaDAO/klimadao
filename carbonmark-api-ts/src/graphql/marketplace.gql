@@ -92,7 +92,7 @@ query getUserByWallet($wallet: Bytes) {
         id
       }
     }
-    activities {
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       id
       amount
       previousAmount
@@ -184,7 +184,7 @@ fragment ProjectFragment on Project {
   listings {
     ...ListingFragment
   }
-  activities {
+  activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
     id
     amount
     previousAmount
