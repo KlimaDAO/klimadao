@@ -319,13 +319,16 @@ module.exports = async function (fastify, opts) {
         },
         tags: ["project"],
       },
+      // Handler function for the "/projects/:id" route
       handler: async function (request, reply) {
+        // Extract the project ID and vintage from the request parameters
         var { id } = request.params;
         var projectId = id.split("-");
         var key = `${projectId[0]}-${projectId[1]}`;
         var vintageStr = projectId[2];
         var poolProject;
 
+        // Fetch pool prices, C3 token address, and TCO2 token address in parallel
         const [poolPrices, c3TokenAddress, tco2TokenAddress] =
           await Promise.all([
             calculatePoolPrices(fastify),
@@ -341,25 +344,33 @@ module.exports = async function (fastify, opts) {
             ),
           ]);
 
+        // Initialize variables for unique values and prices
         var uniqueValues = [];
         var prices = [];
+
+        // Fetch project data by ID and vintage
         var data = await executeGraphQLQuery(
           process.env.GRAPH_API_URL,
           GET_PROJECT_BY_ID,
           { key: key, vintageStr: vintageStr }
         );
+
+        // Initialize the project variable
         var project = undefined;
+
+        // If the project exists in the data, process it
         if (data.data.projects[0]) {
           project = { ...data.data.projects[0] };
 
-          var project = { ...data.data.projects[0] };
-
+          // Process project listings
           if (project.listings.length) {
+            // Unselect all listings
             const listings = project.listings.map((item) => ({
               ...item,
               selected: false,
             }));
 
+            // Add unique prices from active and non-deleted listings
             project.listings.forEach((item) => {
               if (
                 !/^0+$/.test(item.leftToSell) &&
@@ -370,6 +381,7 @@ module.exports = async function (fastify, opts) {
               }
             });
 
+            // Fetch seller data for each listing and update the listings array
             await Promise.all(
               listings.map(async (listing) => {
                 const seller = await fastify.firebase
@@ -382,11 +394,15 @@ module.exports = async function (fastify, opts) {
             );
             project.listings = listings;
           }
+
+          // Fetch pool project data
           data = await executeGraphQLQuery(
             process.env.CARBON_OFFSETS_GRAPH_API_URL,
             POOL_PROJECTS,
             { key: key, vintageStr: vintageStr }
           );
+
+          // If the pool project exists, process it and update the project data
           if (data.data.carbonOffsets[0]) {
             let poolProject = { ...data.data.carbonOffsets[0] };
             project.isPoolProject = true;
@@ -394,7 +410,7 @@ module.exports = async function (fastify, opts) {
             project.totalRetired = poolProject.totalRetired;
             project.currentSupply = poolProject.currentSupply;
 
-            var prices = [];
+            // Calculate pool prices for the project
             data.data.carbonOffsets.map(function (carbonProject) {
               [uniqueValues, prices] = calculateProjectPoolPrices(
                 carbonProject,
@@ -410,12 +426,14 @@ module.exports = async function (fastify, opts) {
             project.currentSupply = null;
           }
         } else {
+          // If the project doesn't exist in the data, try fetching it from the pool projects
           var data = await executeGraphQLQuery(
             process.env.CARBON_OFFSETS_GRAPH_API_URL,
             POOL_PROJECTS,
             { key: key, vintageStr: vintageStr }
           );
 
+          // If the pool project exists, process it and update the project data
           if (data.data.carbonOffsets[0]) {
             poolProject = data.data.carbonOffsets[0];
             project = { ...data.data.carbonOffsets[0] };
@@ -447,6 +465,7 @@ module.exports = async function (fastify, opts) {
               currentSupply: project.currentSupply,
             };
 
+            // Calculate pool prices for the project
             project.prices = [];
             prices = [];
             if (data.data.carbonOffsets && data.data.carbonOffsets.length) {
@@ -463,6 +482,7 @@ module.exports = async function (fastify, opts) {
           }
         }
 
+        // If the project exists, update its data and send it in the response
         if (project) {
           project.c3TokenAddress =
             c3TokenAddress.data && c3TokenAddress.data.tokens.length
@@ -473,6 +493,7 @@ module.exports = async function (fastify, opts) {
               ? tco2TokenAddress.data.tokens[0].id
               : undefined;
 
+          // Fetch additional project data based on the registry
           if (project.registry == "VCS") {
             const sanity = getSanityClient();
 
@@ -504,12 +525,14 @@ module.exports = async function (fastify, opts) {
             project.location = null;
           }
 
+          // Calculate the lowest price for the project
           project.price = uniqueValues.length
             ? uniqueValues.reduce((a, b) =>
                 a.length < b.length ? a : a.length === b.length && a < b ? a : b
               )
             : "0";
 
+          // Update activity data for the project
           if (project.activities) {
             const activities = project.activities;
 
@@ -542,8 +565,10 @@ module.exports = async function (fastify, opts) {
             );
           }
 
+          // Send the project data in the response
           return reply.send(JSON.stringify(project));
         }
+        // If the project doesn't exist, send a 404 Not Found response
         return reply.notFound();
       },
     });

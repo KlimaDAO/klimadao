@@ -78,7 +78,7 @@ const handler = (fastify: FastifyInstance) =>
 
     const category =
       args.category?.split(",") ??
-      (await (await getAllCategories(fastify)).map(extract("id")));
+      (await getAllCategories(fastify)).map(extract("id"));
 
     const country =
       args.country?.split(",") ??
