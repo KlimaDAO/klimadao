@@ -80,10 +80,12 @@ export interface PcbProject {
 }
 
 export type Price = {
-  leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
+  name: Uppercase<PoolToken>;
+  poolTokenAddress: string;
+  isPoolDefault: boolean;
   tokenAddress: string;
   singleUnitPrice: string; // NOT A BIGNUMBER ! Already formatted in USDCs
-  name: Uppercase<PoolToken>;
+  leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
 };
 
 export interface User {
