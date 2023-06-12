@@ -394,9 +394,9 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   };
 
   const printMossProjectDetails = (): void => {
-    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 360);
     doc.fill(WHITE);
-    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 360);
     doc.strokeColor(MANATEE);
     doc.stroke();
 
@@ -430,6 +430,18 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       underline: true,
       link: "https://mco2token.moss.earth/",
     });
+
+    const launchIconBuffer = Buffer.from(launchIcon, "base64");
+    doc.image(
+      launchIconBuffer,
+      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
+      200 + 20 + 20,
+      {
+        width: 18,
+        height: 18,
+        link: "https://mco2token.moss.earth/" as PDFKit.Mixins.AnnotationOption, // error in types provided by library
+      }
+    );
 
     doc.font("Poppins-Semibold");
     doc.fontSize(8);
