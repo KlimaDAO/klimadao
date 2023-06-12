@@ -30,7 +30,16 @@ const schema = {
         handle: { type: "string" },
         username: { type: "string" },
         description: { type: "string" },
-        profileImgUrl: { type: "string" },
+        profileImgUrl: {
+          anyOf: [
+            {
+              type: "string",
+            },
+            {
+              type: "null",
+            },
+          ],
+        },
         updatedAt: { type: "number" },
         createdAt: { type: "number" },
         wallet: { type: "string" },
@@ -112,24 +121,22 @@ const handler = (fastify: FastifyInstance) =>
           listing.seller = { ...seller.data(), ...listing.seller };
         }),
         ...activities.map(async (actvity: any) => {
-          if (actvity.activityType != "Sold") {
-            const seller = await fastify.firebase
+          const seller = await fastify.firebase
+            .firestore()
+            .collection("users")
+            .doc(actvity.seller.id.toUpperCase())
+            .get();
+          if (seller.exists) {
+            actvity.seller.handle = seller.data()?.handle;
+          }
+          if (actvity.buyer) {
+            const buyer = await fastify.firebase
               .firestore()
               .collection("users")
-              .doc(actvity.seller.id.toUpperCase())
+              .doc(actvity.buyer.id.toUpperCase())
               .get();
-            if (seller.exists) {
-              actvity.seller.handle = seller.data()?.handle;
-            }
-            if (actvity.buyer) {
-              const buyer = await fastify.firebase
-                .firestore()
-                .collection("users")
-                .doc(actvity.buyer.id.toUpperCase())
-                .get();
-              if (buyer.exists) {
-                actvity.buyer.handle = buyer.data()?.handle;
-              }
+            if (buyer.exists) {
+              actvity.buyer.handle = buyer.data()?.handle;
             }
           }
         }),

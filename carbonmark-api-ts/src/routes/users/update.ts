@@ -26,7 +26,16 @@ const schema = {
         username: { type: "string" },
         wallet: { type: "string" },
         description: { type: "string" },
-        profileImgUrl: { type: "string" },
+        profileImgUrl: {
+          anyOf: [
+            {
+              type: "string",
+            },
+            {
+              type: "null",
+            },
+          ],
+        },
       },
     },
   },
