@@ -8,7 +8,6 @@ import { getConsumptionCost, getFeeFactor } from "lib/actions.retire";
 import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { isDefaultProjectAddress } from "lib/getPoolData";
 import { Price } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -33,6 +32,8 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
   const poolName = props.price.name.toLowerCase() as Lowercase<Price["name"]>;
+  const isPoolDefault = props.price.isPoolDefault;
+
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
@@ -73,7 +74,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           inputToken: paymentMethod,
           retirementToken: poolName,
           quantity: amount,
-          isDefaultProject: isDefaultProjectAddress(props.projectAddress),
+          isDefaultProject: isPoolDefault,
         });
 
         setCosts(totalPrice);
