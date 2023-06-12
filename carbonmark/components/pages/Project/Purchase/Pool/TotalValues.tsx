@@ -35,6 +35,7 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
   const poolName = props.price.name.toLowerCase() as PoolToken;
+  const isPoolDefault = props.price.isPoolDefault;
 
   const { locale } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -77,11 +78,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           paymentMethod: paymentMethod,
           pool: poolName,
           quantity,
+          isPoolDefault,
         });
 
         setCosts(totalPrice);
       } catch (e) {
-        console.error("e", e);
+        console.error("Get redeem costs error", e);
         setError(t`There was an error loading the total cost.`);
       } finally {
         setIsLoading(false);

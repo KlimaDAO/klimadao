@@ -87,6 +87,7 @@ export const getRedeemCost = async (params: {
   paymentMethod: CarbonmarkPaymentMethod;
   pool: PoolToken;
   quantity: string;
+  isPoolDefault: boolean;
 }): Promise<string> => {
   if (params.paymentMethod === "fiat") {
     throw Error("Unsupported payment method");
@@ -96,13 +97,28 @@ export const getRedeemCost = async (params: {
     contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
   });
-  const amount = await aggregator.getSourceAmountSpecificRedeem(
-    getAddress(params.paymentMethod),
-    getAddress(params.pool),
-    [utils.parseUnits(params.quantity, 18)]
-  );
+
+  const parsed = utils.parseUnits(params.quantity, 18); // why here always 18?
+
+  let sourceAmount;
+
+  if (params.isPoolDefault) {
+    sourceAmount = await aggregator.getSourceAmountDefaultRedeem(
+      getAddress(params.paymentMethod),
+      getAddress(params.pool),
+      parsed // Not an array
+    );
+  } else {
+    sourceAmount = await aggregator.getSourceAmountSpecificRedeem(
+      getAddress(params.paymentMethod),
+      getAddress(params.pool),
+      [parsed] // array
+    );
+  }
+
   const decimals = getTokenDecimals(params.paymentMethod);
-  const value = formatUnits(amount, decimals);
+  const value = formatUnits(sourceAmount, decimals);
+
   const valueWithSlippage = safeAdd(
     value,
     (Number(value) * 0.005).toFixed(decimals)
