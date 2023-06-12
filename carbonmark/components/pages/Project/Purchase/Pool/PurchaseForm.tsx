@@ -43,7 +43,6 @@ export const PurchaseForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectAddress: props.project.projectAddress,
       paymentMethod: "usdc",
       ...inputValues,
     },
