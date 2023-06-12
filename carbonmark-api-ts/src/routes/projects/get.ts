@@ -16,7 +16,7 @@ import {
 } from "../../helpers/utils";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { notEmpty } from "../../utils/functional.utils";
+import { extract, notEmpty } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 
 const schema = {
@@ -85,15 +85,13 @@ const handler = (fastify: FastifyInstance) =>
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
       category = (category as string).split(",");
     } else {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      category = categories as unknown as string[];
+      category = categories.map(extract("id"));
     }
     if (country) {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
       country = (country as string).split(",");
     } else {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      country = countries as unknown as string[];
+      country = countries.map(extract("id"));
     }
     if (vintage) {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
@@ -107,7 +105,6 @@ const handler = (fastify: FastifyInstance) =>
     }
 
     const sanity = getSanityClient();
-
     const queryArgs = { country, category, search, vintage };
 
     const [
@@ -195,14 +192,12 @@ const handler = (fastify: FastifyInstance) =>
       project.description = cmsData
         ? cmsData.description.slice(0, 200)
         : undefined;
-      project.name = cmsData ? cmsData.name : project.name;
-      project.methodologies = cmsData ? cmsData.methodologies : [];
-      project.short_description = cmsData.projectContent
-        ? cmsData.projectContent.shortDescription.slice(0, 200)
-        : undefined;
-      project.long_description = cmsData.projectContent
-        ? cmsData.projectContent.longDescription
-        : undefined;
+      project.name = cmsData?.name ?? project.name;
+      project.methodologies = cmsData?.methodologies ?? [];
+      project.short_description =
+        cmsData?.projectContent?.shortDescription?.slice(0, 200);
+      project.long_description = cmsData?.projectContent?.longDescription;
+
       delete project.listings;
 
       return { ...project, price };
