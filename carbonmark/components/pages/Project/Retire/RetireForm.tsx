@@ -163,8 +163,9 @@ export const RetireForm: FC<Props> = (props) => {
       const receipt = await retireCarbonTransaction({
         provider,
         address,
-        projectAddress: props.project.projectAddress,
+        projectAddress: props.price.poolTokenAddress,
         paymentMethod: inputValues.paymentMethod,
+        isPoolDefault: props.price.isPoolDefault,
         maxAmountIn: getApprovalValue(),
         retirementToken: props.price.name.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
@@ -216,14 +217,7 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
           <div className={styles.reverseOrder}>
             <Card>
-              <TotalValues
-                singleUnitPrice={props.price.singleUnitPrice}
-                balance={balance}
-                pool={
-                  props.price.name.toLowerCase() as Lowercase<PriceType["name"]>
-                }
-                projectAddress={props.project.projectAddress}
-              />
+              <TotalValues price={props.price} balance={balance} />
             </Card>
           </div>
           <SubmitButton

@@ -6,7 +6,6 @@ import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
-import { isDefaultProjectAddress } from "lib/getPoolData";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
@@ -115,6 +114,7 @@ export const retireCarbonTransaction = async (params: {
   retirementMessage: string;
   onStatus: OnStatusHandler;
   projectAddress: string;
+  isPoolDefault: boolean;
 }): Promise<{ transactionHash: string; retirementIndex: number }> => {
   if (params.paymentMethod === "fiat") {
     throw Error("Unsupported payment method");
@@ -148,7 +148,7 @@ export const retireCarbonTransaction = async (params: {
     const retirementIndex = (retirements.toNumber() || 0) + 1;
 
     let txn;
-    if (isDefaultProjectAddress(params.projectAddress)) {
+    if (params.isPoolDefault) {
       txn = await retireContract.retireExactCarbonDefault(
         getAddress(params.paymentMethod),
         getAddress(params.retirementToken),
