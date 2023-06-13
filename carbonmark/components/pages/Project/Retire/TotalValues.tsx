@@ -47,10 +47,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   const redemptionFee =
     (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
-  const aggregatorFee =
-    (!isPoolDefault && Number(amount || 0) * AGGREGATOR_FEE) || 0;
-  const swapFee =
-    (!isPoolDefault && getSwapFee(Number(costs || 0), poolName)) || 0;
+  const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
+  const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
