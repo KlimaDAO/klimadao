@@ -1,4 +1,4 @@
-import { RetirementToken, urls, verra } from "@klimadao/lib/constants";
+import { RetirementToken, urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import PDFKit from "pdfkit";
@@ -7,12 +7,14 @@ import { agricultureBanner } from "./images/bannerAgriculture";
 import { energyEfficiencyBanner } from "./images/bannerEnergyEfficiency";
 import { forestryBanner } from "./images/bannerForestry";
 import { industrialProcessingBanner } from "./images/bannerIndustrialProcessing";
+import { mossBanner } from "./images/bannerMoss";
 import { otherBanner } from "./images/bannerOther";
 import { otherNatureBasedBanner } from "./images/bannerOtherNatureBased";
 import { renewableEnergyBanner } from "./images/bannerRenewableEnergy";
 import { carbonmarkLogo } from "./images/carbonmarkLogo";
 import { certificateBackground } from "./images/certificateBackground";
 import { dateIcon } from "./images/dateIcon";
+import { launchIcon } from "./images/launchIcon";
 
 import { DMSansRegular } from "./fonts/dmSansRegularbase64";
 import { PoppinsBold } from "./fonts/poppinsBoldbase64";
@@ -46,25 +48,16 @@ const catergoryBannerMap = {
   "Energy Efficiency": energyEfficiencyBanner,
   Forestry: forestryBanner,
   "Industrial Processing": industrialProcessingBanner,
+  Moss: mossBanner,
   Other: otherBanner,
   "Other Nature Based": otherNatureBasedBanner,
   "Renewable Energy": renewableEnergyBanner,
-};
-
-const constructVerraUrl = (id: string) => {
-  const split = id.split("-");
-  const resourceIdentifier = split[split.length - 1]; // might not have prefix
-  return `${verra.projectDetailPage}/${resourceIdentifier}`;
 };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.retirement.beneficiaryAddress}`;
   const projectDetails = [
-    {
-      label: "ASSET RETIRED:",
-      value: params.retiredToken?.toUpperCase(),
-    },
     {
       label: "PROJECT:",
       value: params.retirement.offset.projectID,
@@ -99,12 +92,12 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   });
 
   const setupFonts = () => {
+    doc.registerFont("DMSans", Buffer.from(DMSansRegular, "base64"));
     doc.registerFont("Poppins-Bold", Buffer.from(PoppinsBold, "base64"));
     doc.registerFont(
       "Poppins-Semibold",
       Buffer.from(PoppinsSemiBold, "base64")
     );
-    doc.registerFont("DMSans", Buffer.from(DMSansRegular, "base64"));
   };
 
   const printBackground = (): void => {
@@ -164,8 +157,8 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       .format(retirementDate)
       .toUpperCase();
 
-    const backgroundBuffer = Buffer.from(dateIcon, "base64");
-    doc.image(backgroundBuffer, spacing.margin, 92, {
+    const dateIconBuffer = Buffer.from(dateIcon, "base64");
+    doc.image(dateIconBuffer, spacing.margin, 92, {
       width: 20,
       height: 20,
     });
@@ -191,50 +184,57 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       characterSpacing: 0.3,
     });
 
-    const beneficaryText =
-      params.retirement.beneficiary || params.retirement.beneficiaryAddress;
-    doc.text("BENEFICIARY:", spacing.margin, 220, {
-      characterSpacing: 0.3,
-    });
+    const beneficary = params.retirement.beneficiary;
+    if (beneficary) {
+      doc.text("BENEFICIARY:", spacing.margin, 220, {
+        characterSpacing: 0.3,
+      });
 
-    doc.font("Poppins-Bold");
-    doc.fontSize(20);
-    doc.fillColor(BLACK);
-    doc.text(beneficaryText, spacing.margin, 245, { width: 360 });
+      doc.font("Poppins-Bold");
+      doc.fontSize(20);
+      doc.fillColor(BLACK);
+      doc.text(beneficary, spacing.margin, 245, { width: 360 });
+    }
 
-    const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
-      width: 360,
-    });
+    const beneficiaryNameBlockHeight = beneficary
+      ? doc.heightOfString(beneficary, {
+          width: 360,
+        }) + 20
+      : 0;
 
     const retirementMessage = params.retirement.retirementMessage;
-    doc.font("DMSans");
-    doc.fontSize(16);
-    doc.text(
-      `“${retirementMessage}”`,
-      spacing.margin,
-      240 + beneficiaryNameBlockHeight + 20,
-      { width: 360 }
-    );
+    if (retirementMessage) {
+      doc.font("DMSans");
+      doc.fontSize(16);
+      doc.text(
+        `“${retirementMessage}”`,
+        spacing.margin,
+        240 + beneficiaryNameBlockHeight,
+        { width: 360 }
+      );
+    }
 
-    const retirementMessageBlockHeight = doc.heightOfString(retirementMessage, {
-      width: 360,
-    });
+    const retirementMessageBlockHeight = retirementMessage
+      ? doc.heightOfString(retirementMessage, {
+          width: 360,
+        }) + 20
+      : 0;
 
     const disclaimer =
       "This represents the permanent retirement of a digital carbon asset. This retirement and the associated data are immutable public records.";
+    const disclaimerYSpacing =
+      !beneficiaryNameBlockHeight && !retirementMessageBlockHeight
+        ? 210
+        : 240 + beneficiaryNameBlockHeight + retirementMessageBlockHeight;
+    doc.font("DMSans");
     doc.fontSize(12);
     doc.fillColor(GRAY);
-    doc.text(
-      disclaimer,
-      spacing.margin,
-      240 + beneficiaryNameBlockHeight + 20 + retirementMessageBlockHeight + 20,
-      { width: 360 }
-    );
+    doc.text(disclaimer, spacing.margin, disclaimerYSpacing, { width: 360 });
   };
 
   const printCategoryBanner = async (): Promise<void> => {
     const category = isMossRetirement
-      ? "Other"
+      ? "Moss"
       : (params.retirement.offset
           .methodologyCategory as CategoryBannerMappingKey);
     const categoryBanner = catergoryBannerMap[category];
@@ -249,7 +249,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const calculateBoxHeight = (): number => {
     const projectNameBlockHeight = doc.heightOfString(
       params.retirement.offset.name,
-      { width: 320, characterSpacing: 0.3 }
+      { width: 300, characterSpacing: 0.3 }
     );
     const positionOfProjectDetails = 200 + projectNameBlockHeight + 50;
     const transactionDetailsHeight = 100;
@@ -260,7 +260,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     return (
       positionOfProjectDetails +
-      projectDetails.length * 22 +
+      projectDetails.length * 23.5 +
       transactionDetailsHeight
     );
   };
@@ -303,16 +303,29 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
         characterSpacing: 0.3,
       }
     );
+    const projectDetailsLink = `${urls.carbonmark}/projects/${params.retirement.offset.projectID}-${params.retirement.offset.vintageYear}`;
     doc.font("Poppins-Semibold");
     doc.fontSize(12);
     doc.fillColor(GRAY);
     doc.text(
       "LEARN MORE",
       doc.page.width - 360,
-      200 + projectNameBlockHeight + 20,
+      200 + projectNameBlockHeight + 21,
       {
         underline: true,
-        link: constructVerraUrl(params.retirement.offset.projectID),
+        link: projectDetailsLink,
+      }
+    );
+
+    const launchIconBuffer = Buffer.from(launchIcon, "base64");
+    doc.image(
+      launchIconBuffer,
+      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
+      200 + projectNameBlockHeight + 21,
+      {
+        width: 18,
+        height: 18,
+        link: projectDetailsLink as PDFKit.Mixins.AnnotationOption, // error in types provided by library
       }
     );
 
@@ -373,12 +386,17 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       startPosition + 69,
       { width: 320 }
     );
+
+    doc.text("View on PolygonScan", doc.page.width - 360, startPosition + 100, {
+      underline: true,
+      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+    });
   };
 
   const printMossProjectDetails = (): void => {
-    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 360);
     doc.fill(WHITE);
-    doc.rect(doc.page.width - 20 - 360, 20, 360, calculateBoxHeight());
+    doc.rect(doc.page.width - 20 - 360, 20, 360, 360);
     doc.strokeColor(MANATEE);
     doc.stroke();
 
@@ -401,7 +419,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("DMSans");
     doc.fontSize(16);
     doc.fillColor(BLACK);
-    doc.text(params.retirement.offset.name, doc.page.width - 360, 218, {
+    doc.text("MOSS Earth MCO2", doc.page.width - 360, 218, {
       width: 320,
     });
 
@@ -412,6 +430,18 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       underline: true,
       link: "https://mco2token.moss.earth/",
     });
+
+    const launchIconBuffer = Buffer.from(launchIcon, "base64");
+    doc.image(
+      launchIconBuffer,
+      doc.page.width - 360 + doc.widthOfString("LEARN MORE") + 5,
+      200 + 20 + 20,
+      {
+        width: 18,
+        height: 18,
+        link: "https://mco2token.moss.earth/" as PDFKit.Mixins.AnnotationOption, // error in types provided by library
+      }
+    );
 
     doc.font("Poppins-Semibold");
     doc.fontSize(8);
@@ -443,6 +473,11 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       200 + 50 + 64,
       { width: 320 }
     );
+
+    doc.text("View on PolygonScan", doc.page.width - 360, 200 + 50 + 100, {
+      underline: true,
+      link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+    });
   };
 
   setupFonts();
