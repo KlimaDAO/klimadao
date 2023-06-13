@@ -53,6 +53,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   useEffect(() => {
     const selectiveFee = async () => {
+      // No fees for default retirement
+      if (isPoolDefault) {
+        setFeesFactor(0);
+        return;
+      }
+
       const factor = await getFeeFactor(poolName);
       setFeesFactor(factor);
     };
