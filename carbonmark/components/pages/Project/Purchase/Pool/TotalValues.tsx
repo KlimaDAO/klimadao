@@ -49,10 +49,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const quantity = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
+  const aggregatorFeeCheck = isPoolDefault ? 0 : AGGREGATOR_FEE;
+
   const redemptionFee =
     (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
-  const aggregatorFee =
-    (!isPoolDefault && Number(quantity || 0) * AGGREGATOR_FEE) || 0;
+  const aggregatorFee = Number(quantity || 0) * aggregatorFeeCheck;
   const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
@@ -231,7 +232,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               <div className={styles.feeText}>
                 <Text t="body2">{t`KlimaDAO Contracts`}</Text>
                 <Text t="body2">
-                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 5, locale)}%)`}
+                  {`(${trimWithLocale(aggregatorFeeCheck * 100, 5, locale)}%)`}
                 </Text>
               </div>
             </div>
