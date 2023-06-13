@@ -68,7 +68,7 @@ msgstr "Agriculture"
 msgid "Amount to purchase"
 msgstr "Amount to purchase"
 
-#: components/pages/Project/Retire/TotalValues.tsx:109
+#: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
@@ -178,7 +178,7 @@ msgid "Carbonmark Overview"
 msgstr "Carbonmark Overview"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
-#: components/pages/Project/Retire/TotalValues.tsx:133
+#: components/pages/Project/Retire/TotalValues.tsx:140
 msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
@@ -322,7 +322,7 @@ msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 msgid "Help"
 msgstr "Help"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
 msgstr "Hide Details"
 
@@ -351,7 +351,7 @@ msgstr "Industrial Processing"
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
-#: components/pages/Project/Retire/TotalValues.tsx:220
+#: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO Contracts"
 
@@ -372,7 +372,7 @@ msgstr "Leaving Carbonmark"
 msgid "Listings"
 msgstr "Listings"
 
-#: components/pages/Project/Retire/TotalValues.tsx:162
+#: components/pages/Project/Retire/TotalValues.tsx:169
 msgid "Loading"
 msgstr "Loading"
 
@@ -381,7 +381,7 @@ msgid "Loading your assets"
 msgstr "Loading your assets"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Retire/TotalValues.tsx:274
+#: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -421,7 +421,7 @@ msgstr "Methodology"
 msgid "Moss"
 msgstr "Moss"
 
-#: components/pages/Project/Retire/TotalValues.tsx:150
+#: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
 msgstr "Network fees"
 
@@ -511,7 +511,7 @@ msgid "Price Lowest"
 msgstr "Price Lowest"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
-#: components/pages/Project/Retire/TotalValues.tsx:116
+#: components/pages/Project/Retire/TotalValues.tsx:123
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
@@ -671,7 +671,7 @@ msgstr "Sell"
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
 msgstr "Show Details"
 
@@ -749,7 +749,7 @@ msgstr "The minimum amount to retire is 0.001 Tonnes"
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 
-#: components/pages/Project/Retire/TotalValues.tsx:83
+#: components/pages/Project/Retire/TotalValues.tsx:90
 msgid "There was an error loading the total cost."
 msgstr "There was an error loading the total cost."
 
@@ -793,7 +793,7 @@ msgstr "Toggle sort menu"
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
 #: components/pages/Project/Retire/RetireInputs.tsx:72
-#: components/pages/Project/Retire/TotalValues.tsx:111
+#: components/pages/Project/Retire/TotalValues.tsx:118
 msgid "Tonnes"
 msgstr "Tonnes"
 
@@ -805,7 +805,7 @@ msgstr "Tonnes listed:"
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
-#: components/pages/Project/Retire/TotalValues.tsx:106
+#: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
 msgstr "Total Price"
 
@@ -814,7 +814,7 @@ msgid "Total Retirements:"
 msgstr "Total Retirements:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:93
-#: components/pages/Project/Retire/TotalValues.tsx:258
+#: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr "Total cost"
 
@@ -938,7 +938,7 @@ msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:119
-#: components/pages/Project/Retire/TotalValues.tsx:286
+#: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr "Your balance:"
 
@@ -1249,7 +1249,7 @@ msgstr "Confirm Purchase"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
-#: components/pages/Project/Retire/TotalValues.tsx:245
+#: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
 msgstr "redemption Fee"
 

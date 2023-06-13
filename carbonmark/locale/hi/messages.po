@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-13 15:34+0000\n"
+"POT-Creation-Date: 2023-06-13 16:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,7 +62,7 @@ msgstr "कृषि"
 msgid "Amount to purchase"
 msgstr "खरीदने की राशि"
 
-#: components/pages/Project/Retire/TotalValues.tsx:109
+#: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
 msgstr "रिटायरमैंट की राशि"
 
@@ -172,7 +172,7 @@ msgid "Carbonmark Overview"
 msgstr "कार्बनमार्क का संक्षिप्त विवरण"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
-#: components/pages/Project/Retire/TotalValues.tsx:133
+#: components/pages/Project/Retire/TotalValues.tsx:140
 msgid "Carbonmark fee"
 msgstr "कार्बनमार्क शुल्क"
 
@@ -316,7 +316,7 @@ msgstr "क्या आपने अपनी कार्बनमार्क
 msgid "Help"
 msgstr "सहायता"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
 msgstr "विवरण छुपाओ"
 
@@ -345,7 +345,7 @@ msgstr "औद्योगिक उपचारण"
 msgid "KlimaDAO"
 msgstr "क्लीमाडाओ"
 
-#: components/pages/Project/Retire/TotalValues.tsx:220
+#: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
 msgstr "क्लीमाडाओ अनुबंध"
 
@@ -366,7 +366,7 @@ msgstr "कार्बनमार्क छोड़ना"
 msgid "Listings"
 msgstr "सूचियाँ"
 
-#: components/pages/Project/Retire/TotalValues.tsx:162
+#: components/pages/Project/Retire/TotalValues.tsx:169
 msgid "Loading"
 msgstr "लोड हो रहा है"
 
@@ -375,7 +375,7 @@ msgid "Loading your assets"
 msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Retire/TotalValues.tsx:274
+#: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
@@ -415,7 +415,7 @@ msgstr "कार्यप्रणाली"
 msgid "Moss"
 msgstr ""
 
-#: components/pages/Project/Retire/TotalValues.tsx:150
+#: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
 msgstr "नेटवर्क शुल्क"
 
@@ -505,7 +505,7 @@ msgid "Price Lowest"
 msgstr "मूल्य न्यूनतम"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
-#: components/pages/Project/Retire/TotalValues.tsx:116
+#: components/pages/Project/Retire/TotalValues.tsx:123
 msgid "Price per tonne"
 msgstr "कीमत प्रति टन"
 
@@ -665,7 +665,7 @@ msgstr "बेचें"
 msgid "Seller Listing"
 msgstr "विक्रय सूचीकरण"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
 msgstr "विवरण देखें"
 
@@ -743,7 +743,7 @@ msgstr ""
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr "पिछले चरण में आपकी कार्बन संपत्ति को आपके वॉलेट से कार्बनमार्क में स्थानांतरित करने की स्वीकृति दी गई थी, आपकी रिटायरमैंट अभी तक पूरी नहीं हुई है।"
 
-#: components/pages/Project/Retire/TotalValues.tsx:83
+#: components/pages/Project/Retire/TotalValues.tsx:90
 msgid "There was an error loading the total cost."
 msgstr "कुल लागत लोड करने में गलती हुई थी."
 
@@ -787,7 +787,7 @@ msgstr "सॉर्ट मेनू टॉगल करें"
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
 #: components/pages/Project/Retire/RetireInputs.tsx:72
-#: components/pages/Project/Retire/TotalValues.tsx:111
+#: components/pages/Project/Retire/TotalValues.tsx:118
 msgid "Tonnes"
 msgstr "टन"
 
@@ -799,7 +799,7 @@ msgstr "सूचीबद्ध टन"
 msgid "Tonnes sold:"
 msgstr "टन बिक्री"
 
-#: components/pages/Project/Retire/TotalValues.tsx:106
+#: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
 msgstr "कुल कीमत"
 
@@ -808,7 +808,7 @@ msgid "Total Retirements:"
 msgstr "कुल रिटायरमेन्ट्स:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:93
-#: components/pages/Project/Retire/TotalValues.tsx:258
+#: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr "कुल लागत"
 
@@ -932,7 +932,7 @@ msgid "Your Wallet Address:"
 msgstr "आपका वॉलेट पता:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:119
-#: components/pages/Project/Retire/TotalValues.tsx:286
+#: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr "आपका बैलेंस:"
 
@@ -1243,7 +1243,7 @@ msgstr "ख़रीद की पुष्टि करें"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "विक्रय संपन्न करना"
 
-#: components/pages/Project/Retire/TotalValues.tsx:245
+#: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
 msgstr "मोचन शुल्क"
 
