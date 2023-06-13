@@ -78,7 +78,7 @@ msgstr "Haftungsausschluss:"
 
 #: components/pages/Buy/index.tsx:432
 msgid "buy.answer_exchange"
-msgstr "Fortgeschrittene Nutzer können die <0>Polygon Bridge</0> verwenden, um digitale Assets von Etherum nach Polygon zu transferieren. Über <1>Polygon Gas Swap</1> tauschen Sie digitale Assets wie USDC oder MATIC."
+msgstr "Fortgeschrittene Nutzer können die <0>Polygon Bridge</0> verwenden, um digitale Assets von Ethereum nach Polygon zu transferieren. Über <1>Polygon Gas Swap</1> tauschen Sie digitale Assets wie USDC oder MATIC."
 
 #: components/pages/Buy/index.tsx:389
 msgid "buy.bond_answer_cedit_card"
