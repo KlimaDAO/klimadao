@@ -173,21 +173,16 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Text t="h5">
               {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
             </Text>
-            {!isPoolDefault && (
-              <Text
-                t="body3"
-                color="lighter"
-                onClick={() => setIsToggled((prev) => !prev)}
-                className={styles.toggleFees}
-              >
-                {isToggled ? t`Hide Details` : t`Show Details`}
-                {isToggled ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )}
-              </Text>
-            )}
+            ´
+            <Text
+              t="body3"
+              color="lighter"
+              onClick={() => setIsToggled((prev) => !prev)}
+              className={styles.toggleFees}
+            >
+              {isToggled ? t`Hide Details` : t`Show Details`}
+              {isToggled ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </Text>
           </div>
         </div>
         {isToggled && (
