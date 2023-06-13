@@ -52,7 +52,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Anchor
           className={styles.iconAndText}
-          href={`https://polygonscan.com/address/${props.project.projectAddress}`}
+          href={`https://polygonscan.com/address/${props.price.poolTokenAddress}`}
         >
           <Text className={styles.externalLink} t="body2">
             {t`View on PolygonScan`} <LaunchIcon />
