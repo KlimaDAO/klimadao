@@ -51,5 +51,12 @@ export default defineType({
       },
       validation: (r) => r.required(),
     }),
+    defineField({
+      name: "link",
+      type: "string",
+      description: "Link to the authoritative methodology webpage or PDF document",
+      placeholder: "https://cdm.unfccc.int/methodologies/DB/5SI1IXDIZBL6OAKIB3JFUFAQ86MBEE",
+      validation: (r) => r.required(),
+    }),
   ],
 });
