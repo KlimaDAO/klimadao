@@ -506,7 +506,7 @@ export const Home: NextPage<Props> = (props) => {
             <Link href="/blog/terms-of-use">
               <Trans>Terms of use</Trans>
             </Link>
-            <Link href={carbonmarkUrls.help}>
+            <Link href={carbonmarkUrls.docs}>
               <Trans>Help</Trans>
             </Link>
             <Link href="/resources">
