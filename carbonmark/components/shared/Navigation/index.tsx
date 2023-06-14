@@ -8,7 +8,6 @@ import { FC } from "react";
 import { HeaderMobile } from "../Header/HeaderMobile";
 import { LinkItemDesktop } from "./LinkItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";
-
 import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
@@ -86,7 +85,7 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t`Help`}
           key="help"
-          url={urls.help}
+          url={urls.docs}
           active={activePage === "Help"}
         />
       </HeaderDesktop>
@@ -124,7 +123,7 @@ export const Navigation: FC<Props> = ({
               name={t`Help`}
               active={activePage === "Help"}
               id="Help"
-              url={urls.help}
+              url={urls.docs}
             />
           </div>
           <div className="buttons">
