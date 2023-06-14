@@ -47,8 +47,8 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
-#: components/shared/Navigation/index.tsx:81
-#: components/shared/Navigation/index.tsx:118
+#: components/shared/Navigation/index.tsx:80
+#: components/shared/Navigation/index.tsx:117
 msgid "About"
 msgstr "About"
 
@@ -152,8 +152,8 @@ msgstr "Blue Carbon"
 msgid "Book a demo"
 msgstr "Book a demo"
 
-#: components/shared/Navigation/index.tsx:54
-#: components/shared/Navigation/index.tsx:133
+#: components/shared/Navigation/index.tsx:53
+#: components/shared/Navigation/index.tsx:132
 msgid "Browse Projects"
 msgstr "Browse Projects"
 
@@ -317,8 +317,8 @@ msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:39
 #: components/pages/Home/index.tsx:510
-#: components/shared/Navigation/index.tsx:87
-#: components/shared/Navigation/index.tsx:124
+#: components/shared/Navigation/index.tsx:86
+#: components/shared/Navigation/index.tsx:123
 msgid "Help"
 msgstr "Help"
 
@@ -403,8 +403,8 @@ msgstr "Log out"
 msgid "Login"
 msgstr "Login"
 
-#: components/shared/Navigation/index.tsx:63
-#: components/shared/Navigation/index.tsx:100
+#: components/shared/Navigation/index.tsx:62
+#: components/shared/Navigation/index.tsx:99
 msgid "Marketplace"
 msgstr "Marketplace"
 
@@ -531,8 +531,8 @@ msgstr "Processing Retirement"
 msgid "Processing data..."
 msgstr "Processing data..."
 
-#: components/shared/Navigation/index.tsx:69
-#: components/shared/Navigation/index.tsx:106
+#: components/shared/Navigation/index.tsx:68
+#: components/shared/Navigation/index.tsx:105
 msgid "Profile"
 msgstr "Profile"
 
@@ -599,8 +599,8 @@ msgstr "Required Field"
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
-#: components/shared/Navigation/index.tsx:75
-#: components/shared/Navigation/index.tsx:112
+#: components/shared/Navigation/index.tsx:74
+#: components/shared/Navigation/index.tsx:111
 msgid "Resources"
 msgstr "Resources"
 
