@@ -7,7 +7,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Text } from "components/Text";
 import { getRedeemCost } from "lib/actions.redeem";
 import { getFeeFactor } from "lib/actions.retire";
-import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
+import { CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -49,11 +49,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const quantity = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
-  const aggregatorFeeCheck = isPoolDefault ? 0 : AGGREGATOR_FEE;
+  const AGGREGATOR_FEE = 0; // NO fees for RA if buying from pool
 
   const redemptionFee =
     (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
-  const aggregatorFee = Number(quantity || 0) * aggregatorFeeCheck;
+  const aggregatorFee = Number(quantity || 0) * AGGREGATOR_FEE;
   const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
@@ -173,7 +173,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Text t="h5">
               {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
             </Text>
-            ´
             <Text
               t="body3"
               color="lighter"
@@ -232,7 +231,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               <div className={styles.feeText}>
                 <Text t="body2">{t`KlimaDAO Contracts`}</Text>
                 <Text t="body2">
-                  {`(${trimWithLocale(aggregatorFeeCheck * 100, 5, locale)}%)`}
+                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 5, locale)}%)`}
                 </Text>
               </div>
             </div>
