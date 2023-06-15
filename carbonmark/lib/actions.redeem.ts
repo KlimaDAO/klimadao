@@ -48,6 +48,13 @@ export const redeemCarbonTransaction = async (params: {
       throw Error("Unsupported payment method");
     }
 
+    enum TransferMode {
+      EXTERNAL = 0,
+      INTERNAL = 1,
+      EXTERNAL_INTERNAL = 2,
+      INTERNAL_TOLERANT = 3,
+    }
+
     // redeem transaction
     const aggregator = getContract({
       contractName: "retirementAggregatorV2",
@@ -72,8 +79,8 @@ export const redeemCarbonTransaction = async (params: {
           getTokenDecimals(params.paymentMethod)
         ),
         utils.parseUnits(params.quantity, 18),
-        0, // correct here ??
-        0 // correct here ??
+        TransferMode.EXTERNAL,
+        TransferMode.EXTERNAL
       );
     } else {
       const method =
