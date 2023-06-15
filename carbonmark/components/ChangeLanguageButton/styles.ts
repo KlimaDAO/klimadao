@@ -33,6 +33,9 @@ export const tooltip = css`
 
   .tippy-content {
     padding: 0.5rem 0;
+    button {
+      box-shadow: none;
+    }
   }
 
   .tippy-arrow {

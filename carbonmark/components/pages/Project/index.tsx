@@ -211,7 +211,7 @@ const Page: NextPage<PageProps> = (props) => {
               className="expandedText"
               onClick={() => setIsExpanded(!isExpanded)}
             >
-              {isExpanded ? "Read Less" : "Read More"}
+              {isExpanded ? t`Read Less` : t`Read More`}
             </Text>
             {notNil(project.url) && (
               <Anchor

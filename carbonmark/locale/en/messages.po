@@ -240,6 +240,7 @@ msgstr "Carbonmark's role"
 msgid "Category"
 msgstr "Category"
 
+#: components/ChangeLanguageButton/index.tsx:44
 #: components/shared/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Change language"
@@ -755,9 +756,19 @@ msgstr "Quick Retire"
 msgid "RETIRE CARBON"
 msgstr "RETIRE CARBON"
 
+#: components/pages/Project/index.tsx:219
+msgid "Read Less"
+msgstr "Read Less"
+
+#: components/pages/Project/index.tsx:219
+msgid "Read More"
+msgstr "Read More"
+
 #: components/pages/Home/index.tsx:449
 #: components/pages/Home/index.tsx:476
 #: components/pages/Home/index.tsx:503
+#: components/pages/Resources/BlogPostCard/index.tsx:38
+#: components/pages/Resources/FeaturedArticles/Article.tsx:43
 msgid "Read more"
 msgstr "Read more"
 

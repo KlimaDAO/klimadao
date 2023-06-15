@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { PostDetails } from "lib/cms/queries";
 import Image from "next/legacy/image";
@@ -34,7 +35,7 @@ export const BlogPostCard = (props: BlogPostCardProps) => {
           {props.post.summary}
         </Text>
         <Text t="button" color="lightest" style={{ marginTop: "auto" }}>
-          Read more
+          <Trans>Read more</Trans>
         </Text>
       </div>
       <div className="image">

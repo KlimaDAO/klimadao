@@ -1,42 +1,27 @@
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
 import Tippy from "@tippyjs/react";
-import { activateLocale, loadTranslation, locales } from "lib/i18n";
-import { FC, useEffect, useState } from "react";
+import { locales } from "lib/i18n";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
 import * as styles from "./styles";
 
 export const ChangeLanguageButton: FC = () => {
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
-  const [locale, setLocale] = useState("en");
-
-  useEffect(() => {
-    const locale = window?.localStorage?.getItem("locale") || "en";
-    setLocale(locale);
-    selectLocale(locale);
-  }, []);
-
-  const selectLocale = async (locale: string) => {
-    const messages = await loadTranslation(locale);
-    await activateLocale(locale, messages);
-    window?.localStorage?.setItem("locale", locale);
-    setLocale(locale);
-  };
-
-  const handleClickMenuItem = (localeKey: string) => () => {
-    selectLocale(localeKey);
-    setShowMenu(false);
-  };
-
-  console.log("locale", locale);
+  const { pathname, asPath, query, locale } = router;
 
   const content = (
     <div>
       {Object.keys(locales).map((localeKey) => (
         <button
           key={localeKey}
+          type="button"
           data-active={locale == localeKey ? "true" : "false"}
-          onClick={handleClickMenuItem(localeKey)}
           className={styles.menuItem}
+          onClick={() => {
+            router.push({ pathname, query }, asPath, { locale: localeKey });
+          }}
         >
           {locales[localeKey].label}
         </button>
@@ -56,10 +41,7 @@ export const ChangeLanguageButton: FC = () => {
       <button
         onClick={() => setShowMenu(!showMenu)}
         className={styles.changeLanguageButton}
-        aria-label={t({
-          id: "shared.change_language",
-          message: "Change language",
-        })}
+        aria-label={t`Change language`}
       >
         <Language fontSize="medium" />
       </button>
