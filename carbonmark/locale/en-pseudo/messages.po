@@ -51,8 +51,8 @@ msgid "A-Z"
 msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
-#: components/shared/Navigation/index.tsx:80
-#: components/shared/Navigation/index.tsx:117
+#: components/shared/Navigation/index.tsx:81
+#: components/shared/Navigation/index.tsx:118
 msgid "About"
 msgstr ""
 
@@ -181,8 +181,11 @@ msgstr ""
 msgid "Book a demo"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:53
-#: components/shared/Navigation/index.tsx:132
+#: components/pages/Home/index.tsx:161
+#: components/pages/Home/index.tsx:192
+#: components/pages/Home/index.tsx:245
+#: components/shared/Navigation/index.tsx:54
+#: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
 msgstr ""
 
@@ -526,8 +529,8 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:62
-#: components/shared/Navigation/index.tsx:99
+#: components/shared/Navigation/index.tsx:63
+#: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
 msgstr ""
 
@@ -686,8 +689,8 @@ msgstr ""
 msgid "Processing data..."
 msgstr ""
 
-#: components/shared/Navigation/index.tsx:68
-#: components/shared/Navigation/index.tsx:105
+#: components/shared/Navigation/index.tsx:69
+#: components/shared/Navigation/index.tsx:106
 msgid "Profile"
 msgstr ""
 
@@ -781,8 +784,8 @@ msgstr ""
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:512
 #: components/pages/Resources/ResourcesList/index.tsx:154
-#: components/shared/Navigation/index.tsx:74
-#: components/shared/Navigation/index.tsx:111
+#: components/shared/Navigation/index.tsx:75
+#: components/shared/Navigation/index.tsx:112
 msgid "Resources"
 msgstr ""
 
@@ -2038,10 +2041,6 @@ msgstr ""
 
 #: components/LoginCard/index.tsx:24
 msgid "user.login.description"
-msgstr ""
-
-#: components/shared/Navigation/LinkItemDesktop.tsx:21
-msgid "{0}"
 msgstr ""
 
 #: components/pages/Users/index.tsx:30
