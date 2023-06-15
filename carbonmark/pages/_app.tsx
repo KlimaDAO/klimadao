@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const firstRender = useRef(true);
   const { translation, fixedThemeName } = pageProps;
 
-  const locale = "de"; // router.locale || (router.defaultLocale as string);
+  const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
   if (translation && firstRender.current) {
     activateLocale(locale, translation);
