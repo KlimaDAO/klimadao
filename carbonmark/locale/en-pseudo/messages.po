@@ -340,7 +340,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:183
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:182
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "KlimaDAO"
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:233
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:232
 #: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
 msgstr ""
@@ -403,7 +403,7 @@ msgid "Loading your assets"
 msgstr ""
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:287
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:286
 #: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr ""
@@ -714,7 +714,7 @@ msgstr ""
 msgid "Seller Listing"
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:183
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:182
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
 msgstr ""
@@ -880,6 +880,7 @@ msgstr ""
 msgid "Tonnes sold:"
 msgstr ""
 
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
 msgstr ""
@@ -889,12 +890,11 @@ msgid "Total Retirements:"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:271
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:270
 #: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr ""
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:118
 msgid "Total price"
 msgstr ""
@@ -1027,7 +1027,7 @@ msgid "Your Wallet Address:"
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:299
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:298
 #: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr ""
@@ -1344,7 +1344,7 @@ msgstr ""
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:258
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:257
 #: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
 msgstr ""

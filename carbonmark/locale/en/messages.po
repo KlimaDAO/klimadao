@@ -346,7 +346,7 @@ msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 msgid "Help"
 msgstr "Help"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:183
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:182
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
 msgstr "Hide Details"
@@ -377,7 +377,7 @@ msgstr "Industrial Processing"
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:233
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:232
 #: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO Contracts"
@@ -409,7 +409,7 @@ msgid "Loading your assets"
 msgstr "Loading your assets"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:287
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:286
 #: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr "Loading..."
@@ -720,7 +720,7 @@ msgstr "Sell"
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:183
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:182
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
 msgstr "Show Details"
@@ -886,6 +886,7 @@ msgstr "Tonnes listed:"
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
 msgstr "Total Price"
@@ -895,12 +896,11 @@ msgid "Total Retirements:"
 msgstr "Total Retirements:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:271
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:270
 #: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr "Total cost"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:118
 msgid "Total price"
 msgstr "Total price"
@@ -1033,7 +1033,7 @@ msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:299
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:298
 #: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr "Your balance:"
@@ -1350,7 +1350,7 @@ msgstr "Confirm Purchase"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:258
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:257
 #: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
 msgstr "redemption Fee"
