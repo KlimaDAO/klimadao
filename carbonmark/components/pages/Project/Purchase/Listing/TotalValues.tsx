@@ -46,7 +46,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   return (
     <>
-      <Text t="h4">{t`Total price`}</Text>
+      <Text t="h4">{t`Total Price`}</Text>
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Amount to purchase`}</Text>
