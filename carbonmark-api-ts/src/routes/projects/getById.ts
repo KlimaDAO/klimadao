@@ -11,6 +11,7 @@ import {
 import { fetchProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
 import { gqlSdk } from "../../utils/gqlSdk";
+import { defaultPoolProjectTokens } from "./projects.constants";
 
 const schema = {
   querystring: {
@@ -191,15 +192,6 @@ const handler = (fastify: FastifyInstance) =>
 
     // If the project exists, update its data and send it in the response
     if (project) {
-      project.c3TokenAddress =
-        c3TokenAddress && c3TokenAddress.tokens.length
-          ? c3TokenAddress.tokens[0].id
-          : undefined;
-      project.tco2TokenAddress =
-        tco2TokenAddress && tco2TokenAddress.tokens.length
-          ? tco2TokenAddress.tokens[0].id
-          : undefined;
-
       // Fetch additional project data based on the registry
       if (project.registry == "VCS") {
         const sanity = getSanityClient();
@@ -271,6 +263,36 @@ const handler = (fastify: FastifyInstance) =>
           (activity) => activity.activityType !== "Sold"
         );
       }
+
+      project.prices.map(function (price) {
+        if (price.name == "NBO" || price.name == "UBO") {
+          price.poolTokenAddress =
+            c3TokenAddress && c3TokenAddress.tokens.length
+              ? c3TokenAddress.tokens[0].id
+              : undefined;
+          if (price.name == "NBO") {
+            price.isPoolDefault =
+              price.poolTokenAddress == defaultPoolProjectTokens.nbo;
+          } else if (price.name == "UBO") {
+            price.isPoolDefault =
+              price.poolTokenAddress == defaultPoolProjectTokens.ubo;
+          }
+        } else {
+          price.poolTokenAddress =
+            tco2TokenAddress && tco2TokenAddress.tokens.length
+              ? tco2TokenAddress.tokens[0].id
+              : undefined;
+          if (price.name == "BCT") {
+            price.isPoolDefault =
+              price.poolTokenAddress === defaultPoolProjectTokens.bct;
+          } else if (price.name == "NCT") {
+            price.isPoolDefault =
+              price.poolTokenAddress == defaultPoolProjectTokens.nct;
+          }
+        }
+
+        return price;
+      });
 
       // Send the project data in the response
       return reply.send(JSON.stringify(project));
