@@ -1,36 +1,41 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import {
   ProjectPurchase,
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
 import { getCarbonmarkProject } from "lib/carbonmark";
+import { isPoolToken } from "lib/getPoolData";
 import { loadTranslation } from "lib/i18n";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;
+  pool: PoolToken;
 }
 
-export const getStaticProps: GetStaticProps<
+export const getServerSideProps: GetServerSideProps<
   ProjectPurchasePageProps,
   Params
 > = async (ctx) => {
   const { params, locale } = ctx;
 
-  if (!params || !params?.project_id) {
+  const poolName = !!params?.pool && params.pool.toLowerCase();
+
+  if (!params || !params?.project_id || !poolName || !isPoolToken(poolName)) {
     throw new Error("No matching params found");
   }
 
   try {
     const project = await getCarbonmarkProject(params.project_id);
 
-    // check if listing ID is correct here on server? Or rather on client with nicer error state?
-    const listing =
-      !!project.listings?.length &&
-      project.listings.find((listing) => listing.id === params?.listing_id);
+    // check if price for pool exists for this project
+    const poolPrice =
+      !!project.prices?.length &&
+      project.prices.find((price) => price.name.toLowerCase() === poolName);
 
-    if (!listing) {
-      throw new Error("No matching listing found");
+    if (!poolPrice) {
+      throw new Error("No matching pool price found");
     }
 
     const translation = await loadTranslation(locale);
@@ -42,26 +47,20 @@ export const getStaticProps: GetStaticProps<
     return {
       props: {
         project,
-        purchase: listing,
+        purchase: poolPrice,
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Project Purchase Page", e);
+    console.error(
+      "Failed to generate Carbonmark Project Purchase from Pool Page",
+      e
+    );
     return {
       notFound: true,
-      revalidate: 10,
     };
   }
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
 };
 
 export default ProjectPurchase;

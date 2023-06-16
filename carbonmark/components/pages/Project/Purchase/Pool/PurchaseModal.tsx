@@ -8,7 +8,7 @@ import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import Link from "next/link";
 import { FC } from "react";
-import * as styles from "./styles";
+import * as styles from "../styles";
 
 export interface Props {
   hasApproval: boolean;
@@ -24,25 +24,25 @@ export interface Props {
   onSubmit: () => void;
   onCancel: () => void;
   onResetStatus: () => void;
+  successScreen?: React.ReactNode;
+  showSuccessScreen: boolean;
 }
 
 const PurchaseApproval: FC = () => {
   return (
     <div className={styles.formatParagraph}>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.approval_1">
-          You are about to purchase a carbon asset.
-        </Trans>
+        <Trans>You are about to purchase a carbon asset.</Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.approval_2">
+        <Trans>
           The first step is to grant the approval to transfer your payment asset
           from your wallet to Carbonmark, the next step is to approve the actual
           transfer and complete your purchase.
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.approval_3">
+        <Trans>
           Carbon assets you purchase can be listed for sale on Carbonmark at any
           time from your{" "}
           <Link href="/portfolio" target="blank">
@@ -52,7 +52,7 @@ const PurchaseApproval: FC = () => {
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.approval_4">
+        <Trans>
           Verify all information is correct and click 'approve' to continue.
         </Trans>
       </Text>
@@ -64,13 +64,13 @@ const PurchaseSubmit: FC = () => {
   return (
     <div className={styles.formatParagraph}>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.submit_1">
+        <Trans>
           The previous step granted the approval to transfer your payment asset
           from your wallet to Carbonmark.
         </Trans>
       </Text>
       <Text t="body1" color="lighter">
-        <Trans id="purchase.submit_2">
+        <Trans>
           Your purchase has not been completed yet. To finalize your purchase,
           verify all information is correct and then click 'submit' below.
         </Trans>
@@ -80,23 +80,20 @@ const PurchaseSubmit: FC = () => {
 };
 
 export const PurchaseModal: FC<Props> = (props) => {
+  const showTransaction = !props.isProcessing && !props.showSuccessScreen;
+  const showSuccessScreen = !props.isProcessing && props.showSuccessScreen;
+  const title =
+    (props.isProcessing && t`Processing Purchase`) ||
+    (showSuccessScreen && t`Purchase successful`) ||
+    t`Confirm Purchase`;
+
   return (
     <Modal
-      title={
-        !props.isProcessing
-          ? t({
-              id: "purchase.transaction.modal.title.confirm",
-              message: "Confirm Purchase",
-            })
-          : t({
-              id: "purchase.transaction.modal.title.processing",
-              message: "Processing Purchase",
-            })
-      }
+      title={title}
       showModal={props.showModal}
       onToggleModal={props.onModalClose}
     >
-      {!props.isProcessing && (
+      {showTransaction && (
         <Transaction
           hasApproval={props.hasApproval}
           amount={props.amount}
@@ -107,7 +104,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           onCancel={props.onCancel}
           status={props.status}
           onResetStatus={props.onResetStatus}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={getAddress("retirementAggregatorV2")}
         />
       )}
       {props.isProcessing && (
@@ -115,6 +112,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           <Spinner />
         </div>
       )}
+      {showSuccessScreen && props.successScreen}
     </Modal>
   );
 };

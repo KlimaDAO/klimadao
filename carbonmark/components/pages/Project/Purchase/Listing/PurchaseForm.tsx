@@ -14,10 +14,10 @@ import { Listing, Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import * as styles from "../styles";
 import { Price } from "./Price";
 import { PurchaseInputs } from "./PurchaseInputs";
 import { PurchaseModal } from "./PurchaseModal";
-import * as styles from "./styles";
 import { SubmitButton } from "./SubmitButton";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
@@ -163,7 +163,10 @@ export const PurchaseForm: FC<Props> = (props) => {
       <TwoColLayout>
         <Col>
           <Card>
-            <ProjectHeader project={props.project} listing={props.listing} />
+            <ProjectHeader
+              project={props.project}
+              seller={props.listing.seller}
+            />
             <div className={styles.formContainer}>
               <Price price={props.listing.singleUnitPrice} />
 

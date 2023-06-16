@@ -1,25 +1,24 @@
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
-import { formatToPrice } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
-import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod, Price } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";
-import * as styles from "./styles";
+import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  listing: Listing;
+  price: Price;
   values: null | FormValues;
   balance: string | null;
 };
@@ -39,12 +38,21 @@ export const PurchaseInputs: FC<Props> = (props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputsContainer}>
         <InputField
-          id="listingId"
+          id="totalPrice"
           inputProps={{
             type: "hidden",
-            ...register("listingId"),
+            ...register("totalPrice", {
+              required: {
+                value: true,
+                message: t`Could not calculate Total Cost`,
+              },
+              max: {
+                value: Number(props.balance || "0"),
+                message: t`You exceeded your available amount of tokens`,
+              },
+            }),
           }}
-          label={"listing ID"}
+          label={"Total Price"}
           hideLabel
         />
 
@@ -52,44 +60,37 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <div className={styles.amountLabel}>
             <Text>{t`Purchase amount (tonnes):`}</Text>
             <Text t="body3">
-              <Trans>Available: {formatUnits(props.listing.leftToSell)}</Trans>
+              <Trans>
+                Available: {formatToTonnes(props.price.leftToSell, locale, 2)}
+              </Trans>
             </Text>
           </div>
 
           <InputField
-            id="amount"
+            id="quantity"
             inputProps={{
-              placeholder: t({
-                id: "purchase.input.amount.placeholder",
-                message: "Tonnes",
-              }),
+              placeholder: t`Tonnes`,
               type: "number",
               min: 1,
-              max: Number(formatUnits(props.listing.leftToSell)),
-              ...register("amount", {
-                onChange: () => clearErrors("price"),
+              max: Number(props.price.leftToSell),
+              ...register("quantity", {
+                onChange: () => clearErrors("totalPrice"),
                 required: {
                   value: true,
-                  message: t({
-                    id: "purchase.input.amount.required",
-                    message: "Amount is required",
-                  }),
+                  message: t`Amount is required`,
                 },
                 min: {
                   value: 1,
-                  message: t({
-                    id: "purchase.input.amount.minimum",
-                    message: "The minimum amount to buy is 1 Tonne",
-                  }),
+                  message: t`The minimum amount to buy is 1 Tonne`,
                 },
                 max: {
-                  value: Number(formatUnits(props.listing.leftToSell)),
+                  value: Number(props.price.leftToSell),
                   message: t`Available supply exceeded`,
                 },
               }),
             }}
             label={t`How many tonnes of carbon do you want to buy?`}
-            errorMessage={formState.errors.amount?.message}
+            errorMessage={formState.errors.quantity?.message}
             hideLabel
           />
         </div>
@@ -149,30 +150,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
           </div>
         </div>
       </div>
-      <InputField
-        id="price"
-        inputProps={{
-          type: "hidden",
-          ...register("price", {
-            required: {
-              value: true,
-              message: t({
-                id: "purchase.input.price.required",
-                message: "Price is required",
-              }),
-            },
-            max: {
-              value: Number(props.balance || "0"),
-              message: t({
-                id: "purchase.input.price.maxAmount",
-                message: "You exceeded your available amount of tokens",
-              }),
-            },
-          }),
-        }}
-        label={"Price"}
-        hideLabel
-      />
     </form>
   );
 };
