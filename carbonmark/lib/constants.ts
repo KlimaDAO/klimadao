@@ -81,3 +81,6 @@ export const urls = {
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",
 };
+
+/** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
+export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;

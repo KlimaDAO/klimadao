@@ -1,5 +1,5 @@
-import { getStaticProvider } from "@klimadao/lib/utils";
 import { MONTH_IN_SECONDS } from "lib/constants";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { INFURA_ID, POLYGONSCAN_API_KEY } from "lib/secrets";
 
 /** Calculates block rate by dividing one month in seconds by number of blocks that got created during that month */

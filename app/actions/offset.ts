@@ -1,5 +1,5 @@
-import { getStaticProvider } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Thunk } from "state";
 import {
   setCarbonRetiredBalances,

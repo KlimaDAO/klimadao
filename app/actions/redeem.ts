@@ -3,7 +3,6 @@ import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
   getAllowance,
   getContract,
-  getStaticProvider,
   getTokenDecimals,
   safeAdd,
 } from "@klimadao/lib/utils";
@@ -14,6 +13,7 @@ import {
   RedeemPaymentMethod,
   redeemPaymentMethods,
 } from "lib/hooks/useRedeemParams";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Thunk } from "state";
 import { updateAllowances } from "state/user";
 import { OnStatusHandler } from "./utils";

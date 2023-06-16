@@ -1,7 +1,7 @@
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 import { polygonNetworks } from "@klimadao/lib/constants";
-import { getStaticProvider } from "@klimadao/lib/utils";
 import { Contract, utils } from "ethers";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 
 const ONE_HOUR = 60 * 60 * 1000;
 
