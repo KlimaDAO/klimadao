@@ -16,7 +16,7 @@ module.exports = async function (fastify, opts) {
         (res, curr) => ({ ...res, [curr]: process.env[curr] }),
         {}
       );
-      return reply.send(JSON.stringify(envs));
+      return reply.send(JSON.stringify(envs, null, 2));
     },
   });
 };
