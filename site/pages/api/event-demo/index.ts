@@ -1,6 +1,5 @@
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
-import { getStaticProvider } from "@klimadao/lib/utils";
 import {
   INFURA_ID,
   LIVE_OFFSET_WALLET_MNEMONIC,
@@ -11,6 +10,7 @@ import {
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
 import { Contract, ContractTransaction, utils, Wallet } from "ethers";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { NextApiHandler } from "next";
 
 if (!LIVE_OFFSET_WALLET_MNEMONIC) {

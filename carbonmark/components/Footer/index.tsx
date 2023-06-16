@@ -34,7 +34,7 @@ export const Footer: FC<Props> = (props) => {
               <Trans>Terms of Use</Trans>
             </Text>
           </Link>
-          <Link href={carbonmarkUrls.help}>
+          <Link href={carbonmarkUrls.docs}>
             <Text t="body4">
               <Trans>Help</Trans>
             </Text>

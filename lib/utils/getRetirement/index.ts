@@ -9,7 +9,7 @@ import {
 } from "../../types/offset";
 
 export const createRetirementStorageContract = (
-  provider: providers.JsonRpcProvider
+  provider: providers.BaseProvider
 ) => getContract({ contractName: "retirementStorage", provider });
 
 export const getRetirementTotalsAndBalances = async (params: {

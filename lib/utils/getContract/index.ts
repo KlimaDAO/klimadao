@@ -85,7 +85,7 @@ const getContractAbiByName = (name: ContractName) => {
 
 export const getContract = (params: {
   contractName: ContractName;
-  provider: providers.JsonRpcProvider | Signer;
+  provider: providers.BaseProvider | providers.JsonRpcProvider | Signer;
   network?: "testnet" | "mainnet";
 }): Contract => {
   const { network = "mainnet" } = params;

@@ -1,12 +1,9 @@
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import { addresses, Bond } from "@klimadao/lib/constants";
-import {
-  formatUnits,
-  getContract,
-  getStaticProvider,
-} from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { setBondAllowance } from "state/user";
@@ -50,7 +47,7 @@ type TokensForPairContract =
 
 const getPairContract = (params: {
   token: TokensForPairContract;
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   return new Contract(
     addresses["mainnet"][params.token],
@@ -77,7 +74,7 @@ export const getIsInverse = (
 
 export const contractForBond = (params: {
   bond: Bond;
-  provider: providers.JsonRpcProvider | providers.JsonRpcSigner;
+  provider: providers.BaseProvider | providers.JsonRpcSigner;
 }) => {
   const token = bondMapToBondName[params.bond];
   return getContract({ contractName: token, provider: params.provider });
@@ -85,7 +82,7 @@ export const contractForBond = (params: {
 
 export function contractForReserve(params: {
   bond: BondTokens;
-  providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
+  providerOrSigner: providers.BaseProvider | providers.JsonRpcSigner;
 }) {
   const token = bondMapToTokenName[params.bond];
   return getContract({
@@ -95,7 +92,7 @@ export function contractForReserve(params: {
 }
 
 const getBCTMarketPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaBctLp",
@@ -107,7 +104,7 @@ const getBCTMarketPrice = async (params: {
 };
 
 const getUBOMarketPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaUboLp",
@@ -119,7 +116,7 @@ const getUBOMarketPrice = async (params: {
 };
 
 const getNBOMarketPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaNboLp",
@@ -132,7 +129,7 @@ const getNBOMarketPrice = async (params: {
 
 // for Klima/USDC LP
 const getKlimaUSDCMarketPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaUsdcLp",
@@ -145,7 +142,7 @@ const getKlimaUSDCMarketPrice = async (params: {
 };
 
 const getInverseKlimaUSDCPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaUsdcLp",
@@ -159,7 +156,7 @@ const getInverseKlimaUSDCPrice = async (params: {
 
 // [usdc, klima] 200/2 = 100
 const getMCO2MarketPrice = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: providers.BaseProvider;
 }) => {
   const pairContract = getPairContract({
     token: "klimaMco2Lp",

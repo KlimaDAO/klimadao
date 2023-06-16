@@ -2,10 +2,10 @@ import { GetStaticProps } from "next";
 
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
-import { getStaticProvider } from "@klimadao/lib/utils";
 import { EventDemo } from "components/pages/EventDemo";
 import { Contract } from "ethers";
 import { loadTranslation } from "lib/i18n";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { INFURA_ID } from "lib/secrets";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

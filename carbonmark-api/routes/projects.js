@@ -16,6 +16,7 @@ const {
 const { getSanityClient } = require("../sanity.js");
 const { fetchProjects, fetchAllProjects } = require("../sanity/queries.js");
 const { GET_TOKEN_ADDRESS } = require("../queries/token_address.js");
+const { defaultPoolProjectTokens } = require("../constants/constants.js");
 
 module.exports = async function (fastify, opts) {
   // @TODO: merge with other projects from the poooool
@@ -484,16 +485,6 @@ module.exports = async function (fastify, opts) {
 
         // If the project exists, update its data and send it in the response
         if (project) {
-          project.c3TokenAddress =
-            c3TokenAddress.data && c3TokenAddress.data.tokens.length
-              ? c3TokenAddress.data.tokens[0].id
-              : undefined;
-          project.tco2TokenAddress =
-            tco2TokenAddress.data && tco2TokenAddress.data.tokens.length
-              ? tco2TokenAddress.data.tokens[0].id
-              : undefined;
-
-          // Fetch additional project data based on the registry
           if (project.registry == "VCS") {
             const sanity = getSanityClient();
 
@@ -565,7 +556,36 @@ module.exports = async function (fastify, opts) {
             );
           }
 
-          // Send the project data in the response
+          project.prices.map(function (price) {
+            if (price.name == "NBO" || price.name == "UBO") {
+              price.poolTokenAddress =
+                c3TokenAddress.data && c3TokenAddress.data.tokens.length
+                  ? c3TokenAddress.data.tokens[0].id
+                  : undefined;
+              if (price.name == "NBO") {
+                price.isPoolDefault =
+                  price.poolTokenAddress == defaultPoolProjectTokens.nbo;
+              } else if (price.name == "UBO") {
+                price.isPoolDefault =
+                  price.poolTokenAddress == defaultPoolProjectTokens.ubo;
+              }
+            } else {
+              price.poolTokenAddress =
+                tco2TokenAddress.data && tco2TokenAddress.data.tokens.length
+                  ? tco2TokenAddress.data.tokens[0].id
+                  : undefined;
+              if (price.name == "BCT") {
+                price.isPoolDefault =
+                  price.poolTokenAddress === defaultPoolProjectTokens.bct;
+              } else if (price.name == "NCT") {
+                price.isPoolDefault =
+                  price.poolTokenAddress == defaultPoolProjectTokens.nct;
+              }
+            }
+
+            return price;
+          });
+
           return reply.send(JSON.stringify(project));
         }
         // If the project doesn't exist, send a 404 Not Found response

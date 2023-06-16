@@ -7,9 +7,9 @@ import {
   fetchBlockRate,
   getContract,
   getEstimatedDailyRebases,
-  getStaticProvider,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
+import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {

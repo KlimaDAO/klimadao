@@ -47,8 +47,8 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
-#: components/shared/Navigation/index.tsx:81
-#: components/shared/Navigation/index.tsx:118
+#: components/shared/Navigation/index.tsx:80
+#: components/shared/Navigation/index.tsx:117
 msgid "About"
 msgstr "About"
 
@@ -68,7 +68,7 @@ msgstr "Agriculture"
 msgid "Amount to purchase"
 msgstr "Amount to purchase"
 
-#: components/pages/Project/Retire/TotalValues.tsx:109
+#: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
@@ -117,15 +117,15 @@ msgid "Back to Project"
 msgstr "Back to Project"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
-#: components/pages/Project/Retire/RetireInputs.tsx:146
+#: components/pages/Project/Retire/RetireInputs.tsx:147
 msgid "Balance: {0}"
 msgstr "Balance: {0}"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:200
+#: components/pages/Project/Retire/RetireInputs.tsx:201
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:123
+#: components/pages/Project/Retire/RetireInputs.tsx:124
 msgid "Beneficiary Address"
 msgstr "Beneficiary Address"
 
@@ -152,8 +152,8 @@ msgstr "Blue Carbon"
 msgid "Book a demo"
 msgstr "Book a demo"
 
-#: components/shared/Navigation/index.tsx:54
-#: components/shared/Navigation/index.tsx:133
+#: components/shared/Navigation/index.tsx:53
+#: components/shared/Navigation/index.tsx:132
 msgid "Browse Projects"
 msgstr "Browse Projects"
 
@@ -178,7 +178,7 @@ msgid "Carbonmark Overview"
 msgstr "Carbonmark Overview"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
-#: components/pages/Project/Retire/TotalValues.tsx:133
+#: components/pages/Project/Retire/TotalValues.tsx:140
 msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
@@ -221,7 +221,7 @@ msgstr "Contact"
 msgid "Continue"
 msgstr "Continue"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:216
+#: components/pages/Project/Retire/RetireInputs.tsx:217
 msgid "Could not calculate Total Cost"
 msgstr "Could not calculate Total Cost"
 
@@ -254,11 +254,11 @@ msgstr "Data for this project and vintage"
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:127
+#: components/pages/Project/Retire/RetireInputs.tsx:128
 msgid "Defaults to the connected wallet address"
 msgstr "Defaults to the connected wallet address"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:134
+#: components/pages/Project/Retire/RetireInputs.tsx:135
 msgid "Describe the purpose of this retirement"
 msgstr "Describe the purpose of this retirement"
 
@@ -317,12 +317,12 @@ msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #: components/Footer/index.tsx:39
 #: components/pages/Home/index.tsx:510
-#: components/shared/Navigation/index.tsx:87
-#: components/shared/Navigation/index.tsx:124
+#: components/shared/Navigation/index.tsx:86
+#: components/shared/Navigation/index.tsx:123
 msgid "Help"
 msgstr "Help"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
 msgstr "Hide Details"
 
@@ -351,7 +351,7 @@ msgstr "Industrial Processing"
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
-#: components/pages/Project/Retire/TotalValues.tsx:220
+#: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO Contracts"
 
@@ -372,7 +372,7 @@ msgstr "Leaving Carbonmark"
 msgid "Listings"
 msgstr "Listings"
 
-#: components/pages/Project/Retire/TotalValues.tsx:162
+#: components/pages/Project/Retire/TotalValues.tsx:169
 msgid "Loading"
 msgstr "Loading"
 
@@ -381,7 +381,7 @@ msgid "Loading your assets"
 msgstr "Loading your assets"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Retire/TotalValues.tsx:274
+#: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -403,8 +403,8 @@ msgstr "Log out"
 msgid "Login"
 msgstr "Login"
 
-#: components/shared/Navigation/index.tsx:63
-#: components/shared/Navigation/index.tsx:100
+#: components/shared/Navigation/index.tsx:62
+#: components/shared/Navigation/index.tsx:99
 msgid "Marketplace"
 msgstr "Marketplace"
 
@@ -421,7 +421,7 @@ msgstr "Methodology"
 msgid "Moss"
 msgstr "Moss"
 
-#: components/pages/Project/Retire/TotalValues.tsx:150
+#: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
 msgstr "Network fees"
 
@@ -458,7 +458,7 @@ msgstr "No retirement message provided."
 msgid "Not Connected"
 msgstr "Not Connected"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:119
+#: components/pages/Project/Retire/RetireInputs.tsx:120
 msgid "Not a valid polygon address"
 msgstr "Not a valid polygon address"
 
@@ -475,7 +475,7 @@ msgid "Other Nature-Based"
 msgstr "Other Nature-Based"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
-#: components/pages/Project/Retire/RetireInputs.tsx:143
+#: components/pages/Project/Retire/RetireInputs.tsx:144
 msgid "Pay with:"
 msgstr "Pay with:"
 
@@ -511,7 +511,7 @@ msgid "Price Lowest"
 msgstr "Price Lowest"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
-#: components/pages/Project/Retire/TotalValues.tsx:116
+#: components/pages/Project/Retire/TotalValues.tsx:123
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
@@ -531,8 +531,8 @@ msgstr "Processing Retirement"
 msgid "Processing data..."
 msgstr "Processing data..."
 
-#: components/shared/Navigation/index.tsx:69
-#: components/shared/Navigation/index.tsx:106
+#: components/shared/Navigation/index.tsx:68
+#: components/shared/Navigation/index.tsx:105
 msgid "Profile"
 msgstr "Profile"
 
@@ -599,8 +599,8 @@ msgstr "Required Field"
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
-#: components/shared/Navigation/index.tsx:75
-#: components/shared/Navigation/index.tsx:112
+#: components/shared/Navigation/index.tsx:74
+#: components/shared/Navigation/index.tsx:111
 msgid "Resources"
 msgstr "Resources"
 
@@ -639,7 +639,7 @@ msgstr "Retire now"
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:137
+#: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
 msgstr "Retirement Message"
 
@@ -671,7 +671,7 @@ msgstr "Sell"
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
 msgstr "Show Details"
 
@@ -742,14 +742,14 @@ msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and
 msgstr "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 
 #: components/pages/Project/Retire/RetireInputs.tsx:84
-msgid "The minimum amount to retire is 1 Tonne"
-msgstr "The minimum amount to retire is 1 Tonne"
+msgid "The minimum amount to retire is 0.001 Tonnes"
+msgstr "The minimum amount to retire is 0.001 Tonnes"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 
-#: components/pages/Project/Retire/TotalValues.tsx:83
+#: components/pages/Project/Retire/TotalValues.tsx:90
 msgid "There was an error loading the total cost."
 msgstr "There was an error loading the total cost."
 
@@ -777,12 +777,12 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "To purchase this project using a different form of payment,"
 msgstr "To purchase this project using a different form of payment,"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:191
+#: components/pages/Project/Retire/RetireInputs.tsx:192
 msgid "To retire this project using a different form of payment,"
 msgstr "To retire this project using a different form of payment,"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
-#: components/pages/Project/Retire/RetireInputs.tsx:155
+#: components/pages/Project/Retire/RetireInputs.tsx:156
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
@@ -793,7 +793,7 @@ msgstr "Toggle sort menu"
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
 #: components/pages/Project/Retire/RetireInputs.tsx:72
-#: components/pages/Project/Retire/TotalValues.tsx:111
+#: components/pages/Project/Retire/TotalValues.tsx:118
 msgid "Tonnes"
 msgstr "Tonnes"
 
@@ -805,7 +805,7 @@ msgstr "Tonnes listed:"
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
-#: components/pages/Project/Retire/TotalValues.tsx:106
+#: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
 msgstr "Total Price"
 
@@ -814,7 +814,7 @@ msgid "Total Retirements:"
 msgstr "Total Retirements:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:93
-#: components/pages/Project/Retire/TotalValues.tsx:258
+#: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr "Total cost"
 
@@ -929,7 +929,7 @@ msgstr "You are about to retire a carbon asset."
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:220
+#: components/pages/Project/Retire/RetireInputs.tsx:221
 msgid "You exceeded your available amount of tokens"
 msgstr "You exceeded your available amount of tokens"
 
@@ -938,7 +938,7 @@ msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:119
-#: components/pages/Project/Retire/TotalValues.tsx:286
+#: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr "Your balance:"
 
@@ -1249,7 +1249,7 @@ msgstr "Confirm Purchase"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
-#: components/pages/Project/Retire/TotalValues.tsx:245
+#: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
 msgstr "redemption Fee"
 

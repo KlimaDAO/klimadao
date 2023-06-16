@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-08 21:58+0000\n"
+"POT-Creation-Date: 2023-06-16 01:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,8 +41,8 @@ msgid "A-Z"
 msgstr "A - Z"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
-#: components/shared/Navigation/index.tsx:81
-#: components/shared/Navigation/index.tsx:118
+#: components/shared/Navigation/index.tsx:80
+#: components/shared/Navigation/index.tsx:117
 msgid "About"
 msgstr "关于"
 
@@ -62,9 +62,9 @@ msgstr "农业"
 msgid "Amount to purchase"
 msgstr "购买金额"
 
-#: components/pages/Project/Retire/TotalValues.tsx:109
+#: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
-msgstr ""
+msgstr "停用金额"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -95,7 +95,7 @@ msgstr "可停用"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:66
 msgid "Available:"
-msgstr ""
+msgstr "可用的："
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:55
 msgid "Available: {0}"
@@ -111,15 +111,15 @@ msgid "Back to Project"
 msgstr "返回项目"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:102
-#: components/pages/Project/Retire/RetireInputs.tsx:146
+#: components/pages/Project/Retire/RetireInputs.tsx:147
 msgid "Balance: {0}"
 msgstr "余额：{0}"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:200
+#: components/pages/Project/Retire/RetireInputs.tsx:201
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:123
+#: components/pages/Project/Retire/RetireInputs.tsx:124
 msgid "Beneficiary Address"
 msgstr "受益人地址"
 
@@ -146,8 +146,8 @@ msgstr "蓝碳"
 msgid "Book a demo"
 msgstr "预约演示"
 
-#: components/shared/Navigation/index.tsx:54
-#: components/shared/Navigation/index.tsx:133
+#: components/shared/Navigation/index.tsx:53
+#: components/shared/Navigation/index.tsx:132
 msgid "Browse Projects"
 msgstr "浏览项目"
 
@@ -172,7 +172,7 @@ msgid "Carbonmark Overview"
 msgstr "Carbonmark 概览"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:74
-#: components/pages/Project/Retire/TotalValues.tsx:133
+#: components/pages/Project/Retire/TotalValues.tsx:140
 msgid "Carbonmark fee"
 msgstr "Carbonmark 费"
 
@@ -215,9 +215,9 @@ msgstr "联系方式"
 msgid "Continue"
 msgstr "继续"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:216
+#: components/pages/Project/Retire/RetireInputs.tsx:217
 msgid "Could not calculate Total Cost"
-msgstr ""
+msgstr "无法计算总成本"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -248,11 +248,11 @@ msgstr "该项目和历史减排效益的数据"
 msgid "Data for this seller"
 msgstr "该卖家的数据"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:127
+#: components/pages/Project/Retire/RetireInputs.tsx:128
 msgid "Defaults to the connected wallet address"
 msgstr "默认的已连接钱包地址"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:134
+#: components/pages/Project/Retire/RetireInputs.tsx:135
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
@@ -311,14 +311,14 @@ msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
 #: components/Footer/index.tsx:39
 #: components/pages/Home/index.tsx:510
-#: components/shared/Navigation/index.tsx:87
-#: components/shared/Navigation/index.tsx:124
+#: components/shared/Navigation/index.tsx:86
+#: components/shared/Navigation/index.tsx:123
 msgid "Help"
 msgstr "帮助"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
-msgstr ""
+msgstr "隐藏细节"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:91
 msgid "How many tonnes of carbon do you want to buy?"
@@ -326,11 +326,11 @@ msgstr "您想购买多少吨碳？"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:92
 msgid "How many tonnes of carbon do you want to retire?"
-msgstr ""
+msgstr "您想停用多少吨碳？"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:62
 msgid "How many tonnes of carbon would you like to retire?"
-msgstr ""
+msgstr "您想停用多少吨碳？"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -345,9 +345,9 @@ msgstr "工业加工"
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
-#: components/pages/Project/Retire/TotalValues.tsx:220
+#: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
-msgstr ""
+msgstr "KlimaDAO 合约"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -366,16 +366,16 @@ msgstr "离开Carbonmark"
 msgid "Listings"
 msgstr "挂牌信息"
 
-#: components/pages/Project/Retire/TotalValues.tsx:162
+#: components/pages/Project/Retire/TotalValues.tsx:169
 msgid "Loading"
-msgstr ""
+msgstr "加载中"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Retire/TotalValues.tsx:274
+#: components/pages/Project/Retire/TotalValues.tsx:282
 msgid "Loading..."
 msgstr "正在加载..."
 
@@ -397,8 +397,8 @@ msgstr "登出"
 msgid "Login"
 msgstr "登录"
 
-#: components/shared/Navigation/index.tsx:63
-#: components/shared/Navigation/index.tsx:100
+#: components/shared/Navigation/index.tsx:62
+#: components/shared/Navigation/index.tsx:99
 msgid "Marketplace"
 msgstr "市场"
 
@@ -413,11 +413,11 @@ msgstr "方法"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
 msgid "Moss"
-msgstr ""
+msgstr "Moss"
 
-#: components/pages/Project/Retire/TotalValues.tsx:150
+#: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
-msgstr ""
+msgstr "网络费用"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -452,9 +452,9 @@ msgstr "未提供碳停用信息"
 msgid "Not Connected"
 msgstr "未连接"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:119
+#: components/pages/Project/Retire/RetireInputs.tsx:120
 msgid "Not a valid polygon address"
-msgstr ""
+msgstr "不是polygon的有效地址"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
@@ -469,7 +469,7 @@ msgid "Other Nature-Based"
 msgstr "其他基于自然的"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:99
-#: components/pages/Project/Retire/RetireInputs.tsx:143
+#: components/pages/Project/Retire/RetireInputs.tsx:144
 msgid "Pay with:"
 msgstr "使用...支付"
 
@@ -505,7 +505,7 @@ msgid "Price Lowest"
 msgstr "最低价格"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:59
-#: components/pages/Project/Retire/TotalValues.tsx:116
+#: components/pages/Project/Retire/TotalValues.tsx:123
 msgid "Price per tonne"
 msgstr "每吨价格"
 
@@ -521,14 +521,14 @@ msgstr "隐私政策"
 
 #: components/pages/Project/Retire/RetireModal.tsx:80
 msgid "Processing Retirement"
-msgstr ""
+msgstr "正在处理碳停用"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
 msgstr "处理数据..."
 
-#: components/shared/Navigation/index.tsx:69
-#: components/shared/Navigation/index.tsx:106
+#: components/shared/Navigation/index.tsx:68
+#: components/shared/Navigation/index.tsx:105
 msgid "Profile"
 msgstr "个人资料"
 
@@ -574,7 +574,7 @@ msgstr "购买数量："
 
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
-msgstr ""
+msgstr "碳停用"
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
@@ -590,13 +590,13 @@ msgstr "再生能源"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:56
 msgid "Required Field"
-msgstr ""
+msgstr "必填项目"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:513
 #: components/pages/Resources/ResourcesList/index.tsx:154
-#: components/shared/Navigation/index.tsx:75
-#: components/shared/Navigation/index.tsx:112
+#: components/shared/Navigation/index.tsx:74
+#: components/shared/Navigation/index.tsx:111
 msgid "Resources"
 msgstr "资源"
 
@@ -616,11 +616,11 @@ msgstr "为自己或代表其他人或组织停用碳信用额度。"
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr ""
+msgstr "从 {fullProjectid} 停用 | Carbonmark"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
-msgstr ""
+msgstr "停用更多的碳"
 
 #: components/pages/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
@@ -635,7 +635,7 @@ msgstr "现在停用"
 msgid "Retire | Carbonmark"
 msgstr "碳停用 | Carbonmark"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:137
+#: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
 msgstr "停用消息"
 
@@ -645,11 +645,11 @@ msgstr "停用成功！"
 
 #: components/pages/Project/Retire/RetireModal.tsx:81
 msgid "Retirement successful"
-msgstr ""
+msgstr "碳停用成功"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:33
 msgid "Retiring Token"
-msgstr ""
+msgstr "碳停用代币"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -657,7 +657,7 @@ msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:65
 msgid "See your retirement receipt"
-msgstr ""
+msgstr "查看您的停用收据"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:70
 msgid "Sell"
@@ -667,9 +667,9 @@ msgstr "卖出"
 msgid "Seller Listing"
 msgstr "卖家挂牌信息"
 
-#: components/pages/Project/Retire/TotalValues.tsx:170
+#: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Show Details"
-msgstr ""
+msgstr "显示详细资料"
 
 #: components/pages/Project/Purchase/SubmitButton.tsx:31
 #: components/pages/Project/Retire/SubmitButton.tsx:30
@@ -719,7 +719,7 @@ msgstr "使用条款"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:28
 msgid "Thank you for supporting the planet!"
-msgstr ""
+msgstr "感谢您对地球的支持！"
 
 #: components/pages/Purchases/index.tsx:72
 msgid "Thank you for supporting the planet! See purchase details below."
@@ -738,16 +738,16 @@ msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and
 msgstr "全球最大的数字碳信用选择。通过零佣金交易立即从任何项目购买、出售和停用数字碳。"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:84
-msgid "The minimum amount to retire is 1 Tonne"
-msgstr ""
+msgid "The minimum amount to retire is 0.001 Tonnes"
+msgstr "最低碳停用量为 0.001 吨"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr "上一步已批准将您的碳资产从您的钱包转移到 Carbonmark，您的碳停用尚未完成。"
 
-#: components/pages/Project/Retire/TotalValues.tsx:83
+#: components/pages/Project/Retire/TotalValues.tsx:90
 msgid "There was an error loading the total cost."
-msgstr ""
+msgstr "加载总费用时出错。"
 
 #: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
@@ -773,12 +773,12 @@ msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单
 msgid "To purchase this project using a different form of payment,"
 msgstr "使用不同的付款方式购买此项目，"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:191
+#: components/pages/Project/Retire/RetireInputs.tsx:192
 msgid "To retire this project using a different form of payment,"
-msgstr ""
+msgstr "使用不同的付款方式停用此项目"
 
 #: components/pages/Project/Purchase/PurchaseInputs.tsx:111
-#: components/pages/Project/Retire/RetireInputs.tsx:155
+#: components/pages/Project/Retire/RetireInputs.tsx:156
 msgid "Toggle payment method"
 msgstr "切换付款方式"
 
@@ -789,7 +789,7 @@ msgstr "切换排序菜单"
 #: components/pages/Project/Purchase/TotalValues.tsx:54
 #: components/pages/Project/Retire/AssetDetails.tsx:49
 #: components/pages/Project/Retire/RetireInputs.tsx:72
-#: components/pages/Project/Retire/TotalValues.tsx:111
+#: components/pages/Project/Retire/TotalValues.tsx:118
 msgid "Tonnes"
 msgstr "吨"
 
@@ -801,16 +801,16 @@ msgstr "列出的吨数："
 msgid "Tonnes sold:"
 msgstr "售出吨数："
 
-#: components/pages/Project/Retire/TotalValues.tsx:106
+#: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
-msgstr ""
+msgstr "总价"
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
 msgstr "总碳停用"
 
 #: components/pages/Project/Purchase/TotalValues.tsx:93
-#: components/pages/Project/Retire/TotalValues.tsx:258
+#: components/pages/Project/Retire/TotalValues.tsx:266
 msgid "Total cost"
 msgstr "总成本"
 
@@ -824,7 +824,7 @@ msgstr "待售总数量"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
 msgid "Total sale cost"
-msgstr ""
+msgstr "总销售成本"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:88
 msgid "Updated:"
@@ -873,7 +873,7 @@ msgstr "查看和共享证书"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:58
 msgid "View on PolygonScan"
-msgstr ""
+msgstr "在 PolygonScan 上查看"
 
 #: components/pages/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
@@ -925,7 +925,7 @@ msgstr "您即将停用一项碳资产。"
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:220
+#: components/pages/Project/Retire/RetireInputs.tsx:221
 msgid "You exceeded your available amount of tokens"
 msgstr "您超出了可用的代币数量"
 
@@ -934,7 +934,7 @@ msgid "Your Wallet Address:"
 msgstr "您的钱包地址："
 
 #: components/pages/Project/Purchase/TotalValues.tsx:119
-#: components/pages/Project/Retire/TotalValues.tsx:286
+#: components/pages/Project/Retire/TotalValues.tsx:294
 msgid "Your balance:"
 msgstr "您的余额："
 
@@ -1245,9 +1245,9 @@ msgstr "确认购买"
 msgid "purchase.transaction.modal.title.processing"
 msgstr "正在处理购买"
 
-#: components/pages/Project/Retire/TotalValues.tsx:245
+#: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "redemption Fee"
-msgstr ""
+msgstr "赎回费"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:22
 msgid "resources.form.categories.header"
@@ -1377,11 +1377,11 @@ msgstr "方法："
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "MC02 信用由保护亚马逊森林的项目产生，具有各种积极的外部性，例如创造当地就业机会和保护当地生物多样性。在 <0>carbon.klimadao.finance </0>上了解 MCO2."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
 msgid "retirement.single.moss_offset.name"
-msgstr ""
+msgstr "MOSS 地球 MC02"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"

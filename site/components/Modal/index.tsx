@@ -1,8 +1,8 @@
 import Close from "@mui/icons-material/Close";
-import { FC, ReactNode, useEffect } from "react";
+import { FC, ReactNode } from "react";
 
 import { Text } from "@klimadao/lib/components";
-import { useFocusTrap } from "@klimadao/lib/utils";
+import { useFocusTrap, useScrollLock } from "@klimadao/lib/utils";
 import * as styles from "./styles";
 
 export interface Props {
@@ -17,13 +17,7 @@ export const Modal: FC<Props> = (props) => {
   const showCloseButton = !!props.onToggleModal;
   const focusTrapRef = useFocusTrap();
 
-  useEffect(() => {
-    if (props.showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [props.showModal]);
+  useScrollLock(props.showModal);
 
   const handleBackgroundClick = props.closeOnBackgroundClick
     ? props.onToggleModal

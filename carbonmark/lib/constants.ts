@@ -74,9 +74,13 @@ export const urls = {
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
+  docs: "https://docs.carbonmark.com",
   projects: "/projects",
   users: "/users",
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",
 };
+
+/** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
+export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;

@@ -71,7 +71,7 @@ export const useProvider = (): Web3ModalState => {
           darkMode: document.body.dataset.theme === "theme-dark", // TODO: get theme from body/localstorage
         });
         provider = getWeb3Provider(
-          coinbaseWallet.makeWeb3Provider(urls.infuraPolygonRpcClient, 137)
+          coinbaseWallet.makeWeb3Provider(urls.polygonMainnetRpc, 137)
         );
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
@@ -87,7 +87,7 @@ export const useProvider = (): Web3ModalState => {
         );
         const walletConnectProvider = new WalletConnectProvider({
           rpc: {
-            137: urls.infuraPolygonRpcClient,
+            137: urls.polygonMainnetRpc,
           },
         });
         await walletConnectProvider.enable();

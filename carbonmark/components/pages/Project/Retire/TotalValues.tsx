@@ -8,7 +8,6 @@ import { getConsumptionCost, getFeeFactor } from "lib/actions.retire";
 import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { isDefaultProjectAddress } from "lib/getPoolData";
 import { Price } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -18,10 +17,8 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  singleUnitPrice: Price["singleUnitPrice"];
+  price: Price;
   balance: string | null;
-  pool: Lowercase<Price["name"]>;
-  projectAddress: string;
 };
 
 const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
@@ -34,6 +31,9 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const poolName = props.price.name.toLowerCase() as Lowercase<Price["name"]>;
+  const isPoolDefault = props.price.isPoolDefault;
+
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
@@ -45,14 +45,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
-  const redemptionFee = Number(costs || 0) * feesFactor;
+  const redemptionFee =
+    (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
   const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
-  const swapFee = getSwapFee(Number(costs || 0), props.pool);
+  const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
   useEffect(() => {
     const selectiveFee = async () => {
-      const factor = await getFeeFactor(props.pool);
+      // No fees for default retirement
+      if (isPoolDefault) {
+        setFeesFactor(0);
+        return;
+      }
+
+      const factor = await getFeeFactor(poolName);
       setFeesFactor(factor);
     };
     selectiveFee();
@@ -72,9 +79,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         setIsLoading(true);
         const totalPrice = await getConsumptionCost({
           inputToken: paymentMethod,
-          retirementToken: props.pool,
+          retirementToken: poolName,
           quantity: amount,
-          isDefaultProject: isDefaultProjectAddress(props.projectAddress),
+          isDefaultProject: isPoolDefault,
         });
 
         setCosts(totalPrice);
@@ -124,7 +131,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <Text t="h5">
-            {formatToPrice(props.singleUnitPrice, locale, false)}
+            {formatToPrice(props.price.singleUnitPrice, locale, false)}
           </Text>
         </div>
       </div>
@@ -161,6 +168,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             <Text t="h5">
               {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
             </Text>
+
             <Text
               t="body3"
               color="lighter"
@@ -242,7 +250,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
-                  {props.pool.toUpperCase()} {t`redemption Fee`}
+                  {props.price.name} {t`redemption Fee`}
                 </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
