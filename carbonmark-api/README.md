@@ -2,10 +2,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="./logo.png" alt="Logo" width="80" height="80">
+    <img src="./assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h2 align="center">Carbonmark Api</h2>
+
   <p align="center">
     A BFF API for Carbonmark
     <br />
