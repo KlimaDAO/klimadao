@@ -40,3 +40,24 @@ export const getConnectErrorStrings = () => ({
     id: "connect_modal.error_processing",
   }),
 });
+
+const ENVIRONMENT = IS_PRODUCTION
+  ? "production"
+  : IS_LOCAL_DEVELOPMENT
+  ? "development"
+  : "preview";
+
+export const config = {
+  networks: {
+    production: "mainnet",
+    preview: "mainnet",
+    development: "mainnet",
+  },
+} as const;
+
+export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
+  | "testnet"
+  | "mainnet";
+
+/** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
+export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
