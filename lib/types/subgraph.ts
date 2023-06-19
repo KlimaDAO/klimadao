@@ -11,7 +11,7 @@ export interface KlimaRetire {
     id: string;
   };
   offset: {
-    name?: string; // Name of project, not present on all
+    name: string; // Name of project, not present on all
     id: string;
     tokenAddress: string;
     totalRetired: string; // "0" if bridge is "Moss"
