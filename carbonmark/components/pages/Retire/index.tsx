@@ -4,19 +4,23 @@ import { CopyAddressButton } from "components/CopyAddressButton";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { NextPage } from "next";
+import { RetireActivity } from "./Activity";
 import * as styles from "./styles";
 
 export const Retire: NextPage = () => {
-  const { address, isConnected } = useWeb3();
+  const { isConnected, address, initializing } = useWeb3();
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
 
   const beneficiary = connectedDomain?.name || address;
   const displayName =
     connectedDomain?.name || (address && concatAddress(address));
+
+  const isConnectedUser = isConnected && address;
 
   return (
     <>
@@ -49,6 +53,14 @@ export const Retire: NextPage = () => {
           <div className={styles.retireControls}>
             <LoginButton />
           </div>
+
+          {!isConnectedUser && initializing && (
+            <div className={styles.spinnerContainer}>
+              <Spinner />
+            </div>
+          )}
+
+          <RetireActivity />
         </div>
       </Layout>
     </>
