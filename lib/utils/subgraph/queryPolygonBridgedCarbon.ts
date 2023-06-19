@@ -101,6 +101,7 @@ export const queryKlimaRetiresByAddress = async (
                 bridge
                 registry 
                 standard
+                name
               }
             }
           }
