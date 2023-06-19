@@ -35,7 +35,7 @@ export const RetirementsList: FC = () => {
 
   const { locale } = useRouter();
 
-  const isConnectedUser = isConnected && !!address;
+  const isConnectedUser = isConnected && !!address && !initializing;
   const noRetirements =
     isConnectedUser && !isLoadingRetirements && !retirements;
   const hasRetirements = !isLoadingRetirements && !!address && !!retirements;
@@ -59,10 +59,10 @@ export const RetirementsList: FC = () => {
         setIsLoadingRetirements(false);
       }
     };
-    initData();
+    isConnectedUser && initData();
   }, [isConnectedUser]);
 
-  if (!isConnectedUser && !initializing) {
+  if (!isConnectedUser) {
     return <LoginCard isLoading={isLoadingRetirements} onLogin={toggleModal} />;
   }
 
