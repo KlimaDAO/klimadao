@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-16 14:06+0000\n"
+"POT-Creation-Date: 2023-06-19 14:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,7 +97,7 @@ msgstr "Dépassement de l'offre disponible"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:47
 msgid "Available to purchase"
-msgstr ""
+msgstr "Disponible à l'achat"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:47
 #: components/pages/Retire/RetirementSidebar/index.tsx:34
@@ -586,11 +586,11 @@ msgstr "Quantité achetée (tonnes) :"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:97
 msgid "Purchase more Carbon"
-msgstr ""
+msgstr "Acheter plus de Carbone"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:87
 msgid "Purchase successful"
-msgstr ""
+msgstr "Achat réussi"
 
 #: components/pages/Project/Purchase/index.tsx:36
 #: components/pages/Project/Purchase/index.tsx:37
@@ -700,7 +700,7 @@ msgstr "Dites-nous quelques mots sur vous. Ces informations seront visibles dans
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:92
 msgid "See your portfolio"
-msgstr ""
+msgstr "Voir votre portefeuille"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:65
 msgid "See your retirement receipt"
@@ -727,7 +727,7 @@ msgstr "Se connecter pour acheter"
 
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:102
 msgid "Something went wrong loading the allowance"
-msgstr ""
+msgstr "Un problème s'est produit lors du chargement de l'autorisation"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
@@ -856,11 +856,11 @@ msgstr "Afficher le menu de tri"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
 msgid "Token you will receive"
-msgstr ""
+msgstr "Jeton que vous recevrez"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:52
 msgid "Tokens received:"
-msgstr ""
+msgstr "Jetons reçus :"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:54
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -1020,7 +1020,7 @@ msgstr "Vous avez dépassé votre nombre de jetons disponibles"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:36
 msgid "You successfully acquired carbon!"
-msgstr ""
+msgstr "Vous avez acquis du carbone avec succès !"
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"

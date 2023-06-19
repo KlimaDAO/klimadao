@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-16 14:06+0000\n"
+"POT-Creation-Date: 2023-06-19 14:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -813,7 +813,7 @@ msgstr "Der vorherige Schritt hat den Transfer des Assets aus Ihrer Wallet zu Ca
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:95
 #: components/pages/Project/Retire/TotalValues.tsx:90
 msgid "There was an error loading the total cost."
-msgstr ""
+msgstr "Beim Laden der Gesamtkosten ist ein Fehler aufgetreten."
 
 #: components/pages/Users/SellerConnected/index.tsx:105
 msgid "There was an error loading your assets. {e}"
@@ -856,11 +856,11 @@ msgstr "Sortiermenü einschalten"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
 msgid "Token you will receive"
-msgstr ""
+msgstr "Token, den Sie erhalten"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:52
 msgid "Tokens received:"
-msgstr ""
+msgstr "Erhaltene Tokens:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:54
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -883,7 +883,7 @@ msgstr "Verkaufte Tonnen:"
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/TotalValues.tsx:113
 msgid "Total Price"
-msgstr ""
+msgstr "Gesamtpreis"
 
 #: components/Stats/StatsBar.tsx:32
 msgid "Total Retirements:"
