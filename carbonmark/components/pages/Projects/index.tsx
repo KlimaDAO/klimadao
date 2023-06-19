@@ -1,10 +1,10 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
+import { Close } from "@mui/icons-material";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
-import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
+import { ProjectsController } from "../Project/ProjectsController";
 import { SortOptions } from "../Project/SortOptions";
 import * as styles from "./styles";
 
@@ -64,18 +65,22 @@ const Page: NextPage = () => {
           />
           <LoginButton className="desktopLogin" />
         </div>
+
         {selectedFilters?.length ? (
           <div className={styles.pillContainer}>
             {selectedFilters?.map((filter: string, key: number) => (
               <div key={key} className={styles.pill}>
                 {filter}
+                <Close />
               </div>
             ))}
           </div>
         ) : null}
+
         <div className={styles.sortOptions}>
           <SortOptions />
         </div>
+
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>

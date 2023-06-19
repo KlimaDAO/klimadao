@@ -38,6 +38,7 @@ export const pillContainer = css`
 `;
 
 export const pill = css`
+  gap: 0.8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,6 +46,7 @@ export const pill = css`
   background: #8b8fae;
   border-radius: 4rem;
   color: white;
+  font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.6rem;
 `;
