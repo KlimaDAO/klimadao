@@ -12,6 +12,16 @@ export const listItem = css`
   justify-content: space-between;
 `;
 
+export const textWithTooltipWrapper = css`
+  display: flex;
+  align-items: center;
+`;
+
+export const tooltip = css`
+  width: 20em;
+  padding: 0.3em;
+`;
+
 export const itemWithIcon = css`
   display: flex;
   justify-content: center;
@@ -27,12 +37,13 @@ export const itemWithColor = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.3rem;
 
   span {
     position: relative;
     display: flex;
     align-items: center;
+
     gap: 1.2rem;
   }
 
@@ -40,7 +51,6 @@ export const itemWithColor = css`
     content: "";
     width: 1.2rem;
     height: 1.2rem;
-
     background-color: var(--bisque);
   }
 
@@ -74,4 +84,18 @@ export const titles = css`
   display: flex;
   gap: 0.4rem;
   flex-direction: column;
+`;
+
+export const polygonScanLink = css`
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  line-height: 1.8em;
+  text-decoration: underline;
+  color: var(--font-02);
+  cursor: pointer;
+  margin-top: 0.8rem;
+  &:hover {
+    color: var(--bright-blue);
+  }
 `;
