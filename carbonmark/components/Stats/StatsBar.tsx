@@ -13,7 +13,7 @@ import * as styles from "./styles";
 interface Props {
   currentSupply: Project["currentSupply"];
   totalRetired: Project["totalRetired"];
-  projectAddress: string;
+  projectAddress?: string;
 }
 
 export const StatsBar: FC<Props> = (props) => {
@@ -37,13 +37,13 @@ export const StatsBar: FC<Props> = (props) => {
               <span className="first">
                 <Trans>Total Retirements:</Trans>
               </span>
-              <TextInfoTooltip
-                className={styles.tooltip}
-                tooltip={t`Amount of credits from this project/vintage combination that have been retired.`}
-              >
-                <InfoOutlined />
-              </TextInfoTooltip>
             </Text>
+            <TextInfoTooltip
+              className={styles.tooltip}
+              tooltip={t`Amount of credits from this project/vintage combination that have been retired.`}
+            >
+              <InfoOutlined className={styles.tooltipIcon} />
+            </TextInfoTooltip>
           </div>
 
           <Text t="body1" color="lighter" className={styles.bold}>
@@ -56,13 +56,13 @@ export const StatsBar: FC<Props> = (props) => {
               <span>
                 <Trans>Remaining Supply:</Trans>
               </span>
-              <TextInfoTooltip
-                className={styles.tooltip}
-                tooltip={t`Amount of credits that have been bridged from this project/vintage combination but not yet retired.`}
-              >
-                <InfoOutlined />
-              </TextInfoTooltip>
             </Text>
+            <TextInfoTooltip
+              className={styles.tooltip}
+              tooltip={t`Amount of credits that have been bridged from this project/vintage combination but not yet retired.`}
+            >
+              <InfoOutlined className={styles.tooltipIcon} />
+            </TextInfoTooltip>
           </div>
 
           <Text t="body1" color="lighter" className={styles.bold}>

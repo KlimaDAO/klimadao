@@ -16,10 +16,25 @@ export const textWithTooltipWrapper = css`
   display: flex;
   align-items: center;
 `;
+export const tooltipIcon = css`
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    fill: var(--font-02);
+    align-self: flex-start;
+    
+  }
+`;
 
 export const tooltip = css`
-  width: 20em;
-  padding: 0.3em;
+  color: var(--white);
+  padding: 0.8rem;
+  background: #303030;
+  max-width: 30rem !important;
+  border-radius: 0.4rem;
+
+  .tippy-arrow {
+    color: #303030;
+  }
 `;
 
 export const itemWithIcon = css`

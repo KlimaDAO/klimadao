@@ -13,7 +13,7 @@ interface Props {
   currentSupply?: Project["currentSupply"];
   totalRetired?: Project["totalRetired"];
   description: string;
-  projectAddress: string;
+  projectAddress?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
