@@ -10,8 +10,8 @@ export const spinnerContainer = css`
 
 export const listHeader = css`
   display: grid;
-  grid-template-columns: 6fr 0.5fr 2fr;
-  grid-column-gap: 0.4rem;
+  grid-template-columns: 6fr 0.5fr 1.5fr;
+  grid-column-gap: 0.8rem;
   grid-row-gap: 0.8rem;
 
   padding: 0.8rem;
@@ -30,8 +30,8 @@ export const list = css`
 
 export const listItem = css`
   display: grid;
-  grid-template-columns: 6fr 0.5fr 2fr;
-  grid-column-gap: 0.8rem;
+  grid-template-columns: 6fr 0.5fr 1.5fr;
+  grid-column-gap: 1.2rem;
   grid-row-gap: 0.8rem;
   padding: 0.8rem;
 

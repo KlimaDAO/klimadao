@@ -71,7 +71,7 @@ export const RetirementsList: FC = () => {
       <div className={styles.list}>
         <div className={styles.listHeader}>
           <Text t="body4">{t`PROJECTS`}</Text>
-          <Text t="body4">{t`QTY`}</Text>
+          <Text align="end" t="body4">{t`QTY`}</Text>
           <Text t="body4">{t`DATE`}</Text>
         </div>
 
@@ -84,7 +84,7 @@ export const RetirementsList: FC = () => {
             >
               <div className={styles.listItem}>
                 <Text>{r.offset.name || r.offset.projectID}</Text>
-                <Text>
+                <Text align="end">
                   {trimWithLocale(r.amount, 2, locale)}
                   {t`t`}
                 </Text>
