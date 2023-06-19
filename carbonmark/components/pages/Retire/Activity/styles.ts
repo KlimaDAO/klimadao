@@ -40,7 +40,8 @@ export const listItem = css`
   transition: all 0.2s ease 0s;
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
+    background: var(--surface-02);
   }
 `;
 
