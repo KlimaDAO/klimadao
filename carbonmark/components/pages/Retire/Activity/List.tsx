@@ -24,6 +24,7 @@ export const RetirementsList: FC = () => {
 
   useEffect(() => {
     const initData = async () => {
+      setError("");
       if (!isConnectedUser) {
         setRetirements(false);
         return;
@@ -36,7 +37,9 @@ export const RetirementsList: FC = () => {
         setRetirements(retirements);
       } catch (e) {
         console.error(e);
-        setError(t`There was an error getting your retirement data`);
+        setError(
+          t`There was an error getting your retirement data. Please refresh the page to try again.`
+        );
       } finally {
         setIsLoadingRetirements(false);
       }

@@ -52,6 +52,17 @@ export const RetireOverview: FC = () => {
     initData();
   }, [isConnectedUser]);
 
+  if (!isConnectedUser) {
+    return (
+      <Card>
+        <Text t="h4">{t`Retirement Overview`}</Text>
+        <Text color="lightest">
+          <i>{t`No data to show`}</i>
+        </Text>
+      </Card>
+    );
+  }
+
   return (
     <Card>
       <Text t="h4">{t`Retirement Overview`}</Text>

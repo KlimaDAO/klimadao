@@ -419,8 +419,8 @@ msgstr "Loading your assets"
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:286
 #: components/pages/Project/Retire/TotalValues.tsx:282
-#: components/pages/Retire/Activity/Overview.tsx:60
 #: components/pages/Retire/Activity/Overview.tsx:71
+#: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -485,6 +485,10 @@ msgstr "No active listings."
 #: components/pages/Retire/Activity/Quotes.tsx:38
 msgid "No activity to show"
 msgstr "No activity to show"
+
+#: components/pages/Retire/Activity/Overview.tsx:60
+msgid "No data to show"
+msgstr "No data to show"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
@@ -720,7 +724,8 @@ msgstr "Retirement Activity"
 msgid "Retirement Message"
 msgstr "Retirement Message"
 
-#: components/pages/Retire/Activity/Overview.tsx:57
+#: components/pages/Retire/Activity/Overview.tsx:58
+#: components/pages/Retire/Activity/Overview.tsx:68
 msgid "Retirement Overview"
 msgstr "Retirement Overview"
 
@@ -852,9 +857,9 @@ msgstr "The previous step granted the approval to transfer your carbon asset fro
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Retire/Activity/List.tsx:39
-msgid "There was an error getting your retirement data"
-msgstr "There was an error getting your retirement data"
+#: components/pages/Retire/Activity/List.tsx:41
+msgid "There was an error getting your retirement data. Please refresh the page to try again."
+msgstr "There was an error getting your retirement data. Please refresh the page to try again."
 
 #: components/pages/Retire/Activity/Overview.tsx:47
 msgid "There was an error getting your total retirement data"
@@ -939,7 +944,7 @@ msgstr "Total Price"
 msgid "Total Retirements:"
 msgstr "Total Retirements:"
 
-#: components/pages/Retire/Activity/Overview.tsx:59
+#: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Total carbon tonnes retired"
 msgstr "Total carbon tonnes retired"
 
@@ -957,7 +962,7 @@ msgstr "Total price"
 msgid "Total quantity to list for sale"
 msgstr "Total quantity to list for sale"
 
-#: components/pages/Retire/Activity/Overview.tsx:70
+#: components/pages/Retire/Activity/Overview.tsx:81
 msgid "Total retirement transactions"
 msgstr "Total retirement transactions"
 
@@ -1708,7 +1713,7 @@ msgstr "sold to"
 msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Retire/Activity/Overview.tsx:64
+#: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
 #: components/pages/Retire/Activity/Table.tsx:56
 msgid "t"
