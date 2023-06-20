@@ -33,15 +33,9 @@ export const launchIcon = css`
 `;
 
 export const tooltip = css`
-  color: var(--white);
-  padding: 0.8rem;
-  background: #303030;
+  font-size: 1.4rem;
+  padding: 0.5rem;
   max-width: 30rem !important;
-  border-radius: 0.4rem;
-
-  .tippy-arrow {
-    color: #303030;
-  }
 `;
 
 export const itemWithIcon = css`
