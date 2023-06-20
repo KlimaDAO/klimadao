@@ -13,41 +13,12 @@ export const createProjectPurchaseLink = (
   listingId: string
 ) => `${createProjectLink(project)}/purchase/${listingId}`;
 
-export const createSellerLink = (handle: string) => `/users/${handle}`;
-
 export const createProjectPoolRetireLink = (
   project: ProjectData,
-  pool: Price["poolName"] | Lowercase<Price["poolName"]>
-) => `${createProjectLink(project)}/retire/pools/${pool}`;
+  pool: Price["poolName"]
+) => `${createProjectLink(project)}/retire/pools/${pool.toLowerCase()}`;
 
-/**
- * @example
- * https://app.klimadao.finance/#/offset?
- *   retirementToken=nct
- *   &projectTokens=0x261bef4b19ace1398c6603ed7299296d0e32cc00
- *   &quantity=123
- */
-export const createRetireLink = (params: {
-  /** Carbon pool like "nct" or address of an owned token */
-  retirementToken?: string;
-  /** Project token address for selective retirement out of pool */
-  projectTokens?: string;
-  quantity?: string;
-}) => {
-  const searchParams = new URLSearchParams();
-
-  if (params.retirementToken) {
-    searchParams.append("retirementToken", params.retirementToken);
-  }
-  if (params.projectTokens) {
-    searchParams.append("projectTokens", params.projectTokens);
-  }
-  if (params.quantity) {
-    searchParams.append("quantity", params.quantity);
-  }
-
-  return `${urls.offset}?${searchParams}`;
-};
+export const createSellerLink = (handle: string) => `/users/${handle}`;
 
 /**
  * @example
