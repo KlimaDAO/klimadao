@@ -96,3 +96,28 @@ export const hideOnDesktop = css`
   }
 `;
 
+export const activityQuote = css`
+  border-left: 2px solid var(--surface-04);
+  padding: 1.2rem;
+  display: grid;
+  gap: 0.8rem;
+
+  .number {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--surface-02);
+  }
+
+  .account {
+    color: var(--bright-blue);
+    font-weight: 600;
+  }
+
+  &:hover {
+    background: var(--surface-02);
+  }
+`;
+
+export const activityQuotes = css`
+  display: grid;
+  gap: 2rem;
+`;

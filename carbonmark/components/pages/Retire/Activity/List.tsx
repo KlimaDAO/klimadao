@@ -5,6 +5,7 @@ import { Card } from "components/Card";
 import { LoginCard } from "components/LoginCard";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
+import { ActivityQuotes } from "./Quotes";
 import * as styles from "./styles";
 import { ActivityTable } from "./Table";
 
@@ -51,6 +52,17 @@ export const RetirementsList: FC = () => {
     <Card>
       <ActivityTable
         className={styles.showOnDesktop}
+        address={address}
+        isLoadingRetirements={isLoadingRetirements}
+        noRetirements={noRetirements}
+        hasRetirements={hasRetirements}
+        retirements={retirements}
+        locale={locale || "en"}
+        errorMessage={error}
+        initializing={initializing}
+      />
+      <ActivityQuotes
+        className={styles.hideOnDesktop}
         address={address}
         isLoadingRetirements={isLoadingRetirements}
         noRetirements={noRetirements}
