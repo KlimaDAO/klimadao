@@ -40,6 +40,7 @@ export const StatsBar: FC<Props> = (props) => {
             </Text>
             <TextInfoTooltip
               className={styles.tooltip}
+              align="start"
               tooltip={t`Amount of credits from this project/vintage combination that have been retired.`}
             >
               <InfoOutlined className={styles.tooltipIcon} />
@@ -59,6 +60,7 @@ export const StatsBar: FC<Props> = (props) => {
             </Text>
             <TextInfoTooltip
               className={styles.tooltip}
+              align="start"
               tooltip={t`Amount of credits that have been bridged from this project/vintage combination but not yet retired.`}
             >
               <InfoOutlined className={styles.tooltipIcon} />

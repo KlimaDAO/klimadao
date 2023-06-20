@@ -170,6 +170,7 @@ const Page: NextPage<PageProps> = (props) => {
               {props?.project?.methodologies?.length && (
                 <TextInfoTooltip
                   className={styles.infoContent}
+                  align="start"
                   tooltip={formatList(allMethodologyNames, "short")}
                 >
                   <InfoOutlined />
