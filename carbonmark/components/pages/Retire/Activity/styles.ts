@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const spinnerContainer = css`
   display: flex;
@@ -81,3 +82,17 @@ export const externalLink = css`
     text-decoration: none;
   }
 `;
+
+export const showOnDesktop = css`
+  display: none;
+  ${breakpoints.large} {
+    display: initial;
+  }
+`;
+
+export const hideOnDesktop = css`
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
