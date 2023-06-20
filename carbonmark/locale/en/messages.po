@@ -186,7 +186,7 @@ msgstr "Cancel"
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
-#: components/pages/Retire/index.tsx:37
+#: components/pages/Retire/index.tsx:34
 msgid "Carbon Retirements"
 msgstr "Carbon Retirements"
 
@@ -273,7 +273,7 @@ msgstr "Create your own retirement"
 msgid "Created:"
 msgstr "Created:"
 
-#: components/pages/Retire/Activity/List.tsx:75
+#: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
 msgstr "DATE"
 
@@ -473,7 +473,7 @@ msgstr "New Quantity"
 msgid "New Unit Price (USDC)"
 msgstr "New Unit Price (USDC)"
 
-#: components/pages/Retire/Activity/List.tsx:115
+#: components/pages/Retire/Activity/Table.tsx:82
 msgid "No Activity to show."
 msgstr "No Activity to show."
 
@@ -481,6 +481,10 @@ msgstr "No Activity to show."
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "No active listings."
+
+#: components/pages/Retire/Activity/Quotes.tsx:38
+msgid "No activity to show"
+msgstr "No activity to show"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
@@ -518,7 +522,7 @@ msgstr "Other"
 msgid "Other Nature-Based"
 msgstr "Other Nature-Based"
 
-#: components/pages/Retire/Activity/List.tsx:73
+#: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECTS"
 msgstr "PROJECTS"
 
@@ -621,7 +625,7 @@ msgstr "Purchase successful"
 msgid "Purchase {0} | Carbonmark"
 msgstr "Purchase {0} | Carbonmark"
 
-#: components/pages/Retire/Activity/List.tsx:74
+#: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
 msgstr "QTY"
 
@@ -703,10 +707,14 @@ msgstr "Retire now"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:28
-#: components/pages/Retire/index.tsx:29
+#: components/pages/Retire/index.tsx:25
+#: components/pages/Retire/index.tsx:26
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
+
+#: components/pages/Retire/Activity/Quotes.tsx:32
+msgid "Retirement Activity"
+msgstr "Retirement Activity"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
@@ -844,7 +852,7 @@ msgstr "The previous step granted the approval to transfer your carbon asset fro
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Retire/Activity/List.tsx:57
+#: components/pages/Retire/Activity/List.tsx:39
 msgid "There was an error getting your retirement data"
 msgstr "There was an error getting your retirement data"
 
@@ -996,11 +1004,12 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Retire/index.tsx:30
+#: components/pages/Retire/index.tsx:27
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
 
-#: components/pages/Retire/Activity/List.tsx:99
+#: components/pages/Retire/Activity/Quotes.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:66
 msgid "View all Retirements"
 msgstr "View all Retirements"
 
@@ -1054,6 +1063,7 @@ msgstr "Who will this retirement be credited to?"
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
+#: components/pages/Retire/Activity/Quotes.tsx:68
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
@@ -1234,7 +1244,7 @@ msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 msgid "for"
 msgstr "for"
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:39
 msgid "for beneficiary"
 msgstr "for beneficiary"
 
@@ -1476,6 +1486,10 @@ msgstr "back"
 msgid "retire.submit_button"
 msgstr "Retire Carbon"
 
+#: components/pages/Retire/Activity/Quotes.tsx:70
+msgid "retired"
+msgstr "retired"
+
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
 msgstr "With over 20 million verified digital carbon credits from hundreds of projects, Carbonmark offers the largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading. <0>Get started today</0>."
@@ -1694,8 +1708,9 @@ msgstr "sold to"
 msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Retire/Activity/List.tsx:89
 #: components/pages/Retire/Activity/Overview.tsx:64
+#: components/pages/Retire/Activity/Quotes.tsx:73
+#: components/pages/Retire/Activity/Table.tsx:56
 msgid "t"
 msgstr "t"
 

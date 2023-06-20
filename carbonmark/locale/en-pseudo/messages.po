@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
@@ -180,7 +186,7 @@ msgstr ""
 msgid "Carbon Pool"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:37
+#: components/pages/Retire/index.tsx:34
 msgid "Carbon Retirements"
 msgstr ""
 
@@ -267,7 +273,7 @@ msgstr ""
 msgid "Created:"
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:75
+#: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
 msgstr ""
 
@@ -467,13 +473,17 @@ msgstr ""
 msgid "New Unit Price (USDC)"
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:115
+#: components/pages/Retire/Activity/Table.tsx:82
 msgid "No Activity to show."
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:215
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
+msgstr ""
+
+#: components/pages/Retire/Activity/Quotes.tsx:38
+msgid "No activity to show"
 msgstr ""
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
@@ -512,7 +522,7 @@ msgstr ""
 msgid "Other Nature-Based"
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:73
+#: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECTS"
 msgstr ""
 
@@ -615,7 +625,7 @@ msgstr ""
 msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:74
+#: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
 msgstr ""
 
@@ -697,9 +707,13 @@ msgstr ""
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:28
-#: components/pages/Retire/index.tsx:29
+#: components/pages/Retire/index.tsx:25
+#: components/pages/Retire/index.tsx:26
 msgid "Retire | Carbonmark"
+msgstr ""
+
+#: components/pages/Retire/Activity/Quotes.tsx:32
+msgid "Retirement Activity"
 msgstr ""
 
 #: components/pages/Project/Retire/RetireInputs.tsx:138
@@ -838,7 +852,7 @@ msgstr ""
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:57
+#: components/pages/Retire/Activity/List.tsx:39
 msgid "There was an error getting your retirement data"
 msgstr ""
 
@@ -990,11 +1004,12 @@ msgstr ""
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:30
+#: components/pages/Retire/index.tsx:27
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:99
+#: components/pages/Retire/Activity/Quotes.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:66
 msgid "View all Retirements"
 msgstr ""
 
@@ -1048,6 +1063,7 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
+#: components/pages/Retire/Activity/Quotes.tsx:68
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
@@ -1228,7 +1244,7 @@ msgstr ""
 msgid "for"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:39
 msgid "for beneficiary"
 msgstr ""
 
@@ -1470,6 +1486,10 @@ msgstr ""
 msgid "retire.submit_button"
 msgstr ""
 
+#: components/pages/Retire/Activity/Quotes.tsx:70
+msgid "retired"
+msgstr ""
+
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
 msgstr ""
@@ -1688,8 +1708,9 @@ msgstr ""
 msgid "something went wrong loading the allowance"
 msgstr ""
 
-#: components/pages/Retire/Activity/List.tsx:89
 #: components/pages/Retire/Activity/Overview.tsx:64
+#: components/pages/Retire/Activity/Quotes.tsx:73
+#: components/pages/Retire/Activity/Table.tsx:56
 msgid "t"
 msgstr ""
 
