@@ -28,7 +28,9 @@ export const Stats: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {!!props.currentSupply && !!props.totalRetired ? (
+      {!!props.currentSupply &&
+      !!props.totalRetired &&
+      !!props.projectAddress ? (
         <StatsBar
           currentSupply={props.currentSupply}
           totalRetired={props.totalRetired}

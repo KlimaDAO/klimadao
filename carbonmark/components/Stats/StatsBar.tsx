@@ -13,7 +13,7 @@ import * as styles from "./styles";
 interface Props {
   currentSupply: Project["currentSupply"];
   totalRetired: Project["totalRetired"];
-  projectAddress?: string;
+  projectAddress: string;
 }
 
 export const StatsBar: FC<Props> = (props) => {
@@ -72,7 +72,7 @@ export const StatsBar: FC<Props> = (props) => {
         <Link href={urls.polygonscan + "/address/" + props.projectAddress}>
           <Text t="body2" color="lighter" className={styles.polygonScanLink}>
             <Trans>View project on PolygonScan</Trans>
-            <LaunchOutlined />
+            <LaunchOutlined className={styles.launchIcon} />
           </Text>
         </Link>
       </div>

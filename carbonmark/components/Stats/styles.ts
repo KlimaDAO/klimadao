@@ -16,13 +16,20 @@ export const textWithTooltipWrapper = css`
   display: flex;
   align-items: center;
 `;
+
 export const tooltipIcon = css`
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
     margin-left: 0.5rem;
-    fill: var(--font-02);
-    align-self: flex-start;
-    
+    fill: var(--manatee) !important;
+    align-self: flex-start;   
+    font-size: 1.8rem !important;
   }
+`;
+
+export const launchIcon = css`
+  fill: var(--font-02);
+  margin-left: 0.2rem;
+  font-size: large !important;
 `;
 
 export const tooltip = css`
@@ -112,5 +119,8 @@ export const polygonScanLink = css`
   margin-top: 0.8rem;
   &:hover {
     color: var(--bright-blue);
+    .launchIcon {
+      fill: var(--bright-blue) !important;
+    }
   }
 `;
