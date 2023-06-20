@@ -353,8 +353,6 @@ module.exports = async function (fastify, opts) {
         if (data.data.projects[0]) {
           project = { ...data.data.projects[0] };
 
-          var project = { ...data.data.projects[0] };
-
           if (project.listings.length) {
             const listings = project.listings.map((item) => ({
               ...item,
