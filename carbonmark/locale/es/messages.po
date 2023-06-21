@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-20 19:00+0000\n"
+"POT-Creation-Date: 2023-06-21 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,7 +69,7 @@ msgstr "Importe de la compra"
 
 #: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
-msgstr ""
+msgstr "Importe a retirar"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -97,7 +97,7 @@ msgstr "Suministro disponible excedido"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:47
 msgid "Available to purchase"
-msgstr ""
+msgstr "Disponible para comprar"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:47
 #: components/pages/Retire/RetirementSidebar/index.tsx:34
@@ -106,7 +106,7 @@ msgstr "Disponible para retirar"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:66
 msgid "Available:"
-msgstr ""
+msgstr "Disponible:"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:55
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:63
@@ -241,7 +241,7 @@ msgstr "Continuar"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
 #: components/pages/Project/Retire/RetireInputs.tsx:217
 msgid "Could not calculate Total Cost"
-msgstr ""
+msgstr "No se ha podido calcular el Coste Total"
 
 #: components/ProjectFilterModal/index.tsx:119
 msgid "Country"
@@ -343,7 +343,7 @@ msgstr "Ayuda"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:182
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
-msgstr ""
+msgstr "Ocultar detalles"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:91
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
@@ -352,11 +352,11 @@ msgstr "¿Cuántas toneladas de carbono quiere comprar?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:92
 msgid "How many tonnes of carbon do you want to retire?"
-msgstr ""
+msgstr "¿Cuántas toneladas de carbono quiere retirar?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:62
 msgid "How many tonnes of carbon would you like to retire?"
-msgstr ""
+msgstr "¿Cuántas toneladas de carbono le gustaría retirar?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -374,7 +374,7 @@ msgstr "KlimaDAO"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:232
 #: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
-msgstr ""
+msgstr "Contratos KlimaDAO"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -396,7 +396,7 @@ msgstr "Listados"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:174
 #: components/pages/Project/Retire/TotalValues.tsx:169
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 msgid "Loading your assets"
@@ -442,12 +442,12 @@ msgstr "Metodología"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
 msgid "Moss"
-msgstr ""
+msgstr "Moss"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:162
 #: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
-msgstr ""
+msgstr "Tarifas de red"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -1481,11 +1481,11 @@ msgstr "Metodología:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "Los créditos MCO2 son generados por proyectos que preservan la selva amazónica, con todo tipo de externalidades positivas como la creación de puestos de trabajo locales y la preservación de la biodiversidad local. Explore MCO2 en <0>carbon.klimadao.finance</0>."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
 msgid "retirement.single.moss_offset.name"
-msgstr ""
+msgstr "MOSS Earth MC02"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
