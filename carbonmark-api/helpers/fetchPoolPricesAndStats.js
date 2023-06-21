@@ -56,7 +56,7 @@ export const fetchPoolPricesAndStats = async (params) => {
       if (!Number(poolInfo.supply)) return arr;
       arr.push({
         ...poolInfo,
-        singleTonnePrice: poolInfo.isPoolDefault
+        singleUnitPrice: poolInfo.isPoolDefault
           ? allPoolPrices[poolName].defaultPrice
           : allPoolPrices[poolName].selectiveRedeemPrice,
       });

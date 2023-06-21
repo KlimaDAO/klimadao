@@ -334,10 +334,11 @@ module.exports = async function (fastify, opts) {
           return reply.notFound();
         }
 
-        const bestPrice = [
-          ...poolPrices.map((p) => Number(p.singleTonnePrice)), // these are already formatted as usd numbers
-          ...listings.map((l) => Number(formatUSDC(l.singleUnitPrice))), // these are still bignumbers
-        ].sort((a, b) => a - b)[0];
+        const bestPrice =
+          [
+            ...poolPrices.map((p) => Number(p.singleTonnePrice)), // these are already formatted as usd numbers
+            ...listings.map((l) => Number(formatUSDC(l.singleUnitPrice))), // these are still bignumbers
+          ].sort((a, b) => a - b)[0] || 0;
 
         const projectResponse = {
           ...projectDetails,
@@ -345,7 +346,7 @@ module.exports = async function (fastify, opts) {
           poolPrices,
           listings,
           activities,
-          bestPrice: Number(bestPrice.toFixed(6)) || 0,
+          price: bestPrice.toFixed(6),
           isPoolProject: !!poolPrices.length,
           vintage,
         };
