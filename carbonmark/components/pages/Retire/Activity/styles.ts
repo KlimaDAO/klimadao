@@ -74,6 +74,7 @@ export const externalLink = css`
   gap: 0.4rem;
   align-items: center;
   color: var(--bright-blue);
+  text-transform: uppercase;
 
   margin-top: 2rem;
 
