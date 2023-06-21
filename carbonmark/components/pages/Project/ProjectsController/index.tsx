@@ -76,12 +76,14 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
           <span>Filters {selectedCount > 0 ? `(${selectedCount})` : ""}</span>
         }
       />
-      <ButtonSecondary
-        variant="lightGray"
-        label={t`Clear Filters`}
-        onClick={handleResetFilters}
-        className={styles.resetFilterButton}
-      />
+      {selectedCount > 0 && (
+        <ButtonSecondary
+          variant="lightGray"
+          label={t`Clear Filters`}
+          onClick={handleResetFilters}
+          className={styles.resetFilterButton}
+        />
+      )}
       <ProjectFilterModal
         showModal={modalOpen}
         onToggleModal={toggleModal}
