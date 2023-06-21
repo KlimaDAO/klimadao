@@ -33,8 +33,9 @@ export const RetirementsList: FC = () => {
         setIsLoadingRetirements(true);
 
         const retirements = await queryKlimaRetiresByAddress(address);
+        const firstFive = retirements && retirements.slice(0, 5);
 
-        setRetirements(retirements);
+        setRetirements(firstFive);
       } catch (e) {
         console.error(e);
         setError(
