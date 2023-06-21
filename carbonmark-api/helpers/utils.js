@@ -153,10 +153,10 @@ const getPoolPrice = async (pool, decimals, fastify) => {
 
 async function calculatePoolPrices(fastify) {
   var decimals;
-  if (process.env.VERCEL_ENV == "production") {
-    decimals = 1e6;
-  } else {
+  if (process.env.VERCEL_ENV == "development") {
     decimals = 1e18;
+  } else {
+    decimals = 1e6;
   }
 
   var pools = [
