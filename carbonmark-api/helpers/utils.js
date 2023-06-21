@@ -117,57 +117,6 @@ function convertArrayToObjects(arr) {
   });
 }
 
-function calculateProjectPoolPrices(
-  poolProject,
-  uniqueValues,
-  poolPrices,
-  prices = []
-) {
-  var prices = prices;
-  if (parseFloat(poolProject.balanceNBO) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo").price);
-
-    prices.push({
-      leftToSell: poolProject.balanceNBO,
-      tokenAddress: process.env.NBO_POOL,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo").priceInUsd,
-      name: "NBO",
-    });
-  }
-  if (parseFloat(poolProject.balanceUBO) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo").price);
-
-    prices.push({
-      leftToSell: poolProject.balanceUBO,
-      tokenAddress: process.env.UBO_POOL,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo").priceInUsd,
-      name: "UBO",
-    });
-  }
-  if (parseFloat(poolProject.balanceNCT) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc").price);
-
-    prices.push({
-      leftToSell: poolProject.balanceNCT,
-      tokenAddress: process.env.NTC_POOL,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc").priceInUsd,
-      name: "NCT",
-    });
-  }
-  if (parseFloat(poolProject.balanceBCT) >= 1) {
-    uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
-
-    prices.push({
-      leftToSell: poolProject.balanceBCT,
-      tokenAddress: process.env.BTC_POOL,
-      singleUnitPrice: poolPrices.find((obj) => obj.name === "btc").priceInUsd,
-      name: "BCT",
-    });
-  }
-
-  return [uniqueValues, prices];
-}
-
 const getPoolPrice = async (pool, decimals, fastify) => {
   const CACHE_KEY = pool.address + process.env.VERCEL_ENV;
   let result = await fastify.lcache.get(CACHE_KEY);
@@ -260,5 +209,4 @@ module.exports = {
   getAllCategories,
   getAllCountries,
   findProjectWithRegistryIdAndRegistry,
-  calculateProjectPoolPrices,
 };
