@@ -60,7 +60,7 @@ const Page: NextPage = () => {
 
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, getValues } = useForm<ModalFieldValues>({
+  const { control } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
@@ -77,7 +77,8 @@ const Page: NextPage = () => {
     /* todo */
   }, [watchers]);
 
-  const handleClose = (key: string) => {
+  const handleClose = (filter: string) => {
+    console.log("filter", filter);
     /* todo */
   };
 

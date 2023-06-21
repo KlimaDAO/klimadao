@@ -47,10 +47,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   // Set the default values and override with any existing url params
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, reset, handleSubmit, watch, setValue } =
-    useForm<ModalFieldValues>({
-      defaultValues,
-    });
+  const { control, reset, handleSubmit, watch } = useForm<ModalFieldValues>({
+    defaultValues,
+  });
 
   /**
    * Because we're prefilling these queries in getStaticProps

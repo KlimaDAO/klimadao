@@ -14,9 +14,9 @@ type ModalFieldValues = {
   sort: SortOption;
 };
 
-const DEFAULTS: ModalFieldValues = {
-  sort: "recently-updated",
-};
+// const DEFAULTS: ModalFieldValues = {
+//   sort: "recently-updated",
+// };
 
 export const SortOptions = () => {
   const router = useRouter();
@@ -30,22 +30,20 @@ export const SortOptions = () => {
   }, [router.query]);
 
   // const defaultValues = { ...DEFAULTS, ...router.query };
-  const { control, getValues } = useForm<ModalFieldValues>({
+  const { control } = useForm<ModalFieldValues>({
     //   defaultValues,
   });
 
-  const onSubmit = () => {
-    const values = getValues();
-    const { search } = router.query;
-    const query = search ? { search, ...values } : values;
-    router.replace(
-      { query },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
-  };
-
-  console.log("initialSort", initialSort);
+  // const onSubmit = () => {
+  //   const values = getValues();
+  //   const { search } = router.query;
+  //   const query = search ? { search, ...values } : values;
+  //   router.replace(
+  //     { query },
+  //     undefined,
+  //     { shallow: true } // don't refetch props nor reload page
+  //   );
+  // };
 
   return (
     <>
