@@ -17,6 +17,9 @@ const { getSanityClient } = require("../sanity.js");
 const { fetchProjects, fetchAllProjects } = require("../sanity/queries.js");
 const { GET_TOKEN_ADDRESS } = require("../queries/token_address.js");
 const { defaultPoolProjectTokens } = require("../constants/constants.js");
+const {
+  fetchProjectPoolPrices,
+} = require("../helpers/fetchProjectPoolPrices.js");
 
 module.exports = async function (fastify, opts) {
   // @TODO: merge with other projects from the poooool
@@ -327,9 +330,14 @@ module.exports = async function (fastify, opts) {
         var vintageStr = projectId[2];
         var poolProject;
 
+        // TODO: just need to aggregate totalBridged and totalRetired
+        // then I can remove the calculatePoolPrices and a few other queries from the code below
+        const newPoolPrices = await fetchProjectPoolPrices({ key, vintageStr });
+
         const [poolPrices, c3TokenAddress, tco2TokenAddress] =
           await Promise.all([
             calculatePoolPrices(fastify),
+            // TODO: can we combine these into 1 query with an `OR`?
             executeGraphQLQuery(
               process.env.ASSETS_GRAPH_API_URL,
               GET_TOKEN_ADDRESS,
@@ -341,11 +349,11 @@ module.exports = async function (fastify, opts) {
               { symbol: `TCO2-${key}-${vintageStr}` }
             ),
           ]);
-
         var uniqueValues = [];
         var prices = [];
+        // TODO: move into promise.all
         var data = await executeGraphQLQuery(
-          process.env.GRAPH_API_URL,
+          process.env.GRAPH_API_URL, // marketplace subgraph
           GET_PROJECT_BY_ID,
           { key: key, vintageStr: vintageStr }
         );
@@ -382,7 +390,7 @@ module.exports = async function (fastify, opts) {
             project.listings = listings;
           }
           data = await executeGraphQLQuery(
-            process.env.CARBON_OFFSETS_GRAPH_API_URL,
+            process.env.CARBON_OFFSETS_GRAPH_API_URL, // polygon-bridged-carbon subgraph
             POOL_PROJECTS,
             { key: key, vintageStr: vintageStr }
           );
@@ -395,6 +403,7 @@ module.exports = async function (fastify, opts) {
 
             var prices = [];
             data.data.carbonOffsets.map(function (carbonProject) {
+              // TODO we are invoking this twice, once in each IF block, we should consolidate
               [uniqueValues, prices] = calculateProjectPoolPrices(
                 carbonProject,
                 uniqueValues,
@@ -408,6 +417,7 @@ module.exports = async function (fastify, opts) {
             project.totalRetired = null;
             project.currentSupply = null;
           }
+          // if marketplace subgraph did not return a project, we query the carbon_offsets graph for pool prices
         } else {
           var data = await executeGraphQLQuery(
             process.env.CARBON_OFFSETS_GRAPH_API_URL,
