@@ -8,7 +8,7 @@ import { FC, HTMLAttributes, useState } from "react";
 import * as styles from "./styles";
 
 type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
-  selectedFilters: (filters: Array<string>) => void;
+  selectedFilters?: (filters: Array<string>) => void;
 };
 
 export const ProjectsController: FC<ProjectControllerProps> = ({
@@ -33,7 +33,7 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
   const toggleModal = () => setModalOpen((prev) => !prev);
 
   const onSelected = (filters: Array<Array<string>>) => {
-    selectedFilters(filters.flat());
+    selectedFilters?.(filters.flat());
     setSelectedCount(
       filters.reduce(
         (count: number, current: Array<string>) => count + current.length,

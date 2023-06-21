@@ -47,11 +47,10 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   // Set the default values and override with any existing url params
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, reset, handleSubmit, watch } = useForm<ModalFieldValues>({
-    defaultValues,
-  });
-
-  const watchers = watch(["country", "category", "vintage"]);
+  const { control, reset, handleSubmit, watch, setValue } =
+    useForm<ModalFieldValues>({
+      defaultValues,
+    });
 
   /**
    * Because we're prefilling these queries in getStaticProps
@@ -92,6 +91,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
+  const watchers = watch(["country", "category", "vintage"]);
+
   const onSubmit = (values: ModalFieldValues) => {
     const { search } = router.query;
     // Maintain any search value
@@ -103,12 +104,11 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     );
     if (!isValidating) {
       props.onToggleModal?.();
-      props.selectedFilters(watchers);
     }
   };
 
   const getAccordionSubtitle = (index: number) => {
-    if (watchers?.[index].length > 0) {
+    if (watchers?.[index]?.length > 0) {
       return `${watchers[index].length} Selected`;
     } else {
       return "";

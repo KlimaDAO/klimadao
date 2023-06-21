@@ -4,6 +4,7 @@ import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as styles from "./styles";
 
@@ -20,11 +21,17 @@ const DEFAULTS: ModalFieldValues = {
 export const SortOptions = () => {
   const router = useRouter();
   const { projects } = useFetchProjects();
+  // const [initialSort, setInitialSort] = useState(undefined);
+
   const initialSort = router.query.sort ? String(router.query.sort) : undefined;
 
-  const defaultValues = { ...DEFAULTS, ...router.query };
+  useEffect(() => {
+    console.log("router.query", router.query);
+  }, [router.query]);
+
+  // const defaultValues = { ...DEFAULTS, ...router.query };
   const { control, getValues } = useForm<ModalFieldValues>({
-    defaultValues,
+    //   defaultValues,
   });
 
   const onSubmit = () => {
@@ -38,13 +45,15 @@ export const SortOptions = () => {
     );
   };
 
+  console.log("initialSort", initialSort);
+
   return (
     <>
       <Dropdown
         name="sort"
         initial={initialSort ?? "recently-updated"}
         className={styles.dropdown}
-        onChange={onSubmit}
+        // onChange={onSubmit}
         aria-label={t`Toggle sort menu`}
         renderLabel={(selected) => `Sort: ${selected?.label}`}
         control={control}

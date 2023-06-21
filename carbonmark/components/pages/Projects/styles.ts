@@ -30,11 +30,41 @@ export const sortOptions = css`
   align-items: center;
 `;
 
+export const dropdown = css`
+  width: 23.7rem;
+  text-align: left;
+  button {
+    width: 100%;
+    background-color: white;
+  }
+
+  & .tippy-content div > div {
+    background-color: white;
+  }
+`;
+
 export const pillContainer = css`
+  position: relative;
   gap: 0.4rem;
+  width: 100%;
   display: flex;
+  overflow: hidden;
   grid-column: full;
   align-items: center;
+
+  &:after {
+    content: "";
+    top: 0;
+    right: 0;
+    width: 11.5rem;
+    height: 3.2rem;
+    position: absolute;
+    background: linear-gradient(
+      270deg,
+      #eeeff5 55.13%,
+      rgba(238, 239, 245, 0) 100%
+    );
+  }
 `;
 
 export const pill = css`
@@ -42,6 +72,7 @@ export const pill = css`
   display: flex;
   flex-direction: row;
   align-items: center;
+  white-space: nowrap;
   padding: 0.8rem 1.6rem;
   background: #8b8fae;
   border-radius: 4rem;
