@@ -20,3 +20,7 @@ export const filterButton = css`
     }
   }
 `;
+
+export const resetFilterButton = css`
+  background: transparent !important;
+`;

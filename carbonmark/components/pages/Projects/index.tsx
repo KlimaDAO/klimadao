@@ -40,7 +40,7 @@ type ModalFieldValues = {
   vintage: string[];
 };
 
-const DEFAULTS: ModalFieldValues = {
+export const DEFAULTS: ModalFieldValues = {
   sort: "recently-updated",
   country: [],
   category: [],

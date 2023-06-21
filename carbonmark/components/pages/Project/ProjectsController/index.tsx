@@ -1,10 +1,14 @@
 import { cx } from "@emotion/css";
+import { t } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
+import { DEFAULTS } from "components/pages/Projects";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { SearchInput } from "components/SearchInput";
+import { flatMap, omit } from "lodash";
 import { useRouter } from "next/router";
-import { FC, HTMLAttributes, useState } from "react";
+import { FC, HTMLAttributes, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
@@ -19,6 +23,11 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCount, setSelectedCount] = useState(0);
 
+  useEffect(() => {
+    console.log("router.query", router.query);
+    setSelectedCount(flatMap(omit(router.query, "sort"))?.length);
+  }, [router.query]);
+
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
     // If the search box is cleared, remove the param entirely
@@ -28,6 +37,10 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
       undefined,
       { shallow: true } // don't refetch props nor reload page
     );
+  };
+
+  const handleResetFilters = () => {
+    router.replace({ query: DEFAULTS }, undefined, { shallow: true });
   };
 
   const toggleModal = () => setModalOpen((prev) => !prev);
@@ -62,6 +75,12 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
         label={
           <span>Filters {selectedCount > 0 ? `(${selectedCount})` : ""}</span>
         }
+      />
+      <ButtonSecondary
+        variant="lightGray"
+        label={t`Clear Filters`}
+        onClick={handleResetFilters}
+        className={styles.resetFilterButton}
       />
       <ProjectFilterModal
         showModal={modalOpen}
