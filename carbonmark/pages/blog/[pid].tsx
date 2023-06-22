@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 
 import { PostPage } from "components/pages/Blog/Post";
-import { fetchCMSContent } from "lib/fetchCMSContent";
+import { fetchCMSContent } from "lib/cms/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

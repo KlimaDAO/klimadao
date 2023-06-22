@@ -1,5 +1,5 @@
 import { Resources } from "components/pages/Resources";
-import { fetchCMSContent } from "lib/fetchCMSContent";
+import { fetchCMSContent } from "lib/cms/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticPropsContext } from "next";
 

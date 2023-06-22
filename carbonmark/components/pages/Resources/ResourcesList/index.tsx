@@ -9,7 +9,7 @@ import { InputField } from "components/shared/Form";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { Document } from "lib/queries";
+import { Document } from "lib/cms/queries";
 import { FC, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import {

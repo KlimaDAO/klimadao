@@ -1,5 +1,5 @@
-import { getSanityClient } from "lib/fetchCMSContent";
-import { Document, hideFromProduction } from "lib/queries";
+import { getSanityClient } from "lib/cms/fetchCMSContent";
+import { Document, hideFromProduction } from "lib/cms/queries";
 import { FormValues } from "../ResourcesList";
 
 const defaultParams = {
