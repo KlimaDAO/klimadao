@@ -1,8 +1,9 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { queryKlimaRetiresByAddress, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { LoginCard } from "components/LoginCard";
+import { getRetirements } from "lib/api";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { ActivityQuotes } from "./Quotes";
@@ -23,7 +24,7 @@ export const RetirementsList: FC = () => {
   const hasRetirements = !isLoadingRetirements && !!address && !!retirements;
 
   useEffect(() => {
-    const initData = async () => {
+    const fetchRetirements = async () => {
       setError("");
       if (!isConnectedUser) {
         setRetirements(false);
@@ -31,11 +32,12 @@ export const RetirementsList: FC = () => {
       }
       try {
         setIsLoadingRetirements(true);
+        const result = await getRetirements({
+          beneficiaryAddress: address,
+          limit: 5,
+        });
 
-        const retirements = await queryKlimaRetiresByAddress(address);
-        const firstFive = retirements && retirements.slice(0, 5);
-
-        setRetirements(firstFive);
+        setRetirements(result);
       } catch (e) {
         console.error(e);
         setError(
@@ -45,7 +47,7 @@ export const RetirementsList: FC = () => {
         setIsLoadingRetirements(false);
       }
     };
-    isConnectedUser && initData();
+    fetchRetirements();
   }, [isConnectedUser]);
 
   if (!isConnectedUser) {
