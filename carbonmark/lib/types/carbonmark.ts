@@ -7,7 +7,6 @@ export interface CarouselImage {
 }
 
 export interface Project {
-  id: string;
   key: string;
   projectID: string;
   name: string | "";
@@ -17,8 +16,9 @@ export interface Project {
   projectAddress: string;
   registry: string;
   listings: Listing[] | null;
-  price: BigNumber;
-  country: Country | null;
+  /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
+  price: string;
+  country: string | null;
   activities: ProjectActivity[] | null;
   updatedAt: string; // timestamp
   location?: {
@@ -33,9 +33,11 @@ export interface Project {
   short_description?: string;
   long_description?: string;
   isPoolProject?: boolean; // pool project only
-  totalBridged: string | null; // pool project only
-  totalRetired: string | null; // pool project only
-  currentSupply: string | null; // pool project only
+  stats: {
+    totalSupply: number;
+    totalBridged: number;
+    totalRetired: number;
+  };
   prices?: Price[];
   url: string;
   methodologyCategory: CategoryName;
@@ -49,7 +51,7 @@ export interface PcbProject {
   vintage: string;
   tokenAddress: string;
   registry: string;
-  country: Country | null;
+  country: string;
   location?: {
     type: "Feature";
     geometry: {
@@ -80,12 +82,18 @@ export interface PcbProject {
 }
 
 export type Price = {
-  name: Uppercase<PoolToken>;
-  poolTokenAddress: string;
+  /** Lowercase name of pool / pool token e.g. "bct" */
+  poolName: Exclude<PoolToken, "mco2">;
+  /** Remaining supply in pool */
+  supply: string;
+  /** Address of the pool itself, e.g. bct token address */
+  poolAddress: boolean;
+  /** Address of the project token in this pool */
+  projectTokenAddress: string;
+  /** True if default project for pool and no selective redemption fee applies */
   isPoolDefault: boolean;
-  tokenAddress: string;
-  singleUnitPrice: string; // NOT A BIGNUMBER ! Already formatted in USDCs
-  leftToSell: string; // NOT A BIGNUMBER ! Already formatted!
+  /** formatted USDC price for 1 tonne e.g. "0.123456" */
+  singleUnitPrice: string;
 };
 
 export interface User {
@@ -132,7 +140,7 @@ export interface ListingWithProject extends Listing {
     name: string;
     category: Category;
     /** TODO: from api, in /user.listings, Country is not present */
-    country?: Country;
+    country?: string;
     methodology: string;
     projectAddress: string;
     projectID: string;

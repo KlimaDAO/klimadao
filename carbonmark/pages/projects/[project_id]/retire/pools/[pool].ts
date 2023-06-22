@@ -1,7 +1,7 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import {
   ProjectRetire,
-  ProjectRetirePageProps,
+  ProjectRetirePageProps
 } from "components/pages/Project/Retire";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { isPoolToken } from "lib/getPoolData";
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<
     // check if price for pool exists for this project
     const poolPrice =
       !!project.prices?.length &&
-      project.prices.find((price) => price.name.toLowerCase() === poolName);
+      project.prices.find((price) => price.poolName.toLowerCase() === poolName);
 
     if (!poolPrice) {
       throw new Error("No matching pool price found");

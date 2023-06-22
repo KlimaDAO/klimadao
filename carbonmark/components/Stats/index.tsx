@@ -10,10 +10,9 @@ import * as styles from "./styles";
 interface Props {
   allListings?: Listing[];
   activeListings?: Listing[];
-  currentSupply?: Project["currentSupply"];
-  totalRetired?: Project["totalRetired"];
+  totalSupply?: Project["stats"]["totalSupply"];
+  totalRetired?: Project["stats"]["totalRetired"];
   description: string;
-  projectAddress?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
@@ -28,13 +27,10 @@ export const Stats: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {!!props.currentSupply &&
-      !!props.totalRetired &&
-      !!props.projectAddress ? (
+      {!!props.totalSupply && !!props.totalRetired ? (
         <StatsBar
-          currentSupply={props.currentSupply}
+          totalSupply={props.totalSupply}
           totalRetired={props.totalRetired}
-          projectAddress={props.projectAddress}
         />
       ) : (
         <StatsListings

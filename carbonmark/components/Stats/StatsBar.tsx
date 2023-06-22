@@ -1,26 +1,23 @@
-import { urls } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import { InfoOutlined, LaunchOutlined } from "@mui/icons-material";
+import { InfoOutlined } from "@mui/icons-material";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Project } from "lib/types/carbonmark";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  currentSupply: Project["currentSupply"];
-  totalRetired: Project["totalRetired"];
-  projectAddress: string;
+  totalSupply: Project["stats"]["totalSupply"];
+  totalRetired: Project["stats"]["totalRetired"];
 }
 
 export const StatsBar: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const retired = Number(props.totalRetired ?? 0);
-  const remaining = Number(props.currentSupply ?? 0);
+  const remaining = Number(props.totalSupply ?? 0);
   const full = retired + remaining;
   const retirementPercent = Math.round((retired / full) * 100);
 
@@ -71,12 +68,6 @@ export const StatsBar: FC<Props> = (props) => {
             {trimWithLocale(remaining || 0, 2, locale)}
           </Text>
         </div>
-        <Link href={urls.polygonscan + "/address/" + props.projectAddress}>
-          <Text t="body2" color="lighter" className={styles.polygonScanLink}>
-            <Trans>View project on PolygonScan</Trans>
-            <LaunchOutlined className={styles.launchIcon} />
-          </Text>
-        </Link>
       </div>
     </>
   );

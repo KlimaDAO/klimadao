@@ -163,11 +163,11 @@ export const RetireForm: FC<Props> = (props) => {
       const receipt = await retireCarbonTransaction({
         provider,
         address,
-        projectAddress: props.price.poolTokenAddress,
+        projectAddress: props.price.projectTokenAddress,
         paymentMethod: inputValues.paymentMethod,
         isPoolDefault: props.price.isPoolDefault,
         maxAmountIn: getApprovalValue(),
-        retirementToken: props.price.name.toLowerCase() as PoolToken,
+        retirementToken: props.price.poolName.toLowerCase() as PoolToken,
         quantity: inputValues.quantity,
         beneficiaryAddress: inputValues.beneficiaryAddress,
         beneficiaryName: inputValues.beneficiaryName,

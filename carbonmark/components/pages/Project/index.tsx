@@ -69,11 +69,8 @@ const Page: NextPage<PageProps> = (props) => {
   const allMethodologyNames =
     project?.methodologies?.map(({ name }) => name) || [];
 
-  const poolPrices =
-    (Array.isArray(project?.prices) &&
-      // Remove pool prices if the quantity is less than 1. (leftover  token 'dust')
-      project.prices.filter((p) => Number(p.leftToSell) > 1)) ||
-    [];
+  // filtered on the backend
+  const poolPrices = project?.prices || [];
 
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
     poolPrices,
@@ -254,8 +251,8 @@ const Page: NextPage<PageProps> = (props) => {
           <div className="statsColumn">
             <Stats
               description={t`Data for this project and vintage`}
-              currentSupply={project.currentSupply}
-              totalRetired={project.totalRetired}
+              totalSupply={project.stats.totalSupply}
+              totalRetired={project.stats.totalRetired}
               allListings={allListings || []}
               activeListings={activeListings || []}
               projectAddress={project.projectAddress}
