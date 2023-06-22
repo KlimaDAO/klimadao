@@ -1,7 +1,7 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import {
   ProjectRetire,
-  ProjectRetirePageProps
+  ProjectRetirePageProps,
 } from "components/pages/Project/Retire";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { isPoolToken } from "lib/getPoolData";

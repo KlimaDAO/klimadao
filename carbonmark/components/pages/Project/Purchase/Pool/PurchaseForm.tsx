@@ -7,7 +7,7 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRedeemAllowance,
-  redeemCarbonTransaction
+  redeemCarbonTransaction,
 } from "lib/actions.redeem";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
