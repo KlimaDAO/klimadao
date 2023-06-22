@@ -56,7 +56,8 @@ export const config = {
     },
     api: {
       production: "https://api.carbonmark.com/api",
-      preview: "https://staging-api.carbonmark.com/api",
+      preview:
+        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/", // TODO REVERT
       development: "https://staging-api.carbonmark.com/api",
     },
   },
