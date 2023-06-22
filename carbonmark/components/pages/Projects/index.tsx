@@ -20,7 +20,7 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { CategoryName, Methodology } from "lib/types/carbonmark";
-import { flatMap, get, identity, isEmpty, omit } from "lodash";
+import { flatMap, get, identity, isEmpty, List, omit, remove } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -78,8 +78,17 @@ const Page: NextPage = () => {
   }, [watchers]);
 
   const handleClose = (filter: string) => {
-    console.log("filter", filter);
-    /* todo */
+    Object.keys(router.query).map((key: string) => {
+      if (router.query[key] === filter) {
+        router.query[key] = [];
+      } else {
+        remove(
+          router.query[key] as List<string>,
+          (value: string) => value === filter
+        );
+      }
+    });
+    router.replace({ query: router.query }, undefined, { shallow: true });
   };
 
   return (
@@ -100,12 +109,8 @@ const Page: NextPage = () => {
             {flatMap(omit(defaultValues, "sort"))?.map(
               (filter: string, key: number) => (
                 <div key={key} className={styles.pill}>
-                  {filter}
-                  <Close
-                    onClick={() => {
-                      handleClose(filter);
-                    }}
-                  />
+                  <span>{filter}</span>
+                  <Close onClick={() => handleClose(filter)} />
                 </div>
               )
             )}

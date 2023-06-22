@@ -80,6 +80,10 @@ export const pill = css`
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.6rem;
+
+  & svg {
+    cursor: pointer;
+  }
 `;
 
 export const projectsList = css`
