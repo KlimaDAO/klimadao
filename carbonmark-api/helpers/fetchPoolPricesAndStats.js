@@ -15,7 +15,7 @@ import { fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
  *   The address of the project token in the pool
  * @property {boolean} isPoolDefault
  *   If true, the project does not have a selective redemption fee. Each pool has 1 default project.
- * @property {string} singleTonnePrice
+ * @property {string} singleUnitPrice
  *   Pool price including any selection fees (for non-default projects), excluding 1% aggregator fee and sushiswap fees
  */
 
@@ -49,7 +49,6 @@ export const fetchPoolPricesAndStats = async (params) => {
     ]);
     /** @type {ProjectPoolPrice[]} */
     const initialPrices = [];
-
     // convert the map to an array of prices, filter out any pools that don't have a supply
     const poolPrices = Object.keys(poolInfoMap).reduce((arr, poolName) => {
       const poolInfo = poolInfoMap[poolName];

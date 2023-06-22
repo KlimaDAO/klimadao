@@ -1,11 +1,10 @@
 "use strict";
+import { utils } from "ethers";
 import { fetchMarketplaceListings } from "../helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../helpers/fetchPoolPricesAndStats";
 import { fetchProjectDetails } from "../helpers/fetchProjectDetails";
-import { formatUSDC } from "../helpers/formatUSDC";
 const { executeGraphQLQuery } = require("../apollo-client.js");
 const { GET_PROJECTS } = require("../queries/projects.js");
-const fetch = require("node-fetch");
 const { POOLED_PROJECTS } = require("../queries/pooled_projects");
 const {
   getAllVintages,
@@ -339,10 +338,17 @@ module.exports = async function (fastify, opts) {
           return reply.notFound();
         }
 
+        const poolPriceValues = poolPrices.map((p) =>
+          Number(p.singleUnitPrice)
+        );
+        const listingPriceValues = listings.map(
+          (l) => Number(utils.formatUnits(l.singleUnitPrice, 6)) // these are still bignumbers
+        );
+
         const bestPrice =
           [
-            ...poolPrices.map((p) => Number(p.singleTonnePrice)), // these are already formatted as usd numbers
-            ...listings.map((l) => Number(formatUSDC(l.singleUnitPrice))), // these are still bignumbers
+            ...poolPriceValues, // these are already formatted as usd numbers
+            ...listingPriceValues,
           ].sort((a, b) => a - b)[0] || 0;
 
         const projectResponse = {
@@ -351,7 +357,7 @@ module.exports = async function (fastify, opts) {
           prices: poolPrices,
           listings,
           activities,
-          price: bestPrice.toFixed(6),
+          price: parseFloat(bestPrice).toString(), // remove trailing zeros
           isPoolProject: !!poolPrices.length,
           vintage,
         };
