@@ -36,6 +36,19 @@ export const getConnectErrorStrings = () => ({
   }),
 });
 
+/**
+ * For PR previews, we want to reference the preview build of the API so we can test changes together
+ */
+const getAPIPreviewURL = () => {
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    // follows predictable format e.g. carbonmark-git-staging-klimadao.vercel.app or carbonmark-git-atmos-working-branch-klimadao.vercel.app
+    const [_projectName, branchName] =
+      process.env.NEXT_PUBLIC_VERCEL_URL.split("-git-");
+    return `https://carbonmark-api-git-${branchName}.vercel.app/api`;
+  }
+  return "https://staging-api.carbonmark.com/api";
+};
+
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const config = {
@@ -55,8 +68,9 @@ export const config = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      mainnet: "https://api.carbonmark.com/api",
-      testnet: "https://staging-api.carbonmark.com/api",
+      production: "https://api.carbonmark.com/api",
+      preview: getAPIPreviewURL(),
+      development: "https://api.carbonmark.com/api", // i prefer to dev with mainnet data ;)
     },
   },
 } as const;
@@ -65,12 +79,12 @@ export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
 
 export const urls = {
   api: {
-    projects: `${config.urls.api[DEFAULT_NETWORK]}/projects`,
-    users: `${config.urls.api[DEFAULT_NETWORK]}/users`,
-    purchases: `${config.urls.api[DEFAULT_NETWORK]}/purchases`,
-    categories: `${config.urls.api[DEFAULT_NETWORK]}/categories`,
-    countries: `${config.urls.api[DEFAULT_NETWORK]}/countries`,
-    vintages: `${config.urls.api[DEFAULT_NETWORK]}/vintages`,
+    projects: `${config.urls.api[ENVIRONMENT]}/projects`,
+    users: `${config.urls.api[ENVIRONMENT]}/users`,
+    purchases: `${config.urls.api[ENVIRONMENT]}/purchases`,
+    categories: `${config.urls.api[ENVIRONMENT]}/categories`,
+    countries: `${config.urls.api[ENVIRONMENT]}/countries`,
+    vintages: `${config.urls.api[ENVIRONMENT]}/vintages`,
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
