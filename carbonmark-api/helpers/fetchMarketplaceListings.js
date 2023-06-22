@@ -19,6 +19,10 @@ import { GET_PROJECT_BY_ID } from "../queries/project_id";
  * @property {any} fastify - Fastify instance
  */
 
+const filterActiveListing = (listing) =>
+  Number(listing.leftToSell) > 1 && !!listing.active && !listing.deleted;
+
+const filterUnsoldActivity = (activity) => activity.activityType !== "Sold";
 /**
  * Query the subgraph for marketplace listings and project data for the given project
  * Filters out deleted, sold-out and inactive listings
@@ -37,14 +41,9 @@ export const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
 
     const project = data?.projects?.[0] || null;
     const filteredListings =
-      project?.listings?.filter(
-        (listing) =>
-          Number(listing.leftToSell) > 1 && !!listing.active && !listing.deleted
-      ) || [];
+      project?.listings?.filter(filterActiveListing) || [];
     const filteredActivities =
-      project?.activities?.filter(
-        (activity) => activity.activityType !== "Sold"
-      ) || [];
+      project?.activities?.filter(filterUnsoldActivity) || [];
 
     const getListingsWithProfiles = Promise.all(
       filteredListings.map(async (listing) => {
