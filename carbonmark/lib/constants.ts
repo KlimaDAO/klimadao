@@ -36,19 +36,6 @@ export const getConnectErrorStrings = () => ({
   }),
 });
 
-/**
- * For PR previews, we want to reference the preview build of the API so we can test changes together
- */
-const getAPIPreviewURL = () => {
-  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    // follows predictable format e.g. carbonmark-git-staging-klimadao.vercel.app or carbonmark-git-atmos-working-branch-klimadao.vercel.app
-    const [_projectName, branchName] =
-      process.env.NEXT_PUBLIC_VERCEL_URL.split("-git-");
-    return `https://carbonmark-api-git-${branchName}.vercel.app/api`;
-  }
-  return "https://staging-api.carbonmark.com/api";
-};
-
 export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const config = {
@@ -69,8 +56,8 @@ export const config = {
     },
     api: {
       production: "https://api.carbonmark.com/api",
-      preview: getAPIPreviewURL(),
-      development: "https://api.carbonmark.com/api", // i prefer to dev with mainnet data ;)
+      preview: "https://staging-api.carbonmark.com/api",
+      development: "https://staging-api.carbonmark.com/api",
     },
   },
 } as const;
