@@ -343,7 +343,7 @@ module.exports = async function (fastify, opts) {
         const projectResponse = {
           ...projectDetails,
           stats,
-          poolPrices,
+          prices: poolPrices,
           listings,
           activities,
           price: bestPrice.toFixed(6),
