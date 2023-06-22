@@ -321,13 +321,18 @@ module.exports = async function (fastify, opts) {
       },
       handler: async function (request, reply) {
         var { id } = request.params;
-        const [registry, projectId, vintage] = id.split("-");
-        const key = `${registry}-${projectId}`;
+        const [registryParam, registryProjectId, vintage] = id.split("-");
+        const registry = registryParam.toUpperCase();
+        const key = `${registry}-${registryProjectId}`;
+
         const [[poolPrices, stats], [listings, activities], projectDetails] =
           await Promise.all([
             fetchPoolPricesAndStats({ key, vintage }),
             fetchMarketplaceListings({ key, vintage, fastify }),
-            fetchProjectDetails({ key }),
+            fetchProjectDetails({
+              registry: registry.toUpperCase(),
+              registryProjectId,
+            }),
           ]);
         if (!projectDetails) {
           // only render pages if project details exist (render even if there are no listings!)

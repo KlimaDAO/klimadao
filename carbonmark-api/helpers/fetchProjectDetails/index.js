@@ -1,15 +1,17 @@
 import { fetchGSProject } from "./fetchGSProject";
 import { fetchVCSProject } from "./fetchVCSProject";
 
-export const fetchProjectDetails = async ({ key }) => {
+/**
+ * @typedef {Object} Params
+ * @property {string} registryProjectId - Project id number `"981"`
+ * @property {string} registry - Registry identifier "VCS" | "GS"
+ * @param Params
+ */
+export const fetchProjectDetails = async ({ registry, registryProjectId }) => {
   try {
-    const [registry, registryProjectId] = key.split("-");
-    if (!registry || !registryProjectId) return null;
-
-    const registryUpper = registry.toUpperCase();
-    if (registryUpper === "VCS") {
+    if (registry === "VCS") {
       return await fetchVCSProject({ registryProjectId });
-    } else if (registryUpper === "GS") {
+    } else if (registry === "GS") {
       return await fetchGSProject({ registryProjectId });
     } else {
       return null;
