@@ -17,7 +17,7 @@ const fastify = Fastify({
 // Register your application as a normal plugin.
 fastify.register(app);
 
-module.exports = async (req, res) => {
+module.exports = async (req: unknown, res: unknown) => {
   await fastify.ready();
   fastify.server.emit("request", req, res);
 };

@@ -34,6 +34,8 @@ export type Nullable<T> = {
   [P in keyof T]: T[P] | null | undefined;
 };
 
+//@note this file is a mess and will be replaced by https://github.com/KlimaDAO/klimadao/pull/1232
+
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -58,26 +60,26 @@ const handler = (fastify: FastifyInstance) =>
     let prices: any[] = [];
 
     // Fetch project data by ID and vintage
-    const projects = await gqlSdk.marketplace.getProjectsById({
+    const { projects } = await gqlSdk.marketplace.getProjectsById({
       key: key,
       vintageStr: vintageStr,
     });
 
     // Initialize the project variable
-    let project = { ...projects[0] };
+    let project: any = { ...projects[0] };
 
     // If the project exists in the data, process it
     if (project) {
       // Process project listings
       if (project.listings?.length) {
         // Unselect all listings
-        const listings = project.listings.map((item) => ({
+        const listings = project.listings.map((item: any) => ({
           ...item,
           selected: false,
         }));
 
         // Add unique prices from active and non-deleted listings
-        project.listings.forEach((item) => {
+        project.listings.forEach((item: any) => {
           if (
             !/^0+$/.test(item.leftToSell) &&
             item.active != false &&
@@ -89,7 +91,7 @@ const handler = (fastify: FastifyInstance) =>
 
         // Fetch seller data for each listing and update the listings array
         await Promise.all(
-          listings.map(async (listing) => {
+          listings.map(async (listing: any) => {
             const seller = await fastify.firebase
               .firestore()
               .collection("users")
@@ -172,7 +174,7 @@ const handler = (fastify: FastifyInstance) =>
         project.prices = [];
         prices = [];
         if (offsets.carbonOffsets && offsets.carbonOffsets.length) {
-          offsets.carbonOffsets.map(function (carbonProject) {
+          offsets.carbonOffsets.map(function (carbonProject: any) {
             [uniqueValues, prices] = calculateProjectPoolPrices(
               carbonProject,
               uniqueValues,
@@ -231,7 +233,7 @@ const handler = (fastify: FastifyInstance) =>
         const activities = project.activities;
 
         await Promise.all(
-          activities.map(async (actvity) => {
+          activities.map(async (actvity: any) => {
             if (actvity.activityType != "Sold") {
               const seller = await fastify.firebase
                 .firestore()
@@ -255,11 +257,11 @@ const handler = (fastify: FastifyInstance) =>
           })
         );
         project.activities = activities.filter(
-          (activity) => activity.activityType !== "Sold"
+          (activity: any) => activity.activityType !== "Sold"
         );
       }
 
-      project.prices.map(function (price) {
+      project.prices.map(function (price: any) {
         if (price.name == "NBO" || price.name == "UBO") {
           price.poolTokenAddress =
             c3TokenAddress && c3TokenAddress.tokens.length

@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, RouteHandler } from "fastify";
 import { getAllCountries } from "../helpers/utils";
 
 export const Country = Type.Object({
@@ -13,7 +13,7 @@ const schema = {
   },
 };
 
-const handler = (fastify: FastifyInstance) =>
+const handler = (fastify: FastifyInstance): RouteHandler =>
   async function (request, reply) {
     const countries = await getAllCountries(fastify);
     return reply.status(200).send(countries);
