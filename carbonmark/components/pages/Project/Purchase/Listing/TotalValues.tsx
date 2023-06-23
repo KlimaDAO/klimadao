@@ -10,7 +10,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
-import * as styles from "./styles";
+import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
@@ -46,7 +46,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   return (
     <>
-      <Text t="h4">{t`Total price`}</Text>
+      <Text t="h4">{t`Total Price`}</Text>
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Amount to purchase`}</Text>

@@ -204,3 +204,67 @@ export const feeColor = css`
 export const breakText = css`
   overflow-wrap: anywhere;
 `;
+
+export const withToggle = css`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const toggleFees = css`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const fees = css`
+  background-color: var(--surface-02);
+  padding: 0.4rem;
+  display: grid;
+  gap: 0.8rem;
+  border-top: 2px solid var(--manatee);
+  border-bottom: 2px solid var(--manatee);
+`;
+
+export const feeBreakdown = css`
+  background-color: var(--surface-02);
+  display: grid;
+  padding: 0.4rem;
+`;
+
+export const feeText = css`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+`;
+
+export const successScreen = css`
+  margin-top: 3.2rem;
+  display: grid;
+  gap: 2rem;
+
+  .headline {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .summary {
+    display: grid;
+    gap: 1.2rem;
+  }
+`;
+
+export const externalLink = css`
+  color: var(--font-01);
+  text-decoration: underline;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  &:hover,
+  &:visited {
+    color: var(--font-02);
+    text-decoration: none;
+  }
+`;
