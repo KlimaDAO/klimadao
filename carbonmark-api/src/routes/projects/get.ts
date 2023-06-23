@@ -5,8 +5,8 @@ import {
   FastifyRequest,
 } from "fastify";
 import { compact, isNumber } from "lodash";
-import { Project } from "../../../.generated/types/marketplace.types";
-import { CarbonOffset } from "../../../.generated/types/offsets.types";
+import { Project } from "../../.generated/types/marketplace.types";
+import { CarbonOffset } from "../../.generated/types/offsets.types";
 import {
   calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,

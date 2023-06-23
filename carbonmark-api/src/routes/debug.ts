@@ -1,4 +1,4 @@
-import { FastifyPluginAsync } from "fastify";
+import { FastifyPluginAsync, RouteHandlerMethod } from "fastify";
 
 /** Selected ENVs to display */
 const DEBUG_KEYS = [
@@ -24,13 +24,20 @@ const schema = {
   },
 };
 
+const handler: RouteHandlerMethod = function (_, reply) {
+  const envs = DEBUG_KEYS.reduce(
+    (res, curr) => ({ ...res, [curr]: process.env[curr] }),
+    {}
+  );
+  return reply.send(JSON.stringify(envs, null, 2));
+};
+
 const countries: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/debug", { schema }, function (_, reply) {
-    const envs = DEBUG_KEYS.reduce(
-      (res, curr) => ({ ...res, [curr]: process.env[curr] }),
-      {}
-    );
-    return reply.send(JSON.stringify(envs, null, 2));
+  await fastify.route({
+    method: "GET",
+    url: "/debug",
+    schema,
+    handler,
   });
 };
 

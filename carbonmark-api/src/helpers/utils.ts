@@ -5,10 +5,10 @@ import {
   Category,
   Country,
   Listing,
-} from "../../.generated/types/marketplace.types";
-import { CarbonOffset } from "../../.generated/types/offsets.types";
+} from "../.generated/types/marketplace.types";
+import { CarbonOffset } from "../.generated/types/offsets.types";
 
-import { GetPairQuery } from "../../.generated/types/tokens.types";
+import { GetPairQuery } from "../.generated/types/tokens.types";
 import { extract, notNil } from "../utils/functional.utils";
 import { gqlSdk } from "../utils/gqlSdk";
 import { TokenPool, TOKEN_POOLS } from "./utils.constants";
