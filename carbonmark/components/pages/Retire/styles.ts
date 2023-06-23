@@ -124,4 +124,11 @@ export const cardsDescription = css`
 export const cardsList = css`
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  ${breakpoints.desktop} {
+    justify-content: flex-start;
+  }
 `;
