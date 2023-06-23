@@ -21,7 +21,6 @@ import { formatList, formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
   getAllListings,
-  getLowestPriceFromBuyOptions,
   sortPricesAndListingsByBestPrice,
 } from "lib/listingsGetter";
 import { getCategoryFromProject } from "lib/projectGetter";
@@ -77,9 +76,7 @@ const Page: NextPage<PageProps> = (props) => {
     activeListings
   );
 
-  const bestPrice =
-    !!sortedListingsAndPrices.length &&
-    getLowestPriceFromBuyOptions(sortedListingsAndPrices);
+  const bestPrice = project.price;
 
   const pricesOrListings =
     !!sortedListingsAndPrices.length &&

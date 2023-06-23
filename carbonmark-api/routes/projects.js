@@ -1,5 +1,4 @@
 "use strict";
-import { utils } from "ethers";
 import { fetchMarketplaceListings } from "../helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../helpers/fetchPoolPricesAndStats";
 import { fetchProjectDetails } from "../helpers/fetchProjectDetails";
@@ -341,8 +340,8 @@ module.exports = async function (fastify, opts) {
         const poolPriceValues = poolPrices.map((p) =>
           Number(p.singleUnitPrice)
         );
-        const listingPriceValues = listings.map(
-          (l) => Number(utils.formatUnits(l.singleUnitPrice, 6)) // these are still bignumbers
+        const listingPriceValues = listings.map((l) =>
+          Number(l.singleUnitPrice)
         );
 
         const bestPrice =

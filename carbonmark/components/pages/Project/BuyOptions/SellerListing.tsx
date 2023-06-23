@@ -5,7 +5,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
-import { formatBigToTonnes, formatToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import {
   formatWalletAddress,
   isConnectedAddress,
@@ -76,8 +76,7 @@ export const SellerListing: FC<Props> = (props) => {
       )}
       <Text t="h4">{formatToPrice(props.listing.singleUnitPrice)}</Text>
       <Text t="body1">
-        <Trans>Quantity Available:</Trans>{" "}
-        {formatBigToTonnes(props.listing.leftToSell)}
+        <Trans>Quantity Available:</Trans> {props.listing.leftToSell}
       </Text>
       <div className={styles.dates}>
         <Text t="body1">

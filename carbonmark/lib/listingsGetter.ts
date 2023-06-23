@@ -1,5 +1,4 @@
 import { formatUnits } from "@klimadao/lib/utils";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import {
   Listing,
   ListingWithProject,
@@ -55,26 +54,13 @@ export const sortPricesAndListingsByBestPrice = <
   listings: T[]
 ): ProjectBuyOption[] => {
   const flaggedPrices = !!prices?.length && flagPrices(prices);
-  const formattedListings = !!listings?.length && formatListings(listings);
-
   // Ugly, but otherwise babel throws !
-  const mergedArray = [...(flaggedPrices || []), ...(formattedListings || [])];
+  const mergedArray = [...(flaggedPrices || []), ...(listings || [])];
 
   return mergedArray.sort(
     (a, b) => Number(a.singleUnitPrice) - Number(b.singleUnitPrice)
   );
 };
-
-export const formatListings = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) =>
-  listings.map((listing) => ({
-    ...listing,
-    singleUnitPrice: formatUnits(
-      listing.singleUnitPrice,
-      getTokenDecimals("usdc")
-    ),
-  }));
 
 export const flagPrices = (prices: Price[]): PriceFlagged[] =>
   prices.map((price) => ({

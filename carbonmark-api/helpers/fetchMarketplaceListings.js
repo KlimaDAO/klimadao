@@ -1,4 +1,5 @@
 // @ts-check
+import { utils } from "ethers";
 import { executeGraphQLQuery } from "../apollo-client";
 import { GET_PROJECT_BY_ID } from "../queries/project_id";
 
@@ -45,8 +46,27 @@ export const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
     const filteredActivities =
       project?.activities?.filter(filterUnsoldActivity) || [];
 
+    const formattedListings = filteredListings.map((listing) => ({
+      ...listing,
+      singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
+      leftToSell: utils.formatUnits(listing.leftToSell, 18),
+      totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+    }));
+
+    const formattedActivities = filteredActivities.map((activity) => ({
+      ...activity,
+      price: activity.price ? utils.formatUnits(activity.price, 6) : null,
+      previousPrice: activity.previousPrice
+        ? utils.formatUnits(activity.previousPrice, 6)
+        : null,
+      amount: activity.amount ? utils.formatUnits(activity.amount, 18) : null,
+      previousAmount: activity.previousAmount
+        ? utils.formatUnits(activity.previousAmount, 18)
+        : null,
+    }));
+
     const getListingsWithProfiles = Promise.all(
-      filteredListings.map(async (listing) => {
+      formattedListings.map(async (listing) => {
         const seller = await fastify.firebase
           .firestore()
           .collection("users")
@@ -62,7 +82,7 @@ export const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
       })
     );
     const getActivitiesWithProfiles = Promise.all(
-      filteredActivities.map(async (act) => {
+      formattedActivities.map(async (act) => {
         let activityWithHandles = { ...act };
         const seller = await fastify.firebase
           .firestore()

@@ -2,7 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
 import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
@@ -49,10 +49,9 @@ export const Activity = (props: Props) => {
   /** By default activities are buy or sell transactions */
   amountA =
     !!props.activity.amount &&
-    `${formatBigToTonnes(props.activity.amount, locale)}t`;
+    `${formatToTonnes(props.activity.amount, locale)}t`;
   amountB =
-    !!props.activity.price &&
-    `${formatBigToPrice(props.activity.price, locale)}`;
+    !!props.activity.price && `${formatToPrice(props.activity.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
@@ -69,17 +68,17 @@ export const Activity = (props: Props) => {
   if (isUpdatePrice) {
     amountA =
       props.activity.previousPrice &&
-      formatBigToPrice(props.activity.previousPrice, locale);
+      formatToPrice(props.activity.previousPrice, locale);
     amountB =
-      props.activity.price && formatBigToPrice(props.activity.price, locale);
+      props.activity.price && formatToPrice(props.activity.price, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
     amountA =
       props.activity.previousAmount &&
-      formatBigToTonnes(props.activity.previousAmount);
-    amountB = props.activity.amount && formatBigToTonnes(props.activity.amount);
+      formatToTonnes(props.activity.previousAmount);
+    amountB = props.activity.amount && formatToTonnes(props.activity.amount);
   }
 
   /** Determine the conjunction between the labels */
