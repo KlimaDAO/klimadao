@@ -14,7 +14,7 @@ export const card = css`
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
     &:hover {
-      transform: scale(1.02);
+      transform: scale(0.98);
       box-shadow: var(--shadow-02);
     }
   }
@@ -30,6 +30,7 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   overflow: hidden;
+  height: 12rem;
 `;
 
 export const cardImage = css`
@@ -43,7 +44,7 @@ export const cardImage = css`
 export const cardContent = css`
   padding: 2rem;
   display: grid;
-  gap: 0.8rem;
+  gap: 1rem;
   grid-template-rows: auto auto 1fr;
 `;
 
