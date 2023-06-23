@@ -32,7 +32,7 @@ export const Retire: NextPage<PageProps> = (props) => {
         metaDescription={t`View a complete overview of the digital carbon that you retired. `}
       />
 
-      <Layout>
+      <Layout fullContentWidth>
         <div className={styles.container}>
           <div>
             <Text t="h2">

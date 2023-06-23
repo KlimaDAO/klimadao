@@ -6,6 +6,12 @@ export const container = css`
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
+
+  margin: 1.6rem;
+
+  ${breakpoints.desktop} {
+    margin: 4rem;
+  }
 `;
 
 export const retireControls = css`
