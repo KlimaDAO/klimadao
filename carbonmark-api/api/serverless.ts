@@ -3,7 +3,7 @@
  * See: https://www.fastify.io/docs/latest/Guides/Serverless/#vercel
  */
 import Fastify from "fastify";
-import app from "../dist/app";
+import app from "../src/app";
 
 // Read the .env file.
 import * as dotenv from "dotenv";
