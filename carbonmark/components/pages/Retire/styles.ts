@@ -24,13 +24,6 @@ export const retireControls = css`
   }
 `;
 
-export const spinnerContainer = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
-
 export const beneficiary = css`
   display: flex;
   gap: 0.8rem;
