@@ -1,5 +1,5 @@
 // purchases.ts
-import { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { gqlSdk } from "../utils/gqlSdk";
 
 interface Params {
@@ -17,8 +17,5 @@ async function handler(
   return reply.send(JSON.stringify(purchases[0]));
 }
 
-const purchases: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/purchases/:id", handler);
-};
-
-export default purchases;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({ method: "GET", url: "/purchases/:id", handler });

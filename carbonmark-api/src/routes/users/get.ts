@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { notEmpty } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 interface Params {
@@ -163,8 +158,10 @@ const handler = (fastify: FastifyInstance) =>
     return reply.send(response);
   };
 
-const get: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/users/:walletOrHandle", { schema }, handler(fastify));
-};
-
-export default get;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "GET",
+    url: "/users/:walletOrHandle",
+    schema,
+    handler: handler(fastify),
+  });

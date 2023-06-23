@@ -1,10 +1,5 @@
 import * as ethers from "ethers";
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
 
 type Body = {
@@ -70,8 +65,10 @@ const handler = (fastify: FastifyInstance) =>
     return reply.send({ token });
   };
 
-const verify: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.post("/users/login/verify", { schema }, handler(fastify));
-};
-
-export default verify;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "POST",
+    url: "/users/login/verify",
+    schema,
+    handler: handler(fastify),
+  });

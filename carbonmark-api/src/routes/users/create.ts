@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 type Body = {
   handle: string;
@@ -113,12 +108,11 @@ const handler = (fastify: FastifyInstance) =>
     }
   };
 
-const create: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.post<{ Body: Body }>(
-    "/users",
-    { onRequest: [fastify.authenticate], schema },
-    handler(fastify)
-  );
-};
-
-export default create;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route<{ Body: Body }>({
+    method: "POST",
+    url: "/users",
+    onRequest: [fastify.authenticate],
+    schema,
+    handler: handler(fastify),
+  });

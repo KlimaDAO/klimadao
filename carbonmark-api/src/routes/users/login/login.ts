@@ -1,4 +1,4 @@
-import { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
 
 const schema = {
@@ -45,7 +45,10 @@ function handler(request: FastifyRequest<{ Body: Body }>, reply: FastifyReply) {
   return reply.send({ nonce });
 }
 
-const login: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.post("/users/login", { schema }, handler);
-};
-export default login;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "POST",
+    url: "/users/login",
+    schema,
+    handler,
+  });

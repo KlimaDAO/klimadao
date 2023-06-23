@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { FastifyPluginAsync } from "fastify";
+import { FastifyInstance } from "fastify";
 import { getAllCategories } from "../helpers/utils";
 
 export const Category = Type.Object({ id: Type.String() });
@@ -11,10 +11,15 @@ const schema = {
   },
 };
 
-const categories: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/categories", { schema }, async (request, reply) => {
-    const categories = await getAllCategories(fastify);
-    return reply.status(200).send(categories);
-  });
+const handler = (fastify: FastifyInstance) => async (request, reply) => {
+  const categories = await getAllCategories(fastify);
+  return reply.status(200).send(categories);
 };
-export default categories;
+
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "GET",
+    url: "/categories",
+    handler: handler(fastify),
+    schema,
+  });

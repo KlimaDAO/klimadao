@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, isNumber } from "lodash";
 import { Project } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
@@ -280,8 +275,11 @@ const handler = (fastify: FastifyInstance) =>
     return reply.send(JSON.stringify(filteredItems));
   };
 
-const get: FastifyPluginAsync = async (fastify) => {
-  await fastify.get("/projects", { schema }, handler(fastify));
+export default async (fastify: FastifyInstance) => {
+  await fastify.route({
+    method: "GET",
+    url: "/projects",
+    schema,
+    handler: handler(fastify),
+  });
 };
-
-export default get;

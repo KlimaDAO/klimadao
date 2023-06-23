@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import {
   calculatePoolPrices,
   calculateProjectPoolPrices,
@@ -11,7 +6,7 @@ import {
 import { fetchProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
 import { gqlSdk } from "../../utils/gqlSdk";
-import { defaultPoolProjectTokens } from "./projects.constants";
+import { DEFAULT_POOL_PROJECT_TOKENS } from "./projects.constants";
 
 const schema = {
   querystring: {
@@ -272,10 +267,10 @@ const handler = (fastify: FastifyInstance) =>
               : undefined;
           if (price.name == "NBO") {
             price.isPoolDefault =
-              price.poolTokenAddress == defaultPoolProjectTokens.nbo;
+              price.poolTokenAddress == DEFAULT_POOL_PROJECT_TOKENS.nbo;
           } else if (price.name == "UBO") {
             price.isPoolDefault =
-              price.poolTokenAddress == defaultPoolProjectTokens.ubo;
+              price.poolTokenAddress == DEFAULT_POOL_PROJECT_TOKENS.ubo;
           }
         } else {
           price.poolTokenAddress =
@@ -284,10 +279,10 @@ const handler = (fastify: FastifyInstance) =>
               : undefined;
           if (price.name == "BCT") {
             price.isPoolDefault =
-              price.poolTokenAddress === defaultPoolProjectTokens.bct;
+              price.poolTokenAddress === DEFAULT_POOL_PROJECT_TOKENS.bct;
           } else if (price.name == "NCT") {
             price.isPoolDefault =
-              price.poolTokenAddress == defaultPoolProjectTokens.nct;
+              price.poolTokenAddress == DEFAULT_POOL_PROJECT_TOKENS.nct;
           }
         }
 
@@ -301,8 +296,10 @@ const handler = (fastify: FastifyInstance) =>
     return reply.notFound();
   };
 
-const get: FastifyPluginAsync = async (fastify) => {
-  await fastify.get("/projects/:id", { schema }, handler(fastify));
-};
-
-export default get;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "GET",
+    url: "/projects/:id",
+    schema,
+    handler: handler(fastify),
+  });

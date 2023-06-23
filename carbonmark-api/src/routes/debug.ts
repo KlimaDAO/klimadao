@@ -1,4 +1,5 @@
-import { FastifyPluginAsync, RouteHandlerMethod } from "fastify";
+import { FastifyInstance, RouteHandlerMethod, RouteOptions } from "fastify";
+import { pick } from "lodash";
 
 /** Selected ENVs to display */
 const DEBUG_KEYS = [
@@ -25,20 +26,15 @@ const schema = {
 };
 
 const handler: RouteHandlerMethod = function (_, reply) {
-  const envs = DEBUG_KEYS.reduce(
-    (res, curr) => ({ ...res, [curr]: process.env[curr] }),
-    {}
-  );
+  const envs = pick(process.env, DEBUG_KEYS);
   return reply.send(JSON.stringify(envs, null, 2));
 };
 
-const countries: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.route({
-    method: "GET",
-    url: "/debug",
-    schema,
-    handler,
-  });
+const config: RouteOptions = {
+  method: "GET",
+  url: "/debug",
+  schema,
+  handler,
 };
 
-export default countries;
+export default async (fastify: FastifyInstance) => await fastify.route(config);

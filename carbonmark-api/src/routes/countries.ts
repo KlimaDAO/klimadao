@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { FastifyPluginAsync } from "fastify";
+import { FastifyInstance } from "fastify";
 import { getAllCountries } from "../helpers/utils";
 
 export const Country = Type.Object({
@@ -13,11 +13,16 @@ const schema = {
   },
 };
 
-const countries: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/countries", { schema }, async function (_, reply) {
+const handler = (fastify: FastifyInstance) =>
+  async function (request, reply) {
     const countries = await getAllCountries(fastify);
     return reply.status(200).send(countries);
-  });
-};
+  };
 
-export default countries;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "GET",
+    url: "/countries",
+    schema,
+    handler: handler(fastify),
+  });

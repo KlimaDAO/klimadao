@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { getAllVintages } from "../helpers/utils";
 
 const schema = {
@@ -16,14 +11,17 @@ const schema = {
     },
   },
 };
+
 const handler = (fastify: FastifyInstance) =>
   async function (_: FastifyRequest, reply: FastifyReply) {
     const vintages = await getAllVintages(fastify);
     return reply.send(JSON.stringify(vintages));
   };
 
-const vintages: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.get("/vintages", { schema }, handler(fastify));
-};
-
-export default vintages;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route({
+    method: "GET",
+    url: "/vintages",
+    handler: handler(fastify),
+    schema,
+  });

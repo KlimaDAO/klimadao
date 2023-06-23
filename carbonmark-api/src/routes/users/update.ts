@@ -1,9 +1,4 @@
-import {
-  FastifyInstance,
-  FastifyPluginAsync,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 const schema = {
   tags: ["user"],
@@ -85,12 +80,11 @@ const handler = (fastify: FastifyInstance) =>
     }
   };
 
-const update: FastifyPluginAsync = async (fastify): Promise<void> => {
-  await fastify.put<{ Body: Body }>(
-    "/users/:wallet",
-    { onRequest: [fastify.authenticate], schema },
-    handler(fastify)
-  );
-};
-
-export default update;
+export default async (fastify: FastifyInstance) =>
+  await fastify.route<{ Body: Body }>({
+    method: "POST",
+    url: "/users/:wallet",
+    onRequest: [fastify.authenticate],
+    schema,
+    handler: handler(fastify),
+  });
