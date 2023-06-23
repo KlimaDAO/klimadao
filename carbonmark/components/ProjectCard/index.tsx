@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Category } from "components/Category";
@@ -15,6 +16,7 @@ import * as styles from "./styles";
 
 type Props = {
   project: Project;
+  className?: string;
 };
 
 export const ProjectCard: FC<Props> = (props) => {
@@ -23,7 +25,11 @@ export const ProjectCard: FC<Props> = (props) => {
   const { project } = props;
 
   return (
-    <Link href={createProjectLink(project)} passHref className={styles.card}>
+    <Link
+      href={createProjectLink(project)}
+      passHref
+      className={cx(styles.card, props.className)}
+    >
       <div className={styles.cardImage}>
         <ProjectImage category={getCategoryFromProject(project)} />
       </div>

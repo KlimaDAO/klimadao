@@ -66,6 +66,10 @@ export const content = css`
   }
 `;
 
+export const featuredCard = css`
+  border: 2px solid var(--yellow);
+`;
+
 export const cardsHeader = css`
   display: flex;
   gap: 0.8rem;

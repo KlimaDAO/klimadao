@@ -88,7 +88,11 @@ export const Retire: NextPage<PageProps> = (props) => {
 
             <div className={styles.cardsList}>
               {props.featuredProjects.map((p) => (
-                <ProjectCard key={p.id} project={p} />
+                <ProjectCard
+                  key={p.id}
+                  project={p}
+                  className={styles.featuredCard}
+                />
               ))}
             </div>
           </div>
