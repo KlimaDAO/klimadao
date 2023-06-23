@@ -60,3 +60,12 @@ export const tags = css`
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 `;
+
+export const price = css`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const supply = css`
+  text-align: right;
+`;

@@ -1,4 +1,5 @@
-import { t } from "@lingui/macro";
+import { trimWithLocale } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
@@ -27,7 +28,22 @@ export const ProjectCard: FC<Props> = (props) => {
         <ProjectImage category={getCategoryFromProject(project)} />
       </div>
       <div className={styles.cardContent}>
-        <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
+        <div className={styles.price}>
+          <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
+          {project.currentSupply && (
+            <div className={styles.supply}>
+              <Text t="body2" color="lighter" align="end">
+                <Trans>Available Tonnes:</Trans>
+                <br />
+                {trimWithLocale(
+                  Number(project.currentSupply),
+                  2,
+                  locale || "en"
+                )}
+              </Text>
+            </div>
+          )}
+        </div>
         <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
         <Text t="body1" className={styles.cardDescription}>
           {project.short_description ||
