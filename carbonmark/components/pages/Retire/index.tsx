@@ -6,11 +6,16 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
+import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import { RetireActivity } from "./Activity";
 import * as styles from "./styles";
 
-export const Retire: NextPage = () => {
+export type PageProps = {
+  featuredProjects: Project[];
+};
+
+export const Retire: NextPage<PageProps> = (props) => {
   const { isConnected, address } = useWeb3();
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
