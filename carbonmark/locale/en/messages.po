@@ -91,6 +91,10 @@ msgstr "Asset Details"
 msgid "Asset ID"
 msgstr "Asset ID"
 
+#: components/ProjectCard/index.tsx:42
+msgid "Available Tonnes:"
+msgstr "Available Tonnes:"
+
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
 msgstr "Available balance exceeded"
@@ -186,7 +190,7 @@ msgstr "Cancel"
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
-#: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:42
 msgid "Carbon Retirements"
 msgstr "Carbon Retirements"
 
@@ -498,6 +502,7 @@ msgstr "No listable assets found."
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
+#: components/ProjectCard/index.tsx:57
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "No project description found"
@@ -692,6 +697,10 @@ msgstr "Retire"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire carbon credits for yourself, or on behalf of another person or organization."
 
+#: components/pages/Retire/index.tsx:70
+msgid "Retire from a featured project"
+msgstr "Retire from a featured project"
+
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
@@ -711,8 +720,8 @@ msgstr "Retire now"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:25
-#: components/pages/Retire/index.tsx:26
+#: components/pages/Retire/index.tsx:33
+#: components/pages/Retire/index.tsx:34
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
@@ -1009,9 +1018,13 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Retire/index.tsx:27
+#: components/pages/Retire/index.tsx:35
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
+
+#: components/pages/Retire/index.tsx:75
+msgid "View all Projects"
+msgstr "View all Projects"
 
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:66
@@ -1058,6 +1071,10 @@ msgstr "We are still processing your successful purchase. Please visit this page
 #: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
+
+#: components/pages/Retire/index.tsx:81
+msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
+msgstr "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 
 #: components/pages/Project/Retire/RetireInputs.tsx:100
 #: components/pages/Project/Retire/RetireInputs.tsx:107
@@ -1147,19 +1164,19 @@ msgstr "bought from"
 msgid "buy"
 msgstr "Buy"
 
-#: components/Layout/index.tsx:84
+#: components/Layout/index.tsx:91
 msgid "connectModal.institutional"
 msgstr "institutional"
 
-#: components/Layout/index.tsx:76
+#: components/Layout/index.tsx:83
 msgid "connectModal.torus"
 msgstr "social or email"
 
-#: components/Layout/index.tsx:80
+#: components/Layout/index.tsx:87
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
-#: components/Layout/index.tsx:93
+#: components/Layout/index.tsx:100
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -1175,7 +1192,7 @@ msgstr "User refused connection."
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
-#: components/Layout/index.tsx:97
+#: components/Layout/index.tsx:104
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -1249,7 +1266,7 @@ msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 msgid "for"
 msgstr "for"
 
-#: components/pages/Retire/index.tsx:39
+#: components/pages/Retire/index.tsx:47
 msgid "for beneficiary"
 msgstr "for beneficiary"
 
@@ -1693,7 +1710,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/Layout/index.tsx:89
+#: components/Layout/index.tsx:96
 msgid "shared.login"
 msgstr "Login"
 
