@@ -5,9 +5,9 @@ import { Card } from "components/Card";
 import { CreateListing } from "components/CreateListing";
 import { LoginButton } from "components/LoginButton";
 import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
@@ -36,7 +36,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
-  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
+  const [_isLoadingAssets, setIsLoadingAssets] = useState(false);
 
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -177,28 +177,26 @@ export const SellerConnected: FC<Props> = (props) => {
           )}
         </div>
         {isCarbonmarkUser && (
-          <CarbonmarkButton
-            label={
-              isLoadingAssets ? (
-                <Spinner />
-              ) : (
-                <>
-                  <span className={styles.addListingButtonText}>
-                    <Trans id="profile.create_new_listing">
-                      Create New Listing
-                    </Trans>
-                  </span>
-                  <span className={styles.addListingButtonIcon}>
-                    <AddIcon />
-                  </span>
-                </>
-              )
-            }
-            disabled={
-              isLoadingAssets || !hasAssets || isPending || !assetsData?.length
-            }
-            onClick={() => setShowCreateListingModal(true)}
-          />
+          <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+            <div>
+              <CarbonmarkButton
+                label={
+                  <>
+                    <span className={styles.addListingButtonText}>
+                      <Trans>Create New Listing</Trans>
+                    </span>
+                    <span className={styles.addListingButtonIcon}>
+                      <AddIcon />
+                    </span>
+                  </>
+                }
+                disabled={true} // disabled until carbonmark V2
+                onClick={() => {
+                  // setShowCreateListingModal(true)
+                }}
+              />
+            </div>
+          </TextInfoTooltip>
         )}
       </div>
 
