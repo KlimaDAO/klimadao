@@ -4,7 +4,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { Article } from "./Article";
 
 import { useElementWidth } from "hooks/useElementWidth";
-import { FeaturedPost } from "lib/queries";
+import { FeaturedPost } from "lib/cms/queries";
 
 import * as styles from "./styles";
 

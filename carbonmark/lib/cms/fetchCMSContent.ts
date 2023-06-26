@@ -1,5 +1,5 @@
 import sanityClient from "@sanity/client";
-import { IS_PRODUCTION } from "./constants";
+import { IS_PRODUCTION } from "lib/constants";
 import { queries, QueryContent } from "./queries";
 
 import {

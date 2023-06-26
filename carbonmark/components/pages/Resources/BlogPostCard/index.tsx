@@ -1,5 +1,5 @@
 import { Text } from "components/Text";
-import { PostDetails } from "lib/queries";
+import { PostDetails } from "lib/cms/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRouter } from "next/router";

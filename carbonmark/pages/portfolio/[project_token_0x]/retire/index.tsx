@@ -1,4 +1,4 @@
-import { Retire, RetirePageProps } from "components/pages/Retire";
+import { Retire, RetirePageProps } from "components/pages/Portfolio/Retire";
 import { loadTranslation } from "lib/i18n";
 import { getProjectInfoFromPolygonBridgedCarbon } from "lib/retireQueries";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";

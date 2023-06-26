@@ -230,6 +230,10 @@ export const API_BASE_URL = "https://www.klimadao.finance/api";
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
 
+/** Carbon Projects CMS stuff  */
+export const SANITY_STUDIO_API_CARBON_PROJECTS_PROJECT_ID = "l6of5nwi";
+export const SANITY_STUDIO_API__CARBON_PROJECTS_DATASET = "production";
+
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
   (typeof allowancesContracts)["retirementAggregatorV2"][number];

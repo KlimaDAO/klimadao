@@ -6,10 +6,10 @@ export const container = css`
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
-  border-radius: 1.2rem;
 `;
 
-export const portfolioControls = css`
+export const retireControls = css`
+  grid-column: main;
   flex-direction: row-reverse;
   display: none;
 
@@ -18,13 +18,27 @@ export const portfolioControls = css`
   }
 `;
 
-export const errorMessage = css`
-  color: var(--warn);
-  margin-bottom: 0.2rem;
-  word-break: break-word;
+export const spinnerContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `;
 
-export const loadingOverlay = css`
-  pointer-events: none;
-  opacity: 0.5;
+export const beneficiary = css`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+
+  .highlight {
+    color: var(--bright-blue);
+  }
+
+  .copyButton {
+    background: none;
+    background-color: transparent !important;
+    svg path {
+      fill: var(--bright-blue);
+    }
+  }
 `;
