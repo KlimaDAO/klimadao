@@ -6,6 +6,7 @@ import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
@@ -67,7 +68,15 @@ export const AssetProject: FC<Props> = (props) => {
             LO.track("Retire: Retire Button Clicked");
           }}
         />
-        <CarbonmarkButton label={<Trans>Sell</Trans>} onClick={props.onSell} />
+        <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+          <div>
+            <CarbonmarkButton
+              label={<Trans>Sell</Trans>}
+              onClick={props.onSell}
+              disabled={true}
+            />
+          </div>
+        </TextInfoTooltip>
       </div>
     </Card>
   );
