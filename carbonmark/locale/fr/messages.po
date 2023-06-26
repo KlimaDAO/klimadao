@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr "Impossible de calculer le coût total"
 msgid "Country"
 msgstr "Pays"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "Créer une nouvelle annonce"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "Créer un profil"
@@ -269,7 +273,7 @@ msgstr "Créé :"
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
-msgstr ""
+msgstr "DATE"
 
 #: components/pages/Project/index.tsx:255
 msgid "Data for this project and vintage"
@@ -469,9 +473,9 @@ msgstr "Nouveau Prix Unitaire (USDC)"
 
 #: components/pages/Retire/Activity/Table.tsx:82
 msgid "No Activity to show."
-msgstr ""
+msgstr "Aucune activité à montrer"
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "Aucune annonce active."
@@ -482,7 +486,7 @@ msgstr "Aucune activité à montrer"
 
 #: components/pages/Retire/Activity/Overview.tsx:60
 msgid "No data to show"
-msgstr ""
+msgstr "Aucune donnée à afficher"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
@@ -522,7 +526,7 @@ msgstr "Autres basés sur la nature"
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECTS"
-msgstr ""
+msgstr "PROJETS"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -625,9 +629,9 @@ msgstr "Achat {0} | Carbonmark"
 
 #: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
-msgstr ""
+msgstr "QTÉ"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -678,7 +682,7 @@ msgstr "Ressources"
 msgid "Resources | Carbonmark"
 msgstr "Ressources | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "Retirer du marché"
 
@@ -712,7 +716,7 @@ msgstr "Retirer - Carbonmark"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
-msgstr ""
+msgstr "Activité des retraits"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
@@ -721,7 +725,7 @@ msgstr "Message de Retrait du marché"
 #: components/pages/Retire/Activity/Overview.tsx:58
 #: components/pages/Retire/Activity/Overview.tsx:68
 msgid "Retirement Overview"
-msgstr ""
+msgstr "Vue d'ensemble des Retraits"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
@@ -747,7 +751,7 @@ msgstr "Voir votre portefeuille"
 msgid "See your retirement receipt"
 msgstr "Voir votre justificatif de retrait du marché"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Vendre"
 
@@ -853,11 +857,11 @@ msgstr "L'étape précédente a accordé l'autorisation à Carbonmark de transf�
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
-msgstr ""
+msgstr "Une erreur est survenue dans l'obtention de vos données de retraits du marché. Veuillez actualiser la page pour réessayer."
 
 #: components/pages/Retire/Activity/Overview.tsx:47
 msgid "There was an error getting your total retirement data"
-msgstr ""
+msgstr "Une erreur s'est produite lors de l'obtention de l'ensemble de vos données de retraits du marché"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:95
 #: components/pages/Project/Retire/TotalValues.tsx:90
@@ -940,7 +944,7 @@ msgstr "Total des retraits du marché :"
 
 #: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Total carbon tonnes retired"
-msgstr ""
+msgstr "Total des tonnes de carbone retirées du marché"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:270
@@ -958,7 +962,7 @@ msgstr "Quantité totale à mettre en vente"
 
 #: components/pages/Retire/Activity/Overview.tsx:81
 msgid "Total retirement transactions"
-msgstr ""
+msgstr "Total des transactions de retrait du marché"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:71
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
@@ -969,7 +973,7 @@ msgstr "Coût total de la vente"
 msgid "Updated:"
 msgstr "Mis à jour :"
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "Mise à jour de vos données..."
 
@@ -1005,12 +1009,12 @@ msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans vo
 
 #: components/pages/Retire/index.tsx:27
 msgid "View a complete overview of the digital carbon that you retired."
-msgstr ""
+msgstr "Voir un aperçu complet du carbone numérique que vous avez retiré du marché."
 
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:66
 msgid "View all Retirements"
-msgstr ""
+msgstr "Voir tous les Retraits"
 
 #: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
@@ -1108,7 +1112,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, vérifiez que toutes les informations sont correctes et cliquez sur \"envoyer\" ci-dessous."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
 
@@ -1311,10 +1315,6 @@ msgstr "Soldes"
 msgid "profile.addListing_modal.submit"
 msgstr "Créer l'annonce"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "Créer une nouvelle annonce"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "Pour commencer à vendre, vous devez créer votre profil. Cliquez sur le bouton \"Créer un profil\" ci-dessus pour commencer."
@@ -1327,7 +1327,7 @@ msgstr "Mettre à jour l'annonce"
 msgid "profile.edit_modal.submit"
 msgstr "Sauvegarder les modifications"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "Votre Profil"
 
@@ -1487,7 +1487,7 @@ msgstr "Retirer du marché des crédits Carbone"
 
 #: components/pages/Retire/Activity/Quotes.tsx:70
 msgid "retired"
-msgstr ""
+msgstr "retirées"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
@@ -1711,7 +1711,7 @@ msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 #: components/pages/Retire/Activity/Quotes.tsx:73
 #: components/pages/Retire/Activity/Table.tsx:56
 msgid "t"
-msgstr ""
+msgstr "t"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:37
 msgid "tonnes"

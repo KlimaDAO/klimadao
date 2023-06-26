@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr "No se ha podido calcular el Coste Total"
 msgid "Country"
 msgstr "País"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "Crear nuevo listado"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "Crear perfil"
@@ -471,7 +475,7 @@ msgstr "Nuevo precio unitario (USDC)"
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "No hay listados activos."
@@ -627,7 +631,7 @@ msgstr "Compra {0} | Carbonmark"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -678,7 +682,7 @@ msgstr "Recursos"
 msgid "Resources | Carbonmark"
 msgstr "Recursos | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "Retirar"
 
@@ -747,7 +751,7 @@ msgstr ""
 msgid "See your retirement receipt"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Vender"
 
@@ -969,7 +973,7 @@ msgstr ""
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "Actualizando tus datos..."
 
@@ -1108,7 +1112,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Su compra aún no se ha completado. Para finalizar su compra, compruebe que toda la información es correcta y haga clic en \"Enviar\"."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "Tus datos de vendedor"
 
@@ -1315,10 +1319,6 @@ msgstr "Saldos"
 msgid "profile.addListing_modal.submit"
 msgstr "Crear listado"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "Crear nuevo listado"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "Para empezar a vender tienes que crear tu perfil, haz clic en el botón \"crear perfil\" de arriba para empezar."
@@ -1331,7 +1331,7 @@ msgstr "Actualizar listado"
 msgid "profile.edit_modal.submit"
 msgstr "Guardar cambios"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "Tu perfil"
 

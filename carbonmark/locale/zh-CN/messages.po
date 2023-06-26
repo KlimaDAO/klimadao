@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr "无法计算总成本"
 msgid "Country"
 msgstr "国家"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "创建新挂牌"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "创建个人资料"
@@ -471,7 +475,7 @@ msgstr "新单价（USDC）"
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "无活动列表。"
@@ -629,7 +633,7 @@ msgstr "购买 {0} | Carbonmark"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -680,7 +684,7 @@ msgstr "资源"
 msgid "Resources | Carbonmark"
 msgstr "资源 | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "停用"
 
@@ -749,7 +753,7 @@ msgstr "查看您的投资组合"
 msgid "See your retirement receipt"
 msgstr "查看您的停用收据"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "卖出"
 
@@ -971,7 +975,7 @@ msgstr "总销售成本"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1110,7 +1114,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -1313,10 +1317,6 @@ msgstr "余额"
 msgid "profile.addListing_modal.submit"
 msgstr "创建挂牌"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "创建新挂牌"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "要开始买卖您需要创建个人资料，请单击上面的“创建个人资料”按钮开始。"
@@ -1329,7 +1329,7 @@ msgstr "更新挂牌信息"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 

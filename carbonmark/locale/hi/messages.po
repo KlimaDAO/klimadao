@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr "कुल लागत की गणना नहीं सकी"
 msgid "Country"
 msgstr "देश"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "नयी सूची बनाएँ"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
@@ -471,7 +475,7 @@ msgstr "नया यूनिट मूल्य (USDC)"
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
@@ -627,7 +631,7 @@ msgstr "ख़रीद {0} | कार्बनमार्क"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -678,7 +682,7 @@ msgstr "संसाधन"
 msgid "Resources | Carbonmark"
 msgstr "संसाधन | कार्बनमार्क"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "रिटायर"
 
@@ -747,7 +751,7 @@ msgstr ""
 msgid "See your retirement receipt"
 msgstr "अपनी रिटायरमेंट रसीद देखें"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "बेचें"
 
@@ -969,7 +973,7 @@ msgstr "कुल बिक्री लागत"
 msgid "Updated:"
 msgstr "अपडेटेड:"
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "आपका डेटा अपडेट हो रहा है..."
 
@@ -1108,7 +1112,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
@@ -1311,10 +1315,6 @@ msgstr "जमाराशियाँ"
 msgid "profile.addListing_modal.submit"
 msgstr "सूची बनाएँ"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "नयी सूची बनाएँ"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "बिक्री शुरू करने के लिए आपको अपना प्रोफ़ाइल बनानी होगी, आरंभ करने के लिए ऊपर दिए गए 'प्रोफ़ाइल बनाएँ' बटन पर क्लिक करें।"
@@ -1327,7 +1327,7 @@ msgstr "सूचीकरण अपडेट करें"
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "आपकी प्रोफ़ाइल"
 

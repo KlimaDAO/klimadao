@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr "Не удалось рассчитать общую стоимость"
 msgid "Country"
 msgstr "Страна"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "Создать новое объявление"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "Создать профиль"
@@ -471,7 +475,7 @@ msgstr "Новая цена за единицу (USDC)"
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "Нет активных объявлений."
@@ -627,7 +631,7 @@ msgstr "Купить {0} | Carbonmark"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -678,7 +682,7 @@ msgstr "Источники"
 msgid "Resources | Carbonmark"
 msgstr "Ресурсы | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "Выбито"
 
@@ -747,7 +751,7 @@ msgstr ""
 msgid "See your retirement receipt"
 msgstr "Смотрите свою квитанцию о выбивании"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Продать"
 
@@ -969,7 +973,7 @@ msgstr "Общая стоимость продажи"
 msgid "Updated:"
 msgstr "Обновлено:"
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "Обновление данных..."
 
@@ -1108,7 +1112,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
@@ -1311,10 +1315,6 @@ msgstr "Балансы"
 msgid "profile.addListing_modal.submit"
 msgstr "Создать объявление"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "Создать новое объявление"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "Чтобы начать продавать, вам необходимо создать свой профиль, нажмите кнопку «Создать профиль» выше, чтобы начать."
@@ -1327,7 +1327,7 @@ msgstr "Обновить объявления"
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "Ваш профиль"
 

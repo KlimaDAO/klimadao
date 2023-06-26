@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 15:34+0000\n"
+"POT-Creation-Date: 2023-06-26 21:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,6 +251,10 @@ msgstr ""
 msgid "Country"
 msgstr "Land"
 
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Create New Listing"
+msgstr "Neuen Eintrag erstellen"
+
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Create Profile"
 msgstr "Profil erstellen"
@@ -471,7 +475,7 @@ msgstr "Neuer Stückpreis (USDC)"
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "Keine aktiven Einträge."
@@ -627,7 +631,7 @@ msgstr "{0} kaufen | Carbonmark"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:57
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -678,7 +682,7 @@ msgstr "Ressourcen"
 msgid "Resources | Carbonmark"
 msgstr "Ressourcen | Carbonmark"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:63
+#: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "Ausgleichen"
 
@@ -747,7 +751,7 @@ msgstr ""
 msgid "See your retirement receipt"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:70
+#: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
 msgstr "Verkaufen"
 
@@ -969,7 +973,7 @@ msgstr ""
 msgid "Updated:"
 msgstr "Aktualisiert:"
 
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:207
 msgid "Updating your data..."
 msgstr "Ihre Daten werden aktualisiert..."
 
@@ -1108,7 +1112,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ihr Kauf ist noch nicht abgeschlossen. Stellen Sie die Korrektheit der Informationen sicher und klicken Sie unten auf \"Absenden\", um den Kauf abzuschließen."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerConnected/index.tsx:231
 msgid "Your seller data"
 msgstr "Ihre Verkäuferdaten"
 
@@ -1311,10 +1315,6 @@ msgstr "Guthaben"
 msgid "profile.addListing_modal.submit"
 msgstr "Eintrag erstellen"
 
-#: components/pages/Users/SellerConnected/index.tsx:187
-msgid "profile.create_new_listing"
-msgstr "Neuen Eintrag erstellen"
-
 #: components/pages/Users/ProfileHeader/index.tsx:33
 msgid "profile.create_your_profile"
 msgstr "Sie müssen ein Profil erstellen, um verkaufen zu können. Klicken Sie oben auf \"Profil erstellen\", um zu beginnen."
@@ -1327,7 +1327,7 @@ msgstr "Eintrag aktualisieren"
 msgid "profile.edit_modal.submit"
 msgstr "Änderungen speichern"
 
-#: components/pages/Users/SellerConnected/index.tsx:239
+#: components/pages/Users/SellerConnected/index.tsx:237
 msgid "profile.edit_profile.title"
 msgstr "Ihr Profil"
 
