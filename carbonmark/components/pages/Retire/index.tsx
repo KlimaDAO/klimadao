@@ -19,7 +19,6 @@ export type PageProps = {
 };
 
 export const Retire: NextPage<PageProps> = (props) => {
-  console.log("props", props);
   const { isConnected, address } = useWeb3();
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
