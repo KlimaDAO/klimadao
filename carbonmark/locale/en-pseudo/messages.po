@@ -192,7 +192,7 @@ msgstr ""
 msgid "Carbon Pool"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:43
 msgid "Carbon Retirements"
 msgstr ""
 
@@ -318,6 +318,10 @@ msgstr ""
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
+msgstr ""
+
+#: components/pages/Retire/index.tsx:110
+msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
@@ -662,6 +666,10 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
+#: components/pages/Retire/index.tsx:105
+msgid "Quick Retire"
+msgstr ""
+
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
 msgstr ""
@@ -703,7 +711,7 @@ msgstr ""
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:70
+#: components/pages/Retire/index.tsx:71
 msgid "Retire from a featured project"
 msgstr ""
 
@@ -726,8 +734,8 @@ msgstr ""
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:33
 #: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:35
 msgid "Retire | Carbonmark"
 msgstr ""
 
@@ -1024,11 +1032,11 @@ msgstr ""
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:36
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:76
 msgid "View all Projects"
 msgstr ""
 
@@ -1082,7 +1090,7 @@ msgstr ""
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:82
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr ""
 
@@ -1276,7 +1284,7 @@ msgstr ""
 msgid "for"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:47
+#: components/pages/Retire/index.tsx:48
 msgid "for beneficiary"
 msgstr ""
 
