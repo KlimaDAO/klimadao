@@ -16,6 +16,7 @@ import * as styles from "./styles";
 
 export type PageProps = {
   featuredProjects: Project[];
+  defaultProjects: Project[];
 };
 
 export const Retire: NextPage<PageProps> = (props) => {
@@ -92,6 +93,30 @@ export const Retire: NextPage<PageProps> = (props) => {
                   project={p}
                   className={styles.featuredCard}
                 />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.fullWhite}>
+          <div className={styles.content}>
+            <div className={styles.cardsHeader}>
+              <Text t="h4" className={styles.textWithIcon}>
+                <Trans>Quick Retire</Trans>
+              </Text>
+            </div>
+
+            <Text className={styles.cardsDescription}>
+              <Trans>
+                Don’t want to go through the trouble of searching and selecting
+                a project to retire? Here’s a list of discount retirements from
+                trusted vendors.
+              </Trans>
+            </Text>
+
+            <div className={styles.cardsList}>
+              {props.defaultProjects.map((p) => (
+                <ProjectCard key={p.id} project={p} />
               ))}
             </div>
           </div>
