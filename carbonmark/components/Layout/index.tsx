@@ -24,6 +24,7 @@ import * as styles from "./styles";
 type Props = {
   userAddress?: string;
   children: ReactNode;
+  fullContentWidth?: boolean;
 };
 
 /** App layout for desktop side-panel and mobile navigation */
@@ -66,7 +67,13 @@ export const Layout: FC<Props> = (props: Props) => {
             className={styles.menuButton}
           />
         </div>
-        <div className={styles.layoutChildrenContainer}>{props.children}</div>
+        <div
+          className={cx(styles.layoutChildrenContainer, {
+            fullContentWidth: props.fullContentWidth,
+          })}
+        >
+          {props.children}
+        </div>
         <Footer />
       </main>
       <InvalidNetworkModal />
