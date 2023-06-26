@@ -1,9 +1,11 @@
+import { defaultProjects } from "@klimadao/lib/utils";
 import { Retire } from "components/pages/Retire";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
 const featuredProjectKeys = ["VCS-1577-2015", "VCS-1764-2020", "VCS-1121-2018"];
+const defaultProjectKeys = defaultProjects.map((p) => p.id);
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
@@ -11,6 +13,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     const featuredProjects = await Promise.all(
       featuredProjectKeys.map(
+        async (project) => await getCarbonmarkProject(project)
+      )
+    );
+
+    const defaultProjects = await Promise.all(
+      defaultProjectKeys.map(
         async (project) => await getCarbonmarkProject(project)
       )
     );
@@ -23,6 +31,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       props: {
         translation,
         featuredProjects,
+        defaultProjects,
         fixedThemeName: "theme-light",
       },
     };
