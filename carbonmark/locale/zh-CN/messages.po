@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 23:13+0000\n"
+"POT-Creation-Date: 2023-06-26 23:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,6 +61,14 @@ msgstr "农业"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:80
 msgid "Amount is required"
 msgstr "金额为必填项"
+
+#: components/Stats/StatsBar.tsx:44
+msgid "Amount of credits from this project/vintage combination that have been retired."
+msgstr ""
+
+#: components/Stats/StatsBar.tsx:64
+msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
+msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:121
@@ -279,7 +287,7 @@ msgstr "已创建："
 msgid "DATE"
 msgstr ""
 
-#: components/pages/Project/index.tsx:255
+#: components/pages/Project/index.tsx:256
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
@@ -296,7 +304,7 @@ msgstr "默认的已连接钱包地址"
 msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:207
 msgid "Description"
 msgstr "描述"
 
@@ -496,7 +504,7 @@ msgstr ""
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
-#: components/pages/Project/index.tsx:245
+#: components/pages/Project/index.tsx:246
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
@@ -664,7 +672,7 @@ msgstr "碳停用"
 msgid "Recently Updated"
 msgstr "最近更新"
 
-#: components/Stats/StatsBar.tsx:42
+#: components/Stats/StatsBar.tsx:58
 msgid "Remaining Supply:"
 msgstr "剩余供应："
 
@@ -806,7 +814,7 @@ msgstr "抱歉，此用户名已存在"
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
-#: components/Stats/index.tsx:23
+#: components/Stats/index.tsx:24
 msgid "Stats"
 msgstr "统计数据"
 
@@ -949,7 +957,7 @@ msgstr "售出吨数："
 msgid "Total Price"
 msgstr "总价"
 
-#: components/Stats/StatsBar.tsx:32
+#: components/Stats/StatsBar.tsx:38
 msgid "Total Retirements:"
 msgstr "总碳停用"
 
@@ -1006,7 +1014,7 @@ msgstr "验证所有信息是否正确，然后单击“批准”以继续。"
 msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
-#: components/pages/Project/index.tsx:228
+#: components/pages/Project/index.tsx:229
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
@@ -1047,6 +1055,10 @@ msgstr "在 PolygonScan 上查看"
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
 msgstr "在 PolygonScan <0/> 上查看"
+
+#: components/Stats/StatsBar.tsx:76
+msgid "View project on PolygonScan"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."

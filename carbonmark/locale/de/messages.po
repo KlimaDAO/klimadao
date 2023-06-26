@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 23:13+0000\n"
+"POT-Creation-Date: 2023-06-26 23:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,6 +61,14 @@ msgstr "Landwirtschaft"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:80
 msgid "Amount is required"
 msgstr "Menge ist erforderlich"
+
+#: components/Stats/StatsBar.tsx:44
+msgid "Amount of credits from this project/vintage combination that have been retired."
+msgstr ""
+
+#: components/Stats/StatsBar.tsx:64
+msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
+msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:121
@@ -279,7 +287,7 @@ msgstr "Erstellt:"
 msgid "DATE"
 msgstr ""
 
-#: components/pages/Project/index.tsx:255
+#: components/pages/Project/index.tsx:256
 msgid "Data for this project and vintage"
 msgstr "Informationen über dieses Projekt und diesen Jahrgang"
 
@@ -296,7 +304,7 @@ msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 msgid "Describe the purpose of this retirement"
 msgstr "Beschreibe den Zweck dieses Ausgleichs"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:207
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -496,7 +504,7 @@ msgstr ""
 msgid "No listable assets found."
 msgstr "Keine eintragbaren Assets gefunden."
 
-#: components/pages/Project/index.tsx:245
+#: components/pages/Project/index.tsx:246
 msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
@@ -662,7 +670,7 @@ msgstr ""
 msgid "Recently Updated"
 msgstr "Kürzlich aktualisiert"
 
-#: components/Stats/StatsBar.tsx:42
+#: components/Stats/StatsBar.tsx:58
 msgid "Remaining Supply:"
 msgstr "Verbleibendes Angebot:"
 
@@ -804,7 +812,7 @@ msgstr "Leider existiert dieser Name bereits"
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Leider konnten wir auf Carbonmark keine Daten für diesen Nutzer finden."
 
-#: components/Stats/index.tsx:23
+#: components/Stats/index.tsx:24
 msgid "Stats"
 msgstr "Statistiken"
 
@@ -947,7 +955,7 @@ msgstr "Verkaufte Tonnen:"
 msgid "Total Price"
 msgstr "Gesamtpreis"
 
-#: components/Stats/StatsBar.tsx:32
+#: components/Stats/StatsBar.tsx:38
 msgid "Total Retirements:"
 msgstr "Gesamter CO2-Ausgleich"
 
@@ -1004,7 +1012,7 @@ msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmi
 msgid "View Carbonmark Profile"
 msgstr "Carbonmark-Profil anzeigen"
 
-#: components/pages/Project/index.tsx:228
+#: components/pages/Project/index.tsx:229
 msgid "View Registry Details <0/>"
 msgstr "Registrierungsdetails anzeigen <0/>"
 
@@ -1045,6 +1053,10 @@ msgstr "Auf PolygonScan ansehen"
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
 msgstr "Auf PolygonScan ansehen <0/>"
+
+#: components/Stats/StatsBar.tsx:76
+msgid "View project on PolygonScan"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."

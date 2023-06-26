@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 23:13+0000\n"
+"POT-Creation-Date: 2023-06-26 23:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,6 +61,14 @@ msgstr "कृषि"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:80
 msgid "Amount is required"
 msgstr "राशि की आवश्यकता"
+
+#: components/Stats/StatsBar.tsx:44
+msgid "Amount of credits from this project/vintage combination that have been retired."
+msgstr ""
+
+#: components/Stats/StatsBar.tsx:64
+msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
+msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:121
@@ -279,7 +287,7 @@ msgstr "बन गई:"
 msgid "DATE"
 msgstr ""
 
-#: components/pages/Project/index.tsx:255
+#: components/pages/Project/index.tsx:256
 msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
@@ -296,7 +304,7 @@ msgstr "कनेक्टेड वॉलेट का पते पर कि�
 msgid "Describe the purpose of this retirement"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
-#: components/pages/Project/index.tsx:206
+#: components/pages/Project/index.tsx:207
 msgid "Description"
 msgstr "विवरण"
 
@@ -496,7 +504,7 @@ msgstr ""
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
-#: components/pages/Project/index.tsx:245
+#: components/pages/Project/index.tsx:246
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
@@ -662,7 +670,7 @@ msgstr "कार्बन रिटायर करें"
 msgid "Recently Updated"
 msgstr "हाल में अपडेटेड"
 
-#: components/Stats/StatsBar.tsx:42
+#: components/Stats/StatsBar.tsx:58
 msgid "Remaining Supply:"
 msgstr "शेष आपूर्त्ति"
 
@@ -804,7 +812,7 @@ msgstr "क्षमा करें, यह हैंडल पहले से
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "क्षमा करें। हमें कार्बनमार्क पर आपके यूज़र का कोई डेटा नहीं मिला।"
 
-#: components/Stats/index.tsx:23
+#: components/Stats/index.tsx:24
 msgid "Stats"
 msgstr "आँकड़े"
 
@@ -947,7 +955,7 @@ msgstr "टन बिक्री"
 msgid "Total Price"
 msgstr "कुल कीमत"
 
-#: components/Stats/StatsBar.tsx:32
+#: components/Stats/StatsBar.tsx:38
 msgid "Total Retirements:"
 msgstr "कुल रिटायरमेन्ट्स:"
 
@@ -1004,7 +1012,7 @@ msgstr "सत्यापित करें कि संपूर्ण ज�
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
-#: components/pages/Project/index.tsx:228
+#: components/pages/Project/index.tsx:229
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
@@ -1045,6 +1053,10 @@ msgstr "पॉलीगॉनस्कैन पर देखें"
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:47
 msgid "View on PolygonScan <0/>"
 msgstr "पॉलीगॉनस्कैन <0/> पर देखें"
+
+#: components/Stats/StatsBar.tsx:76
+msgid "View project on PolygonScan"
+msgstr ""
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
