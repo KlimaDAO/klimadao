@@ -857,7 +857,7 @@ msgstr "The previous step granted the approval to transfer your carbon asset fro
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Retire/Activity/List.tsx:41
+#: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
 msgstr "There was an error getting your retirement data. Please refresh the page to try again."
 
