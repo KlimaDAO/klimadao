@@ -214,15 +214,9 @@ export const methodology = css`
 `;
 
 export const infoContent = css`
-  color: var(--white);
-  padding: 1.2rem;
-  background: #303030;
-  max-width: 23rem !important;
-  border-radius: 0.4rem;
-
-  .tippy-arrow {
-    color: #303030;
-  }
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  max-width: 20rem !important;
 `;
 
 export const carouselWrapper = css`

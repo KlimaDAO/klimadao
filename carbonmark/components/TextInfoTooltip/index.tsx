@@ -9,12 +9,17 @@ interface TooltipProps {
   tooltip: string;
   children: ReactElement;
   className?: string;
+  align?: "start" | "end";
 }
 
 export const TextInfoTooltip = (props: TooltipProps) => (
   <Tippy
     content={
-      <Text t="body1" className={styles.infoText} align="center">
+      <Text
+        t="body1"
+        className={styles.infoText}
+        align={props.align ? props.align : "center"}
+      >
         {props.tooltip}
       </Text>
     }

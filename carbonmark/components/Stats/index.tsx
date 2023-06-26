@@ -13,6 +13,7 @@ interface Props {
   currentSupply?: Project["currentSupply"];
   totalRetired?: Project["totalRetired"];
   description: string;
+  projectAddress?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
@@ -27,10 +28,13 @@ export const Stats: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {!!props.currentSupply && !!props.totalRetired ? (
+      {!!props.currentSupply &&
+      !!props.totalRetired &&
+      !!props.projectAddress ? (
         <StatsBar
           currentSupply={props.currentSupply}
           totalRetired={props.totalRetired}
+          projectAddress={props.projectAddress}
         />
       ) : (
         <StatsListings
