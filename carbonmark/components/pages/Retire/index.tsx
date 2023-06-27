@@ -15,6 +15,7 @@ import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireActivity } from "./Activity";
+import { RetireFromPortfolio } from "./FromPortfolio";
 import * as styles from "./styles";
 
 export type PageProps = {
@@ -101,6 +102,28 @@ export const Retire: NextPage<PageProps> = (props) => {
             </div>
           </div>
         </div>
+
+        {isConnectedUser && (
+          <div className={styles.content}>
+            <div className={styles.cardsHeader}>
+              <Text t="h4">
+                <Trans>Retire from your portfolio</Trans>
+              </Text>
+              <Link href="/portfolio">
+                <Text t="body4" className={styles.textLink}>
+                  <Trans>View all Portfolio items</Trans>
+                </Text>
+              </Link>
+            </div>
+            <Text className={styles.cardsDescription}>
+              <Trans>
+                You can also retire any carbon asset in your wallet.
+              </Trans>
+            </Text>
+
+            <RetireFromPortfolio address={address} />
+          </div>
+        )}
 
         <div
           className={cx(styles.fullWidth, {
