@@ -1,3 +1,5 @@
+import { PoolToken } from "../../constants";
+
 /* Default projects
 BCT - https://www.carbonmark.com/projects/VCS-191-2008 - 0xb139c4cc9d20a3618e9a2268d73eff18c496b991
 NCT - https://www.carbonmark.com/projects/VCS-1529-2012 - 0x6362364a37f34d39a1f4993fb595dab4116daf0d
@@ -6,7 +8,13 @@ NBO - https://www.carbonmark.com/projects/VCS-981-2014 - 0xb6ea7a53fc048d6d3b80b
 */
 
 /** These are the default (oldest vintage) projects in each pool */
-export const defaultProjects = [
+
+type defaultProject = {
+  id: string;
+  address: string;
+  pool: PoolToken;
+};
+export const defaultProjects: defaultProject[] = [
   {
     id: "VCS-191-2008",
     address: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
@@ -35,3 +43,12 @@ const knownDefaultProjects = defaultProjects
 
 export const isDefaultProjectAddress = (projectAddress: string): boolean =>
   knownDefaultProjects.includes(projectAddress.toLowerCase());
+
+export const getPoolNameFromAddress = (
+  projectAddress: string
+): PoolToken | null => {
+  if (!isDefaultProjectAddress(projectAddress)) return null;
+  return (
+    defaultProjects.find((d) => d.address === projectAddress)?.pool || null
+  );
+};
