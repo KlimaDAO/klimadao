@@ -17,6 +17,7 @@ import * as styles from "./styles";
 type Props = {
   project: Project;
   className?: string;
+  url?: string;
 };
 
 export const ProjectCard: FC<Props> = (props) => {
@@ -26,7 +27,7 @@ export const ProjectCard: FC<Props> = (props) => {
 
   return (
     <Link
-      href={createProjectLink(project)}
+      href={props.url || createProjectLink(project)}
       passHref
       className={cx(styles.card, props.className)}
     >
