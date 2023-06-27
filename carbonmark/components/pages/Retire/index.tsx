@@ -1,4 +1,8 @@
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getPoolNameFromAddress,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import { CopyAddressButton } from "components/CopyAddressButton";
@@ -8,6 +12,7 @@ import { PageHead } from "components/PageHead";
 import { ProjectCard } from "components/ProjectCard";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
+import { createProjectPoolRetireLink } from "lib/createUrls";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -115,9 +120,20 @@ export const Retire: NextPage<PageProps> = (props) => {
             </Text>
 
             <div className={styles.cardsList}>
-              {props.defaultProjects.map((p) => (
-                <ProjectCard key={p.id} project={p} />
-              ))}
+              {props.defaultProjects.map((p) => {
+                if (p.isPoolProject)
+                  return (
+                    <ProjectCard
+                      key={p.id}
+                      project={p}
+                      url={createProjectPoolRetireLink(
+                        p,
+                        getPoolNameFromAddress(p.projectAddress) || "NBO" // typeguard, THE PROJECT ADDRESS FOR NBO 'VCS-981-2014'  IS NOT CORRECT ON CARBONMARK API !!
+                      )}
+                    />
+                  );
+                return null;
+              })}
             </div>
           </div>
         </div>
