@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-26 23:33+0000\n"
+"POT-Creation-Date: 2023-06-27 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,11 +64,11 @@ msgstr "Le montant est requis"
 
 #: components/Stats/StatsBar.tsx:44
 msgid "Amount of credits from this project/vintage combination that have been retired."
-msgstr ""
+msgstr "Montant des crédits de cette combinaison de projets/années qui ont été retirés du marché."
 
 #: components/Stats/StatsBar.tsx:64
 msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
-msgstr ""
+msgstr "Montant des crédits qui ont été reportés à partir de cette combinaison de projet/millésime mais qui n'ont pas encore été retirés."
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:121
@@ -95,7 +95,7 @@ msgstr "Identifiant de l'Actif"
 
 #: components/ProjectCard/index.tsx:42
 msgid "Available Tonnes:"
-msgstr ""
+msgstr "Tonnes disponibles :"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
@@ -705,7 +705,7 @@ msgstr "Retirer du marché des crédits carbone pour vous-même ou pour le compt
 
 #: components/pages/Retire/index.tsx:70
 msgid "Retire from a featured project"
-msgstr ""
+msgstr "Retirer du marché à partir d'un projet phare"
 
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
@@ -1030,7 +1030,7 @@ msgstr "Voir un aperçu complet du carbone numérique que vous avez retiré du m
 
 #: components/pages/Retire/index.tsx:75
 msgid "View all Projects"
-msgstr ""
+msgstr "Voir tous les Projets"
 
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:66
@@ -1056,7 +1056,7 @@ msgstr "Voir sur PolygonScan <0/>"
 
 #: components/Stats/StatsBar.tsx:76
 msgid "View project on PolygonScan"
-msgstr ""
+msgstr "Voir le projet sur PolygonScan"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -1084,7 +1084,7 @@ msgstr "Nous n'avons pas fini de traiter les données de la blockchain pour ce r
 
 #: components/pages/Retire/index.tsx:81
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
-msgstr ""
+msgstr "Nous avons soigneusement sélectionné les meilleurs projets sur la base de critères stricts, tels que le prix, la véracité et l'impact sur l'environnement au niveau mondial."
 
 #: components/pages/Project/Retire/RetireInputs.tsx:100
 #: components/pages/Project/Retire/RetireInputs.tsx:107
