@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import {
   concatAddress,
   getPoolNameFromAddress,
@@ -26,6 +27,7 @@ export type PageProps = {
 
 export const Retire: NextPage<PageProps> = (props) => {
   const { isConnected, address } = useWeb3();
+  const isConnectedUser = !!address && isConnected;
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
 
@@ -47,7 +49,7 @@ export const Retire: NextPage<PageProps> = (props) => {
             <Text t="h2">
               <Trans>Carbon Retirements</Trans>
             </Text>
-            {address && isConnected && (
+            {isConnectedUser && (
               <div className={styles.beneficiary}>
                 <Text t="body4">
                   <Trans>for beneficiary</Trans>{" "}
@@ -68,7 +70,7 @@ export const Retire: NextPage<PageProps> = (props) => {
           <RetireActivity />
         </div>
 
-        <div className={styles.fullWhite}>
+        <div className={cx(styles.fullWidth, "whiteBG")}>
           <div className={styles.content}>
             <div className={styles.cardsHeader}>
               <Text t="h4" className={styles.textWithIcon}>
@@ -103,7 +105,11 @@ export const Retire: NextPage<PageProps> = (props) => {
           </div>
         </div>
 
-        <div className={styles.fullWhite}>
+        <div
+          className={cx(styles.fullWidth, {
+            whiteBG: isConnectedUser,
+          })}
+        >
           <div className={styles.content}>
             <div className={styles.cardsHeader}>
               <Text t="h4" className={styles.textWithIcon}>

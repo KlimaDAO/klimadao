@@ -42,12 +42,15 @@ export const beneficiary = css`
   }
 `;
 
-export const fullWhite = css`
+export const fullWidth = css`
   grid-column: full;
 
   display: grid;
   grid-template-columns: inherit;
-  background-color: var(--white);
+
+  &.whiteBG {
+    background-color: var(--white);
+  }
 `;
 
 export const content = css`
