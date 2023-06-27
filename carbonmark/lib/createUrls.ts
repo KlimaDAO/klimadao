@@ -1,5 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
-import { Project } from "lib/types/carbonmark";
+import { Price, Project } from "lib/types/carbonmark";
 
 type ProjectData = {
   key: Project["key"];
@@ -14,6 +14,11 @@ export const createProjectPurchaseLink = (
 ) => `${createProjectLink(project)}/purchase/${listingId}`;
 
 export const createSellerLink = (handle: string) => `/users/${handle}`;
+
+export const createProjectPoolRetireLink = (
+  project: ProjectData,
+  pool: Price["name"] | Lowercase<Price["name"]>
+) => `${createProjectLink(project)}/retire/pools/${pool.toLowerCase()}`;
 
 /**
  * @example
