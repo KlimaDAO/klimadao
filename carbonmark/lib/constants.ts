@@ -47,7 +47,7 @@ export const config = {
   urls: {
     baseUrl: {
       production: "https://www.carbonmark.com",
-      preview: process.env.NEXT_PUBLIC_VERCEL_URL, // note: won't take custom subdomains like staging.carbonmark.com, takes the vercel generated url instead
+      preview: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL, // note: won't take custom subdomains like staging.carbonmark.com, takes the vercel generated url instead
       development: "http://localhost:3002",
     },
     blockExplorer: {
@@ -57,13 +57,14 @@ export const config = {
     api: {
       production: "https://api.carbonmark.com/api",
       preview:
-        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api", // TODO REVERT
-      development: "https://staging-api.carbonmark.com/api",
+        "https://klimadao-carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
+      development:
+        "https://klimadao-carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api", // set to localhost or preview link if developing API features
     },
   },
 } as const;
 
-export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
+export const DEFAULT_NETWORK = "mainnet" as "mainnet" | "testnet";
 
 export const urls = {
   api: {
