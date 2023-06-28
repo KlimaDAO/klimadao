@@ -24,8 +24,10 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
     !!carbonmarkUser?.assets?.length &&
     getAssetsWithProjectTokens(carbonmarkUser.assets);
 
-  const emptyAssets = !isLoadingAssets && !assetsData?.length;
-  const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
+  const emptyAssets =
+    !!carbonmarkUser && !isLoadingAssets && !assetsData?.length;
+  const hasAssets =
+    !!carbonmarkUser && !isLoadingAssets && !!assetWithProjectTokens;
   const isUnregistered = props.address && !isLoading && carbonmarkUser === null;
 
   // load Assets on carbonmarkUser
