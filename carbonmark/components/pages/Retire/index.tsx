@@ -93,7 +93,7 @@ export const Retire: NextPage<PageProps> = (props) => {
             <div className={styles.cardsList}>
               {props.featuredProjects.map((p) => (
                 <ProjectCard
-                  key={p.id}
+                  key={p.key}
                   project={p}
                   className={styles.featuredCard}
                 />
@@ -127,11 +127,11 @@ export const Retire: NextPage<PageProps> = (props) => {
                 if (p.isPoolProject && !!p.prices)
                   return (
                     <ProjectCard
-                      key={p.id}
+                      key={p.key}
                       project={p}
                       url={createProjectPoolRetireLink(
                         p,
-                        getDefaultPoolFromPrices(p.prices)?.name || "BCT" // typeguard
+                        getDefaultPoolFromPrices(p.prices)?.poolName || "bct" // typeguard
                       )}
                     />
                   );
