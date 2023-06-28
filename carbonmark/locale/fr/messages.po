@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-27 15:35+0000\n"
+"POT-Creation-Date: 2023-06-28 12:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -93,7 +93,7 @@ msgstr "Détails de l'Actif"
 msgid "Asset ID"
 msgstr "Identifiant de l'Actif"
 
-#: components/ProjectCard/index.tsx:42
+#: components/ProjectCard/index.tsx:43
 msgid "Available Tonnes:"
 msgstr "Tonnes disponibles :"
 
@@ -192,7 +192,7 @@ msgstr "Annuler"
 msgid "Carbon Pool"
 msgstr "Réserve de Carbone"
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "Retraits de Crédits Carbone"
 
@@ -319,6 +319,10 @@ msgstr "Nom d'utilisateur"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "Le nom d'utilisateur est requis"
+
+#: components/pages/Retire/index.tsx:118
+msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -508,7 +512,7 @@ msgstr "Aucun actif à vendre n'a été trouvé."
 msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
-#: components/ProjectCard/index.tsx:57
+#: components/ProjectCard/index.tsx:58
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "Aucune description de projet n'a été trouvée"
@@ -662,6 +666,10 @@ msgstr "Quantité listée : {listedQuantity}, Quantité non listée : {0}, Tot
 msgid "Quantity purchased:"
 msgstr "Quantité achetée :"
 
+#: components/pages/Retire/index.tsx:113
+msgid "Quick Retire"
+msgstr ""
+
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
 msgstr "RETIRER DU CARBONE"
@@ -703,7 +711,7 @@ msgstr "Retirer du marché"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retirer du marché des crédits carbone pour vous-même ou pour le compte d'une autre personne ou entreprise."
 
-#: components/pages/Retire/index.tsx:70
+#: components/pages/Retire/index.tsx:75
 msgid "Retire from a featured project"
 msgstr "Retirer du marché à partir d'un projet phare"
 
@@ -726,8 +734,8 @@ msgstr "Retirer du marché"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:33
-#: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
 msgid "Retire | Carbonmark"
 msgstr "Retirer - Carbonmark"
 
@@ -1024,11 +1032,11 @@ msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans vo
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Voir un aperçu complet du carbone numérique que vous possédez dans votre Retrait du marché."
 
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "Voir un aperçu complet du carbone numérique que vous avez retiré du marché."
 
-#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:80
 msgid "View all Projects"
 msgstr "Voir tous les Projets"
 
@@ -1082,7 +1090,7 @@ msgstr "Nous sommes encore en train de traiter votre achat. Veuillez revenir sur
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Nous n'avons pas fini de traiter les données de la blockchain pour ce retrait du marché. Cela prend généralement quelques secondes, mais peut prendre plus longtemps si le réseau est encombré."
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:86
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "Nous avons soigneusement sélectionné les meilleurs projets sur la base de critères stricts, tels que le prix, la véracité et l'impact sur l'environnement au niveau mondial."
 
@@ -1276,7 +1284,7 @@ msgstr "Vous serez redirigé vers KlimaDAO.finance pour compléter cette transac
 msgid "for"
 msgstr "pour"
 
-#: components/pages/Retire/index.tsx:47
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "pour le bénéficiaire"
 

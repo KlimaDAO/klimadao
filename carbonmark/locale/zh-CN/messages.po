@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-27 15:35+0000\n"
+"POT-Creation-Date: 2023-06-28 12:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,11 +64,11 @@ msgstr "金额为必填项"
 
 #: components/Stats/StatsBar.tsx:44
 msgid "Amount of credits from this project/vintage combination that have been retired."
-msgstr ""
+msgstr "此项目/历史减排效益组合中已停用的信用积分数量。"
 
 #: components/Stats/StatsBar.tsx:64
 msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
-msgstr ""
+msgstr "已与此项目/历史减排效益组合桥接但尚未停用的信用积分数量。"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:121
@@ -93,9 +93,9 @@ msgstr "资产详情"
 msgid "Asset ID"
 msgstr "资产编号"
 
-#: components/ProjectCard/index.tsx:42
+#: components/ProjectCard/index.tsx:43
 msgid "Available Tonnes:"
-msgstr ""
+msgstr "可用吨数："
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
@@ -192,7 +192,7 @@ msgstr "取消"
 msgid "Carbon Pool"
 msgstr "碳池"
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "碳停用"
 
@@ -285,7 +285,7 @@ msgstr "已创建："
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
-msgstr ""
+msgstr "日期"
 
 #: components/pages/Project/index.tsx:256
 msgid "Data for this project and vintage"
@@ -319,6 +319,10 @@ msgstr "显示名称"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "显示名称为必填项"
+
+#: components/pages/Retire/index.tsx:118
+msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -485,7 +489,7 @@ msgstr "新单价（USDC）"
 
 #: components/pages/Retire/Activity/Table.tsx:82
 msgid "No Activity to show."
-msgstr ""
+msgstr "无可显示活动"
 
 #: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
@@ -498,7 +502,7 @@ msgstr "无可显示的活动"
 
 #: components/pages/Retire/Activity/Overview.tsx:60
 msgid "No data to show"
-msgstr ""
+msgstr "无可显示数据"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 msgid "No listable assets found."
@@ -508,7 +512,7 @@ msgstr "未找到可列出的资产。"
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
-#: components/ProjectCard/index.tsx:57
+#: components/ProjectCard/index.tsx:58
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "未找到项目描述"
@@ -539,7 +543,7 @@ msgstr "其他基于自然的"
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECTS"
-msgstr ""
+msgstr "项目"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -644,7 +648,7 @@ msgstr "购买 {0} | Carbonmark"
 
 #: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
-msgstr ""
+msgstr "数量"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:40
@@ -663,6 +667,10 @@ msgstr "挂牌数量：{listedQuantity}，未挂牌数量：{0}，可用总量�
 #: components/pages/Purchases/index.tsx:103
 msgid "Quantity purchased:"
 msgstr "购买数量："
+
+#: components/pages/Retire/index.tsx:113
+msgid "Quick Retire"
+msgstr ""
 
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
@@ -705,9 +713,9 @@ msgstr "停用"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "为自己或代表其他人或组织停用碳信用额度。"
 
-#: components/pages/Retire/index.tsx:70
+#: components/pages/Retire/index.tsx:75
 msgid "Retire from a featured project"
-msgstr ""
+msgstr "从特色项目中停用碳"
 
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
@@ -728,14 +736,14 @@ msgstr "现在停用"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:33
-#: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
 msgid "Retire | Carbonmark"
 msgstr "碳停用 | Carbonmark"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
-msgstr ""
+msgstr "碳停用活动"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
@@ -744,7 +752,7 @@ msgstr "停用消息"
 #: components/pages/Retire/Activity/Overview.tsx:58
 #: components/pages/Retire/Activity/Overview.tsx:68
 msgid "Retirement Overview"
-msgstr ""
+msgstr "碳停用概览"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
@@ -876,11 +884,11 @@ msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonma
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
-msgstr ""
+msgstr "获取您的碳停用数据时出错。请刷新页面重试。"
 
 #: components/pages/Retire/Activity/Overview.tsx:47
 msgid "There was an error getting your total retirement data"
-msgstr ""
+msgstr "获取您的总碳停用数据时出错"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:95
 #: components/pages/Project/Retire/TotalValues.tsx:90
@@ -963,7 +971,7 @@ msgstr "总碳停用"
 
 #: components/pages/Retire/Activity/Overview.tsx:70
 msgid "Total carbon tonnes retired"
-msgstr ""
+msgstr "停用总碳吨"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:270
@@ -981,7 +989,7 @@ msgstr "待售总数量"
 
 #: components/pages/Retire/Activity/Overview.tsx:81
 msgid "Total retirement transactions"
-msgstr ""
+msgstr "停用碳交易总额"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:71
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
@@ -1026,18 +1034,18 @@ msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
-msgstr ""
+msgstr "查看您停用数字碳的完整概述。"
 
-#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:80
 msgid "View all Projects"
-msgstr ""
+msgstr "查看所有项目"
 
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:66
 msgid "View all Retirements"
-msgstr ""
+msgstr "查看所有碳停用"
 
 #: components/pages/Project/index.tsx:120
 msgid "View and purchase this carbon offset project on Carbonmark"
@@ -1058,7 +1066,7 @@ msgstr "在 PolygonScan <0/> 上查看"
 
 #: components/Stats/StatsBar.tsx:76
 msgid "View project on PolygonScan"
-msgstr ""
+msgstr "在 PolygonScan 上查看项目"
 
 #: components/pages/Purchases/index.tsx:29
 msgid "View the project details and other info for this purchase."
@@ -1084,9 +1092,9 @@ msgstr "我们仍在处理您的成功购买。请在几分钟后再次访问此
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常需要几秒钟，但如果网络拥塞，可能需要更长时间。"
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:86
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
-msgstr ""
+msgstr "我们根据价格、真实性和全球环境影响等严格标准精心归划了一些最佳项目。"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:100
 #: components/pages/Project/Retire/RetireInputs.tsx:107
@@ -1278,7 +1286,7 @@ msgstr "您将被带到 KlimaDAO.finance 界面以完成此交易。"
 msgid "for"
 msgstr "为了"
 
-#: components/pages/Retire/index.tsx:47
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "为受益人"
 
@@ -1518,7 +1526,7 @@ msgstr "碳停用"
 
 #: components/pages/Retire/Activity/Quotes.tsx:70
 msgid "retired"
-msgstr ""
+msgstr "已停用"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
@@ -1742,7 +1750,7 @@ msgstr "加载津贴时出了点问题"
 #: components/pages/Retire/Activity/Quotes.tsx:73
 #: components/pages/Retire/Activity/Table.tsx:56
 msgid "t"
-msgstr ""
+msgstr "t"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:37
 msgid "tonnes"

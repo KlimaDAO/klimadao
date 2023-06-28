@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-27 15:35+0000\n"
+"POT-Creation-Date: 2023-06-28 12:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -93,7 +93,7 @@ msgstr "Сведения об активах"
 msgid "Asset ID"
 msgstr "ID актива"
 
-#: components/ProjectCard/index.tsx:42
+#: components/ProjectCard/index.tsx:43
 msgid "Available Tonnes:"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr "Отмена"
 msgid "Carbon Pool"
 msgstr "Углеродный пул"
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "Выбивание углерода"
 
@@ -319,6 +319,10 @@ msgstr "Отображаемое имя"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "Укажите отображаемое имя."
+
+#: components/pages/Retire/index.tsx:118
+msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -508,7 +512,7 @@ msgstr "Список объектов не найден."
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
-#: components/ProjectCard/index.tsx:57
+#: components/ProjectCard/index.tsx:58
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "Описание проекта не найдено"
@@ -662,6 +666,10 @@ msgstr "Количество в списке: {listedQuantity}, количест
 msgid "Quantity purchased:"
 msgstr "Количество куплено:"
 
+#: components/pages/Retire/index.tsx:113
+msgid "Quick Retire"
+msgstr ""
+
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
 msgstr "ВЫБИВАНИЕ УГЛЕРОДА"
@@ -703,7 +711,7 @@ msgstr "Выбито"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Отмените углеродные кредиты для себя или от имени другого лица или организации."
 
-#: components/pages/Retire/index.tsx:70
+#: components/pages/Retire/index.tsx:75
 msgid "Retire from a featured project"
 msgstr ""
 
@@ -726,8 +734,8 @@ msgstr "Выбито сейчас"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:33
-#: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
 msgid "Retire | Carbonmark"
 msgstr "Выбивание | Carbonmark"
 
@@ -1024,11 +1032,11 @@ msgstr "Просмотрите полный обзор цифрового угл
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Просмотрите полный обзор цифрового углерода, которым вы владеете в Retire."
 
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:80
 msgid "View all Projects"
 msgstr ""
 
@@ -1082,7 +1090,7 @@ msgstr "Мы все еще обрабатываем вашу успешную п
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "Мы еще не закончили обработку данных блокчейна для этого вывода. Обычно это занимает несколько секунд, но может занять больше времени, если сеть перегружена."
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:86
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr ""
 
@@ -1276,7 +1284,7 @@ msgstr "Вы будете перенаправлены на KlimaDAO.finance д�
 msgid "for"
 msgstr "для"
 
-#: components/pages/Retire/index.tsx:47
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "для бенефициара"
 

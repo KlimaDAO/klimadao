@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-27 15:35+0000\n"
+"POT-Creation-Date: 2023-06-28 12:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -93,7 +93,7 @@ msgstr "Detalles del activo"
 msgid "Asset ID"
 msgstr "Identificación de activos"
 
-#: components/ProjectCard/index.tsx:42
+#: components/ProjectCard/index.tsx:43
 msgid "Available Tonnes:"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr "Cancelar"
 msgid "Carbon Pool"
 msgstr "Fondo de carbono"
 
-#: components/pages/Retire/index.tsx:42
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "Retiradas de carbono"
 
@@ -319,6 +319,10 @@ msgstr "Mostrar nombre"
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
 msgid "Display name is required"
 msgstr "Se requiere nombre para mostrar"
+
+#: components/pages/Retire/index.tsx:118
+msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -508,7 +512,7 @@ msgstr "No se han encontrado activos enumerables."
 msgid "No listings found for this project."
 msgstr "No se han encontrado anuncios para este proyecto."
 
-#: components/ProjectCard/index.tsx:57
+#: components/ProjectCard/index.tsx:58
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "No se ha encontrado descripción del proyecto"
@@ -662,6 +666,10 @@ msgstr "Cantidad listada: {listedQuantity}, Cantidad no listada: {0}, Total disp
 msgid "Quantity purchased:"
 msgstr "Cantidad comprada:"
 
+#: components/pages/Retire/index.tsx:113
+msgid "Quick Retire"
+msgstr ""
+
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
 msgstr ""
@@ -703,7 +711,7 @@ msgstr "Retirar"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire créditos de carbono para usted mismo o en nombre de otra persona u organización."
 
-#: components/pages/Retire/index.tsx:70
+#: components/pages/Retire/index.tsx:75
 msgid "Retire from a featured project"
 msgstr ""
 
@@ -726,8 +734,8 @@ msgstr "Retirar ahora"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:33
-#: components/pages/Retire/index.tsx:34
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
 msgid "Retire | Carbonmark"
 msgstr "Retirar | Carbonmark"
 
@@ -1024,11 +1032,11 @@ msgstr "Vea una visión completa del carbono digital que posee en su Portafolio.
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Vea un resumen completo del carbono digital que posee en su Retiro."
 
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:75
+#: components/pages/Retire/index.tsx:80
 msgid "View all Projects"
 msgstr ""
 
@@ -1082,7 +1090,7 @@ msgstr "Aún estamos procesando su compra. Vuelve a visitar esta página dentro 
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "No hemos terminado de procesar los datos de la blockchain para esta retirada. Esto suele tardar unos segundos, pero podría tardar más si la red está congestionada."
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:86
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr ""
 
@@ -1280,7 +1288,7 @@ msgstr "Será redirigido a KlimaDAO.finance para completar esta transacción."
 msgid "for"
 msgstr "para"
 
-#: components/pages/Retire/index.tsx:47
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "para el beneficiario"
 

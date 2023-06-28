@@ -99,7 +99,7 @@ msgstr "Asset Details"
 msgid "Asset ID"
 msgstr "Asset ID"
 
-#: components/ProjectCard/index.tsx:42
+#: components/ProjectCard/index.tsx:43
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
 
@@ -198,7 +198,7 @@ msgstr "Cancel"
 msgid "Carbon Pool"
 msgstr "Carbon Pool"
 
-#: components/pages/Retire/index.tsx:43
+#: components/pages/Retire/index.tsx:47
 msgid "Carbon Retirements"
 msgstr "Carbon Retirements"
 
@@ -326,7 +326,7 @@ msgstr "Display name"
 msgid "Display name is required"
 msgstr "Display name is required"
 
-#: components/pages/Retire/index.tsx:110
+#: components/pages/Retire/index.tsx:118
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 
@@ -518,7 +518,7 @@ msgstr "No listable assets found."
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
-#: components/ProjectCard/index.tsx:57
+#: components/ProjectCard/index.tsx:58
 #: components/pages/Projects/index.tsx:76
 msgid "No project description found"
 msgstr "No project description found"
@@ -672,7 +672,7 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total availab
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Retire/index.tsx:105
+#: components/pages/Retire/index.tsx:113
 msgid "Quick Retire"
 msgstr "Quick Retire"
 
@@ -717,7 +717,7 @@ msgstr "Retire"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire carbon credits for yourself, or on behalf of another person or organization."
 
-#: components/pages/Retire/index.tsx:71
+#: components/pages/Retire/index.tsx:75
 msgid "Retire from a featured project"
 msgstr "Retire from a featured project"
 
@@ -740,8 +740,8 @@ msgstr "Retire now"
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
-#: components/pages/Retire/index.tsx:34
-#: components/pages/Retire/index.tsx:35
+#: components/pages/Retire/index.tsx:38
+#: components/pages/Retire/index.tsx:39
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
@@ -1038,11 +1038,11 @@ msgstr "View a complete overview of the digital carbon that you own in your Port
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
-#: components/pages/Retire/index.tsx:36
+#: components/pages/Retire/index.tsx:40
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
 
-#: components/pages/Retire/index.tsx:76
+#: components/pages/Retire/index.tsx:80
 msgid "View all Projects"
 msgstr "View all Projects"
 
@@ -1096,7 +1096,7 @@ msgstr "We are still processing your successful purchase. Please visit this page
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
-#: components/pages/Retire/index.tsx:82
+#: components/pages/Retire/index.tsx:86
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 
@@ -1290,7 +1290,7 @@ msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 msgid "for"
 msgstr "for"
 
-#: components/pages/Retire/index.tsx:48
+#: components/pages/Retire/index.tsx:52
 msgid "for beneficiary"
 msgstr "for beneficiary"
 
