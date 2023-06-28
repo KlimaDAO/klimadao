@@ -37,13 +37,13 @@ export const ProjectCard: FC<Props> = (props) => {
       <div className={styles.cardContent}>
         <div className={styles.price}>
           <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
-          {project.currentSupply && (
+          {project.stats.totalSupply && (
             <div className={styles.supply}>
               <Text t="body2" color="lighter" align="end">
                 <Trans>Available Tonnes:</Trans>
                 <br />
                 {trimWithLocale(
-                  Number(project.currentSupply),
+                  Number(project.stats.totalSupply),
                   2,
                   locale || "en"
                 )}

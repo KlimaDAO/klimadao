@@ -252,7 +252,6 @@ const Page: NextPage<PageProps> = (props) => {
               totalRetired={project.stats.totalRetired}
               allListings={allListings || []}
               activeListings={activeListings || []}
-              projectAddress={project.projectAddress}
             />
             <Activities activities={project.activities || []} />
           </div>

@@ -1,3 +1,19 @@
+/** Price @klimadao/carbonmark/lib/types */
+export type Price = {
+  /** Lowercase name of pool / pool token e.g. "bct" */
+  poolName: "bct" | "nct" | "ubo" | "nbo";
+  /** Remaining supply in pool */
+  supply: string;
+  /** Address of the pool itself, e.g. bct token address */
+  poolAddress: boolean;
+  /** Address of the project token in this pool */
+  projectTokenAddress: string;
+  /** True if default project for pool and no selective redemption fee applies */
+  isPoolDefault: boolean;
+  /** formatted USDC price for 1 tonne e.g. "0.123456" */
+  singleUnitPrice: string;
+};
+
 /**
  * This interface is incomplete and subject to change in the near future.
  * More complete types and carbonmark API documentation will be published in the near future.
@@ -28,12 +44,7 @@ export interface ProjectInfo {
   /**
    * If this project is in any carbon pools, they appear in this array (unsorted)
    */
-  prices: {
-    leftToSell: string; // "377399.494465238154177015"
-    tokenAddress: string; // 0x address
-    singleUnitPrice: string; // "1.201203"
-    name: "BCT" | "NCT" | "UBO" | "NBO";
-  }[];
+  prices: Price[];
 }
 
 /**
