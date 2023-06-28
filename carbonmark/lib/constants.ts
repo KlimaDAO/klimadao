@@ -42,7 +42,7 @@ export const config = {
   networks: {
     production: "mainnet",
     preview: "mainnet",
-    development: "testnet",
+    development: "mainnet",
   },
   urls: {
     baseUrl: {
@@ -55,25 +55,22 @@ export const config = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      production: "https://api.carbonmark.com/api",
-      preview:
-        "https://klimadao-carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
-      development:
-        "https://klimadao-carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api", // set to localhost or preview link if developing API features
+      mainnet: "https://api.carbonmark.com/api",
+      testnet: "https://staging-api.carbonmark.com/api",
     },
   },
 } as const;
 
-export const DEFAULT_NETWORK = "mainnet" as "mainnet" | "testnet";
+export const DEFAULT_NETWORK = config.networks[ENVIRONMENT];
 
 export const urls = {
   api: {
-    projects: `${config.urls.api[ENVIRONMENT]}/projects`,
-    users: `${config.urls.api[ENVIRONMENT]}/users`,
-    purchases: `${config.urls.api[ENVIRONMENT]}/purchases`,
-    categories: `${config.urls.api[ENVIRONMENT]}/categories`,
-    countries: `${config.urls.api[ENVIRONMENT]}/countries`,
-    vintages: `${config.urls.api[ENVIRONMENT]}/vintages`,
+    projects: `${config.urls.api[DEFAULT_NETWORK]}/projects`,
+    users: `${config.urls.api[DEFAULT_NETWORK]}/users`,
+    purchases: `${config.urls.api[DEFAULT_NETWORK]}/purchases`,
+    categories: `${config.urls.api[DEFAULT_NETWORK]}/categories`,
+    countries: `${config.urls.api[DEFAULT_NETWORK]}/countries`,
+    vintages: `${config.urls.api[DEFAULT_NETWORK]}/vintages`,
   },
   blockExplorer: `${config.urls.blockExplorer[DEFAULT_NETWORK]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
