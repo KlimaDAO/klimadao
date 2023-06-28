@@ -55,8 +55,10 @@ export const config = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      mainnet: "https://api.carbonmark.com/api",
-      testnet: "https://staging-api.carbonmark.com/api",
+      mainnet:
+        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
+      testnet:
+        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
     },
   },
 } as const;
