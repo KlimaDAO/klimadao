@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<
     // check if price for pool exists for this project
     const poolPrice =
       !!project.prices?.length &&
-      project.prices.find((price) => price.name.toLowerCase() === poolName);
+      project.prices.find((price) => price.poolName === poolName);
 
     if (!poolPrice) {
       throw new Error("No matching pool price found");

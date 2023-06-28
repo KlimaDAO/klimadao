@@ -19,7 +19,8 @@ export interface ProjectPurchasePageProps {
 }
 
 const getIsPoolPurchase = (purchase: Price): purchase is Price =>
-  purchase.name !== undefined && isPoolToken(purchase.name.toLowerCase());
+  purchase.poolName !== undefined && isPoolToken(purchase.poolName);
+
 const getIsListingPurchase = (purchase: Listing): purchase is Listing =>
   purchase.id !== undefined;
 

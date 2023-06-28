@@ -58,3 +58,4 @@ profile*
 *flamegraph*
 .env
 .vercel
+.env*.local

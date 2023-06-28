@@ -1,22 +1,19 @@
 "use strict";
+import { fetchMarketplaceListings } from "../helpers/fetchMarketplaceListings";
+import { fetchPoolPricesAndStats } from "../helpers/fetchPoolPricesAndStats";
+import { fetchProjectDetails } from "../helpers/fetchProjectDetails";
 const { executeGraphQLQuery } = require("../apollo-client.js");
 const { GET_PROJECTS } = require("../queries/projects.js");
-const fetch = require("node-fetch");
-const { GET_PROJECT_BY_ID } = require("../queries/project_id.js");
 const { POOLED_PROJECTS } = require("../queries/pooled_projects");
-const { POOL_PROJECTS } = require("../queries/pool_project.js");
 const {
   getAllVintages,
   getAllCategories,
   getAllCountries,
   calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,
-  calculateProjectPoolPrices,
 } = require("../helpers/utils.js");
 const { getSanityClient } = require("../sanity.js");
-const { fetchProjects, fetchAllProjects } = require("../sanity/queries.js");
-const { GET_TOKEN_ADDRESS } = require("../queries/token_address.js");
-const { defaultPoolProjectTokens } = require("../constants/constants.js");
+const { fetchAllProjects } = require("../sanity/queries.js");
 
 module.exports = async function (fastify, opts) {
   // @TODO: merge with other projects from the poooool
@@ -322,251 +319,48 @@ module.exports = async function (fastify, opts) {
       },
       handler: async function (request, reply) {
         var { id } = request.params;
-        var projectId = id.split("-");
-        var key = `${projectId[0]}-${projectId[1]}`;
-        var vintageStr = projectId[2];
-        var poolProject;
+        const [registryParam, registryProjectId, vintage] = id.split("-");
+        const registry = registryParam.toUpperCase();
+        const key = `${registry}-${registryProjectId}`;
 
-        const [poolPrices, c3TokenAddress, tco2TokenAddress] =
+        const [[poolPrices, stats], [listings, activities], projectDetails] =
           await Promise.all([
-            calculatePoolPrices(fastify),
-            executeGraphQLQuery(
-              process.env.ASSETS_GRAPH_API_URL,
-              GET_TOKEN_ADDRESS,
-              { symbol: `C3T-${key}-${vintageStr}` }
-            ),
-            executeGraphQLQuery(
-              process.env.ASSETS_GRAPH_API_URL,
-              GET_TOKEN_ADDRESS,
-              { symbol: `TCO2-${key}-${vintageStr}` }
-            ),
+            fetchPoolPricesAndStats({ key, vintage }),
+            fetchMarketplaceListings({ key, vintage, fastify }),
+            fetchProjectDetails({
+              registry: registry.toUpperCase(),
+              registryProjectId,
+            }),
           ]);
+        if (!projectDetails) {
+          // only render pages if project details exist (render even if there are no listings!)
+          return reply.notFound();
+        }
 
-        var uniqueValues = [];
-        var prices = [];
-        var data = await executeGraphQLQuery(
-          process.env.GRAPH_API_URL,
-          GET_PROJECT_BY_ID,
-          { key: key, vintageStr: vintageStr }
+        const poolPriceValues = poolPrices.map((p) =>
+          Number(p.singleUnitPrice)
         );
-        var project = undefined;
-        if (data.data.projects[0]) {
-          project = { ...data.data.projects[0] };
+        const listingPriceValues = listings.map((l) =>
+          Number(l.singleUnitPrice)
+        );
 
-          var project = { ...data.data.projects[0] };
+        const bestPrice =
+          [
+            ...poolPriceValues, // these are already formatted as usd numbers
+            ...listingPriceValues,
+          ].sort((a, b) => a - b)[0] || 0;
 
-          if (project.listings.length) {
-            const listings = project.listings.map((item) => ({
-              ...item,
-              selected: false,
-            }));
-
-            project.listings.forEach((item) => {
-              if (
-                !/^0+$/.test(item.leftToSell) &&
-                item.active != false &&
-                item.deleted != true
-              ) {
-                uniqueValues.push(item.singleUnitPrice);
-              }
-            });
-
-            await Promise.all(
-              listings.map(async (listing) => {
-                const seller = await fastify.firebase
-                  .firestore()
-                  .collection("users")
-                  .doc(listing.seller.id.toUpperCase())
-                  .get();
-                listing.seller = { ...seller.data(), ...listing.seller };
-              })
-            );
-            project.listings = listings;
-          }
-          data = await executeGraphQLQuery(
-            process.env.CARBON_OFFSETS_GRAPH_API_URL,
-            POOL_PROJECTS,
-            { key: key, vintageStr: vintageStr }
-          );
-          if (data.data.carbonOffsets[0]) {
-            let poolProject = { ...data.data.carbonOffsets[0] };
-            project.isPoolProject = true;
-            project.totalBridged = poolProject.totalBridged;
-            project.totalRetired = poolProject.totalRetired;
-            project.currentSupply = poolProject.currentSupply;
-
-            var prices = [];
-            data.data.carbonOffsets.map(function (carbonProject) {
-              [uniqueValues, prices] = calculateProjectPoolPrices(
-                carbonProject,
-                uniqueValues,
-                poolPrices,
-                prices
-              );
-            });
-            project.prices = prices;
-          } else {
-            project.totalBridged = null;
-            project.totalRetired = null;
-            project.currentSupply = null;
-          }
-        } else {
-          var data = await executeGraphQLQuery(
-            process.env.CARBON_OFFSETS_GRAPH_API_URL,
-            POOL_PROJECTS,
-            { key: key, vintageStr: vintageStr }
-          );
-
-          if (data.data.carbonOffsets[0]) {
-            poolProject = data.data.carbonOffsets[0];
-            project = { ...data.data.carbonOffsets[0] };
-            let country = project.country.length
-              ? {
-                  id: project.country,
-                }
-              : null;
-
-            project = {
-              id: project.id,
-              isPoolProject: true,
-              key: project.projectID,
-              projectID: project.projectID.split("-")[1],
-              name: project.name,
-              methodology: project.methodology,
-              vintage: project.vintageYear,
-              projectAddress: project.tokenAddress,
-              registry: project.projectID.split("-")[0],
-              updatedAt: project.lastUpdate,
-              category: {
-                id: project.methodologyCategory,
-              },
-              country: country,
-              activities: null,
-              listings: null,
-              totalBridged: project.totalBridged,
-              totalRetired: project.totalRetired,
-              currentSupply: project.currentSupply,
-            };
-
-            project.prices = [];
-            prices = [];
-            if (data.data.carbonOffsets && data.data.carbonOffsets.length) {
-              data.data.carbonOffsets.map(function (carbonProject) {
-                [uniqueValues, prices] = calculateProjectPoolPrices(
-                  carbonProject,
-                  uniqueValues,
-                  poolPrices,
-                  prices
-                );
-              });
-              project.prices = prices;
-            }
-          }
-        }
-
-        if (project) {
-          if (project.registry == "VCS") {
-            const sanity = getSanityClient();
-
-            const params = {
-              registry: project.registry,
-              registryProjectId: projectId[1],
-            };
-
-            const results = await sanity.fetch(fetchProjects, params);
-            project.description = results.description ?? undefined;
-            project.location = results.geolocation ?? undefined;
-            project.name = results.name;
-            project.methodologies = results.methodologies;
-
-            project.images = results.projectContent
-              ? results.projectContent.images
-              : [];
-            project.long_description = results.projectContent
-              ? results.projectContent.longDescription
-              : undefined;
-
-            project.url = results.url;
-          } else if (project.registry == "GS") {
-            var results = await fetch(
-              `https://api.goldstandard.org/projects/${id[1]}`
-            );
-            results = JSON.parse(await results.text());
-            project.description = results.description;
-            project.location = null;
-          }
-
-          project.price = uniqueValues.length
-            ? uniqueValues.reduce((a, b) =>
-                a.length < b.length ? a : a.length === b.length && a < b ? a : b
-              )
-            : "0";
-
-          if (project.activities) {
-            const activities = project.activities;
-
-            await Promise.all(
-              activities.map(async (actvity) => {
-                if (actvity.activityType != "Sold") {
-                  const seller = await fastify.firebase
-                    .firestore()
-                    .collection("users")
-                    .doc(actvity.seller.id.toUpperCase())
-                    .get();
-                  if (seller.exists) {
-                    actvity.seller.handle = seller.data().handle;
-                  }
-                  if (actvity.buyer) {
-                    const buyer = await fastify.firebase
-                      .firestore()
-                      .collection("users")
-                      .doc(actvity.buyer.id.toUpperCase())
-                      .get();
-                    if (buyer.exists) {
-                      actvity.buyer.handle = buyer.data().handle;
-                    }
-                  }
-                }
-              })
-            );
-            project.activities = activities.filter(
-              (activity) => activity.activityType !== "Sold"
-            );
-          }
-
-          project.prices.map(function (price) {
-            if (price.name == "NBO" || price.name == "UBO") {
-              price.poolTokenAddress =
-                c3TokenAddress.data && c3TokenAddress.data.tokens.length
-                  ? c3TokenAddress.data.tokens[0].id
-                  : undefined;
-              if (price.name == "NBO") {
-                price.isPoolDefault =
-                  price.poolTokenAddress == defaultPoolProjectTokens.nbo;
-              } else if (price.name == "UBO") {
-                price.isPoolDefault =
-                  price.poolTokenAddress == defaultPoolProjectTokens.ubo;
-              }
-            } else {
-              price.poolTokenAddress =
-                tco2TokenAddress.data && tco2TokenAddress.data.tokens.length
-                  ? tco2TokenAddress.data.tokens[0].id
-                  : undefined;
-              if (price.name == "BCT") {
-                price.isPoolDefault =
-                  price.poolTokenAddress === defaultPoolProjectTokens.bct;
-              } else if (price.name == "NCT") {
-                price.isPoolDefault =
-                  price.poolTokenAddress == defaultPoolProjectTokens.nct;
-              }
-            }
-
-            return price;
-          });
-
-          return reply.send(JSON.stringify(project));
-        }
-        return reply.notFound();
+        const projectResponse = {
+          ...projectDetails,
+          stats,
+          prices: poolPrices,
+          listings,
+          activities,
+          price: parseFloat(bestPrice).toString(), // remove trailing zeros
+          isPoolProject: !!poolPrices.length,
+          vintage,
+        };
+        return reply.send(JSON.stringify(projectResponse));
       },
     });
 };

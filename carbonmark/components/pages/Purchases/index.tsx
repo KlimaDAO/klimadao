@@ -134,7 +134,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                         </Link>
                       </Text>
                       <Text t="body1">
-                        {props.purchase.listing.project.country?.id}
+                        {props.purchase.listing.project.country}
                       </Text>
                     </div>
                     <CarbonmarkButton

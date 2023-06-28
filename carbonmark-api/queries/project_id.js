@@ -15,7 +15,6 @@ const GET_PROJECT_BY_ID = gql`
       }
       listings {
         id
-        seller
         totalAmountToSell
         leftToSell
         tokenAddress

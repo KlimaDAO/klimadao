@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { PoolToken } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -24,7 +23,7 @@ type TotalValuesProps = {
 };
 
 // SAME DOUBLED FOR BCT WHEN REDEEM ???
-const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
+const getSwapFee = (costs: number, pool: Lowercase<Price["poolName"]>) => {
   const singleSwap = costs * SUSHI_SWAP_FEE;
   if (pool === "bct") {
     return singleSwap * 2;
@@ -34,7 +33,7 @@ const getSwapFee = (costs: number, pool: Lowercase<Price["name"]>) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
-  const poolName = props.price.name.toLowerCase() as PoolToken;
+  const poolName = props.price.poolName;
   const isPoolDefault = props.price.isPoolDefault;
 
   const { locale } = useRouter();
@@ -254,7 +253,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
-                  {props.price.name} {t`redemption Fee`}
+                  {props.price.poolName} {t`redemption Fee`}
                 </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}

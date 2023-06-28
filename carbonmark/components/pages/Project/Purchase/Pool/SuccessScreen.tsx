@@ -1,3 +1,4 @@
+import { PoolToken } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -25,7 +26,9 @@ type Props = {
 };
 
 export const SuccessScreen: FC<Props> = (props) => {
-  const tokenType = getPoolTokenType(props.price.name);
+  const tokenType = getPoolTokenType(
+    props.price.poolName.toUpperCase() as Uppercase<PoolToken>
+  );
   const tokenData = carbonTokenInfoMap[tokenType];
   const projectTokenName = createProjectTokenName(props.project, tokenType);
 

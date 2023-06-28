@@ -17,8 +17,8 @@ export const createSellerLink = (handle: string) => `/users/${handle}`;
 
 export const createProjectPoolRetireLink = (
   project: ProjectData,
-  pool: Price["name"] | Lowercase<Price["name"]>
-) => `${createProjectLink(project)}/retire/pools/${pool.toLowerCase()}`;
+  pool: Price["poolName"] | Lowercase<Price["poolName"]>
+) => `${createProjectLink(project)}/retire/pools/${pool}`;
 
 /**
  * @example

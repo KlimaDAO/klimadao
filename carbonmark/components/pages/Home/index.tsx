@@ -32,7 +32,7 @@ import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -135,8 +135,7 @@ export const Home: NextPage<Props> = (props) => {
                     </div>
                     <div className={styles.cardContent}>
                       <Text t="body3" as="h4">
-                        {project?.price &&
-                          formatBigToPrice(project.price, locale)}
+                        {formatToPrice(project.price, locale, true)}
                       </Text>
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">

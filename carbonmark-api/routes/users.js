@@ -1,4 +1,5 @@
 "use strict";
+import { utils } from "ethers";
 const { executeGraphQLQuery } = require("../apollo-client.js");
 const { GET_USER_DATA } = require("../queries/users.js");
 const ethers = require("ethers");
@@ -240,11 +241,25 @@ module.exports = async function (fastify, opts) {
               }
             })
           );
+          const formattedActivities = data.data.users[0].activities.map(
+            (act) => {
+              return {
+                ...act,
+                amount: act.amount ? utils.formatUnits(act.amount, 18) : null,
+                previousAmount: act.previousAmount
+                  ? utils.formatUnits(act.previousAmount, 18)
+                  : null,
+                price: act.price ? utils.formatUnits(act.price, 6) : null,
+                previousPrice: act.previousPrice
+                  ? utils.formatUnits(act.previousPrice, 6)
+                  : null,
+              };
+            }
+          );
           // Add the modified listings array to the response object
           response.listings = listings;
-          // Add the activities array from
           // Add the activities array from the data to the response object
-          response.activities = data.data.users[0].activities;
+          response.activities = formattedActivities;
           // Add a fixed array of assets to the response object
           // response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
         } else {

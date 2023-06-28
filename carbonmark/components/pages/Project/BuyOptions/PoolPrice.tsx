@@ -35,10 +35,9 @@ export const PoolPrice: FC<Props> = (props) => {
         )}
       </div>
       <Text t="h4">{formatToPrice(props.price.singleUnitPrice)}</Text>
-      <Text t="body1">{props.price.name}</Text>
+      <Text t="body1">{props.price.poolName.toUpperCase()}</Text>
       <Text t="body1">
-        <Trans>Quantity Available:</Trans>{" "}
-        {formatToTonnes(props.price.leftToSell)}
+        <Trans>Quantity Available:</Trans> {formatToTonnes(props.price.supply)}
       </Text>
       <div className={styles.buttons}>
         <ButtonPrimary
@@ -48,8 +47,8 @@ export const PoolPrice: FC<Props> = (props) => {
             setIsOpen(true);
             setRetireLink(
               createRedeemLink({
-                projectTokenAddress: props.project.projectAddress,
-                poolName: props.price.name.toLowerCase(),
+                projectTokenAddress: props.price.projectTokenAddress,
+                poolName: props.price.poolName,
               })
             );
           }}
@@ -61,8 +60,8 @@ export const PoolPrice: FC<Props> = (props) => {
             setIsOpen(true);
             setRetireLink(
               createRetireLink({
-                retirementToken: props.price.name.toLowerCase(),
-                projectTokens: props.project.projectAddress,
+                retirementToken: props.price.poolName,
+                projectTokens: props.price.projectTokenAddress,
               })
             );
           }}
