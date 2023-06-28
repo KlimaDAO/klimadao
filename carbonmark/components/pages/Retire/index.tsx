@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
@@ -8,6 +9,8 @@ import { PageHead } from "components/PageHead";
 import { ProjectCard } from "components/ProjectCard";
 import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
+import { createProjectPoolRetireLink } from "lib/createUrls";
+import { getDefaultPoolFromPrices } from "lib/getPoolData";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -16,10 +19,12 @@ import * as styles from "./styles";
 
 export type PageProps = {
   featuredProjects: Project[];
+  defaultProjects: Project[];
 };
 
 export const Retire: NextPage<PageProps> = (props) => {
   const { isConnected, address } = useWeb3();
+  const isConnectedUser = !!address && isConnected;
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
 
@@ -41,7 +46,7 @@ export const Retire: NextPage<PageProps> = (props) => {
             <Text t="h2">
               <Trans>Carbon Retirements</Trans>
             </Text>
-            {address && isConnected && (
+            {isConnectedUser && (
               <div className={styles.beneficiary}>
                 <Text t="body4">
                   <Trans>for beneficiary</Trans>{" "}
@@ -62,7 +67,7 @@ export const Retire: NextPage<PageProps> = (props) => {
           <RetireActivity />
         </div>
 
-        <div className={styles.fullWhite}>
+        <div className={cx(styles.fullWidth, "whiteBG")}>
           <div className={styles.content}>
             <div className={styles.cardsHeader}>
               <Text t="h4" className={styles.textWithIcon}>
@@ -93,6 +98,45 @@ export const Retire: NextPage<PageProps> = (props) => {
                   className={styles.featuredCard}
                 />
               ))}
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={cx(styles.fullWidth, {
+            whiteBG: isConnectedUser,
+          })}
+        >
+          <div className={styles.content}>
+            <div className={styles.cardsHeader}>
+              <Text t="h4" className={styles.textWithIcon}>
+                <Trans>Quick Retire</Trans>
+              </Text>
+            </div>
+
+            <Text className={styles.cardsDescription}>
+              <Trans>
+                Don’t want to go through the trouble of searching and selecting
+                a project to retire? Here’s a list of discount retirements from
+                trusted vendors.
+              </Trans>
+            </Text>
+
+            <div className={styles.cardsList}>
+              {props.defaultProjects.map((p) => {
+                if (p.isPoolProject && !!p.prices)
+                  return (
+                    <ProjectCard
+                      key={p.id}
+                      project={p}
+                      url={createProjectPoolRetireLink(
+                        p,
+                        getDefaultPoolFromPrices(p.prices)?.name || "BCT" // typeguard
+                      )}
+                    />
+                  );
+                return null;
+              })}
             </div>
           </div>
         </div>

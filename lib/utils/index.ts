@@ -10,6 +10,11 @@ export {
   getTokensFromSpender,
 } from "./getAllowance";
 export { getContract } from "./getContract";
+export {
+  defaultProjects,
+  getPoolNameFromAddress,
+  isDefaultProjectAddress,
+} from "./getDefaultProjects";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
