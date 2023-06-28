@@ -6,7 +6,7 @@ import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { CategoryName, Methodology, Project } from "lib/types/carbonmark";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export const ProjectCard: FC<Props> = (props) => {
       </div>
       <div className={styles.cardContent}>
         <div className={styles.price}>
-          <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
+          <Text t="h4">{formatToPrice(project.price, locale)}</Text>
           {project.stats.totalSupply && (
             <div className={styles.supply}>
               <Text t="body2" color="lighter" align="end">
