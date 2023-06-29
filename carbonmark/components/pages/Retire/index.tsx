@@ -70,26 +70,27 @@ export const Retire: NextPage<PageProps> = (props) => {
 
         <div className={cx(styles.fullWidth, "whiteBG")}>
           <div className={styles.content}>
-            <div className={styles.cardsHeader}>
-              <Text t="h4" className={styles.textWithIcon}>
-                <LocalPoliceIcon className="featured" fontSize="inherit" />
-                <Trans>Retire from a featured project</Trans>
-              </Text>
-
-              <Link href="/projects">
-                <Text t="body4" className={styles.textLink}>
-                  <Trans>View all Projects</Trans>
+            <div className={styles.sectionTitle}>
+              <div className={styles.cardsHeader}>
+                <Text t="h4" className={styles.textWithIcon}>
+                  <LocalPoliceIcon className="featured" fontSize="inherit" />
+                  <Trans>Retire from a featured project</Trans>
                 </Text>
-              </Link>
-            </div>
 
-            <Text className={styles.cardsDescription}>
-              <Trans>
-                We’ve hand-curated some of the best projects based on strict
-                criteria, such as price, veracity, and global environmental
-                impact.
-              </Trans>
-            </Text>
+                <Link href="/projects">
+                  <Text t="body4" className={styles.textLink}>
+                    <Trans>View all Projects</Trans>
+                  </Text>
+                </Link>
+              </div>
+              <Text className={styles.cardsDescription}>
+                <Trans>
+                  We’ve hand-curated some of the best projects based on strict
+                  criteria, such as price, veracity, and global environmental
+                  impact.
+                </Trans>
+              </Text>
+            </div>
 
             <div className={styles.cardsList}>
               {props.featuredProjects.map((p) => (
@@ -105,22 +106,23 @@ export const Retire: NextPage<PageProps> = (props) => {
 
         {isConnectedUser && (
           <div className={styles.content}>
-            <div className={styles.cardsHeader}>
-              <Text t="h4">
-                <Trans>Retire from your portfolio</Trans>
-              </Text>
-              <Link href="/portfolio">
-                <Text t="body4" className={styles.textLink}>
-                  <Trans>View all Portfolio items</Trans>
+            <div className={styles.sectionTitle}>
+              <div className={styles.cardsHeader}>
+                <Text t="h4">
+                  <Trans>Retire from your portfolio</Trans>
                 </Text>
-              </Link>
+                <Link href="/portfolio">
+                  <Text t="body4" className={styles.textLink}>
+                    <Trans>View all Portfolio items</Trans>
+                  </Text>
+                </Link>
+              </div>
+              <Text className={styles.cardsDescription}>
+                <Trans>
+                  You can also retire any carbon asset in your wallet.
+                </Trans>
+              </Text>
             </div>
-            <Text className={styles.cardsDescription}>
-              <Trans>
-                You can also retire any carbon asset in your wallet.
-              </Trans>
-            </Text>
-
             <RetireFromPortfolio address={address} />
           </div>
         )}
@@ -131,19 +133,21 @@ export const Retire: NextPage<PageProps> = (props) => {
           })}
         >
           <div className={styles.content}>
-            <div className={styles.cardsHeader}>
-              <Text t="h4" className={styles.textWithIcon}>
-                <Trans>Quick Retire</Trans>
+            <div className={styles.sectionTitle}>
+              <div className={styles.cardsHeader}>
+                <Text t="h4" className={styles.textWithIcon}>
+                  <Trans>Quick Retire</Trans>
+                </Text>
+              </div>
+
+              <Text className={styles.cardsDescription}>
+                <Trans>
+                  Don’t want to go through the trouble of searching and
+                  selecting a project to retire? Here’s a list of discount
+                  retirements from trusted vendors.
+                </Trans>
               </Text>
             </div>
-
-            <Text className={styles.cardsDescription}>
-              <Trans>
-                Don’t want to go through the trouble of searching and selecting
-                a project to retire? Here’s a list of discount retirements from
-                trusted vendors.
-              </Trans>
-            </Text>
 
             <div className={styles.cardsList}>
               {props.defaultProjects.map((p) => {
