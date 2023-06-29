@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
 import { trimWithLocale } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Text } from "components/Text";
@@ -250,7 +250,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
-                  {props.price.poolName} {t`redemption Fee`}
+                  <Trans>Pool Redemption Fee</Trans>
                 </Text>
                 <Text t="body2">
                   {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}

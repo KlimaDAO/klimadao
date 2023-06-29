@@ -5,10 +5,11 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
 import { ExitModal } from "components/ExitModal";
 import { Text } from "components/Text";
-import { createRedeemLink, createRetireLink } from "lib/createUrls";
+import { createProjectPoolRetireLink, createRedeemLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
+import Link from "next/link";
 import { FC, useState } from "react";
 import * as styles from "./styles";
 
@@ -42,6 +43,7 @@ export const PoolPrice: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={t`Buy`}
+          renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {
             LO.track("Purchase - Pool: Buy Clicked");
             setIsOpen(true);
@@ -55,15 +57,13 @@ export const PoolPrice: FC<Props> = (props) => {
         />
         <CarbonmarkButton
           label={t`Retire now`}
+          href={createProjectPoolRetireLink(
+            props.project,
+            props.price.poolName
+          )}
+          renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {
             LO.track("Retire - Pool: Retire Button Clicked");
-            setIsOpen(true);
-            setRetireLink(
-              createRetireLink({
-                retirementToken: props.price.poolName,
-                projectTokens: props.price.projectTokenAddress,
-              })
-            );
           }}
         />
       </div>
