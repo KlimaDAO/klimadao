@@ -108,6 +108,7 @@ msgid "Asset ID"
 msgstr "Asset ID"
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
 
@@ -376,7 +377,7 @@ msgstr "Display name"
 msgid "Display name is required"
 msgstr "Display name is required"
 
-#: components/pages/Retire/index.tsx:141
+#: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 
@@ -782,7 +783,6 @@ msgstr "QTY"
 #: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
-#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
 
@@ -798,7 +798,7 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total availab
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Retire/index.tsx:136
+#: components/pages/Retire/index.tsx:139
 msgid "Quick Retire"
 msgstr "Quick Retire"
 
@@ -864,11 +864,11 @@ msgstr "Retire"
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "Retire carbon credits for yourself, or on behalf of another person or organization."
 
-#: components/pages/Retire/index.tsx:76
+#: components/pages/Retire/index.tsx:77
 msgid "Retire from a featured project"
 msgstr "Retire from a featured project"
 
-#: components/pages/Retire/index.tsx:110
+#: components/pages/Retire/index.tsx:112
 msgid "Retire from your portfolio"
 msgstr "Retire from your portfolio"
 
@@ -1234,11 +1234,11 @@ msgstr "View a complete overview of the digital carbon that you own in your Reti
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
 
-#: components/pages/Retire/index.tsx:114
+#: components/pages/Retire/index.tsx:116
 msgid "View all Portfolio items"
 msgstr "View all Portfolio items"
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:82
 msgid "View all Projects"
 msgstr "View all Projects"
 
@@ -1319,7 +1319,7 @@ msgstr "You are about to purchase a carbon asset."
 msgid "You are about to retire a carbon asset."
 msgstr "You are about to retire a carbon asset."
 
-#: components/pages/Retire/index.tsx:119
+#: components/pages/Retire/index.tsx:121
 msgid "You can also retire any carbon asset in your wallet."
 msgstr "You can also retire any carbon asset in your wallet."
 

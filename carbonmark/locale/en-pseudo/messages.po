@@ -102,6 +102,7 @@ msgid "Asset ID"
 msgstr ""
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr ""
 
@@ -370,7 +371,7 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:141
+#: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr ""
 
@@ -776,7 +777,6 @@ msgstr ""
 #: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
-#: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Quantity Available:"
 msgstr ""
 
@@ -792,7 +792,7 @@ msgstr ""
 msgid "Quantity purchased:"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:136
+#: components/pages/Retire/index.tsx:139
 msgid "Quick Retire"
 msgstr ""
 
@@ -858,11 +858,11 @@ msgstr ""
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:76
+#: components/pages/Retire/index.tsx:77
 msgid "Retire from a featured project"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:110
+#: components/pages/Retire/index.tsx:112
 msgid "Retire from your portfolio"
 msgstr ""
 
@@ -1228,11 +1228,11 @@ msgstr ""
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:114
+#: components/pages/Retire/index.tsx:116
 msgid "View all Portfolio items"
 msgstr ""
 
-#: components/pages/Retire/index.tsx:81
+#: components/pages/Retire/index.tsx:82
 msgid "View all Projects"
 msgstr ""
 
@@ -1313,7 +1313,7 @@ msgstr ""
 msgid "You are about to retire a carbon asset."
 msgstr ""
 
-#: components/pages/Retire/index.tsx:119
+#: components/pages/Retire/index.tsx:121
 msgid "You can also retire any carbon asset in your wallet."
 msgstr ""
 
