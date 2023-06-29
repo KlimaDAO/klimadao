@@ -56,9 +56,9 @@ export const config = {
     },
     api: {
       mainnet:
-        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
+        "https://api.carbonmark.com/api",
       testnet:
-        "https://carbonmark-api-git-atmos-fix-pricing-klimadao.vercel.app/api",
+        "https://api.carbonmark.com/api",
     },
   },
 } as const;
