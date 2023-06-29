@@ -35,7 +35,7 @@ export const image = css`
 
 export const tags = css`
   display: flex;
-  gap: 1.6rem;
+  gap: 0.8rem;
   flex-direction: row;
 `;
 
