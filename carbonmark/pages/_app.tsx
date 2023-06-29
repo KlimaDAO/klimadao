@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Web3ContextProvider>
         <UserTracker>
-          <I18nProvider i18n={i18n}>
+          <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
             <Component {...pageProps} />
           </I18nProvider>
         </UserTracker>

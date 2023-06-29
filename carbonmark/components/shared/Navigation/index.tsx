@@ -1,5 +1,6 @@
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { HeaderDesktop } from "components/shared/Header/HeaderDesktop";
 import { urls } from "lib/constants";
 import dynamic from "next/dynamic";
@@ -46,11 +47,11 @@ export const Navigation: FC<Props> = ({
       <HeaderDesktop
         transparent={transparent}
         buttons={[
-          // <ChangeLanguageButton key="ChangeLanguageButton" />,
+          <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
             key="Browse Projects"
-            label={t`Browse Projects`}
+            label={<Trans>Browse Projects</Trans>}
             href="/projects"
             className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
@@ -91,7 +92,7 @@ export const Navigation: FC<Props> = ({
       </HeaderDesktop>
 
       <HeaderMobile
-      // buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
+        buttons={[<ChangeLanguageButton key="ChangeLanguageButton" />]}
       >
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">

@@ -104,7 +104,6 @@ export const navMain_Buttons = css`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
 
   ${breakpoints.desktop} {
     button,
