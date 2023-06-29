@@ -55,10 +55,8 @@ export const config = {
       testnet: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      mainnet:
-        "https://api.carbonmark.com/api",
-      testnet:
-        "https://api.carbonmark.com/api",
+      mainnet: "https://api.carbonmark.com/api",
+      testnet: "https://api.carbonmark.com/api",
     },
   },
 } as const;
