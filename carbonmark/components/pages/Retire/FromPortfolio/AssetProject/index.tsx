@@ -43,8 +43,8 @@ export const AssetProject: FC<Props> = (props) => {
         </div>
 
         <Text t="body1">
-          <Trans>Quantity Available:</Trans>{" "}
-          {formatToTonnes(props.asset.balance, locale)}
+          <Trans>Available Tonnes:</Trans>{" "}
+          <b>{formatToTonnes(props.asset.balance, locale)}</b>
         </Text>
       </div>
     </Link>
