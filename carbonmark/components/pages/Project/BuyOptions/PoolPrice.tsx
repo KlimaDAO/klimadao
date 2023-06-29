@@ -3,14 +3,16 @@ import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
-import { ExitModal } from "components/ExitModal";
 import { Text } from "components/Text";
-import { createProjectPoolRetireLink, createRedeemLink } from "lib/createUrls";
+import {
+  createProjectPoolPurchaseLink,
+  createProjectPoolRetireLink,
+} from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { PriceFlagged, Project } from "lib/types/carbonmark";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
@@ -20,8 +22,6 @@ type Props = {
 };
 
 export const PoolPrice: FC<Props> = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [retireLink, setRetireLink] = useState("");
   return (
     <Card>
       <div className={styles.sellerInfo}>
@@ -46,14 +46,11 @@ export const PoolPrice: FC<Props> = (props) => {
           renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {
             LO.track("Purchase - Pool: Buy Clicked");
-            setIsOpen(true);
-            setRetireLink(
-              createRedeemLink({
-                projectTokenAddress: props.price.projectTokenAddress,
-                poolName: props.price.poolName,
-              })
-            );
           }}
+          href={createProjectPoolPurchaseLink(
+            props.project,
+            props.price.poolName
+          )}
         />
         <CarbonmarkButton
           label={t`Retire now`}
@@ -67,12 +64,6 @@ export const PoolPrice: FC<Props> = (props) => {
           }}
         />
       </div>
-      <ExitModal
-        showModal={isOpen}
-        title={t`Leaving Carbonmark`}
-        retireLink={retireLink}
-        onToggleModal={() => setIsOpen(false)}
-      />
     </Card>
   );
 };
