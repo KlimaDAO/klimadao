@@ -14,7 +14,7 @@
 
 ### Built With
 
-- [Fastify](https://fastify.io)
+- [Fastify](https://fastify.dev)
 - [Vercel](https://vercel.com)
 - [Firebase](https://firebase.google.com)
 - [Apollo](https://www.apollographql.com/)

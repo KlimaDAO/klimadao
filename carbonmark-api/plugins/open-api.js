@@ -9,7 +9,7 @@ Since fastify-openapi-docs uses an onRoute hook, you have to either:
 * use `await register...`
 * wrap you routes definitions in a plugin
 
-See: https://www.fastify.io/docs/latest/Guides/Migration-Guide-V4/#synchronous-route-definitions
+See: https://fastify.dev/docs/latest/Guides/Migration-Guide-V4/#synchronous-route-definitions
 */
 module.exports = fp(async function (fastify, opts) {
   fastify.register(require("@fastify/swagger"), {
