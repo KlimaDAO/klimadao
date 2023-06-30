@@ -3,12 +3,11 @@ import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
 import { join } from "path";
 
-const result = dotenv.config();
+// This is not pretty but we need to reference the env file at the root of the monorepo
+const result = dotenv.config({ path: "../.env.local" });
 
 if (result.error) {
-  console.warn(
-    "Error loading .env file in app.ts, (note: if you are running the api via `vercel dev` this is a non-issue)"
-  );
+  console.error("Error loading .env file", result.error);
 }
 
 export type AppOptions = {
