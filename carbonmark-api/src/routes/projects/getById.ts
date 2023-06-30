@@ -1,4 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import fetch from "node-fetch";
 import {
   calculatePoolPrices,
   calculateProjectPoolPrices,
