@@ -27,7 +27,6 @@
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
     "dev-cms": "cd ./cms && npm run start",
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev --workspace=carbonmark\"",
-    "dev-carbonmark-api": "npm run dev --workspace=carbonmark-api-ts",
     "deploy-cms": "cd ./cms && npm run deploy",
     "lint-all": "npm run lint --workspaces",
     "format-all": "prettier --write ./",
