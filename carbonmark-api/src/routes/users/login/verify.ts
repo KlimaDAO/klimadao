@@ -37,7 +37,7 @@ const handler = (fastify: FastifyInstance) =>
     const dbUser = users[wallet];
 
     // Create the signed message to verify
-    const signedMessage = `Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ${dbUser.nonce}`;
+    const signedMessage = process.env.AUTHENTICATION_MESSAGE + dbUser.nonce;
 
     // Verify the signature
     const signerWalletAddress = ethers.utils.verifyMessage(
@@ -49,7 +49,7 @@ const handler = (fastify: FastifyInstance) =>
     if (
       signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()
     ) {
-      return reply.code(401).send("Unauthorized: Invalid signature");
+      return reply.code(401).send(`Unauthorized: Invalid signature`);
     }
 
     // Create a JWT token for the user
