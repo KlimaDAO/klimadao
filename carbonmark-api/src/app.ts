@@ -6,7 +6,9 @@ import { join } from "path";
 const result = dotenv.config();
 
 if (result.error) {
-  console.error("Error loading .env file:", result.error);
+  console.warn(
+    "Error loading .env file in app.ts, (note: if you are running the api via `vercel dev` this is a non-issue)"
+  );
 }
 
 export type AppOptions = {
