@@ -64,4 +64,4 @@ test/types/index.js
 # compiled app
 dist
 .vercel
-.env
+.env*.local

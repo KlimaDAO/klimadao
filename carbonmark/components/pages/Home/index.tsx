@@ -32,7 +32,7 @@ import { Vintage } from "components/Vintage";
 import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -65,16 +65,18 @@ export const Home: NextPage<Props> = (props) => {
         <Navigation transparent activePage="Home" />
         <div className={cx(["stack", styles.heroBackground])}>
           <Text t="h1" as="h1">
-            The Universal Carbon Marketplace
+            <Trans>The Universal Carbon Marketplace</Trans>
           </Text>
           <Text t="body1" as="h2">
-            The largest selection of digital carbon credits worldwide. Buy,
-            sell, and retire digital carbon from any project instantly with
-            zero-commission trading.
+            <Trans>
+              The largest selection of digital carbon credits worldwide. Buy,
+              sell, and retire digital carbon from any project instantly with
+              zero-commission trading.
+            </Trans>
           </Text>
           <ButtonPrimary
             href="/projects"
-            label="Get Started"
+            label={<Trans>Get Started</Trans>}
             className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
           />
@@ -96,7 +98,7 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <div className="">
             <Text t="h2" as="h2">
-              Our Partners
+              <Trans>Our Partners</Trans>
             </Text>
             <div className="partners">
               <div>
@@ -116,8 +118,10 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <Text t="h2" as="h2">
-            Over 20 million verified digital carbon credits from hundreds of
-            projects, with over $4 billion traded to date
+            <Trans>
+              Over 20 million verified digital carbon credits from hundreds of
+              projects, with over $4 billion traded to date
+            </Trans>
           </Text>
           <div className={cx(styles.list, "partners-list")}>
             <div className="card-wrapper">
@@ -135,8 +139,7 @@ export const Home: NextPage<Props> = (props) => {
                     </div>
                     <div className={styles.cardContent}>
                       <Text t="body3" as="h4">
-                        {project?.price &&
-                          formatBigToPrice(project.price, locale)}
+                        {formatToPrice(project.price, locale, true)}
                       </Text>
                       <Text as="h5">{project?.name}</Text>
                       <Text t="body1">
@@ -154,7 +157,7 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <ButtonPrimary
             href="/projects"
-            label="Browse Projects"
+            label={<Trans>Browse Projects</Trans>}
             className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
           />
@@ -165,23 +168,27 @@ export const Home: NextPage<Props> = (props) => {
         <div className="stack">
           <div>
             <Text t="h2" as="h2">
-              Buy or retire carbon
+              <Trans>Buy or retire carbon</Trans>
             </Text>
             <Text t="body1" className="description">
-              Maximize your climate impact.
+              <Trans>Maximize your climate impact.</Trans>
             </Text>
             <Text t="body1" className="description">
-              Carbonmark doesn't charge an additional transaction fee and offers
-              best-in-the-market pricing. Explore hundreds of verified carbon
-              projects.
+              <Trans>
+                Carbonmark doesn't charge an additional transaction fee and
+                offers best-in-the-market pricing. Explore hundreds of verified
+                carbon projects.
+              </Trans>
             </Text>
             <Text t="body1" className="description">
-              Retire now, or acquire carbon to retire later - you decide what to
-              do when you take ownership of your carbon assets.
+              <Trans>
+                Retire now, or acquire carbon to retire later - you decide what
+                to do when you take ownership of your carbon assets.
+              </Trans>
             </Text>
             <ButtonPrimary
               href="/projects"
-              label="Browse Projects"
+              label={<Trans>Browse Projects</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
                 <Link data-desktop-only {...linkProps} />
@@ -194,12 +201,12 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 1
+                      <Trans>Step 1</Trans>
                     </Text>
                     <TravelExploreOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Choose a project and quantity
+                    <Trans>Choose a project and quantity</Trans>
                   </Text>
                 </div>
               </div>
@@ -207,12 +214,12 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 2
+                      <Trans>Step 2</Trans>
                     </Text>
                     <PaymentOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Create a profile and get connected
+                    <Trans>Create a profile and get connected</Trans>
                   </Text>
                 </div>
               </div>
@@ -220,19 +227,21 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 3
+                      <Trans>Step 3</Trans>
                     </Text>
                     <ParkOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Retire instantly, or purchase and hold digital carbon
+                    <Trans>
+                      Retire instantly, or purchase and hold digital carbon
+                    </Trans>
                   </Text>
                 </div>
               </div>
             </div>
             <ButtonPrimary
               href="/projects"
-              label="Browse Projects"
+              label={<Trans>Browse Projects</Trans>}
               className={cx(styles.browseButton, "mobile-only")}
               renderLink={(linkProps) => (
                 <Link data-mobile-only {...linkProps} />
@@ -250,12 +259,14 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 1
+                      <Trans>Step 1</Trans>
                     </Text>
                     <ControlPointDuplicateOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Digitize your carbon by using a supported bridge
+                    <Trans>
+                      Digitize your carbon by using a supported bridge
+                    </Trans>
                   </Text>
                 </div>
               </div>
@@ -263,12 +274,12 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 2
+                      <Trans>Step 2</Trans>
                     </Text>
                     <PersonOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    Create a seller profile
+                    <Trans>Create a seller profile</Trans>
                   </Text>
                 </div>
               </div>
@@ -276,19 +287,21 @@ export const Home: NextPage<Props> = (props) => {
                 <div className="card">
                   <div className="card-title">
                     <Text t="body3" as="h4">
-                      Step 3
+                      <Trans>Step 3</Trans>
                     </Text>
                     <MouseOutlinedIcon fontSize="large" />
                   </div>
                   <Text t="body3" className="card-info">
-                    List your projects for sale in just a few clicks
+                    <Trans>
+                      List your projects for sale in just a few clicks
+                    </Trans>
                   </Text>
                 </div>
               </div>
             </div>
             <ButtonPrimary
               href="/profile"
-              label="Create Profile"
+              label={<Trans>Create Profile</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
                 <Link data-mobile-only {...linkProps} />
@@ -297,18 +310,22 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <div>
             <Text t="h2" as="h2">
-              Sell carbon
+              <Trans>Sell carbon</Trans>
             </Text>
             <Text t="body1" className="description">
-              Create your own carbon storefront. Sell directly to organizations
-              and individuals alike.
+              <Trans>
+                Create your own carbon storefront. Sell directly to
+                organizations and individuals alike.
+              </Trans>
             </Text>
             <Text t="body1" className="description">
-              Unprecedented transparency across the digital carbon market.
+              <Trans>
+                Unprecedented transparency across the digital carbon market.
+              </Trans>
             </Text>
             <ButtonPrimary
               href="/profile"
-              label="Create Profile"
+              label={<Trans>Create Profile</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
                 <Link data-desktop-only {...linkProps} />
@@ -323,28 +340,33 @@ export const Home: NextPage<Props> = (props) => {
             <Image fill alt="Pattern" src="/carbon-traders-bg.jpeg" />
             <div>
               <Text t="h2" as="h2">
-                For carbon traders
+                <Trans>For carbon traders</Trans>
               </Text>
               <ul>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Compare prices across all sellers and trading pools
+                  <Trans>
+                    Compare prices across all sellers and trading pools
+                  </Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Real-time price and transaction data powered by the blockchain
+                  <Trans>
+                    Real-time price and transaction data powered by the
+                    blockchain
+                  </Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  0% listing fee
+                  <Trans>0% listing fee</Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  All assets sourced from major registries
+                  <Trans>All assets sourced from major registries</Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Instant settlement of all trades
+                  <Trans>Instant settlement of all trades</Trans>
                 </li>
               </ul>
             </div>
@@ -363,24 +385,28 @@ export const Home: NextPage<Props> = (props) => {
             <Image fill alt="Pattern" src="/project-devs-bg.jpeg" />
             <div>
               <Text t="h2" as="h2">
-                For project developers
+                <Trans>For project developers</Trans>
               </Text>
               <ul>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Get paid immediately: transactions are resolved in seconds
+                  <Trans>
+                    Get paid immediately: transactions are resolved in seconds
+                  </Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  List and sell for free
+                  <Trans>List and sell for free</Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  No barriers to entry for verified carbon projects
+                  <Trans>
+                    No barriers to entry for verified carbon projects
+                  </Trans>
                 </li>
                 <li>
                   <CheckCircleOutlineOutlinedIcon fontSize="large" />
-                  Sell your digital carbon directly to buyers
+                  <Trans>Sell your digital carbon directly to buyers</Trans>
                 </li>
               </ul>
             </div>
@@ -391,7 +417,7 @@ export const Home: NextPage<Props> = (props) => {
         <Image fill alt="Learn More" src="/learn-more-bg.jpeg" />
         <div className="stack">
           <Text t="h2" as="h2">
-            Learn more
+            <Trans>Learn more</Trans>
           </Text>
           <div
             className={cx(styles.list, { [styles.learnMoreList]: isMobile })}
@@ -408,16 +434,18 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
                   <Text t="h5" as="h5">
-                    Introducing Carbonmark
+                    <Trans>Introducing Carbonmark</Trans>
                   </Text>
                   <Text t="body1">
-                    Zero-fee carbon credit trading - instantaneous, transparent,
-                    and always available. Learn more about what Carbonmark can
-                    do for you as a carbon credit trader.
+                    <Trans>
+                      Zero-fee carbon credit trading - instantaneous,
+                      transparent, and always available. Learn more about what
+                      Carbonmark can do for you as a carbon credit trader.
+                    </Trans>
                   </Text>
                   <A href={carbonmarkUrls.intro}>
                     <Text t="h5" as="h6" className="readMore">
-                      Read more
+                      <Trans>Read more</Trans>
                     </Text>
                   </A>
                 </div>
@@ -433,16 +461,18 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
                   <Text t="h5" as="h5">
-                    FAQs
+                    <Trans>FAQs</Trans>
                   </Text>
                   <Text t="body1">
-                    What is Carbonmark? Answers to common questions about the
-                    Digital Carbon Market interface that easily connects buyers
-                    and sellers of verified carbon credits.
+                    <Trans>
+                      What is Carbonmark? Answers to common questions about the
+                      Digital Carbon Market interface that easily connects
+                      buyers and sellers of verified carbon credits.
+                    </Trans>
                   </Text>
                   <A href="/blog/carbonmark-faqs">
                     <Text t="h5" as="h6" className="readMore">
-                      Read more
+                      <Trans>Read more</Trans>
                     </Text>
                   </A>
                 </div>
@@ -458,15 +488,18 @@ export const Home: NextPage<Props> = (props) => {
                 </div>
                 <div className={cx(styles.cardContent, "content")}>
                   <Text t="h5" as="h5">
-                    Carbonmark's role
+                    <Trans>Carbonmark's role</Trans>
                   </Text>
                   <Text t="body1">
-                    Learn more about Carbonmark's role in improving the Digital
-                    Carbon Market - and the Voluntary Carbon Market as a whole.
+                    <Trans>
+                      Learn more about Carbonmark's role in improving the
+                      Digital Carbon Market - and the Voluntary Carbon Market as
+                      a whole.
+                    </Trans>
                   </Text>
                   <A href="/blog/carbonmarks-role-in-the-digital-carbon-market">
                     <Text t="h5" as="h6" className="readMore">
-                      Read more
+                      <Trans>Read more</Trans>
                     </Text>
                   </A>
                 </div>
@@ -475,7 +508,7 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <ButtonPrimary
             href="/resources"
-            label="Resources"
+            label={<Trans>Resources</Trans>}
             className={styles.browseButton}
             renderLink={(linkProps) => <Link {...linkProps} />}
           />
@@ -485,15 +518,17 @@ export const Home: NextPage<Props> = (props) => {
         <Image fill alt="Powered By" src="/powered-by-bg.jpeg" />
         <div className="stack">
           <Text t="h2" as="h2">
-            Powered by
+            <Trans>Powered by</Trans>
             <A href={urls.home}>
               <LogoWithClaim />
             </A>
           </Text>
           <Text t="body1" className="description">
-            KlimaDAO provides the transparent, neutral, and public
-            infrastructure required to accelerate climate finance on a global
-            scale.
+            <Trans>
+              KlimaDAO provides the transparent, neutral, and public
+              infrastructure required to accelerate climate finance on a global
+              scale.
+            </Trans>
           </Text>
         </div>
       </Section>

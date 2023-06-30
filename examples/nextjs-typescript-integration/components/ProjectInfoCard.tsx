@@ -1,4 +1,3 @@
-import { Pool } from "@/types";
 import { fetchPoolPrice } from "@/utils/fetchPoolPrice";
 import { fetchProjectInfo } from "@/utils/fetchProjectInfo";
 import { isDefaultProjectAddress } from "@/utils/isDefaultProjectAddress";
@@ -80,12 +79,10 @@ export async function ProjectInfoCard(props: {
     (a, b) => Number(a.singleUnitPrice) - Number(b.singleUnitPrice)
   )[0];
 
-  const cheapestPool = cheapestPoolPrice.name.toLowerCase() as Pool;
-
   const latestPoolPrice = await fetchPoolPrice({
-    pool: cheapestPool,
+    pool: cheapestPoolPrice.poolName,
     quantity: 1,
-    mode: isDefaultProjectAddress(projectInfo.projectAddress)
+    mode: isDefaultProjectAddress(cheapestPoolPrice.projectTokenAddress)
       ? "default"
       : "selective",
   });
@@ -119,7 +116,7 @@ export async function ProjectInfoCard(props: {
           <div className="flex items-center justify-between">
             <dt className="text-sm text-gray-500">Remaining supply</dt>
             <dd className="text-sm font-semibold text-gray-900">
-              {Number(cheapestPoolPrice.leftToSell).toLocaleString(undefined, {
+              {Number(cheapestPoolPrice.supply).toLocaleString(undefined, {
                 maximumFractionDigits: 0,
               })}{" "}
               <span className="font-medium text-gray-500">Tonnes</span>

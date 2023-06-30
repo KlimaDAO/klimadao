@@ -97,6 +97,10 @@ export const layoutChildrenContainer = css`
     gap: 2rem 0rem;
     padding: 4rem;
   }
+
+  &.fullContentWidth {
+    padding: 0;
+  }
 `;
 
 export const cardGrid = css`

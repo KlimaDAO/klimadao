@@ -1,4 +1,3 @@
-import { PoolToken } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
@@ -138,9 +137,9 @@ export const PurchaseForm: FC<Props> = (props) => {
       setIsProcessing(true);
       const result = await redeemCarbonTransaction({
         paymentMethod: inputValues.paymentMethod,
-        pool: props.price.name.toLowerCase() as PoolToken,
+        pool: props.price.poolName,
         maxCost: inputValues.totalPrice,
-        projectTokenAddress: props.price.poolTokenAddress,
+        projectTokenAddress: props.price.projectTokenAddress,
         isPoolDefault: props.price.isPoolDefault,
         quantity: inputValues.quantity,
         provider,

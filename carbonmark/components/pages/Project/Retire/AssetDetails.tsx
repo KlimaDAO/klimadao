@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
+import { PoolToken } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
@@ -20,10 +21,12 @@ type TotalValuesProps = {
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const { locale } = useRouter();
-  const tokenType = getPoolTokenType(props.price.name);
+  const tokenType = getPoolTokenType(
+    props.price.poolName.toUpperCase() as Uppercase<PoolToken>
+  );
   const tokenData = carbonTokenInfoMap[tokenType];
   const projectTokenName = createProjectTokenName(props.project, tokenType);
-  const availableTonnes = formatToTonnes(props.price.leftToSell, locale, 2);
+  const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
 
   return (
     <>
@@ -52,7 +55,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Anchor
           className={styles.iconAndText}
-          href={`https://polygonscan.com/address/${props.price.poolTokenAddress}`}
+          href={`https://polygonscan.com/address/${props.price.projectTokenAddress}`}
         >
           <Text className={styles.externalLink} t="body2">
             {t`View on PolygonScan`} <LaunchIcon />

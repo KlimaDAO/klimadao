@@ -1,21 +1,23 @@
 import { trimWithLocale } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import { InfoOutlined } from "@mui/icons-material";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
-  currentSupply: Project["currentSupply"];
-  totalRetired: Project["totalRetired"];
+  totalSupply: Project["stats"]["totalSupply"];
+  totalRetired: Project["stats"]["totalRetired"];
 }
 
 export const StatsBar: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const retired = Number(props.totalRetired ?? 0);
-  const remaining = Number(props.currentSupply ?? 0);
+  const remaining = Number(props.totalSupply ?? 0);
   const full = retired + remaining;
   const retirementPercent = Math.round((retired / full) * 100);
 
@@ -27,21 +29,41 @@ export const StatsBar: FC<Props> = (props) => {
       />
       <div className={styles.list}>
         <div className={styles.listItem}>
-          <Text t="body1" className={styles.itemWithColor}>
-            <span className="first">
-              <Trans>Total Retirements:</Trans>
-            </span>
-          </Text>
+          <div className={styles.textWithTooltipWrapper}>
+            <Text t="body1" className={styles.itemWithColor}>
+              <span className="first">
+                <Trans>Total Retirements:</Trans>
+              </span>
+            </Text>
+            <TextInfoTooltip
+              className={styles.tooltip}
+              align="start"
+              tooltip={t`Amount of credits from this project/vintage combination that have been retired.`}
+            >
+              <InfoOutlined className={styles.tooltipIcon} />
+            </TextInfoTooltip>
+          </div>
+
           <Text t="body1" color="lighter" className={styles.bold}>
             {trimWithLocale(retired || 0, 2, locale)}
           </Text>
         </div>
         <div className={styles.listItem}>
-          <Text t="body1" className={styles.itemWithColor}>
-            <span>
-              <Trans>Remaining Supply:</Trans>{" "}
-            </span>
-          </Text>
+          <div className={styles.textWithTooltipWrapper}>
+            <Text t="body1" className={styles.itemWithColor}>
+              <span>
+                <Trans>Remaining Supply:</Trans>
+              </span>
+            </Text>
+            <TextInfoTooltip
+              className={styles.tooltip}
+              align="start"
+              tooltip={t`Amount of credits that have been bridged from this project/vintage combination but not yet retired.`}
+            >
+              <InfoOutlined className={styles.tooltipIcon} />
+            </TextInfoTooltip>
+          </div>
+
           <Text t="body1" color="lighter" className={styles.bold}>
             {trimWithLocale(remaining || 0, 2, locale)}
           </Text>

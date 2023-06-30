@@ -1,5 +1,5 @@
 import { Text } from "components/Text";
-import { PodcastDetails } from "lib/queries";
+import { PodcastDetails } from "lib/cms/queries";
 import * as styles from "./styles";
 
 interface CardProps {

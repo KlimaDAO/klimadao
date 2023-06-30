@@ -3,7 +3,6 @@ import {
   ProjectInfoCardSkeleton,
 } from "@/components/ProjectInfoCard";
 import { RetireCarbonForm } from "@/components/RetireCarbonForm";
-import { Pool } from "@/types";
 import { fetchProjectInfo } from "@/utils/fetchProjectInfo";
 import { Suspense } from "react";
 
@@ -24,8 +23,6 @@ export default async function Example(props: Props) {
     (a, b) => Number(a.singleUnitPrice) - Number(b.singleUnitPrice)
   )[0];
 
-  const cheapestPool = cheapestPoolPrice.name.toLowerCase() as Pool;
-
   return (
     <div className="flex-grow">
       <main className="mx-auto max-w-7xl px-4 pb-24 pt-16 sm:px-6 lg:px-8">
@@ -43,8 +40,8 @@ export default async function Example(props: Props) {
                 </p>
                 <RetireCarbonForm
                   defaultQuantity={QUANTITY}
-                  pool={cheapestPool}
-                  projectTokenAddress={projectInfo.projectAddress}
+                  pool={cheapestPoolPrice.poolName}
+                  projectTokenAddress={cheapestPoolPrice.projectTokenAddress}
                 />
               </div>
             </div>

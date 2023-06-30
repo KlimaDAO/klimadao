@@ -64,7 +64,7 @@ export const RetireInputs: FC<Props> = (props) => {
             </Text>
             <Text t="body3">
               <Trans>Available:</Trans>{" "}
-              {formatToTonnes(props.price.leftToSell, locale, 2)}
+              {formatToTonnes(props.price.supply, locale, 2)}
             </Text>
             <InputField
               id="quantity"
@@ -72,7 +72,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 placeholder: t`Tonnes`,
                 type: "number",
                 min: 0.001,
-                max: Number(props.price.leftToSell),
+                max: Number(props.price.supply),
                 ...register("quantity", {
                   onChange: () => clearErrors("totalPrice"),
                   required: {
@@ -84,7 +84,7 @@ export const RetireInputs: FC<Props> = (props) => {
                     message: t`The minimum amount to retire is 0.001 Tonnes`,
                   },
                   max: {
-                    value: Number(props.price.leftToSell),
+                    value: Number(props.price.supply),
                     message: t`Available supply exceeded`,
                   },
                 }),

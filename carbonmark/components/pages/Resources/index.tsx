@@ -3,7 +3,7 @@ import { t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/shared/Navigation";
-import { Document, FeaturedPost } from "lib/queries";
+import { Document, FeaturedPost } from "lib/cms/queries";
 import { NextPage } from "next";
 import { ResourcesList } from "./ResourcesList";
 

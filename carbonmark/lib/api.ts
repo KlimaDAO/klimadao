@@ -1,3 +1,4 @@
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
 import { pollUntil } from "lib/pollUntil";
 import {
@@ -161,6 +162,21 @@ export const getCountries = async (): Promise<Country[]> => {
 
 export const getVintages = async (): Promise<string[]> => {
   const result = await fetch("/api/vintages");
+  const data = await result.json();
+
+  if (!result.ok || data.error) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
+export const getRetirements = async (params: {
+  beneficiaryAddress: string;
+  limit?: number;
+}): Promise<KlimaRetire[] | false> => {
+  const result = await fetch(
+    `/api/retirements/${params.beneficiaryAddress}?limit=${params.limit}`
+  );
   const data = await result.json();
 
   if (!result.ok || data.error) {

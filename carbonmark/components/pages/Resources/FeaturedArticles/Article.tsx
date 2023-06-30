@@ -1,5 +1,6 @@
+import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
-import { FeaturedPost } from "lib/queries";
+import { FeaturedPost } from "lib/cms/queries";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -39,7 +40,7 @@ export const Article: FC<Props> = (props) => {
         <div className={styles.stackContent}>
           <Text t="h5" className={styles.articleText}>
             <Link href={`/blog/${props.article.slug}`} passHref>
-              Read more
+              <Trans>Read more</Trans>
             </Link>
           </Text>
         </div>

@@ -61,7 +61,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
             <Text>{t`Purchase amount (tonnes):`}</Text>
             <Text t="body3">
               <Trans>
-                Available: {formatToTonnes(props.price.leftToSell, locale, 2)}
+                Available: {formatToTonnes(props.price.supply, locale, 2)}
               </Trans>
             </Text>
           </div>
@@ -72,7 +72,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
               placeholder: t`Tonnes`,
               type: "number",
               min: 1,
-              max: Number(props.price.leftToSell),
+              max: Number(props.price.supply),
               ...register("quantity", {
                 onChange: () => clearErrors("totalPrice"),
                 required: {
@@ -84,7 +84,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
                   message: t`The minimum amount to buy is 1 Tonne`,
                 },
                 max: {
-                  value: Number(props.price.leftToSell),
+                  value: Number(props.price.supply),
                   message: t`Available supply exceeded`,
                 },
               }),
