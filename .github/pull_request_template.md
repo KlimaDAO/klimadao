@@ -20,10 +20,3 @@ Resolves #<issue-number>
 |img here |img here|
 
 -->
-
-## Checklist
-
-<!-- Check completed item: [X] -->
-
-- [ ] I have run `npm run build-all` without errors
-- [ ] I have formatted JS and TS files with `npm run format-all`
