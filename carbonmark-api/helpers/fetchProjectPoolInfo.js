@@ -1,7 +1,7 @@
 // @ts-check
 const { executeGraphQLQuery } = require("../apollo-client");
-const poolInfo = require("../constants/constants");
-const POOL_PROJECTS = require("../queries/pool_project");
+const { poolInfo } = require("../constants/constants");
+const { POOL_PROJECTS } = require("../queries/pool_project");
 
 /**
  * @typedef {"bct" | "nct" | "ubo" | "nbo"} PoolName
