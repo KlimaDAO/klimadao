@@ -7,5 +7,6 @@
     }
   ],
   "installCommand": "npm install",
-  "buildCommand": "npm run test:postman"
+  "buildCommand": "npm run test:postman",
+  "outputDirectory": "./"
 }
