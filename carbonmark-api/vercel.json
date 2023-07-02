@@ -6,7 +6,5 @@
       "destination": "/api/serverless.js"
     }
   ],
-  "installCommand": "npm install",
-  "buildCommand": "npm run test:postman",
-  "outputDirectory": "./"
+  "installCommand": "npm install"
 }
