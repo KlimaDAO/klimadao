@@ -1,7 +1,10 @@
-"use strict";
-import { fetchMarketplaceListings } from "../helpers/fetchMarketplaceListings";
-import { fetchPoolPricesAndStats } from "../helpers/fetchPoolPricesAndStats";
-import { fetchProjectDetails } from "../helpers/fetchProjectDetails";
+const {
+  fetchMarketplaceListings,
+} = require("../helpers/fetchMarketplaceListings");
+const {
+  fetchPoolPricesAndStats,
+} = require("../helpers/fetchPoolPricesAndStats");
+const { fetchProjectDetails } = require("../helpers/fetchProjectDetails");
 const { executeGraphQLQuery } = require("../apollo-client.js");
 const { GET_PROJECTS } = require("../queries/projects.js");
 const { POOLED_PROJECTS } = require("../queries/pooled_projects");

@@ -1,7 +1,7 @@
 // @ts-check
-import { executeGraphQLQuery } from "../apollo-client";
-import { poolInfo } from "../constants/constants";
-import { POOL_PROJECTS } from "../queries/pool_project";
+const { executeGraphQLQuery } = require("../apollo-client");
+const poolInfo = require("../constants/constants");
+const POOL_PROJECTS = require("../queries/pool_project");
 
 /**
  * @typedef {"bct" | "nct" | "ubo" | "nbo"} PoolName
@@ -61,7 +61,7 @@ import { POOL_PROJECTS } from "../queries/pool_project";
  * @returns {Promise<[PoolInfoMap, Stats]>}
  * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
-export const fetchProjectPoolInfo = async (params) => {
+const fetchProjectPoolInfo = async (params) => {
   const { data } = await executeGraphQLQuery(
     process.env.CARBON_OFFSETS_GRAPH_API_URL, // polygon-bridged-carbon subgraph
     POOL_PROJECTS,
@@ -111,4 +111,8 @@ export const fetchProjectPoolInfo = async (params) => {
   }, initialMap);
 
   return [poolInfoMap, stats];
+};
+
+module.exports = {
+  fetchProjectPoolInfo,
 };
