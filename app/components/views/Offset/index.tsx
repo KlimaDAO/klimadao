@@ -285,6 +285,10 @@ export const Offset = (props: Props) => {
       return quantity;
     }
     if (!cost || cost === "loading") return "0";
+    if (paymentMethod === selectedRetirementToken) {
+      // for example, when using mco2 to retire mco2
+      return cost;
+    }
     const onePercent = utils
       .parseUnits(cost, getTokenDecimals(paymentMethod))
       .div("100");
