@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tap \"test/**/*.test.js\"",
+    "test:unit": "tap \"test/**/*.test.js\"",
     "test:postman": "./postman_tests.sh",
     "start": "fastify start -l info app.js",
     "start:test": "fastify start app.js --port 3000",

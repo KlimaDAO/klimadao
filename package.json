@@ -12,8 +12,11 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev-all": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\" \"npm:dev-carbonmark\"",
-    "build-all": "concurrently --kill-others-on-fail \"npm:build-lib\" \"npm:build-site\" \"npm:build-app\" \"npm:build-carbonmark\"",
+    "dev": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\" \"npm:dev-carbonmark\"",
+    "build": "concurrently --kill-others-on-fail \"npm:build-lib\" \"npm:build-site\" \"npm:build-app\" \"npm:build-carbonmark\"",
+    "lint": "npm run lint --workspaces",
+    "format": "prettier --write ./",
+    "test": "cd carbonmark-api && npm run test:postman",
     "build-lib": "npm run build --workspace=lib",
     "build-site": "npm run build-lib && npm run build --workspace=site",
     "build-site-vercel": "cd ./lib && npm run build && cd ../site && npm run build",
@@ -21,7 +24,6 @@
     "build-app-vercel": "cd ./lib && npm run build && cd ../app && npm run build",
     "build-carbonmark": "npm run build-lib && npm run build --workspace=carbonmark",
     "build-carbonmark-vercel": "cd ./lib && npm run build && cd ../carbonmark && npm run build",
-    "export-app": "cd ./lib && npm run build && cd ../app && IS_STATIC_EXPORT=true npm run build && IS_STATIC_EXPORT=true npm run export",
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
@@ -29,11 +31,10 @@
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev --workspace=carbonmark\"",
     "dev-carbonmark-api": "npm run dev --workspace=carbonmark-api",
     "deploy-cms": "cd ./cms && npm run deploy",
-    "lint-all": "npm run lint --workspaces",
-    "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract && npm run -w carbonmark lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile && npm run -w carbonmark lingui:compile",
-    "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev && npm run -w carbonmark lingui:extract:dev"
+    "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev && npm run -w carbonmark lingui:extract:dev",
+    "export-app": "cd ./lib && npm run build && cd ../app && IS_STATIC_EXPORT=true npm run build && IS_STATIC_EXPORT=true npm run export"
   },
   "devDependencies": {
     "concurrently": "^7.6.0"

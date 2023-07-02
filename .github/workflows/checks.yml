@@ -1,0 +1,48 @@
+name: Checks
+
+on:
+  merge_group:
+  pull_request:
+    branches:
+      - "main"
+      - "staging"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js in nvmrc file
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install dependencies
+        run: npm ci
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
+
+  format:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run format
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run test
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run build
