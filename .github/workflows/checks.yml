@@ -7,6 +7,11 @@ on:
       - "main"
       - "staging"
 
+# Allow the job to fetch a GitHub token
+permissions:
+  id-token: write
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.run_id }}
   cancel-in-progress: true
@@ -22,6 +27,10 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install dependencies
         run: npm ci
+        env:
+          TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
+          TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
+          TRANSLATIONIO_KEY_CARBONMARK: ${{ secrets.TRANSLATIONIO_KEY_CARBONMARK }}
 
   lint:
     needs: setup
