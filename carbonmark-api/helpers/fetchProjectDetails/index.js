@@ -22,4 +22,4 @@ const fetchProjectDetails = async ({ registry, registryProjectId }) => {
   }
 };
 
-module.exports = fetchProjectDetails;
+module.exports = { fetchProjectDetails };
