@@ -233,6 +233,7 @@ export const showOnDesktop = css`
   display: none;
   ${breakpoints.large} {
     display: flex;
+    margin-bottom: 2.4rem;
   }
 `;
 
