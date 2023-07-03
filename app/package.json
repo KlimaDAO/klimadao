@@ -3,14 +3,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "prettier --check . && npm run lingui:compile && next build",
+    "build": "prettier --check . && next build",
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
     "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
     "lingui:compile": "lingui compile",
-    "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
-    "postinstall": "npm run lingui:compile"
+    "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo"
   },
   "dependencies": {
     "@emotion/css": "^11.10.6",

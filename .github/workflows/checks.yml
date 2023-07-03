@@ -31,11 +31,14 @@ jobs:
           TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
           TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
           TRANSLATIONIO_KEY_CARBONMARK: ${{ secrets.TRANSLATIONIO_KEY_CARBONMARK }}
+      - name: List directory
+        run: ls -al
 
   lint:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - run: ls -al
       - run: npm run lint
 
   format:
