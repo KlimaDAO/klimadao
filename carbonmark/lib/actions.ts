@@ -339,7 +339,7 @@ export const getProjectInfoFromApi = async (
   projectId: string
 ): Promise<AssetForListing["project"] | null> => {
   try {
-    const project = await getProject({ projectId });
+    const project = await getProject(projectId);
 
     return {
       key: project.key,

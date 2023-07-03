@@ -1,8 +1,17 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
+import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
-import { User } from "lib/types/carbonmark";
+import {
+  Category,
+  CategoryName,
+  Country,
+  Project,
+  User,
+} from "lib/types/carbonmark";
 import { createDownloadLink } from "./createDownloadLink";
+import { fetcher } from "./fetcher";
+import { notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {
@@ -164,3 +173,30 @@ export const getUserUntil = async (params: {
 
   return updatedUser;
 };
+
+type GetProjectParams = {
+  search?: string;
+  country?: string;
+  category?: CategoryName;
+  vintage?: string;
+};
+
+export const getProjects = async (
+  params?: GetProjectParams
+): Promise<Project[]> => {
+  let url = urls.api.projects;
+  if (notNil(params)) url += new URLSearchParams(params);
+  return await fetcher(url);
+};
+
+export const getProject = async (projectId: string): Promise<Project> =>
+  await fetcher(`${urls.api.projects}/${projectId}`);
+
+export const getCategories = async (): Promise<Category[]> =>
+  await fetcher(urls.api.categories);
+
+export const getCountries = async (): Promise<Country[]> =>
+  await fetcher(urls.api.countries);
+
+export const getVintages = async (): Promise<string[]> =>
+  await fetcher(urls.api.vintages);
