@@ -1500,16 +1500,20 @@ msgstr ""
 msgid "for beneficiary"
 msgstr ""
 
-#: components/Layout/NavMenu/index.tsx:34
+#: components/Layout/NavMenu/index.tsx:35
 msgid "menu.marketplace"
 msgstr ""
 
-#: components/Layout/NavMenu/index.tsx:48
+#: components/Layout/NavMenu/index.tsx:56
 msgid "menu.portfolio"
 msgstr ""
 
-#: components/Layout/NavMenu/index.tsx:41
+#: components/Layout/NavMenu/index.tsx:49
 msgid "menu.profile"
+msgstr ""
+
+#: components/Layout/NavMenu/index.tsx:42
+msgid "menu.retire"
 msgstr ""
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:192
