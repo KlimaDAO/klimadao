@@ -108,6 +108,7 @@ msgid "Asset ID"
 msgstr "Asset ID"
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
@@ -788,7 +789,6 @@ msgstr "Purchase {0} | Carbonmark"
 msgid "QTY"
 msgstr "QTY"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
