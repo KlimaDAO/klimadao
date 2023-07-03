@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-03 18:33+0000\n"
+"POT-Creation-Date: 2023-07-03 20:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,6 +102,7 @@ msgid "Asset ID"
 msgstr "Identifiant de l'Actif"
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Tonnes disponibles :"
@@ -782,7 +783,6 @@ msgstr "Achat {0} | Carbonmark"
 msgid "QTY"
 msgstr "QTÉ"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
