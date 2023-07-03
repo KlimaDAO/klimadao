@@ -1,5 +1,5 @@
 "use strict";
-import { utils } from "ethers";
+const { utils } = require("ethers");
 const { executeGraphQLQuery } = require("../apollo-client.js");
 const { GET_USER_DATA } = require("../queries/users.js");
 const ethers = require("ethers");
