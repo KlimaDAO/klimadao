@@ -11,6 +11,7 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
+import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
@@ -106,10 +107,10 @@ export const Projects: NextPage<ProjectsPageStaticProps> = (props) => (
       // Prefill our API responses with server side fetched data
       // see: https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
       fallback: {
-        "/api/projects": props.projects,
-        "/api/vintages": props.vintages,
-        "/api/categories": props.categories,
-        "/api/countries": props.countries,
+        [urls.api.projects]: props.projects,
+        [urls.api.vintages]: props.vintages,
+        [urls.api.categories]: props.categories,
+        [urls.api.countries]: props.countries,
       },
     }}
   >

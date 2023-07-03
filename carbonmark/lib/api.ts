@@ -1,13 +1,7 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
 import { pollUntil } from "lib/pollUntil";
-import {
-  Category,
-  CategoryName,
-  Country,
-  Project,
-  User,
-} from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark";
 import { createDownloadLink } from "./createDownloadLink";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
@@ -100,68 +94,6 @@ export const getUser = async (params: {
 }): Promise<User> => {
   const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
 
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-type Params = {
-  search?: string;
-  country?: string;
-  category?: CategoryName;
-  vintage?: string;
-};
-
-export const getProjects = async (params?: Params): Promise<Project[]> => {
-  const searchParams = !!params && new URLSearchParams(params);
-  const url = searchParams ? `/api/projects?${searchParams}` : "/api/projects";
-
-  const result = await fetch(url);
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const getProject = async (params: {
-  projectId: string;
-}): Promise<Project> => {
-  const result = await fetch(`/api/projects/${params.projectId}`);
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const getCategories = async (): Promise<Category[]> => {
-  const result = await fetch("/api/categories");
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const getCountries = async (): Promise<Country[]> => {
-  const result = await fetch("/api/countries");
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const getVintages = async (): Promise<string[]> => {
-  const result = await fetch("/api/vintages");
   const data = await result.json();
 
   if (!result.ok || data.error) {
