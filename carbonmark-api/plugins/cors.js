@@ -1,8 +1,26 @@
 const fp = require("fastify-plugin");
 const cors = require("@fastify/cors");
 
-/** True if local development (not preview deployment) */
-const IS_LOCAL_DEVELOPMENT = process.env.VERCEL_ENV === "development";
+const ALLOWED_ORIGINS = [
+  "localhost",
+  "carbonmark.com",
+  /carbonmark-[a-zA-Z0-9]*-klimadao\.vercel\.app/,
+];
+/**
+ * Checks if a string matches any of the provided patterns.
+ *
+ * @param {string} string - The string to be checked.
+ * @param {Array.<(string|RegExp)>} patterns - The patterns to match against.
+ * @returns {boolean} True if the string matches any pattern, false otherwise.
+ */
+const isMatch = (string, patterns) =>
+  patterns.some((pattern) => {
+    if (pattern instanceof RegExp) {
+      return pattern.test(string);
+    } else {
+      return pattern === string;
+    }
+  });
 
 /**
  * This plugin integrates the CORS middleware into Fastify
@@ -12,6 +30,15 @@ const IS_LOCAL_DEVELOPMENT = process.env.VERCEL_ENV === "development";
  */
 module.exports = fp(async function (fastify) {
   fastify.register(cors, {
-    origin: IS_LOCAL_DEVELOPMENT,
+    origin: (origin, cb) => {
+      if (origin === undefined) return cb(null, true);
+
+      const hostname = new URL(origin).hostname;
+      if (isMatch(hostname, ALLOWED_ORIGINS)) {
+        cb(null, true);
+      } else {
+        cb(new Error("Not allowed"), false);
+      }
+    },
   });
 });
