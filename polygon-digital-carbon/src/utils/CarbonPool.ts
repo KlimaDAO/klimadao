@@ -3,12 +3,17 @@ import { CarbonPool, CarbonPoolDailySnapshot, PoolDeposit, PoolRedeem } from '..
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { dayFromTimestamp } from '../../../lib/utils/Dates'
 import { loadOrCreateCarbonPoolOffsetBalanceDailySnapshot } from './CarbonPoolOffsetBalance'
+import { loadOrCreateToken } from '../../../lib-updated/utils/Token'
 
 export function loadOrCreateCarbonPool(poolAddress: Address): CarbonPool {
   let pool = CarbonPool.load(poolAddress)
   if (pool) return pool as CarbonPool
 
+  let token = loadOrCreateToken(poolAddress)
+
   pool = new CarbonPool(poolAddress)
+  pool.name = token.name
+  pool.decimals = token.decimals
   pool.supply = ZERO_BI
   pool.crossChainSupply = ZERO_BI
   pool.lastSnapshotDayID = 0

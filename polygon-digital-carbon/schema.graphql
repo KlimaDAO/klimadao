@@ -237,6 +237,12 @@ type CarbonPool @entity {
   "Ethereum address of the pool contract"
   id: Bytes!
 
+  "Common name for the pool"
+  name: String!
+
+  "Decimals of the token"
+  decimals: Int!
+
   "Current supply"
   supply: BigInt!
 
