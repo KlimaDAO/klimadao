@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -322,7 +328,7 @@ msgstr ""
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
 msgid "Create your own retirement"
 msgstr ""
 
@@ -1773,9 +1779,12 @@ msgstr ""
 msgid "retirement.single.country_region.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:43
 msgid "retirement.single.download_certificate_button"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:39
+msgid "retirement.single.downloading_button"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
@@ -1826,7 +1835,7 @@ msgstr ""
 msgid "retirement.single.quantity.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
 msgid "retirement.single.share_retirement.title"
 msgstr ""
 

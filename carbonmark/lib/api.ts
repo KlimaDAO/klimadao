@@ -1,5 +1,4 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
 import { pollUntil } from "lib/pollUntil";
 import {
   Category,
@@ -9,6 +8,12 @@ import {
   User,
 } from "lib/types/carbonmark";
 import { createDownloadLink } from "./createDownloadLink";
+
+export interface DownloadCertificateButtonProps {
+  beneficiaryName: string;
+  beneficiaryAddress: string;
+  retirementIndex: string;
+}
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch("/api/users/login", {
