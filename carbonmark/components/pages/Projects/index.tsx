@@ -26,7 +26,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { SWRConfig } from "swr";
 import { ProjectsController } from "../Project/ProjectsController";
 import * as styles from "./styles";
@@ -60,24 +60,66 @@ const Page: NextPage = () => {
 
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control } = useForm<ModalFieldValues>({
+  const { control, setValue } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
-  const watchers = useWatch({
-    control,
-    name: ["sort", "country", "category", "vintage"],
-  });
+  // const watchers = useWatch({
+  //   control,
+  //   name: ["sort", "country", "category", "vintage"],
+  // });
+  // const initialSort = router.query.sort ? String(router.query.sort) : undefined;
+
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
   const showLoadingProjectsSpinner =
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
   useEffect(() => {
-    /* todo */
-  }, [watchers]);
+    // @ts-ignore
+    // const filters = JSON.parse(window.localStorage.getItem("filters"));
+    // if (filters) {
+    //   setValue("sort", filters.sort);
+    //   setValue("country", filters.country);
+    //   setValue("category", filters.category);
+    //   setValue("vintage", filters.vintage);
+    // } else {
+    window.localStorage.setItem(
+      "filters",
+      JSON.stringify(omit(defaultValues, "sort"))
+    );
+    // console.log("defaultValues", defaultValues);
+    // }
+  }, [defaultValues]);
 
-  const handleClose = (filter: string) => {
+  // useEffect(() => {
+  //   // const { search } = router.query;
+  //   console.log("watchers query", router.query);
+  //   // @ts-ignore
+  //   // setValue("sort", router?.query?.sort ?? "recently-updated");
+  //   const query = watchers?.[0]
+  //     ? { ...DEFAULTS, sort: watchers?.[0] }
+  //     : DEFAULTS;
+
+  //   router.replace(
+  //     { query },
+  //     undefined,
+  //     { shallow: true } // don't refetch props nor reload page
+  //   );
+  // }, [watchers]);
+
+  const updateFilter = (sort: string) => {
+    // const filters =
+    //   // @ts-ignore
+    //   JSON.parse(window?.localStorage?.getItem("filters")) || null;
+    router.replace(
+      { query: { ...router.query, sort } }, // { ...filters, sort } },
+      undefined,
+      { shallow: true } // don't refetch props nor reload page
+    );
+  };
+
+  const handleRemoveFilter = (filter: string) => {
     Object.keys(router.query).map((key: string) => {
       if (router.query[key] === filter) {
         router.query[key] = [];
@@ -104,40 +146,40 @@ const Page: NextPage = () => {
           <LoginButton className="desktopLogin" />
         </div>
 
-        {!!flatMap(omit(defaultValues, "sort"))?.length && (
+        {!!flatMap(omit(defaultValues, ["search", "sort"]))?.length && (
           <div className={styles.pillContainer}>
-            {flatMap(omit(defaultValues, "sort"))?.map(
+            {flatMap(omit(defaultValues, ["search", "sort"]))?.map(
               (filter: string, key: number) => (
                 <div key={key} className={styles.pill}>
                   <span>{filter}</span>
-                  <Close onClick={() => handleClose(filter)} />
+                  <Close onClick={() => handleRemoveFilter(filter)} />
                 </div>
               )
             )}
           </div>
         )}
 
-        {sortKey != "undefined" && (
-          <div className={styles.sortOptions}>
-            {/* @todo 0xMakka - move this back into sortOptions component */}
-            <Dropdown
-              name="sort"
-              initial={sortKey ?? "recently-updated"}
-              className={styles.dropdown}
-              aria-label={t`Toggle sort menu`}
-              renderLabel={(selected) => `Sort: ${selected?.label}`}
-              control={control}
-              options={Object.entries(PROJECT_SORT_OPTIONS).map(
-                ([option, label]) => ({
-                  id: option,
-                  label: label,
-                  value: option,
-                })
-              )}
-            />
-            <Text t="h5">{projects.length} Results</Text>
-          </div>
-        )}
+        <div className={styles.sortOptions}>
+          {/* @todo 0xMakka - move this back into sortOptions component */}
+          <Dropdown
+            name="sort"
+            // initial={getValues().sort ?? "recently-updated"}
+            // @ts-ignore
+            onChange={(sort: string) => updateFilter(sort)}
+            className={styles.dropdown}
+            aria-label={t`Toggle sort menu`}
+            renderLabel={(selected) => `Sort: ${selected?.label}`}
+            control={control}
+            options={Object.entries(PROJECT_SORT_OPTIONS).map(
+              ([option, label]) => ({
+                id: option,
+                label: label,
+                value: option,
+              })
+            )}
+          />
+          {!!projects?.length && <Text t="h5">{projects.length} Results</Text>}
+        </div>
 
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (

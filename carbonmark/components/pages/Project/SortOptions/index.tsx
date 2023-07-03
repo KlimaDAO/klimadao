@@ -4,7 +4,6 @@ import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as styles from "./styles";
 
@@ -21,13 +20,8 @@ type ModalFieldValues = {
 export const SortOptions = () => {
   const router = useRouter();
   const { projects } = useFetchProjects();
-  // const [initialSort, setInitialSort] = useState(undefined);
 
   const initialSort = router.query.sort ? String(router.query.sort) : undefined;
-
-  useEffect(() => {
-    console.log("router.query", router.query);
-  }, [router.query]);
 
   // const defaultValues = { ...DEFAULTS, ...router.query };
   const { control } = useForm<ModalFieldValues>({

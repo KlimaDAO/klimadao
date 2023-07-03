@@ -10,7 +10,6 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
-import { omit } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -95,9 +94,24 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const onSubmit = (values: ModalFieldValues) => {
     const { search } = router.query;
     // Maintain any search value
-    const query = search ? { search, ...values } : values;
+    const query = router.query
+      ? { ...values, search, ...router.query }
+      : values;
     router.replace(
       { query },
+      undefined,
+      { shallow: true } // don't refetch props nor reload page
+    );
+    if (!isValidating) {
+      props.onToggleModal?.();
+    }
+  };
+
+  const resetFilters = () => {
+    // const values = omit(DEFAULTS, "sort");
+    reset(DEFAULTS);
+    router.replace(
+      { query: DEFAULTS },
       undefined,
       { shallow: true } // don't refetch props nor reload page
     );
@@ -160,9 +174,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         <ButtonSecondary
           variant="transparent"
           className="action"
-          type="submit"
+          type="button"
           label={t`Clear Filters`}
-          onClick={() => reset(omit(DEFAULTS, "sort"))}
+          onClick={resetFilters}
         />
         <Text t="h5" align="center">
           {!isValidating

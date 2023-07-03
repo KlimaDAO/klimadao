@@ -24,8 +24,7 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
   const [selectedCount, setSelectedCount] = useState(0);
 
   useEffect(() => {
-    console.log("router.query", router.query);
-    setSelectedCount(flatMap(omit(router.query, "sort"))?.length);
+    setSelectedCount(flatMap(omit(router.query, ["search", "sort"]))?.length);
   }, [router.query]);
 
   const handleSubmitSearch = (str: string | null) => {

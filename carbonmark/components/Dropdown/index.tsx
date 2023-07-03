@@ -13,7 +13,7 @@ type Props<V, T extends FieldValues> = {
   options: Option<V>[];
   name: Path<T>;
   control: Control<T>;
-  onChange?: (value: string | number | unknown) => void;
+  onChange?: (value: string | unknown) => void;
   renderLabel: (option: Option<V>) => string | ReactNode;
 } & Pick<HTMLAttributes<HTMLDivElement>, "className">;
 
@@ -42,7 +42,6 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   const disableToggle = options.length <= 1;
   const toggle = () => {
     !disableToggle && setIsOpen((current) => !current);
-    console.log("at toggle");
   };
   const close = () => setIsOpen(false);
 
