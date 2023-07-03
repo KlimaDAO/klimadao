@@ -302,3 +302,10 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
+
+export const FIAT = {
+  retirementApi: {
+    production: "https://checkout.offsetra.com/api/checkout",
+    staging: "https://staging-checkout.offsetra.com/api/checkout",
+  },
+};

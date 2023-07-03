@@ -16,6 +16,7 @@ export {
   isDefaultProjectAddress,
 } from "./getDefaultProjects";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
+export { getFiatRetirementUrl } from "./getFiatRetirementUrl";
 export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";
