@@ -1,5 +1,6 @@
 import { Domain } from "@klimadao/lib/types/domains";
 import { Trans } from "@lingui/macro";
+import ParkIcon from "@mui/icons-material/Park";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import StoreIcon from "@mui/icons-material/Store";
 import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
@@ -32,6 +33,13 @@ export const NavMenu: React.FC<Props> = (props) => {
         icon={<StoreIcon />}
       >
         <Trans id="menu.marketplace">Marketplace</Trans>
+      </MenuButton>
+      <MenuButton
+        isActive={pathname.startsWith(`/retire`)}
+        href={"/retire"}
+        icon={<ParkIcon />}
+      >
+        <Trans id="menu.retire">Retire</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname.startsWith(`/users/login`) || isConnectedUser}
