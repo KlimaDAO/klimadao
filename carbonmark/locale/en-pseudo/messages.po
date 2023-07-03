@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-30 16:54+0000\n"
+"POT-Creation-Date: 2023-07-03 15:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -328,7 +322,7 @@ msgstr ""
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
 msgid "Create your own retirement"
 msgstr ""
 
@@ -379,6 +373,14 @@ msgstr ""
 
 #: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Download PDF"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Downloading ..."
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
@@ -1777,14 +1779,6 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:43
-msgid "retirement.single.download_certificate_button"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:39
-msgid "retirement.single.downloading_button"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118

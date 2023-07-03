@@ -328,7 +328,7 @@ msgstr "Create and edit listings, and track your activity with your Carbonmark p
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
 msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
@@ -380,6 +380,14 @@ msgstr "Display name is required"
 #: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Download PDF"
+msgstr "Download PDF"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Downloading ..."
+msgstr "Downloading ..."
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -1778,14 +1786,6 @@ msgstr "Carbon Credit Retirement"
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
 msgstr "Country/Region:"
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:43
-msgid "retirement.single.download_certificate_button"
-msgstr "Download PDF"
-
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:39
-msgid "retirement.single.downloading_button"
-msgstr "Downloading ..."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
