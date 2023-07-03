@@ -9,29 +9,30 @@ on:
 
 # Allow the job to fetch a GitHub token
 permissions:
-  id-token: write
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.run_id }}
-  cancel-in-progress: true
-
 jobs:
-  setup:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js in nvmrc file
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+
       - name: Install dependencies
         run: npm ci
+
       - name: Lint
         run: npm run lint
+
       - name: Format
         run: npm run format
+
       - name: Test
         run: npm run test
+
       - name: Build
         run: npm run build
