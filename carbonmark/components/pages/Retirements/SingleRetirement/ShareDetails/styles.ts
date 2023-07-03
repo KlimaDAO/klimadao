@@ -23,6 +23,7 @@ export const shareCard = css`
 export const downloadButton = css`
   background-color: var(--font-02) !important;
   color: var(--white);
+  padding: 0 2rem;
   gap: 1.5rem;
 `;
 
@@ -98,5 +99,16 @@ export const profileLink = css`
 
   ${breakpoints.desktop} {
     display: flex;
+  }
+`;
+
+export const spinner = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.75);
+
+  > div {
+    color: var(--yellow);
   }
 `;
