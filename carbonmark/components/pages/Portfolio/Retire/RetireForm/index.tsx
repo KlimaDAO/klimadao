@@ -267,19 +267,15 @@ export const RetireForm = (props: RetireFormProps) => {
                         value: retirement.beneficiaryAddress,
                       }}
                       label={"beneficiaryAddress"}
+                      errorMessage={
+                        retirement.beneficiaryAddress &&
+                        !ethers.utils.isAddress(retirement.beneficiaryAddress)
+                          ? "Please enter a valid wallet address"
+                          : ""
+                      }
                       hideLabel
                     />
                   </div>
-                  {retirement.beneficiaryAddress &&
-                    !ethers.utils.isAddress(retirement.beneficiaryAddress) && (
-                      <Text
-                        t="caption"
-                        color="lighter"
-                        className={styles.warningText}
-                      >
-                        Please enter a valid wallet address
-                      </Text>
-                    )}
                   <Text
                     t="body8"
                     color="lightest"
