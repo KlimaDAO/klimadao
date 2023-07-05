@@ -70,7 +70,7 @@ We follow these rules:
 #### Translating
 
 - Log in [translation.io](https://translation.io)
-- Select the approprite project klimadao-site or klimadao-app
+- Select the appropriate project klimadao-site or klimadao-app
 - Make sure you select the appropriate language in the top menu
 - Start translating!
 - Select an item to translate in the left column
