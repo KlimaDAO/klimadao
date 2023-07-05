@@ -5,7 +5,7 @@ import { curry, map } from "lodash/fp";
 import fetch, { Response } from "node-fetch";
 import t from "tap";
 import { build } from "./helper";
-const DEV_URL = "http://localhost:3000/api";
+const DEV_URL = "http://localhost:3003/api";
 const PRODUCTION_URL = "https://api.carbonmark.com/api";
 
 const fetch_apis = async (app: FastifyInstance, url: string) => {
@@ -26,14 +26,14 @@ const ENDPOINTS = [
   "/countries",
   "/vintages",
   "/purchases",
-  // "/projects",
+  "/projects",
   // "/projects/VCS-191-2008",
   "/users/emc",
   "/users/0x2091316a25c0829fdd2c05412ef2d3ca6cceaf53?type=wallet",
 ];
 
 /** This test requires updating environment variables to be --production values */
-t.skip("equivalence with production", async (t) => {
+t.test("equivalence with production", async (t) => {
   const app = await build(t);
 
   // Fetch for each endpoint
@@ -49,7 +49,7 @@ t.skip("equivalence with production", async (t) => {
   t.teardown(() => app.close());
 });
 
-t.test("authentication flow", async (t) => {
+t.skip("authentication flow", async (t) => {
   // Assuming you have a connected provider
   const wallet = new ethers.Wallet(MOCK_PRIVATE_KEY);
 

@@ -11,7 +11,10 @@ type Params = {
   registry: string;
 };
 
-const fetchProjectDetails = async ({ registry, registryProjectId }: Params) => {
+export const fetchProjectDetails = async ({
+  registry,
+  registryProjectId,
+}: Params) => {
   if (registry === "VCS") {
     return await fetchVCSProject({ registryProjectId });
   } else if (registry === "GS") {
@@ -20,5 +23,3 @@ const fetchProjectDetails = async ({ registry, registryProjectId }: Params) => {
     return null;
   }
 };
-
-module.exports = { fetchProjectDetails };

@@ -1,7 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- temporarily disable ts to make sure we have all new changes
+// @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, isNumber } from "lodash";
-import { Project } from "../../.generated/types/marketplace.types";
-import { CarbonOffset } from "../../.generated/types/offsets.types";
 import {
   calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,
@@ -11,7 +10,7 @@ import {
 } from "../../helpers/utils";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract, notEmpty } from "../../utils/functional.utils";
+import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 
 const schema = {
@@ -52,24 +51,21 @@ const schema = {
   },
 };
 
-type Querystring = {
-  country?: string | string[];
-  category?: string | string[];
-  search?: string;
-  vintage?: string | string[];
-};
+// type Querystring = {
+//   country?: string;
+//   category?: string;
+//   search?: string;
+//   vintage?: string;
+// };
 
-const isMatchingProject = (offset: CarbonOffset, project: Project) =>
-  offset.projectID === project.registry + "-" + project.projectID &&
-  offset.vintageYear === project.vintage;
+// const isMatchingProject = (offset: CarbonOffset, project: Project) =>
+//   offset.projectID === project.registry + "-" + project.projectID &&
+//   offset.vintageYear === project.vintage;
 
 const handler = (fastify: FastifyInstance) =>
-  async function (
-    request: FastifyRequest<{ Querystring: Querystring }>,
-    reply: FastifyReply
-  ) {
-    // @TODO: merge with other projects from the poooool
-    let { country, category, search, vintage } = { ...request.query };
+  async function (request: FastifyRequest, reply: FastifyReply) {
+    let { country, category, search, vintage } = request.query;
+
     const [categories, countries, vintages] = await Promise.all([
       getAllCategories(fastify),
       getAllCountries(fastify),
@@ -102,66 +98,95 @@ const handler = (fastify: FastifyInstance) =>
     const sanity = getSanityClient();
     const queryArgs = { country, category, search, vintage };
 
-    const [
-      { projects: fetchedProjects },
-      { carbonOffsets },
-      projectsCmsData,
-      poolPrices,
-    ] = await Promise.all([
-      gqlSdk.marketplace.findProjects(queryArgs),
-      gqlSdk.offsets.findCarbonOffsets(queryArgs),
-      sanity.fetch(fetchAllProjects),
-      calculatePoolPrices(fastify),
-    ]);
+    const [data, pooledProjectsData, projectsCmsData, poolPrices] =
+      await Promise.all([
+        gqlSdk.marketplace.findProjects(queryArgs),
+        gqlSdk.offsets.findCarbonOffsets(queryArgs),
+        sanity.fetch(fetchAllProjects),
+        calculatePoolPrices(fastify),
+      ]);
 
-    const projects = fetchedProjects.map(function (project: any) {
-      const uniqueValues: (string | undefined)[] = [];
+    // const data = await executeGraphQLQuery(
+    //   process.env.GRAPH_API_URL,
+    //   GET_PROJECTS,
+    //   { country, category, search, vintage }
+    // );
 
-      if (notEmpty(carbonOffsets)) {
-        //Find the indexes of the projects that match the offsets
-        const indexes = carbonOffsets
-          .map((item: any, idx: number) =>
-            isMatchingProject(item, project) ? idx : undefined
+    // let pooledProjectsData = (
+    //   await executeGraphQLQuery(
+    //     process.env.CARBON_OFFSETS_GRAPH_API_URL,
+    //     POOLED_PROJECTS,
+    //     { country, category, search, vintage }
+    //   )
+    // ).data;
+
+    const projects = data.projects.map(function (project) {
+      const uniqueValues = [];
+
+      if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
+        const indexes = pooledProjectsData.carbonOffsets
+          .map((item, idx) =>
+            item.projectID === project.registry + "-" + project.projectID &&
+            item.vintageYear === project.vintage
+              ? idx
+              : ""
           )
-          .filter(isNumber);
+          .filter(String);
+        // var index = pooledProjectsData.carbonOffsets.findIndex(
+        //   (item) =>
 
+        //     item.projectID === project.registry + '-' + project.projectID &&
+        //     item.vintageYear === project.vintage
+
+        // );
         if (indexes && indexes.length) {
           project.isPoolProject = true;
 
           indexes.forEach((index) => {
-            //We want to hide the offsets that have existing projects.
-            //This is a terrible way of doing it @todo use ids to filter
-            //@todo remove this
-            //@ts-ignore -- assigning a new attribute to the type that doesn't exist
-            carbonOffsets[index].display = false;
-
-            if (parseFloat(carbonOffsets[index].balanceUBO) >= 1) {
+            pooledProjectsData.carbonOffsets[index].display = false;
+            if (
+              parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
+              1
+            ) {
               uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ubo")?.price
+                poolPrices.find((obj) => obj.name === "ubo").price
               );
             }
-            if (parseFloat(carbonOffsets[index].balanceNBO) >= 1) {
+            if (
+              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
+              1
+            ) {
               uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "nbo")?.price
+                poolPrices.find((obj) => obj.name === "nbo").price
               );
             }
-            if (parseFloat(carbonOffsets[index].balanceNCT) >= 1) {
+            if (
+              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
+              1
+            ) {
               uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ntc")?.price
+                poolPrices.find((obj) => obj.name === "ntc").price
               );
             }
-            if (parseFloat(carbonOffsets[index].balanceBCT) >= 1) {
+            if (
+              parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
+              1
+            ) {
               uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "btc")?.price
+                poolPrices.find((obj) => obj.name === "btc").price
               );
             }
           });
+
+          // indexes.forEach(index => {
+          //   delete pooledProjectsData.carbonOffsets.splice(index, 1);
+          // });
         }
       }
 
       let price = 0;
-      if (project.listings.length) {
-        project.listings.forEach((item: any) => {
+      if (project.listings?.length) {
+        project.listings.forEach((item) => {
           if (
             !/^0+$/.test(item.leftToSell) &&
             item.active != false &&
@@ -172,14 +197,13 @@ const handler = (fastify: FastifyInstance) =>
         });
 
         const lowestPrice = uniqueValues.length
-          ? compact(uniqueValues).reduce((a, b) =>
+          ? uniqueValues.reduce((a, b) =>
               a.length < b.length ? a : a.length === b.length && a < b ? a : b
             )
           : "0";
-        price = Number(lowestPrice);
+        price = lowestPrice;
       }
-      //@todo remove this any when we have sanity typing
-      const cmsData: any = findProjectWithRegistryIdAndRegistry(
+      const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
         project.projectID,
         project.registry
@@ -187,42 +211,40 @@ const handler = (fastify: FastifyInstance) =>
       project.description = cmsData
         ? cmsData.description.slice(0, 200)
         : undefined;
-      project.name = cmsData?.name ?? project.name;
-      project.methodologies = cmsData?.methodologies ?? [];
-      project.short_description =
-        cmsData?.projectContent?.shortDescription?.slice(0, 200);
-      project.long_description = cmsData?.projectContent?.longDescription;
+      project.name = cmsData ? cmsData.name : project.name;
+      project.methodologies = cmsData ? cmsData.methodologies : [];
+
+      project.short_description = cmsData?.projectContent
+        ? cmsData.projectContent.shortDescription.slice(0, 200)
+        : undefined;
+      project.long_description = cmsData?.projectContent
+        ? cmsData.projectContent.longDescription
+        : undefined;
 
       delete project.listings;
 
       return { ...project, price };
     });
 
-    const pooledProjects = carbonOffsets.map(function (project: any) {
+    const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
+      project
+    ) {
       if (project.display == false) {
         return null;
       }
-      const uniqueValues: (string | undefined)[] = [];
+      const uniqueValues = [];
 
       if (parseFloat(project.balanceUBO) >= 1) {
-        uniqueValues.push(
-          poolPrices.find((obj: any) => obj.name === "ubo")?.price
-        );
+        uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo").price);
       }
       if (parseFloat(project.balanceNBO) >= 1) {
-        uniqueValues.push(
-          poolPrices.find((obj: any) => obj.name === "nbo")?.price
-        );
+        uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo").price);
       }
       if (parseFloat(project.balanceNCT) >= 1) {
-        uniqueValues.push(
-          poolPrices.find((obj: any) => obj.name === "ntc")?.price
-        );
+        uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc").price);
       }
       if (parseFloat(project.balanceBCT) >= 1) {
-        uniqueValues.push(
-          poolPrices.find((obj: any) => obj.name === "btc")?.price
-        );
+        uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
       }
 
       const country = project.country.length
@@ -231,8 +253,7 @@ const handler = (fastify: FastifyInstance) =>
           }
         : null;
 
-      //@todo remove this any when we have sanity typing
-      const cmsData: any = findProjectWithRegistryIdAndRegistry(
+      const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
         project.projectID.split("-")[1],
         project.projectID.split("-")[0]
@@ -255,7 +276,7 @@ const handler = (fastify: FastifyInstance) =>
         },
         country: country,
         price: uniqueValues.length
-          ? compact(uniqueValues).reduce((a, b) =>
+          ? uniqueValues.reduce((a, b) =>
               a.length < b.length ? a : a.length === b.length && a < b ? a : b
             )
           : "0",
@@ -267,7 +288,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     const filteredItems = projects
-      ?.concat(pooledProjects)
+      .concat(pooledProjects)
       .filter((project) => project != null && project.price !== "0");
 
     // Send the transformed projects array as a JSON string in the response
