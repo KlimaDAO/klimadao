@@ -4,8 +4,13 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import ToucanPoolToken from "@klimadao/lib/abi/ToucanPoolToken.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
-import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getFiatRetirementCost,
+  getTokenDecimals,
+} from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
+import { IS_PRODUCTION, urls } from "lib/constants";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
@@ -37,8 +42,24 @@ export const getConsumptionCost = async (params: {
   retirementToken: PoolToken;
   quantity: string;
   isDefaultProject: boolean;
+  currentUrl: string;
 }): Promise<string> => {
-  if (params.inputToken === "fiat") return "0"; // typeguard
+  if (params.inputToken === "fiat") {
+    const fiatCosts = await getFiatRetirementCost({
+      isProduction: IS_PRODUCTION,
+      cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
+      referrer: "carbonmark",
+      retirement: {
+        quantity: params.quantity,
+        retirement_token: params.retirementToken,
+        beneficiary_address: null,
+        beneficiary_name: "placeholder",
+        retirement_message: "placeholder",
+        project_address: null,
+      },
+    });
+    return fiatCosts;
+  }
 
   const retirementAggregatorContract = getContract({
     contractName: "retirementAggregatorV2",

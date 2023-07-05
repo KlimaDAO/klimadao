@@ -34,7 +34,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const poolName = props.price.poolName;
   const isPoolDefault = props.price.isPoolDefault;
 
-  const { locale } = useRouter();
+  const { locale, asPath } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
   const [costs, setCosts] = useState("");
@@ -82,6 +82,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           retirementToken: poolName,
           quantity: amount,
           isDefaultProject: isPoolDefault,
+          currentUrl: asPath,
         });
 
         setCosts(totalPrice);
@@ -96,7 +97,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     if (!!amount && !!paymentMethod) {
       newCosts();
     }
-  }, [amount]);
+  }, [amount, paymentMethod]);
 
   useEffect(() => {
     if (!!costs) {
