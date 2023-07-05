@@ -9,3 +9,10 @@ query getBySymbol($symbol: String) {
     id
   }
 }
+
+query getPoolPrices {
+  prices: pairs {
+    address: id
+    price: currentprice
+  }
+}

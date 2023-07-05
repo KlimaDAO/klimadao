@@ -1,6 +1,6 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
-const GENERATED_DIR = ".generated/types";
+const GENERATED_DIR = "src/.generated/types";
 const DOCUMENTS_DIR = "src/graphql";
 const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 
@@ -23,7 +23,10 @@ const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
     ...acc,
     [`${GENERATED_DIR}/${key}.types.ts`]: {
       schema,
-      documents: `${DOCUMENTS_DIR}/${key}.gql`,
+      documents: [
+        `${DOCUMENTS_DIR}/${key}.gql`,
+        `${DOCUMENTS_DIR}/${key}.fragments.gql`,
+      ],
       plugins,
     },
   }),
@@ -35,7 +38,7 @@ const config: CodegenConfig = {
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
-    skipTypename: true,
+    // skipTypename: true,
   },
 };
 

@@ -30,6 +30,7 @@ export type Block_Height = {
 };
 
 export type Bridge = {
+  __typename?: 'Bridge';
   bridger: Scalars['String'];
   id: Scalars['ID'];
   offset: CarbonOffset;
@@ -184,6 +185,7 @@ export enum Bridge_OrderBy {
 }
 
 export type CarbonMetric = {
+  __typename?: 'CarbonMetric';
   bctCrosschainSupply: Scalars['BigDecimal'];
   bctKlimaRetired: Scalars['BigDecimal'];
   bctRedeemed: Scalars['BigDecimal'];
@@ -447,6 +449,7 @@ export enum CarbonMetric_OrderBy {
 }
 
 export type CarbonOffset = {
+  __typename?: 'CarbonOffset';
   additionalCertification: Scalars['String'];
   balanceBCT: Scalars['BigDecimal'];
   balanceNBO: Scalars['BigDecimal'];
@@ -1013,6 +1016,7 @@ export enum CarbonOffset_OrderBy {
  *
  */
 export type CrosschainBridge = {
+  __typename?: 'CrosschainBridge';
   bridger: Scalars['String'];
   direction: BridgeDirection;
   id: Scalars['ID'];
@@ -1137,6 +1141,7 @@ export enum CrosschainBridge_OrderBy {
 }
 
 export type DailyKlimaRetirement = {
+  __typename?: 'DailyKlimaRetirement';
   amount: Scalars['BigDecimal'];
   feeAmount: Scalars['BigDecimal'];
   id: Scalars['ID'];
@@ -1287,6 +1292,7 @@ export enum DailyKlimaRetirement_OrderBy {
 }
 
 export type Deposit = {
+  __typename?: 'Deposit';
   depositor: Scalars['String'];
   id: Scalars['ID'];
   offset: CarbonOffset;
@@ -1458,6 +1464,7 @@ export enum Deposit_OrderBy {
 }
 
 export type KlimaRetire = {
+  __typename?: 'KlimaRetire';
   amount: Scalars['BigDecimal'];
   beneficiary: Scalars['String'];
   beneficiaryAddress: Scalars['String'];
@@ -1759,6 +1766,7 @@ export enum OrderDirection {
 }
 
 export type Query = {
+  __typename?: 'Query';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   bridge?: Maybe<Bridge>;
@@ -2000,6 +2008,7 @@ export type QueryTransactionsArgs = {
 };
 
 export type Redeem = {
+  __typename?: 'Redeem';
   id: Scalars['ID'];
   offset: CarbonOffset;
   pool: Scalars['String'];
@@ -2171,6 +2180,7 @@ export enum Redeem_OrderBy {
 }
 
 export type Retire = {
+  __typename?: 'Retire';
   beneficiary: Scalars['String'];
   id: Scalars['ID'];
   offset: CarbonOffset;
@@ -2342,6 +2352,7 @@ export enum Retire_OrderBy {
 }
 
 export type Subscription = {
+  __typename?: 'Subscription';
   /** Access to subgraph metadata */
   _meta?: Maybe<_Meta_>;
   bridge?: Maybe<Bridge>;
@@ -2572,6 +2583,7 @@ export type SubscriptionTransactionsArgs = {
 };
 
 export type ToucanCertificate = {
+  __typename?: 'ToucanCertificate';
   id: Scalars['ID'];
   klimaRetire?: Maybe<KlimaRetire>;
   timestamp: Scalars['BigInt'];
@@ -2682,6 +2694,7 @@ export enum ToucanCertificate_OrderBy {
 }
 
 export type Transaction = {
+  __typename?: 'Transaction';
   blockHash: Scalars['Bytes'];
   blockNumber: Scalars['BigInt'];
   from: Scalars['Bytes'];
@@ -2781,6 +2794,7 @@ export enum Transaction_OrderBy {
 }
 
 export type _Block_ = {
+  __typename?: '_Block_';
   /** The hash of the block */
   hash?: Maybe<Scalars['Bytes']>;
   /** The block number */
@@ -2791,6 +2805,7 @@ export type _Block_ = {
 
 /** The type for the top-level _meta field */
 export type _Meta_ = {
+  __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
    * will be null if the _meta field has a block constraint that asks for
@@ -2815,17 +2830,17 @@ export enum _SubgraphErrorPolicy_ {
 export type GetCarbonOffsetsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCarbonOffsetsCategoriesQuery = { carbonOffsets: Array<{ methodologyCategory: string }> };
+export type GetCarbonOffsetsCategoriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', methodologyCategory: string }> };
 
 export type GetCarbonOffsetsCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCarbonOffsetsCountriesQuery = { carbonOffsets: Array<{ country: string }> };
+export type GetCarbonOffsetsCountriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', country: string }> };
 
 export type GetCarbonOffsetsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCarbonOffsetsVintagesQuery = { carbonOffsets: Array<{ vintageYear: string }> };
+export type GetCarbonOffsetsVintagesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', vintageYear: string }> };
 
 export type GetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
   key: Scalars['String'];
@@ -2833,7 +2848,7 @@ export type GetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
 }>;
 
 
-export type GetCarbonOffsetsByProjectAndVintageQuery = { carbonOffsets: Array<{ id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+export type GetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
 
 export type FindCarbonOffsetsQueryVariables = Exact<{
   country?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -2843,7 +2858,7 @@ export type FindCarbonOffsetsQueryVariables = Exact<{
 }>;
 
 
-export type FindCarbonOffsetsQuery = { carbonOffsets: Array<{ id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
 
 
 export const GetCarbonOffsetsCategoriesDocument = gql`

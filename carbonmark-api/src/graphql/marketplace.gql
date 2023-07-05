@@ -21,29 +21,9 @@ query getPurchasesById($id: Bytes) {
     id
     amount
     listing {
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      batches
-      batchPrices
-      singleUnitPrice
-      createdAt
-      updatedAt
-      seller {
-        id
-      }
+      ...ListingFragment
       project {
-        id
-        key
-        projectID
-        name
-        methodology
-        vintage
-        projectAddress
-        registry
+        ...ProjectFragment
         category {
           id
         }
@@ -64,54 +44,24 @@ query getPurchasesById($id: Bytes) {
 query getUserByWallet($wallet: Bytes) {
   users(where: { id: $wallet }) {
     listings {
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      batches
-      batchPrices
-      singleUnitPrice
-      createdAt
-      updatedAt
-      project {
-        name
-        category {
-          id
-        }
-        id
-        key
-        projectID
-        methodology
-        vintage
-        projectAddress
-        registry
-      }
+      ...ListingFragment
       seller {
         id
       }
-    }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      id
-      amount
-      previousAmount
-      price
-      previousPrice
-      timeStamp
-      activityType
       project {
-        name
+        ...ProjectFragment
         category {
           id
         }
-        id
-        key
-        projectID
-        methodology
-        vintage
-        projectAddress
-        registry
+      }
+    }
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+      ...ActivityFragment
+      project {
+        category {
+          id
+        }
+        ...ProjectFragment
       }
       seller {
         id
@@ -147,56 +97,23 @@ query findProjects(
 query getProjectsById($key: String, $vintageStr: BigInt) {
   projects(where: { key: $key, vintage: $vintageStr }) {
     ...ProjectFragment
-  }
-}
-
-fragment ListingFragment on Listing {
-  id
-  totalAmountToSell
-  leftToSell
-  tokenAddress
-  active
-  deleted
-  batches
-  batchPrices
-  singleUnitPrice
-  createdAt
-  updatedAt
-  seller {
-    id
-  }
-}
-
-fragment ProjectFragment on Project {
-  id
-  key
-  projectID
-  name
-  vintage
-  projectAddress
-  registry
-  methodology
-  projectType
-  region
-  country {
-    id
-  }
-  listings {
-    ...ListingFragment
-  }
-  activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-    id
-    amount
-    previousAmount
-    price
-    previousPrice
-    timeStamp
-    activityType
-    seller {
+    country {
       id
     }
-    buyer {
-      id
+    listings {
+      ...ListingFragment
+      seller {
+        id
+      }
+    }
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+      ...ActivityFragment
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
     }
   }
 }

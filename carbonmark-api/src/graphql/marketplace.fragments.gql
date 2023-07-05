@@ -1,0 +1,36 @@
+fragment ListingFragment on Listing {
+  id
+  totalAmountToSell
+  leftToSell
+  tokenAddress
+  active
+  deleted
+  batches
+  batchPrices
+  singleUnitPrice
+  createdAt
+  updatedAt
+}
+
+fragment ProjectFragment on Project {
+  id
+  key
+  projectID
+  name
+  vintage
+  projectAddress
+  registry
+  methodology
+  projectType
+  region
+}
+
+fragment ActivityFragment on Activity {
+  id
+  amount
+  previousAmount
+  price
+  previousPrice
+  timeStamp
+  activityType
+}

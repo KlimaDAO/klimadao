@@ -1,4 +1,4 @@
-const fetchGSProject = async ({ registryProjectId }) => {
+const fetchGSProject = () => {
   //   const res = await fetch(`https://api.goldstandard.org/projects/${id[1]}`);
   //   const data = await results.json();
   //   return {
@@ -7,6 +7,4 @@ const fetchGSProject = async ({ registryProjectId }) => {
   return null; // gs not currently supported
 };
 
-module.exports = {
-  fetchGSProject,
-};
+export default fetchGSProject;
