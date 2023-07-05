@@ -17,7 +17,7 @@ import {
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { SubmitHandler, useFormContext } from "react-hook-form";
+import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
 
@@ -28,6 +28,37 @@ type Props = {
   balance: string | null;
 };
 
+const validations = (balance: string | null) => ({
+  usdc: {
+    quantity: {
+      min: {
+        value: 0.001,
+        message: t`The minimum amount to retire is 0.001 Tonnes`,
+      },
+    },
+    totalPrice: {
+      max: {
+        value: Number(balance || "0"),
+        message: t`You exceeded your available amount of tokens`,
+      },
+    },
+  },
+  fiat: {
+    quantity: {
+      min: {
+        value: 1,
+        message: t`The minimum amount to retire is 1 Tonnes`,
+      },
+    },
+    totalPrice: {
+      max: {
+        value: 2000,
+        message: t`At this time, Carbonmark cannot process credit card payments exceeding $2,000.`,
+      },
+    },
+  },
+});
+
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
 
@@ -37,6 +68,8 @@ export const RetireInputs: FC<Props> = (props) => {
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
     props.onSubmit(values);
   };
+
+  const paymentMethod = useWatch({ name: "paymentMethod", control });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +104,8 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: 0.001,
+                min: validations(props.balance)[paymentMethod].quantity.min
+                  .value,
                 max: Number(props.price.supply),
                 ...register("quantity", {
                   onChange: () => clearErrors("totalPrice"),
@@ -79,10 +113,7 @@ export const RetireInputs: FC<Props> = (props) => {
                     value: true,
                     message: t`Quantity is required`,
                   },
-                  min: {
-                    value: 0.001,
-                    message: t`The minimum amount to retire is 0.001 Tonnes`,
-                  },
+                  min: validations(props.balance)[paymentMethod].quantity.min,
                   max: {
                     value: Number(props.price.supply),
                     message: t`Available supply exceeded`,
@@ -142,10 +173,13 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
             <Text>{t`Pay with:`}</Text>
-            {!!props.balance && (
+            {!!props.balance && paymentMethod !== "fiat" && (
               <Text t="body3">
                 {t`Balance: ${formatToPrice(props.balance, locale)}`}
               </Text>
+            )}
+            {paymentMethod === "fiat" && (
+              <Text t="body3">{t`$2,000 maximum for credit cards`}</Text>
             )}
           </div>
 
@@ -191,7 +225,7 @@ export const RetireInputs: FC<Props> = (props) => {
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
             <Text t="body3">
-              {t`To retire this project using a different form of payment,`}{" "}
+              {t`Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. To retire this project using a different form of payment,`}{" "}
               <Anchor href={urls.app}>click here</Anchor>.
             </Text>
           </div>
@@ -218,10 +252,7 @@ export const RetireInputs: FC<Props> = (props) => {
               value: true,
               message: t`Could not calculate Total Cost`,
             },
-            max: {
-              value: Number(props.balance || "0"),
-              message: t`You exceeded your available amount of tokens`,
-            },
+            max: validations(props.balance)[paymentMethod].totalPrice.max,
           }),
         }}
         label={"Total Price"}
