@@ -2,6 +2,7 @@ export { concatAddress } from "./concatAddress";
 // ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
+export { redirectFiatCheckout } from "./fiatCheckout";
 export { formatTonnes } from "./formatTonnes";
 export { formatUnits } from "./formatUnits";
 export {
@@ -16,6 +17,7 @@ export {
   isDefaultProjectAddress,
 } from "./getDefaultProjects";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
+export { getFiatRetirementCost } from "./getFiatRetirementCost";
 export { getFiatRetirementUrl } from "./getFiatRetirementUrl";
 export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
