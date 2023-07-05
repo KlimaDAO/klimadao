@@ -1,6 +1,6 @@
 import { get } from "lodash";
-import { POOL_INFO } from "src/routes/projects/projects.constants";
-import { gqlSdk } from "src/utils/gqlSdk";
+import { POOL_INFO } from "../../routes/projects/projects.constants";
+import { gqlSdk } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
@@ -27,7 +27,7 @@ type PoolInfoMap = {
 /**
  * Stats for all project tokens across both bridges
  */
-type Stats = {
+export type Stats = {
   totalBridged: number;
   totalRetired: number;
   totalSupply: number;

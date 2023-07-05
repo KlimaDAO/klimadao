@@ -6,7 +6,7 @@ import {
   Listing,
   User,
 } from "src/.generated/types/marketplace.types";
-import { gqlSdk } from "src/utils/gqlSdk";
+import { gqlSdk } from "../gqlSdk";
 
 type WithHandle<T> = T & { handle?: string };
 
@@ -39,7 +39,9 @@ export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
-}: Params) => {
+}: Params): Promise<
+  [Omit<Listing, "project">[], ActivityWithUserHandles[]]
+> => {
   const data = await gqlSdk.marketplace.getProjectsById({
     key,
     vintageStr: vintage,
@@ -85,30 +87,31 @@ export const fetchMarketplaceListings = async ({
       };
     })
   );
-  const getActivitiesWithProfiles = Promise.all(
-    formattedActivities.map(async (act) => {
-      const activityWithHandles: ActivityWithUserHandles = act;
-      const seller = await fastify.firebase
-        .firestore()
-        .collection("users")
-        .doc(act.seller.id.toUpperCase())
-        .get();
-      if (seller.exists) {
-        activityWithHandles.seller.handle = seller.data()?.handle;
-      }
-      if (act.buyer) {
-        const buyer = await fastify.firebase
+  const getActivitiesWithProfiles: Promise<ActivityWithUserHandles[]> =
+    Promise.all(
+      formattedActivities.map(async (act) => {
+        const activityWithHandles: ActivityWithUserHandles = { ...act };
+        const seller = await fastify.firebase
           .firestore()
           .collection("users")
-          .doc(act.buyer.id.toUpperCase())
+          .doc(act.seller.id.toUpperCase())
           .get();
-        if (buyer.exists) {
-          assign(activityWithHandles, "buyer.handle", buyer.data()?.handle);
+        if (seller.exists) {
+          activityWithHandles.seller.handle = seller.data()?.handle;
         }
-      }
-      return activityWithHandles;
-    })
-  );
+        if (act.buyer) {
+          const buyer = await fastify.firebase
+            .firestore()
+            .collection("users")
+            .doc(act.buyer.id.toUpperCase())
+            .get();
+          if (buyer.exists) {
+            assign(activityWithHandles, "buyer.handle", buyer.data()?.handle);
+          }
+        }
+        return activityWithHandles;
+      })
+    );
 
   const [listingsWithProfiles, activitiesWithProfiles] = await Promise.all([
     getListingsWithProfiles,

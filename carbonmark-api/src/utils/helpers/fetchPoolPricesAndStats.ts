@@ -1,6 +1,6 @@
 import { get } from "lodash";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
-import { fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
+import { Stats, fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
 
 type ProjectPoolPrice = {
   poolName: "bct" | "nct" | "ubo" | "nbo"; // Name of the pool
@@ -21,7 +21,9 @@ type Params = {
  * @param {Params} params - e.g. `{ key: "VCS-981", vintage: "2017" }`
  * @returns {Promise<[ProjectPoolPrice[], Stats]>} - 1 entry for each asset. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
-export const fetchPoolPricesAndStats = async (params: Params) => {
+export const fetchPoolPricesAndStats = async (
+  params: Params
+): Promise<[ProjectPoolPrice[], Stats]> => {
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo({
       key: params.key,
