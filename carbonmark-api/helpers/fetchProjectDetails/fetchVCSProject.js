@@ -1,6 +1,6 @@
 // @ts-check
-import { getSanityClient } from "../../sanity";
-import { fetchProjects } from "../../sanity/queries";
+const { getSanityClient } = require("../../sanity");
+const { fetchProjects } = require("../../sanity/queries");
 
 const sanity = getSanityClient();
 
@@ -8,7 +8,7 @@ const sanity = getSanityClient();
  * @typedef {Object} Params
  * @property {string} registryProjectId - Project id number `"981"`
  */
-export const fetchVCSProject = async ({ registryProjectId }) => {
+const fetchVCSProject = async ({ registryProjectId }) => {
   try {
     const registry = "VCS";
     const project = await sanity.fetch(fetchProjects, {
@@ -35,4 +35,8 @@ export const fetchVCSProject = async ({ registryProjectId }) => {
     console.error("fetchVCSProject failed: ", err.message);
     throw new Error(err.message);
   }
+};
+
+module.exports = {
+  fetchVCSProject,
 };

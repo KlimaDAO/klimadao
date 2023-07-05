@@ -1,7 +1,7 @@
 // @ts-check
-import { utils } from "ethers";
-import { executeGraphQLQuery } from "../apollo-client";
-import { GET_PROJECT_BY_ID } from "../queries/project_id";
+const { utils } = require("ethers");
+const { executeGraphQLQuery } = require("../apollo-client");
+const { GET_PROJECT_BY_ID } = require("../queries/project_id");
 
 /**
  * @typedef {Object} ListingWithProfile
@@ -32,7 +32,7 @@ const filterUnsoldActivity = (activity) => activity.activityType !== "Sold";
  *  @example fetchMarketplaceListings({ key: "VCS-981", vintage: "2017", fastify })
  * @returns {Promise<ListingWithProfile[], ActivitiesWithProfile[]>}
  */
-export const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
+const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
   try {
     const { data } = await executeGraphQLQuery(
       process.env.GRAPH_API_URL, // marketplace subgraph
@@ -116,4 +116,8 @@ export const fetchMarketplaceListings = async ({ key, vintage, fastify }) => {
     console.error("fetchMarketplaceListings failed:", err.message);
     throw new Error(err.message);
   }
+};
+
+module.exports = {
+  fetchMarketplaceListings,
 };

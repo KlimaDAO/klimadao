@@ -1,7 +1,7 @@
 // @ts-check
-import { poolInfo } from "../constants/constants";
-import { ALL_POOL_PRICES } from "../queries/all_pool_prices";
-const { executeGraphQLQuery } = require("../apollo-client");
+const poolInfo = require("../constants/constants").poolInfo;
+const ALL_POOL_PRICES = require("../queries/all_pool_prices").ALL_POOL_PRICES;
+const executeGraphQLQuery = require("../apollo-client").executeGraphQLQuery;
 
 /**
  * @typedef {Object} PoolPrice
@@ -37,7 +37,7 @@ const calculateSelectivePrice = (defaultPrice, poolName) => {
  * Query the subgraph for a list of all prices for tracked pairs (bct, nct, nbo, ubo)
  * @returns {Promise<PoolPriceMap>} - Array of prices and addresses
  */
-export const fetchAllPoolPrices = async () => {
+const fetchAllPoolPrices = async () => {
   const { data } = await executeGraphQLQuery(
     process.env.POOL_PRICES_GRAPH_API_URL, // polygon-bridged-carbon subgraph
     ALL_POOL_PRICES
@@ -56,4 +56,8 @@ export const fetchAllPoolPrices = async () => {
     };
     return prev;
   }, {});
+};
+
+module.exports = {
+  fetchAllPoolPrices,
 };

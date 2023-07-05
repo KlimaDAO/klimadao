@@ -73,6 +73,11 @@ export const featuredCard = css`
   border: 2px solid var(--yellow);
 `;
 
+export const sectionTitle = css`
+  display: grid;
+  gap: 0.8rem;
+`;
+
 export const cardsHeader = css`
   display: flex;
   gap: 0.8rem;

@@ -1,6 +1,6 @@
 // @ts-check
-import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
-import { fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
+const { fetchAllPoolPrices } = require("./fetchAllPoolPrices");
+const { fetchProjectPoolInfo } = require("./fetchProjectPoolInfo");
 
 /**
  * @typedef {Object} ProjectPoolPrice
@@ -38,7 +38,7 @@ import { fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
  * @param {Params} params - e.g. `{ key: "VCS-981", vintage: "2017" }`
  * @returns {Promise<[ProjectPoolPrice[], Stats]>} - 1 entry for each asset. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
-export const fetchPoolPricesAndStats = async (params) => {
+const fetchPoolPricesAndStats = async (params) => {
   try {
     const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
       fetchProjectPoolInfo({
@@ -66,4 +66,8 @@ export const fetchPoolPricesAndStats = async (params) => {
     console.error("fetchPoolPrices failed", error.message);
     throw new Error(error.message);
   }
+};
+
+module.exports = {
+  fetchPoolPricesAndStats,
 };

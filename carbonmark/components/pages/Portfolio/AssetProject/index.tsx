@@ -55,8 +55,8 @@ export const AssetProject: FC<Props> = (props) => {
         </div>
       )}
       <Text t="body1">
-        <Trans>Quantity Available:</Trans>{" "}
-        {formatToTonnes(props.asset.balance, locale)}
+        <Trans>Available Tonnes:</Trans>{" "}
+        <strong>{formatToTonnes(props.asset.balance, locale)}</strong>
       </Text>
 
       <div className={styles.buttons}>

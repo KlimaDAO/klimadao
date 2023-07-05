@@ -1,5 +1,5 @@
-import { fetchGSProject } from "./fetchGSProject";
-import { fetchVCSProject } from "./fetchVCSProject";
+const { fetchGSProject } = require("./fetchGSProject");
+const { fetchVCSProject } = require("./fetchVCSProject");
 
 /**
  * @typedef {Object} Params
@@ -7,7 +7,7 @@ import { fetchVCSProject } from "./fetchVCSProject";
  * @property {string} registry - Registry identifier "VCS" | "GS"
  * @param Params
  */
-export const fetchProjectDetails = async ({ registry, registryProjectId }) => {
+const fetchProjectDetails = async ({ registry, registryProjectId }) => {
   try {
     if (registry === "VCS") {
       return await fetchVCSProject({ registryProjectId });
@@ -21,3 +21,5 @@ export const fetchProjectDetails = async ({ registry, registryProjectId }) => {
     throw new Error(err.message);
   }
 };
+
+module.exports = { fetchProjectDetails };
