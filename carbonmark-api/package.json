@@ -10,7 +10,7 @@
     "test:postman": "./postman_tests.sh",
     "start": "fastify start -l info app.js",
     "start:test": "fastify start app.js --port 3000",
-    "dev": "fastify start -w -l info -P app.js"
+    "dev": "fastify start -w -l info -P app.js --port 3003"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",

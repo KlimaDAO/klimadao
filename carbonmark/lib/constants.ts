@@ -57,7 +57,7 @@ export const config = {
     baseUrl: {
       production: "https://www.carbonmark.com",
       preview: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL, // note: won't take custom subdomains like staging.carbonmark.com, takes the vercel generated url instead
-      development: "http://localhost:3000",
+      development: "http://localhost:3002",
     },
     blockExplorer: {
       production: polygonNetworks.mainnet.blockExplorerUrls[0],
@@ -67,7 +67,10 @@ export const config = {
     api: {
       production: "https://api.carbonmark.com/api",
       preview: "https://staging-api.carbonmark.com/api",
-      development: "http://localhost:3000/api",
+      //Allow the developer to set the carbonmark api url to point to their local instance if necessary
+      development:
+        process.env.NEXT_PUBLIC_CARBONMARK_API_URL ??
+        "https://staging-api.carbonmark.com/api",
     },
   },
 } as const;

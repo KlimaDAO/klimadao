@@ -39,6 +39,7 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 - `npm run dev-all`: run all workspaces with hot reloading enabled.
 - `npm run dev-app`: [http://localhost:3001](http://localhost:3001)
 - `npm run dev-carbonmark`: [http://localhost:3002](http://localhost:3002)
+- `npm run dev-carbonmark-api`: [http://localhost:3003](http://localhost:3003)
 - `npm run dev-site`: [http://localhost:3000](http://localhost:3000)
 - `npm run dev-lib`: enable hot-reload for changes to components or utils.
 
@@ -59,6 +60,14 @@ We follow these rules:
 - Don't use ids, except for very long strings.
 - Extract the source translation with `npm run extract-strings:dev`
 - Commit source language files "en" only
+
+#### Targetting a local api instance
+
+If you would like carbonmark to target a local running instance of the `carbonmark-api`, you can set the url value via the `NEXT_PUBLIC_CARBONMARK_API_URL` environment variable:
+
+```bash
+NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/api npm run dev-carbonmark
+```
 
 ### For translators
 

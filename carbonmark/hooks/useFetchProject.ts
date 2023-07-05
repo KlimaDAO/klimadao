@@ -8,6 +8,7 @@ export const useFetchProject = (
   projectID: string,
   options?: SWRConfiguration
 ) => {
+  console.log("API.PROHJECTS", urls.api.projects);
   const { data: project, ...rest } = useSWR<Project>(
     `${urls.api.projects}/${projectID}`,
     fetcher,
