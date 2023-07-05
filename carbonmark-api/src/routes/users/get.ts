@@ -1,3 +1,4 @@
+import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { notEmpty } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
@@ -136,10 +137,24 @@ const handler = (fastify: FastifyInstance) =>
           }
         }),
       ]);
+      const formattedActivities = users[0].activities?.map((act) => {
+        return {
+          ...act,
+          amount: act.amount ? utils.formatUnits(act.amount, 18) : null,
+          previousAmount: act.previousAmount
+            ? utils.formatUnits(act.previousAmount, 18)
+            : null,
+          price: act.price ? utils.formatUnits(act.price, 6) : null,
+          previousPrice: act.previousPrice
+            ? utils.formatUnits(act.previousPrice, 6)
+            : null,
+        };
+      });
+
       // Add the modified listings array to the response object
       response.listings = listings;
       // Add the activities array from the data to the response object
-      response.activities = users[0].activities;
+      response.activities = formattedActivities;
     } else {
       // If the users array in the data is empty, add empty arrays for listings and activities to the response object
       response.listings = [];

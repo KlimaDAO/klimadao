@@ -23,13 +23,13 @@ const MOCK_PRIVATE_KEY =
 
 const ENDPOINTS = [
   // "/categories",
-  // "/countries",
+  "/countries",
   // "/vintages",
   // "/purchases",
   // "/projects",
   "/projects/VCS-191-2008",
-  // "/users/emc",
-  // "/users/0x2091316a25c0829fdd2c05412ef2d3ca6cceaf53?type=wallet",
+  "/users/emc",
+  "/users/0x702E9b5AF503Cf37f3E2d1993744d02114C5ef34?type=wallet",
 ];
 
 /** This test requires updating environment variables to be --production values */

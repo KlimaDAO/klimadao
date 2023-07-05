@@ -82,7 +82,7 @@ const handler = (fastify: FastifyInstance) =>
 
 export default async (fastify: FastifyInstance) =>
   await fastify.route<{ Body: Body }>({
-    method: "POST",
+    method: "PUT",
     url: "/users/:wallet",
     onRequest: [fastify.authenticate],
     schema,
