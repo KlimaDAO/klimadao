@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 
 export const card = css`
+  overflow: hidden;
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-01);

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-30 16:54+0000\n"
+"POT-Creation-Date: 2023-07-04 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,6 +102,7 @@ msgid "Asset ID"
 msgstr "ID актива"
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr ""
@@ -322,7 +323,7 @@ msgstr "Создавайте и редактируйте объявления, �
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
 msgid "Create your own retirement"
 msgstr "Создайте свою собственную замену"
 
@@ -373,6 +374,14 @@ msgstr "Укажите отображаемое имя."
 
 #: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Downloading ..."
 msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
@@ -774,7 +783,6 @@ msgstr "Купить {0} | Carbonmark"
 msgid "QTY"
 msgstr ""
 
-#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -1773,11 +1781,6 @@ msgstr "Выбивание по углеродному кредиту"
 msgid "retirement.single.country_region.title"
 msgstr "Страна/регион:"
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
-msgid "retirement.single.download_certificate_button"
-msgstr "Скачать PDF"
-
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Это представляет собой окончательное выбытие цифрового углеродного актива. Это выбивание и связанные с ним данные являются неизменяемыми общедоступными записями."
@@ -1828,7 +1831,7 @@ msgstr "Доказательство"
 msgid "retirement.single.quantity.title"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
 msgid "retirement.single.share_retirement.title"
 msgstr "Поделитесь этим выбиванием"
 

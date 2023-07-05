@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-06-30 16:54+0000\n"
+"POT-Creation-Date: 2023-07-04 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,6 +102,7 @@ msgid "Asset ID"
 msgstr "एसेट आईडी"
 
 #: components/ProjectCard/index.tsx:43
+#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "उपलब्ध टन:"
@@ -322,7 +323,7 @@ msgstr "सूची बनाएँ और संपादित करें, 
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "अपना खुद का कार्बन स्टोरफ्रंट बनाएं। संगठनों और व्यक्तियों को समान रूप से सीधा बेचें।"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
 msgid "Create your own retirement"
 msgstr "अपनी खुद की रिटयरमेंट बनाएँ"
 
@@ -374,6 +375,14 @@ msgstr "प्रदर्शित नाम आवश्यक है"
 #: components/pages/Retire/index.tsx:144
 msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
 msgstr "क्या आप रिटायर होने के लिए किसी प्रोजेक्ट को खोजने और चुनने की परेशानी से नहीं गुजरना चाहते? यहां विश्वसनीय विक्रेताओं से छूट वाली रिटायरमेंट्स की सूची दी गई है।"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Download PDF"
+msgstr "PDF (पीडीएफ़) डाउनलोड करें"
+
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+msgid "Downloading ..."
+msgstr ""
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -774,7 +783,6 @@ msgstr "ख़रीद {0} | कार्बनमार्क"
 msgid "QTY"
 msgstr "मात्रा"
 
-#: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
 msgid "Quantity Available:"
@@ -1773,11 +1781,6 @@ msgstr "कार्बन क्रेडिट रिटायरमेंट"
 msgid "retirement.single.country_region.title"
 msgstr "देश/क्षेत्र:"
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:18
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:34
-msgid "retirement.single.download_certificate_button"
-msgstr "PDF डाउनलोड करें"
-
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
 msgstr "यह एक डिजिटल कार्बन संपत्ति की स्थायी रिटायरमैंट का प्रतिनिधित्व करता है। यह रिटायरमैंट और संबद्ध डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
@@ -1826,7 +1829,7 @@ msgstr "सबूत"
 msgid "retirement.single.quantity.title"
 msgstr "रिटायर की गयी मात्रा"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
 msgid "retirement.single.share_retirement.title"
 msgstr "इस रिटायरमेंट को साझा करें"
 

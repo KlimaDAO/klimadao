@@ -10,6 +10,9 @@ export const projectHeader = css`
   align-items: flex-start;
   flex-direction: column;
   gap: 2.5rem;
+  margin: -1.6rem;
+  max-height: 14rem;
+  margin-bottom: 0.4rem;
 
   .stack {
     display: grid;
@@ -18,7 +21,9 @@ export const projectHeader = css`
   }
 
   ${breakpoints.medium} {
-    padding: 10rem 2rem;
+    max-height: 24rem;
+    padding: 7rem 2rem;
+    margin-bottom: 0.8rem;
   }
 `;
 
@@ -33,13 +38,38 @@ export const imageGradient = css`
 `;
 
 export const projectHeaderText = css`
+  z-index: 1;
   color: var(--white);
   word-break: break-word;
-  font-weight: 600;
-  z-index: 1;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
 
   a {
     color: var(--klima-blue);
+  }
+
+  ${breakpoints.medium} {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+  }
+`;
+
+export const projectHeaderSubText = css`
+  color: var(--white);
+  word-break: break-word;
+  font-family: var(--font-family-secondary);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+
+  a {
+    color: var(--klima-blue);
+  }
+
+  ${breakpoints.medium} {
+    font-size: 2rem;
+    line-height: 2.8rem;
   }
 `;
 

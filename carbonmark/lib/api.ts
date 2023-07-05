@@ -1,5 +1,4 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { DownloadCertificateButtonProps } from "components/pages/Retirements/SingleRetirement/DownloadCertificateButton";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
 import {
@@ -126,9 +125,11 @@ export const getRetirements = async (params: {
   return data;
 };
 
-export const getRetirementCertificate = async (
-  params: DownloadCertificateButtonProps
-) => {
+export const getRetirementCertificate = async (params: {
+  beneficiaryName: string;
+  beneficiaryAddress: string;
+  retirementIndex: string;
+}) => {
   const filename = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
   try {
     const result = await fetch(

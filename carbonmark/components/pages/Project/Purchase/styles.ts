@@ -50,10 +50,24 @@ export const backToResults = css`
 `;
 
 export const price = css`
+  height: 3.6rem;
   align-self: start;
   padding: 0.8rem 1.6rem;
   background-color: var(--yellow);
   border-radius: var(--border-radius);
+
+  & p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  ${breakpoints.medium} {
+    height: 4.4rem;
+    & p {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+  }
 `;
 
 export const inactivePurchase = css`
@@ -179,6 +193,7 @@ export const showOnDesktop = css`
   display: none;
   ${breakpoints.large} {
     display: flex;
+    margin-bottom: 2.4rem;
   }
 `;
 
