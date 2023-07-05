@@ -1,0 +1,119 @@
+query getCategories {
+  categories {
+    id
+  }
+}
+
+query getCountries {
+  countries {
+    id
+  }
+}
+
+query getVintages {
+  projects {
+    vintage
+  }
+}
+
+query getPurchasesById($id: Bytes) {
+  purchases(first: 1, where: { id: $id }) {
+    id
+    amount
+    listing {
+      ...ListingFragment
+      project {
+        ...ProjectFragment
+        category {
+          id
+        }
+        country {
+          id
+        }
+        updatedAt
+      }
+    }
+    price
+    timeStamp
+    user {
+      id
+    }
+  }
+}
+
+query getUserByWallet($wallet: Bytes) {
+  users(where: { id: $wallet }) {
+    listings {
+      ...ListingFragment
+      seller {
+        id
+      }
+      project {
+        ...ProjectFragment
+        category {
+          id
+        }
+      }
+    }
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+      ...ActivityFragment
+      project {
+        category {
+          id
+        }
+        ...ProjectFragment
+      }
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
+    }
+    purchases {
+      id
+    }
+  }
+}
+
+query findProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [BigInt!]
+) {
+  projects(
+    where: {
+      category_: { id_in: $category }
+      country_: { id_in: $country }
+      name_contains_nocase: $search
+      vintage_in: $vintage
+    }
+  ) {
+    ...ProjectFragment
+  }
+}
+
+query getProjectsById($key: String, $vintageStr: BigInt) {
+  projects(where: { key: $key, vintage: $vintageStr }) {
+    ...ProjectFragment
+    country {
+      id
+    }
+    listings {
+      ...ListingFragment
+      seller {
+        id
+      }
+    }
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+      ...ActivityFragment
+      seller {
+        id
+      }
+      buyer {
+        id
+      }
+    }
+  }
+}
