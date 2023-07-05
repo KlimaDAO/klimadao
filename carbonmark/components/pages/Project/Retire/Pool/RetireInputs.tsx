@@ -9,7 +9,7 @@ import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
 import { utils } from "ethers";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
-import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
+import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
   Price as PriceType,
@@ -151,7 +151,7 @@ export const RetireInputs: FC<Props> = (props) => {
 
           <Dropdown
             name="paymentMethod"
-            initial={carbonmarkPaymentMethodMap["usdc"].id}
+            initial={carbonmarkRetirePaymentMethodMap["usdc"].id}
             className={styles.paymentDropdown}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
@@ -159,14 +159,14 @@ export const RetireInputs: FC<Props> = (props) => {
                 <Image
                   className="icon"
                   src={
-                    carbonmarkPaymentMethodMap[
+                    carbonmarkRetirePaymentMethodMap[
                       selected.id as CarbonmarkPaymentMethod
                     ].icon
                   }
                   width={28}
                   height={28}
                   alt={
-                    carbonmarkPaymentMethodMap[
+                    carbonmarkRetirePaymentMethodMap[
                       selected.id as CarbonmarkPaymentMethod
                     ].id
                   }
@@ -175,13 +175,15 @@ export const RetireInputs: FC<Props> = (props) => {
               </div>
             )}
             control={control}
-            options={Object.values(carbonmarkPaymentMethodMap).map((val) => ({
-              id: val.id,
-              label: val.label,
-              value: val.id,
-              icon: val.icon,
-              disabled: val.disabled,
-            }))}
+            options={Object.values(carbonmarkRetirePaymentMethodMap).map(
+              (val) => ({
+                id: val.id,
+                label: val.label,
+                value: val.id,
+                icon: val.icon,
+                disabled: val.disabled,
+              })
+            )}
           />
         </div>
 
