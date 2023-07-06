@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-06 06:13+0000\n"
+"POT-Creation-Date: 2023-07-06 07:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,7 +85,7 @@ msgstr "Zu kaufende Menge"
 
 #: components/pages/Project/Retire/TotalValues.tsx:116
 msgid "Amount to retire"
-msgstr ""
+msgstr "Auszugleichende Menge"
 
 #: components/ProjectFilterModal/index.tsx:140
 msgid "Apply"
@@ -105,7 +105,7 @@ msgstr "Asset-ID"
 #: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 msgid "Available Tonnes:"
-msgstr ""
+msgstr "Verfügbare Tonnen:"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
@@ -119,7 +119,7 @@ msgstr "Verfügbarer Vorrat überschritten"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:50
 msgid "Available to purchase"
-msgstr ""
+msgstr "Zum Kauf verfügbar"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
 #: components/pages/Project/Retire/AssetDetails.tsx:50
@@ -333,7 +333,7 @@ msgstr "Erstellt:"
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
-msgstr ""
+msgstr "DATUM"
 
 #: components/pages/Project/index.tsx:250
 msgid "Data for this project and vintage"
@@ -382,7 +382,7 @@ msgstr "PFD herunterladen"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Downloading ..."
-msgstr ""
+msgstr "Wird heruntergeladen ..."
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -394,11 +394,11 @@ msgstr "Energieeffizienz"
 
 #: components/pages/Home/index.tsx:464
 msgid "FAQs"
-msgstr ""
+msgstr "FAQs"
 
 #: components/pages/Project/ProjectsController/index.tsx:46
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #: components/pages/Purchases/index.tsx:112
 msgid "Final price"
@@ -414,7 +414,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:388
 msgid "For project developers"
-msgstr ""
+msgstr "Für Projektentwickler"
 
 #: lib/getCategoryInfo.ts:53
 msgid "Forestry"
@@ -426,7 +426,7 @@ msgstr "Jetzt starten"
 
 #: components/pages/Home/index.tsx:393
 msgid "Get paid immediately: transactions are resolved in seconds"
-msgstr ""
+msgstr "Transaktionsabwicklung in Sekunden: werden Sie sofort bezahlt"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
@@ -456,7 +456,7 @@ msgstr "Hilfe"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
 #: components/pages/Project/Retire/TotalValues.tsx:178
 msgid "Hide Details"
-msgstr ""
+msgstr "Details ausblenden"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:91
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
@@ -465,7 +465,7 @@ msgstr "Wie viele Tonnen CO2 möchten Sie kaufen?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:92
 msgid "How many tonnes of carbon do you want to retire?"
-msgstr ""
+msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:62
 msgid "How many tonnes of carbon would you like to retire?"
@@ -485,7 +485,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:437
 msgid "Introducing Carbonmark"
-msgstr ""
+msgstr "Über Carbonmark"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
@@ -495,7 +495,7 @@ msgstr "KlimaDAO"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
 #: components/pages/Project/Retire/TotalValues.tsx:228
 msgid "KlimaDAO Contracts"
-msgstr ""
+msgstr "KlimaDAO-Smart-Contracts"
 
 #: components/pages/Home/index.tsx:527
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
@@ -591,7 +591,7 @@ msgstr ""
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
 #: components/pages/Project/Retire/TotalValues.tsx:157
 msgid "Network fees"
-msgstr ""
+msgstr "Netzwerkgebühren"
 
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
@@ -620,7 +620,7 @@ msgstr ""
 
 #: components/pages/Retire/Activity/Overview.tsx:60
 msgid "No data to show"
-msgstr ""
+msgstr "Keine Daten zum Anzeigen"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
 #: components/pages/Retire/FromPortfolio/index.tsx:78
@@ -646,7 +646,7 @@ msgstr "Nicht verbunden"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:120
 msgid "Not a valid polygon address"
-msgstr ""
+msgstr "Keine gültige Polygonadresse"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:72
 msgid "Oldest First"
@@ -662,7 +662,7 @@ msgstr "Andere naturbasierte Credits"
 
 #: components/pages/Home/index.tsx:101
 msgid "Our Partners"
-msgstr ""
+msgstr "Unsere Partner"
 
 #: components/pages/Home/index.tsx:121
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
@@ -670,7 +670,7 @@ msgstr ""
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECTS"
-msgstr ""
+msgstr "PROJEKTE"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -703,7 +703,7 @@ msgstr "Portfolio | Carbonmark"
 
 #: components/pages/Home/index.tsx:521
 msgid "Powered by"
-msgstr ""
+msgstr "Bereitgestellt von"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
@@ -781,7 +781,7 @@ msgstr "{0} kaufen | Carbonmark"
 
 #: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
-msgstr ""
+msgstr "MENGE"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
@@ -872,7 +872,7 @@ msgstr ""
 
 #: components/pages/Retire/index.tsx:112
 msgid "Retire from your portfolio"
-msgstr ""
+msgstr "Aus Ihrem Portfolio ausgleichen"
 
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
@@ -885,7 +885,7 @@ msgstr ""
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
-msgstr ""
+msgstr "Mehr CO2 ausgleichen"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
@@ -937,7 +937,7 @@ msgstr "Erzählen Sie etwas über sich. Dies wird in Ihrem Verkäuferprofil sich
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:95
 msgid "See your portfolio"
-msgstr ""
+msgstr "Portfolio ansehen"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:65
 msgid "See your retirement receipt"
@@ -949,11 +949,11 @@ msgstr "Verkaufen"
 
 #: components/pages/Home/index.tsx:313
 msgid "Sell carbon"
-msgstr ""
+msgstr "CO2 verkaufen"
 
 #: components/pages/Home/index.tsx:409
 msgid "Sell your digital carbon directly to buyers"
-msgstr ""
+msgstr "Ihre digitalen CO2-Tokens direkt an Käufer verkaufen"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
@@ -1003,17 +1003,17 @@ msgstr "Statistiken"
 #: components/pages/Home/index.tsx:204
 #: components/pages/Home/index.tsx:262
 msgid "Step 1"
-msgstr ""
+msgstr "Schritt 1"
 
 #: components/pages/Home/index.tsx:217
 #: components/pages/Home/index.tsx:277
 msgid "Step 2"
-msgstr ""
+msgstr "Schritt 2"
 
 #: components/pages/Home/index.tsx:230
 #: components/pages/Home/index.tsx:290
 msgid "Step 3"
-msgstr ""
+msgstr "Schritt 3"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:93
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
@@ -1041,7 +1041,7 @@ msgstr "Danke für die Unterstützung unseres Planeten! Die Kaufdetails finden S
 
 #: components/pages/Home/index.tsx:68
 msgid "The Universal Carbon Marketplace"
-msgstr ""
+msgstr "Der Universelle CO2-Marktplatz"
 
 #: components/pages/Project/Retire/RetireModal.tsx:41
 msgid "The first step is to grant the approval to transfer your carbon asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your retirement."
@@ -1238,11 +1238,11 @@ msgstr ""
 
 #: components/pages/Retire/index.tsx:116
 msgid "View all Portfolio items"
-msgstr ""
+msgstr "Alle Portfolio-Items ansehen"
 
 #: components/pages/Retire/index.tsx:82
 msgid "View all Projects"
-msgstr ""
+msgstr "Alle Projekte ansehen"
 
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:66
@@ -1799,7 +1799,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
 msgid "retirement.single.moss_offset.name"
-msgstr ""
+msgstr "Moss Earth MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
@@ -1839,7 +1839,7 @@ msgstr "Kein Ausgleichszeitpunkt angegeben"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:54
 msgid "retirement.single.transaction_id.placeholder"
-msgstr ""
+msgstr "Keine Transaktions-ID verfügbar"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:48
 msgid "retirement.single.transaction_id.title"
