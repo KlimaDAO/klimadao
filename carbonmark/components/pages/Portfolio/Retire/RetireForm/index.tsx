@@ -19,10 +19,12 @@ import { RetirementStatusModal } from "../RetirementStatusModal";
 import { RetireModal } from "../RetireModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
+import { queryKlimaBlockNumber } from "@klimadao/lib/utils";
 
 import { Registry } from "components/Registry";
 import { getAddress } from "lib/networkAware/getAddress";
 import * as styles from "./styles";
+import { useRouter } from "next/router";
 
 export const isPoolToken = (str: string): str is PoolToken =>
   !!poolTokens.includes(str as PoolToken);
@@ -35,6 +37,7 @@ interface RetireFormProps {
 
 export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
+  const router  = useRouter();
 
   const { tokenName, balance, tokenSymbol, project } = asset;
 
@@ -43,6 +46,8 @@ export const RetireForm = (props: RetireFormProps) => {
   const [isApproved, setIsApproved] = useState<boolean>(false);
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
+  const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
+  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean>(false);
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
@@ -135,6 +140,37 @@ export const RetireForm = (props: RetireFormProps) => {
       setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
     }
   };
+
+  const prepareNavigateToRetirement = async (
+    blockNumber: number,
+    beneficiaryAddress: string,
+    retirementIndex: number
+  ) => {
+
+
+    let currentBlock = await queryKlimaBlockNumber();
+
+    let counter = 0;
+    console.log('counter', counter)
+    while (currentBlock < blockNumber && counter < 100) {
+      await new Promise(resolve => setTimeout(resolve, 500)); 
+      currentBlock = await queryKlimaBlockNumber();
+      console.log('currentBlock', currentBlock)
+      counter++;
+    }
+
+    if (currentBlock >= blockNumber) {
+      router.prefetch(`/retirements/${beneficiaryAddress}/${retirementIndex}`);
+      setSubgraphIndexed(true);
+    }
+  };
+
+  useEffect(() => {
+    if (retirementBlockNumber !== 0) {
+      console.log("useEffectTriggered")
+      prepareNavigateToRetirement(retirementBlockNumber, retirement.beneficiaryAddress, retirementTotals);
+    }
+  }, [retirementBlockNumber]);
 
   return (
     <div>
@@ -397,6 +433,7 @@ export const RetireForm = (props: RetireFormProps) => {
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,
+            setRetirementBlockNumber,
           }).catch((e) => {
             console.error("Error handling retirement:", e);
             setProcessingRetirement(false);
@@ -408,7 +445,7 @@ export const RetireForm = (props: RetireFormProps) => {
         isApproved={isApproved}
         showModal={retireModalOpen}
       />
-      {retirementTransactionHash && (
+      {retirementTransactionHash && subgraphIndexed && (
         <RetirementStatusModal
           retirementUrl={`${urls.retirements}/${
             retirement.beneficiaryAddress || props.address

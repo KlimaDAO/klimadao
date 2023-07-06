@@ -51,6 +51,7 @@ export { secondsUntilBlock } from "./secondsUntilBlock";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
+  queryKlimaBlockNumber,
 } from "./subgraph/queryPolygonBridgedCarbon";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { trimWithLocale } from "./trimWithLocale";

@@ -115,3 +115,30 @@ export const queryKlimaRetiresByAddress = async (
     return Promise.reject(e);
   }
 };
+
+export const queryKlimaBlockNumber = async (
+): Promise<number> => {
+  try {
+    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `
+          query {
+            _meta {
+              block {
+                number
+              }
+            }
+          }
+          `,
+      }),
+    });
+    const json = await result.json();
+    return json.data._meta.block.number;
+  } catch (e) {
+    console.error("Failed to query KlimaBlockNumber", e);
+    return Promise.reject(e);
+  }
+};
+
