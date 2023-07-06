@@ -1,5 +1,5 @@
-const fp = require("fastify-plugin");
-const cors = require("@fastify/cors");
+import cors from "@fastify/cors";
+import fp from "fastify-plugin";
 
 /**
  * This plugin integrates the CORS middleware into Fastify
@@ -7,8 +7,8 @@ const cors = require("@fastify/cors");
  *
  * @see https://github.com/fastify/fastify-cors
  */
-module.exports = fp(async function (fastify) {
-  fastify.register(cors, {
+export default fp(async function (fastify) {
+  await fastify.register(cors, {
     origin: true,
   });
 });
