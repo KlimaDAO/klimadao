@@ -71,15 +71,17 @@ export const Retire: NextPage<PageProps> = (props) => {
         <div className={cx(styles.fullWidth, "whiteBG")}>
           <div className={styles.content}>
             <div className={styles.sectionTitle}>
-              <div className={styles.cardsHeader}>
+              <div className={styles.cardsHeaderTweakAlignment}>
                 <Text t="h4" className={styles.textWithIcon}>
-                  <LocalPoliceIcon className="featured" fontSize="inherit" />
+                  <LocalPoliceIcon className="featured" fontSize="large" />
                   <Trans>Retire from a featured project</Trans>
                 </Text>
 
                 <Link href="/projects">
-                    <Trans>View all Projects</Trans>
                   <Text t="button" className={styles.textLink}>
+                    <span>
+                      <Trans>View all Projects</Trans>
+                    </span>
                   </Text>
                 </Link>
               </div>
