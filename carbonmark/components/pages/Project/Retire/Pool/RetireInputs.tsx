@@ -62,7 +62,7 @@ const validations = (balance: string | null) => ({
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
 
-  const { register, handleSubmit, formState, control, clearErrors } =
+  const { register, handleSubmit, formState, control, clearErrors, setValue } =
     useFormContext<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
@@ -108,7 +108,16 @@ export const RetireInputs: FC<Props> = (props) => {
                   .value,
                 max: Number(props.price.supply),
                 ...register("quantity", {
-                  onChange: () => clearErrors("totalPrice"),
+                  onChange: (e) => {
+                    clearErrors("totalPrice");
+
+                    // Enforce whole numbers for Fiat, API throws otherwise
+                    paymentMethod === "fiat" &&
+                      setValue(
+                        "quantity",
+                        Math.ceil(Number(e.target.value)).toString()
+                      );
+                  },
                   required: {
                     value: true,
                     message: t`Quantity is required`,
