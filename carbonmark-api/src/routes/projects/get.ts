@@ -289,10 +289,9 @@ const handler = (fastify: FastifyInstance) =>
 
     const filteredItems = projects
       .concat(pooledProjects)
-      .filter((project) => project != null && project.price !== "0");
+      .filter((project) => Number(project?.price) !== 0);
 
     // Send the transformed projects array as a JSON string in the response
-    // return reply.send(JSON.stringify(projects));
     return reply.send(JSON.stringify(filteredItems));
   };
 
