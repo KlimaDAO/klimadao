@@ -31,6 +31,8 @@ export const cardDescription = css`
   background-clip: text;
   overflow: hidden;
   height: 12rem;
+
+  margin-top: auto;
 `;
 
 export const cardImage = css`
