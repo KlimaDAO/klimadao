@@ -4,7 +4,7 @@ import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
-const featuredProjectKeys = ["VCS-1577-2015", "VCS-1764-2020", "VCS-1121-2018"];
+const featuredProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
 const defaultProjectKeys = defaultProjects.map((p) => p.id);
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
