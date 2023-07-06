@@ -1,4 +1,5 @@
 import { t, Trans } from "@lingui/macro";
+import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
@@ -73,11 +74,18 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
       </div>
 
       {emptyAssets && (
-        <Text>
-          <i>
-            <Trans>No listable assets found.</Trans>
-          </i>
-        </Text>
+        <>
+          <Text>
+            <i>
+              <Trans>We couldn't find any assets in your portfolio.</Trans>
+            </i>
+          </Text>
+          <ButtonPrimary
+            href={"/projects"}
+            label={t`Purchase Carbon`}
+            className={styles.buttonEmptyState}
+          />
+        </>
       )}
 
       {isUnregistered && (

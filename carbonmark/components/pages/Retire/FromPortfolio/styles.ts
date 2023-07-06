@@ -9,6 +9,10 @@ export const cardsList = css`
   justify-content: center;
 
   ${breakpoints.medium} {
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
+`;
+
+export const buttonEmptyState = css`
+  align-self: flex-start;
 `;
