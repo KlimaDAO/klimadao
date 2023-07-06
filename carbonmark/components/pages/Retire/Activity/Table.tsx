@@ -62,7 +62,7 @@ export const ActivityTable: FC<Props> = (props) => {
 
       {props.hasRetirements && (
         <Link target="_blank" href={`/retirements/${props.address}`}>
-          <Text className={styles.externalLink} t="body4">
+          <Text className={styles.externalLink} t="button">
             {t`View all Retirements`} <LaunchIcon />
           </Text>
         </Link>

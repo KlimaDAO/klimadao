@@ -49,7 +49,7 @@ export const Retire: NextPage<PageProps> = (props) => {
             </Text>
             {isConnectedUser && (
               <div className={styles.beneficiary}>
-                <Text t="body4">
+                <Text t="h5">
                   <Trans>for beneficiary</Trans>{" "}
                   <span className="highlight">{displayName}</span>
                 </Text>
@@ -78,8 +78,8 @@ export const Retire: NextPage<PageProps> = (props) => {
                 </Text>
 
                 <Link href="/projects">
-                  <Text t="body4" className={styles.textLink}>
                     <Trans>View all Projects</Trans>
+                  <Text t="button" className={styles.textLink}>
                   </Text>
                 </Link>
               </div>
@@ -112,7 +112,7 @@ export const Retire: NextPage<PageProps> = (props) => {
                   <Trans>Retire from your portfolio</Trans>
                 </Text>
                 <Link href="/portfolio">
-                  <Text t="body4" className={styles.textLink}>
+                  <Text t="button" className={styles.textLink}>
                     <Trans>View all Portfolio items</Trans>
                   </Text>
                 </Link>
@@ -135,7 +135,7 @@ export const Retire: NextPage<PageProps> = (props) => {
           <div className={styles.content}>
             <div className={styles.sectionTitle}>
               <div className={styles.cardsHeader}>
-                <Text t="h4" className={styles.textWithIcon}>
+                <Text t="h4">
                   <Trans>Quick Retire</Trans>
                 </Text>
               </div>
