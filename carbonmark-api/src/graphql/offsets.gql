@@ -1,0 +1,82 @@
+query getCarbonOffsetsCategories {
+  carbonOffsets {
+    methodologyCategory
+  }
+}
+
+query getCarbonOffsetsCountries {
+  carbonOffsets {
+    country
+  }
+}
+
+query getCarbonOffsetsVintages {
+  carbonOffsets {
+    vintageYear
+  }
+}
+
+query getCarbonOffsetsByProjectAndVintage($key: String!, $vintageStr: String) {
+  carbonOffsets(where: { projectID: $key, vintageYear: $vintageStr }) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    currentSupply
+    storageMethod
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}
+
+query findCarbonOffsets(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [String!]
+) {
+  carbonOffsets(
+    first: 1000
+    where: {
+      methodologyCategory_in: $category
+      country_in: $country
+      name_contains_nocase: $search
+      vintageYear_in: $vintage
+    }
+  ) {
+    id
+    name
+    tokenAddress
+    vintage
+    vintageYear
+    bridge
+    projectID
+    methodology
+    methodologyCategory
+    country
+    category
+    name
+    registry
+    totalBridged
+    totalRetired
+    storageMethod
+    lastUpdate
+    balanceUBO
+    balanceNBO
+    balanceNCT
+    balanceBCT
+  }
+}

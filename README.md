@@ -79,7 +79,7 @@ NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/api npm run dev-carbonmark
 #### Translating
 
 - Log in [translation.io](https://translation.io)
-- Select the approprite project klimadao-site or klimadao-app
+- Select the appropriate project klimadao-site or klimadao-app
 - Make sure you select the appropriate language in the top menu
 - Start translating!
 - Select an item to translate in the left column
