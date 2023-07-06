@@ -37,7 +37,7 @@ export const ActivityTable: FC<Props> = (props) => {
   return (
     <div className={cx(styles.list, props.className)}>
       <div className={styles.listHeader}>
-        <Text t="body4">{t`PROJECTS`}</Text>
+        <Text t="body4">{t`PROJECT`}</Text>
         <Text align="end" t="body4">{t`QTY`}</Text>
         <Text t="body4">{t`DATE`}</Text>
       </div>
