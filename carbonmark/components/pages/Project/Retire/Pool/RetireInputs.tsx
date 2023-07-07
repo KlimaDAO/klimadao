@@ -25,10 +25,14 @@ type Props = {
   onSubmit: (values: FormValues) => void;
   price: PriceType;
   values: null | FormValues;
-  balance: string | null;
+  userBalance: string | null;
+  fiatBalance: string | null;
 };
 
-const validations = (balance: string | null) => ({
+const validations = (
+  userBalance: string | null,
+  fiatBalance: string | null
+) => ({
   usdc: {
     quantity: {
       min: {
@@ -38,7 +42,7 @@ const validations = (balance: string | null) => ({
     },
     totalPrice: {
       max: {
-        value: Number(balance || "0"),
+        value: Number(userBalance || "0"),
         message: t`You exceeded your available amount of tokens`,
       },
     },
@@ -52,8 +56,10 @@ const validations = (balance: string | null) => ({
     },
     totalPrice: {
       max: {
-        value: 2000,
-        message: t`At this time, Carbonmark cannot process credit card payments exceeding $2,000.`,
+        value: Number(fiatBalance || "2000"),
+        message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
+          fiatBalance || 0
+        )}.`,
       },
     },
   },
@@ -70,6 +76,9 @@ export const RetireInputs: FC<Props> = (props) => {
   };
 
   const paymentMethod = useWatch({ name: "paymentMethod", control });
+  const getValidations = () =>
+    validations(props.userBalance, props.fiatBalance)[paymentMethod];
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -104,8 +113,7 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: validations(props.balance)[paymentMethod].quantity.min
-                  .value,
+                min: getValidations().quantity.min.value,
                 max: Number(props.price.supply),
                 ...register("quantity", {
                   onChange: (e) => {
@@ -122,7 +130,7 @@ export const RetireInputs: FC<Props> = (props) => {
                     value: true,
                     message: t`Quantity is required`,
                   },
-                  min: validations(props.balance)[paymentMethod].quantity.min,
+                  min: getValidations().quantity.min,
                   max: {
                     value: Number(props.price.supply),
                     message: t`Available supply exceeded`,
@@ -182,13 +190,16 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
             <Text>{t`Pay with:`}</Text>
-            {!!props.balance && paymentMethod !== "fiat" && (
+            {!!props.userBalance && paymentMethod !== "fiat" && (
               <Text t="body3">
-                {t`Balance: ${formatToPrice(props.balance, locale)}`}
+                {t`Balance: ${formatToPrice(props.userBalance, locale)}`}
               </Text>
             )}
-            {paymentMethod === "fiat" && (
-              <Text t="body3">{t`$2,000 maximum for credit cards`}</Text>
+            {paymentMethod === "fiat" && props.fiatBalance && (
+              <Text t="body3">{t`${formatToPrice(
+                props.fiatBalance,
+                locale
+              )} maximum for credit cards`}</Text>
             )}
           </div>
 

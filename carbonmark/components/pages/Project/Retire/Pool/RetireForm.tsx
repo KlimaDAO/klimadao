@@ -1,5 +1,10 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getFiatWalletBalance,
+  safeAdd,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
@@ -11,6 +16,7 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
+import { IS_PRODUCTION } from "lib/constants";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
@@ -38,7 +44,8 @@ export const RetireForm: FC<Props> = (props) => {
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [balance, setBalance] = useState<string | null>(null);
+  const [userBalance, setUserBalance] = useState<string | null>(null);
+  const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
@@ -52,6 +59,10 @@ export const RetireForm: FC<Props> = (props) => {
   });
 
   const quantity = useWatch({ name: "quantity", control: methods.control });
+  const paymentMethod = useWatch({
+    name: "paymentMethod",
+    control: methods.control,
+  });
 
   useEffect(() => {
     if (!address) return;
@@ -61,11 +72,23 @@ export const RetireForm: FC<Props> = (props) => {
         userAddress: address,
       });
 
-      setBalance(balance);
+      setUserBalance(balance);
     };
 
-    !balance && getBalance();
+    !userBalance && getBalance();
   }, [address]);
+
+  useEffect(() => {
+    const getFiatBalance = async () => {
+      const balance = await getFiatWalletBalance({
+        isProduction: IS_PRODUCTION,
+      });
+
+      balance?.remainingUsdc && setFiatBalance(balance?.remainingUsdc);
+    };
+
+    !fiatBalance && getFiatBalance();
+  }, []);
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -196,7 +219,8 @@ export const RetireForm: FC<Props> = (props) => {
               <RetireInputs
                 onSubmit={onContinue}
                 values={inputValues}
-                balance={balance}
+                userBalance={userBalance}
+                fiatBalance={fiatBalance}
                 price={props.price}
               />
 
@@ -217,7 +241,11 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
           <div className={styles.reverseOrder}>
             <Card>
-              <TotalValues price={props.price} balance={balance} />
+              <TotalValues
+                price={props.price}
+                userBalance={userBalance}
+                fiatBalance={fiatBalance}
+              />
             </Card>
           </div>
           <SubmitButton
