@@ -51,6 +51,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const amount = useWatch({ name: "quantity", control });
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
+  const isFiat = paymentMethod === "fiat";
+
   const redemptionFee =
     (!isPoolDefault && Number(costs || 0) * feesFactor) || 0;
   const aggregatorFee = Number(amount || 0) * AGGREGATOR_FEE;
@@ -75,10 +77,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     const newCosts = async () => {
       setError("");
 
-      if (
-        Number(amount) <= 0 ||
-        (paymentMethod === "fiat" && Number(amount) < 1)
-      ) {
+      if (Number(amount) <= 0 || (isFiat && Number(amount) < 1)) {
         setCosts("0");
         setIsLoading(false);
         return;
@@ -133,10 +132,14 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   const exceededBalance =
     !!props.userBalance &&
-    paymentMethod !== "fiat" &&
+    !isFiat &&
     Number(props.userBalance) <= Number(costs);
   const currentBalance = formatToPrice(props.userBalance || "0", locale);
   const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
+
+  const formattedCosts =
+    (isFiat && formatToPrice(costs, locale)) ||
+    Number(costs)?.toLocaleString(locale);
 
   return (
     <>
@@ -161,7 +164,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <Text t="h5">
-            {formatToPrice(props.price.singleUnitPrice, locale, false)}
+            {formatToPrice(props.price.singleUnitPrice, locale, isFiat)}
           </Text>
         </div>
       </div>
@@ -178,7 +181,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
             />
           </div>
           <Text t="h5" className={styles.feeColor}>
-            {formatToPrice(CARBONMARK_FEE, locale, false)}
+            {formatToPrice(CARBONMARK_FEE, locale, isFiat)}
           </Text>
         </div>
       </div>
@@ -309,7 +312,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               error: exceededBalance || !!error,
             })}
           >
-            {isLoading ? t`Loading...` : Number(costs)?.toLocaleString(locale)}
+            {isLoading ? t`Loading...` : formattedCosts}
           </Text>
         </div>
       </div>
