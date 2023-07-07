@@ -8,6 +8,7 @@ interface Props {
   textareaProps: TextareaHTMLAttributes<HTMLTextAreaElement>;
   label: string;
   errorMessage?: string;
+  hideLabel?: boolean;
 }
 
 export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
@@ -20,9 +21,14 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
       props.textareaProps.className
     );
 
+    // for a11y if we don't want visually show labels
+    const visuallyHidden = cx(styles.inputLabel, {
+      [styles.visuallyHidden]: Boolean(props.hideLabel),
+    });
+
     return (
       <div className={styles.container}>
-        <label htmlFor={props.id}>
+        <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="body1">{props.label}</Text>
         </label>
 
