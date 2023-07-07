@@ -2,6 +2,7 @@ import { PoolToken } from "@klimadao/lib/constants";
 import {
   formatUnits,
   getFiatWalletBalance,
+  redirectFiatCheckout,
   safeAdd,
   useWeb3,
 } from "@klimadao/lib/utils";
@@ -16,13 +17,15 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
-import { IS_PRODUCTION } from "lib/constants";
+import { IS_PRODUCTION, urls } from "lib/constants";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
+import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { AssetDetails } from "./AssetDetails";
+import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
 import { RetireModal } from "./RetireModal";
@@ -37,6 +40,7 @@ export interface Props {
 }
 
 export const RetireForm: FC<Props> = (props) => {
+  const { asPath } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -48,6 +52,10 @@ export const RetireForm: FC<Props> = (props) => {
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
+
+  const [showCreditCardModal, setShowCreditCardModal] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<null | string>(null);
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -113,10 +121,50 @@ export const RetireForm: FC<Props> = (props) => {
     setStatus({ statusType: status, message: message });
   };
 
-  const onContinue = async (values: FormValues) => {
-    setIsLoadingAllowance(true);
+  const handleFiat = async () => {
+    if (paymentMethod !== "fiat" || !inputValues) return;
+
+    const reqParams = {
+      quantity,
+      beneficiary_address: inputValues.beneficiaryAddress || address || "", // typeguard, either or should exist, don't pass empty string
+      beneficiary_name: inputValues.beneficiaryName,
+      retirement_message: inputValues.retirementMessage,
+      project_address: inputValues.projectAddress || null, // WHAT TO PASS HERE
+      retirement_token: props.price.poolName.toLowerCase() as PoolToken,
+    };
     try {
-      if (!address || values.paymentMethod === "fiat") return;
+      setIsRedirecting(true);
+      await redirectFiatCheckout({
+        isProduction: IS_PRODUCTION,
+        cancelUrl: `${urls.baseUrl}${asPath}`,
+        referrer: "carbonmark",
+        retirement: reqParams,
+      });
+      // do retire redirect
+      return;
+    } catch (e) {
+      console.error(e);
+      setIsRedirecting(false);
+      setCheckoutError(
+        t`There was an error during the checkout process. Please try again.`
+      );
+    }
+  };
+
+  const continueWithFiat = async (values: FormValues) => {
+    setInputValues(values);
+    setShowCreditCardModal(true);
+  };
+
+  const onContinue = async (values: FormValues) => {
+    if (values.paymentMethod === "fiat") {
+      continueWithFiat(values);
+      return;
+    }
+
+    try {
+      if (!address) return;
+      setIsLoadingAllowance(true);
 
       const allowance = await getRetirementAllowance({
         userAddress: address,
@@ -294,6 +342,14 @@ export const RetireForm: FC<Props> = (props) => {
           />
         }
         showSuccessScreen={!!transactionHash}
+      />
+
+      <CreditCardModal
+        showModal={showCreditCardModal}
+        isRedirecting={isRedirecting}
+        onCancel={() => setShowCreditCardModal(false)}
+        onSubmit={handleFiat}
+        checkoutError={checkoutError}
       />
     </FormProvider>
   );
