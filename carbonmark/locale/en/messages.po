@@ -378,10 +378,6 @@ msgstr "Display name"
 msgid "Display name is required"
 msgstr "Display name is required"
 
-#: components/pages/Retire/index.tsx:144
-msgid "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
-msgstr "Don’t want to go through the trouble of searching and selecting a project to retire? Here’s a list of discount retirements from trusted vendors."
-
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Download PDF"
 msgstr "Download PDF"
@@ -448,7 +444,7 @@ msgstr "Handle should not contain any special characters"
 
 #: components/pages/Portfolio/Retire/index.tsx:102
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Retire/FromPortfolio/index.tsx:94
+#: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
@@ -458,6 +454,10 @@ msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
 msgstr "Help"
+
+#: components/pages/Retire/index.tsx:146
+msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
+msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
 #: components/pages/Project/Retire/TotalValues.tsx:178
@@ -542,7 +542,7 @@ msgid "Loading"
 msgstr "Loading"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
-#: components/pages/Retire/FromPortfolio/index.tsx:66
+#: components/pages/Retire/FromPortfolio/index.tsx:67
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
@@ -629,7 +629,6 @@ msgid "No data to show"
 msgstr "No data to show"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:104
-#: components/pages/Retire/FromPortfolio/index.tsx:78
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
@@ -675,8 +674,8 @@ msgid "Over 20 million verified digital carbon credits from hundreds of projects
 msgstr "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
 
 #: components/pages/Retire/Activity/Table.tsx:40
-msgid "PROJECTS"
-msgstr "PROJECTS"
+msgid "PROJECT"
+msgstr "PROJECT"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -762,6 +761,10 @@ msgstr "Profile picture"
 msgid "Project"
 msgstr "Project"
 
+#: components/pages/Retire/FromPortfolio/index.tsx:85
+msgid "Purchase Carbon"
+msgstr "Purchase Carbon"
+
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
 msgid "Purchase Receipt | Carbonmark"
@@ -806,7 +809,7 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total availab
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Retire/index.tsx:139
+#: components/pages/Retire/index.tsx:141
 msgid "Quick Retire"
 msgstr "Quick Retire"
 
@@ -876,7 +879,7 @@ msgstr "Retire carbon credits for yourself, or on behalf of another person or or
 msgid "Retire from a featured project"
 msgstr "Retire from a featured project"
 
-#: components/pages/Retire/index.tsx:112
+#: components/pages/Retire/index.tsx:114
 msgid "Retire from your portfolio"
 msgstr "Retire from your portfolio"
 
@@ -998,7 +1001,7 @@ msgstr "Sorry, this handle already exists"
 
 #: components/pages/Portfolio/Retire/index.tsx:97
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/FromPortfolio/index.tsx:87
+#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Sorry. We could not find any data on Carbonmark for your user."
 
@@ -1242,11 +1245,11 @@ msgstr "View a complete overview of the digital carbon that you own in your Reti
 msgid "View a complete overview of the digital carbon that you retired."
 msgstr "View a complete overview of the digital carbon that you retired."
 
-#: components/pages/Retire/index.tsx:116
+#: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
 msgstr "View all Portfolio items"
 
-#: components/pages/Retire/index.tsx:82
+#: components/pages/Retire/index.tsx:83
 msgid "View all Projects"
 msgstr "View all Projects"
 
@@ -1292,11 +1295,15 @@ msgstr "Vintage Oldest"
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
+#: components/pages/Retire/FromPortfolio/index.tsx:80
+msgid "We couldn't find any assets in your portfolio."
+msgstr "We couldn't find any assets in your portfolio."
+
 #: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
-#: components/pages/Retire/index.tsx:87
+#: components/pages/Retire/index.tsx:89
 msgid "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 msgstr "We’ve hand-curated some of the best projects based on strict criteria, such as price, veracity, and global environmental impact."
 
@@ -1327,7 +1334,7 @@ msgstr "You are about to purchase a carbon asset."
 msgid "You are about to retire a carbon asset."
 msgstr "You are about to retire a carbon asset."
 
-#: components/pages/Retire/index.tsx:121
+#: components/pages/Retire/index.tsx:123
 msgid "You can also retire any carbon asset in your wallet."
 msgstr "You can also retire any carbon asset in your wallet."
 
