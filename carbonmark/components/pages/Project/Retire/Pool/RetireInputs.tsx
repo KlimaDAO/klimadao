@@ -28,6 +28,7 @@ type Props = {
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
+  address?: string;
 };
 
 const validations = (
@@ -87,6 +88,8 @@ export const RetireInputs: FC<Props> = (props) => {
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
 
   useEffect(() => {
+    // remove all errors when changed
+    clearErrors();
     // When the user choose to pay by credit card,
     // we convert the existing quantity to a whole number (1.123 -> 2)
     if (paymentMethod === "fiat" && !!quantity) {
@@ -159,12 +162,22 @@ export const RetireInputs: FC<Props> = (props) => {
         </div>
 
         <div className={styles.labelWithInput}>
-          <Text>{t`Who will this retirement be credited to?`}</Text>
+          <Text>
+            {t`Who will this retirement be credited to?`}{" "}
+            {paymentMethod === "fiat" && (
+              <span className={styles.required}>*</span>
+            )}
+          </Text>
           <InputField
             id="beneficiaryName"
             inputProps={{
               placeholder: t`Beneficiary name`,
-              ...register("beneficiaryName"),
+              ...register("beneficiaryName", {
+                required: {
+                  value: paymentMethod === "fiat",
+                  message: t`Required when proceeding with Credit Card`,
+                },
+              }),
             }}
             label={t`Who will this retirement be credited to?`}
             errorMessage={formState.errors.beneficiaryName?.message}
@@ -175,6 +188,10 @@ export const RetireInputs: FC<Props> = (props) => {
             inputProps={{
               placeholder: t`Beneficiary wallet address (optional)`,
               ...register("beneficiaryAddress", {
+                required: {
+                  value: paymentMethod === "fiat" && !props.address,
+                  message: t`You either need to provide a beneficiary address or login with your browser wallet.`,
+                },
                 validate: {
                   isAddress: (v) =>
                     v === "" || // no beneficiary, fallback to default address
@@ -191,13 +208,26 @@ export const RetireInputs: FC<Props> = (props) => {
         </div>
 
         <div className={styles.labelWithInput}>
+          <Text>
+            {t`Retirement Message`}{" "}
+            {paymentMethod === "fiat" && (
+              <span className={styles.required}>*</span>
+            )}
+          </Text>
           <TextareaField
             id="retirementMessage"
             textareaProps={{
               placeholder: t`Describe the purpose of this retirement`,
-              ...register("retirementMessage"),
+              ...register("retirementMessage", {
+                required: {
+                  value: paymentMethod === "fiat",
+                  message: t`Required when proceeding with Credit Card`,
+                },
+              }),
             }}
             label={t`Retirement Message`}
+            hideLabel
+            errorMessage={formState.errors.retirementMessage?.message}
           />
         </div>
 

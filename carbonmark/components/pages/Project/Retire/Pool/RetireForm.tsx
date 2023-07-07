@@ -270,6 +270,7 @@ export const RetireForm: FC<Props> = (props) => {
                 userBalance={userBalance}
                 fiatBalance={fiatBalance}
                 price={props.price}
+                address={address}
               />
 
               <SubmitButton
