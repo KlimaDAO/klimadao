@@ -144,9 +144,8 @@ export const Retire: NextPage<PageProps> = (props) => {
 
               <Text className={styles.cardsDescription}>
                 <Trans>
-                  Don’t want to go through the trouble of searching and
-                  selecting a project to retire? Here’s a list of discount
-                  retirements from trusted vendors.
+                  Here’s a list of readily available, discounted carbon tokens
+                  to retire quickly and easily.
                 </Trans>
               </Text>
             </div>

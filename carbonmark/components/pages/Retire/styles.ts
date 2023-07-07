@@ -161,6 +161,6 @@ export const cardsList = css`
   justify-content: center;
 
   ${breakpoints.desktop} {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `;
