@@ -31,6 +31,8 @@ export const cardDescription = css`
   background-clip: text;
   overflow: hidden;
   height: 12rem;
+
+  margin-top: auto;
 `;
 
 export const cardImage = css`
@@ -42,6 +44,7 @@ export const cardImage = css`
 `;
 
 export const cardContent = css`
+  background-color: var(--surface-01);
   padding: 2rem;
   display: grid;
   gap: 1rem;

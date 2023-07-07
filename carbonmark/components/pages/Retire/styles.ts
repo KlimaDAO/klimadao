@@ -70,15 +70,32 @@ export const content = css`
 `;
 
 export const featuredCard = css`
-  border: 2px solid var(--yellow);
+  background-color: var(--yellow);
+  padding: 0.4rem;
 `;
 
 export const sectionTitle = css`
   display: grid;
-  gap: 0.8rem;
+  gap: 1.2rem;
 `;
 
 export const cardsHeader = css`
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  ${breakpoints.large} {
+    gap: 2.4rem;
+  }
+
+  ${breakpoints.desktop} {
+    justify-content: space-between;
+  }
+`;
+
+export const cardsHeaderTweakAlignment = css`
   display: flex;
   gap: 0.8rem;
   align-items: center;
@@ -92,6 +109,10 @@ export const cardsHeader = css`
   ${breakpoints.desktop} {
     justify-content: space-between;
   }
+
+  span {
+    margin-top: 5px;
+  }
 `;
 
 export const textWithIcon = css`
@@ -100,6 +121,9 @@ export const textWithIcon = css`
   align-items: center;
 
   .featured {
+    height: 3rem;
+    width: 3rem;
+    bottom: -4px;
     path {
       fill: var(--yellow);
     }
@@ -137,6 +161,6 @@ export const cardsList = css`
   justify-content: center;
 
   ${breakpoints.desktop} {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `;

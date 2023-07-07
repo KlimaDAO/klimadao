@@ -37,7 +37,7 @@ export const ActivityTable: FC<Props> = (props) => {
   return (
     <div className={cx(styles.list, props.className)}>
       <div className={styles.listHeader}>
-        <Text t="body4">{t`PROJECTS`}</Text>
+        <Text t="body4">{t`PROJECT`}</Text>
         <Text align="end" t="body4">{t`QTY`}</Text>
         <Text t="body4">{t`DATE`}</Text>
       </div>
@@ -62,7 +62,7 @@ export const ActivityTable: FC<Props> = (props) => {
 
       {props.hasRetirements && (
         <Link target="_blank" href={`/retirements/${props.address}`}>
-          <Text className={styles.externalLink} t="body4">
+          <Text className={styles.externalLink} t="button">
             {t`View all Retirements`} <LaunchIcon />
           </Text>
         </Link>

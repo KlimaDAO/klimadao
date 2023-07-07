@@ -49,7 +49,7 @@ export const Retire: NextPage<PageProps> = (props) => {
             </Text>
             {isConnectedUser && (
               <div className={styles.beneficiary}>
-                <Text t="body4">
+                <Text t="h5">
                   <Trans>for beneficiary</Trans>{" "}
                   <span className="highlight">{displayName}</span>
                 </Text>
@@ -71,15 +71,17 @@ export const Retire: NextPage<PageProps> = (props) => {
         <div className={cx(styles.fullWidth, "whiteBG")}>
           <div className={styles.content}>
             <div className={styles.sectionTitle}>
-              <div className={styles.cardsHeader}>
+              <div className={styles.cardsHeaderTweakAlignment}>
                 <Text t="h4" className={styles.textWithIcon}>
-                  <LocalPoliceIcon className="featured" fontSize="inherit" />
+                  <LocalPoliceIcon className="featured" fontSize="large" />
                   <Trans>Retire from a featured project</Trans>
                 </Text>
 
                 <Link href="/projects">
-                  <Text t="body4" className={styles.textLink}>
-                    <Trans>View all Projects</Trans>
+                  <Text t="button" className={styles.textLink}>
+                    <span>
+                      <Trans>View all Projects</Trans>
+                    </span>
                   </Text>
                 </Link>
               </div>
@@ -112,7 +114,7 @@ export const Retire: NextPage<PageProps> = (props) => {
                   <Trans>Retire from your portfolio</Trans>
                 </Text>
                 <Link href="/portfolio">
-                  <Text t="body4" className={styles.textLink}>
+                  <Text t="button" className={styles.textLink}>
                     <Trans>View all Portfolio items</Trans>
                   </Text>
                 </Link>
@@ -135,16 +137,15 @@ export const Retire: NextPage<PageProps> = (props) => {
           <div className={styles.content}>
             <div className={styles.sectionTitle}>
               <div className={styles.cardsHeader}>
-                <Text t="h4" className={styles.textWithIcon}>
+                <Text t="h4">
                   <Trans>Quick Retire</Trans>
                 </Text>
               </div>
 
               <Text className={styles.cardsDescription}>
                 <Trans>
-                  Don’t want to go through the trouble of searching and
-                  selecting a project to retire? Here’s a list of discount
-                  retirements from trusted vendors.
+                  Here’s a list of readily available, discounted carbon tokens
+                  to retire quickly and easily.
                 </Trans>
               </Text>
             </div>

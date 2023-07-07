@@ -69,7 +69,7 @@ export const totalsText = css`
 `;
 
 export const externalLink = css`
-  text-decoration: underline;
+  text-decoration: none;
   display: flex;
   gap: 0.4rem;
   align-items: center;
@@ -80,7 +80,7 @@ export const externalLink = css`
 
   &:hover,
   &:visited {
-    text-decoration: none;
+    text-decoration: underline;
   }
 `;
 
