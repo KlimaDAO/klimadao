@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
@@ -76,9 +77,13 @@ export const RetireInputs: FC<Props> = (props) => {
   };
 
   const paymentMethod = useWatch({ name: "paymentMethod", control });
+  const totalPrice = useWatch({ name: "totalPrice", control });
+
   const getValidations = () =>
     validations(props.userBalance, props.fiatBalance)[paymentMethod];
 
+  const exceededFiatBalance =
+    paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -206,7 +211,9 @@ export const RetireInputs: FC<Props> = (props) => {
           <Dropdown
             name="paymentMethod"
             initial={carbonmarkRetirePaymentMethodMap["usdc"].id}
-            className={styles.paymentDropdown}
+            className={cx(styles.paymentDropdown, {
+              error: exceededFiatBalance,
+            })}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
               <div className={styles.paymentDropDownHeader}>
@@ -241,6 +248,12 @@ export const RetireInputs: FC<Props> = (props) => {
           />
         </div>
 
+        {exceededFiatBalance && (
+          <Text t="body1" className={styles.errorMessagePrice}>
+            {getValidations().totalPrice.max.message}
+          </Text>
+        )}
+
         <div className={styles.paymentHelp}>
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
@@ -272,7 +285,11 @@ export const RetireInputs: FC<Props> = (props) => {
               value: true,
               message: t`Could not calculate Total Cost`,
             },
-            max: validations(props.balance)[paymentMethod].totalPrice.max,
+            validate: {
+              lessThanMax: (v) =>
+                parseInt(v) < getValidations().totalPrice.max.value ||
+                getValidations().totalPrice.max.message,
+            },
           }),
         }}
         label={"Total Price"}

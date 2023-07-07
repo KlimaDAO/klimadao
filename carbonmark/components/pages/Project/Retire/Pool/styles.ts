@@ -54,6 +54,10 @@ export const paymentDropdown = css`
     width: 100%;
     gap: 1rem;
   }
+
+  &.error button {
+    border: 1px solid var(--warn);
+  }
 `;
 
 export const paymentDropDownHeader = css`
