@@ -75,7 +75,10 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     const newCosts = async () => {
       setError("");
 
-      if (Number(amount) <= 0) {
+      if (
+        Number(amount) <= 0 ||
+        (paymentMethod === "fiat" && Number(amount) < 1)
+      ) {
         setCosts("0");
         setIsLoading(false);
         return;
