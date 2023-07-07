@@ -87,7 +87,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           inputToken: paymentMethod,
           retirementToken: poolName,
           quantity: amount,
-          isDefaultProject: isPoolDefault,
+          isDefaultProject: isPoolDefault, // TODO !! Pass projects address here for pool projects!
           currentUrl: asPath,
         });
 
