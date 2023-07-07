@@ -12,7 +12,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev-all": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\" \"npm:dev-carbonmark\"",
+    "dev-all": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\" \"npm:dev-carbonmark\" \"npm:dev-carbonmark-api\"",
     "build-all": "concurrently --kill-others-on-fail \"npm:build-lib\" \"npm:build-site\" \"npm:build-app\" \"npm:build-carbonmark\"",
     "build-lib": "npm run build --workspace=lib",
     "build-site": "npm run build-lib && npm run build --workspace=site",
@@ -27,6 +27,7 @@
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
     "dev-cms": "cd ./cms && npm run start",
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev --workspace=carbonmark\"",
+    "dev-carbonmark-api": "cd carbonmark-api && npm run dev",
     "deploy-cms": "cd ./cms && npm run deploy",
     "lint-all": "npm run lint --workspaces",
     "format-all": "prettier --write ./",

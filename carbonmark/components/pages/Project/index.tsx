@@ -17,6 +17,7 @@ import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
 import { useFetchProject } from "hooks/useFetchProject";
+import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import {
   getActiveListings,
@@ -266,7 +267,7 @@ export const Project: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`/api/projects/${props.projectID}`]: props.project,
+        [`${urls.api.projects}/${props.projectID}`]: props.project,
       },
     }}
   >

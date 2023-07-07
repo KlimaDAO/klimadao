@@ -6,6 +6,7 @@ import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Dropdown } from "components/Dropdown";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
 import { omit } from "lodash";
@@ -50,12 +51,14 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
    * the cache will return us the server fetched values
    * We're also disabling revalidation since the data doesn't change much
    */
-  const { data: vintages = [], isLoading: vintagesLoading } =
-    useSWRImmutable<string[]>("/api/vintages");
-  const { data: countries = [], isLoading: countriesLoading } =
-    useSWRImmutable<Country[]>("/api/countries");
+  const { data: vintages = [], isLoading: vintagesLoading } = useSWRImmutable<
+    string[]
+  >(urls.api.vintages);
+  const { data: countries = [], isLoading: countriesLoading } = useSWRImmutable<
+    Country[]
+  >(urls.api.countries);
   const { data: categories = [], isLoading: categoriesLoading } =
-    useSWRImmutable<{ id: string }[]>("/api/categories");
+    useSWRImmutable<{ id: string }[]>(urls.api.categories);
 
   /**
    * @todo Not great. We need end to end typing to ensure that if the key values

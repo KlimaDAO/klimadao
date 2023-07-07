@@ -1,3 +1,4 @@
+import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
 import type { SWRConfiguration } from "swr";
 import useSWR from "swr";
@@ -8,7 +9,7 @@ export const useFetchProject = (
   options?: SWRConfiguration
 ) => {
   const { data: project, ...rest } = useSWR<Project>(
-    `/api/projects/${projectID}`,
+    `${urls.api.projects}/${projectID}`,
     fetcher,
     options
   );
