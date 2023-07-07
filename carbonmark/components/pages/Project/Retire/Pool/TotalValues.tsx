@@ -18,7 +18,8 @@ import { FormValues } from "./types";
 
 type TotalValuesProps = {
   price: Price;
-  balance: string | null;
+  userBalance: string | null;
+  fiatBalance: string | null;
 };
 
 const getSwapFee = (costs: number, pool: Price["poolName"]) => {
@@ -28,6 +29,11 @@ const getSwapFee = (costs: number, pool: Price["poolName"]) => {
   }
 
   return singleSwap;
+};
+
+const getStringBetween = (str: string, start: string, end: string) => {
+  const result = str.match(new RegExp(start + "(.*)" + end));
+  return result && result[1];
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
@@ -86,9 +92,26 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         });
 
         setCosts(totalPrice);
-      } catch (e) {
+      } catch (e: any) {
         console.error("e", e);
-        setError(t`There was an error loading the total cost.`);
+
+        // Check Offsetra API Errors
+        if (e?.name === "BalanceExceeded") {
+          // read the maxCosts from error message
+          const maxCosts = getStringBetween(
+            e.message,
+            "maxCosts:",
+            ", balance:"
+          );
+
+          // Update costs with value from error
+          !!maxCosts && setCosts(maxCosts.trim());
+          setError(
+            t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatBalance}`
+          );
+        } else {
+          setError(t`There was an error loading the total cost.`);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -106,8 +129,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   }, [costs]);
 
   const exceededBalance =
-    !!props.balance && Number(props.balance) <= Number(costs);
-  const currentBalance = formatToPrice(props.balance || "0", locale);
+    !!props.userBalance &&
+    paymentMethod !== "fiat" &&
+    Number(props.userBalance) <= Number(costs);
+  const currentBalance = formatToPrice(props.userBalance || "0", locale);
+  const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
 
   return (
     <>
@@ -285,16 +311,18 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      {formState.errors.totalPrice?.message && (
+      {formState.errors.totalPrice?.message && !error && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {formState.errors.totalPrice?.message}
         </Text>
       )}
+
       {exceededBalance && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {t`Your balance:`} {currentBalance}
         </Text>
       )}
+
       {error && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {error}
