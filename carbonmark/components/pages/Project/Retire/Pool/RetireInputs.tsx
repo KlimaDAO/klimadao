@@ -17,7 +17,7 @@ import {
 } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
@@ -77,6 +77,7 @@ export const RetireInputs: FC<Props> = (props) => {
   };
 
   const paymentMethod = useWatch({ name: "paymentMethod", control });
+  const quantity = useWatch({ name: "quantity", control });
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
@@ -84,6 +85,14 @@ export const RetireInputs: FC<Props> = (props) => {
 
   const exceededFiatBalance =
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
+
+  useEffect(() => {
+    // When the user choose to pay by credit card,
+    // we convert the existing quantity to a whole number (1.123 -> 2)
+    if (paymentMethod === "fiat" && !!quantity) {
+      setValue("quantity", Math.ceil(Number(quantity)).toString());
+    }
+  }, [paymentMethod]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
