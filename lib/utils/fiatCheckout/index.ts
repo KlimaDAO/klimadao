@@ -1,4 +1,4 @@
-import { getFiatRetirementUrl } from "../getFiatRetirementUrl";
+import { getFiatRetirementUrl } from "../getFiatUrls";
 
 interface Retirement {
   beneficiary_address: string;

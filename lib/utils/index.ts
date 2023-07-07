@@ -18,7 +18,8 @@ export {
 } from "./getDefaultProjects";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { getFiatRetirementCost } from "./getFiatRetirementCost";
-export { getFiatRetirementUrl } from "./getFiatRetirementUrl";
+export { getFiatBalanceUrl, getFiatRetirementUrl } from "./getFiatUrls";
+export { getFiatWalletBalance } from "./getFiatWalletBalance";
 export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";

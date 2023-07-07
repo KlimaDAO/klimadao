@@ -304,8 +304,12 @@ export const goldStandard = {
 };
 
 export const FIAT = {
-  retirementApi: {
+  retirementCheckout: {
     production: "https://checkout.offsetra.com/api/checkout",
     staging: "https://staging-checkout.offsetra.com/api/checkout",
+  },
+  retirementBalance: {
+    production: "https://checkout.offsetra.com/api/balance",
+    staging: "https://staging-checkout.offsetra.com/api/balance",
   },
 };
