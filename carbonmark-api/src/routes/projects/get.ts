@@ -127,7 +127,7 @@ const handler = (fastify: FastifyInstance) =>
         const indexes = pooledProjectsData.carbonOffsets
           .map((item, idx) =>
             item.projectID === project.registry + "-" + project.projectID &&
-              item.vintageYear === project.vintage
+            item.vintageYear === project.vintage
               ? idx
               : ""
           )
@@ -198,8 +198,8 @@ const handler = (fastify: FastifyInstance) =>
 
         const lowestPrice = uniqueValues.length
           ? uniqueValues.reduce((a, b) =>
-            a.length < b.length ? a : a.length === b.length && a < b ? a : b
-          )
+              a.length < b.length ? a : a.length === b.length && a < b ? a : b
+            )
           : "0";
         price = lowestPrice;
       }
@@ -208,9 +208,7 @@ const handler = (fastify: FastifyInstance) =>
         project.projectID,
         project.registry
       );
-      project.description = cmsData
-        ? cmsData.description
-        : undefined;
+      project.description = cmsData ? cmsData.description : undefined;
       project.name = cmsData ? cmsData.name : project.name;
       project.methodologies = cmsData ? cmsData.methodologies : [];
 
@@ -247,9 +245,7 @@ const handler = (fastify: FastifyInstance) =>
         uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
       }
 
-      const country = project.country.length
-        ? { id: project.country }
-        : null;
+      const country = project.country.length ? { id: project.country } : null;
 
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
@@ -275,8 +271,8 @@ const handler = (fastify: FastifyInstance) =>
         country: country,
         price: uniqueValues.length
           ? uniqueValues.reduce((a, b) =>
-            a.length < b.length ? a : a.length === b.length && a < b ? a : b
-          )
+              a.length < b.length ? a : a.length === b.length && a < b ? a : b
+            )
           : "0",
         activities: null,
         listings: null,
