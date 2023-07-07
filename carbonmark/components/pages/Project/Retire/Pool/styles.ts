@@ -257,3 +257,9 @@ export const disclaimer = css`
     height: 3.2rem;
   }
 `;
+
+export const confirmCreditCard = css`
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+`;
