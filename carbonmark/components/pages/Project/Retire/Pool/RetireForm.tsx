@@ -96,7 +96,7 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
-  const disableSubmit = !!address && (!quantity || Number(quantity) <= 0);
+  const disableSubmit = !quantity || Number(quantity) <= 0;
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -228,6 +228,7 @@ export const RetireForm: FC<Props> = (props) => {
                 onSubmit={onContinue}
                 isLoading={isLoadingAllowance}
                 className={styles.showOnDesktop}
+                paymentMethod={paymentMethod}
                 disabled={disableSubmit}
               />
 
@@ -252,6 +253,7 @@ export const RetireForm: FC<Props> = (props) => {
             onSubmit={onContinue}
             isLoading={isLoadingAllowance}
             className={styles.hideOnDesktop}
+            paymentMethod={paymentMethod}
             disabled={disableSubmit}
           />
         </Col>
