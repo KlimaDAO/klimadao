@@ -42,7 +42,7 @@ export const CreditCardModal: FC<Props> = (props) => {
           </div>
         )}
 
-        {!props.checkoutError && (
+        {!!props.checkoutError && (
           <>
             <Text>{props.checkoutError}</Text>
             <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
