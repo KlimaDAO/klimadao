@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-06 15:37+0000\n"
+"POT-Creation-Date: 2023-07-07 17:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,7 +87,7 @@ msgstr "Montant de l'achat"
 msgid "Amount to retire"
 msgstr "Montant à retirer"
 
-#: components/ProjectFilterModal/index.tsx:140
+#: components/ProjectFilterModal/index.tsx:143
 msgid "Apply"
 msgstr "Appliquer"
 
@@ -169,7 +169,7 @@ msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:153
+#: components/pages/Project/index.tsx:154
 msgid "Best Price"
 msgstr "Meilleur prix"
 
@@ -240,7 +240,7 @@ msgstr "Carbonmark |  Le Marché Universel du Carbone"
 msgid "Carbonmark's role"
 msgstr "Rôle de Carbonmark"
 
-#: components/ProjectFilterModal/index.tsx:126
+#: components/ProjectFilterModal/index.tsx:129
 msgid "Category"
 msgstr "Catégorie"
 
@@ -253,11 +253,11 @@ msgstr "Changer de langue"
 msgid "Choose a project and quantity"
 msgstr "Choisissez un projet et une quantité"
 
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:48
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choisissez parmi plus de 20 millions de crédits carbone numériques vérifiés provenant de centaines de projets - achetez, vendez ou retirer du carbone dès maintenant."
 
-#: components/ProjectFilterModal/index.tsx:145
+#: components/ProjectFilterModal/index.tsx:148
 msgid "Clear Filters"
 msgstr "Effacer les filtres"
 
@@ -293,7 +293,7 @@ msgstr "Continuer"
 msgid "Could not calculate Total Cost"
 msgstr "Impossible de calculer le coût total"
 
-#: components/ProjectFilterModal/index.tsx:119
+#: components/ProjectFilterModal/index.tsx:122
 msgid "Country"
 msgstr "Pays"
 
@@ -335,7 +335,7 @@ msgstr "Créé :"
 msgid "DATE"
 msgstr "DATE"
 
-#: components/pages/Project/index.tsx:250
+#: components/pages/Project/index.tsx:251
 msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
@@ -352,7 +352,7 @@ msgstr "Par défaut, l'adresse du portefeuille connecté"
 msgid "Describe the purpose of this retirement"
 msgstr "Décrivez le but de ce retrait du marché"
 
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:202
 msgid "Description"
 msgstr "Description"
 
@@ -571,8 +571,8 @@ msgstr "Se connecter"
 msgid "Marketplace"
 msgstr "Place de Marché"
 
-#: components/pages/Projects/index.tsx:45
 #: components/pages/Projects/index.tsx:46
+#: components/pages/Projects/index.tsx:47
 msgid "Marketplace | Carbonmark"
 msgstr "Place de Marché | Carbonmark"
 
@@ -580,7 +580,7 @@ msgstr "Place de Marché | Carbonmark"
 msgid "Maximize your climate impact."
 msgstr "Maximisez votre impact climatique."
 
-#: components/pages/Project/index.tsx:160
+#: components/pages/Project/index.tsx:161
 msgid "Methodology"
 msgstr "Méthodologie"
 
@@ -627,12 +627,12 @@ msgstr "Aucune donnée à afficher"
 msgid "No listable assets found."
 msgstr "Aucun actif à vendre n'a été trouvé."
 
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:241
 msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:76
+#: components/pages/Projects/index.tsx:77
 msgid "No project description found"
 msgstr "Aucune description de projet n'a été trouvée"
 
@@ -808,11 +808,11 @@ msgstr "Retrait Rapide"
 msgid "RETIRE CARBON"
 msgstr "RETIRER DU CARBONE"
 
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:215
 msgid "Read Less"
 msgstr "En lire moins"
 
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:215
 msgid "Read More"
 msgstr "En savoir plus"
 
@@ -1124,7 +1124,7 @@ msgstr "Pour retirer ce projet du marché en utilisant une autre forme de paieme
 msgid "Toggle payment method"
 msgstr "Basculer de mode de paiement"
 
-#: components/ProjectFilterModal/index.tsx:107
+#: components/ProjectFilterModal/index.tsx:110
 msgid "Toggle sort menu"
 msgstr "Afficher le menu de tri"
 
@@ -1220,7 +1220,7 @@ msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"ap
 msgid "View Carbonmark Profile"
 msgstr "Voir le profil Carbonmark"
 
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:224
 msgid "View Registry Details <0/>"
 msgstr "Voir les détails du registre <0/>"
 
@@ -1249,7 +1249,7 @@ msgstr "Voir tous les Projets"
 msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
-#: components/pages/Project/index.tsx:114
+#: components/pages/Project/index.tsx:115
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Voir et acheter ce projet de compensation carbone sur Carbonmark"
 
@@ -1270,7 +1270,7 @@ msgstr "Voir sur PolygonScan <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "Voir les détails du projet et d'autres informations concernant cet achat."
 
-#: components/ProjectFilterModal/index.tsx:133
+#: components/ProjectFilterModal/index.tsx:136
 msgid "Vintage"
 msgstr "Année"
 
@@ -1410,15 +1410,15 @@ msgstr "connecter un portefeuille"
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
-#: lib/constants.ts:24
+#: lib/constants.ts:35
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
-#: lib/constants.ts:28
+#: lib/constants.ts:39
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
-#: lib/constants.ts:32
+#: lib/constants.ts:43
 msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 
