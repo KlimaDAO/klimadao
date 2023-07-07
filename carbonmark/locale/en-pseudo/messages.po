@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-07 17:59+0000\n"
+"POT-Creation-Date: 2023-07-07 19:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1531,7 +1531,7 @@ msgstr ""
 msgid "offset.amount_in_tonnes_2"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:288
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:284
 msgid "offset.default_retirement_address"
 msgstr ""
 
@@ -1539,7 +1539,7 @@ msgstr ""
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:368
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -1551,11 +1551,11 @@ msgstr ""
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:297
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:293
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:308
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:304
 msgid "offset.retirement_retirement_message"
 msgstr ""
 
@@ -1563,7 +1563,7 @@ msgstr ""
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:329
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:325
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -1736,11 +1736,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:350
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:346
 msgid "retire.back_button"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:341
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:337
 msgid "retire.submit_button"
 msgstr ""
 

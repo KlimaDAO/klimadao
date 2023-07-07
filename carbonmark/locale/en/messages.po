@@ -1537,7 +1537,7 @@ msgstr "How many tonnes of carbon would you like to offset? <0>* </0>"
 msgid "offset.amount_in_tonnes_2"
 msgstr "Available: {balance}"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:288
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:284
 msgid "offset.default_retirement_address"
 msgstr "Defaults to the connected wallet address"
 
@@ -1545,7 +1545,7 @@ msgstr "Defaults to the connected wallet address"
 msgid "offset.offset_quantity"
 msgstr "Enter quantity to offset"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:372
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:368
 msgid "offset.retire_carbon"
 msgstr "Confirm Retirement"
 
@@ -1557,11 +1557,11 @@ msgstr "Beneficiary Name"
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:297
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:293
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:308
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:304
 msgid "offset.retirement_retirement_message"
 msgstr "Retirement Message"
 
@@ -1569,7 +1569,7 @@ msgstr "Retirement Message"
 msgid "offset.successModal.body1"
 msgstr "Thank you for supporting the planet! View transaction on <0>PolygonScan.</0>"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:329
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:325
 msgid "offset_disclaimer"
 msgstr "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 
@@ -1742,11 +1742,11 @@ msgstr "Please use a different filter combination."
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:350
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:346
 msgid "retire.back_button"
 msgstr "back"
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:341
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:337
 msgid "retire.submit_button"
 msgstr "Retire Carbon"
 
