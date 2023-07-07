@@ -127,7 +127,7 @@ const handler = (fastify: FastifyInstance) =>
         const indexes = pooledProjectsData.carbonOffsets
           .map((item, idx) =>
             item.projectID === project.registry + "-" + project.projectID &&
-            item.vintageYear === project.vintage
+              item.vintageYear === project.vintage
               ? idx
               : ""
           )
@@ -198,8 +198,8 @@ const handler = (fastify: FastifyInstance) =>
 
         const lowestPrice = uniqueValues.length
           ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
+            a.length < b.length ? a : a.length === b.length && a < b ? a : b
+          )
           : "0";
         price = lowestPrice;
       }
@@ -209,13 +209,13 @@ const handler = (fastify: FastifyInstance) =>
         project.registry
       );
       project.description = cmsData
-        ? cmsData.description.slice(0, 200)
+        ? cmsData.description
         : undefined;
       project.name = cmsData ? cmsData.name : project.name;
       project.methodologies = cmsData ? cmsData.methodologies : [];
 
       project.short_description = cmsData?.projectContent
-        ? cmsData.projectContent.shortDescription.slice(0, 200)
+        ? cmsData.projectContent.shortDescription
         : undefined;
       project.long_description = cmsData?.projectContent
         ? cmsData.projectContent.longDescription
@@ -248,9 +248,7 @@ const handler = (fastify: FastifyInstance) =>
       }
 
       const country = project.country.length
-        ? {
-            id: project.country,
-          }
+        ? { id: project.country }
         : null;
 
       const cmsData = findProjectWithRegistryIdAndRegistry(
@@ -262,7 +260,7 @@ const handler = (fastify: FastifyInstance) =>
       const singleProject = {
         id: project.id,
         isPoolProject: true,
-        description: cmsData ? cmsData.description.slice(0, 200) : undefined,
+        description: cmsData ? cmsData.description : undefined,
         key: project.projectID,
         projectID: project.projectID.split("-")[1],
         name: cmsData ? cmsData.name : project.name,
@@ -277,8 +275,8 @@ const handler = (fastify: FastifyInstance) =>
         country: country,
         price: uniqueValues.length
           ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
+            a.length < b.length ? a : a.length === b.length && a < b ? a : b
+          )
           : "0",
         activities: null,
         listings: null,
