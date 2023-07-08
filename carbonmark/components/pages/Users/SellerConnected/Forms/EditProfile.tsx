@@ -80,7 +80,7 @@ export const EditProfile: FC<Props> = (props) => {
 
       const verifyResponse = await verifyUser({
         address,
-        signature: signature,
+        signature,
       });
 
       let response;

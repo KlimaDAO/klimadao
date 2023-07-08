@@ -15,7 +15,7 @@ const schema = {
     properties: {
       handle: { type: "string", minLength: 3 },
       username: { type: "string", minLength: 2 },
-      description: { type: "string", minLength: 2, maxLength: 500 },
+      description: { type: "string", maxLength: 500 },
       wallet: { type: "string", minLength: 26, maxLength: 64 },
     },
     required: ["handle", "username", "wallet", "description"],
