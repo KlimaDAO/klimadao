@@ -139,6 +139,12 @@ export const PurchaseInputs: FC<Props> = (props) => {
               disabled: val.disabled,
             }))}
           />
+          <Text t="body1" className={styles.error}>
+            <Trans>
+              Your balance must equal at least 1% more than the cost of the
+              transaction.
+            </Trans>
+          </Text>
           <div className={styles.paymentHelp}>
             <HelpOutline className={styles.helpIcon} />
             <div className={styles.paymentText}>

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -1113,7 +1119,7 @@ msgid "To finalize your retirement, verify all information is correct and then c
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:145
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:146
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:152
 msgid "To purchase this project using a different form of payment,"
 msgstr ""
 
@@ -1347,6 +1353,10 @@ msgstr ""
 
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
+msgstr ""
+
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:143
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr ""
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119

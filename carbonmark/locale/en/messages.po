@@ -1119,7 +1119,7 @@ msgid "To finalize your retirement, verify all information is correct and then c
 msgstr "To finalize your retirement, verify all information is correct and then click 'submit' below."
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:145
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:146
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:152
 msgid "To purchase this project using a different form of payment,"
 msgstr "To purchase this project using a different form of payment,"
 
@@ -1354,6 +1354,10 @@ msgstr "You successfully acquired carbon!"
 #: components/Layout/AddressSection/index.tsx:17
 msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
+
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:143
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr "Your balance must equal at least 1% more than the cost of the transaction."
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
