@@ -128,7 +128,7 @@ export const spinner = css`
 
 export const carbonmark = css`
   div {
-    color: var(--klima-blue) !important;
+    color: var(--bright-blue) !important;
   }
 `;
 
