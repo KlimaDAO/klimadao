@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-07 19:55+0000\n"
+"POT-Creation-Date: 2023-07-10 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
-msgstr ""
+msgstr "0 % Angebotsgebühr"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
@@ -64,7 +64,7 @@ msgstr "Landwirtschaft"
 
 #: components/pages/Home/index.tsx:365
 msgid "All assets sourced from major registries"
-msgstr ""
+msgstr "Alle Assets stammen von großen Zertifizierern"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:80
 msgid "Amount is required"
@@ -72,11 +72,11 @@ msgstr "Menge ist erforderlich"
 
 #: components/Stats/StatsBar.tsx:41
 msgid "Amount of credits from this project/vintage combination that have been retired."
-msgstr ""
+msgstr "Anzahl der CO2-Tonnen, die durch diese Projekt-/Jahrgangskombination ausgeglichen wurden."
 
 #: components/Stats/StatsBar.tsx:61
 msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
-msgstr ""
+msgstr "Anzahl der CO2-Tonnen, die in dieser Projekt-/Jahrgangskombination digitalisiert, aber noch nicht ausgeglichen wurden."
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:120
@@ -124,7 +124,7 @@ msgstr "Zum Kauf verfügbar"
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
 #: components/pages/Project/Retire/AssetDetails.tsx:50
 msgid "Available to retire"
-msgstr ""
+msgstr "Für CO2-Ausgleich verfügbar"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:66
 msgid "Available:"
@@ -179,7 +179,7 @@ msgstr "Blue Carbon"
 
 #: components/Layout/NavDrawer/index.tsx:84
 msgid "Book a demo"
-msgstr "Demo reservieren"
+msgstr "Demo anfordern"
 
 #: components/pages/Home/index.tsx:160
 #: components/pages/Home/index.tsx:191
@@ -187,7 +187,7 @@ msgstr "Demo reservieren"
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
-msgstr "Projekte durchsuchen"
+msgstr "Projekte entdecken"
 
 #: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
@@ -199,7 +199,7 @@ msgstr "Kaufen"
 
 #: components/pages/Home/index.tsx:171
 msgid "Buy or retire carbon"
-msgstr ""
+msgstr "CO2 kaufen oder für CO2-Ausgleich nutzen"
 
 #: components/ExitModal/index.tsx:44
 msgid "Cancel"
@@ -223,7 +223,7 @@ msgstr "Carbonmark-Übersicht"
 
 #: components/pages/Home/index.tsx:177
 msgid "Carbonmark doesn't charge an additional transaction fee and offers best-in-the-market pricing. Explore hundreds of verified carbon projects."
-msgstr ""
+msgstr "Carbonmark erhebt keine zusätzliche Transaktionsgebühr und bietet die marktweit besten Preise. Entdecken Sie Hunderte verifizierte CO2-Projekte."
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
@@ -238,7 +238,7 @@ msgstr "Carbonmark | Der Universelle CO2-Marktplatz"
 
 #: components/pages/Home/index.tsx:491
 msgid "Carbonmark's role"
-msgstr ""
+msgstr "Carbonmarks Bedeutung"
 
 #: components/ProjectFilterModal/index.tsx:129
 msgid "Category"
@@ -251,7 +251,7 @@ msgstr "Sprache wechseln"
 
 #: components/pages/Home/index.tsx:209
 msgid "Choose a project and quantity"
-msgstr ""
+msgstr "Projekt und Menge auswählen"
 
 #: components/pages/Projects/index.tsx:48
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
@@ -267,7 +267,7 @@ msgstr "Demnächst"
 
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
-msgstr ""
+msgstr "Preise alle Verkäufer und Handelspools vergleichen"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 msgid "Confirm Purchase"
@@ -291,7 +291,7 @@ msgstr "Weiter"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
 #: components/pages/Project/Retire/RetireInputs.tsx:217
 msgid "Could not calculate Total Cost"
-msgstr ""
+msgstr "Gesamtkosten konnten nicht berechnet werden"
 
 #: components/ProjectFilterModal/index.tsx:122
 msgid "Country"
@@ -309,7 +309,7 @@ msgstr "Profil erstellen"
 
 #: components/pages/Home/index.tsx:222
 msgid "Create a profile and get connected"
-msgstr ""
+msgstr "Profil erstellen und verbinden"
 
 #: components/pages/Home/index.tsx:282
 msgid "Create a seller profile"
@@ -321,11 +321,11 @@ msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktiv
 
 #: components/pages/Home/index.tsx:316
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
-msgstr ""
+msgstr "Erstellen Sie Ihr eigenes CO2-Schaufenster. Verkaufen Sie direkt an Organisationen oder Einzelpersonen."
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
 msgid "Create your own retirement"
-msgstr ""
+msgstr "Ihren eigenen CO2-Ausgleich erstellen"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:83
 msgid "Created:"
@@ -362,7 +362,7 @@ msgstr "Digitales CO2"
 
 #: components/pages/Home/index.tsx:267
 msgid "Digitize your carbon by using a supported bridge"
-msgstr ""
+msgstr "Digitalisieren Sie Ihr CO2 mithilfe eines unterstützten Anbieters"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
 msgid "Display name"
@@ -451,7 +451,7 @@ msgstr "Hilfe"
 
 #: components/pages/Retire/index.tsx:146
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr ""
+msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tokens, die Sie schnell und einfach ausgleichen können."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
 #: components/pages/Project/Retire/TotalValues.tsx:178
@@ -469,7 +469,7 @@ msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:62
 msgid "How many tonnes of carbon would you like to retire?"
-msgstr ""
+msgstr "Wie viele Tonnen CO2 möchten Sie ausgleichen?"
 
 #: components/pages/Purchases/index.tsx:90
 msgid "If you would like to retire some or all of the carbon credits from this purchase, go to your <0>portfolio</0>, click the 'retire' button and follow the directions."
@@ -481,7 +481,7 @@ msgstr "Industrielle Verarbeitung"
 
 #: components/pages/Home/index.tsx:369
 msgid "Instant settlement of all trades"
-msgstr ""
+msgstr "Sofortige Abwicklung aller Handelsgeschäfte"
 
 #: components/pages/Home/index.tsx:437
 msgid "Introducing Carbonmark"
@@ -499,7 +499,7 @@ msgstr "KlimaDAO-Smart-Contracts"
 
 #: components/pages/Home/index.tsx:527
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
-msgstr ""
+msgstr "KlimaDAO bietet eine transparente, neutrale und öffentliche Infrastruktur an, um die Finanzierung von Klimaprojekten weltweit zu beschleunigen."
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -515,15 +515,15 @@ msgstr "Mehr erfahren"
 
 #: components/pages/Home/index.tsx:494
 msgid "Learn more about Carbonmark's role in improving the Digital Carbon Market - and the Voluntary Carbon Market as a whole."
-msgstr ""
+msgstr "Erfahren Sie mehr über Carbonmarks Bedeutung für den Digitalen CO2-Markt und den freiwilligen CO2-Markt als Ganzes."
 
 #: components/pages/Home/index.tsx:399
 msgid "List and sell for free"
-msgstr ""
+msgstr "Kostenlos anbieten und verkaufen"
 
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
-msgstr ""
+msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 
 #: components/pages/Users/SellerConnected/index.tsx:170
 #: components/pages/Users/SellerUnconnected/index.tsx:47
@@ -578,7 +578,7 @@ msgstr "Marktplatz | Carbonmark"
 
 #: components/pages/Home/index.tsx:174
 msgid "Maximize your climate impact."
-msgstr ""
+msgstr "Maximieren Sie Ihre positive Klimawirkung."
 
 #: components/pages/Project/index.tsx:161
 msgid "Methodology"
@@ -603,7 +603,7 @@ msgstr "Neuer Stückpreis (USDC)"
 
 #: components/pages/Retire/Activity/Table.tsx:82
 msgid "No Activity to show."
-msgstr ""
+msgstr "Keine Aktivitäten zum Anzeigen."
 
 #: components/pages/Users/SellerConnected/index.tsx:213
 #: components/pages/Users/SellerUnconnected/index.tsx:83
@@ -616,7 +616,7 @@ msgstr "Keine Aktivitäten zum Anzeigen"
 
 #: components/pages/Home/index.tsx:403
 msgid "No barriers to entry for verified carbon projects"
-msgstr ""
+msgstr "Keine Barrieren für verifizierte CO2-Projekte"
 
 #: components/pages/Retire/Activity/Overview.tsx:60
 msgid "No data to show"
@@ -669,7 +669,7 @@ msgstr ""
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECT"
-msgstr ""
+msgstr "PROJEKT"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -736,7 +736,7 @@ msgstr "Kauf wird verarbeitet"
 
 #: components/pages/Project/Retire/RetireModal.tsx:80
 msgid "Processing Retirement"
-msgstr ""
+msgstr "CO2-Ausgleich wird verarbeitet"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "Processing data..."
@@ -757,7 +757,7 @@ msgstr "Projekt"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:85
 msgid "Purchase Carbon"
-msgstr ""
+msgstr "CO2 kaufen"
 
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
@@ -809,11 +809,11 @@ msgstr "Jetzt ausgleichen"
 
 #: components/pages/Project/Retire/SubmitButton.tsx:44
 msgid "RETIRE CARBON"
-msgstr ""
+msgstr "CO2 AUSGLEICHEN"
 
 #: components/pages/Project/index.tsx:215
 msgid "Read Less"
-msgstr ""
+msgstr "Weniger anzeigen"
 
 #: components/pages/Project/index.tsx:215
 msgid "Read More"
@@ -829,7 +829,7 @@ msgstr "Weiterlesen"
 
 #: components/pages/Home/index.tsx:354
 msgid "Real-time price and transaction data powered by the blockchain"
-msgstr ""
+msgstr "Echtzeitpreis- und -transaktionsdaten durch Blockchaintechnologie"
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
@@ -845,7 +845,7 @@ msgstr "Erneuerbare Energie"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:56
 msgid "Required Field"
-msgstr ""
+msgstr "Pflichtfeld"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -880,11 +880,11 @@ msgstr "Aus Ihrem Portfolio ausgleichen"
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr ""
+msgstr "Mit {fullProjectid} ausgleichen | Carbonmark"
 
 #: components/pages/Home/index.tsx:235
 msgid "Retire instantly, or purchase and hold digital carbon"
-msgstr ""
+msgstr "Gleichen Sie Ihren CO2-Fußabdruck in Echtzeit aus oder kaufen und verwahren Sie digitales CO2"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
@@ -911,7 +911,7 @@ msgstr "Ausgleichen | Carbonmark"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
-msgstr ""
+msgstr "Ausgleichsaktivität"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:138
 msgid "Retirement Message"
@@ -920,7 +920,7 @@ msgstr "Ausgleichsnachricht"
 #: components/pages/Retire/Activity/Overview.tsx:58
 #: components/pages/Retire/Activity/Overview.tsx:68
 msgid "Retirement Overview"
-msgstr ""
+msgstr "Ausgleichsübersicht"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
@@ -928,7 +928,7 @@ msgstr "Ausgleich erfolgreich!"
 
 #: components/pages/Project/Retire/RetireModal.tsx:81
 msgid "Retirement successful"
-msgstr ""
+msgstr "CO2-Ausgleich erfolgreich"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:36
 msgid "Retiring Token"
@@ -975,7 +975,7 @@ msgstr "Zum Kaufen anmelden/verbinden"
 
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:101
 msgid "Something went wrong loading the allowance"
-msgstr ""
+msgstr "Beim Laden des Guthabens ist ein Fehler aufgetreten"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "Something went wrong. Please try again. {error}"
@@ -1069,7 +1069,7 @@ msgstr "Die Mindestkaufmenge beträgt 1 Tonne"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:84
 msgid "The minimum amount to retire is 0.001 Tonnes"
-msgstr ""
+msgstr "Sie müssen mindestens 0,001 Tonne ausgleichen"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1191,7 +1191,7 @@ msgstr ""
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
 msgid "Total sale cost"
-msgstr ""
+msgstr "Gesamtverkaufskosten"
 
 #: components/pages/Home/index.tsx:322
 msgid "Unprecedented transparency across the digital carbon market."
@@ -1291,7 +1291,7 @@ msgstr "Ihr Kauf wird noch verarbeitet. Aktualisieren Sie diese Seite in wenigen
 
 #: components/pages/Retire/FromPortfolio/index.tsx:80
 msgid "We couldn't find any assets in your portfolio."
-msgstr ""
+msgstr "Wir konnten keine Assets in Ihrem Portfolio finden."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
@@ -1303,7 +1303,7 @@ msgstr "Basierend auf strengen Kriterien - wie Preis, globale Umweltauswirkungen
 
 #: components/pages/Home/index.tsx:467
 msgid "What is Carbonmark? Answers to common questions about the Digital Carbon Market interface that easily connects buyers and sellers of verified carbon credits."
-msgstr ""
+msgstr "Was ist Carbonmark? Antworten auf häufig gestellte Fragen über das Interface des Digitalen CO2-Marktes, das Käufer und Verkäufer verifizierter Emissionszertifikate einfach miteinander verbindet."
 
 #: components/pages/Project/Retire/RetireInputs.tsx:100
 #: components/pages/Project/Retire/RetireInputs.tsx:107
@@ -1326,7 +1326,7 @@ msgstr "Sie sind dabei, ein CO2-Asset zu erwerben."
 
 #: components/pages/Project/Retire/RetireModal.tsx:38
 msgid "You are about to retire a carbon asset."
-msgstr ""
+msgstr "Sie sind dabei, ein CO2-Token für einen Ausgleich zu verwenden."
 
 #: components/pages/Retire/index.tsx:123
 msgid "You can also retire any carbon asset in your wallet."
@@ -1403,7 +1403,7 @@ msgstr "Kaufen"
 
 #: components/Layout/index.tsx:91
 msgid "connectModal.institutional"
-msgstr ""
+msgstr "institutionell"
 
 #: components/Layout/index.tsx:83
 msgid "connectModal.torus"
@@ -1750,7 +1750,7 @@ msgstr "ausgeglichen"
 
 #: components/pages/Retirements/Footer/index.tsx:17
 msgid "retirement.footer.about_carbonmark.content"
-msgstr ""
+msgstr "Mit über 20 Millionen verifizierten Emissionszertifikaten von Hunderten von Projekten bietet Carbonmark die weltweit größte Auswahl digitaler CO2-Credits an. Kaufen und verkaufen Sie provisionsfrei digitales CO2 von jedem beliebigen Projekt und nutzen Sie es für den CO2-Ausgleich. <0>Beginnen Sie jetzt</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:11
 msgid "retirement.footer.about_carbonmark.title"
@@ -1786,7 +1786,7 @@ msgstr "0x-Adresse des Begünstigten"
 
 #: components/pages/Retirements/SingleRetirement/RetirementHeader/index.tsx:17
 msgid "retirement.single.carbon_credit_retirement.title"
-msgstr ""
+msgstr "CO2-Credit-Ausgleich"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:93
 msgid "retirement.single.country_region.title"
@@ -1806,7 +1806,7 @@ msgstr "Methodik:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
 msgid "retirement.single.moss_offset.description"
-msgstr ""
+msgstr "MCO2-Zertifikate entstehen durch Projekte, die den Amazonas-Regenwald schützen. Dies ermöglicht weitere positive externe Effekte, wie die Schaffung lokaler Arbeitsplätze und den Schutz der Biodiversität vor Ort. Entdecken Sie MCO2 auf <0>carbon.klimadao.finance</0>."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
 msgid "retirement.single.moss_offset.name"
@@ -1998,7 +1998,7 @@ msgstr "Sie haben die Transaktion abgelehnt"
 
 #: components/pages/Portfolio/Retire/RetireModal/index.tsx:52
 msgid "transaction_modal.approve.allow_amount_1"
-msgstr ""
+msgstr "Sie sind dabei, ein CO2-Token für einen Ausgleich zu verwenden."
 
 #: components/pages/Portfolio/Retire/RetireModal/index.tsx:57
 msgid "transaction_modal.approve.allow_amount_2"
@@ -2148,4 +2148,4 @@ msgstr "{amount} Tonnen wurden für Projekt {0} gekauft"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:29
 msgid "{tokenSymbol}"
-msgstr ""
+msgstr "{tokenSymbol}"

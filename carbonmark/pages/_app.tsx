@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider>
+      <Web3ContextProvider appName="carbonmark">
         <UserTracker>
           <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
             <Component {...pageProps} />
