@@ -1,5 +1,5 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { polygonNetworks } from "@klimadao/lib/constants";
+import { NETWORKS } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { FC, useEffect, useState } from "react";
@@ -19,8 +19,8 @@ export const InvalidNetworkModal: FC = () => {
     if (!network) return;
 
     if (
-      network.chainId !== polygonNetworks.mainnet.chainId &&
-      network.chainId !== polygonNetworks.testnet.chainId
+      network.chainId !== NETWORKS.polygon.mainnet.chainId &&
+      network.chainId !== NETWORKS.polygon.testnet.chainId
     ) {
       setShowModal(true);
     }
@@ -32,7 +32,7 @@ export const InvalidNetworkModal: FC = () => {
 
   const handleChangeNetwork = (net: "mainnet" | "testnet") => async () => {
     const { hexChainId, rpcUrls, blockExplorerUrls, chainName } =
-      polygonNetworks[net];
+      NETWORKS.polygon[net];
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const typedProvider = (provider as any)?.provider;

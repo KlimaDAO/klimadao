@@ -1,4 +1,3 @@
-import { polygonNetworks } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { LogicTable } from "./utils/logic.utils";
 
@@ -60,9 +59,9 @@ export const config = {
       development: "http://localhost:3002",
     },
     blockExplorer: {
-      production: polygonNetworks.mainnet.blockExplorerUrls[0],
-      preview: polygonNetworks.testnet.blockExplorerUrls[0],
-      development: polygonNetworks.testnet.blockExplorerUrls[0],
+      production: NETWORKS.polygon.mainnet.blockExplorerUrls[0],
+      preview: NETWORKS.polygon.testnet.blockExplorerUrls[0],
+      development: NETWORKS.polygon.testnet.blockExplorerUrls[0],
     },
     api: {
       production: "https://api.carbonmark.com/api",

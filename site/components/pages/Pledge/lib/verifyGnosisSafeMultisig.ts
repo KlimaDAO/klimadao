@@ -1,5 +1,4 @@
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
-import { polygonNetworks } from "@klimadao/lib/constants";
 import { Contract, utils } from "ethers";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 
@@ -43,7 +42,7 @@ const calculateSafeMessageHash = (safe: Contract, message: string): string => {
   return utils._TypedDataEncoder.hash(
     {
       verifyingContract: safe.address,
-      chainId: polygonNetworks.mainnet.chainId,
+      chainId: NETWORKS.polygon.mainnet.chainId,
     },
     EIP712_SAFE_MESSAGE_TYPE,
     { message: utils.hashMessage(message) }

@@ -6,28 +6,28 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  addresses,
-  offsetCompatibility,
-  offsetInputTokens,
+  ADDRESSES,
   OffsetPaymentMethod,
   PoolToken,
-  poolTokens,
   RetirementToken,
-  urls,
+  URLS,
+  offsetCompatibility,
+  offsetInputTokens,
+  poolTokens,
 } from "@klimadao/lib/constants";
 import { formatUnits, getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import {
+  RetireCarbonTransactionResult,
   approveProjectToken,
   getOffsetConsumptionCost,
   getProjectTokenBalances,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   retireCarbonTransaction,
-  RetireCarbonTransactionResult,
   retireProjectTokenTransaction,
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
@@ -47,7 +47,7 @@ import TCO2 from "public/icons/TCO2.png";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
 import {
   selectAllowancesWithParams,
   selectBalances,
@@ -63,8 +63,6 @@ import {
   updateRetirement,
 } from "state/user";
 import { ProjectTokenDetails as PooledProjectTokenDetails } from "../Redeem/ProjectTokenDetails";
-import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
-import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import { SelectiveRetirement } from "./SelectiveRetirement";
@@ -72,6 +70,8 @@ import {
   BalanceAttribute,
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
+import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
+import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import * as styles from "./styles";
 
 const MAX_FIAT_COST = 2000; // usdc
@@ -679,7 +679,7 @@ export const Offset = (props: Props) => {
               Pay with fiat or crypto, or retire credits you already own. Your
               message and data will be permanently inscribed on the blockchain.
               Learn more about supported tokens in our{" "}
-              <A href={urls.officialDocs}>docs</A>.
+              <A href={URLS.officialDocs}>docs</A>.
             </Trans>
           </Text>
         </div>
@@ -957,7 +957,7 @@ export const Offset = (props: Props) => {
                   (t) => t.key === selectedRetirementToken
                 )?.icon ?? TCO2
           }
-          spenderAddress={addresses["mainnet"].retirementAggregatorV2}
+          spenderAddress={ADDRESSES["mainnet"].retirementAggregatorV2}
           value={!isRetiringOwnCarbon ? cost.toString() : quantity}
           approvalValue={getApprovalValue()}
           status={fullStatus}
@@ -972,7 +972,7 @@ export const Offset = (props: Props) => {
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
           retirementUrl={createLinkWithLocaleSubPath(
-            `${urls.retirements}/${
+            `${URLS.retirements}/${
               beneficiaryAddress || props.address
             }/${retirementTotals}`,
             locale
