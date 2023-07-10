@@ -1,17 +1,17 @@
-import { FastifyInstance } from "fastify";
-import { compact, concat } from "lodash";
-import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
   Country,
   Listing,
-} from "../../.generated/types/marketplace.types";
-import { CarbonOffset } from "../../.generated/types/offsets.types";
+} from "@/.generated/types/marketplace.types";
+import { CarbonOffset } from "@/.generated/types/offsets.types";
+import { FastifyInstance } from "fastify";
+import { compact, concat } from "lodash";
+import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 
-import { GetPairQuery } from "../../.generated/types/tokens.types";
-import { extract, notNil } from "../functional.utils";
-import { gqlSdk } from "../gqlSdk";
-import { TOKEN_POOLS, TokenPool } from "./utils.constants";
+import { GetPairQuery } from "@/.generated/types/tokens.types";
+import { extract, notNil } from "@/utils/functional.utils";
+import { gqlSdk } from "@/utils/gqlSdk";
+import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.

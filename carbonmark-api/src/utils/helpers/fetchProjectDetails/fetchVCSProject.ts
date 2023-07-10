@@ -1,5 +1,5 @@
-import { fetchProjects } from "../../../sanity/queries";
-import { getSanityClient } from "../../../sanity/sanity";
+import { fetchProjects } from "@/sanity/queries";
+import { getSanityClient } from "@/sanity/sanity";
 
 const sanity = getSanityClient();
 

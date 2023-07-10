@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import t from "tap";
-import { build } from "../../helper";
+import { build } from "test/helper";
 const DEV_URL = "http://localhost:3003/api";
 
 // The private key of the account to sign the message with

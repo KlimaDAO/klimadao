@@ -1,3 +1,4 @@
+import { gqlSdk } from "@/utils/gqlSdk";
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { assign } from "lodash";
@@ -6,7 +7,6 @@ import {
   Listing,
   User,
 } from "src/.generated/types/marketplace.types";
-import { gqlSdk } from "../gqlSdk";
 
 type WithHandle<T> = T & { handle?: string };
 

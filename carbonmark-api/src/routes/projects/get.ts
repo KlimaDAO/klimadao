@@ -1,17 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- temporarily disable ts to make sure we have all new changes
 // @ts-nocheck
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { fetchAllProjects } from "../../sanity/queries";
-import { getSanityClient } from "../../sanity/sanity";
-import { extract } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
+import { fetchAllProjects } from "@/sanity/queries";
+import { getSanityClient } from "@/sanity/sanity";
+import { extract } from "@/utils/functional.utils";
+import { gqlSdk } from "@/utils/gqlSdk";
 import {
   calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,
   getAllCategories,
   getAllCountries,
   getAllVintages,
-} from "../../utils/helpers/utils";
+} from "@/utils/helpers/utils";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 const schema = {
   querystring: {

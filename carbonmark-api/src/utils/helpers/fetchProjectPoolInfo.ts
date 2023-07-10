@@ -1,6 +1,6 @@
+import { POOL_INFO } from "@/routes/projects/projects.constants";
+import { gqlSdk } from "@/utils/gqlSdk";
 import { get } from "lodash";
-import { POOL_INFO } from "../../routes/projects/projects.constants";
-import { gqlSdk } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**

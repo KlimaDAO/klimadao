@@ -1,6 +1,6 @@
+import cors from "@/plugins/cors";
 import Fastify from "fastify";
 import tap from "tap";
-import cors from "../../src/plugins/cors";
 
 tap.test("CORS", async (t) => {
   const fastify = Fastify();
