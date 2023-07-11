@@ -442,15 +442,15 @@ msgstr ""
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: lib/constants.ts:25
+#: lib/constants.ts:29
 msgid "connect_modal.error_message_default"
 msgstr ""
 
-#: lib/constants.ts:29
+#: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
-#: lib/constants.ts:33
+#: lib/constants.ts:37
 msgid "connect_modal.error_processing"
 msgstr ""
 

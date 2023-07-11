@@ -448,15 +448,15 @@ msgstr "connect a wallet"
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: lib/constants.ts:25
+#: lib/constants.ts:29
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 
-#: lib/constants.ts:29
+#: lib/constants.ts:33
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
-#: lib/constants.ts:33
+#: lib/constants.ts:37
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
