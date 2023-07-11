@@ -41,7 +41,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isPoolDefault = props.price.isPoolDefault;
 
   const { locale, asPath } = useRouter();
-  const { control, setValue } = useFormContext<FormValues>();
+  const { formState, control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
   const [costs, setCosts] = useState("");
   const [feesFactor, setFeesFactor] = useState(0);
