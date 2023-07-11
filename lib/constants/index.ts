@@ -302,10 +302,3 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
-
-/**
- * Used to create signed messages during authentication flow
- * See: "https://github.com/KlimaDAO/klimadao/wiki/Carbonmark#authentication",
- */
-export const CARBONMARK_AUTHENTICATION_MESSAGE =
-  "Sign to authenticate ownership and edit your Carbonmark profile 💚\n\nSignature nonce: ";

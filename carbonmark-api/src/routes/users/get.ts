@@ -1,15 +1,15 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, isNil, map, merge } from "lodash";
-import { assign, curry, get, toUpper } from "lodash/fp";
+import { compact, map, merge } from "lodash";
+import { assign, get, toUpper } from "lodash/fp";
 import { Holding } from "../../.generated/types/assets.types";
 import { Activity, Listing } from "../../.generated/types/marketplace.types";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
 import {
-  getUserByWallet,
   getUserDocumentByHandle,
   getUserDocumentByWallet,
+  getUserDocumentsByIds,
 } from "../../utils/helpers/users.utils";
 interface Params {
   walletOrHandle: string;
@@ -87,11 +87,10 @@ const handler = (fastify: FastifyInstance) =>
       fastify.firebase,
       walletOrHandle
     );
+    // If no documents are found, return a 404 error
+    if (!firebaseUserDocument?.exists) return reply.notFound();
 
     const firebaseUser = firebaseUserDocument?.data();
-
-    // If no documents are found, return a 403 error
-    if (isNil(firebaseUser)) return reply.notFound();
 
     const wallet = firebaseUserDocument?.id.toLowerCase();
 
@@ -107,15 +106,14 @@ const handler = (fastify: FastifyInstance) =>
 
     const activities = compact(marketplaceUser?.activities);
 
-    // const listingSellerData = listings.map(get(""),curry(getUserByHandle)(fastify.firebase))
     const sellerIds = listings.map(get("seller.id"), toUpper);
     const buyerIds = activities.map(get("buyer.id"), toUpper);
 
-    /** Curry our fetch with the firebase instance */
-    const _getUserByWallet = curry(getUserByWallet)(fastify.firebase);
-
-    const sellers = await Promise.all(sellerIds.map(_getUserByWallet));
-    const buyers = await Promise.all(buyerIds.map(_getUserByWallet));
+    /** Fetch all buyers and sellers */
+    const [sellers, buyers] = await Promise.all([
+      getUserDocumentsByIds(fastify.firebase, sellerIds),
+      getUserDocumentsByIds(fastify.firebase, buyerIds),
+    ]);
 
     /** Find and assign the FB User to the given listing */
     const mapSellerToListing = (listing: Listing) => {

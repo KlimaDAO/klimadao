@@ -1,4 +1,5 @@
 import { app } from "firebase-admin";
+import { compact, isEmpty } from "lodash";
 
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
@@ -17,6 +18,18 @@ export const getUserByWallet = async (
   wallet: string
 ): Promise<FirebaseFirestore.DocumentData | undefined> =>
   (await getUserDocumentByWallet(fb, wallet))?.data();
+
+/** @note this may have a max limit of 300 records for ids, need to confirm */
+export const getUserDocumentsByIds = async (
+  fb: app.App,
+  ids: string[]
+): Promise<FirebaseFirestore.DocumentData[] | undefined> => {
+  if (isEmpty(ids)) return undefined;
+  const docRefs = compact(ids).map((id) =>
+    fb.firestore().collection("users").doc(id)
+  );
+  return await fb.firestore().getAll(...docRefs);
+};
 
 /**
  * This function retrieves a user by their handle from the Firestore database.
