@@ -1,0 +1,14 @@
+name: Alias Carbonmark API
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Project Artifacts to Vercel
+        run: |
+          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" carbonmark-api-${{ GITHUB_REF_NAME }}-klimadao.vercel.app
