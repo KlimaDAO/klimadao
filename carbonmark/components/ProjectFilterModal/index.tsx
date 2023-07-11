@@ -12,8 +12,8 @@ import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
-import { FC } from "react";
-import { useForm } from "react-hook-form";
+import { FC, useEffect } from "react";
+import { useForm, useWatch } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
 import { getCategoryFilters, PROJECT_SORT_OPTIONS } from "./constants";
 import * as styles from "./styles";
@@ -46,7 +46,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   // Set the default values and override with any existing url params
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, reset, handleSubmit, watch } = useForm<ModalFieldValues>({
+  const { control, reset, handleSubmit, setValue } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
@@ -89,7 +89,10 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const watchers = watch(["country", "category", "vintage"]);
+  const watchers = useWatch({
+    control,
+    name: ["country", "category", "vintage"],
+  });
 
   const onSubmit = (values: ModalFieldValues) => {
     const { search } = router.query;
@@ -117,13 +120,26 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (!router.query) return;
+    const { country, category, vintage } = router.query;
+    // @todo - fix case where a single filter is added as a string
+    // and not an array value...
+    setValue("country", (country as string[]) || []);
+    setValue("category", (category as string[]) || []);
+    setValue("vintage", (vintage as string[]) || []);
+  }, [router.query]);
+
   const getAccordionSubtitle = (index: number) => {
-    if (watchers?.[index]?.length > 0) {
-      return `${watchers[index].length} Selected`;
+    const filter = watchers?.[index];
+    if (filter.length > 0) {
+      return `${typeof filter !== "string" ? filter.length : 1} Selected`;
     } else {
       return "";
     }
   };
+
+  console.log("watechers", watchers);
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
