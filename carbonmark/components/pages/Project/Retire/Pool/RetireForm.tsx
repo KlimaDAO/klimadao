@@ -1,11 +1,5 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import {
-  formatUnits,
-  getFiatWalletBalance,
-  redirectFiatCheckout,
-  safeAdd,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
@@ -17,7 +11,9 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
-import { IS_PRODUCTION, urls } from "lib/constants";
+import { urls } from "lib/constants";
+import { getFiatWalletBalance } from "lib/fiat/fiatBalance";
+import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
@@ -88,9 +84,7 @@ export const RetireForm: FC<Props> = (props) => {
 
   useEffect(() => {
     const getFiatBalance = async () => {
-      const balance = await getFiatWalletBalance({
-        isProduction: IS_PRODUCTION,
-      });
+      const balance = await getFiatWalletBalance();
 
       balance?.remainingUsdc && setFiatBalance(balance?.remainingUsdc);
     };
@@ -135,7 +129,6 @@ export const RetireForm: FC<Props> = (props) => {
     try {
       setIsRedirecting(true);
       await redirectFiatCheckout({
-        isProduction: IS_PRODUCTION,
         cancelUrl: `${urls.baseUrl}${asPath}`,
         referrer: "carbonmark",
         retirement: reqParams,

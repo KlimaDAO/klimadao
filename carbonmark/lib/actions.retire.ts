@@ -4,13 +4,10 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import ToucanPoolToken from "@klimadao/lib/abi/ToucanPoolToken.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
-import {
-  formatUnits,
-  getFiatRetirementCost,
-  getTokenDecimals,
-} from "@klimadao/lib/utils";
+import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
-import { IS_PRODUCTION, urls } from "lib/constants";
+import { urls } from "lib/constants";
+import { getFiatRetirementCost } from "lib/fiat/fiatCosts";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
@@ -46,7 +43,6 @@ export const getConsumptionCost = async (params: {
 }): Promise<string> => {
   if (params.inputToken === "fiat") {
     const fiatCosts = await getFiatRetirementCost({
-      isProduction: IS_PRODUCTION,
       cancelUrl: `${urls.baseUrl}${params.currentUrl}`,
       referrer: "carbonmark",
       retirement: {
