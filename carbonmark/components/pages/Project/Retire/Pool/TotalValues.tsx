@@ -59,6 +59,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const swapFee = getSwapFee(Number(costs || 0), poolName);
   const networkFees = redemptionFee + aggregatorFee + swapFee;
 
+  const formatFees = (value: number) =>
+    isFiat ? formatToPrice(value, locale) : trimWithLocale(value, 5, locale);
+
   useEffect(() => {
     const selectiveFee = async () => {
       // No fees for default retirement
@@ -206,7 +209,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           )}
           <div className={styles.withToggle}>
             <Text t="h5">
-              {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
+              {isLoading ? t`Loading` : formatFees(networkFees)}
             </Text>
 
             <Text
@@ -238,6 +241,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
                     />
                   </div>
                 )}
+                <Text t="body2">{formatFees(swapFee)}</Text>
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">SushiSwap</Text>
@@ -267,9 +271,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
                     />
                   </div>
                 )}
-                <Text t="body2">
-                  {trimWithLocale(aggregatorFee, 5, locale)}
-                </Text>
+                <Text t="body2">{formatFees(aggregatorFee)}</Text>
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">{t`KlimaDAO Contracts`}</Text>
@@ -295,9 +297,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
                     />
                   </div>
                 )}
-                <Text t="body2">
-                  {trimWithLocale(redemptionFee, 5, locale)}
-                </Text>
+                <Text t="body2">{formatFees(redemptionFee)}</Text>
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">
