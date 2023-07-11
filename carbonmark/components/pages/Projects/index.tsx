@@ -60,7 +60,7 @@ const Page: NextPage = () => {
 
   const defaultValues = { ...DEFAULTS, ...router.query };
 
-  const { control, setValue } = useForm<ModalFieldValues>({
+  const { control } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
@@ -76,7 +76,6 @@ const Page: NextPage = () => {
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
   useEffect(() => {
-    // @ts-ignore
     // const filters = JSON.parse(window.localStorage.getItem("filters"));
     // if (filters) {
     //   setValue("sort", filters.sort);
@@ -95,7 +94,6 @@ const Page: NextPage = () => {
   // useEffect(() => {
   //   // const { search } = router.query;
   //   console.log("watchers query", router.query);
-  //   // @ts-ignore
   //   // setValue("sort", router?.query?.sort ?? "recently-updated");
   //   const query = watchers?.[0]
   //     ? { ...DEFAULTS, sort: watchers?.[0] }
@@ -110,7 +108,6 @@ const Page: NextPage = () => {
 
   const updateFilter = (sort: string) => {
     // const filters =
-    //   // @ts-ignore
     //   JSON.parse(window?.localStorage?.getItem("filters")) || null;
     router.replace(
       { query: { ...router.query, sort } }, // { ...filters, sort } },
@@ -164,8 +161,7 @@ const Page: NextPage = () => {
           <Dropdown
             name="sort"
             // initial={getValues().sort ?? "recently-updated"}
-            // @ts-ignore
-            onChange={(sort: string) => updateFilter(sort)}
+            onChange={(value: string) => updateFilter(value || "")}
             className={styles.dropdown}
             aria-label={t`Toggle sort menu`}
             renderLabel={(selected) => `Sort: ${selected?.label}`}
