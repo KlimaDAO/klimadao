@@ -1,5 +1,4 @@
-import { redirectFiatCheckout as redirectFiatCheckoutLib } from "@klimadao/lib/utils";
-import { BASE_URL, IS_PRODUCTION } from "lib/constants";
+import { BASE_URL, FIAT_RETIREMENT_API_URL } from "lib/constants";
 
 interface Params {
   beneficiary_address: string;
@@ -10,22 +9,45 @@ interface Params {
   project_address: string | null;
 }
 
-export const redirectFiatCheckout = async (params: Params): Promise<void> => {
-  const searchParams = new URLSearchParams({
-    quantity: params.quantity,
-    retirementToken: params.retirement_token,
-    message: params.retirement_message,
-    beneficiary: params.beneficiary_name,
-    beneficiaryAddress: params.beneficiary_address,
-  });
-  if (params.project_address) {
-    searchParams.append("projectTokens", params.project_address);
-  }
+interface CheckoutResponse {
+  url: string;
+}
 
-  await redirectFiatCheckoutLib({
-    isProduction: IS_PRODUCTION,
-    referrer: "klimadao",
-    cancelUrl: `${BASE_URL}/#/offset?${searchParams.toString()}`,
-    retirement: params,
-  });
+export const redirectFiatCheckout = async (params: Params): Promise<void> => {
+  try {
+    const searchParams = new URLSearchParams({
+      quantity: params.quantity,
+      retirementToken: params.retirement_token,
+      message: params.retirement_message,
+      beneficiary: params.beneficiary_name,
+      beneficiaryAddress: params.beneficiary_address,
+    });
+    if (params.project_address) {
+      searchParams.append("projectTokens", params.project_address);
+    }
+    const res = await fetch(FIAT_RETIREMENT_API_URL, {
+      body: JSON.stringify({
+        ...params,
+        cancel_url: `${BASE_URL}/#/offset?${searchParams.toString()}`,
+        referrer: "klimadao",
+        mode: "checkout",
+      }),
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      const { message, name } = await res.json();
+      const e = new Error(message);
+      e.name = name; // see checkout api documentation for list of named errors
+    }
+    const { url }: CheckoutResponse = await res.json();
+    if (url) {
+      window.location.href = url;
+    }
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 };
