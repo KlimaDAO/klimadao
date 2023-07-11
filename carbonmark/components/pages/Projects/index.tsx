@@ -26,7 +26,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { SWRConfig } from "swr";
 import { ProjectsController } from "../Project/ProjectsController";
 import * as styles from "./styles";
@@ -49,26 +49,15 @@ export const DEFAULTS: ModalFieldValues = {
 
 const Page: NextPage = () => {
   const router = useRouter();
-
-  const sortKey = String(router.query["sort"]);
-
-  const { projects, isLoading, isValidating } = useFetchProjects();
-
-  const sortFn = get(PROJECT_SORT_FNS, sortKey) ?? identity;
-
-  const sortedProjects = sortFn(projects);
-
   const defaultValues = { ...DEFAULTS, ...router.query };
-
   const { control } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
-  // const watchers = useWatch({
-  //   control,
-  //   name: ["sort", "country", "category", "vintage"],
-  // });
-  // const initialSort = router.query.sort ? String(router.query.sort) : undefined;
+  const { projects, isLoading, isValidating } = useFetchProjects();
+  const sort = useWatch({ control, name: "sort" });
+  const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
+  const sortedProjects = sortFn(projects);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
@@ -76,45 +65,17 @@ const Page: NextPage = () => {
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
   useEffect(() => {
-    // const filters = JSON.parse(window.localStorage.getItem("filters"));
-    // if (filters) {
-    //   setValue("sort", filters.sort);
-    //   setValue("country", filters.country);
-    //   setValue("category", filters.category);
-    //   setValue("vintage", filters.vintage);
-    // } else {
-    window.localStorage.setItem(
-      "filters",
-      JSON.stringify(omit(defaultValues, "sort"))
-    );
-    // console.log("defaultValues", defaultValues);
-    // }
-  }, [defaultValues]);
-
-  // useEffect(() => {
-  //   // const { search } = router.query;
-  //   console.log("watchers query", router.query);
-  //   // setValue("sort", router?.query?.sort ?? "recently-updated");
-  //   const query = watchers?.[0]
-  //     ? { ...DEFAULTS, sort: watchers?.[0] }
-  //     : DEFAULTS;
-
-  //   router.replace(
-  //     { query },
-  //     undefined,
-  //     { shallow: true } // don't refetch props nor reload page
-  //   );
-  // }, [watchers]);
-
-  const updateFilter = (sort: string) => {
-    // const filters =
-    //   JSON.parse(window?.localStorage?.getItem("filters")) || null;
+    if (!sort || isEmpty(router.query)) return;
+    const { search } = router.query;
+    const query = search
+      ? { sort, search, ...router.query }
+      : { sort, ...router.query };
     router.replace(
-      { query: { ...router.query, sort } }, // { ...filters, sort } },
+      { query: { ...query, sort } },
       undefined,
       { shallow: true } // don't refetch props nor reload page
     );
-  };
+  }, [sort]);
 
   const handleRemoveFilter = (filter: string) => {
     Object.keys(router.query).map((key: string) => {
@@ -160,8 +121,7 @@ const Page: NextPage = () => {
           {/* @todo 0xMakka - move this back into sortOptions component */}
           <Dropdown
             name="sort"
-            // initial={getValues().sort ?? "recently-updated"}
-            onChange={(value: string) => updateFilter(value || "")}
+            initial={sort ?? "recently-updated"}
             className={styles.dropdown}
             aria-label={t`Toggle sort menu`}
             renderLabel={(selected) => `Sort: ${selected?.label}`}

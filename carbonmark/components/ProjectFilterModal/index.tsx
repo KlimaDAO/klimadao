@@ -93,10 +93,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   const onSubmit = (values: ModalFieldValues) => {
     const { search } = router.query;
-    // Maintain any search value
-    const query = router.query
-      ? { ...values, search, ...router.query }
-      : values;
+    const query = search ? { ...values, search, ...router.query } : values;
     router.replace(
       { query },
       undefined,
