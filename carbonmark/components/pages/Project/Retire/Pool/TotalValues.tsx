@@ -155,14 +155,17 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Price per tonne`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-              width={20}
-              height={20}
-              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-            />
-          </div>
+          {!isFiat && (
+            <div className="icon">
+              <Image
+                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                width={20}
+                height={20}
+                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+              />
+            </div>
+          )}
+
           <Text t="h5">
             {formatToPrice(props.price.singleUnitPrice, locale, isFiat)}
           </Text>
@@ -172,14 +175,16 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-              width={20}
-              height={20}
-              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-            />
-          </div>
+          {!isFiat && (
+            <div className="icon">
+              <Image
+                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                width={20}
+                height={20}
+                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+              />
+            </div>
+          )}
           <Text t="h5" className={styles.feeColor}>
             {formatToPrice(CARBONMARK_FEE, locale, isFiat)}
           </Text>
@@ -189,14 +194,16 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text>{t`Network fees`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-              width={20}
-              height={20}
-              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-            />
-          </div>
+          {!isFiat && (
+            <div className="icon">
+              <Image
+                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                width={20}
+                height={20}
+                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+              />
+            </div>
+          )}
           <div className={styles.withToggle}>
             <Text t="h5">
               {isLoading ? t`Loading` : trimWithLocale(networkFees, 5, locale)}
@@ -217,17 +224,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <div className={styles.fees}>
             <div className={styles.feeBreakdown}>
               <div className={cx(styles.iconAndText)}>
-                <div className="icon">
-                  <Image
-                    src={
-                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                    }
-                    width={20}
-                    height={20}
-                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-                  />
-                </div>
-                <Text t="body2">{trimWithLocale(swapFee, 5, locale)}</Text>
+                {!isFiat && (
+                  <div className="icon">
+                    <Image
+                      src={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                      }
+                      width={20}
+                      height={20}
+                      alt={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                      }
+                    />
+                  </div>
+                )}
               </div>
               <div className={styles.feeText}>
                 <Text t="body2">SushiSwap</Text>
@@ -243,16 +253,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
             <div className={styles.feeBreakdown}>
               <div className={cx(styles.iconAndText)}>
-                <div className="icon">
-                  <Image
-                    src={
-                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                    }
-                    width={20}
-                    height={20}
-                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-                  />
-                </div>
+                {!isFiat && (
+                  <div className="icon">
+                    <Image
+                      src={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                      }
+                      width={20}
+                      height={20}
+                      alt={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                      }
+                    />
+                  </div>
+                )}
                 <Text t="body2">
                   {trimWithLocale(aggregatorFee, 5, locale)}
                 </Text>
@@ -267,16 +281,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
             <div className={styles.feeBreakdown}>
               <div className={cx(styles.iconAndText)}>
-                <div className="icon">
-                  <Image
-                    src={
-                      carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                    }
-                    width={20}
-                    height={20}
-                    alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-                  />
-                </div>
+                {!isFiat && (
+                  <div className="icon">
+                    <Image
+                      src={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
+                      }
+                      width={20}
+                      height={20}
+                      alt={
+                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                      }
+                    />
+                  </div>
+                )}
                 <Text t="body2">
                   {trimWithLocale(redemptionFee, 5, locale)}
                 </Text>
@@ -298,14 +316,16 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
         <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-              width={36}
-              height={36}
-              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-            />
-          </div>
+          {!isFiat && (
+            <div className="icon">
+              <Image
+                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                width={36}
+                height={36}
+                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+              />
+            </div>
+          )}
           <Text
             t="h3"
             className={cx(styles.breakText, {
