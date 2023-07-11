@@ -1,8 +1,8 @@
-import { fetchMarketplaceListings } from "@/utils/helpers/fetchMarketplaceListings";
-import { fetchPoolPricesAndStats } from "@/utils/helpers/fetchPoolPricesAndStats";
-import { fetchProjectDetails } from "@/utils/helpers/fetchProjectDetails";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact } from "lodash";
+import { fetchMarketplaceListings } from "src/utils/helpers/fetchMarketplaceListings";
+import { fetchPoolPricesAndStats } from "src/utils/helpers/fetchPoolPricesAndStats";
+import { fetchProjectDetails } from "src/utils/helpers/fetchProjectDetails";
 
 const schema = {
   querystring: {

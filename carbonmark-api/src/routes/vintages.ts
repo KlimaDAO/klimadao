@@ -1,5 +1,5 @@
-import { getAllVintages } from "@/utils/helpers/utils";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { getAllVintages } from "src/utils/helpers/utils";
 
 const schema = {
   response: {

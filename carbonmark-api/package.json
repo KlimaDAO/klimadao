@@ -72,7 +72,7 @@
     "typescript": "^4.5.4"
   },
   "_moduleAliases": {
-    "@": "dist",
+    "src": "dist",
     "test": "test"
   }
 }
