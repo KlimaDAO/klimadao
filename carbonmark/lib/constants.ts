@@ -18,8 +18,14 @@ export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
 
-const API_PREVIEW_URL = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA
-  ? `https://carbonmark-api-${process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}-klimadao.vercel.app/api`
+/** An abbreviated version of the commit hash used when deploying a preview build of the api in deploy_carbonmark_api.yml */
+const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
+  0,
+  7
+);
+
+const API_PREVIEW_URL = SHORT_COMMIT_HASH
+  ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`
   : "https://staging-api.carbonmark.com/api";
 
 const ENVIRONMENT: Environment =
