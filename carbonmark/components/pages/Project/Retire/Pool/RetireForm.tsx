@@ -12,8 +12,8 @@ import {
   retireCarbonTransaction,
 } from "lib/actions.retire";
 import { urls } from "lib/constants";
-import { getFiatWalletBalance } from "lib/fiat/fiatBalance";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
+import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
@@ -83,13 +83,15 @@ export const RetireForm: FC<Props> = (props) => {
   }, [address]);
 
   useEffect(() => {
-    const getFiatBalance = async () => {
-      const balance = await getFiatWalletBalance();
+    const getFiatMaxBalance = async () => {
+      const fiatInfo = await getFiatInfo();
 
-      balance?.remainingUsdc && setFiatBalance(balance?.remainingUsdc);
+      fiatInfo?.MAX_USDC
+        ? setFiatBalance(fiatInfo.MAX_USDC)
+        : setFiatBalance("2000"); // default for production
     };
 
-    !fiatBalance && getFiatBalance();
+    !fiatBalance && getFiatMaxBalance();
   }, []);
 
   const isPending =
