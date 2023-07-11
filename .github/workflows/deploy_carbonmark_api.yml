@@ -10,7 +10,7 @@ on:
       - staging
 
 jobs:
-  build:
+  deploy_preview:
     runs-on: ubuntu-latest
     environment: Preview – carbonmark-api
     steps:
@@ -29,4 +29,4 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
-          vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" carbonmark-api-${{ env.SHORT_COMMIT_HASH }}.klimadao.vercel.app
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "$url" carbonmark-api-${{ env.SHORT_COMMIT_HASH }}-klimadao.vercel.app
