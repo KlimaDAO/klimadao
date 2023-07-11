@@ -1,5 +1,4 @@
 import { urls } from "@klimadao/lib/constants";
-import { getFiatRetirementUrl } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
@@ -22,9 +21,9 @@ export const BASE_URL = IS_PRODUCTION
 /** Set first in package.json then passed to javascript bundle in next.config.js */
 export const IS_STATIC_EXPORT = process.env.IS_STATIC_EXPORT;
 
-export const FIAT_RETIREMENT_API_URL = getFiatRetirementUrl({
-  isProduction: IS_PRODUCTION,
-});
+export const FIAT_RETIREMENT_API_URL = IS_PRODUCTION
+  ? "https://checkout.offsetra.com/api/checkout"
+  : "https://staging-checkout.offsetra.com/api/checkout";
 
 export const getConnectErrorStrings = () => ({
   default: t({
