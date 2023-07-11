@@ -41,7 +41,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isPoolDefault = props.price.isPoolDefault;
 
   const { locale, asPath } = useRouter();
-  const { formState, control, setValue } = useFormContext<FormValues>();
+  const { control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
   const [costs, setCosts] = useState("");
   const [feesFactor, setFeesFactor] = useState(0);
@@ -80,7 +80,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     const newCosts = async () => {
       setError("");
 
-      if (Number(amount) <= 0 || (isFiat && Number(amount) < 1)) {
+      if (
+        Number(amount) <= 0 ||
+        (isFiat && Number(amount) < 1) ||
+        // wait for react-hook-form to convert quantity to whole numbers when fiat!
+        (isFiat && !Number.isInteger(Number(amount)))
+      ) {
         setCosts("0");
         setIsLoading(false);
         return;
