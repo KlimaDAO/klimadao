@@ -72,6 +72,11 @@ export const config = {
         process.env.NEXT_PUBLIC_CARBONMARK_API_URL ??
         "https://staging-api.carbonmark.com/api",
     },
+    fiat: {
+      production: "https://checkout.offsetra.com/api",
+      preview: "https://staging-checkout.offsetra.com/api",
+      development: "https://staging-checkout.offsetra.com/api",
+    },
   },
 } as const;
 
@@ -92,6 +97,10 @@ export const urls = {
   help: "/blog/getting-started",
   about: "/blog/about-carbonmark",
   intro: "/blog/introducing-carbonmark",
+  fiat: {
+    checkout: `${config.urls.fiat[ENVIRONMENT]}/checkout`,
+    info: `${config.urls.fiat[ENVIRONMENT]}/info`,
+  },
 };
 
 export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
