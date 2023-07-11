@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-10 23:13+0000\n"
+"POT-Creation-Date: 2023-07-11 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "Demnächst"
 
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
-msgstr "Preise alle Verkäufer und Handelspools vergleichen"
+msgstr "Preise aller Verkäufer und Handelspools vergleichen"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 msgid "Confirm Purchase"
@@ -374,7 +374,7 @@ msgstr "Anzeigename ist erforderlich"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Download PDF"
-msgstr "PFD herunterladen"
+msgstr "PDF herunterladen"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Downloading ..."
@@ -481,7 +481,7 @@ msgstr "Industrielle Verarbeitung"
 
 #: components/pages/Home/index.tsx:369
 msgid "Instant settlement of all trades"
-msgstr "Sofortige Abwicklung aller Handelsgeschäfte"
+msgstr "Sofortige Abwicklung aller Transaktionen"
 
 #: components/pages/Home/index.tsx:437
 msgid "Introducing Carbonmark"
@@ -665,7 +665,7 @@ msgstr "Unsere Partner"
 
 #: components/pages/Home/index.tsx:121
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
-msgstr ""
+msgstr "Über 20 Millionen verifizierte digitale CO2-Credits aus Hunderten von Projekten mit über 4 Milliarden US-Dollar Transaktionsvolumen"
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECT"
@@ -693,7 +693,7 @@ msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ei
 
 #: components/pages/Project/Retire/TotalValues.tsx:253
 msgid "Pool Redemption Fee"
-msgstr ""
+msgstr "Pool-Entnahmegebühr"
 
 #: components/pages/Portfolio/index.tsx:66
 #: components/pages/Portfolio/index.tsx:67
@@ -867,11 +867,11 @@ msgstr "Ausgleichen"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:170
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
-msgstr ""
+msgstr "Gleichen Sie Ihren eigenen CO2-Fußabdruck aus oder handeln Sie im Auftrag anderer Personen oder Organisationen"
 
 #: components/pages/Retire/index.tsx:77
 msgid "Retire from a featured project"
-msgstr ""
+msgstr "Durch ein vorgestelltes Projekt ausgleichen"
 
 #: components/pages/Retire/index.tsx:114
 msgid "Retire from your portfolio"
@@ -900,7 +900,7 @@ msgstr "Jetzt ausgleichen"
 
 #: components/pages/Home/index.tsx:184
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
-msgstr ""
+msgstr "Jetzt ausgleichen oder CO2 kaufen und später ausgleichen: Sobald CO2-Assets in Ihrem Besitz sind, entscheiden Sie, wie Sie fortfahren möchten."
 
 #: components/pages/Portfolio/Retire/index.tsx:75
 #: components/pages/Portfolio/Retire/index.tsx:76
@@ -932,7 +932,7 @@ msgstr "CO2-Ausgleich erfolgreich"
 
 #: components/pages/Project/Retire/AssetDetails.tsx:36
 msgid "Retiring Token"
-msgstr ""
+msgstr "Für Ausgleich genutztes Token"
 
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
 msgid "Say a few words about yourself. This will be visible in your seller profile."
@@ -944,7 +944,7 @@ msgstr "Portfolio ansehen"
 
 #: components/pages/Project/Retire/SuccessScreen.tsx:65
 msgid "See your retirement receipt"
-msgstr ""
+msgstr "Ihr Ausgleichszertifikat ansehen"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:74
 msgid "Sell"
@@ -1073,7 +1073,7 @@ msgstr "Sie müssen mindestens 0,001 Tonne ausgleichen"
 
 #: components/pages/Project/Retire/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
-msgstr ""
+msgstr "Der vorherige Schritt hat nur den Transfer des CO2-Assets aus Ihrer Wallet zu Carbonmark genehmigt. Ihr CO2-Ausgleich ist damit noch nicht abgeschlossen."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:67
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
@@ -1081,11 +1081,11 @@ msgstr "Der vorherige Schritt hat den Transfer des Assets aus Ihrer Wallet zu Ca
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
-msgstr ""
+msgstr "Beim Abrufen Ihrer Ausgleichsdaten ist ein Fehler aufgetreten. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut."
 
 #: components/pages/Retire/Activity/Overview.tsx:47
 msgid "There was an error getting your total retirement data"
-msgstr ""
+msgstr "Beim Abrufen Ihrer kompletten Ausgleichsdaten ist ein Fehler aufgetreten"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
 #: components/pages/Project/Retire/TotalValues.tsx:90
@@ -1119,7 +1119,7 @@ msgstr "Um dieses Projekt mit einer anderen Zahlungsmethode zu kaufen,"
 
 #: components/pages/Project/Retire/RetireInputs.tsx:192
 msgid "To retire this project using a different form of payment,"
-msgstr ""
+msgstr "Um CO2 von diesem Projekt durch eine andere Bezahlmethode ausgleichen,"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:111
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
@@ -1186,7 +1186,7 @@ msgstr "Gesamtmenge, die zum Verkauf angeboten wird"
 
 #: components/pages/Retire/Activity/Overview.tsx:81
 msgid "Total retirement transactions"
-msgstr ""
+msgstr "Gesamte Ausgleichstransaktionen"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
 #: components/pages/Project/Retire/SuccessScreen.tsx:44
@@ -1217,7 +1217,7 @@ msgstr "Benutzerprofil | Carbonmark"
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:55
 #: components/pages/Project/Retire/RetireModal.tsx:48
 msgid "Verify all information is correct and click 'approve' to continue."
-msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen/Approve\", um fortzufahren."
+msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen\", um fortzufahren."
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
@@ -1233,11 +1233,11 @@ msgstr "Komplettansicht aller digitalen CO2-Assets in Ihrem Besitz in Ihrem Port
 
 #: components/pages/Portfolio/Retire/index.tsx:77
 msgid "View a complete overview of the digital carbon that you own in your Retire."
-msgstr ""
+msgstr "Komplettübersicht aller digitaler CO2-Assets in Ihrem Besitz im Portfolio ansehen."
 
 #: components/pages/Retire/index.tsx:41
 msgid "View a complete overview of the digital carbon that you retired."
-msgstr ""
+msgstr "Komplettübersicht aller digitalen CO2-Assets, die Sie für einen Ausgleich verwendet haben, ansehen."
 
 #: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
@@ -1447,7 +1447,7 @@ msgstr "Sie können Ihren aktiven Eintrag jederzeit entfernen. Das Asset wird da
 
 #: components/CreateListing/index.tsx:145
 msgid "create.approval_4"
-msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen/Approve\", um fortzufahren."
+msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen\", um fortzufahren."
 
 #: components/CreateListing/index.tsx:157
 msgid "create.submit_1"
@@ -1469,7 +1469,7 @@ msgstr "Eintrag gelöscht"
 #: components/pages/Project/Purchase/Pool/Price.tsx:17
 #: components/pages/Project/Retire/Price.tsx:17
 msgid "each"
-msgstr "jede"
+msgstr "pro Tonne"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:178
 msgid "edit_listing.approval_1"
@@ -1677,7 +1677,7 @@ msgstr "Kauf wird verarbeitet"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:256
 msgid "redemption Fee"
-msgstr ""
+msgstr "Entnahmegebühr"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:22
 msgid "resources.form.categories.header"
@@ -1770,7 +1770,7 @@ msgstr "Carbonmark | Quittung für CO2-Ausgleich"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:40
 msgid "retirement.single.beneficiary.address.placeholder"
-msgstr ""
+msgstr "Keine Empfängeradresse verfügbar"
 
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
 msgid "retirement.single.beneficiary.placeholder"
@@ -1794,7 +1794,7 @@ msgstr "Land/Region:"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
 msgid "retirement.single.immutable_public_records.title"
-msgstr ""
+msgstr "Dies repräsentiert einen permanenten CO2-Ausgleich durch ein digitales CO2-Asset. Der Ausgleichsvorgang und alle damit verbundenen Daten werden unveränderbar und öffentlich zugänglich aufgezeichnet."
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:13
 msgid "retirement.single.message.title"
@@ -1814,7 +1814,7 @@ msgstr "Moss Earth MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
 msgid "retirement.single.official_certificate.title"
-msgstr ""
+msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0>Carbonmark.com</0>"
 
 #: components/pages/Retirements/SingleRetirement/TransactionDetails/index.tsx:65
 msgid "retirement.single.project.title"
@@ -1894,7 +1894,7 @@ msgstr "Carbonmark - CO2-Ausgleich für {0}"
 
 #: components/pages/Retirements/index.tsx:64
 msgid "retirement.totals.page_headline"
-msgstr "CO2-Ausgleiche"
+msgstr "CO2-Ausgleich"
 
 #: components/pages/Retirements/index.tsx:70
 msgid "retirement.totals.page_subline"
@@ -2006,7 +2006,7 @@ msgstr "Im ersten Schritt bewilligen Sie den Transfer des CO2-Assets aus Ihrer W
 
 #: components/pages/Portfolio/Retire/RetireModal/index.tsx:64
 msgid "transaction_modal.approve.allow_amount_3"
-msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen/Approve\", um fortzufahren."
+msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen\", um fortzufahren."
 
 #: components/Transaction/Approve.tsx:57
 msgid "transaction_modal.approve.amount"
@@ -2042,7 +2042,7 @@ msgstr "Absenden"
 
 #: components/pages/Portfolio/Retire/RetireModal/index.tsx:76
 msgid "transaction_modal.submit.confirm_transaction_1"
-msgstr ""
+msgstr "Der vorherige Schritt hat nur den Transfer des CO2-Assets aus Ihrer Wallet zu Carbonmark genehmigt. Ihr CO2-Ausgleich ist damit noch nicht abgeschlossen."
 
 #: components/pages/Portfolio/Retire/RetireModal/index.tsx:83
 msgid "transaction_modal.submit.confirm_transaction_2"
