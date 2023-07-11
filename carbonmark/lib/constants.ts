@@ -99,7 +99,7 @@ export const urls = {
   intro: "/blog/introducing-carbonmark",
   fiat: {
     checkout: `${config.urls.fiat[ENVIRONMENT]}/checkout`,
-    balance: `${config.urls.fiat[ENVIRONMENT]}/balance`,
+    info: `${config.urls.fiat[ENVIRONMENT]}/info`,
   },
 };
 

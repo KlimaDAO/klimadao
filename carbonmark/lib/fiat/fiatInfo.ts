@@ -1,13 +1,12 @@
 import { urls } from "lib/constants";
 
 interface Response {
-  remainingUsdc: string;
-  remainingMatic: string;
+  MAX_USDC: string;
 }
 
-export const getFiatWalletBalance = async (): Promise<Response> => {
+export const getFiatInfo = async (): Promise<Response> => {
   try {
-    const res = await fetch(urls.fiat.balance);
+    const res = await fetch(urls.fiat.info);
 
     if (!res.ok) {
       const { message, name } = await res.json();
@@ -19,7 +18,7 @@ export const getFiatWalletBalance = async (): Promise<Response> => {
     const json: Response = await res.json();
     return json;
   } catch (e) {
-    console.error("getFiatWalletBalance Error", e);
+    console.error("getFiatInfo Error", e);
     throw e;
   }
 };
