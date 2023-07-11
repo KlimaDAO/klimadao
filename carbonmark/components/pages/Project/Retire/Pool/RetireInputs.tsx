@@ -9,6 +9,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
 import { utils } from "ethers";
+import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
@@ -297,8 +298,17 @@ export const RetireInputs: FC<Props> = (props) => {
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
             <Text t="body3">
-              {t`Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. To retire this project using a different form of payment,`}{" "}
-              <Anchor href={urls.app}>click here</Anchor>.
+              <Trans>
+                Currently, Carbonmark only accepts Polygon USDC or Credit Card
+                Payments.{" "}
+                <Anchor
+                  href={`${carbonmarkUrls.docs}/get-started/how-to-get-usdc-or-matic`}
+                >
+                  Learn how to acquire USDC on Polygon.
+                </Anchor>{" "}
+                To retire this project using a different form of payment,{" "}
+                <Anchor href={urls.offset}>click here</Anchor>.
+              </Trans>
             </Text>
           </div>
         </div>
