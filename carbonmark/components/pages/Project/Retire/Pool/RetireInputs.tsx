@@ -250,7 +250,7 @@ export const RetireInputs: FC<Props> = (props) => {
 
           <Dropdown
             name="paymentMethod"
-            initial={carbonmarkRetirePaymentMethodMap["usdc"].id}
+            initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
             className={cx(styles.paymentDropdown, {
               error: exceededFiatBalance,
             })}
