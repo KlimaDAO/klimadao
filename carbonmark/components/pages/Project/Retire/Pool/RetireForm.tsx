@@ -84,11 +84,16 @@ export const RetireForm: FC<Props> = (props) => {
 
   useEffect(() => {
     const getFiatMaxBalance = async () => {
-      const fiatInfo = await getFiatInfo();
+      try {
+        const fiatInfo = await getFiatInfo();
 
-      fiatInfo?.MAX_USDC
-        ? setFiatBalance(fiatInfo.MAX_USDC)
-        : setFiatBalance("2000"); // default for production
+        fiatInfo?.MAX_USDC
+          ? setFiatBalance(fiatInfo.MAX_USDC)
+          : setFiatBalance("2000"); // default for production
+      } catch (e) {
+        console.error(e);
+        setFiatBalance("2000"); // default for production
+      }
     };
 
     !fiatBalance && getFiatMaxBalance();
