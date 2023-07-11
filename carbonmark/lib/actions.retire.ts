@@ -39,6 +39,7 @@ export const getConsumptionCost = async (params: {
   retirementToken: PoolToken;
   quantity: string;
   isDefaultProject: boolean;
+  projectTokenAddress: string;
   currentUrl: string;
 }): Promise<string> => {
   if (params.inputToken === "fiat") {
@@ -51,7 +52,10 @@ export const getConsumptionCost = async (params: {
         beneficiary_address: null,
         beneficiary_name: "placeholder",
         retirement_message: "placeholder",
-        project_address: null,
+        // pass token address if not default project
+        project_address: !params.isDefaultProject
+          ? params.projectTokenAddress
+          : null,
       },
     });
     return fiatCosts;

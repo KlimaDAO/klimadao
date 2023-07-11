@@ -130,7 +130,10 @@ export const RetireForm: FC<Props> = (props) => {
       beneficiary_address: inputValues.beneficiaryAddress || address || "", // typeguard, either or should exist, don't pass empty string
       beneficiary_name: inputValues.beneficiaryName,
       retirement_message: inputValues.retirementMessage,
-      project_address: inputValues.projectAddress || null, // WHAT TO PASS HERE
+      // pass token address if not default project
+      project_address: !props.price.isPoolDefault
+        ? inputValues.projectTokenAddress
+        : null,
       retirement_token: props.price.poolName.toLowerCase() as PoolToken,
     };
     try {
