@@ -89,7 +89,7 @@ msgstr "Amount of credits that have been bridged from this project/vintage combi
 msgid "Amount to purchase"
 msgstr "Amount to purchase"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:152
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
@@ -107,7 +107,7 @@ msgstr "Asset Details"
 msgid "Asset ID"
 msgstr "Asset ID"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:115
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 
@@ -241,7 +241,7 @@ msgstr "Carbonmark doesn't charge an additional transaction fee and offers best-
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:179
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:185
 msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
@@ -479,7 +479,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:221
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
 msgid "Hide Details"
 msgstr "Hide Details"
 
@@ -518,7 +518,7 @@ msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:277
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:283
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO Contracts"
 
@@ -556,7 +556,7 @@ msgid "Listings"
 msgstr "Listings"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:173
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:212
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
 msgid "Loading"
 msgstr "Loading"
 
@@ -567,7 +567,7 @@ msgstr "Loading your assets"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:285
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:335
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:341
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
@@ -614,7 +614,7 @@ msgid "Moss"
 msgstr "Moss"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:198
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:204
 msgid "Network fees"
 msgstr "Network fees"
 
@@ -716,7 +716,7 @@ msgstr "Please Log In"
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:304
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:310
 msgid "Pool Redemption Fee"
 msgstr "Pool Redemption Fee"
 
@@ -743,7 +743,7 @@ msgstr "Price Lowest"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:59
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:127
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:159
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:165
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
@@ -994,7 +994,7 @@ msgid "Seller Listing"
 msgstr "Seller Listing"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:221
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
 msgid "Show Details"
 msgstr "Show Details"
 
@@ -1114,7 +1114,7 @@ msgstr "The previous step granted the approval to transfer your carbon asset fro
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:144
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:152
 msgid "There was an error during the checkout process. Please try again."
 msgstr "There was an error during the checkout process. Please try again."
 
@@ -1127,7 +1127,7 @@ msgid "There was an error getting your total retirement data"
 msgstr "There was an error getting your total retirement data"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:118
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:124
 msgid "There was an error loading the total cost."
 msgstr "There was an error loading the total cost."
 
@@ -1184,7 +1184,7 @@ msgstr "Tokens received:"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:122
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:132
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:154
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
 msgid "Tonnes"
 msgstr "Tonnes"
 
@@ -1197,7 +1197,7 @@ msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:149
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:155
 msgid "Total Price"
 msgstr "Total Price"
 
@@ -1211,7 +1211,7 @@ msgstr "Total carbon tonnes retired"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:269
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:317
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:323
 msgid "Total cost"
 msgstr "Total cost"
 
@@ -1394,7 +1394,7 @@ msgstr "Your Wallet Address:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:348
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:354
 msgid "Your balance:"
 msgstr "Your balance:"
 
@@ -2000,7 +2000,7 @@ msgstr "Sort by:"
 msgid "sold to"
 msgstr "sold to"
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:176
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:184
 msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
