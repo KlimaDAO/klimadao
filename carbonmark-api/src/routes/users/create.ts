@@ -96,9 +96,8 @@ const handler = (fastify: FastifyInstance) =>
         .firestore()
         .collection("users")
         .doc(wallet.toUpperCase())
-        .set({
-          createData,
-        });
+        .set(createData);
+
       // If the document is successfully created, return the request body
       return reply.send(request.body);
     } catch (err) {
