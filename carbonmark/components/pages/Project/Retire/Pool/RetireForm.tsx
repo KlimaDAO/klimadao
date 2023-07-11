@@ -56,7 +56,7 @@ export const RetireForm: FC<Props> = (props) => {
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectAddress: props.price.projectTokenAddress,
+      projectTokenAddress: props.price.projectTokenAddress,
       paymentMethod: "usdc",
       ...inputValues,
     },
