@@ -32,9 +32,7 @@ const DEFAULTS: ModalFieldValues = {
   vintage: [],
 };
 
-type ProjectFilterModalProps = Omit<ModalProps, "title" | "children"> & {
-  selectedFilters: (data: Array<Array<string>>) => void;
-};
+type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
 type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
@@ -138,8 +136,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
       return "";
     }
   };
-
-  console.log("watechers", watchers);
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
