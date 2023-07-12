@@ -59,7 +59,7 @@ import { KLIMA } from '../../../lib/tokens/impl/KLIMA'
 import { USDC } from '../../../lib/tokens/impl/USDC'
 
 export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
-  let dayTimestamp = dayFromTimestamp(timestamp)
+  let dayTimestamp = dayFromTimestamp(timestamp).toString()
 
   let protocolMetric = ProtocolMetric.load(dayTimestamp)
   if (protocolMetric == null) {
@@ -94,7 +94,7 @@ export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
 }
 
 export function loadOrCreateTreasuryAsset(timestamp: BigInt, token: String): TreasuryAsset {
-  let dayTimestamp = dayFromTimestamp(timestamp)
+  let dayTimestamp = dayFromTimestamp(timestamp).toString()
 
   let treasuryAsset = TreasuryAsset.load(dayTimestamp + token)
   if (treasuryAsset == null) {

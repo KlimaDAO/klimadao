@@ -82,7 +82,7 @@ export function createToucanCarbonOffset(
   carbonOffset.region = ''
 
   carbonOffset.vintage = attributes.value1.startTime.toString()
-  carbonOffset.vintageYear = stdYearFromTimestamp(attributes.value1.startTime)
+  carbonOffset.vintageYear = stdYearFromTimestamp(attributes.value1.startTime).toString()
   carbonOffset.projectID = attributes.value0.projectId
   carbonOffset.standard = attributes.value0.standard
   carbonOffset.methodology = attributes.value0.methodology
@@ -147,7 +147,7 @@ export function createC3ProjectToken(transaction: Transaction, token: Address, b
   const vintageParsed = BigInt.fromI64(Date.UTC(carbonOffsetERC20.getVintage().toI32(), 0) / 1000)
 
   carbonOffset.vintage = vintageParsed.toString()
-  carbonOffset.vintageYear = stdYearFromTimestamp(vintageParsed)
+  carbonOffset.vintageYear = stdYearFromTimestamp(vintageParsed).toString()
 
   carbonOffset.name = attributes.name
   carbonOffset.projectID = attributes.registry + '-' + attributes.project_id

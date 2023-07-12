@@ -64,7 +64,7 @@ export function handleSwap(event: SwapEvent): void {
   let tokenBalance = toUnits(contract.balanceOf(TREASURY_ADDRESS), 18)
   let ownedLP = tokenBalance.div(total_lp)
 
-  let hour_timestamp = hourFromTimestamp(event.block.timestamp)
+  let hour_timestamp = hourFromTimestamp(event.block.timestamp).toString()
   let hourlyId = event.address.toHexString() + hour_timestamp
   let price = BigDecimalZero
   let volume = BigDecimalZero

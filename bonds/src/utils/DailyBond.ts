@@ -5,12 +5,12 @@ import { dayFromTimestamp } from '../../../lib/utils/Dates'
 
 export function loadOrCreateDailyBond(timestamp: BigInt, token: string): DailyBond {
   let day_timestamp = dayFromTimestamp(timestamp)
-  let id = day_timestamp + token
+  let id = day_timestamp.toString() + token
   let dailyBond = DailyBond.load(id)
   if (dailyBond == null) {
     dailyBond = new DailyBond(id)
     dailyBond.bondVersion = ''
-    dailyBond.timestamp = BigInt.fromString(day_timestamp)
+    dailyBond.timestamp = BigInt.fromI32(day_timestamp)
     dailyBond.token = token
     dailyBond.payout = BigDecimal.zero()
     dailyBond.daoFee = BigDecimal.zero()

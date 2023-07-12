@@ -45,7 +45,7 @@ export class CarbonMetricUtils {
   }
 
   private static loadCarbonMetrics(timestamp: BigInt): CarbonMetric {
-    const dayTimestamp = dayFromTimestamp(timestamp)
+    const dayTimestamp = dayFromTimestamp(timestamp).toString()
     let carbonMetrics = CarbonMetric.load(dayTimestamp)
     if (carbonMetrics == null) {
       carbonMetrics = this.getTheMostRecentCarbonMetric(timestamp)
@@ -58,7 +58,7 @@ export class CarbonMetricUtils {
 
   private static getTheMostRecentCarbonMetric(timestamp: BigInt): CarbonMetric {
     const prevTimestamp = timestamp.minus(this.DAY_IN_SECONDS)
-    const prevDayString = dayFromTimestamp(prevTimestamp)
+    const prevDayString = dayFromTimestamp(prevTimestamp).toString()
     if (prevTimestamp.lt(this.INIT_TIMESTAMP)) {
       return this.createAndReturnEmptyCarbonMetrics(prevDayString)
     } else {

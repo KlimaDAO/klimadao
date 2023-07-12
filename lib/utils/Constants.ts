@@ -101,3 +101,11 @@ export const NFT_CO2COMPOUND_CONTRACT = Address.fromString('0x08e253270240509E57
 export const NFT_CO2COMPOUND_INIT_TIMESTAMP = BigInt.fromString('1638486000') //Date Timestamp of contract creation
 
 export const ZERO_ADDRESS = Address.fromString('0x0000000000000000000000000000000000000000')
+
+// Klima Infinity Addresses
+export const KLIMA_CARBON_RETIREMENTS_CONTRACT = '0xac298cd34559b9acfaedea8344a977eceff1c0fd'
+export const KLIMA_INFINITY_DIAMOND = '0x8cE54d9625371fb2a068986d32C85De8E6e995f8'
+
+// Other ecosystem addresses
+export const TOUCAN_REGEN_BRIDGE = Address.fromString('0xdC1Dfa22824Af4e423a558bbb6C53a31c3c11DCC')
+export const TOUCAN_CROSS_CHAIN_MESSENGER = Address.fromString('0xABaC3D6b281Bbe0Fc0F67b26247cB27994eaAcaf')

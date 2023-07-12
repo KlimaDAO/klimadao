@@ -8,6 +8,7 @@
     "ethereum-bridged-carbon",
     "pairs",
     "polygon-bridged-carbon",
+    "polygon-digital-carbon",
     "protocol-metrics",
     "user-carbon",
     "vesting"

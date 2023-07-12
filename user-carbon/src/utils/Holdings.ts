@@ -8,7 +8,7 @@ export class HoldingsUtils {
   private static DAY_IN_SECONDS: BigInt = BigInt.fromString('86400')
 
   static updateHolding(token: IToken, timestamp: BigInt, address: Address): void {
-    const dayTimestamp = dayFromTimestamp(timestamp)
+    const dayTimestamp = dayFromTimestamp(timestamp).toString()
 
     // Handle the to address
 
