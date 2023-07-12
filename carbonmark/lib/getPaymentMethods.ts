@@ -16,3 +16,8 @@ export const carbonmarkPaymentMethodMap: CarbonmarkPaymentMethodMap = {
   usdc: { id: "usdc", icon: USDC, label: "USDC", disabled: false },
   fiat: { id: "fiat", icon: FIAT, label: "Credit Card", disabled: true },
 };
+
+export const carbonmarkRetirePaymentMethodMap: CarbonmarkPaymentMethodMap = {
+  usdc: { id: "usdc", icon: USDC, label: "USDC", disabled: false },
+  fiat: { id: "fiat", icon: FIAT, label: "Credit Card", disabled: false },
+};
