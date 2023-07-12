@@ -263,7 +263,7 @@ export const stickyContentWrapper = css`
   gap: 2.4rem;
   position: sticky;
   top: 1rem;
-`
+`;
 
 export const confirmCreditCard = css`
   margin-top: 2rem;
