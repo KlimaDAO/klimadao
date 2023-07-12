@@ -4,7 +4,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const buttons = css`
   display: none;
 
-  ${breakpoints.medium} {
+  ${breakpoints.desktop} {
     display: flex;
   }
 `;
