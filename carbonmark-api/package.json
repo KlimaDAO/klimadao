@@ -4,7 +4,7 @@
   "description": "This project was bootstrapped with Fastify-CLI.",
   "main": "app.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./dist && tsc && tsc-alias",
     "dev": "tsnd --respawn -r tsconfig-paths/register --transpile-only --exit-child src/server.ts --port 3003",
     "test": "tap --node-arg=--require=ts-node/register --node-arg=--require=tsconfig-paths/register --no-coverage",
     "lint": "eslint . --ext .ts",
@@ -63,6 +63,7 @@
     "tap": "^16.1.0",
     "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8",
+    "tsc-alias": "^1.8.7",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^4.5.4"
   }

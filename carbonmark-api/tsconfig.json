@@ -11,5 +11,5 @@
       "test/*": ["test/*"]
     }
   },
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts"]
 }
