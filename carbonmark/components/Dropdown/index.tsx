@@ -39,9 +39,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
   const [isOpen, setIsOpen] = useState(false);
 
   const disableToggle = options.length <= 1;
-  const toggle = () => {
-    !disableToggle && setIsOpen((current) => !current);
-  };
+  const toggle = () => !disableToggle && setIsOpen((current) => !current);
   const close = () => setIsOpen(false);
 
   // always close dropdown if label changed

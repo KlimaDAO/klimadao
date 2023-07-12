@@ -11,12 +11,9 @@ import { useRouter } from "next/router";
 import { FC, HTMLAttributes, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
-  selectedFilters?: (filters: Array<string>) => void;
-};
+type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
 
 export const ProjectsController: FC<ProjectControllerProps> = ({
-  selectedFilters,
   ...props
 }) => {
   const router = useRouter();
@@ -43,16 +40,6 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
   };
 
   const toggleModal = () => setModalOpen((prev) => !prev);
-
-  const onSelected = (filters: Array<Array<string>>) => {
-    selectedFilters?.(filters.flat());
-    setSelectedCount(
-      filters.reduce(
-        (count: number, current: Array<string>) => count + current.length,
-        0
-      )
-    );
-  };
 
   return (
     <div {...props} className={cx(styles.projectsController, props.className)}>
@@ -86,7 +73,6 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
       <ProjectFilterModal
         showModal={modalOpen}
         onToggleModal={toggleModal}
-        selectedFilters={onSelected}
         closeOnBackgroundClick
       />
     </div>
