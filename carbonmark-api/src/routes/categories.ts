@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { FastifyInstance, RouteHandler } from "fastify";
-import { getAllCategories } from "../utils/helpers/utils";
+import { getAllCategories } from "src/utils/helpers/utils";
 
 export const Category = Type.Object({ id: Type.String() });
 export type CategoryType = Static<typeof Category>;
