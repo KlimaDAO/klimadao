@@ -25,9 +25,12 @@ export const projectsControls = css`
 
 export const sortOptions = css`
   gap: 2rem;
+  width: 100%;
   display: flex;
   grid-column: full;
+  max-width: 168rem;
   align-items: center;
+  justify-self: center;
 `;
 
 export const dropdown = css`
