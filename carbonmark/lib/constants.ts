@@ -23,8 +23,11 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
   0,
   7
 );
-
-const API_PREVIEW_URL = SHORT_COMMIT_HASH
+/**
+ * Use the aliased carbonmark-api deployment for the current commit if set manually in the CLI
+ * @todo remove this once carbonmark is built via github actions
+ */
+const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`
   : "https://staging-api.carbonmark.com/api";
 
