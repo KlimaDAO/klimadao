@@ -11,12 +11,17 @@ import {
   getRetirementAllowance,
   retireCarbonTransaction,
 } from "lib/actions.retire";
+import { urls } from "lib/constants";
+import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
+import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
+import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { AssetDetails } from "./AssetDetails";
+import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
 import { RetireModal } from "./RetireModal";
@@ -31,6 +36,7 @@ export interface Props {
 }
 
 export const RetireForm: FC<Props> = (props) => {
+  const { asPath } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -38,20 +44,29 @@ export const RetireForm: FC<Props> = (props) => {
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [balance, setBalance] = useState<string | null>(null);
+  const [userBalance, setUserBalance] = useState<string | null>(null);
+  const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
+
+  const [showCreditCardModal, setShowCreditCardModal] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<null | string>(null);
 
   const methods = useForm<FormValues>({
     mode: "onChange",
     defaultValues: {
-      projectAddress: props.price.projectTokenAddress,
-      paymentMethod: "usdc",
+      projectTokenAddress: props.price.projectTokenAddress,
+      paymentMethod: "fiat",
       ...inputValues,
     },
   });
 
   const quantity = useWatch({ name: "quantity", control: methods.control });
+  const paymentMethod = useWatch({
+    name: "paymentMethod",
+    control: methods.control,
+  });
 
   useEffect(() => {
     if (!address) return;
@@ -61,11 +76,28 @@ export const RetireForm: FC<Props> = (props) => {
         userAddress: address,
       });
 
-      setBalance(balance);
+      setUserBalance(balance);
     };
 
-    !balance && getBalance();
+    !userBalance && getBalance();
   }, [address]);
+
+  useEffect(() => {
+    const getFiatMaxBalance = async () => {
+      try {
+        const fiatInfo = await getFiatInfo();
+
+        fiatInfo?.MAX_USDC
+          ? setFiatBalance(fiatInfo.MAX_USDC)
+          : setFiatBalance("2000"); // default for production
+      } catch (e) {
+        console.error(e);
+        setFiatBalance("2000"); // default for production
+      }
+    };
+
+    !fiatBalance && getFiatMaxBalance();
+  }, []);
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -73,7 +105,7 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
-  const disableSubmit = !!address && (!quantity || Number(quantity) <= 0);
+  const disableSubmit = !quantity || Number(quantity) <= 0;
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -90,10 +122,52 @@ export const RetireForm: FC<Props> = (props) => {
     setStatus({ statusType: status, message: message });
   };
 
-  const onContinue = async (values: FormValues) => {
-    setIsLoadingAllowance(true);
+  const handleFiat = async () => {
+    if (paymentMethod !== "fiat" || !inputValues) return;
+
+    const reqParams = {
+      quantity,
+      beneficiary_address: inputValues.beneficiaryAddress || address || "", // typeguard, either or should exist, don't pass empty string
+      beneficiary_name: inputValues.beneficiaryName,
+      retirement_message: inputValues.retirementMessage,
+      // pass token address if not default project
+      project_address: !props.price.isPoolDefault
+        ? inputValues.projectTokenAddress
+        : null,
+      retirement_token: props.price.poolName.toLowerCase() as PoolToken,
+    };
     try {
-      if (!address || values.paymentMethod === "fiat") return;
+      setIsRedirecting(true);
+      await redirectFiatCheckout({
+        cancelUrl: `${urls.baseUrl}${asPath}`,
+        referrer: "carbonmark",
+        retirement: reqParams,
+      });
+      // do retire redirect
+      return;
+    } catch (e) {
+      console.error(e);
+      setIsRedirecting(false);
+      setCheckoutError(
+        t`There was an error during the checkout process. Please try again.`
+      );
+    }
+  };
+
+  const continueWithFiat = async (values: FormValues) => {
+    setInputValues(values);
+    setShowCreditCardModal(true);
+  };
+
+  const onContinue = async (values: FormValues) => {
+    if (values.paymentMethod === "fiat") {
+      continueWithFiat(values);
+      return;
+    }
+
+    try {
+      if (!address) return;
+      setIsLoadingAllowance(true);
 
       const allowance = await getRetirementAllowance({
         userAddress: address,
@@ -196,14 +270,17 @@ export const RetireForm: FC<Props> = (props) => {
               <RetireInputs
                 onSubmit={onContinue}
                 values={inputValues}
-                balance={balance}
+                userBalance={userBalance}
+                fiatBalance={fiatBalance}
                 price={props.price}
+                address={address}
               />
 
               <SubmitButton
                 onSubmit={onContinue}
                 isLoading={isLoadingAllowance}
                 className={styles.showOnDesktop}
+                paymentMethod={paymentMethod}
                 disabled={disableSubmit}
               />
 
@@ -217,13 +294,18 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
           <div className={styles.reverseOrder}>
             <Card>
-              <TotalValues price={props.price} balance={balance} />
+              <TotalValues
+                price={props.price}
+                userBalance={userBalance}
+                fiatBalance={fiatBalance}
+              />
             </Card>
           </div>
           <SubmitButton
             onSubmit={onContinue}
             isLoading={isLoadingAllowance}
             className={styles.hideOnDesktop}
+            paymentMethod={paymentMethod}
             disabled={disableSubmit}
           />
         </Col>
@@ -264,6 +346,14 @@ export const RetireForm: FC<Props> = (props) => {
           />
         }
         showSuccessScreen={!!transactionHash}
+      />
+
+      <CreditCardModal
+        showModal={showCreditCardModal}
+        isRedirecting={isRedirecting}
+        onCancel={() => setShowCreditCardModal(false)}
+        onSubmit={handleFiat}
+        checkoutError={checkoutError}
       />
     </FormProvider>
   );
