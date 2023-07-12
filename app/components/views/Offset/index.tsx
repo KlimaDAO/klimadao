@@ -221,35 +221,40 @@ export const Offset = (props: Props) => {
         setCost("0");
         return;
       }
-      setCost("loading");
-      if (paymentMethod !== "fiat") {
-        const [consumptionCost] = await getOffsetConsumptionCost({
-          inputToken: paymentMethod,
-          retirementToken: selectedRetirementToken,
-          quantity: debouncedQuantity,
-          getSpecific: !!projectAddress,
-        });
-        setCost(consumptionCost);
-      } else {
-        const floorQuantity =
-          Number(debouncedQuantity) && Number(debouncedQuantity) < 1
-            ? "1"
-            : debouncedQuantity;
-        const reqParams = {
-          beneficiary_address: beneficiaryAddress || props.address || null,
-          beneficiary_name: beneficiary || "placeholder",
-          retirement_message: retirementMessage || "placeholder",
-          quantity: floorQuantity,
-          project_address: projectAddress || null,
-          retirement_token: selectedRetirementToken,
-        };
-        // edge case where you can type 0.5 for ubo then switch it to fiat
-        if (debouncedQuantity !== floorQuantity) {
-          setQuantity(floorQuantity);
-          setDebouncedQuantity(floorQuantity);
+
+      try {
+        setCost("loading");
+        if (paymentMethod !== "fiat") {
+          const [consumptionCost] = await getOffsetConsumptionCost({
+            inputToken: paymentMethod,
+            retirementToken: selectedRetirementToken,
+            quantity: debouncedQuantity,
+            getSpecific: !!projectAddress,
+          });
+          setCost(consumptionCost);
+        } else {
+          const floorQuantity =
+            Number(debouncedQuantity) && Number(debouncedQuantity) < 1
+              ? "1"
+              : debouncedQuantity;
+          const reqParams = {
+            beneficiary_address: beneficiaryAddress || props.address || null,
+            beneficiary_name: beneficiary || "placeholder",
+            retirement_message: retirementMessage || "placeholder",
+            quantity: floorQuantity,
+            project_address: projectAddress || null,
+            retirement_token: selectedRetirementToken,
+          };
+          // edge case where you can type 0.5 for ubo then switch it to fiat
+          if (debouncedQuantity !== floorQuantity) {
+            setQuantity(floorQuantity);
+            setDebouncedQuantity(floorQuantity);
+          }
+          const cost = await getFiatRetirementCost(reqParams);
+          setCost(cost);
         }
-        const cost = await getFiatRetirementCost(reqParams);
-        setCost(cost);
+      } catch (e) {
+        console.error(e);
       }
     };
     awaitGetOffsetConsumptionCost();

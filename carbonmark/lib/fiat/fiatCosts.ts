@@ -1,12 +1,18 @@
-import { FIAT_RETIREMENT_API_URL } from "lib/constants";
+import { urls } from "lib/constants";
 
-interface Params {
+interface Retirement {
   beneficiary_address: string | null;
   beneficiary_name: string;
   retirement_message: string;
   quantity: string;
   retirement_token: string;
   project_address: string | null;
+}
+
+interface Params {
+  cancelUrl: string;
+  referrer: "klimadao" | "carbonmark";
+  retirement: Retirement;
 }
 
 interface QuoteResponse {
@@ -19,11 +25,11 @@ export const getFiatRetirementCost = async (
   params: Params
 ): Promise<string> => {
   try {
-    const res = await fetch(FIAT_RETIREMENT_API_URL, {
+    const res = await fetch(urls.fiat.checkout, {
       body: JSON.stringify({
-        ...params,
-        cancel_url: "https://app.klimadao.finance/#/offset",
-        referrer: "klimadao",
+        ...params.retirement,
+        cancel_url: params.cancelUrl,
+        referrer: params.referrer,
         mode: "quote",
       }),
       method: "POST",
