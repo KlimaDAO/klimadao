@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
 export const changeLanguageButton = css`
@@ -9,10 +10,14 @@ export const changeLanguageButton = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 0;
   border-radius: 0.4rem;
-  margin-right: 1.2rem;
   &:hover {
     opacity: 0.7;
+  }
+
+  ${breakpoints.medium} {
+    margin-right: 1.2rem;
   }
 `;
 
