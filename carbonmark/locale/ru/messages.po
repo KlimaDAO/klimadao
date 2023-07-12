@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-10 23:13+0000\n"
+"POT-Creation-Date: 2023-07-12 00:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,7 +83,7 @@ msgstr "Сумма кредитов, которые были объединен�
 msgid "Amount to purchase"
 msgstr "Сумма покупки"
 
-#: components/pages/Project/Retire/TotalValues.tsx:116
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
 msgid "Amount to retire"
 msgstr "Сумма к выбиванию"
 
@@ -93,13 +93,21 @@ msgstr "Применить"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
-#: components/pages/Project/Retire/AssetDetails.tsx:33
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
 msgid "Asset Details"
 msgstr "Сведения об активах"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:25
 msgid "Asset ID"
 msgstr "ID актива"
+
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:121
+msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
+msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
+msgstr ""
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -113,7 +121,7 @@ msgstr "Превышение доступного остатка"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:87
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:88
-#: components/pages/Project/Retire/RetireInputs.tsx:88
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:154
 msgid "Available supply exceeded"
 msgstr "Доступный запас превышен"
 
@@ -122,11 +130,11 @@ msgid "Available to purchase"
 msgstr "Доступно для покупки"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
-#: components/pages/Project/Retire/AssetDetails.tsx:50
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:50
 msgid "Available to retire"
 msgstr "Доступно для выбивания"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:66
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:126
 msgid "Available:"
 msgstr "Доступно: "
 
@@ -146,24 +154,24 @@ msgstr "Вернуться к проекту"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:102
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:103
-#: components/pages/Project/Retire/RetireInputs.tsx:147
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:240
 msgid "Balance: {0}"
 msgstr "Баланс: {0}"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:201
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:319
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Будьте осторожны, чтобы не включать какую-либо конфиденциальную личную информацию (например, адрес электронной почты) в ваше сообщение на выбивание. Информация, которую вы вводите здесь, не может быть отредактирована после ее отправки и будет постоянно существовать в общедоступной цепочке блоков."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:124
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:204
 msgid "Beneficiary Address"
 msgstr "Адрес получателя"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:104
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:175
 msgid "Beneficiary name"
 msgstr "Имя Получателя"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:264
-#: components/pages/Project/Retire/RetireInputs.tsx:114
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:190
 msgid "Beneficiary wallet address (optional)"
 msgstr "Адрес кошелька получателя (необязательно)"
 
@@ -227,7 +235,7 @@ msgstr "Carbonmark не взимает дополнительную комисс
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
-#: components/pages/Project/Retire/TotalValues.tsx:140
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:185
 msgid "Carbonmark fee"
 msgstr "Carbonmark комиссия"
 
@@ -270,10 +278,11 @@ msgid "Compare prices across all sellers and trading pools"
 msgstr "Сравните цены у всех продавцов и торговых пулов"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
 msgid "Confirm Purchase"
 msgstr "Подтвердить покупку"
 
-#: components/pages/Project/Retire/RetireModal.tsx:82
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:82
 msgid "Confirm Retirement"
 msgstr "Подтвердить выбивание"
 
@@ -285,11 +294,12 @@ msgstr "Связаться"
 #: components/ExitModal/index.tsx:39
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:44
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:44
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:34
 msgid "Continue"
 msgstr "Продолжить"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
-#: components/pages/Project/Retire/RetireInputs.tsx:217
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:335
 msgid "Could not calculate Total Cost"
 msgstr "Не удалось рассчитать общую стоимость"
 
@@ -331,6 +341,10 @@ msgstr "Создайте свою собственную замену"
 msgid "Created:"
 msgstr "Создан:"
 
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
+msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
+msgstr ""
+
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
 msgstr "ДАТА"
@@ -344,11 +358,11 @@ msgstr "Данные для этого проекта и урожая"
 msgid "Data for this seller"
 msgstr "Данные по этому продавцу"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:128
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:208
 msgid "Defaults to the connected wallet address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:135
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:221
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
@@ -424,6 +438,11 @@ msgstr "С чего начать"
 msgid "Get paid immediately: transactions are resolved in seconds"
 msgstr "Получайте оплату немедленно: транзакции поступают за считанные секунды"
 
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:35
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:48
+msgid "Go back"
+msgstr "Вернуться назад"
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "Требуется никнейм"
@@ -454,7 +473,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr "Вот список легкодоступных углеродных токенов со скидкой, позволяющих быстро и легко вывести углерод."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/TotalValues.tsx:178
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
 msgid "Hide Details"
 msgstr "Скрыть детали"
 
@@ -463,11 +482,11 @@ msgstr "Скрыть детали"
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Сколько тонн углерода вы хотите купить?"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:92
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:158
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr "Сколько тонн углерода вы хотите выбить?"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:62
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:122
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
@@ -493,7 +512,7 @@ msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
-#: components/pages/Project/Retire/TotalValues.tsx:228
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:283
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO контракты"
 
@@ -531,7 +550,7 @@ msgid "Listings"
 msgstr "Объявления"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:173
-#: components/pages/Project/Retire/TotalValues.tsx:169
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
 msgid "Loading"
 msgstr "Загрузка"
 
@@ -542,7 +561,7 @@ msgstr "Загрузка ваших активов"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:285
-#: components/pages/Project/Retire/TotalValues.tsx:282
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:341
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
@@ -589,7 +608,7 @@ msgid "Moss"
 msgstr "Moss "
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
-#: components/pages/Project/Retire/TotalValues.tsx:157
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:204
 msgid "Network fees"
 msgstr "Сетевые сборы"
 
@@ -643,7 +662,7 @@ msgstr "Сообщение о выводе не предоставляется."
 msgid "Not Connected"
 msgstr "Не подключен"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:120
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:200
 msgid "Not a valid polygon address"
 msgstr "Недействительный адрес полигона"
 
@@ -673,7 +692,7 @@ msgstr "ПРОЕКТ"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
-#: components/pages/Project/Retire/RetireInputs.tsx:144
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:237
 msgid "Pay with:"
 msgstr "Оплатить с:"
 
@@ -691,7 +710,7 @@ msgstr "Пожалуйста, войдите"
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Пожалуйста, обновите страницу. При обновлении данных произошла ошибка: {e}."
 
-#: components/pages/Project/Retire/TotalValues.tsx:253
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:310
 msgid "Pool Redemption Fee"
 msgstr "Плата за выкуп пула"
 
@@ -718,7 +737,7 @@ msgstr "Самая низкая цена"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:59
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:127
-#: components/pages/Project/Retire/TotalValues.tsx:123
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:165
 msgid "Price per tonne"
 msgstr "Цена за тонну"
 
@@ -734,7 +753,7 @@ msgstr "Политика конфиденциальности"
 msgid "Processing Purchase"
 msgstr "Обработка покупки"
 
-#: components/pages/Project/Retire/RetireModal.tsx:80
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:80
 msgid "Processing Retirement"
 msgstr "Обработка"
 
@@ -791,7 +810,7 @@ msgstr "КОЛ-ВО"
 msgid "Quantity Available:"
 msgstr "Доступное количество:"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:80
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:149
 msgid "Quantity is required"
 msgstr "Необходимое количество"
 
@@ -807,7 +826,7 @@ msgstr "Количество куплено:"
 msgid "Quick Retire"
 msgstr "Быстрый вывод"
 
-#: components/pages/Project/Retire/SubmitButton.tsx:44
+#: components/pages/Project/Retire/Pool/SubmitButton.tsx:46
 msgid "RETIRE CARBON"
 msgstr "ВЫБИВАНИЕ УГЛЕРОДА"
 
@@ -843,9 +862,14 @@ msgstr "Оставшийся запас:"
 msgid "Renewable Energy"
 msgstr "Возобновляемая энергия"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:56
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:116
 msgid "Required Field"
 msgstr "Обязательное поле"
+
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:179
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:225
+msgid "Required when proceeding with Credit Card"
+msgstr ""
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -886,7 +910,7 @@ msgstr "Выбивание из {fullProjectid} | Carbonmark"
 msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr "Немедленно вывидете или купите и сохраните цифровой углерод"
 
-#: components/pages/Project/Retire/SuccessScreen.tsx:70
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
 msgstr "Выбейте больше углерода"
 
@@ -913,7 +937,8 @@ msgstr "Выбивание | Carbonmark"
 msgid "Retirement Activity"
 msgstr "Деятельность по выбиванию"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:138
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:213
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:229
 msgid "Retirement Message"
 msgstr "Сообщение о использовании"
 
@@ -926,11 +951,11 @@ msgstr "Обзор выбывания"
 msgid "Retirement Successful!"
 msgstr "Использование успешно!"
 
-#: components/pages/Project/Retire/RetireModal.tsx:81
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:81
 msgid "Retirement successful"
 msgstr "Выбивание успешно"
 
-#: components/pages/Project/Retire/AssetDetails.tsx:36
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:36
 msgid "Retiring Token"
 msgstr "Устаревший токен"
 
@@ -942,7 +967,7 @@ msgstr "Несколько слов о себе. Это будет видно в
 msgid "See your portfolio"
 msgstr "Посмотреть портфолио"
 
-#: components/pages/Project/Retire/SuccessScreen.tsx:65
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
 msgid "See your retirement receipt"
 msgstr "Смотрите свою квитанцию о выбивании"
 
@@ -963,13 +988,13 @@ msgid "Seller Listing"
 msgstr "Объявление продавца"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/TotalValues.tsx:178
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
 msgid "Show Details"
 msgstr "Показать детали"
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
-#: components/pages/Project/Retire/SubmitButton.tsx:30
+#: components/pages/Project/Retire/Pool/SubmitButton.tsx:32
 msgid "Sign In / Connect To Buy"
 msgstr "Войти / Подключиться, чтобы купить"
 
@@ -1034,7 +1059,7 @@ msgstr "Условия использования"
 msgid "Terms of use"
 msgstr "Условия использования"
 
-#: components/pages/Project/Retire/SuccessScreen.tsx:28
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:28
 msgid "Thank you for supporting the planet!"
 msgstr "Спасибо за поддержку планеты!"
 
@@ -1046,7 +1071,7 @@ msgstr "Спасибо за поддержку планеты! Подробно�
 msgid "The Universal Carbon Marketplace"
 msgstr "Универсальный углеродный рынок"
 
-#: components/pages/Project/Retire/RetireModal.tsx:41
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:41
 msgid "The first step is to grant the approval to transfer your carbon asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your retirement."
 msgstr "Первым шагом является предоставление разрешения на перевод вашего углеродного актива из вашего кошелька в Carbonmark, следующим шагом является утверждение фактического перевода и завершение выхода на пенсию."
 
@@ -1067,17 +1092,25 @@ msgstr "Самый большой выбор цифровых углеродны
 msgid "The minimum amount to buy is 1 Tonne"
 msgstr "Минимальное количество для покупки - 1 тонна"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:84
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:43
 msgid "The minimum amount to retire is 0.001 Tonnes"
 msgstr "Минимальная сумма для выбивания составляет 0,001 тонны."
 
-#: components/pages/Project/Retire/RetireModal.tsx:60
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:57
+msgid "The minimum amount to retire is 1 Tonnes"
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
 msgstr "Предыдущий шаг дал разрешение на перевод вашего углеродного актива из вашего кошелька в Carbonmark, ваш выход на пенсию еще не завершен."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:67
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr "На предыдущем этапе было получено разрешение на перевод платежного актива из вашего кошелька в Carbonmark."
+
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:152
+msgid "There was an error during the checkout process. Please try again."
+msgstr ""
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
@@ -1088,7 +1121,7 @@ msgid "There was an error getting your total retirement data"
 msgstr "При получении общих данных о выбивании произошла ошибка."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
-#: components/pages/Project/Retire/TotalValues.tsx:90
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:124
 msgid "There was an error loading the total cost."
 msgstr "Не удалось загрузить общую стоимость."
 
@@ -1108,7 +1141,11 @@ msgstr "Это предложение больше не существует."
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "Этот продукт все еще находится в стадии бета-тестирования, и аудиты еще не завершены."
 
-#: components/pages/Project/Retire/RetireModal.tsx:67
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
+msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
+msgstr ""
+
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:67
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
 msgstr "Чтобы завершить выбивание, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
@@ -1117,13 +1154,9 @@ msgstr "Чтобы завершить выбивание, убедитесь, ч
 msgid "To purchase this project using a different form of payment,"
 msgstr "Чтобы приобрести этот проект, используя другую форму оплаты,"
 
-#: components/pages/Project/Retire/RetireInputs.tsx:192
-msgid "To retire this project using a different form of payment,"
-msgstr "Выйти из этого проекта, используя другую форму оплаты,"
-
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:111
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
-#: components/pages/Project/Retire/RetireInputs.tsx:156
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
 msgid "Toggle payment method"
 msgstr "Сменить способ оплаты"
 
@@ -1143,9 +1176,9 @@ msgstr "Получено токенов:"
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:72
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:122
-#: components/pages/Project/Retire/AssetDetails.tsx:52
-#: components/pages/Project/Retire/RetireInputs.tsx:72
-#: components/pages/Project/Retire/TotalValues.tsx:118
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:132
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
 msgid "Tonnes"
 msgstr "Тонны"
 
@@ -1158,7 +1191,7 @@ msgid "Tonnes sold:"
 msgstr "Продано тонн:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Retire/TotalValues.tsx:113
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:155
 msgid "Total Price"
 msgstr "Итоговая цена"
 
@@ -1172,7 +1205,7 @@ msgstr "Всего выведено из эксплуатации тонн уг�
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:269
-#: components/pages/Project/Retire/TotalValues.tsx:266
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:323
 msgid "Total cost"
 msgstr "Общая стоимость"
 
@@ -1189,7 +1222,7 @@ msgid "Total retirement transactions"
 msgstr "Всего транзакций выбивания"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
-#: components/pages/Project/Retire/SuccessScreen.tsx:44
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:44
 msgid "Total sale cost"
 msgstr "Общая стоимость продажи"
 
@@ -1215,7 +1248,7 @@ msgid "User Profile | Carbonmark"
 msgstr "Профиль пользователя | Carbonmark"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:55
-#: components/pages/Project/Retire/RetireModal.tsx:48
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:48
 msgid "Verify all information is correct and click 'approve' to continue."
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
@@ -1261,7 +1294,7 @@ msgid "View and share certificate"
 msgstr "Посмотреть и поделиться сертификатом"
 
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:61
-#: components/pages/Project/Retire/AssetDetails.tsx:61
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:61
 msgid "View on PolygonScan"
 msgstr "Посмотреть на PolygonScan "
 
@@ -1305,8 +1338,8 @@ msgstr "Мы вручную отобрали несколько лучших п�
 msgid "What is Carbonmark? Answers to common questions about the Digital Carbon Market interface that easily connects buyers and sellers of verified carbon credits."
 msgstr "Что такое Карбонмарк? Ответы на распространенные вопросы об интерфейсе цифрового углеродного рынка, который легко связывает покупателей и продавцов проверенных углеродных кредитов."
 
-#: components/pages/Project/Retire/RetireInputs.tsx:100
-#: components/pages/Project/Retire/RetireInputs.tsx:107
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:167
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:183
 msgid "Who will this retirement be credited to?"
 msgstr "Кому будет зачислено это выбивание?"
 
@@ -1324,7 +1357,7 @@ msgstr "Вы"
 msgid "You are about to purchase a carbon asset."
 msgstr "Вы собираетесь приобрести углеродный актив."
 
-#: components/pages/Project/Retire/RetireModal.tsx:38
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:38
 msgid "You are about to retire a carbon asset."
 msgstr "Вы собираетесь списать углеродный актив."
 
@@ -1336,8 +1369,12 @@ msgstr "Вы также можете вывести из своего кошел
 msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:194
+msgid "You either need to provide a beneficiary address or login with your browser wallet."
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:51
-#: components/pages/Project/Retire/RetireInputs.tsx:221
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:49
 msgid "You exceeded your available amount of tokens"
 msgstr "Вы превысили доступное количество токенов"
 
@@ -1351,7 +1388,7 @@ msgstr "Адрес вашего кошелька:"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
-#: components/pages/Project/Retire/TotalValues.tsx:294
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:354
 msgid "Your balance:"
 msgstr "Ваш баланс:"
 
@@ -1417,15 +1454,15 @@ msgstr "подключите кошелек"
 msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
-#: lib/constants.ts:35
+#: lib/constants.ts:45
 msgid "connect_modal.error_message_default"
 msgstr "У нас возникли проблемы с подключением. Пожалуйста, попробуйте еще раз."
 
-#: lib/constants.ts:39
+#: lib/constants.ts:49
 msgid "connect_modal.error_message_refused"
 msgstr "Пользователь отказался от подключения."
 
-#: lib/constants.ts:43
+#: lib/constants.ts:53
 msgid "connect_modal.error_processing"
 msgstr "Запрос уже обрабатывается. Пожалуйста, откройте кошелек и завершите запрос."
 
@@ -1467,7 +1504,7 @@ msgstr "удаленное объявление"
 
 #: components/pages/Project/Purchase/Listing/Price.tsx:18
 #: components/pages/Project/Purchase/Pool/Price.tsx:17
-#: components/pages/Project/Retire/Price.tsx:17
+#: components/pages/Project/Retire/Pool/Price.tsx:17
 msgid "each"
 msgstr "каждый"
 
@@ -1959,7 +1996,7 @@ msgstr "Сортировать по"
 msgid "sold to"
 msgstr "проданный"
 
-#: components/pages/Project/Retire/RetireForm.tsx:110
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:184
 msgid "something went wrong loading the allowance"
 msgstr "что-то пошло не так при загрузке пособия"
 
@@ -2139,6 +2176,10 @@ msgstr "Требуется общая сумма для продажи"
 #: components/LoginCard/index.tsx:24
 msgid "user.login.description"
 msgstr "Эта функция доступна только для пользователей, которые вошли в систему. Вы можете войти или создать учетную запись с помощью кнопки ниже."
+
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
+msgid "{0} maximum for credit cards"
+msgstr ""
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"

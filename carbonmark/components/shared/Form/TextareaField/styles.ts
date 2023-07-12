@@ -7,6 +7,20 @@ export const container = css`
   gap: 0.75rem;
 `;
 
+export const inputLabel = css`
+  display: flex;
+  gap: 0.4rem;
+`;
+
+export const visuallyHidden = css`
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+`;
+
 export const baseStyles = css`
   display: block;
   width: 100%;
