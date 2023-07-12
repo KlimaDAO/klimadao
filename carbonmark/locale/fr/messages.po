@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-11 19:11+0000\n"
+"POT-Creation-Date: 2023-07-12 04:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1454,15 +1454,15 @@ msgstr "connecter un portefeuille"
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
-#: lib/constants.ts:35
+#: lib/constants.ts:45
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
-#: lib/constants.ts:39
+#: lib/constants.ts:49
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
-#: lib/constants.ts:43
+#: lib/constants.ts:53
 msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 
