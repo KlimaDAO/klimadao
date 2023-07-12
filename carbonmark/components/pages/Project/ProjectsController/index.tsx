@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
@@ -56,7 +56,11 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         className={styles.filterButton}
         icon={<TuneIcon />}
         onClick={toggleModal}
-        label={<span>Filters {filterCount > 0 ? `(${filterCount})` : ""}</span>}
+        label={
+          <span>
+            <Trans>Filters</Trans> {filterCount > 0 ? `(${filterCount})` : ""}
+          </span>
+        }
       />
       {filterCount > 0 && (
         <ButtonSecondary
