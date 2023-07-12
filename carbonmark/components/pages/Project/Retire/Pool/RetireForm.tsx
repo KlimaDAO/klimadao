@@ -2,9 +2,9 @@ import { PoolToken } from "@klimadao/lib/constants";
 import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
-import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { utils } from "ethers";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
@@ -25,10 +25,10 @@ import { CreditCardModal } from "./CreditCardModal";
 import { Price } from "./Price";
 import { RetireInputs } from "./RetireInputs";
 import { RetireModal } from "./RetireModal";
-import * as styles from "./styles";
 import { SubmitButton } from "./SubmitButton";
 import { SuccessScreen } from "./SuccessScreen";
 import { TotalValues } from "./TotalValues";
+import * as styles from "./styles";
 import { FormValues } from "./types";
 export interface Props {
   project: Project;
@@ -289,17 +289,19 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <AssetDetails price={props.price} project={props.project} />
-          </Card>
-          <div className={styles.reverseOrder}>
+          <div className={styles.stickyContentWrapper}>
             <Card>
-              <TotalValues
-                price={props.price}
-                userBalance={userBalance}
-                fiatBalance={fiatBalance}
-              />
+              <AssetDetails price={props.price} project={props.project} />
             </Card>
+            <div className={styles.reverseOrder}>
+              <Card>
+                <TotalValues
+                  price={props.price}
+                  userBalance={userBalance}
+                  fiatBalance={fiatBalance}
+                />
+              </Card>
+            </div>
           </div>
           <SubmitButton
             onSubmit={onContinue}
@@ -355,6 +357,6 @@ export const RetireForm: FC<Props> = (props) => {
         onSubmit={handleFiat}
         checkoutError={checkoutError}
       />
-    </FormProvider>
+    </FormProvider >
   );
 };
