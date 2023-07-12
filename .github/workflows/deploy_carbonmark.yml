@@ -1,0 +1,66 @@
+# See: https://vercel.com/guides/how-to-alias-a-preview-deployment-using-the-cli
+name: Deploy Carbonmark
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  deploy_carbonmark_api:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_CARBONMARK_API }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Set short commit hash to environment variable
+        run: echo "SHORT_COMMIT_SHA=$(echo ${{ github.event.pull_request.head.sha }} | cut -c 1-7)" >> $GITHUB_ENV
+
+      - name: Deploy Project Artifacts to Vercel
+        run: |
+          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "$url" carbonmark-api-${{ env.SHORT_COMMIT_SHA }}-klimadao.vercel.app
+
+  # We only want to deploy Carbonmark after the API has been deployed as there is a
+  # dependency during the build stage for the preview url to be available
+  deploy_carbonmark:
+    needs: deploy_carbonmark_api
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_CARBONMARK }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: echo "DEPLOY_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
+
+      - name: Comment on PR
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const deploy_url = process.env.DEPLOY_URL;
+            const issue_number = context.issue.number;
+            const deploy_url = process.env.DEPLOY_URL;
+            const message = `Deployment has been done! Here is the [link](${deploy_url})`;
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              body: message
+            });
