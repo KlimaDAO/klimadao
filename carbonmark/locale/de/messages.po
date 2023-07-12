@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-12 11:16+0000\n"
+"POT-Creation-Date: 2023-07-12 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,11 +103,11 @@ msgstr "Asset-ID"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
-msgstr ""
+msgstr "Aktuell kann Carbonmark keine Kreditkartenzahlungen über {fiatBalance} verarbeiten."
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr ""
+msgstr "Aktuell kann Carbonmark keine Kreditkartenzahlungen über {0} verarbeiten."
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -343,7 +343,7 @@ msgstr "Erstellt:"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
-msgstr ""
+msgstr "Aktuell unterstützt Carbonmark nur USDC (Polygon-Netzwerk) und Kreditkarten. <0>So erhalten Sie USDC auf Polygon.</0> Möchten Sie dieses Projekt mit einer anderen Zahlungsmethode verwenden, <1>klicken Sie hier</1>."
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
