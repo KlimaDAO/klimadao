@@ -66,15 +66,9 @@ const Page: NextPage = () => {
 
   useEffect(() => {
     if (!sort || isEmpty(router.query)) return;
-    const { search } = router.query;
-    const query = search
-      ? { sort, search, ...router.query }
-      : { sort, ...router.query };
-    router.replace(
-      { query: { ...query, sort } },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
+    router.replace({ query: { sort, ...router.query } }, undefined, {
+      shallow: true,
+    });
   }, [sort]);
 
   const handleRemoveFilter = (filter: string) => {

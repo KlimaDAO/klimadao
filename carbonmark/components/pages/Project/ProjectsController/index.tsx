@@ -13,15 +13,15 @@ import * as styles from "./styles";
 
 type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
 
-export const ProjectsController: FC<ProjectControllerProps> = ({
-  ...props
-}) => {
+export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedCount, setSelectedCount] = useState(0);
+  const [filterCount, setFilterCount] = useState(0);
+
+  const toggleModal = () => setModalOpen((prev) => !prev);
 
   useEffect(() => {
-    setSelectedCount(flatMap(omit(router.query, ["search", "sort"]))?.length);
+    setFilterCount(flatMap(omit(router.query, ["search", "sort"]))?.length);
   }, [router.query]);
 
   const handleSubmitSearch = (str: string | null) => {
@@ -38,8 +38,6 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
   const handleResetFilters = () => {
     router.replace({ query: DEFAULTS }, undefined, { shallow: true });
   };
-
-  const toggleModal = () => setModalOpen((prev) => !prev);
 
   return (
     <div {...props} className={cx(styles.projectsController, props.className)}>
@@ -58,11 +56,9 @@ export const ProjectsController: FC<ProjectControllerProps> = ({
         className={styles.filterButton}
         icon={<TuneIcon />}
         onClick={toggleModal}
-        label={
-          <span>Filters {selectedCount > 0 ? `(${selectedCount})` : ""}</span>
-        }
+        label={<span>Filters {filterCount > 0 ? `(${filterCount})` : ""}</span>}
       />
-      {selectedCount > 0 && (
+      {filterCount > 0 && (
         <ButtonSecondary
           variant="lightGray"
           label={t`Clear Filters`}

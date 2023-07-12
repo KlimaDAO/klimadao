@@ -10,6 +10,7 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
+import { isString } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -120,21 +121,15 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   useEffect(() => {
     if (!router.query) return;
-    const { country, category, vintage } = router.query;
-    // @todo - fix case where a single filter is added as a string
-    // and not an array value...
-    setValue("country", (country as string[]) || []);
-    setValue("category", (category as string[]) || []);
-    setValue("vintage", (vintage as string[]) || []);
+    const { category = [], country = [], vintage = [] } = router.query;
+    setValue("category", isString(category) ? [category] : category);
+    setValue("country", isString(country) ? [country] : country);
+    setValue("vintage", isString(vintage) ? [vintage] : vintage);
   }, [router.query]);
 
   const getAccordionSubtitle = (index: number) => {
-    const filter = watchers?.[index];
-    if (filter.length > 0) {
-      return `${typeof filter !== "string" ? filter.length : 1} Selected`;
-    } else {
-      return "";
-    }
+    const count = watchers?.[index]?.length;
+    return count > 0 ? `${count} Selected` : "";
   };
 
   return (
