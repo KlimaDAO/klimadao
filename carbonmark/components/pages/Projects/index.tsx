@@ -50,7 +50,7 @@ export const DEFAULTS: ModalFieldValues = {
 const Page: NextPage = () => {
   const router = useRouter();
   const defaultValues = { ...DEFAULTS, ...router.query };
-  const { control } = useForm<ModalFieldValues>({
+  const { control, setValue } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
@@ -65,10 +65,14 @@ const Page: NextPage = () => {
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
   useEffect(() => {
+    if (!sort || !router?.query?.sort) return;
+    setValue("sort", router.query.sort as SortOption);
+  }, [router.query]);
+
+  useEffect(() => {
     if (!sort || isEmpty(router.query)) return;
-    router.replace({ query: { sort, ...router.query } }, undefined, {
-      shallow: true,
-    });
+    const query = { ...router.query, sort };
+    router.replace({ query }, undefined, { shallow: true });
   }, [sort]);
 
   const handleRemoveFilter = (filter: string) => {
@@ -97,7 +101,6 @@ const Page: NextPage = () => {
           <ProjectsController />
           <LoginButton className="desktopLogin" />
         </div>
-
         {!!flatMap(omit(defaultValues, ["search", "sort"]))?.length && (
           <div className={styles.pillContainer}>
             {flatMap(omit(defaultValues, ["search", "sort"]))?.map(
@@ -110,9 +113,7 @@ const Page: NextPage = () => {
             )}
           </div>
         )}
-
         <div className={styles.sortOptions}>
-          {/* @todo 0xMakka - move this back into sortOptions component */}
           <Dropdown
             name="sort"
             initial={sort ?? "recently-updated"}
@@ -130,7 +131,6 @@ const Page: NextPage = () => {
           />
           {!!projects?.length && <Text t="h5">{projects.length} Results</Text>}
         </div>
-
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>

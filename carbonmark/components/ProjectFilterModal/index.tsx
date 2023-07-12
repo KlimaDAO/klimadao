@@ -49,6 +49,11 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     defaultValues,
   });
 
+  const watchers = useWatch({
+    control,
+    name: ["country", "category", "vintage"],
+  });
+
   /**
    * Because we're prefilling these queries in getStaticProps
    * the cache will return us the server fetched values
@@ -88,14 +93,11 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const watchers = useWatch({
-    control,
-    name: ["country", "category", "vintage"],
-  });
-
   const onSubmit = (values: ModalFieldValues) => {
     const { search } = router.query;
-    const query = search ? { ...values, search, ...router.query } : values;
+    const query = search
+      ? { ...values, search, sort: router.query.sort }
+      : { ...values, sort: router.query.sort };
     router.replace(
       { query },
       undefined,
@@ -107,7 +109,6 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   };
 
   const resetFilters = () => {
-    // const values = omit(DEFAULTS, "sort");
     reset(DEFAULTS);
     router.replace(
       { query: DEFAULTS },
