@@ -54,11 +54,9 @@ export const pillContainer = css`
   overflow-x: auto;
   grid-column: full;
   align-items: center;
-
-  & > * {
-    box-sizing: border-box;
-    flex-shrink: 0;
-  }
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
 
   &::-webkit-scrollbar {
     display: none;
