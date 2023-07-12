@@ -48,22 +48,37 @@ export const pillContainer = css`
   gap: 0.4rem;
   width: 100%;
   display: flex;
-  overflow: hidden;
+  overflow-x: auto;
   grid-column: full;
   align-items: center;
 
+  & > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${breakpoints.desktop} {
+    overflow-x: hidden;
+  }
+
   &:after {
-    content: "";
-    top: 0;
-    right: 0;
-    width: 11.5rem;
-    height: 3.2rem;
-    position: absolute;
-    background: linear-gradient(
-      270deg,
-      #eeeff5 55.13%,
-      rgba(238, 239, 245, 0) 100%
-    );
+    ${breakpoints.desktop} {
+      content: "";
+      top: 0;
+      right: 0;
+      width: 11.5rem;
+      height: 3.2rem;
+      position: absolute;
+      background: linear-gradient(
+        270deg,
+        #eeeff5 55.13%,
+        rgba(238, 239, 245, 0) 100%
+      );
+    }
   }
 `;
 
