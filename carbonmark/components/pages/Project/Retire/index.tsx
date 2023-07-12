@@ -8,7 +8,7 @@ import { getFullProjectId } from "lib/projectGetter";
 import { Price, Project } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
-import { RetireForm } from "./RetireForm";
+import { RetireForm } from "./Pool/RetireForm";
 import * as styles from "./styles";
 
 export interface ProjectRetirePageProps {
@@ -41,7 +41,9 @@ export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {
             <LoginButton className="desktopLogin" />
           </div>
 
-          <RetireForm project={props.project} price={props.poolPrice} />
+          {props.poolPrice && (
+            <RetireForm project={props.project} price={props.poolPrice} />
+          )}
         </div>
       </Layout>
     </>

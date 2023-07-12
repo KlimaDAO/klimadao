@@ -126,6 +126,12 @@ export const spinner = css`
   padding: 6rem;
 `;
 
+export const carbonmark = css`
+  div {
+    color: var(--bright-blue) !important;
+  }
+`;
+
 export const errorContent = css`
   display: flex;
   flex-direction: column;

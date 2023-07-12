@@ -27,6 +27,7 @@ const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 
 export interface ConnectModalProps {
+  appName?: string;
   torusText: string;
   walletText: string;
   institutionalText: string;
@@ -226,7 +227,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
             </div>
           )}
           {step === "loading" && (
-            <div className={styles.spinner}>
+            <div
+              className={cx(styles.spinner, {
+                [styles.carbonmark]: props.appName === "carbonmark",
+              })}
+            >
               <Spinner />
             </div>
           )}
