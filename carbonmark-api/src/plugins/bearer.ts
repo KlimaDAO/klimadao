@@ -1,5 +1,4 @@
 import fastifyJwt from "@fastify/jwt";
-import { FastifyReply, FastifyRequest } from "fastify";
 import fp from "fastify-plugin";
 
 export default fp(async (fastify) => {
@@ -9,7 +8,7 @@ export default fp(async (fastify) => {
 
   await fastify.decorate(
     "authenticate",
-    async (request: FastifyRequest, reply: FastifyReply) => {
+    async function (request, reply): Promise<void> {
       try {
         await request.jwtVerify();
       } catch (err) {
@@ -21,6 +20,6 @@ export default fp(async (fastify) => {
 
 declare module "fastify" {
   export interface FastifyInstance {
-    authenticate(request: FastifyRequest, reply: FastifyReply): string;
+    authenticate(request: FastifyRequest, reply: FastifyReply): Promise<void>;
   }
 }
