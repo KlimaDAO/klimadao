@@ -1,16 +1,12 @@
 import { FastifyInstance } from "fastify";
+import { Category, Country, Listing } from "generated/types/marketplace.types";
+import { CarbonOffset } from "generated/types/offsets.types";
 import { compact, concat } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
-import {
-  Category,
-  Country,
-  Listing,
-} from "src/.generated/types/marketplace.types";
-import { CarbonOffset } from "src/.generated/types/offsets.types";
 
-import { GetPairQuery } from "src/.generated/types/tokens.types";
-import { extract, notNil } from "src/utils/functional.utils";
-import { gqlSdk } from "src/utils/gqlSdk";
+import { GetPairQuery } from "generated/types/tokens.types";
+import { extract, notNil } from "utils/functional.utils";
+import { gqlSdk } from "utils/gqlSdk";
 import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),

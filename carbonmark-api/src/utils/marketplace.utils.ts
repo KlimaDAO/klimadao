@@ -1,6 +1,6 @@
+import { Listing } from "generated/types/marketplace.types";
 import { merge } from "lodash";
-import { Listing } from "src/.generated/types/marketplace.types";
-import { FirebaseInstance } from "src/plugins/firebase";
+import { FirebaseInstance } from "plugins/firebase";
 import { getFirebaseUser } from "./firebase.utils";
 import { notNil } from "./functional.utils";
 

@@ -7,9 +7,9 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "src": ["src"],
-      "test": ["test"]
+      "*": ["src/*"],
+      "test/*": ["test/*"]
     }
   },
-  "include": ["src/**/*.ts"]
+  "include": ["**/*.ts"]
 }
