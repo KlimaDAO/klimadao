@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-12 15:37+0000\n"
+"POT-Creation-Date: 2023-07-12 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,11 +103,11 @@ msgstr "Identificación de activos"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
-msgstr ""
+msgstr "En este momento Carbonmark no puede procesar pagos con tarjeta de crédito que excedan: {fiatBalance}"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr ""
+msgstr "En este momento, Carbonmark no puede procesar pagos con tarjeta de crédito superiores a {0}."
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -343,7 +343,7 @@ msgstr "Creado:"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
-msgstr ""
+msgstr "Actualmente, Carbonmark sólo acepta USDC en Polygon o pagos con tarjeta de crédito. <0>Aprenda cómo adquirir USDC en Polygon.</0> Para retirar este proyecto utilizando otra forma de pago, <1>haga clic aquí</1>."
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -392,7 +392,7 @@ msgstr "Descargar PDF"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Downloading ..."
-msgstr ""
+msgstr "Descargando ..."
 
 #: components/pages/Users/SellerConnected/index.tsx:156
 msgid "Edit Profile"
@@ -470,7 +470,7 @@ msgstr "Ayuda"
 
 #: components/pages/Retire/index.tsx:146
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr ""
+msgstr "He aquí una lista de tokens de carbono fácilmente disponibles y con descuento para retirarse rápida y fácilmente."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:227
@@ -688,7 +688,7 @@ msgstr "Más de 20 millones de créditos de carbono digitales verificados de cie
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECT"
-msgstr ""
+msgstr "PROYECTO"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -776,7 +776,7 @@ msgstr "Proyecto"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:85
 msgid "Purchase Carbon"
-msgstr ""
+msgstr "Comprar Carbono"
 
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
@@ -790,11 +790,11 @@ msgstr "Cantidad de compra (toneladas):"
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:100
 msgid "Purchase more Carbon"
-msgstr ""
+msgstr "Comprar más carbono"
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:87
 msgid "Purchase successful"
-msgstr ""
+msgstr "Compra exitosa"
 
 #: components/pages/Project/Purchase/index.tsx:37
 #: components/pages/Project/Purchase/index.tsx:38
@@ -803,7 +803,7 @@ msgstr "Compra {0} | Carbonmark"
 
 #: components/pages/Retire/Activity/Table.tsx:41
 msgid "QTY"
-msgstr ""
+msgstr "CANTIDAD"
 
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
 #: components/pages/Project/BuyOptions/SellerListing.tsx:79
@@ -824,19 +824,19 @@ msgstr "Cantidad comprada:"
 
 #: components/pages/Retire/index.tsx:141
 msgid "Quick Retire"
-msgstr ""
+msgstr "Retiro rápido"
 
 #: components/pages/Project/Retire/Pool/SubmitButton.tsx:46
 msgid "RETIRE CARBON"
-msgstr ""
+msgstr "RETIRA CARBONO"
 
 #: components/pages/Project/index.tsx:215
 msgid "Read Less"
-msgstr ""
+msgstr "Leer menos"
 
 #: components/pages/Project/index.tsx:215
 msgid "Read More"
-msgstr ""
+msgstr "Leer más"
 
 #: components/pages/Home/index.tsx:448
 #: components/pages/Home/index.tsx:475
@@ -844,11 +844,11 @@ msgstr ""
 #: components/pages/Resources/BlogPostCard/index.tsx:38
 #: components/pages/Resources/FeaturedArticles/Article.tsx:43
 msgid "Read more"
-msgstr ""
+msgstr "Leer más"
 
 #: components/pages/Home/index.tsx:354
 msgid "Real-time price and transaction data powered by the blockchain"
-msgstr ""
+msgstr "Precios y transacciones en tiempo real gracias a la blockchain"
 
 #: components/ProjectFilterModal/constants.tsx:14
 msgid "Recently Updated"
@@ -864,12 +864,12 @@ msgstr "Energía renovable"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:116
 msgid "Required Field"
-msgstr ""
+msgstr "Campo requerido"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:179
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:225
 msgid "Required when proceeding with Credit Card"
-msgstr ""
+msgstr "Requerido al proceder con Tarjeta de Crédito"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -895,7 +895,7 @@ msgstr "Retire créditos de carbono para usted mismo o en nombre de otra persona
 
 #: components/pages/Retire/index.tsx:77
 msgid "Retire from a featured project"
-msgstr ""
+msgstr "Retirarse de un proyecto destacado"
 
 #: components/pages/Retire/index.tsx:114
 msgid "Retire from your portfolio"
