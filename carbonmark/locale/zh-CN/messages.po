@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-11 19:11+0000\n"
+"POT-Creation-Date: 2023-07-12 00:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1456,15 +1456,15 @@ msgstr "连接钱包"
 msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
-#: lib/constants.ts:35
+#: lib/constants.ts:45
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
-#: lib/constants.ts:39
+#: lib/constants.ts:49
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
-#: lib/constants.ts:43
+#: lib/constants.ts:53
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
