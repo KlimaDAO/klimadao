@@ -257,6 +257,9 @@ const handler = (fastify: FastifyInstance) =>
         id: project.id,
         isPoolProject: true,
         description: cmsData ? cmsData.description : undefined,
+        short_description: cmsData?.projectContent
+          ? cmsData.projectContent.shortDescription
+          : undefined,
         key: project.projectID,
         projectID: project.projectID.split("-")[1],
         name: cmsData ? cmsData.name : project.name,
