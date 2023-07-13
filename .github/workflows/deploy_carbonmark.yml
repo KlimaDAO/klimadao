@@ -34,7 +34,11 @@ jobs:
   deploy_carbonmark:
     needs: deploy_carbonmark_api
     runs-on: ubuntu-latest
+    environment: Translation Sync
     env:
+      TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
+      TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
+      TRANSLATIONIO_KEY_CARBONMARK: ${{ secrets.TRANSLATIONIO_KEY_CARBONMARK }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_CARBONMARK }}
     steps:
