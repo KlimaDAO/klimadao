@@ -18,5 +18,10 @@ export function getTokenFromPoolAddress(address: Address): string {
     return constants.NBO_TOKEN
   }
 
+  if (address.equals(Address.fromString('0x0000000000000000000000000000000000000000'))) {
+    // Zero address indicates credit was not from a pool, so set to empty string
+    return ''
+  }
+
   throw new Error('Failed to get token for pool address: ' + address.toHexString())
 }
