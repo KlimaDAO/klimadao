@@ -19,15 +19,16 @@ export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
 
 /** An abbreviated version of the commit hash used when deploying a preview build of the api in deploy_carbonmark_api.yml */
-const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
-  0,
-  7
-);
+// const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
+//   0,
+//   7
+// );
 
 /**
  * Use the aliased carbonmark-api deployment for the current commit for api preview
  */
-const API_PREVIEW_URL = `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`;
+// const API_PREVIEW_URL = `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`;
+const API_PREVIEW_URL = `https://staging-api.carbonmark.com/api`;
 
 const ENVIRONMENT: Environment =
   new LogicTable({
