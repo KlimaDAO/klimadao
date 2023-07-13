@@ -60,7 +60,6 @@ jobs:
           script: |
             const deploy_url = process.env.DEPLOY_URL;
             const issue_number = context.issue.number;
-            const deploy_url = process.env.DEPLOY_URL;
             const message = `Deployment has been done! Here is the [link](${deploy_url})`;
             github.rest.issues.createComment({
               owner: context.repo.owner,
