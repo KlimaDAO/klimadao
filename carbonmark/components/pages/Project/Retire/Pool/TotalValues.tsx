@@ -122,6 +122,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           );
         } else {
           setError(t`There was an error loading the total cost.`);
+          setCosts("0");
         }
       } finally {
         setIsLoading(false);
@@ -343,7 +344,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      {formState.errors.totalPrice?.message && !error && (
+      {formState.errors.totalPrice?.message && (
         <Text t="body1" className={styles.errorMessagePrice}>
           {formState.errors.totalPrice?.message}
         </Text>
