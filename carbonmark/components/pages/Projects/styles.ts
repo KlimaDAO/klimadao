@@ -31,6 +31,7 @@ export const sortOptions = css`
   max-width: 168rem;
   align-items: center;
   justify-self: center;
+  margin-bottom: 0.8rem;
 `;
 
 export const dropdown = css`
@@ -93,7 +94,7 @@ export const pill = css`
   background: #8b8fae;
   border-radius: 4rem;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.2rem;
   line-height: 1.6rem;
 

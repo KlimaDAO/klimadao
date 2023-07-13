@@ -16,7 +16,7 @@ export const dropdownHeader = css`
   }
 
   svg {
-    fill: var(--blue-yellow);
+    fill: var(--font-03);
   }
 
   &.disableToggle {

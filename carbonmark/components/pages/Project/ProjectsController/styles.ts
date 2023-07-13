@@ -3,7 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const projectsController = css`
   display: flex;
-  gap: 1.6rem;
+  gap: 1.2rem;
 `;
 
 export const filterButton = css`
@@ -21,7 +21,7 @@ export const filterButton = css`
   ${breakpoints.medium} {
     width: auto;
     height: auto;
-    padding: 0 2.4rem;
+    padding: 0 2rem;
     span {
       display: block;
     }
