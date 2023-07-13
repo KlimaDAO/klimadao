@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-12 04:46+0000\n"
+"POT-Creation-Date: 2023-07-12 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,11 +103,11 @@ msgstr "Asset-ID"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
-msgstr ""
+msgstr "Aktuell kann Carbonmark keine Kreditkartenzahlungen über {fiatBalance} verarbeiten."
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr ""
+msgstr "Aktuell kann Carbonmark keine Kreditkartenzahlungen über {0} verarbeiten."
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -343,7 +343,7 @@ msgstr "Erstellt:"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
-msgstr ""
+msgstr "Aktuell unterstützt Carbonmark nur USDC (Polygon-Netzwerk) und Kreditkarten. <0>So erhalten Sie USDC auf Polygon.</0> Möchten Sie dieses Projekt mit einer anderen Zahlungsmethode verwenden, <1>klicken Sie hier</1>."
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -583,7 +583,7 @@ msgstr "Abmelden"
 
 #: components/LoginCard/index.tsx:32
 msgid "Login"
-msgstr "Anmeldung"
+msgstr "Anmelden"
 
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
@@ -869,7 +869,7 @@ msgstr "Pflichtfeld"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:179
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:225
 msgid "Required when proceeding with Credit Card"
-msgstr ""
+msgstr "Erforderlich, wenn Sie mit Kreditkarte fortfahren"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -1098,7 +1098,7 @@ msgstr "Sie müssen mindestens 0,001 Tonne ausgleichen"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:57
 msgid "The minimum amount to retire is 1 Tonnes"
-msgstr ""
+msgstr "Sie müssen mindestens eine Tonne ausgleichen"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1184,7 +1184,7 @@ msgstr "Tonnen"
 
 #: components/Stats/StatsListings.tsx:42
 msgid "Tonnes listed:"
-msgstr "Aufgeführte Tonnen:"
+msgstr "Angebotene Tonnen:"
 
 #: components/Stats/StatsListings.tsx:35
 msgid "Tonnes sold:"
@@ -1454,15 +1454,15 @@ msgstr "Wallet verbinden"
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
-#: lib/constants.ts:45
+#: lib/constants.ts:48
 msgid "connect_modal.error_message_default"
 msgstr "Wir hatten einige Verbindungsprobleme. Bitte versuche es erneut."
 
-#: lib/constants.ts:49
+#: lib/constants.ts:52
 msgid "connect_modal.error_message_refused"
 msgstr "Benutzer verweigert Verbindung."
 
-#: lib/constants.ts:53
+#: lib/constants.ts:56
 msgid "connect_modal.error_processing"
 msgstr "Anfrage in Bearbeitung. Bitte öffnen Sie Ihre Wallet und schließen Sie die Anfrage ab."
 
@@ -1980,7 +1980,7 @@ msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-ge
 
 #: components/Layout/index.tsx:96
 msgid "shared.login"
-msgstr "Anmeldung"
+msgstr "Anmelden"
 
 #: components/pages/Blog/Post/index.tsx:80
 msgid "shared.resourcecenter"
@@ -2177,7 +2177,7 @@ msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen 
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "{0} maximum for credit cards"
-msgstr ""
+msgstr "Maximal {0} für Kreditkarten"
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"

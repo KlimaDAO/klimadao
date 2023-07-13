@@ -5,7 +5,11 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "src": ["src"],
+      "test": ["test"]
+    }
   },
   "include": ["src/**/*.ts"]
 }

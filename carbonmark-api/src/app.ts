@@ -1,3 +1,5 @@
+import "module-alias/register";
+
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
 import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";

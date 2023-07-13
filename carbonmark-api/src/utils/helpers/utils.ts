@@ -5,13 +5,13 @@ import {
   Category,
   Country,
   Listing,
-} from "../../.generated/types/marketplace.types";
-import { CarbonOffset } from "../../.generated/types/offsets.types";
+} from "src/.generated/types/marketplace.types";
+import { CarbonOffset } from "src/.generated/types/offsets.types";
 
-import { GetPairQuery } from "../../.generated/types/tokens.types";
-import { extract, notNil } from "../functional.utils";
-import { gqlSdk } from "../gqlSdk";
-import { TOKEN_POOLS, TokenPool } from "./utils.constants";
+import { GetPairQuery } from "src/.generated/types/tokens.types";
+import { extract, notNil } from "src/utils/functional.utils";
+import { gqlSdk } from "src/utils/gqlSdk";
+import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
