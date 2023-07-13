@@ -10,7 +10,7 @@ import { loadOrCreateCarbonOffset } from './utils/CarbonOffsets'
 import { loadOrCreateDailyKlimaRetirement } from './utils/DailyKlimaRetirement'
 import { getTokenFromPoolAddress } from './utils/Token'
 import { toDecimal } from '../../lib/utils/Decimals'
-import { dayFromTimestamp } from '../../lib/utils/Dates'
+import { dayTimestamp as dayTimestampString } from '../../lib/utils/Dates'
 import { loadOrCreateTransaction } from './utils/Transactions'
 import { loadOrCreateKlimaRetire } from './utils/KlimaRetire'
 import { Address, BigDecimal, BigInt, Bytes } from '@graphprotocol/graph-ts'
@@ -173,7 +173,7 @@ export function handleCarbonRetired(event: CarbonRetired): void {
 }
 
 function generateDailyKlimaRetirement(klimaRetire: KlimaRetire): DailyKlimaRetirement {
-  const dayTimestamp = dayFromTimestamp(klimaRetire.timestamp).toString()
+  const dayTimestamp = dayTimestampString(klimaRetire.timestamp)
   const id = dayTimestamp + klimaRetire.token
 
   const dailyKlimaRetirement = loadOrCreateDailyKlimaRetirement(id)

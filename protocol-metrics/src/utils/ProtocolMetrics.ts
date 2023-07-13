@@ -6,7 +6,7 @@ import { UniswapV2Pair } from '../../generated/TreasuryV1/UniswapV2Pair'
 import { KlimaStakingV1 } from '../../generated/TreasuryV1/KlimaStakingV1'
 
 import { ProtocolMetric, Transaction, TreasuryAsset } from '../../generated/schema'
-import { dayFromTimestamp } from '../../../lib/utils/Dates'
+import { dayTimestamp as dayTimestampString } from '../../../lib/utils/Dates'
 import { IToken } from '../../../lib/tokens/IToken'
 import { toDecimal } from '../../../lib/utils/Decimals'
 
@@ -59,7 +59,7 @@ import { KLIMA } from '../../../lib/tokens/impl/KLIMA'
 import { USDC } from '../../../lib/tokens/impl/USDC'
 
 export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
-  let dayTimestamp = dayFromTimestamp(timestamp).toString()
+  let dayTimestamp = dayTimestampString(timestamp)
 
   let protocolMetric = ProtocolMetric.load(dayTimestamp)
   if (protocolMetric == null) {
@@ -94,7 +94,7 @@ export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
 }
 
 export function loadOrCreateTreasuryAsset(timestamp: BigInt, token: String): TreasuryAsset {
-  let dayTimestamp = dayFromTimestamp(timestamp).toString()
+  let dayTimestamp = dayTimestampString(timestamp)
 
   let treasuryAsset = TreasuryAsset.load(dayTimestamp + token)
   if (treasuryAsset == null) {

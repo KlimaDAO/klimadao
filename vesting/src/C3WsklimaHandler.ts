@@ -1,7 +1,7 @@
 import { StakeLocked, WithdrawLocked } from '../generated/C3WsKlimaVesting/C3WsKlimaVesting'
 import { VestingMetricUtils } from './utils/VestingMetrics'
 import { loadOrCreateLock, loadOrCreateUnlock } from './utils/Lock'
-import { dayFromTimestamp } from '../../lib/utils/Dates'
+import { dayTimestamp } from '../../lib/utils/Dates'
 import { toDecimal } from '../../lib/utils/Decimals'
 import { BigInt } from '@graphprotocol/graph-ts'
 import { Lock } from '../generated/schema'
@@ -27,7 +27,7 @@ export function handleStakeLocked(event: StakeLocked): void {
   VestingMetricUtils.updateLockMetric(c3Wsklima, event.block.timestamp, lock.lockedAmount)
 
   //Update vesting metrics for future maturity date
-  const maturityTimestampString = dayFromTimestamp(lock.maturityDate).toString()
+  const maturityTimestampString = dayTimestamp(lock.maturityDate)
   VestingMetricUtils.updateMaturityMetric(c3Wsklima, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
 }
 

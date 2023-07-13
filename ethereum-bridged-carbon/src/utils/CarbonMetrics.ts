@@ -1,6 +1,6 @@
 import { BigInt, BigDecimal } from '@graphprotocol/graph-ts'
 import { CarbonMetric } from '../../generated/schema'
-import { dayFromTimestamp } from '../../../lib/utils/Dates'
+import { dayTimestamp as dayTimestampString } from '../../../lib/utils/Dates'
 import { IPoolToken } from './pool_token/IPoolToken'
 import { ICarbonToken } from './carbon_token/ICarbonToken'
 import * as constants from './Constants'
@@ -31,7 +31,7 @@ export class CarbonMetricUtils {
   }
 
   private static loadCarbonMetrics(timestamp: BigInt): CarbonMetric {
-    const dayTimestamp = dayFromTimestamp(timestamp).toString()
+    const dayTimestamp = dayTimestampString(timestamp)
     let carbonMetrics = CarbonMetric.load(dayTimestamp)
     if (carbonMetrics == null) {
       carbonMetrics = this.getTheMostRecentCarbonMetric(timestamp)
@@ -44,7 +44,7 @@ export class CarbonMetricUtils {
 
   private static getTheMostRecentCarbonMetric(timestamp: BigInt): CarbonMetric {
     const prevTimestamp = timestamp.minus(this.DAY_IN_SECONDS)
-    const prevDayString = dayFromTimestamp(prevTimestamp).toString()
+    const prevDayString = dayTimestampString(prevTimestamp)
     if (prevTimestamp.lt(this.INIT_TIMESTAMP)) {
       return this.createAndReturnEmptyCarbonMetrics(prevDayString)
     } else {
