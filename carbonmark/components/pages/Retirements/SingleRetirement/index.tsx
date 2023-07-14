@@ -109,6 +109,14 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
                   longer if the network is congested.
                 </Trans>
               </Text>
+              <RetirementHeader formattedAmount={formattedAmount} />
+              <BeneficiaryDetails
+                beneficiary={retirement.beneficiary}
+                beneficiaryAddress={props.beneficiaryAddress}
+              />
+              {retirement.retirementMessage && (
+                <RetirementMessage message={retirement.retirementMessage} />
+              )}
             </div>
           )}
           {!retirement.pending && tokenData && (
