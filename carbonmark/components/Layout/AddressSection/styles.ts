@@ -10,3 +10,26 @@ export const address = css`
     margin-top: -1.2rem;
   }
 `;
+
+export const iconAndText = css`
+  display: flex;
+  gap: 0.8rem;
+
+  .icon {
+    flex-shrink: 0;
+  }
+`;
+
+export const externalLink = css`
+  color: var(--font-01);
+  text-decoration: underline;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  &:hover,
+  &:visited {
+    color: var(--font-02);
+    text-decoration: none;
+  }
+`;
