@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-12 23:03+0000\n"
+"POT-Creation-Date: 2023-07-13 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,7 +83,7 @@ msgstr "Anzahl der CO2-Tonnen, die in dieser Projekt-/Jahrgangskombination digit
 msgid "Amount to purchase"
 msgstr "Zu kaufende Menge"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:159
 msgid "Amount to retire"
 msgstr "Auszugleichende Menge"
 
@@ -235,7 +235,7 @@ msgstr "Carbonmark erhebt keine zusätzliche Transaktionsgebühr und bietet die 
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:185
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:186
 msgid "Carbonmark fee"
 msgstr "Carbonmark-Gebühr"
 
@@ -455,7 +455,7 @@ msgstr "Name sollte keine Adresse sein"
 msgid "Handle should not contain any special characters"
 msgstr "Name sollte keine Sonderzeichen enthalten"
 
-#: components/pages/Portfolio/Retire/index.tsx:102
+#: components/pages/Portfolio/Retire/index.tsx:104
 #: components/pages/Portfolio/index.tsx:111
 #: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
@@ -473,7 +473,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr "Dies ist eine Liste aus reichhaltig verfügbaren, vergünstigten CO2-Tokens, die Sie schnell und einfach ausgleichen können."
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
 msgid "Hide Details"
 msgstr "Details ausblenden"
 
@@ -512,7 +512,7 @@ msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:283
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:284
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO-Smart-Contracts"
 
@@ -550,7 +550,7 @@ msgid "Listings"
 msgstr "Einträge"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:173
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
 msgid "Loading"
 msgstr "Wird geladen"
 
@@ -561,7 +561,7 @@ msgstr "Assets werden geladen"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:285
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:341
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:342
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
@@ -608,7 +608,7 @@ msgid "Moss"
 msgstr "Moss"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:204
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:205
 msgid "Network fees"
 msgstr "Netzwerkgebühren"
 
@@ -710,7 +710,7 @@ msgstr "Bitte melden Sie sich an"
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ein Fehler aufgetreten: {e}."
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:310
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:311
 msgid "Pool Redemption Fee"
 msgstr "Pool-Entnahmegebühr"
 
@@ -737,7 +737,7 @@ msgstr "Niedrigster Preis"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:59
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:127
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:165
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:166
 msgid "Price per tonne"
 msgstr "Preis pro Tonne"
 
@@ -926,8 +926,8 @@ msgstr "Jetzt ausgleichen"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "Jetzt ausgleichen oder CO2 kaufen und später ausgleichen: Sobald CO2-Assets in Ihrem Besitz sind, entscheiden Sie, wie Sie fortfahren möchten."
 
-#: components/pages/Portfolio/Retire/index.tsx:75
-#: components/pages/Portfolio/Retire/index.tsx:76
+#: components/pages/Portfolio/Retire/index.tsx:77
+#: components/pages/Portfolio/Retire/index.tsx:78
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -988,7 +988,7 @@ msgid "Seller Listing"
 msgstr "Verkäufereintrag"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
 msgid "Show Details"
 msgstr "Details anzeigen"
 
@@ -1018,7 +1018,7 @@ msgstr "Sorry! Etwas ist schiefgelaufen."
 msgid "Sorry, this handle already exists"
 msgstr "Leider existiert dieser Name bereits"
 
-#: components/pages/Portfolio/Retire/index.tsx:97
+#: components/pages/Portfolio/Retire/index.tsx:99
 #: components/pages/Portfolio/index.tsx:105
 #: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
@@ -1178,7 +1178,7 @@ msgstr "Erhaltene Tokens:"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:122
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:132
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:161
 msgid "Tonnes"
 msgstr "Tonnen"
 
@@ -1190,8 +1190,12 @@ msgstr "Angebotene Tonnen:"
 msgid "Tonnes sold:"
 msgstr "Verkaufte Tonnen:"
 
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:338
+msgid "Total Cost is required"
+msgstr ""
+
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:155
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:156
 msgid "Total Price"
 msgstr "Gesamtpreis"
 
@@ -1205,7 +1209,7 @@ msgstr "CO2-Tonnen insgesamt ausgeglichen"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:269
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:323
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:324
 msgid "Total cost"
 msgstr "Gesamtkosten"
 
@@ -1264,7 +1268,7 @@ msgstr "Registrierungsdetails anzeigen <0/>"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Komplettansicht aller digitalen CO2-Assets in Ihrem Besitz in Ihrem Portfolio."
 
-#: components/pages/Portfolio/Retire/index.tsx:77
+#: components/pages/Portfolio/Retire/index.tsx:79
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "Komplettübersicht aller digitaler CO2-Assets in Ihrem Besitz im Portfolio ansehen."
 
@@ -1388,7 +1392,7 @@ msgstr "Ihre Walletadresse"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:354
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:355
 msgid "Your balance:"
 msgstr "Ihr Guthaben:"
 

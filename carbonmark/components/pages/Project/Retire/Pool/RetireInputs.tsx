@@ -335,6 +335,7 @@ export const RetireInputs: FC<Props> = (props) => {
               message: t`Could not calculate Total Cost`,
             },
             validate: {
+              moreThanZero: (v) => Number(v) > 0 || t`Total Cost is required`,
               lessThanMax: (v) =>
                 parseInt(v) < getValidations().totalPrice.max.value ||
                 getValidations().totalPrice.max.message,
