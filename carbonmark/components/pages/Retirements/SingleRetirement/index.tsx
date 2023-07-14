@@ -94,59 +94,63 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       <Navigation activePage="Home" />
       <Section className={styles.section}>
         <div className={styles.gridLayout}>
-          {retirement.pending && (
-            <div className={styles.pending}>
-              <div className="spinnerTitle">
-                <Spinner />
-                <Text>
-                  <Trans>Processing data...</Trans>
-                </Text>
-              </div>
-              <Text t="button" align="center">
-                <Trans>
-                  We haven't finished processing the blockchain data for this
-                  retirement. This usually takes a few seconds, but might take
-                  longer if the network is congested.
-                </Trans>
-              </Text>
-              <RetirementHeader formattedAmount={formattedAmount} />
-              <BeneficiaryDetails
-                beneficiary={retirement.beneficiary}
-                beneficiaryAddress={props.beneficiaryAddress}
-              />
-              {retirement.retirementMessage && (
-                <RetirementMessage message={retirement.retirementMessage} />
-              )}
-            </div>
-          )}
-          {!retirement.pending && tokenData && (
-            <Col className="column">
-              <RetirementDate timestamp={retirement.timestamp} />
-              <RetirementHeader formattedAmount={formattedAmount} />
-              {retirement.beneficiary && props.beneficiaryAddress && (
+          <Col className="column">
+            {retirement.pending && (
+              <>
+                <div className={styles.pending}>
+                  <div className="spinnerTitle">
+                    <Spinner />
+                    <Text>
+                      <Trans>Processing data...</Trans>
+                    </Text>
+                  </div>
+                  <Text t="button" align="center">
+                    <Trans>
+                      We haven't finished processing the blockchain data for
+                      this retirement. This usually takes a few seconds, but
+                      might take longer if the network is congested.
+                    </Trans>
+                  </Text>
+                </div>
+                <RetirementHeader formattedAmount={formattedAmount} />
                 <BeneficiaryDetails
                   beneficiary={retirement.beneficiary}
                   beneficiaryAddress={props.beneficiaryAddress}
                 />
-              )}
-              {retirement.retirementMessage && (
-                <RetirementMessage message={retirement.retirementMessage} />
-              )}
-              <ShareDetails
-                retiree={retiree}
-                formattedAmount={formattedAmount}
-                beneficiaryName={retirement.beneficiary}
-                retirementIndex={props.retirementIndex}
-                beneficiaryAddress={props.beneficiaryAddress}
-              />
-              <div className={styles.visibleDesktop}>
-                <TransactionDetails
-                  tokenData={tokenData}
-                  retirement={retirement}
+                {retirement.retirementMessage && (
+                  <RetirementMessage message={retirement.retirementMessage} />
+                )}
+              </>
+            )}
+            {!retirement.pending && tokenData && (
+              <>
+                <RetirementDate timestamp={retirement.timestamp} />
+                <RetirementHeader formattedAmount={formattedAmount} />
+                {retirement.beneficiary && props.beneficiaryAddress && (
+                  <BeneficiaryDetails
+                    beneficiary={retirement.beneficiary}
+                    beneficiaryAddress={props.beneficiaryAddress}
+                  />
+                )}
+                {retirement.retirementMessage && (
+                  <RetirementMessage message={retirement.retirementMessage} />
+                )}
+                <ShareDetails
+                  retiree={retiree}
+                  formattedAmount={formattedAmount}
+                  beneficiaryName={retirement.beneficiary}
+                  retirementIndex={props.retirementIndex}
+                  beneficiaryAddress={props.beneficiaryAddress}
                 />
-              </div>
-            </Col>
-          )}
+                <div className={styles.visibleDesktop}>
+                  <TransactionDetails
+                    tokenData={tokenData}
+                    retirement={retirement}
+                  />
+                </div>
+              </>
+            )}
+          </Col>
           <Col className="column">
             <ProjectDetails
               retirement={retirement}
