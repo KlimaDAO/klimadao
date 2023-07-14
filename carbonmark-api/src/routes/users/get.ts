@@ -1,7 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { notEmpty } from "src/utils/functional.utils";
-import { gqlSdk } from "src/utils/gqlSdk";
+import { notEmpty } from "../../utils/functional.utils";
+import { gqlSdk } from "../../utils/gqlSdk";
 interface Params {
   walletOrHandle: string;
 }

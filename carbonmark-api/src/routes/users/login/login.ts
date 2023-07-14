@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { generateNonce } from "src/utils/crypto.utils";
+import { generateNonce } from "../../../utils/crypto.utils";
 
 const schema = {
   body: {
