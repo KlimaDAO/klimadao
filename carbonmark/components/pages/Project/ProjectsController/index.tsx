@@ -4,21 +4,19 @@ import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { DEFAULTS } from "components/pages/Projects";
-import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { SearchInput } from "components/SearchInput";
 import { flatMap, omit } from "lodash";
 import { useRouter } from "next/router";
 import { FC, HTMLAttributes, useEffect, useState } from "react";
 import * as styles from "./styles";
 
-type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
+type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
+  onFiltersClick: () => void;
+};
 
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const router = useRouter();
-  const [modalOpen, setModalOpen] = useState(false);
   const [filterCount, setFilterCount] = useState(0);
-
-  const toggleModal = () => setModalOpen((prev) => !prev);
 
   useEffect(() => {
     setFilterCount(flatMap(omit(router.query, ["search", "sort"]))?.length);
@@ -53,9 +51,9 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         }
       />
       <ButtonPrimary
+        onClick={props.onFiltersClick}
         className={styles.filterButton}
         icon={<TuneIcon />}
-        onClick={toggleModal}
         label={
           <span>
             <Trans>Filters</Trans> {filterCount > 0 ? `(${filterCount})` : ""}
@@ -70,11 +68,6 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
           className={styles.resetFilterButton}
         />
       )}
-      <ProjectFilterModal
-        showModal={modalOpen}
-        onToggleModal={toggleModal}
-        closeOnBackgroundClick
-      />
     </div>
   );
 };

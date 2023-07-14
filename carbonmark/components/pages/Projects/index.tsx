@@ -5,6 +5,7 @@ import { Dropdown } from "components/Dropdown";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
+import { ProjectFilterModal } from "components/ProjectFilterModal";
 import {
   PROJECT_SORT_FNS,
   PROJECT_SORT_OPTIONS,
@@ -24,7 +25,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { SWRConfig } from "swr";
 import { ProjectFilters } from "../Project/ProjectFilters";
@@ -33,7 +34,7 @@ import * as styles from "./styles";
 
 type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
-type ModalFieldValues = {
+export type ModalFieldValues = {
   sort: SortOption;
   country: string[];
   category: string[];
@@ -49,8 +50,9 @@ export const DEFAULTS: ModalFieldValues = {
 
 const Page: NextPage = () => {
   const router = useRouter();
-
+  const [modalOpen, setModalOpen] = useState(false);
   const defaultValues = { ...DEFAULTS, ...router.query };
+
   const { projects, isLoading, isValidating } = useFetchProjects();
   const { control, setValue } = useForm<ModalFieldValues>({
     defaultValues,
@@ -59,6 +61,8 @@ const Page: NextPage = () => {
   const sort = useWatch({ control, name: "sort" });
   const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
   const sortedProjects = sortFn(projects);
+
+  const toggleModal = () => setModalOpen((prev) => !prev);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
@@ -85,10 +89,13 @@ const Page: NextPage = () => {
       />
       <Layout>
         <div className={styles.projectsControls}>
-          <ProjectsController />
+          <ProjectsController onFiltersClick={toggleModal} />
           <LoginButton className="desktopLogin" />
         </div>
-        <ProjectFilters defaultValues={defaultValues} />
+        <ProjectFilters
+          defaultValues={defaultValues}
+          onMoreTextClick={toggleModal}
+        />
         <div className={styles.sortOptions}>
           <Dropdown
             name="sort"
@@ -151,6 +158,11 @@ const Page: NextPage = () => {
             </Link>
           ))}
         </div>
+        <ProjectFilterModal
+          showModal={modalOpen}
+          onToggleModal={toggleModal}
+          closeOnBackgroundClick
+        />
       </Layout>
     </>
   );

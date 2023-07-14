@@ -1,20 +1,27 @@
 import { Close } from "@mui/icons-material";
+import { ModalFieldValues } from "components/pages/Projects";
+import { Text } from "components/Text";
 import { useElementWidth } from "hooks/useElementWidth";
 import { flatMap, List, omit, remove } from "lodash";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import * as styles from "./styles";
 
-export const ProjectFilters: React.FC<{ defaultValues: any }> = (props) => {
+type Props = {
+  onMoreTextClick: () => void;
+  defaultValues: ModalFieldValues & { search?: string };
+};
+
+export const ProjectFilters: FC<Props> = (props) => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth] = useElementWidth(containerRef);
-  const [isOverflow, setIsOverflow] = useState(false);
+  const [hasOverflow, setHasOverflow] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const { clientWidth, scrollWidth } = containerRef.current;
-    setIsOverflow(clientWidth < scrollWidth);
+    setHasOverflow(clientWidth < scrollWidth);
   }, [containerWidth, containerRef, router.query]);
 
   const handleRemoveFilter = (filter: string) => {
@@ -42,13 +49,11 @@ export const ProjectFilters: React.FC<{ defaultValues: any }> = (props) => {
               </div>
             )
           )}
-          {isOverflow && (
-            <div
-              role="button"
-              className="more-text"
-              onClick={() => console.log("openModal")}
-            >
-              + more
+          {hasOverflow && (
+            <div className="more-text">
+              <Text t="button" role="button" onClick={props.onMoreTextClick}>
+                + more
+              </Text>
             </div>
           )}
         </div>

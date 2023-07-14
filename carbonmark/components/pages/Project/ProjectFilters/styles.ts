@@ -21,12 +21,15 @@ export const pillContainer = css`
     overflow-x: hidden;
   }
 
-  &:after {
+  .more-text {
+    display: none;
+
     ${breakpoints.desktop} {
-      content: "";
       top: 0;
       right: 0;
-      width: 11.5rem;
+      z-index: 1;
+      display: block;
+      width: 12rem;
       height: 3.2rem;
       position: absolute;
       background: linear-gradient(
@@ -34,15 +37,17 @@ export const pillContainer = css`
         #eeeff5 55.13%,
         rgba(238, 239, 245, 0) 100%
       );
-    }
-  }
 
-  .more-text {
-    z-index: 1;
-    position: absolute;
-    right: 0;
-    top: 0.75rem;
-    color: blue;
+      & p {
+        display: flex;
+        cursor: pointer;
+        height: 3.2rem;
+        align-items: center;
+        justify-content: end;
+        color: var(--bright-blue);
+        text-transform: uppercase;
+      }
+    }
   }
 `;
 
