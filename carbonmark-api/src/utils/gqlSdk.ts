@@ -1,8 +1,8 @@
 import { GraphQLClient } from "graphql-request";
-import { getSdk as assetsSdk } from "src/.generated/types/assets.types";
-import { getSdk as marketplaceSdk } from "src/.generated/types/marketplace.types";
-import { getSdk as offsetsSdk } from "src/.generated/types/offsets.types";
-import { getSdk as tokensSdk } from "src/.generated/types/tokens.types";
+import { getSdk as assetsSdk } from "../.generated/types/assets.types";
+import { getSdk as marketplaceSdk } from "../.generated/types/marketplace.types";
+import { getSdk as offsetsSdk } from "../.generated/types/offsets.types";
+import { getSdk as tokensSdk } from "../.generated/types/tokens.types";
 
 //@todo remove the nullish coalescing empty strings
 const marketplaceClient = new GraphQLClient(process.env.GRAPH_API_URL ?? "");
