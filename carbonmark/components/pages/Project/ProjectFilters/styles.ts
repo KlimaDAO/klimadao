@@ -1,0 +1,66 @@
+import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
+
+export const pillContainer = css`
+  position: relative;
+  gap: 0.4rem;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  grid-column: full;
+  align-items: center;
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${breakpoints.desktop} {
+    overflow-x: hidden;
+  }
+
+  &:after {
+    ${breakpoints.desktop} {
+      content: "";
+      top: 0;
+      right: 0;
+      width: 11.5rem;
+      height: 3.2rem;
+      position: absolute;
+      background: linear-gradient(
+        270deg,
+        #eeeff5 55.13%,
+        rgba(238, 239, 245, 0) 100%
+      );
+    }
+  }
+
+  .more-text {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0.75rem;
+    color: blue;
+  }
+`;
+
+export const pill = css`
+  gap: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.8rem 1.6rem;
+  background: #8b8fae;
+  border-radius: 4rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+
+  & svg {
+    cursor: pointer;
+  }
+`;

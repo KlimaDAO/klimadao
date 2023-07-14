@@ -1,6 +1,5 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
-import { Close } from "@mui/icons-material";
 import { Category } from "components/Category";
 import { Dropdown } from "components/Dropdown";
 import { Layout } from "components/Layout";
@@ -20,7 +19,7 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { CategoryName, Methodology } from "lib/types/carbonmark";
-import { flatMap, get, identity, isEmpty, List, omit, remove } from "lodash";
+import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -28,6 +27,7 @@ import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { SWRConfig } from "swr";
+import { ProjectFilters } from "../Project/ProjectFilters";
 import { ProjectsController } from "../Project/ProjectsController";
 import * as styles from "./styles";
 
@@ -49,12 +49,13 @@ export const DEFAULTS: ModalFieldValues = {
 
 const Page: NextPage = () => {
   const router = useRouter();
+
   const defaultValues = { ...DEFAULTS, ...router.query };
+  const { projects, isLoading, isValidating } = useFetchProjects();
   const { control, setValue } = useForm<ModalFieldValues>({
     defaultValues,
   });
 
-  const { projects, isLoading, isValidating } = useFetchProjects();
   const sort = useWatch({ control, name: "sort" });
   const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
   const sortedProjects = sortFn(projects);
@@ -75,20 +76,6 @@ const Page: NextPage = () => {
     router.replace({ query }, undefined, { shallow: true });
   }, [sort]);
 
-  const handleRemoveFilter = (filter: string) => {
-    Object.keys(router.query).map((key: string) => {
-      if (router.query[key] === filter) {
-        router.query[key] = [];
-      } else {
-        remove(
-          router.query[key] as List<string>,
-          (value: string) => value === filter
-        );
-      }
-    });
-    router.replace({ query: router.query }, undefined, { shallow: true });
-  };
-
   return (
     <>
       <PageHead
@@ -101,18 +88,7 @@ const Page: NextPage = () => {
           <ProjectsController />
           <LoginButton className="desktopLogin" />
         </div>
-        {!!flatMap(omit(defaultValues, ["search", "sort"]))?.length && (
-          <div className={styles.pillContainer}>
-            {flatMap(omit(defaultValues, ["search", "sort"]))?.map(
-              (filter: string, key: number) => (
-                <div key={key} className={styles.pill}>
-                  <span>{filter}</span>
-                  <Close onClick={() => handleRemoveFilter(filter)} />
-                </div>
-              )
-            )}
-          </div>
-        )}
+        <ProjectFilters defaultValues={defaultValues} />
         <div className={styles.sortOptions}>
           <Dropdown
             name="sort"
