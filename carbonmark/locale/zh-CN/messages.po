@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-12 23:03+0000\n"
+"POT-Creation-Date: 2023-07-13 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,7 +83,7 @@ msgstr "已与此项目/历史减排效益组合桥接但尚未停用的信用�
 msgid "Amount to purchase"
 msgstr "购买金额"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:159
 msgid "Amount to retire"
 msgstr "停用金额"
 
@@ -235,7 +235,7 @@ msgstr "Carbonmark 不收取额外的交易费，并提供市场上的最低价�
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:185
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:186
 msgid "Carbonmark fee"
 msgstr "Carbonmark 费"
 
@@ -455,7 +455,7 @@ msgstr "用户名不应是地址"
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
-#: components/pages/Portfolio/Retire/index.tsx:102
+#: components/pages/Portfolio/Retire/index.tsx:104
 #: components/pages/Portfolio/index.tsx:111
 #: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
@@ -473,7 +473,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr "以下是现成的、打折的碳代币列表，可以快速、轻松地停用碳。"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
 msgid "Hide Details"
 msgstr "隐藏细节"
 
@@ -512,7 +512,7 @@ msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:283
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:284
 msgid "KlimaDAO Contracts"
 msgstr "KlimaDAO 合约"
 
@@ -550,7 +550,7 @@ msgid "Listings"
 msgstr "挂牌信息"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:173
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
 msgid "Loading"
 msgstr "加载中"
 
@@ -561,7 +561,7 @@ msgstr "正在加载您的资产"
 
 #: components/SpinnerWithLabel/index.tsx:15
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:285
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:341
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:342
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
@@ -608,7 +608,7 @@ msgid "Moss"
 msgstr "Moss"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:204
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:205
 msgid "Network fees"
 msgstr "网络费用"
 
@@ -710,7 +710,7 @@ msgstr "请登录"
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:310
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:311
 msgid "Pool Redemption Fee"
 msgstr "矿池赎回费"
 
@@ -737,7 +737,7 @@ msgstr "最低价格"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:59
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:127
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:165
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:166
 msgid "Price per tonne"
 msgstr "每吨价格"
 
@@ -928,8 +928,8 @@ msgstr "现在停用"
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
 msgstr "现在停用碳，或者获得碳以供稍后停用 - 当您拥有碳资产时，您可以决定要做什么。"
 
-#: components/pages/Portfolio/Retire/index.tsx:75
-#: components/pages/Portfolio/Retire/index.tsx:76
+#: components/pages/Portfolio/Retire/index.tsx:77
+#: components/pages/Portfolio/Retire/index.tsx:78
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -990,7 +990,7 @@ msgid "Seller Listing"
 msgstr "卖家挂牌信息"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
 msgid "Show Details"
 msgstr "显示详细资料"
 
@@ -1020,7 +1020,7 @@ msgstr "抱歉，出了一些问题。"
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
-#: components/pages/Portfolio/Retire/index.tsx:97
+#: components/pages/Portfolio/Retire/index.tsx:99
 #: components/pages/Portfolio/index.tsx:105
 #: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
@@ -1180,7 +1180,7 @@ msgstr "收到的代币："
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:122
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:132
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:161
 msgid "Tonnes"
 msgstr "吨"
 
@@ -1192,8 +1192,12 @@ msgstr "列出的吨数："
 msgid "Tonnes sold:"
 msgstr "售出吨数："
 
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:338
+msgid "Total Cost is required"
+msgstr ""
+
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:155
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:156
 msgid "Total Price"
 msgstr "总价"
 
@@ -1207,7 +1211,7 @@ msgstr "停用总碳吨"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:269
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:323
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:324
 msgid "Total cost"
 msgstr "总成本"
 
@@ -1266,7 +1270,7 @@ msgstr "查看注册表详细信息 <0/>"
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
-#: components/pages/Portfolio/Retire/index.tsx:77
+#: components/pages/Portfolio/Retire/index.tsx:79
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -1390,7 +1394,7 @@ msgstr "您的钱包地址："
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:354
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:355
 msgid "Your balance:"
 msgstr "您的余额："
 

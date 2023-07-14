@@ -23,7 +23,8 @@ export type RetirePageProps = {
 };
 
 export const Retire: NextPage<RetirePageProps> = (props) => {
-  const { isConnected, address, toggleModal, provider } = useWeb3();
+  const { isConnected, address, toggleModal, provider, initializing } =
+    useWeb3();
   const { carbonmarkUser, isLoading } = useFetchUser(address);
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
@@ -36,7 +37,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isConnected && !isLoading) {
+    if (!isConnected && !initializing && !isLoading) {
       router.push("/portfolio");
     }
   }, [isConnected, isLoading]);
@@ -53,6 +54,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
           const asset = carbonmarkUser?.assets.filter((asset) => {
             return asset.token.id == targetProject.tokenAddress;
           })[0];
+
           if (!asset) {
             router.push("/portfolio");
             return;
