@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-13 15:36+0000\n"
+"POT-Creation-Date: 2023-07-14 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,11 +103,11 @@ msgstr "资产编号"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
-msgstr ""
+msgstr "目前，Carbonmark 无法处理超出 {fiatBalance} 范围的信用卡付款."
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr ""
+msgstr "目前，Carbonmark 无法处理超出 {0} 范围的信用卡付款."
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -343,7 +343,7 @@ msgstr "已创建："
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
-msgstr ""
+msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0>了解如何在 Polygon 上获取 USDC.</0> 要使用不同的付款方式停用此项目，<1>单击此处</1>。"
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -871,7 +871,7 @@ msgstr "必填项目"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:179
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:225
 msgid "Required when proceeding with Credit Card"
-msgstr ""
+msgstr "使用信用卡时需要"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -1100,7 +1100,7 @@ msgstr "最低碳停用量为 0.001 吨"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:57
 msgid "The minimum amount to retire is 1 Tonnes"
-msgstr ""
+msgstr "最低碳停用量为 1 吨"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1112,7 +1112,7 @@ msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonma
 
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:152
 msgid "There was an error during the checkout process. Please try again."
-msgstr ""
+msgstr "结账过程中出现错误。请再试一次。"
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
@@ -1145,7 +1145,7 @@ msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
-msgstr ""
+msgstr "为了完成您的信用卡交易，您将被重新定向到我们的支付处理合作伙伴 Stripe上。"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:67
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
@@ -1194,7 +1194,7 @@ msgstr "售出吨数："
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:338
 msgid "Total Cost is required"
-msgstr ""
+msgstr "总成本为必填项"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:156
@@ -1377,7 +1377,7 @@ msgstr "您已选择拒绝交易."
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:194
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
-msgstr ""
+msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:49
@@ -2183,7 +2183,7 @@ msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "{0} maximum for credit cards"
-msgstr ""
+msgstr "{0} 信用卡最高限额"
 
 #: components/pages/Users/index.tsx:30
 msgid "{0} | Profile | Carbonmark"
