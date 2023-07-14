@@ -1,6 +1,6 @@
 import { VestingMetricUtils } from './utils/VestingMetrics'
 import { loadOrCreateLock } from './utils/Lock'
-import { dayFromTimestamp } from '../../lib/utils/Dates'
+import { dayTimestamp } from '../../lib/utils/Dates'
 import { toDecimal } from '../../lib/utils/Decimals'
 
 import * as constants from '../../lib/utils/Constants'
@@ -30,7 +30,7 @@ export function handleTransfers(event: Transfer): void {
     VestingMetricUtils.updateLockMetric(co2Compound, event.block.timestamp, lock.lockedAmount)
 
     //Update vesting metrics for future maturity date
-    const maturityTimestampString = dayFromTimestamp(lock.maturityDate).toString()
+    const maturityTimestampString = dayTimestamp(lock.maturityDate)
     VestingMetricUtils.updateMaturityMetric(co2Compound, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
   }
 }

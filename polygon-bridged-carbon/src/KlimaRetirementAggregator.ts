@@ -10,7 +10,7 @@ import { loadOrCreateCarbonOffset } from './utils/CarbonOffsets'
 import { loadOrCreateDailyKlimaRetirement } from './utils/DailyKlimaRetirement'
 import { getTokenFromPoolAddress } from './utils/Token'
 import { toDecimal } from '../../lib/utils/Decimals'
-import { dayFromTimestamp } from '../../lib/utils/Dates'
+import { dayTimestamp as dayTimestampString } from '../../lib/utils/Dates'
 import { loadOrCreateTransaction } from './utils/Transactions'
 import { loadOrCreateKlimaRetire } from './utils/KlimaRetire'
 import { Address, BigDecimal, BigInt, Bytes } from '@graphprotocol/graph-ts'
@@ -135,6 +135,7 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   let retire = loadOrCreateKlimaRetire(offset, transaction)
   let klimaRetirements = KlimaCarbonRetirements.bind(Address.fromString(constants.KLIMA_CARBON_RETIREMENTS_CONTRACT))
 
+  const token = getTokenFromPoolAddress(event.params.carbonPool)
   const fee = BigDecimal.fromString('.01') // Currently no getter for this in the contract.
 
   retire.retiringAddress = event.params.retiringAddress.toHexString()
@@ -145,7 +146,11 @@ export function handleCarbonRetired(event: CarbonRetired): void {
   retire.retirementMessage = event.params.retirementMessage
 
   retire.pool = event.params.carbonPool.toHexString()
-  retire.token = event.params.carbonToken.toHexString()
+
+  retire.token = token 
+  // DISABLED FOR CONSISTENCY WITH V1 
+  // retire.token = event.params.carbonToken.toHexString()
+
   retire.amount = toDecimal(event.params.retiredAmount)
   retire.feeAmount = retire.amount.times(fee)
 
@@ -168,7 +173,7 @@ export function handleCarbonRetired(event: CarbonRetired): void {
 }
 
 function generateDailyKlimaRetirement(klimaRetire: KlimaRetire): DailyKlimaRetirement {
-  const dayTimestamp = dayFromTimestamp(klimaRetire.timestamp).toString()
+  const dayTimestamp = dayTimestampString(klimaRetire.timestamp)
   const id = dayTimestamp + klimaRetire.token
 
   const dailyKlimaRetirement = loadOrCreateDailyKlimaRetirement(id)

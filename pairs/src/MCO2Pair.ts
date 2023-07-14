@@ -5,7 +5,7 @@ import { Swap as SwapEvent, Pair as PairContract } from '../generated/KLIMA_USDC
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
-import { hourFromTimestamp } from '../../lib/utils/Dates'
+import { hourTimestamp } from '../../lib/utils/Dates'
 import { PriceUtil } from '../../lib/utils/Price'
 
 export function getCreateToken(address: Address): Token {
@@ -57,7 +57,7 @@ export function handleSwap(event: SwapEvent): void {
   let tokenBalance = toUnits(contract.balanceOf(TREASURY_ADDRESS), 18)
   let ownedLP = tokenBalance.div(total_lp)
 
-  let hour_timestamp = hourFromTimestamp(event.block.timestamp).toString()
+  let hour_timestamp = hourTimestamp(event.block.timestamp)
   let hourlyId = event.address.toHexString() + hour_timestamp
 
   let price = BigDecimalZero

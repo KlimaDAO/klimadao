@@ -1,5 +1,5 @@
 import { BigInt, BigDecimal, Address } from '@graphprotocol/graph-ts'
-import { dayFromTimestamp } from '../../../lib/utils/Dates'
+import { dayTimestamp as dayTimestampString } from '../../../lib/utils/Dates'
 import { Holding } from '../../generated/schema'
 import { KlimateUtils } from './Klimate'
 import { IToken } from '../../../lib/tokens/IToken'
@@ -8,7 +8,7 @@ export class HoldingsUtils {
   private static DAY_IN_SECONDS: BigInt = BigInt.fromString('86400')
 
   static updateHolding(token: IToken, timestamp: BigInt, address: Address): void {
-    const dayTimestamp = dayFromTimestamp(timestamp).toString()
+    const dayTimestamp = dayTimestampString(timestamp)
 
     // Handle the to address
 
