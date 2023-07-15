@@ -38,7 +38,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   };
 
   return (
-    <div {...props} className={cx(styles.projectsController, props.className)}>
+    <div className={cx(styles.projectsController, props.className)}>
       <SearchInput
         id="projects-search-input"
         label="project search"

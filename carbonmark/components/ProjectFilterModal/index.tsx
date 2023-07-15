@@ -39,15 +39,14 @@ type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
-
   const { projects, isValidating } = useFetchProjects();
 
   // Set the default values and override with any existing url params
   const defaultValues = { ...DEFAULTS, ...router.query };
-
-  const { control, reset, handleSubmit, setValue } = useForm<ModalFieldValues>({
-    defaultValues,
-  });
+  const { control, reset, handleSubmit, setValue, getValues } =
+    useForm<ModalFieldValues>({
+      defaultValues,
+    });
 
   const watchers = useWatch({
     control,
@@ -93,16 +92,14 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
+  const fetchProjects = (values: ModalFieldValues) => {
+    const { search, sort } = router.query;
+    const query = search ? { ...values, search, sort } : { ...values, sort };
+    router.replace({ query }, undefined, { shallow: true });
+  };
+
   const onSubmit = (values: ModalFieldValues) => {
-    const { search } = router.query;
-    const query = search
-      ? { ...values, search, sort: router.query.sort }
-      : { ...values, sort: router.query.sort };
-    router.replace(
-      { query },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
+    fetchProjects(values);
     if (!isValidating) {
       props.onToggleModal?.();
     }
@@ -110,23 +107,24 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   const resetFilters = () => {
     reset(DEFAULTS);
-    router.replace(
-      { query: DEFAULTS },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
+    router.replace({ query: DEFAULTS }, undefined, { shallow: true });
     if (!isValidating) {
       props.onToggleModal?.();
     }
   };
 
   useEffect(() => {
-    if (!router.query) return;
+    if (!router.isReady || !props.showModal) return;
+    fetchProjects(getValues());
+  }, [watchers]);
+
+  useEffect(() => {
+    if (!router.query || !props.showModal) return;
     const { category = [], country = [], vintage = [] } = router.query;
     setValue("category", isString(category) ? [category] : category);
     setValue("country", isString(country) ? [country] : country);
     setValue("vintage", isString(vintage) ? [vintage] : vintage);
-  }, [router.query]);
+  }, [props.showModal]);
 
   const getAccordionSubtitle = (index: number) => {
     const count = watchers?.[index]?.length;
