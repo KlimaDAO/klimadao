@@ -1,20 +1,16 @@
 {
   "name": "carbonmark-api",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with Fastify-CLI.",
+  "description": "A BFF for Carbonmark.com",
   "main": "app.ts",
   "scripts": {
-    "dev": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js --port 3003",
-    "dev:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev\"",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
-    "start:test": "npm run build:ts && fastify start -l info dist/app.js --port 3003",
-    "test": "npm run build && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
-    "test:postman": "./postman_tests.sh",
     "build": "rm -rf ./dist && tsc",
-    "watch:ts": "tsc -w",
-    "generate:types": "rm -rf ./.generated/types && graphql-codegen --config src/graphql/codegen.ts",
+    "dev": "tsnd --respawn --transpile-only --exit-child src/server.ts --port 3003",
+    "test": "tap --node-arg=--require=ts-node/register --no-coverage",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "start:test": "npm run build:ts && fastify start -l info dist/app.js --port 3003",
+    "test:postman": "start:test && ./postman_tests.sh",
+    "generate:types": "rm -rf ./.generated/types && graphql-codegen --config src/graphql/codegen.ts"
   },
   "keywords": [],
   "author": "",
@@ -55,7 +51,6 @@
     "@types/tap": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
-    "concurrently": "^7.0.0",
     "eslint": "^8.42.0",
     "eslint-config-next": "^13.1.2",
     "eslint-config-prettier": "^8.6.0",
@@ -66,8 +61,8 @@
     "prettier": "^2.8.3",
     "prettier-plugin-organize-imports": "^3.2.2",
     "tap": "^16.1.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.5.4",
-    "node-fetch": "^2.x"
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^4.5.4"
   }
 }
