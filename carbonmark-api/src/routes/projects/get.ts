@@ -1,9 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- temporarily disable ts to make sure we have all new changes
-// @ts-nocheck
+import { extract } from "@klimadao/lib/utils/functional.utils";
+import { greaterThanOrEqual } from "@klimadao/lib/utils/number.utils";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { sortBy, uniq } from "lodash";
+import { assign, get, pipe } from "lodash/fp";
+import {
+  FindProjectsQueryVariables,
+  Project,
+} from "src/.generated/types/marketplace.types";
+import { CarbonOffset } from "src/.generated/types/offsets.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import {
   calculatePoolPrices,
@@ -51,180 +57,142 @@ const schema = {
   },
 };
 
-// type Querystring = {
-//   country?: string;
-//   category?: string;
-//   search?: string;
-//   vintage?: string;
-// };
+type Params = {
+  country?: string;
+  category?: string;
+  vintage?: string;
+  search?: string;
+};
 
-// const isMatchingProject = (offset: CarbonOffset, project: Project) =>
-//   offset.projectID === project.registry + "-" + project.projectID &&
-//   offset.vintageYear === project.vintage;
+const isMatchingProject =
+  (project: Project) => (offset: Partial<CarbonOffset>) =>
+    offset.projectID === project.registry + "-" + project.projectID &&
+    offset.vintageYear === project.vintage;
 
 const handler = (fastify: FastifyInstance) =>
-  async function (request: FastifyRequest, reply: FastifyReply) {
-    let { country, category, search, vintage } = request.query;
+  async function (
+    request: FastifyRequest<{ Querystring: Params }>,
+    reply: FastifyReply
+  ) {
+    const sanity = getSanityClient();
 
+    /** Get all possible options to use if none provided */
     const [categories, countries, vintages] = await Promise.all([
       getAllCategories(fastify),
       getAllCountries(fastify),
       getAllVintages(fastify),
     ]);
 
-    if (category) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      category = (category as string).split(",");
-    } else {
-      category = categories.map(extract("id"));
-    }
-    if (country) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      country = (country as string).split(",");
-    } else {
-      country = countries.map(extract("id"));
-    }
-    if (vintage) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      vintage = (vintage as string).split(",");
-    } else {
-      vintage = vintages;
-    }
+    // Build our search object
+    const searchParams: FindProjectsQueryVariables = {
+      category: request.query.category ?? categories.map(extract("id")),
+      country: request.query.country ?? countries.map(extract("id")),
+      vintage: request.query.vintage ?? vintages,
+    };
 
-    if (!search) {
-      search = "";
-    }
-
-    const sanity = getSanityClient();
-    const queryArgs = { country, category, search, vintage };
-
-    const [data, pooledProjectsData, projectsCmsData, poolPrices] =
+    // Fetch project data from all other sources
+    const [projectsData, pooledProjectsData, projectsCmsData, poolPrices] =
       await Promise.all([
-        gqlSdk.marketplace.findProjects(queryArgs),
-        gqlSdk.offsets.findCarbonOffsets(queryArgs),
+        gqlSdk.marketplace.findProjects(searchParams),
+        gqlSdk.offsets.findCarbonOffsets(searchParams),
         sanity.fetch(fetchAllProjects),
         calculatePoolPrices(fastify),
       ]);
 
-    // const data = await executeGraphQLQuery(
-    //   process.env.GRAPH_API_URL,
-    //   GET_PROJECTS,
-    //   { country, category, search, vintage }
-    // );
+    const projects = projectsData.projects
+      .map(assign({ isPoolProject: true }))
+      .map((project) => {
+        const uniqueValues: number[] = [];
 
-    // let pooledProjectsData = (
-    //   await executeGraphQLQuery(
-    //     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    //     POOLED_PROJECTS,
-    //     { country, category, search, vintage }
-    //   )
-    // ).data;
+        const offsets = pooledProjectsData.carbonOffsets.filter(
+          isMatchingProject(project)
+        );
 
-    const projects = data.projects.map(function (project) {
-      const uniqueValues = [];
+        const keys: (keyof CarbonOffset)[] = [
+          "balanceBCT",
+          "balanceNBO",
+          "balanceNCT",
+          "balanceUBO",
+        ];
 
-      if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
-        const indexes = pooledProjectsData.carbonOffsets
-          .map((item, idx) =>
-            item.projectID === project.registry + "-" + project.projectID &&
-            item.vintageYear === project.vintage
-              ? idx
-              : ""
-          )
-          .filter(String);
-        // var index = pooledProjectsData.carbonOffsets.findIndex(
-        //   (item) =>
+        // Extract token prices
+        const [btc, nbo, ntc, ubo] = sortBy(uniq(poolPrices), "name").map(
+          extract("price")
+        );
 
-        //     item.projectID === project.registry + '-' + project.projectID &&
-        //     item.vintageYear === project.vintage
+        const extractBalance = (key: keyof CarbonOffset) =>
+          pipe(get(key), parseFloat);
 
-        // );
-        if (indexes && indexes.length) {
-          project.isPoolProject = true;
+        // Extract offset balances
+        const [btcBalance, nboBalance, nctBalance, uboBalance] = keys.map(
+          (key) =>
+            offsets.map(extractBalance(key)).filter(greaterThanOrEqual(1))
+              .length
+        );
 
-          indexes.forEach((index) => {
-            pooledProjectsData.carbonOffsets[index].display = false;
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
-              1
-            ) {
+        if (btcBalance)
+          offsetBalances.forEach((offset) => {
+            if (parseFloat(offset.balanceUBO) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "ubo").price
               );
             }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
-              1
-            ) {
+            if (parseFloat(offset.balanceNBO) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "nbo").price
               );
             }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
-              1
-            ) {
+            if (parseFloat(offset.balanceNCT) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "ntc").price
               );
             }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
-              1
-            ) {
+            if (parseFloat(offset.balanceBCT) >= 1) {
               uniqueValues.push(
                 poolPrices.find((obj) => obj.name === "btc").price
               );
             }
           });
 
-          // indexes.forEach(index => {
-          //   delete pooledProjectsData.carbonOffsets.splice(index, 1);
-          // });
+        let price = 0;
+        if (project.listings?.length) {
+          project.listings.forEach((item) => {
+            if (
+              !/^0+$/.test(item.leftToSell) &&
+              item.active != false &&
+              item.deleted != true
+            ) {
+              uniqueValues.push(item.singleUnitPrice);
+            }
+          });
+
+          const lowestPrice = uniqueValues.length
+            ? uniqueValues.reduce((a, b) =>
+                a.length < b.length ? a : a.length === b.length && a < b ? a : b
+              )
+            : "0";
+          price = lowestPrice;
         }
-      }
+        const cmsData = findProjectWithRegistryIdAndRegistry(
+          projectsCmsData,
+          project.projectID,
+          project.registry
+        );
+        project.description = cmsData?.description?.slice(0, 200);
+        project.name = cmsData?.name ?? project.name;
+        project.methodologies = cmsData ? cmsData.methodologies : [];
 
-      let price = 0;
-      if (project.listings?.length) {
-        project.listings.forEach((item) => {
-          if (
-            !/^0+$/.test(item.leftToSell) &&
-            item.active != false &&
-            item.deleted != true
-          ) {
-            uniqueValues.push(item.singleUnitPrice);
-          }
-        });
+        project.short_description = cmsData?.projectContent
+          ? cmsData.projectContent.shortDescription.slice(0, 200)
+          : undefined;
+        project.long_description = cmsData?.projectContent
+          ? cmsData.projectContent.longDescription
+          : undefined;
 
-        const lowestPrice = uniqueValues.length
-          ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
-          : "0";
-        price = lowestPrice;
-      }
-      const cmsData = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        project.projectID,
-        project.registry
-      );
-      project.description = cmsData
-        ? cmsData.description.slice(0, 200)
-        : undefined;
-      project.name = cmsData ? cmsData.name : project.name;
-      project.methodologies = cmsData ? cmsData.methodologies : [];
+        delete project.listings;
 
-      project.short_description = cmsData?.projectContent
-        ? cmsData.projectContent.shortDescription.slice(0, 200)
-        : undefined;
-      project.long_description = cmsData?.projectContent
-        ? cmsData.projectContent.longDescription
-        : undefined;
-
-      delete project.listings;
-
-      return { ...project, price };
-    });
+        return { ...project, price };
+      });
 
     const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
       project
