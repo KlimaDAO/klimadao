@@ -83,6 +83,7 @@ const handler = (fastify: FastifyInstance) =>
     // Fetch our user
     const fetchUserFn =
       type === "wallet" ? getUserDocumentByWallet : getUserDocumentByHandle;
+
     const firebaseUserDocument = await fetchUserFn(
       fastify.firebase,
       walletOrHandle
@@ -90,12 +91,13 @@ const handler = (fastify: FastifyInstance) =>
     // If no documents are found, return a 404 error
     if (!firebaseUserDocument?.exists) return reply.notFound();
 
-    const firebaseUser = firebaseUserDocument?.data();
+    const firebaseUser = firebaseUserDocument.data();
 
-    const wallet = firebaseUserDocument?.id.toLowerCase();
+    const wallet = firebaseUserDocument.id.toLowerCase();
 
     // Query the GraphQL API with the wallet address to get more user data
     const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
+
     const marketplaceUser = users.at(0);
 
     // Graph listings for the user
