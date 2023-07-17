@@ -1,4 +1,3 @@
-import fb from "@now-ims/fastify-firebase";
 import fp from "fastify-plugin";
 import * as admin from "firebase-admin";
 
@@ -16,6 +15,8 @@ export default fp(async function (fastify) {
   if (!process.env.FIREBASE_ADMIN_CERT) {
     throw new Error("Environment variable FIREBASE_ADMIN_CERT is undefined");
   }
+  if (admin.apps.length) return;
+  const fb = await import("@now-ims/fastify-firebase");
   await fastify.register(fb, {
     cert: admin.credential.cert(JSON.parse(process.env.FIREBASE_ADMIN_CERT)),
   });

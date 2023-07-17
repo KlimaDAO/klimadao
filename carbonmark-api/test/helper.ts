@@ -1,5 +1,6 @@
 // This file contains code that we reuse between our tests.
 const helper = require("fastify-cli/helper.js");
+import nock from "nock";
 import * as path from "path";
 import * as tap from "tap";
 
@@ -23,12 +24,15 @@ async function build(t: Test) {
   // different from the production setup
   const app = await helper.build(argv, await config());
 
+  await app.ready();
+
   // Tear down our app after we are done
   t.teardown(async () => {
+    nock.cleanAll();
     await app.close();
   });
 
   return app;
 }
 
-export { config, build };
+export { build, config };

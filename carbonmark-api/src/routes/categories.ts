@@ -14,8 +14,15 @@ const schema = {
 const handler =
   (fastify: FastifyInstance): RouteHandler =>
   async (_, reply) => {
-    const categories = await getAllCategories(fastify);
-    return reply.status(200).send(categories);
+    let response;
+    try {
+      response = await getAllCategories(fastify);
+    } catch (error: any) {
+      //Return bad gateway and pass the error
+      return reply.status(502).send(error?.message);
+    }
+
+    return reply.status(200).send(response);
   };
 
 export default async (fastify: FastifyInstance) =>

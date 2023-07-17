@@ -12,7 +12,6 @@ async function main() {
     console.info(`Server ready at http://localhost:${PORT}`);
   } catch (e) {
     console.error(e);
-    process.exit(1);
   }
 }
 
