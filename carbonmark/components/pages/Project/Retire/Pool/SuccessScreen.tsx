@@ -59,11 +59,11 @@ export const SuccessScreen: FC<Props> = (props) => {
             <Text t="h5">{props.totalPrice}</Text>
           </div>
         </div>
-
         <ButtonPrimary
           href={`/retirements/${props.address}/${props.retirementIndex}`}
           label={<Trans>See your retirement receipt</Trans>}
           renderLink={(linkProps) => <Link {...linkProps} />}
+          target="_blank"
         />
         <CarbonmarkButton
           href={"/projects"}

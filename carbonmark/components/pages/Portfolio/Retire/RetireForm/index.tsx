@@ -1,5 +1,6 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
+import { queryKlimaBlockNumber } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -19,12 +20,11 @@ import { RetirementStatusModal } from "../RetirementStatusModal";
 import { RetireModal } from "../RetireModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
-import { queryKlimaBlockNumber } from "@klimadao/lib/utils";
 
 import { Registry } from "components/Registry";
 import { getAddress } from "lib/networkAware/getAddress";
-import * as styles from "./styles";
 import { useRouter } from "next/router";
+import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
   !!poolTokens.includes(str as PoolToken);
@@ -37,7 +37,7 @@ interface RetireFormProps {
 
 export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
-  const router  = useRouter();
+  const router = useRouter();
 
   const { tokenName, balance, tokenSymbol, project } = asset;
 
@@ -141,34 +141,30 @@ export const RetireForm = (props: RetireFormProps) => {
     }
   };
 
-  const prepareNavigateToRetirement = async (
+  const prepareNavigateToCertificate = async (
     blockNumber: number,
-    beneficiaryAddress: string,
     retirementIndex: number
   ) => {
-
-
     let currentBlock = await queryKlimaBlockNumber();
-
     let counter = 0;
-    console.log('counter', counter)
+
     while (currentBlock < blockNumber && counter < 100) {
-      await new Promise(resolve => setTimeout(resolve, 500)); 
+      await new Promise((resolve) => setTimeout(resolve, 500));
       currentBlock = await queryKlimaBlockNumber();
-      console.log('currentBlock', currentBlock)
       counter++;
     }
 
     if (currentBlock >= blockNumber) {
-      router.prefetch(`/retirements/${beneficiaryAddress}/${retirementIndex}`);
+      router.prefetch(
+        `/retirements/${retirement.beneficiaryAddress}/${retirementIndex}`
+      );
       setSubgraphIndexed(true);
     }
   };
 
   useEffect(() => {
-    if (retirementBlockNumber !== 0) {
-      console.log("useEffectTriggered")
-      prepareNavigateToRetirement(retirementBlockNumber, retirement.beneficiaryAddress, retirementTotals);
+    if (retirementBlockNumber !== 0 && address) {
+      prepareNavigateToCertificate(retirementBlockNumber, retirementTotals);
     }
   }, [retirementBlockNumber]);
 

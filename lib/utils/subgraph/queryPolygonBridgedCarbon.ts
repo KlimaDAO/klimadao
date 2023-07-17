@@ -116,8 +116,7 @@ export const queryKlimaRetiresByAddress = async (
   }
 };
 
-export const queryKlimaBlockNumber = async (
-): Promise<number> => {
+export const queryKlimaBlockNumber = async (): Promise<number> => {
   try {
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
@@ -141,4 +140,3 @@ export const queryKlimaBlockNumber = async (
     return Promise.reject(e);
   }
 };
-

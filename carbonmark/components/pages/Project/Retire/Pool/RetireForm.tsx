@@ -1,5 +1,10 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  queryKlimaBlockNumber,
+  safeAdd,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
@@ -30,6 +35,7 @@ import { SubmitButton } from "./SubmitButton";
 import { SuccessScreen } from "./SuccessScreen";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
+
 export interface Props {
   project: Project;
   price: PriceType;
@@ -47,6 +53,8 @@ export const RetireForm: FC<Props> = (props) => {
   const [userBalance, setUserBalance] = useState<string | null>(null);
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
+  const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
+  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean>(false);
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
@@ -67,6 +75,8 @@ export const RetireForm: FC<Props> = (props) => {
     name: "paymentMethod",
     control: methods.control,
   });
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!address) return;
@@ -248,7 +258,9 @@ export const RetireForm: FC<Props> = (props) => {
         retirementMessage: inputValues.retirementMessage,
         onStatus: onUpdateStatus,
       });
+
       receipt.transactionHash && setTransactionHash(receipt.transactionHash);
+      receipt.blockNumber && setRetirementBlockNumber(receipt.blockNumber);
       receipt.retirementIndex && setRetirementIndex(receipt.retirementIndex);
       setIsProcessing(false);
     } catch (e) {
@@ -257,6 +269,34 @@ export const RetireForm: FC<Props> = (props) => {
       setIsProcessing(false);
     }
   };
+
+  const prepareNavigateToCertificate = async (
+    blockNumber: number,
+
+    retirementIndex: number
+  ) => {
+    let currentBlock = await queryKlimaBlockNumber();
+    let counter = 0;
+
+    while (currentBlock < blockNumber && counter < 100) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      currentBlock = await queryKlimaBlockNumber();
+      counter++;
+    }
+
+    if (currentBlock >= blockNumber) {
+      router.prefetch(
+        `/retirements/${inputValues?.beneficiaryAddress}/${retirementIndex}`
+      );
+      setSubgraphIndexed(true);
+    }
+  };
+
+  useEffect(() => {
+    if (retirementBlockNumber !== 0 && retirementIndex) {
+      prepareNavigateToCertificate(retirementBlockNumber, retirementIndex);
+    }
+  }, [retirementBlockNumber]);
 
   return (
     <FormProvider {...methods}>
@@ -345,7 +385,7 @@ export const RetireForm: FC<Props> = (props) => {
             retirementIndex={retirementIndex}
           />
         }
-        showSuccessScreen={!!transactionHash}
+        showSuccessScreen={!!transactionHash && !!subgraphIndexed}
       />
 
       <CreditCardModal

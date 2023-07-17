@@ -20,7 +20,6 @@ export const RetirementStatusModal: FC<Props> = (props) => (
     title={
       <div className={styles.title}>
         <CelebrationOutlined fontSize="large" />
-
         <Text t="h4">
           <Trans>Retirement Successful!</Trans>
         </Text>
@@ -31,7 +30,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
     <div className={styles.modalContent}>
       <Text t="body6">
         <Trans id="offset.successModal.body1">
-          Thank you for supporting the planet! View transaction on{" "}
+          Thank you for supporting the planet! View transaction on
           <Link href={props.polygonScanUrl}>PolygonScan.</Link>
         </Trans>
       </Text>
