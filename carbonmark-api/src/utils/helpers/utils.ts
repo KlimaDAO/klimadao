@@ -11,7 +11,7 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { GetPairQuery } from "../../.generated/types/tokens.types";
 import { extract, notNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
-import { TOKEN_POOLS, TokenPool } from "./utils.constants";
+import { POOL_PRICE_DECIMALS, TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -220,20 +220,11 @@ const getPoolPrice = async (
 
 /** @todo refactor this */
 export async function calculatePoolPrices(fastify: FastifyInstance) {
-  let decimals: number;
-  if (process.env.VERCEL_ENV == "production") {
-    decimals = 1e6;
-  } else {
-    decimals = 1e18;
-  }
+  const resultsPromises = TOKEN_POOLS.map((pool) =>
+    getPoolPrice(pool, POOL_PRICE_DECIMALS, fastify)
+  );
 
-  const resultsPromises = TOKEN_POOLS.map((pool) => {
-    return getPoolPrice(pool, decimals, fastify);
-  });
-
-  const results = await Promise.all(resultsPromises);
-
-  return results;
+  return await Promise.all(resultsPromises);
 }
 
 export function findProjectWithRegistryIdAndRegistry(
