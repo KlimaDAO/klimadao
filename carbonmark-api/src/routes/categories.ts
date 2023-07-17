@@ -13,7 +13,7 @@ const schema = {
 
 const handler =
   (fastify: FastifyInstance): RouteHandler =>
-  async (request, reply) => {
+  async (_, reply) => {
     const categories = await getAllCategories(fastify);
     return reply.status(200).send(categories);
   };

@@ -1,8 +1,8 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
+import { GRAPH_URLS } from "src/constants/graphs.constants";
 
 const GENERATED_DIR = "src/.generated/types";
 const DOCUMENTS_DIR = "src/graphql";
-const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 
 const plugins = [
   "typescript",
@@ -10,12 +10,7 @@ const plugins = [
   "typescript-graphql-request",
 ];
 
-const schema = {
-  marketplace: `${GRAPH_API_ROOT}/najada/marketplace-new`,
-  tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
-  assets: `${GRAPH_API_ROOT}/cujowolf/polygon-carbon-holdings-mumbai`,
-  offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
-};
+const schema = GRAPH_URLS;
 
 // Generate configuration for each schema entry
 const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(

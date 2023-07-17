@@ -11,7 +11,7 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { GetPairQuery } from "../../.generated/types/tokens.types";
 import { extract, notNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
-import { TOKEN_POOLS, TokenPool } from "./utils.constants";
+import { TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -63,8 +63,8 @@ export async function getAllCategories(fastify: FastifyInstance) {
 
   // Extract the required values from the fetched data
   const values = [
-    categories.map(extract("id")),
-    carbonOffsets.map(extract("methodologyCategory")),
+    categories?.map(extract("id")),
+    carbonOffsets?.map(extract("methodologyCategory")),
   ];
 
   // This function pipeline combines and deduplicates categories from different sources
