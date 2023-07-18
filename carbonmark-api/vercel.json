@@ -3,11 +3,6 @@
   "outputDirectory": "./dist",
   "installCommand": "npm install",
   "devCommand": "npm run dev:watch",
-  "git": {
-    "deploymentEnabled": {
-      "main": false
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
