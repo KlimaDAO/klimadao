@@ -763,7 +763,7 @@ msgstr "Processing Purchase"
 msgid "Processing Retirement"
 msgstr "Processing Retirement"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:102
+#: components/pages/Retirements/SingleRetirement/index.tsx:104
 msgid "Processing data..."
 msgstr "Processing data..."
 
@@ -1336,7 +1336,7 @@ msgstr "We are still processing your successful purchase. Please visit this page
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 
