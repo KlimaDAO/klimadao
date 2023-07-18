@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-14 04:08+0000\n"
+"POT-Creation-Date: 2023-07-17 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -899,20 +899,20 @@ msgstr "Retirarse de un proyecto destacado"
 
 #: components/pages/Retire/index.tsx:114
 msgid "Retire from your portfolio"
-msgstr ""
+msgstr "Retire desde su portafolio"
 
 #: components/pages/Project/Retire/index.tsx:24
 #: components/pages/Project/Retire/index.tsx:25
 msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr ""
+msgstr "Retirar de {fullProjectid} | Carbonmark"
 
 #: components/pages/Home/index.tsx:235
 msgid "Retire instantly, or purchase and hold digital carbon"
-msgstr ""
+msgstr "Retire al instante, o compre y retenga carbono digital"
 
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:70
 msgid "Retire more Carbon"
-msgstr ""
+msgstr "Retirar más Carbono"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:50
 msgid "Retire more carbon"
@@ -924,7 +924,7 @@ msgstr "Retirar ahora"
 
 #: components/pages/Home/index.tsx:184
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
-msgstr ""
+msgstr "Retire ahora o adquiera carbono para retirar más tarde: usted decide qué hacer cuando adquiera la propiedad de sus activos de carbono."
 
 #: components/pages/Portfolio/Retire/index.tsx:77
 #: components/pages/Portfolio/Retire/index.tsx:78
@@ -935,7 +935,7 @@ msgstr "Retirar | Carbonmark"
 
 #: components/pages/Retire/Activity/Quotes.tsx:32
 msgid "Retirement Activity"
-msgstr ""
+msgstr "Actividad de Retiro"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:213
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:229
@@ -945,7 +945,7 @@ msgstr "Mensaje de Retiro"
 #: components/pages/Retire/Activity/Overview.tsx:58
 #: components/pages/Retire/Activity/Overview.tsx:68
 msgid "Retirement Overview"
-msgstr ""
+msgstr "Visión general de la retirada"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:25
 msgid "Retirement Successful!"
@@ -953,7 +953,7 @@ msgstr "¡Retiro exitoso!"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:81
 msgid "Retirement successful"
-msgstr ""
+msgstr "Retiro exitoso"
 
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:36
 msgid "Retiring Token"

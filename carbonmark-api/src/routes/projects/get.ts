@@ -208,14 +208,12 @@ const handler = (fastify: FastifyInstance) =>
         project.projectID,
         project.registry
       );
-      project.description = cmsData
-        ? cmsData.description.slice(0, 200)
-        : undefined;
+      project.description = cmsData ? cmsData.description : undefined;
       project.name = cmsData ? cmsData.name : project.name;
       project.methodologies = cmsData ? cmsData.methodologies : [];
 
       project.short_description = cmsData?.projectContent
-        ? cmsData.projectContent.shortDescription.slice(0, 200)
+        ? cmsData.projectContent.shortDescription
         : undefined;
       project.long_description = cmsData?.projectContent
         ? cmsData.projectContent.longDescription
@@ -247,11 +245,7 @@ const handler = (fastify: FastifyInstance) =>
         uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
       }
 
-      const country = project.country.length
-        ? {
-            id: project.country,
-          }
-        : null;
+      const country = project.country.length ? { id: project.country } : null;
 
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
@@ -262,7 +256,10 @@ const handler = (fastify: FastifyInstance) =>
       const singleProject = {
         id: project.id,
         isPoolProject: true,
-        description: cmsData ? cmsData.description.slice(0, 200) : undefined,
+        description: cmsData ? cmsData.description : undefined,
+        short_description: cmsData?.projectContent
+          ? cmsData.projectContent.shortDescription
+          : undefined,
         key: project.projectID,
         projectID: project.projectID.split("-")[1],
         name: cmsData ? cmsData.name : project.name,
