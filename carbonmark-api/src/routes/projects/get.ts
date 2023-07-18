@@ -99,7 +99,7 @@ const handler = (fastify: FastifyInstance) =>
     const sanity = getSanityClient();
     const queryArgs = { country, category, search, vintage };
 
-    const [data, pooledProjectsData, projectsCmsData, newPoolPrices] =
+    const [data, pooledProjectsData, projectsCmsData, poolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(queryArgs),
         gqlSdk.offsets.findCarbonOffsets(queryArgs),
@@ -155,7 +155,7 @@ const handler = (fastify: FastifyInstance) =>
               const priceKey = isDefault
                 ? "defaultPrice"
                 : "selectiveRedeemPrice";
-              uniqueValues.push(newPoolPrices.ubo[priceKey]);
+              uniqueValues.push(poolPrices.ubo[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
@@ -167,7 +167,7 @@ const handler = (fastify: FastifyInstance) =>
               const priceKey = isDefault
                 ? "defaultPrice"
                 : "selectiveRedeemPrice";
-              uniqueValues.push(newPoolPrices.nbo[priceKey]);
+              uniqueValues.push(poolPrices.nbo[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
@@ -179,7 +179,7 @@ const handler = (fastify: FastifyInstance) =>
               const priceKey = isDefault
                 ? "defaultPrice"
                 : "selectiveRedeemPrice";
-              uniqueValues.push(newPoolPrices.nct[priceKey]);
+              uniqueValues.push(poolPrices.nct[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
@@ -191,7 +191,7 @@ const handler = (fastify: FastifyInstance) =>
               const priceKey = isDefault
                 ? "defaultPrice"
                 : "selectiveRedeemPrice";
-              uniqueValues.push(newPoolPrices.bct[priceKey]);
+              uniqueValues.push(poolPrices.bct[priceKey]);
             }
           });
         }
@@ -250,28 +250,28 @@ const handler = (fastify: FastifyInstance) =>
           POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
           project.tokenAddress.toLowerCase();
         const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(newPoolPrices.ubo[priceKey]);
+        uniqueValues.push(poolPrices.ubo[priceKey]);
       }
       if (parseFloat(project.balanceNBO) >= 1) {
         const isDefault =
           POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
           project.tokenAddress.toLowerCase();
         const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(newPoolPrices.nbo[priceKey]);
+        uniqueValues.push(poolPrices.nbo[priceKey]);
       }
       if (parseFloat(project.balanceNCT) >= 1) {
         const isDefault =
           POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
           project.tokenAddress.toLowerCase();
         const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(newPoolPrices.nct[priceKey]);
+        uniqueValues.push(poolPrices.nct[priceKey]);
       }
       if (parseFloat(project.balanceBCT) >= 1) {
         const isDefault =
           POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
           project.tokenAddress.toLowerCase();
         const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(newPoolPrices.bct[priceKey]);
+        uniqueValues.push(poolPrices.bct[priceKey]);
       }
 
       const country = project.country.length ? { id: project.country } : null;
