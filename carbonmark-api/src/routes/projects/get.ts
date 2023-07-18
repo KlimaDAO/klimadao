@@ -5,13 +5,14 @@ import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
 import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
+import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import {
-  calculatePoolPrices,
   findProjectWithRegistryIdAndRegistry,
   getAllCategories,
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
+import { POOL_INFO } from "./projects.constants";
 
 const schema = {
   querystring: {
@@ -98,12 +99,12 @@ const handler = (fastify: FastifyInstance) =>
     const sanity = getSanityClient();
     const queryArgs = { country, category, search, vintage };
 
-    const [data, pooledProjectsData, projectsCmsData, poolPrices] =
+    const [data, pooledProjectsData, projectsCmsData, newPoolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(queryArgs),
         gqlSdk.offsets.findCarbonOffsets(queryArgs),
         sanity.fetch(fetchAllProjects),
-        calculatePoolPrices(fastify),
+        fetchAllPoolPrices(),
       ]);
 
     // const data = await executeGraphQLQuery(
@@ -148,39 +149,51 @@ const handler = (fastify: FastifyInstance) =>
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
               1
             ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ubo").price
-              );
+              const isDefault =
+                POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
+                project.projectAddress.toLowerCase();
+              const priceKey = isDefault
+                ? "defaultPrice"
+                : "selectiveRedeemPrice";
+              uniqueValues.push(newPoolPrices.ubo[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
               1
             ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "nbo").price
-              );
+              const isDefault =
+                POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
+                project.projectAddress.toLowerCase();
+              const priceKey = isDefault
+                ? "defaultPrice"
+                : "selectiveRedeemPrice";
+              uniqueValues.push(newPoolPrices.nbo[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
               1
             ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "ntc").price
-              );
+              const isDefault =
+                POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
+                project.projectAddress.toLowerCase();
+              const priceKey = isDefault
+                ? "defaultPrice"
+                : "selectiveRedeemPrice";
+              uniqueValues.push(newPoolPrices.nct[priceKey]);
             }
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
               1
             ) {
-              uniqueValues.push(
-                poolPrices.find((obj) => obj.name === "btc").price
-              );
+              const isDefault =
+                POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
+                project.projectAddress.toLowerCase();
+              const priceKey = isDefault
+                ? "defaultPrice"
+                : "selectiveRedeemPrice";
+              uniqueValues.push(newPoolPrices.bct[priceKey]);
             }
           });
-
-          // indexes.forEach(index => {
-          //   delete pooledProjectsData.carbonOffsets.splice(index, 1);
-          // });
         }
       }
 
@@ -233,16 +246,32 @@ const handler = (fastify: FastifyInstance) =>
       const uniqueValues = [];
 
       if (parseFloat(project.balanceUBO) >= 1) {
-        uniqueValues.push(poolPrices.find((obj) => obj.name === "ubo").price);
+        const isDefault =
+          POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
+          project.tokenAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(newPoolPrices.ubo[priceKey]);
       }
       if (parseFloat(project.balanceNBO) >= 1) {
-        uniqueValues.push(poolPrices.find((obj) => obj.name === "nbo").price);
+        const isDefault =
+          POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
+          project.tokenAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(newPoolPrices.nbo[priceKey]);
       }
       if (parseFloat(project.balanceNCT) >= 1) {
-        uniqueValues.push(poolPrices.find((obj) => obj.name === "ntc").price);
+        const isDefault =
+          POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
+          project.tokenAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(newPoolPrices.nct[priceKey]);
       }
       if (parseFloat(project.balanceBCT) >= 1) {
-        uniqueValues.push(poolPrices.find((obj) => obj.name === "btc").price);
+        const isDefault =
+          POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
+          project.tokenAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(newPoolPrices.bct[priceKey]);
       }
 
       const country = project.country.length ? { id: project.country } : null;

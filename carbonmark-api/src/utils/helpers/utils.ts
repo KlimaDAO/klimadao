@@ -8,10 +8,8 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
-import { GetPairQuery } from "../../.generated/types/tokens.types";
 import { extract, notNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
-import { POOL_PRICE_DECIMALS, TokenPool, TOKEN_POOLS } from "./utils.constants";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -181,51 +179,6 @@ export type TokenPrice = {
   price: string;
   name: string;
 };
-
-/** @todo refactor this */
-const getPoolPrice = async (
-  pool: TokenPool,
-  decimals: number,
-  fastify: FastifyInstance
-) => {
-  const CACHE_KEY = `${pool.address} ${process.env.VERCEL_ENV}`;
-  const cachedResult = await fastify.lcache.get<GetPairQuery>(CACHE_KEY);
-  let result = cachedResult?.payload.pair;
-
-  if (!result && notNil(pool.address)) {
-    const { pair } = await gqlSdk.tokens.getPair({ id: pool.address });
-    result = pair;
-    await fastify.lcache.set(CACHE_KEY, { payload: result });
-  }
-
-  let feeAmount = 0;
-  if (pool.feeAdd) {
-    feeAmount = Number(result?.currentprice) * pool.fee;
-  } else {
-    feeAmount = (1 / (1 - pool.fee) - 1) * Number(result?.currentprice);
-  }
-
-  const priceWithFee = Number(result?.currentprice) + feeAmount;
-  const priceTrimmed = parseFloat(priceWithFee.toFixed(6));
-  const priceFormatted = priceTrimmed * decimals;
-
-  const priceResult: TokenPrice = {
-    priceInUsd: priceWithFee.toFixed(6),
-    price: priceFormatted.toFixed(0),
-    name: pool.name,
-  };
-
-  return priceResult;
-};
-
-/** @todo refactor this */
-export async function calculatePoolPrices(fastify: FastifyInstance) {
-  const resultsPromises = TOKEN_POOLS.map((pool) =>
-    getPoolPrice(pool, POOL_PRICE_DECIMALS, fastify)
-  );
-
-  return await Promise.all(resultsPromises);
-}
 
 export function findProjectWithRegistryIdAndRegistry(
   projects: unknown[],
