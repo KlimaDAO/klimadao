@@ -50,7 +50,7 @@ export const DEFAULTS: ModalFieldValues = {
 
 const Page: NextPage = () => {
   const router = useRouter();
-  const [modalOpen, setModalOpen] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
   const defaultValues = { ...DEFAULTS, ...router.query };
 
   const { projects, isLoading, isValidating } = useFetchProjects();
@@ -62,7 +62,7 @@ const Page: NextPage = () => {
   const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
   const sortedProjects = sortFn(projects);
 
-  const toggleModal = () => setModalOpen((prev) => !prev);
+  const toggleModal = () => setShowFilterModal((prev) => !prev);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
@@ -159,7 +159,7 @@ const Page: NextPage = () => {
           ))}
         </div>
         <ProjectFilterModal
-          showModal={modalOpen}
+          showModal={showFilterModal}
           onToggleModal={toggleModal}
           closeOnBackgroundClick
         />
