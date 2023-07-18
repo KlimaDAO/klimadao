@@ -66,7 +66,6 @@ const schema = {
 const handler = (fastify: FastifyInstance) =>
   async function (request: FastifyRequest, reply: FastifyReply) {
     let { country, category, search, vintage } = request.query;
-
     const [categories, countries, vintages] = await Promise.all([
       getAllCategories(fastify),
       getAllCountries(fastify),
@@ -106,7 +105,6 @@ const handler = (fastify: FastifyInstance) =>
         sanity.fetch(fetchAllProjects),
         fetchAllPoolPrices(),
       ]);
-
     // const data = await executeGraphQLQuery(
     //   process.env.GRAPH_API_URL,
     //   GET_PROJECTS,
@@ -144,7 +142,6 @@ const handler = (fastify: FastifyInstance) =>
           project.isPoolProject = true;
 
           indexes.forEach((index) => {
-            pooledProjectsData.carbonOffsets[index].display = false;
             if (
               parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
               1
@@ -215,6 +212,12 @@ const handler = (fastify: FastifyInstance) =>
             )
           : "0";
         price = lowestPrice;
+
+        /** We only want to hide duplicate projects that we have found a price for */
+        if (Number(price) !== 0 || isNil(price)) {
+          /** I THINK we are setting this to false so that there are not duplicate projects displayed */
+          pooledProjectsData.carbonOffsets[index].display = false;
+        }
       }
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
@@ -236,10 +239,10 @@ const handler = (fastify: FastifyInstance) =>
 
       return { ...project, price };
     });
-
     const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
       project
     ) {
+      /** Ignore projects for which the MARKETPLACE contained data */
       if (project.display == false) {
         return null;
       }
@@ -315,6 +318,10 @@ const handler = (fastify: FastifyInstance) =>
 
     const filteredItems = projects
       .concat(pooledProjects)
+      /**
+       * This is where we run in to trouble because a project might exist in both MARKETPLACE and pooledProjects but only contain pricing in the latter
+       * Which means it won't be displayed if it's price is zero but is present in MARKETPLACE
+       */
       .filter((project) => Number(project?.price) !== 0);
 
     // Send the transformed projects array as a JSON string in the response
