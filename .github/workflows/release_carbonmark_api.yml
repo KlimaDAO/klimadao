@@ -18,8 +18,8 @@ jobs:
       - name: Set RELEASE_VERSION
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/carbonmark-api/}" >> $GITHUB_ENV
 
-      - name: Debug TAG_NAME
-        run: echo $TAG_NAME
+      - name: Debug RELEASE_VERSION
+        run: echo $RELEASE_VERSION
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
