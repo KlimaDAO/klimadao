@@ -271,7 +271,7 @@ export const RetireForm: FC<Props> = (props) => {
   useEffect(() => {
     const retirementAddress =
       inputValues?.beneficiaryAddress ?? (address || "");
-    console.log("retirementAddress", retirementAddress);
+
     if (retirementBlockNumber !== 0 && retirementIndex) {
       prepareNavigateToCertificate(
         router,
