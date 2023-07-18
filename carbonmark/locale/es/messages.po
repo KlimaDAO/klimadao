@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-18 04:33+0000\n"
+"POT-Creation-Date: 2023-07-18 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -727,11 +727,11 @@ msgstr "Impulsado por"
 msgid "Press Releases"
 msgstr "Comunicados de prensa"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "Precio más alto"
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "Precio más bajo"
 
@@ -850,7 +850,7 @@ msgstr "Leer más"
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "Precios y transacciones en tiempo real gracias a la blockchain"
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "Recientemente actualizado"
 
@@ -1314,11 +1314,11 @@ msgstr "View the project details and other info for this purchase."
 msgid "Vintage"
 msgstr "Vintage"
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "Vintage mas nuevo"
 
-#: components/ProjectFilterModal/constants.tsx:16
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "Vintage mas viejo"
 

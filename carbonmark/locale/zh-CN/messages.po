@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-18 04:33+0000\n"
+"POT-Creation-Date: 2023-07-18 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -729,11 +729,11 @@ msgstr "由KlimaDAO提供"
 msgid "Press Releases"
 msgstr "新闻稿"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "最高价格"
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "最低价格"
 
@@ -854,7 +854,7 @@ msgstr "阅读更多"
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "由区块链提供支持的实时价格和交易数据"
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "最近更新"
 
@@ -1318,11 +1318,11 @@ msgstr "查看此次购买的项目详情和其他信息。"
 msgid "Vintage"
 msgstr "历史减排效益"
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "最新的历史减排效益"
 
-#: components/ProjectFilterModal/constants.tsx:16
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "最早的历史减排效益"
 
