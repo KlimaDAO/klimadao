@@ -55,7 +55,7 @@ export const EditProfile: FC<Props> = (props) => {
       });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
-    } catch (error: any) {
+    } catch (error) {
       console.error(error);
       if (error.message === "Not Found") {
         return true;
@@ -80,7 +80,7 @@ export const EditProfile: FC<Props> = (props) => {
 
       const verifyResponse = await verifyUser({
         address,
-        signature: signature,
+        signature,
       });
 
       let response;
