@@ -13,7 +13,7 @@ import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice } from "lib/formatNumbers";
+import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { CategoryName, Methodology } from "lib/types/carbonmark";
 import { get, identity, isEmpty } from "lodash";
@@ -69,7 +69,7 @@ const Page: NextPage = () => {
                 <ProjectImage category={getCategoryFromProject(project)} />
               </div>
               <div className={styles.cardContent}>
-                <Text t="h4">{formatBigToPrice(project.price, locale)}</Text>
+                <Text t="h4">{formatToPrice(project.price, locale)}</Text>
                 <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
                 <Text t="body1" className={styles.cardDescription}>
                   {project.short_description ||
