@@ -1,6 +1,5 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
-import { queryKlimaBlockNumber } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -11,6 +10,7 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { ethers, providers } from "ethers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
+import { prepareNavigateToCertificate } from "lib/prepareNavigateToCertificate";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { CategoryName } from "lib/types/carbonmark";
@@ -47,7 +47,9 @@ export const RetireForm = (props: RetireFormProps) => {
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
-  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean>(false);
+  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean | "timed out">(
+    false
+  );
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
@@ -141,30 +143,15 @@ export const RetireForm = (props: RetireFormProps) => {
     }
   };
 
-  const prepareNavigateToCertificate = async (
-    blockNumber: number,
-    retirementIndex: number
-  ) => {
-    let currentBlock = await queryKlimaBlockNumber();
-    let counter = 0;
-
-    while (currentBlock < blockNumber && counter < 100) {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      currentBlock = await queryKlimaBlockNumber();
-      counter++;
-    }
-
-    if (currentBlock >= blockNumber) {
-      router.prefetch(
-        `/retirements/${retirement.beneficiaryAddress}/${retirementIndex}`
-      );
-      setSubgraphIndexed(true);
-    }
-  };
-
   useEffect(() => {
     if (retirementBlockNumber !== 0 && address) {
-      prepareNavigateToCertificate(retirementBlockNumber, retirementTotals);
+      prepareNavigateToCertificate(
+        router,
+        retirement.beneficiaryAddress,
+        retirementTotals,
+        retirementBlockNumber,
+        setSubgraphIndexed
+      );
     }
   }, [retirementBlockNumber]);
 
@@ -441,17 +428,19 @@ export const RetireForm = (props: RetireFormProps) => {
         isApproved={isApproved}
         showModal={retireModalOpen}
       />
-      {retirementTransactionHash && subgraphIndexed && (
-        <RetirementStatusModal
-          retirementUrl={`${urls.retirements}/${
-            retirement.beneficiaryAddress || props.address
-          }/${retirementTotals}`}
-          polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
-          showModal={!!retirementTransactionHash}
-          user={props.address}
-          retirementIndex={retirementTotals}
-        />
-      )}
+      {retirementTransactionHash &&
+        (subgraphIndexed === true || subgraphIndexed === "timed out") && (
+          <RetirementStatusModal
+            retirementUrl={`${urls.retirements}/${
+              retirement.beneficiaryAddress || props.address
+            }/${retirementTotals}`}
+            polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+            showModal={!!retirementTransactionHash}
+            user={props.address}
+            retirementIndex={retirementTotals}
+            subgraphIndexed={subgraphIndexed}
+          />
+        )}
     </div>
   );
 };

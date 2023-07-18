@@ -1,10 +1,5 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import {
-  formatUnits,
-  queryKlimaBlockNumber,
-  safeAdd,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
@@ -20,6 +15,7 @@ import { urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { prepareNavigateToCertificate } from "lib/prepareNavigateToCertificate";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
@@ -54,7 +50,9 @@ export const RetireForm: FC<Props> = (props) => {
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
-  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean>(false);
+  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean | "timed out">(
+    false
+  );
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
@@ -270,31 +268,18 @@ export const RetireForm: FC<Props> = (props) => {
     }
   };
 
-  const prepareNavigateToCertificate = async (
-    blockNumber: number,
-
-    retirementIndex: number
-  ) => {
-    let currentBlock = await queryKlimaBlockNumber();
-    let counter = 0;
-
-    while (currentBlock < blockNumber && counter < 100) {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      currentBlock = await queryKlimaBlockNumber();
-      counter++;
-    }
-
-    if (currentBlock >= blockNumber) {
-      router.prefetch(
-        `/retirements/${inputValues?.beneficiaryAddress}/${retirementIndex}`
-      );
-      setSubgraphIndexed(true);
-    }
-  };
-
   useEffect(() => {
+    const retirementAddress =
+      inputValues?.beneficiaryAddress ?? (address || "");
+    console.log("retirementAddress", retirementAddress);
     if (retirementBlockNumber !== 0 && retirementIndex) {
-      prepareNavigateToCertificate(retirementBlockNumber, retirementIndex);
+      prepareNavigateToCertificate(
+        router,
+        retirementAddress,
+        retirementIndex,
+        retirementBlockNumber,
+        setSubgraphIndexed
+      );
     }
   }, [retirementBlockNumber]);
 
@@ -383,11 +368,14 @@ export const RetireForm: FC<Props> = (props) => {
             paymentMethod={inputValues?.paymentMethod}
             address={address}
             retirementIndex={retirementIndex}
+            subgraphIndexed={subgraphIndexed}
           />
         }
-        showSuccessScreen={!!transactionHash && !!subgraphIndexed}
+        showSuccessScreen={
+          !!transactionHash &&
+          !!(subgraphIndexed === true || subgraphIndexed === "timed out")
+        }
       />
-
       <CreditCardModal
         showModal={showCreditCardModal}
         isRedirecting={isRedirecting}

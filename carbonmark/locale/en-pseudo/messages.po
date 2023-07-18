@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -32,7 +38,7 @@ msgstr ""
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:184
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
 msgid "<0>* </0> Required Field"
 msgstr ""
 
@@ -170,7 +176,7 @@ msgstr ""
 msgid "Beneficiary name"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:264
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:283
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:190
 msgid "Beneficiary wallet address (optional)"
 msgstr ""
@@ -524,7 +530,7 @@ msgstr ""
 msgid "Latest First"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:98
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
 msgid "Learn More"
 msgstr ""
 
@@ -889,7 +895,7 @@ msgstr ""
 msgid "Retire"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:170
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:189
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr ""
 
@@ -910,11 +916,13 @@ msgstr ""
 msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:70
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:109
 msgid "Retire more Carbon"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:50
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:80
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:57
 msgid "Retire more carbon"
 msgstr ""
 
@@ -947,7 +955,7 @@ msgstr ""
 msgid "Retirement Overview"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:25
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:24
 msgid "Retirement Successful!"
 msgstr ""
 
@@ -967,7 +975,7 @@ msgstr ""
 msgid "See your portfolio"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:103
 msgid "See your retirement receipt"
 msgstr ""
 
@@ -1059,7 +1067,7 @@ msgstr ""
 msgid "Terms of use"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:28
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
 msgid "Thank you for supporting the planet!"
 msgstr ""
 
@@ -1079,7 +1087,7 @@ msgstr ""
 msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:176
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:195
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr ""
 
@@ -1108,7 +1116,7 @@ msgstr ""
 msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:152
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:160
 msgid "There was an error during the checkout process. Please try again."
 msgstr ""
 
@@ -1226,7 +1234,7 @@ msgid "Total retirement transactions"
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:44
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:81
 msgid "Total sale cost"
 msgstr ""
 
@@ -1293,7 +1301,7 @@ msgstr ""
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:43
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:73
 msgid "View and share certificate"
 msgstr ""
 
@@ -1564,47 +1572,62 @@ msgstr ""
 msgid "menu.retire"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:192
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:202
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:221
 msgid "offset.amount_in_tonnes_2"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:284
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:303
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:217
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:236
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:368
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:387
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:247
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:266
 msgid "offset.retirement_beneficiary_name"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:235
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:254
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:293
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:312
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:304
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:323
 msgid "offset.retirement_retirement_message"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:325
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
+msgid "offset.successModal.body2"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
+msgid "offset.successModal.body3"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
+msgid "offset.successModal.body4"
+msgstr ""
+
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:344
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -1777,11 +1800,11 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:346
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:365
 msgid "retire.back_button"
 msgstr ""
 
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:337
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:356
 msgid "retire.submit_button"
 msgstr ""
 
@@ -1833,7 +1856,7 @@ msgstr ""
 msgid "retirement.single.country_region.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
 msgid "retirement.single.immutable_public_records.title"
 msgstr ""
 
@@ -1853,7 +1876,7 @@ msgstr ""
 msgid "retirement.single.moss_offset.name"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
 msgid "retirement.single.official_certificate.title"
 msgstr ""
 
@@ -1909,7 +1932,7 @@ msgstr ""
 msgid "retirement.single.verified_tonnes.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:137
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
@@ -1998,7 +2021,7 @@ msgstr ""
 msgid "sold to"
 msgstr ""
 
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:184
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:192
 msgid "something went wrong loading the allowance"
 msgstr ""
 
