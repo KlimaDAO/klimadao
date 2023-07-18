@@ -73,6 +73,7 @@ export async function getAllCategories(fastify: FastifyInstance) {
     split(","),
     map(trim),
     uniq,
+    compact,
     map((id: Country) => ({ id }))
   );
 
