@@ -13,7 +13,7 @@ import { fetcher } from "./fetcher";
 import { notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
-  const res = await fetch("/api/users/login", {
+  const res = await fetch(`${urls.api.users}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const verifyUser = async (params: {
   address: string;
   signature: string;
 }): Promise<{ token: string }> => {
-  const res = await fetch("/api/users/login/verify", {
+  const res = await fetch(`${urls.api.users}/login/verify`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const putUser = async (params: {
   user: User;
   token: string;
 }): Promise<User> => {
-  const res = await fetch(`/api/users/${params.user.wallet}`, {
+  const res = await fetch(`${urls.api.users}/${params.user.wallet}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const postUser = async (params: {
   user: User;
   token: string;
 }): Promise<User> => {
-  const res = await fetch(`/api/users`, {
+  const res = await fetch(urls.api.users, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -91,20 +91,6 @@ export const postUser = async (params: {
   const data = await res.json();
 
   if (!res.ok || data.error) {
-    throw new Error(data.message);
-  }
-  return data;
-};
-
-export const getUser = async (params: {
-  user: string;
-  type: "wallet" | "handle";
-}): Promise<User> => {
-  const result = await fetch(`/api/users/${params.user}?type=${params.type}`);
-
-  const data = await result.json();
-
-  if (!result.ok || data.error) {
     throw new Error(data.message);
   }
   return data;
@@ -189,6 +175,12 @@ export const getProjects = async (
   if (notNil(params)) url += new URLSearchParams(params);
   return await fetcher(url);
 };
+
+export const getUser = async (params: {
+  user: string;
+  type: "wallet" | "handle";
+}): Promise<User> =>
+  await fetcher(`${urls.api.users}/${params.user}?type=${params.type}`);
 
 export const getProject = async (projectId: string): Promise<Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);

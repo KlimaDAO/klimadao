@@ -26,3 +26,6 @@ export const TOKEN_POOLS = [
 ] as const;
 
 export type TokenPool = (typeof TOKEN_POOLS)[number];
+
+/** The value by which to truncate token prices */
+export const POOL_PRICE_DECIMALS = 1e6;

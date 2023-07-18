@@ -313,13 +313,13 @@ msgstr "Could not calculate Total Cost"
 msgid "Country"
 msgstr "Country"
 
-#: components/pages/Users/SellerConnected/index.tsx:186
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "Create New Listing"
 
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Create Profile"
 msgstr "Create Profile"
 
@@ -331,7 +331,7 @@ msgstr "Create a profile and get connected"
 msgid "Create a seller profile"
 msgstr "Create a seller profile"
 
-#: components/pages/Users/index.tsx:36
+#: components/pages/Users/index.tsx:37
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Create and edit listings, and track your activity with your Carbonmark profile."
 
@@ -400,7 +400,7 @@ msgstr "Download PDF"
 msgid "Downloading ..."
 msgstr "Downloading ..."
 
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Edit Profile"
 msgstr "Edit Profile"
 
@@ -550,7 +550,7 @@ msgstr "List and sell for free"
 msgid "List your projects for sale in just a few clicks"
 msgstr "List your projects for sale in just a few clicks"
 
-#: components/pages/Users/SellerConnected/index.tsx:170
+#: components/pages/Users/SellerConnected/index.tsx:171
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr "Listings"
@@ -630,7 +630,7 @@ msgstr "New Unit Price (USDC)"
 msgid "No Activity to show."
 msgstr "No Activity to show."
 
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Users/SellerConnected/index.tsx:214
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "No active listings."
@@ -711,8 +711,8 @@ msgid "Please Log In"
 msgstr "Please Log In"
 
 #: components/pages/Portfolio/index.tsx:56
-#: components/pages/Users/SellerConnected/index.tsx:131
-#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:146
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
@@ -733,11 +733,11 @@ msgstr "Powered by"
 msgid "Press Releases"
 msgstr "Press Releases"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "Price Highest"
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "Price Lowest"
 
@@ -856,7 +856,7 @@ msgstr "Read more"
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "Real-time price and transaction data powered by the blockchain"
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "Recently Updated"
 
@@ -1131,7 +1131,7 @@ msgstr "There was an error getting your total retirement data"
 msgid "There was an error loading the total cost."
 msgstr "There was an error loading the total cost."
 
-#: components/pages/Users/SellerConnected/index.tsx:105
+#: components/pages/Users/SellerConnected/index.tsx:106
 msgid "There was an error loading your assets. {e}"
 msgstr "There was an error loading your assets. {e}"
 
@@ -1244,7 +1244,7 @@ msgstr "Unprecedented transparency across the digital carbon market."
 msgid "Updated:"
 msgstr "Updated:"
 
-#: components/pages/Users/SellerConnected/index.tsx:207
+#: components/pages/Users/SellerConnected/index.tsx:208
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
@@ -1320,11 +1320,11 @@ msgstr "View the project details and other info for this purchase."
 msgid "Vintage"
 msgstr "Vintage"
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "Vintage Newest"
 
-#: components/ProjectFilterModal/constants.tsx:16
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "Vintage Oldest"
 
@@ -1411,7 +1411,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:231
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Your seller data"
 msgstr "Your seller data"
 
@@ -1634,7 +1634,7 @@ msgstr "Update Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:238
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -2189,7 +2189,7 @@ msgstr "This feature is available only to users who are logged in. You can log i
 msgid "{0} maximum for credit cards"
 msgstr "{0} maximum for credit cards"
 
-#: components/pages/Users/index.tsx:30
+#: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profile | Carbonmark"
 

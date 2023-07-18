@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-14 04:08+0000\n"
+"POT-Creation-Date: 2023-07-18 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,13 +307,13 @@ msgstr "Не удалось рассчитать общую стоимость"
 msgid "Country"
 msgstr "Страна"
 
-#: components/pages/Users/SellerConnected/index.tsx:186
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "Создать новое объявление"
 
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Create Profile"
 msgstr "Создать профиль"
 
@@ -325,7 +325,7 @@ msgstr "Создайте профиль и подключайтесь"
 msgid "Create a seller profile"
 msgstr "Создать профиль продавца"
 
-#: components/pages/Users/index.tsx:36
+#: components/pages/Users/index.tsx:37
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Создавайте и редактируйте объявления, а также отслеживайте свою активность с помощью профиля Carbonmark."
 
@@ -394,7 +394,7 @@ msgstr "Скачать PDF"
 msgid "Downloading ..."
 msgstr "Загрузка ..."
 
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Edit Profile"
 msgstr "Редактировать профиль"
 
@@ -544,7 +544,7 @@ msgstr "Размещайте и продавайте бесплатно"
 msgid "List your projects for sale in just a few clicks"
 msgstr "Разместите свои проекты на продажу всего за несколько кликов"
 
-#: components/pages/Users/SellerConnected/index.tsx:170
+#: components/pages/Users/SellerConnected/index.tsx:171
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr "Объявления"
@@ -624,7 +624,7 @@ msgstr "Новая цена за единицу (USDC)"
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Users/SellerConnected/index.tsx:214
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "Нет активных объявлений."
@@ -705,8 +705,8 @@ msgid "Please Log In"
 msgstr "Пожалуйста, войдите"
 
 #: components/pages/Portfolio/index.tsx:56
-#: components/pages/Users/SellerConnected/index.tsx:131
-#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:146
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Пожалуйста, обновите страницу. При обновлении данных произошла ошибка: {e}."
 
@@ -727,11 +727,11 @@ msgstr "На основе"
 msgid "Press Releases"
 msgstr "Пресс-релизы"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "Наивысшая цена"
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "Самая низкая цена"
 
@@ -850,7 +850,7 @@ msgstr "Подробнее"
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "Данные о ценах и транзакциях в режиме реального времени на базе блокчейна"
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "Недавно обновленный"
 
@@ -1125,7 +1125,7 @@ msgstr "При получении общих данных о выбивании 
 msgid "There was an error loading the total cost."
 msgstr "Не удалось загрузить общую стоимость."
 
-#: components/pages/Users/SellerConnected/index.tsx:105
+#: components/pages/Users/SellerConnected/index.tsx:106
 msgid "There was an error loading your assets. {e}"
 msgstr "Произошла ошибка при загрузке ваших активов. {e}"
 
@@ -1238,7 +1238,7 @@ msgstr "Беспрецедентная прозрачность на цифро�
 msgid "Updated:"
 msgstr "Обновлено:"
 
-#: components/pages/Users/SellerConnected/index.tsx:207
+#: components/pages/Users/SellerConnected/index.tsx:208
 msgid "Updating your data..."
 msgstr "Обновление данных..."
 
@@ -1314,11 +1314,11 @@ msgstr "Просмотрите детали проекта и другую ин�
 msgid "Vintage"
 msgstr "Винтаж"
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "Винтаж новейший"
 
-#: components/ProjectFilterModal/constants.tsx:16
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "Старейшие Винтаж"
 
@@ -1405,7 +1405,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ваша покупка еще не завершена. Чтобы завершить покупку, убедитесь, что вся информация верна, а затем нажмите «Отправить» ниже."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:231
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Your seller data"
 msgstr "Ваши данные продавца"
 
@@ -1628,7 +1628,7 @@ msgstr "Обновить объявления"
 msgid "profile.edit_modal.submit"
 msgstr "Сохранить изменения"
 
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:238
 msgid "profile.edit_profile.title"
 msgstr "Ваш профиль"
 
@@ -2185,7 +2185,7 @@ msgstr "Эта функция доступна только для пользо�
 msgid "{0} maximum for credit cards"
 msgstr ""
 
-#: components/pages/Users/index.tsx:30
+#: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Профиль | Carbonmark"
 

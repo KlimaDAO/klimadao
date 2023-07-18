@@ -15,6 +15,7 @@ import { activityIsAdded, getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { AssetForListing, User } from "lib/types/carbonmark";
+import { notNil } from "lib/utils/functional.utils";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
@@ -47,7 +48,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const hasListings = !!activeListings.length;
 
   const isCarbonmarkUser = !isLoading && !!carbonmarkUser;
-  const isUnregistered = !isLoading && carbonmarkUser === null;
+  const isRegistered = notNil(carbonmarkUser);
 
   const scrollToTop = () =>
     scrollToRef.current &&
@@ -153,7 +154,7 @@ export const SellerConnected: FC<Props> = (props) => {
     <div ref={scrollToRef} className={styles.container}>
       <div className={styles.userControlsRow}>
         <ProfileButton
-          label={isUnregistered ? t`Create Profile` : t`Edit Profile`}
+          label={isRegistered ? t`Edit Profile` : t`Create Profile`}
           onClick={() => setShowEditProfileModal(true)}
         />
         <LoginButton className="loginButton" />

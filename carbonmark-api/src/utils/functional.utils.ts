@@ -13,3 +13,11 @@ export const notNil = <T>(a: T): a is NonNullable<T> => !isNil(a);
 export const notEmpty = negate(isEmpty);
 
 export const notEmptyOrNil = overEvery([notNil, notEmpty]);
+
+type Predicate<T> = (x: T) => boolean;
+
+/** A predicate that returns true if the given element contains the given value for the given key */
+export const selector =
+  <T>(key: keyof T, value: unknown): Predicate<T> =>
+  (x: T) =>
+    x[key] === value;
