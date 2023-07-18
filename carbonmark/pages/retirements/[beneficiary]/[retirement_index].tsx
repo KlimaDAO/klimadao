@@ -104,9 +104,11 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const project = await getCarbonmarkProject(
-      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-    );
+    const project =
+      !!subgraphData &&
+      (await getCarbonmarkProject(
+        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+      ));
 
     return {
       props: {
