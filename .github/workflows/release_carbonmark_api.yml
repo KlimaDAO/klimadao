@@ -8,7 +8,7 @@ on:
     tags:
       - "carbonmark-api/*"
 jobs:
-  Deploy-Production:
+  release-carbonmark-api:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,12 +25,12 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
-          vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "$url" api.carbonmark.com/${{env.RELEASE_VERSION}}
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "$url" ${{env.RELEASE_VERSION}}.api.carbonmark.com
