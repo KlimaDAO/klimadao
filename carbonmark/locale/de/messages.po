@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-17 22:11+0000\n"
+"POT-Creation-Date: 2023-07-18 00:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,13 +307,13 @@ msgstr "Gesamtkosten konnten nicht berechnet werden"
 msgid "Country"
 msgstr "Land"
 
-#: components/pages/Users/SellerConnected/index.tsx:186
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
 
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Create Profile"
 msgstr "Profil erstellen"
 
@@ -325,7 +325,7 @@ msgstr "Profil erstellen und verbinden"
 msgid "Create a seller profile"
 msgstr "Verkäuferprofil erstellen"
 
-#: components/pages/Users/index.tsx:36
+#: components/pages/Users/index.tsx:37
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktivität mit Ihrem Carbonmark-Profil"
 
@@ -394,7 +394,7 @@ msgstr "PDF herunterladen"
 msgid "Downloading ..."
 msgstr "Wird heruntergeladen ..."
 
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Edit Profile"
 msgstr "Profil bearbeiten"
 
@@ -544,7 +544,7 @@ msgstr "Kostenlos anbieten und verkaufen"
 msgid "List your projects for sale in just a few clicks"
 msgstr "Bieten Sie Ihre Projekte mit wenigen Klicks zum Verkauf an"
 
-#: components/pages/Users/SellerConnected/index.tsx:170
+#: components/pages/Users/SellerConnected/index.tsx:171
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr "Einträge"
@@ -624,7 +624,7 @@ msgstr "Neuer Stückpreis (USDC)"
 msgid "No Activity to show."
 msgstr "Keine Aktivitäten zum Anzeigen."
 
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Users/SellerConnected/index.tsx:214
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "Keine aktiven Einträge."
@@ -705,8 +705,8 @@ msgid "Please Log In"
 msgstr "Bitte melden Sie sich an"
 
 #: components/pages/Portfolio/index.tsx:56
-#: components/pages/Users/SellerConnected/index.tsx:131
-#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:146
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Bitte aktualisieren Sie die Seite. Beim Aktualisieren Ihrer Daten ist ein Fehler aufgetreten: {e}."
 
@@ -1125,7 +1125,7 @@ msgstr "Beim Abrufen Ihrer kompletten Ausgleichsdaten ist ein Fehler aufgetreten
 msgid "There was an error loading the total cost."
 msgstr "Beim Laden der Gesamtkosten ist ein Fehler aufgetreten."
 
-#: components/pages/Users/SellerConnected/index.tsx:105
+#: components/pages/Users/SellerConnected/index.tsx:106
 msgid "There was an error loading your assets. {e}"
 msgstr "Beim Laden Ihrer Assets ist ein Fehler aufgetreten. {e}"
 
@@ -1238,7 +1238,7 @@ msgstr "Beispiellose Transparenz auf dem gesamten Digitalen CO2-Markt."
 msgid "Updated:"
 msgstr "Aktualisiert:"
 
-#: components/pages/Users/SellerConnected/index.tsx:207
+#: components/pages/Users/SellerConnected/index.tsx:208
 msgid "Updating your data..."
 msgstr "Ihre Daten werden aktualisiert..."
 
@@ -1405,7 +1405,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Ihr Kauf ist noch nicht abgeschlossen. Stellen Sie die Korrektheit der Informationen sicher und klicken Sie unten auf \"Absenden\", um den Kauf abzuschließen."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:231
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Your seller data"
 msgstr "Ihre Verkäuferdaten"
 
@@ -1628,7 +1628,7 @@ msgstr "Eintrag aktualisieren"
 msgid "profile.edit_modal.submit"
 msgstr "Änderungen speichern"
 
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:238
 msgid "profile.edit_profile.title"
 msgstr "Ihr Profil"
 
@@ -2183,7 +2183,7 @@ msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen 
 msgid "{0} maximum for credit cards"
 msgstr "Maximal {0} für Kreditkarten"
 
-#: components/pages/Users/index.tsx:30
+#: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profil | Carbonmark"
 
