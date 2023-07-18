@@ -3,6 +3,7 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
+import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark";
 import { NextPage } from "next";
@@ -60,7 +61,8 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`/api/users/${props.userAddress}?type=wallet`]: props.carbonmarkUser,
+        [`${urls.api.users}/${props.userAddress}?type=wallet`]:
+          props.carbonmarkUser,
       },
     }}
   >

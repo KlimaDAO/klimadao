@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-14 04:08+0000\n"
+"POT-Creation-Date: 2023-07-18 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,13 +307,13 @@ msgstr "无法计算总成本"
 msgid "Country"
 msgstr "国家"
 
-#: components/pages/Users/SellerConnected/index.tsx:186
+#: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Create Profile"
 msgstr "创建个人资料"
 
@@ -325,7 +325,7 @@ msgstr "创建个人资料并建立联系"
 msgid "Create a seller profile"
 msgstr "创建卖家资料"
 
-#: components/pages/Users/index.tsx:36
+#: components/pages/Users/index.tsx:37
 msgid "Create and edit listings, and track your activity with your Carbonmark profile."
 msgstr "创建和编辑列表，并使用您的 Carbonmark 个人资料跟踪您的活动。"
 
@@ -394,7 +394,7 @@ msgstr "下载PDF"
 msgid "Downloading ..."
 msgstr "正在下载..."
 
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
@@ -518,7 +518,7 @@ msgstr "KlimaDAO 合约"
 
 #: components/pages/Home/index.tsx:527
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
-msgstr "为加速气候融资，KlimaDAO 提供了一个在全球范围内所需的透明、中立和公共基础设施。"
+msgstr "为加速气候融资，KlimaDAO 提供了一个在全球范围内所需的透明、中立和公共的基础设施。"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:67
 msgid "Latest First"
@@ -544,7 +544,7 @@ msgstr "免费列出并出售"
 msgid "List your projects for sale in just a few clicks"
 msgstr "只需点击几下，即可列出您的待售项目"
 
-#: components/pages/Users/SellerConnected/index.tsx:170
+#: components/pages/Users/SellerConnected/index.tsx:171
 #: components/pages/Users/SellerUnconnected/index.tsx:47
 msgid "Listings"
 msgstr "挂牌信息"
@@ -624,7 +624,7 @@ msgstr "新单价（USDC）"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:213
+#: components/pages/Users/SellerConnected/index.tsx:214
 #: components/pages/Users/SellerUnconnected/index.tsx:83
 msgid "No active listings."
 msgstr "无活动列表。"
@@ -684,7 +684,9 @@ msgstr "我们的合作伙伴"
 
 #: components/pages/Home/index.tsx:121
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
-msgstr "来自数百个项目的超过 2000 万个经过验证的数字碳信用额，迄今为止交易额超过 40 亿美元"
+msgstr ""
+"来自数百个项目的超过 2000 万个经过验证的数字碳信用额，\n"
+"迄今为止交易额超过 40 亿美元"
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECT"
@@ -705,8 +707,8 @@ msgid "Please Log In"
 msgstr "请登录"
 
 #: components/pages/Portfolio/index.tsx:56
-#: components/pages/Users/SellerConnected/index.tsx:131
-#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:132
+#: components/pages/Users/SellerConnected/index.tsx:146
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
@@ -721,17 +723,17 @@ msgstr "投资组合 | Carbonmark"
 
 #: components/pages/Home/index.tsx:521
 msgid "Powered by"
-msgstr "由...提供"
+msgstr "由KlimaDAO提供"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "Press Releases"
 msgstr "新闻稿"
 
-#: components/ProjectFilterModal/constants.tsx:12
+#: components/ProjectFilterModal/constants.tsx:11
 msgid "Price Highest"
 msgstr "最高价格"
 
-#: components/ProjectFilterModal/constants.tsx:13
+#: components/ProjectFilterModal/constants.tsx:12
 msgid "Price Lowest"
 msgstr "最低价格"
 
@@ -852,7 +854,7 @@ msgstr "阅读更多"
 msgid "Real-time price and transaction data powered by the blockchain"
 msgstr "由区块链提供支持的实时价格和交易数据"
 
-#: components/ProjectFilterModal/constants.tsx:14
+#: components/ProjectFilterModal/constants.tsx:13
 msgid "Recently Updated"
 msgstr "最近更新"
 
@@ -926,7 +928,7 @@ msgstr "现在停用"
 
 #: components/pages/Home/index.tsx:184
 msgid "Retire now, or acquire carbon to retire later - you decide what to do when you take ownership of your carbon assets."
-msgstr "现在停用碳，或者获得碳以供稍后停用 - 当您拥有碳资产时，您可以决定要做什么。"
+msgstr "现在就停用碳，或者获取数字碳待以后停用 - 当您拥有了碳资产，您就可以决定要做什么。"
 
 #: components/pages/Portfolio/Retire/index.tsx:77
 #: components/pages/Portfolio/Retire/index.tsx:78
@@ -979,7 +981,7 @@ msgstr "卖出"
 
 #: components/pages/Home/index.tsx:313
 msgid "Sell carbon"
-msgstr "销售碳"
+msgstr "出售碳"
 
 #: components/pages/Home/index.tsx:409
 msgid "Sell your digital carbon directly to buyers"
@@ -1127,7 +1129,7 @@ msgstr "获取您的总碳停用数据时出错"
 msgid "There was an error loading the total cost."
 msgstr "加载总费用时出错。"
 
-#: components/pages/Users/SellerConnected/index.tsx:105
+#: components/pages/Users/SellerConnected/index.tsx:106
 msgid "There was an error loading your assets. {e}"
 msgstr "加载您的资产时出错。 {e}"
 
@@ -1240,7 +1242,7 @@ msgstr "整个数字碳市场前所未有的透明度。"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:207
+#: components/pages/Users/SellerConnected/index.tsx:208
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1316,11 +1318,11 @@ msgstr "查看此次购买的项目详情和其他信息。"
 msgid "Vintage"
 msgstr "历史减排效益"
 
-#: components/ProjectFilterModal/constants.tsx:15
+#: components/ProjectFilterModal/constants.tsx:14
 msgid "Vintage Newest"
 msgstr "最新的历史减排效益"
 
-#: components/ProjectFilterModal/constants.tsx:16
+#: components/ProjectFilterModal/constants.tsx:15
 msgid "Vintage Oldest"
 msgstr "最早的历史减排效益"
 
@@ -1407,7 +1409,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:24
-#: components/pages/Users/SellerConnected/index.tsx:231
+#: components/pages/Users/SellerConnected/index.tsx:232
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -1630,7 +1632,7 @@ msgstr "更新挂牌信息"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:237
+#: components/pages/Users/SellerConnected/index.tsx:238
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
@@ -2185,7 +2187,7 @@ msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键
 msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 
-#: components/pages/Users/index.tsx:30
+#: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
 
