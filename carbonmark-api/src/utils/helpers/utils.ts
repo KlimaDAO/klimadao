@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, concat } from "lodash";
+import { compact, concat, isArray } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
@@ -58,6 +58,11 @@ export async function getAllCategories(fastify: FastifyInstance) {
     gqlSdk.marketplace.getCategories(),
     gqlSdk.offsets.getCarbonOffsetsCategories(),
   ]);
+
+  /** Handle invalid responses */
+  if (!isArray(categories) || !isArray(carbonOffsets)) {
+    throw new Error("Response from server did not match schema definition");
+  }
 
   // Extract the required values from the fetched data
   const values = [

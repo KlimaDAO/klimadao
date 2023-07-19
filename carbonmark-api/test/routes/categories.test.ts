@@ -8,6 +8,7 @@ import { CATEGORIES, ERROR } from "./categories.mock";
 describe("GET /categories", () => {
   let fastify: FastifyInstance;
 
+  //Initialise our server for each test
   beforeEach(async () => {
     fastify = Fastify();
 
@@ -15,11 +16,16 @@ describe("GET /categories", () => {
     await fastify.ready();
 
     // Block outside http requests
-    // nock.disableNetConnect();
+    nock.disableNetConnect();
   });
 
   // Remove any stale mocks between tests
-  beforeEach(() => nock.cleanAll());
+  beforeEach(() => {
+    nock.cleanAll();
+    nock(GRAPH_URLS.offsets)
+      .post("")
+      .reply(200, { data: { carbonOffsets: [] } });
+  });
 
   // Close the server after all tests
   afterEach(async () => await fastify.close());
@@ -31,10 +37,6 @@ describe("GET /categories", () => {
       .reply(200, {
         errors: [ERROR],
       });
-
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, { data: { carbonOffsets: [] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -50,10 +52,6 @@ describe("GET /categories", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { categories: CATEGORIES } });
-
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, { data: { carbonOffsets: [] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -71,10 +69,6 @@ describe("GET /categories", () => {
       .post("")
       .reply(200, { data: { categories: [] } });
 
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, { data: { carbonOffsets: [] } });
-
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/categories`,
@@ -84,44 +78,20 @@ describe("GET /categories", () => {
     const data = await response.json();
     expect(data).toEqual([]);
   });
+
+  test("Invalid data", async () => {
+    nock(GRAPH_URLS.marketplace)
+      .post("")
+      .reply(200, { data: { categories: "invalid data" } });
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/categories`,
+    });
+
+    expect(response.statusCode).toEqual(502);
+    expect(response.body).toContain(
+      "Response from server did not match schema definition"
+    );
+  });
 });
-
-// t.test("GET /categories", async (main) => {
-//   const app = await build(main);
-
-//   // t.test("Empty data", async (t) => {
-//   //   t.plan(2);
-//   //   nock(GRAPH_URLS.marketplace)
-//   //     .post("")
-//   //     .reply(200, { data: { categories: [] } });
-
-//   //   const response = await app.inject({
-//   //     method: "GET",
-//   //     url: `${DEV_URL}/categories`,
-//   //   });
-
-//   //   t.equal(response.statusCode, 200, "Should return success status");
-//   //   const data = await response.json();
-//   //   t.same(data, [], "Expected empty data");
-//   // });
-
-//   // t.test("Invalid data", async (t) => {
-//   //   t.plan(2);
-//   //   nock(GRAPH_URLS.marketplace)
-//   //     .post("")
-//   //     .reply(200, { data: { categories: "invalid data" } });
-
-//   //   const response = await app.inject({
-//   //     method: "GET",
-//   //     url: `${DEV_URL}/categories`,
-//   //   });
-
-//   //   t.equal(response.statusCode, 200, "Should return success status");
-//   //   const data = await response.json();
-//   //   t.notSame(
-//   //     data,
-//   //     MOCK_CATEGORIES,
-//   //     "Expected data not to match MOCK_CATEGORIES"
-//   //   );
-//   // });
-// });
