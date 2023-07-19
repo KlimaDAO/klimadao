@@ -27,7 +27,10 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
       )}
       {props.address &&
         (isTorus ? (
-          <ViewWalletButton address={props.address} />
+          <ViewWalletButton
+            address={props.address}
+            href="https://polygon.tor.us/"
+          />
         ) : (
           <CopyAddressButton
             label={concatAddress(props.address)}

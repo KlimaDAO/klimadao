@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { t } from "@lingui/macro";
 import { Launch } from "@mui/icons-material";
 import React, { FC } from "react";
 
@@ -18,10 +19,10 @@ export const ViewWalletButton: FC<Props> = (props) => {
     <div className={className}>
       <span>{concatAddress(props.address)}</span>
       <ButtonPrimary
-        href="https://polygon.tor.us/"
+        {...props}
         target="_blank"
         rel="noopener noreferrer"
-        label="VIEW"
+        label={t(`View`)}
         variant="transparent"
         className={styles.viewButton}
         icon={<Launch />}
