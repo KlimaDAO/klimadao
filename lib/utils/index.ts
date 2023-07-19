@@ -37,6 +37,7 @@ export { getTotalCarbonRetired } from "./getTotalCarbonRetired";
 export { getTotalPoolRetired } from "./getTotalPoolRetired";
 export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
+export { isTorusProvider } from "./useProvider";
 // KNS
 export {
   KNSContract, getAddressByKNS,

@@ -15,7 +15,7 @@ import { urls } from "../../constants";
 import { WalletProvider } from "../walletProvider";
 
 /** Type guards for convenience and readability */
-const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
+export const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
   !!p && "isTorus" in p && p.isTorus;
 
 const isWalletConnectProvider = (

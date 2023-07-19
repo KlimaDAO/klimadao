@@ -18,8 +18,8 @@ export { LinkedInIcon } from "./Icons/LinkedInIcon";
 export { MetaMaskFoxIcon } from "./Icons/MetaMaskFoxIcon";
 export { PlayIcon } from "./Icons/PlayIcon";
 export { PoolIcon } from "./Icons/PoolIcon";
-export { RedditIcon } from "./Icons/RedditIcon";
 export { RSSIcon } from "./Icons/RSSIcon";
+export { RedditIcon } from "./Icons/RedditIcon";
 export { SnapshotIcon } from "./Icons/SnapshotIcon";
 export { TelegramIcon } from "./Icons/TelegramIcon";
 export { ThemeMoonIcon } from "./Icons/ThemeMoonIcon";
@@ -41,5 +41,7 @@ export { Spinner } from "./Spinner";
 export { Text } from "./Text";
 export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { ThemeToggle } from "./ThemeToggle";
+export { ViewWalletButton } from "./ViewWalletButton";
 export { Web3ContextProvider } from "./Web3Context";
 export { WebFonts } from "./WebFonts";
+
