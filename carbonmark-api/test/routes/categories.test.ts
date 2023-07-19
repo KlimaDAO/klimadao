@@ -1,5 +1,4 @@
-import Fastify from "fastify";
-import fp from "fastify-plugin";
+import Fastify, { FastifyInstance } from "fastify";
 import nock from "nock";
 import app from "../../src/app";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
@@ -7,21 +6,23 @@ import { DEV_URL } from "../test.constants";
 import { CATEGORIES, ERROR } from "./categories.mock";
 
 describe("GET /categories", () => {
-  const fastify = Fastify();
+  let fastify: FastifyInstance;
 
-  beforeAll(async () => {
-    void fastify.register(fp(app));
+  beforeEach(async () => {
+    fastify = Fastify();
+
+    await fastify.register(app);
     await fastify.ready();
 
     // Block outside http requests
-    nock.disableNetConnect();
+    // nock.disableNetConnect();
   });
 
   // Remove any stale mocks between tests
   beforeEach(() => nock.cleanAll());
 
   // Close the server after all tests
-  afterAll(() => fastify.close());
+  afterEach(async () => await fastify.close());
 
   /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
