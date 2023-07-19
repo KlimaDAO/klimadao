@@ -1,12 +1,17 @@
-import { BlockChangedFilter, Block_Height, Bridge, Bridge_Filter, CarbonMetric, CarbonMetric_Filter, CarbonOffset, CarbonOffset_Filter, CrosschainBridge, CrosschainBridge_Filter, DailyKlimaRetirement, DailyKlimaRetirement_Filter, Deposit, Deposit_Filter, KlimaRetire, KlimaRetire_Filter, Query, Redeem, Redeem_Filter, Retire, Retire_Filter, Subscription, ToucanCertificate, ToucanCertificate_Filter, Transaction, Transaction_Filter, _Block_, _Meta_, BridgeDirection, Bridge_OrderBy, CarbonMetric_OrderBy, CarbonOffset_OrderBy, CrosschainBridge_OrderBy, DailyKlimaRetirement_OrderBy, Deposit_OrderBy, KlimaRetire_OrderBy, OrderDirection, Redeem_OrderBy, Retire_OrderBy, ToucanCertificate_OrderBy, Transaction_OrderBy, _SubgraphErrorPolicy_ } from 'src/.generated/types/offsets.types';
+//@ts-nocheck
+import { BlockChangedFilter, Block_Height, Bridge, Bridge_Filter, CarbonMetric, CarbonMetric_Filter, CarbonOffset, CarbonOffset_Filter, CrosschainBridge, CrosschainBridge_Filter, DailyKlimaRetirement, DailyKlimaRetirement_Filter, Deposit, Deposit_Filter, KlimaRetire, KlimaRetire_Filter, Query, Redeem, Redeem_Filter, Retire, Retire_Filter, Subscription, ToucanCertificate, ToucanCertificate_Filter, Transaction, Transaction_Filter, _Block_, _Meta_, BridgeDirection, Bridge_OrderBy, CarbonMetric_OrderBy, CarbonOffset_OrderBy, CrosschainBridge_OrderBy, DailyKlimaRetirement_OrderBy, Deposit_OrderBy, KlimaRetire_OrderBy, OrderDirection, Redeem_OrderBy, Retire_OrderBy, ToucanCertificate_OrderBy, Transaction_OrderBy, _SubgraphErrorPolicy_ } from '../types/offsets.types';
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>): BlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('BlockChangedFilter');
     return {
         number_gte: overrides && overrides.hasOwnProperty('number_gte') ? overrides.number_gte! : 4175,
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>): Block_Height => {
+export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Block_Height');
     return {
         hash: overrides && overrides.hasOwnProperty('hash') ? overrides.hash! : 'ut',
         number: overrides && overrides.hasOwnProperty('number') ? overrides.number! : 6885,
@@ -14,21 +19,25 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>): Block_Height =
     };
 };
 
-export const aBridge = (overrides?: Partial<Bridge>): Bridge => {
+export const aBridge = (overrides?: Partial<Bridge>, _relationshipsToOmit: Set<string> = new Set()): Bridge => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Bridge');
     return {
         bridger: overrides && overrides.hasOwnProperty('bridger') ? overrides.bridger! : 'debitis',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'quos voluptate qui blanditiis blanditiis dolorum deserunt',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'ex corrupti corrupti sequi fugit incidunt non',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
         value: overrides && overrides.hasOwnProperty('value') ? overrides.value! : 'qui',
     };
 };
 
-export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>): Bridge_Filter => {
+export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): Bridge_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Bridge_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aBridge_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Bridge_Filter') ? {} as Bridge_Filter : aBridge_Filter({}, relationshipsToOmit)],
         bridger: overrides && overrides.hasOwnProperty('bridger') ? overrides.bridger! : 'aut',
         bridger_contains: overrides && overrides.hasOwnProperty('bridger_contains') ? overrides.bridger_contains! : 'voluptatem',
         bridger_contains_nocase: overrides && overrides.hasOwnProperty('bridger_contains_nocase') ? overrides.bridger_contains_nocase! : 'animi',
@@ -58,7 +67,7 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>): Bridge_Filte
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'ex est est illum et dolore sequi',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['sequi nisi et quo vitae animi sed'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'soluta',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'vel',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'consequuntur',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'dolor',
@@ -78,7 +87,7 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>): Bridge_Filte
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'aspernatur',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'voluptates',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'assumenda',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aBridge_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Bridge_Filter') ? {} as Bridge_Filter : aBridge_Filter({}, relationshipsToOmit)],
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'accusamus tenetur ab quae nam et quo',
         timestamp_gt: overrides && overrides.hasOwnProperty('timestamp_gt') ? overrides.timestamp_gt! : 'quia quam quaerat nihil sapiente laudantium dolorum',
         timestamp_gte: overrides && overrides.hasOwnProperty('timestamp_gte') ? overrides.timestamp_gte! : 'qui et et id voluptatem labore iure',
@@ -88,7 +97,7 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>): Bridge_Filte
         timestamp_not: overrides && overrides.hasOwnProperty('timestamp_not') ? overrides.timestamp_not! : 'ut voluptatem suscipit animi aut aut modi',
         timestamp_not_in: overrides && overrides.hasOwnProperty('timestamp_not_in') ? overrides.timestamp_not_in! : ['nihil nobis amet commodi sed ad aut'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'vero',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'et',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'hic',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'cum',
@@ -119,7 +128,9 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>): Bridge_Filte
     };
 };
 
-export const aCarbonMetric = (overrides?: Partial<CarbonMetric>): CarbonMetric => {
+export const aCarbonMetric = (overrides?: Partial<CarbonMetric>, _relationshipsToOmit: Set<string> = new Set()): CarbonMetric => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CarbonMetric');
     return {
         bctCrosschainSupply: overrides && overrides.hasOwnProperty('bctCrosschainSupply') ? overrides.bctCrosschainSupply! : 'dolorum',
         bctKlimaRetired: overrides && overrides.hasOwnProperty('bctKlimaRetired') ? overrides.bctKlimaRetired! : 'illum',
@@ -149,10 +160,12 @@ export const aCarbonMetric = (overrides?: Partial<CarbonMetric>): CarbonMetric =
     };
 };
 
-export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>): CarbonMetric_Filter => {
+export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonMetric_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CarbonMetric_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aCarbonMetric_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('CarbonMetric_Filter') ? {} as CarbonMetric_Filter : aCarbonMetric_Filter({}, relationshipsToOmit)],
         bctCrosschainSupply: overrides && overrides.hasOwnProperty('bctCrosschainSupply') ? overrides.bctCrosschainSupply! : 'et',
         bctCrosschainSupply_gt: overrides && overrides.hasOwnProperty('bctCrosschainSupply_gt') ? overrides.bctCrosschainSupply_gt! : 'laudantium',
         bctCrosschainSupply_gte: overrides && overrides.hasOwnProperty('bctCrosschainSupply_gte') ? overrides.bctCrosschainSupply_gte! : 'iste',
@@ -281,7 +294,7 @@ export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>): 
         nctSupply_lte: overrides && overrides.hasOwnProperty('nctSupply_lte') ? overrides.nctSupply_lte! : 'quo',
         nctSupply_not: overrides && overrides.hasOwnProperty('nctSupply_not') ? overrides.nctSupply_not! : 'inventore',
         nctSupply_not_in: overrides && overrides.hasOwnProperty('nctSupply_not_in') ? overrides.nctSupply_not_in! : ['nam'],
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aCarbonMetric_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('CarbonMetric_Filter') ? {} as CarbonMetric_Filter : aCarbonMetric_Filter({}, relationshipsToOmit)],
         tco2Retired: overrides && overrides.hasOwnProperty('tco2Retired') ? overrides.tco2Retired! : 'non',
         tco2Retired_gt: overrides && overrides.hasOwnProperty('tco2Retired_gt') ? overrides.tco2Retired_gt! : 'ea',
         tco2Retired_gte: overrides && overrides.hasOwnProperty('tco2Retired_gte') ? overrides.tco2Retired_gte! : 'beatae',
@@ -357,7 +370,9 @@ export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>): 
     };
 };
 
-export const aCarbonOffset = (overrides?: Partial<CarbonOffset>): CarbonOffset => {
+export const aCarbonOffset = (overrides?: Partial<CarbonOffset>, _relationshipsToOmit: Set<string> = new Set()): CarbonOffset => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CarbonOffset');
     return {
         additionalCertification: overrides && overrides.hasOwnProperty('additionalCertification') ? overrides.additionalCertification! : 'repellat',
         balanceBCT: overrides && overrides.hasOwnProperty('balanceBCT') ? overrides.balanceBCT! : 'eos',
@@ -365,7 +380,7 @@ export const aCarbonOffset = (overrides?: Partial<CarbonOffset>): CarbonOffset =
         balanceNCT: overrides && overrides.hasOwnProperty('balanceNCT') ? overrides.balanceNCT! : 'temporibus',
         balanceUBO: overrides && overrides.hasOwnProperty('balanceUBO') ? overrides.balanceUBO! : 'enim',
         bridge: overrides && overrides.hasOwnProperty('bridge') ? overrides.bridge! : 'qui',
-        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [aBridge()],
+        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [relationshipsToOmit.has('Bridge') ? {} as Bridge : aBridge({}, relationshipsToOmit)],
         category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : 'molestiae',
         coBenefits: overrides && overrides.hasOwnProperty('coBenefits') ? overrides.coBenefits! : 'et',
         correspAdjustment: overrides && overrides.hasOwnProperty('correspAdjustment') ? overrides.correspAdjustment! : 'tenetur',
@@ -383,7 +398,7 @@ export const aCarbonOffset = (overrides?: Partial<CarbonOffset>): CarbonOffset =
         projectID: overrides && overrides.hasOwnProperty('projectID') ? overrides.projectID! : 'et',
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : 'ipsa',
         registry: overrides && overrides.hasOwnProperty('registry') ? overrides.registry! : 'quae',
-        retirements: overrides && overrides.hasOwnProperty('retirements') ? overrides.retirements! : [aRetire()],
+        retirements: overrides && overrides.hasOwnProperty('retirements') ? overrides.retirements! : [relationshipsToOmit.has('Retire') ? {} as Retire : aRetire({}, relationshipsToOmit)],
         standard: overrides && overrides.hasOwnProperty('standard') ? overrides.standard! : 'veritatis',
         storageMethod: overrides && overrides.hasOwnProperty('storageMethod') ? overrides.storageMethod! : 'est',
         tokenAddress: overrides && overrides.hasOwnProperty('tokenAddress') ? overrides.tokenAddress! : 'rerum',
@@ -394,9 +409,11 @@ export const aCarbonOffset = (overrides?: Partial<CarbonOffset>): CarbonOffset =
     };
 };
 
-export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): CarbonOffset_Filter => {
+export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonOffset_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CarbonOffset_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
         additionalCertification: overrides && overrides.hasOwnProperty('additionalCertification') ? overrides.additionalCertification! : 'qui',
         additionalCertification_contains: overrides && overrides.hasOwnProperty('additionalCertification_contains') ? overrides.additionalCertification_contains! : 'aut',
         additionalCertification_contains_nocase: overrides && overrides.hasOwnProperty('additionalCertification_contains_nocase') ? overrides.additionalCertification_contains_nocase! : 'similique',
@@ -417,7 +434,7 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): 
         additionalCertification_not_starts_with_nocase: overrides && overrides.hasOwnProperty('additionalCertification_not_starts_with_nocase') ? overrides.additionalCertification_not_starts_with_nocase! : 'repellat',
         additionalCertification_starts_with: overrides && overrides.hasOwnProperty('additionalCertification_starts_with') ? overrides.additionalCertification_starts_with! : 'vel',
         additionalCertification_starts_with_nocase: overrides && overrides.hasOwnProperty('additionalCertification_starts_with_nocase') ? overrides.additionalCertification_starts_with_nocase! : 'omnis',
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aCarbonOffset_Filter()],
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit)],
         balanceBCT: overrides && overrides.hasOwnProperty('balanceBCT') ? overrides.balanceBCT! : 'aut',
         balanceBCT_gt: overrides && overrides.hasOwnProperty('balanceBCT_gt') ? overrides.balanceBCT_gt! : 'dolorum',
         balanceBCT_gte: overrides && overrides.hasOwnProperty('balanceBCT_gte') ? overrides.balanceBCT_gte! : 'assumenda',
@@ -470,7 +487,7 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): 
         bridge_not_starts_with_nocase: overrides && overrides.hasOwnProperty('bridge_not_starts_with_nocase') ? overrides.bridge_not_starts_with_nocase! : 'nostrum',
         bridge_starts_with: overrides && overrides.hasOwnProperty('bridge_starts_with') ? overrides.bridge_starts_with! : 'nostrum',
         bridge_starts_with_nocase: overrides && overrides.hasOwnProperty('bridge_starts_with_nocase') ? overrides.bridge_starts_with_nocase! : 'consequatur',
-        bridges_: overrides && overrides.hasOwnProperty('bridges_') ? overrides.bridges_! : aBridge_Filter(),
+        bridges_: overrides && overrides.hasOwnProperty('bridges_') ? overrides.bridges_! : relationshipsToOmit.has('Bridge_Filter') ? {} as Bridge_Filter : aBridge_Filter({}, relationshipsToOmit),
         category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : 'dolore',
         category_contains: overrides && overrides.hasOwnProperty('category_contains') ? overrides.category_contains! : 'suscipit',
         category_contains_nocase: overrides && overrides.hasOwnProperty('category_contains_nocase') ? overrides.category_contains_nocase! : 'consequatur',
@@ -687,7 +704,7 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): 
         name_not_starts_with_nocase: overrides && overrides.hasOwnProperty('name_not_starts_with_nocase') ? overrides.name_not_starts_with_nocase! : 'quis',
         name_starts_with: overrides && overrides.hasOwnProperty('name_starts_with') ? overrides.name_starts_with! : 'inventore',
         name_starts_with_nocase: overrides && overrides.hasOwnProperty('name_starts_with_nocase') ? overrides.name_starts_with_nocase! : 'est',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aCarbonOffset_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit)],
         projectID: overrides && overrides.hasOwnProperty('projectID') ? overrides.projectID! : 'fugit',
         projectID_contains: overrides && overrides.hasOwnProperty('projectID_contains') ? overrides.projectID_contains! : 'repudiandae',
         projectID_contains_nocase: overrides && overrides.hasOwnProperty('projectID_contains_nocase') ? overrides.projectID_contains_nocase! : 'sunt',
@@ -748,7 +765,7 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): 
         registry_not_starts_with_nocase: overrides && overrides.hasOwnProperty('registry_not_starts_with_nocase') ? overrides.registry_not_starts_with_nocase! : 'eum',
         registry_starts_with: overrides && overrides.hasOwnProperty('registry_starts_with') ? overrides.registry_starts_with! : 'ullam',
         registry_starts_with_nocase: overrides && overrides.hasOwnProperty('registry_starts_with_nocase') ? overrides.registry_starts_with_nocase! : 'impedit',
-        retirements_: overrides && overrides.hasOwnProperty('retirements_') ? overrides.retirements_! : aRetire_Filter(),
+        retirements_: overrides && overrides.hasOwnProperty('retirements_') ? overrides.retirements_! : relationshipsToOmit.has('Retire_Filter') ? {} as Retire_Filter : aRetire_Filter({}, relationshipsToOmit),
         standard: overrides && overrides.hasOwnProperty('standard') ? overrides.standard! : 'rerum',
         standard_contains: overrides && overrides.hasOwnProperty('standard_contains') ? overrides.standard_contains! : 'et',
         standard_contains_nocase: overrides && overrides.hasOwnProperty('standard_contains_nocase') ? overrides.standard_contains_nocase! : 'nesciunt',
@@ -868,22 +885,26 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>): 
     };
 };
 
-export const aCrosschainBridge = (overrides?: Partial<CrosschainBridge>): CrosschainBridge => {
+export const aCrosschainBridge = (overrides?: Partial<CrosschainBridge>, _relationshipsToOmit: Set<string> = new Set()): CrosschainBridge => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CrosschainBridge');
     return {
         bridger: overrides && overrides.hasOwnProperty('bridger') ? overrides.bridger! : 'distinctio',
         direction: overrides && overrides.hasOwnProperty('direction') ? overrides.direction! : BridgeDirection.Received,
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'aut eaque unde molestiae sequi reiciendis omnis',
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'velit',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'aperiam placeat modi minus quaerat hic itaque',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
         value: overrides && overrides.hasOwnProperty('value') ? overrides.value! : 'alias',
     };
 };
 
-export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Filter>): CrosschainBridge_Filter => {
+export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): CrosschainBridge_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('CrosschainBridge_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aCrosschainBridge_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('CrosschainBridge_Filter') ? {} as CrosschainBridge_Filter : aCrosschainBridge_Filter({}, relationshipsToOmit)],
         bridger: overrides && overrides.hasOwnProperty('bridger') ? overrides.bridger! : 'et',
         bridger_contains: overrides && overrides.hasOwnProperty('bridger_contains') ? overrides.bridger_contains! : 'voluptatem',
         bridger_contains_nocase: overrides && overrides.hasOwnProperty('bridger_contains_nocase') ? overrides.bridger_contains_nocase! : 'dolorum',
@@ -916,7 +937,7 @@ export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Fi
         id_lte: overrides && overrides.hasOwnProperty('id_lte') ? overrides.id_lte! : 'dolorem reprehenderit occaecati deleniti necessitatibus minus quis',
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'reiciendis consequuntur recusandae vel tempora ipsum quis',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['id vel dicta vel praesentium rem fuga'],
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aCrosschainBridge_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('CrosschainBridge_Filter') ? {} as CrosschainBridge_Filter : aCrosschainBridge_Filter({}, relationshipsToOmit)],
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'nam',
         pool_contains: overrides && overrides.hasOwnProperty('pool_contains') ? overrides.pool_contains! : 'et',
         pool_contains_nocase: overrides && overrides.hasOwnProperty('pool_contains_nocase') ? overrides.pool_contains_nocase! : 'maxime',
@@ -946,7 +967,7 @@ export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Fi
         timestamp_not: overrides && overrides.hasOwnProperty('timestamp_not') ? overrides.timestamp_not! : 'laboriosam aspernatur rerum mollitia incidunt repudiandae officiis',
         timestamp_not_in: overrides && overrides.hasOwnProperty('timestamp_not_in') ? overrides.timestamp_not_in! : ['accusamus saepe accusamus at omnis voluptas fuga'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'est',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'natus',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'similique',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'atque',
@@ -977,21 +998,25 @@ export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Fi
     };
 };
 
-export const aDailyKlimaRetirement = (overrides?: Partial<DailyKlimaRetirement>): DailyKlimaRetirement => {
+export const aDailyKlimaRetirement = (overrides?: Partial<DailyKlimaRetirement>, _relationshipsToOmit: Set<string> = new Set()): DailyKlimaRetirement => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('DailyKlimaRetirement');
     return {
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'recusandae',
         feeAmount: overrides && overrides.hasOwnProperty('feeAmount') ? overrides.feeAmount! : 'sint',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'aspernatur sunt est quo laboriosam adipisci perferendis',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'rerum',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'facilis repudiandae vero dicta amet sequi qui',
         token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : 'quia',
     };
 };
 
-export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetirement_Filter>): DailyKlimaRetirement_Filter => {
+export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetirement_Filter>, _relationshipsToOmit: Set<string> = new Set()): DailyKlimaRetirement_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('DailyKlimaRetirement_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'aperiam',
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : 'reprehenderit',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : 'odit',
@@ -1000,7 +1025,7 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
         amount_lte: overrides && overrides.hasOwnProperty('amount_lte') ? overrides.amount_lte! : 'asperiores',
         amount_not: overrides && overrides.hasOwnProperty('amount_not') ? overrides.amount_not! : 'ipsa',
         amount_not_in: overrides && overrides.hasOwnProperty('amount_not_in') ? overrides.amount_not_in! : ['reprehenderit'],
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aDailyKlimaRetirement_Filter()],
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('DailyKlimaRetirement_Filter') ? {} as DailyKlimaRetirement_Filter : aDailyKlimaRetirement_Filter({}, relationshipsToOmit)],
         feeAmount: overrides && overrides.hasOwnProperty('feeAmount') ? overrides.feeAmount! : 'et',
         feeAmount_gt: overrides && overrides.hasOwnProperty('feeAmount_gt') ? overrides.feeAmount_gt! : 'minus',
         feeAmount_gte: overrides && overrides.hasOwnProperty('feeAmount_gte') ? overrides.feeAmount_gte! : 'provident',
@@ -1018,7 +1043,7 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'in omnis quia eaque velit sit rem',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['et inventore esse et molestias cumque delectus'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'omnis',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'qui',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'quidem',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'voluptatem',
@@ -1038,7 +1063,7 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'optio',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'et',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'et',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aDailyKlimaRetirement_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('DailyKlimaRetirement_Filter') ? {} as DailyKlimaRetirement_Filter : aDailyKlimaRetirement_Filter({}, relationshipsToOmit)],
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'omnis',
         pool_contains: overrides && overrides.hasOwnProperty('pool_contains') ? overrides.pool_contains! : 'ea',
         pool_contains_nocase: overrides && overrides.hasOwnProperty('pool_contains_nocase') ? overrides.pool_contains_nocase! : 'optio',
@@ -1090,22 +1115,26 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
     };
 };
 
-export const aDeposit = (overrides?: Partial<Deposit>): Deposit => {
+export const aDeposit = (overrides?: Partial<Deposit>, _relationshipsToOmit: Set<string> = new Set()): Deposit => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Deposit');
     return {
         depositor: overrides && overrides.hasOwnProperty('depositor') ? overrides.depositor! : 'corrupti',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'accusamus qui numquam et non ut consequuntur',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'ea',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'quia maiores et sapiente molestiae nesciunt minima',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
         value: overrides && overrides.hasOwnProperty('value') ? overrides.value! : 'qui',
     };
 };
 
-export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>): Deposit_Filter => {
+export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>, _relationshipsToOmit: Set<string> = new Set()): Deposit_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Deposit_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aDeposit_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Deposit_Filter') ? {} as Deposit_Filter : aDeposit_Filter({}, relationshipsToOmit)],
         depositor: overrides && overrides.hasOwnProperty('depositor') ? overrides.depositor! : 'nihil',
         depositor_contains: overrides && overrides.hasOwnProperty('depositor_contains') ? overrides.depositor_contains! : 'nostrum',
         depositor_contains_nocase: overrides && overrides.hasOwnProperty('depositor_contains_nocase') ? overrides.depositor_contains_nocase! : 'ex',
@@ -1135,7 +1164,7 @@ export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>): Deposit_Fi
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'beatae sunt qui aut esse expedita omnis',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['ut nihil neque quo voluptas voluptatum quia'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'aut',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'voluptatum',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'cum',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'voluptatem',
@@ -1155,7 +1184,7 @@ export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>): Deposit_Fi
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'quisquam',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'saepe',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'reiciendis',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aDeposit_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Deposit_Filter') ? {} as Deposit_Filter : aDeposit_Filter({}, relationshipsToOmit)],
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'debitis',
         pool_contains: overrides && overrides.hasOwnProperty('pool_contains') ? overrides.pool_contains! : 'omnis',
         pool_contains_nocase: overrides && overrides.hasOwnProperty('pool_contains_nocase') ? overrides.pool_contains_nocase! : 'numquam',
@@ -1185,7 +1214,7 @@ export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>): Deposit_Fi
         timestamp_not: overrides && overrides.hasOwnProperty('timestamp_not') ? overrides.timestamp_not! : 'dignissimos voluptates et iure doloremque ut inventore',
         timestamp_not_in: overrides && overrides.hasOwnProperty('timestamp_not_in') ? overrides.timestamp_not_in! : ['omnis non recusandae debitis unde veritatis ratione'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'et',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'enim',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'illo',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'saepe',
@@ -1216,7 +1245,9 @@ export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>): Deposit_Fi
     };
 };
 
-export const aKlimaRetire = (overrides?: Partial<KlimaRetire>): KlimaRetire => {
+export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('KlimaRetire');
     return {
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'beatae',
         beneficiary: overrides && overrides.hasOwnProperty('beneficiary') ? overrides.beneficiary! : 'nihil',
@@ -1225,20 +1256,22 @@ export const aKlimaRetire = (overrides?: Partial<KlimaRetire>): KlimaRetire => {
         feeAmount: overrides && overrides.hasOwnProperty('feeAmount') ? overrides.feeAmount! : 'et',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'et amet tempora eaque omnis id nihil',
         index: overrides && overrides.hasOwnProperty('index') ? overrides.index! : 'voluptatem accusamus fugiat doloremque cupiditate ut reprehenderit',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'temporibus',
         retirementMessage: overrides && overrides.hasOwnProperty('retirementMessage') ? overrides.retirementMessage! : 'delectus',
         retiringAddress: overrides && overrides.hasOwnProperty('retiringAddress') ? overrides.retiringAddress! : 'est',
         specific: overrides && overrides.hasOwnProperty('specific') ? overrides.specific! : false,
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'iste perspiciatis quasi delectus voluptatibus accusamus assumenda',
         token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : 'architecto',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
     };
 };
 
-export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): KlimaRetire_Filter => {
+export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('KlimaRetire_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
         amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'dignissimos',
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : 'modi',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : 'sunt',
@@ -1247,7 +1280,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): Kl
         amount_lte: overrides && overrides.hasOwnProperty('amount_lte') ? overrides.amount_lte! : 'quis',
         amount_not: overrides && overrides.hasOwnProperty('amount_not') ? overrides.amount_not! : 'dolorum',
         amount_not_in: overrides && overrides.hasOwnProperty('amount_not_in') ? overrides.amount_not_in! : ['quos'],
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aKlimaRetire_Filter()],
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('KlimaRetire_Filter') ? {} as KlimaRetire_Filter : aKlimaRetire_Filter({}, relationshipsToOmit)],
         beneficiary: overrides && overrides.hasOwnProperty('beneficiary') ? overrides.beneficiary! : 'neque',
         beneficiaryAddress: overrides && overrides.hasOwnProperty('beneficiaryAddress') ? overrides.beneficiaryAddress! : 'maxime',
         beneficiaryAddress_contains: overrides && overrides.hasOwnProperty('beneficiaryAddress_contains') ? overrides.beneficiaryAddress_contains! : 'ullam',
@@ -1321,7 +1354,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): Kl
         index_not: overrides && overrides.hasOwnProperty('index_not') ? overrides.index_not! : 'temporibus dolorem commodi in est sit et',
         index_not_in: overrides && overrides.hasOwnProperty('index_not_in') ? overrides.index_not_in! : ['odio aut tenetur ipsa quod odit sunt'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'dolorum',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'dolor',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'et',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'officia',
@@ -1341,7 +1374,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): Kl
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'quia',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'odit',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'voluptatem',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aKlimaRetire_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('KlimaRetire_Filter') ? {} as KlimaRetire_Filter : aKlimaRetire_Filter({}, relationshipsToOmit)],
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'eveniet',
         pool_contains: overrides && overrides.hasOwnProperty('pool_contains') ? overrides.pool_contains! : 'quia',
         pool_contains_nocase: overrides && overrides.hasOwnProperty('pool_contains_nocase') ? overrides.pool_contains_nocase! : 'aut',
@@ -1435,7 +1468,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): Kl
         token_starts_with: overrides && overrides.hasOwnProperty('token_starts_with') ? overrides.token_starts_with! : 'sit',
         token_starts_with_nocase: overrides && overrides.hasOwnProperty('token_starts_with_nocase') ? overrides.token_starts_with_nocase! : 'sunt',
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'impedit',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'suscipit',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'aperiam',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'velit',
@@ -1458,51 +1491,57 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>): Kl
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>): Query => {
+export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Query');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : a_Meta_(),
-        bridge: overrides && overrides.hasOwnProperty('bridge') ? overrides.bridge! : aBridge(),
-        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [aBridge()],
-        carbonMetric: overrides && overrides.hasOwnProperty('carbonMetric') ? overrides.carbonMetric! : aCarbonMetric(),
-        carbonMetrics: overrides && overrides.hasOwnProperty('carbonMetrics') ? overrides.carbonMetrics! : [aCarbonMetric()],
-        carbonOffset: overrides && overrides.hasOwnProperty('carbonOffset') ? overrides.carbonOffset! : aCarbonOffset(),
-        carbonOffsetSearch: overrides && overrides.hasOwnProperty('carbonOffsetSearch') ? overrides.carbonOffsetSearch! : [aCarbonOffset()],
-        carbonOffsets: overrides && overrides.hasOwnProperty('carbonOffsets') ? overrides.carbonOffsets! : [aCarbonOffset()],
-        crosschainBridge: overrides && overrides.hasOwnProperty('crosschainBridge') ? overrides.crosschainBridge! : aCrosschainBridge(),
-        crosschainBridges: overrides && overrides.hasOwnProperty('crosschainBridges') ? overrides.crosschainBridges! : [aCrosschainBridge()],
-        dailyKlimaRetirement: overrides && overrides.hasOwnProperty('dailyKlimaRetirement') ? overrides.dailyKlimaRetirement! : aDailyKlimaRetirement(),
-        dailyKlimaRetirements: overrides && overrides.hasOwnProperty('dailyKlimaRetirements') ? overrides.dailyKlimaRetirements! : [aDailyKlimaRetirement()],
-        deposit: overrides && overrides.hasOwnProperty('deposit') ? overrides.deposit! : aDeposit(),
-        deposits: overrides && overrides.hasOwnProperty('deposits') ? overrides.deposits! : [aDeposit()],
-        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : aKlimaRetire(),
-        klimaRetires: overrides && overrides.hasOwnProperty('klimaRetires') ? overrides.klimaRetires! : [aKlimaRetire()],
-        redeem: overrides && overrides.hasOwnProperty('redeem') ? overrides.redeem! : aRedeem(),
-        redeems: overrides && overrides.hasOwnProperty('redeems') ? overrides.redeems! : [aRedeem()],
-        retire: overrides && overrides.hasOwnProperty('retire') ? overrides.retire! : aRetire(),
-        retires: overrides && overrides.hasOwnProperty('retires') ? overrides.retires! : [aRetire()],
-        toucanCertificate: overrides && overrides.hasOwnProperty('toucanCertificate') ? overrides.toucanCertificate! : aToucanCertificate(),
-        toucanCertificates: overrides && overrides.hasOwnProperty('toucanCertificates') ? overrides.toucanCertificates! : [aToucanCertificate()],
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
-        transactions: overrides && overrides.hasOwnProperty('transactions') ? overrides.transactions! : [aTransaction()],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
+        bridge: overrides && overrides.hasOwnProperty('bridge') ? overrides.bridge! : relationshipsToOmit.has('Bridge') ? {} as Bridge : aBridge({}, relationshipsToOmit),
+        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [relationshipsToOmit.has('Bridge') ? {} as Bridge : aBridge({}, relationshipsToOmit)],
+        carbonMetric: overrides && overrides.hasOwnProperty('carbonMetric') ? overrides.carbonMetric! : relationshipsToOmit.has('CarbonMetric') ? {} as CarbonMetric : aCarbonMetric({}, relationshipsToOmit),
+        carbonMetrics: overrides && overrides.hasOwnProperty('carbonMetrics') ? overrides.carbonMetrics! : [relationshipsToOmit.has('CarbonMetric') ? {} as CarbonMetric : aCarbonMetric({}, relationshipsToOmit)],
+        carbonOffset: overrides && overrides.hasOwnProperty('carbonOffset') ? overrides.carbonOffset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
+        carbonOffsetSearch: overrides && overrides.hasOwnProperty('carbonOffsetSearch') ? overrides.carbonOffsetSearch! : [relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit)],
+        carbonOffsets: overrides && overrides.hasOwnProperty('carbonOffsets') ? overrides.carbonOffsets! : [relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit)],
+        crosschainBridge: overrides && overrides.hasOwnProperty('crosschainBridge') ? overrides.crosschainBridge! : relationshipsToOmit.has('CrosschainBridge') ? {} as CrosschainBridge : aCrosschainBridge({}, relationshipsToOmit),
+        crosschainBridges: overrides && overrides.hasOwnProperty('crosschainBridges') ? overrides.crosschainBridges! : [relationshipsToOmit.has('CrosschainBridge') ? {} as CrosschainBridge : aCrosschainBridge({}, relationshipsToOmit)],
+        dailyKlimaRetirement: overrides && overrides.hasOwnProperty('dailyKlimaRetirement') ? overrides.dailyKlimaRetirement! : relationshipsToOmit.has('DailyKlimaRetirement') ? {} as DailyKlimaRetirement : aDailyKlimaRetirement({}, relationshipsToOmit),
+        dailyKlimaRetirements: overrides && overrides.hasOwnProperty('dailyKlimaRetirements') ? overrides.dailyKlimaRetirements! : [relationshipsToOmit.has('DailyKlimaRetirement') ? {} as DailyKlimaRetirement : aDailyKlimaRetirement({}, relationshipsToOmit)],
+        deposit: overrides && overrides.hasOwnProperty('deposit') ? overrides.deposit! : relationshipsToOmit.has('Deposit') ? {} as Deposit : aDeposit({}, relationshipsToOmit),
+        deposits: overrides && overrides.hasOwnProperty('deposits') ? overrides.deposits! : [relationshipsToOmit.has('Deposit') ? {} as Deposit : aDeposit({}, relationshipsToOmit)],
+        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : relationshipsToOmit.has('KlimaRetire') ? {} as KlimaRetire : aKlimaRetire({}, relationshipsToOmit),
+        klimaRetires: overrides && overrides.hasOwnProperty('klimaRetires') ? overrides.klimaRetires! : [relationshipsToOmit.has('KlimaRetire') ? {} as KlimaRetire : aKlimaRetire({}, relationshipsToOmit)],
+        redeem: overrides && overrides.hasOwnProperty('redeem') ? overrides.redeem! : relationshipsToOmit.has('Redeem') ? {} as Redeem : aRedeem({}, relationshipsToOmit),
+        redeems: overrides && overrides.hasOwnProperty('redeems') ? overrides.redeems! : [relationshipsToOmit.has('Redeem') ? {} as Redeem : aRedeem({}, relationshipsToOmit)],
+        retire: overrides && overrides.hasOwnProperty('retire') ? overrides.retire! : relationshipsToOmit.has('Retire') ? {} as Retire : aRetire({}, relationshipsToOmit),
+        retires: overrides && overrides.hasOwnProperty('retires') ? overrides.retires! : [relationshipsToOmit.has('Retire') ? {} as Retire : aRetire({}, relationshipsToOmit)],
+        toucanCertificate: overrides && overrides.hasOwnProperty('toucanCertificate') ? overrides.toucanCertificate! : relationshipsToOmit.has('ToucanCertificate') ? {} as ToucanCertificate : aToucanCertificate({}, relationshipsToOmit),
+        toucanCertificates: overrides && overrides.hasOwnProperty('toucanCertificates') ? overrides.toucanCertificates! : [relationshipsToOmit.has('ToucanCertificate') ? {} as ToucanCertificate : aToucanCertificate({}, relationshipsToOmit)],
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
+        transactions: overrides && overrides.hasOwnProperty('transactions') ? overrides.transactions! : [relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit)],
     };
 };
 
-export const aRedeem = (overrides?: Partial<Redeem>): Redeem => {
+export const aRedeem = (overrides?: Partial<Redeem>, _relationshipsToOmit: Set<string> = new Set()): Redeem => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Redeem');
     return {
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'dolor in vitae ducimus omnis nesciunt vel',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'est',
         redeemer: overrides && overrides.hasOwnProperty('redeemer') ? overrides.redeemer! : 'quod',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'laboriosam architecto culpa rem omnis sequi nihil',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
         value: overrides && overrides.hasOwnProperty('value') ? overrides.value! : 'quis',
     };
 };
 
-export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>): Redeem_Filter => {
+export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>, _relationshipsToOmit: Set<string> = new Set()): Redeem_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Redeem_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aRedeem_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Redeem_Filter') ? {} as Redeem_Filter : aRedeem_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'dolorem dolorem consequatur explicabo et esse est',
         id_gt: overrides && overrides.hasOwnProperty('id_gt') ? overrides.id_gt! : 'facere distinctio sunt consectetur labore ea rerum',
         id_gte: overrides && overrides.hasOwnProperty('id_gte') ? overrides.id_gte! : 'quam deleniti sint ea quisquam eligendi doloremque',
@@ -1512,7 +1551,7 @@ export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>): Redeem_Filte
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'molestiae atque cumque soluta autem aut rerum',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['molestiae autem eos nobis eaque temporibus rerum'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'nostrum',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'voluptatem',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'minima',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'et',
@@ -1532,7 +1571,7 @@ export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>): Redeem_Filte
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'dolores',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'libero',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'ullam',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aRedeem_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Redeem_Filter') ? {} as Redeem_Filter : aRedeem_Filter({}, relationshipsToOmit)],
         pool: overrides && overrides.hasOwnProperty('pool') ? overrides.pool! : 'est',
         pool_contains: overrides && overrides.hasOwnProperty('pool_contains') ? overrides.pool_contains! : 'aut',
         pool_contains_nocase: overrides && overrides.hasOwnProperty('pool_contains_nocase') ? overrides.pool_contains_nocase! : 'repellendus',
@@ -1582,7 +1621,7 @@ export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>): Redeem_Filte
         timestamp_not: overrides && overrides.hasOwnProperty('timestamp_not') ? overrides.timestamp_not! : 'praesentium repellat ipsam ut sequi eos velit',
         timestamp_not_in: overrides && overrides.hasOwnProperty('timestamp_not_in') ? overrides.timestamp_not_in! : ['eveniet qui molestiae eius et consequatur ipsa'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'quaerat',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'quam',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'quia',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'tempora',
@@ -1613,22 +1652,26 @@ export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>): Redeem_Filte
     };
 };
 
-export const aRetire = (overrides?: Partial<Retire>): Retire => {
+export const aRetire = (overrides?: Partial<Retire>, _relationshipsToOmit: Set<string> = new Set()): Retire => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Retire');
     return {
         beneficiary: overrides && overrides.hasOwnProperty('beneficiary') ? overrides.beneficiary! : 'reiciendis',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'id nihil est animi autem velit atque',
-        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : aCarbonOffset(),
+        offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
         retiree: overrides && overrides.hasOwnProperty('retiree') ? overrides.retiree! : 'molestiae',
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'quidem commodi et in nesciunt et aliquid',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
         value: overrides && overrides.hasOwnProperty('value') ? overrides.value! : 'libero',
     };
 };
 
-export const aRetire_Filter = (overrides?: Partial<Retire_Filter>): Retire_Filter => {
+export const aRetire_Filter = (overrides?: Partial<Retire_Filter>, _relationshipsToOmit: Set<string> = new Set()): Retire_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Retire_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aRetire_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Retire_Filter') ? {} as Retire_Filter : aRetire_Filter({}, relationshipsToOmit)],
         beneficiary: overrides && overrides.hasOwnProperty('beneficiary') ? overrides.beneficiary! : 'numquam',
         beneficiary_contains: overrides && overrides.hasOwnProperty('beneficiary_contains') ? overrides.beneficiary_contains! : 'odit',
         beneficiary_contains_nocase: overrides && overrides.hasOwnProperty('beneficiary_contains_nocase') ? overrides.beneficiary_contains_nocase! : 'voluptatem',
@@ -1658,7 +1701,7 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>): Retire_Filte
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'molestiae architecto est doloremque voluptatem repudiandae debitis',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['rerum iste sit distinctio officia est dolor'],
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : 'nam',
-        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : aCarbonOffset_Filter(),
+        offset_: overrides && overrides.hasOwnProperty('offset_') ? overrides.offset_! : relationshipsToOmit.has('CarbonOffset_Filter') ? {} as CarbonOffset_Filter : aCarbonOffset_Filter({}, relationshipsToOmit),
         offset_contains: overrides && overrides.hasOwnProperty('offset_contains') ? overrides.offset_contains! : 'ratione',
         offset_contains_nocase: overrides && overrides.hasOwnProperty('offset_contains_nocase') ? overrides.offset_contains_nocase! : 'esse',
         offset_ends_with: overrides && overrides.hasOwnProperty('offset_ends_with') ? overrides.offset_ends_with! : 'tempora',
@@ -1678,7 +1721,7 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>): Retire_Filte
         offset_not_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_not_starts_with_nocase') ? overrides.offset_not_starts_with_nocase! : 'consequuntur',
         offset_starts_with: overrides && overrides.hasOwnProperty('offset_starts_with') ? overrides.offset_starts_with! : 'facilis',
         offset_starts_with_nocase: overrides && overrides.hasOwnProperty('offset_starts_with_nocase') ? overrides.offset_starts_with_nocase! : 'sunt',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aRetire_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Retire_Filter') ? {} as Retire_Filter : aRetire_Filter({}, relationshipsToOmit)],
         retiree: overrides && overrides.hasOwnProperty('retiree') ? overrides.retiree! : 'vel',
         retiree_contains: overrides && overrides.hasOwnProperty('retiree_contains') ? overrides.retiree_contains! : 'dolorem',
         retiree_contains_nocase: overrides && overrides.hasOwnProperty('retiree_contains_nocase') ? overrides.retiree_contains_nocase! : 'quas',
@@ -1708,7 +1751,7 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>): Retire_Filte
         timestamp_not: overrides && overrides.hasOwnProperty('timestamp_not') ? overrides.timestamp_not! : 'ea adipisci culpa soluta nihil ut nihil',
         timestamp_not_in: overrides && overrides.hasOwnProperty('timestamp_not_in') ? overrides.timestamp_not_in! : ['iste perferendis aut dolorem a ea sed'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'quod',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'alias',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'laborum',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'non',
@@ -1739,48 +1782,54 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>): Retire_Filte
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>): Subscription => {
+export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Subscription');
     return {
-        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : a_Meta_(),
-        bridge: overrides && overrides.hasOwnProperty('bridge') ? overrides.bridge! : aBridge(),
-        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [aBridge()],
-        carbonMetric: overrides && overrides.hasOwnProperty('carbonMetric') ? overrides.carbonMetric! : aCarbonMetric(),
-        carbonMetrics: overrides && overrides.hasOwnProperty('carbonMetrics') ? overrides.carbonMetrics! : [aCarbonMetric()],
-        carbonOffset: overrides && overrides.hasOwnProperty('carbonOffset') ? overrides.carbonOffset! : aCarbonOffset(),
-        carbonOffsets: overrides && overrides.hasOwnProperty('carbonOffsets') ? overrides.carbonOffsets! : [aCarbonOffset()],
-        crosschainBridge: overrides && overrides.hasOwnProperty('crosschainBridge') ? overrides.crosschainBridge! : aCrosschainBridge(),
-        crosschainBridges: overrides && overrides.hasOwnProperty('crosschainBridges') ? overrides.crosschainBridges! : [aCrosschainBridge()],
-        dailyKlimaRetirement: overrides && overrides.hasOwnProperty('dailyKlimaRetirement') ? overrides.dailyKlimaRetirement! : aDailyKlimaRetirement(),
-        dailyKlimaRetirements: overrides && overrides.hasOwnProperty('dailyKlimaRetirements') ? overrides.dailyKlimaRetirements! : [aDailyKlimaRetirement()],
-        deposit: overrides && overrides.hasOwnProperty('deposit') ? overrides.deposit! : aDeposit(),
-        deposits: overrides && overrides.hasOwnProperty('deposits') ? overrides.deposits! : [aDeposit()],
-        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : aKlimaRetire(),
-        klimaRetires: overrides && overrides.hasOwnProperty('klimaRetires') ? overrides.klimaRetires! : [aKlimaRetire()],
-        redeem: overrides && overrides.hasOwnProperty('redeem') ? overrides.redeem! : aRedeem(),
-        redeems: overrides && overrides.hasOwnProperty('redeems') ? overrides.redeems! : [aRedeem()],
-        retire: overrides && overrides.hasOwnProperty('retire') ? overrides.retire! : aRetire(),
-        retires: overrides && overrides.hasOwnProperty('retires') ? overrides.retires! : [aRetire()],
-        toucanCertificate: overrides && overrides.hasOwnProperty('toucanCertificate') ? overrides.toucanCertificate! : aToucanCertificate(),
-        toucanCertificates: overrides && overrides.hasOwnProperty('toucanCertificates') ? overrides.toucanCertificates! : [aToucanCertificate()],
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
-        transactions: overrides && overrides.hasOwnProperty('transactions') ? overrides.transactions! : [aTransaction()],
+        _meta: overrides && overrides.hasOwnProperty('_meta') ? overrides._meta! : relationshipsToOmit.has('_Meta_') ? {} as _Meta_ : a_Meta_({}, relationshipsToOmit),
+        bridge: overrides && overrides.hasOwnProperty('bridge') ? overrides.bridge! : relationshipsToOmit.has('Bridge') ? {} as Bridge : aBridge({}, relationshipsToOmit),
+        bridges: overrides && overrides.hasOwnProperty('bridges') ? overrides.bridges! : [relationshipsToOmit.has('Bridge') ? {} as Bridge : aBridge({}, relationshipsToOmit)],
+        carbonMetric: overrides && overrides.hasOwnProperty('carbonMetric') ? overrides.carbonMetric! : relationshipsToOmit.has('CarbonMetric') ? {} as CarbonMetric : aCarbonMetric({}, relationshipsToOmit),
+        carbonMetrics: overrides && overrides.hasOwnProperty('carbonMetrics') ? overrides.carbonMetrics! : [relationshipsToOmit.has('CarbonMetric') ? {} as CarbonMetric : aCarbonMetric({}, relationshipsToOmit)],
+        carbonOffset: overrides && overrides.hasOwnProperty('carbonOffset') ? overrides.carbonOffset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
+        carbonOffsets: overrides && overrides.hasOwnProperty('carbonOffsets') ? overrides.carbonOffsets! : [relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit)],
+        crosschainBridge: overrides && overrides.hasOwnProperty('crosschainBridge') ? overrides.crosschainBridge! : relationshipsToOmit.has('CrosschainBridge') ? {} as CrosschainBridge : aCrosschainBridge({}, relationshipsToOmit),
+        crosschainBridges: overrides && overrides.hasOwnProperty('crosschainBridges') ? overrides.crosschainBridges! : [relationshipsToOmit.has('CrosschainBridge') ? {} as CrosschainBridge : aCrosschainBridge({}, relationshipsToOmit)],
+        dailyKlimaRetirement: overrides && overrides.hasOwnProperty('dailyKlimaRetirement') ? overrides.dailyKlimaRetirement! : relationshipsToOmit.has('DailyKlimaRetirement') ? {} as DailyKlimaRetirement : aDailyKlimaRetirement({}, relationshipsToOmit),
+        dailyKlimaRetirements: overrides && overrides.hasOwnProperty('dailyKlimaRetirements') ? overrides.dailyKlimaRetirements! : [relationshipsToOmit.has('DailyKlimaRetirement') ? {} as DailyKlimaRetirement : aDailyKlimaRetirement({}, relationshipsToOmit)],
+        deposit: overrides && overrides.hasOwnProperty('deposit') ? overrides.deposit! : relationshipsToOmit.has('Deposit') ? {} as Deposit : aDeposit({}, relationshipsToOmit),
+        deposits: overrides && overrides.hasOwnProperty('deposits') ? overrides.deposits! : [relationshipsToOmit.has('Deposit') ? {} as Deposit : aDeposit({}, relationshipsToOmit)],
+        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : relationshipsToOmit.has('KlimaRetire') ? {} as KlimaRetire : aKlimaRetire({}, relationshipsToOmit),
+        klimaRetires: overrides && overrides.hasOwnProperty('klimaRetires') ? overrides.klimaRetires! : [relationshipsToOmit.has('KlimaRetire') ? {} as KlimaRetire : aKlimaRetire({}, relationshipsToOmit)],
+        redeem: overrides && overrides.hasOwnProperty('redeem') ? overrides.redeem! : relationshipsToOmit.has('Redeem') ? {} as Redeem : aRedeem({}, relationshipsToOmit),
+        redeems: overrides && overrides.hasOwnProperty('redeems') ? overrides.redeems! : [relationshipsToOmit.has('Redeem') ? {} as Redeem : aRedeem({}, relationshipsToOmit)],
+        retire: overrides && overrides.hasOwnProperty('retire') ? overrides.retire! : relationshipsToOmit.has('Retire') ? {} as Retire : aRetire({}, relationshipsToOmit),
+        retires: overrides && overrides.hasOwnProperty('retires') ? overrides.retires! : [relationshipsToOmit.has('Retire') ? {} as Retire : aRetire({}, relationshipsToOmit)],
+        toucanCertificate: overrides && overrides.hasOwnProperty('toucanCertificate') ? overrides.toucanCertificate! : relationshipsToOmit.has('ToucanCertificate') ? {} as ToucanCertificate : aToucanCertificate({}, relationshipsToOmit),
+        toucanCertificates: overrides && overrides.hasOwnProperty('toucanCertificates') ? overrides.toucanCertificates! : [relationshipsToOmit.has('ToucanCertificate') ? {} as ToucanCertificate : aToucanCertificate({}, relationshipsToOmit)],
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
+        transactions: overrides && overrides.hasOwnProperty('transactions') ? overrides.transactions! : [relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit)],
     };
 };
 
-export const aToucanCertificate = (overrides?: Partial<ToucanCertificate>): ToucanCertificate => {
+export const aToucanCertificate = (overrides?: Partial<ToucanCertificate>, _relationshipsToOmit: Set<string> = new Set()): ToucanCertificate => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ToucanCertificate');
     return {
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'ut quia aut reprehenderit mollitia incidunt suscipit',
-        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : aKlimaRetire(),
+        klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : relationshipsToOmit.has('KlimaRetire') ? {} as KlimaRetire : aKlimaRetire({}, relationshipsToOmit),
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'voluptates aut voluptas sed sit illum esse',
         tokenID: overrides && overrides.hasOwnProperty('tokenID') ? overrides.tokenID! : 'quis corrupti delectus natus harum nihil velit',
-        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : aTransaction(),
+        transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : relationshipsToOmit.has('Transaction') ? {} as Transaction : aTransaction({}, relationshipsToOmit),
     };
 };
 
-export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_Filter>): ToucanCertificate_Filter => {
+export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_Filter>, _relationshipsToOmit: Set<string> = new Set()): ToucanCertificate_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('ToucanCertificate_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aToucanCertificate_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('ToucanCertificate_Filter') ? {} as ToucanCertificate_Filter : aToucanCertificate_Filter({}, relationshipsToOmit)],
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'quia ipsum quisquam praesentium ut modi aut',
         id_gt: overrides && overrides.hasOwnProperty('id_gt') ? overrides.id_gt! : 'sint atque repellat dolorum sapiente eveniet aperiam',
         id_gte: overrides && overrides.hasOwnProperty('id_gte') ? overrides.id_gte! : 'rerum velit ut voluptatem libero dignissimos tempore',
@@ -1790,7 +1839,7 @@ export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'doloremque corrupti error sequi et rem id',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['aut cumque sed fugit debitis soluta minima'],
         klimaRetire: overrides && overrides.hasOwnProperty('klimaRetire') ? overrides.klimaRetire! : 'et',
-        klimaRetire_: overrides && overrides.hasOwnProperty('klimaRetire_') ? overrides.klimaRetire_! : aKlimaRetire_Filter(),
+        klimaRetire_: overrides && overrides.hasOwnProperty('klimaRetire_') ? overrides.klimaRetire_! : relationshipsToOmit.has('KlimaRetire_Filter') ? {} as KlimaRetire_Filter : aKlimaRetire_Filter({}, relationshipsToOmit),
         klimaRetire_contains: overrides && overrides.hasOwnProperty('klimaRetire_contains') ? overrides.klimaRetire_contains! : 'et',
         klimaRetire_contains_nocase: overrides && overrides.hasOwnProperty('klimaRetire_contains_nocase') ? overrides.klimaRetire_contains_nocase! : 'occaecati',
         klimaRetire_ends_with: overrides && overrides.hasOwnProperty('klimaRetire_ends_with') ? overrides.klimaRetire_ends_with! : 'aliquid',
@@ -1810,7 +1859,7 @@ export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_
         klimaRetire_not_starts_with_nocase: overrides && overrides.hasOwnProperty('klimaRetire_not_starts_with_nocase') ? overrides.klimaRetire_not_starts_with_nocase! : 'enim',
         klimaRetire_starts_with: overrides && overrides.hasOwnProperty('klimaRetire_starts_with') ? overrides.klimaRetire_starts_with! : 'molestiae',
         klimaRetire_starts_with_nocase: overrides && overrides.hasOwnProperty('klimaRetire_starts_with_nocase') ? overrides.klimaRetire_starts_with_nocase! : 'neque',
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aToucanCertificate_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('ToucanCertificate_Filter') ? {} as ToucanCertificate_Filter : aToucanCertificate_Filter({}, relationshipsToOmit)],
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'id deserunt earum quae occaecati quia qui',
         timestamp_gt: overrides && overrides.hasOwnProperty('timestamp_gt') ? overrides.timestamp_gt! : 'nesciunt est voluptatem rerum incidunt fuga quia',
         timestamp_gte: overrides && overrides.hasOwnProperty('timestamp_gte') ? overrides.timestamp_gte! : 'optio quos sit dolore quaerat earum qui',
@@ -1828,7 +1877,7 @@ export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_
         tokenID_not: overrides && overrides.hasOwnProperty('tokenID_not') ? overrides.tokenID_not! : 'mollitia ut explicabo eos consectetur et quidem',
         tokenID_not_in: overrides && overrides.hasOwnProperty('tokenID_not_in') ? overrides.tokenID_not_in! : ['quas odit est reiciendis id voluptate doloribus'],
         transaction: overrides && overrides.hasOwnProperty('transaction') ? overrides.transaction! : 'quia',
-        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : aTransaction_Filter(),
+        transaction_: overrides && overrides.hasOwnProperty('transaction_') ? overrides.transaction_! : relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit),
         transaction_contains: overrides && overrides.hasOwnProperty('transaction_contains') ? overrides.transaction_contains! : 'unde',
         transaction_contains_nocase: overrides && overrides.hasOwnProperty('transaction_contains_nocase') ? overrides.transaction_contains_nocase! : 'unde',
         transaction_ends_with: overrides && overrides.hasOwnProperty('transaction_ends_with') ? overrides.transaction_ends_with! : 'minima',
@@ -1851,7 +1900,9 @@ export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_
     };
 };
 
-export const aTransaction = (overrides?: Partial<Transaction>): Transaction => {
+export const aTransaction = (overrides?: Partial<Transaction>, _relationshipsToOmit: Set<string> = new Set()): Transaction => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Transaction');
     return {
         blockHash: overrides && overrides.hasOwnProperty('blockHash') ? overrides.blockHash! : 'assumenda',
         blockNumber: overrides && overrides.hasOwnProperty('blockNumber') ? overrides.blockNumber! : 'illum ut ut laudantium repudiandae quo ut',
@@ -1864,10 +1915,12 @@ export const aTransaction = (overrides?: Partial<Transaction>): Transaction => {
     };
 };
 
-export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>): Transaction_Filter => {
+export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>, _relationshipsToOmit: Set<string> = new Set()): Transaction_Filter => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('Transaction_Filter');
     return {
-        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : aBlockChangedFilter(),
-        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [aTransaction_Filter()],
+        _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
+        and: overrides && overrides.hasOwnProperty('and') ? overrides.and! : [relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit)],
         blockHash: overrides && overrides.hasOwnProperty('blockHash') ? overrides.blockHash! : 'sed',
         blockHash_contains: overrides && overrides.hasOwnProperty('blockHash_contains') ? overrides.blockHash_contains! : 'doloribus',
         blockHash_gt: overrides && overrides.hasOwnProperty('blockHash_gt') ? overrides.blockHash_gt! : 'sint',
@@ -1912,7 +1965,7 @@ export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>): Tr
         id_lte: overrides && overrides.hasOwnProperty('id_lte') ? overrides.id_lte! : 'illo aperiam autem quidem omnis reiciendis rerum',
         id_not: overrides && overrides.hasOwnProperty('id_not') ? overrides.id_not! : 'voluptatibus cumque omnis vel repellendus delectus ut',
         id_not_in: overrides && overrides.hasOwnProperty('id_not_in') ? overrides.id_not_in! : ['aliquid facilis cumque iusto voluptatem non a'],
-        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [aTransaction_Filter()],
+        or: overrides && overrides.hasOwnProperty('or') ? overrides.or! : [relationshipsToOmit.has('Transaction_Filter') ? {} as Transaction_Filter : aTransaction_Filter({}, relationshipsToOmit)],
         timestamp: overrides && overrides.hasOwnProperty('timestamp') ? overrides.timestamp! : 'qui itaque asperiores quibusdam similique consectetur error',
         timestamp_gt: overrides && overrides.hasOwnProperty('timestamp_gt') ? overrides.timestamp_gt! : 'sit voluptatibus nemo magni nihil quos a',
         timestamp_gte: overrides && overrides.hasOwnProperty('timestamp_gte') ? overrides.timestamp_gte! : 'unde quaerat quia consectetur aut omnis eum',
@@ -1942,7 +1995,9 @@ export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>): Tr
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>): _Block_ => {
+export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('_Block_');
     return {
         hash: overrides && overrides.hasOwnProperty('hash') ? overrides.hash! : 'ex',
         number: overrides && overrides.hasOwnProperty('number') ? overrides.number! : 1599,
@@ -1950,9 +2005,11 @@ export const a_Block_ = (overrides?: Partial<_Block_>): _Block_ => {
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>): _Meta_ => {
+export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+    const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
+    relationshipsToOmit.add('_Meta_');
     return {
-        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : a_Block_(),
+        block: overrides && overrides.hasOwnProperty('block') ? overrides.block! : relationshipsToOmit.has('_Block_') ? {} as _Block_ : a_Block_({}, relationshipsToOmit),
         deployment: overrides && overrides.hasOwnProperty('deployment') ? overrides.deployment! : 'ut',
         hasIndexingErrors: overrides && overrides.hasOwnProperty('hasIndexingErrors') ? overrides.hasIndexingErrors! : false,
     };

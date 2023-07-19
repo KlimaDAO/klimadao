@@ -1,4 +1,3 @@
-import type { CodegenConfig } from "@graphql-codegen/cli";
 import { GRAPH_URLS } from "../constants/graphs.constants";
 
 const GENERATED_DIR = "src/.generated/types";
@@ -14,7 +13,7 @@ const plugins = [
 const schema = GRAPH_URLS;
 
 // Generate configuration for each schema entry
-const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
+const generates = Object.entries(schema).reduce(
   (acc, [key, schema]) => ({
     ...acc,
     [`${GENERATED_DIR}/${key}.types.ts`]: {
@@ -29,10 +28,17 @@ const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
       schema,
       plugins: [
         {
+          add: {
+            //We need to disable ts for generated mocks
+            content: "//@ts-nocheck",
+          },
+        },
+        {
           "typescript-mock-data": {
-            typesFile: `${GENERATED_DIR}/${key}.types.ts`,
+            typesFile: `../types/${key}.types.ts`,
             typeNames: "change-case-all#pascalCase",
             transformUnderscore: false,
+            terminateCircularRelationships: true,
           },
         },
       ],
@@ -41,7 +47,7 @@ const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
   {}
 );
 
-const config: CodegenConfig = {
+const config = {
   overwrite: true,
   generates,
   config: {
