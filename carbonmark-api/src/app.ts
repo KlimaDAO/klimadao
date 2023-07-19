@@ -4,7 +4,7 @@ import { FastifyPluginAsync } from "fastify";
 import { join } from "path";
 
 // This is not pretty but we need to reference the env file at the root of the monorepo
-const result = dotenv.config({ path: "../.env.local" });
+const result = dotenv.config({ path: join(process.cwd(), ".env.local") });
 
 if (result.error) {
   console.error("Error loading .env file", result.error);
@@ -31,6 +31,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
 
   // This loads all plugins defined in routes
   // define your routes in one of these
+
   void (await fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
     options: { ...opts, prefix: "/api" },
