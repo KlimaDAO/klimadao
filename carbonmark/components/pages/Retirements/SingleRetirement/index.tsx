@@ -52,7 +52,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
       // check if its available yet
       const result = await queryKlimaRetireByIndex(
         props.beneficiaryAddress,
-        parseInt(props.retirementIndex)
+        Number(props.retirementIndex) - 1 // totals does not include index 0
       );
       if (result) {
         return window.location.reload();
