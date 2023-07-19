@@ -1,10 +1,10 @@
-import { Anchor, CopyAddressButton } from "@klimadao/lib/components";
+import { ViewWalletButton } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
-import { WalletProvider, concatAddress } from "@klimadao/lib/utils";
+import { concatAddress, isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
-import LaunchIcon from "@mui/icons-material/Launch";
+import { CopyAddressButton } from "components/CopyAddressButton";
 import { Text } from "components/Text";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import * as styles from "./styles";
 
 interface AddressSectionProps {
@@ -12,10 +12,8 @@ interface AddressSectionProps {
   address?: string;
 }
 export const AddressSection: FC<AddressSectionProps> = (props) => {
-  const [isTorusWallet, setIsTorusWallet] = useState(false)
-  useEffect(() => {
-    setIsTorusWallet(localStorage.getItem("web3-wallet") == WalletProvider.TORUS);
-  }, [])
+  const web3 = useWeb3();
+  const isTorus = isTorusProvider(web3?.provider?.provider);
 
   return (
     <div className={styles.address}>
@@ -27,25 +25,16 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
           <Trans>Not Connected</Trans>
         </Text>
       )}
-      {true /* props.address */ && (
-        <div>
+      {props.address &&
+        (isTorus ? (
+          <ViewWalletButton address={props.address} />
+        ) : (
           <CopyAddressButton
-            label={concatAddress(props.address || "0x123456789")}
+            label={concatAddress(props.address)}
             address={props.address}
             className="copyButton"
           />
-          {true /* isTorusWallet */ && (
-            <Anchor
-              className={styles.iconAndText}
-              href={`https://polygon.tor.us/`}
-            >
-              <Text className={styles.externalLink} t="body2" uppercase>
-                View <LaunchIcon />
-              </Text>
-            </Anchor>
-          )}
-        </div>
-      )}
+        ))}
       {props.domain && (
         <Text t="body1" color="lightest" className="domain">
           {props.domain.name}
