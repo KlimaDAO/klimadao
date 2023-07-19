@@ -20,7 +20,7 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
       <Text t="body1">
         <Trans>Your Wallet Address:</Trans>
       </Text>
-      {false && (
+      {!props.address && (
         <Text t="body1" color="lightest" uppercase>
           <Trans>Not Connected</Trans>
         </Text>
