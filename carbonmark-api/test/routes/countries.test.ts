@@ -52,7 +52,7 @@ describe("GET /countries", () => {
       url: `${DEV_URL}/countries`,
     });
 
-    expect(response.body).toContain("User not found");
+    expect(response.body).toContain("Graph error occurred");
     expect(response.statusCode).toEqual(502);
   });
 

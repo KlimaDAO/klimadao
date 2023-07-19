@@ -1,7 +1,7 @@
 export const ERROR = {
-  message: "User not found",
+  message: "Graph error occurred",
   locations: [{ line: 6, column: 7 }],
-  path: ["user", 1],
+  path: ["graph", 1],
 };
 
 export const CATEGORIES = [

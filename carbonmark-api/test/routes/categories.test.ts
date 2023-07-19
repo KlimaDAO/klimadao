@@ -21,23 +21,6 @@ describe("GET /categories", () => {
       .reply(200, { data: { carbonOffsets: [] } })
   );
 
-  /** An issue with one of the graph APIs */
-  test("Graph Error", async () => {
-    nock(GRAPH_URLS.marketplace)
-      .post("")
-      .reply(200, {
-        errors: [ERROR],
-      });
-
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/categories`,
-    });
-
-    expect(response.body).toContain("User not found");
-    expect(response.statusCode).toEqual(502);
-  });
-
   /** The happy path */
   test("Success", async () => {
     nock(GRAPH_URLS.marketplace)
@@ -53,6 +36,23 @@ describe("GET /categories", () => {
 
     expect(response.statusCode).toEqual(200);
     expect(data).toEqual(CATEGORIES);
+  });
+
+  /** An issue with one of the graph APIs */
+  test("Graph Error", async () => {
+    nock(GRAPH_URLS.marketplace)
+      .post("")
+      .reply(200, {
+        errors: [ERROR],
+      });
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/categories`,
+    });
+
+    expect(response.body).toContain("Graph error occurred");
+    expect(response.statusCode).toEqual(502);
   });
 
   test("Empty data", async () => {
