@@ -16,7 +16,7 @@ export const ViewWalletButton: FC<Props> = (props) => {
 
   return (
     <div className={className}>
-      <span className={}>{concatAddress(props.address)}</span>
+      <span>{concatAddress(props.address)}</span>
       <ButtonPrimary
         href="https://polygon.tor.us/"
         target="_blank"
@@ -25,7 +25,7 @@ export const ViewWalletButton: FC<Props> = (props) => {
         variant="transparent"
         className={styles.viewButton}
         icon={<Launch />}
-        iconPos={"suffix"}
+        iconPos="suffix"
       ></ButtonPrimary>
     </div>
   );
