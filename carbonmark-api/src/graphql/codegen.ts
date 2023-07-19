@@ -1,7 +1,8 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
-import { GRAPH_URLS } from "src/constants/graphs.constants";
+import { GRAPH_URLS } from "../constants/graphs.constants";
 
 const GENERATED_DIR = "src/.generated/types";
+const GENERATED_MOCKS_DIR = "src/.generated/mocks";
 const DOCUMENTS_DIR = "src/graphql";
 
 const plugins = [
@@ -23,6 +24,18 @@ const generates = Object.entries(schema).reduce<CodegenConfig["generates"]>(
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
       plugins,
+    },
+    [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
+      schema,
+      plugins: [
+        {
+          "typescript-mock-data": {
+            typesFile: `${GENERATED_DIR}/${key}.types.ts`,
+            typeNames: "change-case-all#pascalCase",
+            transformUnderscore: false,
+          },
+        },
+      ],
     },
   }),
   {}
