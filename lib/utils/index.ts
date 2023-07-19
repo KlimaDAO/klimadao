@@ -1,5 +1,4 @@
 export { concatAddress } from "./concatAddress";
-export { WalletProvider } from "./walletProvider";
 // ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
@@ -8,13 +7,13 @@ export { formatUnits } from "./formatUnits";
 export {
   getAllowance,
   getSpenderAddress,
-  getTokensFromSpender
+  getTokensFromSpender,
 } from "./getAllowance";
 export { getContract } from "./getContract";
 export {
   defaultProjects,
   getPoolNameFromAddress,
-  isDefaultProjectAddress
+  isDefaultProjectAddress,
 } from "./getDefaultProjects";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { getImageSizes } from "./getImageSizes";
@@ -26,7 +25,7 @@ export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
 export {
   createRetirementStorageContract,
-  getRetirementTotalsAndBalances
+  getRetirementTotalsAndBalances,
 } from "./getRetirement";
 export { getRetirementDetails } from "./getRetirementDetails";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
@@ -37,12 +36,12 @@ export { getTotalCarbonRetired } from "./getTotalCarbonRetired";
 export { getTotalPoolRetired } from "./getTotalPoolRetired";
 export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
-export { isTorusProvider } from "./useProvider";
 // KNS
 export {
-  KNSContract, getAddressByKNS,
+  getAddressByKNS,
   getKNSProfile,
-  isKNSDomain
+  isKNSDomain,
+  KNSContract,
 } from "./kns";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";
@@ -51,14 +50,14 @@ export { safeSub } from "./safeSub";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export {
   queryKlimaRetireByIndex,
-  queryKlimaRetiresByAddress
+  queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { trimWithLocale } from "./trimWithLocale";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
+export { isTorusProvider } from "./useProvider";
 export { useScrollLock } from "./useScrollLock";
 export { useTabListener } from "./useTabListener";
 export { useWeb3 } from "./useWeb3";
-

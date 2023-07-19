@@ -6,13 +6,12 @@ import {
   TorusProvider,
   TypedProvider,
   WalletConnectProvider,
+  web3InitialState,
   Web3ModalState,
   Web3State,
   WrappedProvider,
-  web3InitialState,
 } from "../../components/Web3Context/types";
 import { urls } from "../../constants";
-import { WalletProvider } from "../walletProvider";
 
 /** Type guards for convenience and readability */
 export const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
@@ -64,7 +63,7 @@ export const useProvider = (): Web3ModalState => {
         provider = getWeb3Provider(window.ethereum);
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        localStorage.setItem("web3-wallet", WalletProvider.INJECTED);
+        localStorage.setItem("web3-wallet", "injected");
       } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
         const { CoinbaseWalletSDK } = await import("@coinbase/wallet-sdk");
         const coinbaseWallet = new CoinbaseWalletSDK({
@@ -76,7 +75,7 @@ export const useProvider = (): Web3ModalState => {
         );
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        localStorage.setItem("web3-wallet", WalletProvider.COINBASE);
+        localStorage.setItem("web3-wallet", "coinbase");
 
         /** HANDLE WALLETCONNECT */
       } else if (
@@ -93,7 +92,7 @@ export const useProvider = (): Web3ModalState => {
         });
         await walletConnectProvider.enable();
         provider = getWeb3Provider(walletConnectProvider);
-        localStorage.setItem("web3-wallet", WalletProvider.WALLET_CONNECT);
+        localStorage.setItem("web3-wallet", "walletConnect");
 
         /** HANDLE TORUS */
       } else if (wallet === "torus" || connectedWallet === "torus") {
@@ -116,7 +115,7 @@ export const useProvider = (): Web3ModalState => {
         await torus.login();
         provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
-        localStorage.setItem("web3-wallet", WalletProvider.TORUS);
+        localStorage.setItem("web3-wallet", "torus");
       } else {
         throw new Error("Error connecting");
       }
