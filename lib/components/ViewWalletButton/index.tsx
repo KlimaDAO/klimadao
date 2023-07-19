@@ -26,7 +26,6 @@ export const ViewWalletButton: FC<Props> = (props) => {
         className={styles.viewButton}
         icon={<Launch />}
         iconPos={"suffix"}
-        onClick={}
       ></ButtonPrimary>
     </div>
   );
