@@ -1,16 +1,12 @@
-import Fastify from "fastify";
-import fp from "fastify-plugin";
+import Fastify, { FastifyInstance } from "fastify";
+import nock from "nock";
 import app from "../src/app";
 
-export function build() {
-  const fastify = Fastify();
-
-  beforeEach(async () => {
-    void fastify.register(fp(app));
-    await fastify.ready();
-  });
-
-  afterEach(() => fastify.close());
-
+export async function build() {
+  let fastify: FastifyInstance = Fastify();
+  await fastify.register(app);
+  await fastify.ready();
+  nock.cleanAll();
+  nock.disableNetConnect();
   return fastify;
 }

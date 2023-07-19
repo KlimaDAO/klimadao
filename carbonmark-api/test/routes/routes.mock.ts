@@ -15,3 +15,15 @@ export const CATEGORIES = [
     id: "A Random Category",
   },
 ];
+
+export const COUNTRIES = [
+  {
+    id: "Canada",
+  },
+  {
+    id: "Mozambique",
+  },
+  {
+    id: "A Random Country",
+  },
+];

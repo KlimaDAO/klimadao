@@ -3,23 +3,41 @@ import nock from "nock";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
-import { CATEGORIES, ERROR } from "./routes.mock";
+import { COUNTRIES, ERROR } from "./routes.mock";
 
-describe("GET /categories", () => {
+describe("GET /countries", () => {
   let fastify: FastifyInstance;
 
   // Setup the server
   afterEach(async () => await fastify.close());
   beforeEach(async () => {
     fastify = await build();
+    nock.cleanAll();
   });
 
   /** A default response for offsets */
   beforeEach(() =>
     nock(GRAPH_URLS.offsets)
       .post("")
-      .reply(200, { data: { carbonOffsets: [] } })
+      .reply(200, { data: { carbonOffsets: COUNTRIES } })
   );
+
+  /** The happy path */
+  test("Success", async () => {
+    nock(GRAPH_URLS.marketplace)
+      .post("")
+      .reply(200, { data: { countries: COUNTRIES } });
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/countries`,
+    });
+
+    const data = await response.json();
+
+    expect(response.statusCode).toEqual(200);
+    expect(data).toEqual(COUNTRIES);
+  });
 
   /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
@@ -31,38 +49,21 @@ describe("GET /categories", () => {
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/categories`,
+      url: `${DEV_URL}/countries`,
     });
 
     expect(response.body).toContain("User not found");
     expect(response.statusCode).toEqual(502);
   });
 
-  /** The happy path */
-  test("Success", async () => {
-    nock(GRAPH_URLS.marketplace)
-      .post("")
-      .reply(200, { data: { categories: CATEGORIES } });
-
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/categories`,
-    });
-
-    const data = await response.json();
-
-    expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(CATEGORIES);
-  });
-
   test("Empty data", async () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { categories: [] } });
+      .reply(200, { data: { countries: [] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/categories`,
+      url: `${DEV_URL}/countries`,
     });
 
     expect(response.statusCode).toBe(200);
@@ -77,7 +78,7 @@ describe("GET /categories", () => {
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/categories`,
+      url: `${DEV_URL}/countries`,
     });
 
     expect(response.statusCode).toEqual(502);

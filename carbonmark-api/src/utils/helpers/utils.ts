@@ -79,7 +79,7 @@ export async function getAllCategories(fastify: FastifyInstance) {
     map(trim),
     uniq,
     compact,
-    map((id: Country) => ({ id }))
+    map((id: Category) => ({ id }))
   );
 
   // Apply the function pipeline to the extracted values
@@ -106,15 +106,19 @@ export async function getAllCountries(fastify: FastifyInstance) {
     gqlSdk.offsets.getCarbonOffsetsCountries(),
   ]);
 
+  /** Handle invalid responses */
+  if (!isArray(countries) || !isArray(carbonOffsets)) {
+    throw new Error("Response from server did not match schema definition");
+  }
+
   const fn = pipe(
     concat,
     flatten,
     uniq,
     filter(notNil),
-    map((id) => ({ id }))
+    map((id: Country) => ({ id }))
   );
 
-  //@ts-ignore -- @todo provide typing to lodash functions
   const result: Country[] = fn([
     countries?.map(extract("id")),
     carbonOffsets.map(extract("country")),
