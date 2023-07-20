@@ -39,16 +39,17 @@ const getSwapFee = (costs: number, pool: Price["poolName"]) => {
 
 export const FeesBreakdownPool: FC<Props> = (props) => {
   const showFees = settings.SHOW_FEES;
+
+  const { locale } = useRouter();
+  const [feesFactor, setFeesFactor] = useState(0);
+  const [isToggled, setIsToggled] = useState(false);
+
   const poolName = props.price.poolName;
   const isPoolDefault = props.price.isPoolDefault;
 
   // NO fees for RA if buying from pool
   const aggregatorFeeValue =
     props.transaction === "redeem" ? 0 : AGGREGATOR_FEE;
-
-  const { locale } = useRouter();
-  const [feesFactor, setFeesFactor] = useState(0);
-  const [isToggled, setIsToggled] = useState(false);
 
   const isFiat = props.paymentMethod === "fiat";
 
@@ -72,8 +73,12 @@ export const FeesBreakdownPool: FC<Props> = (props) => {
       const factor = await getFeeFactor(poolName);
       setFeesFactor(factor);
     };
-    selectiveFee();
+    showFees && selectiveFee();
   }, []);
+
+  if (!showFees) {
+    return <div className={styles.divider}></div>;
+  }
 
   return (
     <>
