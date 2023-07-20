@@ -1,8 +1,9 @@
 import { cx } from "@emotion/css";
 import { formatUnits } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { FeesBreakdownListing } from "components/pages/Project/FeesBreakdownListing";
 import { Text } from "components/Text";
-import { CARBONMARK_FEE, settings } from "lib/constants";
+import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
@@ -12,14 +13,12 @@ import { FC, useEffect } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
 import * as styles from "../styles";
 import { FormValues } from "./types";
-
 type TotalValuesProps = {
   singleUnitPrice: string;
   balance: string | null;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
-  const showFees = settings.SHOW_FEES;
   const singleUnitPrice = formatUnits(
     props.singleUnitPrice,
     getTokenDecimals("usdc")
@@ -71,26 +70,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      {showFees && (
-        <div className={styles.totalsText}>
-          <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
-          <div className={cx(styles.iconAndText)}>
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-            <Text t="h5" className={styles.feeColor}>
-              {formatToPrice(CARBONMARK_FEE, locale, false)}
-            </Text>
-          </div>
-        </div>
-      )}
-
-      <div className={styles.divider}></div>
+      <FeesBreakdownListing paymentMethod={paymentMethod} />
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
