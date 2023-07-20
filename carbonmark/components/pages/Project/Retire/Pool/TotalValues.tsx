@@ -5,7 +5,12 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Text } from "components/Text";
 import { getConsumptionCost, getFeeFactor } from "lib/actions.retire";
-import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
+import {
+  AGGREGATOR_FEE,
+  CARBONMARK_FEE,
+  settings,
+  SUSHI_SWAP_FEE,
+} from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -37,6 +42,7 @@ const getStringBetween = (str: string, start: string, end: string) => {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const showFees = settings.SHOW_FEES;
   const poolName = props.price.poolName;
   const isPoolDefault = props.price.isPoolDefault;
 
@@ -201,123 +207,132 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      <div className={styles.totalsText}>
-        <Text>{t`Network fees`}</Text>
-        <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
+      {showFees && (
+        <div className={styles.totalsText}>
+          <Text>{t`Network fees`}</Text>
+          <div className={cx(styles.iconAndText)}>
+            {!isFiat && (
+              <div className="icon">
+                <Image
+                  src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                  width={20}
+                  height={20}
+                  alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+                />
+              </div>
+            )}
+            <div className={styles.withToggle}>
+              <Text t="h5">
+                {isLoading ? t`Loading` : formatFees(networkFees)}
+              </Text>
+
+              <Text
+                t="body3"
+                color="lighter"
+                onClick={() => setIsToggled((prev) => !prev)}
+                className={styles.toggleFees}
+              >
+                {isToggled ? t`Hide Details` : t`Show Details`}
+                {isToggled ? (
+                  <KeyboardArrowUpIcon />
+                ) : (
+                  <KeyboardArrowDownIcon />
+                )}
+              </Text>
+            </div>
+          </div>
+          {isToggled && (
+            <div className={styles.fees}>
+              <div className={styles.feeBreakdown}>
+                <div className={cx(styles.iconAndText)}>
+                  {!isFiat && (
+                    <div className="icon">
+                      <Image
+                        src={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"]
+                            .icon
+                        }
+                        width={20}
+                        height={20}
+                        alt={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                        }
+                      />
+                    </div>
+                  )}
+                  <Text t="body2">{formatFees(swapFee)}</Text>
+                </div>
+                <div className={styles.feeText}>
+                  <Text t="body2">SushiSwap</Text>
+                  <Text t="body2">
+                    {`(${trimWithLocale(
+                      SUSHI_SWAP_FEE * 100,
+                      2,
+                      locale
+                    )}% per swap)`}
+                  </Text>
+                </div>
+              </div>
+
+              <div className={styles.feeBreakdown}>
+                <div className={cx(styles.iconAndText)}>
+                  {!isFiat && (
+                    <div className="icon">
+                      <Image
+                        src={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"]
+                            .icon
+                        }
+                        width={20}
+                        height={20}
+                        alt={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                        }
+                      />
+                    </div>
+                  )}
+                  <Text t="body2">{formatFees(aggregatorFee)}</Text>
+                </div>
+                <div className={styles.feeText}>
+                  <Text t="body2">{t`KlimaDAO Contracts`}</Text>
+                  <Text t="body2">
+                    {`(${trimWithLocale(AGGREGATOR_FEE * 100, 5, locale)}%)`}
+                  </Text>
+                </div>
+              </div>
+
+              <div className={styles.feeBreakdown}>
+                <div className={cx(styles.iconAndText)}>
+                  {!isFiat && (
+                    <div className="icon">
+                      <Image
+                        src={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"]
+                            .icon
+                        }
+                        width={20}
+                        height={20}
+                        alt={
+                          carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
+                        }
+                      />
+                    </div>
+                  )}
+                  <Text t="body2">{formatFees(redemptionFee)}</Text>
+                </div>
+                <div className={styles.feeText}>
+                  <Text t="body2">
+                    <Trans>Pool Redemption Fee</Trans>
+                  </Text>
+                  <Text t="body2">
+                    {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
+                  </Text>
+                </div>
+              </div>
             </div>
           )}
-          <div className={styles.withToggle}>
-            <Text t="h5">
-              {isLoading ? t`Loading` : formatFees(networkFees)}
-            </Text>
-
-            <Text
-              t="body3"
-              color="lighter"
-              onClick={() => setIsToggled((prev) => !prev)}
-              className={styles.toggleFees}
-            >
-              {isToggled ? t`Hide Details` : t`Show Details`}
-              {isToggled ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-            </Text>
-          </div>
         </div>
-        {isToggled && (
-          <div className={styles.fees}>
-            <div className={styles.feeBreakdown}>
-              <div className={cx(styles.iconAndText)}>
-                {!isFiat && (
-                  <div className="icon">
-                    <Image
-                      src={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                      }
-                      width={20}
-                      height={20}
-                      alt={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
-                      }
-                    />
-                  </div>
-                )}
-                <Text t="body2">{formatFees(swapFee)}</Text>
-              </div>
-              <div className={styles.feeText}>
-                <Text t="body2">SushiSwap</Text>
-                <Text t="body2">
-                  {`(${trimWithLocale(
-                    SUSHI_SWAP_FEE * 100,
-                    2,
-                    locale
-                  )}% per swap)`}
-                </Text>
-              </div>
-            </div>
-
-            <div className={styles.feeBreakdown}>
-              <div className={cx(styles.iconAndText)}>
-                {!isFiat && (
-                  <div className="icon">
-                    <Image
-                      src={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                      }
-                      width={20}
-                      height={20}
-                      alt={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
-                      }
-                    />
-                  </div>
-                )}
-                <Text t="body2">{formatFees(aggregatorFee)}</Text>
-              </div>
-              <div className={styles.feeText}>
-                <Text t="body2">{t`KlimaDAO Contracts`}</Text>
-                <Text t="body2">
-                  {`(${trimWithLocale(AGGREGATOR_FEE * 100, 5, locale)}%)`}
-                </Text>
-              </div>
-            </div>
-
-            <div className={styles.feeBreakdown}>
-              <div className={cx(styles.iconAndText)}>
-                {!isFiat && (
-                  <div className="icon">
-                    <Image
-                      src={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon
-                      }
-                      width={20}
-                      height={20}
-                      alt={
-                        carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id
-                      }
-                    />
-                  </div>
-                )}
-                <Text t="body2">{formatFees(redemptionFee)}</Text>
-              </div>
-              <div className={styles.feeText}>
-                <Text t="body2">
-                  <Trans>Pool Redemption Fee</Trans>
-                </Text>
-                <Text t="body2">
-                  {`(${trimWithLocale(feesFactor * 100, 2, locale)}%)`}
-                </Text>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
       {!isToggled && <div className={styles.divider}></div>}
 
       <div className={styles.totalsText}>

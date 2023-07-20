@@ -44,6 +44,11 @@ export const CARBONMARK_FEE = 0.0; // 0%
 export const SUSHI_SWAP_FEE = 0.003; // 0.3% per swap
 export const AGGREGATOR_FEE = 0.01; // 1% per tonnage
 
+// List of booleans to show/hide data in the UI
+export const settings = {
+  SHOW_FEES: false,
+};
+
 export const getConnectErrorStrings = () => ({
   default: t({
     message: "We had some trouble connecting. Please try again.",
