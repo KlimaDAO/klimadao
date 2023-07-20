@@ -14,7 +14,7 @@ export const card = css`
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
     &:hover {
-      transform: scale(0.98);
+      transform: scale(1.02);
       box-shadow: var(--shadow-02);
     }
   }
