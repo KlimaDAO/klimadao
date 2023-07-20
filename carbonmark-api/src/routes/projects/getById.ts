@@ -38,7 +38,7 @@ const handler = (fastify: FastifyInstance) =>
     const [registryParam, registryProjectId, vintage] = id.split("-");
     const registry = registryParam.toUpperCase();
     const key = `${registry}-${registryProjectId}`;
-
+    console.time("fetch");
     const [[poolPrices, stats], [listings, activities], projectDetails] =
       await Promise.all([
         fetchPoolPricesAndStats({ key, vintage }),
@@ -48,6 +48,7 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
         }),
       ]);
+    console.timeEnd("fetch");
     if (!projectDetails) {
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();

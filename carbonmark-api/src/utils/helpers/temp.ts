@@ -1,4 +1,3 @@
-import { DocumentData } from "@google-cloud/firestore";
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { assign } from "lodash";
@@ -72,59 +71,52 @@ export const fetchMarketplaceListings = async ({
       : null,
   }));
 
-  const userIds = new Set<string>();
-  formattedListings.forEach((listing) =>
-    userIds.add(listing.seller.id.toUpperCase())
+  const getListingsWithProfiles = Promise.all(
+    formattedListings.map(async (listing) => {
+      const seller = await fastify.firebase
+        .firestore()
+        .collection("users")
+        .doc(listing.seller.id.toUpperCase())
+        .get();
+      return {
+        ...listing,
+        seller: {
+          ...listing.seller,
+          ...seller.data(),
+        },
+      };
+    })
   );
-  formattedActivities.forEach((activity) => {
-    userIds.add(activity.seller.id.toUpperCase());
-    if (activity.buyer) {
-      userIds.add(activity.buyer.id.toUpperCase());
-    }
-  });
-  console.time("fetchUsers");
-  // Fetch all the users in a single Firestore call.
-  console.time("userDocs");
-  const userDocs = await fastify.firebase
-    .firestore()
-    .getAll(
-      ...Array.from(userIds).map((id) =>
-        fastify.firebase.firestore().collection("users").doc(id)
-      )
-    );
-  console.timeEnd("userDocs");
-  // Map the users by their ID for easy access.
-  const usersById = new Map<string, DocumentData | undefined>(
-    userDocs.map((doc) => [doc.id, doc.data()])
-  );
-
-  // Now, when you're mapping the listings and activities, you can get the users from the Map
-  const getListingsWithProfiles = formattedListings.map((listing) => {
-    const sellerData = usersById.get(listing.seller.id.toUpperCase());
-    return {
-      ...listing,
-      seller: {
-        ...listing.seller,
-        ...sellerData,
-      },
-    };
-  });
-
-  const getActivitiesWithProfiles: ActivityWithUserHandles[] =
-    formattedActivities.map((act) => {
-      const activityWithHandles: ActivityWithUserHandles = { ...act };
-      const sellerData = usersById.get(act.seller.id.toUpperCase());
-      if (sellerData) {
-        activityWithHandles.seller.handle = sellerData.handle;
-      }
-      if (act.buyer) {
-        const buyerData = usersById.get(act.buyer.id.toUpperCase());
-        if (buyerData && buyerData.handle) {
-          assign(activityWithHandles.buyer, "handle", buyerData.handle);
+  const getActivitiesWithProfiles: Promise<ActivityWithUserHandles[]> =
+    Promise.all(
+      formattedActivities.map(async (act) => {
+        const activityWithHandles: ActivityWithUserHandles = { ...act };
+        const seller = await fastify.firebase
+          .firestore()
+          .collection("users")
+          .doc(act.seller.id.toUpperCase())
+          .get();
+        if (seller.exists) {
+          activityWithHandles.seller.handle = seller.data()?.handle;
         }
-      }
-      return activityWithHandles;
-    });
-  console.timeEnd("fetchUsers");
-  return [getListingsWithProfiles, getActivitiesWithProfiles];
+        if (act.buyer) {
+          const buyer = await fastify.firebase
+            .firestore()
+            .collection("users")
+            .doc(act.buyer.id.toUpperCase())
+            .get();
+          if (buyer.exists) {
+            assign(activityWithHandles, "buyer.handle", buyer.data()?.handle);
+          }
+        }
+        return activityWithHandles;
+      })
+    );
+
+  const [listingsWithProfiles, activitiesWithProfiles] = await Promise.all([
+    getListingsWithProfiles,
+    getActivitiesWithProfiles,
+  ]);
+
+  return [listingsWithProfiles, activitiesWithProfiles];
 };
