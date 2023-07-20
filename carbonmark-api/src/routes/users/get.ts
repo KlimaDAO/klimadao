@@ -1,7 +1,16 @@
-import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { notEmpty } from "../../utils/functional.utils";
+import { compact, map, merge } from "lodash";
+import { assign, get, toUpper } from "lodash/fp";
+import { Holding } from "../../.generated/types/assets.types";
+import { Activity, Listing } from "../../.generated/types/marketplace.types";
+import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
+import { formatActivity } from "../../utils/helpers/activities.utils";
+import {
+  getUserDocumentByHandle,
+  getUserDocumentByWallet,
+  getUserDocumentsByIds,
+} from "../../utils/helpers/users.utils";
 interface Params {
   walletOrHandle: string;
 }
@@ -9,6 +18,18 @@ interface Params {
 interface Querystring {
   type: string;
 }
+type ResponseType = {
+  handle: string;
+  username: string;
+  description: string;
+  profileImgUrl: string | null;
+  updatedAt: number;
+  createdAt: number;
+  wallet: string;
+  listings: Listing[];
+  activities: Activity[];
+  assets: Holding[];
+};
 
 const schema = {
   querystring: {
@@ -47,130 +68,81 @@ const schema = {
   },
 };
 
+/** Fetch the user object from firestore and the marketplace subgraph */
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Params: Params; Querystring: Querystring }>,
     reply: FastifyReply
-  ) {
+  ): Promise<ResponseType | void> {
     // Destructure the userIdentifier parameter from the request object
     const { walletOrHandle } = request.params;
+
     // Destructure the type query parameter from the request object
     const { type } = request.query;
 
-    let user;
+    // Fetch our user
+    const fetchUserFn =
+      type === "wallet" ? getUserDocumentByWallet : getUserDocumentByHandle;
 
-    if (type == "wallet") {
-      // Query the Firestore database for the document with a matching wallet address
-      user = await fastify.firebase
-        .firestore()
-        .collection("users")
-        .doc(walletOrHandle.toUpperCase())
-        .get();
-      // If the document doesn't exist, return a 404 error
-      if (!user.exists) {
-        return reply.notFound();
-      }
-    } else {
-      // Query the Firestore database for documents with a matching handle
-      const usersRef = fastify.firebase.firestore().collection("users");
-      //const users = await usersRef.where('handle', '==', userIdentifier).get();
-      const userSnapshot = await usersRef
-        .where("handle", "==", walletOrHandle.toLowerCase())
-        .limit(1)
-        .get();
-      // If no documents are found, return a 404 error
-      if (userSnapshot.empty) {
-        return reply.notFound();
-      }
-      // Iterate through the documents and assign the first one to the user variable
-      user = userSnapshot.docs[0];
-    }
-    // Create a response object with the data from the retrieved user document
-    const response = user.data() ?? {};
-    // Get the wallet address of the user
-    const wallet = user.id.toLowerCase();
+    const firebaseUserDocument = await fetchUserFn(
+      fastify.firebase,
+      walletOrHandle
+    );
+    // If no documents are found, return a 404 error
+    if (!firebaseUserDocument?.exists) return reply.notFound();
+
+    const firebaseUser = firebaseUserDocument.data();
+
+    const wallet = firebaseUserDocument.id.toLowerCase();
 
     // Query the GraphQL API with the wallet address to get more user data
     const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
 
-    // Add the wallet address to the response object
-    response.wallet = wallet;
+    const marketplaceUser = users.at(0);
 
-    // If the users array in the data is not empty
-    if (notEmpty(users)) {
-      // Create a new listings array with the listings from the data, and add a "selected" property set to false
-      const listings =
-        users[0].listings?.map((item) => ({
-          ...item,
-          selected: false,
-        })) ?? [];
+    // Graph listings for the user
+    const listings = map(
+      marketplaceUser?.listings,
+      assign({ selected: false })
+    );
 
-      const activities = users[0].activities ?? [];
+    const activities = compact(marketplaceUser?.activities);
 
-      await Promise.all([
-        ...listings.map(async (listing) => {
-          const seller = await fastify.firebase
-            .firestore()
-            .collection("users")
-            .doc(listing.seller.id.toUpperCase())
-            .get();
-          listing.seller = { ...seller.data(), ...listing.seller };
-        }),
-        ...activities.map(async (actvity: any) => {
-          const seller = await fastify.firebase
-            .firestore()
-            .collection("users")
-            .doc(actvity.seller.id.toUpperCase())
-            .get();
-          if (seller.exists) {
-            actvity.seller.handle = seller.data()?.handle;
-          }
-          if (actvity.buyer) {
-            const buyer = await fastify.firebase
-              .firestore()
-              .collection("users")
-              .doc(actvity.buyer.id.toUpperCase())
-              .get();
-            if (buyer.exists) {
-              actvity.buyer.handle = buyer.data()?.handle;
-            }
-          }
-        }),
-      ]);
-      const formattedActivities = users[0].activities?.map((act) => {
-        return {
-          ...act,
-          amount: act.amount ? utils.formatUnits(act.amount, 18) : null,
-          previousAmount: act.previousAmount
-            ? utils.formatUnits(act.previousAmount, 18)
-            : null,
-          price: act.price ? utils.formatUnits(act.price, 6) : null,
-          previousPrice: act.previousPrice
-            ? utils.formatUnits(act.previousPrice, 6)
-            : null,
-        };
-      });
+    const sellerIds = listings.map(get("seller.id"), toUpper);
+    const buyerIds = activities.map(get("buyer.id"), toUpper);
 
-      // Add the modified listings array to the response object
-      response.listings = listings;
-      // Add the activities array from the data to the response object
-      response.activities = formattedActivities;
-    } else {
-      // If the users array in the data is empty, add empty arrays for listings and activities to the response object
-      response.listings = [];
-      response.activities = [];
-    }
+    /** Fetch all buyers and sellers */
+    const [sellers, buyers] = await Promise.all([
+      getUserDocumentsByIds(fastify.firebase, sellerIds),
+      getUserDocumentsByIds(fastify.firebase, buyerIds),
+    ]);
+
+    /** Find and assign the FB User to the given listing */
+    const mapSellerToListing = (listing: Listing) => {
+      const seller = compact(sellers).find(selector("id", listing.seller.id));
+      return assign(listing, seller);
+    };
+
+    /** Find and assign the FB User to the given activity */
+    const mapSellerBuyerToActivity = (activity: Activity) => {
+      const seller = compact(buyers).find(selector("id", activity.seller?.id));
+      const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
+      return merge(activity, { seller, buyer });
+    };
+
+    const listingsWithSellerData = listings.map(mapSellerToListing);
+    const activitiesWithUserData = activities
+      .map(mapSellerBuyerToActivity)
+      .map(formatActivity);
 
     const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
 
-    if (accounts.length) {
-      response.assets = accounts[0].holdings;
-    } else {
-      response.assets = [];
-    }
-
-    // Return the response object
-    return reply.send(response);
+    return reply.send({
+      ...firebaseUser,
+      listings: listingsWithSellerData,
+      activities: activitiesWithUserData,
+      assets: accounts.at(0)?.holdings,
+    });
   };
 
 export default async (fastify: FastifyInstance) =>
