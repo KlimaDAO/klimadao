@@ -2,7 +2,7 @@ import { cx } from "@emotion/css";
 import { formatUnits } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Text } from "components/Text";
-import { CARBONMARK_FEE } from "lib/constants";
+import { CARBONMARK_FEE, settings } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
@@ -19,6 +19,7 @@ type TotalValuesProps = {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
+  const showFees = settings.SHOW_FEES;
   const singleUnitPrice = formatUnits(
     props.singleUnitPrice,
     getTokenDecimals("usdc")
@@ -70,22 +71,24 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
-      <div className={styles.totalsText}>
-        <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
-        <div className={cx(styles.iconAndText)}>
-          <div className="icon">
-            <Image
-              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-              width={20}
-              height={20}
-              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-            />
+      {showFees && (
+        <div className={styles.totalsText}>
+          <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
+          <div className={cx(styles.iconAndText)}>
+            <div className="icon">
+              <Image
+                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+                width={20}
+                height={20}
+                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+              />
+            </div>
+            <Text t="h5" className={styles.feeColor}>
+              {formatToPrice(CARBONMARK_FEE, locale, false)}
+            </Text>
           </div>
-          <Text t="h5" className={styles.feeColor}>
-            {formatToPrice(CARBONMARK_FEE, locale, false)}
-          </Text>
         </div>
-      </div>
+      )}
 
       <div className={styles.divider}></div>
 
