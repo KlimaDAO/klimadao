@@ -16,7 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run tests
-        run: cd carbonmark-api && npm install && npm run test
+        run: |
+          cd carbonmark-api
+          npm install
+          npm run test
+
   deploy_preview:
     runs-on: ubuntu-latest
     environment: Preview – carbonmark-api
