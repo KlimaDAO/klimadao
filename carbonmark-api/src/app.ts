@@ -4,9 +4,7 @@ import { FastifyPluginAsync } from "fastify";
 import { join } from "path";
 
 // This is not pretty but we need to reference the env file at the root of the monorepo
-const result = dotenv.config({ path: join(process.cwd(), ".env") });
-console.log("CWD", process.cwd());
-console.log("__dirname", __dirname);
+const result = dotenv.config({ path: join(process.cwd(), "../.env.local") });
 
 if (result.error) {
   console.error("Error loading .env file", result.error);
