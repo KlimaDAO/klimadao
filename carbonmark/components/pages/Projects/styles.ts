@@ -125,3 +125,38 @@ export const tags = css`
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 `;
+
+export const row = css`
+  gap: 2rem;
+  width: 100%;
+  display: flex;
+  grid-column: full;
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+`;
+
+export const viewToggle = css`
+  display: flex;
+  flex-direction: row;
+
+  & button {
+    width: 4.8rem;
+    color: black !important;
+    background: white !important;
+
+    :first-of-type {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    :last-of-type {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &.selected {
+      background: #ffb800 !important;
+    }
+  }
+`;
