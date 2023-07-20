@@ -1,9 +1,9 @@
-import { ViewWalletButton } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress, isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { CopyAddressButton } from "components/CopyAddressButton";
 import { Text } from "components/Text";
+import { ViewWalletButton } from "components/ViewWalletButton";
 import { FC } from "react";
 import * as styles from "./styles";
 
