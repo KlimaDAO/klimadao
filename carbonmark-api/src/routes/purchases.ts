@@ -14,7 +14,7 @@ async function handler(
   let response;
   try {
     response = await gqlSdk.marketplace.getPurchasesById(request.params);
-  } catch (error: any) {
+  } catch (error) {
     //Return bad gateway and pass the error
     console.error(error);
     return reply.status(502).send(error?.message);

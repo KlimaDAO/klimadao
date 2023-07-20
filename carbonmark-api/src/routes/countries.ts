@@ -18,7 +18,7 @@ const handler = (fastify: FastifyInstance): RouteHandler =>
     let response;
     try {
       response = await getAllCountries(fastify);
-    } catch (error: any) {
+    } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);
       return reply.status(502).send(error?.message);
