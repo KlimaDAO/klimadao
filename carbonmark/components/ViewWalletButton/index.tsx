@@ -1,11 +1,11 @@
 import { cx } from "@emotion/css";
-import { t } from "@lingui/macro";
 import { Launch } from "@mui/icons-material";
-import React, { FC } from "react";
+import { FC } from "react";
 
-import { ButtonPrimary } from "../";
-import { concatAddress } from "../../utils";
-import { ButtonBaseProps } from "../Buttons/ButtonBase";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonBaseProps } from "@klimadao/lib/components/Buttons/ButtonBase";
+import { concatAddress } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/react";
 import * as styles from "./styles";
 
 type Props = {
@@ -22,7 +22,7 @@ export const ViewWalletButton: FC<Props> = (props) => {
         {...props}
         target="_blank"
         rel="noopener noreferrer"
-        label={t(`View`)}
+        label={<Trans>View</Trans>}
         variant="transparent"
         className={styles.viewButton}
         icon={<Launch />}

@@ -41,6 +41,5 @@ export { Spinner } from "./Spinner";
 export { Text } from "./Text";
 export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { ThemeToggle } from "./ThemeToggle";
-export { ViewWalletButton } from "./ViewWalletButton";
 export { Web3ContextProvider } from "./Web3Context";
 export { WebFonts } from "./WebFonts";
