@@ -5,7 +5,7 @@ import { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { ButtonBaseProps } from "@klimadao/lib/components/Buttons/ButtonBase";
 import { concatAddress } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/react";
+import { Trans } from "@lingui/macro";
 import * as styles from "./styles";
 
 type Props = {
