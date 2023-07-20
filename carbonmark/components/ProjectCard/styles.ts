@@ -30,9 +30,7 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   overflow: hidden;
-  height: 12rem;
-
-  margin-top: auto;
+  height: 9rem;
 `;
 
 export const cardImage = css`
