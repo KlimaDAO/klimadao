@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
     console.error("Failed to generate", e);
     return {
       notFound: true,
-      revalidate: 30,
+      revalidate: 1,
     };
   }
 };
