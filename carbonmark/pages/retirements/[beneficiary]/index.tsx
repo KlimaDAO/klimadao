@@ -1,15 +1,10 @@
 import { urls } from "@klimadao/lib/constants";
-import {
-  getTotalCarbonRetired,
-  getTotalRetirements,
-  queryKlimaRetiresByAddress,
-} from "@klimadao/lib/utils";
+import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
 import { Props, RetirementPage } from "components/pages/Retirements";
 import { utils } from "ethers";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { INFURA_ID } from "lib/shared/secrets";
 import { GetStaticProps } from "next";
 
 type Params = {
@@ -50,17 +45,34 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
       beneficiaryAddress = beneficiaryInUrl;
     }
 
-    const [totalRetirements, totalCarbonRetired, klimaRetires, translation] =
-      await Promise.all([
-        getTotalRetirements({ beneficiaryAddress, infuraId: INFURA_ID }),
-        getTotalCarbonRetired({ beneficiaryAddress, infuraId: INFURA_ID }),
-        queryKlimaRetiresByAddress(beneficiaryAddress),
-        loadTranslation(locale),
-      ]);
+    let totalRetirements = 0;
+    let totalCarbonRetired = "0";
+
+    const [klimaRetires, translation] = await Promise.all([
+      queryKlimaRetiresByAddress(beneficiaryAddress),
+      loadTranslation(locale),
+    ]);
+
+    if (Array.isArray(klimaRetires)) {
+      totalRetirements = klimaRetires.length;
+
+      try {
+        totalCarbonRetired = klimaRetires
+          .reduce((acc, retirement) => acc + parseFloat(retirement.amount), 0)
+          .toString();
+      } catch (e) {
+        throw new Error(
+          `Invalid retirement.amount in the array klimaRetires: ${e}`
+        );
+      }
+    } else {
+      console.error("klimaRetires is not an array");
+    }
 
     if (!translation) {
       throw new Error("No translation found");
     }
+
     return {
       props: {
         totalRetirements,
@@ -78,7 +90,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
     console.error("Failed to generate", e);
     return {
       notFound: true,
-      revalidate: 240,
+      revalidate: 1,
     };
   }
 };
