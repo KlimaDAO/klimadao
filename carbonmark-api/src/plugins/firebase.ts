@@ -1,23 +1,30 @@
-import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { getApps, initializeApp } from "firebase-admin/app";
 
 import { FastifyInstance } from "fastify";
 import fp from "fastify-plugin";
 import * as admin from "firebase-admin";
 
-// Create a Fastify plugin
 export default fp(async function (
   fastify: FastifyInstance,
   _: unknown,
   next: () => void
 ): Promise<void> {
-  if (!process.env.FIREBASE_ADMIN_CERT) {
-    throw new Error("Environment variable FIREBASE_ADMIN_CERT is undefined");
+  if (
+    !process.env.FIREBASE_CERT_CLIENT_EMAIL ||
+    !process.env.FIREBASE_CERT_PRIVATE_KEY ||
+    !process.env.FIREBASE_CERT_PROJECT_ID
+  ) {
+    throw new Error("Missing FIREBASE_CERT env vars");
   }
 
   // it might already be initialized in the serverless environment
   if (getApps().length === 0) {
     initializeApp({
-      credential: cert(JSON.parse(process.env.FIREBASE_ADMIN_CERT)), // the key is a string on vercel/env.local
+      credential: admin.credential.cert({
+        clientEmail: process.env.FIREBASE_CERT_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_CERT_PRIVATE_KEY,
+        projectId: process.env.FIREBASE_CERT_PROJECT_ID,
+      }),
     });
   }
 
