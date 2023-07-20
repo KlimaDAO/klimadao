@@ -54,15 +54,19 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
     ]);
 
     if (Array.isArray(klimaRetires)) {
-      let total = 0;
       totalRetirements = klimaRetires.length;
 
-      klimaRetires.forEach((retirement) => {
-        total += parseFloat(retirement.amount);
-      });
-      totalCarbonRetired = total.toString();
+      try {
+        totalCarbonRetired = klimaRetires
+          .reduce((acc, retirement) => acc + parseFloat(retirement.amount), 0)
+          .toString();
+      } catch (e) {
+        throw new Error(
+          `Invalid retirement.amount in the array klimaRetires: ${e}`
+        );
+      }
     } else {
-      console.log("klimaRetires is not an array");
+      console.error("klimaRetires is not an array");
     }
 
     if (!translation) {
