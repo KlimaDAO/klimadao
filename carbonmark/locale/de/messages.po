@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-20 15:36+0000\n"
+"POT-Creation-Date: 2023-07-20 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,7 +195,7 @@ msgstr "Demo anfordern"
 #: components/shared/Navigation/index.tsx:54
 #: components/shared/Navigation/index.tsx:133
 msgid "Browse Projects"
-msgstr "Projekte entdecken"
+msgstr "Projekte ansehen"
 
 #: components/Layout/NavDrawer/index.tsx:92
 msgid "Built with 🌳 by <0>KlimaDAO</0>"
@@ -824,11 +824,11 @@ msgstr "Gekaufte Menge:"
 
 #: components/pages/Retire/index.tsx:141
 msgid "Quick Retire"
-msgstr "Jetzt ausgleichen"
+msgstr "Jetzt kompensieren"
 
 #: components/pages/Project/Retire/Pool/SubmitButton.tsx:46
 msgid "RETIRE CARBON"
-msgstr "CO2 AUSGLEICHEN"
+msgstr "CO2 KOMPENSIEREN"
 
 #: components/pages/Project/index.tsx:215
 msgid "Read Less"
@@ -887,7 +887,7 @@ msgstr "Ressourcen | Carbonmark"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
-msgstr "Ausgleichen"
+msgstr "Kompensieren"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:170
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
@@ -1110,7 +1110,7 @@ msgstr "Der vorherige Schritt hat den Transfer des Assets aus Ihrer Wallet zu Ca
 
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:152
 msgid "There was an error during the checkout process. Please try again."
-msgstr ""
+msgstr "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
@@ -1143,7 +1143,7 @@ msgstr "Dieses Produkt befindet sich noch in der Betaphase und Audits sind noch 
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
-msgstr ""
+msgstr "Um Ihre Kreditkartentransaktion abzuschließen, werden Sie zu Stripe, unserem Zahlungsabwicklungspartner, weitergeleitet."
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:67
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
@@ -1192,7 +1192,7 @@ msgstr "Verkaufte Tonnen:"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:338
 msgid "Total Cost is required"
-msgstr ""
+msgstr "Gesamtkosten sind erforderlich"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:156
@@ -1375,7 +1375,7 @@ msgstr "Sie haben die Transaktion abgelehnt"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:194
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
-msgstr ""
+msgstr "Sie müssen entweder eine Empfängeradresse angeben oder sich mit Ihrer Browserwallet anmelden."
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:49
@@ -1562,7 +1562,7 @@ msgstr "Profil"
 
 #: components/Layout/NavMenu/index.tsx:42
 msgid "menu.retire"
-msgstr "Ausgleichen"
+msgstr "Kompensieren"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:192
 msgid "offset.amount_in_tonnes"
