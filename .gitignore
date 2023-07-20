@@ -51,3 +51,5 @@ yarn-error.log*
 
 # sanity
 .sanity/
+
+.env

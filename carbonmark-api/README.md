@@ -45,13 +45,13 @@ vercel link
 The vercel config is where all environment variables required for the project are defined and can be pulled down via the `vercel-cli`
 
 ```sh
-vercel env pull --environment development
+vercel env pull --environment development .env
 ```
 
 or
 
 ```sh
-vercel env pull --environment production
+vercel env pull --environment production .env
 ```
 
 ### Install dependencies
