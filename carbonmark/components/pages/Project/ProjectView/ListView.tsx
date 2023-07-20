@@ -28,8 +28,12 @@ export const ListView: React.FC<Props> = ({ projects }) => {
         <tbody>
           {projects?.map((project: Project, index: number) => (
             <tr key={index}>
-              <td>{project.name || "! MISSING PROJECT NAME !"}</td>
-              <td>{formatToPrice(project.price, locale)}</td>
+              <td>
+                <strong>{project.name || "! MISSING PROJECT NAME !"}</strong>
+              </td>
+              <td>
+                <strong>{formatToPrice(project.price, locale)}</strong>
+              </td>
               <td width="35%">
                 <p className="description">
                   {project.short_description ||

@@ -8,16 +8,44 @@ export const listView = css`
   box-shadow: 0 0.4rem 2.8rem 0 rgba(0, 0, 0, 0.06);
 
   & table {
+    font-size: 1.6rem;
+    line-height: 2rem;
     border-collapse: collapse;
 
     & th {
       text-align: left;
       padding: 0 2rem 2rem;
-      border-bottom: 0.1rem solid black;
+      color: var(--font-02);
+      border-bottom: 0.1rem solid var(--manatee);
+      font-family: var(--font-family-secondary);
+
+      :first-of-type {
+        padding-left: 0;
+      }
+
+      :last-of-type {
+        padding-right: 0;
+      }
     }
 
     & td {
+      color: black;
       padding: 2rem;
+      border-bottom: 0.1rem solid var(--manatee);
+
+      & strong {
+        font-weight: 700;
+        color: var(--font-02);
+        font-family: var(--font-family-secondary);
+      }
+
+      :first-of-type {
+        padding-left: 0;
+      }
+
+      :last-of-type {
+        padding-right: 0;
+      }
 
       & .description {
         overflow: hidden;
