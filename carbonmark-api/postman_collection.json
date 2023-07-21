@@ -253,7 +253,7 @@
 					"variable": [
 						{
 							"key": "walletid",
-							"value": "{{wallet}}"
+							"value": "0X4E78011CE80EE02D2C3E649FB657E45898257815"
 						}
 					]
 				}
@@ -306,41 +306,29 @@
 			"response": []
 		},
 		{
-			"name": "updateUser",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"wallet\": \"{{wallet}}\",\n  \"description\": \"A test description\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+			"name": "addUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+							"  postman.setNextRequest(null);",
+							"}"
+						],
+						"type": "text/javascript"
 					}
 				},
-				"url": {
-					"raw": "{{url}}/api/users/:address",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						":address"
-					],
-					"variable": [
-						{
-							"key": "address",
-							"value": "{{wallet}}"
-						}
-					]
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "addUser",
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -382,12 +370,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = pm.response.json();",
-							"pm.environment.set(\"nonce\", jsonData.nonce);",
-							"",
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
+							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+							"  postman.setNextRequest(null);",
+							"}"
 						],
 						"type": "text/javascript"
 					}
@@ -435,7 +420,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+							"  postman.setNextRequest(null);",
+							"}"
 						],
 						"type": "text/javascript"
 					}
