@@ -72,6 +72,7 @@ export const fetchMarketplaceListings = async ({
       : null,
   }));
 
+
   const userIds = new Set<string>();
   formattedListings.forEach((listing) =>
     userIds.add(listing.seller.id.toUpperCase())
@@ -82,9 +83,11 @@ export const fetchMarketplaceListings = async ({
       userIds.add(activity.buyer.id.toUpperCase());
     }
   });
-  console.time("fetchUsers");
-  // Fetch all the users in a single Firestore call.
-  console.time("userDocs");
+
+  let usersById = new Map<string, DocumentData | undefined>();
+  
+  if (userIds.size !== 0) {
+
   const userDocs = await fastify.firebase
     .firestore()
     .getAll(
@@ -92,13 +95,12 @@ export const fetchMarketplaceListings = async ({
         fastify.firebase.firestore().collection("users").doc(id)
       )
     );
-  console.timeEnd("userDocs");
-  // Map the users by their ID for easy access.
-  const usersById = new Map<string, DocumentData | undefined>(
+
+  usersById = new Map<string, DocumentData | undefined>(
     userDocs.map((doc) => [doc.id, doc.data()])
   );
+  }
 
-  // Now, when you're mapping the listings and activities, you can get the users from the Map
   const getListingsWithProfiles = formattedListings.map((listing) => {
     const sellerData = usersById.get(listing.seller.id.toUpperCase());
     return {
@@ -125,6 +127,6 @@ export const fetchMarketplaceListings = async ({
       }
       return activityWithHandles;
     });
-  console.timeEnd("fetchUsers");
+
   return [getListingsWithProfiles, getActivitiesWithProfiles];
 };
