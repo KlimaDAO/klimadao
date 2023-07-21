@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
 import { t } from "@lingui/macro";
-import { FeesBreakdownPool } from "components/pages/Project/FeesBreakdownPool";
 import { Text } from "components/Text";
 import { getRedeemCost } from "lib/actions.redeem";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -102,15 +101,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           </Text>
         </div>
       </div>
-
-      <FeesBreakdownPool
-        transaction={"redeem"}
-        price={props.price}
-        paymentMethod={paymentMethod}
-        costs={costs}
-        quantity={quantity}
-        isLoading={isLoading}
-      />
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>

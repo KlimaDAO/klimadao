@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
 import { formatUnits } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { FeesBreakdownListing } from "components/pages/Project/FeesBreakdownListing";
 import { Text } from "components/Text";
 import { CARBONMARK_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -69,8 +68,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text t="h5">{formatToPrice(singleUnitPrice, locale, false)}</Text>
         </div>
       </div>
-
-      <FeesBreakdownListing paymentMethod={paymentMethod} />
 
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
