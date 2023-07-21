@@ -1,5 +1,5 @@
 import tap from "tap";
-import { build } from "test/helper";
+import { build } from "../helper";
 
 tap.only("Rate Limiter should limit requests", async (t: any) => {
   const app = await build(t);

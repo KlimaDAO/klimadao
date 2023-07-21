@@ -4,9 +4,8 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const section = css`
   padding-bottom: 3.6rem;
   ${breakpoints.desktop} {
-      padding-top: 6.8rem;
-      padding-bottom: 4rem;
-    }
+    padding-top: 6.8rem;
+    padding-bottom: 4rem;
   }
 `;
 
@@ -86,12 +85,13 @@ export const pending = css`
   border-radius: 0.8rem;
   padding: 1.6rem;
   display: grid;
-  gap: 0.8rem;
+  gap: 2.4rem;
   justify-items: center;
 
   .spinnerTitle {
     display: flex;
     gap: 1.6rem;
+    align-items: center;
   }
 `;
 

@@ -1,16 +1,12 @@
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
-import {
-  getRetirementDetails,
-  queryKlimaRetireByIndex,
-} from "@klimadao/lib/utils";
+import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { utils } from "ethers";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { INFURA_ID } from "lib/shared/secrets";
 import { Project } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -69,7 +65,7 @@ export const getStaticProps: GetStaticProps<
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    let retirement: KlimaRetire | PendingKlimaRetire | any; // @todo - fix types & remove any (offset not being picked up in types)
+    let retirement: KlimaRetire | null;
     const [subgraphData, translation] = await Promise.all([
       queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       loadTranslation(locale),
@@ -78,25 +74,9 @@ export const getStaticProps: GetStaticProps<
     if (subgraphData) {
       retirement = subgraphData;
     } else {
-      // if the subgraph is slow to index, try grabbing the retirement directly from the storage contract
-      const fallbackData = await getRetirementDetails({
-        beneficiaryAddress,
-        index: retirementIndex,
-        infuraId: INFURA_ID,
-      });
-      if (!fallbackData) {
-        // if no fallback data and no subgraph data, it probably never existed, return page 404
-        throw new Error(
-          `No retirement found for address ${beneficiaryAddress} at index ${retirementIndex}`
-        );
-      }
-      // construct PendingKlimaRetire
-      retirement = {
-        pending: true,
-        amount: fallbackData.amount,
-        beneficiary: fallbackData.beneficiary,
-        beneficiaryAddress,
-        retirementMessage: fallbackData.retirementMessage,
+      return {
+        notFound: true,
+        revalidate: 1,
       };
     }
 
@@ -104,9 +84,11 @@ export const getStaticProps: GetStaticProps<
       throw new Error("No translation found");
     }
 
-    const project = await getCarbonmarkProject(
-      `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
-    );
+    const project =
+      !!subgraphData &&
+      (await getCarbonmarkProject(
+        `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
+      ));
 
     return {
       props: {
@@ -119,13 +101,13 @@ export const getStaticProps: GetStaticProps<
         translation,
         fixedThemeName: "theme-light",
       },
-      revalidate: retirement.pending ? 4 : 240,
+      revalidate: retirement.pending ? 4 : 86400,
     };
   } catch (e) {
     console.error("Failed to generate", e);
     return {
       notFound: true,
-      revalidate: 240,
+      revalidate: 1,
     };
   }
 };
