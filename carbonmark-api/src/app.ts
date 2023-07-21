@@ -4,11 +4,9 @@ import { FastifyPluginAsync } from "fastify";
 import { join } from "path";
 import { LOCAL_ENV_PATH } from "./utils/helpers/utils.constants";
 
-// This is not pretty but we need to reference the env file at the root of the monorepo
-const result = dotenv.config({ path: LOCAL_ENV_PATH });
-
-if (result.error) {
-  console.error("Error loading .env file", result.error);
+// Only pull env vars from .env if running in locally
+if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
+  dotenv.config({ path: LOCAL_ENV_PATH });
 }
 
 export type AppOptions = {
