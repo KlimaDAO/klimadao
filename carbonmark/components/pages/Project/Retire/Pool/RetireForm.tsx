@@ -15,9 +15,9 @@ import { urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-import { prepareNavigateToCertificate } from "lib/prepareNavigateToCertificate";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
+import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
@@ -50,9 +50,9 @@ export const RetireForm: FC<Props> = (props) => {
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
-  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean | "timed out">(
-    false
-  );
+  const [subgraphIndexStatus, setSubgraphIndexStatus] = useState<
+    "indexed" | "pending" | "timeout"
+  >("pending");
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
@@ -272,14 +272,17 @@ export const RetireForm: FC<Props> = (props) => {
     const retirementAddress =
       inputValues?.beneficiaryAddress ?? (address || "");
 
+    const handleInitialIndexing = async () => {
+      const status = await waitForIndexStatus(retirementBlockNumber);
+      if (status === "indexed") {
+        router.prefetch(`/retirements/${retirementAddress}/${retirementIndex}`);
+        setSubgraphIndexStatus("indexed");
+      } else if (status === "timeout") {
+        setSubgraphIndexStatus("timeout");
+      }
+    };
     if (retirementBlockNumber !== 0 && retirementIndex) {
-      prepareNavigateToCertificate(
-        router,
-        retirementAddress,
-        retirementIndex,
-        retirementBlockNumber,
-        setSubgraphIndexed
-      );
+      handleInitialIndexing();
     }
   }, [retirementBlockNumber]);
 
@@ -368,12 +371,15 @@ export const RetireForm: FC<Props> = (props) => {
             paymentMethod={inputValues?.paymentMethod}
             address={address}
             retirementIndex={retirementIndex}
-            subgraphIndexed={subgraphIndexed}
+            subgraphIndexStatus={subgraphIndexStatus}
           />
         }
         showSuccessScreen={
           !!transactionHash &&
-          !!(subgraphIndexed === true || subgraphIndexed === "timed out")
+          !!(
+            subgraphIndexStatus === "indexed" ||
+            subgraphIndexStatus === "timeout"
+          )
         }
       />
       <CreditCardModal

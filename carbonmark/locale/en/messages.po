@@ -921,7 +921,7 @@ msgid "Retire more Carbon"
 msgstr "Retire more Carbon"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:80
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:82
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:57
 msgid "Retire more carbon"
 msgstr "Retire more carbon"
@@ -1301,7 +1301,7 @@ msgstr "View all Retirements"
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:73
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:75
 msgid "View and share certificate"
 msgstr "View and share certificate"
 
@@ -1610,7 +1610,7 @@ msgstr "Retirement Message"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
 msgid "offset.successModal.body1"
-msgstr "Thank you for supporting the planet! View transaction on<0>PolygonScan.</0>"
+msgstr "Thank you for supporting the planet! View transaction on <0> PolygonScan.</0>"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31

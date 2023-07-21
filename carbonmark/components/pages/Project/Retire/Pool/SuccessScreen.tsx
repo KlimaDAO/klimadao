@@ -18,13 +18,13 @@ type Props = {
   paymentMethod?: CarbonmarkPaymentMethod;
   address?: string;
   retirementIndex: number | null;
-  subgraphIndexed: boolean | "timed out";
+  subgraphIndexStatus: "indexed" | "pending" | "timeout";
 };
 
 export const SuccessScreen: FC<Props> = (props) => {
   return (
     <div className={styles.successScreen}>
-      {props.subgraphIndexed === "timed out" ? (
+      {props.subgraphIndexStatus === "timeout" ? (
         <>
           <Text t="h5" className="headline">
             <CelebrationOutlinedIcon fontSize="inherit" />

@@ -10,10 +10,10 @@ import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
 import { ethers, providers } from "ethers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
-import { prepareNavigateToCertificate } from "lib/prepareNavigateToCertificate";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { CategoryName } from "lib/types/carbonmark";
+import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
@@ -47,9 +47,9 @@ export const RetireForm = (props: RetireFormProps) => {
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
-  const [subgraphIndexed, setSubgraphIndexed] = useState<boolean | "timed out">(
-    false
-  );
+  const [subgraphIndexStatus, setSubgraphIndexStatus] = useState<
+    "indexed" | "pending" | "timeout"
+  >("pending");
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
@@ -144,14 +144,19 @@ export const RetireForm = (props: RetireFormProps) => {
   };
 
   useEffect(() => {
+    const handleInitialIndexing = async () => {
+      const status = await waitForIndexStatus(retirementBlockNumber);
+      if (status === "indexed") {
+        router.prefetch(
+          `/retirements/${retirement.beneficiaryAddress}/${retirementTotals}`
+        );
+        setSubgraphIndexStatus("indexed");
+      } else if (status === "timeout") {
+        setSubgraphIndexStatus("timeout");
+      }
+    };
     if (retirementBlockNumber !== 0 && address) {
-      prepareNavigateToCertificate(
-        router,
-        retirement.beneficiaryAddress,
-        retirementTotals,
-        retirementBlockNumber,
-        setSubgraphIndexed
-      );
+      handleInitialIndexing();
     }
   }, [retirementBlockNumber]);
 
@@ -429,7 +434,8 @@ export const RetireForm = (props: RetireFormProps) => {
         showModal={retireModalOpen}
       />
       {retirementTransactionHash &&
-        (subgraphIndexed === true || subgraphIndexed === "timed out") && (
+        (subgraphIndexStatus === "indexed" ||
+          subgraphIndexStatus === "timeout") && (
           <RetirementStatusModal
             retirementUrl={`${urls.retirements}/${
               retirement.beneficiaryAddress || props.address
@@ -438,7 +444,7 @@ export const RetireForm = (props: RetireFormProps) => {
             showModal={!!retirementTransactionHash}
             user={props.address}
             retirementIndex={retirementTotals}
-            subgraphIndexed={subgraphIndexed}
+            subgraphIndexStatus={subgraphIndexStatus}
           />
         )}
     </div>

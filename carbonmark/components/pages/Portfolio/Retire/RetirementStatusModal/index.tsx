@@ -13,7 +13,7 @@ type Props = {
   showModal: boolean;
   user: string;
   retirementIndex: number;
-  subgraphIndexed: boolean | "timed out";
+  subgraphIndexStatus: "indexed" | "timeout";
 };
 
 export const RetirementStatusModal: FC<Props> = (props) => (
@@ -27,7 +27,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
     showModal={true}
   >
     <div className={styles.modalContent}>
-      {props.subgraphIndexed === "timed out" ? (
+      {props.subgraphIndexStatus === "timeout" ? (
         <>
           <Text t="caption">
             <Trans id="offset.successModal.body2">
@@ -61,10 +61,11 @@ export const RetirementStatusModal: FC<Props> = (props) => (
         <>
           <Text t="body6">
             <Trans id="offset.successModal.body1">
-              Thank you for supporting the planet! View transaction on
-              <Link href={props.polygonScanUrl}>PolygonScan.</Link>
+              Thank you for supporting the planet! View transaction on{" "}
+              <Link href={props.polygonScanUrl}> PolygonScan.</Link>
             </Trans>
           </Text>
+
           <CarbonmarkButton
             className={styles.viewButton}
             href={`/retirements/${props.user}/${props.retirementIndex}`}

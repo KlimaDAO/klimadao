@@ -4,7 +4,7 @@ export const title = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.4rem;
 `;
 
 export const modalContent = css`

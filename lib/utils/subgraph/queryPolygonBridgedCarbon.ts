@@ -133,6 +133,9 @@ export const queryKlimaBlockNumber = async (): Promise<number> => {
           `,
       }),
     });
+    if (!result.ok) {
+      throw new Error(result.statusText);
+    }
     const json = await result.json();
     return json.data._meta.block.number;
   } catch (e) {

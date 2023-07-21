@@ -138,6 +138,7 @@ export const retireCarbonTransaction = async (params: {
   isPoolDefault: boolean;
 }): Promise<{
   transactionHash: string;
+  /** retirement transaction block number */
   blockNumber: number;
   retirementIndex: number;
 }> => {
@@ -210,6 +211,7 @@ export const retireCarbonTransaction = async (params: {
 
     return {
       transactionHash: receipt.transactionHash,
+      /** retirement transaction block number */
       blockNumber: receipt.blockNumber,
       retirementIndex,
     };
