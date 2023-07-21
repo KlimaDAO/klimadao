@@ -121,6 +121,11 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
+export const divider = css`
+  height: 0.1rem;
+  background-color: var(--font-03);
+`;
+
 export const externalLink = css`
   color: var(--font-01);
   text-decoration: underline;
