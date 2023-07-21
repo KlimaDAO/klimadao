@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-18 15:09+0000\n"
+"POT-Creation-Date: 2023-07-20 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,11 +103,11 @@ msgstr "एसेट आईडी"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:121
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
-msgstr ""
+msgstr "इस समय कार्बनमार्क इससे अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता: {fiatBalance}"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr ""
+msgstr "इस समय, कार्बनमार्क {0} से अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता है।"
 
 #: components/ProjectCard/index.tsx:43
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -343,7 +343,7 @@ msgstr "बन गई:"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:301
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0> To retire this project using a different form of payment, <1>click here</1>."
-msgstr ""
+msgstr "वर्तमान में, कार्बनमार्क केवल पॉलीगॉन यूएसडीसी या क्रेडिट कार्ड से भुगतान स्वीकार करता है। <0>पॉलीगॉन पर यूएसडीसी प्राप्त करने का तरीका जानें।</0> किसी भिन्न भुगतान विधि का उपयोग करके इस प्रोजेक्ट को रिटायर करने के लिए, <1>यहां क्लिक करें</1> ."
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -392,7 +392,7 @@ msgstr "PDF (पीडीएफ़) डाउनलोड करें"
 
 #: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
 msgid "Downloading ..."
-msgstr ""
+msgstr "डाउनलोड हो रहा है..."
 
 #: components/pages/Users/SellerConnected/index.tsx:157
 msgid "Edit Profile"
@@ -470,7 +470,7 @@ msgstr "सहायता"
 
 #: components/pages/Retire/index.tsx:146
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr ""
+msgstr "यहां शीघ्र और आसानी से रिटायर करने के लिए आसानी से उपलब्ध, रियायती कार्बन टोकन की एक सूची दी गई है।"
 
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:228
@@ -688,7 +688,7 @@ msgstr "सैकड़ों परियोजनाओं से 20 मिल
 
 #: components/pages/Retire/Activity/Table.tsx:40
 msgid "PROJECT"
-msgstr ""
+msgstr "प्रॉजेक्ट"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
@@ -776,7 +776,7 @@ msgstr "प्रॉजेक्ट"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:85
 msgid "Purchase Carbon"
-msgstr ""
+msgstr "कार्बन खरीदें"
 
 #: components/pages/Purchases/index.tsx:35
 #: components/pages/Purchases/index.tsx:36
@@ -869,7 +869,7 @@ msgstr "आवश्यक क्षेत्र"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:179
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:225
 msgid "Required when proceeding with Credit Card"
-msgstr ""
+msgstr "क्रेडिट कार्ड के साथ आगे बढ़ते समय आवश्यक"
 
 #: components/Footer/index.tsx:44
 #: components/pages/Home/index.tsx:511
@@ -1098,7 +1098,7 @@ msgstr "रिटायर करने की न्यूनतम राश�
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:57
 msgid "The minimum amount to retire is 1 Tonnes"
-msgstr ""
+msgstr "रिटायर करने की न्यूनतम राशि 1 टन है"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:60
 msgid "The previous step granted the approval to transfer your carbon asset from your wallet to Carbonmark, your retirement has not been completed yet."
@@ -1110,7 +1110,7 @@ msgstr "पिछले चरण में आपके भुगतान ऐ�
 
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:152
 msgid "There was an error during the checkout process. Please try again."
-msgstr ""
+msgstr "चेकआउट प्रक्रिया के दौरान एक त्रुटि हुई. कृपया पुन: प्रयास करें।"
 
 #: components/pages/Retire/Activity/List.tsx:44
 msgid "There was an error getting your retirement data. Please refresh the page to try again."
@@ -1143,7 +1143,7 @@ msgstr "यह उत्पाद अभी भी बीटा चरण मे
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
-msgstr ""
+msgstr "अपना क्रेडिट कार्ड लेनदेन पूरा करने के लिए, आपको हमारे भुगतान प्रसंस्करण भागीदार स्ट्राइप पर पुनः निर्देशित किया जाएगा।"
 
 #: components/pages/Project/Retire/Pool/RetireModal.tsx:67
 msgid "To finalize your retirement, verify all information is correct and then click 'submit' below."
@@ -1192,7 +1192,7 @@ msgstr "टन बिक्री"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:338
 msgid "Total Cost is required"
-msgstr ""
+msgstr "कुल लागत आवश्यक है"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:156
@@ -1328,7 +1328,7 @@ msgstr "हम अभी आपकी सफल ख़रीदारी को प
 
 #: components/pages/Retire/FromPortfolio/index.tsx:80
 msgid "We couldn't find any assets in your portfolio."
-msgstr ""
+msgstr "हमें आपके पोर्टफोलियो में कोई संपत्ति नहीं मिली."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
@@ -1375,7 +1375,7 @@ msgstr "आपने लेन-देन को अस्वीकार कर�
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:194
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
-msgstr ""
+msgstr "आपको या तो लाभार्थी का पता प्रदान करना होगा या अपने ब्राउज़र वॉलेट से लॉगिन करना होगा।"
 
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:49
@@ -2181,7 +2181,7 @@ msgstr "यह सुविधा केवल उन उपयोगकर्�
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "{0} maximum for credit cards"
-msgstr ""
+msgstr "{0} क्रेडिट कार्ड के लिए अधिकतम"
 
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
