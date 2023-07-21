@@ -4,7 +4,7 @@ import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Text } from "components/Text";
-import { getTotalAmountSoldFromActivities } from "lib/activitiesGetter";
+import { getTotalTonnesSoldFromActivities } from "lib/activitiesGetter";
 import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
 import { Listing, UserActivity } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
@@ -23,7 +23,7 @@ export const StatsListings: FC<Props> = (props) => {
     ? getTotalAmountSold(props.allListings)
     : 0;
   const tonnesSoldFromActivities = !!props.activities?.length
-    ? getTotalAmountSoldFromActivities(props.activities)
+    ? getTotalTonnesSoldFromActivities(props.activities)
     : 0;
 
   const tonnesSold = tonnesSoldFromListings || tonnesSoldFromActivities;
