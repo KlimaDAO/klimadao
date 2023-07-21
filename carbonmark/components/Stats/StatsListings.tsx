@@ -4,8 +4,9 @@ import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Text } from "components/Text";
+import { getTotalAmountSoldFromActivities } from "lib/activitiesGetter";
 import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
-import { Listing } from "lib/types/carbonmark";
+import { Listing, UserActivity } from "lib/types/carbonmark";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -13,13 +14,19 @@ import * as styles from "./styles";
 interface Props {
   allListings?: Listing[];
   activeListings?: Listing[];
+  activities?: UserActivity[];
 }
 
 export const StatsListings: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const tonnesSold = !!props.allListings?.length
+  const tonnesSoldFromListings = !!props.allListings?.length
     ? getTotalAmountSold(props.allListings)
     : 0;
+  const tonnesSoldFromActivities = !!props.activities?.length
+    ? getTotalAmountSoldFromActivities(props.activities)
+    : 0;
+
+  const tonnesSold = tonnesSoldFromListings || tonnesSoldFromActivities;
 
   const tonnesOwned = !!props.activeListings?.length
     ? getAmountLeftToSell(props.activeListings)

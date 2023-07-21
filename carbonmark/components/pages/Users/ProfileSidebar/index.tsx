@@ -13,6 +13,7 @@ type Props = {
 export const ProfileSidebar: FC<Props> = (props) => {
   const allListings = props.user && getAllListings(props.user.listings);
   const activeListings = props.user && getActiveListings(props.user.listings);
+  const activities = props.user && props.user.activities;
 
   return (
     <>
@@ -20,6 +21,7 @@ export const ProfileSidebar: FC<Props> = (props) => {
         allListings={allListings || []}
         activeListings={activeListings || []}
         description={props.title}
+        activities={activities || []}
       />
       <Activities
         activities={props.user?.activities || []}
