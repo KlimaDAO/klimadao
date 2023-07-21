@@ -14,7 +14,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const getIds = async () => {
+const getOriginalIds = async () => {
     const snapshot = await db.collection('users').get();
     const ids = snapshot.docs.map(doc => doc.id);
     return ids;
@@ -41,7 +41,7 @@ const getIds = async () => {
   };
 
 
-  getIds().then(ids => {
+  getOriginalIds().then(ids => {
     whereTest(ids).then(() => {
       getAllTest(ids);
     });

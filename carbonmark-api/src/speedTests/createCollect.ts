@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 
 
 import * as dotenv from "dotenv";
-dotenv.config({ path: "../.vercel/.env.development.local" });
+dotenv.config({ path: "../../../.vercel/.env.development.local" });
 
 if (!process.env.FIREBASE_ADMIN_CERT) {
     throw new Error("Environment variable FIREBASE_ADMIN_CERT is undefined");
@@ -35,7 +35,7 @@ const createUserData = async () => {
 
   // Add a new document in collection "usersTesting" with auto-generated ID
   await db.collection('usersTesting').doc(ethAddress).set(userData)
-    .then(() => console.log('Document written with ID: ', ethAddress))
+    .then(() => console.info('Document written with ID: ', ethAddress))
     .catch((error) => console.error('Error adding document: ', error));
   counter += 1
 }

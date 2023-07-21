@@ -1,6 +1,4 @@
 import admin from 'firebase-admin';
-import { ethers } from 'ethers';
-import { faker } from '@faker-js/faker';
 
 
 import * as dotenv from "dotenv";
@@ -22,7 +20,7 @@ const copyUsers = async () => {
     const snapshot = await db.collection('users').get();
     const docs = snapshot.docs;
   
-    for (let doc of docs) {
+    for (const doc of docs) {
       const data = doc.data();
   
       // Add the Ethereum address
@@ -30,7 +28,7 @@ const copyUsers = async () => {
   
 
       await db.collection('usersTesting').doc(doc.id).set(data)
-        .then(() => console.log(`Copied document with ID: ${doc.id}`))
+        .then(() => console.info(`Copied document with ID: ${doc.id}`))
         .catch((error) => console.error(`Error copying document with ID: ${doc.id}`, error));
     }
   };
