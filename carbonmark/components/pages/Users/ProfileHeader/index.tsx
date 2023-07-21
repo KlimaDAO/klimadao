@@ -43,7 +43,7 @@ export const ProfileHeader: FC<Props> = (props) => {
         )}
         {!isCarbonmarkUser && isUnconnectedUser && (
           <Text t="body1">
-            <Trans>This user has not yet created a carbonmark profile</Trans>
+            <Trans>This user has not yet created a carbonmark profile.</Trans>
           </Text>
         )}
 
@@ -52,7 +52,7 @@ export const ProfileHeader: FC<Props> = (props) => {
           !props.carbonmarkUser?.description && (
             <Text t="body1">
               <Trans id="profile.edit_your_profile">
-                Edit your profile to add a description
+                Edit your profile to add a description.
               </Trans>
             </Text>
           )}
