@@ -1,6 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { Text } from "components/Text";
+import { useConnectedUser } from "hooks/useConnectedUser";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -8,10 +9,14 @@ import * as styles from "./styles";
 type Props = {
   carbonmarkUser: User | null;
   userName: string;
+  userAddress: string;
 };
 
 export const ProfileHeader: FC<Props> = (props) => {
   const isCarbonmarkUser = !!props.carbonmarkUser;
+  const { isConnectedUser, isUnconnectedUser } = useConnectedUser(
+    props.userAddress
+  );
 
   return (
     <div className={styles.profileHeader}>
@@ -28,22 +33,29 @@ export const ProfileHeader: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        {!isCarbonmarkUser && (
+        {!isCarbonmarkUser && isConnectedUser && (
           <Text t="body1">
-            <Trans id="profile.create_your_profile">
-              To start selling you need to create your profile, click the
-              'create profile' button above to get started.
+            <Trans>
+              Click the 'create profile' button to customize this page and get
+              started.
             </Trans>
+          </Text>
+        )}
+        {!isCarbonmarkUser && isUnconnectedUser && (
+          <Text t="body1">
+            <Trans>This user has not yet created a carbonmark profile</Trans>
           </Text>
         )}
 
-        {isCarbonmarkUser && !props.carbonmarkUser?.description && (
-          <Text t="body1">
-            <Trans id="profile.edit_your_profile">
-              Edit your profile to add a description
-            </Trans>
-          </Text>
-        )}
+        {isCarbonmarkUser &&
+          isConnectedUser &&
+          !props.carbonmarkUser?.description && (
+            <Text t="body1">
+              <Trans id="profile.edit_your_profile">
+                Edit your profile to add a description
+              </Trans>
+            </Text>
+          )}
 
         {isCarbonmarkUser && props.carbonmarkUser?.description && (
           <Text t="body1">{props.carbonmarkUser.description}</Text>
