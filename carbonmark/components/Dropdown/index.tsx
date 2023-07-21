@@ -48,11 +48,6 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
     close();
   }, [selected]);
 
-  useEffect(() => {
-    if (initial === selected.id) return;
-    setSelected(defaultOption);
-  }, [initial]);
-
   return (
     <div className={cx(styles.tippyContainer, className)}>
       <Tippy

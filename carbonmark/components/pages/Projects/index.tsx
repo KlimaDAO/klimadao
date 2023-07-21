@@ -98,6 +98,7 @@ const Page: NextPage = () => {
         />
         <div className={styles.sortOptions}>
           <Dropdown
+            key={sort}
             name="sort"
             initial={sort ?? "recently-updated"}
             className={styles.dropdown}
