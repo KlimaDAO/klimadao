@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import { Category } from "components/Category";
 import { Vintage } from "components/Vintage";
+import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export const ListView: React.FC<Props> = ({ projects }) => {
-  const { locale } = useRouter();
+  const router = useRouter();
   return (
     <div className={styles.listView}>
       <table>
@@ -27,12 +28,15 @@ export const ListView: React.FC<Props> = ({ projects }) => {
         </thead>
         <tbody>
           {projects?.map((project: Project, index: number) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              onClick={() => router.push(createProjectLink(project))}
+            >
               <td>
                 <strong>{project.name || "! MISSING PROJECT NAME !"}</strong>
               </td>
               <td>
-                <strong>{formatToPrice(project.price, locale)}</strong>
+                <strong>{formatToPrice(project.price, router.locale)}</strong>
               </td>
               <td width="35%">
                 <p className="description">

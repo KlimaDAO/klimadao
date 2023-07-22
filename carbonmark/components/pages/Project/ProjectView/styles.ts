@@ -12,6 +12,13 @@ export const listView = css`
     line-height: 2rem;
     border-collapse: collapse;
 
+    & tbody tr {
+      cursor: pointer;
+      &:hover {
+        background: #f5f6ff;
+      }
+    }
+
     & th {
       text-align: left;
       padding: 0 2rem 2rem;

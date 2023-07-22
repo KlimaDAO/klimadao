@@ -138,25 +138,29 @@ export const row = css`
   margin-bottom: 0.8rem;
 `;
 
+/** List view is only available on Desktop */
 export const viewToggle = css`
-  display: flex;
-  flex-direction: row;
+  display: none;
 
-  & button {
-    width: 4.8rem;
-    color: black !important;
-    background: white !important;
+  ${breakpoints.desktop} {
+    display: flex;
 
-    :first-of-type {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    :last-of-type {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &.selected {
-      background: #ffb800 !important;
+    & button {
+      width: 4.8rem;
+      color: black !important;
+      background: white !important;
+
+      :first-of-type {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      :last-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &.selected {
+        background: var(--yellow) !important;
+      }
     }
   }
 `;
