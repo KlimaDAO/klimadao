@@ -38,6 +38,7 @@ export const listView = css`
     & td {
       color: black;
       padding: 2rem;
+      vertical-align: top;
       border-bottom: 0.1rem solid var(--manatee);
 
       & strong {
