@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress, isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -27,10 +28,7 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
       )}
       {props.address &&
         (isTorus ? (
-          <ViewWalletButton
-            address={props.address}
-            href="https://polygon.tor.us/"
-          />
+          <ViewWalletButton address={props.address} href={urls.polygonTor} />
         ) : (
           <CopyAddressButton
             label={concatAddress(props.address)}
