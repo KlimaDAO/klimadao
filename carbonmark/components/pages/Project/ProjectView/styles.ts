@@ -10,20 +10,6 @@ export const listView = css`
   & table {
     border-collapse: collapse;
 
-    & .description {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-
-    & tbody tr {
-      cursor: pointer;
-      &:hover {
-        background: #f5f6ff;
-      }
-    }
-
     & thead th {
       text-align: left;
       padding: 0 1.6rem 2rem;
@@ -47,12 +33,27 @@ export const listView = css`
     }
 
     & tbody {
-      font-size: 1.6rem;
-      line-height: 2rem;
+      tr {
+        cursor: pointer;
+        &:hover {
+          background: #f5f6ff;
+        }
+      }
 
-      th {
+      th,
+      td {
+        padding: 1.6rem;
         font-size: 1.6rem;
         line-height: 2rem;
+        vertical-align: top;
+        border-bottom: 0.1rem solid var(--manatee);
+
+        :last-of-type {
+          padding-right: 0;
+        }
+      }
+
+      th {
         font-weight: 700;
         color: var(--font-02);
         font-family: var(--font-family-secondary);
@@ -60,24 +61,18 @@ export const listView = css`
         :first-of-type {
           padding-left: 0;
         }
-
-        :last-of-type {
-          padding-right: 0;
-        }
       }
 
       td {
         color: black;
-        padding: 1.6rem;
-        font-size: 1.6rem;
-        line-height: 2rem;
-        vertical-align: top;
         font-family: var(--font-family);
-        // border-bottom: 0.1rem solid var(--manatee);
+      }
 
-        :last-of-type {
-          padding-right: 0;
-        }
+      & .description {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
     }
   }
