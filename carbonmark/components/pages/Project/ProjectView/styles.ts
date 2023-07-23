@@ -8,9 +8,14 @@ export const listView = css`
   box-shadow: 0 0.4rem 2.8rem 0 rgba(0, 0, 0, 0.06);
 
   & table {
-    font-size: 1.6rem;
-    line-height: 2rem;
     border-collapse: collapse;
+
+    & .description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
 
     & tbody tr {
       cursor: pointer;
@@ -19,30 +24,15 @@ export const listView = css`
       }
     }
 
-    & th {
+    & thead th {
       text-align: left;
-      padding: 0 2rem 2rem;
-      color: var(--font-02);
-      border-bottom: 0.1rem solid var(--manatee);
-      font-family: var(--font-family-secondary);
-
-      :first-of-type {
-        padding-left: 0;
-      }
-
-      :last-of-type {
-        padding-right: 0;
-      }
-    }
-
-    & td {
-      color: black;
-      padding: 2rem;
-      vertical-align: top;
+      padding: 0 1.6rem 2rem;
       border-bottom: 0.1rem solid var(--manatee);
 
-      & strong {
+      span {
         font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 2rem;
         color: var(--font-02);
         font-family: var(--font-family-secondary);
       }
@@ -54,12 +44,40 @@ export const listView = css`
       :last-of-type {
         padding-right: 0;
       }
+    }
 
-      & .description {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+    & tbody {
+      font-size: 1.6rem;
+      line-height: 2rem;
+
+      th {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 700;
+        color: var(--font-02);
+        font-family: var(--font-family-secondary);
+
+        :first-of-type {
+          padding-left: 0;
+        }
+
+        :last-of-type {
+          padding-right: 0;
+        }
+      }
+
+      td {
+        color: black;
+        padding: 1.6rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        vertical-align: top;
+        font-family: var(--font-family);
+        // border-bottom: 0.1rem solid var(--manatee);
+
+        :last-of-type {
+          padding-right: 0;
+        }
       }
     }
   }
