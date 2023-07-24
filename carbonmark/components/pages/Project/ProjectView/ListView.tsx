@@ -176,10 +176,14 @@ export const ListView: FC<Props> = (props) => {
                 </p>
               </TableCell>
               <TableCell>
-                <Category category={getCategoryFromProject(project)} />
+                <div className={styles.tags}>
+                  <Category category={getCategoryFromProject(project)} />
+                </div>
               </TableCell>
               <TableCell>
-                <Vintage vintage={project.vintage} />
+                <div className={styles.tags}>
+                  <Vintage vintage={project.vintage} />
+                </div>
               </TableCell>
             </TableRow>
           ))}
