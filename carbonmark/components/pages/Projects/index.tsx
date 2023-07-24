@@ -15,6 +15,11 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
+import {
+  defaultFilterProps,
+  FilterValues,
+  SortOption,
+} from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
@@ -32,29 +37,13 @@ import { ProjectFilters } from "../Project/ProjectFilters";
 import { ProjectsController } from "../Project/ProjectsController";
 import * as styles from "./styles";
 
-type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
-
-export type ModalFieldValues = {
-  sort: SortOption;
-  country: string[];
-  category: string[];
-  vintage: string[];
-};
-
-export const DEFAULTS: ModalFieldValues = {
-  sort: "recently-updated",
-  country: [],
-  category: [],
-  vintage: [],
-};
-
 const Page: NextPage = () => {
   const router = useRouter();
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const defaultValues = { ...DEFAULTS, ...router.query };
+  const defaultValues = { ...defaultFilterProps, ...router.query };
 
   const { projects, isLoading, isValidating } = useFetchProjects();
-  const { control, setValue } = useForm<ModalFieldValues>({
+  const { control, setValue } = useForm<FilterValues>({
     defaultValues,
   });
 
@@ -75,7 +64,7 @@ const Page: NextPage = () => {
   }, [router.query]);
 
   useEffect(() => {
-    if (!sort || isEmpty(router.query)) return;
+    if (!sort || !router.isReady) return;
     const query = { ...router.query, sort };
     router.replace({ query }, undefined, { shallow: true });
   }, [sort]);

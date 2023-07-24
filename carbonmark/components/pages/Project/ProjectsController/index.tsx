@@ -3,8 +3,8 @@ import { t, Trans } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
-import { DEFAULTS } from "components/pages/Projects";
 import { SearchInput } from "components/SearchInput";
+import { defaultFilterProps } from "hooks/useProjectsFilterParams";
 import { flatMap, omit } from "lodash";
 import { useRouter } from "next/router";
 import { FC, HTMLAttributes, useEffect, useState } from "react";
@@ -34,8 +34,12 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   };
 
   const handleResetFilters = () => {
-    router.replace({ query: DEFAULTS }, undefined, { shallow: true });
+    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
   };
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleResetFilters);
+  }, [router]);
 
   return (
     <div className={cx(styles.projectsController, props.className)}>
