@@ -269,6 +269,10 @@ msgstr ""
 msgid "Clear Filters"
 msgstr ""
 
+#: components/pages/Users/ProfileHeader/index.tsx:38
+msgid "Click the 'create profile' button to customize this page and get started."
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr ""
@@ -307,11 +311,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: components/pages/Retire/FromPortfolio/index.tsx:100
-msgid "Create Carbonmark Profile"
-msgstr ""
-
-#: components/pages/Users/SellerConnected/index.tsx:187
+#: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
 msgstr ""
 
@@ -363,7 +363,7 @@ msgid "Data for this project and vintage"
 msgstr ""
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:91
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "Data for this seller"
 msgstr ""
 
@@ -552,8 +552,8 @@ msgstr ""
 msgid "List your projects for sale in just a few clicks"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:171
-#: components/pages/Users/SellerUnconnected/index.tsx:47
+#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr ""
 
@@ -632,8 +632,8 @@ msgstr ""
 msgid "No Activity to show."
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:214
-#: components/pages/Users/SellerUnconnected/index.tsx:83
+#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr ""
 
@@ -1150,6 +1150,10 @@ msgstr ""
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr ""
 
+#: components/pages/Users/ProfileHeader/index.tsx:46
+msgid "This user has not yet created a carbonmark profile."
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
 msgstr ""
@@ -1242,7 +1246,7 @@ msgstr ""
 msgid "Updated:"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:208
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
 msgstr ""
 
@@ -1409,8 +1413,8 @@ msgstr ""
 msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
 msgstr ""
 
-#: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:232
+#: components/pages/Portfolio/PortfolioSidebar.tsx:24
+#: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
 msgstr ""
 
@@ -1636,10 +1640,6 @@ msgstr ""
 msgid "profile.addListing_modal.submit"
 msgstr ""
 
-#: components/pages/Users/ProfileHeader/index.tsx:33
-msgid "profile.create_your_profile"
-msgstr ""
-
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr ""
@@ -1648,11 +1648,11 @@ msgstr ""
 msgid "profile.edit_modal.submit"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:238
+#: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
 msgstr ""
 
-#: components/pages/Users/ProfileHeader/index.tsx:42
+#: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
 msgstr ""
 
@@ -1981,7 +1981,7 @@ msgstr ""
 msgid "seller.edit_listing.title"
 msgstr ""
 
-#: components/pages/Users/SellerUnconnected/index.tsx:70
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr ""
 
@@ -1994,7 +1994,7 @@ msgid "shared.approve"
 msgstr ""
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Users/SellerUnconnected/index.tsx:60
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr ""
 
