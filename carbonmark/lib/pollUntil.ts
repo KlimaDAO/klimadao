@@ -1,3 +1,9 @@
+// This function polls a given function until it returns a valid result or the maximum number of attempts is reached.
+// It takes an object as a parameter with the following properties:
+// - fn: The function to be polled. It should return a promise.
+// - validate: A function to validate the result of the polled function.
+// - ms: The interval between each poll in milliseconds.
+// - maxAttempts: The maximum number of attempts before throwing an error.
 export const pollUntil = async <T>(params: {
   fn: () => Promise<T>;
   validate: (value: T) => boolean;
@@ -20,6 +26,8 @@ export const pollUntil = async <T>(params: {
   }
 };
 
+// This function creates a promise that resolves after a specified number of milliseconds.
+// It takes the number of milliseconds to wait as a parameter.
 const wait = (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);

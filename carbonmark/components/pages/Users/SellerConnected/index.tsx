@@ -33,6 +33,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
 
   const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
+
   const [isPending, setIsPending] = useState(false);
 
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
@@ -124,8 +125,13 @@ export const SellerConnected: FC<Props> = (props) => {
       // Merge with data from Updated Profile as backend might be slow!
       const newUser = { ...userFromApi, ...profileData };
 
-      // Update the cache only, do not revalidate
+      // Update the cache only, this is an optimistic update
       await mutate(newUser, false);
+      //Update the server directly. This is a temporary solution until we can clean up the mutation logic
+      mutate(handleMutateUserUntil, {
+        populateCache: true,
+      });
+
       setShowEditProfileModal(false);
     } catch (e) {
       console.error(e);
