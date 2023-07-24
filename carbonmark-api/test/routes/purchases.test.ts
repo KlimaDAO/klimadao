@@ -4,7 +4,7 @@ import { aPurchase } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
-import { ERROR } from "./routes.mock";
+import { MOCK_ERROR } from "./routes.mock";
 
 describe("GET /purchases/:id", () => {
   let fastify: FastifyInstance;
@@ -51,7 +51,7 @@ describe("GET /purchases/:id", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
-        errors: [ERROR],
+        errors: [MOCK_ERROR],
       });
 
     const response = await fastify.inject({

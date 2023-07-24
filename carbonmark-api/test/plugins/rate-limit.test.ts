@@ -1,9 +1,12 @@
 import { FastifyInstance } from "fastify";
+import { random, range } from "lodash";
 import nock from "nock";
+import { aCategory } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
-import { CATEGORIES } from "../routes/routes.mock";
 import { DEV_URL } from "../test.constants";
+
+const mockCategories = range(random(1, 10)).map(() => aCategory());
 
 describe("Rate Limiter", () => {
   let app: FastifyInstance;
@@ -22,7 +25,7 @@ describe("Rate Limiter", () => {
 
       nock(GRAPH_URLS.marketplace)
         .post("")
-        .reply(200, { data: { categories: CATEGORIES } });
+        .reply(200, { data: { categories: mockCategories } });
 
       const response = await app.inject({
         method: "GET",

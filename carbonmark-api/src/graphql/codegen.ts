@@ -39,6 +39,7 @@ const generates = Object.entries(schema).reduce(
             typeNames: "change-case-all#pascalCase",
             transformUnderscore: false,
             terminateCircularRelationships: true,
+            dynamicValues: true,
           },
         },
       ],

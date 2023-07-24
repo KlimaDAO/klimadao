@@ -1,9 +1,11 @@
 import { FastifyInstance } from "fastify";
+import { random, range } from "lodash";
 import nock from "nock";
+import { aCategory } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
-import { CATEGORIES, ERROR } from "./routes.mock";
+import { MOCK_ERROR } from "./routes.mock";
 
 describe("GET /categories", () => {
   let fastify: FastifyInstance;
@@ -23,9 +25,11 @@ describe("GET /categories", () => {
 
   /** The happy path */
   test("Success", async () => {
+    const mockCategories = range(random(1, 10, false)).map(() => aCategory());
+
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { categories: CATEGORIES } });
+      .reply(200, { data: { categories: mockCategories } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -35,7 +39,7 @@ describe("GET /categories", () => {
     const data = await response.json();
 
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(CATEGORIES);
+    expect(data).toEqual(mockCategories);
   });
 
   /** An issue with one of the graph APIs */
@@ -43,7 +47,7 @@ describe("GET /categories", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
-        errors: [ERROR],
+        errors: [MOCK_ERROR],
       });
 
     const response = await fastify.inject({

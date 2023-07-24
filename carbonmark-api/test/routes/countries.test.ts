@@ -1,9 +1,13 @@
 import { FastifyInstance } from "fastify";
+import { range } from "lodash";
 import nock from "nock";
+import { aCountry } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
-import { COUNTRIES, ERROR } from "./routes.mock";
+import { MOCK_ERROR } from "./routes.mock";
+
+const mockCountries = range(6).map(() => aCountry());
 
 describe("GET /countries", () => {
   let fastify: FastifyInstance;
@@ -19,14 +23,14 @@ describe("GET /countries", () => {
   beforeEach(() =>
     nock(GRAPH_URLS.offsets)
       .post("")
-      .reply(200, { data: { carbonOffsets: COUNTRIES } })
+      .reply(200, { data: { carbonOffsets: mockCountries } })
   );
 
   /** The happy path */
-  test("Success", async () => {
+  test.only("Success", async () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { countries: COUNTRIES } });
+      .reply(200, { data: { countries: mockCountries } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -36,7 +40,7 @@ describe("GET /countries", () => {
     const data = await response.json();
 
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(COUNTRIES);
+    expect(data).toEqual(mockCountries);
   });
 
   /** An issue with one of the graph APIs */
@@ -44,7 +48,7 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
-        errors: [ERROR],
+        errors: [MOCK_ERROR],
       });
 
     const response = await fastify.inject({

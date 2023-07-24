@@ -61,7 +61,7 @@ export async function getAllCategories(fastify: FastifyInstance) {
   }
 
   // Fetch categories from the marketplace & carbon offsets categories
-  const [{ categories }, { carbonOffsets }] = await Promise.all([
+  const [{ categories = [] }, { carbonOffsets = [] }] = await Promise.all([
     gqlSdk.marketplace.getCategories(),
     gqlSdk.offsets.getCarbonOffsetsCategories(),
   ]);
@@ -108,7 +108,7 @@ export async function getAllCountries(fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const [{ countries }, { carbonOffsets }] = await Promise.all([
+  const [{ countries = [] }, { carbonOffsets = [] }] = await Promise.all([
     gqlSdk.marketplace.getCountries(),
     gqlSdk.offsets.getCarbonOffsetsCountries(),
   ]);
@@ -127,9 +127,12 @@ export async function getAllCountries(fastify: FastifyInstance) {
   );
 
   const result: Country[] = fn([
-    countries?.map(extract("id")),
+    countries.map(extract("id")),
     carbonOffsets.map(extract("country")),
   ]);
+
+  console.log(countries);
+  console.log(result);
 
   await fastify.lcache.set(cacheKey, { payload: result });
 
