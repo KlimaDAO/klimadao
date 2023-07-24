@@ -70,7 +70,9 @@ const Page: NextPage = () => {
               </div>
               <div className={styles.cardContent}>
                 <Text t="h4">{formatToPrice(project.price, locale)}</Text>
-                <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
+                <Text t="h5" className={styles.cardTitle}>
+                  {project.name || "! MISSING PROJECT NAME !"}
+                </Text>
                 <Text t="body1" className={styles.cardDescription}>
                   {project.short_description ||
                     project.description ||
