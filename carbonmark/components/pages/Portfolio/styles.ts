@@ -35,3 +35,10 @@ export const spinnerContainer = css`
   align-items: center;
   height: 100%;
 `;
+
+export const stickyContentWrapper = css`
+  display: grid;
+  gap: 2.4rem;
+  position: sticky;
+  top: 1rem;
+`;
