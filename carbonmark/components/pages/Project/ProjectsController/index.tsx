@@ -37,10 +37,6 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
     router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
   };
 
-  useEffect(() => {
-    router.events.on("routeChangeComplete", handleResetFilters);
-  }, [router]);
-
   return (
     <div className={cx(styles.projectsController, props.className)}>
       <SearchInput
