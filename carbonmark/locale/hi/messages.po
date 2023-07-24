@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-24 21:13+0000\n"
+"POT-Creation-Date: 2023-07-24 21:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,6 +307,10 @@ msgstr "कुल लागत की गणना नहीं सकी"
 msgid "Country"
 msgstr "देश"
 
+#: components/pages/Retire/FromPortfolio/index.tsx:100
+msgid "Create Carbonmark Profile"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
@@ -462,7 +466,6 @@ msgstr "हैंडल में कोई विशेष वर्ण नह�
 
 #: components/pages/Portfolio/Retire/index.tsx:104
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "क्या आपने अपनी कार्बनमार्क <0>Profile</0> पहले ही बना ली है?"
 
@@ -560,7 +563,7 @@ msgid "Loading"
 msgstr "लोड हो रहा है"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
-#: components/pages/Retire/FromPortfolio/index.tsx:67
+#: components/pages/Retire/FromPortfolio/index.tsx:66
 msgid "Loading your assets"
 msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
@@ -1025,7 +1028,6 @@ msgstr "क्षमा करें, यह हैंडल पहले से
 
 #: components/pages/Portfolio/Retire/index.tsx:99
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "क्षमा करें। हमें कार्बनमार्क पर आपके यूज़र का कोई डेटा नहीं मिला।"
 
@@ -1327,6 +1329,7 @@ msgid "We are still processing your successful purchase. Please visit this page 
 msgstr "हम अभी आपकी सफल ख़रीदारी को प्रोसेस ही कर रहे हैं। अपनी रसीद देखने के लिए कृपया कुछ मिनटों में इस पृष्ठ पर वापस आएँ।"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:80
+#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "We couldn't find any assets in your portfolio."
 msgstr "हमें आपके पोर्टफोलियो में कोई संपत्ति नहीं मिली."
 

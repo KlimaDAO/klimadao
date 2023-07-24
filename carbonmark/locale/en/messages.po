@@ -313,6 +313,10 @@ msgstr "Could not calculate Total Cost"
 msgid "Country"
 msgstr "Country"
 
+#: components/pages/Retire/FromPortfolio/index.tsx:100
+msgid "Create Carbonmark Profile"
+msgstr "Create Carbonmark Profile"
+
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "Create New Listing"
@@ -468,7 +472,6 @@ msgstr "Handle should not contain any special characters"
 
 #: components/pages/Portfolio/Retire/index.tsx:104
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
@@ -566,7 +569,7 @@ msgid "Loading"
 msgstr "Loading"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
-#: components/pages/Retire/FromPortfolio/index.tsx:67
+#: components/pages/Retire/FromPortfolio/index.tsx:66
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
@@ -1031,7 +1034,6 @@ msgstr "Sorry, this handle already exists"
 
 #: components/pages/Portfolio/Retire/index.tsx:99
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Sorry. We could not find any data on Carbonmark for your user."
 
@@ -1333,6 +1335,7 @@ msgid "We are still processing your successful purchase. Please visit this page 
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
 #: components/pages/Retire/FromPortfolio/index.tsx:80
+#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 
