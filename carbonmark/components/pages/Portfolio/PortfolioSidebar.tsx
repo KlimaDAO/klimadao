@@ -5,6 +5,7 @@ import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";
 import { Balances } from "./Balances";
+import * as styles from "./styles";
 
 type Props = {
   user: User | null;
@@ -16,7 +17,7 @@ export const PortfolioSidebar: FC<Props> = (props) => {
   const activeListings = props.user && getActiveListings(props.user.listings);
 
   return (
-    <>
+    <div className={styles.stickyContentWrapper}>
       <Balances />
       <Stats
         allListings={allListings || []}
@@ -27,6 +28,6 @@ export const PortfolioSidebar: FC<Props> = (props) => {
         activities={props.user?.activities || []}
         isLoading={props.isPending}
       />
-    </>
+    </div>
   );
 };

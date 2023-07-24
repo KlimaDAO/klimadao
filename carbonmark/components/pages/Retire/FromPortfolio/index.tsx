@@ -6,7 +6,6 @@ import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { AssetForListing } from "lib/types/carbonmark";
-import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import * as styles from "./styles";
@@ -66,12 +65,13 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
     <>
       {isLoadingAssets && <SpinnerWithLabel label={t`Loading your assets`} />}
 
-      <div className={styles.cardsList}>
-        {!!assetsData &&
-          assetsData.map((a) => (
+      {!!assetsData && (
+        <div className={styles.cardsList}>
+          {assetsData.map((a) => (
             <AssetProject asset={a} key={a.tokenAddress} />
           ))}
-      </div>
+        </div>
+      )}
 
       {emptyAssets && (
         <>
@@ -92,19 +92,14 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
         <>
           <Text>
             <i>
-              <Trans>
-                Sorry. We could not find any data on Carbonmark for your user.
-              </Trans>
+              <Trans>We couldn't find any assets in your portfolio.</Trans>
             </i>
           </Text>
-          <Text>
-            <i>
-              <Trans>
-                Have you already created your Carbonmark{" "}
-                <Link href={`/users/${props.address}`}>Profile</Link>?
-              </Trans>
-            </i>
-          </Text>
+          <ButtonPrimary
+            href={"/users/login"}
+            label={t`Create Carbonmark Profile`}
+            className={styles.buttonEmptyState}
+          />
         </>
       )}
     </>
