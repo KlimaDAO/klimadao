@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-24 21:13+0000\n"
+"POT-Creation-Date: 2023-07-24 21:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,6 +307,10 @@ msgstr "Gesamtkosten konnten nicht berechnet werden"
 msgid "Country"
 msgstr "Land"
 
+#: components/pages/Retire/FromPortfolio/index.tsx:100
+msgid "Create Carbonmark Profile"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/index.tsx:187
 msgid "Create New Listing"
 msgstr "Neuen Eintrag erstellen"
@@ -462,7 +466,6 @@ msgstr "Name sollte keine Sonderzeichen enthalten"
 
 #: components/pages/Portfolio/Retire/index.tsx:104
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Retire/FromPortfolio/index.tsx:102
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Haben Sie schon Ihr <0>Carbonmark-Profil</0> erstellt?"
 
@@ -560,7 +563,7 @@ msgid "Loading"
 msgstr "Wird geladen"
 
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
-#: components/pages/Retire/FromPortfolio/index.tsx:67
+#: components/pages/Retire/FromPortfolio/index.tsx:66
 msgid "Loading your assets"
 msgstr "Assets werden geladen"
 
@@ -1025,7 +1028,6 @@ msgstr "Leider existiert dieser Name bereits"
 
 #: components/pages/Portfolio/Retire/index.tsx:99
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Leider konnten wir auf Carbonmark keine Daten für diesen Nutzer finden."
 
@@ -1327,6 +1329,7 @@ msgid "We are still processing your successful purchase. Please visit this page 
 msgstr "Ihr Kauf wird noch verarbeitet. Aktualisieren Sie diese Seite in wenigen Minuten, um Ihre Quittung zu erhalten."
 
 #: components/pages/Retire/FromPortfolio/index.tsx:80
+#: components/pages/Retire/FromPortfolio/index.tsx:95
 msgid "We couldn't find any assets in your portfolio."
 msgstr "Wir konnten keine Assets in Ihrem Portfolio finden."
 
