@@ -53,6 +53,13 @@ type Token @entity {
 #### Carbon Specific Data ####
 ##############################
 
+type Ecosystem @entity {
+  id: ID!
+
+  "Active Offsets with supply > 0"
+  activeOffsets: [Bytes!]!
+}
+
 type Methodology @entity {
   id: ID!
 
@@ -125,6 +132,25 @@ type CarbonOffset @entity {
 
   "Current pool balances for this offset"
   poolBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "offset")
+}
+
+type CarbonOffsetSnapshot @entity {
+  # These are tracked by Klima rebase epochs. Currently set to be at least 11520 blocks apart.
+
+  "{Token Address}-{Epoch ID}"
+  id: Bytes!
+
+  "Offset for this snapshot"
+  offset: CarbonOffset!
+
+  "Klima rebase epoch"
+  epoch: BigInt!
+
+  "Current supply of the offset in native units"
+  currentSupply: BigInt!
+
+  "Timestamp created"
+  createdAt: BigInt!
 }
 
 type Bridge @entity(immutable: true) {

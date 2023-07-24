@@ -11,6 +11,7 @@ import { saveBridge } from './utils/Bridge'
 import { CrossChainBridge } from '../generated/schema'
 import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/CarbonPool'
 import { checkForCarbonPoolOffsetSnapshot } from './utils/CarbonPoolOffsetBalance'
+import { loadOrCreateEcosystem } from './utils/Ecosystem'
 
 export function handleOffsetTransfer(event: Transfer): void {
   if (event.address == MCO2_ERC20_CONTRACT) loadOrCreateCarbonOffset(MCO2_ERC20_CONTRACT, 'MOSS')
@@ -54,6 +55,24 @@ export function handleOffsetTransfer(event: Transfer): void {
     toHolding.amount = toHolding.amount.plus(event.params.value)
     toHolding.lastUpdated = event.block.timestamp
     toHolding.save()
+  }
+
+  // Update active offsets list
+  let ecosystem = loadOrCreateEcosystem()
+  let activeIndex = ecosystem.activeOffsets.indexOf(event.address)
+
+  if (offset.currentSupply > ZERO_BI && activeIndex == -1) {
+    // Add to the list of active offsets
+    let activeOffsets = ecosystem.activeOffsets
+    activeOffsets.push(event.address)
+    ecosystem.activeOffsets = activeOffsets
+    ecosystem.save()
+  } else if (offset.currentSupply == ZERO_BI && activeIndex != -1) {
+    // Remove from the list of active offsets
+    let activeOffsets = ecosystem.activeOffsets
+    activeOffsets.splice(activeIndex, 1)
+    ecosystem.activeOffsets = activeOffsets
+    ecosystem.save()
   }
 
   offset.save()

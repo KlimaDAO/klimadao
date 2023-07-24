@@ -370,6 +370,27 @@ dataSources:
       eventHandlers:
         - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
           handler: handleCarbonRetired
+  # Track KLIMA rebases for creating supply snapshot
+  - kind: ethereum/contract
+    name: sKlimaERC20V1
+    network: matic
+    source:
+      address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+      abi: sKlimaERC20V1
+      startBlock: 20400000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - sKlima
+      abis:
+        - name: sKlimaERC20V1
+          file: ../lib/abis/sKlimaERC20V1.json
+      eventHandlers:
+        - event: LogRebase(indexed uint256,uint256,uint256)
+          handler: handleRebase
+      file: ./src/sKlimaV1.ts
 templates:
   - name: ToucanCarbonOffsets
     kind: ethereum/contract
