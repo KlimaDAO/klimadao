@@ -289,17 +289,19 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <AssetDetails price={props.price} project={props.project} />
-          </Card>
-          <div className={styles.reverseOrder}>
+          <div className={styles.stickyContentWrapper}>
             <Card>
-              <TotalValues
-                price={props.price}
-                userBalance={userBalance}
-                fiatBalance={fiatBalance}
-              />
+              <AssetDetails price={props.price} project={props.project} />
             </Card>
+            <div className={styles.reverseOrder}>
+              <Card>
+                <TotalValues
+                  price={props.price}
+                  userBalance={userBalance}
+                  fiatBalance={fiatBalance}
+                />
+              </Card>
+            </div>
           </div>
           <SubmitButton
             onSubmit={onContinue}

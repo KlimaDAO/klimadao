@@ -137,12 +137,15 @@ const handler = (fastify: FastifyInstance) =>
 
     const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
 
-    return reply.send({
+    const response: ResponseType = {
       ...firebaseUser,
       listings: listingsWithSellerData,
       activities: activitiesWithUserData,
       assets: accounts.at(0)?.holdings,
-    });
+      wallet,
+    };
+
+    return reply.send(response);
   };
 
 export default async (fastify: FastifyInstance) =>
