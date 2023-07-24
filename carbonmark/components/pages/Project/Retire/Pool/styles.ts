@@ -258,6 +258,13 @@ export const disclaimer = css`
   }
 `;
 
+export const stickyContentWrapper = css`
+  display: grid;
+  gap: 2.4rem;
+  position: sticky;
+  top: 1rem;
+`;
+
 export const confirmCreditCard = css`
   margin-top: 2rem;
   display: grid;

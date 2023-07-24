@@ -1,6 +1,5 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
@@ -305,9 +304,7 @@ export const RetireInputs: FC<Props> = (props) => {
                   href={`${carbonmarkUrls.docs}/get-started/how-to-get-usdc-or-matic`}
                 >
                   Learn how to acquire USDC on Polygon.
-                </Anchor>{" "}
-                To retire this project using a different form of payment,{" "}
-                <Anchor href={urls.offset}>click here</Anchor>.
+                </Anchor>
               </Trans>
             </Text>
           </div>
