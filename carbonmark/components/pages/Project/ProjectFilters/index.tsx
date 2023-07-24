@@ -1,7 +1,7 @@
 import { Close } from "@mui/icons-material";
-import { ModalFieldValues } from "components/pages/Projects";
 import { Text } from "components/Text";
 import { useElementWidth } from "hooks/useElementWidth";
+import { FilterValues } from "hooks/useProjectsFilterParams";
 import { flatMap, List, omit, remove } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useRef, useState } from "react";
@@ -9,7 +9,7 @@ import * as styles from "./styles";
 
 type Props = {
   onMoreTextClick: () => void;
-  defaultValues: ModalFieldValues & { search?: string };
+  defaultValues: FilterValues & { search?: string };
 };
 
 export const ProjectFilters: FC<Props> = (props) => {
