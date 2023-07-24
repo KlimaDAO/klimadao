@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-24 22:37+0000\n"
+"POT-Creation-Date: 2023-07-24 22:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -269,6 +269,10 @@ msgstr "सैकड़ों प्रॉजेक्ट्स में से
 msgid "Clear Filters"
 msgstr "फ़िल्टर्स हटाएँ"
 
+#: components/pages/Users/ProfileHeader/index.tsx:38
+msgid "Click the 'create profile' button to customize this page and get started."
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "जल्द आ रहा है"
@@ -311,7 +315,7 @@ msgstr "देश"
 msgid "Create Carbonmark Profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:187
+#: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
@@ -363,7 +367,7 @@ msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:91
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "Data for this seller"
 msgstr "इस विक्रेता संबंधी डेटा"
 
@@ -552,8 +556,8 @@ msgstr "मुफ़्त में सूचीबद्ध करें औ�
 msgid "List your projects for sale in just a few clicks"
 msgstr "बस कुछ ही क्लिक में बिक्री के लिए अपनी परियोजनाओं की सूची बनाएं"
 
-#: components/pages/Users/SellerConnected/index.tsx:171
-#: components/pages/Users/SellerUnconnected/index.tsx:47
+#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "सूचियाँ"
 
@@ -632,8 +636,8 @@ msgstr "नया यूनिट मूल्य (USDC)"
 msgid "No Activity to show."
 msgstr "दिखाने के लिए कोई गतिविधि नहीं।"
 
-#: components/pages/Users/SellerConnected/index.tsx:214
-#: components/pages/Users/SellerUnconnected/index.tsx:83
+#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
 
@@ -1150,6 +1154,10 @@ msgstr "यह ऑफ़र अब मौजूद नहीं है।"
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "यह उत्पाद अभी भी बीटा चरण में है और अभी तक ऑडिट पूरा नहीं हुआ है।"
 
+#: components/pages/Users/ProfileHeader/index.tsx:46
+msgid "This user has not yet created a carbonmark profile."
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
 msgstr "अपना क्रेडिट कार्ड लेनदेन पूरा करने के लिए, आपको हमारे भुगतान प्रसंस्करण भागीदार स्ट्राइप पर पुनः निर्देशित किया जाएगा।"
@@ -1242,7 +1250,7 @@ msgstr "डिजिटल कार्बन बाज़ार में अ�
 msgid "Updated:"
 msgstr "अपडेटेड:"
 
-#: components/pages/Users/SellerConnected/index.tsx:208
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
 msgstr "आपका डेटा अपडेट हो रहा है..."
 
@@ -1410,7 +1418,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "आपकी ख़रीदारी अभी पूर्ण नहीं हुई है। अपनी ख़रीदारी को अंतिम रूप देने के लिए, सत्यापित करें कि सब जानकारी सही है और फिर नीचे 'सबमिट' पर क्लिक करें।"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:232
+#: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
@@ -1636,10 +1644,6 @@ msgstr "जमाराशियाँ"
 msgid "profile.addListing_modal.submit"
 msgstr "सूची बनाएँ"
 
-#: components/pages/Users/ProfileHeader/index.tsx:33
-msgid "profile.create_your_profile"
-msgstr "बिक्री शुरू करने के लिए आपको अपना प्रोफ़ाइल बनानी होगी, आरंभ करने के लिए ऊपर दिए गए 'प्रोफ़ाइल बनाएँ' बटन पर क्लिक करें।"
-
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr "सूचीकरण अपडेट करें"
@@ -1648,13 +1652,13 @@ msgstr "सूचीकरण अपडेट करें"
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
-#: components/pages/Users/SellerConnected/index.tsx:238
+#: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
 msgstr "आपकी प्रोफ़ाइल"
 
-#: components/pages/Users/ProfileHeader/index.tsx:42
+#: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
-msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
@@ -1981,7 +1985,7 @@ msgstr "कुल रिटायरमेंट लेनदेन"
 msgid "seller.edit_listing.title"
 msgstr "सूची संपादित करें"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:70
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "ख़रीदें"
 
@@ -1994,7 +1998,7 @@ msgid "shared.approve"
 msgstr "मंज़ूरी दें"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Users/SellerUnconnected/index.tsx:60
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "साइन इन / कनेक्ट टु बाय"
 

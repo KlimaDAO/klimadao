@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-24 22:37+0000\n"
+"POT-Creation-Date: 2023-07-24 22:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -269,6 +269,10 @@ msgstr "从数百个项目中选择超过 2000 万个经过验证的数字碳信
 msgid "Clear Filters"
 msgstr "清除过滤器"
 
+#: components/pages/Users/ProfileHeader/index.tsx:38
+msgid "Click the 'create profile' button to customize this page and get started."
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "即将推出"
@@ -311,7 +315,7 @@ msgstr "国家"
 msgid "Create Carbonmark Profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:187
+#: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
@@ -363,7 +367,7 @@ msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:91
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "Data for this seller"
 msgstr "该卖家的数据"
 
@@ -552,8 +556,8 @@ msgstr "免费列出并出售"
 msgid "List your projects for sale in just a few clicks"
 msgstr "只需点击几下，即可列出您的待售项目"
 
-#: components/pages/Users/SellerConnected/index.tsx:171
-#: components/pages/Users/SellerUnconnected/index.tsx:47
+#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "挂牌信息"
 
@@ -632,8 +636,8 @@ msgstr "新单价（USDC）"
 msgid "No Activity to show."
 msgstr "无可显示活动"
 
-#: components/pages/Users/SellerConnected/index.tsx:214
-#: components/pages/Users/SellerUnconnected/index.tsx:83
+#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "无活动列表。"
 
@@ -1154,6 +1158,10 @@ msgstr "此优惠已不存在。"
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
+#: components/pages/Users/ProfileHeader/index.tsx:46
+msgid "This user has not yet created a carbonmark profile."
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
 msgstr "为了完成您的信用卡交易，您将被重新定向到我们的支付处理合作伙伴 Stripe上。"
@@ -1246,7 +1254,7 @@ msgstr "整个数字碳市场前所未有的透明度。"
 msgid "Updated:"
 msgstr "已更新："
 
-#: components/pages/Users/SellerConnected/index.tsx:208
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1414,7 +1422,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息是否正确，然后单击下面的“提交”。"
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:232
+#: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -1640,10 +1648,6 @@ msgstr "余额"
 msgid "profile.addListing_modal.submit"
 msgstr "创建挂牌"
 
-#: components/pages/Users/ProfileHeader/index.tsx:33
-msgid "profile.create_your_profile"
-msgstr "要开始买卖您需要创建个人资料，请单击上面的“创建个人资料”按钮开始。"
-
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr "更新挂牌信息"
@@ -1652,13 +1656,13 @@ msgstr "更新挂牌信息"
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
-#: components/pages/Users/SellerConnected/index.tsx:238
+#: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
-#: components/pages/Users/ProfileHeader/index.tsx:42
+#: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
-msgstr "编辑您的个人资料以添加说明"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
@@ -1985,7 +1989,7 @@ msgstr "总碳停用交易"
 msgid "seller.edit_listing.title"
 msgstr "编辑挂牌"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:70
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "购买"
 
@@ -1998,7 +2002,7 @@ msgid "shared.approve"
 msgstr "批准"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Users/SellerUnconnected/index.tsx:60
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "登录/连接购买"
 

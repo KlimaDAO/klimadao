@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-24 22:37+0000\n"
+"POT-Creation-Date: 2023-07-24 22:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -269,6 +269,10 @@ msgstr "Choisissez parmi plus de 20 millions de crédits carbone numériques vé
 msgid "Clear Filters"
 msgstr "Effacer les filtres"
 
+#: components/pages/Users/ProfileHeader/index.tsx:38
+msgid "Click the 'create profile' button to customize this page and get started."
+msgstr ""
+
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
 msgstr "Prochainement"
@@ -311,7 +315,7 @@ msgstr "Pays"
 msgid "Create Carbonmark Profile"
 msgstr ""
 
-#: components/pages/Users/SellerConnected/index.tsx:187
+#: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
 msgstr "Créer une nouvelle annonce"
 
@@ -363,7 +367,7 @@ msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:91
+#: components/pages/Users/SellerUnconnected/index.tsx:92
 msgid "Data for this seller"
 msgstr "Données pour ce vendeur"
 
@@ -552,8 +556,8 @@ msgstr "Listez et vendez sans frais"
 msgid "List your projects for sale in just a few clicks"
 msgstr "Mettez vos projets en vente en quelques clics"
 
-#: components/pages/Users/SellerConnected/index.tsx:171
-#: components/pages/Users/SellerUnconnected/index.tsx:47
+#: components/pages/Users/SellerConnected/index.tsx:172
+#: components/pages/Users/SellerUnconnected/index.tsx:48
 msgid "Listings"
 msgstr "Annonces"
 
@@ -632,8 +636,8 @@ msgstr "Nouveau Prix Unitaire (USDC)"
 msgid "No Activity to show."
 msgstr "Aucune activité à montrer"
 
-#: components/pages/Users/SellerConnected/index.tsx:214
-#: components/pages/Users/SellerUnconnected/index.tsx:83
+#: components/pages/Users/SellerConnected/index.tsx:215
+#: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "Aucune annonce active."
 
@@ -1150,6 +1154,10 @@ msgstr "Cette offre n'existe plus."
 msgid "This product is still in Beta and audits have not been completed yet."
 msgstr "Ce produit est encore en version bêta et des audits n'ont pas encore été réalisés."
 
+#: components/pages/Users/ProfileHeader/index.tsx:46
+msgid "This user has not yet created a carbonmark profile."
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
 msgstr "Pour effectuer votre transaction par carte de crédit, vous serez redirigé vers Stripe, notre partenaire de traitement des paiements."
@@ -1242,7 +1250,7 @@ msgstr "Une transparence sans précédent sur le marché numérique du carbone."
 msgid "Updated:"
 msgstr "Mis à jour :"
 
-#: components/pages/Users/SellerConnected/index.tsx:208
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Updating your data..."
 msgstr "Mise à jour de vos données..."
 
@@ -1410,7 +1418,7 @@ msgid "Your purchase has not been completed yet. To finalize your purchase, veri
 msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, vérifiez que toutes les informations sont correctes et cliquez sur \"envoyer\" ci-dessous."
 
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:232
+#: components/pages/Users/SellerConnected/index.tsx:233
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
 
@@ -1636,10 +1644,6 @@ msgstr "Soldes"
 msgid "profile.addListing_modal.submit"
 msgstr "Créer l'annonce"
 
-#: components/pages/Users/ProfileHeader/index.tsx:33
-msgid "profile.create_your_profile"
-msgstr "Pour commencer à vendre, vous devez créer votre profil. Cliquez sur le bouton \"Créer un profil\" ci-dessus pour commencer."
-
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
 msgid "profile.editListing_modal.submit"
 msgstr "Mettre à jour l'annonce"
@@ -1648,13 +1652,13 @@ msgstr "Mettre à jour l'annonce"
 msgid "profile.edit_modal.submit"
 msgstr "Sauvegarder les modifications"
 
-#: components/pages/Users/SellerConnected/index.tsx:238
+#: components/pages/Users/SellerConnected/index.tsx:239
 msgid "profile.edit_profile.title"
 msgstr "Votre Profil"
 
-#: components/pages/Users/ProfileHeader/index.tsx:42
+#: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
-msgstr "Modifier votre profil pour ajouter une description"
+msgstr ""
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
@@ -1981,7 +1985,7 @@ msgstr "Total des Transactions de Retraits du marché"
 msgid "seller.edit_listing.title"
 msgstr "Modifier l'annonce"
 
-#: components/pages/Users/SellerUnconnected/index.tsx:70
+#: components/pages/Users/SellerUnconnected/index.tsx:71
 msgid "seller.listing.buy"
 msgstr "Acheter"
 
@@ -1994,7 +1998,7 @@ msgid "shared.approve"
 msgstr "Approuver"
 
 #: components/pages/Project/BuyOptions/SellerListing.tsx:95
-#: components/pages/Users/SellerUnconnected/index.tsx:60
+#: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "Se connecter pour acheter"
 
