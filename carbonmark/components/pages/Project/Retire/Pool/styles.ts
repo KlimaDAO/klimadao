@@ -270,3 +270,14 @@ export const confirmCreditCard = css`
   display: grid;
   gap: 2rem;
 `;
+
+export const viewButton = css`
+  background-color: var(--bright-blue);
+  color: white !important;
+  width: 100%;
+  margin-top: 1.6rem;
+`;
+
+export const fullWidthButton = css`
+  width: 100%;
+`;

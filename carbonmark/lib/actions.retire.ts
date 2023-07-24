@@ -136,7 +136,12 @@ export const retireCarbonTransaction = async (params: {
   onStatus: OnStatusHandler;
   projectAddress: string;
   isPoolDefault: boolean;
-}): Promise<{ transactionHash: string; retirementIndex: number }> => {
+}): Promise<{
+  transactionHash: string;
+  /** retirement transaction block number */
+  blockNumber: number;
+  retirementIndex: number;
+}> => {
   if (params.paymentMethod === "fiat") {
     throw Error("Unsupported payment method");
   }
@@ -203,7 +208,13 @@ export const retireCarbonTransaction = async (params: {
     }
     params.onStatus("networkConfirmation");
     const receipt: RetirementReceipt = await txn.wait(1);
-    return { transactionHash: receipt.transactionHash, retirementIndex };
+
+    return {
+      transactionHash: receipt.transactionHash,
+      /** retirement transaction block number */
+      blockNumber: receipt.blockNumber,
+      retirementIndex,
+    };
   } catch (e: any) {
     if (e.code === 4001) {
       params.onStatus("error", "userRejected");

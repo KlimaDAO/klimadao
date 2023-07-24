@@ -17,6 +17,7 @@ export interface RetireCarbonTransactionProps {
   setRetireModalOpen: Dispatch<boolean>;
   setRetirementTransactionHash: Dispatch<string>;
   setRetirementTotals: Dispatch<number>;
+  setRetirementBlockNumber: Dispatch<number>;
 }
 
 // Retire transaction result
