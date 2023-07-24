@@ -1,12 +1,10 @@
 import { css } from "@emotion/css";
 
 export const title = css`
-  lineheight: 28px;
-  color: #3b3b3d;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 0.4rem;
 `;
 
 export const modalContent = css`
