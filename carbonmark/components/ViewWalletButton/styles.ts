@@ -8,5 +8,5 @@ export const viewWalletButton = css`
 `;
 
 export const viewButton = css`
-  gap: 4px !important;
+  gap: 0.4rem !important;
 `;
