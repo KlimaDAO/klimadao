@@ -25,6 +25,7 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       setRetireModalOpen,
       setRetirementTransactionHash,
       setRetirementTotals,
+      setRetirementBlockNumber,
     } = props;
     let retirement: RetireCarbonTransactionResult;
     if (!isPoolToken(props.retirementToken)) {
@@ -42,6 +43,7 @@ export const handleRetire = async (props: RetireCarbonTransactionProps) => {
       if (retirement) {
         setRetireModalOpen(false);
         // this opens RetirementSuccessModal
+        setRetirementBlockNumber(retirement.receipt.blockNumber);
         setRetirementTransactionHash(retirement.receipt.transactionHash);
         setRetirementTotals(retirement.retirementTotals);
       } else {
