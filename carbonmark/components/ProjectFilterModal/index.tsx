@@ -7,6 +7,11 @@ import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Modal, ModalProps } from "components/shared/Modal";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
+import {
+  defaultFilterProps,
+  FilterValues,
+  useProjectsFilterParams,
+} from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
@@ -16,36 +21,20 @@ import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
-import { getCategoryFilters, PROJECT_SORT_OPTIONS } from "./constants";
+import { getCategoryFilters } from "./constants";
 import * as styles from "./styles";
-
-type ModalFieldValues = {
-  country: string[];
-  category: string[];
-  vintage: string[];
-  sort: SortOption;
-};
-
-const DEFAULTS: ModalFieldValues = {
-  sort: "recently-updated",
-  country: [],
-  category: [],
-  vintage: [],
-};
 
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
-type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
-
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
+  const projectFilterValues = useProjectsFilterParams();
   const { projects, isValidating } = useFetchProjects();
 
   // Set the default values and override with any existing url params
-  const defaultValues = { ...DEFAULTS, ...router.query };
   const { control, reset, handleSubmit, setValue, getValues } =
-    useForm<ModalFieldValues>({
-      defaultValues,
+    useForm<FilterValues>({
+      defaultValues: projectFilterValues,
     });
 
   const watchers = useWatch({
@@ -92,13 +81,13 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const fetchProjects = (values: ModalFieldValues) => {
+  const fetchProjects = (values: FilterValues) => {
     const { search, sort } = router.query;
     const query = search ? { ...values, search, sort } : { ...values, sort };
     router.replace({ query }, undefined, { shallow: true });
   };
 
-  const onSubmit = (values: ModalFieldValues) => {
+  const onSubmit = (values: FilterValues) => {
     fetchProjects(values);
     if (!isValidating) {
       props.onToggleModal?.();
@@ -106,8 +95,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   };
 
   const resetFilters = () => {
-    reset(DEFAULTS);
-    router.replace({ query: DEFAULTS }, undefined, { shallow: true });
+    reset(defaultFilterProps);
+    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
     if (!isValidating) {
       props.onToggleModal?.();
     }
@@ -169,9 +158,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           />
         </Accordion>
         <ButtonPrimary
-          className="action"
-          label={t`Apply`}
           type="submit"
+          className="action"
+          label={t`View Results`}
           disabled={isValidating}
         />
         <ButtonSecondary
@@ -183,7 +172,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         />
         <Text t="h5" align="center">
           {!isValidating
-            ? `${projects.length} Results`
+            ? `${projects.length} ${
+                projects.length === 1 ? t`Result` : t`Results`
+              }`
             : t`Compiling Results ...`}
         </Text>
       </form>

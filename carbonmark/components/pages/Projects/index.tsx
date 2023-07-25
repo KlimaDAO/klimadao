@@ -16,9 +16,9 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
-  defaultFilterProps,
   FilterValues,
   SortOption,
+  useProjectsFilterParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
@@ -40,11 +40,11 @@ import * as styles from "./styles";
 const Page: NextPage = () => {
   const router = useRouter();
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const defaultValues = { ...defaultFilterProps, ...router.query };
-
   const { projects, isLoading, isValidating } = useFetchProjects();
+
+  const projectFilterValues = useProjectsFilterParams();
   const { control, setValue } = useForm<FilterValues>({
-    defaultValues,
+    defaultValues: projectFilterValues,
   });
 
   const sort = useWatch({ control, name: "sort" });
@@ -82,7 +82,7 @@ const Page: NextPage = () => {
           <LoginButton className="desktopLogin" />
         </div>
         <ProjectFilters
-          defaultValues={defaultValues}
+          defaultValues={projectFilterValues}
           onMoreTextClick={toggleModal}
         />
         <div className={styles.sortOptions}>
