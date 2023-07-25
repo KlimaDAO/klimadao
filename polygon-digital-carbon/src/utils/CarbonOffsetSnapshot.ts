@@ -8,7 +8,7 @@ export function recordCarbonOffsetSnapshot(token: Address, epoch: BigInt, timest
   let snapshot = new CarbonOffsetSnapshot(token.concatI32(epoch.toI32()))
   snapshot.offset = token
   snapshot.epoch = epoch
-  snapshot.currentSupply = offset.currentSupply
+  snapshot.totalSupply = offset.currentSupply.plus(offset.crossChainSupply)
   snapshot.createdAt = timestamp
   snapshot.save()
 }

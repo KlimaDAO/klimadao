@@ -61,13 +61,13 @@ export function handleOffsetTransfer(event: Transfer): void {
   let ecosystem = loadOrCreateEcosystem()
   let activeIndex = ecosystem.activeOffsets.indexOf(event.address)
 
-  if (offset.currentSupply > ZERO_BI && activeIndex == -1) {
+  if (offset.currentSupply.plus(offset.crossChainSupply) > ZERO_BI && activeIndex == -1) {
     // Add to the list of active offsets
     let activeOffsets = ecosystem.activeOffsets
     activeOffsets.push(event.address)
     ecosystem.activeOffsets = activeOffsets
     ecosystem.save()
-  } else if (offset.currentSupply == ZERO_BI && activeIndex != -1) {
+  } else if (offset.currentSupply.plus(offset.crossChainSupply) == ZERO_BI && activeIndex != -1) {
     // Remove from the list of active offsets
     let activeOffsets = ecosystem.activeOffsets
     activeOffsets.splice(activeIndex, 1)

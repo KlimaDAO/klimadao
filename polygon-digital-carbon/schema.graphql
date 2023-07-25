@@ -147,7 +147,7 @@ type CarbonOffsetSnapshot @entity {
   epoch: BigInt!
 
   "Current supply of the offset in native units"
-  currentSupply: BigInt!
+  totalSupply: BigInt!
 
   "Timestamp created"
   createdAt: BigInt!
