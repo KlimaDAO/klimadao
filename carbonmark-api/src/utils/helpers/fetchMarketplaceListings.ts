@@ -84,21 +84,28 @@ export const fetchMarketplaceListings = async ({
     }
   });
 
-  let usersById = new Map<string, DocumentData | undefined>();
+  const usersById = new Map<string, DocumentData | undefined>();
   
   if (userIds.size !== 0) {
+    const chunkSize = 10;
+    const chunks = [];
+    const ids = Array.from(userIds);
 
-  const userDocs = await fastify.firebase
-    .firestore()
-    .getAll(
-      ...Array.from(userIds).map((id) =>
-        fastify.firebase.firestore().collection("users").doc(id)
-      )
-    );
+    for (let i = 0; i < ids.length; i += chunkSize) {
+      chunks.push(ids.slice(i, i + chunkSize));
+    }
+    
 
-  usersById = new Map<string, DocumentData | undefined>(
-    userDocs.map((doc) => [doc.id, doc.data()])
-  );
+    const userDocs = await Promise.all(chunks.map(chunk => 
+      fastify.firebase.firestore().collection('users').where('address', 'in', chunk).get()
+    ));
+  
+
+    userDocs.forEach((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        usersById.set(doc.id, doc.data());
+      });
+    });
   }
 
   const getListingsWithProfiles = formattedListings.map((listing) => {
@@ -130,3 +137,20 @@ export const fetchMarketplaceListings = async ({
 
   return [getListingsWithProfiles, getActivitiesWithProfiles];
 };
+
+
+  // let usersById = new Map<string, DocumentData | undefined>();
+  
+  // if (userIds.size !== 0) {
+
+  // const userDocs = await fastify.firebase
+  //   .firestore()
+  //   .getAll(
+  //     ...Array.from(userIds).map((id) =>
+  //       fastify.firebase.firestore().collection("users").doc(id)
+  //     )
+  //   );
+
+  // usersById = new Map<string, DocumentData | undefined>(
+  //   userDocs.map((doc) => [doc.id, doc.data()])
+  // );
