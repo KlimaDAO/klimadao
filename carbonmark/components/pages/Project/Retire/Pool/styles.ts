@@ -258,8 +258,26 @@ export const disclaimer = css`
   }
 `;
 
+export const stickyContentWrapper = css`
+  display: grid;
+  gap: 2.4rem;
+  position: sticky;
+  top: 1rem;
+`;
+
 export const confirmCreditCard = css`
   margin-top: 2rem;
   display: grid;
   gap: 2rem;
+`;
+
+export const viewButton = css`
+  background-color: var(--bright-blue);
+  color: white !important;
+  width: 100%;
+  margin-top: 1.6rem;
+`;
+
+export const fullWidthButton = css`
+  width: 100%;
 `;
