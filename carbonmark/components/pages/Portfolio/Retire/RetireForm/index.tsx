@@ -13,6 +13,7 @@ import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { CategoryName } from "lib/types/carbonmark";
+import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useEffect, useState } from "react";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
@@ -22,6 +23,7 @@ import { handleRetire } from "../utils/retire";
 
 import { Registry } from "components/Registry";
 import { getAddress } from "lib/networkAware/getAddress";
+import { useRouter } from "next/router";
 import * as styles from "./styles";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -35,6 +37,7 @@ interface RetireFormProps {
 
 export const RetireForm = (props: RetireFormProps) => {
   const { address, asset, provider } = props;
+  const router = useRouter();
 
   const { tokenName, balance, tokenSymbol, project } = asset;
 
@@ -43,6 +46,10 @@ export const RetireForm = (props: RetireFormProps) => {
   const [isApproved, setIsApproved] = useState<boolean>(false);
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState<string>("");
+  const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
+  const [subgraphIndexStatus, setSubgraphIndexStatus] = useState<
+    "indexed" | "pending" | "timeout"
+  >("pending");
   const [retirementTotals, setRetirementTotals] = useState<number>(0);
   const [readyForRetireModal, setReadyForRetireModal] =
     useState<boolean>(false);
@@ -135,6 +142,23 @@ export const RetireForm = (props: RetireFormProps) => {
       setRetirement((prevState) => ({ ...prevState, [field]: newValue }));
     }
   };
+
+  useEffect(() => {
+    const handleInitialIndexing = async () => {
+      const status = await waitForIndexStatus(retirementBlockNumber);
+      if (status === "indexed") {
+        router.prefetch(
+          `/retirements/${retirement.beneficiaryAddress}/${retirementTotals}`
+        );
+        setSubgraphIndexStatus("indexed");
+      } else if (status === "timeout") {
+        setSubgraphIndexStatus("timeout");
+      }
+    };
+    if (retirementBlockNumber !== 0 && address) {
+      handleInitialIndexing();
+    }
+  }, [retirementBlockNumber]);
 
   return (
     <div>
@@ -397,6 +421,7 @@ export const RetireForm = (props: RetireFormProps) => {
             setRetireModalOpen,
             setRetirementTransactionHash,
             setRetirementTotals,
+            setRetirementBlockNumber,
           }).catch((e) => {
             console.error("Error handling retirement:", e);
             setProcessingRetirement(false);
@@ -408,17 +433,20 @@ export const RetireForm = (props: RetireFormProps) => {
         isApproved={isApproved}
         showModal={retireModalOpen}
       />
-      {retirementTransactionHash && (
-        <RetirementStatusModal
-          retirementUrl={`${urls.retirements}/${
-            retirement.beneficiaryAddress || props.address
-          }/${retirementTotals}`}
-          polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
-          showModal={!!retirementTransactionHash}
-          user={props.address}
-          retirementIndex={retirementTotals}
-        />
-      )}
+      {retirementTransactionHash &&
+        (subgraphIndexStatus === "indexed" ||
+          subgraphIndexStatus === "timeout") && (
+          <RetirementStatusModal
+            retirementUrl={`${urls.retirements}/${
+              retirement.beneficiaryAddress || props.address
+            }/${retirementTotals}`}
+            polygonScanUrl={`${urls.polygonscan}/tx/${retirementTransactionHash}`}
+            showModal={!!retirementTransactionHash}
+            user={props.address}
+            retirementIndex={retirementTotals}
+            subgraphIndexStatus={subgraphIndexStatus}
+          />
+        )}
     </div>
   );
 };
