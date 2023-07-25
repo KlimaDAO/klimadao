@@ -17,6 +17,7 @@ import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
+import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
@@ -30,6 +31,7 @@ import { SubmitButton } from "./SubmitButton";
 import { SuccessScreen } from "./SuccessScreen";
 import { TotalValues } from "./TotalValues";
 import { FormValues } from "./types";
+
 export interface Props {
   project: Project;
   price: PriceType;
@@ -47,6 +49,10 @@ export const RetireForm: FC<Props> = (props) => {
   const [userBalance, setUserBalance] = useState<string | null>(null);
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
+  const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
+  const [subgraphIndexStatus, setSubgraphIndexStatus] = useState<
+    "indexed" | "pending" | "timeout"
+  >("pending");
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
@@ -67,6 +73,8 @@ export const RetireForm: FC<Props> = (props) => {
     name: "paymentMethod",
     control: methods.control,
   });
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!address) return;
@@ -248,7 +256,9 @@ export const RetireForm: FC<Props> = (props) => {
         retirementMessage: inputValues.retirementMessage,
         onStatus: onUpdateStatus,
       });
+
       receipt.transactionHash && setTransactionHash(receipt.transactionHash);
+      receipt.blockNumber && setRetirementBlockNumber(receipt.blockNumber);
       receipt.retirementIndex && setRetirementIndex(receipt.retirementIndex);
       setIsProcessing(false);
     } catch (e) {
@@ -257,6 +267,24 @@ export const RetireForm: FC<Props> = (props) => {
       setIsProcessing(false);
     }
   };
+
+  useEffect(() => {
+    const retirementAddress =
+      inputValues?.beneficiaryAddress ?? (address || "");
+
+    const handleInitialIndexing = async () => {
+      const status = await waitForIndexStatus(retirementBlockNumber);
+      if (status === "indexed") {
+        router.prefetch(`/retirements/${retirementAddress}/${retirementIndex}`);
+        setSubgraphIndexStatus("indexed");
+      } else if (status === "timeout") {
+        setSubgraphIndexStatus("timeout");
+      }
+    };
+    if (retirementBlockNumber !== 0 && retirementIndex) {
+      handleInitialIndexing();
+    }
+  }, [retirementBlockNumber]);
 
   return (
     <FormProvider {...methods}>
@@ -289,17 +317,19 @@ export const RetireForm: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <AssetDetails price={props.price} project={props.project} />
-          </Card>
-          <div className={styles.reverseOrder}>
+          <div className={styles.stickyContentWrapper}>
             <Card>
-              <TotalValues
-                price={props.price}
-                userBalance={userBalance}
-                fiatBalance={fiatBalance}
-              />
+              <AssetDetails price={props.price} project={props.project} />
             </Card>
+            <div className={styles.reverseOrder}>
+              <Card>
+                <TotalValues
+                  price={props.price}
+                  userBalance={userBalance}
+                  fiatBalance={fiatBalance}
+                />
+              </Card>
+            </div>
           </div>
           <SubmitButton
             onSubmit={onContinue}
@@ -343,11 +373,17 @@ export const RetireForm: FC<Props> = (props) => {
             paymentMethod={inputValues?.paymentMethod}
             address={address}
             retirementIndex={retirementIndex}
+            subgraphIndexStatus={subgraphIndexStatus}
           />
         }
-        showSuccessScreen={!!transactionHash}
+        showSuccessScreen={
+          !!transactionHash &&
+          !!(
+            subgraphIndexStatus === "indexed" ||
+            subgraphIndexStatus === "timeout"
+          )
+        }
       />
-
       <CreditCardModal
         showModal={showCreditCardModal}
         isRedirecting={isRedirecting}

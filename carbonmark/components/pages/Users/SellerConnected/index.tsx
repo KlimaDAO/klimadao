@@ -169,6 +169,7 @@ export const SellerConnected: FC<Props> = (props) => {
         <ProfileHeader
           carbonmarkUser={carbonmarkUser}
           userName={props.userName}
+          userAddress={props.userAddress}
         />
       </div>
       <div className={styles.listings}>

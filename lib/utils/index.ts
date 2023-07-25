@@ -49,6 +49,7 @@ export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export {
+  queryKlimaBlockNumber,
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
