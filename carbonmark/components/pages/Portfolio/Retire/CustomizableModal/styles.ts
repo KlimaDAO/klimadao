@@ -9,7 +9,7 @@ export const modalBackground = css`
   top: 0;
   left: 0;
   background: rgba(139, 143, 174, 0.2);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.4rem);
 `;
 
 export const modalContainer = css`

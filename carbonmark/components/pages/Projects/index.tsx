@@ -39,13 +39,10 @@ import * as styles from "./styles";
 
 const Page: NextPage = () => {
   const router = useRouter();
+  const defaultValues = useProjectsFilterParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects, isLoading, isValidating } = useFetchProjects();
-
-  const projectFilterValues = useProjectsFilterParams();
-  const { control, setValue } = useForm<FilterValues>({
-    defaultValues: projectFilterValues,
-  });
+  const { control, setValue } = useForm<FilterValues>({ defaultValues });
 
   const sort = useWatch({ control, name: "sort" });
   const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
@@ -82,7 +79,7 @@ const Page: NextPage = () => {
           <LoginButton className="desktopLogin" />
         </div>
         <ProjectFilters
-          defaultValues={projectFilterValues}
+          defaultValues={defaultValues}
           onMoreTextClick={toggleModal}
         />
         <div className={styles.sortOptions}>

@@ -17,6 +17,7 @@ export const ProjectFilters: FC<Props> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth] = useElementWidth(containerRef);
   const [hasOverflow, setHasOverflow] = useState(false);
+  const filters = flatMap(omit(props.defaultValues, ["search", "sort"]));
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -39,16 +40,14 @@ export const ProjectFilters: FC<Props> = (props) => {
 
   return (
     <>
-      {!!flatMap(omit(props.defaultValues, ["search", "sort"]))?.length && (
+      {!!filters?.length && (
         <div ref={containerRef} className={styles.pillContainer}>
-          {flatMap(omit(props.defaultValues, ["search", "sort"]))?.map(
-            (filter: string, key: number) => (
-              <div key={key} className={styles.pill}>
-                <span>{filter}</span>
-                <Close onClick={() => handleRemoveFilter(filter)} />
-              </div>
-            )
-          )}
+          {filters?.map((filter: string, key: number) => (
+            <div key={key} className={styles.pill}>
+              <span>{filter}</span>
+              <Close onClick={() => handleRemoveFilter(filter)} />
+            </div>
+          ))}
           {hasOverflow && (
             <div className="more-text">
               <Text t="button" role="button" onClick={props.onMoreTextClick}>

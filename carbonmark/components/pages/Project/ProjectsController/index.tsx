@@ -19,18 +19,15 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const [filterCount, setFilterCount] = useState(0);
 
   useEffect(() => {
-    setFilterCount(flatMap(omit(router.query, ["search", "sort"]))?.length);
+    const filters = flatMap(omit(router.query, ["search", "sort"]));
+    setFilterCount(filters.length);
   }, [router.query]);
 
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
     // If the search box is cleared, remove the param entirely
     const query = str ? { ...otherParams, search: str } : otherParams;
-    router.replace(
-      { query },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
+    router.replace({ query }, undefined, { shallow: true });
   };
 
   const handleResetFilters = () => {
