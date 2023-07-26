@@ -146,8 +146,17 @@ type CarbonCreditSnapshot @entity {
   "Klima rebase epoch"
   epoch: BigInt!
 
-  "Current supply of the Credit in native units"
-  totalSupply: BigInt!
+  "Current token supply"
+  currentSupply: BigInt!
+
+  "Total tokens issued via bridging"
+  bridged: BigInt!
+
+  "Total tokens retired"
+  retired: BigInt!
+
+  "Total tokens bridged to other chains"
+  crossChainSupply: BigInt!
 
   "Timestamp created"
   createdAt: BigInt!

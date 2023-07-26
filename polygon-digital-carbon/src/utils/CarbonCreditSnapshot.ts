@@ -8,7 +8,10 @@ export function recordCarbonCreditSnapshot(token: Address, epoch: BigInt, timest
   let snapshot = new CarbonCreditSnapshot(token.concatI32(epoch.toI32()))
   snapshot.credit = token
   snapshot.epoch = epoch
-  snapshot.totalSupply = credit.currentSupply.plus(credit.crossChainSupply)
+  snapshot.currentSupply = credit.currentSupply
+  snapshot.bridged = credit.bridged
+  snapshot.retired = credit.retired
+  snapshot.crossChainSupply = credit.crossChainSupply
   snapshot.createdAt = timestamp
   snapshot.save()
 }
