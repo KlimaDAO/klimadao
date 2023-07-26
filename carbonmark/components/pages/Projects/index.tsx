@@ -15,6 +15,7 @@ import {
 } from "components/ProjectFilterModal/constants";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
   FilterValues,
@@ -104,16 +105,24 @@ const Page: NextPage = () => {
             )}
           </div>
           <div className={styles.viewToggle}>
-            <ButtonPrimary
-              icon={<GridViewOutlined />}
-              onClick={() => setToggleViewMode("grid")}
-              className={cx({ selected: toggleViewMode === "grid" })}
-            />
-            <ButtonPrimary
-              icon={<ListOutlined />}
-              onClick={() => setToggleViewMode("list")}
-              className={cx({ selected: toggleViewMode === "list" })}
-            />
+            <TextInfoTooltip tooltip={t`Grid view`}>
+              <div>
+                <ButtonPrimary
+                  icon={<GridViewOutlined />}
+                  onClick={() => setToggleViewMode("grid")}
+                  className={cx({ selected: toggleViewMode === "grid" })}
+                />
+              </div>
+            </TextInfoTooltip>
+            <TextInfoTooltip tooltip={t`List view`}>
+              <div>
+                <ButtonPrimary
+                  icon={<ListOutlined />}
+                  onClick={() => setToggleViewMode("list")}
+                  className={cx({ selected: toggleViewMode === "list" })}
+                />
+              </div>
+            </TextInfoTooltip>
           </div>
         </div>
         <div className={styles.projectsList}>
