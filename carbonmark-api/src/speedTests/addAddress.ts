@@ -15,18 +15,18 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const copyUsers = async () => {
+const addAddressField = async () => {
   const snapshot = await db.collection("users").get();
   const docs = snapshot.docs;
 
   for (const doc of docs) {
     const data = doc.data();
 
-    // Add the Ethereum address
+    // Add address
     data.address = doc.id;
 
     await db
-      .collection("usersTesting")
+      .collection("users")
       .doc(doc.id)
       .set(data)
       .then(() => console.info(`Copied document with ID: ${doc.id}`))
@@ -36,4 +36,4 @@ const copyUsers = async () => {
   }
 };
 
-copyUsers();
+addAddressField();

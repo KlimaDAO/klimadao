@@ -49,6 +49,7 @@ export const fetchMarketplaceListings = async ({
   });
 
   const project = data?.projects.at(0);
+
   const filteredListings = project?.listings?.filter(filterActiveListing) || [];
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
@@ -72,36 +73,40 @@ export const fetchMarketplaceListings = async ({
       : null,
   }));
 
-
   const userIds = new Set<string>();
   formattedListings.forEach((listing) =>
-    userIds.add(listing.seller.id.toUpperCase())
+    userIds.add(listing.seller.id.toLowerCase())
   );
   formattedActivities.forEach((activity) => {
-    userIds.add(activity.seller.id.toUpperCase());
+    userIds.add(activity.seller.id.toLowerCase());
     if (activity.buyer) {
-      userIds.add(activity.buyer.id.toUpperCase());
+      userIds.add(activity.buyer.id.toLowerCase());
     }
   });
-  
 
   const usersById = new Map<string, DocumentData | undefined>();
-  
+
   if (userIds.size !== 0) {
-    const chunkSize = 10;
+    const chunkSize = 30;
     const chunks = [];
     const ids = Array.from(userIds);
 
     for (let i = 0; i < ids.length; i += chunkSize) {
       chunks.push(ids.slice(i, i + chunkSize));
     }
-    
-    console.time("fox")
-    const userDocs = await Promise.all(chunks.map(chunk => 
-      fastify.firebase.firestore().collection('users').where('address', 'in', chunk).get()
-    ));
-     console.time("fox")
 
+    const callStart = Date.now();
+    const userDocs = await Promise.all(
+      chunks.map((chunk) =>
+        fastify.firebase
+          .firestore()
+          .collection("users")
+          .where("address", "in", chunk)
+          .get()
+      )
+    );
+    const callEnd = Date.now();
+    console.info(`whereInCall duration: ${callEnd - callStart} ms`);
 
     userDocs.forEach((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -110,25 +115,8 @@ export const fetchMarketplaceListings = async ({
     });
   }
 
-  //   let usersById = new Map<string, DocumentData | undefined>();
-  
-  // if (userIds.size !== 0) {
-  //   console.time("getAll")
-  // const userDocs = await fastify.firebase
-  //   .firestore()
-  //   .getAll(
-  //     ...Array.from(userIds).map((id) =>
-  //       fastify.firebase.firestore().collection("users").doc(id)
-  //     )
-  //   );
-  //   console.timeEnd("getAll")
-  // usersById = new Map<string, DocumentData | undefined>(
-  //   userDocs.map((doc) => [doc.id, doc.data()])
-  // );
-  // }
-
   const getListingsWithProfiles = formattedListings.map((listing) => {
-    const sellerData = usersById.get(listing.seller.id.toUpperCase());
+    const sellerData = usersById.get(listing.seller.id.toLowerCase());
     return {
       ...listing,
       seller: {
@@ -141,12 +129,12 @@ export const fetchMarketplaceListings = async ({
   const getActivitiesWithProfiles: ActivityWithUserHandles[] =
     formattedActivities.map((act) => {
       const activityWithHandles: ActivityWithUserHandles = { ...act };
-      const sellerData = usersById.get(act.seller.id.toUpperCase());
+      const sellerData = usersById.get(act.seller.id.toLowerCase());
       if (sellerData) {
         activityWithHandles.seller.handle = sellerData.handle;
       }
       if (act.buyer) {
-        const buyerData = usersById.get(act.buyer.id.toUpperCase());
+        const buyerData = usersById.get(act.buyer.id.toLowerCase());
         if (buyerData && buyerData.handle) {
           assign(activityWithHandles.buyer, "handle", buyerData.handle);
         }
@@ -155,20 +143,3 @@ export const fetchMarketplaceListings = async ({
     });
   return [getListingsWithProfiles, getActivitiesWithProfiles];
 };
-
-
-  // let usersById = new Map<string, DocumentData | undefined>();
-  
-  // if (userIds.size !== 0) {
-
-  // const userDocs = await fastify.firebase
-  //   .firestore()
-  //   .getAll(
-  //     ...Array.from(userIds).map((id) =>
-  //       fastify.firebase.firestore().collection("users").doc(id)
-  //     )
-  //   );
-
-  // usersById = new Map<string, DocumentData | undefined>(
-  //   userDocs.map((doc) => [doc.id, doc.data()])
-  //

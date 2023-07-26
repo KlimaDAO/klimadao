@@ -28,7 +28,7 @@ const getTestingIds = async () => {
   return ids;
 };
 
-const whereTest = async (ids: string[]) => {
+const whereEqualsTest = async (ids: string[]) => {
   const start = Date.now();
 
   await Promise.all(
@@ -38,10 +38,41 @@ const whereTest = async (ids: string[]) => {
   );
 
   const end = Date.now();
-  console.info(`whereTest duration: ${end - start} ms`);
+  console.info(`whereTest function duration: ${end - start} ms`);
 };
+const whereInSnapshotMap = new Map<string, FirebaseFirestore.DocumentData>();
+const getAllSnapshotMap = new Map<string, FirebaseFirestore.DocumentData>();
 
-const getInTest = async (ids: string[]) => {
+// uncomment for Test 1
+// function compareObjects(obj1: any, obj2: any) {
+//   return JSON.stringify(obj1) === JSON.stringify(obj2);
+// }
+
+// function compareMaps(
+//   map1: Map<string, FirebaseFirestore.DocumentData>,
+//   map2: Map<string, FirebaseFirestore.DocumentData>
+// ) {
+//   if (map1.size !== map2.size) {
+//     console.info("Size mismatch");
+//     return false;
+//   }
+
+//   for (const [key, val] of map1) {
+//     const testVal = map2.get(key);
+
+//     if (testVal === undefined && !map2.has(key)) {
+//       console.info("Key does not exist in map2:", key);
+//       return false;
+//     }
+//     if (!compareObjects(val, testVal)) {
+//       console.info("Value mismatch at key:", key);
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+const whereInTest = async (ids: string[]) => {
   const chunkSize = 30;
   const chunks = [];
 
@@ -51,50 +82,105 @@ const getInTest = async (ids: string[]) => {
 
   const start = Date.now();
 
-  const snapshots = await Promise.all(chunks.map((chunk) => db.collection('usersTesting').where('address', 'in', chunk).get()) );
+  const callStart = Date.now();
+  const snapshots = await Promise.all(
+    chunks.map((chunk) => {
+      return db.collection("usersTesting").where("address", "in", chunk).get();
+    })
+  );
+  const callEnd = Date.now();
+  console.info(`whereInCall duration: ${callEnd - callStart} ms`);
 
-  console.info('snapshots.length', snapshots.length);
+  snapshots.forEach((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      const data = doc.data();
+      if (!Object.prototype.hasOwnProperty.call(data, "createData")) {
+        whereInSnapshotMap.set(doc.id, data);
+      }
+    });
+  });
+
   const end = Date.now();
-  console.info(`inTest duration: ${end - start} ms`);
+  console.info(`whereInTest function duration: ${end - start} ms`);
+  return snapshots;
 };
 
 const getAllTest = async (ids: string[]) => {
   const start = Date.now();
+  const callStart = Date.now();
+  const snapshots = await db.getAll(
+    ...ids.map((id) => db.collection("usersTesting").doc(id))
+  );
+  const callEnd = Date.now();
+  console.info(`getAllCall duration: ${callEnd - callStart} ms`);
 
-  await db.getAll(...ids.map((id) => db.collection("usersTesting").doc(id)));
+  snapshots.forEach((snapshot) => {
+    const data = snapshot.data();
+    if (data && !Object.prototype.hasOwnProperty.call(data, "createData")) {
+      getAllSnapshotMap.set(snapshot.id, data);
+    }
+  });
 
   const end = Date.now();
-  console.info(`getAllTest duration: ${end - start} ms`);
+  console.info(`getAllTest function duration: ${end - start} ms`);
+  return snapshots;
 };
+// TEST 1
+// compare whereIn vs getAll
 
+// getOriginalIds()
+//   .then((ids) => {
+//     console.info("whereInTests");
+//     return whereInTest(ids);
+//   })
+//   .then(() => {
+//     return getOriginalIds();
+//   })
+//   .then((ids) => {
+//     console.info("getAllTests");
+//     return getAllTest(ids);
+//   })
+//   .then(() => {
+//     const result = compareMaps(whereInSnapshotMap, getAllSnapshotMap);
+//     console.info("Compare result: ", result);
+//     console.info("All tests done.");
+//   })
+//   .catch((error) => {
+//     console.error("Error occurred during tests: ", error);
+//   });
+
+// TEST 2
+// compare whereIn vs getAll
 getOriginalIds()
   .then((ids) => {
-    console.info("whereTests");
-    return whereTest(ids);
+    console.info("whereEqualsTests");
+    return whereEqualsTest(ids);
   })
   .then(() => {
     return getTestingIds();
   })
   .then((ids) => {
-    return whereTest(ids);
+    return whereEqualsTest(ids);
   })
   .then(() => {
     return getOriginalIds();
   })
   .then((ids) => {
-    console.info("getInTests");
-    return getInTest(ids);
+    console.info("____________");
+    console.info("whereInTests");
+    return whereInTest(ids);
   })
   .then(() => {
     return getTestingIds();
   })
   .then((ids) => {
-    return getInTest(ids);
+    return whereInTest(ids);
   })
   .then(() => {
     return getOriginalIds();
   })
   .then((ids) => {
+    console.info("____________");
     console.info("getAllTests");
     return getAllTest(ids);
   })
@@ -105,6 +191,7 @@ getOriginalIds()
     return getAllTest(ids);
   })
   .then(() => {
+    console.info("____________");
     console.info("All tests done.");
   })
   .catch((error) => {
