@@ -15,7 +15,7 @@ import {
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
-import { isString } from "lodash";
+import { isString, pick } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -32,10 +32,9 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const { projects, isValidating } = useFetchProjects();
 
   // Set the default values and override with any existing url params
-  const { control, reset, handleSubmit, setValue, getValues } =
-    useForm<FilterValues>({
-      defaultValues,
-    });
+  const { control, reset, setValue, getValues } = useForm<FilterValues>({
+    defaultValues,
+  });
 
   const watchers = useWatch({
     control,
@@ -81,25 +80,10 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const fetchProjects = (values: FilterValues) => {
-    const { search, sort } = router.query;
-    const query = search ? { ...values, search, sort } : { ...values, sort };
-    router.replace({ query }, undefined, { shallow: true });
-  };
-
-  const onSubmit = () => {
-    props.onToggleModal?.();
-  };
-
-  const resetFilters = () => {
-    reset(defaultFilterProps);
-    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
-    props.onToggleModal?.();
-  };
-
   useEffect(() => {
     if (!router.isReady || !props.showModal) return;
-    fetchProjects(getValues());
+    const query = { ...getValues(), ...pick(router.query, ["search", "sort"]) };
+    router.replace({ query }, undefined, { shallow: true });
   }, [watchers]);
 
   useEffect(() => {
@@ -110,6 +94,12 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     setValue("vintage", isString(vintage) ? [vintage] : vintage);
   }, [props.showModal]);
 
+  const resetFilters = () => {
+    reset(defaultFilterProps);
+    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
+    props.onToggleModal?.();
+  };
+
   const getAccordionSubtitle = (index: number) => {
     const count = watchers?.[index]?.length;
     return count > 0 ? `${count} Selected` : "";
@@ -117,7 +107,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         {/* Disabled until data can be provided by APIs */}
         <Accordion
           label={t`Country`}
@@ -153,10 +143,11 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
           />
         </Accordion>
         <ButtonPrimary
-          type="submit"
+          type="button"
           className="action"
           label={t`View Results`}
           disabled={isValidating}
+          onClick={() => props.onToggleModal?.()}
         />
         <ButtonSecondary
           variant="transparent"
