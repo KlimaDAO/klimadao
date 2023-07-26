@@ -87,19 +87,14 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     router.replace({ query }, undefined, { shallow: true });
   };
 
-  const onSubmit = (values: FilterValues) => {
-    fetchProjects(values);
-    if (!isValidating) {
-      props.onToggleModal?.();
-    }
+  const onSubmit = () => {
+    props.onToggleModal?.();
   };
 
   const resetFilters = () => {
     reset(defaultFilterProps);
     router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
-    if (!isValidating) {
-      props.onToggleModal?.();
-    }
+    props.onToggleModal?.();
   };
 
   useEffect(() => {
