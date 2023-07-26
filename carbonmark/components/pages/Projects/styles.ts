@@ -147,19 +147,27 @@ export const viewToggle = css`
 
     & button {
       width: 4.8rem;
+      border-radius: 0.4rem;
       color: black !important;
       background: white !important;
 
-      :first-of-type {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      :last-of-type {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
       &.selected {
         background: var(--yellow) !important;
+      }
+    }
+
+    & div {
+      :first-of-type {
+        button {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      :last-of-type {
+        button {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
       }
     }
   }
