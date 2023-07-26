@@ -83,6 +83,7 @@ export const fetchMarketplaceListings = async ({
       userIds.add(activity.buyer.id.toUpperCase());
     }
   });
+  
 
   const usersById = new Map<string, DocumentData | undefined>();
   
@@ -95,11 +96,12 @@ export const fetchMarketplaceListings = async ({
       chunks.push(ids.slice(i, i + chunkSize));
     }
     
-
+    console.time("fox")
     const userDocs = await Promise.all(chunks.map(chunk => 
       fastify.firebase.firestore().collection('users').where('address', 'in', chunk).get()
     ));
-  
+     console.time("fox")
+
 
     userDocs.forEach((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -107,6 +109,23 @@ export const fetchMarketplaceListings = async ({
       });
     });
   }
+
+  //   let usersById = new Map<string, DocumentData | undefined>();
+  
+  // if (userIds.size !== 0) {
+  //   console.time("getAll")
+  // const userDocs = await fastify.firebase
+  //   .firestore()
+  //   .getAll(
+  //     ...Array.from(userIds).map((id) =>
+  //       fastify.firebase.firestore().collection("users").doc(id)
+  //     )
+  //   );
+  //   console.timeEnd("getAll")
+  // usersById = new Map<string, DocumentData | undefined>(
+  //   userDocs.map((doc) => [doc.id, doc.data()])
+  // );
+  // }
 
   const getListingsWithProfiles = formattedListings.map((listing) => {
     const sellerData = usersById.get(listing.seller.id.toUpperCase());
@@ -134,7 +153,6 @@ export const fetchMarketplaceListings = async ({
       }
       return activityWithHandles;
     });
-
   return [getListingsWithProfiles, getActivitiesWithProfiles];
 };
 
@@ -153,4 +171,4 @@ export const fetchMarketplaceListings = async ({
 
   // usersById = new Map<string, DocumentData | undefined>(
   //   userDocs.map((doc) => [doc.id, doc.data()])
-  // );
+  //
