@@ -5,7 +5,7 @@ export function loadOrCreateEcosystem(): Ecosystem {
   let ecosystem = Ecosystem.load('0')
   if (ecosystem == null) {
     ecosystem = new Ecosystem('0')
-    ecosystem.activeOffsets = []
+    ecosystem.activeCredits = []
     ecosystem.save()
   }
   return ecosystem

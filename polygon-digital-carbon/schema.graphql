@@ -56,8 +56,8 @@ type Token @entity {
 type Ecosystem @entity {
   id: ID!
 
-  "Active Offsets with supply > 0"
-  activeOffsets: [Bytes!]!
+  "Active credits with supply > 0"
+  activeCredits: [Bytes!]!
 }
 
 type Methodology @entity {
@@ -95,11 +95,11 @@ type CarbonProject @entity {
   "Region within the country where the project takes place"
   region: String!
 
-  "Carbon offset tokens related to this project"
-  carbonOffsets: [CarbonOffset!]! @derivedFrom(field: "project")
+  "Carbon credit tokens related to this project"
+  carbonCredits: [CarbonCredit!]! @derivedFrom(field: "project")
 }
 
-type CarbonOffset @entity {
+type CarbonCredit @entity {
   "Ethereum address where the token is deployed"
   id: Bytes!
 
@@ -124,29 +124,29 @@ type CarbonOffset @entity {
   "Total tokens bridged to other chains"
   crossChainSupply: BigInt!
 
-  "All bridge events for this offset"
-  bridges: [Bridge!]! @derivedFrom(field: "offset")
+  "All bridge events for this credit"
+  bridges: [Bridge!]! @derivedFrom(field: "credit")
 
-  "All retirement events for this offset"
-  retires: [Retire!]! @derivedFrom(field: "offset")
+  "All retirement events for this credit"
+  retires: [Retire!]! @derivedFrom(field: "credit")
 
-  "Current pool balances for this offset"
-  poolBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "offset")
+  "Current pool balances for this credit"
+  poolBalances: [CarbonPoolCreditBalance!]! @derivedFrom(field: "credit")
 }
 
-type CarbonOffsetSnapshot @entity {
+type CarbonCreditSnapshot @entity {
   # These are tracked by Klima rebase epochs. Currently set to be at least 11520 blocks apart.
 
   "{Token Address}-{Epoch ID}"
   id: Bytes!
 
-  "Offset for this snapshot"
-  offset: CarbonOffset!
+  "Credit for this snapshot"
+  credit: CarbonCredit!
 
   "Klima rebase epoch"
   epoch: BigInt!
 
-  "Current supply of the offset in native units"
+  "Current supply of the Credit in native units"
   totalSupply: BigInt!
 
   "Timestamp created"
@@ -157,8 +157,8 @@ type Bridge @entity(immutable: true) {
   "{Transaction hash}-{Log Index}"
   id: Bytes!
 
-  "Offset bridged"
-  offset: CarbonOffset!
+  "Credit bridged"
+  credit: CarbonCredit!
 
   "Account receiving the bridged carbon"
   account: Account!
@@ -180,8 +180,8 @@ type CrossChainBridge @entity(immutable: true) {
   "ID of the pool being bridged, if any"
   pool: CarbonPool
 
-  "ID of the offset being bridged, if any"
-  offset: CarbonOffset
+  "ID of the credit being bridged, if any"
+  credit: CarbonCredit
 
   "Amount of tokens bridged"
   amount: BigInt!
@@ -203,10 +203,10 @@ type Retire @entity {
   "Protocol specific ID"
   bridgeID: String
 
-  "Carbon offset being retired"
-  offset: CarbonOffset!
+  "Carbon credit being retired"
+  credit: CarbonCredit!
 
-  "Pool offset was sourced from, if any"
+  "Pool credit was sourced from, if any"
   pool: CarbonPool
 
   "Source of the retirement"
@@ -276,7 +276,7 @@ type CarbonPool @entity {
   crossChainSupply: BigInt!
 
   "Current balances of underlying project tokens"
-  offsetBalances: [CarbonPoolOffsetBalance!]! @derivedFrom(field: "pool")
+  creditBalances: [CarbonPoolCreditBalance!]! @derivedFrom(field: "pool")
 
   ### Snapshots ###
 
@@ -310,7 +310,7 @@ type CarbonPoolDailySnapshot @entity {
   deltaSupply: BigInt!
 
   "Current balances of underlying project tokens"
-  offsetBalances: [CarbonPoolOffsetBalanceDailySnapshot!]! @derivedFrom(field: "poolSnapshot")
+  creditBalances: [CarbonPoolCreditBalanceDailySnapshot!]! @derivedFrom(field: "poolSnapshot")
 
   deposits: [PoolDeposit!]! @derivedFrom(field: "poolSnapshotID")
 
@@ -321,15 +321,15 @@ type CarbonPoolDailySnapshot @entity {
   lastUpdateBlockNumber: BigInt!
 }
 
-type CarbonPoolOffsetBalance @entity {
-  "{Pool Address}-{Offset Address}"
+type CarbonPoolCreditBalance @entity {
+  "{Pool Address}-{Credit Address}"
   id: Bytes!
 
   "Target carbon pool"
   pool: CarbonPool!
 
-  "Offset being pooled"
-  offset: CarbonOffset!
+  "Credit being pooled"
+  credit: CarbonCredit!
 
   "Current balance"
   balance: BigInt!
@@ -342,25 +342,25 @@ type CarbonPoolOffsetBalance @entity {
 
   ### Snapshots ###
 
-  dailySnapshots: [CarbonPoolOffsetBalanceDailySnapshot!]! @derivedFrom(field: "offsetBalance")
+  dailySnapshots: [CarbonPoolCreditBalanceDailySnapshot!]! @derivedFrom(field: "creditBalance")
 
   lastSnapshotDayID: Int!
 
   nextSnapshotDayID: Int!
 }
 
-type CarbonPoolOffsetBalanceDailySnapshot @entity {
-  "{Pool Address}-{Offset Address}-{Day ID}"
+type CarbonPoolCreditBalanceDailySnapshot @entity {
+  "{Pool Address}-{Credit Address}-{Day ID}"
   id: Bytes!
 
   "Target carbon pool"
   pool: CarbonPool!
 
-  "Offset being pooled"
-  offset: CarbonOffset!
+  "Credit being pooled"
+  credit: CarbonCredit!
 
-  "ID of the offsetBalance entity"
-  offsetBalance: CarbonPoolOffsetBalance!
+  "ID of the creditBalance entity"
+  creditBalance: CarbonPoolCreditBalance!
 
   "Day ID of this snapshot"
   dayID: Int
@@ -386,9 +386,9 @@ type CarbonPoolOffsetBalanceDailySnapshot @entity {
   "Delta Deposited"
   deltaDeposited: BigInt!
 
-  deposits: [PoolDeposit!]! @derivedFrom(field: "poolOffsetSnapshotID")
+  deposits: [PoolDeposit!]! @derivedFrom(field: "poolCreditSnapshotID")
 
-  redeems: [PoolRedeem!]! @derivedFrom(field: "poolOffsetSnapshotID")
+  redeems: [PoolRedeem!]! @derivedFrom(field: "poolCreditSnapshotID")
 
   lastUpdateTimestamp: BigInt!
 
@@ -402,11 +402,11 @@ type PoolDeposit @entity(immutable: true) {
   "Account making the deposit"
   account: Account!
 
-  "Pool that the offset was deposited in"
+  "Pool that the credit was deposited in"
   pool: CarbonPool!
 
-  "Offset deposited in the pool"
-  offset: CarbonOffset!
+  "Credit deposited in the pool"
+  credit: CarbonCredit!
 
   "Amount deposited in native units"
   amount: BigInt!
@@ -417,8 +417,8 @@ type PoolDeposit @entity(immutable: true) {
   "{Pool}-{Day ID} for snapshot referencing"
   poolSnapshotID: CarbonPoolDailySnapshot!
 
-  "{Pool}-{Offset}-{Day ID} for snapshot referencing"
-  poolOffsetSnapshotID: CarbonPoolOffsetBalanceDailySnapshot!
+  "{Pool}-{Credit}-{Day ID} for snapshot referencing"
+  poolCreditSnapshotID: CarbonPoolCreditBalanceDailySnapshot!
 }
 
 type PoolRedeem @entity(immutable: true) {
@@ -428,11 +428,11 @@ type PoolRedeem @entity(immutable: true) {
   "Account making the redemption"
   account: Account!
 
-  "Pool that the offset was redeemed from"
+  "Pool that the credit was redeemed from"
   pool: CarbonPool!
 
-  "Offset redeemed from the pool"
-  offset: CarbonOffset!
+  "Credit redeemed from the pool"
+  credit: CarbonCredit!
 
   "Amount redeemed in native units"
   amount: BigInt!
@@ -443,8 +443,8 @@ type PoolRedeem @entity(immutable: true) {
   "{Pool}-{Day ID} for snapshot referencing"
   poolSnapshotID: CarbonPoolDailySnapshot!
 
-  "{Pool}-{Offset}-{Day ID} for snapshot referencing"
-  poolOffsetSnapshotID: CarbonPoolOffsetBalanceDailySnapshot!
+  "{Pool}-{Credit}-{Day ID} for snapshot referencing"
+  poolCreditSnapshotID: CarbonPoolCreditBalanceDailySnapshot!
 }
 
 ##############################
@@ -457,7 +457,7 @@ type Account @entity {
 
   totalRetirements: Int!
 
-  ## Carbon Offset Activity ##
+  ## Carbon Credit Activity ##
   bridges: [Bridge!]! @derivedFrom(field: "account")
   retiresBeneficiary: [Retire!]! @derivedFrom(field: "beneficiaryAddress")
   retiresInitiator: [Retire!]! @derivedFrom(field: "retiringAddress")
