@@ -91,7 +91,7 @@ export const getOffsetTokenPrices = (
 };
 
 export const getListingPrices = (listings: Listing[] = []) =>
-  listings.filter(isListingActive).map(extract("singleUnitPrice"));
+  listings?.filter(isListingActive).map(extract("singleUnitPrice"));
 
 export const composeCarbonmarkProject = (
   project: Project,
