@@ -250,7 +250,7 @@ msgstr "Carbonmark | The Universal Carbon Marketplace"
 msgid "Carbonmark's role"
 msgstr "Carbonmark's role"
 
-#: components/ProjectFilterModal/index.tsx:150
+#: components/ProjectFilterModal/index.tsx:128
 msgid "Category"
 msgstr "Category"
 
@@ -263,12 +263,12 @@ msgstr "Change language"
 msgid "Choose a project and quantity"
 msgstr "Choose a project and quantity"
 
-#: components/pages/Projects/index.tsx:77
+#: components/pages/Projects/index.tsx:74
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
-#: components/ProjectFilterModal/index.tsx:181
-#: components/pages/Project/ProjectsController/index.tsx:66
+#: components/ProjectFilterModal/index.tsx:160
+#: components/pages/Project/ProjectsController/index.tsx:52
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
@@ -284,7 +284,7 @@ msgstr "Coming soon"
 msgid "Compare prices across all sellers and trading pools"
 msgstr "Compare prices across all sellers and trading pools"
 
-#: components/ProjectFilterModal/index.tsx:187
+#: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
 msgstr "Compiling Results ..."
 
@@ -314,7 +314,7 @@ msgstr "Continue"
 msgid "Could not calculate Total Cost"
 msgstr "Could not calculate Total Cost"
 
-#: components/ProjectFilterModal/index.tsx:139
+#: components/ProjectFilterModal/index.tsx:117
 msgid "Country"
 msgstr "Country"
 
@@ -426,7 +426,7 @@ msgstr "Energy Efficiency"
 msgid "FAQs"
 msgstr "FAQs"
 
-#: components/pages/Project/ProjectsController/index.tsx:59
+#: components/pages/Project/ProjectsController/index.tsx:45
 msgid "Filters"
 msgstr "Filters"
 
@@ -609,8 +609,8 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:75
-#: components/pages/Projects/index.tsx:76
+#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
@@ -669,7 +669,7 @@ msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:130
+#: components/pages/Projects/index.tsx:127
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -903,6 +903,14 @@ msgstr "Resources"
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
 msgstr "Resources | Carbonmark"
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Result"
+msgstr "Result"
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Results"
+msgstr "Results"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1179,7 +1187,7 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
-#: components/pages/Projects/index.tsx:94
+#: components/pages/Projects/index.tsx:91
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
@@ -1283,7 +1291,7 @@ msgstr "View Carbonmark Profile"
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
-#: components/ProjectFilterModal/index.tsx:174
+#: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
 msgstr "View Results"
 
@@ -1333,7 +1341,7 @@ msgstr "View on PolygonScan <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "View the project details and other info for this purchase."
 
-#: components/ProjectFilterModal/index.tsx:161
+#: components/ProjectFilterModal/index.tsx:139
 msgid "Vintage"
 msgstr "Vintage"
 

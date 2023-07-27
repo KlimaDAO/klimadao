@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-27 15:37+0000\n"
+"POT-Creation-Date: 2023-07-27 22:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,10 +86,6 @@ msgstr "खरीदने की राशि"
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:159
 msgid "Amount to retire"
 msgstr "रिटायरमैंट की राशि"
-
-#: components/ProjectFilterModal/index.tsx:143
-msgid "Apply"
-msgstr "आवेदन करें"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
@@ -248,7 +244,7 @@ msgstr "कार्बनमार्क | द यूनिवर्सल क�
 msgid "Carbonmark's role"
 msgstr "कार्बनमार्क की भूमिका"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:128
 msgid "Category"
 msgstr "कैटेगरी"
 
@@ -261,11 +257,12 @@ msgstr "भाषा बदलें"
 msgid "Choose a project and quantity"
 msgstr "एक प्रोजेक्ट और मात्रा चुनें"
 
-#: components/pages/Projects/index.tsx:48
+#: components/pages/Projects/index.tsx:74
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "सैकड़ों प्रॉजेक्ट्स में से 20 मिलियन से भी अधिक सत्यापित डिजिटल कार्बन क्रेडिट्स में से चुनें - अभी कार्बन ख़रीदें, बेचें या रिटायर करें।"
 
-#: components/ProjectFilterModal/index.tsx:148
+#: components/ProjectFilterModal/index.tsx:160
+#: components/pages/Project/ProjectsController/index.tsx:52
 msgid "Clear Filters"
 msgstr "फ़िल्टर्स हटाएँ"
 
@@ -280,6 +277,10 @@ msgstr "जल्द आ रहा है"
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
 msgstr "सभी विक्रेताओं और ट्रेडिंग पूल की कीमतों की तुलना करें"
+
+#: components/ProjectFilterModal/index.tsx:168
+msgid "Compiling Results ..."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -307,7 +308,7 @@ msgstr "जारी रखें"
 msgid "Could not calculate Total Cost"
 msgstr "कुल लागत की गणना नहीं सकी"
 
-#: components/ProjectFilterModal/index.tsx:122
+#: components/ProjectFilterModal/index.tsx:117
 msgid "Country"
 msgstr "देश"
 
@@ -419,7 +420,7 @@ msgstr "ऊर्जा दक्षता"
 msgid "FAQs"
 msgstr "अधिक्तर पूछे प्रश्न"
 
-#: components/pages/Project/ProjectsController/index.tsx:46
+#: components/pages/Project/ProjectsController/index.tsx:45
 msgid "Filters"
 msgstr "फिल्टर"
 
@@ -580,7 +581,7 @@ msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "लॉग इन"
 
@@ -589,7 +590,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल बनाने के लिए लॉगिन करें"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "लॉग आउट"
 
@@ -602,8 +603,8 @@ msgstr "लॉग इन करें"
 msgid "Marketplace"
 msgstr "मार्केटप्लेस"
 
-#: components/pages/Projects/index.tsx:46
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Marketplace | Carbonmark"
 msgstr "मार्केटप्लेस | कार्बनमार्क"
 
@@ -662,7 +663,7 @@ msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:77
+#: components/pages/Projects/index.tsx:127
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
@@ -896,6 +897,14 @@ msgstr "संसाधन"
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
 msgstr "संसाधन | कार्बनमार्क"
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Result"
+msgstr ""
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Results"
+msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1172,7 +1181,7 @@ msgstr "अपनी रिटायरमैंट को अंतिम र�
 msgid "Toggle payment method"
 msgstr "भुगतान विधि टॉगल करें"
 
-#: components/ProjectFilterModal/index.tsx:110
+#: components/pages/Projects/index.tsx:91
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
@@ -1276,6 +1285,10 @@ msgstr "कार्बनमार्क प्रोफ़ाइल देख�
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
+#: components/ProjectFilterModal/index.tsx:152
+msgid "View Results"
+msgstr ""
+
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "अपने पोर्टफ़ोलियो में अपने स्वामित्व वाले डिजिटल कार्बन का संपूर्ण विवरण देखें।"
@@ -1322,7 +1335,7 @@ msgstr "पॉलीगॉनस्कैन <0/> पर देखें"
 msgid "View the project details and other info for this purchase."
 msgstr "इस ख़रीद के लिए प्रॉजेक्ट विवरण व अन्य जानकारी देखें।"
 
-#: components/ProjectFilterModal/index.tsx:136
+#: components/ProjectFilterModal/index.tsx:139
 msgid "Vintage"
 msgstr "विंटेज"
 
@@ -1455,19 +1468,19 @@ msgstr "से ख़रीदा गया"
 msgid "buy"
 msgstr "ख़रीदें"
 
-#: components/Layout/index.tsx:91
+#: components/Layout/index.tsx:93
 msgid "connectModal.institutional"
 msgstr "संस्थागत"
 
-#: components/Layout/index.tsx:83
+#: components/Layout/index.tsx:85
 msgid "connectModal.torus"
 msgstr "सोशल या ईमेल"
 
-#: components/Layout/index.tsx:87
+#: components/Layout/index.tsx:89
 msgid "connectModal.wallet"
 msgstr "कोई वॉलेट कनेक्ट करें"
 
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:102
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
@@ -1483,7 +1496,7 @@ msgstr "उपयोगकर्ता ने कनेक्शन अस्व
 msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:106
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
@@ -2006,7 +2019,7 @@ msgstr "साइन इन / कनेक्ट टु बाय"
 msgid "shared.head.description"
 msgstr "क्लआीमेट ऐक्शन प्रयत्न करें और कार्बन-समर्थित डिजिटल मुद्रा के रूप में पुरस्कार अर्जित करें।"
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:98
 msgid "shared.login"
 msgstr "लॉग इन करें"
 
