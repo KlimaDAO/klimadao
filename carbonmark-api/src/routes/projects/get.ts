@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, mapValues, omit, pick } from "lodash";
+import { compact, mapValues, omit } from "lodash";
 import { assign, split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { CarbonOffset } from "src/.generated/types/offsets.types";
@@ -135,33 +135,8 @@ const handler = (fastify: FastifyInstance) =>
     const lowestPrice = compact(uniquePrices).reduce((a, b) =>
     a.length < b.length ? a : a.length === b.length && a < b ? a : b
     ,0);
-    const projects2 = projectData.projects.map(assign({price:lowestPrice}))
+    const projects = projectData.projects.map(assign({price:lowestPrice}))
 
-    const extractCMSData = (cmsData:unknown) => pick(cmsData,["description","name","methodologies","projectContent.shortDescription","projectContent.longDescription"])
-
-    const projects = projectData.projects.map(function (project) {
-      const cmsData = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        project.projectID,
-        project.registry
-      );
-
-      assign(project,extractCMSData(cmsData))
-      // project.description = cmsData ? cmsData.description : undefined;
-      // project.name = cmsData ? cmsData.name : project.name;
-      // project.methodologies = cmsData ? cmsData.methodologies : [];
-
-      // project.short_description = cmsData?.projectContent
-      //   ? cmsData.projectContent.shortDescription
-      //   : undefined;
-      // project.long_description = cmsData?.projectContent
-      //   ? cmsData.projectContent.longDescription
-      //   : undefined;
-
-      delete project.listings;
-
-      return { ...project, price: lowestPrice };
-    });
     const pooledProjects = offsetData.carbonOffsets.map(function (project) {
       /** Ignore projects for which the MARKETPLACE contained data */
       if (project.display == false) {
