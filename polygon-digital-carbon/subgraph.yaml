@@ -154,7 +154,7 @@ dataSources:
           file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleOffsetTransfer
+          handler: handleCreditTransfer
   - kind: ethereum/contract
     name: MossCarbonOffset
     network: matic
