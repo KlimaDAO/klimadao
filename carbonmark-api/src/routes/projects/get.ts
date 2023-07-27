@@ -1,18 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- temporarily disable ts to make sure we have all new changes
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
+
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { mapValues, omit } from "lodash";
+import { split } from "lodash/fp";
+import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import {
-  findProjectWithRegistryIdAndRegistry,
-  getAllCategories,
-  getAllCountries,
-  getAllVintages,
-} from "../../utils/helpers/utils";
+import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { POOL_INFO } from "./projects.constants";
+import { getDefaultQueryArgs, isMatchingProject } from "./projects.utils";
 
 const schema = {
   querystring: {
@@ -52,92 +51,48 @@ const schema = {
   },
 };
 
-// type Querystring = {
-//   country?: string;
-//   category?: string;
-//   search?: string;
-//   vintage?: string;
-// };
-
-// const isMatchingProject = (offset: CarbonOffset, project: Project) =>
-//   offset.projectID === project.registry + "-" + project.projectID &&
-//   offset.vintageYear === project.vintage;
+type Params = {
+  country?: string;
+  category?: string;
+  search?: string;
+  vintage?: string;
+};
 
 const handler = (fastify: FastifyInstance) =>
-  async function (request: FastifyRequest, reply: FastifyReply) {
-    let { country, category, search, vintage } = request.query;
-    const [categories, countries, vintages] = await Promise.all([
-      getAllCategories(fastify),
-      getAllCountries(fastify),
-      getAllVintages(fastify),
-    ]);
-
-    if (category) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      category = (category as string).split(",");
-    } else {
-      category = categories.map(extract("id"));
-    }
-    if (country) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      country = (country as string).split(",");
-    } else {
-      country = countries.map(extract("id"));
-    }
-    if (vintage) {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo remove casting
-      vintage = (vintage as string).split(",");
-    } else {
-      vintage = vintages;
-    }
-
-    if (!search) {
-      search = "";
-    }
-
+  async function (
+    request: FastifyRequest<{ Querystring: Params }>,
+    reply: FastifyReply
+  ) {
     const sanity = getSanityClient();
-    const queryArgs = { country, category, search, vintage };
+
+    //Transform the list params (category, country etc) provided so as to be an array of strings
+    const args = mapValues(omit(request.query, "search"), split(","));
+
+    //Get the default args to return all results unless specified
+    const defaultArgs = await getDefaultQueryArgs(fastify);
+
+    //Build our query overriding default values
+    const query: FindProjectsQueryVariables = {
+      ...defaultArgs,
+      ...args,
+      search: request.query.search ?? "",
+    };
 
     const [data, pooledProjectsData, projectsCmsData, poolPrices] =
       await Promise.all([
-        gqlSdk.marketplace.findProjects(queryArgs),
-        gqlSdk.offsets.findCarbonOffsets(queryArgs),
+        gqlSdk.marketplace.findProjects(query),
+        gqlSdk.offsets.findCarbonOffsets(query),
         sanity.fetch(fetchAllProjects),
         fetchAllPoolPrices(),
       ]);
-    // const data = await executeGraphQLQuery(
-    //   process.env.GRAPH_API_URL,
-    //   GET_PROJECTS,
-    //   { country, category, search, vintage }
-    // );
-
-    // let pooledProjectsData = (
-    //   await executeGraphQLQuery(
-    //     process.env.CARBON_OFFSETS_GRAPH_API_URL,
-    //     POOLED_PROJECTS,
-    //     { country, category, search, vintage }
-    //   )
-    // ).data;
 
     const projects = data.projects.map(function (project) {
       const uniqueValues = [];
 
       if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
         const indexes = pooledProjectsData.carbonOffsets
-          .map((item, idx) =>
-            item.projectID === project.registry + "-" + project.projectID &&
-            item.vintageYear === project.vintage
-              ? idx
-              : ""
-          )
+          .map((item, idx) => (isMatchingProject(item, project) ? idx : ""))
           .filter(String);
-        // var index = pooledProjectsData.carbonOffsets.findIndex(
-        //   (item) =>
-
-        //     item.projectID === project.registry + '-' + project.projectID &&
-        //     item.vintageYear === project.vintage
-
-        // );
         if (indexes && indexes.length) {
           project.isPoolProject = true;
 
@@ -336,3 +291,6 @@ export default async (fastify: FastifyInstance) => {
     handler: handler(fastify),
   });
 };
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
+// @ts-nocheck

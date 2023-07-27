@@ -14,7 +14,11 @@ const fetch_apis = async (app: FastifyInstance, url: string) => {
   return await Promise.all(res.map((res) => res.json()));
 };
 
-const ENDPOINTS = ["/projects/VCS-191-2008", "/projects"];
+const ENDPOINTS = [
+  "/projects/VCS-191-2008",
+  "/projects",
+  "/projects?search=Dayingjiang&vintage=2008&country=bulgaria",
+];
 
 /** This test requires updating environment variables to be --production values */
 test("Equivalence with production", async () => {
