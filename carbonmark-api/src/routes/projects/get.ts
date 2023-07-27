@@ -13,12 +13,12 @@ import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import {
   buildOffsetKey,
-  buildProject,
+  buildPoolProject,
   buildProjectKey,
   getDefaultQueryArgs,
   getListingPrices,
-  getOffsetTokenPrices,
-  getTokenPrices,
+  getLowestOffsetTokenPrice,
+  getTokenPrices
 } from "./projects.utils";
 
 const schema = {
@@ -132,17 +132,17 @@ const handler = (fastify: FastifyInstance) =>
     // Find the lowest price
     const lowestPrice = allPrices.sort().at(0);
 
+     //Extract the lowest prices available for each of the offsets
+     const offsetPriceMap = new Map(offsetData.carbonOffsets.map((offset) =>
+     [buildOffsetKey(offset),getLowestOffsetTokenPrice(offset,poolPrices)]
+     ));
+
     // Apply the lowest price to each project
     const projects = projectData.projects.map(assign({price:lowestPrice}))
 
-    const pooledProjects = offsetData.carbonOffsets.map(function (offset) {
+    const offsetProjects = offsetData.carbonOffsets.map(function (offset) {
 
-      // const project = projectMap.get(buildOffsetKey(offset))
-
-      const prices = getOffsetTokenPrices(offset,poolPrices);
-
-      const lowestPrice = prices.sort().at(0);
-
+      const lowestPrice = getLowestOffsetTokenPrice(offset,poolPrices)
 
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
@@ -150,14 +150,13 @@ const handler = (fastify: FastifyInstance) =>
         offset.projectID.split("-")[0]
       );
 
-
-      const singleProject = buildProject(cmsData,offset,lowestPrice)
+      const singleProject = buildPoolProject(cmsData,offset,lowestPrice)
 
       return singleProject;
     });
 
     const filteredProjects = projects
-      .concat(pooledProjects)
+      .concat(offsetProjects)
       .filter((project) => Number(project?.price));
 
     // Send the transformed projects array as a JSON string in the response

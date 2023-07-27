@@ -131,10 +131,15 @@ export const getOffsetTokenPrices = (
   return prices;
 };
 
+export const getLowestOffsetTokenPrice = (
+  offset: CarbonOffset,
+  poolPrices: Record<string, PoolPrice>
+) => getOffsetTokenPrices(offset, poolPrices).sort().at(0);
+
 export const getListingPrices = (listings: Listing[] = []) =>
   listings.filter(isListingActive).map(extract("singleUnitPrice"));
 
-export const buildProject = (
+export const buildPoolProject = (
   cmsData: any,
   offset: CarbonOffset,
   price: number
