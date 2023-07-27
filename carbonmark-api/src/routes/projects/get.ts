@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, mapValues, omit } from "lodash";
-import { assign, split } from "lodash/fp";
+import { assign, concat, map, pipe, split, uniq } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { CarbonOffset } from "src/.generated/types/offsets.types";
 import { fetchAllProjects } from "../../sanity/queries";
@@ -72,9 +72,6 @@ const handler = (fastify: FastifyInstance) =>
   ) {
     const sanity = getSanityClient();
 
-    // The token prices relevant to the returned offsets and projects
-    const uniquePrices: string[] = [];
-
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
 
@@ -103,6 +100,7 @@ const handler = (fastify: FastifyInstance) =>
         project,
       ])
     );
+
     // Map<VCS-191-2008, CarbonOffset>
     const offsetMap = new Map(
       offsetData.carbonOffsets?.map((offset) => [
@@ -127,14 +125,13 @@ const handler = (fastify: FastifyInstance) =>
       .flatMap(extract("listings"))
       .flatMap(getListingPrices);
 
+    // Collect all prices
+    const allPrices = pipe(concat,compact,map(Number),uniq)(offsetPrices,listingPrices)
 
-    uniquePrices.push(...offsetPrices);
-    uniquePrices.push(...listingPrices);
+    // Find the lowest price
+    const lowestPrice = allPrices.sort().at(0);
 
-    //Find and apply the lowest price to each project
-    const lowestPrice = compact(uniquePrices).reduce((a, b) =>
-    a.length < b.length ? a : a.length === b.length && a < b ? a : b
-    ,0);
+    // Apply the lowest price to each project
     const projects = projectData.projects.map(assign({price:lowestPrice}))
 
     const pooledProjects = offsetData.carbonOffsets.map(function (project) {
