@@ -1,12 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { mapValues, omit } from "lodash";
-import { split } from "lodash/fp";
+import { compact, mapValues, omit, pick } from "lodash";
+import { assign, split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
+import { CarbonOffset } from "src/.generated/types/offsets.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract, notEmpty } from "../../utils/functional.utils";
+import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
@@ -111,7 +112,7 @@ const handler = (fastify: FastifyInstance) =>
     );
 
     //Find the CarbonOffsets that have matching projects in Carbonmark
-    const offsetProjectPairs = offsetData.carbonOffsets.map((offset) => [
+    const offsetProjectPairs:Array<[CarbonOffset,Project]> = offsetData.carbonOffsets.map((offset) => [
       offset,
       projectMap.get(buildOffsetKey(offset)),
     ]);
@@ -126,35 +127,40 @@ const handler = (fastify: FastifyInstance) =>
       .flatMap(extract("listings"))
       .flatMap(getListingPrices);
 
+
     uniquePrices.push(...offsetPrices);
     uniquePrices.push(...listingPrices);
 
+    //Find and apply the lowest price to each project
+    const lowestPrice = compact(uniquePrices).reduce((a, b) =>
+    a.length < b.length ? a : a.length === b.length && a < b ? a : b
+    ,0);
+    const projects2 = projectData.projects.map(assign({price:lowestPrice}))
+
+    const extractCMSData = (cmsData:unknown) => pick(cmsData,["description","name","methodologies","projectContent.shortDescription","projectContent.longDescription"])
+
     const projects = projectData.projects.map(function (project) {
-      let listingPrice = "0";
-      if (notEmpty(project.listings)) {
-        listingPrice = uniquePrices?.reduce((a, b) =>
-          a.length < b.length ? a : a.length === b.length && a < b ? a : b
-        );
-      }
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
         project.projectID,
         project.registry
       );
-      project.description = cmsData ? cmsData.description : undefined;
-      project.name = cmsData ? cmsData.name : project.name;
-      project.methodologies = cmsData ? cmsData.methodologies : [];
 
-      project.short_description = cmsData?.projectContent
-        ? cmsData.projectContent.shortDescription
-        : undefined;
-      project.long_description = cmsData?.projectContent
-        ? cmsData.projectContent.longDescription
-        : undefined;
+      assign(project,extractCMSData(cmsData))
+      // project.description = cmsData ? cmsData.description : undefined;
+      // project.name = cmsData ? cmsData.name : project.name;
+      // project.methodologies = cmsData ? cmsData.methodologies : [];
+
+      // project.short_description = cmsData?.projectContent
+      //   ? cmsData.projectContent.shortDescription
+      //   : undefined;
+      // project.long_description = cmsData?.projectContent
+      //   ? cmsData.projectContent.longDescription
+      //   : undefined;
 
       delete project.listings;
 
-      return { ...project, price: listingPrice };
+      return { ...project, price: lowestPrice };
     });
     const pooledProjects = offsetData.carbonOffsets.map(function (project) {
       /** Ignore projects for which the MARKETPLACE contained data */
