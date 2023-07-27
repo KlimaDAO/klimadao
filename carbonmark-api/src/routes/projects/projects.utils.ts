@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
+import { assign } from "lodash";
 import {
   FindProjectsQueryVariables,
   Listing,
@@ -53,48 +54,6 @@ export const buildProjectKey = ({
 }: Pick<Project, "registry" | "projectID" | "vintage">) =>
   registry + "-" + projectID + "-" + vintage;
 
-/**
- * Extract the token prices from CarbonOffsets
- * @todo refactor and clean this up
- */
-export const getTokenPrices = (
-  offset: CarbonOffset,
-  project: Project,
-  poolPrices: Record<string, PoolPrice>
-) => {
-  const prices: string[] = [];
-  if (parseFloat(offset.balanceUBO) >= 1) {
-    const isDefault =
-      POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-      project?.projectAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.ubo[priceKey]);
-  }
-  if (parseFloat(offset.balanceNBO) >= 1) {
-    const isDefault =
-      POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-      project?.projectAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.nbo[priceKey]);
-  }
-  if (parseFloat(offset.balanceNCT) >= 1) {
-    const isDefault =
-      POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-      project?.projectAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.nct[priceKey]);
-  }
-  if (parseFloat(offset.balanceBCT) >= 1) {
-    const isDefault =
-      POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-      project?.projectAddress.toLowerCase();
-    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-    prices.push(poolPrices.bct[priceKey]);
-  }
-
-  return prices;
-};
-
 export const getOffsetTokenPrices = (
   offset: CarbonOffset,
   poolPrices: Record<string, PoolPrice>
@@ -131,15 +90,26 @@ export const getOffsetTokenPrices = (
   return prices;
 };
 
-export const getLowestOffsetTokenPrice = (
-  offset: CarbonOffset,
-  poolPrices: Record<string, PoolPrice>
-) => getOffsetTokenPrices(offset, poolPrices).sort().at(0);
-
 export const getListingPrices = (listings: Listing[] = []) =>
   listings.filter(isListingActive).map(extract("singleUnitPrice"));
 
-export const buildPoolProject = (
+export const composeCarbonmarkProject = (
+  project: Project,
+  cmsProject: any,
+  price: number
+) => {
+  const cmsData = {
+    description: cmsProject?.description,
+    name: cmsProject?.name ?? project.name,
+    methodologies: cmsProject?.methodologies ?? [],
+    short_description: cmsProject?.projectContent?.shortDescription,
+    longDescription: cmsProject?.projectContent?.longDescription,
+  };
+
+  return assign(project, cmsData, { price });
+};
+
+export const composeOffsetProject = (
   cmsData: any,
   offset: CarbonOffset,
   price: number

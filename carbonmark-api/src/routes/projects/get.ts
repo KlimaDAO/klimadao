@@ -1,24 +1,20 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, mapValues, omit } from "lodash";
-import { assign, concat, map, pipe, split, uniq } from "lodash/fp";
-import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
-import { CarbonOffset } from "src/.generated/types/offsets.types";
+import { mapValues, omit } from "lodash";
+import { split } from "lodash/fp";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { extract } from "../../utils/functional.utils";
+import { FindProjectsQueryVariables } from "../../src/.generated/types/marketplace.types";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import {
-  buildOffsetKey,
-  buildPoolProject,
-  buildProjectKey,
+  composeCarbonmarkProject,
+  composeOffsetProject,
   getDefaultQueryArgs,
   getListingPrices,
-  getLowestOffsetTokenPrice,
-  getTokenPrices
+  getOffsetTokenPrices,
 } from "./projects.utils";
 
 const schema = {
@@ -74,9 +70,9 @@ type Params = {
  * 3. Assign the lowest price to each project
  * 4. Convert each CarbonOffset to a new PoolProject
  * 5. Return the combined collection of Projects & PoolProjects
- * 
- * @param fastify 
- * @returns 
+ *
+ * @param fastify
+ * @returns
  */
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -106,65 +102,34 @@ const handler = (fastify: FastifyInstance) =>
         fetchAllPoolPrices(),
       ]);
 
-    // Map<VCS-191-2008, Project>
-    const projectMap = new Map(
-      projectData.projects?.map((project) => [
-        buildProjectKey(project),
-        project,
-      ])
-    );
-
-    // Map<VCS-191-2008, CarbonOffset>
-    const offsetMap = new Map(
-      offsetData.carbonOffsets?.map((offset) => [
-        buildOffsetKey(offset),
-        offset,
-      ])
-    );
-
-    //Find the CarbonOffsets that have matching projects in Carbonmark
-    const offsetProjectPairs:Array<[CarbonOffset,Project]> = offsetData.carbonOffsets.map((offset) => [
-      offset,
-      projectMap.get(buildOffsetKey(offset)),
-    ]);
-
-    //Extract the prices for each of the offsets
-    const offsetPrices = offsetProjectPairs.map(([offset, project]) =>
-      getTokenPrices(offset, project, poolPrices)
-    );
-
-    //Extract the prices from each of the listings
-    const listingPrices = projectData.projects
-      .flatMap(extract("listings"))
-      .flatMap(getListingPrices);
-
-    // Collect all prices
-    const allPrices = pipe(concat,compact,map(Number),uniq)(offsetPrices,listingPrices)
-
-    // Find the lowest price
-    const lowestPrice = allPrices.sort().at(0);
-
-     //Extract the lowest prices available for each of the offsets
-     const offsetPriceMap = new Map(offsetData.carbonOffsets.map((offset) =>
-     [buildOffsetKey(offset),getLowestOffsetTokenPrice(offset,poolPrices)]
-     ));
-
-    // Apply the lowest price to each project
-    const projects = projectData.projects.map(assign({price:lowestPrice}))
-
-    const offsetProjects = offsetData.carbonOffsets.map(function (offset) {
-
-      const lowestPrice = getLowestOffsetTokenPrice(offset,poolPrices)
-
-      const cmsData = findProjectWithRegistryIdAndRegistry(
+    // ----- Carbonmark Listings ----- //
+    const projects = projectData.projects.map((project) => {
+      const cmsProject = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
-        offset.projectID.split("-")[1],
-        offset.projectID.split("-")[0]
+        project.projectID,
+        project.registry
       );
 
-      const singleProject = buildPoolProject(cmsData,offset,lowestPrice)
+      // Find the lowest price
+      const listingPrices = project.listings?.flatMap(getListingPrices);
+      const lowestPrice = listingPrices?.sort().at(0);
 
-      return singleProject;
+      return composeCarbonmarkProject(project, cmsProject, lowestPrice);
+    });
+
+    // ----- Pool Listings ----- //
+    const offsetProjects = offsetData.carbonOffsets.map((offset) => {
+      const cmsProject = findProjectWithRegistryIdAndRegistry(
+        projectsCmsData,
+        offset.projectID.split("-")[1], //e.g 1120
+        offset.projectID.split("-")[0] //e.g VCS
+      );
+
+      // Find the lowest price
+      const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
+      const lowestPrice = tokenPrices.sort().at(0);
+
+      return composeOffsetProject(cmsProject, offset, Number(lowestPrice));
     });
 
     const filteredProjects = projects
