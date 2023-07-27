@@ -1,7 +1,7 @@
 {
   "name": "carbonmark-api",
   "version": "1.0.0",
-  "description": "A BFF for Carbonmark.com",
+  "description": "An API for exploring Carbonmark project data, prices and activity.",
   "main": "app.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
