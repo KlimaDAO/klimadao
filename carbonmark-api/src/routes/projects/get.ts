@@ -1,19 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
-// @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { mapValues, omit } from "lodash";
+import { compact, concat, mapValues, omit } from "lodash";
 import { split } from "lodash/fp";
+import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
-import { FindProjectsQueryVariables } from "../../src/.generated/types/marketplace.types";
+import { extract, notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
+import { isListingActive } from "../../utils/marketplace.utils";
 import {
   composeCarbonmarkProject,
   composeOffsetProject,
   getDefaultQueryArgs,
-  getListingPrices,
   getOffsetTokenPrices,
 } from "./projects.utils";
 
@@ -111,8 +110,11 @@ const handler = (fastify: FastifyInstance) =>
       );
 
       // Find the lowest price
-      const listingPrices = project.listings?.flatMap(getListingPrices);
-      const lowestPrice = listingPrices?.sort().at(0);
+      // @todo change to number[]
+      const listingPrices = compact(project.listings)
+        ?.filter(isListingActive)
+        .map(extract("singleUnitPrice"));
+      const lowestPrice = listingPrices.sort().at(0);
 
       return composeCarbonmarkProject(project, cmsProject, lowestPrice);
     });
@@ -126,15 +128,16 @@ const handler = (fastify: FastifyInstance) =>
       );
 
       // Find the lowest price
+      // @todo change to number[]
       const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
       const lowestPrice = tokenPrices.sort().at(0);
 
-      return composeOffsetProject(cmsProject, offset, Number(lowestPrice));
+      return composeOffsetProject(cmsProject, offset, lowestPrice);
     });
 
-    const filteredProjects = projects
-      .concat(offsetProjects)
-      .filter((project) => Number(project?.price));
+    const filteredProjects = concat(projects, offsetProjects).filter(
+      ({ price }) => notNil(price) && parseFloat(price) > 0
+    );
 
     // Send the transformed projects array as a JSON string in the response
     return reply.send(JSON.stringify(filteredProjects));
@@ -148,6 +151,3 @@ export default async (fastify: FastifyInstance) => {
     handler: handler(fastify),
   });
 };
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
-// @ts-nocheck

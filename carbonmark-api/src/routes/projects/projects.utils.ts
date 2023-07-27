@@ -1,13 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
-import { assign } from "lodash";
-import {
-  FindProjectsQueryVariables,
-  Listing,
-  Project,
-} from "src/.generated/types/marketplace.types";
-import { CarbonOffset } from "src/.generated/types/offsets.types";
+import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
 import { extract, notNil } from "../../utils/functional.utils";
 import {
@@ -15,8 +9,12 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { isListingActive } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./projects.constants";
+import {
+  FindQueryOffset,
+  FindQueryProject,
+  GetProjectResponse,
+} from "./projects.types";
 
 /**
  * Build a default FindProjectsQueryVariables object for searching
@@ -44,18 +42,18 @@ export const getDefaultQueryArgs = async (
 export const buildOffsetKey = ({
   projectID,
   vintageYear,
-}: Pick<CarbonOffset, "projectID" | "vintageYear">) =>
+}: Pick<FindQueryOffset, "projectID" | "vintageYear">) =>
   projectID + "-" + vintageYear;
 
 export const buildProjectKey = ({
   registry,
   projectID,
   vintage,
-}: Pick<Project, "registry" | "projectID" | "vintage">) =>
+}: Pick<FindQueryProject, "registry" | "projectID" | "vintage">) =>
   registry + "-" + projectID + "-" + vintage;
 
 export const getOffsetTokenPrices = (
-  offset: CarbonOffset,
+  offset: FindQueryOffset,
   poolPrices: Record<string, PoolPrice>
 ) => {
   const prices: string[] = [];
@@ -90,13 +88,10 @@ export const getOffsetTokenPrices = (
   return prices;
 };
 
-export const getListingPrices = (listings: Listing[] = []) =>
-  listings?.filter(isListingActive).map(extract("singleUnitPrice"));
-
 export const composeCarbonmarkProject = (
-  project: Project,
+  project: FindQueryProject,
   cmsProject: any,
-  price: number
+  price: string | undefined
 ) => {
   const cmsData = {
     description: cmsProject?.description,
@@ -106,14 +101,20 @@ export const composeCarbonmarkProject = (
     longDescription: cmsProject?.projectContent?.longDescription,
   };
 
-  return assign(project, cmsData, { price });
+  const result: GetProjectResponse = {
+    ...project,
+    ...cmsData,
+    price,
+  };
+
+  return result;
 };
 
 export const composeOffsetProject = (
   cmsData: any,
-  offset: CarbonOffset,
-  price: number
-) => ({
+  offset: FindQueryOffset,
+  price: string | undefined
+): GetProjectResponse => ({
   id: offset.id,
   isPoolProject: true,
   description: cmsData ? cmsData.description : undefined,

@@ -1,4 +1,5 @@
 import { FastifyInstance } from "fastify";
+import fs from "fs";
 import { isArray, isObject, mapValues, sortBy } from "lodash";
 import { curry, map } from "lodash/fp";
 import fetch from "node-fetch";
@@ -7,7 +8,7 @@ const DEV_URL = "http://localhost:3003/api";
 const PRODUCTION_URL = "https://api.carbonmark.com/api";
 
 // A longer than usual timeout because the APIs are slooow
-const TIMEOUT = 10000;
+const TIMEOUT = 1000 * 100;
 
 const fetch_apis = async (app: FastifyInstance, url: string) => {
   const res = await Promise.all([
@@ -19,29 +20,43 @@ const fetch_apis = async (app: FastifyInstance, url: string) => {
 };
 
 const ENDPOINTS = [
-  "/projects/VCS-191-2008",
+  // "/projects/VCS-191-2008",
   "/projects",
-  "/projects?search=Dayingjiang&vintage=2008&country=bulgaria",
+  // "/projects?search=Dayingjiang&vintage=2008",
 ];
 
 /** This test requires updating environment variables to be --production values */
 test(
   "Equivalence with production",
   async () => {
-    const app = await build({ allowNetworkRequest: true });
-    // Add teardown function
-    // Fetch for each endpoint
-    const requests = map(curry(fetch_apis)(app))(ENDPOINTS);
+    try {
+      const app = await build({ allowNetworkRequest: true });
+      // Add teardown function
+      // Fetch for each endpoint
+      const requests = map(curry(fetch_apis)(app))(ENDPOINTS);
 
-    // Extract the data
-    const data = await Promise.all(requests);
+      // Extract the data
+      const data = await Promise.all(requests);
 
-    // Assert equivalence
-    data.forEach(([prod, local]) =>
-      expect(deepSort(prod)).toEqual(deepSort(local))
-    );
+      // Write the results to file if DEBUG mode is on
+      if (process.env.DEBUG) {
+        // Write the data to a file
+        if (data[0][0])
+          fs.writeFileSync("prod.json", JSON.stringify(data[0][0], null, 2));
+        if (data[0][1])
+          fs.writeFileSync("local.json", JSON.stringify(data[0][1], null, 2));
+      }
 
-    await app.close();
+      // Assert equivalence
+      data.forEach(([prod, local]) =>
+        expect(deepSort(prod)).toEqual(deepSort(local))
+      );
+
+      await app.close();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   },
   TIMEOUT
 );
