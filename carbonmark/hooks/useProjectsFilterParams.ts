@@ -1,6 +1,7 @@
 import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
+import { flatMap, omit } from "lodash";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
@@ -20,10 +21,32 @@ export const defaultFilterProps: FilterValues = {
 
 export const useProjectsFilterParams = () => {
   const router = useRouter();
+  const [sortValue, setSortValue] = useState("");
+  const [filterCount, setFilterCount] = useState(0);
 
   useEffect(() => {
-    // 0xMakka @todo - move all query param logic to hook
-  }, []);
+    const filters = flatMap(omit(router.query, ["search", "sort"]));
+    setFilterCount(filters.length);
+  }, [router.query]);
 
-  return { ...defaultFilterProps, ...router.query };
+  useEffect(() => {
+    if (!router?.query?.sort) return;
+    setSortValue(router.query.sort as SortOption);
+  }, [router.query]);
+
+  const updateQueryParams = (query: Partial<FilterValues>) => {
+    router.replace({ query }, undefined, { shallow: true });
+  };
+
+  const resetQueryParams = () => {
+    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
+  };
+
+  return {
+    sortValue,
+    filterCount,
+    resetQueryParams,
+    updateQueryParams,
+    defaultValues: { ...defaultFilterProps, ...router.query },
+  };
 };

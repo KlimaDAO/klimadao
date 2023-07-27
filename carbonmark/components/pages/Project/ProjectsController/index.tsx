@@ -4,10 +4,9 @@ import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { SearchInput } from "components/SearchInput";
-import { defaultFilterProps } from "hooks/useProjectsFilterParams";
-import { flatMap, omit } from "lodash";
+import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
 import { useRouter } from "next/router";
-import { FC, HTMLAttributes, useEffect, useState } from "react";
+import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
 type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
@@ -16,22 +15,12 @@ type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
 
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const router = useRouter();
-  const [filterCount, setFilterCount] = useState(0);
-
-  useEffect(() => {
-    const filters = flatMap(omit(router.query, ["search", "sort"]));
-    setFilterCount(filters.length);
-  }, [router.query]);
+  const { filterCount, updateQueryParams, resetQueryParams } =
+    useProjectsFilterParams();
 
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
-    // If the search box is cleared, remove the param entirely
-    const query = str ? { ...otherParams, search: str } : otherParams;
-    router.replace({ query }, undefined, { shallow: true });
-  };
-
-  const handleResetFilters = () => {
-    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
+    updateQueryParams(str ? { ...otherParams, search: str } : otherParams);
   };
 
   return (
@@ -61,7 +50,7 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         <ButtonSecondary
           variant="lightGray"
           label={t`Clear Filters`}
-          onClick={handleResetFilters}
+          onClick={resetQueryParams}
           className={styles.resetFilterButton}
         />
       )}

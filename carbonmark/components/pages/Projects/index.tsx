@@ -39,7 +39,8 @@ import * as styles from "./styles";
 
 const Page: NextPage = () => {
   const router = useRouter();
-  const defaultValues = useProjectsFilterParams();
+  const { sortValue, updateQueryParams, defaultValues } =
+    useProjectsFilterParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects, isLoading, isValidating } = useFetchProjects();
   const { control, setValue } = useForm<FilterValues>({ defaultValues });
@@ -56,14 +57,13 @@ const Page: NextPage = () => {
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
   useEffect(() => {
-    if (!sort || !router?.query?.sort) return;
-    setValue("sort", router.query.sort as SortOption);
-  }, [router.query]);
+    if (!sortValue) return;
+    setValue("sort", sortValue as SortOption);
+  }, [sortValue]);
 
   useEffect(() => {
     if (!sort || !router.isReady) return;
-    const query = { ...router.query, sort };
-    router.replace({ query }, undefined, { shallow: true });
+    updateQueryParams({ ...router.query, sort });
   }, [sort]);
 
   return (

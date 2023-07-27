@@ -10,6 +10,7 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import {
   defaultFilterProps,
   FilterValues,
+  SortOption,
   useProjectsFilterParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
@@ -28,8 +29,9 @@ type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
-  const defaultValues = useProjectsFilterParams();
   const { projects, isValidating } = useFetchProjects();
+  const { defaultValues, updateQueryParams, resetQueryParams } =
+    useProjectsFilterParams();
 
   // Set the default values and override with any existing url params
   const { control, reset, setValue, getValues } = useForm<FilterValues>({
@@ -82,8 +84,10 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   useEffect(() => {
     if (!router.isReady || !props.showModal) return;
-    const query = { ...getValues(), ...pick(router.query, ["search", "sort"]) };
-    router.replace({ query }, undefined, { shallow: true });
+    updateQueryParams({
+      ...getValues(),
+      ...pick(router.query, "search", "sort" as SortOption),
+    });
   }, [watchers]);
 
   useEffect(() => {
@@ -95,8 +99,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   }, [props.showModal]);
 
   const resetFilters = () => {
+    resetQueryParams();
     reset(defaultFilterProps);
-    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
     props.onToggleModal?.();
   };
 
