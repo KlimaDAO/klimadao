@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { mapValues, omit } from "lodash";
-import { split } from "lodash/fp";
+import { filter, includes, mapValues, omit } from "lodash";
+import { get, lte, negate, pipe, split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
@@ -10,7 +10,12 @@ import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { POOL_INFO } from "./projects.constants";
-import { getDefaultQueryArgs, isMatchingProject } from "./projects.utils";
+import {
+  buildOffsetKey,
+  buildProjectKey,
+  getDefaultQueryArgs,
+  isMatchingProject,
+} from "./projects.utils";
 
 const schema = {
   querystring: {
@@ -57,6 +62,9 @@ type Params = {
   vintage?: string;
 };
 
+const UBO_TOKEN_ADDRESS =
+  POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase();
+
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
@@ -77,7 +85,7 @@ const handler = (fastify: FastifyInstance) =>
       search: request.query.search ?? "",
     };
 
-    const [data, pooledProjectsData, projectsCmsData, poolPrices] =
+    const [projectData, offsetData, projectsCmsData, poolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
@@ -85,24 +93,50 @@ const handler = (fastify: FastifyInstance) =>
         fetchAllPoolPrices(),
       ]);
 
+    // Map<VCS-191-2008, project>
+    const projectMap = new Map(
+      projectData.projects?.map((project) => [
+        buildProjectKey(project),
+        project,
+      ])
+    );
+    // Map<VCS-191-2008, offset>
+    const offsetMap = new Map(
+      offsetData.carbonOffsets?.map((offset) => [
+        buildOffsetKey(offset),
+        offset,
+      ])
+    );
+    // console.log(offsetMap);
+
     //Find the CarbonOffsets that have matching projects in Carbonmark
-    const matchingOffsets = pooledProjectsData.carbonOffsets.filter((offset) =>
-      data.projects.some((project) => isMatchingProject(offset, project))
+    const matchingOffsets = offsetData.carbonOffsets.filter((offset) =>
+      includes(projectMap.keys(), buildOffsetKey(offset))
     );
 
     const uniqueValues: string[] = [];
 
+    //Return offsets
+    const uboOffsets = filter(
+      matchingOffsets,
+      pipe(get("balanceUBO"), parseFloat, lte(1))
+    );
+
+    const isUboDefaultProject = (project: Project) =>
+      UBO_TOKEN_ADDRESS === project?.projectAddress.toLowerCase();
+
+    const uboDefaultPrices = uboOffsets
+      .filter(isUboDefaultProject)
+      .map(() => poolPrices.ubo["defaultPrice"]);
+    const uboSelectivePrices = uboOffsets
+      .filter(negate(isUboDefaultProject))
+      .map(() => poolPrices.ubo["selectiveRedeemPrice"]);
+
+    uniqueValues.push(...uboDefaultPrices, ...uboSelectivePrices);
+
     matchingOffsets.forEach((offset) => {
-      const project = data.projects.find((project) =>
-        isMatchingProject(offset, project)
-      );
-      if (parseFloat(offset.balanceUBO) >= 1) {
-        const isDefault =
-          POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-          project?.projectAddress.toLowerCase();
-        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(poolPrices.ubo[priceKey]);
-      }
+      const project = projectMap.get(buildOffsetKey(offset));
+
       if (parseFloat(offset.balanceNBO) >= 1) {
         const isDefault =
           POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
@@ -126,12 +160,9 @@ const handler = (fastify: FastifyInstance) =>
       }
     });
 
-    //Return offset
-    // const uboOffsets = matchingOffsets.filter(selector("balanceUBO", gt(1)));
-
-    const projects = data.projects.map(function (project) {
-      if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
-        const indexes = pooledProjectsData.carbonOffsets
+    const projects = projectData.projects.map(function (project) {
+      if (offsetData && offsetData.carbonOffsets) {
+        const indexes = offsetData.carbonOffsets
           .map((item, idx) => (isMatchingProject(item, project) ? idx : ""))
           .filter(String);
         if (indexes && indexes.length) {
@@ -178,9 +209,7 @@ const handler = (fastify: FastifyInstance) =>
 
       return { ...project, price };
     });
-    const pooledProjects = pooledProjectsData.carbonOffsets.map(function (
-      project
-    ) {
+    const pooledProjects = offsetData.carbonOffsets.map(function (project) {
       /** Ignore projects for which the MARKETPLACE contained data */
       if (project.display == false) {
         return null;
