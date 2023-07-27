@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-25 15:36+0000\n"
+"POT-Creation-Date: 2023-07-26 23:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -271,7 +271,7 @@ msgstr "清除过滤器"
 
 #: components/pages/Users/ProfileHeader/index.tsx:38
 msgid "Click the 'create profile' button to customize this page and get started."
-msgstr ""
+msgstr "单击“创建个人资料”按钮自定义此页面并开始。"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
@@ -313,7 +313,7 @@ msgstr "国家"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:100
 msgid "Create Carbonmark Profile"
-msgstr ""
+msgstr "创建 Carbonmark 配置文件"
 
 #: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
@@ -351,12 +351,12 @@ msgstr "已创建："
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr ""
+msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了解如何在 Polygon 上获取 USDC </0>"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:145
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:146
 msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr ""
+msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了解如何在 Polygon 上获取 USDC </0>"
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -1160,7 +1160,7 @@ msgstr "该产品仍处于测试阶段，审核尚未完成。"
 
 #: components/pages/Users/ProfileHeader/index.tsx:46
 msgid "This user has not yet created a carbonmark profile."
-msgstr ""
+msgstr "该用户尚未创建Carbonmark个人资料"
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
@@ -1619,7 +1619,7 @@ msgstr "停用消息"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "感谢您对地球的支持！在 <0> PolygonScan </0> 上查看交易"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
@@ -1629,12 +1629,12 @@ msgstr "感谢您对地球的支持！"
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
-msgstr ""
+msgstr "您的交易已成功处理，但索引所需的时间比正常情况要长。很快它将出现在您的<0>停用碳</0>栏中。"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
 msgid "offset.successModal.body4"
-msgstr ""
+msgstr "您现在可以在<0>PolygonScan </0>上查看成功的交易"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:349
 msgid "offset_disclaimer"
@@ -1662,7 +1662,7 @@ msgstr "您的个人资料"
 
 #: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
-msgstr ""
+msgstr "编辑您的个人资料以添加描述。"
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
