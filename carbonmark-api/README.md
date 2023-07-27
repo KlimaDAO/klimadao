@@ -1,5 +1,5 @@
 <!-- PROJECT LOGO -->
-ver
+
 <br />
 
 <div  align="center">
