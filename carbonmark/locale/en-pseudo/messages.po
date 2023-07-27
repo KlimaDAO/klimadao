@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -85,10 +91,6 @@ msgstr ""
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:159
 msgid "Amount to retire"
-msgstr ""
-
-#: components/ProjectFilterModal/index.tsx:143
-msgid "Apply"
 msgstr ""
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -248,7 +250,7 @@ msgstr ""
 msgid "Carbonmark's role"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:150
 msgid "Category"
 msgstr ""
 
@@ -261,11 +263,12 @@ msgstr ""
 msgid "Choose a project and quantity"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:48
+#: components/pages/Projects/index.tsx:77
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:148
+#: components/ProjectFilterModal/index.tsx:181
+#: components/pages/Project/ProjectsController/index.tsx:66
 msgid "Clear Filters"
 msgstr ""
 
@@ -279,6 +282,10 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
+msgstr ""
+
+#: components/ProjectFilterModal/index.tsx:187
+msgid "Compiling Results ..."
 msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
@@ -307,7 +314,7 @@ msgstr ""
 msgid "Could not calculate Total Cost"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:122
+#: components/ProjectFilterModal/index.tsx:139
 msgid "Country"
 msgstr ""
 
@@ -419,7 +426,7 @@ msgstr ""
 msgid "FAQs"
 msgstr ""
 
-#: components/pages/Project/ProjectsController/index.tsx:46
+#: components/pages/Project/ProjectsController/index.tsx:59
 msgid "Filters"
 msgstr ""
 
@@ -580,7 +587,7 @@ msgid "Loading..."
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr ""
 
@@ -589,7 +596,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr ""
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr ""
 
@@ -602,8 +609,8 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:46
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:75
+#: components/pages/Projects/index.tsx:76
 msgid "Marketplace | Carbonmark"
 msgstr ""
 
@@ -662,7 +669,7 @@ msgid "No listings found for this project."
 msgstr ""
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:77
+#: components/pages/Projects/index.tsx:130
 msgid "No project description found"
 msgstr ""
 
@@ -1172,7 +1179,7 @@ msgstr ""
 msgid "Toggle payment method"
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:110
+#: components/pages/Projects/index.tsx:94
 msgid "Toggle sort menu"
 msgstr ""
 
@@ -1276,6 +1283,10 @@ msgstr ""
 msgid "View Registry Details <0/>"
 msgstr ""
 
+#: components/ProjectFilterModal/index.tsx:174
+msgid "View Results"
+msgstr ""
+
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr ""
@@ -1322,7 +1333,7 @@ msgstr ""
 msgid "View the project details and other info for this purchase."
 msgstr ""
 
-#: components/ProjectFilterModal/index.tsx:136
+#: components/ProjectFilterModal/index.tsx:161
 msgid "Vintage"
 msgstr ""
 
@@ -1455,19 +1466,19 @@ msgstr ""
 msgid "buy"
 msgstr ""
 
-#: components/Layout/index.tsx:91
+#: components/Layout/index.tsx:93
 msgid "connectModal.institutional"
 msgstr ""
 
-#: components/Layout/index.tsx:83
+#: components/Layout/index.tsx:85
 msgid "connectModal.torus"
 msgstr ""
 
-#: components/Layout/index.tsx:87
+#: components/Layout/index.tsx:89
 msgid "connectModal.wallet"
 msgstr ""
 
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:102
 msgid "connect_modal.connecting"
 msgstr ""
 
@@ -1483,7 +1494,7 @@ msgstr ""
 msgid "connect_modal.error_processing"
 msgstr ""
 
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:106
 msgid "connect_modal.error_title"
 msgstr ""
 
@@ -2006,7 +2017,7 @@ msgstr ""
 msgid "shared.head.description"
 msgstr ""
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:98
 msgid "shared.login"
 msgstr ""
 

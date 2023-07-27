@@ -90,11 +90,10 @@ export const layoutChildrenContainer = css`
   width: 100%;
   display: grid;
   grid-template-columns: inherit;
-  gap: 2.4rem 0rem;
+  gap: 1.2rem 0rem;
   padding: 1.6rem;
   align-content: flex-start;
   ${breakpoints.desktop} {
-    gap: 2rem 0rem;
     padding: 4rem;
   }
 

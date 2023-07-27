@@ -93,10 +93,6 @@ msgstr "Amount to purchase"
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
-#: components/ProjectFilterModal/index.tsx:143
-msgid "Apply"
-msgstr "Apply"
-
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
@@ -254,7 +250,7 @@ msgstr "Carbonmark | The Universal Carbon Marketplace"
 msgid "Carbonmark's role"
 msgstr "Carbonmark's role"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:150
 msgid "Category"
 msgstr "Category"
 
@@ -267,11 +263,12 @@ msgstr "Change language"
 msgid "Choose a project and quantity"
 msgstr "Choose a project and quantity"
 
-#: components/pages/Projects/index.tsx:48
+#: components/pages/Projects/index.tsx:77
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
-#: components/ProjectFilterModal/index.tsx:148
+#: components/ProjectFilterModal/index.tsx:181
+#: components/pages/Project/ProjectsController/index.tsx:66
 msgid "Clear Filters"
 msgstr "Clear Filters"
 
@@ -286,6 +283,10 @@ msgstr "Coming soon"
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
 msgstr "Compare prices across all sellers and trading pools"
+
+#: components/ProjectFilterModal/index.tsx:187
+msgid "Compiling Results ..."
+msgstr "Compiling Results ..."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -313,7 +314,7 @@ msgstr "Continue"
 msgid "Could not calculate Total Cost"
 msgstr "Could not calculate Total Cost"
 
-#: components/ProjectFilterModal/index.tsx:122
+#: components/ProjectFilterModal/index.tsx:139
 msgid "Country"
 msgstr "Country"
 
@@ -425,7 +426,7 @@ msgstr "Energy Efficiency"
 msgid "FAQs"
 msgstr "FAQs"
 
-#: components/pages/Project/ProjectsController/index.tsx:46
+#: components/pages/Project/ProjectsController/index.tsx:59
 msgid "Filters"
 msgstr "Filters"
 
@@ -586,7 +587,7 @@ msgid "Loading..."
 msgstr "Loading..."
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "Log in"
 
@@ -595,7 +596,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Log in to create a Carbonmark profile"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "Log out"
 
@@ -608,8 +609,8 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:46
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:75
+#: components/pages/Projects/index.tsx:76
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
@@ -668,7 +669,7 @@ msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:77
+#: components/pages/Projects/index.tsx:130
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -1178,7 +1179,7 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
-#: components/ProjectFilterModal/index.tsx:110
+#: components/pages/Projects/index.tsx:94
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
@@ -1282,6 +1283,10 @@ msgstr "View Carbonmark Profile"
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
+#: components/ProjectFilterModal/index.tsx:174
+msgid "View Results"
+msgstr "View Results"
+
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
@@ -1328,7 +1333,7 @@ msgstr "View on PolygonScan <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "View the project details and other info for this purchase."
 
-#: components/ProjectFilterModal/index.tsx:136
+#: components/ProjectFilterModal/index.tsx:161
 msgid "Vintage"
 msgstr "Vintage"
 
@@ -1461,19 +1466,19 @@ msgstr "bought from"
 msgid "buy"
 msgstr "Buy"
 
-#: components/Layout/index.tsx:91
+#: components/Layout/index.tsx:93
 msgid "connectModal.institutional"
 msgstr "institutional"
 
-#: components/Layout/index.tsx:83
+#: components/Layout/index.tsx:85
 msgid "connectModal.torus"
 msgstr "social or email"
 
-#: components/Layout/index.tsx:87
+#: components/Layout/index.tsx:89
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:102
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
@@ -1489,7 +1494,7 @@ msgstr "User refused connection."
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:106
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -2012,7 +2017,7 @@ msgstr "Sign In / Connect To Buy"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:98
 msgid "shared.login"
 msgstr "Login"
 
