@@ -66,6 +66,18 @@ type Params = {
   vintage?: string;
 };
 
+/**
+ * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
+ * It does so by:
+ * 1. Fetch Projects, CarbonOffsets, data from the CMS and token pricing
+ * 2. Find the lowest price listed for each Project and CarbonOffset
+ * 3. Assign the lowest price to each project
+ * 4. Convert each CarbonOffset to a new PoolProject
+ * 5. Return the combined collection of Projects & PoolProjects
+ * 
+ * @param fastify 
+ * @returns 
+ */
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
