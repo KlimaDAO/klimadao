@@ -273,10 +273,6 @@ export type Category = {
   id: Scalars['String'];
 };
 
-export type CategoryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
 export type Category_Filter = {
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
@@ -311,10 +307,6 @@ export enum Category_OrderBy {
 export type Country = {
   __typename?: 'Country';
   id: Scalars['String'];
-};
-
-export type CountryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type Country_Filter = {
@@ -573,13 +565,6 @@ export type ProjectListingsArgs = {
   orderDirection?: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Listing_Filter>;
-};
-
-export type ProjectFilter = {
-  category_?: InputMaybe<CategoryFilter>;
-  country_?: InputMaybe<CountryFilter>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  vintage_in?: InputMaybe<Array<InputMaybe<Scalars['BigInt']>>>;
 };
 
 export type Project_Filter = {
