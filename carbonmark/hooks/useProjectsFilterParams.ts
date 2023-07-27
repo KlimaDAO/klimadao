@@ -30,8 +30,7 @@ export const useProjectsFilterParams = () => {
   }, [router.query]);
 
   useEffect(() => {
-    if (!router?.query?.sort) return;
-    setSortValue(router.query.sort as SortOption);
+    setSortValue((router.query.sort as SortOption) ?? "recently-updated");
   }, [router.query]);
 
   const updateQueryParams = (query: Partial<FilterValues>) => {
