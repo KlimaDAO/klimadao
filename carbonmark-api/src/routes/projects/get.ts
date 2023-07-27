@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, mapValues, omit } from "lodash";
+import { compact, concat, mapValues, min, omit } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
@@ -114,23 +114,24 @@ const handler = (fastify: FastifyInstance) =>
       const listingPrices = compact(project.listings)
         ?.filter(isListingActive)
         .map(extract("singleUnitPrice"));
-      const lowestPrice = listingPrices.sort().at(0);
+      const lowestPrice = min(listingPrices);
 
       return composeCarbonmarkProject(project, cmsProject, lowestPrice);
     });
 
     // ----- Pool Listings ----- //
     const offsetProjects = offsetData.carbonOffsets.map((offset) => {
+      const [standard, code] = offset.projectID.split("-");
       const cmsProject = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
-        offset.projectID.split("-")[1], //e.g 1120
-        offset.projectID.split("-")[0] //e.g VCS
+        standard,
+        code
       );
 
       // Find the lowest price
       // @todo change to number[]
       const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
-      const lowestPrice = tokenPrices.sort().at(0);
+      const lowestPrice = min(tokenPrices);
 
       return composeOffsetProject(cmsProject, offset, lowestPrice);
     });
