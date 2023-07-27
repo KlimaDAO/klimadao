@@ -35,10 +35,15 @@ export const getDefaultQueryArgs = async (
   };
 };
 
+const buildProjectKey = ({
+  registry,
+  projectID,
+}: Pick<Project, "registry" | "projectID">) => registry + "-" + projectID;
+
 /** Is the offset project the same project as sourced from carbonmark */
 export const isMatchingProject = (
   offset: Partial<CarbonOffset>,
   project: Project
 ) =>
-  offset.projectID === project.registry + "-" + project.projectID &&
+  offset.projectID === buildProjectKey(project) &&
   offset.vintageYear === project.vintage;

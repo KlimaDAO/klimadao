@@ -18,6 +18,14 @@ type Predicate<T> = (x: T) => boolean;
 
 /** A predicate that returns true if the given element contains the given value for the given key */
 export const selector =
-  <T>(key: keyof T, value: unknown): Predicate<T> =>
-  (x: T) =>
-    x[key] === value;
+  <T, K extends keyof T = keyof T>(
+    key: K,
+    value: unknown | Predicate<K>
+  ): Predicate<T> =>
+  (x: T) => {
+    if (typeof value === "function") {
+      return value(x[key]);
+    } else {
+      return x[key] === value;
+    }
+  };

@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- just because
 // @ts-nocheck
-
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit } from "lodash";
 import { split } from "lodash/fp";
@@ -86,66 +85,57 @@ const handler = (fastify: FastifyInstance) =>
         fetchAllPoolPrices(),
       ]);
 
-    const projects = data.projects.map(function (project) {
-      const uniqueValues = [];
+    //Find the CarbonOffsets that have matching projects in Carbonmark
+    const matchingOffsets = pooledProjectsData.carbonOffsets.filter((offset) =>
+      data.projects.some((project) => isMatchingProject(offset, project))
+    );
 
+    const uniqueValues: string[] = [];
+
+    matchingOffsets.forEach((offset) => {
+      const project = data.projects.find((project) =>
+        isMatchingProject(offset, project)
+      );
+      if (parseFloat(offset.balanceUBO) >= 1) {
+        const isDefault =
+          POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
+          project?.projectAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(poolPrices.ubo[priceKey]);
+      }
+      if (parseFloat(offset.balanceNBO) >= 1) {
+        const isDefault =
+          POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
+          project?.projectAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(poolPrices.nbo[priceKey]);
+      }
+      if (parseFloat(offset.balanceNCT) >= 1) {
+        const isDefault =
+          POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
+          project?.projectAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(poolPrices.nct[priceKey]);
+      }
+      if (parseFloat(offset.balanceBCT) >= 1) {
+        const isDefault =
+          POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
+          project?.projectAddress.toLowerCase();
+        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+        uniqueValues.push(poolPrices.bct[priceKey]);
+      }
+    });
+
+    //Return offset
+    // const uboOffsets = matchingOffsets.filter(selector("balanceUBO", gt(1)));
+
+    const projects = data.projects.map(function (project) {
       if (pooledProjectsData && pooledProjectsData.carbonOffsets) {
         const indexes = pooledProjectsData.carbonOffsets
           .map((item, idx) => (isMatchingProject(item, project) ? idx : ""))
           .filter(String);
         if (indexes && indexes.length) {
           project.isPoolProject = true;
-
-          indexes.forEach((index) => {
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceUBO) >=
-              1
-            ) {
-              const isDefault =
-                POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-                project.projectAddress.toLowerCase();
-              const priceKey = isDefault
-                ? "defaultPrice"
-                : "selectiveRedeemPrice";
-              uniqueValues.push(poolPrices.ubo[priceKey]);
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNBO) >=
-              1
-            ) {
-              const isDefault =
-                POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-                project.projectAddress.toLowerCase();
-              const priceKey = isDefault
-                ? "defaultPrice"
-                : "selectiveRedeemPrice";
-              uniqueValues.push(poolPrices.nbo[priceKey]);
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceNCT) >=
-              1
-            ) {
-              const isDefault =
-                POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-                project.projectAddress.toLowerCase();
-              const priceKey = isDefault
-                ? "defaultPrice"
-                : "selectiveRedeemPrice";
-              uniqueValues.push(poolPrices.nct[priceKey]);
-            }
-            if (
-              parseFloat(pooledProjectsData.carbonOffsets[index].balanceBCT) >=
-              1
-            ) {
-              const isDefault =
-                POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-                project.projectAddress.toLowerCase();
-              const priceKey = isDefault
-                ? "defaultPrice"
-                : "selectiveRedeemPrice";
-              uniqueValues.push(poolPrices.bct[priceKey]);
-            }
-          });
         }
       }
 
@@ -167,12 +157,6 @@ const handler = (fastify: FastifyInstance) =>
             )
           : "0";
         price = lowestPrice;
-
-        /** We only want to hide duplicate projects that we have found a price for */
-        if (Number(price) !== 0 || isNil(price)) {
-          /** I THINK we are setting this to false so that there are not duplicate projects displayed */
-          pooledProjectsData.carbonOffsets[index].display = false;
-        }
       }
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
@@ -271,7 +255,7 @@ const handler = (fastify: FastifyInstance) =>
       return singleProject;
     });
 
-    const filteredItems = projects
+    const filteredProjects = projects
       .concat(pooledProjects)
       /**
        * This is where we run in to trouble because a project might exist in both MARKETPLACE and pooledProjects but only contain pricing in the latter
@@ -280,7 +264,7 @@ const handler = (fastify: FastifyInstance) =>
       .filter((project) => Number(project?.price) !== 0);
 
     // Send the transformed projects array as a JSON string in the response
-    return reply.send(JSON.stringify(filteredItems));
+    return reply.send(JSON.stringify(filteredProjects));
   };
 
 export default async (fastify: FastifyInstance) => {
