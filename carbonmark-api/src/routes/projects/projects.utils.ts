@@ -8,7 +8,7 @@ import {
 } from "src/.generated/types/marketplace.types";
 import { CarbonOffset } from "src/.generated/types/offsets.types";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
-import { extract } from "../../utils/functional.utils";
+import { extract, notNil } from "../../utils/functional.utils";
 import {
   getAllCategories,
   getAllCountries,
@@ -53,12 +53,6 @@ export const buildProjectKey = ({
 }: Pick<Project, "registry" | "projectID" | "vintage">) =>
   registry + "-" + projectID + "-" + vintage;
 
-/** Is the offset project the same project as sourced from carbonmark */
-export const isMatchingProject = (
-  offset: Partial<CarbonOffset>,
-  project: Project
-) => offset.projectID + "-" + offset.vintageYear === buildProjectKey(project);
-
 /**
  * Extract the token prices from CarbonOffsets
  * @todo refactor and clean this up
@@ -101,5 +95,69 @@ export const getTokenPrices = (
   return prices;
 };
 
+export const getOffsetTokenPrices = (
+  offset: CarbonOffset,
+  poolPrices: Record<string, PoolPrice>
+) => {
+  const prices: string[] = [];
+  if (parseFloat(offset.balanceUBO) >= 1) {
+    const isDefault =
+      POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
+      offset.tokenAddress.toLowerCase();
+    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+    prices.push(poolPrices.ubo[priceKey]);
+  }
+  if (parseFloat(offset.balanceNBO) >= 1) {
+    const isDefault =
+      POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
+      offset.tokenAddress.toLowerCase();
+    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+    prices.push(poolPrices.nbo[priceKey]);
+  }
+  if (parseFloat(offset.balanceNCT) >= 1) {
+    const isDefault =
+      POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
+      offset.tokenAddress.toLowerCase();
+    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+    prices.push(poolPrices.nct[priceKey]);
+  }
+  if (parseFloat(offset.balanceBCT) >= 1) {
+    const isDefault =
+      POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
+      offset.tokenAddress.toLowerCase();
+    const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
+    prices.push(poolPrices.bct[priceKey]);
+  }
+  return prices;
+};
+
 export const getListingPrices = (listings: Listing[] = []) =>
   listings.filter(isListingActive).map(extract("singleUnitPrice"));
+
+export const buildProject = (
+  cmsData: any,
+  offset: CarbonOffset,
+  price: number
+) => ({
+  id: offset.id,
+  isPoolProject: true,
+  description: cmsData ? cmsData.description : undefined,
+  short_description: cmsData?.projectContent
+    ? cmsData.projectContent.shortDescription
+    : undefined,
+  key: offset.projectID,
+  projectID: offset.projectID.split("-")[1],
+  name: cmsData ? cmsData.name : offset.name,
+  methodologies: cmsData ? cmsData.methodologies : [],
+  vintage: offset.vintageYear,
+  projectAddress: offset.tokenAddress,
+  registry: offset.projectID.split("-")[0],
+  updatedAt: offset.lastUpdate,
+  category: {
+    id: offset.methodologyCategory,
+  },
+  country: notNil(offset.country) ? { id: offset.country } : null,
+  price,
+  activities: null,
+  listings: null,
+});

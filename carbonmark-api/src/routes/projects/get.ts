@@ -11,12 +11,13 @@ import { extract } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
-import { POOL_INFO } from "./projects.constants";
 import {
   buildOffsetKey,
+  buildProject,
   buildProjectKey,
   getDefaultQueryArgs,
   getListingPrices,
+  getOffsetTokenPrices,
   getTokenPrices,
 } from "./projects.utils";
 
@@ -134,88 +135,30 @@ const handler = (fastify: FastifyInstance) =>
     // Apply the lowest price to each project
     const projects = projectData.projects.map(assign({price:lowestPrice}))
 
-    const pooledProjects = offsetData.carbonOffsets.map(function (project) {
-      /** Ignore projects for which the MARKETPLACE contained data */
-      if (project.display == false) {
-        return null;
-      }
-      const uniqueValues = [];
+    const pooledProjects = offsetData.carbonOffsets.map(function (offset) {
 
-      if (parseFloat(project.balanceUBO) >= 1) {
-        const isDefault =
-          POOL_INFO.ubo.defaultProjectTokenAddress.toLowerCase() ===
-          project.tokenAddress.toLowerCase();
-        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(poolPrices.ubo[priceKey]);
-      }
-      if (parseFloat(project.balanceNBO) >= 1) {
-        const isDefault =
-          POOL_INFO.nbo.defaultProjectTokenAddress.toLowerCase() ===
-          project.tokenAddress.toLowerCase();
-        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(poolPrices.nbo[priceKey]);
-      }
-      if (parseFloat(project.balanceNCT) >= 1) {
-        const isDefault =
-          POOL_INFO.nct.defaultProjectTokenAddress.toLowerCase() ===
-          project.tokenAddress.toLowerCase();
-        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(poolPrices.nct[priceKey]);
-      }
-      if (parseFloat(project.balanceBCT) >= 1) {
-        const isDefault =
-          POOL_INFO.bct.defaultProjectTokenAddress.toLowerCase() ===
-          project.tokenAddress.toLowerCase();
-        const priceKey = isDefault ? "defaultPrice" : "selectiveRedeemPrice";
-        uniqueValues.push(poolPrices.bct[priceKey]);
-      }
+      // const project = projectMap.get(buildOffsetKey(offset))
 
-      const country = project.country.length ? { id: project.country } : null;
+      const prices = getOffsetTokenPrices(offset,poolPrices);
+
+      const lowestPrice = prices.sort().at(0);
+
 
       const cmsData = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
-        project.projectID.split("-")[1],
-        project.projectID.split("-")[0]
+        offset.projectID.split("-")[1],
+        offset.projectID.split("-")[0]
       );
 
-      const singleProject = {
-        id: project.id,
-        isPoolProject: true,
-        description: cmsData ? cmsData.description : undefined,
-        short_description: cmsData?.projectContent
-          ? cmsData.projectContent.shortDescription
-          : undefined,
-        key: project.projectID,
-        projectID: project.projectID.split("-")[1],
-        name: cmsData ? cmsData.name : project.name,
-        methodologies: cmsData ? cmsData.methodologies : [],
-        vintage: project.vintageYear,
-        projectAddress: project.tokenAddress,
-        registry: project.projectID.split("-")[0],
-        updatedAt: project.lastUpdate,
-        category: {
-          id: project.methodologyCategory,
-        },
-        country: country,
-        price: uniqueValues.length
-          ? uniqueValues.reduce((a, b) =>
-              a.length < b.length ? a : a.length === b.length && a < b ? a : b
-            )
-          : "0",
-        activities: null,
-        listings: null,
-      };
+
+      const singleProject = buildProject(cmsData,offset,lowestPrice)
 
       return singleProject;
     });
 
     const filteredProjects = projects
       .concat(pooledProjects)
-      /**
-       * This is where we run in to trouble because a project might exist in both MARKETPLACE and pooledProjects but only contain pricing in the latter
-       * Which means it won't be displayed if it's price is zero but is present in MARKETPLACE
-       */
-      .filter((project) => Number(project?.price) !== 0);
+      .filter((project) => Number(project?.price));
 
     // Send the transformed projects array as a JSON string in the response
     return reply.send(JSON.stringify(filteredProjects));
