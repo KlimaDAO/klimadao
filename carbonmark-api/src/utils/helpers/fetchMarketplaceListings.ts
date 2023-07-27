@@ -96,6 +96,7 @@ export const fetchMarketplaceListings = async ({
     }
 
     const callStart = Date.now();
+    // @todo this requires that users in production has an address field. Staging is updated to reflect this. Currently the id is the only location of the address.
     const userDocs = await Promise.all(
       chunks.map((chunk) =>
         fastify.firebase
