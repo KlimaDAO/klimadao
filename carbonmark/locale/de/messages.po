@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-26 15:36+0000\n"
+"POT-Creation-Date: 2023-07-27 22:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,10 +86,6 @@ msgstr "Zu kaufende Menge"
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:159
 msgid "Amount to retire"
 msgstr "Auszugleichende Menge"
-
-#: components/ProjectFilterModal/index.tsx:143
-msgid "Apply"
-msgstr "Anwenden"
 
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
@@ -248,7 +244,7 @@ msgstr "Carbonmark | Der Universelle CO2-Marktplatz"
 msgid "Carbonmark's role"
 msgstr "Carbonmarks Bedeutung"
 
-#: components/ProjectFilterModal/index.tsx:129
+#: components/ProjectFilterModal/index.tsx:128
 msgid "Category"
 msgstr "Kategorie"
 
@@ -261,11 +257,12 @@ msgstr "Sprache wechseln"
 msgid "Choose a project and quantity"
 msgstr "Projekt und Menge auswählen"
 
-#: components/pages/Projects/index.tsx:48
+#: components/pages/Projects/index.tsx:74
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Kaufen, verkaufen, CO2-Fußabdruck ausgleichen: Über 20 Millionen verifizierte digitale CO2-Credits aus Hunderten Projekten stehen Ihnen zur Verfügung."
 
-#: components/ProjectFilterModal/index.tsx:148
+#: components/ProjectFilterModal/index.tsx:160
+#: components/pages/Project/ProjectsController/index.tsx:52
 msgid "Clear Filters"
 msgstr "Filter löschen"
 
@@ -280,6 +277,10 @@ msgstr "Demnächst"
 #: components/pages/Home/index.tsx:348
 msgid "Compare prices across all sellers and trading pools"
 msgstr "Preise aller Verkäufer und Handelspools vergleichen"
+
+#: components/ProjectFilterModal/index.tsx:168
+msgid "Compiling Results ..."
+msgstr ""
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -307,7 +308,7 @@ msgstr "Weiter"
 msgid "Could not calculate Total Cost"
 msgstr "Gesamtkosten konnten nicht berechnet werden"
 
-#: components/ProjectFilterModal/index.tsx:122
+#: components/ProjectFilterModal/index.tsx:117
 msgid "Country"
 msgstr "Land"
 
@@ -419,7 +420,7 @@ msgstr "Energieeffizienz"
 msgid "FAQs"
 msgstr "FAQs"
 
-#: components/pages/Project/ProjectsController/index.tsx:46
+#: components/pages/Project/ProjectsController/index.tsx:45
 msgid "Filters"
 msgstr "Filter"
 
@@ -580,7 +581,7 @@ msgid "Loading..."
 msgstr "Lade..."
 
 #: components/Layout/NavDrawer/index.tsx:54
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log in"
 msgstr "Anmelden"
 
@@ -589,7 +590,7 @@ msgid "Log in to create a Carbonmark profile"
 msgstr "Anmelden, um Carbonmark-Profil zu erstellen"
 
 #: components/Layout/NavDrawer/index.tsx:64
-#: components/LoginButton/index.tsx:9
+#: components/LoginButton/index.tsx:10
 msgid "Log out"
 msgstr "Abmelden"
 
@@ -602,8 +603,8 @@ msgstr "Anmelden"
 msgid "Marketplace"
 msgstr "Marktplatz"
 
-#: components/pages/Projects/index.tsx:46
-#: components/pages/Projects/index.tsx:47
+#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Marketplace | Carbonmark"
 msgstr "Marktplatz | Carbonmark"
 
@@ -662,7 +663,7 @@ msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
 #: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:77
+#: components/pages/Projects/index.tsx:127
 msgid "No project description found"
 msgstr "Keine Projektbeschreibung gefunden"
 
@@ -896,6 +897,14 @@ msgstr "Ressourcen"
 #: components/pages/Resources/index.tsx:20
 msgid "Resources | Carbonmark"
 msgstr "Ressourcen | Carbonmark"
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Result"
+msgstr ""
+
+#: components/ProjectFilterModal/index.tsx:166
+msgid "Results"
+msgstr ""
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1172,7 +1181,7 @@ msgstr "Verifizieren Sie die Informationen und klicken Sie unten auf \"Absenden\
 msgid "Toggle payment method"
 msgstr "Zahlungsmethode ändern"
 
-#: components/ProjectFilterModal/index.tsx:110
+#: components/pages/Projects/index.tsx:91
 msgid "Toggle sort menu"
 msgstr "Sortiermenü einschalten"
 
@@ -1276,6 +1285,10 @@ msgstr "Carbonmark-Profil anzeigen"
 msgid "View Registry Details <0/>"
 msgstr "Registrierungsdetails anzeigen <0/>"
 
+#: components/ProjectFilterModal/index.tsx:152
+msgid "View Results"
+msgstr ""
+
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "Komplettansicht aller digitalen CO2-Assets in Ihrem Besitz in Ihrem Portfolio."
@@ -1322,7 +1335,7 @@ msgstr "Auf PolygonScan ansehen <0/>"
 msgid "View the project details and other info for this purchase."
 msgstr "Projektdetails und weitere Informationen über diesen Kauf ansehen."
 
-#: components/ProjectFilterModal/index.tsx:136
+#: components/ProjectFilterModal/index.tsx:139
 msgid "Vintage"
 msgstr "Jahrgang"
 
@@ -1455,19 +1468,19 @@ msgstr "gekauft von"
 msgid "buy"
 msgstr "Kaufen"
 
-#: components/Layout/index.tsx:91
+#: components/Layout/index.tsx:93
 msgid "connectModal.institutional"
 msgstr "institutionell"
 
-#: components/Layout/index.tsx:83
+#: components/Layout/index.tsx:85
 msgid "connectModal.torus"
 msgstr "Social- oder E-Mail-Login"
 
-#: components/Layout/index.tsx:87
+#: components/Layout/index.tsx:89
 msgid "connectModal.wallet"
 msgstr "Wallet verbinden"
 
-#: components/Layout/index.tsx:100
+#: components/Layout/index.tsx:102
 msgid "connect_modal.connecting"
 msgstr "Verbinde..."
 
@@ -1483,7 +1496,7 @@ msgstr "Benutzer verweigert Verbindung."
 msgid "connect_modal.error_processing"
 msgstr "Anfrage in Bearbeitung. Bitte öffnen Sie Ihre Wallet und schließen Sie die Anfrage ab."
 
-#: components/Layout/index.tsx:104
+#: components/Layout/index.tsx:106
 msgid "connect_modal.error_title"
 msgstr "Verbindungsfehler"
 
@@ -2006,7 +2019,7 @@ msgstr "Zum Kaufen anmelden/verbinden"
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
-#: components/Layout/index.tsx:96
+#: components/Layout/index.tsx:98
 msgid "shared.login"
 msgstr "Anmelden"
 
