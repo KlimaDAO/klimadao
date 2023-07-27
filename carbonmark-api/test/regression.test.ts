@@ -1,9 +1,13 @@
 import { FastifyInstance } from "fastify";
 import { isArray, isObject, mapValues, sortBy } from "lodash";
 import { curry, map } from "lodash/fp";
+import fetch from "node-fetch";
 import { build } from "./helper";
 const DEV_URL = "http://localhost:3003/api";
 const PRODUCTION_URL = "https://api.carbonmark.com/api";
+
+// A longer than usual timeout because the APIs are slooow
+const TIMEOUT = 10000;
 
 const fetch_apis = async (app: FastifyInstance, url: string) => {
   const res = await Promise.all([
@@ -21,22 +25,26 @@ const ENDPOINTS = [
 ];
 
 /** This test requires updating environment variables to be --production values */
-test("Equivalence with production", async () => {
-  const app = await build({ allowNetworkRequest: true });
-  // Add teardown function
-  // Fetch for each endpoint
-  const requests = map(curry(fetch_apis)(app))(ENDPOINTS);
+test(
+  "Equivalence with production",
+  async () => {
+    const app = await build({ allowNetworkRequest: true });
+    // Add teardown function
+    // Fetch for each endpoint
+    const requests = map(curry(fetch_apis)(app))(ENDPOINTS);
 
-  // Extract the data
-  const data = await Promise.all(requests);
+    // Extract the data
+    const data = await Promise.all(requests);
 
-  // Assert equivalence
-  data.forEach(([prod, local]) =>
-    expect(deepSort(prod)).toEqual(deepSort(local))
-  );
+    // Assert equivalence
+    data.forEach(([prod, local]) =>
+      expect(deepSort(prod)).toEqual(deepSort(local))
+    );
 
-  await app.close();
-});
+    await app.close();
+  },
+  TIMEOUT
+);
 
 const deepSort = (obj: any): any => {
   switch (true) {

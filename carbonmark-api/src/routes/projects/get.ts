@@ -121,6 +121,7 @@ const handler = (fastify: FastifyInstance) =>
       getTokenPrices(offset, project, poolPrices)
     );
 
+    //Extract the prices from each of the listings
     const listingPrices = projectData.projects
       .flatMap(extract("listings"))
       .flatMap(getListingPrices);
