@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const input = css`
   // This is to override safari's rounded corners behaviour
@@ -13,7 +14,11 @@ export const input = css`
 export const main = css`
   display: flex;
   width: 100%;
-  max-width: 40rem;
+
+  ${breakpoints.medium} {
+    max-width: 40rem;
+  }
+
   // Not great but we need to force the div "container" element
   // in InputField to fill available space
   div {
