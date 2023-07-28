@@ -1,33 +1,30 @@
 import { cx } from "@emotion/css";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { ProjectFilterModal } from "components/ProjectFilterModal";
+import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { SearchInput } from "components/SearchInput";
+import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
 import { useRouter } from "next/router";
-import { FC, HTMLAttributes, useState } from "react";
+import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
-type ProjectControllerProps = HTMLAttributes<HTMLDivElement>;
+type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
+  onFiltersClick: () => void;
+};
 
 export const ProjectsController: FC<ProjectControllerProps> = (props) => {
   const router = useRouter();
-  const [modalOpen, setModalOpen] = useState(false);
+  const { filterCount, updateQueryParams, resetQueryParams } =
+    useProjectsFilterParams();
 
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
-    // If the search box is cleared, remove the param entirely
-    const query = str ? { ...otherParams, search: str } : otherParams;
-    router.replace(
-      { query },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
+    updateQueryParams(str ? { ...otherParams, search: str } : otherParams);
   };
 
-  const toggleModal = () => setModalOpen((prev) => !prev);
   return (
-    <div {...props} className={cx(styles.projectsController, props.className)}>
+    <div className={cx(styles.projectsController, props.className)}>
       <SearchInput
         id="projects-search-input"
         label="project search"
@@ -40,16 +37,23 @@ export const ProjectsController: FC<ProjectControllerProps> = (props) => {
         }
       />
       <ButtonPrimary
+        onClick={props.onFiltersClick}
         className={styles.filterButton}
         icon={<TuneIcon />}
-        onClick={toggleModal}
-        label={<Trans>Filters</Trans>}
+        label={
+          <span>
+            <Trans>Filters</Trans> {filterCount > 0 ? `(${filterCount})` : ""}
+          </span>
+        }
       />
-      <ProjectFilterModal
-        showModal={modalOpen}
-        onToggleModal={toggleModal}
-        closeOnBackgroundClick
-      />
+      {filterCount > 0 && (
+        <ButtonSecondary
+          variant="lightGray"
+          label={t`Clear Filters`}
+          onClick={resetQueryParams}
+          className={styles.resetFilterButton}
+        />
+      )}
     </div>
   );
 };

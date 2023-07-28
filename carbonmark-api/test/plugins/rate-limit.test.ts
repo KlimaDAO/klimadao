@@ -1,18 +1,39 @@
-import tap from "tap";
+import { FastifyInstance } from "fastify";
+import nock from "nock";
+import { GRAPH_URLS } from "../../src/constants/graphs.constants";
 import { build } from "../helper";
+import { CATEGORIES } from "../routes/routes.mock";
+import { DEV_URL } from "../test.constants";
 
-tap.only("Rate Limiter should limit requests", async (t: any) => {
-  const app = await build(t);
-  for (let i = 0; i < 100 + 1; i++) {
-    const response = await app.inject({
-      method: "GET",
-      url: "/api/categories",
-    });
+describe("Rate Limiter", () => {
+  let app: FastifyInstance;
 
-    if (i < 101) {
-      t.equal(response.statusCode, 200, "status code is 200");
-    } else {
-      t.equal(response.statusCode, 429, "status code is 429");
+  // Setup the server
+  afterEach(async () => await app.close());
+  beforeEach(async () => {
+    app = await build();
+  });
+
+  test("should limit requests", async () => {
+    for (let i = 0; i < 100 + 1; i++) {
+      nock(GRAPH_URLS.offsets)
+        .post("")
+        .reply(200, { data: { carbonOffsets: [] } });
+
+      nock(GRAPH_URLS.marketplace)
+        .post("")
+        .reply(200, { data: { categories: CATEGORIES } });
+
+      const response = await app.inject({
+        method: "GET",
+        url: `${DEV_URL}/categories`,
+      });
+
+      if (i < 101) {
+        expect(response.statusCode).toBe(200);
+      } else {
+        expect(response.statusCode).toBe(429);
+      }
     }
-  }
+  });
 });

@@ -23,6 +23,30 @@ export const projectsControls = css`
   }
 `;
 
+export const sortOptions = css`
+  gap: 2rem;
+  width: 100%;
+  display: flex;
+  grid-column: full;
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 0.8rem;
+`;
+
+export const dropdown = css`
+  width: 23.7rem;
+  text-align: left;
+  button {
+    width: 100%;
+    background-color: white;
+  }
+
+  & .tippy-content div > div {
+    background-color: white;
+  }
+`;
+
 export const projectsList = css`
   grid-column: full;
   justify-self: center;

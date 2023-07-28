@@ -7,6 +7,9 @@ export const main = css`
       margin-top: 1.8rem;
     }
     margin: 0.3rem 0;
+    &:last-of-type {
+      margin-bottom: 1.2rem;
+    }
   }
 
   form {
