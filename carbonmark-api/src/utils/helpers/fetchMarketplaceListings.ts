@@ -88,7 +88,7 @@ export const fetchMarketplaceListings = async ({
 
   if (userIds.size !== 0) {
     const chunkSize = 30;
-    const chunks = [];
+    const chunks : string[][] = [];
     const ids = Array.from(userIds);
 
     for (let i = 0; i < ids.length; i += chunkSize) {
