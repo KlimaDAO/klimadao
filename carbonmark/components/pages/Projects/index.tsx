@@ -42,10 +42,10 @@ const Page: NextPage = () => {
 
   const { sortValue, updateQueryParams, defaultValues } =
     useProjectsFilterParams();
+  const form = useForm<FilterValues>({ defaultValues });
   const { projects, isLoading, isValidating } = useFetchProjects();
-  const { control, setValue } = useForm<FilterValues>({ defaultValues });
 
-  const sort = useWatch({ control, name: "sort" });
+  const sort = useWatch({ control: form.control, name: "sort" });
   const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
   const sortedProjects = sortFn(projects);
 
@@ -58,7 +58,7 @@ const Page: NextPage = () => {
 
   useEffect(() => {
     if (!sortValue) return;
-    setValue("sort", sortValue as SortOption);
+    form.setValue("sort", sortValue as SortOption);
   }, [sortValue]);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const Page: NextPage = () => {
               className={styles.dropdown}
               aria-label={t`Toggle sort menu`}
               renderLabel={(selected) => `Sort: ${selected?.label}`}
-              control={control}
+              control={form.control}
               options={Object.entries(PROJECT_SORT_OPTIONS).map(
                 ([option, label]) => ({
                   id: option,
@@ -136,7 +136,7 @@ const Page: NextPage = () => {
               {toggleViewMode === "grid" ? (
                 <GridView projects={sortedProjects} />
               ) : (
-                <ListView projects={sortedProjects} />
+                <ListView form={form} projects={sortedProjects} />
               )}
             </>
           )}

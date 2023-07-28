@@ -7,12 +7,15 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Category } from "components/Category";
 import { Vintage } from "components/Vintage";
+import { FilterValues } from "hooks/useProjectsFilterParams";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
+import { split } from "lodash";
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { UseFormReturn } from "react-hook-form";
 import * as styles from "./styles";
 
 interface Data {
@@ -64,23 +67,42 @@ const columns: readonly Column[] = [
   },
 ];
 
-type Order = "asc" | "desc";
-
 type Props = {
   projects: Array<Project>;
-  onColumnSort?: (column: keyof Data, order: Order) => void;
+  form: UseFormReturn<FilterValues>;
 };
 
-export const ListView: FC<Props> = (props) => {
+export const ListView: FC<Props> = ({ form, projects }) => {
   const router = useRouter();
-  const [order, setOrder] = useState<Order>("asc");
-  const [sortedColumn, setSortedColumn] = useState<keyof Data>();
+  const sort = form.watch("sort");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [sortColumn, setSortColumn] = useState<keyof Data>();
+  const sortDirection = sortOrder === "asc" ? "asc" : "desc";
 
-  // @todo 0xMakka - integrate sorting when #1149 is merged
   const handleSort = (column: keyof Data) => {
-    setSortedColumn(column);
-    setOrder(order === "asc" ? "desc" : "asc");
+    setSortColumn(column);
+    setSortOrder(sortDirection);
   };
+
+  useEffect(() => {
+    // when the user loads the projects view with some previously set sort value the sort
+    // order should be reflected in the table header with the correct arrow direction
+    const [column, order] = split(sort, "-");
+    setSortColumn(column as keyof Data);
+    setSortOrder(["newest", "highest"].includes(order) ? "asc" : "desc");
+  }, [sort]);
+
+  useEffect(() => {
+    // updates the sort dropdown when there is an update to the table sorting
+    if (sortColumn === "vintage") {
+      const sort = sortOrder === "asc" ? "vintage-newest" : "vintage-oldest";
+      form.setValue("sort", sort);
+    }
+    if (sortColumn === "price") {
+      const sort = sortOrder === "asc" ? "price-highest" : "price-lowest";
+      form.setValue("sort", sort);
+    }
+  }, [sortOrder]);
 
   return (
     <TableContainer className={styles.listView} component={Paper}>
@@ -91,14 +113,14 @@ export const ListView: FC<Props> = (props) => {
               <TableCell
                 align="left"
                 key={column.id}
-                sortDirection={order === "asc" ? "asc" : "desc"}
+                sortDirection={sortDirection}
                 padding={column.disablePadding ? "none" : "normal"}
               >
                 <TableSortLabel
+                  direction={sortDirection}
                   hideSortIcon={!column.sortable}
-                  active={column.sortable && column.id === sortedColumn}
                   onClick={() => handleSort(column.id)}
-                  direction={order === "asc" ? "asc" : "desc"}
+                  active={column.sortable && column.id === sortColumn}
                 >
                   {column.label}
                 </TableSortLabel>
@@ -107,7 +129,7 @@ export const ListView: FC<Props> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.projects.map((project: Project, index: number) => (
+          {projects.map((project: Project, index: number) => (
             <TableRow
               hover
               tabIndex={-1}
