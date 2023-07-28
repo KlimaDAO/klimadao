@@ -129,11 +129,16 @@ const Page: NextPage = () => {
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>
           )}
-          {showLoadingProjectsSpinner && <SpinnerWithLabel />}
-          {toggleViewMode === "grid" ? (
-            <GridView projects={sortedProjects} />
+          {showLoadingProjectsSpinner ? (
+            <SpinnerWithLabel />
           ) : (
-            <ListView projects={sortedProjects} />
+            <>
+              {toggleViewMode === "grid" ? (
+                <GridView projects={sortedProjects} />
+              ) : (
+                <ListView projects={sortedProjects} />
+              )}
+            </>
           )}
         </div>
         <ProjectFilterModal
