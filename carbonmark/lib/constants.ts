@@ -102,6 +102,8 @@ export const urls = {
   blockExplorer: `${config.urls.blockExplorer[ENVIRONMENT]}`,
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
   docs: "https://docs.carbonmark.com",
+  docsResourcesFees:
+    "https://docs.carbonmark.com/get-started/understanding-fees-on-carbonmark",
   projects: "/projects",
   users: "/users",
   help: "/blog/getting-started",
