@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-07-27 23:45+0000\n"
+"POT-Creation-Date: 2023-07-31 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -280,7 +280,7 @@ msgstr "比较所有卖家和交易池的价格"
 
 #: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
-msgstr ""
+msgstr "编译结果..."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -904,11 +904,11 @@ msgstr "资源 | Carbonmark"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Result"
-msgstr ""
+msgstr "结果"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Results"
-msgstr ""
+msgstr "结果"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1291,7 +1291,7 @@ msgstr "查看注册表详细信息 <0/>"
 
 #: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
-msgstr ""
+msgstr "查看结果"
 
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
