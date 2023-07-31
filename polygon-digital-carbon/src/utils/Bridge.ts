@@ -4,13 +4,13 @@ import { Bridge } from '../../generated/schema'
 export function saveBridge(
   hash: Bytes,
   logIndex: i32,
-  offset: Address,
+  credit: Address,
   account: Address,
   amount: BigInt,
   timestamp: BigInt
 ): void {
   let bridge = new Bridge(hash.concatI32(logIndex))
-  bridge.offset = offset
+  bridge.credit = credit
   bridge.account = account
   bridge.amount = amount
   bridge.timestamp = timestamp

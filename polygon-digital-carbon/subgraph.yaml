@@ -154,7 +154,7 @@ dataSources:
           file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleOffsetTransfer
+          handler: handleCreditTransfer
   - kind: ethereum/contract
     name: MossCarbonOffset
     network: matic
@@ -370,6 +370,27 @@ dataSources:
       eventHandlers:
         - event: CarbonRetired(uint8,indexed address,string,indexed address,string,string,indexed address,address,uint256)
           handler: handleCarbonRetired
+  # Track KLIMA rebases for creating supply snapshot
+  - kind: ethereum/contract
+    name: sKlimaERC20V1
+    network: matic
+    source:
+      address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+      abi: sKlimaERC20V1
+      startBlock: 20400000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - sKlima
+      abis:
+        - name: sKlimaERC20V1
+          file: ../lib/abis/sKlimaERC20V1.json
+      eventHandlers:
+        - event: LogRebase(indexed uint256,uint256,uint256)
+          handler: handleRebase
+      file: ./src/sKlimaV1.ts
 templates:
   - name: ToucanCarbonOffsets
     kind: ethereum/contract
@@ -393,7 +414,7 @@ templates:
         - event: Retired(address,uint256,uint256)
           handler: handleToucanRetired_1_4_0
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleOffsetTransfer
+          handler: handleCreditTransfer
       file: ./src/TransferHandler.ts
   - name: C3ProjectToken
     kind: ethereum/contract
@@ -413,5 +434,5 @@ templates:
           file: ../lib/abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleOffsetTransfer
+          handler: handleCreditTransfer
       file: ./src/TransferHandler.ts

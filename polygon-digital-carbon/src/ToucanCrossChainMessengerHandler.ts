@@ -6,10 +6,10 @@ import {
 } from '../generated/ToucanCrossChainMessenger/ToucanCrossChainMessenger'
 import { Bridge, Issue } from '../generated/ToucanRegenBridge/ToucanRegenBridge'
 import { ZERO_BI } from '../../lib/utils/Decimals'
-import { saveCrossChainOffsetBridge, saveCrossChainPoolBridge } from './utils/CrossChainBridge'
-import { updateCarbonOffsetCrossChain } from './utils/CarbonOffset'
+import { saveCrossChainCreditBridge, saveCrossChainPoolBridge } from './utils/CrossChainBridge'
+import { updateCarbonCreditCrossChain } from './utils/CarbonCredit'
 import { updateCarbonPoolCrossChain } from './utils/CarbonPool'
-import { CarbonOffset } from '../generated/schema'
+import { CarbonCredit } from '../generated/schema'
 import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 
 export function handleBridgeRequestReceived_1_0_0(event: BridgeRequestReceived): void {
@@ -103,18 +103,18 @@ function processBridgeRequest(
 ): void {
   // We are sending tokens to some other chain
 
-  // Test to see if this is an offset or pool token address
-  let offset = CarbonOffset.load(token)
+  // Test to see if this is an credit or pool token address
+  let credit = CarbonCredit.load(token)
 
-  if (offset == null) {
+  if (credit == null) {
     // We are briding a pool token
 
     updateCarbonPoolCrossChain(token, direction == 'SENT' ? amount : ZERO_BI.minus(amount))
     saveCrossChainPoolBridge(hash.concatI32(logIndex), hash, token, amount, bridger, direction, timestamp)
   } else {
-    // We are briding an offset token
+    // We are bridging an credit token
 
-    updateCarbonOffsetCrossChain(token, direction == 'SENT' ? amount : ZERO_BI.minus(amount))
-    saveCrossChainOffsetBridge(hash.concatI32(logIndex), hash, token, amount, bridger, direction, timestamp)
+    updateCarbonCreditCrossChain(token, direction == 'SENT' ? amount : ZERO_BI.minus(amount))
+    saveCrossChainCreditBridge(hash.concatI32(logIndex), hash, token, amount, bridger, direction, timestamp)
   }
 }

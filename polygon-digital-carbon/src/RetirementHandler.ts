@@ -4,15 +4,15 @@ import { C3OffsetNFT, VCUOMinted } from '../generated/C3-Offset/C3OffsetNFT'
 import { CarbonOffset } from '../generated/MossCarbonOffset/CarbonChain'
 import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/ToucanCarbonOffsets/ToucanCarbonOffsets'
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
-import { loadCarbonOffset, loadOrCreateCarbonOffset } from './utils/CarbonOffset'
+import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
 import { saveRetire } from './utils/Retire'
 
 export function saveToucanRetirement(event: Retired): void {
-  let offset = loadCarbonOffset(event.address)
+  let credit = loadCarbonCredit(event.address)
 
-  offset.retired = offset.retired.plus(event.params.tokenId)
-  offset.save()
+  credit.retired = credit.retired.plus(event.params.tokenId)
+  credit.save()
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
@@ -36,10 +36,10 @@ export function saveToucanRetirement(event: Retired): void {
 }
 
 export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
-  let offset = loadCarbonOffset(event.address)
+  let credit = loadCarbonCredit(event.address)
 
-  offset.retired = offset.retired.plus(event.params.amount)
-  offset.save()
+  credit.retired = credit.retired.plus(event.params.amount)
+  credit.save()
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
@@ -72,10 +72,10 @@ export function handleVCUOMinted(event: VCUOMinted): void {
   let projectAddress = retireContract.list(event.params.tokenId).getProjectAddress()
   let retireAmount = retireContract.list(event.params.tokenId).getAmount()
 
-  let offset = loadCarbonOffset(projectAddress)
+  let credit = loadCarbonCredit(projectAddress)
 
-  offset.retired = offset.retired.plus(retireAmount)
-  offset.save()
+  credit.retired = credit.retired.plus(retireAmount)
+  credit.save()
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)
@@ -102,20 +102,20 @@ export function handleMossRetirement(event: CarbonOffset): void {
   // Don't process zero amount events
   if (event.params.carbonTon == ZERO_BI) return
 
-  let offset = loadOrCreateCarbonOffset(MCO2_ERC20_CONTRACT, 'MOSS')
+  let credit = loadOrCreateCarbonCredit(MCO2_ERC20_CONTRACT, 'MOSS')
 
   // Set up project/default info for Moss "project"
 
-  if (offset.vintage == 1970) {
-    offset.vintage = 2021
-    offset.project = 'Moss'
-    offset.save()
+  if (credit.vintage == 1970) {
+    credit.vintage = 2021
+    credit.project = 'Moss'
+    credit.save()
 
     loadOrCreateCarbonProject('VERRA', 'Moss')
   }
 
-  offset.retired = offset.retired.plus(event.params.carbonTon)
-  offset.save()
+  credit.retired = credit.retired.plus(event.params.carbonTon)
+  credit.save()
 
   // Ensure account entities are created for all addresses
   loadOrCreateAccount(event.params.sender)

@@ -2,7 +2,7 @@ import { Address, BigInt, Bytes } from '@graphprotocol/graph-ts'
 import { CarbonPool, CarbonPoolDailySnapshot, PoolDeposit, PoolRedeem } from '../../generated/schema'
 import { ZERO_BI } from '../../../lib/utils/Decimals'
 import { dayFromTimestamp } from '../../../lib/utils/Dates'
-import { loadOrCreateCarbonPoolOffsetBalanceDailySnapshot } from './CarbonPoolOffsetBalance'
+import { loadOrCreateCarbonPoolCreditBalanceDailySnapshot } from './CarbonPoolCreditBalance'
 import { loadOrCreateToken } from '../../../lib/utils/Token'
 
 export function loadOrCreateCarbonPool(poolAddress: Address): CarbonPool {
@@ -30,7 +30,7 @@ export function savePoolDeposit(
   id: Bytes,
   account: Address,
   pool: Address,
-  offset: Address,
+  credit: Address,
   amount: BigInt,
   timestamp: BigInt,
   blockNumber: BigInt
@@ -38,23 +38,23 @@ export function savePoolDeposit(
   let deposit = new PoolDeposit(id)
   deposit.account = account
   deposit.pool = pool
-  deposit.offset = offset
+  deposit.credit = credit
   deposit.amount = amount
   deposit.timestamp = timestamp
   deposit.poolSnapshotID = pool.concatI32(dayFromTimestamp(timestamp))
-  deposit.poolOffsetSnapshotID = pool.concat(offset).concatI32(dayFromTimestamp(timestamp))
+  deposit.poolCreditSnapshotID = pool.concat(credit).concatI32(dayFromTimestamp(timestamp))
   deposit.save()
 
   // Ensure snapshot entities exists
   loadOrCreateCarbonPoolDailySnapshot(pool, dayFromTimestamp(timestamp), timestamp, blockNumber)
-  loadOrCreateCarbonPoolOffsetBalanceDailySnapshot(pool, offset, dayFromTimestamp(timestamp), timestamp, blockNumber)
+  loadOrCreateCarbonPoolCreditBalanceDailySnapshot(pool, credit, dayFromTimestamp(timestamp), timestamp, blockNumber)
 }
 
 export function savePoolRedeem(
   id: Bytes,
   account: Address,
   pool: Address,
-  offset: Address,
+  credit: Address,
   amount: BigInt,
   timestamp: BigInt,
   blockNumber: BigInt
@@ -62,16 +62,16 @@ export function savePoolRedeem(
   let redeem = new PoolRedeem(id)
   redeem.account = account
   redeem.pool = pool
-  redeem.offset = offset
+  redeem.credit = credit
   redeem.amount = amount
   redeem.timestamp = timestamp
   redeem.poolSnapshotID = pool.concatI32(dayFromTimestamp(timestamp))
-  redeem.poolOffsetSnapshotID = pool.concat(offset).concatI32(dayFromTimestamp(timestamp))
+  redeem.poolCreditSnapshotID = pool.concat(credit).concatI32(dayFromTimestamp(timestamp))
   redeem.save()
 
   // Ensure snapshot entities exists
   loadOrCreateCarbonPoolDailySnapshot(pool, dayFromTimestamp(timestamp), timestamp, blockNumber)
-  loadOrCreateCarbonPoolOffsetBalanceDailySnapshot(pool, offset, dayFromTimestamp(timestamp), timestamp, blockNumber)
+  loadOrCreateCarbonPoolCreditBalanceDailySnapshot(pool, credit, dayFromTimestamp(timestamp), timestamp, blockNumber)
 }
 
 /** Snapshot management */
