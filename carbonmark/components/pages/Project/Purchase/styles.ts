@@ -167,6 +167,11 @@ export const totalsText = css`
   gap: 0.8rem;
 `;
 
+export const textWithHelpIcon = css`
+  display: flex;
+  gap: 0.4rem;
+`;
+
 export const divider = css`
   height: 0.1rem;
   background-color: var(--font-03);

@@ -81,10 +81,18 @@ export const labelWithInput = css`
   gap: 0.8rem;
 `;
 
+export const textWithHelpIcon = css`
+  display: flex;
+  gap: 0.4rem;
+`;
+
 export const helpIcon = css`
-  width: 2rem;
-  height: 2rem;
-  color: var(--font-02);
+  /** && adds specificity to override the mui root styles */
+  && {
+    width: 2rem;
+    height: 2rem;
+    color: var(--font-03);
+  }
 `;
 
 export const spinnerWrap = css`

@@ -1,7 +1,10 @@
 import { cx } from "@emotion/css";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { getRedeemCost } from "lib/actions.redeem";
+import { urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -86,7 +89,22 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       </div>
 
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Price per tonne`}</Text>
+        <Text color="lightest" className={styles.textWithHelpIcon}>
+          {t`Price per tonne`}{" "}
+          <TextInfoTooltip
+            tippyProps={{ interactive: true }}
+            tooltip={
+              <Trans>
+                Price includes network fees.{" "}
+                <a target="_blank" href={urls.docsResourcesFees}>
+                  See docs to learn more.
+                </a>
+              </Trans>
+            }
+          >
+            <HelpOutline className={styles.helpIcon} />
+          </TextInfoTooltip>
+        </Text>
         <div className={cx(styles.iconAndText)}>
           <div className="icon">
             <Image

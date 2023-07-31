@@ -1,7 +1,10 @@
 import { cx } from "@emotion/css";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { getConsumptionCost } from "lib/actions.retire";
+import { urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -37,6 +40,17 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const paymentMethod = useWatch({ name: "paymentMethod", control });
 
   const isFiat = paymentMethod === "fiat";
+
+  /** Credit card fee string to display in the price card for fiat payments */
+  const calcCreditCardFee = (): string => {
+    if (!isFiat || !Number(costs) || isLoading) return "$0.00";
+    // we have the total cost and the price per tonne.
+    const priceWithoutFees =
+      Number(amount) * Number(props.price.singleUnitPrice);
+    const fee = Number(costs) - priceWithoutFees;
+    if (fee <= 0) return "$0.00";
+    return formatToPrice(fee.toString(), locale, isFiat);
+  };
 
   useEffect(() => {
     const newCosts = async () => {
@@ -125,7 +139,23 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       </div>
 
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Price per tonne`}</Text>
+        <Text color="lightest" className={styles.textWithHelpIcon}>
+          {t`Price per tonne`}{" "}
+          <TextInfoTooltip
+            tippyProps={{ interactive: true }}
+            tooltip={
+              <Trans>
+                Price includes network fees.{" "}
+                <a target="_blank" href={urls.docsResourcesFees}>
+                  See docs to learn more.
+                </a>
+              </Trans>
+            }
+          >
+            <HelpOutline className={styles.helpIcon} />
+          </TextInfoTooltip>
+        </Text>
+
         <div className={cx(styles.iconAndText)}>
           {!isFiat && (
             <div className="icon">
@@ -143,6 +173,28 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           </Text>
         </div>
       </div>
+
+      {isFiat && (
+        <div className={styles.totalsText}>
+          <Text color="lightest" className={styles.textWithHelpIcon}>
+            {t`Payment processing fee`}{" "}
+            <TextInfoTooltip
+              tippyProps={{ interactive: true }}
+              tooltip={
+                <Trans>
+                  Credit card payments incur an additional processing fee.{" "}
+                  <a target="_blank" href={urls.docsResourcesFees}>
+                    See docs to learn more.
+                  </a>
+                </Trans>
+              }
+            >
+              <HelpOutline className={styles.helpIcon} />
+            </TextInfoTooltip>
+          </Text>
+          <Text t="h5">{calcCreditCardFee()}</Text>
+        </div>
+      )}
 
       <div className={styles.divider}></div>
 
