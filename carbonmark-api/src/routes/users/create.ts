@@ -50,16 +50,14 @@ const handler = (fastify: FastifyInstance) =>
     const { wallet, username, handle, description, profileImgUrl } =
       request.body;
 
-    const createData: any = {
+    const createData = {
       username,
       handle: handle.toLowerCase(),
       description,
       createdAt: Date.now(),
       updatedAt: Date.now(),
+      profileImgUrl,
     };
-    if (profileImgUrl) {
-      createData.profileImgUrl = profileImgUrl;
-    }
 
     // Query the Firestore database for the user document with the specified wallet address
     const user = await fastify.firebase

@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, concat } from "lodash";
+import { compact, concat, isArray } from "lodash";
 import { filter, flatten, map, pipe, split, trim, uniq } from "lodash/fp";
 import {
   Category,
@@ -13,7 +13,9 @@ import { gqlSdk } from "../gqlSdk";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
-export async function getAllVintages(fastify: FastifyInstance) {
+export async function getAllVintages(
+  fastify: FastifyInstance
+): Promise<string[]> {
   const uniqueValues = new Set<string>();
   const cacheKey = `vintages`;
   const cachedResult = await fastify.lcache.get<string[]>(cacheKey)?.payload;
@@ -26,6 +28,11 @@ export async function getAllVintages(fastify: FastifyInstance) {
     gqlSdk.marketplace.getVintages(),
     gqlSdk.offsets.getCarbonOffsetsVintages(),
   ]);
+
+  /** Handle invalid responses */
+  if (!isArray(projects) || !isArray(carbonOffsets)) {
+    throw new Error("Response from server did not match schema definition");
+  }
 
   projects.forEach((item) => uniqueValues.add(item.vintage));
   carbonOffsets.forEach((item) => uniqueValues.add(item.vintageYear));
@@ -59,10 +66,15 @@ export async function getAllCategories(fastify: FastifyInstance) {
     gqlSdk.offsets.getCarbonOffsetsCategories(),
   ]);
 
+  /** Handle invalid responses */
+  if (!isArray(categories) || !isArray(carbonOffsets)) {
+    throw new Error("Response from server did not match schema definition");
+  }
+
   // Extract the required values from the fetched data
   const values = [
-    categories.map(extract("id")),
-    carbonOffsets.map(extract("methodologyCategory")),
+    categories?.map(extract("id")),
+    carbonOffsets?.map(extract("methodologyCategory")),
   ];
 
   // This function pipeline combines and deduplicates categories from different sources
@@ -73,7 +85,8 @@ export async function getAllCategories(fastify: FastifyInstance) {
     split(","),
     map(trim),
     uniq,
-    map((id: Country) => ({ id }))
+    compact,
+    map((id: Category) => ({ id }))
   );
 
   // Apply the function pipeline to the extracted values
@@ -100,15 +113,19 @@ export async function getAllCountries(fastify: FastifyInstance) {
     gqlSdk.offsets.getCarbonOffsetsCountries(),
   ]);
 
+  /** Handle invalid responses */
+  if (!isArray(countries) || !isArray(carbonOffsets)) {
+    throw new Error("Response from server did not match schema definition");
+  }
+
   const fn = pipe(
     concat,
     flatten,
     uniq,
     filter(notNil),
-    map((id) => ({ id }))
+    map((id: Country) => ({ id }))
   );
 
-  //@ts-ignore -- @todo provide typing to lodash functions
   const result: Country[] = fn([
     countries?.map(extract("id")),
     carbonOffsets.map(extract("country")),

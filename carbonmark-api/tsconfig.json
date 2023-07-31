@@ -5,6 +5,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "useUnknownInCatchVariables": false,
     "baseUrl": "."
   },
   "include": ["src/**/*.ts"]
