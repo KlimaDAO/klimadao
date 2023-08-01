@@ -2,7 +2,7 @@ import { cx } from "@emotion/css";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
-import { CopyAddressButton } from "components/CopyAddressButton";
+import { CopyValueButton } from "components/CopyValueButton";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
@@ -53,8 +53,8 @@ export const Retire: NextPage<PageProps> = (props) => {
                   <Trans>for beneficiary</Trans>{" "}
                   <span className="highlight">{displayName}</span>
                 </Text>
-                <CopyAddressButton
-                  address={beneficiary}
+                <CopyValueButton
+                  value={beneficiary}
                   variant="transparent"
                   className="copyButton"
                 />
