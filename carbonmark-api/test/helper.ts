@@ -1,6 +1,9 @@
 import Fastify, { FastifyInstance } from "fastify";
 import nock from "nock";
 import app from "../src/app";
+type Args = {
+  allowNetworkRequest?: boolean;
+};
 
 /**
  * This function is used to build and prepare a Fastify instance for use.
@@ -8,7 +11,7 @@ import app from "../src/app";
  *
  * @returns {FastifyInstance} The prepared Fastify instance.
  */
-export async function build() {
+export async function build(args?: Args) {
   // Create a new Fastify instance
   let fastify: FastifyInstance = Fastify();
 
@@ -22,7 +25,7 @@ export async function build() {
   nock.cleanAll();
 
   // Disable all network connections made by nock
-  nock.disableNetConnect();
+  if (!args?.allowNetworkRequest) nock.disableNetConnect();
 
   // Return the prepared Fastify instance
   return fastify;
