@@ -117,7 +117,9 @@ const Page: NextPage = () => {
                 <ProjectImage category={getCategoryFromProject(project)} />
               </div>
               <div className={styles.cardContent}>
-                <Text t="h4">{formatToPrice(project.price, router.locale)}</Text>
+                <Text t="h4">
+                  {formatToPrice(project.price, router.locale)}
+                </Text>
                 <Text t="h5" className={styles.cardTitle}>
                   {project.name || "! MISSING PROJECT NAME !"}
                 </Text>
