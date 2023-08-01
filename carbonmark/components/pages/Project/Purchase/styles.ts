@@ -128,9 +128,12 @@ export const paymentText = css`
 `;
 
 export const helpIcon = css`
-  width: 2rem;
-  height: 2rem;
-  color: var(--font-02);
+  /** && adds specificity to override the mui root styles */
+  && {
+    width: 2rem;
+    height: 2rem;
+    color: var(--font-03);
+  }
 `;
 
 export const spinnerWrap = css`
