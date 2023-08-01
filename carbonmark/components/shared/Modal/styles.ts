@@ -8,8 +8,8 @@ export const modalBackground = css`
   z-index: 100;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(2.5px);
+  background: rgba(139, 143, 174, 0.2);
+  backdrop-filter: blur(0.4rem);
 `;
 
 export const modalContainer = css`

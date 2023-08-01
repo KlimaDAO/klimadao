@@ -91,6 +91,9 @@ query findProjects(
     }
   ) {
     ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
   }
 }
 

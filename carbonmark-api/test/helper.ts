@@ -1,34 +1,32 @@
-// This file contains code that we reuse between our tests.
-const helper = require("fastify-cli/helper.js");
-import * as path from "path";
-import * as tap from "tap";
+import Fastify, { FastifyInstance } from "fastify";
+import nock from "nock";
+import app from "../src/app";
+type Args = {
+  allowNetworkRequest?: boolean;
+};
 
-export type Test = (typeof tap)["Test"]["prototype"];
+/**
+ * This function is used to build and prepare a Fastify instance for use.
+ * It also cleans up any network connections made by nock.
+ *
+ * @returns {FastifyInstance} The prepared Fastify instance.
+ */
+export async function build(args?: Args) {
+  // Create a new Fastify instance
+  let fastify: FastifyInstance = Fastify();
 
-const AppPath = path.join(__dirname, "..", "src", "app.ts");
+  // Register the application with the Fastify instance
+  await fastify.register(app);
 
-// Fill in this config with all the configurations
-// needed for testing the application
-async function config() {
-  return {};
+  // Wait for Fastify to be ready
+  await fastify.ready();
+
+  // Clean all nocks
+  nock.cleanAll();
+
+  // Disable all network connections made by nock
+  if (!args?.allowNetworkRequest) nock.disableNetConnect();
+
+  // Return the prepared Fastify instance
+  return fastify;
 }
-
-// Automatically build and tear down our instance
-async function build(t: Test) {
-  // you can set all the options supported by the fastify CLI command
-  const argv = [AppPath];
-
-  // fastify-plugin ensures that all decorators
-  // are exposed for testing purposes, this is
-  // different from the production setup
-  const app = await helper.build(argv, await config());
-
-  // Tear down our app after we are done
-  t.teardown(async () => {
-    await app.close();
-  });
-
-  return app;
-}
-
-export { config, build };

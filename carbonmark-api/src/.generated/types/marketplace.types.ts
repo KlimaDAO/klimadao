@@ -273,10 +273,6 @@ export type Category = {
   id: Scalars['String'];
 };
 
-export type CategoryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
 export type Category_Filter = {
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
@@ -311,10 +307,6 @@ export enum Category_OrderBy {
 export type Country = {
   __typename?: 'Country';
   id: Scalars['String'];
-};
-
-export type CountryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type Country_Filter = {
@@ -573,13 +565,6 @@ export type ProjectListingsArgs = {
   orderDirection?: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Listing_Filter>;
-};
-
-export type ProjectFilter = {
-  category_?: InputMaybe<CategoryFilter>;
-  country_?: InputMaybe<CountryFilter>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  vintage_in?: InputMaybe<Array<InputMaybe<Scalars['BigInt']>>>;
 };
 
 export type Project_Filter = {
@@ -1380,7 +1365,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null }> | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1522,9 +1507,13 @@ export const FindProjectsDocument = gql`
     where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
   ) {
     ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
   }
 }
-    ${ProjectFragmentFragmentDoc}`;
+    ${ProjectFragmentFragmentDoc}
+${ListingFragmentFragmentDoc}`;
 export const GetProjectsByIdDocument = gql`
     query getProjectsById($key: String, $vintageStr: BigInt) {
   projects(where: {key: $key, vintage: $vintageStr}) {

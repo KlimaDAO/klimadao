@@ -4,6 +4,7 @@ import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { BetaBadge } from "components/BetaBadge";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CarbonmarkLogo } from "components/Logos/CarbonmarkLogo";
 import { InvalidNetworkModal } from "components/shared/InvalidNetworkModal";
 import { getConnectErrorStrings } from "lib/constants";
@@ -48,6 +49,7 @@ export const Layout: FC<Props> = (props: Props) => {
             <BetaBadge />
           </div>
           {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+          <ChangeLanguageButton />
           <div
             className={styles.mobileNavMenu_overlay}
             data-visible={showMobileMenu}
