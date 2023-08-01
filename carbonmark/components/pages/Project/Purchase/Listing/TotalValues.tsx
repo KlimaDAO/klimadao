@@ -86,6 +86,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </div>
       </div>
 
+      <div className={styles.totalsText}>
+        <Text>{t`Carbonmark fee`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
+          <Text t="h5">{formatToPrice(CARBONMARK_FEE, locale, false)}</Text>
+        </div>
+      </div>
+
       <div className={styles.divider}></div>
 
       <div className={styles.totalsText}>

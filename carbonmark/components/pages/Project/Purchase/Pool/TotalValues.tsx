@@ -4,7 +4,7 @@ import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { getRedeemCost } from "lib/actions.redeem";
-import { urls } from "lib/constants";
+import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
@@ -117,6 +117,21 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text t="h5">
             {formatToPrice(props.price.singleUnitPrice, locale, false)}
           </Text>
+        </div>
+      </div>
+
+      <div className={styles.totalsText}>
+        <Text color="lightest">{t`Carbonmark fee`}</Text>
+        <div className={cx(styles.iconAndText)}>
+          <div className="icon">
+            <Image
+              src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
+            />
+          </div>
+          <Text t="h5">{formatToPrice(CARBONMARK_FEE, locale, false)}</Text>
         </div>
       </div>
 
