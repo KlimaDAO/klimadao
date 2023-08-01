@@ -1,8 +1,8 @@
-import { CopyAddressButton } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Domain } from "@klimadao/lib/types/domains";
-import { concatAddress, isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
+import { isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { CopyAddressButton } from "components/CopyAddressButton";
 import { Text } from "components/Text";
 import { ViewWalletButton } from "components/ViewWalletButton";
 import { FC } from "react";
@@ -30,11 +30,7 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
         (isTorus ? (
           <ViewWalletButton address={props.address} href={urls.polygonTor} />
         ) : (
-          <CopyAddressButton
-            label={concatAddress(props.address)}
-            address={props.address}
-            className="copyButton"
-          />
+          <CopyAddressButton address={props.address} />
         ))}
       {props.domain && (
         <Text t="body1" color="lightest" className="domain">
