@@ -27,7 +27,7 @@ type Props = {
   price: PriceType;
   values: null | FormValues;
   userBalance: string | null;
-  fiatBalance: string | null;
+  fiatMax: string | null;
   address?: string;
 };
 
@@ -82,11 +82,9 @@ export const RetireInputs: FC<Props> = (props) => {
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
-    validations(props.userBalance, props.fiatBalance)[paymentMethod];
-
-  const exceededFiatBalance =
-    paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
-
+    validations(props.userBalance, props.fiatMax)[paymentMethod];
+  const exceededFiatMax =
+    paymentMethod === "fiat" && Number(props.fiatMax) < Number(totalPrice);
   useEffect(() => {
     // remove all errors when changed
     clearErrors();
@@ -130,8 +128,6 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: getValidations().quantity.min.value,
-                max: Number(props.price.supply),
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
@@ -239,9 +235,9 @@ export const RetireInputs: FC<Props> = (props) => {
                 {t`Balance: ${formatToPrice(props.userBalance, locale)}`}
               </Text>
             )}
-            {paymentMethod === "fiat" && props.fiatBalance && (
+            {paymentMethod === "fiat" && props.fiatMax && (
               <Text t="body3">{t`${formatToPrice(
-                props.fiatBalance,
+                props.fiatMax,
                 locale
               )} maximum for credit cards`}</Text>
             )}
@@ -251,7 +247,7 @@ export const RetireInputs: FC<Props> = (props) => {
             name="paymentMethod"
             initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
             className={cx(styles.paymentDropdown, {
-              error: exceededFiatBalance,
+              error: exceededFiatMax,
             })}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
@@ -287,7 +283,7 @@ export const RetireInputs: FC<Props> = (props) => {
           />
         </div>
 
-        {exceededFiatBalance && (
+        {exceededFiatMax && (
           <Text t="body1" className={styles.errorMessagePrice}>
             {getValidations().totalPrice.max.message}
           </Text>
@@ -332,7 +328,11 @@ export const RetireInputs: FC<Props> = (props) => {
               message: t`Could not calculate Total Cost`,
             },
             validate: {
-              moreThanZero: (v) => Number(v) > 0 || t`Total Cost is required`,
+              //Add form level validation for totalPrice exceeding the fiat max
+              exceedFiatMax: (v) =>
+                !(
+                  paymentMethod === "fiat" && Number(props.fiatMax) < Number(v)
+                ) || getValidations().totalPrice.max.message,
               lessThanMax: (v) =>
                 parseInt(v) < getValidations().totalPrice.max.value ||
                 getValidations().totalPrice.max.message,

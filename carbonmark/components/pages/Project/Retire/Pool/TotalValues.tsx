@@ -9,6 +9,7 @@ import { AGGREGATOR_FEE, CARBONMARK_FEE, SUSHI_SWAP_FEE } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { Price } from "lib/types/carbonmark";
+import { notNil } from "lib/utils/functional.utils";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -19,7 +20,8 @@ import { FormValues } from "./types";
 type TotalValuesProps = {
   price: Price;
   userBalance: string | null;
-  fiatBalance: string | null;
+  //The maximum amount of fiat allowable to be spent by the user
+  fiatMax: string | null;
 };
 
 const getSwapFee = (costs: number, pool: Price["poolName"]) => {
@@ -41,7 +43,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isPoolDefault = props.price.isPoolDefault;
 
   const { locale, asPath } = useRouter();
-  const { formState, control, setValue } = useFormContext<FormValues>();
+  const { formState, control, setValue, trigger } =
+    useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
   const [costs, setCosts] = useState("");
   const [feesFactor, setFeesFactor] = useState(0);
@@ -75,6 +78,14 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     };
     selectiveFee();
   }, []);
+
+  /** Surface form errors */
+  useEffect(() => {
+    const error = Object.values(formState.errors).at(0);
+    if (notNil(error)) {
+      setError(error.message ?? "");
+    }
+  }, [formState.errors]);
 
   useEffect(() => {
     const newCosts = async () => {
@@ -118,7 +129,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           // Update costs with value from error
           !!maxCosts && setCosts(maxCosts.trim());
           setError(
-            t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatBalance}`
+            t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatMax}`
           );
         } else {
           setError(t`There was an error loading the total cost.`);
@@ -134,9 +145,13 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     }
   }, [amount, paymentMethod]);
 
+  // Keep our hidden field in sync with updates from offsetra API
+  // This value is shared throughout the form and page
   useEffect(() => {
     if (!!costs) {
       setValue("totalPrice", costs);
+      //Force field revalidation
+      trigger("totalPrice");
     }
   }, [costs]);
 
@@ -144,8 +159,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     !!props.userBalance &&
     !isFiat &&
     Number(props.userBalance) <= Number(costs);
+
+  const exceededMax =
+    isFiat && notNil(props.fiatMax) && Number(props.fiatMax) <= Number(costs);
+
   const currentBalance = formatToPrice(props.userBalance || "0", locale);
-  const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
+  const fiatMax = formatToPrice(props.fiatMax || "0", locale);
 
   const formattedCosts =
     (isFiat && formatToPrice(costs, locale)) ||
@@ -336,7 +355,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           <Text
             t="h3"
             className={cx(styles.breakText, {
-              error: exceededBalance || !!error,
+              error: exceededBalance || exceededMax || !!error,
             })}
           >
             {isLoading ? t`Loading...` : formattedCosts}

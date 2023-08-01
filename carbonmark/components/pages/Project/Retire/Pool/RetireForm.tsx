@@ -18,6 +18,7 @@ import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Price as PriceType, Project } from "lib/types/carbonmark";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
@@ -47,7 +48,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [userBalance, setUserBalance] = useState<string | null>(null);
-  const [fiatBalance, setFiatBalance] = useState<string | null>(null);
+  const [fiatMax, setFiatMax] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
   const [subgraphIndexStatus, setSubgraphIndexStatus] = useState<
@@ -93,18 +94,16 @@ export const RetireForm: FC<Props> = (props) => {
   useEffect(() => {
     const getFiatMaxBalance = async () => {
       try {
-        const fiatInfo = await getFiatInfo();
+        const { MAX_USDC } = await getFiatInfo();
 
-        fiatInfo?.MAX_USDC
-          ? setFiatBalance(fiatInfo.MAX_USDC)
-          : setFiatBalance("2000"); // default for production
+        setFiatMax(MAX_USDC ?? "2000"); // default for production
       } catch (e) {
         console.error(e);
-        setFiatBalance("2000"); // default for production
+        setFiatMax("2000"); // default for production
       }
     };
 
-    !fiatBalance && getFiatMaxBalance();
+    !fiatMax && getFiatMaxBalance();
   }, []);
 
   const isPending =
@@ -112,8 +111,9 @@ export const RetireForm: FC<Props> = (props) => {
     status?.statusType === "networkConfirmation" ||
     isProcessing;
 
+  const hasErrors = !isEmpty(Object.values(methods.formState.errors));
   const showTransactionView = !!inputValues && !!allowanceValue;
-  const disableSubmit = !quantity || Number(quantity) <= 0;
+  const disableSubmit = !quantity || Number(quantity) <= 0 || hasErrors;
 
   const resetStateAndCancel = () => {
     setInputValues(null);
@@ -299,7 +299,7 @@ export const RetireForm: FC<Props> = (props) => {
                 onSubmit={onContinue}
                 values={inputValues}
                 userBalance={userBalance}
-                fiatBalance={fiatBalance}
+                fiatMax={fiatMax}
                 price={props.price}
                 address={address}
               />
@@ -326,7 +326,7 @@ export const RetireForm: FC<Props> = (props) => {
                 <TotalValues
                   price={props.price}
                   userBalance={userBalance}
-                  fiatBalance={fiatBalance}
+                  fiatMax={fiatMax}
                 />
               </Card>
             </div>
