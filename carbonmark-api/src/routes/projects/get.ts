@@ -124,8 +124,8 @@ const handler = (fastify: FastifyInstance) =>
       const [standard, code] = offset.projectID.split("-");
       const cmsProject = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
-        standard,
-        code
+        code,
+        standard
       );
 
       // Find the lowest price
