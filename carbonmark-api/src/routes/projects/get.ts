@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, mapValues, min, omit } from "lodash";
+import { compact, concat, curry, mapValues, min, omit } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
@@ -7,7 +7,6 @@ import { getSanityClient } from "../../sanity/sanity";
 import { extract, notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
 import {
   composeCarbonmarkProject,
@@ -17,6 +16,7 @@ import {
 } from "./projects.utils";
 
 import { Sanity } from "../../../../carbon-projects/sanity-codegen";
+import { isMatchingCmsProject } from "../../utils/helpers/utils";
 
 const schema = {
   querystring: {
@@ -95,7 +95,7 @@ const handler = (fastify: FastifyInstance) =>
       search: request.query.search ?? "",
     };
 
-    const [projectData, offsetData, projectsCmsData, poolPrices] =
+    const [projectData, offsetData, cmsProjects, poolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
@@ -105,10 +105,11 @@ const handler = (fastify: FastifyInstance) =>
 
     // ----- Carbonmark Listings ----- //
     const projects = projectData.projects.map((project) => {
-      const cmsProject = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        project.projectID,
-        project.registry
+      const cmsProject = cmsProjects.find(
+        curry(isMatchingCmsProject)({
+          projectId: project.projectID,
+          registry: project.registry,
+        })
       );
 
       // Find the lowest price
@@ -123,11 +124,10 @@ const handler = (fastify: FastifyInstance) =>
 
     // ----- Pool Listings ----- //
     const offsetProjects = offsetData.carbonOffsets.map((offset) => {
-      const [standard, code] = offset.projectID.split("-");
-      const cmsProject = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        code,
-        standard
+      const [registry, code] = offset.projectID.split("-");
+
+      const cmsProject = cmsProjects.find(
+        curry(isMatchingCmsProject)({ projectId: code, registry })
       );
 
       // Find the lowest price

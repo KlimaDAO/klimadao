@@ -11,6 +11,8 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { extract, notNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
 
+import { Sanity } from "../../../../carbon-projects/sanity-codegen";
+
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
@@ -197,14 +199,17 @@ export type TokenPrice = {
   name: string;
 };
 
-export function findProjectWithRegistryIdAndRegistry(
-  projects: unknown[],
-  registryId: unknown,
-  registry: unknown
-) {
-  return projects.find(
-    (project) =>
-      //@ts-ignore -- We need typing on sanity queries
-      project.registryProjectId === registryId && project.registry === registry
-  );
-}
+type IsMatchingCmsProjectArgs = {
+  registry: string; // (e.g VCS)
+  projectId: string; // (e.g 1120)
+};
+/**
+ * Checks if the provided project matches the given registry and project ID
+ * @param {IsMatchingCmsProjectArgs} args - An object containing the registry and project ID to match
+ * @param {Sanity.Default.Schema.Project} project - The project to check
+ * @returns {boolean} - Returns true if the project matches the given registry and project ID, false otherwise
+ */
+export const isMatchingCmsProject = (
+  { registry, projectId }: IsMatchingCmsProjectArgs,
+  project: Sanity.Default.Schema.Project
+) => project?.registryProjectId === projectId && project.registry === registry;
