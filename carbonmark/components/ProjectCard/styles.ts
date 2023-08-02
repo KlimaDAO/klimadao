@@ -10,6 +10,8 @@ export const card = css`
   grid-template-rows: auto 1fr;
   ${breakpoints.medium} {
     max-width: 32rem;
+    max-height: 36rem;
+    overflow: hidden;
   }
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
@@ -18,6 +20,12 @@ export const card = css`
       box-shadow: var(--shadow-02);
     }
   }
+`;
+
+export const cardTitle = css`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const cardDescription = css`
