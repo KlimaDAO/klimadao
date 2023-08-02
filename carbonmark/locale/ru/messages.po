@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-02 15:36+0000\n"
+"POT-Creation-Date: 2023-08-02 20:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -646,8 +646,8 @@ msgstr "Список объектов не найден."
 msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
-#: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:127
+#: components/ProjectCard/index.tsx:60
+#: components/pages/Projects/index.tsx:129
 msgid "No project description found"
 msgstr "Описание проекта не найдено"
 
