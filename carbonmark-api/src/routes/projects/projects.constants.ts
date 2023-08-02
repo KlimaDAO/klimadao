@@ -19,6 +19,17 @@ const LP_ADDRESSES = {
   nct: "0xdb995f975f1bfc3b2157495c47e4efb31196b2ca",
 };
 
+type PriceCalculator = (
+  /**
+   * the current pool price.
+   */
+  currentPoolPrice: number,
+  /**
+   * the token to be redeemed. If not supplied, the selective redemption price will be used.
+   */
+  projectTokenAddress?: string
+) => number;
+
 export type PoolInfo = {
   defaultProjectTokenAddress: string;
   poolAddress: string;
@@ -26,6 +37,25 @@ export type PoolInfo = {
   poolName: string;
   feeAdd: boolean;
   fee: number;
+
+  /**
+   *
+   * @param currentPoolPrice the current pool price.
+   * @param projectTokenAddress
+   * @returns the retirement price.
+   */
+  getRetirementPrice: PriceCalculator;
+
+  /**
+   *
+   * @param currentPoolPrice the current pool price.
+   * @param projectTokenAddress the token to be redeemed. If not supplied, the selective redemption price will be used.
+   * @returns the redemption price.
+   */
+  getRedemptionPrice: (
+    currentPoolPrice: number,
+    projectTokenAddress?: string
+  ) => number;
 };
 
 /** Single Source of Truth for all pool info. Everything should derive from this.
@@ -38,6 +68,12 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolName: "nbo",
     feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
     fee: 0.0225,
+    getRetirementPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
+    getRedemptionPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
   },
   ubo: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["ubo"],
