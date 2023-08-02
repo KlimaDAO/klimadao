@@ -16,6 +16,8 @@ import {
   getOffsetTokenPrices,
 } from "./projects.utils";
 
+import { Sanity } from "../../../../carbon-projects/sanity-codegen";
+
 const schema = {
   querystring: {
     type: "object",
@@ -97,7 +99,7 @@ const handler = (fastify: FastifyInstance) =>
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
-        sanity.fetch(fetchAllProjects),
+        sanity.fetch<Sanity.Default.Schema.Project[]>(fetchAllProjects),
         fetchAllPoolPrices(),
       ]);
 

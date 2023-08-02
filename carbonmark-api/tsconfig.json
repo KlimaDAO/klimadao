@@ -8,5 +8,6 @@
     "useUnknownInCatchVariables": false,
     "baseUrl": "."
   },
+  "references": [{ "path": "../carbon-projects" }],
   "include": ["src/**/*.ts"]
 }
