@@ -18,28 +18,31 @@ export const useFetchProjects = () => {
   const allProjects = data?.filter(negate(isNil)) ?? [];
 
   // group projects by key and vintage to find same projects with multiple prices
-    const groupedProjects = allProjects.reduce<{ [key: string]: Project[] }>((grouped, project) => {
+  const groupedProjects = allProjects.reduce<{ [key: string]: Project[] }>(
+    (grouped, project) => {
       const key = `${project.key}-${project.vintage}`;
       if (!grouped[key]) {
         grouped[key] = [];
       }
       grouped[key].push(project);
       return grouped;
-    }, {});
+    },
+    {}
+  );
 
-    // find the lowest price project for each key and vintage
-    const projects = Object.values(groupedProjects).map((projects) => {
-      if (projects.length > 1) {
-        return projects.reduce((lowest, project) => {
-          if (project.price < lowest.price) {
-            return project;
-          }
-          return lowest;
-        });
-      } else {
-        return projects[0];
-      }
-    });
+  // find the lowest price project for each key and vintage
+  const projects = Object.values(groupedProjects).map((projects) => {
+    if (projects.length > 1) {
+      return projects.reduce((lowest, project) => {
+        if (project.price < lowest.price) {
+          return project;
+        }
+        return lowest;
+      });
+    } else {
+      return projects[0];
+    }
+  });
 
   return { projects, ...rest };
 };
