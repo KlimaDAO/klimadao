@@ -1,5 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 import { getSdk as assetsSdk } from "../.generated/types/assets.types";
+import { getSdk as carbonProjectsSdk } from "../.generated/types/carbonProjects.types";
 import { getSdk as marketplaceSdk } from "../.generated/types/marketplace.types";
 import { getSdk as offsetsSdk } from "../.generated/types/offsets.types";
 import { getSdk as tokensSdk } from "../.generated/types/tokens.types";
@@ -13,10 +14,14 @@ const offsetsClient = new GraphQLClient(
 const tokensClient = new GraphQLClient(
   process.env.POOL_PRICES_GRAPH_API_URL ?? ""
 );
+const carbonProjectsClient = new GraphQLClient(
+  process.env.SANITY_GRAPH_API_URL ?? ""
+);
 
 export const gqlSdk = {
   marketplace: marketplaceSdk(marketplaceClient),
   assets: assetsSdk(assetsClient),
   offsets: offsetsSdk(offsetsClient),
   tokens: tokensSdk(tokensClient),
+  carbon_projects: carbonProjectsSdk(carbonProjectsClient),
 };

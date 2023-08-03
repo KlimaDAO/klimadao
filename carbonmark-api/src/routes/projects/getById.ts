@@ -1,8 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact } from "lodash";
+import { compact, concat, min } from "lodash";
+import { pipe, uniq } from "lodash/fp";
+import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
-import { fetchProjectDetails } from "../../utils/helpers/fetchProjectDetails";
 
 const schema = {
   querystring: {
@@ -26,8 +27,6 @@ interface Params {
   id: string;
 }
 
-//@note this file is a mess and will be replaced by https://github.com/KlimaDAO/klimadao/pull/1232
-
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -43,8 +42,8 @@ const handler = (fastify: FastifyInstance) =>
       await Promise.all([
         fetchPoolPricesAndStats({ key, vintage }),
         fetchMarketplaceListings({ key, vintage, fastify }),
-        fetchProjectDetails({
-          registry: registry.toUpperCase(),
+        fetchCarbonProject({
+          registry,
           registryProjectId,
         }),
       ]);
@@ -58,11 +57,12 @@ const handler = (fastify: FastifyInstance) =>
       Number(l.singleUnitPrice)
     );
 
-    const bestPrice =
-      [
-        ...poolPriceValues, // these are already formatted as usd numbers
-        ...listingPriceValues,
-      ].sort((a, b) => a - b)[0] || 0;
+    // these are already formatted as usd numbers
+    const bestPrice = pipe(
+      concat,
+      uniq,
+      min
+    )(poolPriceValues, listingPriceValues);
 
     const projectResponse = {
       ...projectDetails,
@@ -70,7 +70,7 @@ const handler = (fastify: FastifyInstance) =>
       prices: poolPrices,
       listings,
       activities,
-      price: bestPrice.toString(), // remove trailing zeros
+      price: String(bestPrice ?? 0), // remove trailing zeros
       isPoolProject: !!poolPrices.length,
       vintage,
     };

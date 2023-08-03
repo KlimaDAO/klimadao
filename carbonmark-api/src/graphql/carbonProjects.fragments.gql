@@ -1,0 +1,41 @@
+fragment CarbonProjectFragment on Project {
+  country
+  description
+  geolocation {
+    lat
+    lng
+    alt
+  }
+  methodologies {
+    _id
+    category
+    name
+  }
+  name
+  region
+  registry
+  url
+  registryProjectId
+}
+
+fragment CarbonProjectContentFragment on ProjectContent {
+  project {
+    registry
+    registryProjectId
+  }
+  shortDescription
+  longDescription
+  coverImage {
+    asset {
+      url
+    }
+  }
+  images {
+    asset {
+      url
+      label
+      title
+      altText
+    }
+  }
+}

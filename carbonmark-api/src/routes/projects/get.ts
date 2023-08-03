@@ -1,13 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, curry, mapValues, min, omit } from "lodash";
-import { split } from "lodash/fp";
+import { compact, concat, curry, isNil, mapValues, min, omit } from "lodash";
+import { filter, pipe, split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { fetchAllProjects } from "../../sanity/queries";
-import { getSanityClient } from "../../sanity/sanity";
 import { extract, notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { isListingActive } from "../../utils/marketplace.utils";
 import {
   composeCarbonmarkProject,
   composeOffsetProject,
@@ -15,8 +12,10 @@ import {
   getOffsetTokenPrices,
 } from "./projects.utils";
 
-import { Sanity } from "../../../../carbon-projects/sanity-codegen";
+import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { isMatchingCmsProject } from "../../utils/helpers/utils";
+import { isListingActive } from "../../utils/marketplace.utils";
+import { GetProjectResponse } from "./projects.types";
 
 const schema = {
   querystring: {
@@ -80,8 +79,6 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
   ) {
-    const sanity = getSanityClient();
-
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
 
@@ -99,7 +96,7 @@ const handler = (fastify: FastifyInstance) =>
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
-        sanity.fetch<Sanity.Default.Schema.Project[]>(fetchAllProjects),
+        fetchAllCarbonProjects(),
         fetchAllPoolPrices(),
       ]);
 
@@ -115,9 +112,15 @@ const handler = (fastify: FastifyInstance) =>
       // Find the lowest price
       // @todo change to number[]
       const listingPrices = compact(project.listings)
-        ?.filter(isListingActive)
+        .filter(isListingActive)
         .map(extract("singleUnitPrice"));
+
       const lowestPrice = min(listingPrices);
+
+      if (isNil(cmsProject)) {
+        console.error("No matching CMS Project for this project", project.id);
+        return null;
+      }
 
       return composeCarbonmarkProject(project, cmsProject, lowestPrice);
     });
@@ -130,6 +133,11 @@ const handler = (fastify: FastifyInstance) =>
         curry(isMatchingCmsProject)({ projectId: code, registry })
       );
 
+      if (isNil(cmsProject)) {
+        console.error("NO matching CMS Project for this offset", offset.id);
+        return null;
+      }
+
       // Find the lowest price
       // @todo change to number[]
       const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
@@ -138,9 +146,15 @@ const handler = (fastify: FastifyInstance) =>
       return composeOffsetProject(cmsProject, offset, lowestPrice);
     });
 
-    const filteredProjects = concat(projects, offsetProjects).filter(
-      ({ price }) => notNil(price) && parseFloat(price) > 0
-    );
+    // Check that the project should be displayed
+    const validProject = ({ price }: GetProjectResponse) =>
+      notNil(price) && parseFloat(price) > 0;
+
+    const filteredProjects = pipe(
+      concat,
+      compact,
+      filter(validProject)
+    )(projects, offsetProjects);
 
     // Send the transformed projects array as a JSON string in the response
     return reply.send(JSON.stringify(filteredProjects));

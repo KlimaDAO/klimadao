@@ -3,3 +3,4 @@ dist/
 coverage/
 .nyc_output/
 node_modules/
+postman_collection.json

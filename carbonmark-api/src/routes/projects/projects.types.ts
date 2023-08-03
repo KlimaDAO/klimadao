@@ -1,5 +1,6 @@
 // export type PoolProject = Project & CarbonOffset;
 
+import { ProjectContent } from "src/.generated/types/carbonProjects.types";
 import {
   Activity,
   Category,
@@ -7,6 +8,7 @@ import {
   FindProjectsQuery,
 } from "src/.generated/types/marketplace.types";
 import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
+import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { Nullable } from "../../../../lib/utils/typescript.utils";
 
 /** The specific CarbonOffset type from the find findCarbonOffsets query*/
@@ -18,10 +20,10 @@ export type FindQueryProject = FindProjectsQuery["projects"][number];
 // The response object for the /GET endpoint
 export type GetProjectResponse = {
   id: string;
-  isPoolProject?: boolean;
-  description: string;
-  short_description: string;
   key: string;
+  isPoolProject?: boolean;
+  description?: ProjectContent["longDescription"];
+  short_description: ProjectContent["shortDescription"];
   projectID: string;
   name: string;
   vintage: string;
@@ -33,9 +35,5 @@ export type GetProjectResponse = {
   country?: Nullable<Country>;
   activities?: Nullable<Activity[]>;
   listings?: FindProjectsQuery["projects"][number]["listings"];
-  methodologies: {
-    id: string;
-    category: string;
-    name: string;
-  }[];
+  methodologies: CarbonProject["methodologies"];
 };

@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
+import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
 import { extract, notNil } from "../../utils/functional.utils";
 import {
@@ -90,15 +91,15 @@ export const getOffsetTokenPrices = (
 
 export const composeCarbonmarkProject = (
   project: FindQueryProject,
-  cmsProject: any,
+  cmsProject: CarbonProject,
   price: string | undefined
 ) => {
   const cmsData = {
     description: cmsProject?.description,
     name: cmsProject?.name ?? project.name,
     methodologies: cmsProject?.methodologies ?? [],
-    short_description: cmsProject?.projectContent?.shortDescription,
-    longDescription: cmsProject?.projectContent?.longDescription,
+    short_description: cmsProject?.content?.shortDescription,
+    longDescription: cmsProject?.content?.longDescription,
   };
 
   const result: GetProjectResponse = {
@@ -111,20 +112,17 @@ export const composeCarbonmarkProject = (
 };
 
 export const composeOffsetProject = (
-  cmsData: any,
+  carbonProject: CarbonProject,
   offset: FindQueryOffset,
   price: string | undefined
 ): GetProjectResponse => ({
   id: offset.id,
-  isPoolProject: true,
-  description: cmsData ? cmsData.description : undefined,
-  short_description: cmsData?.projectContent
-    ? cmsData.projectContent.shortDescription
-    : undefined,
+  description: carbonProject.description,
+  short_description: carbonProject?.content?.shortDescription,
   key: offset.projectID,
   projectID: offset.projectID.split("-")[1],
-  name: cmsData ? cmsData.name : offset.name,
-  methodologies: cmsData ? cmsData.methodologies : [],
+  name: carbonProject.name ?? offset.name,
+  methodologies: carbonProject.methodologies ?? [],
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],
@@ -133,7 +131,9 @@ export const composeOffsetProject = (
     id: offset.methodologyCategory,
   },
   country: notNil(offset.country) ? { id: offset.country } : null,
-  price,
   activities: null,
   listings: null,
+  // New attributes
+  isPoolProject: true,
+  price,
 });
