@@ -1,6 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
+import { compact, merge, omit } from "lodash";
+import { Methodology } from "src/.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
@@ -89,24 +91,26 @@ export const getOffsetTokenPrices = (
   return prices;
 };
 
+// We need to relabel _id to id because "id" is of type Slug for some reason
+const relabelMethodology = (methodology: Methodology) =>
+  merge(omit(methodology, "_id"), { id: methodology._id });
+
 export const composeCarbonmarkProject = (
   project: FindQueryProject,
-  cmsProject: CarbonProject,
+  carbonProject: CarbonProject,
   price: string | undefined
 ) => {
   const cmsData = {
-    description: cmsProject?.description,
-    name: cmsProject?.name ?? project.name,
-    methodologies: cmsProject?.methodologies ?? [],
-    short_description: cmsProject?.content?.shortDescription,
-    longDescription: cmsProject?.content?.longDescription,
+    description: carbonProject?.description,
+    name: carbonProject?.name ?? project.name,
+    methodologies: compact(carbonProject?.methodologies).map(
+      relabelMethodology
+    ),
+    short_description: carbonProject?.content?.shortDescription,
+    longDescription: carbonProject?.content?.longDescription,
   };
 
-  const result: GetProjectResponse = {
-    ...project,
-    ...cmsData,
-    price,
-  };
+  const result: GetProjectResponse = merge(project, cmsData, price);
 
   return result;
 };
@@ -117,12 +121,14 @@ export const composeOffsetProject = (
   price: string | undefined
 ): GetProjectResponse => ({
   id: offset.id,
+  // New attribute
+  isPoolProject: true,
   description: carbonProject.description,
   short_description: carbonProject?.content?.shortDescription,
   key: offset.projectID,
   projectID: offset.projectID.split("-")[1],
   name: carbonProject.name ?? offset.name,
-  methodologies: carbonProject.methodologies ?? [],
+  methodologies: compact(carbonProject?.methodologies).map(relabelMethodology),
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],
@@ -131,9 +137,7 @@ export const composeOffsetProject = (
     id: offset.methodologyCategory,
   },
   country: notNil(offset.country) ? { id: offset.country } : null,
+  price,
   activities: null,
   listings: null,
-  // New attributes
-  isPoolProject: true,
-  price,
 });
