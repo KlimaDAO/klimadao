@@ -46,7 +46,7 @@ const ENDPOINTS = [
 /** This test requires updating environment variables to be --production values */
 // **NOTE:** This test is skipped by default because it has a dependency on external APIs which may break.
 // Remove this skip if you would like to test for regressions
-test(
+test.skip(
   "Equivalence with production",
   async () => {
     try {
