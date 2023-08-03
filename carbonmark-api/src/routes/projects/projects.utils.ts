@@ -1,8 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
-import { compact, merge, omit } from "lodash";
-import { Methodology } from "src/.generated/types/carbonProjects.types";
+import { merge } from "lodash";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
@@ -91,10 +90,6 @@ export const getOffsetTokenPrices = (
   return prices;
 };
 
-// We need to relabel _id to id because "id" is of type Slug for some reason
-const relabelMethodology = (methodology: Methodology) =>
-  merge(omit(methodology, "_id"), { id: methodology._id });
-
 export const composeCarbonmarkProject = (
   project: FindQueryProject,
   carbonProject: CarbonProject,
@@ -103,9 +98,7 @@ export const composeCarbonmarkProject = (
   const cmsData = {
     description: carbonProject?.description,
     name: carbonProject?.name ?? project.name,
-    methodologies: compact(carbonProject?.methodologies).map(
-      relabelMethodology
-    ),
+    methodologies: carbonProject.methodologies ?? [],
     short_description: carbonProject?.content?.shortDescription,
     longDescription: carbonProject?.content?.longDescription,
   };
@@ -128,7 +121,7 @@ export const composeOffsetProject = (
   key: offset.projectID,
   projectID: offset.projectID.split("-")[1],
   name: carbonProject.name ?? offset.name,
-  methodologies: compact(carbonProject?.methodologies).map(relabelMethodology),
+  methodologies: carbonProject.methodologies ?? [],
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],

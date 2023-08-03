@@ -8,7 +8,7 @@ import {
   FindProjectsQuery,
 } from "src/.generated/types/marketplace.types";
 import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
-import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
+import { ModifiedMethodology } from "src/utils/helpers/carbonProjects.utils";
 import { Nullable } from "../../../../lib/utils/typescript.utils";
 
 /** The specific CarbonOffset type from the find findCarbonOffsets query*/
@@ -35,5 +35,5 @@ export type GetProjectResponse = {
   country?: Nullable<Country>;
   activities?: Nullable<Activity[]>;
   listings?: FindProjectsQuery["projects"][number]["listings"];
-  methodologies: CarbonProject["methodologies"];
+  methodologies: ModifiedMethodology[];
 };

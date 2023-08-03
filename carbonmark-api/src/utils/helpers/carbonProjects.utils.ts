@@ -1,6 +1,7 @@
-import { compact, merge } from "lodash";
+import { compact, merge, omit } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import {
+  Methodology,
   Project,
   ProjectContent,
 } from "src/.generated/types/carbonProjects.types";
@@ -24,7 +25,19 @@ type Args = {
 const projectKey = ({ registry, registryProjectId }: Project) =>
   `${registry}-${registryProjectId}`;
 
-export type CarbonProject = Project & { content?: ProjectContent };
+export type ModifiedMethodology = Omit<Methodology, "id" | "_id"> & {
+  id: string;
+};
+
+const relabelMethodology = (methodology: Methodology): ModifiedMethodology =>
+  merge(omit(methodology, ["_id", "id"]), {
+    id: methodology._id ?? methodology.id?.current ?? "",
+  });
+
+export type CarbonProject = Project & {
+  content?: ProjectContent;
+  methodologies: ModifiedMethodology[];
+};
 /**
  * Fetches a carbon project based on the provided registry and id.
  * @param {Object} args - The arguments.
@@ -44,6 +57,7 @@ export const fetchCarbonProject = async (args: Args) => {
 
   return {
     ...project,
+    methodologies: compact(project?.methodologies)?.map(relabelMethodology),
     content,
     key,
   };
@@ -70,7 +84,10 @@ export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
 
   // Pair Projects with their content
   const projects: CarbonProject[] = allProject.map((project) =>
-    merge(project, { content: contentMap.get(projectKey(project)) })
+    merge(project, {
+      methodologies: compact(project?.methodologies)?.map(relabelMethodology),
+      content: contentMap.get(projectKey(project)),
+    })
   );
 
   return projects;
