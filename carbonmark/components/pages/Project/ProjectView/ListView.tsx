@@ -77,11 +77,11 @@ export const ListView: FC<Props> = ({ form, projects }) => {
   const sort = form.watch("sort");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [sortColumn, setSortColumn] = useState<keyof Data>();
-  const sortDirection = sortOrder === "asc" ? "asc" : "desc";
+  const sortDirection = sortOrder ?? "desc";
 
   const handleSort = (column: keyof Data) => {
     setSortColumn(column);
-    setSortOrder(sortDirection);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
   useEffect(() => {
