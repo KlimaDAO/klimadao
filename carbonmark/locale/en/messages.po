@@ -263,7 +263,7 @@ msgstr "Change language"
 msgid "Choose a project and quantity"
 msgstr "Choose a project and quantity"
 
-#: components/pages/Projects/index.tsx:45
+#: components/pages/Projects/index.tsx:74
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
@@ -471,7 +471,7 @@ msgstr "Get paid immediately: transactions are resolved in seconds"
 msgid "Go back"
 msgstr "Go back"
 
-#: components/pages/Projects/index.tsx:55
+#: components/pages/Projects/index.tsx:108
 msgid "Grid view"
 msgstr "Grid view"
 
@@ -561,7 +561,7 @@ msgstr "Learn more about Carbonmark's role in improving the Digital Carbon Marke
 msgid "List and sell for free"
 msgstr "List and sell for free"
 
-#: components/pages/Projects/index.tsx:64
+#: components/pages/Projects/index.tsx:117
 msgid "List view"
 msgstr "List view"
 
@@ -610,8 +610,8 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:43
-#: components/pages/Projects/index.tsx:44
+#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
@@ -663,6 +663,12 @@ msgstr "No listable assets found."
 #: components/pages/Project/index.tsx:241
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
+
+#: components/ProjectCard/index.tsx:60
+#: components/pages/Project/ProjectView/GridView.tsx:38
+#: components/pages/Project/ProjectView/ListView.tsx:151
+msgid "No project description found"
+msgstr "No project description found"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
 msgid "No retirement message provided."
@@ -1179,7 +1185,7 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:92
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 

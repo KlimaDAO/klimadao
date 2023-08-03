@@ -263,7 +263,7 @@ msgstr ""
 msgid "Choose a project and quantity"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:45
+#: components/pages/Projects/index.tsx:74
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr ""
 
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:55
+#: components/pages/Projects/index.tsx:108
 msgid "Grid view"
 msgstr ""
 
@@ -561,7 +561,7 @@ msgstr ""
 msgid "List and sell for free"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:64
+#: components/pages/Projects/index.tsx:117
 msgid "List view"
 msgstr ""
 
@@ -610,8 +610,8 @@ msgstr ""
 msgid "Marketplace"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:43
-#: components/pages/Projects/index.tsx:44
+#: components/pages/Projects/index.tsx:72
+#: components/pages/Projects/index.tsx:73
 msgid "Marketplace | Carbonmark"
 msgstr ""
 
@@ -664,9 +664,9 @@ msgstr ""
 msgid "No listings found for this project."
 msgstr ""
 
-#: components/ProjectCard/index.tsx:58
+#: components/ProjectCard/index.tsx:60
 #: components/pages/Project/ProjectView/GridView.tsx:38
-#: components/pages/Project/ProjectView/ListView.tsx:129
+#: components/pages/Project/ProjectView/ListView.tsx:151
 msgid "No project description found"
 msgstr ""
 
@@ -1185,7 +1185,7 @@ msgstr ""
 msgid "Toggle payment method"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:92
 msgid "Toggle sort menu"
 msgstr ""
 
