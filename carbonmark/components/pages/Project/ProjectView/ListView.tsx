@@ -12,7 +12,7 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
 import { Project } from "lib/types/carbonmark";
-import { split } from "lodash";
+import { isEqual, split } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
@@ -95,8 +95,10 @@ export const ListView: FC<Props> = ({ form, projects }) => {
   useEffect(() => {
     // updates the sort dropdown when there is an update to the table sorting
     if (sortColumn === "vintage") {
-      const sort = sortOrder === "asc" ? "vintage-newest" : "vintage-oldest";
-      form.setValue("sort", sort);
+      form.setValue(
+        "sort",
+        isEqual(sortOrder, "asc") ? "vintage-newest" : "vintage-oldest"
+      );
     }
     if (sortColumn === "price") {
       const sort = sortOrder === "asc" ? "price-highest" : "price-lowest";

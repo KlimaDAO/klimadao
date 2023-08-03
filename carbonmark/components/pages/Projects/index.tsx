@@ -22,6 +22,7 @@ import {
   SortOption,
   useProjectsFilterParams,
 } from "hooks/useProjectsFilterParams";
+import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
@@ -37,6 +38,7 @@ import * as styles from "./styles";
 
 const Page: NextPage = () => {
   const router = useRouter();
+  const { isMobile } = useResponsive();
   const [toggleViewMode, setToggleViewMode] = useState("grid");
   const [showFilterModal, setShowFilterModal] = useState(false);
 
@@ -133,7 +135,7 @@ const Page: NextPage = () => {
             <SpinnerWithLabel />
           ) : (
             <>
-              {toggleViewMode === "grid" ? (
+              {toggleViewMode === "grid" || isMobile ? (
                 <GridView projects={sortedProjects} />
               ) : (
                 <ListView form={form} projects={sortedProjects} />
