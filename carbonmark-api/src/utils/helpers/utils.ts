@@ -10,8 +10,7 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 
 import { extract, notNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
-
-import { Sanity } from "../../../../carbon-projects/sanity-codegen";
+import { CarbonProject } from "./carbonProjects.utils";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -211,5 +210,5 @@ type IsMatchingCmsProjectArgs = {
  */
 export const isMatchingCmsProject = (
   { registry, projectId }: IsMatchingCmsProjectArgs,
-  project: Sanity.Default.Schema.Project
+  project: CarbonProject
 ) => project?.registryProjectId === projectId && project.registry === registry;
