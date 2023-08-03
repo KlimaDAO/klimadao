@@ -1,5 +1,5 @@
 import { compact, merge } from "lodash";
-import { compose, filter, pipe } from "lodash/fp";
+import { filter, pipe } from "lodash/fp";
 import {
   Project,
   ProjectContent,
@@ -54,18 +54,21 @@ export const fetchCarbonProject = async (args: Args) => {
  * @returns {Promise<CarbonProject[]>} An array of all fetched projects.
  */
 export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
-  const { allProject } = await gqlSdk.carbon_projects.getAllProjects();
-  const { allProjectContent } =
-    await gqlSdk.carbon_projects.getAllProjectContent();
+  const [{ allProject }, { allProjectContent }] = await Promise.all([
+    gqlSdk.carbon_projects.getAllProjects(),
+    gqlSdk.carbon_projects.getAllProjectContent(),
+  ]);
 
-  const content: SetRequired<ProjectContent, "project">[] = pipe(
+  // Clean the content, removing those without project references
+  const content = pipe(
     compact,
-    compose(filter, selector("project", notNil))
+    filter(selector<SetRequired<ProjectContent, "project">>("project", notNil))
   )(allProjectContent);
 
   // Build a map for constant time lookup
   const contentMap = arrayToMap(content, pipe(extract("project"), projectKey));
 
+  // Pair Projects with their content
   const projects: CarbonProject[] = allProject.map((project) =>
     merge(project, { content: contentMap.get(projectKey(project)) })
   );

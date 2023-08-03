@@ -11,10 +11,10 @@ const plugins = [
   "typescript-graphql-request",
 ];
 
-const schema = merge(GRAPH_URLS, SANITY_URLS);
+const schemas = merge(GRAPH_URLS, SANITY_URLS);
 
 // Generate configuration for each schema entry
-const generates = Object.entries(schema).reduce(
+const generates = Object.entries(schemas).reduce(
   (acc, [key, schema]) => ({
     ...acc,
     [`${GENERATED_DIR}/${key}.types.ts`]: {

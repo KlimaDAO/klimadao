@@ -3,7 +3,8 @@ import { getApps, initializeApp } from "firebase-admin/app";
 import { FastifyInstance } from "fastify";
 import fp from "fastify-plugin";
 import * as admin from "firebase-admin";
-import { isNil, pick } from "lodash";
+import { difference } from "lodash";
+import { notEmpty } from "../utils/functional.utils";
 
 const ENV_VARS = [
   "FIREBASE_CERT_CLIENT_EMAIL",
@@ -16,9 +17,10 @@ export default fp(async function (
   _: unknown,
   next: () => void
 ): Promise<void> {
+  const missingVars = difference(ENV_VARS, Object.keys(process.env));
   // Confirm that all required env vars have been set
-  if (Object.values(pick(process.env, ENV_VARS)).some(isNil)) {
-    throw new Error("Missing FIREBASE_CERT env vars");
+  if (notEmpty(missingVars)) {
+    throw new Error(`Missing FIREBASE_CERT env vars: ${missingVars}`);
   }
 
   // Only initialise if necessary

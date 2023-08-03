@@ -81,7 +81,6 @@ const handler = (fastify: FastifyInstance) =>
   ) {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
-
     //Get the default args to return all results unless specified
     const defaultArgs = await getDefaultQueryArgs(fastify);
 
