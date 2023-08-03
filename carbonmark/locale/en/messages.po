@@ -652,8 +652,8 @@ msgstr "No listable assets found."
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
-#: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:127
+#: components/ProjectCard/index.tsx:60
+#: components/pages/Projects/index.tsx:129
 msgid "No project description found"
 msgstr "No project description found"
 

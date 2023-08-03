@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-01 23:50+0000\n"
+"POT-Creation-Date: 2023-08-02 21:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -280,7 +280,7 @@ msgstr "Comparar precios entre todos los vendedores y grupos de negociación"
 
 #: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
-msgstr ""
+msgstr "Compilando resultados ..."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -352,7 +352,7 @@ msgstr "Creado:"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:201
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "Los pagos con tarjeta de crédito conllevan una tarifa de procesamiento adicional. <0>Vea la documentación para obtener más información.</0>"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
@@ -646,8 +646,8 @@ msgstr "No se han encontrado activos enumerables."
 msgid "No listings found for this project."
 msgstr "No se han encontrado anuncios para este proyecto."
 
-#: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:127
+#: components/ProjectCard/index.tsx:60
+#: components/pages/Projects/index.tsx:129
 msgid "No project description found"
 msgstr "No se ha encontrado descripción del proyecto"
 
@@ -699,7 +699,7 @@ msgstr "Pago exitoso"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:197
 msgid "Payment processing fee"
-msgstr ""
+msgstr "Tasa de procesamiento de pagos"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
@@ -736,7 +736,7 @@ msgstr "Precio más bajo"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:147
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "El precio incluye las tarifas de red. <0>Vea la documentación para obtener más información.</0>"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:93
@@ -890,11 +890,11 @@ msgstr "Recursos | Carbonmark"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Result"
-msgstr ""
+msgstr "Resultado"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Results"
-msgstr ""
+msgstr "Resultados"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1272,7 +1272,7 @@ msgstr "Ver detalles del registro <0/>"
 
 #: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
-msgstr ""
+msgstr "Ver resultados"
 
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."

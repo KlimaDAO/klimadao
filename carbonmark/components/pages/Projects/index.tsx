@@ -120,7 +120,9 @@ const Page: NextPage = () => {
                 <Text t="h4">
                   {formatToPrice(project.price, router.locale)}
                 </Text>
-                <Text t="h5">{project.name || "! MISSING PROJECT NAME !"}</Text>
+                <Text t="h5" className={styles.cardTitle}>
+                  {project.name || "! MISSING PROJECT NAME !"}
+                </Text>
                 <Text t="body1" className={styles.cardDescription}>
                   {project.short_description ||
                     project.description ||
