@@ -6,10 +6,31 @@ import { GetStaticPropsContext } from "next";
 export async function getStaticProps(ctx: GetStaticPropsContext) {
   try {
     const { locale } = ctx;
-    const documents = await fetchCMSContent("allDocuments", { locale });
-    const featuredArticles = await fetchCMSContent("allFeaturedPosts", {
-      locale,
-    });
+
+    const [
+      enDocuments,
+      enFeaturedArticles,
+      localeDocuments,
+      localeFeaturedArticles,
+    ] = await Promise.all([
+      fetchCMSContent("allDocuments", { locale: "en" }),
+      fetchCMSContent("allFeaturedPosts", { locale: "en" }),
+      fetchCMSContent("allDocuments", { locale }),
+      fetchCMSContent("allFeaturedPosts", { locale }),
+    ]);
+
+    let documents, featuredArticles;
+    // if en has more documents or articles than locale, then show locale documents and articles plus en documents and articles
+    if (
+      localeDocuments.length < enDocuments.length ||
+      localeFeaturedArticles.length < enFeaturedArticles.length
+    ) {
+      documents = [...localeDocuments, ...enDocuments];
+      featuredArticles = [...localeFeaturedArticles, ...enFeaturedArticles];
+    } else {
+      documents = [...enDocuments];
+      featuredArticles = [...enFeaturedArticles];
+    }
 
     const translation = await loadTranslation(locale);
     if (!documents) {
