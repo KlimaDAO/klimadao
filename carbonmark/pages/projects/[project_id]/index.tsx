@@ -1,5 +1,5 @@
 import { PageProps, Project } from "components/pages/Project";
-import { getCarbonmarkProject } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await api.carbonmark.getProject(params.project_id);
     const translation = await loadTranslation(locale);
 
     if (!translation) {

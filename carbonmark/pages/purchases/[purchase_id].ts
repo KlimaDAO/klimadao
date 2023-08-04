@@ -1,5 +1,5 @@
 import { PurchaseReceipt } from "components/pages/Purchases";
-import { getPurchase } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { loadTranslation } from "lib/i18n";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Purchase } from "lib/types/carbonmark";
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     let purchase = null;
     try {
-      purchase = await getPurchase({ id: params.purchase_id });
+      purchase = await api.carbonmark.getPurchase({ id: params.purchase_id });
     } catch (e) {
       // Only log the error on server,
       // Render page with default data because transaction was valid on chain

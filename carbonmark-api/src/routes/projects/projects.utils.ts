@@ -13,9 +13,9 @@ import {
 } from "../../utils/helpers/utils";
 import { POOL_INFO } from "./projects.constants";
 import {
+  CarbonmarkApi,
   FindQueryOffset,
   FindQueryProject,
-  GetProjectResponse,
 } from "./projects.types";
 
 /**
@@ -103,7 +103,7 @@ export const composeCarbonmarkProject = (
     longDescription: carbonProject?.content?.longDescription,
   };
 
-  const result: GetProjectResponse = merge(project, cmsData, price);
+  const result: CarbonmarkApi.Get.Project = merge(project, cmsData, price);
 
   return result;
 };
@@ -112,7 +112,7 @@ export const composeOffsetProject = (
   carbonProject: CarbonProject,
   offset: FindQueryOffset,
   price: string | undefined
-): GetProjectResponse => ({
+): CarbonmarkApi.Get.Project => ({
   id: offset.id,
   // New attribute
   isPoolProject: true,

@@ -15,7 +15,7 @@ import {
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { isMatchingCmsProject } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
-import { GetProjectResponse } from "./projects.types";
+import { CarbonmarkApi } from "./projects.types";
 
 const schema = {
   querystring: {
@@ -146,7 +146,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     // Check that the project should be displayed
-    const validProject = ({ price }: GetProjectResponse) =>
+    const validProject = ({ price }: CarbonmarkApi.Get.Project) =>
       notNil(price) && parseFloat(price) > 0;
 
     const filteredProjects = pipe(

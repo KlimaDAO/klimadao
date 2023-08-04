@@ -2,7 +2,7 @@ import {
   ProjectPurchase,
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
-import { getCarbonmarkProject } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await api.carbonmark.getProject(params.project_id);
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
     const listing =

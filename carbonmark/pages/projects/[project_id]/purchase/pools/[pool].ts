@@ -3,7 +3,7 @@ import {
   ProjectPurchase,
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
-import { getCarbonmarkProject } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { isPoolToken } from "lib/getPoolData";
 import { loadTranslation } from "lib/i18n";
 import { GetServerSideProps } from "next";
@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps<
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    const project = await api.carbonmark.getProject(params.project_id);
 
     // check if price for pool exists for this project
     const poolPrice =

@@ -3,7 +3,7 @@ import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { utils } from "ethers";
-import { getCarbonmarkProject } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps<
 
     const project =
       !!subgraphData &&
-      (await getCarbonmarkProject(
+      (await api.carbonmark.getProject(
         `${retirement.offset.projectID}-${retirement.offset.vintageYear}`
       ));
 

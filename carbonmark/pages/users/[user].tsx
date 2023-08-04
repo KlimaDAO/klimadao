@@ -7,7 +7,7 @@ import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
-import { getCarbonmarkUser } from "lib/carbonmark";
+import { api } from "lib/api/sdk";
 import { User } from "lib/types/carbonmark";
 
 interface Params extends ParsedUrlQuery {
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let carbonmarkUser: User | null = null;
 
     if (!isDomainInURL && !isValidAddress) {
-      const userData = await getCarbonmarkUser({
+      const userData = await api.carbonmark.getUser({
         user: params.user,
         type: "handle",
       });
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // Haven't fetched carbonmark API yet?
     if (!carbonmarkUser) {
-      const userData = await getCarbonmarkUser({
+      const userData = await api.carbonmark.getUser({
         user: userAddress,
         type: "wallet",
       });
