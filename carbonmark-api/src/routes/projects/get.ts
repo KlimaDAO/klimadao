@@ -133,7 +133,7 @@ const handler = (fastify: FastifyInstance) =>
       );
 
       if (isNil(cmsProject)) {
-        console.error("NO matching CMS Project for this offset", offset.id);
+        console.error("No matching CMS Project for this offset", offset.id);
         return null;
       }
 

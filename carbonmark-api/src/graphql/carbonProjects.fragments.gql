@@ -1,13 +1,14 @@
 fragment CarbonProjectFragment on Project {
   country
   description
+  id: _id
   geolocation {
     lat
     lng
     alt
   }
   methodologies {
-    _id
+    id: _id
     category
     name
   }

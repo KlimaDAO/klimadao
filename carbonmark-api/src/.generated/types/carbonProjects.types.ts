@@ -941,7 +941,7 @@ export type StringFilter = {
   nin?: InputMaybe<Array<Scalars['String']>>;
 };
 
-export type CarbonProjectFragmentFragment = { __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', _id?: string | null, category?: string | null, name?: string | null } | null> | null };
+export type CarbonProjectFragmentFragment = { __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, id?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', category?: string | null, name?: string | null, id?: string | null } | null> | null };
 
 export type CarbonProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription?: string | null, longDescription?: string | null, project?: { __typename?: 'Project', registry?: string | null, registryProjectId?: string | null } | null, coverImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, images?: Array<{ __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null, label?: string | null, title?: string | null, altText?: string | null } | null } | null> | null };
 
@@ -951,7 +951,7 @@ export type GetProjectQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', _id?: string | null, category?: string | null, name?: string | null } | null> | null }> };
+export type GetProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, id?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', category?: string | null, name?: string | null, id?: string | null } | null> | null }> };
 
 export type GetProjectContentQueryVariables = Exact<{
   registry: Scalars['String'];
@@ -964,7 +964,7 @@ export type GetProjectContentQuery = { __typename?: 'RootQuery', allProjectConte
 export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', _id?: string | null, category?: string | null, name?: string | null } | null> | null }> };
+export type GetAllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country?: string | null, description?: string | null, name?: string | null, region?: string | null, registry?: string | null, url?: string | null, registryProjectId?: string | null, id?: string | null, geolocation?: { __typename?: 'Geopoint', lat?: number | null, lng?: number | null, alt?: number | null } | null, methodologies?: Array<{ __typename?: 'Methodology', category?: string | null, name?: string | null, id?: string | null } | null> | null }> };
 
 export type GetAllProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -975,13 +975,14 @@ export const CarbonProjectFragmentFragmentDoc = gql`
     fragment CarbonProjectFragment on Project {
   country
   description
+  id: _id
   geolocation {
     lat
     lng
     alt
   }
   methodologies {
-    _id
+    id: _id
     category
     name
   }
