@@ -66,6 +66,7 @@ export const card = css`
   grid-template-rows: auto 1fr;
   ${breakpoints.medium} {
     max-width: 32rem;
+    max-height: 36rem;
   }
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
@@ -86,6 +87,14 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   overflow: hidden;
+
+  max-height: 9rem;
+`;
+
+export const cardTitle = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const cardImage = css`

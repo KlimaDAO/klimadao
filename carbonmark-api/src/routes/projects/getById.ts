@@ -26,10 +26,6 @@ interface Params {
   id: string;
 }
 
-export type Nullable<T> = {
-  [P in keyof T]: T[P] | null | undefined;
-};
-
 //@note this file is a mess and will be replaced by https://github.com/KlimaDAO/klimadao/pull/1232
 
 // Handler function for the "/projects/:id" route
