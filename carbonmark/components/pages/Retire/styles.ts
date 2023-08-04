@@ -71,7 +71,7 @@ export const content = css`
 
 export const featuredCard = css`
   background-color: var(--yellow);
-  padding: 0.4rem;
+  border: 0.4rem solid var(--yellow);
 `;
 
 export const sectionTitle = css`

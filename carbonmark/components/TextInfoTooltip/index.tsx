@@ -1,15 +1,16 @@
 import { cx } from "@emotion/css";
-import Tippy from "@tippyjs/react";
+import Tippy, { TippyProps } from "@tippyjs/react";
 import { Text } from "components/Text";
 import { ReactElement } from "react";
 import "tippy.js/dist/tippy.css";
 import * as styles from "./styles";
 
 interface TooltipProps {
-  tooltip: string;
+  tooltip: ReactElement | string;
   children: ReactElement;
   className?: string;
   align?: "start" | "end";
+  tippyProps?: Partial<TippyProps>;
 }
 
 export const TextInfoTooltip = (props: TooltipProps) => (
@@ -24,6 +25,7 @@ export const TextInfoTooltip = (props: TooltipProps) => (
       </Text>
     }
     className={cx(styles.tippyBox, props.className)}
+    {...props.tippyProps}
   >
     {props.children}
   </Tippy>

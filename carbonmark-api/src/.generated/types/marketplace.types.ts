@@ -1365,7 +1365,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null }> | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1507,9 +1507,13 @@ export const FindProjectsDocument = gql`
     where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
   ) {
     ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
   }
 }
-    ${ProjectFragmentFragmentDoc}`;
+    ${ProjectFragmentFragmentDoc}
+${ListingFragmentFragmentDoc}`;
 export const GetProjectsByIdDocument = gql`
     query getProjectsById($key: String, $vintageStr: BigInt) {
   projects(where: {key: $key, vintage: $vintageStr}) {

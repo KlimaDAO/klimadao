@@ -13,6 +13,8 @@ export const projectHeader = css`
   margin: -1.6rem;
   max-height: 14rem;
   margin-bottom: 0.4rem;
+  /* Don't overlap tippy popovers/tooltips */
+  z-index: 0;
 
   .stack {
     display: grid;
