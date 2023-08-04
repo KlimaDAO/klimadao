@@ -31,6 +31,7 @@ export const getDefaultQueryArgs = async (
     getAllCountries(fastify).then(map(extract("id"))),
     getAllVintages(fastify),
   ]);
+
   return {
     category,
     country,

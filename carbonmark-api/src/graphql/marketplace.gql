@@ -1,17 +1,17 @@
 query getCategories {
-  categories {
+  categories(first: 1000) {
     id
   }
 }
 
 query getCountries {
-  countries {
+  countries(first: 1000) {
     id
   }
 }
 
 query getVintages {
-  projects {
+  projects(first: 1000) {
     vintage
   }
 }
