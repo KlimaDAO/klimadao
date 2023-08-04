@@ -1,48 +1,6 @@
 import { PoolToken } from "@klimadao/lib/constants";
 import { BigNumber } from "ethers";
 
-export interface CarouselImage {
-  url: string;
-  caption: string;
-}
-
-export interface Project {
-  key: string;
-  projectID: string;
-  name: string | "";
-  methodologies: Array<Methodology>;
-  vintage: string;
-  images: Array<CarouselImage>;
-  projectAddress: string;
-  registry: string;
-  listings: Listing[] | null;
-  /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
-  price: string;
-  country: string | null;
-  activities: ProjectActivity[] | null;
-  updatedAt: string; // timestamp
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
-  };
-  description?: string;
-  short_description?: string;
-  long_description?: string;
-  isPoolProject?: boolean; // pool project only
-  stats: {
-    totalSupply: number;
-    totalBridged: number;
-    totalRetired: number;
-  };
-  prices?: Price[];
-  url: string;
-  methodologyCategory: CategoryName;
-}
-
 export interface PcbProject {
   id: string;
   projectID: string;
@@ -80,7 +38,6 @@ export interface PcbProject {
   storageMethod: string;
   vintageYear: string;
 }
-
 export type Price = {
   /** Lowercase name of pool / pool token e.g. "bct" */
   poolName: Exclude<PoolToken, "mco2">;
@@ -95,17 +52,6 @@ export type Price = {
   /** formatted USDC price for 1 tonne e.g. "0.123456" */
   singleUnitPrice: string;
 };
-
-export interface User {
-  handle: string;
-  username: string;
-  description: string;
-  profileImgUrl: string | null;
-  wallet: string;
-  listings: ListingWithProject[];
-  activities: UserActivity[];
-  assets: Asset[];
-}
 
 export interface Listing {
   id: string;
@@ -131,24 +77,6 @@ export interface Listing {
   };
 }
 
-/** Some endpoints do not include this `project` property. */
-export interface ListingWithProject extends Listing {
-  /** careful, project is not present on Project["listings"] entries */
-  project: {
-    id: string;
-    key: string;
-    name: string;
-    category: Category;
-    /** TODO: from api, in /user.listings, Country is not present */
-    country?: string;
-    methodology: string;
-    projectAddress: string;
-    projectID: string;
-    registry: string;
-    vintage: string;
-  };
-}
-
 export type PriceFlagged = Price & {
   isPoolProject: true;
 };
@@ -162,80 +90,6 @@ export type ActivityActionT =
   | "DeletedListing"
   | "Purchase"
   | "Sold";
-
-export interface ProjectActivity {
-  /** txnHash + ActivityType
-   * @example "0x12345CreatedListing" */
-  id: string;
-  /** Stringified 18 decimal BigNumber */
-  amount: string;
-  /** Stringified 18 decimal BigNumber */
-  previousAmount: null | string;
-  /** Stringified 6 decimal BigNumber */
-  price: string;
-  /** Stringified 6 decimal BigNumber */
-  previousPrice: null | string;
-  /** Unix seconds timestamp */
-  timeStamp: string;
-  /** String identifying the activity */
-  activityType: ActivityActionT;
-  seller: {
-    id: string;
-    handle?: string;
-  };
-  buyer: null | {
-    id: string;
-    handle?: string;
-  };
-}
-
-export interface UserActivity {
-  /** txnHash + ActivityType
-   * @example "0x12345CreatedListing" */
-  id: string;
-  /** Stringified 18 decimal BigNumber */
-  amount: string;
-  /** Stringified 18 decimal BigNumber */
-  previousAmount: null | string;
-  /** Stringified 6 decimal BigNumber */
-  price: string;
-  /** Stringified 6 decimal BigNumber */
-  previousPrice: null | string;
-  /** Unix seconds timestamp */
-  timeStamp: string;
-  /** String identifying the activity */
-  activityType: ActivityActionT;
-  project: {
-    /** Name of the project
-     * @example "5MW Biomass Based Cogeneration Project at Sainsons" */
-    name: string;
-    /** TODO this can be removed when methodologies is passed down */
-    category: Category;
-    /** @example "0x3" */
-    id: string;
-    /** @example "VCS-1547" */
-    key: string;
-    /** Registry project id number
-     * @example "1547" */
-    projectId: string;
-    /** TODO: api needs to remove and replace with `methodologies` */
-    methodology: string;
-    /** @example "2020" */
-    vintage: string;
-    /** Address for the project token */
-    projectAddress: string;
-    /** @example "VCS" */
-    registry: string;
-  };
-  seller: {
-    id: string;
-    handle?: string;
-  };
-  buyer: null | {
-    id: string;
-    handle?: string;
-  };
-}
 
 export type Asset = {
   id: string;
@@ -285,21 +139,6 @@ export type AssetForRetirement = {
   tokenSymbol: string; // 1: C3T, 2: TCO2
   project: PcbProject;
 };
-export type Methodology = {
-  id: string;
-  name: string;
-  category: CategoryName;
-};
-
-export type Category = {
-  id: CategoryName;
-};
-
-export type Country = {
-  id: string;
-};
-
-export type Vintage = string;
 
 export type CategoryName =
   | "Agriculture"
@@ -310,22 +149,6 @@ export type CategoryName =
   | "Other"
   | "Other Nature-Based"
   | "Blue Carbon";
-
-export type Purchase = {
-  /** Transaction hash */
-  id: string;
-  /** Stringified 18 decimal BigNumber */
-  amount: BigNumber;
-  /** The purchased listing info */
-  listing: ListingWithProject;
-  /** Stringified 6 decimal BigNumber */
-  price: string;
-  /** Unix seconds timestamp */
-  timeStamp: string;
-  user: {
-    id: string;
-  };
-};
 
 export type CarbonmarkToken = "usdc" | "c3" | "tco2";
 

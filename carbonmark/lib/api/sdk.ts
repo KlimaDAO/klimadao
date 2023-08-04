@@ -1,12 +1,15 @@
+import { User } from "carbonmark-api/src/.generated/types/marketplace.types";
 import { CarbonmarkApi } from "carbonmark-api/src/routes/projects/projects.types";
 import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
-import { Project, Purchase, User } from "lib/types/carbonmark";
+import { Purchase } from "lib/types/carbonmark";
 
 const getAllProjects = async () =>
   await fetcher<CarbonmarkApi.Get.Project[]>(`${urls.api.projects}`);
 
-const getProject = async (projectId: string): Promise<Project> =>
+const getProject = async (
+  projectId: string
+): Promise<CarbonmarkApi.GetById.Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);
 
 const getUser = async (params: {

@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, min } from "lodash";
+import { compact, concat, isNil, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
 import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
@@ -38,7 +38,7 @@ const handler = (fastify: FastifyInstance) =>
     const registry = registryParam.toUpperCase();
     const key = `${registry}-${registryProjectId}`;
 
-    const [[poolPrices, stats], [listings, activities], projectDetails] =
+    const [[poolPrices, stats], [listings, activities], cmsData] =
       await Promise.all([
         fetchPoolPricesAndStats({ key, vintage }),
         fetchMarketplaceListings({ key, vintage, fastify }),
@@ -47,7 +47,7 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
         }),
       ]);
-    if (!projectDetails) {
+    if (isNil(cmsData)) {
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();
     }
@@ -65,7 +65,7 @@ const handler = (fastify: FastifyInstance) =>
     )(poolPriceValues, listingPriceValues);
 
     const projectResponse = {
-      ...projectDetails,
+      ...cmsData,
       stats,
       prices: poolPrices,
       listings,
