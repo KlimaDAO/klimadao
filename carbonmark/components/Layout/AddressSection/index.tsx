@@ -1,7 +1,7 @@
-import { CopyAddressButton } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { CopyAddressButton } from "components/CopyAddressButton";
 import { Text } from "components/Text";
 import { FC } from "react";
 import * as styles from "./styles";

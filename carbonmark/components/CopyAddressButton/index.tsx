@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
-import { Check, ContentCopy } from "@mui/icons-material";
+import CheckIcon from "@mui/icons-material/Check";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { FC, useEffect, useState } from "react";
 
 import { ButtonBaseProps } from "@klimadao/lib/components";
@@ -28,13 +29,12 @@ export const CopyAddressButton: FC<Props> = (props) => {
   return (
     <ButtonPrimary
       /** Transparent by default */
-      variant={"transparent"}
+      variant="transparent"
       iconPos="suffix"
-      shape="circle"
-      {...props}
       className={className}
-      icon={copied ? <Check /> : <ContentCopy />}
+      icon={copied ? <CheckIcon /> : <ContentCopyIcon />}
       onClick={() => cachedAddress && doCopy(cachedAddress)}
+      {...props}
     />
   );
 };

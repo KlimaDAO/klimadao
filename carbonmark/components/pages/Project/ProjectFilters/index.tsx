@@ -1,4 +1,4 @@
-import { Close } from "@mui/icons-material";
+import Close from "@mui/icons-material/Close";
 import { Text } from "components/Text";
 import { useElementWidth } from "hooks/useElementWidth";
 import { FilterValues } from "hooks/useProjectsFilterParams";
