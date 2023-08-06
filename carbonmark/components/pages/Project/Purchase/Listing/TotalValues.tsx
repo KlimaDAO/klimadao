@@ -1,8 +1,10 @@
 import { cx } from "@emotion/css";
 import { formatUnits } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
-import { CARBONMARK_FEE } from "lib/constants";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
+import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
@@ -12,7 +14,6 @@ import { FC, useEffect } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
 import * as styles from "../styles";
 import { FormValues } from "./types";
-
 type TotalValuesProps = {
   singleUnitPrice: string;
   balance: string | null;
@@ -56,7 +57,22 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       </div>
 
       <div className={styles.totalsText}>
-        <Text color="lightest">{t`Price per tonne`}</Text>
+        <Text color="lightest" className={styles.textWithHelpIcon}>
+          {t`Price per tonne`}{" "}
+          <TextInfoTooltip
+            tippyProps={{ interactive: true }}
+            tooltip={
+              <Trans>
+                Price includes network fees.{" "}
+                <a target="_blank" href={urls.docsResourcesFees}>
+                  See docs to learn more.
+                </a>
+              </Trans>
+            }
+          >
+            <HelpOutline className={styles.helpIcon} />
+          </TextInfoTooltip>
+        </Text>
         <div className={cx(styles.iconAndText)}>
           <div className="icon">
             <Image
@@ -71,7 +87,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       </div>
 
       <div className={styles.totalsText}>
-        <Text className={styles.feeColor}>{t`Carbonmark fee`}</Text>
+        <Text>{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
           <div className="icon">
             <Image
@@ -81,9 +97,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
             />
           </div>
-          <Text t="h5" className={styles.feeColor}>
-            {formatToPrice(CARBONMARK_FEE, locale, false)}
-          </Text>
+          <Text t="h5">{formatToPrice(CARBONMARK_FEE, locale, false)}</Text>
         </div>
       </div>
 

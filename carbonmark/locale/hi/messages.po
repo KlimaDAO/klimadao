@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-01 08:25+0000\n"
+"POT-Creation-Date: 2023-08-05 03:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,12 +78,12 @@ msgstr "इस परियोजना/विंटेज संयोजन �
 msgid "Amount of credits that have been bridged from this project/vintage combination but not yet retired."
 msgstr "क्रेडिट की वह राशि जो इस प्रोजेक्ट/विंटेज संयोजन से पूरी कर ली गई है लेकिन अभी तक समाप्त नहीं हुई है।"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:52
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:120
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:53
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:85
 msgid "Amount to purchase"
 msgstr "खरीदने की राशि"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:159
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:135
 msgid "Amount to retire"
 msgstr "रिटायरमैंट की राशि"
 
@@ -97,7 +97,7 @@ msgstr "एसेट विवरण"
 msgid "Asset ID"
 msgstr "एसेट आईडी"
 
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:121
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:97
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr "इस समय कार्बनमार्क इससे अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता: {fiatBalance}"
 
@@ -229,9 +229,9 @@ msgstr "कार्बनमार्क का संक्षिप्त व
 msgid "Carbonmark doesn't charge an additional transaction fee and offers best-in-the-market pricing. Explore hundreds of verified carbon projects."
 msgstr "कार्बनमार्क कोई अतिरिक्त लेनदेन शुल्क नहीं लेता है और बाजार में सर्वोत्तम मूल्य निर्धारण प्रदान करता है। सैकड़ों सत्यापित कार्बन परियोजनाओं का अन्वेषण करें।"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:74
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:144
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:186
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:90
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:124
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:178
 msgid "Carbonmark fee"
 msgstr "कार्बनमार्क शुल्क"
 
@@ -268,7 +268,7 @@ msgstr "फ़िल्टर्स हटाएँ"
 
 #: components/pages/Users/ProfileHeader/index.tsx:38
 msgid "Click the 'create profile' button to customize this page and get started."
-msgstr ""
+msgstr "इस पृष्ठ को अनुकूलित करने और आरंभ करने के लिए 'प्रोफ़ाइल बनाएं' बटन पर क्लिक करें।"
 
 #: components/Dropdown/index.tsx:133
 msgid "Coming soon"
@@ -280,7 +280,7 @@ msgstr "सभी विक्रेताओं और ट्रेडिंग
 
 #: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
-msgstr ""
+msgstr "परिणाम कम्पाईल किए जा रहे हैं..."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -314,7 +314,7 @@ msgstr "देश"
 
 #: components/pages/Retire/FromPortfolio/index.tsx:100
 msgid "Create Carbonmark Profile"
-msgstr ""
+msgstr "कार्बनमार्क प्रोफ़ाइल बनाएं"
 
 #: components/pages/Users/SellerConnected/index.tsx:188
 msgid "Create New Listing"
@@ -350,14 +350,18 @@ msgstr "अपनी खुद की रिटयरमेंट बनाए�
 msgid "Created:"
 msgstr "बन गई:"
 
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:201
+msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
+msgstr ""
+
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr ""
+msgstr "वर्तमान में, कार्बनमार्क केवल पॉलीगॉन यूएसडीसी या क्रेडिट कार्ड से भुगतान स्वीकार करता है। <0>पॉलीगॉन पर यूएसडीसी प्राप्त करने का तरीका जानें।</0>"
 
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:145
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:146
 msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
-msgstr ""
+msgstr "वर्तमान में, कार्बनमार्क केवल पॉलीगॉन यूएसडीसी भुगतान स्वीकार करता है। <0>पॉलीगॉन पर यूएसडीसी प्राप्त करने का तरीका जानें।</0>"
 
 #: components/pages/Retire/Activity/Table.tsx:42
 msgid "DATE"
@@ -485,11 +489,6 @@ msgstr "सहायता"
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 msgstr "यहां शीघ्र और आसानी से रिटायर करने के लिए आसानी से उपलब्ध, रियायती कार्बन टोकन की एक सूची दी गई है।"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
-msgid "Hide Details"
-msgstr "विवरण छुपाओ"
-
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:91
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
 msgid "How many tonnes of carbon do you want to buy?"
@@ -524,11 +523,6 @@ msgstr "कार्बनमार्क का परिचय"
 msgid "KlimaDAO"
 msgstr "क्लीमाडाओ"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:231
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:284
-msgid "KlimaDAO Contracts"
-msgstr "क्लीमाडाओ अनुबंध"
-
 #: components/pages/Home/index.tsx:527
 msgid "KlimaDAO provides the transparent, neutral, and public infrastructure required to accelerate climate finance on a global scale."
 msgstr "क्लीमाडाओ वैश्विक स्तर पर जलवायु वित्त में तेजी लाने के लिए आवश्यक पारदर्शी, तटस्थ और सार्वजनिक बुनियादी ढाँचा प्रदान करता है।"
@@ -562,19 +556,14 @@ msgstr "बस कुछ ही क्लिक में बिक्री क
 msgid "Listings"
 msgstr "सूचियाँ"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:173
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
-msgid "Loading"
-msgstr "लोड हो रहा है"
-
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:67
 #: components/pages/Retire/FromPortfolio/index.tsx:66
 msgid "Loading your assets"
 msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
 #: components/SpinnerWithLabel/index.tsx:15
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:285
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:342
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:157
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:237
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 msgid "Loading..."
@@ -620,11 +609,6 @@ msgstr "कार्यप्रणाली"
 msgid "Moss"
 msgstr "Moss (मॉस)"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:161
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:205
-msgid "Network fees"
-msgstr "नेटवर्क शुल्क"
-
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
 msgstr "नयी मात्रा"
@@ -662,8 +646,8 @@ msgstr "एक भी सूचीयोग्य ऐसेट मौजूद �
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
-#: components/ProjectCard/index.tsx:58
-#: components/pages/Projects/index.tsx:127
+#: components/ProjectCard/index.tsx:60
+#: components/pages/Projects/index.tsx:129
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
@@ -713,6 +697,10 @@ msgstr "भुगतान यँत्र:"
 msgid "Payment Successful"
 msgstr "भुगतान सफल हुआ"
 
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:197
+msgid "Payment processing fee"
+msgstr ""
+
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
 msgstr "कृपया लॉगिन करें"
@@ -722,10 +710,6 @@ msgstr "कृपया लॉगिन करें"
 #: components/pages/Users/SellerConnected/index.tsx:146
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में गलती हुई: {e}।"
-
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:311
-msgid "Pool Redemption Fee"
-msgstr "पूल मोचन शुल्क"
 
 #: components/pages/Portfolio/index.tsx:66
 #: components/pages/Portfolio/index.tsx:67
@@ -748,9 +732,15 @@ msgstr "मूल्य उच्चतम"
 msgid "Price Lowest"
 msgstr "मूल्य न्यूनतम"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:59
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:127
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:166
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:65
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:147
+msgid "Price includes network fees. <0>See docs to learn more.</0>"
+msgstr ""
+
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:93
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
 msgid "Price per tonne"
 msgstr "कीमत प्रति टन"
 
@@ -900,11 +890,11 @@ msgstr "संसाधन | कार्बनमार्क"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Result"
-msgstr ""
+msgstr "परिणाम"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Results"
-msgstr ""
+msgstr "परिणाम"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1009,11 +999,6 @@ msgstr "अपना डिजिटल कार्बन सीधे खर�
 #: components/pages/Project/BuyOptions/SellerListing.tsx:59
 msgid "Seller Listing"
 msgstr "विक्रय सूचीकरण"
-
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:181
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:228
-msgid "Show Details"
-msgstr "विवरण देखें"
 
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
@@ -1142,8 +1127,8 @@ msgstr "आपका रिटयरमेंट डेटा प्राप्
 msgid "There was an error getting your total retirement data"
 msgstr "आपका कुल रिटयरमेंट डेटा प्राप्त करने में गड़बड़ी हुई"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:124
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:59
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:100
 msgid "There was an error loading the total cost."
 msgstr "कुल लागत लोड करने में गलती हुई थी."
 
@@ -1165,7 +1150,7 @@ msgstr "यह उत्पाद अभी भी बीटा चरण मे
 
 #: components/pages/Users/ProfileHeader/index.tsx:46
 msgid "This user has not yet created a carbonmark profile."
-msgstr ""
+msgstr "इस उपयोगकर्ता ने अभी तक कार्बनमार्क प्रोफ़ाइल नहीं बनाई है."
 
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
 msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
@@ -1193,13 +1178,13 @@ msgstr "टोकन आपको प्राप्त होगा"
 msgid "Tokens received:"
 msgstr "टोकन प्राप्त हुए:"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:54
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:55
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:72
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:122
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:87
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:131
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:161
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:137
 msgid "Tonnes"
 msgstr "टन"
 
@@ -1215,8 +1200,8 @@ msgstr "टन बिक्री"
 msgid "Total Cost is required"
 msgstr "कुल लागत आवश्यक है"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:156
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:50
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:132
 msgid "Total Price"
 msgstr "कुल कीमत"
 
@@ -1228,13 +1213,13 @@ msgstr "कुल रिटायरमेन्ट्स:"
 msgid "Total carbon tonnes retired"
 msgstr "कुल रिटायर किए गए कार्बन टन"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:93
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:269
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:324
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:107
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:141
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
 msgid "Total cost"
 msgstr "कुल लागत"
 
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:117
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
 msgid "Total price"
 msgstr "कुल कीमत"
 
@@ -1287,7 +1272,7 @@ msgstr "रजिस्ट्री विवरण देखें <0/>"
 
 #: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
-msgstr ""
+msgstr "परिणाम देखें"
 
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
@@ -1416,9 +1401,9 @@ msgstr "आपने सफलतापूर्वक कार्बन प्
 msgid "Your Wallet Address:"
 msgstr "आपका वॉलेट पता:"
 
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:119
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:297
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:355
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:133
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:169
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
 msgid "Your balance:"
 msgstr "आपका बैलेंस:"
 
@@ -1484,15 +1469,15 @@ msgstr "कोई वॉलेट कनेक्ट करें"
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
-#: lib/constants.ts:48
+#: lib/constants.ts:45
 msgid "connect_modal.error_message_default"
 msgstr "कनेक्शन में कुछ गड़बड़ी हो गई। कृपया पुन: प्रयास करें।"
 
-#: lib/constants.ts:52
+#: lib/constants.ts:49
 msgid "connect_modal.error_message_refused"
 msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
-#: lib/constants.ts:56
+#: lib/constants.ts:53
 msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
@@ -1628,7 +1613,7 @@ msgstr "रिटायरमेंट सन्देश"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:63
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "ग्रह का समर्थन करने के लिए धन्यवाद! <0>पॉलीगॉनस्कैन</0> पर लेनदेन देखें।"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
@@ -1638,12 +1623,12 @@ msgstr "पृथ्वी का समर्थन करने के लि�
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
-msgstr ""
+msgstr "आप की लेन-देन सफलतापूर्वक प्रोसेस हो गयी है लेकिन इन्डेक्स होने में सामान्य से अधिक समय लग रहा है। यह आपकी <0>रिटायरमैंट</0> में जल्द ही दिखाई देगा ।"
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
 msgid "offset.successModal.body4"
-msgstr ""
+msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉनस्कैन</0> पर देख सकते हैं।"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:349
 msgid "offset_disclaimer"
@@ -1671,7 +1656,7 @@ msgstr "आपकी प्रोफ़ाइल"
 
 #: components/pages/Users/ProfileHeader/index.tsx:54
 msgid "profile.edit_your_profile"
-msgstr ""
+msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें."
 
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:164
 msgid "profile.listing.delete.error"
@@ -1752,10 +1737,6 @@ msgstr "ख़रीद की पुष्टि करें"
 #: components/pages/Project/Purchase/Listing/PurchaseModal.tsx:91
 msgid "purchase.transaction.modal.title.processing"
 msgstr "विक्रय संपन्न करना"
-
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:256
-msgid "redemption Fee"
-msgstr "मोचन शुल्क"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:22
 msgid "resources.form.categories.header"

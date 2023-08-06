@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, mapValues, min, omit } from "lodash";
-import { split } from "lodash/fp";
+import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { fetchAllProjects } from "../../sanity/queries";
 import { getSanityClient } from "../../sanity/sanity";
@@ -9,7 +9,9 @@ import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
+import { GetProjectResponse } from "./projects.types";
 import {
+  buildProjectKey,
   composeCarbonmarkProject,
   composeOffsetProject,
   getDefaultQueryArgs,
@@ -124,8 +126,8 @@ const handler = (fastify: FastifyInstance) =>
       const [standard, code] = offset.projectID.split("-");
       const cmsProject = findProjectWithRegistryIdAndRegistry(
         projectsCmsData,
-        standard,
-        code
+        code,
+        standard
       );
 
       // Find the lowest price
@@ -136,12 +138,19 @@ const handler = (fastify: FastifyInstance) =>
       return composeOffsetProject(cmsProject, offset, lowestPrice);
     });
 
-    const filteredProjects = concat(projects, offsetProjects).filter(
-      ({ price }) => notNil(price) && parseFloat(price) > 0
-    );
+    const validProject = ({ price }: GetProjectResponse) =>
+      notNil(price) && parseFloat(price) > 0;
+
+    // Remove invalid projects and duplicates selecting the project with the lowest price
+    const filteredUniqueProjects = pipe(
+      concat,
+      filter(validProject),
+      sortBy("price"),
+      uniqBy(buildProjectKey)
+    )(projects, offsetProjects);
 
     // Send the transformed projects array as a JSON string in the response
-    return reply.send(JSON.stringify(filteredProjects));
+    return reply.send(JSON.stringify(filteredUniqueProjects));
   };
 
 export default async (fastify: FastifyInstance) => {
