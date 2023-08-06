@@ -12,9 +12,10 @@ export type PoolPrice = {
 
 const calculateSelectivePrice = (defaultPrice: number, poolName: string) => {
   const { feeAdd, fee } = POOL_INFO[poolName];
-  const priceNum = defaultPrice;
-  const feeAmount = feeAdd ? priceNum * fee : (1 / (1 - fee) - 1) * priceNum;
-  const priceWithFee = priceNum + feeAmount;
+  const feeAmount = feeAdd
+    ? defaultPrice * fee
+    : (1 / (1 - fee) - 1) * defaultPrice;
+  const priceWithFee = defaultPrice + feeAmount;
   return priceWithFee.toFixed(6);
 };
 

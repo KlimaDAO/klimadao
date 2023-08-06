@@ -69,7 +69,12 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
     fee: 0.0225,
     getRetirementPrice: (currentPoolPrice, projectTokenAddress) => {
-      throw new Error("Function not implemented.");
+      const retirementFee = 0.038;
+      return getPriceWithFee(
+        currentPoolPrice,
+        retirementFee,
+        projectTokenAddress
+      );
     },
     getRedemptionPrice: (currentPoolPrice, projectTokenAddress) => {
       throw new Error("Function not implemented.");
@@ -82,6 +87,17 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolName: "ubo",
     feeAdd: true, // C3 contracts: input the desired tonnage to redeem -> approve and spend that cost PLUS fee
     fee: 0.0225,
+    getRetirementPrice: (currentPoolPrice, projectTokenAddress) => {
+      const retirementFee = 0.038;
+      return getPriceWithFee(
+        currentPoolPrice,
+        retirementFee,
+        projectTokenAddress
+      );
+    },
+    getRedemptionPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
   },
   bct: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["bct"],
@@ -90,6 +106,12 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolName: "bct",
     feeAdd: false,
     fee: 0.25,
+    getRetirementPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
+    getRedemptionPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
   },
   nct: {
     defaultProjectTokenAddress: DEFAULT_POOL_PROJECT_TOKENS["nct"],
@@ -98,5 +120,21 @@ export const POOL_INFO: Record<string, PoolInfo> = {
     poolName: "nct",
     feeAdd: false, // Toucan contracts: fee is subtracted from whatever value you input
     fee: 0.1,
+    getRetirementPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
+    getRedemptionPrice: (currentPoolPrice, projectTokenAddress) => {
+      throw new Error("Function not implemented.");
+    },
   },
 };
+
+function getPriceWithFee(
+  currentPoolPrice: number,
+  fee: number,
+  projectTokenAddress?: string
+): number {
+  const feeAmount = currentPoolPrice * fee;
+  const priceWithFee = currentPoolPrice + feeAmount;
+  return priceWithFee;
+}
