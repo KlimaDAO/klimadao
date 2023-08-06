@@ -52,7 +52,6 @@ const config = {
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
-    // skipTypename: true,
   },
 };
 

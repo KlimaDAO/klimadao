@@ -1,17 +1,17 @@
 query getCarbonOffsetsCategories {
-  carbonOffsets {
+  carbonOffsets(first: 1000) {
     methodologyCategory
   }
 }
 
 query getCarbonOffsetsCountries {
-  carbonOffsets {
+  carbonOffsets(first: 1000) {
     country
   }
 }
 
 query getCarbonOffsetsVintages {
-  carbonOffsets {
+  carbonOffsets(first: 1000) {
     vintageYear
   }
 }
