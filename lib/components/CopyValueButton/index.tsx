@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
 import { Check, ContentCopy } from "@mui/icons-material";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { ButtonBaseProps, ButtonPrimary } from "@klimadao/lib/components";
 import { useCopyToClipboard } from "@klimadao/lib/hooks";

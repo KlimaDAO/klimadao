@@ -1,7 +1,7 @@
 import { cx } from "@emotion/css";
 import {
   ButtonPrimary,
-  CopyAddressButton,
+  CopyValueButton,
   Section,
   Spinner,
   Text,
@@ -272,7 +272,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
             />
             <FacebookButton />
             <LinkedInButton />
-            <CopyAddressButton variant="lightGray" shape="circle" />
+            <CopyValueButton variant="lightGray" shape="circle" />
           </div>
         </div>
       </Section>
@@ -292,7 +292,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
         className={cx(styles.section, styles.sectionButtons)}
       >
         <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="gray" />
+          <CopyValueButton label="Copy Link" variant="gray" />
           {!retirement.pending && retirement.transaction.id && (
             <ButtonPrimary
               href={`https://polygonscan.com/tx/${retirement.transaction.id}`}

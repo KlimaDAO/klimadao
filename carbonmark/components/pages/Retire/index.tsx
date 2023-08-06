@@ -1,8 +1,8 @@
 import { cx } from "@emotion/css";
+import { CopyValueButton } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
-import { CopyValueButton } from "components/CopyValueButton";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
