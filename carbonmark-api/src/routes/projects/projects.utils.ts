@@ -23,6 +23,10 @@ import {
  * via findProjects
  * @param fastify
  * @returns
+ *
+ * # @todo these "first:1000" will possibly miss results if there are more than 1000
+ * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
+ * # to return all possible values
  */
 export const getDefaultQueryArgs = async (
   fastify: FastifyInstance
@@ -33,6 +37,7 @@ export const getDefaultQueryArgs = async (
     getAllCountries(fastify).then(map(extract("id"))),
     getAllVintages(fastify),
   ]);
+
   return {
     category,
     country,

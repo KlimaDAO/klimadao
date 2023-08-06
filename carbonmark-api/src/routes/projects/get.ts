@@ -1,11 +1,14 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, curry, isNil, mapValues, min, omit } from "lodash";
-import { filter, pipe, split } from "lodash/fp";
+import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { extract, notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
+import { isListingActive } from "../../utils/marketplace.utils";
+import { GetProjectResponse } from "./projects.types";
 import {
+  buildProjectKey,
   composeCarbonmarkProject,
   composeOffsetProject,
   getDefaultQueryArgs,
@@ -14,8 +17,6 @@ import {
 
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { isMatchingCmsProject } from "../../utils/helpers/utils";
-import { isListingActive } from "../../utils/marketplace.utils";
-import { GetProjectResponse } from "./projects.types";
 
 const schema = {
   querystring: {
@@ -145,18 +146,19 @@ const handler = (fastify: FastifyInstance) =>
       return composeOffsetProject(cmsProject, offset, lowestPrice);
     });
 
-    // Check that the project should be displayed
     const validProject = ({ price }: GetProjectResponse) =>
       notNil(price) && parseFloat(price) > 0;
 
-    const filteredProjects = pipe(
+    // Remove invalid projects and duplicates selecting the project with the lowest price
+    const filteredUniqueProjects = pipe(
       concat,
-      compact,
-      filter(validProject)
+      filter(validProject),
+      sortBy("price"),
+      uniqBy(buildProjectKey)
     )(projects, offsetProjects);
 
     // Send the transformed projects array as a JSON string in the response
-    return reply.send(JSON.stringify(filteredProjects));
+    return reply.send(JSON.stringify(filteredUniqueProjects));
   };
 
 export default async (fastify: FastifyInstance) => {

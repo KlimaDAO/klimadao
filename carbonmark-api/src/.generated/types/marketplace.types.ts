@@ -1417,21 +1417,21 @@ export const ActivityFragmentFragmentDoc = gql`
     `;
 export const GetCategoriesDocument = gql`
     query getCategories {
-  categories {
+  categories(first: 1000) {
     id
   }
 }
     `;
 export const GetCountriesDocument = gql`
     query getCountries {
-  countries {
+  countries(first: 1000) {
     id
   }
 }
     `;
 export const GetVintagesDocument = gql`
     query getVintages {
-  projects {
+  projects(first: 1000) {
     vintage
   }
 }

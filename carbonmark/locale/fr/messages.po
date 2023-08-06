@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-03 15:36+0000\n"
+"POT-Creation-Date: 2023-08-06 23:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -280,7 +280,7 @@ msgstr "Comparez les prix de tous les vendeurs et pools d'échange"
 
 #: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
-msgstr ""
+msgstr "Compilation des résultats..."
 
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
@@ -352,7 +352,7 @@ msgstr "Créé :"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:201
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "Les paiements par carte de crédit entraînent des frais de traitement supplémentaires. <0>Voir la documentation pour en savoir plus.</0>"
 
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
@@ -699,7 +699,7 @@ msgstr "Paiement réussi"
 
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:197
 msgid "Payment processing fee"
-msgstr ""
+msgstr "Frais de traitement du paiement"
 
 #: components/LoginCard/index.tsx:21
 msgid "Please Log In"
@@ -736,7 +736,7 @@ msgstr "Prix le plus bas"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:147
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "Le prix comprend les frais de réseau. <0>Voir la documentation pour en savoir plus.</0>"
 
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:93
@@ -890,11 +890,11 @@ msgstr "Ressources | Carbonmark"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Result"
-msgstr ""
+msgstr "Résultat"
 
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Results"
-msgstr ""
+msgstr "Résultats"
 
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
@@ -1272,7 +1272,7 @@ msgstr "Voir les détails du registre <0/>"
 
 #: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
-msgstr ""
+msgstr "Voir les résultats"
 
 #: components/pages/Portfolio/index.tsx:68
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
@@ -1623,12 +1623,12 @@ msgstr "Merci de soutenir la planète !"
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
-msgstr ""
+msgstr "Votre transaction a été traitée avec succès, mais son indexation prend plus de temps que d'habitude. Elle apparaîtra bientôt dans vos <0>retraits</0>."
 
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
 msgid "offset.successModal.body4"
-msgstr ""
+msgstr "Vous pouvez dès à présent visualiser la transaction réussie sur <0>PolygonScan.</0>"
 
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:349
 msgid "offset_disclaimer"
