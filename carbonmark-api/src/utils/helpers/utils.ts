@@ -8,7 +8,7 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
-import { extract, notNil } from "../functional.utils";
+import { extract, notEmptyOrNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
@@ -37,7 +37,7 @@ export async function getAllVintages(
   projects.forEach((item) => uniqueValues.add(item.vintage));
   carbonOffsets.forEach((item) => uniqueValues.add(item.vintageYear));
 
-  const result = Array.from(uniqueValues).sort();
+  const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
 
   await fastify.lcache.set(cacheKey, { payload: result });
 
@@ -86,7 +86,8 @@ export async function getAllCategories(fastify: FastifyInstance) {
     map(trim),
     uniq,
     compact,
-    map((id: Category) => ({ id }))
+    map((id: Category) => ({ id })),
+    filter(notEmptyOrNil)
   );
 
   // Apply the function pipeline to the extracted values
@@ -122,7 +123,7 @@ export async function getAllCountries(fastify: FastifyInstance) {
     concat,
     flatten,
     uniq,
-    filter(notNil),
+    filter(notEmptyOrNil),
     map((id: Country) => ({ id }))
   );
 
