@@ -1,11 +1,10 @@
-import { Anchor as A } from "@klimadao/lib/components";
+import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { getImageSizes } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { CopyAddressButton } from "components/CopyAddressButton";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { urls as carbonmarkUrls } from "lib/constants";
@@ -123,7 +122,7 @@ export const ProjectDetails: FC<Props> = (props) => {
         </Trans>
       </Text>
       <div className={styles.buttons}>
-        <CopyAddressButton
+        <CopyValueButton
           shape="default"
           label="Copy Link"
           iconPos="prefix"
