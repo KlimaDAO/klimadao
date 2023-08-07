@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-07 15:36+0000\n"
+"POT-Creation-Date: 2023-08-07 23:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -303,6 +303,10 @@ msgstr "Kontakt"
 msgid "Continue"
 msgstr "Weiter"
 
+#: components/CopyAddressButton/index.tsx:36
+msgid "Copy"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:332
 msgid "Could not calculate Total Cost"
@@ -342,7 +346,7 @@ msgstr "Erstellen und bearbeiten Sie Einträge und protokollieren Sie Ihre Aktiv
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "Erstellen Sie Ihr eigenes CO2-Schaufenster. Verkaufen Sie direkt an Organisationen oder Einzelpersonen."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:67
 msgid "Create your own retirement"
 msgstr "Ihren eigenen CO2-Ausgleich erstellen"
 
@@ -404,11 +408,11 @@ msgstr "Anzeigename"
 msgid "Display name is required"
 msgstr "Anzeigename ist erforderlich"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Downloading ..."
 msgstr "Wird heruntergeladen ..."
 
@@ -531,7 +535,7 @@ msgstr "KlimaDAO bietet eine transparente, neutrale und öffentliche Infrastrukt
 msgid "Latest First"
 msgstr "Neueste Einträge zuerst"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:99
 msgid "Learn More"
 msgstr "Erfahren Sie mehr"
 
@@ -605,7 +609,7 @@ msgstr "Maximieren Sie Ihre positive Klimawirkung."
 msgid "Methodology"
 msgstr "Methodik"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "Moss"
 msgstr "Moss"
 
@@ -655,7 +659,7 @@ msgstr "Keine Projektbeschreibung gefunden"
 msgid "No retirement message provided."
 msgstr "Keine Nachricht an den CO2-Ausgleich angehängt."
 
-#: components/Layout/AddressSection/index.tsx:21
+#: components/Layout/AddressSection/index.tsx:26
 msgid "Not Connected"
 msgstr "Nicht verbunden"
 
@@ -1262,6 +1266,10 @@ msgstr "Benutzerprofil | Carbonmark"
 msgid "Verify all information is correct and click 'approve' to continue."
 msgstr "Verifizieren Sie die Korrektheit der Daten und klicken Sie auf \"Genehmigen\", um fortzufahren."
 
+#: components/ViewWalletButton/index.tsx:25
+msgid "View"
+msgstr ""
+
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
 msgstr "Carbonmark-Profil anzeigen"
@@ -1397,7 +1405,7 @@ msgstr "Sie haben Ihre verfügbare Menge an Tokens überschritten"
 msgid "You successfully acquired carbon!"
 msgstr "Sie haben erfolgreich digitales CO2 gekauft!"
 
-#: components/Layout/AddressSection/index.tsx:17
+#: components/Layout/AddressSection/index.tsx:22
 msgid "Your Wallet Address:"
 msgstr "Ihre Walletadresse"
 
@@ -1851,7 +1859,7 @@ msgstr "CO2-Credit-Ausgleich"
 msgid "retirement.single.country_region.title"
 msgstr "Land/Region:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:119
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Dies repräsentiert einen permanenten CO2-Ausgleich durch ein digitales CO2-Asset. Der Ausgleichsvorgang und alle damit verbundenen Daten werden unveränderbar und öffentlich zugänglich aufgezeichnet."
 
@@ -1863,15 +1871,15 @@ msgstr "Ausgleichsnachricht:"
 msgid "retirement.single.methodology.title"
 msgstr "Methodik:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
 msgstr "MCO2-Zertifikate entstehen durch Projekte, die den Amazonas-Regenwald schützen. Dies ermöglicht weitere positive externe Effekte, wie die Schaffung lokaler Arbeitsplätze und den Schutz der Biodiversität vor Ort. Entdecken Sie MCO2 auf <0>carbon.klimadao.finance</0>."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
 msgid "retirement.single.moss_offset.name"
 msgstr "Moss Earth MCO2"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:112
 msgid "retirement.single.official_certificate.title"
 msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0>Carbonmark.com</0>"
 
@@ -1879,15 +1887,15 @@ msgstr "Offizielles Zertifikat für On-Chain-CO2-Ausgleich bereitgestellt von <0
 msgid "retirement.single.project.title"
 msgstr "Projekt:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
 msgid "retirement.single.project_description.title"
 msgstr "Beschreibung"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.project_details.title"
 msgstr "Projektinformationen"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
 msgid "retirement.single.project_name.title"
 msgstr "Projektname"
 
@@ -1899,7 +1907,7 @@ msgstr "Beweis für"
 msgid "retirement.single.quantity.title"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:29
 msgid "retirement.single.share_retirement.title"
 msgstr "Diesen Ausgleich teilen"
 
@@ -1927,7 +1935,7 @@ msgstr "Typ:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Verifizierte CO2-Tonnen ausgeglichen"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:138
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
