@@ -11,6 +11,7 @@ import { loadOrCreateRetire } from './utils/Retire'
 import { MCO2 as pMCO2 } from './utils/pool_token/impl/MCO2'
 import { MCO2 as cMCO2 } from './utils/carbon_token/impl/MCO2'
 import { CarbonMetricUtils } from './utils/CarbonMetrics'
+import { MCO2_ERC20_CONTRACT } from './utils/Constants'
 
 export function handleTransfer(event: Transfer): void {
   let transaction = loadOrCreateTransaction(event.transaction, event.block)
@@ -58,7 +59,7 @@ export function handleRetire(event: Offset): void {
   let transaction = loadOrCreateTransaction(event.transaction, event.block)
   let offsetERC20 = ERC20.bind(event.address)
 
-  let carbonOffset = loadOrCreateCarbonOffset(transaction, event.address, 'Moss', 'Verra')
+  let carbonOffset = loadOrCreateCarbonOffset(transaction, Address.fromString(MCO2_ERC20_CONTRACT), 'Moss', 'Verra')
 
   let retire = loadOrCreateRetire(carbonOffset, transaction)
   retire.value = toDecimal(event.params.amount, 18)
@@ -84,4 +85,5 @@ export function handleRetire(event: Offset): void {
   }
 
   retire.save()
+  carbonOffset.save()
 }
