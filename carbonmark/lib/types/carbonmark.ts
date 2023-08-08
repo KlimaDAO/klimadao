@@ -21,13 +21,11 @@ export interface Project {
   country: string | null;
   activities: ProjectActivity[] | null;
   updatedAt: string; // timestamp
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
+  // Updated to GEOPOINT type https://www.sanity.io/docs/geopoint-type
+  geolocation?: {
+    lat: number;
+    lng: number;
+    alt?: number;
   };
   description?: string;
   short_description?: string;

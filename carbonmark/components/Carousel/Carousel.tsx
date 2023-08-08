@@ -13,7 +13,7 @@ import * as styles from "./styles";
 type CarouselProps = {
   images: Array<CarouselImage>;
   options?: EmblaOptionsType;
-  location?: Project["location"];
+  geolocation?: Project["geolocation"];
 };
 
 const Carousel: React.FC<CarouselProps> = (props) => {
@@ -61,7 +61,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   }, [mainApi, onSelect]);
 
   useEffect(() => {
-    if (props.location) {
+    if (props.geolocation) {
       const images = [...props.images];
       images.unshift({
         url: "/map-thumbnail.png",
@@ -69,7 +69,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       });
       setImages(images);
     }
-  }, [props.location, props.images]);
+  }, [props.geolocation, props.images]);
 
   return (
     <div className={styles.carousel}>
@@ -77,11 +77,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         <div className={styles.container}>
           {images?.map((image: CarouselImage, index: number) => (
             <div className={styles.slide} key={`slide-${index}`}>
-              {props.location && index === 0 ? (
+              {props.geolocation && index === 0 ? (
                 <ProjectMap
                   zoom={5}
-                  lat={props.location?.geometry.coordinates[1]}
-                  lng={props.location?.geometry.coordinates[0]}
+                  lat={props.geolocation.lat}
+                  lng={props.geolocation.lng}
                 />
               ) : (
                 <>
