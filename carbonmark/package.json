@@ -5,7 +5,7 @@
     "dev": "next dev -p 3002",
     "build": "prettier --check . && npm run lingui:compile && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && tsc --noEmit && prettier --check .",
     "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
