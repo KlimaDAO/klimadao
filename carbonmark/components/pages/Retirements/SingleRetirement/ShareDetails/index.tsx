@@ -1,9 +1,8 @@
-import { Anchor as A } from "@klimadao/lib/components";
+import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { CopyAddressButton } from "components/CopyAddressButton";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
 import { Spinner } from "components/shared/Spinner";
@@ -60,7 +59,7 @@ export const ShareDetails: FC<Props> = (props) => {
             />
             <FacebookButton />
             <LinkedInButton />
-            <CopyAddressButton />
+            <CopyValueButton />
           </div>
         </div>
       </div>

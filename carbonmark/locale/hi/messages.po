@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-06 23:41+0000\n"
+"POT-Creation-Date: 2023-08-07 23:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -303,6 +303,10 @@ msgstr "संपर्क करें"
 msgid "Continue"
 msgstr "जारी रखें"
 
+#: components/CopyAddressButton/index.tsx:36
+msgid "Copy"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:332
 msgid "Could not calculate Total Cost"
@@ -342,7 +346,7 @@ msgstr "सूची बनाएँ और संपादित करें, 
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "अपना खुद का कार्बन स्टोरफ्रंट बनाएं। संगठनों और व्यक्तियों को समान रूप से सीधा बेचें।"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:67
 msgid "Create your own retirement"
 msgstr "अपनी खुद की रिटयरमेंट बनाएँ"
 
@@ -404,11 +408,11 @@ msgstr "प्रदर्शित नाम"
 msgid "Display name is required"
 msgstr "प्रदर्शित नाम आवश्यक है"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Download PDF"
 msgstr "PDF (पीडीएफ़) डाउनलोड करें"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Downloading ..."
 msgstr "डाउनलोड हो रहा है..."
 
@@ -531,7 +535,7 @@ msgstr "क्लीमाडाओ वैश्विक स्तर पर �
 msgid "Latest First"
 msgstr "नवीनतम पहले"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:99
 msgid "Learn More"
 msgstr "और जानें"
 
@@ -605,7 +609,7 @@ msgstr "अपने जलवायु प्रभाव को अधिक�
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "Moss"
 msgstr "Moss (मॉस)"
 
@@ -655,7 +659,7 @@ msgstr "कोई प्रॉजेक्ट विवरण मौजूद �
 msgid "No retirement message provided."
 msgstr "कोई रिटायरमेंट संदेश प्रदान नहीं किया गया"
 
-#: components/Layout/AddressSection/index.tsx:21
+#: components/Layout/AddressSection/index.tsx:26
 msgid "Not Connected"
 msgstr "कनेक्शन नहीं है"
 
@@ -1262,6 +1266,10 @@ msgstr "यूज़र प्रोफ़ाइल | कार्बनमार्�
 msgid "Verify all information is correct and click 'approve' to continue."
 msgstr "सत्यापित करें कि संपूर्ण जानकारी सही है और आगे बढ़ने के लिए 'मंज़ूरी दें' पर क्लिक करें।"
 
+#: components/ViewWalletButton/index.tsx:25
+msgid "View"
+msgstr ""
+
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
@@ -1397,7 +1405,7 @@ msgstr "आपने टोकन की अपनी उपलब्ध रा�
 msgid "You successfully acquired carbon!"
 msgstr "आपने सफलतापूर्वक कार्बन प्राप्त कर लिया!"
 
-#: components/Layout/AddressSection/index.tsx:17
+#: components/Layout/AddressSection/index.tsx:22
 msgid "Your Wallet Address:"
 msgstr "आपका वॉलेट पता:"
 
@@ -1851,7 +1859,7 @@ msgstr "कार्बन क्रेडिट रिटायरमेंट"
 msgid "retirement.single.country_region.title"
 msgstr "देश/क्षेत्र:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:119
 msgid "retirement.single.immutable_public_records.title"
 msgstr "यह एक डिजिटल कार्बन संपत्ति की स्थायी रिटायरमैंट का प्रतिनिधित्व करता है। यह रिटायरमैंट और संबद्ध डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
@@ -1863,15 +1871,15 @@ msgstr "रिटायरमेंट संदेश:"
 msgid "retirement.single.methodology.title"
 msgstr "कार्यप्रणाली:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
 msgstr "MC02 क्रेडिट उन परियोजनाओं द्वारा उत्पन्न होते हैं जो एमेज़ोन वन को संरक्षित करते हैं, जिसमें स्थानीय नौकरियों के निर्माण और स्थानीय जैव विविधता के संरक्षण जैसी सभी प्रकार की सकारात्मक बाहरी चीजें शामिल होती हैं। <0>carbon.klimadao.finance</0> पर MCO2 का अन्वेषण करें."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
 msgid "retirement.single.moss_offset.name"
 msgstr "MOSS अर्थ MC02"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:112
 msgid "retirement.single.official_certificate.title"
 msgstr "<0>Carbonmark.com द्वारा प्रदान किया गया ऑन-चेन कार्बन रिटायरमेंट का आधिकारिक प्रमाणपत्र</0>"
 
@@ -1879,15 +1887,15 @@ msgstr "<0>Carbonmark.com द्वारा प्रदान किया ग
 msgid "retirement.single.project.title"
 msgstr "प्रॉजेक्ट:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
 msgid "retirement.single.project_description.title"
 msgstr "विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.project_details.title"
 msgstr "प्रॉजेक्ट का विवरण"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
 msgid "retirement.single.project_name.title"
 msgstr "परियोजना का नाम"
 
@@ -1899,7 +1907,7 @@ msgstr "सबूत"
 msgid "retirement.single.quantity.title"
 msgstr "रिटायर की गयी मात्रा"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:29
 msgid "retirement.single.share_retirement.title"
 msgstr "इस रिटायरमेंट को साझा करें"
 
@@ -1927,7 +1935,7 @@ msgstr "प्रकार:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr " कार्बन के सत्यापित रिटायर्ड टन"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:138
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
 
