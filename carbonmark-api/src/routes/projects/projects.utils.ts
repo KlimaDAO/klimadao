@@ -130,6 +130,7 @@ export const composeOffsetProject = (
   projectID: offset.projectID.split("-")[1],
   name: cmsData ? cmsData.name : offset.name,
   methodologies: cmsData ? cmsData.methodologies : [],
+  location: cmsData?.geolocation,
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],

@@ -148,7 +148,6 @@ const handler = (fastify: FastifyInstance) =>
       sortBy("price"),
       uniqBy(buildProjectKey)
     )(projects, offsetProjects);
-
     // Send the transformed projects array as a JSON string in the response
     return reply.send(JSON.stringify(filteredUniqueProjects));
   };

@@ -35,5 +35,12 @@ export const fetchAllProjects = `
     "projectContent": *[references(^._id)]{
       shortDescription,
       longDescription
-    }[0]
+    }[0],
+    "geolocation": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [geolocation.lng, geolocation.lat]
+      }
+    }
   }`;
