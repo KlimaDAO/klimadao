@@ -1,7 +1,7 @@
 // purchases.ts
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
-import { gqlSdk } from "../utils/gqlSdk";
+import { gqlSdk } from "src/utils/gqlSdk";
 
 interface Params {
   id: string;

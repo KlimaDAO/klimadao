@@ -2,13 +2,13 @@ import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
+import { extract, notNil } from "src/utils/functional.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
-import { extract, notNil } from "../../utils/functional.utils";
 import {
   getAllCategories,
   getAllCountries,
   getAllVintages,
-} from "../../utils/helpers/utils";
+} from "src/utils/helpers/utils";
 import { POOL_INFO } from "./projects.constants";
 import {
   FindQueryOffset,

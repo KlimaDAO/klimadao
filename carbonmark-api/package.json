@@ -4,13 +4,14 @@
   "description": "An API for exploring Carbonmark project data, prices and activity.",
   "main": "app.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
-    "dev": "tsnd --respawn --transpile-only --exit-child src/server.ts --port 3003",
+    "build": "rm -rf ./dist && tsc --build && tsc-alias",
+    "dev": "tsnd --respawn --transpile-only --exit-child -r tsconfig-paths/register src/server.ts --port 3003",
     "test": "jest --coverage",
     "lint": "eslint . --ext .ts",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
     "test:postman": "npm:start:test && ./postman_tests.sh",
-    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts"
+    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts",
+    "postinstall": "tsc && tsc-alias"
   },
   "keywords": [],
   "author": "",
@@ -67,6 +68,8 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^1.1.8",
+    "tsc-alias": "^1.8.7",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5"
   }
 }

@@ -1,16 +1,16 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, map, merge } from "lodash";
 import { assign, get, toUpper } from "lodash/fp";
-import { Holding } from "../../.generated/types/assets.types";
-import { Activity, Listing } from "../../.generated/types/marketplace.types";
-import { selector } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
-import { formatActivity } from "../../utils/helpers/activities.utils";
+import { Holding } from "src/.generated/types/assets.types";
+import { Activity, Listing } from "src/.generated/types/marketplace.types";
+import { selector } from "src/utils/functional.utils";
+import { gqlSdk } from "src/utils/gqlSdk";
+import { formatActivity } from "src/utils/helpers/activities.utils";
 import {
   getUserDocumentByHandle,
   getUserDocumentByWallet,
   getUserDocumentsByIds,
-} from "../../utils/helpers/users.utils";
+} from "src/utils/helpers/users.utils";
 interface Params {
   walletOrHandle: string;
 }

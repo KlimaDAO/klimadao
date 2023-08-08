@@ -1,9 +1,9 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { aProject } from "../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
-import { build } from "../helper";
-import { DEV_URL } from "../test.constants";
+import { aProject } from "src/.generated/mocks/marketplace.mocks";
+import { GRAPH_URLS } from "src/constants/graphs.constants";
+import { build } from "test/helper";
+import { DEV_URL } from "test/test.constants";
 import { ERROR } from "./routes.mock";
 
 describe("GET /vintages", () => {

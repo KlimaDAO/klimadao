@@ -1,14 +1,14 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, mapValues, min, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
-import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { fetchAllProjects } from "../../sanity/queries";
-import { getSanityClient } from "../../sanity/sanity";
-import { extract, notNil } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
-import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
-import { isListingActive } from "../../utils/marketplace.utils";
+import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
+import { fetchAllProjects } from "src/sanity/queries";
+import { getSanityClient } from "src/sanity/sanity";
+import { extract, notNil } from "src/utils/functional.utils";
+import { gqlSdk } from "src/utils/gqlSdk";
+import { fetchAllPoolPrices } from "src/utils/helpers/fetchAllPoolPrices";
+import { findProjectWithRegistryIdAndRegistry } from "src/utils/helpers/utils";
+import { isListingActive } from "src/utils/marketplace.utils";
 import { GetProjectResponse } from "./projects.types";
 import {
   buildProjectKey,

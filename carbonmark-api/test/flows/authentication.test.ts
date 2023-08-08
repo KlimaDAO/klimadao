@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { FastifyInstance } from "fastify";
-import { build } from "../helper";
-import { DEV_URL } from "../test.constants";
+import { build } from "test/helper";
+import { DEV_URL } from "test/test.constants";
 
 // The private key of the account to sign the message with
 const MOCK_PRIVATE_KEY =

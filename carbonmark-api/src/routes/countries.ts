@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { FastifyInstance, RouteHandler } from "fastify";
-import { getAllCountries } from "../utils/helpers/utils";
+import { getAllCountries } from "src/utils/helpers/utils";
 
 export const Country = Type.Object({
   id: Type.String(),

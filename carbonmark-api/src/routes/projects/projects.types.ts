@@ -1,5 +1,6 @@
 // export type PoolProject = Project & CarbonOffset;
 
+import { Nullable } from "#lib/utils/typescript.utils";
 import {
   Activity,
   Category,
@@ -7,7 +8,6 @@ import {
   FindProjectsQuery,
 } from "src/.generated/types/marketplace.types";
 import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
-import { Nullable } from "../../../../lib/utils/typescript.utils";
 
 /** The specific CarbonOffset type from the find findCarbonOffsets query*/
 export type FindQueryOffset = FindCarbonOffsetsQuery["carbonOffsets"][number];

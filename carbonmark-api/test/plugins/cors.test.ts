@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import cors from "../../src/plugins/cors";
+import cors from "src/plugins/cors";
 
 describe("CORS", () => {
   const fastify = Fastify();

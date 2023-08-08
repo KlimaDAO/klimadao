@@ -1,4 +1,4 @@
-import { GRAPH_URLS } from "../constants/graphs.constants";
+import { GRAPH_URLS } from "src/constants/graphs.constants";
 
 const GENERATED_DIR = "src/.generated/types";
 const GENERATED_MOCKS_DIR = "src/.generated/mocks";
@@ -35,7 +35,7 @@ const generates = Object.entries(schema).reduce(
         },
         {
           "typescript-mock-data": {
-            typesFile: `../types/${key}.types.ts`,
+            typesFile: `src/types/${key}.types.ts`,
             typeNames: "change-case-all#pascalCase",
             transformUnderscore: false,
             terminateCircularRelationships: true,

@@ -6,7 +6,7 @@ import {
   Listing,
   User,
 } from "src/.generated/types/marketplace.types";
-import { gqlSdk } from "../gqlSdk";
+import { gqlSdk } from "src/utils/gqlSdk";
 
 type WithHandle<T> = T & { handle?: string };
 

@@ -1,8 +1,8 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
-import { build } from "../helper";
-import { DEV_URL } from "../test.constants";
+import { GRAPH_URLS } from "src/constants/graphs.constants";
+import { build } from "test/helper";
+import { DEV_URL } from "test/test.constants";
 import { COUNTRIES, ERROR } from "./routes.mock";
 
 describe("GET /countries", () => {

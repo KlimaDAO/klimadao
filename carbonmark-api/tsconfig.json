@@ -6,7 +6,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "useUnknownInCatchVariables": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "#lib/*": ["../lib/*"],
+      "src/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts"]
 }
