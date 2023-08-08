@@ -2,25 +2,22 @@ import { cx } from "@emotion/css";
 import { Check, ContentCopy } from "@mui/icons-material";
 import React, { FC, useEffect, useState } from "react";
 
-import { ButtonPrimary } from "../";
-import { useCopyToClipboard } from "../../hooks";
-import { ButtonBaseProps } from "../Buttons/ButtonBase";
+import { ButtonBaseProps, ButtonPrimary } from "@klimadao/lib/components";
+import { useCopyToClipboard } from "@klimadao/lib/hooks";
 import * as styles from "./styles";
 
 type Props = {
-  address?: string;
+  value?: string;
 } & ButtonBaseProps;
 
-export const CopyAddressButton: FC<Props> = (props) => {
-  const [cachedAddress, setAddress] = useState<string | undefined>(
-    props.address
-  );
+export const CopyValueButton: FC<Props> = (props) => {
+  const [cachedValue, setValue] = useState<string | undefined>(props.value);
   const [copied, doCopy] = useCopyToClipboard();
 
   // get parameters on the client because
   // url can be undefined and window is undefined on server
   useEffect(() => {
-    if (!props.address) setAddress(window.location.href);
+    if (!props.value) setValue(window.location.href);
   }, []);
 
   const className = cx(styles.copyButton, props.className);
@@ -32,7 +29,7 @@ export const CopyAddressButton: FC<Props> = (props) => {
       {...props}
       className={className}
       icon={copied ? <Check /> : <ContentCopy />}
-      onClick={() => cachedAddress && doCopy(cachedAddress)}
+      onClick={() => cachedValue && doCopy(cachedValue)}
       iconPos="suffix"
     />
   );

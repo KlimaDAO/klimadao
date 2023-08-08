@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-07 15:36+0000\n"
+"POT-Creation-Date: 2023-08-07 23:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -303,6 +303,10 @@ msgstr "Связаться"
 msgid "Continue"
 msgstr "Продолжить"
 
+#: components/CopyAddressButton/index.tsx:36
+msgid "Copy"
+msgstr ""
+
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:332
 msgid "Could not calculate Total Cost"
@@ -342,7 +346,7 @@ msgstr "Создавайте и редактируйте объявления, �
 msgid "Create your own carbon storefront. Sell directly to organizations and individuals alike."
 msgstr "Создайте собственный дашборд углеродных продуктов. Продавайте напрямую как организациям, так и частным лицам."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:68
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:67
 msgid "Create your own retirement"
 msgstr "Создайте свою собственную замену"
 
@@ -404,11 +408,11 @@ msgstr "Отображаемое имя"
 msgid "Display name is required"
 msgstr "Укажите отображаемое имя."
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Download PDF"
 msgstr "Скачать PDF"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:36
 msgid "Downloading ..."
 msgstr "Загрузка ..."
 
@@ -531,7 +535,7 @@ msgstr "KlimaDAO обеспечивает прозрачную, нейтраль
 msgid "Latest First"
 msgstr "Последние Первые"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:100
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:99
 msgid "Learn More"
 msgstr "Узнать больше"
 
@@ -605,7 +609,7 @@ msgstr "Максимизируйте свое воздействие на кли
 msgid "Methodology"
 msgstr "Методология"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:41
 msgid "Moss"
 msgstr "Moss "
 
@@ -655,7 +659,7 @@ msgstr "Описание проекта не найдено"
 msgid "No retirement message provided."
 msgstr "Сообщение о выводе не предоставляется."
 
-#: components/Layout/AddressSection/index.tsx:21
+#: components/Layout/AddressSection/index.tsx:26
 msgid "Not Connected"
 msgstr "Не подключен"
 
@@ -1262,6 +1266,10 @@ msgstr "Профиль пользователя | Carbonmark"
 msgid "Verify all information is correct and click 'approve' to continue."
 msgstr "Убедитесь, что вся информация верна, и нажмите кнопку \"Одобрить\", чтобы продолжить."
 
+#: components/ViewWalletButton/index.tsx:25
+msgid "View"
+msgstr ""
+
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
 msgid "View Carbonmark Profile"
 msgstr "Посмотреть профиль Carbonmark"
@@ -1397,7 +1405,7 @@ msgstr "Вы превысили доступное количество токе
 msgid "You successfully acquired carbon!"
 msgstr "Вы успешно приобрели углерод!"
 
-#: components/Layout/AddressSection/index.tsx:17
+#: components/Layout/AddressSection/index.tsx:22
 msgid "Your Wallet Address:"
 msgstr "Адрес вашего кошелька:"
 
@@ -1851,7 +1859,7 @@ msgstr "Выбивание по углеродному кредиту"
 msgid "retirement.single.country_region.title"
 msgstr "Страна/регион:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:119
 msgid "retirement.single.immutable_public_records.title"
 msgstr "Это представляет собой окончательное выбытие цифрового углеродного актива. Это выбивание и связанные с ним данные являются неизменяемыми общедоступными записями."
 
@@ -1863,17 +1871,17 @@ msgstr "Сообщение о выбивании"
 msgid "retirement.single.methodology.title"
 msgstr "Методология:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:76
 msgid "retirement.single.moss_offset.description"
 msgstr "Кредиты MC02 генерируются проектами, которые сохраняют лес Амазонки, со всеми видами положительных внешних эффектов, таких как создание местных рабочих мест и сохранение местного биоразнообразия. Узнайте больше о MCO2 на <0>carbon.klimadao.finance</0> ."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
 msgid "retirement.single.moss_offset.name"
 msgstr ""
 "MOSS Earth MC02\n"
 ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:112
 msgid "retirement.single.official_certificate.title"
 msgstr "Официальный сертификат об отказе от использования углерода в сети, предоставленный <0>Carbonmark.com</0>"
 
@@ -1881,15 +1889,15 @@ msgstr "Официальный сертификат об отказе от ис�
 msgid "retirement.single.project.title"
 msgstr "Проект:"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:70
 msgid "retirement.single.project_description.title"
 msgstr "Описание"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.project_details.title"
 msgstr "Детали проекта"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:54
 msgid "retirement.single.project_name.title"
 msgstr "Название проекта"
 
@@ -1901,7 +1909,7 @@ msgstr "Доказательство"
 msgid "retirement.single.quantity.title"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ"
 
-#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/ShareDetails/index.tsx:29
 msgid "retirement.single.share_retirement.title"
 msgstr "Поделитесь этим выбиванием"
 
@@ -1929,7 +1937,7 @@ msgstr "Тип:"
 msgid "retirement.single.verified_tonnes.title"
 msgstr "Подтвержденные тонны отмененного углерода"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:138
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
