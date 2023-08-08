@@ -1,6 +1,7 @@
 import { Address } from '@graphprotocol/graph-ts'
 
 import { ERC20, Transfer } from '../generated/MossCarbon/ERC20'
+import { Offset } from '../generated/MossInventory/MossCarbonInventoryControl'
 
 import { toDecimal } from '../../lib/utils/Decimals'
 import { loadOrCreateCarbonOffset } from './utils/CarbonOffsets'
@@ -50,4 +51,37 @@ export function handleTransfer(event: Transfer): void {
   carbonOffset.save()
 
   CarbonMetricUtils.updatePoolTokenSupply(new pMCO2(event.address), event.block.timestamp)
+}
+
+// Add in details from the MossOffset event
+export function handleRetire(event: Offset): void {
+  let transaction = loadOrCreateTransaction(event.transaction, event.block)
+  let offsetERC20 = ERC20.bind(event.address)
+
+  let carbonOffset = loadOrCreateCarbonOffset(transaction, event.address, 'Moss', 'Verra')
+
+  let retire = loadOrCreateRetire(carbonOffset, transaction)
+  retire.value = toDecimal(event.params.amount, 18)
+
+  let receiptId = event.params.receiptId
+  let onBehalfOf = event.params.onBehalfOf
+
+  // Moss has changed how they record retirements details over time
+  // In some cases, receiptId contains the name of a client/campaign,
+  // and onBehalfOf is blank
+  //
+  // In other cases, onBehalfOf is blank, receiptID contains a non-transaction unique ID
+  // 
+  // Finally, sometimes onBehalfOf specifies a beneficiary and receiptID has
+  // a full transaction hash in it
+  //
+  // To capture all these, we combine the two fields with some logic
+  if (receiptId != '' && onBehalfOf != '') {
+    retire.beneficiary = onBehalfOf + ' ' + receiptId
+  }
+  else {
+    retire.beneficiary = receiptId
+  }
+
+  retire.save()
 }

@@ -25,6 +25,26 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
   - kind: ethereum/contract
+    name: MossInventory
+    network: mainnet
+    source:
+      address: '0xdcf28c0E90E375098E9eDEC758078c4586421DAf'
+      abi: MossCarbonInventoryControl
+      startBlock: 10959600
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/MossCarbon.ts
+      entities:
+        - MossCarbon
+      abis:
+        - name: MossCarbonInventoryControl
+          file: ../lib/abis/MossCarbonInventoryControl.json
+      eventHandlers:
+        - event: Offset(indexed address,uint256,string,string)
+          handler: handleRetire
+  - kind: ethereum/contract
     name: MossBatch
     network: mainnet
     source:
