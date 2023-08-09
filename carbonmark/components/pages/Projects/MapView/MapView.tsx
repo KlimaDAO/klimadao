@@ -12,15 +12,13 @@ import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect, useRef } from "react";
 import { SWRConfig } from "swr";
 import ProjectsController from "../ProjectsController";
-import CarbonmarkMap from "./carbonmark-map";
 import * as styles from "./MapView.styles";
+import CarbonmarkMap from "./carbonmark-map";
 
 export const Page = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<CarbonmarkMap | null>(null);
   const { projects } = useFetchProjects();
-
-  console.log(projects);
 
   // Assuming `projects` is your array of data
   const fn = pipe(mapFn(get("location")), compact);
