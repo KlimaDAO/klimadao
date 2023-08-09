@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const mapBox = css`
   height: 100vh;
@@ -35,13 +36,15 @@ export const placeholder = css`
 `;
 
 export const controller = css`
-  padding: 4rem;
-  grid-column: full;
   width: 100%;
   position: absolute;
   z-index: 1;
-  top: 0;
+  padding: 1.5rem;
   > * {
     margin-bottom: 1rem;
+  }
+  ${breakpoints.desktop} {
+    grid-column: full;
+    padding: 4rem;
   }
 `;
