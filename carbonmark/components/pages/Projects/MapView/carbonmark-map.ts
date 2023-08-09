@@ -60,7 +60,7 @@ class CarbonmarkMap extends mapboxgl.Map {
       const coords = cluster.geometry.coordinates as [number, number];
       const isCluster = cluster?.properties?.cluster;
       if (isCluster) {
-        this.addCluster(coords, cluster.properties.point_count);
+        this.addCluster(cluster);
       } else {
         this.addMarker(coords);
       }
@@ -78,14 +78,20 @@ class CarbonmarkMap extends mapboxgl.Map {
     });
   }
 
-  addCluster(coords: [number, number], points: number) {
+  addCluster(cluster: Supercluster.ClusterFeature<Supercluster.AnyProps>) {
+    const coords = cluster.geometry.coordinates as [number, number];
+    const points = cluster.properties.point_count;
+    const clusterId = cluster.properties.cluster_id;
+
     const el = document.createElement("div");
     el.addEventListener("click", () => {
+      const clusterZoom = this.clusterer.getClusterExpansionZoom(clusterId);
       this.flyTo({
         center: coords,
-        zoom: this.getZoom() + 2, // adjust zoom level as needed
+        zoom: clusterZoom, // adjust zoom level as needed
       });
     });
+
     el.innerHTML = `<h3 class="cluster">${points}</h3>`;
     this.addMarker(coords, { el });
   }
