@@ -45,6 +45,8 @@ class CarbonmarkMap extends mapboxgl.Map {
       .addTo(this);
 
     this.markers.push(marker);
+
+    return marker;
   }
 
   renderMarkers() {
@@ -78,6 +80,12 @@ class CarbonmarkMap extends mapboxgl.Map {
 
   addCluster(coords: [number, number], points: number) {
     const el = document.createElement("div");
+    el.addEventListener("click", () => {
+      this.flyTo({
+        center: coords,
+        zoom: this.getZoom() + 2, // adjust zoom level as needed
+      });
+    });
     el.innerHTML = `<h3 class="cluster">${points}</h3>`;
     this.addMarker(coords, { el });
   }
