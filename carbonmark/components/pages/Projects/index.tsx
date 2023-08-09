@@ -1,28 +1,16 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
-import AppsIcon from "@mui/icons-material/Apps";
-import PublicIcon from "@mui/icons-material/Public";
 import { Category } from "components/Category";
-import { Dropdown } from "components/Dropdown";
 import { Layout } from "components/Layout";
-import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
-import {
-  PROJECT_SORT_FNS,
-  PROJECT_SORT_OPTIONS,
-} from "components/ProjectFilterModal/constants";
+import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { ProjectImage } from "components/ProjectImage";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { Toggle } from "components/Toggle";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
-import {
-  FilterValues,
-  SortOption,
-  useProjectsFilterParams,
-} from "hooks/useProjectsFilterParams";
+import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
@@ -33,23 +21,18 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
-import { useEffect, useState } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useState } from "react";
 import { SWRConfig } from "swr";
-import { ProjectFilters } from "../Project/ProjectFilters";
-import { ProjectsController } from "../Project/ProjectsController";
+import ProjectsController from "./ProjectsController";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
   const router = useRouter();
-  const { sortValue, updateQueryParams, defaultValues } =
-    useProjectsFilterParams();
+  const { sortValue } = useProjectsFilterParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects, isLoading, isValidating } = useFetchProjects();
-  const { control, setValue } = useForm<FilterValues>({ defaultValues });
 
-  const sort = useWatch({ control, name: "sort" });
-  const sortFn = get(PROJECT_SORT_FNS, sort) ?? identity;
+  const sortFn = get(PROJECT_SORT_FNS, sortValue) ?? identity;
   const sortedProjects = sortFn(projects);
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
@@ -59,16 +42,6 @@ const Page: NextPage = () => {
   const showLoadingProjectsSpinner =
     isEmpty(sortedProjects) && (isLoading || isValidating);
 
-  useEffect(() => {
-    if (!sortValue) return;
-    setValue("sort", sortValue as SortOption);
-  }, [sortValue]);
-
-  useEffect(() => {
-    if (!sort || !router.isReady) return;
-    updateQueryParams({ ...router.query, sort });
-  }, [sort]);
-
   return (
     <>
       <PageHead
@@ -77,54 +50,7 @@ const Page: NextPage = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout>
-        <div className={styles.projectsControls}>
-          <ProjectsController onFiltersClick={toggleModal} />
-          <LoginButton className="desktopLogin" />
-        </div>
-        <ProjectFilters
-          defaultValues={defaultValues}
-          onMoreTextClick={toggleModal}
-        />
-        <div className={styles.displayOptions}>
-          <Dropdown
-            key={sort}
-            name="sort"
-            initial={sort ?? "recently-updated"}
-            className={styles.dropdown}
-            aria-label={t`Toggle sort menu`}
-            renderLabel={(selected) => `Sort: ${selected?.label}`}
-            control={control}
-            options={Object.entries(PROJECT_SORT_OPTIONS).map(
-              ([option, label]) => ({
-                id: option,
-                label: label,
-                value: option,
-              })
-            )}
-          />
-          {!!projects?.length && <Text t="h5">{projects.length} Results</Text>}
-          <div className={styles.displayToggle}>
-            <Toggle
-              onChange={(val) => {
-                if (val === "map")
-                  router.push({
-                    pathname: "/projects/map",
-                    query: router.query,
-                  });
-              }}
-              options={[
-                {
-                  content: <AppsIcon />,
-                  value: "grid",
-                },
-                {
-                  content: <PublicIcon />,
-                  value: "map",
-                },
-              ]}
-            />
-          </div>
-        </div>
+        <ProjectsController />
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (
             <Text>No projects found from Carbonmark API</Text>

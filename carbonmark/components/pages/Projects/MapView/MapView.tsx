@@ -11,6 +11,7 @@ import { NextPage } from "next";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect, useRef } from "react";
 import { SWRConfig } from "swr";
+import ProjectsController from "../ProjectsController";
 import CarbonmarkMap from "./carbonmark-map";
 import * as styles from "./MapView.styles";
 
@@ -19,21 +20,22 @@ export const Page = () => {
   const map = useRef<CarbonmarkMap | null>(null);
   const { projects } = useFetchProjects();
 
+  console.log(projects);
+
   // Assuming `projects` is your array of data
   const fn = pipe(mapFn(get("location")), compact);
   const points = fn(projects);
 
   useEffect(() => {
-    map.current?.renderMarkers();
-  }, [projects, map.current]);
+    map.current?.renderMarkers(points);
+  }, [points.length, map.current]);
 
   useEffect(() => {
     if (mapContainer.current) {
-      map.current = new CarbonmarkMap(mapContainer.current, {
-        markers: points,
-      });
+      map.current = new CarbonmarkMap(mapContainer.current, { points });
     }
   }, []);
+
   return (
     <>
       <PageHead
@@ -42,6 +44,9 @@ export const Page = () => {
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
       <Layout fullContentWidth fullContentHeight>
+        <div className={styles.controller}>
+          <ProjectsController />
+        </div>
         <div ref={mapContainer} className={styles.mapBox} />
       </Layout>
     </>

@@ -33,3 +33,15 @@ export const placeholder = css`
   background-color: var(--bright-blue);
   border-radius: 0.8rem;
 `;
+
+export const controller = css`
+  padding: 4rem;
+  grid-column: full;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  > * {
+    margin-bottom: 1rem;
+  }
+`;

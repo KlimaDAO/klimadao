@@ -9,11 +9,11 @@ import { useRouter } from "next/router";
 import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
-type ProjectControllerProps = HTMLAttributes<HTMLDivElement> & {
+type ProjectSearchProps = HTMLAttributes<HTMLDivElement> & {
   onFiltersClick: () => void;
 };
 
-export const ProjectsController: FC<ProjectControllerProps> = (props) => {
+export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
   const router = useRouter();
   const { filterCount, updateQueryParams, resetQueryParams } =
     useProjectsFilterParams();

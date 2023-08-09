@@ -1,21 +1,15 @@
 import { cx } from "@emotion/css";
-import { FC, HTMLAttributes, useEffect, useState } from "react";
+import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
 type ToggleProps = {
   options: ToggleOptionProps[];
+  selected: ToggleOptionProps["value"];
   onChange?: (value: string | undefined | number) => void;
 };
 
 /** Multi option Toggle (radio) component  */
 export const Toggle: FC<ToggleProps> = (props) => {
-  const [selected, setSelected] = useState(props.options.at(0)?.value);
-
-  /** Notify the parent component of value change */
-  useEffect(() => {
-    props.onChange?.(selected);
-  }, [selected]);
-
   return (
     <div className={styles.main}>
       {props.options.map((option) => (
@@ -23,8 +17,8 @@ export const Toggle: FC<ToggleProps> = (props) => {
           content={option.content}
           value={option.value}
           key={option.value}
-          onClick={() => setSelected(option.value)}
-          className={cx({ selected: selected === option.value })}
+          onClick={() => props.onChange?.(option.value)}
+          className={cx({ selected: props.selected === option.value })}
         />
       ))}
     </div>
