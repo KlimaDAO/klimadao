@@ -1,5 +1,6 @@
 import { BBox } from "@turf/helpers";
 import { NEXT_PUBLIC_MAPBOX_TOKEN } from "lib/constants";
+import { Project } from "lib/types/carbonmark";
 import { compact, isNil } from "lodash";
 import { default as MapBoxGL, default as mapboxgl } from "mapbox-gl";
 import Supercluster, { AnyProps, ClusterFeature } from "supercluster";
@@ -12,7 +13,7 @@ if (isNil(NEXT_PUBLIC_MAPBOX_TOKEN))
 MapBoxGL.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN;
 
 class CarbonmarkMap extends mapboxgl.Map {
-  points?: Supercluster.PointFeature<Supercluster.AnyProps>[];
+  points?: Supercluster.PointFeature<{ project: Project }>[];
   markers: MapBoxGL.Marker[] = [];
   clusterer?: Supercluster;
 
@@ -44,7 +45,7 @@ class CarbonmarkMap extends mapboxgl.Map {
     return marker;
   }
 
-  renderMarkers(points?: Supercluster.PointFeature<Supercluster.AnyProps>[]) {
+  renderMarkers(points?: Supercluster.PointFeature<{ project: Project }>[]) {
     this.clear();
     this.points = points ?? this.points;
 
@@ -65,19 +66,28 @@ class CarbonmarkMap extends mapboxgl.Map {
       if (isCluster) {
         this.addCluster(cluster as ClusterFeature<AnyProps>);
       } else {
-        this.addMarker(coords);
+        const project: Project = cluster.properties.project;
+
+        const imgTag = project?.images?.length
+          ? `<img src="${project.images?.at(0)?.url}"/>`
+          : "";
+
+        const popupHtml = `
+          <div class="header">
+            <h3>${project.key}</h3>
+            <b>($${(parseFloat(project.price) % 1).toFixed(2)})</b>
+
+          </div>
+          ${imgTag}
+          <p>${project.short_description}</p>
+          <a href="${project.key}-${project.vintage}">
+            <b>More Info</b>
+          </a>`;
+
+        const popup = new MapBoxGL.Popup({ offset: 25 }).setHTML(popupHtml);
+
+        this.addMarker(coords, { popup });
       }
-      // const popup = new MapBoxGL.Popup({ offset: 25 }) // add popups
-      //     .setHTML(
-      //       "<h3>" +
-      //         "Cluster" +
-      //         "</h3><p>" +
-      //         "Contains " +
-      //         cluster.properties.point_count +
-      //         " markers" +
-      //         "</p>"
-      //     )
-      // : undefined;
     });
   }
 

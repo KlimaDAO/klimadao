@@ -34,7 +34,11 @@ export const fetchAllProjects = `
     name,
     "projectContent": *[references(^._id)]{
       shortDescription,
-      longDescription
+      longDescription,
+      images[]{
+        caption,
+        'url': asset->url
+      }
     }[0],
     "geolocation": {
       "type": "Feature",

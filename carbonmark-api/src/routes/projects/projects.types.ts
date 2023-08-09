@@ -46,4 +46,8 @@ export type GetProjectResponse = {
       coordinates: [number, number];
     };
   };
+  images?: {
+    url: string;
+    caption: string;
+  }[];
 };

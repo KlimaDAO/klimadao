@@ -142,4 +142,5 @@ export const composeOffsetProject = (
   price,
   activities: null,
   listings: null,
+  images: cmsData?.projectContent.images ?? [],
 });

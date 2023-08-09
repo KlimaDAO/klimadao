@@ -4,8 +4,9 @@ import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { urls } from "lib/constants";
+import { Project } from "lib/types/carbonmark";
 import { compact } from "lodash";
-import { get, map as mapFn, pipe } from "lodash/fp";
+import { map as mapFn, pipe } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { NextPage } from "next";
 import { ProjectsPageStaticProps } from "pages/projects";
@@ -20,8 +21,15 @@ export const Page = () => {
   const map = useRef<CarbonmarkMap | null>(null);
   const { projects } = useFetchProjects();
 
-  // Assuming `projects` is your array of data
-  const fn = pipe(mapFn(get("location")), compact);
+  const fn = pipe(
+    mapFn((project: Project) => ({
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      ...project.location!,
+      type: "Feature" as const,
+      properties: { project },
+    })),
+    compact
+  );
   const points = fn(projects);
 
   useEffect(() => {

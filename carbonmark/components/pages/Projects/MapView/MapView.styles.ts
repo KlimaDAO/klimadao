@@ -5,10 +5,6 @@ export const mapBox = css`
   height: 100vh;
   grid-column: full;
 
-  .marker {
-    cursor: pointer;
-  }
-
   .cluster {
     cursor: pointer;
     background: #2c40f7;
@@ -26,6 +22,58 @@ export const mapBox = css`
       background: white;
       color: var(--font-01);
     }
+  }
+
+  .marker {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: var(--surface-02);
+    border-radius: 50%;
+  }
+
+  .marker::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 18px solid var(--surface-02);
+    transform: translateX(-50%);
+  }
+
+  .mapboxgl-popup-content {
+    line-height: normal;
+    display: grid;
+    gap: 1rem;
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin-right: 6px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .mapboxgl-popup-close-button {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    top: 5px;
+    right: 5px;
   }
 `;
 export const placeholder = css`
