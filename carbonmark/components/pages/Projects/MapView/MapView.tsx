@@ -12,8 +12,8 @@ import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect, useRef } from "react";
 import { SWRConfig } from "swr";
 import ProjectsController from "../ProjectsController";
-import * as styles from "./MapView.styles";
 import CarbonmarkMap from "./carbonmark-map";
+import * as styles from "./MapView.styles";
 
 export const Page = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
