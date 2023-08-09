@@ -41,7 +41,7 @@ export const Page = () => {
         mediaTitle={t`Marketplace | Carbonmark`}
         metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
       />
-      <Layout fullContentWidth>
+      <Layout fullContentWidth fullContentHeight>
         <div ref={mapContainer} className={styles.mapBox} />
       </Layout>
     </>

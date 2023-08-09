@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 
 export const mapBox = css`
   height: 100vh;
-  width: 100vw;
+  grid-column: full;
 
   .marker {
     cursor: pointer;
@@ -24,26 +24,7 @@ export const mapBox = css`
     &:hover {
       background: white;
       color: var(--font-01);
-      // &::before {
-      //   background: rgba(0, 25, 255, 1);
-      // }
     }
-    // &::before {
-    //   // Add radial gradient border
-    //   content: "";
-    //   position: absolute;
-    //   top: -2px;
-    //   left: -2px;
-    //   right: -2px;
-    //   bottom: -2px;
-    //   background: radial-gradient(
-    //     circle at center,
-    //     rgba(0, 25, 255, 1),
-    //     rgba(0, 25, 255, 0.3)
-    //   );
-    //   border-radius: inherit;
-    //   z-index: -1;
-    // }
   }
 `;
 export const placeholder = css`
