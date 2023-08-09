@@ -17,9 +17,9 @@ class CarbonmarkMap extends mapboxgl.Map {
   constructor(container: string | HTMLElement, opts?: CarbonmarkMapOpts) {
     super({ container, ...DEFAULT_OPTS, ...opts });
 
-    // Update markers on move
     this.on("moveend", this.renderMarkers);
     this.on("zoomend", this.renderMarkers);
+    this.on("load", this.renderMarkers);
 
     this.clusterer = new Supercluster({
       radius: 40,

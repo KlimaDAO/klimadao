@@ -1,5 +1,7 @@
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
+import AppsIcon from "@mui/icons-material/Apps";
+import PublicIcon from "@mui/icons-material/Public";
 import { Category } from "components/Category";
 import { Dropdown } from "components/Dropdown";
 import { Layout } from "components/Layout";
@@ -13,6 +15,7 @@ import {
 import { ProjectImage } from "components/ProjectImage";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
+import { Toggle } from "components/Toggle";
 import { Vintage } from "components/Vintage";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
@@ -82,7 +85,7 @@ const Page: NextPage = () => {
           defaultValues={defaultValues}
           onMoreTextClick={toggleModal}
         />
-        <div className={styles.sortOptions}>
+        <div className={styles.displayOptions}>
           <Dropdown
             key={sort}
             name="sort"
@@ -100,6 +103,27 @@ const Page: NextPage = () => {
             )}
           />
           {!!projects?.length && <Text t="h5">{projects.length} Results</Text>}
+          <div className={styles.displayToggle}>
+            <Toggle
+              onChange={(val) => {
+                if (val === "map")
+                  router.push({
+                    pathname: "/projects/map",
+                    query: router.query,
+                  });
+              }}
+              options={[
+                {
+                  content: <AppsIcon />,
+                  value: "grid",
+                },
+                {
+                  content: <PublicIcon />,
+                  value: "map",
+                },
+              ]}
+            />
+          </div>
         </div>
         <div className={styles.projectsList}>
           {!sortedProjects?.length && !isValidating && !isLoading && (

@@ -23,7 +23,7 @@ export const projectsControls = css`
   }
 `;
 
-export const sortOptions = css`
+export const displayOptions = css`
   gap: 2rem;
   width: 100%;
   display: flex;
@@ -32,6 +32,10 @@ export const sortOptions = css`
   align-items: center;
   justify-self: center;
   margin-bottom: 0.8rem;
+`;
+
+export const displayToggle = css`
+  margin-left: auto;
 `;
 
 export const dropdown = css`

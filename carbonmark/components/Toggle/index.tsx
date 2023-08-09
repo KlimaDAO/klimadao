@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { FC, HTMLAttributes, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 type ToggleProps = {
@@ -32,9 +32,9 @@ export const Toggle: FC<ToggleProps> = (props) => {
 };
 
 type ToggleOptionProps = {
-  content: ReactNode | string;
+  content: React.ReactNode;
   value: string | number;
-} & HTMLAttributes<HTMLButtonElement>;
+} & Pick<HTMLAttributes<HTMLButtonElement>, "onClick" | "className">;
 
 const ToggleOption: FC<ToggleOptionProps> = (props) => (
   <button
