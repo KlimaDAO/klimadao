@@ -35,10 +35,13 @@ class CarbonmarkMap extends mapboxgl.Map {
     this.markers = [];
   }
 
-  addMarker(latLng: [number, number], popup?: MapBoxGL.Popup) {
-    const marker = new MapBoxGL.Marker()
+  addMarker(
+    latLng: [number, number],
+    args?: { popup?: MapBoxGL.Popup; el?: HTMLElement }
+  ) {
+    const marker = new MapBoxGL.Marker(args?.el)
       .setLngLat(latLng)
-      .setPopup(popup)
+      .setPopup(args?.popup)
       .addTo(this);
 
     this.markers.push(marker);
@@ -52,21 +55,31 @@ class CarbonmarkMap extends mapboxgl.Map {
     const clusters = this.clusterer.getClusters(bounds, Math.floor(zoom));
 
     clusters.forEach((cluster) => {
+      const coords = cluster.geometry.coordinates as [number, number];
       const isCluster = cluster?.properties?.cluster;
-      const popup = isCluster
-        ? new MapBoxGL.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              "<h3>" +
-                "Cluster" +
-                "</h3><p>" +
-                "Contains " +
-                cluster.properties.point_count +
-                " markers" +
-                "</p>"
-            )
-        : undefined;
-      this.addMarker(cluster.geometry.coordinates as [number, number], popup);
+      if (isCluster) {
+        this.addCluster(coords, cluster.properties.point_count);
+      } else {
+        this.addMarker(coords);
+      }
+      // const popup = new MapBoxGL.Popup({ offset: 25 }) // add popups
+      //     .setHTML(
+      //       "<h3>" +
+      //         "Cluster" +
+      //         "</h3><p>" +
+      //         "Contains " +
+      //         cluster.properties.point_count +
+      //         " markers" +
+      //         "</p>"
+      //     )
+      // : undefined;
     });
+  }
+
+  addCluster(coords: [number, number], points: number) {
+    const el = document.createElement("div");
+    el.innerHTML = `<h3 class="cluster">${points}</h3>`;
+    this.addMarker(coords, { el });
   }
 }
 
