@@ -3,6 +3,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 import PublicIcon from "@mui/icons-material/Public";
 import { Dropdown } from "components/Dropdown";
 import { LoginButton } from "components/LoginButton";
+import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
@@ -24,7 +25,7 @@ const ProjectsController = () => {
   const isMap = router.pathname.endsWith("/projects/map");
   const { defaultValues, sortValue, updateQueryParams } =
     useProjectsFilterParams();
-  const [_, setShowFilterModal] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects } = useFetchProjects();
   const { control, setValue } = useForm<FilterValues>({ defaultValues });
 
@@ -97,6 +98,11 @@ const ProjectsController = () => {
           />
         </div>
       </div>
+      <ProjectFilterModal
+        showModal={showFilterModal}
+        onToggleModal={toggleModal}
+        closeOnBackgroundClick
+      />
     </>
   );
 };

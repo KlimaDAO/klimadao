@@ -59,6 +59,7 @@ export const desktopNavMenu = css`
   display: none;
   ${breakpoints.desktop} {
     display: flex;
+    z-index: 1;
   }
 `;
 
