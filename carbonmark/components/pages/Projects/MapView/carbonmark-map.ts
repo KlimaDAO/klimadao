@@ -92,7 +92,7 @@ class CarbonmarkMap extends mapboxgl.Map {
       });
     });
 
-    el.innerHTML = `<h3 class="cluster">${points}</h3>`;
+    el.innerHTML = `<div class="cluster">${points}</div>`;
     this.addMarker(coords, { el });
   }
 }
