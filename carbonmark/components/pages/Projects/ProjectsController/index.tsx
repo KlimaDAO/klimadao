@@ -1,47 +1,27 @@
-import { t } from "@lingui/macro";
 import AppsIcon from "@mui/icons-material/Apps";
 import PublicIcon from "@mui/icons-material/Public";
-import { Dropdown } from "components/Dropdown";
 import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
-import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
 import { useFetchProjects } from "hooks/useFetchProjects";
-import {
-  FilterValues,
-  SortOption,
-  useProjectsFilterParams,
-} from "hooks/useProjectsFilterParams";
+import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useState } from "react";
 import { ProjectFilters } from "../ProjectFilters";
 import { ProjectSearch } from "../ProjectSearch";
+import { ProjectSort } from "../ProjectSort";
 import * as styles from "../styles";
 
 const ProjectsController = () => {
   const router = useRouter();
   const isMap = router.pathname.endsWith("/projects/map");
-  const { defaultValues, sortValue, updateQueryParams } =
-    useProjectsFilterParams();
+  const { defaultValues } = useProjectsFilterParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects } = useFetchProjects();
-  const { control, setValue } = useForm<FilterValues>({ defaultValues });
-
-  const sort = useWatch({ control, name: "sort" });
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
 
-  useEffect(() => {
-    if (!sortValue) return;
-    setValue("sort", sortValue as SortOption);
-  }, [sortValue]);
-
-  useEffect(() => {
-    if (!sort || !router.isReady) return;
-    updateQueryParams({ ...router.query, sort });
-  }, [sort]);
   return (
     <>
       <div className={styles.projectsControls}>
@@ -53,23 +33,12 @@ const ProjectsController = () => {
         onMoreTextClick={toggleModal}
       />
       <div className={styles.displayOptions}>
-        <Dropdown
-          key={sort}
-          name="sort"
-          initial={sort ?? "recently-updated"}
-          className={styles.dropdown}
-          aria-label={t`Toggle sort menu`}
-          renderLabel={(selected) => `Sort: ${selected?.label}`}
-          control={control}
-          options={Object.entries(PROJECT_SORT_OPTIONS).map(
-            ([option, label]) => ({
-              id: option,
-              label: label,
-              value: option,
-            })
-          )}
-        />
-        {!!projects?.length && <Text t="h5">{projects.length} Results</Text>}
+        {/* Hide the sort on MapView */}
+        {!isMap && <ProjectSort />}
+
+        {!!projects?.length && !isMap && (
+          <Text t="h5">{projects.length} Results</Text>
+        )}
         <div className={styles.displayToggle}>
           <Toggle
             selected={isMap ? "map" : "grid"}
