@@ -1,13 +1,12 @@
 import { GRAPH_URLS } from "../constants/graphs.constants";
 
-const GENERATED_DIR = "src/.generated/types";
-const GENERATED_MOCKS_DIR = "src/.generated/mocks";
+const GENERATED_DIR = "src/.generated";
 const DOCUMENTS_DIR = "src/graphql";
 
 const plugins = [
   "typescript",
   "typescript-operations",
-  "typescript-graphql-request",
+  // "typescript-validation-schema",
 ];
 
 const schema = GRAPH_URLS;
@@ -16,15 +15,37 @@ const schema = GRAPH_URLS;
 const generates = Object.entries(schema).reduce(
   (acc, [key, schema]) => ({
     ...acc,
-    [`${GENERATED_DIR}/${key}.types.ts`]: {
+    [`${GENERATED_DIR}/types/${key}.types.ts`]: {
       schema,
       documents: [
         `${DOCUMENTS_DIR}/${key}.gql`,
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
+      config: {
+        scalars: { BigInt: "string", ID: "string", String: "string" },
+      },
       plugins,
     },
-    [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
+    [`${GENERATED_DIR}/sdks/${key}.sdk.ts`]: {
+      schema,
+      documents: [
+        `${DOCUMENTS_DIR}/${key}.gql`,
+        `${DOCUMENTS_DIR}/${key}.fragments.gql`,
+      ],
+      plugins: [
+        {
+          add: {
+            content: `import * as Types from "../types/${key}.types"`,
+          },
+        },
+        {
+          "typescript-graphql-request": {
+            typesPrefix: "Types.",
+          },
+        },
+      ],
+    },
+    [`${GENERATED_DIR}/mocks/${key}.mocks.ts`]: {
       schema,
       plugins: [
         {
@@ -48,10 +69,11 @@ const generates = Object.entries(schema).reduce(
 );
 
 const config = {
-  overwrite: true,
   generates,
+  overwrite: true,
   config: {
-    scalars: { BigInt: "string", ID: "string" },
+    schema: "zod",
+    scalars: { BigInt: "string", ID: "string", String: "string" },
   },
 };
 

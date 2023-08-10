@@ -1,6 +1,3 @@
-import { GraphQLClient } from 'graphql-request';
-import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
-import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -490,35 +487,3 @@ export type GetHoldingsByWalletQueryVariables = Exact<{
 
 
 export type GetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
-
-
-export const GetHoldingsByWalletDocument = gql`
-    query getHoldingsByWallet($wallet: Bytes) {
-  accounts(where: {id: $wallet}) {
-    holdings {
-      id
-      token {
-        id
-        name
-        symbol
-        decimals
-      }
-      amount
-    }
-  }
-}
-    `;
-
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
-
-
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
-
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
-  return {
-    getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
-    }
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;
