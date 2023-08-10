@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-08-09 15:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: hi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/pages/errors/Custom404.tsx:11
+#: components/pages/errors/Custom404.tsx:12
+#: components/pages/errors/Custom404.tsx:13
+#: components/pages/errors/Custom404.tsx:19
+msgid "404 - Page Not Found"
+msgstr "404 - पृष्ठ नहीं मिला"
+
+#: components/pages/errors/Custom500.tsx:13
+#: components/pages/errors/Custom500.tsx:14
+#: components/pages/errors/Custom500.tsx:15
+msgid "500 - Server Error"
+msgstr "500 - सर्वर त्रुटि"
+
+#: components/pages/errors/Custom500.tsx:22
+msgid "500 - Server error occurred"
+msgstr "500 - सर्वर त्रुटि हो गई"
+
+#: components/pages/Home/index.tsx:13
+#: components/pages/Home/index.tsx:14
+msgid "Carbonmark | The Universal Carbon Marketplace"
+msgstr "कार्बनमार्क | द यूनिवर्सल कार्बन मार्केटप्लेस"
+
+#: components/pages/errors/Custom404.tsx:22
+msgid "Sorry, looks like we sent you the wrong way."
+msgstr "क्षमा करें, शायद हमने आपको ग़लत रास्ते भेज दिया।"
+
+#: components/pages/errors/Custom500.tsx:25
+msgid "Sorry, something went wrong."
+msgstr "क्षमा करें, कुछ गड़बड़ हो गई।"
+
+#: components/pages/Home/index.tsx:15
+msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
+msgstr "दुनिया भर में डिजिटल कार्बन क्रेडिट का सबसे बड़ा संकलन। शून्य-कमीशन ट्रेडिंग के साथ तुरंत किसी भी प्रोजेक्ट से डिजिटल कार्बन ख़रीदें, बेचें और रिटायर करें।"

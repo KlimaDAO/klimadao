@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-08-09 15:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: es\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/pages/errors/Custom404.tsx:11
+#: components/pages/errors/Custom404.tsx:12
+#: components/pages/errors/Custom404.tsx:13
+#: components/pages/errors/Custom404.tsx:19
+msgid "404 - Page Not Found"
+msgstr "404 Pagina no encontrada"
+
+#: components/pages/errors/Custom500.tsx:13
+#: components/pages/errors/Custom500.tsx:14
+#: components/pages/errors/Custom500.tsx:15
+msgid "500 - Server Error"
+msgstr "500 - Se ha producido un error en el servidor"
+
+#: components/pages/errors/Custom500.tsx:22
+msgid "500 - Server error occurred"
+msgstr "500 - Se ha producido un error en el servidor"
+
+#: components/pages/Home/index.tsx:13
+#: components/pages/Home/index.tsx:14
+msgid "Carbonmark | The Universal Carbon Marketplace"
+msgstr "Carbonmark | El mercado universal del carbono"
+
+#: components/pages/errors/Custom404.tsx:22
+msgid "Sorry, looks like we sent you the wrong way."
+msgstr "Lo sentimos, parece que te enviamos por el camino equivocado."
+
+#: components/pages/errors/Custom500.tsx:25
+msgid "Sorry, something went wrong."
+msgstr "Perdón, algo salió mal."
+
+#: components/pages/Home/index.tsx:15
+msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
+msgstr "La mayor selección de créditos de carbono digitales del mundo. Compre, venda y retire carbono digital de cualquier proyecto al instante con una negociación sin comisiones."
