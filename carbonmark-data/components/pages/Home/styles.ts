@@ -15,3 +15,8 @@ export const global = css`
     }
   }
 `;
+export const content = css`
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+`
