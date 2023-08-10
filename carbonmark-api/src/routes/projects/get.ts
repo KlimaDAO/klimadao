@@ -1,3 +1,4 @@
+import { Static, Type } from "@fastify/type-provider-typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, mapValues, min, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
@@ -9,7 +10,7 @@ import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
-import { GetProjectResponse } from "./projects.types";
+import { GetAllArgs, GetAllResponse } from "./projects.types";
 import {
   buildProjectKey,
   composeCarbonmarkProject,
@@ -17,51 +18,16 @@ import {
   getDefaultQueryArgs,
   getOffsetTokenPrices,
 } from "./projects.utils";
+import { GetProjectResponse } from "./_id/get.types";
 
 const schema = {
-  querystring: {
-    type: "object",
-    properties: {
-      country: {
-        type: "string",
-      },
-      category: {
-        type: "string",
-      },
-      search: {
-        type: "string",
-      },
-      vintage: {
-        type: "string",
-      },
-    },
-  },
+  querystring: GetAllArgs,
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        id: { type: "string" },
-        key: { type: "string" },
-        projectID: { type: "string" },
-        name: { type: "string" },
-        methodology: { type: "string" },
-        vintage: { type: "string" },
-        projectAddress: { type: "string" },
-        registry: { type: "string" },
-        country: { type: "string" },
-        category: { type: "string" },
-        price: { type: "string" },
-      },
-    },
+    "2xx": Type.Array(GetAllResponse),
   },
 };
 
-type Params = {
-  country?: string;
-  category?: string;
-  search?: string;
-  vintage?: string;
-};
+type Params = Static<typeof GetAllArgs>;
 
 /**
  * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
