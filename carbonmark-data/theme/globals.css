@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+  color: var(--bright-blue);
+}
+a:hover,
+a:visited {
+  color: var(--bright-blue);
+}

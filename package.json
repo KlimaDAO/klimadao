@@ -6,7 +6,11 @@
     "./carbon-projects",
     "./carbonmark",
     "./carbonmark-api",
+<<<<<<< HEAD
     "./cms",
+=======
+    "./carbonmark-data",
+>>>>>>> 190567a0 (Created carbonmark-data from carbonmark)
     "./lib",
     "./site"
   ],
@@ -31,6 +35,7 @@
     "build-app": "npm run build-lib && npm run build -w=app",
     "build-carbonmark": "npm run build-lib && npm run build -w=carbonmark",
     "build-carbonmark-api": "npm run build-lib && npm run build -w=carbonmark",
+    "build-carbonmark-data": "npm run build-lib && npm run build -w=carbonmark-data",
     "dev-lib": "npm run dev -w=lib",
     "dev-site": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=site\"",
     "dev-app": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=app\"",
@@ -38,6 +43,7 @@
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark\"",
     "remove-dist": "cd carbonmark-api && rm -rf dist && npm run build",
     "dev-carbonmark-api": "npm run remove-dist && concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-api\"",
+    "dev-carbonmark-data": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-data\"",
     "deploy-cms": "npm run deploy -w=cms",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract && npm run -w carbonmark lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile && npm run -w carbonmark lingui:compile",
