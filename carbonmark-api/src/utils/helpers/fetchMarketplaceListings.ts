@@ -1,7 +1,7 @@
-import { DocumentData } from "@google-cloud/firestore";
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
-import { assign } from "lodash";
+import { DocumentData } from "firebase-admin/firestore";
+import { assign, chunk } from "lodash";
 import {
   Activity,
   Listing,
@@ -86,17 +86,12 @@ export const fetchMarketplaceListings = async ({
 
   const usersById = new Map<string, DocumentData | undefined>();
 
+  // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
   if (userIds.size !== 0) {
-    const chunkSize = 30;
-    const chunks : string[][] = [];
     const ids = Array.from(userIds);
 
-    for (let i = 0; i < ids.length; i += chunkSize) {
-      chunks.push(ids.slice(i, i + chunkSize));
-    }
+    const chunks: string[][] = chunk(ids, 30);
 
-    const callStart = Date.now();
-    // @todo this requires that users in production has an address field. Staging is updated to reflect this. Currently the id is the only location of the address.
     const userDocs = await Promise.all(
       chunks.map((chunk) =>
         fastify.firebase
@@ -106,8 +101,6 @@ export const fetchMarketplaceListings = async ({
           .get()
       )
     );
-    const callEnd = Date.now();
-    console.info(`whereInCall duration: ${callEnd - callStart} ms`);
 
     userDocs.forEach((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -116,7 +109,7 @@ export const fetchMarketplaceListings = async ({
     });
   }
 
-  const getListingsWithProfiles = formattedListings.map((listing) => {
+  const listingsWithProfiles = formattedListings.map((listing) => {
     const sellerData = usersById.get(listing.seller.id.toLowerCase());
     return {
       ...listing,
@@ -127,7 +120,7 @@ export const fetchMarketplaceListings = async ({
     };
   });
 
-  const getActivitiesWithProfiles: ActivityWithUserHandles[] =
+  const activitiesWithProfiles: ActivityWithUserHandles[] =
     formattedActivities.map((act) => {
       const activityWithHandles: ActivityWithUserHandles = { ...act };
       const sellerData = usersById.get(act.seller.id.toLowerCase());
@@ -142,5 +135,5 @@ export const fetchMarketplaceListings = async ({
       }
       return activityWithHandles;
     });
-  return [getListingsWithProfiles, getActivitiesWithProfiles];
+  return [listingsWithProfiles, activitiesWithProfiles];
 };
