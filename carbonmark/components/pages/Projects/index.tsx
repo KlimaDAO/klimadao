@@ -64,8 +64,14 @@ const Page: NextPage = () => {
 
   useEffect(() => {
     if (!sort || !router.isReady) return;
-    updateQueryParams({ ...router.query, sort });
+    updateQueryParams({ ...router.query, layout: defaultValues.layout, sort });
   }, [sort]);
+
+  if (!router.isReady) {
+    // need to prevent the initial grid view from flashing initially
+    // after setting the layout as "list" and reloading the browser.
+    return null;
+  }
 
   return (
     <>
