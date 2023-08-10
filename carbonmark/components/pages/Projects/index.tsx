@@ -39,7 +39,6 @@ import * as styles from "./styles";
 const Page: NextPage = () => {
   const router = useRouter();
   const { isMobile } = useResponsive();
-  const [toggleViewMode, setToggleViewMode] = useState("grid");
   const [showFilterModal, setShowFilterModal] = useState(false);
 
   const { sortValue, updateQueryParams, defaultValues } =
@@ -111,8 +110,10 @@ const Page: NextPage = () => {
               <div>
                 <ButtonPrimary
                   icon={<GridViewOutlined />}
-                  onClick={() => setToggleViewMode("grid")}
-                  className={cx({ selected: toggleViewMode === "grid" })}
+                  onClick={() =>
+                    updateQueryParams({ ...router.query, layout: "grid" })
+                  }
+                  className={cx({ selected: defaultValues.layout === "grid" })}
                 />
               </div>
             </TextInfoTooltip>
@@ -120,8 +121,10 @@ const Page: NextPage = () => {
               <div>
                 <ButtonPrimary
                   icon={<ListOutlined />}
-                  onClick={() => setToggleViewMode("list")}
-                  className={cx({ selected: toggleViewMode === "list" })}
+                  onClick={() =>
+                    updateQueryParams({ ...router.query, layout: "list" })
+                  }
+                  className={cx({ selected: defaultValues.layout === "list" })}
                 />
               </div>
             </TextInfoTooltip>
@@ -135,7 +138,7 @@ const Page: NextPage = () => {
             <SpinnerWithLabel />
           ) : (
             <>
-              {toggleViewMode === "grid" || isMobile ? (
+              {defaultValues.layout === "grid" || isMobile ? (
                 <GridView projects={sortedProjects} />
               ) : (
                 <ListView form={form} projects={sortedProjects} />
