@@ -118,14 +118,17 @@ export const ListView: FC<Props> = ({ form, projects }) => {
                 sortDirection={sortDirection}
                 padding={column.disablePadding ? "none" : "normal"}
               >
-                <TableSortLabel
-                  direction={sortDirection}
-                  hideSortIcon={!column.sortable}
-                  onClick={() => handleSort(column.id)}
-                  active={column.sortable && column.id === sortColumn}
-                >
-                  {column.label}
-                </TableSortLabel>
+                {column.sortable ? (
+                  <TableSortLabel
+                    direction={sortDirection}
+                    onClick={() => handleSort(column.id)}
+                    active={column.id === sortColumn}
+                  >
+                    {column.label}
+                  </TableSortLabel>
+                ) : (
+                  <span>{column.label}</span>
+                )}
               </TableCell>
             ))}
           </TableRow>
