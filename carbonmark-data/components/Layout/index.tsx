@@ -1,6 +1,8 @@
 import { FC, ReactNode } from "react";
-import { DesktopHeader } from "./DesktopHeader";
+import { DesktopSidebar } from "./DesktopSidebar";
+import { MobileHeader } from "./MobileHeader";
 import * as styles from "./styles";
+
 
 import { useRouter } from "next/router";
 
@@ -14,7 +16,8 @@ interface Props {
 export const Layout: FC<Props> = (props) => {
     const { pathname } = useRouter();
     return (<>
-        <DesktopHeader></DesktopHeader>
+        <DesktopSidebar></DesktopSidebar>
+        <MobileHeader></MobileHeader>
         <div className={styles.content}>
             {props.children}
         </div>

@@ -47,6 +47,17 @@ export const sidebarItem = css`
     margin: 8px;
   }
 `
+export const mobileHeader = css`
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px 8px 16px;
+  justify-content: space-between;
+
+  ${breakpoints.desktop} {
+    display: none
+  }
+`;
 
 export const content = css`
   margin-left: 0;
