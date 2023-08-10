@@ -3,18 +3,13 @@ import { GRAPH_URLS } from "../constants/graphs.constants";
 const GENERATED_DIR = "src/.generated";
 const DOCUMENTS_DIR = "src/graphql";
 
-const plugins = [
-  "typescript",
-  "typescript-operations",
-  // "typescript-validation-schema",
-];
-
 const schema = GRAPH_URLS;
 
 // Generate configuration for each schema entry
 const generates = Object.entries(schema).reduce(
   (acc, [key, schema]) => ({
     ...acc,
+    // ----- Types and Operations ----- //
     [`${GENERATED_DIR}/types/${key}.types.ts`]: {
       schema,
       documents: [
@@ -24,9 +19,10 @@ const generates = Object.entries(schema).reduce(
       config: {
         scalars: { BigInt: "string", ID: "string", String: "string" },
       },
-      plugins,
+      plugins: ["typescript", "typescript-operations"],
     },
-    [`${GENERATED_DIR}/sdks/${key}.sdk.ts`]: {
+    // ----- SDK ----- //
+    [`${GENERATED_DIR}/sdk/${key}.sdk.ts`]: {
       schema,
       documents: [
         `${DOCUMENTS_DIR}/${key}.gql`,
@@ -45,12 +41,12 @@ const generates = Object.entries(schema).reduce(
         },
       ],
     },
+    // ----- Mocks ----- //
     [`${GENERATED_DIR}/mocks/${key}.mocks.ts`]: {
       schema,
       plugins: [
         {
           add: {
-            //We need to disable ts for generated mocks
             content: "//@ts-nocheck",
           },
         },
@@ -63,6 +59,14 @@ const generates = Object.entries(schema).reduce(
           },
         },
       ],
+    },
+    // ----- Validation Schema ---- //
+    [`${GENERATED_DIR}/schema/${key}.schema.ts`]: {
+      schema,
+      plugins: ["typescript-validation-schema"],
+      config: {
+        importFrom: `../types/${key}.types`,
+      },
     },
   }),
   {}
