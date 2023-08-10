@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { BlockChangedFilter, Block_Height, OrderDirection, Pair_Filter, Pair_OrderBy, Swap_Filter, Swap_OrderBy, Token_Filter, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/tokens.types'
+import { BlockChangedFilter, Block_Height, OrderDirection, Pair, Pair_Filter, Pair_OrderBy, Swap, Swap_Filter, Swap_OrderBy, Token, Token_Filter, Token_OrderBy, _Block_, _Meta_, _SubgraphErrorPolicy_ } from '../types/tokens.types'
 
 type Properties<T> = Required<{
   [K in keyof T]: z.ZodType<T[K], any, T[K]>;
@@ -32,6 +32,20 @@ export function Block_HeightSchema(): z.ZodObject<Properties<Block_Height>> {
     hash: definedNonNullAnySchema.nullish(),
     number: definedNonNullAnySchema.nullish(),
     number_gte: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function PairSchema(): z.ZodObject<Properties<Pair>> {
+  return z.object({
+    __typename: z.literal('Pair').optional(),
+    currentprice: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    lastupdate: definedNonNullAnySchema,
+    swaps: z.array(SwapSchema()),
+    token0: TokenSchema(),
+    token1: TokenSchema(),
+    totalklimaearnedfees: definedNonNullAnySchema,
+    totalvolume: definedNonNullAnySchema
   })
 }
 
@@ -135,6 +149,23 @@ export function Pair_FilterSchema(): z.ZodObject<Properties<Pair_Filter>> {
     totalvolume_lte: definedNonNullAnySchema.nullish(),
     totalvolume_not: definedNonNullAnySchema.nullish(),
     totalvolume_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function SwapSchema(): z.ZodObject<Properties<Swap>> {
+  return z.object({
+    __typename: z.literal('Swap').optional(),
+    close: definedNonNullAnySchema,
+    high: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    klimaearnedfees: definedNonNullAnySchema,
+    low: definedNonNullAnySchema,
+    lpfees: definedNonNullAnySchema,
+    open: definedNonNullAnySchema,
+    pair: PairSchema(),
+    slippage: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    volume: definedNonNullAnySchema
   })
 }
 
@@ -259,6 +290,16 @@ export function Swap_FilterSchema(): z.ZodObject<Properties<Swap_Filter>> {
   })
 }
 
+export function TokenSchema(): z.ZodObject<Properties<Token>> {
+  return z.object({
+    __typename: z.literal('Token').optional(),
+    decimals: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    name: definedNonNullAnySchema,
+    symbol: definedNonNullAnySchema
+  })
+}
+
 export function Token_FilterSchema(): z.ZodObject<Properties<Token_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -320,5 +361,23 @@ export function Token_FilterSchema(): z.ZodObject<Properties<Token_Filter>> {
     symbol_not_starts_with_nocase: definedNonNullAnySchema.nullish(),
     symbol_starts_with: definedNonNullAnySchema.nullish(),
     symbol_starts_with_nocase: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function _Block_Schema(): z.ZodObject<Properties<_Block_>> {
+  return z.object({
+    __typename: z.literal('_Block_').optional(),
+    hash: definedNonNullAnySchema.nullish(),
+    number: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function _Meta_Schema(): z.ZodObject<Properties<_Meta_>> {
+  return z.object({
+    __typename: z.literal('_Meta_').optional(),
+    block: _Block_Schema(),
+    deployment: definedNonNullAnySchema,
+    hasIndexingErrors: definedNonNullAnySchema
   })
 }

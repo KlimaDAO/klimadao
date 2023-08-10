@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ActivityType, Activity_Filter, Activity_OrderBy, BlockChangedFilter, Block_Height, Category_Filter, Category_OrderBy, Country_Filter, Country_OrderBy, Listing_Filter, Listing_OrderBy, OrderDirection, Project_Filter, Project_OrderBy, Purchase_Filter, Purchase_OrderBy, User_Filter, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types'
+import { Activity, ActivityType, Activity_Filter, Activity_OrderBy, BlockChangedFilter, Block_Height, Category, Category_Filter, Category_OrderBy, Country, Country_Filter, Country_OrderBy, Listing, Listing_Filter, Listing_OrderBy, OrderDirection, Project, Project_Filter, Project_OrderBy, Purchase, Purchase_Filter, Purchase_OrderBy, User, User_Filter, User_OrderBy, _Block_, _Meta_, _SubgraphErrorPolicy_ } from '../types/marketplace.types'
 
 type Properties<T> = Required<{
   [K in keyof T]: z.ZodType<T[K], any, T[K]>;
@@ -30,6 +30,24 @@ export const Purchase_OrderBySchema = z.nativeEnum(Purchase_OrderBy);
 export const User_OrderBySchema = z.nativeEnum(User_OrderBy);
 
 export const _SubgraphErrorPolicy_Schema = z.nativeEnum(_SubgraphErrorPolicy_);
+
+export function ActivitySchema(): z.ZodObject<Properties<Activity>> {
+  return z.object({
+    __typename: z.literal('Activity').optional(),
+    activityType: ActivityTypeSchema,
+    amount: definedNonNullAnySchema.nullish(),
+    buyer: UserSchema().nullish(),
+    id: definedNonNullAnySchema,
+    listing: ListingSchema().nullish(),
+    previousAmount: definedNonNullAnySchema.nullish(),
+    previousPrice: definedNonNullAnySchema.nullish(),
+    price: definedNonNullAnySchema.nullish(),
+    project: ProjectSchema().nullish(),
+    seller: UserSchema(),
+    timeStamp: definedNonNullAnySchema.nullish(),
+    user: UserSchema().nullish()
+  })
+}
 
 export function Activity_FilterSchema(): z.ZodObject<Properties<Activity_Filter>> {
   return z.object({
@@ -222,6 +240,13 @@ export function Block_HeightSchema(): z.ZodObject<Properties<Block_Height>> {
   })
 }
 
+export function CategorySchema(): z.ZodObject<Properties<Category>> {
+  return z.object({
+    __typename: z.literal('Category').optional(),
+    id: definedNonNullAnySchema
+  })
+}
+
 export function Category_FilterSchema(): z.ZodObject<Properties<Category_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -250,6 +275,13 @@ export function Category_FilterSchema(): z.ZodObject<Properties<Category_Filter>
   })
 }
 
+export function CountrySchema(): z.ZodObject<Properties<Country>> {
+  return z.object({
+    __typename: z.literal('Country').optional(),
+    id: definedNonNullAnySchema
+  })
+}
+
 export function Country_FilterSchema(): z.ZodObject<Properties<Country_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -275,6 +307,26 @@ export function Country_FilterSchema(): z.ZodObject<Properties<Country_Filter>> 
     id_starts_with: definedNonNullAnySchema.nullish(),
     id_starts_with_nocase: definedNonNullAnySchema.nullish(),
     or: z.array(Country_FilterSchema().nullable()).nullish()
+  })
+}
+
+export function ListingSchema(): z.ZodObject<Properties<Listing>> {
+  return z.object({
+    __typename: z.literal('Listing').optional(),
+    active: definedNonNullAnySchema.nullish(),
+    activities: z.array(ActivitySchema()).nullish(),
+    batchPrices: z.array(definedNonNullAnySchema).nullish(),
+    batches: z.array(definedNonNullAnySchema).nullish(),
+    createdAt: definedNonNullAnySchema.nullish(),
+    deleted: definedNonNullAnySchema.nullish(),
+    id: definedNonNullAnySchema,
+    leftToSell: definedNonNullAnySchema,
+    project: ProjectSchema(),
+    seller: UserSchema(),
+    singleUnitPrice: definedNonNullAnySchema,
+    tokenAddress: definedNonNullAnySchema,
+    totalAmountToSell: definedNonNullAnySchema,
+    updatedAt: definedNonNullAnySchema.nullish()
   })
 }
 
@@ -404,6 +456,27 @@ export function Listing_FilterSchema(): z.ZodObject<Properties<Listing_Filter>> 
     updatedAt_lte: definedNonNullAnySchema.nullish(),
     updatedAt_not: definedNonNullAnySchema.nullish(),
     updatedAt_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function ProjectSchema(): z.ZodObject<Properties<Project>> {
+  return z.object({
+    __typename: z.literal('Project').optional(),
+    activities: z.array(ActivitySchema()).nullish(),
+    category: CategorySchema().nullish(),
+    country: CountrySchema().nullish(),
+    id: definedNonNullAnySchema,
+    key: definedNonNullAnySchema,
+    listings: z.array(ListingSchema()).nullish(),
+    methodology: definedNonNullAnySchema,
+    name: definedNonNullAnySchema,
+    projectAddress: definedNonNullAnySchema,
+    projectID: definedNonNullAnySchema,
+    projectType: definedNonNullAnySchema,
+    region: definedNonNullAnySchema,
+    registry: definedNonNullAnySchema,
+    updatedAt: definedNonNullAnySchema.nullish(),
+    vintage: definedNonNullAnySchema
   })
 }
 
@@ -633,6 +706,18 @@ export function Project_FilterSchema(): z.ZodObject<Properties<Project_Filter>> 
   })
 }
 
+export function PurchaseSchema(): z.ZodObject<Properties<Purchase>> {
+  return z.object({
+    __typename: z.literal('Purchase').optional(),
+    amount: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    listing: ListingSchema(),
+    price: definedNonNullAnySchema,
+    timeStamp: definedNonNullAnySchema,
+    user: UserSchema()
+  })
+}
+
 export function Purchase_FilterSchema(): z.ZodObject<Properties<Purchase_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -717,6 +802,16 @@ export function Purchase_FilterSchema(): z.ZodObject<Properties<Purchase_Filter>
   })
 }
 
+export function UserSchema(): z.ZodObject<Properties<User>> {
+  return z.object({
+    __typename: z.literal('User').optional(),
+    activities: z.array(ActivitySchema()).nullish(),
+    id: definedNonNullAnySchema,
+    listings: z.array(ListingSchema()).nullish(),
+    purchases: z.array(PurchaseSchema()).nullish()
+  })
+}
+
 export function User_FilterSchema(): z.ZodObject<Properties<User_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -735,5 +830,23 @@ export function User_FilterSchema(): z.ZodObject<Properties<User_Filter>> {
     listings_: Listing_FilterSchema().nullish(),
     or: z.array(User_FilterSchema().nullable()).nullish(),
     purchases_: Purchase_FilterSchema().nullish()
+  })
+}
+
+export function _Block_Schema(): z.ZodObject<Properties<_Block_>> {
+  return z.object({
+    __typename: z.literal('_Block_').optional(),
+    hash: definedNonNullAnySchema.nullish(),
+    number: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function _Meta_Schema(): z.ZodObject<Properties<_Meta_>> {
+  return z.object({
+    __typename: z.literal('_Meta_').optional(),
+    block: _Block_Schema(),
+    deployment: definedNonNullAnySchema,
+    hasIndexingErrors: definedNonNullAnySchema
   })
 }

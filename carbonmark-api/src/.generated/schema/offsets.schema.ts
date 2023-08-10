@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { BlockChangedFilter, Block_Height, BridgeDirection, Bridge_Filter, Bridge_OrderBy, CarbonMetric_Filter, CarbonMetric_OrderBy, CarbonOffset_Filter, CarbonOffset_OrderBy, CrosschainBridge_Filter, CrosschainBridge_OrderBy, DailyKlimaRetirement_Filter, DailyKlimaRetirement_OrderBy, Deposit_Filter, Deposit_OrderBy, KlimaRetire_Filter, KlimaRetire_OrderBy, OrderDirection, Redeem_Filter, Redeem_OrderBy, Retire_Filter, Retire_OrderBy, ToucanCertificate_Filter, ToucanCertificate_OrderBy, Transaction_Filter, Transaction_OrderBy, _SubgraphErrorPolicy_ } from '../types/offsets.types'
+import { BlockChangedFilter, Block_Height, Bridge, BridgeDirection, Bridge_Filter, Bridge_OrderBy, CarbonMetric, CarbonMetric_Filter, CarbonMetric_OrderBy, CarbonOffset, CarbonOffset_Filter, CarbonOffset_OrderBy, CrosschainBridge, CrosschainBridge_Filter, CrosschainBridge_OrderBy, DailyKlimaRetirement, DailyKlimaRetirement_Filter, DailyKlimaRetirement_OrderBy, Deposit, Deposit_Filter, Deposit_OrderBy, KlimaRetire, KlimaRetire_Filter, KlimaRetire_OrderBy, OrderDirection, Redeem, Redeem_Filter, Redeem_OrderBy, Retire, Retire_Filter, Retire_OrderBy, ToucanCertificate, ToucanCertificate_Filter, ToucanCertificate_OrderBy, Transaction, Transaction_Filter, Transaction_OrderBy, _Block_, _Meta_, _SubgraphErrorPolicy_ } from '../types/offsets.types'
 
 type Properties<T> = Required<{
   [K in keyof T]: z.ZodType<T[K], any, T[K]>;
@@ -50,6 +50,18 @@ export function Block_HeightSchema(): z.ZodObject<Properties<Block_Height>> {
     hash: definedNonNullAnySchema.nullish(),
     number: definedNonNullAnySchema.nullish(),
     number_gte: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function BridgeSchema(): z.ZodObject<Properties<Bridge>> {
+  return z.object({
+    __typename: z.literal('Bridge').optional(),
+    bridger: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    timestamp: definedNonNullAnySchema,
+    transaction: TransactionSchema(),
+    value: definedNonNullAnySchema
   })
 }
 
@@ -144,6 +156,37 @@ export function Bridge_FilterSchema(): z.ZodObject<Properties<Bridge_Filter>> {
     value_lte: definedNonNullAnySchema.nullish(),
     value_not: definedNonNullAnySchema.nullish(),
     value_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function CarbonMetricSchema(): z.ZodObject<Properties<CarbonMetric>> {
+  return z.object({
+    __typename: z.literal('CarbonMetric').optional(),
+    bctCrosschainSupply: definedNonNullAnySchema,
+    bctKlimaRetired: definedNonNullAnySchema,
+    bctRedeemed: definedNonNullAnySchema,
+    bctSupply: definedNonNullAnySchema,
+    c3tRetired: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    mco2KlimaRetired: definedNonNullAnySchema,
+    mco2Retired: definedNonNullAnySchema,
+    mco2Supply: definedNonNullAnySchema,
+    nboKlimaRetired: definedNonNullAnySchema,
+    nboRedeemed: definedNonNullAnySchema,
+    nboSupply: definedNonNullAnySchema,
+    nctCrosschainSupply: definedNonNullAnySchema,
+    nctKlimaRetired: definedNonNullAnySchema,
+    nctRedeemed: definedNonNullAnySchema,
+    nctSupply: definedNonNullAnySchema,
+    tco2Retired: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    totalCarbonSupply: definedNonNullAnySchema,
+    totalCrosschainSupply: definedNonNullAnySchema,
+    totalKlimaRetirements: definedNonNullAnySchema,
+    totalRetirements: definedNonNullAnySchema,
+    uboKlimaRetired: definedNonNullAnySchema,
+    uboRedeemed: definedNonNullAnySchema,
+    uboSupply: definedNonNullAnySchema
   })
 }
 
@@ -352,6 +395,44 @@ export function CarbonMetric_FilterSchema(): z.ZodObject<Properties<CarbonMetric
     uboSupply_lte: definedNonNullAnySchema.nullish(),
     uboSupply_not: definedNonNullAnySchema.nullish(),
     uboSupply_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function CarbonOffsetSchema(): z.ZodObject<Properties<CarbonOffset>> {
+  return z.object({
+    __typename: z.literal('CarbonOffset').optional(),
+    additionalCertification: definedNonNullAnySchema,
+    balanceBCT: definedNonNullAnySchema,
+    balanceNBO: definedNonNullAnySchema,
+    balanceNCT: definedNonNullAnySchema,
+    balanceUBO: definedNonNullAnySchema,
+    bridge: definedNonNullAnySchema,
+    bridges: z.array(BridgeSchema()).nullish(),
+    category: definedNonNullAnySchema,
+    coBenefits: definedNonNullAnySchema,
+    correspAdjustment: definedNonNullAnySchema,
+    country: definedNonNullAnySchema,
+    currentSupply: definedNonNullAnySchema,
+    emissionType: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    isCorsiaCompliant: definedNonNullAnySchema.nullish(),
+    klimaRanking: definedNonNullAnySchema,
+    lastUpdate: definedNonNullAnySchema,
+    method: definedNonNullAnySchema,
+    methodology: definedNonNullAnySchema,
+    methodologyCategory: definedNonNullAnySchema,
+    name: definedNonNullAnySchema,
+    projectID: definedNonNullAnySchema,
+    region: definedNonNullAnySchema,
+    registry: definedNonNullAnySchema,
+    retirements: z.array(RetireSchema()).nullish(),
+    standard: definedNonNullAnySchema,
+    storageMethod: definedNonNullAnySchema,
+    tokenAddress: definedNonNullAnySchema,
+    totalBridged: definedNonNullAnySchema,
+    totalRetired: definedNonNullAnySchema,
+    vintage: definedNonNullAnySchema,
+    vintageYear: definedNonNullAnySchema
   })
 }
 
@@ -829,6 +910,19 @@ export function CarbonOffset_FilterSchema(): z.ZodObject<Properties<CarbonOffset
   })
 }
 
+export function CrosschainBridgeSchema(): z.ZodObject<Properties<CrosschainBridge>> {
+  return z.object({
+    __typename: z.literal('CrosschainBridge').optional(),
+    bridger: definedNonNullAnySchema,
+    direction: BridgeDirectionSchema,
+    id: definedNonNullAnySchema,
+    pool: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    transaction: TransactionSchema(),
+    value: definedNonNullAnySchema
+  })
+}
+
 export function CrosschainBridge_FilterSchema(): z.ZodObject<Properties<CrosschainBridge_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -923,6 +1017,19 @@ export function CrosschainBridge_FilterSchema(): z.ZodObject<Properties<Crosscha
     value_lte: definedNonNullAnySchema.nullish(),
     value_not: definedNonNullAnySchema.nullish(),
     value_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function DailyKlimaRetirementSchema(): z.ZodObject<Properties<DailyKlimaRetirement>> {
+  return z.object({
+    __typename: z.literal('DailyKlimaRetirement').optional(),
+    amount: definedNonNullAnySchema,
+    feeAmount: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    pool: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    token: definedNonNullAnySchema
   })
 }
 
@@ -1024,6 +1131,19 @@ export function DailyKlimaRetirement_FilterSchema(): z.ZodObject<Properties<Dail
     token_not_starts_with_nocase: definedNonNullAnySchema.nullish(),
     token_starts_with: definedNonNullAnySchema.nullish(),
     token_starts_with_nocase: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function DepositSchema(): z.ZodObject<Properties<Deposit>> {
+  return z.object({
+    __typename: z.literal('Deposit').optional(),
+    depositor: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    pool: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    transaction: TransactionSchema(),
+    value: definedNonNullAnySchema
   })
 }
 
@@ -1138,6 +1258,27 @@ export function Deposit_FilterSchema(): z.ZodObject<Properties<Deposit_Filter>> 
     value_lte: definedNonNullAnySchema.nullish(),
     value_not: definedNonNullAnySchema.nullish(),
     value_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function KlimaRetireSchema(): z.ZodObject<Properties<KlimaRetire>> {
+  return z.object({
+    __typename: z.literal('KlimaRetire').optional(),
+    amount: definedNonNullAnySchema,
+    beneficiary: definedNonNullAnySchema,
+    beneficiaryAddress: definedNonNullAnySchema,
+    certificateTokenID: definedNonNullAnySchema.nullish(),
+    feeAmount: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    index: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    pool: definedNonNullAnySchema,
+    retirementMessage: definedNonNullAnySchema,
+    retiringAddress: definedNonNullAnySchema,
+    specific: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    token: definedNonNullAnySchema,
+    transaction: TransactionSchema()
   })
 }
 
@@ -1363,6 +1504,19 @@ export function KlimaRetire_FilterSchema(): z.ZodObject<Properties<KlimaRetire_F
   })
 }
 
+export function RedeemSchema(): z.ZodObject<Properties<Redeem>> {
+  return z.object({
+    __typename: z.literal('Redeem').optional(),
+    id: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    pool: definedNonNullAnySchema,
+    redeemer: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    transaction: TransactionSchema(),
+    value: definedNonNullAnySchema
+  })
+}
+
 export function Redeem_FilterSchema(): z.ZodObject<Properties<Redeem_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -1474,6 +1628,19 @@ export function Redeem_FilterSchema(): z.ZodObject<Properties<Redeem_Filter>> {
     value_lte: definedNonNullAnySchema.nullish(),
     value_not: definedNonNullAnySchema.nullish(),
     value_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function RetireSchema(): z.ZodObject<Properties<Retire>> {
+  return z.object({
+    __typename: z.literal('Retire').optional(),
+    beneficiary: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    offset: CarbonOffsetSchema(),
+    retiree: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    transaction: TransactionSchema(),
+    value: definedNonNullAnySchema
   })
 }
 
@@ -1591,6 +1758,17 @@ export function Retire_FilterSchema(): z.ZodObject<Properties<Retire_Filter>> {
   })
 }
 
+export function ToucanCertificateSchema(): z.ZodObject<Properties<ToucanCertificate>> {
+  return z.object({
+    __typename: z.literal('ToucanCertificate').optional(),
+    id: definedNonNullAnySchema,
+    klimaRetire: KlimaRetireSchema().nullish(),
+    timestamp: definedNonNullAnySchema,
+    tokenID: definedNonNullAnySchema,
+    transaction: TransactionSchema()
+  })
+}
+
 export function ToucanCertificate_FilterSchema(): z.ZodObject<Properties<ToucanCertificate_Filter>> {
   return z.object({
     _change_block: BlockChangedFilterSchema().nullish(),
@@ -1662,6 +1840,20 @@ export function ToucanCertificate_FilterSchema(): z.ZodObject<Properties<ToucanC
     transaction_not_starts_with_nocase: definedNonNullAnySchema.nullish(),
     transaction_starts_with: definedNonNullAnySchema.nullish(),
     transaction_starts_with_nocase: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function TransactionSchema(): z.ZodObject<Properties<Transaction>> {
+  return z.object({
+    __typename: z.literal('Transaction').optional(),
+    blockHash: definedNonNullAnySchema,
+    blockNumber: definedNonNullAnySchema,
+    from: definedNonNullAnySchema,
+    gasPrice: definedNonNullAnySchema,
+    id: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema,
+    to: definedNonNullAnySchema.nullish(),
+    value: definedNonNullAnySchema
   })
 }
 
@@ -1740,5 +1932,23 @@ export function Transaction_FilterSchema(): z.ZodObject<Properties<Transaction_F
     value_lte: definedNonNullAnySchema.nullish(),
     value_not: definedNonNullAnySchema.nullish(),
     value_not_in: z.array(definedNonNullAnySchema).nullish()
+  })
+}
+
+export function _Block_Schema(): z.ZodObject<Properties<_Block_>> {
+  return z.object({
+    __typename: z.literal('_Block_').optional(),
+    hash: definedNonNullAnySchema.nullish(),
+    number: definedNonNullAnySchema,
+    timestamp: definedNonNullAnySchema.nullish()
+  })
+}
+
+export function _Meta_Schema(): z.ZodObject<Properties<_Meta_>> {
+  return z.object({
+    __typename: z.literal('_Meta_').optional(),
+    block: _Block_Schema(),
+    deployment: definedNonNullAnySchema,
+    hasIndexingErrors: definedNonNullAnySchema
   })
 }

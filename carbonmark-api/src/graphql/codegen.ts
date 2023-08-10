@@ -66,6 +66,8 @@ const generates = Object.entries(schema).reduce(
       plugins: ["typescript-validation-schema"],
       config: {
         importFrom: `../types/${key}.types`,
+        withObjectType: true,
+        scalars: { BigInt: "string", ID: "string", String: "string" },
       },
     },
   }),
