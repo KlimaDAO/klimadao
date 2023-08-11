@@ -7,6 +7,22 @@ interface Params {
   id: string;
 }
 
+const schema = {
+  tags: ["purchases"],
+  response: {
+    200: {
+      type: "object",
+      properties: {
+        POOL_PRICES_GRAPH_API_URL: { type: "string" },
+        ASSETS_GRAPH_API_URL: { type: "string" },
+        CARBON_OFFSETS_GRAPH_API_URL: { type: "string" },
+        GRAPH_API_URL: { type: "string" },
+        VERCEL_ENV: { type: "string" },
+      },
+    },
+  },
+};
+
 async function handler(
   request: FastifyRequest<{ Params: Params }>,
   reply: FastifyReply
@@ -31,4 +47,9 @@ async function handler(
 }
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route({ method: "GET", url: "/purchases/:id", handler });
+  await fastify.route({
+    method: "GET",
+    url: "/purchases/:id",
+    handler,
+    schema,
+  });

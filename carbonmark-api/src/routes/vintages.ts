@@ -2,6 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { getAllVintages } from "../utils/helpers/utils";
 
 const schema = {
+  tags: ["vintages"],
   response: {
     "2xx": {
       type: "array",

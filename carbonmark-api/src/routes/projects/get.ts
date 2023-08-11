@@ -19,6 +19,7 @@ import {
 } from "./projects.utils";
 
 const schema = {
+  tags: ["project"],
   querystring: {
     type: "object",
     properties: {

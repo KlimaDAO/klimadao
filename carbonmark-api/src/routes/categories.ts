@@ -6,6 +6,7 @@ export const Category = Type.Object({ id: Type.String() });
 export type CategoryType = Static<typeof Category>;
 
 const schema = {
+  tags: ["category"],
   response: {
     "2xx": Type.Array(Category),
   },

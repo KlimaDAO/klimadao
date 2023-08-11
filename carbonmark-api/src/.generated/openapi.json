@@ -11,6 +11,9 @@
   "paths": {
     "/api/categories": {
       "get": {
+        "tags": [
+          "category"
+        ],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -38,6 +41,9 @@
     },
     "/api/countries": {
       "get": {
+        "tags": [
+          "country"
+        ],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -65,6 +71,9 @@
     },
     "/api/debug": {
       "get": {
+        "tags": [
+          "debug"
+        ],
         "responses": {
           "200": {
             "description": "Default Response",
@@ -98,15 +107,45 @@
     },
     "/api/purchases/{id}": {
       "get": {
+        "tags": [
+          "purchases"
+        ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "POOL_PRICES_GRAPH_API_URL": {
+                      "type": "string"
+                    },
+                    "ASSETS_GRAPH_API_URL": {
+                      "type": "string"
+                    },
+                    "CARBON_OFFSETS_GRAPH_API_URL": {
+                      "type": "string"
+                    },
+                    "GRAPH_API_URL": {
+                      "type": "string"
+                    },
+                    "VERCEL_ENV": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
     "/api/vintages": {
       "get": {
+        "tags": [
+          "vintages"
+        ],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -120,129 +159,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/projects": {
-      "get": {
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "country",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "category",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "search",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "vintage",
-            "required": false
-          }
-        ],
-        "responses": {
-          "2XX": {
-            "description": "Default Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "key": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "vintage": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
-                    "country": {
-                      "type": "string"
-                    },
-                    "category": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/projects/{id}": {
-      "get": {
-        "tags": [
-          "project"
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "category",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "country",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "search",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Default Response"
           }
         }
       }
@@ -338,6 +254,9 @@
     },
     "/api/users/{walletOrHandle}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "parameters": [
           {
             "schema": {
@@ -476,8 +395,138 @@
         }
       }
     },
+    "/api/projects": {
+      "get": {
+        "tags": [
+          "project"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "category",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "vintage",
+            "required": false
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{id}": {
+      "get": {
+        "tags": [
+          "project"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "category",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
     "/api/users/login": {
       "post": {
+        "tags": [
+          "auth"
+        ],
+        "description": "Provides the user with a nonce for their particular wallet intended to be used by /verify",
         "requestBody": {
           "content": {
             "application/json": {
@@ -519,6 +568,9 @@
     },
     "/api/users/login/verify": {
       "post": {
+        "tags": [
+          "auth"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -565,6 +617,10 @@
   },
   "tags": [
     {
+      "name": "auth",
+      "description": "Authentication related end-points"
+    },
+    {
       "name": "user",
       "description": "User related end-points"
     },
@@ -582,7 +638,7 @@
     }
   ],
   "externalDocs": {
-    "url": "https://swagger.io",
+    "url": "https://klimadao.stoplight.io/docs/carbonmark-api",
     "description": "Find more info here"
   }
 }

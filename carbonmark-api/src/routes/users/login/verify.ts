@@ -8,6 +8,7 @@ type Body = {
 };
 
 const schema = {
+  tags: ["auth"],
   body: {
     type: "object",
     properties: {

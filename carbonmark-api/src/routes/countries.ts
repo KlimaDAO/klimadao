@@ -8,6 +8,7 @@ export const Country = Type.Object({
 export type CategoryType = Static<typeof Country>;
 
 const schema = {
+  tags: ["country"],
   response: {
     "2xx": Type.Array(Country),
   },

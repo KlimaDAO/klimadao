@@ -1,7 +1,11 @@
+import { SchemaOptions } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
 
-const schema = {
+const schema: SchemaOptions = {
+  description:
+    "Provides the user with a nonce for their particular wallet intended to be used by /verify",
+  tags: ["auth"],
   body: {
     type: "object",
     properties: {
