@@ -9,7 +9,9 @@ export const ChartContainer: FC<Props> = ({ title, children }) => {
     return (
         <div className={styles.chartContainer}>
             <h3>{title}</h3>
-            {children}
+            <div>
+                {children}
+            </div>
         </div>
     )
 }
