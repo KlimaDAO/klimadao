@@ -3,7 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const desktopSidebar = css`
   display: none;
-  text-align: center;
+
   ${breakpoints.desktop} {
     position: fixed;
     width: 220px;
@@ -11,6 +11,8 @@ export const desktopSidebar = css`
     padding: 48px  20px  48px 20px;
     gap: 40px;
     display: grid;
+    text-align: center;
+    background-color: var(--surface-04)
   }
   [aria-describedby="logo"] {
   }
@@ -91,7 +93,8 @@ export const content = css`
   margin-left: 0;
   padding: 1px 16px;
   height: 1000px;
+  background-color: var(--surface-03);
   ${breakpoints.desktop} {
-    margin-left: 200px;
+    margin-left: 220px;
   }
 `;
