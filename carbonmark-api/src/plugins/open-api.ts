@@ -1,4 +1,5 @@
 import fp from "fastify-plugin";
+import fs from "fs";
 
 /*
 Since fastify-openapi-docs uses an onRoute hook, you have to either:
@@ -12,7 +13,7 @@ export default fp(async function (fastify) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires -- this package does not yet support es module imports
   await fastify.register(require("@fastify/swagger"), {
     routePrefix: "/documentation",
-    swagger: {
+    openapi: {
       info: {
         title: "Marketplace swagger",
         description: "Fastify swagger API for Marketplace",
@@ -139,4 +140,22 @@ export default fp(async function (fastify) {
     staticCSP: true,
     exposeRoute: true,
   });
+
+  // eslint-disable-next-line @typescript-eslint/no-var-requires -- this package does not yet support es module imports
+  await fastify.register(require("@fastify/swagger-ui"));
+
+  fastify.ready((err) => {
+    if (err) throw err;
+    const specification = fastify.swagger();
+    fs.writeFileSync(
+      "src/.generated/openapi.json",
+      JSON.stringify(specification, null, 2)
+    );
+  });
 });
+
+declare module "fastify" {
+  interface FastifyInstance {
+    swagger: () => any;
+  }
+}
