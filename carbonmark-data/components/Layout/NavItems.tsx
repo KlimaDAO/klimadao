@@ -1,13 +1,11 @@
 
+import { t } from "@lingui/macro";
 import {
     OffVsOnIconPath,
     OverviewFilledIconPath,
     OverviewIconPath,
-
     RetirementTrendsIconPath,
-
     SupplyIconPath,
-
     TokenDetailsIconPath
 } from "components/Graphics/Icons";
 
@@ -19,7 +17,7 @@ export interface NavItem {
 }
 export const navItems: Array<NavItem> = [
     {
-        label: "Overview",
+        label: t`Overview`,
         iconPath: OverviewIconPath,
         activeIconPath: OverviewFilledIconPath,
         url: "/"

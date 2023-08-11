@@ -1,22 +1,19 @@
 import { css } from "@emotion/css";
-import breakpoints, {
-  breakpoints as specificBreakpoints,
-} from "@klimadao/lib/theme/breakpoints";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const global = css`
-  [data-mobile-only="true"] {
-    ${breakpoints.desktop} {
-      display: none;
-    }
-  }
-  [data-desktop-only="true"] {
-    @media (max-width: ${specificBreakpoints.desktop}px) {
-      display: none;
-    }
+  ${breakpoints.desktop} {
+    display: flex;
+    gap: 20px;  
   }
 `;
-export const content = css`
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-`
+export const mainColumn = css`
+  width:  100%; 
+  flex-grow: 1;
+  margin-bottom: 20px;
+`;
+export const digitalCarbonPricingColumn = css`
+  ${breakpoints.desktop} {
+    width:  360px;
+  }
+`;

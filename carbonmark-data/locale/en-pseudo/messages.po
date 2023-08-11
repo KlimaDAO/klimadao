@@ -13,36 +13,50 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/errors/Custom404.tsx:11
 #: components/pages/errors/Custom404.tsx:12
 #: components/pages/errors/Custom404.tsx:13
-#: components/pages/errors/Custom404.tsx:19
+#: components/pages/errors/Custom404.tsx:14
+#: components/pages/errors/Custom404.tsx:20
 msgid "404 - Page Not Found"
 msgstr ""
 
+#: components/pages/errors/Custom500.tsx:11
+#: components/pages/errors/Custom500.tsx:12
 #: components/pages/errors/Custom500.tsx:13
-#: components/pages/errors/Custom500.tsx:14
-#: components/pages/errors/Custom500.tsx:15
 msgid "500 - Server Error"
 msgstr ""
 
-#: components/pages/errors/Custom500.tsx:22
+#: components/pages/errors/Custom500.tsx:19
 msgid "500 - Server error occurred"
 msgstr ""
 
-#: components/pages/Home/index.tsx:13
-#: components/pages/Home/index.tsx:14
+#: components/pages/OffVsOnChain/index.tsx:10
+#: components/pages/OffVsOnChain/index.tsx:11
+#: components/pages/OffVsOnChain/index.tsx:12
+msgid "Carbonmark Data | Your onchain and offchain Carbon Dashboard"
+msgstr ""
+
+#: components/pages/Home/index.tsx:11
+#: components/pages/Home/index.tsx:12
 msgid "Carbonmark | The Universal Carbon Marketplace"
 msgstr ""
 
-#: components/pages/errors/Custom404.tsx:22
+#: components/ChangeLanguageButton/index.tsx:44
+msgid "Change language"
+msgstr ""
+
+#: components/Layout/NavItems.tsx:20
+msgid "Overview"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:23
 msgid "Sorry, looks like we sent you the wrong way."
 msgstr ""
 
-#: components/pages/errors/Custom500.tsx:25
+#: components/pages/errors/Custom500.tsx:22
 msgid "Sorry, something went wrong."
 msgstr ""
 
-#: components/pages/Home/index.tsx:15
+#: components/pages/Home/index.tsx:13
 msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
 msgstr ""
