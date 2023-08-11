@@ -6,11 +6,8 @@
     "./carbon-projects",
     "./carbonmark",
     "./carbonmark-api",
-<<<<<<< HEAD
     "./cms",
-=======
     "./carbonmark-data",
->>>>>>> 190567a0 (Created carbonmark-data from carbonmark)
     "./lib",
     "./site"
   ],

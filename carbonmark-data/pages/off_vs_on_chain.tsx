@@ -1,4 +1,4 @@
-import { Home } from "components/pages/Home";
+import { OffVsOnChain } from "components/pages/OffVsOnChain";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
@@ -14,4 +14,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export default Home;
+export default OffVsOnChain;
