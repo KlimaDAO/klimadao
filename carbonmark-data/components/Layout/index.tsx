@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import { DesktopSidebar } from "./DesktopSidebar";
+import { MobileBottomNav } from "./MobileBottomNav";
 import { MobileHeader } from "./MobileHeader";
 import * as styles from "./styles";
 
@@ -21,6 +22,7 @@ export const Layout: FC<Props> = (props) => {
         <div className={styles.content}>
             {props.children}
         </div>
+        <MobileBottomNav></MobileBottomNav>
     </>
     );
 };

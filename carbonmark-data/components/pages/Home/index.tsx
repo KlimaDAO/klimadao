@@ -11,7 +11,7 @@ export const Home: NextPage = () => {
         mediaTitle={t`Carbonmark | The Universal Carbon Marketplace`}
         metaDescription={t`The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading.`}
       />
-      <Layout activePage="Home" >
+      <Layout>
         Hello
       </Layout >
     </>

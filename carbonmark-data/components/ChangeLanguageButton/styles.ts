@@ -3,8 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
 export const changeLanguageButton = css`
-  background-color: white;
-  border: 1px solid var(--font-03);
+  background-color: var(--button-background);
   min-height: 4.8rem;
   min-width: 4.8rem;
   display: flex;
