@@ -32,8 +32,8 @@ import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { SWRConfig } from "swr";
 import { ProjectFilters } from "../Project/ProjectFilters";
-import { GridView } from "../Project/ProjectView/GridView";
-import { ListView } from "../Project/ProjectView/ListView";
+import { GridView } from "./ProjectView/GridView";
+import { ListView } from "./ProjectView/ListView";
 import * as styles from "./styles";
 
 const Page: NextPage = () => {
