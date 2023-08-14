@@ -4,10 +4,15 @@ import { VerraCreditsChart } from "components/Charts/VerraCreditsChart";
 import * as chartStyles from "components/Charts/styles";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
+import { ChartData } from "lib/chartsData/getVerraCredits";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
-export const Home: NextPage = () => {
+interface Props {
+  verraCredits: ChartData
+}
+
+export const Home: NextPage<Props> = ({ verraCredits }) => {
   return (
     <>
       <PageHead
@@ -20,7 +25,7 @@ export const Home: NextPage = () => {
         <div className={styles.global}>
           <div className={styles.mainColumn}>
             <div className={chartStyles.chartRow}>
-              <VerraCreditsChart></VerraCreditsChart>
+              <VerraCreditsChart data={verraCredits}></VerraCreditsChart>
             </div>
           </div>
           <div className={styles.digitalCarbonPricingColumn}>
