@@ -372,6 +372,7 @@ export const RetireForm: FC<Props> = (props) => {
             transactionHash={transactionHash}
             paymentMethod={inputValues?.paymentMethod}
             address={address}
+            beneficiary={inputValues?.beneficiaryAddress || address}
             retirementIndex={retirementIndex}
             subgraphIndexStatus={subgraphIndexStatus}
           />

@@ -17,6 +17,7 @@ type Props = {
   transactionHash: string | null;
   paymentMethod?: CarbonmarkPaymentMethod;
   address?: string;
+  beneficiary?: string;
   retirementIndex: number | null;
   subgraphIndexStatus: "indexed" | "pending" | "timeout";
 };
@@ -99,7 +100,7 @@ export const SuccessScreen: FC<Props> = (props) => {
               </div>
             </div>
             <ButtonPrimary
-              href={`/retirements/${props.address}/${props.retirementIndex}`}
+              href={`/retirements/${props.beneficiary}/${props.retirementIndex}`}
               label={<Trans>See your retirement receipt</Trans>}
               renderLink={(linkProps) => <Link {...linkProps} />}
               target="_blank"
