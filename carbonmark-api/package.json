@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .ts",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
     "test:postman": "npm:start:test && ./postman_tests.sh",
-    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts"
+    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts",
+    "generate:swagger": "ts-node scripts/generate-spec.ts"
   },
   "keywords": [],
   "author": "",
