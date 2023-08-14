@@ -8,19 +8,18 @@ import * as styles from "./styles";
 import { useRouter } from "next/router";
 
 interface Props {
-    buttons?: JSX.Element[];
-    href?: string;
-    transparent?: boolean;
+    title: ReactNode;
     children: ReactNode;
 }
 
-export const Layout: FC<Props> = (props) => {
+export const Layout: FC<Props> = ({ title, children }) => {
     const { pathname } = useRouter();
     return (<>
         <DesktopSidebar></DesktopSidebar>
         <MobileHeader></MobileHeader>
         <div className={styles.content}>
-            {props.children}
+            <h1>{title}</h1>
+            {children}
         </div>
         <MobileBottomNav></MobileBottomNav>
     </>
