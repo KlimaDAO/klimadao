@@ -107,36 +107,9 @@
     },
     "/api/purchases/{id}": {
       "get": {
-        "tags": [
-          "purchases"
-        ],
         "responses": {
           "200": {
-            "description": "Default Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "POOL_PRICES_GRAPH_API_URL": {
-                      "type": "string"
-                    },
-                    "ASSETS_GRAPH_API_URL": {
-                      "type": "string"
-                    },
-                    "CARBON_OFFSETS_GRAPH_API_URL": {
-                      "type": "string"
-                    },
-                    "GRAPH_API_URL": {
-                      "type": "string"
-                    },
-                    "VERCEL_ENV": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Default Response"
           }
         }
       }
@@ -159,6 +132,132 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "tags": [
+          "project"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "category",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "vintage",
+            "required": false
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{id}": {
+      "get": {
+        "tags": [
+          "project"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "category",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
           }
         }
       }
@@ -391,132 +490,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/projects": {
-      "get": {
-        "tags": [
-          "project"
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "country",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "category",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "search",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "vintage",
-            "required": false
-          }
-        ],
-        "responses": {
-          "2XX": {
-            "description": "Default Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "key": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "vintage": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
-                    "country": {
-                      "type": "string"
-                    },
-                    "category": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/projects/{id}": {
-      "get": {
-        "tags": [
-          "project"
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "category",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "country",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "search",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Default Response"
           }
         }
       }
