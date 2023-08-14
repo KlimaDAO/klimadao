@@ -4,7 +4,7 @@ import { VerraCreditsChart } from "components/Charts/VerraCreditsChart";
 import * as chartStyles from "components/Charts/styles";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
-import { ChartData } from "lib/chartsData/getVerraCredits";
+import { ChartData } from "lib/charts/getVerraCredits";
 import { NextPage } from "next";
 import * as styles from "./styles";
 
