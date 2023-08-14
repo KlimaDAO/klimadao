@@ -48,6 +48,7 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
         }),
       ]);
+
     if (!projectDetails) {
       // only render pages if project details exist (render even if there are no listings!)
       return reply.notFound();

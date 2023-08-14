@@ -1,6 +1,6 @@
 import { get } from "lodash";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
-import { Stats, fetchProjectPoolInfo } from "./fetchProjectPoolInfo";
+import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
 
 type ProjectPoolPrice = {
   poolName: "bct" | "nct" | "ubo" | "nbo"; // Name of the pool
