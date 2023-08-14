@@ -1,5 +1,5 @@
 import { Home } from "components/pages/Home";
-import { getVerraCredits } from "lib/chartsData/getVerraCredits";
+import { getVerraCredits } from "lib/charts/getVerraCredits";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 

@@ -57,3 +57,32 @@ export const prepareDailyChartData: (keys: Array<string>, date_field: string, fe
     }
     return chartData;
 }
+
+export const formatQuantityAsMillions = function (quantity: number) {
+    quantity = Math.floor(quantity / 1000000)
+    return `${quantity} M`
+}
+export const formatDateAsMonths = function (date: number) {
+    const formatted_date = new Date(date);
+    var year = formatted_date.getFullYear();
+    var month = String(formatted_date.getMonth()).padStart(2, '0');
+    return `${month} / ${year}`
+}
+// Returns nice ticks to use in a chart
+export const niceTicks = function (data: Array<any>, key?: string, numberOfTicks?: number) {
+    numberOfTicks = numberOfTicks || 3;
+    key = key || "date";
+    const ticks = [];
+    const intervalSize = data.length / numberOfTicks
+    console.log(intervalSize)
+    for (let i = intervalSize / 2; i <= data.length - intervalSize / 2; i += intervalSize) {
+        console.log(i)
+        ticks.push(data[Math.floor(i)][key])
+    }
+    console.log(ticks);
+    return ticks
+
+}
+export default {
+    formatQuantityAsMillions, formatDateAsMonths, prepareDailyChartData, niceTicks
+}
