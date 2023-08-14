@@ -14,8 +14,6 @@ export const desktopSidebar = css`
     text-align: center;
     background-color: var(--surface-04)
   }
-  [aria-describedby="logo"] {
-  }
   [aria-describedby="title"] {
     padding: 20px 0px 20px 0px;
     border: 1px solid ;
@@ -96,5 +94,9 @@ export const content = css`
   background-color: var(--surface-03);
   ${breakpoints.desktop} {
     margin-left: 220px;
+    padding-top: 48px;
+  }
+  h1 {
+    margin-bottom: 26px;
   }
 `;

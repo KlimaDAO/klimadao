@@ -18,3 +18,7 @@ export const chartContainer = css`
         flex: 1 1 auto;
     }
 `
+export const chartLegendText = css`
+    color: var(--text-color-01);
+`
+

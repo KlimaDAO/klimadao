@@ -70,13 +70,11 @@ export const formatDateAsMonths = function (date: number) {
 }
 // Returns nice ticks to use in a chart
 export const niceTicks = function (data: Array<any>, key?: string, numberOfTicks?: number) {
-    numberOfTicks = numberOfTicks || 3;
+    numberOfTicks = numberOfTicks || 4;
     key = key || "date";
     const ticks = [];
-    const intervalSize = data.length / numberOfTicks
-    console.log(intervalSize)
-    for (let i = intervalSize / 2; i <= data.length - intervalSize / 2; i += intervalSize) {
-        console.log(i)
+    const intervalSize = (data.length - 1) / (numberOfTicks - 1)
+    for (let i = 0; i <= data.length - 1; i += intervalSize) {
         ticks.push(data[Math.floor(i)][key])
     }
     console.log(ticks);
