@@ -16,7 +16,7 @@ describe("GET /purchases/:id", () => {
   });
 
   /** The happy path */
-  test.only("Success", async () => {
+  test("Success", async () => {
     const mock = aPurchase();
     nock(GRAPH_URLS.marketplace)
       .post("")
