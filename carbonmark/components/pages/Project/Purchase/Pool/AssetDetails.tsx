@@ -30,7 +30,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
 
   return (
-    <Accordion label={t`Asset Details`} className={styles.accordion}>
+    <Accordion label={t`Asset details`} className={styles.accordion}>
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Token you will receive`}</Text>
         <div className={cx(styles.iconAndText)}>

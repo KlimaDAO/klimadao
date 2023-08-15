@@ -6,6 +6,13 @@ export const accordion = css`
 
   button {
     padding: 0;
+
+    > p {
+      font-size: 2rem !important;
+      font-weight: 700;
+      line-height: 2.8rem;
+      color: var(--font-02);
+    }
   }
 
   &[data-open="true"] {
@@ -181,6 +188,13 @@ export const formatParagraph = css`
   p {
     margin-bottom: 1em;
   }
+`;
+
+export const title = css`
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  color: var(--font-02);
 `;
 
 export const totalsText = css`
