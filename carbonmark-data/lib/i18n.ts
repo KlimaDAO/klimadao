@@ -1,4 +1,4 @@
-import { getLocales } from "@klimadao/lib/utils";
+import { getLocales } from "@klimadao/lib/utils/getLocales";
 import { i18n, Messages } from "@lingui/core";
 import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 
