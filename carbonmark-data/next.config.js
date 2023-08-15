@@ -19,7 +19,7 @@ module.exports = async (phase, { defaultConfig }) => {
         beforeFiles: [
           {
             source: "/",
-            destination: "/overview"
+            destination: "/overview",
           },
         ],
       };
