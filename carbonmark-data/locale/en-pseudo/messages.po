@@ -13,50 +13,46 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/errors/Custom404.tsx:12
-#: components/pages/errors/Custom404.tsx:13
-#: components/pages/errors/Custom404.tsx:14
-#: components/pages/errors/Custom404.tsx:20
-msgid "404 - Page Not Found"
+#: components/charts/VerraCredits/Chart.tsx:52
+msgid "C3"
 msgstr ""
 
-#: components/pages/errors/Custom500.tsx:11
-#: components/pages/errors/Custom500.tsx:12
-#: components/pages/errors/Custom500.tsx:13
-msgid "500 - Server Error"
-msgstr ""
-
-#: components/pages/errors/Custom500.tsx:19
-msgid "500 - Server error occurred"
-msgstr ""
-
-#: components/pages/OffVsOnChain/index.tsx:10
-#: components/pages/OffVsOnChain/index.tsx:11
-#: components/pages/OffVsOnChain/index.tsx:12
-msgid "Carbonmark Data | Your onchain and offchain Carbon Dashboard"
-msgstr ""
-
-#: components/pages/Home/index.tsx:11
-#: components/pages/Home/index.tsx:12
-msgid "Carbonmark | The Universal Carbon Marketplace"
-msgstr ""
-
-#: components/ChangeLanguageButton/index.tsx:44
+#: components/ChangeLanguageButton/index.tsx:21
 msgid "Change language"
 msgstr ""
 
-#: components/Layout/NavItems.tsx:20
+#: components/charts/DigitalCarbonPricingChart.tsx:9
+msgid "Digital Carbon Pricing"
+msgstr ""
+
+#: components/charts/VerraCredits/Chart.tsx:51
+msgid "Moss"
+msgstr ""
+
+#: components/Layout/NavItems.tsx:27
+msgid "Off vs On-Chain"
+msgstr ""
+
+#: components/Layout/NavItems.tsx:21
 msgid "Overview"
 msgstr ""
 
-#: components/pages/errors/Custom404.tsx:23
-msgid "Sorry, looks like we sent you the wrong way."
+#: components/Layout/NavItems.tsx:39
+msgid "Retirement Trends"
 msgstr ""
 
-#: components/pages/errors/Custom500.tsx:22
-msgid "Sorry, something went wrong."
+#: components/Layout/NavItems.tsx:33
+msgid "Supply"
 msgstr ""
 
-#: components/pages/Home/index.tsx:13
-msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and retire digital carbon from any project instantly with zero-commission trading."
+#: components/Layout/NavItems.tsx:45
+msgid "Token Details"
+msgstr ""
+
+#: components/charts/VerraCredits/Chart.tsx:50
+msgid "Toucan"
+msgstr ""
+
+#: components/Layout/index.tsx:21
+msgid "test"
 msgstr ""
