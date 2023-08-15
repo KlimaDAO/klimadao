@@ -42,14 +42,14 @@ export const desktopSidebarItem = css`
   height: 48px;
   display: flex;
   align-items: center;
-  text-align:left;
+  text-align: left;
   color: #767676;
   svg {
     width: 32px;
     height: 32px;
     margin: 8px;
   }
-`
+`;
 export const mobileHeader = css`
   height: 64px;
   display: flex;
@@ -58,7 +58,7 @@ export const mobileHeader = css`
   justify-content: space-between;
 
   ${breakpoints.desktop} {
-    display: none
+    display: none;
   }
 `;
 
@@ -71,7 +71,7 @@ export const mobileBottomNav = css`
   flex-direction: row;
   justify-content: space-evenly;
   ${breakpoints.desktop} {
-    display: none
+    display: none;
   }
   > * {
     flex: 1;
@@ -85,7 +85,6 @@ export const mobileBottomNavItem = css`
   &[aria-selected="true"] {
     background-color: var(--surface-02-active);
   }
-  
 `;
 export const content = css`
   margin-left: 0;

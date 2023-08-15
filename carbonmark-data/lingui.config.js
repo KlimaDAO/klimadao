@@ -2,7 +2,8 @@
 const config = require("../lingui.config.js");
 
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
-const TRANSLATIONIO_KEY_CARBONMARK_DATA = process.env.TRANSLATIONIO_KEY_CARBONMARK_DATA;
+const TRANSLATIONIO_KEY_CARBONMARK_DATA =
+  process.env.TRANSLATIONIO_KEY_CARBONMARK_DATA;
 
 if (GITHUB_WORKSPACE && !TRANSLATIONIO_KEY_CARBONMARK) {
   console.log("Running on GITHUB without the API key => exit");
