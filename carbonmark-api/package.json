@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .ts",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
     "test:postman": "npm:start:test && ./postman_tests.sh",
-    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts"
+    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts",
+    "generate:swagger": "ts-node scripts/generate-spec.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +25,8 @@
     "@fastify/response-validation": "^2.3.1",
     "@fastify/sensible": "^5.0.0",
     "@fastify/session": "^10.3.0",
-    "@fastify/swagger": "^8.3.1",
+    "@fastify/swagger": "^8.8.0",
+    "@fastify/swagger-ui": "^1.9.3",
     "@fastify/type-provider-typebox": "^3.1.0",
     "@mgcrea/fastify-session": "^1.1.0",
     "@sanity/client": "^6.1.2",

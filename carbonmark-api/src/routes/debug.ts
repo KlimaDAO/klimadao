@@ -11,6 +11,7 @@ const DEBUG_KEYS = [
 ];
 
 const schema = {
+  tags: ["debug"],
   response: {
     200: {
       type: "object",

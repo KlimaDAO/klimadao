@@ -7,6 +7,15 @@ interface Params {
   id: string;
 }
 
+// const schema = {
+//   tags: ["purchases"],
+//   response: {
+//     200: {
+//       type: "object",
+//     },
+//   },
+// };
+
 async function handler(
   request: FastifyRequest<{ Params: Params }>,
   reply: FastifyReply
@@ -31,4 +40,9 @@ async function handler(
 }
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route({ method: "GET", url: "/purchases/:id", handler });
+  await fastify.route({
+    method: "GET",
+    url: "/purchases/:id",
+    handler,
+    // schema,
+  });

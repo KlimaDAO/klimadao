@@ -32,6 +32,7 @@ type ResponseType = {
 };
 
 const schema = {
+  tags: ["user"],
   querystring: {
     type: "object",
     properties: {
