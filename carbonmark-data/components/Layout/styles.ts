@@ -6,7 +6,7 @@ export const desktopSidebar = css`
 
   ${breakpoints.desktop} {
     position: fixed;
-    width: 220px;
+    width: 180px;
     overflow: auto;
     padding: 48px  20px  48px 20px;
     gap: 40px;
