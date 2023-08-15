@@ -14,6 +14,16 @@ module.exports = async (phase, { defaultConfig }) => {
     reactStrictMode: true,
     //Provide source maps on preview deployments
     productionBrowserSourceMaps: !IS_PRODUCTION,
+    async rewrites() {
+      return {
+        beforeFiles: [
+          {
+            source: "/",
+            destination: "/overview",
+          },
+        ],
+      };
+    },
     async redirects() {
       return [];
     },

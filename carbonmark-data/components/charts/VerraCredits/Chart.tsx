@@ -1,7 +1,7 @@
 "use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
 import { helpers } from "lib/charts";
-import { ChartData } from "lib/charts/getVerraCredits";
+import { VerraCreditsChartData } from "lib/charts/getVerraCredits";
 import {
   Area,
   AreaChart,
@@ -16,7 +16,7 @@ import { palette } from "theme/palette";
 import * as styles from "../styles";
 
 interface Props {
-  data: ChartData
+  data: VerraCreditsChartData
 }
 export default function Chart(props: Props) {
   return (
