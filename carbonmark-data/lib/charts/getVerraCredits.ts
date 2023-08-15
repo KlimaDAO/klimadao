@@ -8,10 +8,8 @@ interface VerraCreditsChartData {
     moss: number,
     date: number
 }
-export type ChartData = Array<VerraCreditsChartData>;
-
 export async function getVerraCredits() {
-    return prepareDailyChartData(BRIDGES, "bridged_date", (bridge) => {
+    return prepareDailyChartData<VerraCreditsChartData>(BRIDGES, "bridged_date", (bridge) => {
         return queryDailyAggregatedCredits({
             bridge,
             status: "bridged",
