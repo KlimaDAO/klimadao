@@ -253,3 +253,10 @@ export const externalLink = css`
     text-decoration: none;
   }
 `;
+
+export const stickyContentWrapper = css`
+  display: grid;
+  gap: 2.4rem;
+  position: sticky;
+  top: 1rem;
+`;

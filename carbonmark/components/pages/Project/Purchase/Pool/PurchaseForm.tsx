@@ -181,12 +181,14 @@ export const PurchaseForm: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <TotalValues balance={balance} price={props.price} />
-          </Card>
-          <Card>
-            <AssetDetails price={props.price} project={props.project} />
-          </Card>
+          <div className={styles.stickyContentWrapper}>
+            <Card>
+              <TotalValues balance={balance} price={props.price} />
+            </Card>
+            <Card>
+              <AssetDetails price={props.price} project={props.project} />
+            </Card>
+          </div>
           <SubmitButton
             onSubmit={onContinue}
             isLoading={isLoadingAllowance}
