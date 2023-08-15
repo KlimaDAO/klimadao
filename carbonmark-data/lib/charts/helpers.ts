@@ -78,7 +78,6 @@ export const niceTicks = function (data: Array<any>, key?: string, numberOfTicks
     for (let i = 0; i <= data.length - 1; i += intervalSize) {
         ticks.push(data[Math.floor(i)][key])
     }
-    console.log(ticks);
     return ticks
 
 }
