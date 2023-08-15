@@ -1,3 +1,5 @@
+"use client"
+import { Trans } from "@lingui/macro";
 import OverviewCard from "components/OverviewCard";
 import Skeleton from "components/Skeleton";
 import VerraCreditsChart from "components/charts/VerraCredits";
@@ -9,7 +11,7 @@ import * as styles from "./styles";
 export default function OverviewPage() {
     return (
         <div>
-            <h1>State of the digital carbon market</h1>
+            <h1><Trans>State of the digital carbon market</Trans></h1>
             <div className={styles.global}>
                 <div className={styles.mainColumn}>
                     <div className={chartStyles.chartRow}>
