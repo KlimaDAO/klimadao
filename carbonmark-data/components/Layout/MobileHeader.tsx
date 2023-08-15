@@ -5,13 +5,14 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CarbonmarkDataLogo } from "components/Graphics/CarbonmarkDataLogo";
 
 export const MobileHeader: FC = () => {
-    return (<>
-        <div className={styles.mobileHeader}>
-            <CarbonmarkDataLogo></CarbonmarkDataLogo>
-            <div>
-                <ChangeLanguageButton></ChangeLanguageButton>
-            </div>
-        </div >
+  return (
+    <>
+      <div className={styles.mobileHeader}>
+        <CarbonmarkDataLogo></CarbonmarkDataLogo>
+        <div>
+          <ChangeLanguageButton></ChangeLanguageButton>
+        </div>
+      </div>
     </>
-    );
+  );
 };

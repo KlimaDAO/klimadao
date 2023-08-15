@@ -1,3 +1,3 @@
-import helpers from "./helpers"
+import helpers from "./helpers";
 
-export { helpers }
+export { helpers };

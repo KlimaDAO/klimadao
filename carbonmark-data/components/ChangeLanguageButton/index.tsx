@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
@@ -7,7 +7,6 @@ import { FC } from "react";
 import * as styles from "./styles";
 
 export const ChangeLanguageButton: FC = () => {
-
   return (
     <Tippy
       className={styles.tooltip}

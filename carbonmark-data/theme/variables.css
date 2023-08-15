@@ -3,9 +3,9 @@ body,
 body[data-theme="theme-light"] {
   --surface-01: #f5f5f7;
   --surface-02: #202020;
-  --surface-03: #F5F8FA;
-  --surface-04: #FFFFFF;
+  --surface-03: #f5f8fa;
+  --surface-04: #ffffff;
   --surface-02-active: #303030;
   --text-color-01: #313131;
-  --text-color-02: #9C9C9C;
+  --text-color-02: #9c9c9c;
 }
