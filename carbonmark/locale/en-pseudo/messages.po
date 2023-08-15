@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:361
 msgid "0% listing fee"
@@ -465,6 +471,10 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
+#: components/pages/Projects/index.tsx:108
+msgid "Grid view"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr ""
@@ -549,6 +559,10 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:399
 msgid "List and sell for free"
+msgstr ""
+
+#: components/pages/Projects/index.tsx:117
+msgid "List view"
 msgstr ""
 
 #: components/pages/Home/index.tsx:295
@@ -651,7 +665,8 @@ msgid "No listings found for this project."
 msgstr ""
 
 #: components/ProjectCard/index.tsx:60
-#: components/pages/Projects/index.tsx:129
+#: components/pages/Project/ProjectView/GridView.tsx:38
+#: components/pages/Project/ProjectView/ListView.tsx:151
 msgid "No project description found"
 msgstr ""
 
@@ -1170,7 +1185,7 @@ msgstr ""
 msgid "Toggle payment method"
 msgstr ""
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:92
 msgid "Toggle sort menu"
 msgstr ""
 

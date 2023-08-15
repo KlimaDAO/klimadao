@@ -471,6 +471,10 @@ msgstr "Get paid immediately: transactions are resolved in seconds"
 msgid "Go back"
 msgstr "Go back"
 
+#: components/pages/Projects/index.tsx:108
+msgid "Grid view"
+msgstr "Grid view"
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "Handle is required"
@@ -556,6 +560,10 @@ msgstr "Learn more about Carbonmark's role in improving the Digital Carbon Marke
 #: components/pages/Home/index.tsx:399
 msgid "List and sell for free"
 msgstr "List and sell for free"
+
+#: components/pages/Projects/index.tsx:117
+msgid "List view"
+msgstr "List view"
 
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
@@ -657,7 +665,8 @@ msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
 #: components/ProjectCard/index.tsx:60
-#: components/pages/Projects/index.tsx:129
+#: components/pages/Project/ProjectView/GridView.tsx:38
+#: components/pages/Project/ProjectView/ListView.tsx:151
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -1176,7 +1185,7 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:92
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 
