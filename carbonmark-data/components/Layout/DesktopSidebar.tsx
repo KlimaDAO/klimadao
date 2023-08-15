@@ -11,7 +11,7 @@ export const DesktopSidebar: FC = () => {
             <CarbonmarkDataLogo></CarbonmarkDataLogo>
             <div aria-describedby="title">Carbon Dashboard</div>
             <div aria-describedby="links">
-                {navItems.map(navItem =>
+                {navItems().map(navItem =>
                     <DesktopSidebarItem navItem={navItem} key={navItem.url}></DesktopSidebarItem>
                 )}
                 < hr />
