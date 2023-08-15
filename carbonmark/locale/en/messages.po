@@ -263,7 +263,7 @@ msgstr "Change language"
 msgid "Choose a project and quantity"
 msgstr "Choose a project and quantity"
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:81
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
@@ -471,7 +471,7 @@ msgstr "Get paid immediately: transactions are resolved in seconds"
 msgid "Go back"
 msgstr "Go back"
 
-#: components/pages/Projects/index.tsx:108
+#: components/pages/Projects/index.tsx:115
 msgid "Grid view"
 msgstr "Grid view"
 
@@ -561,7 +561,7 @@ msgstr "Learn more about Carbonmark's role in improving the Digital Carbon Marke
 msgid "List and sell for free"
 msgstr "List and sell for free"
 
-#: components/pages/Projects/index.tsx:117
+#: components/pages/Projects/index.tsx:126
 msgid "List view"
 msgstr "List view"
 
@@ -610,8 +610,8 @@ msgstr "Login"
 msgid "Marketplace"
 msgstr "Marketplace"
 
-#: components/pages/Projects/index.tsx:72
-#: components/pages/Projects/index.tsx:73
+#: components/pages/Projects/index.tsx:79
+#: components/pages/Projects/index.tsx:80
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
@@ -665,8 +665,8 @@ msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
 #: components/ProjectCard/index.tsx:60
-#: components/pages/Project/ProjectView/GridView.tsx:38
-#: components/pages/Project/ProjectView/ListView.tsx:151
+#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/ListView.tsx:156
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -1185,7 +1185,7 @@ msgstr "To finalize your retirement, verify all information is correct and then 
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
-#: components/pages/Projects/index.tsx:92
+#: components/pages/Projects/index.tsx:99
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
 

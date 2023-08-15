@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-14 16:56+0000\n"
+"POT-Creation-Date: 2023-08-15 04:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -257,7 +257,7 @@ msgstr "Changer de langue"
 msgid "Choose a project and quantity"
 msgstr "Choisissez un projet et une quantité"
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:81
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choisissez parmi plus de 20 millions de crédits carbone numériques vérifiés provenant de centaines de projets - achetez, vendez ou retirer du carbone dès maintenant."
 
@@ -465,6 +465,10 @@ msgstr "Soyez payé immédiatement : les transactions sont exécutées en quelqu
 msgid "Go back"
 msgstr "Retour"
 
+#: components/pages/Projects/index.tsx:115
+msgid "Grid view"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "Un pseudonyme est requis"
@@ -551,6 +555,10 @@ msgstr "En savoir plus sur le rôle de Carbonmark dans l'amélioration du March�
 msgid "List and sell for free"
 msgstr "Listez et vendez sans frais"
 
+#: components/pages/Projects/index.tsx:126
+msgid "List view"
+msgstr ""
+
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
 msgstr "Mettez vos projets en vente en quelques clics"
@@ -596,8 +604,8 @@ msgstr "Se connecter"
 msgid "Marketplace"
 msgstr "Place de Marché"
 
-#: components/pages/Projects/index.tsx:72
-#: components/pages/Projects/index.tsx:73
+#: components/pages/Projects/index.tsx:79
+#: components/pages/Projects/index.tsx:80
 msgid "Marketplace | Carbonmark"
 msgstr "Place de Marché | Carbonmark"
 
@@ -651,7 +659,8 @@ msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
 #: components/ProjectCard/index.tsx:60
-#: components/pages/Projects/index.tsx:129
+#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/ListView.tsx:156
 msgid "No project description found"
 msgstr "Aucune description de projet n'a été trouvée"
 
@@ -1170,7 +1179,7 @@ msgstr "Pour finaliser votre retrait du marché, vérifiez que toutes les inform
 msgid "Toggle payment method"
 msgstr "Basculer de mode de paiement"
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:99
 msgid "Toggle sort menu"
 msgstr "Afficher le menu de tri"
 

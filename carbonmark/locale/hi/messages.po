@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-14 16:56+0000\n"
+"POT-Creation-Date: 2023-08-15 04:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -257,7 +257,7 @@ msgstr "भाषा बदलें"
 msgid "Choose a project and quantity"
 msgstr "एक प्रोजेक्ट और मात्रा चुनें"
 
-#: components/pages/Projects/index.tsx:74
+#: components/pages/Projects/index.tsx:81
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "सैकड़ों प्रॉजेक्ट्स में से 20 मिलियन से भी अधिक सत्यापित डिजिटल कार्बन क्रेडिट्स में से चुनें - अभी कार्बन ख़रीदें, बेचें या रिटायर करें।"
 
@@ -465,6 +465,10 @@ msgstr "तुरंत भुगतान प्राप्त करें: �
 msgid "Go back"
 msgstr "वापस जाएँ"
 
+#: components/pages/Projects/index.tsx:115
+msgid "Grid view"
+msgstr ""
+
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
 msgid "Handle is required"
 msgstr "हैंडल आवश्यक है"
@@ -551,6 +555,10 @@ msgstr "डिजिटल कार्बन बाज़ार और सम�
 msgid "List and sell for free"
 msgstr "मुफ़्त में सूचीबद्ध करें और बेचें"
 
+#: components/pages/Projects/index.tsx:126
+msgid "List view"
+msgstr ""
+
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
 msgstr "बस कुछ ही क्लिक में बिक्री के लिए अपनी परियोजनाओं की सूची बनाएं"
@@ -596,8 +604,8 @@ msgstr "लॉग इन करें"
 msgid "Marketplace"
 msgstr "मार्केटप्लेस"
 
-#: components/pages/Projects/index.tsx:72
-#: components/pages/Projects/index.tsx:73
+#: components/pages/Projects/index.tsx:79
+#: components/pages/Projects/index.tsx:80
 msgid "Marketplace | Carbonmark"
 msgstr "मार्केटप्लेस | कार्बनमार्क"
 
@@ -651,7 +659,8 @@ msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #: components/ProjectCard/index.tsx:60
-#: components/pages/Projects/index.tsx:129
+#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/ListView.tsx:156
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
@@ -1170,7 +1179,7 @@ msgstr "अपनी रिटायरमैंट को अंतिम र�
 msgid "Toggle payment method"
 msgstr "भुगतान विधि टॉगल करें"
 
-#: components/pages/Projects/index.tsx:91
+#: components/pages/Projects/index.tsx:99
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
