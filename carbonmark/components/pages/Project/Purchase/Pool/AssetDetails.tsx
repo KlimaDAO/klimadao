@@ -3,6 +3,7 @@ import { Anchor } from "@klimadao/lib/components";
 import { PoolToken } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { Accordion } from "components/Accordion";
 import { Text } from "components/Text";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
@@ -29,9 +30,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
 
   return (
-    <>
-      <Text t="h4">{t`Asset Details`}</Text>
-
+    <Accordion label={t`Asset Details`} className={styles.accordion}>
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Token you will receive`}</Text>
         <div className={cx(styles.iconAndText)}>
@@ -62,6 +61,6 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
           </Text>
         </Anchor>
       </div>
-    </>
+    </Accordion>
   );
 };

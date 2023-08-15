@@ -1,6 +1,24 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const accordion = css`
+  border: none;
+
+  button {
+    padding: 0;
+  }
+
+  &[data-open="true"] {
+    .content {
+      padding: 0;
+
+      > div {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+`;
+
 export const container = css`
   grid-column: main;
   display: grid;
