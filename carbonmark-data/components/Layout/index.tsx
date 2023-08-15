@@ -5,23 +5,20 @@ import { MobileHeader } from "./MobileHeader";
 import * as styles from "./styles";
 
 
-import { useRouter } from "next/router";
 
 interface Props {
-    title: ReactNode;
     children: ReactNode;
 }
 
-export const Layout: FC<Props> = ({ title, children }) => {
-    const { pathname } = useRouter();
+const Layout: FC<Props> = ({ children }) => {
     return (<>
         <DesktopSidebar></DesktopSidebar>
         <MobileHeader></MobileHeader>
         <div className={styles.content}>
-            <h1>{title}</h1>
             {children}
         </div>
         <MobileBottomNav></MobileBottomNav>
     </>
     );
 };
+export default Layout;

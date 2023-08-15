@@ -1,6 +1,8 @@
 
 import { PaginatedResponse } from "./types";
-export type ChartData = Array<Record<string, any>>;
+type GenericChartDataEntry = Record<string, any>
+export type GenericChartData = Array<GenericChartDataEntry>;
+export type ChartData<T> = Array<T>;
 
 /*
   This function takes multiple datasets and merge them into data usable by recharts
@@ -9,7 +11,7 @@ export type ChartData = Array<Record<string, any>>;
    - date_field: The field to use to merge the datasets
    - fetchFunction: The datasets returned by the API
 */
-export const prepareDailyChartData: (keys: Array<string>, date_field: string, fetchFunction: (key: string) => Promise<PaginatedResponse<any>>) => Promise<ChartData> = async (keys, date_field, fetchFunction) => {
+export async function prepareDailyChartData<T>(keys: Array<string>, date_field: string, fetchFunction: (key: string) => Promise<PaginatedResponse<any>>): Promise<ChartData<T>> {
     // Fetch data
     const datasets = await Promise.all(
         keys.map(fetchFunction)
@@ -34,28 +36,27 @@ export const prepareDailyChartData: (keys: Array<string>, date_field: string, fe
         })
     }
     // Create a new dataset with every dates represented
-    const chartData: ChartData = [];
+    const chartData: GenericChartData = [];
     let j: number = 0;
     for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
-        const previousRecord = j > 0 ? chartData[j - 1] : {
-            "date": 0,
-            "c3": 0,
-            "toucan": 0,
-            "moss": 0,
+        var record = records[date]
+        if (j > 0) {
+            const previousRecord: Record<string, any> = chartData[j - 1]
+            // Use the record computed previously for this date. If the record does not exist use the record from the previous date
+            if (record === undefined) {
+                record = records[date] || Object.assign({}, previousRecord);
+            }
+            // If there is no value for a key, use the value from the previous record
+            keys.forEach(key => {
+                record[key] = record[key] || previousRecord[key];
+            })
+            // Ensure the date is okay (if we copied the previous record)
+            record.date = date
         }
-        // Use the record computed previously for this date. If the record does not exist use the record from the previous date
-        const record = records[date] || Object.assign({}, previousRecord);
-
-        // If there is no value for a key, use the value from the previous record
-        keys.forEach(key => {
-            record[key] = record[key] || previousRecord[key];
-        })
-        // Ensure the date is okay (if we copied the previous record)
-        record.date = date
         chartData.push(record);
         j++;
     }
-    return chartData;
+    return chartData as ChartData<T>;
 }
 
 export const formatQuantityAsMillions = function (quantity: number) {

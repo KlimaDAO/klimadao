@@ -11,7 +11,7 @@ interface Props {
 export const DesktopSidebarItem: FC<Props> = ({ navItem }) => {
     return (
         <a className={styles.desktopSidebarItem} href={navItem.url}>
-            <DesktopSidebarItemIcon>{navItem.iconPath()}</DesktopSidebarItemIcon>
+            <DesktopSidebarItemIcon>{navItem.iconPath}</DesktopSidebarItemIcon>
             {navItem.label}
         </a>
     );
