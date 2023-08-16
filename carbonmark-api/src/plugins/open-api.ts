@@ -1,129 +1,66 @@
-import swagger from "@fastify/swagger";
+import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
+import packageJson from "../../package.json";
 
-const OPEN_API_SPEC = {
-  openapi: {
-    info: {
-      title: "Marketplace swagger",
-      description: "Fastify swagger API for Marketplace",
-      version: "0.1.0",
+const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
+  info: {
+    title: "Carbonmark REST API",
+    description: `
+Welcome to the API Reference docs for **version ${packageJson.version}** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.
+## Quick start
+⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.
+
+~~~ts
+const res = await fetch("https://v1.api.carbonmark.com/api/projects");
+const projects = await res.json();
+~~~
+
+For a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href="https://docs.carbonmark.com">docs.carbonmark.com</a>.
+## 
+`,
+    termsOfService: "https://www.carbonmark.com/blog/terms-of-use",
+    contact: {
+      name: "Support",
+      url: "https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr",
+      // email: "support@carbonmark.com",
     },
-    externalDocs: {
-      url: "https://klimadao.stoplight.io/docs/carbonmark-api",
-      description: "Find more info here",
+    license: {
+      name: "MIT",
+      url: "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE",
     },
-    // host: "localhost",
-    // schemes: ["http"],
-    // consumes: ["application/json"],
-    // produces: ["application/json"],
-    tags: [
-      { name: "auth", description: "Authentication related end-points" },
-      { name: "user", description: "User related end-points" },
-      { name: "category", description: "Code related end-points" },
-      { name: "country", description: "Code related end-points" },
-      { name: "project", description: "Code related end-points" },
-    ],
-    // definitions: {
-    //   User: {
-    //     type: "object",
-    //     required: ["wallet", "email"],
-    //     properties: {
-    //       wallet: { type: "string", format: "address" },
-    //       handle: { type: "string" },
-    //       username: { type: "string" },
-    //       description: { type: "string", format: "text" },
-    //       listings: {
-    //         type: "array",
-    //         items: {
-    //           type: "object",
-    //           properties: {
-    //             id: { type: "number" },
-    //             totalAmountToSell: { type: "number" },
-    //             tokenAddress: { type: "address" },
-    //             active: { type: "boolean" },
-    //             deleted: { type: "boolean", items: [] },
-    //             batches: { type: "array", items: [] },
-    //             batchPrices: { type: "array" },
-    //             singleUnitPrice: { type: "number" },
-    //             project: {
-    //               type: "object",
-    //               properties: {
-    //                 name: { type: "string" },
-    //                 category: { type: "string" },
-    //               },
-    //             },
-    //           },
-    //         },
-    //       },
-    //       activities: {
-    //         type: "array",
-    //         items: {
-    //           type: "object",
-    //           properties: {
-    //             id: { type: "number" },
-    //             amount: { type: "number" },
-    //             previousAmount: { type: "number" },
-    //             price: { type: "number" },
-    //             previousPrice: { type: "number" },
-    //             timeStamp: { type: "number" },
-    //             project: {
-    //               type: "object",
-    //               properties: {
-    //                 key: { type: "string" },
-    //               },
-    //             },
-    //             seller: {
-    //               type: "object",
-    //               properties: {
-    //                 id: { type: "address" },
-    //               },
-    //             },
-    //             buyer: {
-    //               type: "object",
-    //               properties: {
-    //                 id: { type: "address" },
-    //               },
-    //             },
-    //           },
-    //         },
-    //       },
-    //     },
-    //   },
-    //   Project: {
-    //     type: "object",
-    //     properties: {
-    //       id: { type: "number" },
-    //       key: { type: "string" },
-    //       projectID: { type: "string" },
-    //       name: { type: "string" },
-    //       methodology: { type: "string" },
-    //       vintage: { type: "number" },
-    //       projectAddress: { type: "address" },
-    //       registry: { type: "string" },
-    //     },
-    //   },
-    //   Category: {
-    //     type: "object",
-    //     properties: {
-    //       id: { type: "string" },
-    //     },
-    //   },
-    //   Country: {
-    //     type: "object",
-    //     properties: {
-    //       id: { type: "string" },
-    //     },
-    //   },
-    // },
+    /** The API version */
+    version: packageJson.version,
   },
+  externalDocs: {
+    url: "https://docs.carbonmark.com/",
+    description:
+      "Additional documentation. The complete product and platform knowledge base for Carbonmark can be found here.",
+  },
+  tags: [
+    {
+      name: "users",
+      description:
+        "View users, their profiles, and their activity on the platform.",
+    },
+    {
+      name: "categories",
+      description:
+        "A list of all categories used to delineate projects in the marketplace.",
+    },
+    {
+      name: "countries",
+      description:
+        "A list of all countries with projects available for purchase in the marketplace.",
+    },
+    {
+      name: "projects",
+      description:
+        "Search and filter all projects, or get details on a specific project.",
+    },
+  ],
+  // paths are defined as schemas in each route handler file.
 };
 
 export default fp(async function (fastify) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires -- this package does not yet support es module imports
-  await fastify.register(swagger, OPEN_API_SPEC);
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires -- this package does not yet support es module imports
-  await fastify.register(require("@fastify/swagger-ui"), {
-    routePrefix: "/documentation",
-  });
+  await fastify.register(swagger, { openapi: OPEN_API_OPTIONS });
 });
