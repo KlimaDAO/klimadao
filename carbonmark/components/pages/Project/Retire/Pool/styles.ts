@@ -85,6 +85,41 @@ export const paymentDropdown = css`
   }
 `;
 
+export const paymentMethod = css`
+  gap: 0.8rem;
+  color: #000;
+  display: flex;
+  padding: 1rem;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.8rem;
+  border: 1px solid #8b8fae;
+
+  &.selected {
+    color: #fff;
+    background: #58585c;
+  }
+
+  div {
+    gap: 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    color: #626266;
+    &.selected {
+      color: #b0b1b8;
+    }
+
+    strong {
+      font-weight: 700;
+      padding-left: 0.8rem;
+    }
+  }
+`;
+
 export const paymentDropDownHeader = css`
   display: flex;
   align-items: center;

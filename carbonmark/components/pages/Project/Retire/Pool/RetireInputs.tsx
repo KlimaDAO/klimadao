@@ -3,7 +3,6 @@ import { Anchor } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
-import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
@@ -18,7 +17,12 @@ import {
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";
+import {
+  Controller,
+  SubmitHandler,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
 
@@ -74,7 +78,7 @@ const validations = (
         value: Number(fiatBalance || "2000"),
         message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
           fiatBalance || 0
-        )}.`,
+        )}. Please adjust the quantity and try again later.`,
       },
     },
   },
@@ -107,6 +111,19 @@ export const RetireInputs: FC<Props> = (props) => {
   const exceededFiatBalance =
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
 
+  // const isFiat = paymentMethod === "fiat";
+
+  // /** Credit card fee string to display in the price card for fiat payments */
+  // const calcCreditCardFee = (): string => {
+  //   if (!isFiat || !Number(costs) || isLoading) return "$0.00";
+  //   // we have the total cost and the price per tonne.
+  //   const priceWithoutFees =
+  //     Number(amount) * Number(props.price.singleUnitPrice);
+  //   const fee = Number(costs) - priceWithoutFees;
+  //   if (fee <= 0) return "$0.00";
+  //   return formatToPrice(fee.toString(), locale, isFiat);
+  // };
+
   useEffect(() => {
     // remove all errors when changed
     clearErrors();
@@ -138,7 +155,6 @@ export const RetireInputs: FC<Props> = (props) => {
         <Text>
           <span className={styles.required}>* </span> {t`Required Field`}
         </Text>
-
         <div className={styles.labelWithInput}>
           <div className={styles.quantityLabel}>
             <Text>
@@ -184,7 +200,6 @@ export const RetireInputs: FC<Props> = (props) => {
             />
           </div>
         </div>
-
         <div className={styles.labelWithInput}>
           <Text>
             {t`Who will this retirement be credited to?`}{" "}
@@ -254,7 +269,6 @@ export const RetireInputs: FC<Props> = (props) => {
             errorMessage={formState.errors.retirementMessage?.message}
           />
         </div>
-
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
             <Text>{t`Pay with:`}</Text>
@@ -271,7 +285,63 @@ export const RetireInputs: FC<Props> = (props) => {
             )}
           </div>
 
-          <Dropdown
+          {Object?.entries(carbonmarkRetirePaymentMethodMap)
+            ?.map(([item, value]) => (
+              <Controller
+                control={control}
+                name="paymentMethod"
+                key={`payment-${item}`}
+                render={({ field }) => (
+                  <button
+                    type="button"
+                    disabled={value.disabled}
+                    aria-label="Payment Method"
+                    onClick={() => {
+                      setValue(
+                        "paymentMethod",
+                        value.id as CarbonmarkPaymentMethod
+                      );
+                    }}
+                    className={cx(styles.paymentMethod, {
+                      error: exceededFiatBalance,
+                      selected: item === field.value,
+                    })}
+                  >
+                    <div>
+                      <Image
+                        width={28}
+                        height={28}
+                        className="icon"
+                        src={value.icon}
+                        alt={value.label}
+                      />
+                      {value.label}
+                    </div>
+                    <Text
+                      t="body3"
+                      className={cx({ selected: item === field.value })}
+                    >
+                      {item === "fiat" && (
+                        <>
+                          <Trans>Processing Fee:</Trans>
+                          <strong>$0.00</strong>
+                        </>
+                      )}
+                      {item === "usdc" && (
+                        <>
+                          <Trans>Balance</Trans>
+                          <strong>
+                            {formatToPrice(props.userBalance!, locale)}
+                          </strong>
+                        </>
+                      )}
+                    </Text>
+                  </button>
+                )}
+              />
+            ))
+            .reverse()}
+          {/* <Dropdown
             name="paymentMethod"
             initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
             className={cx(styles.paymentDropdown, {
@@ -308,7 +378,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 disabled: val.disabled,
               })
             )}
-          />
+          /> */}
         </div>
 
         {belowFiatMinimum && (
@@ -322,7 +392,6 @@ export const RetireInputs: FC<Props> = (props) => {
             {getValidations().totalPrice.max.message}
           </Text>
         )}
-
         <div className={styles.paymentHelp}>
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
@@ -339,7 +408,6 @@ export const RetireInputs: FC<Props> = (props) => {
             </Text>
           </div>
         </div>
-
         <div className={styles.disclaimer}>
           <GppMaybeOutlined />
           <Text t="body3">
