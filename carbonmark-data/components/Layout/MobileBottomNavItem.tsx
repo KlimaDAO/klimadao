@@ -13,7 +13,7 @@ interface Props {
 export const MobileBottomNavItem: FC<Props> = ({ navItem }) => {
   const pathname = usePathname();
   const active = pathname == navItem.url;
-  const iconPath = active ? navItem.activeIconPath : navItem.iconPath;
+  const iconPath = active ? navItem.activeIconPath : navItem.icon;
   return (
     <div
       aria-describedby="button"

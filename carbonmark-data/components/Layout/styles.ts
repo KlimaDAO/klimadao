@@ -43,13 +43,23 @@ export const desktopSidebarItem = css`
   display: flex;
   align-items: center;
   text-align: left;
+  text-decoration: none;
+  gap: 12px;
   color: #767676;
+`;
+
+export const desktopSidebarIcon = css`
+  border-radius: 6px;
+  background-color: var(--surface-01);
+  width: 32px;
+  height: 32px;
   svg {
-    width: 32px;
-    height: 32px;
-    margin: 8px;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
   }
 `;
+
 export const mobileHeader = css`
   height: 64px;
   display: flex;

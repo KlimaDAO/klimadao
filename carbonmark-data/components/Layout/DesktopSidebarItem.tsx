@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { DesktopSidebarItemIcon } from "./DesktopSidebarItemIcon";
 import { NavItem } from "./NavItems";
 import * as styles from "./styles";
 
@@ -11,7 +10,7 @@ interface Props {
 export const DesktopSidebarItem: FC<Props> = ({ navItem }) => {
   return (
     <a className={styles.desktopSidebarItem} href={navItem.url}>
-      <DesktopSidebarItemIcon>{navItem.iconPath}</DesktopSidebarItemIcon>
+      <span className={styles.desktopSidebarIcon}>{navItem.icon}</span>
       {navItem.label}
     </a>
   );
