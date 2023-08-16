@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: any;
+  params: { locale: string };
 }) {
   const locale = props.params.locale;
   const translation = await loadTranslation(locale);

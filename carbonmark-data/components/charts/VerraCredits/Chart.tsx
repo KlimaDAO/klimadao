@@ -1,7 +1,7 @@
 "use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
 import { helpers } from "lib/charts";
-import { VerraCreditsChartData } from "lib/charts/getVerraCredits";
+import { VerraCreditsChartData } from "lib/charts/types";
 import {
   Area,
   AreaChart,
@@ -36,7 +36,7 @@ export default function Chart(props: Props) {
         <XAxis
           dataKey="date"
           tickFormatter={helpers.formatDateAsMonths}
-          ticks={helpers.niceTicks(props.data)}
+          ticks={helpers.niceTicks(props.data, "date")}
           tickLine={false}
         />
         <YAxis
