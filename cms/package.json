@@ -21,7 +21,6 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^3.2.4",
-    "prettier": "^3.0.2"
+    "@sanity/cli": "^3.2.4"
   }
 }
