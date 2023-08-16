@@ -19,7 +19,7 @@ export const desktopSidebar = css`
     border: 1px solid ;
     border-left: none;
     border-right: none;
-    border-color: var(--text-color-02);
+    border-color: var(--text-color-03);
     color: var(--text-color-01)
     height: 60px;
     width: 180px;
@@ -35,6 +35,8 @@ export const desktopSidebar = css`
     width: 180px;
     display: grid;
     gap: 16px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--text-color-03);
   }
 `;
 export const desktopSidebarItem = css`
@@ -51,6 +53,7 @@ export const desktopSidebarItem = css`
 export const desktopSidebarIcon = css`
   border-radius: 6px;
   background-color: var(--surface-01);
+  color: var(--text-color-01);
   width: 32px;
   height: 32px;
   svg {

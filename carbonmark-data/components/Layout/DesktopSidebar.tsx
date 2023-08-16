@@ -18,7 +18,6 @@ export const DesktopSidebar: FC = () => {
               key={navItem.url}
             ></DesktopSidebarItem>
           ))}
-          <hr />
         </div>
       </div>
     </>
