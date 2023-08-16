@@ -1,12 +1,9 @@
-# next.js
-.next/
-
-# production
-node_modules/
-out/
-build/
-
-# translation files
-**/locale/*/messages.js
-
-*/dist
+**/.vercel
+**/.next/
+**/node_modules/
+**/out/
+**/build/
+**/locale/
+**/dist/
+**/coverage/
+**/.env.*
