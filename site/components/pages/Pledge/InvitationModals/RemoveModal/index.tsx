@@ -53,7 +53,7 @@ export const RemoveModal = (props: Props) => {
         id: "pledge.invitation.signing",
         message: "Signing",
       }),
-    }[step]);
+    })[step];
 
   const { signer, address } = useWeb3();
   const handleSubmit = async (params: { message: string }) => {

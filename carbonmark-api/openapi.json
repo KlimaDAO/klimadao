@@ -11,9 +11,7 @@
   "paths": {
     "/api/categories": {
       "get": {
-        "tags": [
-          "category"
-        ],
+        "tags": ["category"],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -28,9 +26,7 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ]
+                    "required": ["id"]
                   }
                 }
               }
@@ -41,9 +37,7 @@
     },
     "/api/countries": {
       "get": {
-        "tags": [
-          "country"
-        ],
+        "tags": ["country"],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -58,9 +52,7 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ]
+                    "required": ["id"]
                   }
                 }
               }
@@ -71,9 +63,7 @@
     },
     "/api/debug": {
       "get": {
-        "tags": [
-          "debug"
-        ],
+        "tags": ["debug"],
         "responses": {
           "200": {
             "description": "Default Response",
@@ -116,9 +106,7 @@
     },
     "/api/vintages": {
       "get": {
-        "tags": [
-          "vintages"
-        ],
+        "tags": ["vintages"],
         "responses": {
           "2XX": {
             "description": "Default Response",
@@ -138,9 +126,7 @@
     },
     "/api/projects": {
       "get": {
-        "tags": [
-          "project"
-        ],
+        "tags": ["project"],
         "parameters": [
           {
             "schema": {
@@ -226,9 +212,7 @@
     },
     "/api/projects/{id}": {
       "get": {
-        "tags": [
-          "project"
-        ],
+        "tags": ["project"],
         "parameters": [
           {
             "schema": {
@@ -264,9 +248,7 @@
     },
     "/api/users": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -291,12 +273,7 @@
                     "maxLength": 64
                   }
                 },
-                "required": [
-                  "handle",
-                  "username",
-                  "wallet",
-                  "description"
-                ]
+                "required": ["handle", "username", "wallet", "description"]
               }
             }
           },
@@ -353,9 +330,7 @@
     },
     "/api/users/{walletOrHandle}": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "parameters": [
           {
             "schema": {
@@ -421,9 +396,7 @@
     },
     "/api/users/{wallet}": {
       "put": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -496,9 +469,7 @@
     },
     "/api/users/login": {
       "post": {
-        "tags": [
-          "auth"
-        ],
+        "tags": ["auth"],
         "description": "Provides the user with a nonce for their particular wallet intended to be used by /verify",
         "requestBody": {
           "content": {
@@ -512,9 +483,7 @@
                     "maxLength": 64
                   }
                 },
-                "required": [
-                  "wallet"
-                ]
+                "required": ["wallet"]
               }
             }
           },
@@ -541,9 +510,7 @@
     },
     "/api/users/login/verify": {
       "post": {
-        "tags": [
-          "auth"
-        ],
+        "tags": ["auth"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -559,10 +526,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "wallet",
-                  "signature"
-                ]
+                "required": ["wallet", "signature"]
               }
             }
           },
