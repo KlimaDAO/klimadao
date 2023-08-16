@@ -17,6 +17,7 @@
     "build-all": "npm run build --workspaces",
     "dev-all": "npm run dev --workspaces",
     "lint-all": "npm run lint --workspaces",
+    "prettier-check-all": "prettier --check .",
     "format-all": "prettier --write ./",
     "build-lib": "npm run build -w=lib",
     "build-site": "npm run build-lib && npm run build -w=site",
