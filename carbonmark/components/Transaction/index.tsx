@@ -3,8 +3,8 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
 import { Approve } from "./Approve";
-import * as styles from "./styles";
 import { Submit } from "./Submit";
+import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {

@@ -7,7 +7,7 @@ import {
   Text,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ForumIcon from "@mui/icons-material/Forum";
 import { NextPage } from "next";
 import Image, { StaticImageData } from "next/legacy/image";

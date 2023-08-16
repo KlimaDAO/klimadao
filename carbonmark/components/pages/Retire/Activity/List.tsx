@@ -7,8 +7,8 @@ import { getRetirements } from "lib/api";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { ActivityQuotes } from "./Quotes";
-import * as styles from "./styles";
 import { ActivityTable } from "./Table";
+import * as styles from "./styles";
 
 export const RetirementsList: FC = () => {
   const { isConnected, address, initializing, toggleModal } = useWeb3();

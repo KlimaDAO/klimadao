@@ -5,7 +5,7 @@ import {
   Section,
   Text,
 } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { NextPage } from "next";
 import Image from "next/legacy/image";
 import { useState } from "react";
