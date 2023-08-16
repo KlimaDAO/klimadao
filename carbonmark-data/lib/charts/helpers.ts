@@ -1,7 +1,11 @@
-import { PaginatedResponse } from "./types";
-type GenericChartDataEntry = Record<string, string | number>;
-export type GenericChartData = Array<GenericChartDataEntry>;
-export type ChartData<T> = Array<T>;
+import {
+  ChartData,
+  DailyAggregatedCredits,
+  DailyChartData,
+  DatesAttribute,
+  GenericChartDataEntry,
+  GenericDailyChartDataEntry,
+} from "./types";
 
 /*
   This function takes multiple datasets and merge them into data usable by recharts
@@ -9,19 +13,23 @@ export type ChartData<T> = Array<T>;
    - keys: the attribute name to used in the merged dataset to reference the values of the primitive datasets and passed to the fetch function
    - date_field: The field to use to merge the datasets
    - fetchFunction: The datasets returned by the API
+  Generics:
+   - CI: Expected type of items in the chart entry
+   - K: Type of keys usable in the fetchFunction
 */
-export async function prepareDailyChartData<T>(
-  keys: Array<string>,
-  date_field: string,
-  fetchFunction: (
-    key: string
-  ) => Promise<PaginatedResponse<GenericChartDataEntry>>
-): Promise<ChartData<T>> {
+export async function prepareDailyChartData<
+  CI extends GenericDailyChartDataEntry,
+  K extends Partial<string>
+>(
+  keys: Array<K>,
+  date_field: DatesAttribute,
+  fetchFunction: (key: K) => Promise<DailyAggregatedCredits>
+): Promise<DailyChartData<CI>> {
   // Fetch data
   const datasets = await Promise.all(keys.map(fetchFunction));
 
   // Use a dictionnary to merge data and find the smallest and biggest dates
-  const records: Record<string, Record<string, string | number>> = {};
+  const records: Record<string, GenericChartDataEntry> = {};
   let minDate = 0;
   let maxDate = 0;
   for (const i in datasets) {
@@ -30,8 +38,9 @@ export async function prepareDailyChartData<T>(
     dataset?.items.forEach((item) => {
       const date = Date.parse(item[date_field] as string);
       records[date] = records[date_field] || {};
-      records[date].date = date;
-      records[date][key] = item.quantity;
+      const record = records[date];
+      record.date = date;
+      record[key] = item.quantity;
       minDate = minDate || date;
       maxDate = maxDate || date;
       if (date < minDate) minDate = date;
@@ -39,12 +48,12 @@ export async function prepareDailyChartData<T>(
     });
   }
   // Create a new dataset with every dates represented
-  const chartData: GenericChartData = [];
+  const chartData: DailyChartData<CI> = [];
   let j = 0;
   for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
     let record = records[date];
     if (j > 0) {
-      const previousRecord: Record<string, string | number> = chartData[j - 1];
+      const previousRecord: GenericChartDataEntry = chartData[j - 1];
       // Use the record computed previously for this date. If the record does not exist use the record from the previous date
       if (record === undefined) {
         record = records[date] || Object.assign({}, previousRecord);
@@ -56,10 +65,10 @@ export async function prepareDailyChartData<T>(
       // Ensure the date is okay (if we copied the previous record)
       record.date = date;
     }
-    chartData.push(record);
+    chartData.push(record as CI);
     j++;
   }
-  return chartData as ChartData<T>;
+  return chartData;
 }
 
 export const formatQuantityAsMillions = function (quantity: number) {
@@ -73,23 +82,23 @@ export const formatDateAsMonths = function (date: number) {
   return `${month} / ${year}`;
 };
 // Returns nice ticks to use in a chart
-export const niceTicks = function (
-  data: GenericChartData,
-  key?: string,
+export function niceTicks<T>(
+  data: ChartData<T>,
+  key: keyof T,
   numberOfTicks?: number
 ) {
   numberOfTicks = numberOfTicks || 4;
-  key = key || "date";
   const ticks = [];
   const intervalSize = (data.length - 1) / (numberOfTicks - 1);
   for (let i = 0; i <= data.length - 1; i += intervalSize) {
     ticks.push(data[Math.floor(i)][key]);
   }
   return ticks;
-};
-export default {
+}
+const helpers = {
   formatQuantityAsMillions,
   formatDateAsMonths,
   prepareDailyChartData,
   niceTicks,
 };
+export default helpers;
