@@ -1,21 +1,15 @@
 import { BRIDGES } from "lib/constants";
-import { ChartData, prepareDailyChartData } from "./helpers";
+import { prepareDailyChartData } from "./helpers";
 import { queryDailyAggregatedCredits } from "./queries";
+import { Bridge, VerraCreditsChartDataItem } from "./types";
 
-interface VerraCreditsChartDataItem {
-  toucan: number;
-  c3: number;
-  moss: number;
-  date: number;
-}
-export type VerraCreditsChartData = ChartData<VerraCreditsChartDataItem>;
 export async function getVerraCredits() {
-  return prepareDailyChartData<VerraCreditsChartDataItem>(
+  return prepareDailyChartData<VerraCreditsChartDataItem, Bridge>(
     BRIDGES,
     "bridged_date",
     (bridge) => {
       return queryDailyAggregatedCredits({
-        bridge,
+        bridge: bridge,
         status: "bridged",
         operator: "cumsum",
         page_size: -1,
