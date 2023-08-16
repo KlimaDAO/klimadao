@@ -1,6 +1,5 @@
-import { Ident } from "provide-js";
-import { Vault } from "provide-js";
 import "dotenv/config";
+import { Ident, Vault } from "provide-js";
 
 console.log("begin carbon offset");
 
