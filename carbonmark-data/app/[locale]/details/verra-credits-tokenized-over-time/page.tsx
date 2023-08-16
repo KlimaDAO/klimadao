@@ -1,4 +1,3 @@
-"use client";
 import { t } from "@lingui/macro";
 import DetailPage from "components/pages/DetailPage";
 

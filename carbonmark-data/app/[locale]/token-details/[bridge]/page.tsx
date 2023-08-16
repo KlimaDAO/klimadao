@@ -1,12 +1,9 @@
-"use client";
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 
 export default function TokenDetailsPage() {
   return (
     <div>
-      <h1>
-        <Trans>Token details</Trans>
-      </h1>
+      <h1>{t`Token details`}</h1>
     </div>
   );
 }

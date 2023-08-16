@@ -1,12 +1,9 @@
-"use client";
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 
 export default function SupplyPage() {
   return (
     <div>
-      <h1>
-        <Trans>Supply</Trans>
-      </h1>
+      <h1>{t`Supply`}</h1>
     </div>
   );
 }

@@ -1,12 +1,9 @@
-"use client";
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 
 export default function OffVsOnChainPage() {
   return (
     <div>
-      <h1>
-        <Trans>Off Chain vs On-Chain</Trans>
-      </h1>
+      <h1>{t`Off Chain vs On-Chain`}</h1>
     </div>
   );
 }

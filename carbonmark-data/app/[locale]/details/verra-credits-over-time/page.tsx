@@ -1,4 +1,3 @@
-"use client";
 import { t } from "@lingui/macro";
 import VerraCreditsChart from "components/charts/VerraCredits";
 import DetailPage from "components/pages/DetailPage";
