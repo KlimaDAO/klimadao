@@ -19,6 +19,7 @@ export default function OverviewPage() {
           <div className={chartStyles.chartRow}>
             <OverviewCard title="Verra credits" href="/details/verra-credits">
               <Suspense fallback={<Skeleton />}>
+                {/* @ts-expect-error Server Component */}
                 <VerraCreditsChart />
               </Suspense>
             </OverviewCard>
