@@ -7,3 +7,7 @@
 **/dist/
 **/coverage/
 **/.env.*
+**/.generated/
+**/package*.json
+*.md
+**/.sanity/
