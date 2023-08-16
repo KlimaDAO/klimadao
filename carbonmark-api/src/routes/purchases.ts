@@ -6,42 +6,6 @@ interface Params {
   id: string;
 }
 
-const example = {
-  id: "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-  amount: "1000000000000000000",
-  listing: {
-    id: "0x6",
-    totalAmountToSell: "1030000000000000000",
-    leftToSell: "0",
-    tokenAddress: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
-    active: false,
-    deleted: true,
-    batches: [],
-    batchPrices: [],
-    singleUnitPrice: "230000",
-    createdAt: "1679158382",
-    updatedAt: "1687858292",
-    project: {
-      id: "0x0",
-      key: "VCS-191",
-      projectID: "191",
-      name: "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
-      vintage: "2008",
-      projectAddress: "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
-      registry: "VCS",
-      methodology: "ACM0002",
-      projectType: "",
-      region: "China",
-      category: { id: "Renewable Energy" },
-      country: { id: "China" },
-      updatedAt: "1684923108",
-    },
-  },
-  price: "230000",
-  timeStamp: "1679419884",
-  user: { id: "0xd1a3699f2098ac92c2f4914979fcb22aba86d259" },
-};
-
 const schema = {
   tags: ["purchases"],
   params: {
