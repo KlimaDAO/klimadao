@@ -2,16 +2,18 @@ import { urls } from "lib/constants";
 import {
   AggregationParams,
   CreditsParams,
+  DailyAggregatedCredit,
   DailyAggregatedCredits,
+  PaginatedResponse,
   PaginationParams,
 } from "./types";
 
 // Queries the Data API
-const query = async function (
+async function query<T>(
   url: string,
   params: Record<string, string | number>,
   revalidate?: number
-): Promise<any> {
+): Promise<PaginatedResponse<T>> {
   // Default cache of 3600s
   revalidate = revalidate || 3600;
   url = `${url}?${new URLSearchParams(params as Record<string, string>)}`;
@@ -20,12 +22,13 @@ const query = async function (
     throw new Error((await res.json()).message);
   }
   return res.json();
-};
+}
 
+// Queries the the Credits Daily Aggregations endpoint
 export const queryDailyAggregatedCredits: (
   params: CreditsParams & AggregationParams & PaginationParams
 ) => Promise<DailyAggregatedCredits> = function (params) {
-  return query(
+  return query<DailyAggregatedCredit>(
     urls.api.dailyAggregatedCredits,
     params as Record<string, string>
   );
