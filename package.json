@@ -3,9 +3,10 @@
   "private": true,
   "workspaces": [
     "./app",
-    "./cms",
+    "./carbon-projects",
     "./carbonmark",
     "./carbonmark-api",
+    "./cms",
     "./lib",
     "./site"
   ],
