@@ -21,6 +21,14 @@ module.exports = async (phase, { defaultConfig }) => {
             source: "/",
             destination: "/overview",
           },
+          {
+            source: "/token-details",
+            destination: "/token-details/toucan",
+          },
+          {
+            source: "/trends",
+            destination: "/trends/by-pool",
+          },
         ],
       };
     },
