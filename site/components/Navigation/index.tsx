@@ -30,12 +30,7 @@ export type PageName =
   | "Resource Center"
   | "About";
 
-export type NavItemMobileID =
-  | "About"
-  | "App"
-  | "Infinity"
-  | "Love Letters"
-  | "Resources";
+export type NavItemMobileID = "About" | "App" | "Infinity" | "Resources";
 
 export type Props = {
   activePage: PageName;
@@ -173,10 +168,6 @@ export const Navigation: FC<Props> = ({
         <LinkItemDesktop
           name={t({ message: "Carbonmark", id: "shared.carbonmark" })}
           url={urls.carbonmark}
-        />
-        <LinkItemDesktop
-          url={urls.loveletter}
-          name={t({ message: "Love Letters", id: "shared.loveletters" })}
         />
         <DropdownItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
@@ -320,11 +311,6 @@ export const Navigation: FC<Props> = ({
             <NavItemMobile
               name={t({ message: "Carbonmark", id: "shared.carbonmark" })}
               url={urls.carbonmark}
-            />
-            <NavItemMobile
-              name={t({ message: "Love Letters", id: "shared.loveletters" })}
-              id="Love Letters"
-              url={urls.loveletter}
             />
             <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}

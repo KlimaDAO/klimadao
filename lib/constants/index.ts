@@ -139,7 +139,6 @@ export const urls = {
   klimaInfinityContactForm:
     "https://share-eu1.hsforms.com/1g2uooleDQ06MaRpylL5irwfhhlr",
   pressEmail: "mailto:press@klimadao.finance",
-  loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
     "https://transferto.xyz/showcase/etherspot-klima?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
