@@ -5,21 +5,18 @@ import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndS
 import { fetchProjectDetails } from "../../utils/helpers/fetchProjectDetails";
 
 const schema = {
-  querystring: {
+  params: {
     type: "object",
+    required: ["id"],
     properties: {
-      category: {
+      id: {
         type: "string",
-      },
-      country: {
-        type: "string",
-      },
-      search: {
-        type: "string",
+        description: "Project id & vintage",
+        examples: ["VCS-191-2008"],
       },
     },
   },
-  tags: ["project"],
+  tags: ["projects"],
 };
 
 interface Params {
