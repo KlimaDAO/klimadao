@@ -130,3 +130,37 @@ export const mobileMenuButton = css`
     height: 24px;
   }
 `;
+
+export const footer = css`
+  background-color: var(--surface-05);
+  color: var(--text-color-04);
+  height: 116px;
+
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+
+  a {
+    text-decoration: none;
+    color: var(--text-color-04);
+  }
+`;
+
+export const footerNavLinks = css`
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  font-size: 0.875rem;
+
+  a {
+    white-space: nowrap;
+  }
+`;
+
+export const footerSocialLinks = css`
+  display: flex;
+  gap: 16px;
+  place-items: center;
+  justify-content: center;
+`;
