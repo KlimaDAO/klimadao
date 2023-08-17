@@ -16,6 +16,10 @@ export interface Props {
     value: string;
     token: CarbonmarkToken;
   };
+  approvalValue?: {
+    value: string;
+    token: CarbonmarkToken;
+  };
   isProcessing: boolean;
   status: TransactionStatusMessage | null;
   showModal: boolean;
@@ -87,6 +91,8 @@ export const PurchaseModal: FC<Props> = (props) => {
     (showSuccessScreen && t`Purchase successful`) ||
     t`Confirm Purchase`;
 
+  console.log("props.approvalValue", props.approvalValue);
+
   return (
     <Modal
       title={title}
@@ -97,6 +103,7 @@ export const PurchaseModal: FC<Props> = (props) => {
         <Transaction
           hasApproval={props.hasApproval}
           amount={props.amount}
+          approvalValue={props.approvalValue}
           approvalText={<PurchaseApproval />}
           submitText={<PurchaseSubmit />}
           onApproval={props.handleApproval}
