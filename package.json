@@ -45,6 +45,7 @@
     "export-app": "npm run build-lib && IS_STATIC_EXPORT=true npm run build-app && IS_STATIC_EXPORT=true npm run export -w=app"
   },
   "devDependencies": {
+    "@lingui/cli": "^4.4.0",
     "concurrently": "^7.6.0",
     "prettier": "3.0.2",
     "prettier-plugin-organize-imports": "^3.2.3"
