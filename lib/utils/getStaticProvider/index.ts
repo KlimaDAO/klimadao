@@ -6,7 +6,9 @@ const { JsonRpcProvider } = providers;
 
 const defaultUrls = {
   eth: urls.defaultEthRpc,
-  polygon: urls.polygonMainnetRpc,
+  // polygon: urls.polygonMainnetRpc,
+  polygon:
+    "https://polygon-mainnet.infura.io/v3/26143cd0dbea40aca57520342c623951",
   mumbai: urls.polygonTestnetRpc,
 };
 
