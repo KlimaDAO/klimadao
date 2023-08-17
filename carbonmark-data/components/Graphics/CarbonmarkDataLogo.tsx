@@ -1,7 +1,7 @@
 export const CarbonmarkDataLogo = () => (
   <svg
-    width="180"
-    height="30"
+    width="116"
+    height="20"
     viewBox="0 0 180 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

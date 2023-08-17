@@ -2,6 +2,7 @@
 
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
+import { Button } from "@mui/material";
 import Tippy from "@tippyjs/react";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -13,14 +14,14 @@ export const ChangeLanguageButton: FC = () => {
       content={<></>}
       interactive={true}
       placement="bottom-start"
-      visible={true}
+      visible={false}
     >
-      <button
+      <Button
         className={styles.changeLanguageButton}
         aria-label={t`Change language`}
       >
-        <Language fontSize="medium" />
-      </button>
+        <Language />
+      </Button>
     </Tippy>
   );
 };

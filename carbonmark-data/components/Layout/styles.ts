@@ -75,6 +75,11 @@ export const mobileHeader = css`
   }
 `;
 
+export const mobileNavButtons = css`
+  display: flex;
+  gap: 16px;
+`;
+
 export const mobileBottomNav = css`
   position: fixed;
   bottom: 0px;
@@ -110,5 +115,18 @@ export const content = css`
   }
   h1 {
     margin-bottom: 26px;
+  }
+`;
+
+export const mobileMenuButton = css`
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--text-color-01);
+  background-color: var(--surface-01);
+  svg {
+    width: 24px;
+    height: 24px;
   }
 `;

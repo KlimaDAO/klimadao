@@ -1,27 +1,16 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
 export const changeLanguageButton = css`
-  background-color: var(--button-background);
-  min-height: 4.8rem;
-  min-width: 4.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 0;
-  border-radius: 0.4rem;
-  &:hover {
-    opacity: 0.7;
-  }
-
-  > svg {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  ${breakpoints.medium} {
-    margin-right: 1.2rem;
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--text-color-01);
+  background-color: var(--surface-01);
+  svg {
+    width: 24px;
+    height: 24px;
   }
 `;
 
