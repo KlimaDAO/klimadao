@@ -19,10 +19,10 @@ import {
 } from "./projects.utils";
 
 const schema = {
-  summary: "Get a list of carbon projects that fit your search criteria",
+  summary: "List projects",
   description:
     "Retrieve an array of carbon projects filtered by desired query parameters",
-  tags: ["projects"],
+  tags: ["Projects"],
   querystring: {
     type: "object",
     properties: {

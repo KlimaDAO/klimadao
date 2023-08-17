@@ -8,10 +8,9 @@ export const Country = Type.Object({
 export type CategoryType = Static<typeof Country>;
 
 const schema = {
-  summary: "Get the list of countries carbon projects are from",
+  summary: "Countries",
   description:
     "Retrieve an array containing the countries that carbon projects originate from",
-  tags: ["countries"],
   response: {
     "2xx": {
       description: "Successful response",
@@ -22,16 +21,18 @@ const schema = {
           id: { type: "string" },
         },
       },
-      example: [
-        {
-          id: "Brazil",
-        },
-        {
-          id: "Bulgaria",
-        },
-        {
-          id: "China",
-        },
+      examples: [
+        [
+          {
+            id: "Brazil",
+          },
+          {
+            id: "Bulgaria",
+          },
+          {
+            id: "China",
+          },
+        ],
       ],
     },
   },

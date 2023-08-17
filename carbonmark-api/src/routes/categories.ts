@@ -6,9 +6,9 @@ export const Category = Type.Object({ id: Type.String() });
 export type CategoryType = Static<typeof Category>;
 
 const schema = {
-  summary: "Get the list of carbon project categories",
-  description: "Retrieve an array containing the categories of carbon projects",
-  tags: ["categories"],
+  summary: "Categories",
+  description:
+    "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
   response: {
     "2xx": {
       description: "Successful response",
@@ -19,16 +19,18 @@ const schema = {
           id: { type: "string" },
         },
       },
-      example: [
-        {
-          id: "Blue Carbon",
-        },
-        {
-          id: "Forestry",
-        },
-        {
-          id: "Other",
-        },
+      examples: [
+        [
+          {
+            id: "Blue Carbon",
+          },
+          {
+            id: "Forestry",
+          },
+          {
+            id: "Other",
+          },
+        ],
       ],
     },
   },

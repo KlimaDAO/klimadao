@@ -36,29 +36,6 @@ For a developer guides and example implementations, or to learn more about Carbo
     description:
       "Additional documentation. The complete product and platform knowledge base for Carbonmark can be found here.",
   },
-  tags: [
-    {
-      name: "users",
-      description:
-        "View users, their profiles, and their activity on the platform.",
-    },
-    {
-      name: "categories",
-      description:
-        "A list of all categories used to delineate projects in the marketplace.",
-    },
-    {
-      name: "countries",
-      description:
-        "A list of all countries with projects available for purchase in the marketplace.",
-    },
-    {
-      name: "projects",
-      description:
-        "Search and filter all projects, or get details on a specific project.",
-    },
-  ],
-  // paths are defined as schemas in each route handler file.
 };
 
 export default fp(async function (fastify) {
