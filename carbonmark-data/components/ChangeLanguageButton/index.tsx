@@ -4,21 +4,33 @@ import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
 import { Button } from "@mui/material";
 import Tippy from "@tippyjs/react";
-import { FC } from "react";
+import { FC, useState } from "react";
 import * as styles from "./styles";
 
 export const ChangeLanguageButton: FC = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
     <Tippy
       className={styles.tooltip}
-      content={<></>}
+      content={
+        <div>
+          <div>
+            <Button onClick={() => setShowTooltip(false)}>English</Button>
+          </div>
+          <div>
+            <Button onClick={() => setShowTooltip(false)}>Deutsch</Button>
+          </div>
+        </div>
+      }
       interactive={true}
       placement="bottom-start"
-      visible={false}
+      visible={showTooltip}
     >
       <Button
         className={styles.changeLanguageButton}
         aria-label={t`Change language`}
+        onClick={() => setShowTooltip(!showTooltip)}
       >
         <Language />
       </Button>
