@@ -3,9 +3,10 @@
   "private": true,
   "workspaces": [
     "./app",
-    "./cms",
+    "./carbon-projects",
     "./carbonmark",
     "./carbonmark-api",
+    "./cms",
     "./lib",
     "./site"
   ],
@@ -13,10 +14,17 @@
     "npm": ">=8.0.0",
     "node": ">=16.0.0"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
+  },
   "scripts": {
     "build-all": "npm run build --workspaces",
     "dev-all": "npm run dev --workspaces",
     "lint-all": "npm run lint --workspaces",
+    "prettier-check-all": "prettier --check .",
     "format-all": "prettier --write ./",
     "build-lib": "npm run build -w=lib",
     "build-site": "npm run build-lib && npm run build -w=site",
@@ -37,6 +45,8 @@
     "export-app": "npm run build-lib && IS_STATIC_EXPORT=true npm run build-app && IS_STATIC_EXPORT=true npm run export -w=app"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "prettier": "3.0.2",
+    "prettier-plugin-organize-imports": "^3.2.3"
   }
 }

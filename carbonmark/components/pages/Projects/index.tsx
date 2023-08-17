@@ -7,7 +7,6 @@ import { Dropdown } from "components/Dropdown";
 import { Layout } from "components/Layout";
 import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
-import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import {
   PROJECT_SORT_FNS,
@@ -16,6 +15,7 @@ import {
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
+import { ProjectsController } from "components/pages/Project/ProjectsController";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
   FilterValues,

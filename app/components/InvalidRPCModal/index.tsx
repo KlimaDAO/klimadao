@@ -17,7 +17,8 @@ export const InvalidRPCModal: FC<Props> = (props) => (
   <Modal
     title={
       <>
-        ⚠<Trans id="invalid_rpc.modal.title">Check your network settings</Trans>
+        ⚠
+        <Trans id="invalid_rpc.modal.title">Check your network settings</Trans>
       </>
     }
     onToggleModal={props.onHide}

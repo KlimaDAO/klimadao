@@ -15,7 +15,8 @@ export const pageContainer = css`
   min-height: 100vh;
 
   [data-theme="theme-dark"] & {
-    background: url(${dots.src}) center 120px no-repeat,
+    background:
+      url(${dots.src}) center 120px no-repeat,
       linear-gradient(165.47deg, #3d3d3d 3.96%, #1f1f1f 60.29%);
   }
 `;
@@ -63,7 +64,8 @@ export const hero = css`
   justify-content: center;
   align-items: center;
   border-radius: 1.6rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(${heroImage.src}) center / cover;
   padding: 3.2rem 1.6rem;
   width: 100%;
@@ -157,7 +159,8 @@ export const banner = css`
   justify-content: center;
   align-items: center;
   border-radius: 1.6rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${bannerImage.src}) center / cover;
   min-height: 18rem;
 

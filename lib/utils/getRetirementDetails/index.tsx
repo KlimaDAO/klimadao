@@ -9,7 +9,7 @@ type Response = [
   beneficiaryAddress: string,
   beneficiary: string,
   retirementMessage: string,
-  amount: BigNumber // 18 decimal
+  amount: BigNumber, // 18 decimal
 ];
 
 interface RetirementDetails {

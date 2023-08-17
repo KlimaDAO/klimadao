@@ -9,7 +9,7 @@ import {
   RetirementData,
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
-import { Contract, ContractTransaction, utils, Wallet } from "ethers";
+import { Contract, ContractTransaction, Wallet, utils } from "ethers";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { NextApiHandler } from "next";
 

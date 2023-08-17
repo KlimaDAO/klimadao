@@ -11,11 +11,7 @@ const ENV_VARS = [
   "FIREBASE_CERT_PROJECT_ID",
 ];
 
-export default fp(async function (
-  fastify: FastifyInstance,
-  _: unknown,
-  next: () => void
-): Promise<void> {
+export default fp(async function (fastify: FastifyInstance) {
   // Confirm that all required env vars have been set
   if (Object.values(pick(process.env, ENV_VARS)).some(isNil)) {
     throw new Error("Missing FIREBASE_CERT env vars");
@@ -38,7 +34,6 @@ export default fp(async function (
   }
 
   await fastify.decorate("firebase", admin.app());
-  next();
 });
 
 export type FirebaseInstance = admin.app.App;

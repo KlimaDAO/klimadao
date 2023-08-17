@@ -5,10 +5,11 @@ import {
   Text,
 } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { useState } from "react";
 
 import { Modal } from "components/Modal";
+import { getErrorMessage } from "../../PledgeForm";
 import {
   pledgeFormAdapter,
   putPledge,
@@ -18,7 +19,6 @@ import {
   approveSecondaryWallet,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
-import { getErrorMessage } from "../../PledgeForm";
 import { Pledge } from "../../types";
 import * as styles from "../styles";
 type Props = {
@@ -58,7 +58,7 @@ export const AcceptModal = (props: Props) => {
         id: "pledge.invitation.signing",
         message: "Signing",
       }),
-    }[step]);
+    })[step];
   const { signer, address } = useWeb3();
 
   const handleSubmit = async (params: { message: string }) => {
