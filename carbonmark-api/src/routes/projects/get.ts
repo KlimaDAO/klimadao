@@ -19,26 +19,33 @@ import {
 } from "./projects.utils";
 
 const schema = {
+  summary: "Get a list of carbon projects that fit your search criteria",
+  description: "Retrieve an array of carbon projects filtered by desired query parameters",
   tags: ["projects"],
   querystring: {
     type: "object",
     properties: {
       country: {
         type: "string",
+        description:"Desired country of origin for carbon projects"
       },
       category: {
         type: "string",
+        description:"Desired category of carbon projects"
       },
       search: {
         type: "string",
+        description:"Search carbon project names and descriptions for a string of text"
       },
       vintage: {
         type: "string",
+        description:"Desired vintage of carbon projects"
       },
     },
   },
   response: {
     "2xx": {
+      description: "Successful response",
       type: "object",
       properties: {
         id: { type: "string" },
