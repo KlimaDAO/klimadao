@@ -15,13 +15,13 @@ import { NotificationModal } from "components/NotificationModal";
 import { Bond } from "components/views/Bond";
 import { Buy } from "components/views/Buy";
 import { ChooseBond } from "components/views/ChooseBond";
+import { Custom404 } from "components/views/errors/Custom404";
 import { Info } from "components/views/Info";
 import { Offset } from "components/views/Offset";
 import { PKlima } from "components/views/PKlima";
 import { Redeem } from "components/views/Redeem";
 import { Stake } from "components/views/Stake";
 import { Wrap } from "components/views/Wrap";
-import { Custom404 } from "components/views/errors/Custom404";
 import { getConnectErrorStrings } from "lib/constants";
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
 import { initLocale } from "lib/i18n";
@@ -178,10 +178,7 @@ export const Home: FC = () => {
                 id: "connectModal.institutional",
               }),
               titles: {
-                connect: t({
-                  id: "shared.login",
-                  message: "Login",
-                }),
+                connect: t`Login`,
                 loading: t({
                   id: "connect_modal.connecting",
                   message: "Connecting...",

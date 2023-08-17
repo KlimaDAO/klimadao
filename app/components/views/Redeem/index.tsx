@@ -5,7 +5,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { addresses } from "@klimadao/lib/constants";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
@@ -25,11 +25,11 @@ import { CarbonProject } from "components/views/Offset/SelectiveRetirement/query
 import { providers, utils } from "ethers";
 import { tokenInfo } from "lib/getTokenInfo";
 import {
-  RedeemPaymentMethod,
   RedeemablePoolToken,
-  redeemCompatibility,
-  redeemPaymentMethods,
   redeemablePoolTokens,
+  redeemCompatibility,
+  RedeemPaymentMethod,
+  redeemPaymentMethods,
   useRedeemParams,
 } from "lib/hooks/useRedeemParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
@@ -38,7 +38,7 @@ import TCO2 from "public/icons/TCO2.png";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
-import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
   selectAllowancesWithParams,
   selectBalances,
@@ -240,7 +240,7 @@ export const Redeem = (props: Props) => {
       };
     } else if (!quantity || !Number(quantity)) {
       return {
-        label: t({ id: "shared.enter_quantity", message: "Enter quantity" }),
+        label: t`Enter quantity`,
         disabled: true,
       };
     } else if (insufficientProjectQuantity) {
@@ -261,15 +261,12 @@ export const Redeem = (props: Props) => {
       };
     } else if (insufficientBalance()) {
       return {
-        label: t({
-          id: "shared.insufficient_balance",
-          message: "Insufficient balance",
-        }),
+        label: t`Insufficient balance`,
         disabled: true,
       };
     } else if (!hasApproval()) {
       return {
-        label: t({ id: "shared.approve", message: "Approve" }),
+        label: t`Approve`,
         onClick: () => setShowTransactionModal(true),
       };
     }
@@ -322,7 +319,7 @@ export const Redeem = (props: Props) => {
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
-        if (isLoading) return <Trans id="shared.loading" />;
+        if (isLoading) return <Trans>Loading...</Trans>;
         if (!props.isConnected || !Number(balances?.[tkn])) return "0";
         return Number(balances?.[tkn]).toFixed(2);
       })(),
