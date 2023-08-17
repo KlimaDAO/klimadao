@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-17 04:03+0000\n"
+"POT-Creation-Date: 2023-08-17 04:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -577,7 +577,7 @@ msgstr "返回"
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:115
 msgid "Grid view"
-msgstr ""
+msgstr "网格显示"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -688,7 +688,7 @@ msgstr "免费列出并出售"
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:126
 msgid "List view"
-msgstr ""
+msgstr "列表显示"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:295
@@ -1452,7 +1452,7 @@ msgstr "要完成您的碳停用，请验证所有信息是否正确，然后单
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
-msgstr ""
+msgstr "Toggle 选择项目"
 
 #. js-lingui-explicit-id
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
@@ -1742,7 +1742,7 @@ msgstr "您现在可以在<0>PolygonScan </0>上查看成功的交易"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
-msgstr ""
+msgstr "您现在可以在<0> PolygonScan </0>上查看成功的交易。"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
