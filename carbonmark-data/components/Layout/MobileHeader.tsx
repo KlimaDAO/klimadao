@@ -9,7 +9,7 @@ export const MobileHeader: FC = () => {
   return (
     <>
       <div className={styles.mobileHeader}>
-        <CarbonmarkDataLogo></CarbonmarkDataLogo>
+        <CarbonmarkDataLogo width={116} height={20} />
         <div className={styles.mobileNavButtons}>
           <ChangeLanguageButton></ChangeLanguageButton>
           <MobileMenu></MobileMenu>

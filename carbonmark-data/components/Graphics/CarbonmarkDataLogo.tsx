@@ -1,7 +1,10 @@
-export const CarbonmarkDataLogo = () => (
+export const CarbonmarkDataLogo = (props: {
+  width: number;
+  height: number;
+}) => (
   <svg
-    width="116"
-    height="20"
+    width={props.width}
+    height={props.height}
     viewBox="0 0 180 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
