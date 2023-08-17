@@ -104,16 +104,23 @@ export const mobileBottomNavItem = css`
     background-color: var(--surface-02-active);
   }
 `;
+
+export const main = css`
+  padding: 0 16px;
+  flex: 1;
+`;
+
 export const content = css`
+  display: flex;
+  flex-direction: column;
   margin-left: 0;
-  padding: 1px 16px;
-  height: 1000px;
+  height: 100dvh;
   background-color: var(--surface-03);
   ${breakpoints.desktop} {
     margin-left: 220px;
-    padding-top: 48px;
   }
   h1 {
+    margin-top: 46px;
     margin-bottom: 26px;
   }
 `;

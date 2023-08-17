@@ -22,11 +22,9 @@ const Layout = function ({ children, locale, translation }: Props) {
         <DesktopSidebar></DesktopSidebar>
         <MobileHeader></MobileHeader>
         <div className={styles.content}>
-          {children}
-
+          <main className={styles.main}>{children}</main>
           <Footer />
         </div>
-
         <MobileBottomNav></MobileBottomNav>
       </I18nProvider>
     </>
