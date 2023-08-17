@@ -6,6 +6,22 @@ import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { ERROR } from "./routes.mock";
 
+const responseFixture = {
+  amount: "corrupti atque consequatur ullam repellendus minima qui",
+  id: "a",
+  listing: {
+    project: {
+      country: "accusamus",
+      key: "delectus",
+      methodology: "doloremque",
+      name: "et",
+      projectID: "molestias",
+      vintage: "laboriosam porro consequatur rem dolore sunt ratione",
+    },
+  },
+  price: "incidunt facilis vitae eaque voluptates deleniti magni",
+};
+
 describe("GET /purchases/:id", () => {
   let fastify: FastifyInstance;
 
@@ -17,10 +33,10 @@ describe("GET /purchases/:id", () => {
 
   /** The happy path */
   test("Success", async () => {
-    const mock = aPurchase();
+    // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [mock] } });
+      .reply(200, { data: { purchases: [aPurchase()] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -30,7 +46,7 @@ describe("GET /purchases/:id", () => {
     const data = await response.json();
 
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(mock);
+    expect(data).toEqual(responseFixture);
   });
 
   test("Purchase not found", async () => {
@@ -48,6 +64,11 @@ describe("GET /purchases/:id", () => {
   });
 
   test("Server error", async () => {
+    // silence expected console errors
+    const mockConsole = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
@@ -61,5 +82,6 @@ describe("GET /purchases/:id", () => {
 
     expect(response.statusCode).toEqual(502);
     expect(response.body).toContain("Graph error occurred");
+    mockConsole.mockRestore();
   });
 });

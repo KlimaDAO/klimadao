@@ -43,7 +43,7 @@ const handler =
     try {
       response = await getAllCategories(fastify);
     } catch (error) {
-      //Return bad gateway and pass the error
+      // Return bad gateway and pass the error
       console.error(error);
       return reply.status(502).send(error?.message);
     }

@@ -24,23 +24,18 @@ query getPurchasesById($id: Bytes) {
     id
     amount
     listing {
-      ...ListingFragment
       project {
-        ...ProjectFragment
-        category {
-          id
-        }
         country {
           id
         }
-        updatedAt
+        key
+        methodology
+        name
+        projectID
+        vintage
       }
     }
     price
-    timeStamp
-    user {
-      id
-    }
   }
 }
 

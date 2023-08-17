@@ -1348,7 +1348,7 @@ export type GetPurchasesByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, timeStamp: string, listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, project: { __typename?: 'Project', updatedAt?: string | null, id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
+export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', project: { __typename?: 'Project', key: string, methodology: string, name: string, projectID: string, vintage: string, country?: { __typename?: 'Country', id: string } | null } } }> };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet?: InputMaybe<Scalars['Bytes']>;
@@ -1442,27 +1442,21 @@ export const GetPurchasesByIdDocument = gql`
     id
     amount
     listing {
-      ...ListingFragment
       project {
-        ...ProjectFragment
-        category {
-          id
-        }
         country {
           id
         }
-        updatedAt
+        key
+        methodology
+        name
+        projectID
+        vintage
       }
     }
     price
-    timeStamp
-    user {
-      id
-    }
   }
 }
-    ${ListingFragmentFragmentDoc}
-${ProjectFragmentFragmentDoc}`;
+    `;
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: Bytes) {
   users(where: {id: $wallet}) {

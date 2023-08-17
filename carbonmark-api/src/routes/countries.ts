@@ -5,7 +5,7 @@ import { getAllCountries } from "../utils/helpers/utils";
 export const Country = Type.Object({
   id: Type.String(),
 });
-export type CategoryType = Static<typeof Country>;
+export type CountryType = Static<typeof Country>;
 
 const schema = {
   summary: "Countries",
