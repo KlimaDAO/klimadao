@@ -33,7 +33,6 @@ const schema = {
   },
 };
 
-
 const handler = (fastify: FastifyInstance) =>
   async function (_: FastifyRequest, reply: FastifyReply) {
     let response;

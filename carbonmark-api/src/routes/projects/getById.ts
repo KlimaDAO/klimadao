@@ -91,7 +91,8 @@ const schema = {
       name: "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
       registry: "VCS",
       country: "China",
-      description: "The Dayingjiang-3 Hydropower Project Phases 1&2 has total installed capacity of 200 MW. ...", // (truncated for brevity)
+      description:
+        "The Dayingjiang-3 Hydropower Project Phases 1&2 has total installed capacity of 200 MW. ...", // (truncated for brevity)
       location: {
         type: "Feature",
         geometry: {
@@ -106,7 +107,8 @@ const schema = {
           name: "Grid-connected electricity generation from renewable sources",
         },
       ],
-      long_description: "The Dayingjiang-3 Hydropower Project Phases 1&2 is a renewable energy project ...", // (truncated for brevity)
+      long_description:
+        "The Dayingjiang-3 Hydropower Project Phases 1&2 is a renewable energy project ...", // (truncated for brevity)
       url: "https://registry.verra.org/app/projectDetail/VCS/191",
       stats: {
         totalBridged: 609708,
@@ -125,9 +127,8 @@ const schema = {
       ],
       isPoolProject: true,
       vintage: "2008",
-    },    
-  }
-    
+    },
+  },
 };
 
 interface Params {

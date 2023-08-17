@@ -14,7 +14,7 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
 import { LinkedInButton } from "components/LinkedInButton";
@@ -39,9 +39,9 @@ import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
-import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
 import { ViewPledgeButton } from "./ViewPledgeButton";
+import * as styles from "./styles";
 
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
   dynamic(

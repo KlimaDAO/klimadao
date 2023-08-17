@@ -9,33 +9,33 @@ export type CategoryType = Static<typeof Country>;
 
 const schema = {
   summary: "Get the list of countries carbon projects are from",
-  description: "Retrieve an array containing the countries that carbon projects originate from",
+  description:
+    "Retrieve an array containing the countries that carbon projects originate from",
   tags: ["countries"],
   response: {
     "2xx": {
       description: "Successful response",
-      type: 'array',
+      type: "array",
       items: {
-        type: 'object',
+        type: "object",
         properties: {
-          id: { type: 'string' },
+          id: { type: "string" },
         },
       },
       example: [
         {
-          id: 'Brazil'
+          id: "Brazil",
         },
         {
-          id: 'Bulgaria'
+          id: "Bulgaria",
         },
         {
-          id: 'China'
+          id: "China",
         },
       ],
-    } 
+    },
   },
 };
-
 
 const handler = (fastify: FastifyInstance): RouteHandler =>
   async function (request, reply) {

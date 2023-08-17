@@ -2,7 +2,7 @@ import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { concatAddress, trimStringDecimals } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LaunchIcon from "@mui/icons-material/Launch";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
