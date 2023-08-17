@@ -9,7 +9,7 @@ type Body = {
 };
 
 const schema = {
-  tags: ["user"],
+  tags: ["users"],
   body: {
     type: "object",
     properties: {

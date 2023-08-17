@@ -1,4 +1,3 @@
-// purchases.ts
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
 import { gqlSdk } from "../utils/gqlSdk";
@@ -7,14 +6,22 @@ interface Params {
   id: string;
 }
 
-// const schema = {
-//   tags: ["purchases"],
-//   response: {
-//     200: {
-//       type: "object",
-//     },
-//   },
-// };
+const schema = {
+  tags: ["purchases"],
+  params: {
+    type: "object",
+    required: ["id"],
+    properties: {
+      id: {
+        type: "string",
+        description: "ID (transaction hash) of the purchase to retrieve",
+        examples: [
+          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+        ],
+      },
+    },
+  },
+};
 
 async function handler(
   request: FastifyRequest<{ Params: Params }>,
@@ -44,5 +51,5 @@ export default async (fastify: FastifyInstance) =>
     method: "GET",
     url: "/purchases/:id",
     handler,
-    // schema,
+    schema,
   });

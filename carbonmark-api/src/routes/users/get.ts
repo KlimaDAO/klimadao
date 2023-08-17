@@ -32,12 +32,29 @@ type ResponseType = {
 };
 
 const schema = {
-  tags: ["user"],
+  tags: ["users"],
   querystring: {
     type: "object",
     properties: {
-      name: {
+      type: {
+        description:
+          "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
         type: "string",
+        examples: ["wallet"],
+      },
+    },
+  },
+  params: {
+    type: "object",
+    required: ["walletOrHandle"],
+    properties: {
+      walletOrHandle: {
+        type: "string",
+        description: "A user handle or wallet address",
+        examples: [
+          "atmosfearful",
+          "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
+        ],
       },
     },
   },
