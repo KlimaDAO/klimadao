@@ -1,11 +1,10 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { parseUnits } from "ethers-v6";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRetirementAllowance,
@@ -14,7 +13,7 @@ import {
 import { urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
@@ -208,23 +207,8 @@ export const RetireForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = (): string => {
-    if (!inputValues?.totalPrice) return "0";
-
-    const onePercent =
-      BigInt(
-        parseUnits(
-          inputValues.totalPrice,
-          getTokenDecimals(inputValues.paymentMethod)
-        )
-      ) / BigInt(100);
-
-    const val = safeAdd(
-      inputValues.totalPrice,
-      formatUnits(onePercent, getTokenDecimals(inputValues.paymentMethod))
-    );
-    return val;
-  };
+  const getApprovalValue = () =>
+    getPoolApprovalValue(inputValues?.totalPrice!, inputValues?.paymentMethod!);
 
   // compare with total price including fees
   const hasApproval = () => {
@@ -410,3 +394,6 @@ export const RetireForm: FC<Props> = (props) => {
     </FormProvider>
   );
 };
+function getApprovalValue(totalPrice: string, paymentMethod: string): string {
+  throw new Error("Function not implemented.");
+}

@@ -1,4 +1,8 @@
 import { CarbonToken, PoolToken, poolTokens } from "@klimadao/lib/constants";
+import { getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
+import { utils } from "ethers";
+import { formatUnits } from "ethers/lib/utils";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
 import { TokenPrice } from "lib/types/carbonmark.types";
 
 export const isPoolToken = (str: string): str is PoolToken =>
@@ -9,3 +13,28 @@ export const getPoolTokenType = (pool: Uppercase<PoolToken>): CarbonToken =>
 
 export const getDefaultPoolFromPrices = (prices: TokenPrice[]) =>
   prices.find((p) => p.isPoolDefault);
+
+export const getPoolApprovalValue = (
+  cost: string,
+  paymentMethod: CarbonmarkPaymentMethod,
+  decimals?: number
+): string => {
+  if (!cost) return "0";
+
+  const onePercent = utils
+    .parseUnits(cost, getTokenDecimals(paymentMethod))
+    .div("100");
+
+  const total = safeAdd(
+    cost,
+    formatUnits(onePercent, getTokenDecimals(paymentMethod))
+  );
+
+  if (decimals) {
+    return (
+      Math.floor(Math.abs(Number(total)) * Math.pow(10, 6)) / Math.pow(10, 6)
+    ).toString();
+  }
+
+  return total;
+};

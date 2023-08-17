@@ -7,6 +7,7 @@ import { getRedeemCost } from "lib/actions.redeem";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
+import { getPoolApprovalValue } from "lib/getPoolData";
 import { TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -73,8 +74,10 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     }
   }, [costs]);
 
+  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc", 6);
+
   const exceededBalance =
-    !!props.balance && Number(props.balance) <= Number(costs);
+    !!props.balance && Number(props.balance) <= Number(getApprovalValue());
   const currentBalance = formatToPrice(props.balance || "0", locale);
 
   return (
@@ -153,7 +156,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               error: exceededBalance || !!error,
             })}
           >
-            {isLoading ? t`Loading...` : Number(costs)?.toLocaleString(locale)}
+            {isLoading ? t`Loading...` : getApprovalValue()}
           </Text>
         </div>
       </div>
