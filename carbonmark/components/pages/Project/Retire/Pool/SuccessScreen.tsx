@@ -43,7 +43,7 @@ export const SuccessScreen: FC<Props> = (props) => {
             </Trans>
           </Text>
           <Text t="body5">
-            <Trans id="offset.successModal.body4">
+            <Trans>
               You can view the successful transaction now on{" "}
               <Link href={`${urls.blockExplorer}/tx/${props.transactionHash}`}>
                 PolygonScan.

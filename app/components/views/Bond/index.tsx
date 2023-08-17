@@ -408,13 +408,13 @@ export const Bond: FC<Props> = (props) => {
       };
     } else if (isLoading) {
       return {
-        label: <Trans id="shared.loading">Loading</Trans>,
+        label: <Trans>Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (viewIsBond && !value) {
       return {
-        label: <Trans id="shared.enter_quantity">Enter Quantity</Trans>,
+        label: <Trans>Enter Quantity</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -451,7 +451,7 @@ export const Bond: FC<Props> = (props) => {
       };
     } else if (!hasApproval()) {
       return {
-        label: <Trans id="shared.approve">Approve</Trans>,
+        label: <Trans>Approve</Trans>,
         disabled: false,
         onClick: () => setShowTransactionModal(true),
         variant: "blue",
