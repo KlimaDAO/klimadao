@@ -17,9 +17,10 @@
   margin-bottom: 27px;
 }
 
-.cardHeader > h2 {
-  margin: 0;
-  margin-bottom: 12px;
+.cardTitle {
+  font-weight: 700;
+  font-family: Poppins;
+  font-size: 1.4rem;
 }
 
 .cardContent {
