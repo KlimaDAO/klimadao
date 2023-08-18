@@ -71,15 +71,20 @@ export async function prepareDailyChartData<
   return chartData;
 }
 
-export const formatQuantityAsMillions = function (quantity: number) {
+export const formatQuantityAsMillionsOfTons = function (quantity: number) {
   quantity = Math.floor(quantity / 1000000);
-  return `${quantity} M`;
+  return `${quantity}M`;
+};
+export const formatQuantityAsKiloTons = function (quantity: number) {
+  quantity = Math.floor(quantity / 1000);
+  return `${quantity}k`;
 };
 export const formatDateAsMonths = function (date: number) {
   const formatted_date = new Date(date);
-  const year = formatted_date.getFullYear();
-  const month = String(formatted_date.getMonth()).padStart(2, "0");
-  return `${month} / ${year}`;
+  return formatted_date.toLocaleDateString("de-DE", {
+    year: "numeric",
+    month: "short",
+  });
 };
 // Returns nice ticks to use in a chart
 export function niceTicks<T>(
@@ -96,7 +101,8 @@ export function niceTicks<T>(
   return ticks;
 }
 const helpers = {
-  formatQuantityAsMillions,
+  formatQuantityAsMillionsOfTons,
+  formatQuantityAsKiloTons,
   formatDateAsMonths,
   prepareDailyChartData,
   niceTicks,

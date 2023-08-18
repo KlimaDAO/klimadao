@@ -32,25 +32,31 @@ export default function Chart(props: Props) {
           bottom: 0,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid horizontal={false} vertical={false} />
         <XAxis
           dataKey="date"
           tickFormatter={helpers.formatDateAsMonths}
           ticks={helpers.niceTicks(props.data, "date")}
           tickLine={false}
+          axisLine={false}
+          tick={{ fontSize: 12 }}
+          dy={10}
         />
         <YAxis
-          tickFormatter={helpers.formatQuantityAsMillions}
+          tickFormatter={helpers.formatQuantityAsMillionsOfTons}
           tickLine={false}
+          tick={{ fontSize: 12 }}
+          dx={-10}
         />
         <Legend
           layout="horizontal"
           verticalAlign="bottom"
           align="left"
+          wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
           payload={[
             {
-              id: "toucan",
-              value: "Toucan",
+              id: "c3",
+              value: "C3",
               type: "circle",
               color: palette.charts.color1,
             },
@@ -58,13 +64,13 @@ export default function Chart(props: Props) {
               id: "moss",
               value: "Moss",
               type: "circle",
-              color: palette.charts.color4,
+              color: palette.charts.color3,
             },
             {
-              id: "c3",
-              value: "C3",
+              id: "toucan",
+              value: "Toucan",
               type: "circle",
-              color: palette.charts.color7,
+              color: palette.charts.color5,
             },
           ]}
           formatter={(value) => (
@@ -79,8 +85,8 @@ export default function Chart(props: Props) {
           dataKey="toucan"
           connectNulls
           fillOpacity="1"
-          fill={palette.charts.color1}
-          stroke={palette.charts.color1}
+          fill={palette.charts.color5}
+          stroke={palette.charts.color5}
         />
         <Area
           type="monotone"
@@ -88,8 +94,8 @@ export default function Chart(props: Props) {
           stackId="1"
           dataKey="moss"
           connectNulls
-          stroke={palette.charts.color4}
-          fill={palette.charts.color4}
+          stroke={palette.charts.color3}
+          fill={palette.charts.color3}
           fillOpacity="1"
         />
         <Area
@@ -98,8 +104,8 @@ export default function Chart(props: Props) {
           stackId="1"
           dataKey="c3"
           connectNulls
-          stroke={palette.charts.color7}
-          fill={palette.charts.color7}
+          stroke={palette.charts.color1}
+          fill={palette.charts.color1}
           fillOpacity="1"
         />
       </AreaChart>
