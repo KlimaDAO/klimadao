@@ -79,6 +79,10 @@ export const formatQuantityAsKiloTons = function (quantity: number) {
   quantity = Math.floor(quantity / 1000);
   return `${quantity}k`;
 };
+export const formatQuantityAsTons = function (quantity: number) {
+  quantity = Math.floor(quantity);
+  return `${quantity}`;
+};
 export const formatDateAsMonths = function (date: number) {
   const formatted_date = new Date(date);
   return formatted_date.toLocaleDateString("de-DE", {
@@ -86,7 +90,15 @@ export const formatDateAsMonths = function (date: number) {
     month: "short",
   });
 };
-// Returns nice ticks to use in a chart
+export const formatDateAsDays = function (date: number) {
+  const formatted_date = new Date(date);
+  return formatted_date.toLocaleDateString("de-DE", {
+    day: "numeric",
+    year: "numeric",
+    month: "short",
+  });
+};
+// Returns a list of nice ticks to use in a chart given the data
 export function niceTicks<T>(
   data: ChartData<T>,
   key: keyof T,
@@ -104,6 +116,8 @@ const helpers = {
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
   formatDateAsMonths,
+  formatDateAsDays,
+  formatQuantityAsTons,
   prepareDailyChartData,
   niceTicks,
 };

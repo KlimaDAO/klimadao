@@ -1,11 +1,10 @@
 "use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
-import { helpers } from "lib/charts";
+import helpers from "lib/charts/helpers";
 import { VerraCreditsChartData } from "lib/charts/types";
 import {
   Area,
   AreaChart,
-  CartesianGrid,
   Legend,
   ResponsiveContainer,
   Tooltip,
@@ -13,100 +12,72 @@ import {
   YAxis,
 } from "recharts";
 import { palette } from "theme/palette";
-import * as styles from "../styles";
+import {
+  KlimaAreaProps,
+  KlimaLegendProps,
+  KlimaTooltip,
+  KlimaXAxisMonthlyProps,
+  KlimaYAxisMillionsOfTonsProps,
+} from "../helpers";
 
 interface Props {
   data: VerraCreditsChartData;
 }
 export default function Chart(props: Props) {
+  const payload = [
+    {
+      id: "c3",
+      value: "C3",
+      color: palette.charts.color1,
+    },
+    {
+      id: "moss",
+      value: "Moss",
+      color: palette.charts.color3,
+    },
+    {
+      id: "toucan",
+      value: "Toucan",
+      color: palette.charts.color5,
+    },
+  ];
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <AreaChart
-        width={500}
-        height={400}
-        data={props.data}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid horizontal={false} vertical={false} />
-        <XAxis
-          dataKey="date"
-          tickFormatter={helpers.formatDateAsMonths}
-          ticks={helpers.niceTicks(props.data, "date")}
-          tickLine={false}
-          axisLine={false}
-          tick={{ fontSize: 12 }}
-          dy={10}
-        />
-        <YAxis
-          tickFormatter={helpers.formatQuantityAsMillionsOfTons}
-          tickLine={false}
-          tick={{ fontSize: 12 }}
-          dx={-10}
-        />
-        <Legend
-          layout="horizontal"
-          verticalAlign="bottom"
-          align="left"
-          wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
-          payload={[
-            {
-              id: "c3",
-              value: "C3",
-              type: "circle",
-              color: palette.charts.color1,
-            },
-            {
-              id: "moss",
-              value: "Moss",
-              type: "circle",
-              color: palette.charts.color3,
-            },
-            {
-              id: "toucan",
-              value: "Toucan",
-              type: "circle",
-              color: palette.charts.color5,
-            },
-          ]}
-          formatter={(value) => (
-            <span className={styles.chartLegendText}>{value}</span>
+      <AreaChart data={props.data}>
+        <XAxis {...KlimaXAxisMonthlyProps(props.data, "date")} />
+        <YAxis {...KlimaYAxisMillionsOfTonsProps()} />
+        <Tooltip
+          content={KlimaTooltip(
+            helpers.formatDateAsDays,
+            helpers.formatQuantityAsTons
           )}
+          cursor={{ fill: "transparent" }}
         />
-        <Tooltip />
+        {/* @ts-expect-error FIXME: No overload matches this call */}
+        <Legend {...KlimaLegendProps({ payload })} />
+        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
-          type="monotone"
-          name={t`Toucan`}
-          stackId="1"
-          dataKey="toucan"
-          connectNulls
-          fillOpacity="1"
-          fill={palette.charts.color5}
-          stroke={palette.charts.color5}
+          {...KlimaAreaProps({
+            name: t`Toucan`,
+            dataKey: "toucan",
+            fill: palette.charts.color5,
+          })}
         />
+        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
-          type="monotone"
-          name={t`Moss`}
-          stackId="1"
-          dataKey="moss"
-          connectNulls
-          stroke={palette.charts.color3}
-          fill={palette.charts.color3}
-          fillOpacity="1"
+          {...KlimaAreaProps({
+            name: t`Moss`,
+            dataKey: "moss",
+            fill: palette.charts.color3,
+          })}
         />
+        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
-          type="monotone"
-          name={t`C3`}
-          stackId="1"
-          dataKey="c3"
-          connectNulls
-          stroke={palette.charts.color1}
-          fill={palette.charts.color1}
-          fillOpacity="1"
+          {...KlimaAreaProps({
+            name: t`C3`,
+            dataKey: "c3",
+            fill: palette.charts.color1,
+          })}
         />
       </AreaChart>
     </ResponsiveContainer>
