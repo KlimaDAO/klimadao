@@ -2,9 +2,9 @@ import { t } from "@lingui/macro";
 import {
   BarChart,
   Link,
-  Paid,
+  PaidOutlined,
   StackedLineChart,
-  Token,
+  TokenOutlined,
 } from "@mui/icons-material";
 
 export interface NavItem {
@@ -17,7 +17,7 @@ export const navItems = (): Array<NavItem> => {
   return [
     {
       label: t`Overview`,
-      icon: <Token />,
+      icon: <TokenOutlined />,
       url: "/",
     },
     {
@@ -37,7 +37,7 @@ export const navItems = (): Array<NavItem> => {
     },
     {
       label: t`Token Details`,
-      icon: <Paid />,
+      icon: <PaidOutlined />,
       url: "/token_details",
     },
   ];
