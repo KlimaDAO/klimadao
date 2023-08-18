@@ -1,7 +1,8 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 const schema = {
-  tags: ["users"],
+  summary: "Update user profile",
+  tags: ["Users"],
   body: {
     type: "object",
     properties: {

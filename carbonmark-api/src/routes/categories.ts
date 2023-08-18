@@ -6,9 +6,33 @@ export const Category = Type.Object({ id: Type.String() });
 export type CategoryType = Static<typeof Category>;
 
 const schema = {
-  tags: ["categories"],
+  summary: "Categories",
+  description:
+    "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
   response: {
-    "2xx": Type.Array(Category),
+    "2xx": {
+      description: "Successful response",
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+        },
+      },
+      examples: [
+        [
+          {
+            id: "Blue Carbon",
+          },
+          {
+            id: "Forestry",
+          },
+          {
+            id: "Other",
+          },
+        ],
+      ],
+    },
   },
 };
 
@@ -19,7 +43,7 @@ const handler =
     try {
       response = await getAllCategories(fastify);
     } catch (error) {
-      //Return bad gateway and pass the error
+      // Return bad gateway and pass the error
       console.error(error);
       return reply.status(502).send(error?.message);
     }

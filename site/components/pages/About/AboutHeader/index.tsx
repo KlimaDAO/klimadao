@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
 type PageName = "community" | "contact" | "disclaimer";
