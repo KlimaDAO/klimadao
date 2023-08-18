@@ -7,6 +7,6 @@ const BASE_AREA_PROPS = {
   fillOpacity: 1,
 };
 
-export function KlimaAreaProps(props: AreaProps): AreaProps {
+export function KlimaAreaProps(props: AreaProps): Omit<AreaProps, "ref"> {
   return Object.assign({ stroke: props.fill }, BASE_AREA_PROPS, props);
 }

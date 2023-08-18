@@ -53,9 +53,7 @@ export default function Chart(props: Props) {
           )}
           cursor={{ fill: "transparent" }}
         />
-        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Legend {...KlimaLegendProps({ payload })} />
-        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
           {...KlimaAreaProps({
             name: t`Toucan`,
@@ -63,7 +61,6 @@ export default function Chart(props: Props) {
             fill: palette.charts.color5,
           })}
         />
-        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
           {...KlimaAreaProps({
             name: t`Moss`,
@@ -71,7 +68,6 @@ export default function Chart(props: Props) {
             fill: palette.charts.color3,
           })}
         />
-        {/* @ts-expect-error FIXME: No overload matches this call */}
         <Area
           {...KlimaAreaProps({
             name: t`C3`,

@@ -12,7 +12,7 @@ const BASE_LEGEND_PROPS = {
   ),
 };
 
-export function KlimaLegendProps(props: LegendProps): LegendProps {
+export function KlimaLegendProps(props: LegendProps): Omit<LegendProps, "ref"> {
   // Configure payload items
   if (props.payload) {
     props.payload.forEach((payloadItem) => {
