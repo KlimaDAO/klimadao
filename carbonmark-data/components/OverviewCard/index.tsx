@@ -1,3 +1,4 @@
+import { ArrowForward } from "@mui/icons-material";
 import Link from "next/link";
 import styles from "./styles.module.css";
 
@@ -13,7 +14,9 @@ export default function OverviewCard(props: {
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
         <h2>{props.title}</h2>
-        <Link href={props.href}>Details👉</Link>
+        <Link href={props.href} className={styles.cardDetailsLink}>
+          Details <ArrowForward />
+        </Link>
       </div>
       <div className={styles.cardContent}>{props.children}</div>
     </div>

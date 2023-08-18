@@ -20,7 +20,7 @@ interface Props {
 }
 export default function Chart(props: Props) {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer>
       <AreaChart
         width={500}
         height={400}

@@ -1,5 +1,7 @@
 .cardContainer {
-  box-shadow: 0px 1px 3px 0px #0000001f;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
   min-height: 284px;
   height: 284px;
   background-color: var(--surface-04);
@@ -11,8 +13,22 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.cardHeader > h2 {
+  margin: 0;
+  margin-bottom: 12px;
 }
 
 .cardContent {
   flex: 1 1 auto;
+}
+
+.cardDetailsLink {
+  display: flex;
+  color: var(--text-color-05);
+  text-decoration: none;
+  align-items: center;
 }
