@@ -58,7 +58,7 @@ const handler = (fastify: FastifyInstance) =>
       createdAt: Date.now(),
       updatedAt: Date.now(),
       profileImgUrl,
-      address: wallet.toLowerCase()
+      address: wallet.toLowerCase(),
     };
 
     // Query the Firestore database for the user document with the specified wallet address
