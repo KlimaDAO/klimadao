@@ -116,14 +116,9 @@ export const mobileBottomNavItem = css`
   align-items: center;
   &[aria-selected="true"] {
     background-color: var(--surface-02-active);
-
-    a {
-      color: var(--text-color-05);
-    }
+    color: var(--text-color-05);
   }
-  a {
-    color: var(--text-color-02);
-  }
+  color: var(--text-color-02);
 `;
 
 export const main = css`

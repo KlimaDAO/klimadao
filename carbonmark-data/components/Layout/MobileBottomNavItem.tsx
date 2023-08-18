@@ -13,12 +13,13 @@ export const MobileBottomNavItem: FC<Props> = ({ navItem }) => {
   const pathname = usePathname();
   const active = pathname == navItem.url;
   return (
-    <div
+    <a
       aria-describedby="button"
       className={styles.mobileBottomNavItem}
       aria-selected={active}
+      href={navItem.url}
     >
-      <a href={navItem.url}>{navItem.icon}</a>
-    </div>
+      {navItem.icon}
+    </a>
   );
 };
