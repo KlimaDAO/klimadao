@@ -11,7 +11,21 @@ const Purchase = Type.Object({
   amount: Type.String({
     description: "Stringified 18 decimal BigNumber",
   }),
+  buyer: Type.Object({
+    id: Type.String({
+      description: "Address of the buyer",
+    }),
+  }),
+  seller: Type.Object({
+    id: Type.String({
+      description: "Wallet address of the seller",
+    }),
+  }),
   listing: Type.Object({
+    id: Type.String({
+      description: "ID of the listing that was purchased",
+      examples: ["0x1234"],
+    }),
     project: Type.Object({
       country: Type.String(),
       key: Type.String({
@@ -46,7 +60,14 @@ type PurchaseParams = Static<typeof Params>;
 const exampleReturn: PurchaseResponse = {
   id: "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
   amount: "1000000000000000000",
+  buyer: {
+    id: "0x1234",
+  },
+  seller: {
+    id: "0x1234",
+  },
   listing: {
+    id: "0x1234",
     project: {
       country: "China",
       key: "VCS-191",

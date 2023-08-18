@@ -1,25 +1,36 @@
 import { FastifyInstance } from "fastify";
+import { pick } from "lodash";
 import nock from "nock";
 import { aPurchase } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/constants/graphs.constants";
+import { PurchaseResponse } from "../../src/routes/purchases.schema";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { ERROR } from "./routes.mock";
 
-const responseFixture = {
-  amount: "corrupti atque consequatur ullam repellendus minima qui",
-  id: "a",
+const mockPurchase = aPurchase();
+
+const responseFixture: PurchaseResponse = {
+  ...pick(mockPurchase, ["amount", "id", "price"]),
+  buyer: {
+    id: mockPurchase.user.id,
+  },
+  seller: {
+    id: mockPurchase.listing.seller.id,
+  },
   listing: {
+    id: mockPurchase.listing.id,
     project: {
-      country: "accusamus",
-      key: "delectus",
-      methodology: "doloremque",
-      name: "et",
-      projectID: "molestias",
-      vintage: "laboriosam porro consequatur rem dolore sunt ratione",
+      ...pick(mockPurchase.listing.project, [
+        "key",
+        "methodology",
+        "name",
+        "projectID",
+        "vintage",
+      ]),
+      country: mockPurchase.listing.project?.country?.id || "",
     },
   },
-  price: "incidunt facilis vitae eaque voluptates deleniti magni",
 };
 
 describe("GET /purchases/:id", () => {
@@ -36,7 +47,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [aPurchase()] } });
+      .reply(200, { data: { purchases: [mockPurchase] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -44,7 +55,6 @@ describe("GET /purchases/:id", () => {
     });
 
     const data = await response.json();
-
     expect(response.statusCode).toEqual(200);
     expect(data).toEqual(responseFixture);
   });

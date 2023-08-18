@@ -27,12 +27,17 @@ const routeHandler = (fastify: FastifyInstance) =>
         return reply.status(404).send({ error: "Purchase not found" });
       }
 
+      const country = data.listing?.project?.country?.id || "";
+
       const purchase: PurchaseResponse = {
         ...data,
+        buyer: data.user,
+        seller: data.listing?.seller,
         listing: {
+          id: data.listing.id,
           project: {
             ...data.listing.project,
-            country: data.listing?.project?.country?.id || "",
+            country, // override to avoid country.id
           },
         },
       };
