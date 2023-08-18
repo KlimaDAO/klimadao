@@ -87,6 +87,8 @@ export const card = css`
   grid-template-rows: auto 1fr;
   ${breakpoints.medium} {
     max-width: 32rem;
+    max-height: 36rem;
+    overflow: hidden;
   }
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
@@ -110,6 +112,12 @@ export const cardContent = css`
   display: grid;
   gap: 0.8rem;
   grid-template-rows: auto auto 1fr;
+`;
+
+export const cardTitle = css`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const tags = css`
@@ -136,4 +144,5 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   overflow: hidden;
+  max-height: 9rem;
 `;
