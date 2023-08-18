@@ -42,12 +42,26 @@ export const desktopSidebar = css`
 export const desktopSidebarItem = css`
   width: 180px;
   height: 48px;
+  padding: 8px;
   display: flex;
   align-items: center;
   text-align: left;
   text-decoration: none;
   gap: 12px;
   color: #767676;
+
+  &[aria-selected="true"] {
+    background-color: var(--surface-01);
+    border-radius: 8px;
+    color: var(--text-color-01);
+
+    /**
+     * @todo this is kinda hacky */
+    span {
+      background-color: var(--text-color-05);
+      color: var(--text-color-04);
+    }
+  }
 `;
 
 export const desktopSidebarIcon = css`
@@ -81,6 +95,7 @@ export const mobileNavButtons = css`
 `;
 
 export const mobileBottomNav = css`
+  height: 44px;
   position: fixed;
   bottom: 0px;
   display: flex;
@@ -96,12 +111,18 @@ export const mobileBottomNav = css`
   }
 `;
 export const mobileBottomNavItem = css`
-  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   &[aria-selected="true"] {
     background-color: var(--surface-02-active);
+
+    a {
+      color: var(--text-color-05);
+    }
+  }
+  a {
+    color: var(--text-color-02);
   }
 `;
 
