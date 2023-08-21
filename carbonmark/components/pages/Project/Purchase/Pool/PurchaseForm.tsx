@@ -108,8 +108,13 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = () =>
-    getPoolApprovalValue(inputValues?.totalPrice!, inputValues?.paymentMethod!);
+  const getApprovalValue = () => {
+    if (!inputValues?.totalPrice || !inputValues.paymentMethod) return "0";
+    return getPoolApprovalValue(
+      inputValues.totalPrice,
+      inputValues.paymentMethod
+    );
+  };
 
   // compare with total price including fees
   const hasApproval = () => {
