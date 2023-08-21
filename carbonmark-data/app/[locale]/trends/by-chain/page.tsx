@@ -1,5 +1,5 @@
 import RetirementTrendsPage from "components/pages/RetirementTrendsPage";
 
 export default function RetirementTrendsByChainPage() {
-  return <RetirementTrendsPage>By Chain...</RetirementTrendsPage>;
+  return <RetirementTrendsPage>By Chain…</RetirementTrendsPage>;
 }
