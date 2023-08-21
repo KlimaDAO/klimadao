@@ -5,8 +5,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer");
 const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
 module.exports = async (phase, { defaultConfig }) => {
-  const getLocales = (await import("../lib/out/utils/getLocales/index.js"))
-    .getLocales;
   const deviceSizes = (await import("../lib/out/theme/breakpoints.js"))
     .deviceSizes;
 
@@ -18,16 +16,16 @@ module.exports = async (phase, { defaultConfig }) => {
       return {
         beforeFiles: [
           {
-            source: "/",
-            destination: "/overview",
+            source: "/:locale",
+            destination: "/:locale/overview",
           },
           {
-            source: "/token-details",
-            destination: "/token-details/toucan",
+            source: "/:locale/token-details",
+            destination: "/:locale/token-details/toucan",
           },
           {
-            source: "/trends",
-            destination: "/trends/by-pool",
+            source: "/:locale/trends",
+            destination: "/:locale/trends/by-pool",
           },
         ],
       };
@@ -67,11 +65,6 @@ module.exports = async (phase, { defaultConfig }) => {
           ],
         },
       ];
-    },
-    i18n: {
-      locales: Object.keys(getLocales(IS_PRODUCTION)),
-      defaultLocale: "en",
-      localeDetection: true,
     },
     images: {
       domains: ["cdn.sanity.io"],

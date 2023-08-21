@@ -1,5 +1,5 @@
 import ArrowForward from "@mui/icons-material/ArrowForward";
-import Link from "next/link";
+import Link from "components/Link";
 import styles from "./styles.module.css";
 
 /**
