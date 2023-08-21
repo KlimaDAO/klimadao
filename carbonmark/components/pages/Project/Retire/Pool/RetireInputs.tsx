@@ -113,6 +113,8 @@ export const RetireInputs: FC<Props> = (props) => {
 
   // const isFiat = paymentMethod === "fiat";
 
+  // @todo -> makka add cc processing fee calculation
+
   // /** Credit card fee string to display in the price card for fiat payments */
   // const calcCreditCardFee = (): string => {
   //   if (!isFiat || !Number(costs) || isLoading) return "$0.00";
@@ -341,44 +343,6 @@ export const RetireInputs: FC<Props> = (props) => {
               />
             ))
             .reverse()}
-          {/* <Dropdown
-            name="paymentMethod"
-            initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
-            className={cx(styles.paymentDropdown, {
-              error: exceededFiatBalance || belowFiatMinimum,
-            })}
-            aria-label={t`Toggle payment method`}
-            renderLabel={(selected) => (
-              <div className={styles.paymentDropDownHeader}>
-                <Image
-                  className="icon"
-                  src={
-                    carbonmarkRetirePaymentMethodMap[
-                      selected.id as CarbonmarkPaymentMethod
-                    ].icon
-                  }
-                  width={28}
-                  height={28}
-                  alt={
-                    carbonmarkRetirePaymentMethodMap[
-                      selected.id as CarbonmarkPaymentMethod
-                    ].id
-                  }
-                />{" "}
-                {selected.label}
-              </div>
-            )}
-            control={control}
-            options={Object.values(carbonmarkRetirePaymentMethodMap).map(
-              (val) => ({
-                id: val.id,
-                label: val.label,
-                value: val.id,
-                icon: val.icon,
-                disabled: val.disabled,
-              })
-            )}
-          /> */}
         </div>
 
         {belowFiatMinimum && (
