@@ -6,8 +6,8 @@ export default function TokenVolumeOverTimePage() {
   const { bridgeLabel } = useBridgeInfo();
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Volume Over Time<`}
-      chartTitle={t`${bridgeLabel} Volume Over Time<`}
+      pageTitle={t`${bridgeLabel} Volume Over Time`}
+      chartTitle={t`${bridgeLabel} Volume Over Time`}
       chart={<></>}
       overview={t`Lorem Ipsum`}
     />
