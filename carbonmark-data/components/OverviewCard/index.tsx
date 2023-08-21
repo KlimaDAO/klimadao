@@ -8,14 +8,14 @@ import styles from "./styles.module.css";
 export default function OverviewCard(props: {
   children: React.ReactNode;
   title: string;
-  href?: string;
+  detailUrl?: string;
 }) {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
         <h2>{props.title}</h2>
-        {props.href && (
-          <Link className={styles.detailsLink} href={props.href}>
+        {props.detailUrl && (
+          <Link className={styles.detailsLink} href={props.detailUrl}>
             Details{" "}
             <ArrowForward
               fontSize="small"

@@ -16,7 +16,7 @@ export default function OverviewPage() {
           <div className={chartStyles.chartRow}>
             <OverviewCard
               title={t`Verra credits`}
-              href="/details/verra-credits-over-time"
+              detailUrl="/details/verra-credits-over-time"
             >
               <Suspense fallback={<Skeleton />}>
                 <VerraCreditsChart />
