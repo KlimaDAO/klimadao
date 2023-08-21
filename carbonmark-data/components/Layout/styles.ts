@@ -164,6 +164,14 @@ export const footer = css`
   justify-content: space-between;
   padding: 0 48px;
 
+  /**
+   * @todo this is hacky
+   */
+  padding-bottom: 44px;
+  ${breakpoints.desktop} {
+    padding-bottom: 0px;
+  }
+
   a {
     text-decoration: none;
     color: var(--text-color-04);
