@@ -49,7 +49,7 @@ export default function Chart(props: Props) {
         <Tooltip
           content={KlimaTooltip(
             helpers.formatDateAsDays,
-            helpers.formatQuantityAsTons
+            helpers.formatQuantityAsTons,
           )}
           cursor={{ fill: "transparent" }}
         />

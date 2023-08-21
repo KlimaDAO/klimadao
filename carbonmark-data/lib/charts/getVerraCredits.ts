@@ -15,6 +15,6 @@ export async function getVerraCredits() {
         page_size: -1,
         sort_order: "asc",
       });
-    }
+    },
   );
 }

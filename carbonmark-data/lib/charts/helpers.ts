@@ -19,11 +19,11 @@ import {
 */
 export async function prepareDailyChartData<
   CI extends GenericDailyChartDataEntry,
-  K extends Partial<string>
+  K extends Partial<string>,
 >(
   keys: Array<K>,
   date_field: DatesAttribute,
-  fetchFunction: (key: K) => Promise<DailyAggregatedCredits>
+  fetchFunction: (key: K) => Promise<DailyAggregatedCredits>,
 ): Promise<DailyChartData<CI>> {
   // Fetch data
   const datasets = await Promise.all(keys.map(fetchFunction));
@@ -102,7 +102,7 @@ export const formatDateAsDays = function (date: number) {
 export function niceTicks<T>(
   data: ChartData<T>,
   key: keyof T,
-  numberOfTicks?: number
+  numberOfTicks?: number,
 ) {
   numberOfTicks = numberOfTicks || 4;
   const ticks = [];

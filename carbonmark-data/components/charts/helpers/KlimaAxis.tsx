@@ -20,7 +20,7 @@ const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
 /* XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
   data: ChartData<T>,
-  dataKey: keyof T
+  dataKey: keyof T,
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     dataKey: "date",
