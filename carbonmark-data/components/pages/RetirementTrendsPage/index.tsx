@@ -1,4 +1,5 @@
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
+import Link from "components/Link";
 /**
  * A UI layout component to position Retirement Trends pages content
  */
@@ -7,21 +8,11 @@ export default function RetirementTrendsPage(props: {
 }) {
   return (
     <div>
-      <h1>
-        <Trans>Retirement trends</Trans>
-      </h1>
-      <a href="/trends/by-pool">
-        <Trans>By pool</Trans>
-      </a>
-      <a href="/trends/by-token">
-        <Trans>By token</Trans>
-      </a>
-      <a href="/trends/by-chain">
-        <Trans>By chain</Trans>
-      </a>
-      <a href="/trends/by-beneficiary">
-        <Trans>By beneficiary</Trans>
-      </a>
+      <h1>{t`Retirement trends`}</h1>
+      <Link href="/trends/by-pool">{t`By pool`}</Link>
+      <Link href="/trends/by-token">{t`By token`}</Link>
+      <Link href="/trends/by-chain">{t`By chain`}</Link>
+      <Link href="/trends/by-beneficiary">{t`By beneficiary`}</Link>
       {props.children}
     </div>
   );
