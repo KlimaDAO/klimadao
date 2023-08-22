@@ -23,3 +23,15 @@ export const getCreditsBridgeOptions: () => Options = () => {
     },
   ];
 };
+export const getCreditsStatusOptions: () => Options = () => {
+  return [
+    {
+      label: t`Issued`,
+      value: "issued",
+    },
+    {
+      label: t`Retired`,
+      value: "retired",
+    },
+  ];
+};

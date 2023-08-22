@@ -20,6 +20,7 @@ async function query<T>(
   const res = await fetch(url, { next: { revalidate } });
 
   if (!res.ok) {
+    console.log(url);
     throw new Error((await res.json()).message);
   }
   return res.json();

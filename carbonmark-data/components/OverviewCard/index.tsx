@@ -16,14 +16,20 @@ export default function OverviewCard<T>(props: {
   title: string;
   detailUrl?: string;
   topOptions?: Options;
+  bottomOptions?: Options;
 }) {
   const [topOptionKey, setTopOptionKey] = useState<Key>(
     props.topOptions ? props.topOptions[0].value : "",
   );
+  const [bottomOptionKey, setBottomOptionKey] = useState<Key>(
+    props.bottomOptions ? props.bottomOptions[0].value : "",
+  );
 
+  // Returns the chart to display given the options
   function displayedChart(): React.ReactNode {
     var keyItems = [];
     if (props.topOptions) keyItems.push(topOptionKey);
+    if (props.bottomOptions) keyItems.push(bottomOptionKey);
     const displayedKey = keyItems.join("|");
     return props.charts[displayedKey];
   }
@@ -50,6 +56,14 @@ export default function OverviewCard<T>(props: {
       </div>
       <div className={styles.cardContent}>
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
+      </div>
+      <div className={styles.cardHeader}>
+        {props.bottomOptions && (
+          <OptionsSwitcher
+            options={props.bottomOptions}
+            onSelectionChange={setBottomOptionKey}
+          ></OptionsSwitcher>
+        )}
       </div>
     </div>
   );
