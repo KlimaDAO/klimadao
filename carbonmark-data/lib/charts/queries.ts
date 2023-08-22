@@ -26,7 +26,9 @@ async function query<T>(
 }
 
 // Queries the the Credits Daily Aggregations endpoint
-export const queryDailyAggregatedCredits = function (params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams): Promise<DailyAggregatedCredits> {
+export const queryDailyAggregatedCredits = function (
+  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams,
+): Promise<DailyAggregatedCredits> {
   return query<DailyAggregatedCredit>(
     urls.api.dailyAggregatedCredits,
     params as unknown as Record<string, string>,

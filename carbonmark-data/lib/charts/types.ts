@@ -37,7 +37,7 @@ export interface DailyAggregatedCredit {
   bridged_date?: string;
   redeemed_date?: string;
   retirement_date?: string;
-  issued_date?: string;
+  issuance_date?: string;
   deposited_date?: string;
   quantity: number;
 }
@@ -59,11 +59,14 @@ export interface CreditsChartDataItem extends GenericDailyChartDataEntry {
   offchain?: number;
   date: number;
 }
-export interface ChartMappingParams {
-  key: string; // When querying the quantity attribute from the response will be mapped to this value to enable merging for charts
-  date_field: DateField // The date_field to use in the response Object
-}
+
 export type VerraCreditsChartData = DailyChartData<CreditsChartDataItem>;
 
 export type AnyChartData = VerraCreditsChartData;
 
+// Response to ChartData mappings
+export interface ChartMappingParams {
+  key: string; // When querying the quantity attribute from the response will be mapped to this value to enable merging for charts
+  date_field: DateField; // The date_field to use in the response Object
+}
+export type CreditsChartQueryParams = CreditsQueryParams & ChartMappingParams;

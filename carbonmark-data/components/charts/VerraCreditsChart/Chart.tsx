@@ -7,20 +7,20 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis
+  YAxis,
 } from "recharts";
 import {
   KlimaLegendProps,
   KlimaStackedAreas,
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
-  KlimaYAxisMillionsOfTonsProps
+  KlimaYAxisMillionsOfTonsProps,
 } from "../helpers";
 import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
   data: VerraCreditsChartData;
-  configuration: ChartConfiguration
+  configuration: ChartConfiguration;
 }
 export default function Chart(props: Props) {
   return (

@@ -4,7 +4,7 @@ import {
   DailyAggregatedCredits,
   DailyChartData,
   GenericChartDataEntry,
-  GenericDailyChartDataEntry
+  GenericDailyChartDataEntry,
 } from "./types";
 /*
   This function takes multiple datasets and merge them into data usable by recharts
@@ -32,7 +32,7 @@ export async function prepareDailyChartData<
   let maxDate = 0;
   for (const i in datasets) {
     const query = queries[i];
-    const date_field = query.date_field
+    const date_field = query.date_field;
     const dataset = datasets[i];
     dataset?.items.forEach((item) => {
       const date = Date.parse(item[date_field] as string);
@@ -71,26 +71,28 @@ export async function prepareDailyChartData<
   return chartData;
 }
 
-export const formatQuantityAsMillionsOfTons = function (quantity: number) {
+export const formatQuantityAsMillionsOfTons = function (
+  quantity: number,
+): string {
   quantity = Math.floor(quantity / 1000000);
   return `${quantity}M`;
 };
-export const formatQuantityAsKiloTons = function (quantity: number) {
+export const formatQuantityAsKiloTons = function (quantity: number): string {
   quantity = Math.floor(quantity / 1000);
   return `${quantity}k`;
 };
-export const formatQuantityAsTons = function (quantity: number) {
+export const formatQuantityAsTons = function (quantity: number): string {
   quantity = Math.floor(quantity);
   return `${quantity}`;
 };
-export const formatDateAsMonths = function (date: number) {
+export const formatDateAsMonths = function (date: number): string {
   const formatted_date = new Date(date);
   return formatted_date.toLocaleDateString("de-DE", {
     year: "numeric",
     month: "short",
   });
 };
-export const formatDateAsDays = function (date: number) {
+export const formatDateAsDays = function (date: number): string {
   const formatted_date = new Date(date);
   return formatted_date.toLocaleDateString("de-DE", {
     day: "numeric",
@@ -108,7 +110,8 @@ export function niceTicks<T>(
   const ticks = [];
   const intervalSize = (data.length - 1) / (numberOfTicks - 1);
   for (let i = 0; i <= data.length - 1; i += intervalSize) {
-    ticks.push(data[Math.floor(i)][key]);
+    const value = data[Math.floor(i)][key] as string;
+    ticks.push(value);
   }
   return ticks;
 }

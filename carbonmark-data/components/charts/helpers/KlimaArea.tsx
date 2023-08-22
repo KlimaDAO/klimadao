@@ -14,7 +14,7 @@ export function KlimaAreaProps(props: AreaProps): Omit<AreaProps, "ref"> {
 
 // Creates Recharts Stacked Areas from a ChartConfiguration
 export function KlimaStackedAreas(configuration: ChartConfiguration) {
-  return configuration.map(item =>
+  return configuration.map((item) => (
     <Area
       {...KlimaAreaProps({
         name: item.label,
@@ -22,5 +22,5 @@ export function KlimaStackedAreas(configuration: ChartConfiguration) {
         fill: item.color,
       })}
     />
-  )
+  ));
 }
