@@ -1,10 +1,10 @@
-// Query parameters
-export type Bridge = "toucan" | "c3" | "moss";
-export type DatesAttribute =
+// API level Query parameters
+export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
+export type DateField =
   | "bridged_date"
   | "redeemed_date"
   | "retirement_date"
-  | "issued_date"
+  | "issuance_date"
   | "deposited_date";
 export type Status =
   | "bridged"
@@ -13,20 +13,19 @@ export type Status =
   | "issued"
   | "deposited";
 export type Pool = "ubo" | "nbo" | "nct" | "bct";
-export interface CreditsParams {
+export interface CreditsQueryParams {
   bridge?: Bridge;
   pool?: Pool;
   status?: Status;
 }
-export interface AggregationParams {
+export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
-export interface PaginationParams {
+export interface PaginationQueryParams {
   page_size?: number;
   sort_by?: number;
   sort_order?: string;
 }
-
 // API responses
 export interface PaginatedResponse<RI> {
   items: Array<RI>;
@@ -51,16 +50,20 @@ export type GenericChartData = ChartData<GenericChartDataEntry>;
 export type GenericDailyChartDataEntry = {
   date: number;
 };
-//export type GenericChartData = Array<GenericChartDataEntry>;
 export type DailyChartData<CI extends GenericDailyChartDataEntry> =
   ChartData<CI>;
-
-export interface VerraCreditsChartDataItem extends GenericDailyChartDataEntry {
-  toucan: number;
-  c3: number;
-  moss: number;
+export interface CreditsChartDataItem extends GenericDailyChartDataEntry {
+  toucan?: number;
+  c3?: number;
+  moss?: number;
+  offchain?: number;
   date: number;
 }
-export type VerraCreditsChartData = DailyChartData<VerraCreditsChartDataItem>;
+export interface ChartMappingParams {
+  key: string; // When querying the quantity attribute from the response will be mapped to this value to enable merging for charts
+  date_field: DateField // The date_field to use in the response Object
+}
+export type VerraCreditsChartData = DailyChartData<CreditsChartDataItem>;
 
 export type AnyChartData = VerraCreditsChartData;
+

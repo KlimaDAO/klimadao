@@ -8,8 +8,8 @@ export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 const ENVIRONMENT: "production" | "preview" | "development" = IS_PRODUCTION
   ? "production"
   : IS_LOCAL_DEVELOPMENT
-  ? "development"
-  : "preview";
+    ? "development"
+    : "preview";
 
 const config = {
   urls: {
