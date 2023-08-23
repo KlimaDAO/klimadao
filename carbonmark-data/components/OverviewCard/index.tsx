@@ -1,4 +1,5 @@
-import Link from "next/link";
+import ArrowForward from "@mui/icons-material/ArrowForward";
+import Link from "components/Link";
 import styles from "./styles.module.css";
 
 /**
@@ -7,13 +8,21 @@ import styles from "./styles.module.css";
 export default function OverviewCard(props: {
   children: React.ReactNode;
   title: string;
-  href: string;
+  detailUrl?: string;
 }) {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
         <h2>{props.title}</h2>
-        <Link href={props.href}>Details👉</Link>
+        {props.detailUrl && (
+          <Link className={styles.detailsLink} href={props.detailUrl}>
+            Details{" "}
+            <ArrowForward
+              fontSize="small"
+              className={styles.detailsLinkArrow}
+            />
+          </Link>
+        )}
       </div>
       <div className={styles.cardContent}>{props.children}</div>
     </div>

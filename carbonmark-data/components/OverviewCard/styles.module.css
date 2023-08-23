@@ -1,5 +1,5 @@
 .cardContainer {
-  box-shadow: 0px 1px 3px 0px #0000001f;
+  box-shadow: var(--box-shadow);
   min-height: 284px;
   height: 284px;
   background-color: var(--surface-04);
@@ -11,8 +11,18 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
 .cardContent {
   flex: 1 1 auto;
+}
+
+.detailsLink,
+.detailsLink:visited,
+.detailsLink:hover {
+  color: var(--text-color-03);
+}
+.detailsLinkArrow {
+  position: relative;
+  top: 3px;
 }

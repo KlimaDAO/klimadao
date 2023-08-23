@@ -1,12 +1,9 @@
 export const palette = {
   charts: {
-    color1: "#03045E",
-    color2: "#023E8A",
-    color3: "#0077B6",
-    color4: "#0096C7",
-    color5: "#00B4D8",
-    color6: "#48CAE4",
-    color7: "#ADE8F4",
-    color8: "#ADE8F4",
+    color1: "#0074BE",
+    color2: "#068ADE",
+    color3: "#0BA1FF",
+    color4: "#88C2FF",
+    color5: "#CCE4FF",
   },
 };
