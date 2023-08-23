@@ -24,8 +24,8 @@ const Layout = function ({ children, locale, translation }: Props) {
         <div className={styles.content}>
           <main className={styles.main}>{children}</main>
           <Footer />
+          <MobileBottomNav />
         </div>
-        <MobileBottomNav></MobileBottomNav>
       </I18nProvider>
     </>
   );

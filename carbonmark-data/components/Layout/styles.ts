@@ -95,8 +95,7 @@ export const mobileNavButtons = css`
 `;
 
 export const mobileBottomNav = css`
-  height: 44px;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   display: flex;
   width: 100%;
@@ -112,6 +111,7 @@ export const mobileBottomNav = css`
 `;
 export const mobileBottomNavItem = css`
   display: flex;
+  height: 44px;
   justify-content: center;
   align-items: center;
   &[aria-selected="true"] {
@@ -157,7 +157,7 @@ export const mobileMenuButton = css`
 export const footer = css`
   background-color: var(--surface-05);
   color: var(--text-color-04);
-  padding: 40px 24px 68px 24px;
+  padding: 40px 24px;
 
   display: grid;
   gap: 40px;
@@ -166,10 +166,6 @@ export const footer = css`
   ${breakpoints.desktopLarge} {
     display: flex;
     justify-content: space-between;
-  }
-
-  ${breakpoints.desktop} {
-    padding-bottom: 44px;
   }
 
   a {
