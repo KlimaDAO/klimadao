@@ -13,8 +13,13 @@ body[data-theme="theme-light"] {
   --surface-02-active: #303030;
   --text-color-01: #313131;
   --text-color-02: #9c9c9c;
+  --text-color-03: #0ba1ff;
+  --box-shadow: 0px 1px 3px 0px #0000001f;
 }
 
 body {
   font-family: Inter;
+}
+a {
+  text-decoration: none;
 }
