@@ -39,12 +39,11 @@ export function KlimaYAxisTonsProps<T>(
     (confItem) => confItem.id as keyof T
   );
   const max = helpers.getDataChartMax(data, dataKeys);
-  console.log(max);
   // Select formatter
   const tickFormatter =
-    max < 1000
+    max < 10 ** 4
       ? helpers.formatQuantityAsTons
-      : max < 1000000
+      : max < 10 ** 7
       ? helpers.formatQuantityAsKiloTons
       : helpers.formatQuantityAsMillionsOfTons;
 

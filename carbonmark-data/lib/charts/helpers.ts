@@ -75,15 +75,15 @@ export const formatQuantityAsMillionsOfTons = function (
   quantity: number
 ): string {
   quantity = Math.floor(quantity / 1000000);
-  return `${quantity}M`;
+  return `${quantity} MT`;
 };
 export const formatQuantityAsKiloTons = function (quantity: number): string {
   quantity = Math.floor(quantity / 1000);
-  return `${quantity}k`;
+  return `${quantity} KT`;
 };
 export const formatQuantityAsTons = function (quantity: number): string {
   quantity = Math.floor(quantity);
-  return `${quantity}`;
+  return `${quantity} T`;
 };
 export const formatDateAsMonths = function (date: number): string {
   const formatted_date = new Date(date);
@@ -121,9 +121,10 @@ export function getDataChartMax<T>(
   dataKeys: Array<keyof T>
 ) {
   return data.reduce((accumulator, dataItem) => {
-    const localMax = Math.max(
-      ...dataKeys.map((key) => dataItem[key] as number)
+    const values = dataKeys.map(
+      (key) => (dataItem[key] ? dataItem[key] : 0) as number
     );
+    const localMax = Math.max(...values);
     return Math.max(accumulator, localMax);
   }, 0);
 }

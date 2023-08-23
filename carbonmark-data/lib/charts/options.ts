@@ -14,12 +14,12 @@ export type OptionChangeHandler = (value: Key) => undefined | void;
 export const getCreditsBridgeOptions: () => Options = () => {
   return [
     {
-      label: t`Off-chain`,
-      value: "offchain",
-    },
-    {
       label: t`On-chain`,
       value: "onchain",
+    },
+    {
+      label: t`Off-chain`,
+      value: "offchain",
     },
   ];
 };

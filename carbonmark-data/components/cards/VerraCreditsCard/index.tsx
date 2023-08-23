@@ -15,7 +15,7 @@ export default function VerraCreditsCard() {
     React.ReactNode
   >;
 
-  ["offchain", "onchain"].forEach((bridge) => {
+  ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
       let queries: Array<CreditsChartQueryParams>;
       let configuration;
