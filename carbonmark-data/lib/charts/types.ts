@@ -52,7 +52,8 @@ export type GenericDailyChartDataEntry = {
   date: number;
 };
 //export type GenericChartData = Array<GenericChartDataEntry>;
-export type DailyChartData<CI extends GenericDailyChartDataEntry> = Array<CI>;
+export type DailyChartData<CI extends GenericDailyChartDataEntry> =
+  ChartData<CI>;
 
 export interface VerraCreditsChartDataItem extends GenericDailyChartDataEntry {
   toucan: number;

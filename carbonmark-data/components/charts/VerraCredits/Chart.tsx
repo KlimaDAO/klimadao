@@ -1,11 +1,10 @@
 "use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
-import { helpers } from "lib/charts";
+import helpers from "lib/charts/helpers";
 import { VerraCreditsChartData } from "lib/charts/types";
 import {
   Area,
   AreaChart,
-  CartesianGrid,
   Legend,
   ResponsiveContainer,
   Tooltip,
@@ -13,94 +12,68 @@ import {
   YAxis,
 } from "recharts";
 import { palette } from "theme/palette";
-import * as styles from "../styles";
+import {
+  KlimaAreaProps,
+  KlimaLegendProps,
+  KlimaTooltip,
+  KlimaXAxisMonthlyProps,
+  KlimaYAxisMillionsOfTonsProps,
+} from "../helpers";
 
 interface Props {
   data: VerraCreditsChartData;
 }
 export default function Chart(props: Props) {
+  const payload = [
+    {
+      id: "c3",
+      value: "C3",
+      color: palette.charts.color1,
+    },
+    {
+      id: "moss",
+      value: "Moss",
+      color: palette.charts.color3,
+    },
+    {
+      id: "toucan",
+      value: "Toucan",
+      color: palette.charts.color5,
+    },
+  ];
   return (
-    <ResponsiveContainer>
-      <AreaChart
-        width={500}
-        height={400}
-        data={props.data}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis
-          dataKey="date"
-          tickFormatter={helpers.formatDateAsMonths}
-          ticks={helpers.niceTicks(props.data, "date")}
-          tickLine={false}
-        />
-        <YAxis
-          tickFormatter={helpers.formatQuantityAsMillions}
-          tickLine={false}
-        />
-        <Legend
-          layout="horizontal"
-          verticalAlign="bottom"
-          align="left"
-          payload={[
-            {
-              id: "toucan",
-              value: "Toucan",
-              type: "circle",
-              color: palette.charts.color1,
-            },
-            {
-              id: "moss",
-              value: "Moss",
-              type: "circle",
-              color: palette.charts.color4,
-            },
-            {
-              id: "c3",
-              value: "C3",
-              type: "circle",
-              color: palette.charts.color7,
-            },
-          ]}
-          formatter={(value) => (
-            <span className={styles.chartLegendText}>{value}</span>
+    <ResponsiveContainer width="100%" height="100%">
+      <AreaChart data={props.data}>
+        <XAxis {...KlimaXAxisMonthlyProps(props.data, "date")} />
+        <YAxis {...KlimaYAxisMillionsOfTonsProps()} />
+        <Tooltip
+          content={KlimaTooltip(
+            helpers.formatDateAsDays,
+            helpers.formatQuantityAsTons,
           )}
+          cursor={{ fill: "transparent" }}
         />
-        <Tooltip />
+        <Legend {...KlimaLegendProps({ payload })} />
         <Area
-          type="monotone"
-          name={t`Toucan`}
-          stackId="1"
-          dataKey="toucan"
-          connectNulls
-          fillOpacity="1"
-          fill={palette.charts.color1}
-          stroke={palette.charts.color1}
+          {...KlimaAreaProps({
+            name: t`Toucan`,
+            dataKey: "toucan",
+            fill: palette.charts.color5,
+          })}
         />
         <Area
-          type="monotone"
-          name={t`Moss`}
-          stackId="1"
-          dataKey="moss"
-          connectNulls
-          stroke={palette.charts.color4}
-          fill={palette.charts.color4}
-          fillOpacity="1"
+          {...KlimaAreaProps({
+            name: t`Moss`,
+            dataKey: "moss",
+            fill: palette.charts.color3,
+          })}
         />
         <Area
-          type="monotone"
-          name={t`C3`}
-          stackId="1"
-          dataKey="c3"
-          connectNulls
-          stroke={palette.charts.color7}
-          fill={palette.charts.color7}
-          fillOpacity="1"
+          {...KlimaAreaProps({
+            name: t`C3`,
+            dataKey: "c3",
+            fill: palette.charts.color1,
+          })}
         />
       </AreaChart>
     </ResponsiveContainer>
