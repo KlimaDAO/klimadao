@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 
 export const chartLegendText = css`
   color: var(--text-color-01);
+  font-size: 12px;
 `;
 
 export const tooltip = css`
@@ -10,6 +11,7 @@ export const tooltip = css`
   border-radius: 15px;
   padding: 10px;
   text-align: center;
+  font-size: 12px;
   box-shadow: var(--box-shadow);
   opacity: 0.9;
 `;
@@ -17,6 +19,7 @@ export const tooltip = css`
 export const tooltipItems = css`
   display: flex;
   justify-content: center;
+  font-size: 12px;
   > div {
     padding: 10px;
   }

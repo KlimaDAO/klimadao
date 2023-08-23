@@ -6,7 +6,7 @@ import OptionsSwitcher from "components/OptionsSwitcher";
 import Skeleton from "components/Skeleton";
 import { Options } from "lib/charts/options";
 import { Key, Suspense, useState } from "react";
-import styles from "./styles.module.css";
+import * as styles from "./styles";
 
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -19,15 +19,15 @@ export default function OverviewCard<T>(props: {
   bottomOptions?: Options;
 }) {
   const [topOptionKey, setTopOptionKey] = useState<Key>(
-    props.topOptions ? props.topOptions[0].value : "",
+    props.topOptions ? props.topOptions[0].value : ""
   );
   const [bottomOptionKey, setBottomOptionKey] = useState<Key>(
-    props.bottomOptions ? props.bottomOptions[0].value : "",
+    props.bottomOptions ? props.bottomOptions[0].value : ""
   );
 
   // Returns the chart to display given the options
   function displayedChart(): React.ReactNode {
-    var keyItems = [];
+    const keyItems = [];
     if (props.topOptions) keyItems.push(topOptionKey);
     if (props.bottomOptions) keyItems.push(bottomOptionKey);
     const displayedKey = keyItems.join("|");
@@ -37,7 +37,7 @@ export default function OverviewCard<T>(props: {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <h2>{props.title}</h2>
+        <h2 className={styles.cardHeaderItem}>{props.title}</h2>
         {props.topOptions && (
           <OptionsSwitcher
             options={props.topOptions}
@@ -57,7 +57,7 @@ export default function OverviewCard<T>(props: {
       <div className={styles.cardContent}>
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
       </div>
-      <div className={styles.cardHeader}>
+      <div className={styles.cardFooter}>
         {props.bottomOptions && (
           <OptionsSwitcher
             options={props.bottomOptions}
