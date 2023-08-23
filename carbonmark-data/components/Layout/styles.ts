@@ -182,10 +182,11 @@ export const footerNavLinks = css`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 32px;
   font-size: 0.875rem;
+  gap: 16px;
 
   ${breakpoints.large} {
+    gap: 32px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -202,5 +203,18 @@ export const footerSocialLinks = css`
   justify-content: space-between;
   ${breakpoints.large} {
     justify-content: center;
+  }
+`;
+
+export const mobileOnly = css`
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
+export const desktopOnly = css`
+  display: none;
+  ${breakpoints.large} {
+    display: unset;
   }
 `;

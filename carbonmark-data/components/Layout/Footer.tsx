@@ -1,4 +1,12 @@
-import { LinkedIn, Telegram, Twitter, YouTube } from "@mui/icons-material";
+import {
+  GitHub,
+  LinkedIn,
+  Reddit,
+  RssFeed,
+  Telegram,
+  Twitter,
+  YouTube,
+} from "@mui/icons-material";
 import { Link } from "@mui/material";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -8,10 +16,30 @@ export const Footer: FC = () => {
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
         <Link href="#">Home</Link>
-        <Link href="#">Klima App</Link>
-        <Link href="#">Carbonmark</Link>
-        <Link href="#">Klima Data</Link>
-        <Link href="#">Official Docs</Link>
+        <Link href="#" className={styles.mobileOnly}>
+          Buy
+        </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          Stake
+        </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          App
+        </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          Docs
+        </Link>
+        <Link href="#" className={styles.desktopOnly}>
+          Klima App
+        </Link>
+        <Link href="#" className={styles.desktopOnly}>
+          Carbonmark
+        </Link>
+        <Link href="#" className={styles.desktopOnly}>
+          Klima Data
+        </Link>
+        <Link href="#" className={styles.desktopOnly}>
+          Official Docs
+        </Link>
         <Link href="#">Blog</Link>
         <Link href="#">Contact</Link>
         <Link href="#">Disclaimer</Link>
@@ -37,11 +65,20 @@ export const Footer: FC = () => {
             />
           </svg>
         </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          <Reddit />
+        </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          <GitHub />
+        </Link>
         <Link href="#">
           <LinkedIn />
         </Link>
         <Link href="#">
           <Telegram />
+        </Link>
+        <Link href="#" className={styles.mobileOnly}>
+          <RssFeed />
         </Link>
       </div>
     </div>
