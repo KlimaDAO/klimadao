@@ -13,8 +13,7 @@ module.exports = async (phase, { defaultConfig }) => {
     //Provide source maps on preview deployments
     productionBrowserSourceMaps: !IS_PRODUCTION,
     async rewrites() {
-      return {
-        beforeFiles: [
+      return [
           {
             source: "/:locale",
             destination: "/:locale/overview",
@@ -27,12 +26,8 @@ module.exports = async (phase, { defaultConfig }) => {
             source: "/:locale/trends",
             destination: "/:locale/trends/by-pool",
           },
-        ],
-      };
-    },
-    async redirects() {
-      return [];
-    },
+        ]
+      },
     async headers() {
       return [
         {
@@ -65,10 +60,6 @@ module.exports = async (phase, { defaultConfig }) => {
           ],
         },
       ];
-    },
-    images: {
-      domains: ["cdn.sanity.io"],
-      deviceSizes,
     },
     experimental: {
       appDir: true,
