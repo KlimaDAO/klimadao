@@ -157,19 +157,19 @@ export const mobileMenuButton = css`
 export const footer = css`
   background-color: var(--surface-05);
   color: var(--text-color-04);
-  height: 116px;
+  padding: 40px 24px 68px 24px;
 
-  display: flex;
-  place-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
+  display: grid;
+  gap: 40px;
+  align-items: center;
 
-  /**
-   * @todo this is hacky
-   */
-  padding-bottom: 44px;
+  ${breakpoints.desktopLarge} {
+    display: flex;
+    justify-content: space-between;
+  }
+
   ${breakpoints.desktop} {
-    padding-bottom: 0px;
+    padding-bottom: 44px;
   }
 
   a {
@@ -180,9 +180,15 @@ export const footer = css`
 
 export const footerNavLinks = css`
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: start;
   gap: 32px;
   font-size: 0.875rem;
+
+  ${breakpoints.large} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   a {
     white-space: nowrap;
@@ -192,6 +198,9 @@ export const footerNavLinks = css`
 export const footerSocialLinks = css`
   display: flex;
   gap: 16px;
-  place-items: center;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  ${breakpoints.large} {
+    justify-content: center;
+  }
 `;
