@@ -13,7 +13,7 @@ export default function OverviewCard(props: {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <span className={styles.cardTitle}>{props.title}</span>
+        <h5 className={styles.cardTitle}>{props.title}</h5>
         <Link href={props.detailUrl} className={styles.cardDetailsLink}>
           Details <ArrowForward />
         </Link>
