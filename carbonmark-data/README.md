@@ -7,10 +7,10 @@ Those metrics are provided
 
 The data processing is organized into layers that are (more or less) isolated from a code standpoint.
 
-- Data Fetching: `lib/chart/queries.ts`
+- Data Fetching: `lib/charts/queries.ts`
   Configurable queries to dash-api endoints
 
-- Data Preparation: `lib/chart/aggregators`
+- Data Preparation: `lib/charts/aggregators`
   Aggregators that use queries to fetch data and prepare them in a form usable by charts
 
 - Charts: `components/charts`
@@ -25,10 +25,10 @@ The data processing is organized into layers that are (more or less) isolated fr
 
 When creating new Cards the following should be done:
 
-- Create a Query if it does not exist in `lib/chart/queries`
-  - Create typings for the query response if it does not exist in `lib/chart/types`
-- Create an Aggregator `lib/chart/queries/aggregators`
-  - Create typings for the dataset if it does not exist in `lib/chart/types`
+- Create a Query if it does not exist in `lib/charts/queries`
+  - Create typings for the query response if they does not exist in `lib/charts/types`
+- Create an Aggregator `lib/charts/aggregators`
+  - Create typings for the dataset if it does not exist in `lib/charts/types`
 - Create a Chart component in `components/charts`
   - Create new helper components if necessary in `components/charts/helpers`
 - Create a Card component in `components/cards`
