@@ -13,7 +13,7 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
@@ -26,9 +26,9 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Category } from "components/Category";
 import { PageHead } from "components/PageHead";
 import { ProjectImage } from "components/ProjectImage";
+import { Navigation } from "components/shared/Navigation";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
-import { Navigation } from "components/shared/Navigation";
 import { useResponsive } from "hooks/useResponsive";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
@@ -533,42 +533,40 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <nav className={styles.footerNav}>
-            <Link href="/blog/privacy-policy">
-              <Trans>Privacy policy</Trans>
-            </Link>
-            <Link href="/blog/terms-of-use">
-              <Trans>Terms of use</Trans>
-            </Link>
-            <Link href={carbonmarkUrls.docs}>
-              <Trans>Help</Trans>
-            </Link>
-            <Link href="/resources">
-              <Trans>Resources</Trans>
-            </Link>
-            <A href={urls.home}>
-              <Trans>KlimaDAO</Trans>
-            </A>
-            <Link href={urls.carbonmarkContactForm}>
-              <Trans>Contact</Trans>
-            </Link>
-          </nav>
-          <nav className={styles.footerIcons}>
-            <A href={urls.twitterCarbonmark}>
-              <TwitterIcon />
-            </A>
-            <A href={urls.github}>
-              <GithubIcon />
-            </A>
-            <A href={urls.linkedInCarbonmark}>
-              <LinkedInIcon />
-            </A>
-            <A href={urls.carbonmarkEmail}>
-              <EmailRoundedIcon />
-            </A>
-          </nav>
-        </div>
+        <nav className={styles.footerNav}>
+          <Link href="/blog/privacy-policy">
+            <Trans>Privacy policy</Trans>
+          </Link>
+          <Link href="/blog/terms-of-use">
+            <Trans>Terms of use</Trans>
+          </Link>
+          <Link href={carbonmarkUrls.docs}>
+            <Trans>Help</Trans>
+          </Link>
+          <Link href="/resources">
+            <Trans>Resources</Trans>
+          </Link>
+          <A href={urls.home}>
+            <Trans>KlimaDAO</Trans>
+          </A>
+          <Link href={urls.carbonmarkContactForm}>
+            <Trans>Contact</Trans>
+          </Link>
+        </nav>
+        <nav className={styles.footerIcons}>
+          <A href={urls.twitterCarbonmark}>
+            <TwitterIcon />
+          </A>
+          <A href={urls.github}>
+            <GithubIcon />
+          </A>
+          <A href={urls.linkedInCarbonmark}>
+            <LinkedInIcon />
+          </A>
+          <A href={urls.carbonmarkEmail}>
+            <EmailRoundedIcon />
+          </A>
+        </nav>
       </footer>
     </GridContainer>
   );
