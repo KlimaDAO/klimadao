@@ -15,7 +15,7 @@ export const ButtonSecondary: FC<ButtonBaseProps> = (props) => {
       transparent: props.variant === "transparent",
       red: props.variant === "red",
     },
-    props.className,
+    props.className
   );
   return <KlimaButton {...props} className={className} />;
 };

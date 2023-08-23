@@ -12,7 +12,7 @@ import {
 async function query<T>(
   url: string,
   params: Record<string, string | number>,
-  revalidate?: number,
+  revalidate?: number
 ): Promise<PaginatedResponse<T>> {
   // Default cache of 3600s
   revalidate = revalidate || 3600;
@@ -28,10 +28,10 @@ async function query<T>(
 
 // Queries the the Credits Daily Aggregations endpoint
 export const queryDailyAggregatedCredits = function (
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams,
+  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
 ): Promise<DailyAggregatedCredits> {
   return query<DailyAggregatedCredit>(
     urls.api.dailyAggregatedCredits,
-    params as unknown as Record<string, string>,
+    params as unknown as Record<string, string>
   );
 };

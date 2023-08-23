@@ -13,8 +13,8 @@ const BASE_LEGEND_PROPS = {
 };
 
 // Creates Rechart LegendProps from a ChartConfiguration
-export function KlimaLegendProps(
-  conf: ChartConfiguration,
+export function KlimaLegendProps<T>(
+  conf: ChartConfiguration<T>
 ): Omit<LegendProps, "ref"> {
   const props: LegendProps = {} as LegendProps;
   props.payload = [...conf]
@@ -23,7 +23,7 @@ export function KlimaLegendProps(
         ? item1.legendOrder > item2.legendOrder
           ? 1
           : -1
-        : 0,
+        : 0
     )
     .map((item) => {
       return {

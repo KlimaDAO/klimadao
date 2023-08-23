@@ -59,10 +59,8 @@ export interface CreditsChartDataItem extends GenericDailyChartDataEntry {
   offchain?: number;
   date: number;
 }
-
-export type VerraCreditsChartData = DailyChartData<CreditsChartDataItem>;
-
-export type AnyChartData = VerraCreditsChartData;
+export type CreditsChartData = DailyChartData<CreditsChartDataItem>;
+export type AnyChartData = CreditsChartData;
 
 // Response to ChartData mappings
 export interface ChartMappingParams {

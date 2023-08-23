@@ -1,6 +1,6 @@
 "use client"; // use client for recharts animations
 import helpers from "lib/charts/helpers";
-import { VerraCreditsChartData } from "lib/charts/types";
+import { CreditsChartData, CreditsChartDataItem } from "lib/charts/types";
 import {
   AreaChart,
   Legend,
@@ -14,24 +14,24 @@ import {
   KlimaStackedAreas,
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
-  KlimaYAxisMillionsOfTonsProps,
+  KlimaYAxisTonsProps,
 } from "../helpers";
 import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
-  data: VerraCreditsChartData;
-  configuration: ChartConfiguration;
+  data: CreditsChartData;
+  configuration: ChartConfiguration<CreditsChartDataItem>;
 }
 export default function Chart(props: Props) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <AreaChart data={props.data}>
         <XAxis {...KlimaXAxisMonthlyProps(props.data, "date")} />
-        <YAxis {...KlimaYAxisMillionsOfTonsProps()} />
+        <YAxis {...KlimaYAxisTonsProps(props.data, props.configuration)} />
         <Tooltip
           content={KlimaTooltip(
             helpers.formatDateAsDays,
-            helpers.formatQuantityAsTons,
+            helpers.formatQuantityAsTons
           )}
           cursor={{ fill: "transparent" }}
         />

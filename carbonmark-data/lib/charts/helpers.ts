@@ -18,10 +18,10 @@ import {
 */
 export async function prepareDailyChartData<
   CI extends GenericDailyChartDataEntry,
-  Q extends ChartMappingParams,
+  Q extends ChartMappingParams
 >(
   queries: Array<Q>,
-  fetchFunction: (query: Q) => Promise<DailyAggregatedCredits>,
+  fetchFunction: (query: Q) => Promise<DailyAggregatedCredits>
 ): Promise<DailyChartData<CI>> {
   // Fetch data
   const datasets = await Promise.all(queries.map(fetchFunction));
@@ -72,7 +72,7 @@ export async function prepareDailyChartData<
 }
 
 export const formatQuantityAsMillionsOfTons = function (
-  quantity: number,
+  quantity: number
 ): string {
   quantity = Math.floor(quantity / 1000000);
   return `${quantity}M`;
@@ -104,7 +104,7 @@ export const formatDateAsDays = function (date: number): string {
 export function niceTicks<T>(
   data: ChartData<T>,
   key: keyof T,
-  numberOfTicks?: number,
+  numberOfTicks?: number
 ) {
   numberOfTicks = numberOfTicks || 4;
   const ticks = [];
@@ -115,13 +115,26 @@ export function niceTicks<T>(
   }
   return ticks;
 }
+/* Returns the maximum value from a datachart */
+export function getDataChartMax<T>(
+  data: ChartData<T>,
+  dataKeys: Array<keyof T>
+) {
+  return data.reduce((accumulator, dataItem) => {
+    const localMax = Math.max(
+      ...dataKeys.map((key) => dataItem[key] as number)
+    );
+    return Math.max(accumulator, localMax);
+  }, 0);
+}
 const helpers = {
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
+  formatQuantityAsTons,
   formatDateAsMonths,
   formatDateAsDays,
-  formatQuantityAsTons,
   prepareDailyChartData,
   niceTicks,
+  getDataChartMax,
 };
 export default helpers;

@@ -14,6 +14,6 @@ export async function getVerraCredits(queries: Array<CreditsChartQueryParams>) {
         page_size: -1,
         sort_order: "asc",
       });
-    },
+    }
   );
 }

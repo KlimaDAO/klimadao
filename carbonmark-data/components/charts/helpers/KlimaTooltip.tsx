@@ -7,11 +7,11 @@ import * as styles from "./styles";
 
 export function KlimaTooltip(
   xAxisFormatter: (v: number) => string,
-  yAxisFormatter: (v: number) => string,
+  yAxisFormatter: (v: number) => string
 ) {
   function KlimaTooltipComponent<
     TValue extends ValueType,
-    TName extends NameType,
+    TName extends NameType
   >(props: TooltipProps<TValue, TName>) {
     const { active, payload, label } = props;
     if (active && payload && payload.length) {
