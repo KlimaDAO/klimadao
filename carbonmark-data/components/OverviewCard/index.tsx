@@ -11,7 +11,7 @@ import * as styles from "./styles";
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
  */
-export default function OverviewCard<T>(props: {
+export default function OverviewCard(props: {
   charts: Record<string, React.ReactNode>;
   title: string;
   detailUrl?: string;
@@ -37,19 +37,21 @@ export default function OverviewCard<T>(props: {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <h2 className={styles.cardHeaderItem}>{props.title}</h2>
+        <h2 className={styles.cardHeaderTitle}>{props.title}</h2>
         {props.topOptions && (
-          <OptionsSwitcher
-            options={props.topOptions}
-            onSelectionChange={setTopOptionKey}
-          ></OptionsSwitcher>
+          <div className={styles.cardHeaderSwitcher}>
+            <OptionsSwitcher
+              options={props.topOptions}
+              onSelectionChange={setTopOptionKey}
+            ></OptionsSwitcher>
+          </div>
         )}
         {props.detailUrl && (
-          <Link className={styles.detailsLink} href={props.detailUrl}>
+          <Link className={styles.cardHeaderDetailsLink} href={props.detailUrl}>
             Details{" "}
             <ArrowForward
               fontSize="small"
-              className={styles.detailsLinkArrow}
+              className={styles.cardHeaderDetailsLinkArrow}
             />
           </Link>
         )}

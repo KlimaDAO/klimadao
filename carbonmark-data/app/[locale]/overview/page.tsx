@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import VerraCreditsCard from "components/cards/VerraCreditsCard/verraCreditsCard";
+import VerraCreditsCard from "components/cards/VerraCreditsCard";
 import * as chartStyles from "components/charts/styles";
 import * as styles from "./styles";
 

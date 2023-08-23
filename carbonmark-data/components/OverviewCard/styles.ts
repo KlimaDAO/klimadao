@@ -8,36 +8,46 @@ export const cardContainer = css`
   padding: 12px;
   display: flex;
   flex-flow: column;
+  position: relative;
 `;
 export const cardHeader = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-export const cardContent = css`
-  flex: 1 1 auto;
-`;
-export const cardFooter = css`
-  position: relative;
-  top: -40px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-`;
-export const cardHeaderItem = css`
+export const cardHeaderTitle = css`
   flex: 1 1 0;
+  font-size: 14px;
+  weight: 700;
 `;
-export const detailsLink = css`
+export const cardHeaderSwitcher = css`
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+`;
+export const cardHeaderDetailsLink = css`
   &,
   &:hover,
   &.visited {
     color: var(--text-color-03);
     flex: 1 1 0;
     text-align: right;
+    font-size: 14px;
   }
 `;
-export const detailsLinkArrow = css`
+export const cardHeaderDetailsLinkArrow = css`
   position: relative;
-  top: 3px;
+  top: 5px;
+`;
+
+export const cardContent = css`
+  flex: 1 1 auto;
+`;
+export const cardFooter = css`
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 `;
