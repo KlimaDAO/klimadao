@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-24 21:39+0000\n"
+"POT-Creation-Date: 2023-08-24 22:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -813,7 +813,7 @@ msgid "No listings found for this project."
 msgstr "Keine Einträge für dieses Projekt gefunden."
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/GridView.tsx:40
 #: components/pages/Projects/ProjectView/ListView.tsx:156
 #: components/ProjectCard/index.tsx:60
 msgid "No project description found"
@@ -853,6 +853,11 @@ msgstr "Andere naturbasierte Credits"
 #: components/pages/Home/index.tsx:101
 msgid "Our Partners"
 msgstr "Unsere Partner"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
+msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
@@ -1151,14 +1156,14 @@ msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr "Gleichen Sie Ihren CO2-Fußabdruck in Echtzeit aus oder kaufen und verwahren Sie digitales CO2"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:109
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
 msgid "Retire more Carbon"
 msgstr "Mehr CO2 ausgleichen"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:57
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
 msgid "Retire more carbon"
 msgstr "Mehr CO2 ausgleichen"
 
@@ -1223,7 +1228,7 @@ msgid "See your portfolio"
 msgstr "Portfolio ansehen"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:103
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:104
 msgid "See your retirement receipt"
 msgstr "Ihr Ausgleichszertifikat ansehen"
 
@@ -1329,7 +1334,7 @@ msgid "Terms of use"
 msgstr "Nutzungsbedingungen"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:66
 msgid "Thank you for supporting the planet!"
 msgstr "Vielen Dank, dass Sie den Planeten unterstützen!"
 
@@ -1543,7 +1548,7 @@ msgstr "Gesamte Ausgleichstransaktionen"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:81
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:82
 msgid "Total sale cost"
 msgstr "Gesamtverkaufskosten"
 
@@ -1731,7 +1736,7 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "Sie können jedes CO2-Asset in Ihrer Wallet zum Ausgleich Ihres Fußabdrucks nutzen."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
 msgid "You can view the successful transaction now on <0>PolygonScan.</0>"
 msgstr "Sie können die erfolgreiche Transaktion jetzt auf <0>PolygonScan</0> ansehen."
 
@@ -2034,13 +2039,12 @@ msgstr "Danke, dass Sie den Planeten unterstützen! Sehen Sie sich Ihre Transakt
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:30
 msgid "offset.successModal.body2"
 msgstr "Vielen Dank, dass Sie den Planeten unterstützen!"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
 msgstr "Ihre Transaktion wurde erfolgreich verarbeitet, doch die Indexierung dauert länger als erwartet. Sie wird demnächst in Ihren <0>CO2-Kompensierungen</0> erscheinen."
 
