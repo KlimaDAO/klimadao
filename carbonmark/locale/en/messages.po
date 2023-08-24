@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
-msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
-msgstr "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
 msgstr "created listing"
@@ -1178,6 +1173,11 @@ msgstr "Confirm Retirement"
 #: components/pages/Project/Retire/Pool/SubmitButton.tsx:46
 msgid "RETIRE CARBON"
 msgstr "RETIRE CARBON"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
+msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
+msgstr "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
