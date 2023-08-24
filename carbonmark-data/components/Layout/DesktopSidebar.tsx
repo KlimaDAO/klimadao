@@ -9,7 +9,7 @@ export const DesktopSidebar: FC = () => {
   return (
     <>
       <div className={styles.desktopSidebar}>
-        <CarbonmarkDataLogo></CarbonmarkDataLogo>
+        <CarbonmarkDataLogo width={180} height={30} />
         <div aria-describedby="title">Carbon Dashboard</div>
         <div aria-describedby="links">
           {navItems().map((navItem) => (
@@ -18,7 +18,6 @@ export const DesktopSidebar: FC = () => {
               key={navItem.url}
             ></DesktopSidebarItem>
           ))}
-          <hr />
         </div>
       </div>
     </>
