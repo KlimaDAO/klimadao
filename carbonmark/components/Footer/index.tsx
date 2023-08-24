@@ -21,7 +21,7 @@ interface Props {
 export const Footer: FC<Props> = (props) => {
   return (
     <footer className={cx(styles.footer(props.transparent), props.className)}>
-      <nav className={cx(styles.footerNav)}>
+      <nav className={styles.footerNav}>
         <Link href="/blog/privacy-policy">
           <Trans>Privacy Policy</Trans>
         </Link>
