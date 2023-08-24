@@ -14,10 +14,10 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
 import { SWRConfig } from "swr";
+import { GridView } from "./GridView/GridView";
+import { ListView } from "./ListView/ListView";
 import { MapView } from "./MapView/MapView";
 import ProjectsController from "./ProjectsController";
-import { GridView } from "./ProjectView/GridView";
-import { ListView } from "./ProjectView/ListView";
 
 const views = {
   grid: GridView,
