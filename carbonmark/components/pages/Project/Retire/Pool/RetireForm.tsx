@@ -367,12 +367,10 @@ export const RetireForm: FC<Props> = (props) => {
         onResetStatus={() => setStatus(null)}
         successScreen={
           <SuccessScreen
-            project={props.project}
             totalPrice={inputValues?.totalPrice}
             transactionHash={transactionHash}
             paymentMethod={inputValues?.paymentMethod}
-            address={address}
-            beneficiary={inputValues?.beneficiaryAddress || address}
+            beneficiaryAddress={inputValues?.beneficiaryAddress || address}
             retirementIndex={retirementIndex}
             subgraphIndexStatus={subgraphIndexStatus}
           />
