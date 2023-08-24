@@ -4,14 +4,14 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
-import { Text } from "components/Text";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
+  defaultParams,
   FilterValues,
   SortOption,
-  defaultFilterProps,
-  useProjectsFilterParams,
+  useProjectsParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
@@ -31,7 +31,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
   const { projects, isValidating } = useFetchProjects();
   const { defaultValues, updateQueryParams, resetQueryParams } =
-    useProjectsFilterParams();
+    useProjectsParams();
 
   // Set the default values and override with any existing url params
   const { control, reset, setValue, getValues } = useForm<FilterValues>({
@@ -100,7 +100,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   const resetFilters = () => {
     resetQueryParams();
-    reset(defaultFilterProps);
+    reset(defaultParams);
     props.onToggleModal?.();
   };
 

@@ -4,7 +4,7 @@ import { PROJECT_SORT_OPTIONS } from "components/ProjectFilterModal/constants";
 import {
   FilterValues,
   SortOption,
-  useProjectsFilterParams,
+  useProjectsParams,
 } from "hooks/useProjectsFilterParams";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -13,8 +13,7 @@ import * as styles from "../styles";
 
 export const ProjectSort = () => {
   const router = useRouter();
-  const { defaultValues, sortValue, updateQueryParams } =
-    useProjectsFilterParams();
+  const { defaultValues, sortValue, updateQueryParams } = useProjectsParams();
 
   const { control, setValue } = useForm<FilterValues>({ defaultValues });
 

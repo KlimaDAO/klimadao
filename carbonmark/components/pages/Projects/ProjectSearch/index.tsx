@@ -4,7 +4,7 @@ import TuneIcon from "@mui/icons-material/Tune";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { SearchInput } from "components/SearchInput";
-import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
+import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useRouter } from "next/router";
 import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
@@ -16,7 +16,7 @@ type ProjectSearchProps = HTMLAttributes<HTMLDivElement> & {
 export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
   const router = useRouter();
   const { filterCount, updateQueryParams, resetQueryParams } =
-    useProjectsFilterParams();
+    useProjectsParams();
 
   const handleSubmitSearch = (str: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;

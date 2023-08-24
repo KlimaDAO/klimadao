@@ -1,26 +1,18 @@
-import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
-import { t } from "@lingui/macro";
-import { Layout } from "components/Layout";
-import { PageHead } from "components/PageHead";
 import { useFetchProjects } from "hooks/useFetchProjects";
-import { urls } from "lib/constants";
 import { Project } from "lib/types/carbonmark";
 import { compact } from "lodash";
 import { map as mapFn, pipe } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { NextPage } from "next";
-import { ProjectsPageStaticProps } from "pages/projects";
 import { useEffect, useRef } from "react";
-import { SWRConfig } from "swr";
-import ProjectsController from "../ProjectsController";
 import CarbonmarkMap from "./carbonmark-map";
 import * as styles from "./MapView.styles";
 
-export const Page = () => {
+export const MapView = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<CarbonmarkMap | null>(null);
   const { projects } = useFetchProjects();
 
+  //Convert projects to GeoJSON Features
   const fn = pipe(
     mapFn((project: Project) => ({
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -32,42 +24,17 @@ export const Page = () => {
   );
   const points = fn(projects);
 
+  // Update markers on change
   useEffect(() => {
     map.current?.renderMarkers(points);
   }, [points.length, map.current]);
 
+  // Initial mapbox load
   useEffect(() => {
     if (mapContainer.current) {
       map.current = new CarbonmarkMap(mapContainer.current, { points });
     }
   }, []);
 
-  return (
-    <>
-      <PageHead
-        title={t`Marketplace | Carbonmark`}
-        mediaTitle={t`Marketplace | Carbonmark`}
-        metaDescription={t`Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now.`}
-      />
-      <Layout fullContentWidth fullContentHeight>
-        <div className={styles.controller}>
-          <ProjectsController />
-        </div>
-        <div ref={mapContainer} className={styles.mapBox} />
-      </Layout>
-    </>
-  );
+  return <div ref={mapContainer} className={styles.mapBox} />;
 };
-
-export const MapView: NextPage<ProjectsPageStaticProps> = (props) => (
-  <SWRConfig
-    value={{
-      fetcher,
-      fallback: {
-        [urls.api.projects]: props.projects,
-      },
-    }}
-  >
-    <Page />
-  </SWRConfig>
-);

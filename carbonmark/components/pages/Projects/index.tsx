@@ -18,7 +18,12 @@ import { MapView } from "./MapView/MapView";
 import ProjectsController from "./ProjectsController";
 import { GridView } from "./ProjectView/GridView";
 import { ListView } from "./ProjectView/ListView";
-import * as styles from "./styles";
+
+const views = {
+  grid: GridView,
+  list: ListView,
+  map: MapView,
+};
 
 const Page: NextPage = () => {
   const router = useRouter();
@@ -40,19 +45,9 @@ const Page: NextPage = () => {
     // after setting the layout as "list" and reloading the browser.
     return null;
   }
-  const isMap = params.layout !== "map";
+  const isMap = params.layout === "map";
 
-  switch (params.layout) {
-    case "grid":
-      GridView;
-      break;
-    case "list":
-      ListView;
-      break;
-    case "map":
-      MapView;
-      break;
-  }
+  const View = isMobile ? GridView : views[params.layout];
 
   return (
     <>
@@ -63,22 +58,14 @@ const Page: NextPage = () => {
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
         <ProjectsController />
-        <div className={styles.projectsList}>
-          {!sortedProjects?.length && !isValidating && !isLoading && (
-            <Text>{t`No projects found with current filters`}</Text>
-          )}
-          {showLoadingProjectsSpinner ? (
-            <SpinnerWithLabel />
-          ) : (
-            <>
-              {params.layout === "grid" || isMobile ? (
-                <GridView projects={sortedProjects} />
-              ) : (
-                <ListView form={form} projects={sortedProjects} />
-              )}
-            </>
-          )}
-        </div>
+        {!sortedProjects?.length && !isValidating && !isLoading && (
+          <Text>{t`No projects found with current filters`}</Text>
+        )}
+        {showLoadingProjectsSpinner ? (
+          <SpinnerWithLabel />
+        ) : (
+          <View projects={projects} />
+        )}
       </Layout>
     </>
   );

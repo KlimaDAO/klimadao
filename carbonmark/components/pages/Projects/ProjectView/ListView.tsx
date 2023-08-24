@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Category } from "components/Category";
 import { Vintage } from "components/Vintage";
-import { FilterValues } from "hooks/useProjectsFilterParams";
+import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
@@ -15,7 +15,6 @@ import { Project } from "lib/types/carbonmark";
 import { isEqual, split } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import { UseFormReturn } from "react-hook-form";
 import * as styles from "./styles";
 
 interface Data {
@@ -69,12 +68,14 @@ const columns: readonly Column[] = [
 
 type Props = {
   projects: Array<Project>;
-  form: UseFormReturn<FilterValues>;
 };
 
-export const ListView: FC<Props> = ({ form, projects }) => {
+export const ListView: FC<Props> = ({ projects }) => {
   const router = useRouter();
-  const sort = form.watch("sort");
+  const {
+    params: { sort },
+    updateQueryParams,
+  } = useProjectsParams();
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [sortColumn, setSortColumn] = useState<keyof Data>();
   const sortDirection = sortOrder ?? "desc";
@@ -95,81 +96,83 @@ export const ListView: FC<Props> = ({ form, projects }) => {
   useEffect(() => {
     // updates the sort dropdown when there is an update to the table sorting
     if (sortColumn === "vintage") {
-      form.setValue(
-        "sort",
-        isEqual(sortOrder, "asc") ? "vintage-newest" : "vintage-oldest"
-      );
+      updateQueryParams({
+        sort: isEqual(sortOrder, "asc") ? "vintage-newest" : "vintage-oldest",
+      });
     }
     if (sortColumn === "price") {
-      const sort = sortOrder === "asc" ? "price-highest" : "price-lowest";
-      form.setValue("sort", sort);
+      updateQueryParams({
+        sort: sortOrder === "asc" ? "price-highest" : "price-lowest",
+      });
     }
   }, [sortOrder]);
 
   return (
-    <TableContainer className={styles.listView} component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            {columns.map((column) => (
-              <TableCell
-                align="left"
-                key={column.id}
-                sortDirection={sortDirection}
-                padding={column.disablePadding ? "none" : "normal"}
-              >
-                {column.sortable ? (
-                  <TableSortLabel
-                    direction={sortDirection}
-                    onClick={() => handleSort(column.id)}
-                    active={column.id === sortColumn}
-                  >
-                    {column.label}
-                  </TableSortLabel>
-                ) : (
-                  <span>{column.label}</span>
-                )}
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {projects.map((project: Project, index: number) => (
-            <TableRow
-              hover
-              tabIndex={-1}
-              key={`${project.key}-${index}`}
-              onClick={() => router.push(createProjectLink(project))}
-            >
-              <TableCell component="th" width="35%">
-                <p className="description">
-                  {project.name || "! MISSING PROJECT NAME !"}
-                </p>
-              </TableCell>
-              <TableCell component="th">
-                {formatToPrice(project.price, router.locale)}
-              </TableCell>
-              <TableCell>
-                <p className="description">
-                  {project.short_description ||
-                    project.description ||
-                    t`No project description found`}
-                </p>
-              </TableCell>
-              <TableCell>
-                <div className={styles.tags}>
-                  <Category category={getCategoryFromProject(project)} />
-                </div>
-              </TableCell>
-              <TableCell>
-                <div className={styles.tags}>
-                  <Vintage vintage={project.vintage} />
-                </div>
-              </TableCell>
+    <div className={styles.projectsList}>
+      <TableContainer className={styles.listView} component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  align="left"
+                  key={column.id}
+                  sortDirection={sortDirection}
+                  padding={column.disablePadding ? "none" : "normal"}
+                >
+                  {column.sortable ? (
+                    <TableSortLabel
+                      direction={sortDirection}
+                      onClick={() => handleSort(column.id)}
+                      active={column.id === sortColumn}
+                    >
+                      {column.label}
+                    </TableSortLabel>
+                  ) : (
+                    <span>{column.label}</span>
+                  )}
+                </TableCell>
+              ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {projects.map((project: Project, index: number) => (
+              <TableRow
+                hover
+                tabIndex={-1}
+                key={`${project.key}-${index}`}
+                onClick={() => router.push(createProjectLink(project))}
+              >
+                <TableCell component="th" width="35%">
+                  <p className="description">
+                    {project.name || "! MISSING PROJECT NAME !"}
+                  </p>
+                </TableCell>
+                <TableCell component="th">
+                  {formatToPrice(project.price, router.locale)}
+                </TableCell>
+                <TableCell>
+                  <p className="description">
+                    {project.short_description ||
+                      project.description ||
+                      t`No project description found`}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  <div className={styles.tags}>
+                    <Category category={getCategoryFromProject(project)} />
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className={styles.tags}>
+                    <Vintage vintage={project.vintage} />
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };

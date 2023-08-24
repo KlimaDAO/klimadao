@@ -1,63 +1,60 @@
-import AppsIcon from "@mui/icons-material/Apps";
+import { cx } from "@emotion/css";
+import { GridViewOutlined, ListOutlined } from "@mui/icons-material";
 import PublicIcon from "@mui/icons-material/Public";
 import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
 import { useFetchProjects } from "hooks/useFetchProjects";
-import { useProjectsFilterParams } from "hooks/useProjectsFilterParams";
+import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ProjectFilters } from "../ProjectFilters";
 import { ProjectSearch } from "../ProjectSearch";
 import { ProjectSort } from "../ProjectSort";
-import * as styles from "../styles";
+import * as styles from "./styles";
 
 const ProjectsController = () => {
   const router = useRouter();
-  const isMap = router.pathname.endsWith("/projects/map");
-  const { defaultValues } = useProjectsFilterParams();
+  const { params, updateQueryParams } = useProjectsParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
   const { projects } = useFetchProjects();
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
+  const isMap = params.layout === "map";
 
   return (
-    <>
+    <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
       <div className={styles.projectsControls}>
         <ProjectSearch onFiltersClick={toggleModal} />
         <LoginButton className="desktopLogin" />
       </div>
-      <ProjectFilters
-        defaultValues={defaultValues}
-        onMoreTextClick={toggleModal}
-      />
+      <ProjectFilters defaultValues={params} onMoreTextClick={toggleModal} />
       <div className={styles.displayOptions}>
         {/* Hide the sort on MapView */}
         {!isMap && <ProjectSort />}
 
-        {!!projects?.length && !isMap && (
+        {!isEmpty(projects) && !isMap && (
           <Text t="h5">{projects.length} Results</Text>
         )}
         <div className={styles.displayToggle}>
           <Toggle
-            selected={isMap ? "map" : "grid"}
+            selected={params.layout}
             onChange={(val) => {
-              if (val === "map")
-                router.push({
-                  pathname: "/projects/map",
-                  query: router.query,
-                });
-              else if (val === "grid")
-                router.push({
-                  pathname: "/projects",
-                  query: router.query,
-                });
+              updateQueryParams({ ...router.query, layout: val });
             }}
             options={[
+              // @todo add tooltips
+              // <TextInfoTooltip tooltip={t`Grid view`}>
+              // </TextInfoTooltip>
               {
-                content: <AppsIcon />,
+                content: <GridViewOutlined />,
                 value: "grid",
+              },
+              {
+                content: <ListOutlined />,
+                value: "list",
               },
               {
                 content: <PublicIcon />,
@@ -72,7 +69,7 @@ const ProjectsController = () => {
         onToggleModal={toggleModal}
         closeOnBackgroundClick
       />
-    </>
+    </div>
   );
 };
 

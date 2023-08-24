@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import { FIVE_CARD_WIDTH } from "../styles";
 
 export const listView = css`
   padding: 2rem;
@@ -145,4 +146,14 @@ export const cardDescription = css`
   background-clip: text;
   overflow: hidden;
   max-height: 9rem;
+`;
+
+export const projectsList = css`
+  grid-column: full;
+  justify-self: center;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: ${FIVE_CARD_WIDTH};
 `;
