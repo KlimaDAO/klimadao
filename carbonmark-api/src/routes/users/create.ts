@@ -9,7 +9,8 @@ type Body = {
 };
 
 const schema = {
-  tags: ["user"],
+  summary: "Create user profile",
+  tags: ["Users"],
   body: {
     type: "object",
     properties: {

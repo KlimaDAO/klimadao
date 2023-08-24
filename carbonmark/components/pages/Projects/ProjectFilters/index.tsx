@@ -17,7 +17,9 @@ export const ProjectFilters: FC<Props> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth] = useElementWidth(containerRef);
   const [hasOverflow, setHasOverflow] = useState(false);
-  const filters = flatMap(omit(props.defaultValues, ["search", "sort"]));
+  const filters = flatMap(
+    omit(props.defaultValues, ["search", "sort", "layout"])
+  );
 
   useEffect(() => {
     if (!containerRef.current) return;

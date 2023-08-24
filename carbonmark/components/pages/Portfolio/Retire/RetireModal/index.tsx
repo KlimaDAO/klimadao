@@ -1,7 +1,7 @@
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { Spinner } from "components/shared/Spinner";
 import { Transaction } from "components/Transaction";
+import { Spinner } from "components/shared/Spinner";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/image";

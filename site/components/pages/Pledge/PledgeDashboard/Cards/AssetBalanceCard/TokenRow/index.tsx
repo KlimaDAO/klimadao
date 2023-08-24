@@ -38,7 +38,7 @@ export const TokenRow: FC<TokenRowProps> = (props) => {
           </div>
         ) : (
           <Text t="h4" color="lightest">
-            <Trans id="shared.loading">Loading...</Trans>
+            <Trans>Loading...</Trans>
           </Text>
         )}
       </div>

@@ -1,13 +1,13 @@
 import { Text } from "@klimadao/lib/components";
 import { PoolToken, poolTokens, urls } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
-import { InputField, TextareaField } from "components/shared/Form";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { Vintage } from "components/Vintage";
+import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
@@ -15,9 +15,9 @@ import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
 import { CategoryName } from "lib/types/carbonmark";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useEffect, useState } from "react";
+import { RetireModal } from "../RetireModal";
 import { RetirementSidebar } from "../RetirementSidebar";
 import { RetirementStatusModal } from "../RetirementStatusModal";
-import { RetireModal } from "../RetireModal";
 import { handleApprove, hasApproval } from "../utils/approval";
 import { handleRetire } from "../utils/retire";
 

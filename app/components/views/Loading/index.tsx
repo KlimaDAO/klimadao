@@ -8,7 +8,7 @@ import { FC } from "react";
 export const Loading: FC = () => {
   return (
     <div>
-      <Trans id="shared.loading">Loading...</Trans>
+      <Trans>Loading...</Trans>
     </div>
   );
 };

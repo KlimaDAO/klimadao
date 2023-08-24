@@ -1,7 +1,7 @@
 // Hioghly inspired by https://github.com/fountainhead/action-wait-for-check
 
 import { getOctokit } from "@actions/github";
-import { StatusApiResult, STATUS_PENDING } from "./status-api.result";
+import { STATUS_PENDING, StatusApiResult } from "./status-api.result";
 import { wait } from "./wait";
 
 export interface Options {

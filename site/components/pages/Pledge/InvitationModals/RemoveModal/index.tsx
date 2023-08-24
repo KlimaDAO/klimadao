@@ -7,16 +7,16 @@ import {
   Text,
 } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Modal } from "components/Modal";
+import { getErrorMessage } from "../../PledgeForm";
 import {
   pledgeFormAdapter,
   putPledge,
   waitForGnosisSignature,
 } from "../../lib";
 import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
-import { getErrorMessage } from "../../PledgeForm";
 import { Pledge } from "../../types";
 import * as styles from "../styles";
 
@@ -45,15 +45,12 @@ export const RemoveModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
-      loading: t({
-        id: "shared.loading",
-        message: "Loading",
-      }),
+      loading: t`Loading...`,
       signing: t({
         id: "pledge.invitation.signing",
         message: "Signing",
       }),
-    }[step]);
+    })[step];
 
   const { signer, address } = useWeb3();
   const handleSubmit = async (params: { message: string }) => {

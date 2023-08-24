@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
 type PageName = "community" | "contact" | "disclaimer";
@@ -64,7 +64,7 @@ export const AboutHeader: FC<Props> = (props) => {
               renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonPrimary
-              label={t({ id: "shared.contact", message: "Contact" })}
+              label={t`Contact`}
               href={"/contact"}
               variant={isPageActive("contact") ? null : "gray"}
               renderLink={(linkProps) => <Link {...linkProps} />}

@@ -6,28 +6,28 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
+  OffsetPaymentMethod,
+  PoolToken,
+  RetirementToken,
   addresses,
   offsetCompatibility,
   offsetInputTokens,
-  OffsetPaymentMethod,
-  PoolToken,
   poolTokens,
-  RetirementToken,
   urls,
 } from "@klimadao/lib/constants";
 import { formatUnits, getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import {
+  RetireCarbonTransactionResult,
   approveProjectToken,
   getOffsetConsumptionCost,
   getProjectTokenBalances,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   retireCarbonTransaction,
-  RetireCarbonTransactionResult,
   retireProjectTokenTransaction,
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
@@ -47,7 +47,7 @@ import TCO2 from "public/icons/TCO2.png";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
 import {
   selectAllowancesWithParams,
   selectBalances,
@@ -63,8 +63,6 @@ import {
   updateRetirement,
 } from "state/user";
 import { ProjectTokenDetails as PooledProjectTokenDetails } from "../Redeem/ProjectTokenDetails";
-import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
-import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import { ProjectTokenDetails } from "./ProjectTokenDetails";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import { SelectiveRetirement } from "./SelectiveRetirement";
@@ -72,6 +70,8 @@ import {
   BalanceAttribute,
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
+import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
+import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 import * as styles from "./styles";
 
 const MAX_FIAT_COST = 2000; // usdc
@@ -469,7 +469,7 @@ export const Offset = (props: Props) => {
       };
     } else if (isLoading || cost === "loading") {
       return {
-        label: t({ id: "shared.loading", message: "Loading..." }),
+        label: t`Loading...`,
         disabled: true,
       };
     } else if (isRedirecting) {
@@ -482,7 +482,7 @@ export const Offset = (props: Props) => {
       };
     } else if (!quantity || !Number(quantity)) {
       return {
-        label: t({ id: "shared.enter_quantity", message: "Enter quantity" }),
+        label: t`Enter quantity`,
         disabled: true,
       };
     } else if (!beneficiary) {
@@ -535,10 +535,7 @@ export const Offset = (props: Props) => {
       };
     } else if (insufficientBalance()) {
       return {
-        label: t({
-          id: "shared.insufficient_balance",
-          message: "Insufficient balance",
-        }),
+        label: t`Insufficient balance`,
         disabled: true,
       };
     } else if (paymentMethod === "fiat" && !isRetiringOwnCarbon) {
@@ -548,7 +545,7 @@ export const Offset = (props: Props) => {
       };
     } else if (!hasApproval()) {
       return {
-        label: t({ id: "shared.approve", message: "Approve" }),
+        label: t`Approve`,
         onClick: () => setShowTransactionModal(true),
       };
     }
@@ -610,7 +607,7 @@ export const Offset = (props: Props) => {
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
-        if (isLoading) return <Trans id="shared.loading" />;
+        if (isLoading) return <Trans>Loading...</Trans>;
         if (!props.isConnected || !Number(balances?.[tkn])) return "0";
         return Number(balances?.[tkn]).toFixed(2);
       })(),
