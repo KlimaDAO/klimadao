@@ -13,16 +13,10 @@ export default function OverviewCard(props: {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <h2>{props.title}</h2>
-        {props.detailUrl && (
-          <Link className={styles.detailsLink} href={props.detailUrl}>
-            Details{" "}
-            <ArrowForward
-              fontSize="small"
-              className={styles.detailsLinkArrow}
-            />
-          </Link>
-        )}
+        <h5 className={styles.cardTitle}>{props.title}</h5>
+        <Link href={props.detailUrl} className={styles.cardDetailsLink}>
+          Details <ArrowForward />
+        </Link>
       </div>
       <div className={styles.cardContent}>{props.children}</div>
     </div>

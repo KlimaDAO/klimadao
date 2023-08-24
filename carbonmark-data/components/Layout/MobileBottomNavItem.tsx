@@ -1,6 +1,5 @@
 import { usePathname } from "next/navigation";
 import { FC } from "react";
-import { MobileBottomNavItemIcon } from "./MobileBottomNavItemIcon";
 import { NavItem } from "./NavItems";
 import * as styles from "./styles";
 
@@ -12,18 +11,14 @@ interface Props {
 export const MobileBottomNavItem: FC<Props> = ({ navItem }) => {
   const pathname = usePathname();
   const active = pathname == navItem.url;
-  const iconPath = active ? navItem.activeIconPath : navItem.iconPath;
   return (
-    <div
+    <a
       aria-describedby="button"
       className={styles.mobileBottomNavItem}
       aria-selected={active}
+      href={navItem.url}
     >
-      <a href={navItem.url}>
-        <MobileBottomNavItemIcon active={active}>
-          {iconPath}
-        </MobileBottomNavItemIcon>
-      </a>
-    </div>
+      {navItem.icon}
+    </a>
   );
 };

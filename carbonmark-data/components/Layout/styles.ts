@@ -19,7 +19,7 @@ export const desktopSidebar = css`
     border: 1px solid ;
     border-left: none;
     border-right: none;
-    border-color: var(--text-color-02);
+    border-color: var(--text-color-03);
     color: var(--text-color-01)
     height: 60px;
     width: 180px;
@@ -35,21 +35,48 @@ export const desktopSidebar = css`
     width: 180px;
     display: grid;
     gap: 16px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--text-color-03);
   }
 `;
 export const desktopSidebarItem = css`
   width: 180px;
   height: 48px;
+  padding: 8px;
   display: flex;
   align-items: center;
   text-align: left;
+  text-decoration: none;
+  gap: 12px;
   color: #767676;
-  svg {
-    width: 32px;
-    height: 32px;
-    margin: 8px;
+
+  &[aria-selected="true"] {
+    background-color: var(--surface-01);
+    border-radius: 8px;
+    color: var(--text-color-01);
+
+    /**
+     * @todo this is kinda hacky */
+    span {
+      background-color: var(--text-color-05);
+      color: var(--text-color-04);
+    }
   }
 `;
+
+export const desktopSidebarIcon = css`
+  border-radius: 6px;
+  background-color: var(--surface-01);
+  color: var(--text-color-01);
+  width: 32px;
+  height: 32px;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+  }
+`;
+
 export const mobileHeader = css`
   height: 64px;
   display: flex;
@@ -62,8 +89,13 @@ export const mobileHeader = css`
   }
 `;
 
+export const mobileNavButtons = css`
+  display: flex;
+  gap: 16px;
+`;
+
 export const mobileBottomNav = css`
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   display: flex;
   width: 100%;
@@ -78,24 +110,107 @@ export const mobileBottomNav = css`
   }
 `;
 export const mobileBottomNavItem = css`
-  height: 44px;
   display: flex;
+  height: 44px;
   justify-content: center;
   align-items: center;
   &[aria-selected="true"] {
     background-color: var(--surface-02-active);
+    color: var(--text-color-05);
   }
+  color: var(--text-color-02);
 `;
+
+export const main = css`
+  padding: 0 16px;
+  flex: 1;
+`;
+
 export const content = css`
+  display: flex;
+  flex-direction: column;
   margin-left: 0;
-  padding: 1px 16px;
-  height: 1000px;
+  height: 100dvh;
   background-color: var(--surface-03);
   ${breakpoints.desktop} {
     margin-left: 220px;
-    padding-top: 48px;
   }
   h1 {
+    margin-top: 46px;
     margin-bottom: 26px;
+  }
+`;
+
+export const mobileMenuButton = css`
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--text-color-01);
+  background-color: var(--surface-01);
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const footer = css`
+  background-color: var(--surface-05);
+  color: var(--text-color-04);
+  padding: 40px 24px;
+
+  display: grid;
+  gap: 40px;
+  align-items: center;
+
+  ${breakpoints.desktopLarge} {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color-04);
+  }
+`;
+
+export const footerNavLinks = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  font-size: 0.875rem;
+  gap: 16px;
+
+  ${breakpoints.large} {
+    gap: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+`;
+
+export const footerSocialLinks = css`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  ${breakpoints.large} {
+    justify-content: center;
+  }
+`;
+
+export const mobileOnly = css`
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
+export const desktopOnly = css`
+  display: none;
+  ${breakpoints.large} {
+    display: unset;
   }
 `;
