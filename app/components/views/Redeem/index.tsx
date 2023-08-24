@@ -5,7 +5,8 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { addresses } from "@klimadao/lib/constants";
-import { Trans, t } from "@lingui/macro";
+import { formatUnits, getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
@@ -26,11 +27,11 @@ import { providers } from "ethers";
 import { isAddress } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import {
-  RedeemPaymentMethod,
   RedeemablePoolToken,
-  redeemCompatibility,
-  redeemPaymentMethods,
   redeemablePoolTokens,
+  redeemCompatibility,
+  RedeemPaymentMethod,
+  redeemPaymentMethods,
   useRedeemParams,
 } from "lib/hooks/useRedeemParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
@@ -39,7 +40,7 @@ import TCO2 from "public/icons/TCO2.png";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "state";
-import { AppNotificationStatus, TxnStatus, setAppState } from "state/app";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
   selectAllowancesWithParams,
   selectBalances,
@@ -153,11 +154,25 @@ export const Redeem = (props: Props) => {
     setCost("0");
   };
 
+  const getApprovalValue = (): string => {
+    if (!cost || cost === "loading") return "0";
+    if (paymentMethod === projectTokenAddress) {
+      return cost;
+    }
+    const onePercent = utils
+      .parseUnits(cost, getTokenDecimals(paymentMethod))
+      .div("100");
+    return safeAdd(
+      cost,
+      formatUnits(onePercent, getTokenDecimals(paymentMethod))
+    );
+  };
+
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
       const approvedValue = await changeApprovalTransaction({
-        value: cost,
+        value: getApprovalValue(),
         provider: props.provider,
         token: paymentMethod,
         spender: "retirementAggregatorV2",
@@ -185,7 +200,7 @@ export const Redeem = (props: Props) => {
         pool,
         projectTokenAddress,
         quantity,
-        maxCost: cost,
+        maxCost: getApprovalValue(),
       });
       dispatch(
         updateRedemption({
@@ -193,7 +208,7 @@ export const Redeem = (props: Props) => {
           paymentMethod,
           quantity,
           tempSymbol: pool === "bct" || pool === "nct" ? "TCO2" : "C3T", // temp workaround, don't have the full symbol
-          cost,
+          cost: getApprovalValue(),
         })
       );
       handleOnSuccess();
@@ -204,7 +219,9 @@ export const Redeem = (props: Props) => {
   };
 
   const insufficientBalance = () => {
-    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+    return (
+      Number(getApprovalValue()) > Number(balances?.[paymentMethod] ?? "0")
+    );
   };
 
   const selectedProjectSupply = selectedProject
@@ -221,7 +238,7 @@ export const Redeem = (props: Props) => {
     return (
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
-      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
+      Number(getApprovalValue()) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -446,7 +463,7 @@ export const Redeem = (props: Props) => {
                 </TextInfoTooltip>
               </div>
             }
-            amount={Number(cost)?.toLocaleString(locale)}
+            amount={Number(getApprovalValue())?.toLocaleString(locale)}
             icon={tokenInfo[paymentMethod].icon}
             name={paymentMethod}
             loading={cost === "loading"}
@@ -504,7 +521,7 @@ export const Redeem = (props: Props) => {
           tokenIcon={tokenInfo[paymentMethod].icon}
           spenderAddress={addresses["mainnet"].retirementAggregatorV2}
           value={cost}
-          approvalValue={cost}
+          approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}
           onApproval={handleApprove}
