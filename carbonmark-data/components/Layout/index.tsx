@@ -17,6 +17,7 @@ interface Props {
 The layout component that is called by app/layout.tsx for every pages
 */
 const Layout = function ({ children, locale, translation }: Props) {
+  // Activate translations client side
   activateLocale(locale, translation);
   return (
     <>
