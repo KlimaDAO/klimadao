@@ -1,7 +1,7 @@
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { Project } from "lib/types/carbonmark";
 import { compact } from "lodash";
-import { map as mapFn, pipe } from "lodash/fp";
+import { map as mapFn, pipe, uniqBy } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useRef } from "react";
 import CarbonmarkMap from "./carbonmark-map";
@@ -14,6 +14,7 @@ export const MapView = () => {
 
   //Convert projects to GeoJSON Features
   const fn = pipe(
+    uniqBy("key"), // @todo this is a temporary fix until we have a better solution to show multiple vintages.
     mapFn((project: Project) => ({
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ...project.location!,
