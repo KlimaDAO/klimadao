@@ -1,6 +1,6 @@
 import { helpers } from "lib/charts";
 import { ChartData } from "lib/charts/types";
-
+import { ChartConfiguration } from "./Configuration";
 /* Base parameters for all Axis */
 const BASE_AXIS_PROPS = {
   tickLine: false,
@@ -20,7 +20,7 @@ const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
 /* XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
   data: ChartData<T>,
-  dataKey: keyof T,
+  dataKey: keyof T
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     dataKey: "date",
@@ -29,9 +29,23 @@ export function KlimaXAxisMonthlyProps<T>(
   });
 }
 
-/* YAxis props to display quantity in million of tons */
-export function KlimaYAxisMillionsOfTonsProps() {
-  return Object.assign({}, BASE_YAXIS_PROPS, {
-    tickFormatter: helpers.formatQuantityAsMillionsOfTons,
-  });
+/* YAxis props to display quantity in an appropriate format */
+export function KlimaYAxisTonsProps<T>(
+  data: ChartData<T>,
+  conf: ChartConfiguration<T>
+) {
+  // Find maximum value in data
+  const dataKeys: Array<keyof T> = conf.map(
+    (confItem) => confItem.id as keyof T
+  );
+  const max = helpers.getDataChartMax(data, dataKeys);
+  // Select formatter
+  const tickFormatter =
+    max < 10 ** 4
+      ? helpers.formatQuantityAsTons
+      : max < 10 ** 7
+      ? helpers.formatQuantityAsKiloTons
+      : helpers.formatQuantityAsMillionsOfTons;
+
+  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
 }

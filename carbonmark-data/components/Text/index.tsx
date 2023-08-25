@@ -39,6 +39,6 @@ export const Text: FC<Props> = ({
       "data-align": align,
       className: cx(typography[t], styles.text, { uppercase }, props.className),
     },
-    children,
+    children
   );
 };

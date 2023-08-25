@@ -22,7 +22,7 @@ export const PageHead = (props: PageHeadProps) => {
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl = props.canonicalUrl || `${urls.baseUrl}/${relativePath}`;
   const mediaImageSrc = getOgImageSrc(
-    props.mediaImageSrc || `${urls.baseUrl}/og-media.png`,
+    props.mediaImageSrc || `${urls.baseUrl}/og-media.png`
   );
   return (
     <Head>

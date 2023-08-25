@@ -20,6 +20,7 @@ export const tooltip = css`
   background: white;
   border-radius: 0.8rem;
   padding: 0 1.2rem;
+  min-width: 15rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
 
   @media (max-width: 32.5rem) {

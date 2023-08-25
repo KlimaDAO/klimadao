@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import VerraCreditsChart from "components/charts/VerraCredits";
+import VerraCreditsCard from "components/cards/VerraCreditsCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function VerraCreditsOverTimePage() {
@@ -7,10 +7,7 @@ export default function VerraCreditsOverTimePage() {
     <DetailPage
       pageTitle={t`Verra Credits Over Time`}
       chartTitle={t`Verra Credits`}
-      chart={
-        /* @ts-expect-error Server Component */
-        <VerraCreditsChart></VerraCreditsChart>
-      }
+      chart={<VerraCreditsCard></VerraCreditsCard>}
       overview={t`Lorem Ipsum`}
     />
   );
