@@ -9,4 +9,9 @@ export const card = css`
   display: flex;
   gap: 1.6rem;
   flex-direction: column;
+
+  // position: relative creates a new stacking context for tooltips to attach to,
+  // otherwise the next closest stacking context would be the sticky column which
+  // can change sizes and cause the tooltip to shift.
+  position: relative;
 `;
