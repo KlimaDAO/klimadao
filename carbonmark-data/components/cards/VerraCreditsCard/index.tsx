@@ -91,6 +91,7 @@ export default function VerraCreditsCard() {
         ];
       }
       charts[`${bridge}|${stat}`] = (
+        /* @ts-expect-error async Server component */
         <VerraCreditsChart
           queries={queries}
           configuration={configuration}
