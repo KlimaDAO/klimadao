@@ -11,6 +11,7 @@ export interface Option {
 export type Options = Array<Option>;
 export type OptionChangeHandler = (value: Key) => undefined | void;
 
+// Return options for credits bridges switcher widgets
 export const getCreditsBridgeOptions: () => Options = () => {
   return [
     {
@@ -23,6 +24,8 @@ export const getCreditsBridgeOptions: () => Options = () => {
     },
   ];
 };
+
+// Return options for credits statuses switcher widgets
 export const getCreditsStatusOptions: () => Options = () => {
   return [
     {

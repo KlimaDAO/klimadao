@@ -13,7 +13,9 @@ interface Props {
   locale: string;
   translation: Messages;
 }
-
+/*
+The layout component that is called by app/layout.tsx for every pages
+*/
 const Layout = function ({ children, locale, translation }: Props) {
   activateLocale(locale, translation);
   return (

@@ -7,14 +7,14 @@ import {
   GenericDailyChartDataEntry,
 } from "./types";
 /*
-  This function takes multiple datasets and merge them into data usable by recharts
+  This function takes multiple queries, resolves them to datasets and merge them into data usable by recharts
   Params:
    - keys: the attribute name to used in the merged dataset to reference the values of the primitive datasets and passed to the fetch function
    - date_field: The field to use to merge the datasets
    - fetchFunction: The datasets returned by the API
   Generics:
    - CI: Expected type of items in the chart entry
-   - K: Type of keys usable in the fetchFunction
+   - Q: Type of the query and mapping parameters
 */
 export async function prepareDailyChartData<
   CI extends GenericDailyChartDataEntry,
@@ -71,6 +71,7 @@ export async function prepareDailyChartData<
   return chartData;
 }
 
+// Common formatters
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
 ): string {

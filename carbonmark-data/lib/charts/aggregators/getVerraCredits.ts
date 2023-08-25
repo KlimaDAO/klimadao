@@ -5,7 +5,7 @@ import {
   CreditsChartQueryParams,
 } from "lib/charts/types";
 
-/* Fetches multiple verra credits aggregated by dates and merge them to be processed by a chart */
+/* Fetches multiple verra credits aggregated by dates and merge them to be used in a chart */
 export async function getVerraCredits(queries: Array<CreditsChartQueryParams>) {
   return prepareDailyChartData<CreditsChartDataItem, CreditsChartQueryParams>(
     queries,

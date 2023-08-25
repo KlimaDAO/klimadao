@@ -64,7 +64,7 @@ export type AnyChartData = CreditsChartData;
 
 // Response to ChartData mappings
 export interface ChartMappingParams {
-  key: string; // When querying the quantity attribute from the response will be mapped to this value to enable merging for charts
-  date_field: DateField; // The date_field to use in the response Object
+  key: string; // When querying, the quantity attribute from the response will be mapped and merged to this key
+  date_field: DateField; // The date_field expected in the response Object
 }
 export type CreditsChartQueryParams = CreditsQueryParams & ChartMappingParams;

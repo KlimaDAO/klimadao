@@ -25,7 +25,13 @@ export default function OverviewCard(props: {
     props.bottomOptions ? props.bottomOptions[0].value : ""
   );
 
-  // Returns the chart to display given the options
+  // Returns the chart to display given the chosen options
+  // It is the chart that is referenced by the key :
+  // `$t{topOptionKey}|$t{bottomOptionKey}` if both options are provided
+  // topOptionKey if only topOptionKey is provided
+  // bottomOptionKey if only bottom
+  // if they are no options: Not implemented yet
+
   function displayedChart(): React.ReactNode {
     const keyItems = [];
     if (props.topOptions) keyItems.push(topOptionKey);

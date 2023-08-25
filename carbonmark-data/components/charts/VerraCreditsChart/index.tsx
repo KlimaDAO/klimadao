@@ -5,8 +5,8 @@ import {
 } from "lib/charts/types";
 import { ChartConfiguration } from "../helpers/Configuration";
 import Chart from "./Chart";
-/** Async server component that renders a Recharts client component */
 
+/** Async server component that renders a Recharts client component */
 export default async function VerraCreditsChart(props: {
   queries: Array<CreditsChartQueryParams>;
   configuration: ChartConfiguration<CreditsChartDataItem>;

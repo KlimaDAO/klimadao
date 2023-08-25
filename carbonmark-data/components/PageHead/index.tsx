@@ -16,6 +16,8 @@ export interface PageHeadProps {
   canonicalUrl?: string;
 }
 
+/* TODO: use this component in the application layout
+ */
 export const PageHead = (props: PageHeadProps) => {
   const noRobots = props.doNotIndex || !IS_PRODUCTION;
   const router = useRouter();
