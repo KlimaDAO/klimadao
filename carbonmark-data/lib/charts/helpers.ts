@@ -1,34 +1,36 @@
 import {
+  AggregatedCredits,
   ChartData,
   ChartDateMappingParams,
   ChartMappingParams,
-  DailyAggregatedCredits,
   DailyChartData,
-  GenericChartDataEntry,
-  GenericDailyChartDataEntry,
+  DailyCredits,
+  GenericAggregatedChartDataItem,
+  GenericChartDataItem,
+  GenericDailyChartDataItem,
 } from "./types";
 /*
-  This function takes multiple queries, resolves them to datasets and merge them into data usable by recharts
+  This function takes multiple queries, resolves them to datasets (daily aggregates) and merge them into data usable by recharts
   Params:
    - keys: the attribute name to used in the merged dataset to reference the values of the primitive datasets and passed to the fetch function
    - date_field: The field to use to merge the datasets
-   - fetchFunction: The datasets returned by the API
+   - fetchFunction: The function that queries the API
   Generics:
-   - CI: Expected type of items in the chart entry
+   - CI: Expected type of items returned in the chart data array   
    - Q: Type of the query and mapping parameters
 */
 export async function prepareDailyChartData<
-  CI extends GenericDailyChartDataEntry,
+  CI extends GenericDailyChartDataItem,
   Q extends ChartMappingParams & ChartDateMappingParams,
 >(
   queries: Array<Q>,
-  fetchFunction: (query: Q) => Promise<DailyAggregatedCredits>
+  fetchFunction: (query: Q) => Promise<DailyCredits>
 ): Promise<DailyChartData<CI>> {
   // Fetch data
   const datasets = await Promise.all(queries.map(fetchFunction));
 
   // Use a dictionnary to merge data and find the smallest and biggest dates
-  const records: Record<string, GenericChartDataEntry> = {};
+  const records: Record<string, GenericChartDataItem> = {};
   let minDate = 0;
   let maxDate = 0;
   for (const i in datasets) {
@@ -54,7 +56,7 @@ export async function prepareDailyChartData<
   for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
     let record = records[date];
     if (j > 0) {
-      const previousRecord: GenericChartDataEntry = chartData[j - 1];
+      const previousRecord: GenericChartDataItem = chartData[j - 1];
       // Use the record computed previously for this date. If the record does not exist use the record from the previous date
       if (record === undefined) {
         record = records[date] || Object.assign({}, previousRecord);
@@ -69,6 +71,33 @@ export async function prepareDailyChartData<
     chartData.push(record as CI);
     j++;
   }
+  return chartData;
+}
+/*
+  This function takes multiple queries, resolves them to datasets (global aggregates) and merge them into data usable by recharts
+  Params:
+   - fetchFunction: The function that queries the API
+  Generics:
+   - CI: Expected type of items returned in the chart data array
+   - Q: Type of the query and mapping parameters
+*/
+export async function prepareAggregatedChartData<
+  CI extends GenericAggregatedChartDataItem,
+  Q extends ChartMappingParams,
+>(
+  queries: Array<Q>,
+  fetchFunction: (query: Q) => Promise<AggregatedCredits>
+): Promise<ChartData<CI>> {
+  const datasets = await Promise.all(queries.map(fetchFunction));
+  const chartData: ChartData<CI> = [];
+  datasets.forEach((dataset, i) => {
+    const record: CI = {} as CI;
+    record.id = queries[i].key;
+    record.color = queries[i].color;
+    record.label = queries[i].label || queries[i].key;
+    record.quantity = dataset.quantity;
+    chartData.push(record);
+  });
   return chartData;
 }
 

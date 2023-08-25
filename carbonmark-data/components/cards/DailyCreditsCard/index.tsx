@@ -7,8 +7,8 @@ import {
   getCreditsStatusOptions,
 } from "lib/charts/options";
 import {
+  Bridge,
   ChartDictionnary,
-  DailyCreditsChartDataItem,
   DailyCreditsChartQueryParams,
   DateField,
   Status,
@@ -23,7 +23,7 @@ export default function DailyVerraCreditsCard() {
   ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
       let queries: Array<DailyCreditsChartQueryParams>;
-      let configuration: ChartConfiguration<DailyCreditsChartDataItem>;
+      let configuration: ChartConfiguration<Bridge>;
       let date_field: DateField;
       let status: Status;
 
@@ -36,18 +36,24 @@ export default function DailyVerraCreditsCard() {
             bridge: "toucan",
             status,
             date_field,
+            label: "Toucan",
+            color: palette.charts.color5,
           },
           {
             key: "c3",
             bridge: "c3",
             status,
             date_field,
+            label: "C3",
+            color: palette.charts.color3,
           },
           {
             key: "moss",
             bridge: "moss",
             status,
             date_field,
+            label: "Moss",
+            color: palette.charts.color1,
           },
         ];
         configuration = [
@@ -79,6 +85,8 @@ export default function DailyVerraCreditsCard() {
             bridge: "offchain",
             status,
             date_field,
+            label: "Offchain",
+            color: palette.charts.color3,
           },
         ];
         configuration = [

@@ -35,7 +35,7 @@ export interface PaginatedResponse<RI> {
   pages_count: number;
   current_page: number;
 }
-export interface DailyAggregatedCredit {
+export interface DailyCreditsItem {
   bridged_date?: string;
   redeemed_date?: string;
   retirement_date?: string;
@@ -43,18 +43,42 @@ export interface DailyAggregatedCredit {
   deposited_date?: string;
   quantity: number;
 }
-export type DailyAggregatedCredits = PaginatedResponse<DailyAggregatedCredit>;
+export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+export interface AggregatedCredits {
+  quantity: number;
+}
 
-// Chart data
-export type GenericChartDataEntry = Record<Partial<string>, string | number>;
+// ChartData mappings (used to transform API responses into chart data)
+export interface ChartMappingParams {
+  key: string; // When querying, the quantity attribute from the response will be mapped and merged to this key
+  label: string; // A label to display on the chart. Defaults to key.
+  color: string; // The color associated to the dataset
+}
+export interface ChartDateMappingParams {
+  date_field: DateField; // The date_field expected in the response Object
+}
+
+// Chart data: Generics
+export type GenericChartDataItem = Record<Partial<string>, string | number>;
 export type ChartData<T> = Array<T>;
-export type GenericChartData = ChartData<GenericChartDataEntry>;
-export type GenericDailyChartDataEntry = {
+export type GenericChartData = ChartData<GenericChartDataItem>;
+export interface GenericAggregatedChartDataItem {
+  id: string;
+  label: string;
+  color: string;
+  quantity?: number;
+}
+export type GenericDailyChartDataItem = {
   date: number;
 };
-export type DailyChartData<CI extends GenericDailyChartDataEntry> =
+export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
-export interface DailyCreditsChartDataItem extends GenericDailyChartDataEntry {
+
+// Chart data: Daily credits
+export type DailyCreditsChartQueryParams = CreditsQueryParams &
+  ChartMappingParams &
+  ChartDateMappingParams;
+export interface DailyCreditsChartDataItem extends GenericDailyChartDataItem {
   toucan?: number;
   c3?: number;
   moss?: number;
@@ -63,16 +87,16 @@ export interface DailyCreditsChartDataItem extends GenericDailyChartDataEntry {
 }
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
-// Response to ChartData mappings
-export interface ChartMappingParams {
-  key: string; // When querying, the quantity attribute from the response will be mapped and merged to this key
+// Chart data: Aggregated credits
+export type AggregatedCreditsChartQueryParams = CreditsQueryParams &
+  ChartMappingParams;
+export interface AggregatedCreditsChartDataItem
+  extends GenericAggregatedChartDataItem {
+  quantity: number;
 }
-export interface ChartDateMappingParams {
-  date_field: DateField; // The date_field expected in the response Object
-}
-export type CreditsChartQueryParams = CreditsQueryParams & ChartMappingParams;
-export type DailyCreditsChartQueryParams = CreditsChartQueryParams &
-  ChartDateMappingParams;
+
+export type AggregatedCreditsChartData =
+  ChartData<AggregatedCreditsChartDataItem>;
 
 // Chart dictionnary for cards
 export type ChartDictionnary = Record<Key, React.ReactNode>;

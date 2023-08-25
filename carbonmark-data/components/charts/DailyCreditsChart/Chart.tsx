@@ -1,9 +1,6 @@
 "use client"; // use client for recharts animations
 import helpers from "lib/charts/helpers";
-import {
-  DailyCreditsChartData,
-  DailyCreditsChartDataItem,
-} from "lib/charts/types";
+import { Bridge, DailyCreditsChartData } from "lib/charts/types";
 import {
   AreaChart,
   Legend,
@@ -23,7 +20,7 @@ import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
   data: DailyCreditsChartData;
-  configuration: ChartConfiguration<DailyCreditsChartDataItem>;
+  configuration: ChartConfiguration<Bridge>;
 }
 export default function Chart(props: Props) {
   return (
@@ -38,7 +35,13 @@ export default function Chart(props: Props) {
           )}
           cursor={{ fill: "transparent" }}
         />
-        <Legend {...KlimaLegendProps(props.configuration)} />
+        <Legend
+          {...KlimaLegendProps(props.configuration)}
+          layout="horizontal"
+          verticalAlign="bottom"
+          align="left"
+          wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
+        />
         {KlimaStackedAreas(props.configuration)}
       </AreaChart>
     </ResponsiveContainer>

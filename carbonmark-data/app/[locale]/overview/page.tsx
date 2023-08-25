@@ -1,6 +1,8 @@
 import { t } from "@lingui/macro";
-import VerraCreditsCard from "components/cards/VerraCreditsCard";
+import VerraCreditsCard from "components/cards/DailyCreditsCard";
 import * as chartStyles from "components/charts/styles";
+
+import TokenizedCreditsByBridgeCard from "components/cards/TokenizedCreditsByBridgeCard";
 import * as styles from "./styles";
 
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
@@ -12,6 +14,7 @@ export default function OverviewPage() {
         <div className={styles.mainColumn}>
           <div className={chartStyles.chartRow}>
             <VerraCreditsCard></VerraCreditsCard>
+            <TokenizedCreditsByBridgeCard></TokenizedCreditsByBridgeCard>
           </div>
         </div>
       </div>
