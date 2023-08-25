@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
 import fs from "fs";
 import path, { join } from "path";
+import { commonSchema } from "./routes/common.schema";
 import { LOCAL_ENV_PATH } from "./utils/helpers/utils.constants";
 
 // Only pull env vars from .env if running in locally
@@ -21,6 +22,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
+  fastify.addSchema(commonSchema);
   // This loads all plugins defined in src/plugins
   // those should be support plugins that are reused
   // through your application
