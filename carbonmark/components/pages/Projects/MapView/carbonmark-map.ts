@@ -88,7 +88,7 @@ class CarbonmarkMap extends mapboxgl.Map {
           </div>
           ${imgTag}
           <p>${project.short_description}</p>
-          <a class="link" href="${project.key}-${project.vintage}">
+          <a class="link" href="projects/${project.key}-${project.vintage}">
             <b>More Info</b>
           </a>`;
 
