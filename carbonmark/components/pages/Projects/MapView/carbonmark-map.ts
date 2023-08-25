@@ -79,13 +79,15 @@ class CarbonmarkMap extends mapboxgl.Map {
 
         const popupHtml = `
           <div class="header">
-            <h3>${project.key}</h3>
-            <b>($${(parseFloat(project.price) % 1).toFixed(2)})</b>
+            <p class="title">${project.key}</p>
+            <p class="price">($${(parseFloat(project.price) % 1).toFixed(
+              2
+            )})</p>
 
           </div>
           ${imgTag}
           <p>${project.short_description}</p>
-          <a href="${project.key}-${project.vintage}">
+          <a class="link" href="${project.key}-${project.vintage}">
             <b>More Info</b>
           </a>`;
 

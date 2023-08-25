@@ -30,22 +30,38 @@ export const mapBox = css`
   .mapboxgl-popup {
     //Make sure we can close popups always
     z-index: 1;
+    max-width: 324px !important; //Unfortunately we need to override the element level style applied by mapbox
   }
 
   .mapboxgl-popup-content {
     line-height: normal;
     display: grid;
     gap: 1rem;
+    border-radius: 8px;
     img {
       width: 100%;
       border-radius: 5px;
     }
 
-    h3 {
+    .title {
       margin-right: 6px;
+      font-family: poppins;
+    }
+
+    .price {
+      color: #3b3b3d;
+    }
+
+    .link {
+      font-weight: 600;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-family: poppins;
+      line-height: 16px;
     }
 
     .header {
+      font-size: 1.6rem;
       display: flex;
       align-items: center;
     }
@@ -57,9 +73,9 @@ export const mapBox = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    top: 5px;
-    right: 5px;
+    font-size: 2.4rem;
+    top: 8px;
+    right: 8px;
+    color: #626266;
   }
 `;
