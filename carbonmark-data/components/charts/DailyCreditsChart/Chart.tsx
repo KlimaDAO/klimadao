@@ -1,6 +1,9 @@
 "use client"; // use client for recharts animations
 import helpers from "lib/charts/helpers";
-import { CreditsChartData, CreditsChartDataItem } from "lib/charts/types";
+import {
+  DailyCreditsChartData,
+  DailyCreditsChartDataItem,
+} from "lib/charts/types";
 import {
   AreaChart,
   Legend,
@@ -19,8 +22,8 @@ import {
 import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
-  data: CreditsChartData;
-  configuration: ChartConfiguration<CreditsChartDataItem>;
+  data: DailyCreditsChartData;
+  configuration: ChartConfiguration<DailyCreditsChartDataItem>;
 }
 export default function Chart(props: Props) {
   return (

@@ -1,3 +1,5 @@
+import { Key } from "react";
+
 // API level Query parameters
 export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
 export type DateField =
@@ -52,19 +54,25 @@ export type GenericDailyChartDataEntry = {
 };
 export type DailyChartData<CI extends GenericDailyChartDataEntry> =
   ChartData<CI>;
-export interface CreditsChartDataItem extends GenericDailyChartDataEntry {
+export interface DailyCreditsChartDataItem extends GenericDailyChartDataEntry {
   toucan?: number;
   c3?: number;
   moss?: number;
   offchain?: number;
   date: number;
 }
-export type CreditsChartData = DailyChartData<CreditsChartDataItem>;
-export type AnyChartData = CreditsChartData;
+export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
 // Response to ChartData mappings
 export interface ChartMappingParams {
   key: string; // When querying, the quantity attribute from the response will be mapped and merged to this key
+}
+export interface ChartDateMappingParams {
   date_field: DateField; // The date_field expected in the response Object
 }
 export type CreditsChartQueryParams = CreditsQueryParams & ChartMappingParams;
+export type DailyCreditsChartQueryParams = CreditsChartQueryParams &
+  ChartDateMappingParams;
+
+// Chart dictionnary for cards
+export type ChartDictionnary = Record<Key, React.ReactNode>;

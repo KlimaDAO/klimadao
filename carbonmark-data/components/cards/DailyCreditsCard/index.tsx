@@ -1,31 +1,29 @@
 import { t } from "@lingui/macro";
 import ChartCard from "components/cards/ChartCard";
+import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
-import VerraCreditsChart from "components/charts/VerraCreditsChart";
 import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
 } from "lib/charts/options";
 import {
-  CreditsChartDataItem,
-  CreditsChartQueryParams,
+  ChartDictionnary,
+  DailyCreditsChartDataItem,
+  DailyCreditsChartQueryParams,
   DateField,
   Status,
 } from "lib/charts/types";
-import React, { Key } from "react";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function VerraCreditsCard() {
-  const charts: Record<Key, React.ReactNode> = {} as Record<
-    Key,
-    React.ReactNode
-  >;
+export default function DailyVerraCreditsCard() {
+  const charts: ChartDictionnary = {};
+
   // Pre-compute charts for the various options combinations */
   ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
-      let queries: Array<CreditsChartQueryParams>;
-      let configuration: ChartConfiguration<CreditsChartDataItem>;
+      let queries: Array<DailyCreditsChartQueryParams>;
+      let configuration: ChartConfiguration<DailyCreditsChartDataItem>;
       let date_field: DateField;
       let status: Status;
 
@@ -93,10 +91,10 @@ export default function VerraCreditsCard() {
       }
       charts[`${bridge}|${stat}`] = (
         /* @ts-expect-error async Server component */
-        <VerraCreditsChart
+        <DailyCreditsChart
           queries={queries}
           configuration={configuration}
-        ></VerraCreditsChart>
+        ></DailyCreditsChart>
       );
     });
   });
