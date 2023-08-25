@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-23 15:35+0000\n"
+"POT-Creation-Date: 2023-08-24 23:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -813,7 +813,7 @@ msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/GridView.tsx:40
 #: components/pages/Projects/ProjectView/ListView.tsx:156
 #: components/ProjectCard/index.tsx:60
 msgid "No project description found"
@@ -853,6 +853,11 @@ msgstr "Autres basés sur la nature"
 #: components/pages/Home/index.tsx:101
 msgid "Our Partners"
 msgstr "Nos Partenaires"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
+msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
@@ -1151,14 +1156,14 @@ msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr "Retirez du marché instantanément ou achetez et conservez du carbone numérique."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:109
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
 msgid "Retire more Carbon"
 msgstr "Retirer plus de Carbone"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:57
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
 msgid "Retire more carbon"
 msgstr "Retirer plus de carbone"
 
@@ -1223,7 +1228,7 @@ msgid "See your portfolio"
 msgstr "Voir votre portefeuille"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:103
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:104
 msgid "See your retirement receipt"
 msgstr "Voir votre justificatif de retrait du marché"
 
@@ -1329,7 +1334,7 @@ msgid "Terms of use"
 msgstr "Conditions d'utilisation"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:66
 msgid "Thank you for supporting the planet!"
 msgstr "Merci de soutenir la planète !"
 
@@ -1543,7 +1548,7 @@ msgstr "Total des transactions de retrait du marché"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:81
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:82
 msgid "Total sale cost"
 msgstr "Coût total de la vente"
 
@@ -1731,7 +1736,7 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "Vous pouvez également retirer n'importe quel actif carbone de votre portefeuille."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
 msgid "You can view the successful transaction now on <0>PolygonScan.</0>"
 msgstr "Vous pouvez dès à présent visualiser la transaction réussie sur <0>PolygonScan.</0>"
 
@@ -2034,13 +2039,12 @@ msgstr "Merci de soutenir la planète ! Voir la transaction sur <0>PolygonScan.<
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:30
 msgid "offset.successModal.body2"
 msgstr "Merci de soutenir la planète !"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
 msgstr "Votre transaction a été traitée avec succès, mais son indexation prend plus de temps que d'habitude. Elle apparaîtra bientôt dans vos <0>retraits</0>."
 

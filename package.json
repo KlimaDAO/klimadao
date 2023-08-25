@@ -11,8 +11,8 @@
     "./site"
   ],
   "engines": {
-    "npm": ">=8.0.0",
-    "node": ">=16.0.0"
+    "npm": "^9.8.1",
+    "node": "^18.17.1"
   },
   "prettier": {
     "trailingComma": "es5",
