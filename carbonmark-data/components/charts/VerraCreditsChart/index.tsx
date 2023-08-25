@@ -1,4 +1,4 @@
-import { getVerraCredits } from "lib/charts/getVerraCredits";
+import { getVerraCredits } from "lib/charts/aggregators/getVerraCredits";
 import {
   CreditsChartDataItem,
   CreditsChartQueryParams,

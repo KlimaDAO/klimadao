@@ -10,6 +10,8 @@ export const cardContainer = css`
   display: flex;
   flex-flow: column;
   margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
 `;
 export const cardHeader = css`
   display: flex;

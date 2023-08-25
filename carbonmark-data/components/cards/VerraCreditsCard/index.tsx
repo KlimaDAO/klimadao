@@ -1,11 +1,17 @@
 import { t } from "@lingui/macro";
-import OverviewCard from "components/OverviewCard";
+import OverviewCard from "components/cards/OverviewCard";
 import VerraCreditsChart from "components/charts/VerraCreditsChart";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
 } from "lib/charts/options";
-import { CreditsChartQueryParams, DateField, Status } from "lib/charts/types";
+import {
+  CreditsChartDataItem,
+  CreditsChartQueryParams,
+  DateField,
+  Status,
+} from "lib/charts/types";
 import React, { Key } from "react";
 import { palette } from "theme/palette";
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
@@ -18,7 +24,7 @@ export default function VerraCreditsCard() {
   ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
       let queries: Array<CreditsChartQueryParams>;
-      let configuration;
+      let configuration: ChartConfiguration<CreditsChartDataItem>;
       let date_field: DateField;
       let status: Status;
 
