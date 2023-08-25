@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import OverviewCard from "components/cards/OverviewCard";
+import ChartCard from "components/cards/ChartCard";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import VerraCreditsChart from "components/charts/VerraCreditsChart";
 import {
@@ -14,13 +14,14 @@ import {
 } from "lib/charts/types";
 import React, { Key } from "react";
 import { palette } from "theme/palette";
-/** Overview page (index/landing page) captured via rewrite in next.config.js*/
+
+/** Verra Credits Card */
 export default function VerraCreditsCard() {
   const charts: Record<Key, React.ReactNode> = {} as Record<
     Key,
     React.ReactNode
   >;
-
+  // Pre-compute charts for the various options combinations */
   ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
       let queries: Array<CreditsChartQueryParams>;
@@ -100,7 +101,7 @@ export default function VerraCreditsCard() {
     });
   });
   return (
-    <OverviewCard
+    <ChartCard
       title={t`Verra credits`}
       detailUrl="/details/verra-credits-over-time"
       topOptions={getCreditsBridgeOptions()}
