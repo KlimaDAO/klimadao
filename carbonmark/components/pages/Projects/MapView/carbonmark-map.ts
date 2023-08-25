@@ -12,6 +12,8 @@ if (isNil(NEXT_PUBLIC_MAPBOX_TOKEN))
 
 MapBoxGL.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN;
 
+const BRIGHT_BLUE = "#0019ff"; // var(--bright-blue)
+
 class CarbonmarkMap extends mapboxgl.Map {
   points?: Supercluster.PointFeature<{ project: Project }>[];
   markers: MapBoxGL.Marker[] = [];
@@ -35,7 +37,10 @@ class CarbonmarkMap extends mapboxgl.Map {
     latLng: [number, number],
     args?: { popup?: MapBoxGL.Popup; el?: HTMLElement }
   ) {
-    const marker = new MapBoxGL.Marker(args?.el)
+    const marker = new MapBoxGL.Marker({
+      element: args?.el,
+      color: BRIGHT_BLUE,
+    })
       .setLngLat(latLng)
       .setPopup(args?.popup)
       .addTo(this);

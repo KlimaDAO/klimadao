@@ -23,25 +23,13 @@ export const mapBox = css`
     }
   }
 
-  .marker {
+  .mapboxgl-marker {
     cursor: pointer;
-    width: 20px;
-    height: 20px;
-    background-color: var(--surface-02);
-    border-radius: 50%;
   }
 
-  .marker::after {
-    content: "";
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 18px solid var(--surface-02);
-    transform: translateX(-50%);
+  .mapboxgl-popup {
+    //Make sure we can close popups always
+    z-index: 1;
   }
 
   .mapboxgl-popup-content {
@@ -74,10 +62,4 @@ export const mapBox = css`
     top: 5px;
     right: 5px;
   }
-`;
-export const placeholder = css`
-  height: 100%;
-  width: 100%;
-  background-color: var(--bright-blue);
-  border-radius: 0.8rem;
 `;
