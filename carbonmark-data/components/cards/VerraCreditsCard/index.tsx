@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import OverviewCard from "components/cards/OverviewCard";
-import VerraCreditsChart from "components/charts/VerraCreditsChart";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import VerraCreditsChart from "components/charts/VerraCreditsChart";
 import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,

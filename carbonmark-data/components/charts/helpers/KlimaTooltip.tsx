@@ -11,7 +11,7 @@ export function KlimaTooltip(
 ) {
   function KlimaTooltipComponent<
     TValue extends ValueType,
-    TName extends NameType
+    TName extends NameType,
   >(props: TooltipProps<TValue, TName>) {
     const { active, payload, label } = props;
     if (active && payload && payload.length) {

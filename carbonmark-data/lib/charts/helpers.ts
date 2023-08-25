@@ -18,7 +18,7 @@ import {
 */
 export async function prepareDailyChartData<
   CI extends GenericDailyChartDataEntry,
-  Q extends ChartMappingParams
+  Q extends ChartMappingParams,
 >(
   queries: Array<Q>,
   fetchFunction: (query: Q) => Promise<DailyAggregatedCredits>

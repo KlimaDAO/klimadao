@@ -14,20 +14,20 @@ module.exports = async (phase, { defaultConfig }) => {
     productionBrowserSourceMaps: !IS_PRODUCTION,
     async rewrites() {
       return [
-          {
-            source: "/:locale",
-            destination: "/:locale/overview",
-          },
-          {
-            source: "/:locale/token-details",
-            destination: "/:locale/token-details/toucan",
-          },
-          {
-            source: "/:locale/trends",
-            destination: "/:locale/trends/by-pool",
-          },
-        ]
-      },
+        {
+          source: "/:locale",
+          destination: "/:locale/overview",
+        },
+        {
+          source: "/:locale/token-details",
+          destination: "/:locale/token-details/toucan",
+        },
+        {
+          source: "/:locale/trends",
+          destination: "/:locale/trends/by-pool",
+        },
+      ];
+    },
     async headers() {
       return [
         {
