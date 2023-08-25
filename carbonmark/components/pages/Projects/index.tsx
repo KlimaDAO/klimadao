@@ -7,7 +7,6 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
-import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
@@ -27,7 +26,6 @@ const views = {
 
 const Page: NextPage = () => {
   const router = useRouter();
-  const { isMobile } = useResponsive();
 
   const { params } = useProjectsParams();
   const { projects, isLoading, isValidating } = useFetchProjects();
@@ -47,7 +45,7 @@ const Page: NextPage = () => {
   }
   const isMap = params.layout === "map";
 
-  const View = isMobile ? GridView : views[params.layout];
+  const View = views[params.layout];
 
   return (
     <>

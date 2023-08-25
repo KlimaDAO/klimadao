@@ -5,15 +5,20 @@ import { FIVE_CARD_WIDTH } from "../styles";
 export const absolute = css`
   position: absolute;
   z-index: 1;
-  padding: 4rem;
+  padding: 1.6rem;
+  grid-column: unset;
+  ${breakpoints.desktop} {
+    grid-column: full;
+    padding: 4rem;
+  }
 `;
 
 export const controller = css`
   width: 100%;
   grid-template-columns: inherit;
   display: grid;
-  grid-column: full;
   gap: 0.8rem;
+  grid-column: full;
 `;
 
 export const projectsControls = css`
@@ -39,6 +44,7 @@ export const displayOptions = css`
   gap: 2rem;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   grid-column: full;
   max-width: 168rem;
   align-items: center;
