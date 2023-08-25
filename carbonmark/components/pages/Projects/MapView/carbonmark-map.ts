@@ -21,6 +21,7 @@ class CarbonmarkMap extends mapboxgl.Map {
 
   constructor(container: string | HTMLElement, opts?: CarbonmarkMapOpts) {
     super({ container, ...DEFAULT_OPTS, ...opts });
+    this.addControl(new mapboxgl.NavigationControl(), "bottom-left");
     this.points = opts?.points;
     this.on("moveend", () => this.renderMarkers());
     this.on("zoomend", () => this.renderMarkers());
