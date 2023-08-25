@@ -2,23 +2,27 @@ import { css } from "@emotion/css";
 
 export const cardContainer = css`
   box-shadow: var(--box-shadow);
+  border-radius: 8px;
   min-height: 284px;
   height: 284px;
   background-color: var(--surface-04);
   padding: 12px;
   display: flex;
   flex-flow: column;
-  position: relative;
+  margin-bottom: 2rem;
 `;
 export const cardHeader = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: center;
+  margin-bottom: 27px;
 `;
 export const cardHeaderTitle = css`
   flex: 1 1 0;
-  font-size: 14px;
+  font-size: 1.4rem;
   weight: 700;
+  margin: 0;
 `;
 export const cardHeaderSwitcher = css`
   flex: 1 1 0;
@@ -29,10 +33,11 @@ export const cardHeaderDetailsLink = css`
   &,
   &:hover,
   &.visited {
-    color: var(--text-color-03);
+    color: var(--text-color-05);
     flex: 1 1 0;
     text-align: right;
     font-size: 14px;
+    text-decoration: none;
   }
 `;
 export const cardHeaderDetailsLinkArrow = css`
