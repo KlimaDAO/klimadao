@@ -7,6 +7,7 @@ import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { useResponsive } from "hooks/useResponsive";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -16,6 +17,7 @@ import { ProjectSort } from "../ProjectSort";
 import * as styles from "./styles";
 
 const ProjectsController = () => {
+  const { isDesktop } = useResponsive();
   const router = useRouter();
   const { params, updateQueryParams } = useProjectsParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
@@ -23,6 +25,27 @@ const ProjectsController = () => {
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
   const isMap = params.layout === "map";
+
+  const viewOptions = [
+    // @todo add tooltips
+    // <TextInfoTooltip tooltip={t`Grid view`}>
+    // </TextInfoTooltip>
+    {
+      content: <GridViewOutlined />,
+      value: "grid",
+    },
+    {
+      content: <PublicIcon />,
+      value: "map",
+    },
+  ];
+
+  // If we're on desktop let the user select the list view
+  if (isDesktop)
+    viewOptions.splice(1, 0, {
+      content: <ListOutlined />,
+      value: "list",
+    });
 
   return (
     <div className={cx(styles.controller, { [styles.absolute]: isMap })}>
@@ -44,23 +67,7 @@ const ProjectsController = () => {
             onChange={(val) => {
               updateQueryParams({ ...router.query, layout: val });
             }}
-            options={[
-              // @todo add tooltips
-              // <TextInfoTooltip tooltip={t`Grid view`}>
-              // </TextInfoTooltip>
-              {
-                content: <GridViewOutlined />,
-                value: "grid",
-              },
-              {
-                content: <ListOutlined />,
-                value: "list",
-              },
-              {
-                content: <PublicIcon />,
-                value: "map",
-              },
-            ]}
+            options={viewOptions}
           />
         </div>
       </div>

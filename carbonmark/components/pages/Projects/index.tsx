@@ -7,11 +7,13 @@ import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
 import { get, identity, isEmpty } from "lodash";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ProjectsPageStaticProps } from "pages/projects";
+import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
@@ -26,12 +28,20 @@ const views = {
 
 const Page: NextPage = () => {
   const router = useRouter();
+  const { isMobile } = useResponsive();
 
-  const { params } = useProjectsParams();
+  const { params, updateQueryParams } = useProjectsParams();
   const { projects, isLoading, isValidating } = useFetchProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
   const sortedProjects = sortFn(projects);
+
+  //Force grid view on mobile
+  useEffect(() => {
+    if (isMobile && params.layout === "list") {
+      updateQueryParams({ layout: "grid" });
+    }
+  }, [isMobile, params.layout]);
 
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
@@ -45,7 +55,9 @@ const Page: NextPage = () => {
   }
   const isMap = params.layout === "map";
 
-  const View = views[params.layout];
+  // We need to force Grid View on mobile (this stops a delay in re-render)
+  const View =
+    isMobile && params.layout === "list" ? GridView : views[params.layout];
 
   return (
     <>
