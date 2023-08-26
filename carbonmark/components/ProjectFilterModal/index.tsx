@@ -10,13 +10,12 @@ import { useFetchProjects } from "hooks/useFetchProjects";
 import {
   defaultParams,
   FilterValues,
-  SortOption,
   useProjectsParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
-import { isString, pick } from "lodash";
+import { isString } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -85,7 +84,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     if (!router.isReady || !props.showModal) return;
     updateQueryParams({
       ...getValues(),
-      ...pick(router.query, "search", "sort" as SortOption),
+      ...router.query,
     });
   }, [watchers]);
 

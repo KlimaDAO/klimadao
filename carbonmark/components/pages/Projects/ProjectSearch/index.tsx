@@ -18,9 +18,9 @@ export const ProjectSearch: FC<ProjectSearchProps> = (props) => {
   const { filterCount, updateQueryParams, resetQueryParams } =
     useProjectsParams();
 
-  const handleSubmitSearch = (str: string | null) => {
+  const handleSubmitSearch = (search: string | null) => {
     const { search: _oldSearch, ...otherParams } = router.query;
-    updateQueryParams(str ? { ...otherParams, search: str } : otherParams);
+    updateQueryParams(search ? { ...otherParams, search } : otherParams);
   };
 
   return (
