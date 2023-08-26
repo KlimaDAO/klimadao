@@ -1,5 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
-import { FastifySchema } from "fastify";
+import { FastifySchema } from "fastify/types/schema";
+import { CommonSchemaRefs } from "./common.schema";
 
 const Purchase = Type.Object({
   id: Type.String({
@@ -73,6 +74,12 @@ const schema: FastifySchema = {
   summary: "Purchase details",
   description:
     "Retrieve the details of a purchase by its ID (transaction hash)",
+  querystring: {
+    type: "object",
+    properties: {
+      network: CommonSchemaRefs.network,
+    },
+  },
   params: {
     type: "object",
     required: ["id"],
