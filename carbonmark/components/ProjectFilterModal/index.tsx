@@ -15,7 +15,7 @@ import {
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
-import { isString } from "lodash";
+import { isString, pick } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -26,19 +26,22 @@ import * as styles from "./styles";
 
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
+type FilterKeys = Pick<FilterValues, "country" | "category" | "vintage">;
+const keys = ["country", "category", "vintage"] as const;
+
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
   const { projects, isValidating } = useFetchProjects();
   const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
-  const { control, reset, setValue, getValues } = useForm<FilterValues>({
-    defaultValues: params,
+  const { control, reset, setValue, getValues } = useForm<FilterKeys>({
+    defaultValues: pick(params, keys),
   });
 
   const watchers = useWatch({
     control,
-    name: ["country", "category", "vintage"],
+    name: keys,
   });
 
   /**
@@ -83,8 +86,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   useEffect(() => {
     if (!router.isReady || !props.showModal) return;
     updateQueryParams({
-      ...getValues(),
       ...router.query,
+      ...getValues(),
     });
   }, [watchers]);
 

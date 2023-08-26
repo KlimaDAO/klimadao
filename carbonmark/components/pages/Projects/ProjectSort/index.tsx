@@ -17,7 +17,7 @@ export const ProjectSort = () => {
 
   useEffect(() => {
     if (!sort) return;
-    updateQueryParams({ sort });
+    updateQueryParams({ ...params, sort });
   }, [sort]);
 
   return (
