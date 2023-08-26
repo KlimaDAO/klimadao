@@ -3,29 +3,33 @@
  */
 import { Type } from "@sinclair/typebox";
 
+/** Adhere to JSONSchema spec by using a URI */
+const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
+
 const network = Type.Union([Type.Literal("polygon"), Type.Literal("mumbai")], {
+  $id: `${COMMON_SCHEMA_URI}/querystring/network`,
   examples: ["polygon", "mumbai"],
   description:
     "Desired blockchain network. Defaults to `polygon` (AKA `mainnet`).",
   default: "polygon",
 });
 
-const commonSchema = {
-  // Per JSONSchema spec this URI does not need to be hosted. For internal reference only.
-  $id: "http://api.carbonmark.com/schemas",
-  type: "object",
-  definitions: {
+const commonSchema = Type.Object(
+  {
     network,
   },
-} as const;
+  {
+    $id: COMMON_SCHEMA_URI,
+  }
+);
 
 /**
- * String constants for schema definition URIs
- * @example schema.querystring.properties.network = { $ref: SchemaRefs.network }
+ * Ref objects for reuse in external schema definitions
+ * @example SchemaRefs.network // { $ref: "#/querystring/network" }
  */
-const SchemaRefs = {
+const CommonSchemaRefs = {
   /** Network querystring */
-  network: `${commonSchema["$id"]}#/definitions/network`,
+  network: Type.Ref(network),
 } as const;
 
-export { SchemaRefs, commonSchema };
+export { CommonSchemaRefs, commonSchema };
