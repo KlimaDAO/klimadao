@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import { FIVE_CARD_WIDTH } from "../styles";
 
 export const listView = css`
   padding: 2rem;
@@ -76,14 +75,4 @@ export const listView = css`
       }
     }
   }
-`;
-
-export const projectsList = css`
-  grid-column: full;
-  justify-self: center;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: ${FIVE_CARD_WIDTH};
 `;

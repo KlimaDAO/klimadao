@@ -17,8 +17,9 @@ type Props = {
 
 export const GridView: React.FC<Props> = ({ projects }) => {
   const { locale } = useRouter();
+
   return (
-    <div className={styles.projectsList}>
+    <>
       {projects?.map((project: Project, index: number) => (
         <Link
           passHref
@@ -57,6 +58,6 @@ export const GridView: React.FC<Props> = ({ projects }) => {
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 };

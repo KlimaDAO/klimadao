@@ -96,3 +96,17 @@ export const row = css`
   justify-content: space-between;
   margin-bottom: 0.8rem;
 `;
+
+export const projectsList = css`
+  grid-column: full;
+  justify-self: center;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: ${FIVE_CARD_WIDTH};
+`;
+
+export const viewContainer = css`
+  grid-column: full;
+`;

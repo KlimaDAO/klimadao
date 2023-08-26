@@ -108,71 +108,69 @@ export const ListView: FC<Props> = ({ projects }) => {
   }, [sortOrder]);
 
   return (
-    <div className={styles.projectsList}>
-      <TableContainer className={styles.listView} component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  align="left"
-                  key={column.id}
-                  sortDirection={sortDirection}
-                  padding={column.disablePadding ? "none" : "normal"}
-                >
-                  {column.sortable ? (
-                    <TableSortLabel
-                      direction={sortDirection}
-                      onClick={() => handleSort(column.id)}
-                      active={column.id === sortColumn}
-                    >
-                      {column.label}
-                    </TableSortLabel>
-                  ) : (
-                    <span>{column.label}</span>
-                  )}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {projects.map((project: Project, index: number) => (
-              <TableRow
-                hover
-                tabIndex={-1}
-                key={`${project.key}-${index}`}
-                onClick={() => router.push(createProjectLink(project))}
+    <TableContainer className={styles.listView} component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            {columns.map((column) => (
+              <TableCell
+                align="left"
+                key={column.id}
+                sortDirection={sortDirection}
+                padding={column.disablePadding ? "none" : "normal"}
               >
-                <TableCell component="th" width="35%">
-                  <p className="description">
-                    {project.name || "! MISSING PROJECT NAME !"}
-                  </p>
-                </TableCell>
-                <TableCell component="th">
-                  {formatToPrice(project.price, router.locale)}
-                </TableCell>
-                <TableCell>
-                  <p className="description">
-                    {project.short_description ||
-                      project.description ||
-                      t`No project description found`}
-                  </p>
-                </TableCell>
-                <TableCell>
-                  <div className={styles.tags}>
-                    <Category category={getCategoryFromProject(project)} />
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className={styles.tags}>
-                    <Vintage vintage={project.vintage} />
-                  </div>
-                </TableCell>
-              </TableRow>
+                {column.sortable ? (
+                  <TableSortLabel
+                    direction={sortDirection}
+                    onClick={() => handleSort(column.id)}
+                    active={column.id === sortColumn}
+                  >
+                    {column.label}
+                  </TableSortLabel>
+                ) : (
+                  <span>{column.label}</span>
+                )}
+              </TableCell>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {projects.map((project: Project, index: number) => (
+            <TableRow
+              hover
+              tabIndex={-1}
+              key={`${project.key}-${index}`}
+              onClick={() => router.push(createProjectLink(project))}
+            >
+              <TableCell component="th" width="35%">
+                <p className="description">
+                  {project.name || "! MISSING PROJECT NAME !"}
+                </p>
+              </TableCell>
+              <TableCell component="th">
+                {formatToPrice(project.price, router.locale)}
+              </TableCell>
+              <TableCell>
+                <p className="description">
+                  {project.short_description ||
+                    project.description ||
+                    t`No project description found`}
+                </p>
+              </TableCell>
+              <TableCell>
+                <div className={styles.tags}>
+                  <Category category={getCategoryFromProject(project)} />
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className={styles.tags}>
+                  <Vintage vintage={project.vintage} />
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };

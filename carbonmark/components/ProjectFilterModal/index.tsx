@@ -30,12 +30,11 @@ type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
   const { projects, isValidating } = useFetchProjects();
-  const { defaultValues, updateQueryParams, resetQueryParams } =
-    useProjectsParams();
+  const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
   const { control, reset, setValue, getValues } = useForm<FilterValues>({
-    defaultValues,
+    defaultValues: params,
   });
 
   const watchers = useWatch({

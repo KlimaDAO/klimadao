@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
@@ -19,6 +20,7 @@ import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
 import { MapView } from "./MapView/MapView";
 import ProjectsController from "./ProjectsController";
+import * as styles from "./styles";
 
 const views = {
   grid: GridView,
@@ -43,17 +45,21 @@ const Page: NextPage = () => {
     }
   }, [isMobile, params.layout]);
 
+  const isMap = params.layout === "map";
+
   // only show the spinner when there are no cached results to show
   // when re-doing a search with cached results, this will be false -> results are shown, and the query runs in the background
-  const showLoadingProjectsSpinner =
-    isEmpty(sortedProjects) && (isLoading || isValidating);
+  const isFetching =
+    isEmpty(sortedProjects) && (isLoading || isValidating) && !isMap;
+
+  const noProjects =
+    !sortedProjects?.length && !isValidating && !isLoading && !isMap;
 
   if (!router.isReady) {
     // need to prevent the initial grid view from flashing initially
     // after setting the layout as "list" and reloading the browser.
     return null;
   }
-  const isMap = params.layout === "map";
 
   // We need to force Grid View on mobile (this stops a delay in re-render)
   const View =
@@ -68,14 +74,19 @@ const Page: NextPage = () => {
       />
       <Layout fullContentWidth={isMap} fullContentHeight={isMap}>
         <ProjectsController />
-        {!sortedProjects?.length && !isValidating && !isLoading && (
-          <Text>{t`No projects found with current filters`}</Text>
-        )}
-        {showLoadingProjectsSpinner ? (
-          <SpinnerWithLabel />
-        ) : (
-          <View projects={projects} />
-        )}
+        <div
+          className={cx(styles.viewContainer, {
+            [styles.projectsList]: !isMap,
+          })}
+        >
+          {noProjects ? (
+            <Text>{t`No projects found with current filters`}</Text>
+          ) : isFetching ? (
+            <SpinnerWithLabel />
+          ) : (
+            <View projects={sortedProjects} />
+          )}
+        </div>
       </Layout>
     </>
   );

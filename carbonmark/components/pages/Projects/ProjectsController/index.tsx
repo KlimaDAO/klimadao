@@ -1,6 +1,6 @@
 import { cx } from "@emotion/css";
 import { GridViewOutlined, ListOutlined } from "@mui/icons-material";
-import PublicIcon from "@mui/icons-material/Public";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
@@ -35,7 +35,7 @@ const ProjectsController = () => {
       value: "grid",
     },
     {
-      content: <PublicIcon />,
+      content: <MapOutlinedIcon />,
       value: "map",
     },
   ];
