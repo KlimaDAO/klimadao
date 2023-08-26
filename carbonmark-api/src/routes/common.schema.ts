@@ -10,7 +10,7 @@ const network = Type.Union([Type.Literal("polygon"), Type.Literal("mumbai")], {
   $id: `${COMMON_SCHEMA_URI}/querystring/network`,
   examples: ["polygon", "mumbai"],
   description:
-    "Desired blockchain network. Defaults to `polygon` (AKA `mainnet`).",
+    "Optional. Desired blockchain network. Default is `polygon` (AKA `mainnet`).",
   default: "polygon",
 });
 
