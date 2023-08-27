@@ -6,7 +6,7 @@ import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
 import { useFetchProjects } from "hooks/useFetchProjects";
-import { useProjectsParams } from "hooks/useProjectsFilterParams";
+import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
@@ -65,7 +65,10 @@ const ProjectsController = () => {
           <Toggle
             selected={params.layout}
             onChange={(val) => {
-              updateQueryParams({ ...router.query, layout: val });
+              updateQueryParams({
+                ...router.query,
+                layout: val as FilterValues["layout"],
+              });
             }}
             options={viewOptions}
           />
