@@ -71,32 +71,6 @@ export const cardContent = css`
   grid-template-rows: auto auto 1fr;
 `;
 
-export const tags = css`
-  display: flex;
-  gap: 0.8rem;
-  flex-direction: row;
-  margin-top: auto;
-  align-items: center;
-  overflow-x: auto;
-  ::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-`;
-
-export const row = css`
-  gap: 2rem;
-  width: 100%;
-  display: flex;
-  grid-column: full;
-  max-width: 168rem;
-  align-items: center;
-  justify-self: center;
-  justify-content: space-between;
-  margin-bottom: 0.8rem;
-`;
-
 export const projectsList = css`
   grid-column: full;
   justify-self: center;
