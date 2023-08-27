@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/macro";
-import { Text } from "components/Text";
 import { Spinner } from "components/shared/Spinner";
+import { Text } from "components/Text";
 import * as styles from "./styles";
 
 interface Props {

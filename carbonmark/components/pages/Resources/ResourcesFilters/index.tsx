@@ -5,8 +5,8 @@ import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { Text } from "components/Text";
 import { FC } from "react";
 import { Control } from "react-hook-form";
-import { FormValues } from "../ResourcesList";
 import { getMainTags } from "../lib/cmsDataMap";
+import { FormValues } from "../ResourcesList";
 import * as styles from "./styles";
 
 export interface Props {

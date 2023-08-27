@@ -15,7 +15,7 @@ export const blockQuote = css`
   border-left: 1rem solid var(--bright-blue);
   margin: 1.5em 1rem;
   padding: 0.5em 1rem;
-  quotes: "\\201C" "\\201D" "\\2018" "\\2019";
+  quotes: "\\201C""\\201D""\\2018""\\2019";
   &:before {
     color: var(--bright-blue);
     content: open-quote;

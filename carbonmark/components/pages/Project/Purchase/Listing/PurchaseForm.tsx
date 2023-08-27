@@ -1,9 +1,9 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
+import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { approveTokenSpend, getUSDCBalance, makePurchase } from "lib/actions";
 import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";

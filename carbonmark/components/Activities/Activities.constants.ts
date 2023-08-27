@@ -9,4 +9,4 @@ export const getActivityActions = (): Record<ActivityActionT, string> =>
     Sold: t`sold to`,
     UpdatedPrice: t`updated price`,
     UpdatedQuantity: t`updated quantity`,
-  }) as const;
+  } as const);

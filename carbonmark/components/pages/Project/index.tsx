@@ -29,8 +29,8 @@ import {
   CategoryName,
   Methodology,
   PriceFlagged,
-  ProjectBuyOption,
   Project as ProjectType,
+  ProjectBuyOption,
 } from "lib/types/carbonmark";
 import { notNil, selector } from "lib/utils/functional.utils";
 import { NextPage } from "next";

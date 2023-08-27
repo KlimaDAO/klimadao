@@ -266,8 +266,7 @@ export const hamburgerInnerToggled = css`
     display: block;
     bottom: 0;
     transform: rotate(-90deg);
-    transition:
-      bottom 0.075s ease 0s,
+    transition: bottom 0.075s ease 0s,
       transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
   &::after {
@@ -283,8 +282,7 @@ export const hamburgerInnerToggled = css`
     display: block;
     bottom: 0;
     transform: rotate(-90deg);
-    transition:
-      bottom 0.075s ease 0s,
+    transition: bottom 0.075s ease 0s,
       transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
 `;
@@ -305,9 +303,7 @@ export const hamburgerInner = css`
   transition-duration: 0.15s;
   transition-timing-function: ease;
   &::before {
-    transition:
-      top 0.075s ease 0.12s,
-      opacity 0.075s ease 0s;
+    transition: top 0.075s ease 0.12s, opacity 0.075s ease 0s;
     top: -0.5rem;
     content: "";
     display: block;
@@ -321,8 +317,7 @@ export const hamburgerInner = css`
     transition-timing-function: ease;
   }
   &::after {
-    transition:
-      bottom 0.075s ease 0.12s,
+    transition: bottom 0.075s ease 0.12s,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
     bottom: -0.5rem;
     content: "";

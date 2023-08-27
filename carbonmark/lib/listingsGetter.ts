@@ -48,7 +48,7 @@ export const getLowestPriceFromBuyOptions = (options: ProjectBuyOption[]) => {
 };
 
 export const sortPricesAndListingsByBestPrice = <
-  T extends Listing | ListingWithProject,
+  T extends Listing | ListingWithProject
 >(
   prices: Price[],
   listings: T[]

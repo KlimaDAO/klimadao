@@ -1,8 +1,8 @@
 import { formatTonnes, formatUnits } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
-import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
+import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { ListingWithProject } from "lib/types/carbonmark";

@@ -1,4 +1,4 @@
-import { sortBy as _sortBy, pipe, reverse } from "lodash/fp";
+import { pipe, reverse, sortBy as _sortBy } from "lodash/fp";
 
 /** sortBy but reverse */
 const reverseSortBy = <T>(key: keyof T) => pipe(_sortBy<T>(key), reverse);

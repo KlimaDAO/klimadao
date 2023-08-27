@@ -1,13 +1,13 @@
 import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
+import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { TweetButton } from "components/TweetButton";
-import { Spinner } from "components/shared/Spinner";
 import { getRetirementCertificate } from "lib/api";
 import { urls } from "lib/constants";
 import { FC, useState } from "react";
