@@ -2,7 +2,7 @@ import { Anchor as A, CopyValueButton } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { getImageSizes } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { ProjectImage } from "components/ProjectImage";
