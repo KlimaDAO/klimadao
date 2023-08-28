@@ -7,8 +7,7 @@ export default function TokenDistributionOfMethodologiesPage() {
   return (
     <DetailPage
       pageTitle={t`${bridgeLabel} Distribution of Methodologies`}
-      chartTitle={t`${bridgeLabel} Distribution of Methodologies`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

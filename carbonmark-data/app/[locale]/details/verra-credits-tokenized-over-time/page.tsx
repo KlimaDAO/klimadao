@@ -5,8 +5,7 @@ export default function VerraCreditsTokenizedOverTimePage() {
   return (
     <DetailPage
       pageTitle={t`Verra Credits Tokenized Over Time`}
-      chartTitle={t`Cummulative Verra Registry Credits Tokenized Over Time`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

@@ -5,8 +5,7 @@ export default function RetirementTrendsByTokenDetailPage() {
   return (
     <DetailPage
       pageTitle={t`Retirements by Token`}
-      chartTitle={t`Retirements by Token`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

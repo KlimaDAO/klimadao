@@ -5,8 +5,7 @@ export default function DigitalCarbonSupplyQuickFactsPage() {
   return (
     <DetailPage
       pageTitle={t`Digital Carbon Supply - Quick Facts`}
-      chartTitle={t`Quick facts`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

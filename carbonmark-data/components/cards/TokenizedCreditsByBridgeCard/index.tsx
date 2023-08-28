@@ -6,7 +6,7 @@ import { ChartDictionnary } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function TokenizedCreditsCard() {
+export default function TokenizedCreditsByBridgeCard() {
   const charts: ChartDictionnary = {};
   const status = "bridged";
   const configuration: AggregatedCreditsChartConfiguration = [

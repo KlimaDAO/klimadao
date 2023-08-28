@@ -5,8 +5,7 @@ export default function DigitalCarbonSupplyByBlockchainPage() {
   return (
     <DetailPage
       pageTitle={t`Digital Carbon Supply - By Blockchain`}
-      chartTitle={t`Carbon Supply by BlockChain`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

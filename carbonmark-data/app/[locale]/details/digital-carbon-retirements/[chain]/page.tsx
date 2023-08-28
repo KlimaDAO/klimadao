@@ -7,8 +7,7 @@ export default function DigitalCarbonRetirementsPage() {
   return (
     <DetailPage
       pageTitle={t`Digital Carbon Retirements - ${chainLabel}`}
-      chartTitle={t`${chainLabel} Retirements`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

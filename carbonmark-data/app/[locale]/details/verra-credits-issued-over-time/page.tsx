@@ -5,8 +5,7 @@ export default function VerraCreditsIssuedOverTimePage() {
   return (
     <DetailPage
       pageTitle={t`Verra Credits Issued Over Time`}
-      chartTitle={t`Cummulative Verra Registry Credits Issued  Over Time`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

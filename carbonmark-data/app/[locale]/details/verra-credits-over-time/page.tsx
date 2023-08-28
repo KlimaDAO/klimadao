@@ -6,8 +6,7 @@ export default function VerraCreditsOverTimePage() {
   return (
     <DetailPage
       pageTitle={t`Verra Credits Over Time`}
-      chartTitle={t`Verra Credits`}
-      chart={<VerraCreditsCard></VerraCreditsCard>}
+      card={<VerraCreditsCard></VerraCreditsCard>}
       overview={t`Lorem Ipsum`}
       insights={{ content: t`Lorem Ipsum`, source: "ai" }}
     />
