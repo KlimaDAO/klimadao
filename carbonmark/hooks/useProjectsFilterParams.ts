@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
 export type FilterValues = {
+  layout: "grid" | "list";
   sort: SortOption;
   country: string[];
   category: string[];
@@ -13,6 +14,7 @@ export type FilterValues = {
 };
 
 export const defaultFilterProps: FilterValues = {
+  layout: "grid",
   sort: "recently-updated",
   country: [],
   category: [],
@@ -25,7 +27,7 @@ export const useProjectsFilterParams = () => {
   const [filterCount, setFilterCount] = useState(0);
 
   useEffect(() => {
-    const filters = flatMap(omit(router.query, ["search", "sort"]));
+    const filters = flatMap(omit(router.query, ["search", "sort", "layout"]));
     setFilterCount(filters.length);
   }, [router.query]);
 

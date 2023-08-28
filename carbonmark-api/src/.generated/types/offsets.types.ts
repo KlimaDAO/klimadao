@@ -2913,7 +2913,7 @@ export const FindCarbonOffsetsDocument = gql`
     query findCarbonOffsets($country: [String!], $category: [String!], $search: String, $vintage: [String!]) {
   carbonOffsets(
     first: 1000
-    where: {methodologyCategory_in: $category, country_in: $country, name_contains_nocase: $search, vintageYear_in: $vintage}
+    where: {and: [{methodologyCategory_in: $category}, {country_in: $country}, {vintageYear_in: $vintage}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}
   ) {
     id
     name

@@ -70,7 +70,7 @@ export interface RetirementReceipt {
 export type RetirementTotals = [
   totalRetirements: BigNumber,
   totalTonnesCarbonRetired: BigNumber,
-  totalTonnesClaimedForNFTS: BigNumber
+  totalTonnesClaimedForNFTS: BigNumber,
 ];
 
 export type RetireCarbonTransactionResult = {

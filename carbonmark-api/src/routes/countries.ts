@@ -5,11 +5,36 @@ import { getAllCountries } from "../utils/helpers/utils";
 export const Country = Type.Object({
   id: Type.String(),
 });
-export type CategoryType = Static<typeof Country>;
+export type CountryType = Static<typeof Country>;
 
 const schema = {
+  summary: "Countries",
+  description:
+    "Retrieve an array containing the countries that carbon projects originate from",
   response: {
-    "2xx": Type.Array(Country),
+    "2xx": {
+      description: "Successful response",
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+        },
+      },
+      examples: [
+        [
+          {
+            id: "Brazil",
+          },
+          {
+            id: "Bulgaria",
+          },
+          {
+            id: "China",
+          },
+        ],
+      ],
+    },
   },
 };
 

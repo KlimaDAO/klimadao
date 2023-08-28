@@ -1,6 +1,6 @@
 import { Anchor, Text } from "@klimadao/lib/components";
 import { subgraphs, verra } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { RedeemablePoolToken } from "lib/hooks/useRedeemParams";
 import { useEffect, useState } from "react";

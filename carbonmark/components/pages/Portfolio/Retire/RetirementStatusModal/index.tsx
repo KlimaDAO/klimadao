@@ -45,7 +45,7 @@ export const RetirementStatusModal: FC<Props> = (props) => (
             </Trans>
           </Text>
           <Text t="caption">
-            <Trans id="offset.successModal.body4">
+            <Trans>
               You can view the successful transaction now on
               <Link href={props.polygonScanUrl}> PolygonScan.</Link>
             </Trans>

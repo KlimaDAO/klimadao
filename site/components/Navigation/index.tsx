@@ -30,12 +30,7 @@ export type PageName =
   | "Resource Center"
   | "About";
 
-export type NavItemMobileID =
-  | "About"
-  | "App"
-  | "Infinity"
-  | "Love Letters"
-  | "Resources";
+export type NavItemMobileID = "About" | "App" | "Infinity" | "Resources";
 
 export type Props = {
   activePage: PageName;
@@ -114,26 +109,17 @@ export const Navigation: FC<Props> = ({
 
         <DropdownItemDesktop name={t({ message: "App", id: "shared.app" })}>
           <LinkItemDesktop
-            name={t({
-              message: "Buy Klima",
-              id: "shared.buy",
-            })}
+            name={t`Buy Klima`}
             key="buy klima"
             url={createLinkWithLocaleQuery(urls.buy, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Stake Klima",
-              id: "shared.stake",
-            })}
+            name={t`Stake Klima`}
             key="stake"
             url={createLinkWithLocaleQuery(urls.stake, locale)}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Bond Klima",
-              id: "shared.bond",
-            })}
+            name={t`Bond Klima`}
             key="bond"
             url={createLinkWithLocaleQuery(urls.bonds, locale)}
           />
@@ -174,10 +160,6 @@ export const Navigation: FC<Props> = ({
           name={t({ message: "Carbonmark", id: "shared.carbonmark" })}
           url={urls.carbonmark}
         />
-        <LinkItemDesktop
-          url={urls.loveletter}
-          name={t({ message: "Love Letters", id: "shared.loveletters" })}
-        />
         <DropdownItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
         >
@@ -208,10 +190,7 @@ export const Navigation: FC<Props> = ({
             url={urls.carbonDashboard}
           />
           <LinkItemDesktop
-            name={t({
-              message: "Official Docs",
-              id: "shared.docs",
-            })}
+            name={t`Official Docs`}
             key="docs"
             url={urls.officialDocs}
           />
@@ -238,10 +217,7 @@ export const Navigation: FC<Props> = ({
                   url="/community"
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Contact Us",
-                    id: "shared.contact",
-                  })}
+                  name={t`Contact Us`}
                   key="contact"
                   active={activePage === "Contact"}
                   url="/contact"
@@ -267,18 +243,12 @@ export const Navigation: FC<Props> = ({
                   url="/buy"
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Stake Klima",
-                    id: "shared.stake",
-                  })}
+                  name={t`Stake Klima`}
                   key="stake"
                   url={createLinkWithLocaleQuery(urls.stake, locale)}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Bond Klima",
-                    id: "shared.bond",
-                  })}
+                  name={t`Bond Klima`}
                   key="bond"
                   url={createLinkWithLocaleQuery(urls.bonds, locale)}
                 />,
@@ -322,11 +292,6 @@ export const Navigation: FC<Props> = ({
               url={urls.carbonmark}
             />
             <NavItemMobile
-              name={t({ message: "Love Letters", id: "shared.loveletters" })}
-              id="Love Letters"
-              url={urls.loveletter}
-            />
-            <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}
               id="Resources"
               subMenu={[
@@ -357,10 +322,7 @@ export const Navigation: FC<Props> = ({
                   url={urls.carbonDashboard}
                 />,
                 <NavItemMobile
-                  name={t({
-                    message: "Official Docs",
-                    id: "shared.docs",
-                  })}
+                  name={t`Official Docs`}
                   key="docs"
                   url={urls.officialDocs}
                 />,
