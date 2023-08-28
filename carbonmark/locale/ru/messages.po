@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-18 18:30+0000\n"
+"POT-Creation-Date: 2023-08-28 06:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -346,7 +346,7 @@ msgstr "Сравните цены у всех продавцов и торгов
 #. js-lingui-explicit-id
 #: components/ProjectFilterModal/index.tsx:168
 msgid "Compiling Results ..."
-msgstr ""
+msgstr "Компиляция результатов ..."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:88
@@ -376,7 +376,7 @@ msgstr "Продолжить"
 #. js-lingui-explicit-id
 #: components/CopyAddressButton/index.tsx:36
 msgid "Copy"
-msgstr ""
+msgstr "Скопировать"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
@@ -439,7 +439,7 @@ msgstr "Создан:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:201
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "При оплате кредитной картой взимается дополнительная плата за обработку. <0>Подробнее см. в документации.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
@@ -577,7 +577,7 @@ msgstr "Вернуться назад"
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:115
 msgid "Grid view"
-msgstr ""
+msgstr "Вид сетки"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -688,7 +688,7 @@ msgstr "Размещайте и продавайте бесплатно"
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:126
 msgid "List view"
-msgstr ""
+msgstr "Посмотреть список"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:295
@@ -813,7 +813,7 @@ msgid "No listings found for this project."
 msgstr "Не найдено объявлений для этого проекта."
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:38
+#: components/pages/Projects/ProjectView/GridView.tsx:40
 #: components/pages/Projects/ProjectView/ListView.tsx:156
 #: components/ProjectCard/index.tsx:60
 msgid "No project description found"
@@ -855,6 +855,11 @@ msgid "Our Partners"
 msgstr "Наши партнеры"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
+msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
 msgid "Over 20 million verified digital carbon credits from hundreds of projects, with over $4 billion traded to date"
 msgstr "Более 20 млн. верифицированных цифровых углеродных кредитов, полученных в результате реализации сотен проектов, с оборотом более 4 млрд. долл."
@@ -879,7 +884,7 @@ msgstr "Оплата прошла успешно"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:197
 msgid "Payment processing fee"
-msgstr ""
+msgstr "Комиссия за обработку платежа"
 
 #. js-lingui-explicit-id
 #: components/LoginCard/index.tsx:21
@@ -924,7 +929,7 @@ msgstr "Самая низкая цена"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:147
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "Цена включает сетевые сборы. <0>Подробнее см. в документации.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
@@ -1112,12 +1117,12 @@ msgstr "Ресурсы | Carbonmark"
 #. js-lingui-explicit-id
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Result"
-msgstr ""
+msgstr "Результат"
 
 #. js-lingui-explicit-id
 #: components/ProjectFilterModal/index.tsx:166
 msgid "Results"
-msgstr ""
+msgstr "Результаты"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:64
@@ -1151,14 +1156,14 @@ msgid "Retire instantly, or purchase and hold digital carbon"
 msgstr "Немедленно вывидете или купите и сохраните цифровой углерод"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:109
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
 msgid "Retire more Carbon"
 msgstr "Выбейте больше углерода"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:57
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
 msgid "Retire more carbon"
 msgstr "Выбейте больше углерода"
 
@@ -1223,7 +1228,7 @@ msgid "See your portfolio"
 msgstr "Посмотреть портфолио"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:103
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:104
 msgid "See your retirement receipt"
 msgstr "Смотрите свою квитанцию о выбивании"
 
@@ -1329,7 +1334,7 @@ msgid "Terms of use"
 msgstr "Условия использования"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:65
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:66
 msgid "Thank you for supporting the planet!"
 msgstr "Спасибо за поддержку планеты!"
 
@@ -1448,7 +1453,7 @@ msgstr "Чтобы завершить выбивание, убедитесь, ч
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
-msgstr ""
+msgstr "Переключить выбор проекта"
 
 #. js-lingui-explicit-id
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
@@ -1543,7 +1548,7 @@ msgstr "Всего транзакций выбивания"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:81
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:82
 msgid "Total sale cost"
 msgstr "Общая стоимость продажи"
 
@@ -1582,7 +1587,7 @@ msgstr "Убедитесь, что вся информация верна, и н
 #. js-lingui-explicit-id
 #: components/ViewWalletButton/index.tsx:25
 msgid "View"
-msgstr ""
+msgstr "Просмотр"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
@@ -1597,7 +1602,7 @@ msgstr "Просмотр сведений о реестре <0/>"
 #. js-lingui-explicit-id
 #: components/ProjectFilterModal/index.tsx:152
 msgid "View Results"
-msgstr ""
+msgstr "Посмотреть Результаты"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:68
@@ -1731,14 +1736,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "Вы также можете вывести из своего кошелька любой углеродный актив."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:46
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
 msgid "You can view the successful transaction now on <0>PolygonScan.</0>"
 msgstr "Теперь вы можете просмотреть успешную транзакцию на <0>PolygonScan.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
-msgstr ""
+msgstr "Просмотреть успешную транзакцию можно уже сейчас на<0> PolygonScan.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
@@ -2034,13 +2039,12 @@ msgstr "Спасибо за поддержку планеты! Просмотр 
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:33
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:31
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:30
 msgid "offset.successModal.body2"
 msgstr "Спасибо за поддержку планеты!"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:38
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:36
 msgid "offset.successModal.body3"
 msgstr "Ваша транзакция была успешно обработана, но ее индексация занимает больше времени, чем обычно. В ближайшее время она появится в вашем  <0>retirements</0>."
 
