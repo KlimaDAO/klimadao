@@ -1,18 +1,12 @@
 import { t } from "@lingui/macro";
 import ChartCard from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
-import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { DailyCreditsChartConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
 } from "lib/charts/options";
-import {
-  Bridge,
-  ChartDictionnary,
-  DailyCreditsChartQueryParams,
-  DateField,
-  Status,
-} from "lib/charts/types";
+import { ChartDictionnary, DateField, Status } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
@@ -20,89 +14,95 @@ export default function DailyVerraCreditsCard() {
   const charts: ChartDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
-  ["onchain", "offchain"].forEach((bridge) => {
-    ["issued", "retired"].forEach((stat) => {
-      let queries: Array<DailyCreditsChartQueryParams>;
-      let configuration: ChartConfiguration<Bridge>;
-      let date_field: DateField;
+  ["onchain"].forEach((bridge) => {
+    ["issued"].forEach((stat) => {
+      let configuration: DailyCreditsChartConfiguration;
+      let dateField: DateField;
       let status: Status;
+      const source = "quantity";
 
       if (bridge == "onchain") {
-        date_field = stat == "retired" ? "retirement_date" : "bridged_date";
+        dateField = stat == "retired" ? "retirement_date" : "bridged_date";
         status = stat == "retired" ? "retired" : "bridged";
-        queries = [
-          {
-            key: "toucan",
-            bridge: "toucan",
-            status,
-            date_field,
-            label: "Toucan",
-            color: palette.charts.color5,
-          },
-          {
-            key: "c3",
-            bridge: "c3",
-            status,
-            date_field,
-            label: "C3",
-            color: palette.charts.color3,
-          },
-          {
-            key: "moss",
-            bridge: "moss",
-            status,
-            date_field,
-            label: "Moss",
-            color: palette.charts.color1,
-          },
-        ];
+
         configuration = [
           {
-            id: "toucan",
-            label: "Toucan",
-            color: palette.charts.color5,
-            legendOrder: 3,
+            query: {
+              bridge: "toucan",
+              status,
+            },
+            dataMapping: {
+              source,
+              destination: "toucan",
+              dateField,
+            },
+            chartOptions: {
+              id: "toucan",
+              label: "Toucan",
+              color: palette.charts.color5,
+              legendOrder: 1,
+            },
           },
           {
-            id: "moss",
-            label: "Moss",
-            color: palette.charts.color3,
-            legendOrder: 2,
+            query: {
+              bridge: "moss",
+              status,
+            },
+            dataMapping: {
+              source,
+              destination: "moss",
+              dateField,
+            },
+            chartOptions: {
+              id: "moss",
+              label: "Moss",
+              color: palette.charts.color3,
+              legendOrder: 2,
+            },
           },
           {
-            id: "c3",
-            label: "C3",
-            color: palette.charts.color1,
-            legendOrder: 1,
+            query: {
+              bridge: "c3",
+              status,
+            },
+            dataMapping: {
+              source,
+              destination: "c3",
+              dateField,
+            },
+            chartOptions: {
+              id: "c3",
+              label: "C3",
+              color: palette.charts.color1,
+              legendOrder: 3,
+            },
           },
         ];
       } else {
-        date_field = stat == "retired" ? "retirement_date" : "issuance_date";
+        dateField = stat == "retired" ? "retirement_date" : "issuance_date";
         status = stat == "retired" ? "retired" : "issued";
-        queries = [
-          {
-            key: "offchain",
-            bridge: "offchain",
-            status,
-            date_field,
-            label: "Offchain",
-            color: palette.charts.color3,
-          },
-        ];
         configuration = [
           {
-            id: "offchain",
-            label: "Offchain",
-            color: palette.charts.color3,
+            query: {
+              bridge: "offchain",
+              status,
+            },
+            dataMapping: {
+              source,
+              destination: "offchain",
+              dateField,
+            },
+            chartOptions: {
+              id: "offchain",
+              label: "Offchain",
+              color: palette.charts.color3,
+            },
           },
         ];
       }
       charts[`${bridge}|${stat}`] = (
         /* @ts-expect-error async Server component */
-        <DailyCreditsChart
-          queries={queries}
-          configuration={configuration}
-        ></DailyCreditsChart>
+        <DailyCreditsChart configuration={configuration}></DailyCreditsChart>
       );
     });
   });

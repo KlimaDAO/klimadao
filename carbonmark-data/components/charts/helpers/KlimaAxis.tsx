@@ -30,13 +30,13 @@ export function KlimaXAxisMonthlyProps<T>(
 }
 
 /* YAxis props to display quantity in an appropriate format */
-export function KlimaYAxisTonsProps<CI, T>(
+export function KlimaYAxisTonsProps<CI, Q, M, T>(
   data: ChartData<CI>,
-  conf: ChartConfiguration<T>
+  conf: ChartConfiguration<Q, M, T>
 ) {
   // Find maximum value in data
   const dataKeys: Array<keyof CI> = conf.map(
-    (confItem) => confItem.id as keyof CI
+    (confItem) => confItem.chartOptions.id as keyof CI
   );
   const max = helpers.getDataChartMax(data, dataKeys);
   // Select formatter

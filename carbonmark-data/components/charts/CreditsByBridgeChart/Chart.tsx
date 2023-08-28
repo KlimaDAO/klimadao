@@ -1,12 +1,12 @@
 "use client"; // use client for recharts animations
-import { AggregatedCreditsChartData, Bridge } from "lib/charts/types";
+import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
+import { AggregatedCreditsChartData } from "lib/charts/types";
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { KlimaLegendProps } from "../helpers";
-import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
   data: AggregatedCreditsChartData;
-  configuration: ChartConfiguration<Bridge>;
+  configuration: AggregatedCreditsChartConfiguration;
 }
 export default function Chart(props: Props) {
   return (

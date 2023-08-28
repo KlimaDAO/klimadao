@@ -1,3 +1,4 @@
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import {
   AggregatedCredits,
   ChartData,
@@ -12,37 +13,45 @@ import {
 /*
   This function takes multiple queries, resolves them to datasets (daily aggregates) and merge them into data usable by recharts
   Params:
-   - keys: the attribute name to used in the merged dataset to reference the values of the primitive datasets and passed to the fetch function
-   - date_field: The field to use to merge the datasets
+   - configuration: A chart configuration 
    - fetchFunction: The function that queries the API
   Generics:
    - CI: Expected type of items returned in the chart data array   
-   - Q: Type of the query and mapping parameters
+   - Q: Type of the query params
 */
 export async function prepareDailyChartData<
   CI extends GenericDailyChartDataItem,
-  Q extends ChartMappingParams & ChartDateMappingParams,
+  Q,
 >(
-  queries: Array<Q>,
+  configuration: ChartConfiguration<Q, ChartDateMappingParams, string | number>,
   fetchFunction: (query: Q) => Promise<DailyCredits>
 ): Promise<DailyChartData<CI>> {
   // Fetch data
-  const datasets = await Promise.all(queries.map(fetchFunction));
+  const datasets = await Promise.all(
+    configuration.map((configurationItem) =>
+      fetchFunction(configurationItem.query)
+    )
+  );
 
   // Use a dictionnary to merge data and find the smallest and biggest dates
   const records: Record<string, GenericChartDataItem> = {};
   let minDate = 0;
   let maxDate = 0;
   for (const i in datasets) {
-    const query = queries[i];
-    const date_field = query.date_field;
+    const mapping = configuration[i].dataMapping;
+    if (mapping == undefined)
+      throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
+    const dateField = mapping.dateField;
     const dataset = datasets[i];
     dataset?.items.forEach((item) => {
-      const date = Date.parse(item[date_field] as string);
-      records[date] = records[date_field] || {};
+      const date = Date.parse(item[dateField] as string);
+      records[date] = records[date] || {};
       const record = records[date];
       record.date = date;
-      record[query.key] = item.quantity;
+      // TODO: solve data typing properly
+      record[mapping.destination] = item[
+        mapping.source as keyof typeof item
+      ] as string;
       minDate = minDate || date;
       maxDate = maxDate || date;
       if (date < minDate) minDate = date;
@@ -62,8 +71,12 @@ export async function prepareDailyChartData<
         record = records[date] || Object.assign({}, previousRecord);
       }
       // If there is no value for a key, use the value from the previous record
-      queries.forEach((query) => {
-        record[query.key] = record[query.key] || previousRecord[query.key];
+      configuration.forEach((configurationItem) => {
+        if (configurationItem.dataMapping == undefined)
+          throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
+        const destination = configurationItem.dataMapping.destination;
+        record[destination] =
+          record[destination] || previousRecord[destination] || 0;
       });
       // Ensure the date is okay (if we copied the previous record)
       record.date = date;
@@ -83,18 +96,23 @@ export async function prepareDailyChartData<
 */
 export async function prepareAggregatedChartData<
   CI extends GenericAggregatedChartDataItem,
-  Q extends ChartMappingParams,
+  Q,
 >(
-  queries: Array<Q>,
+  configuration: ChartConfiguration<Q, ChartMappingParams, string | number>,
   fetchFunction: (query: Q) => Promise<AggregatedCredits>
 ): Promise<ChartData<CI>> {
-  const datasets = await Promise.all(queries.map(fetchFunction));
+  const datasets = await Promise.all(
+    configuration.map((configurationItem) =>
+      fetchFunction(configurationItem.query)
+    )
+  );
   const chartData: ChartData<CI> = [];
   datasets.forEach((dataset, i) => {
     const record: CI = {} as CI;
-    record.id = queries[i].key;
-    record.color = queries[i].color;
-    record.label = queries[i].label || queries[i].key;
+    const chartOptions = configuration[i].chartOptions;
+    record.id = chartOptions.id;
+    record.color = chartOptions.color;
+    record.label = chartOptions.label || chartOptions.id;
     record.quantity = dataset.quantity;
     chartData.push(record);
   });

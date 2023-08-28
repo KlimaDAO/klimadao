@@ -1,6 +1,7 @@
 "use client"; // use client for recharts animations
+import { DailyCreditsChartConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import helpers from "lib/charts/helpers";
-import { Bridge, DailyCreditsChartData } from "lib/charts/types";
+import { DailyCreditsChartData } from "lib/charts/types";
 import {
   AreaChart,
   Legend,
@@ -16,11 +17,10 @@ import {
   KlimaXAxisMonthlyProps,
   KlimaYAxisTonsProps,
 } from "../helpers";
-import { ChartConfiguration } from "../helpers/Configuration";
 
 interface Props {
   data: DailyCreditsChartData;
-  configuration: ChartConfiguration<Bridge>;
+  configuration: DailyCreditsChartConfiguration;
 }
 export default function Chart(props: Props) {
   return (

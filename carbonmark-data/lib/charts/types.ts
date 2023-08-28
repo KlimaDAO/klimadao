@@ -50,12 +50,11 @@ export interface AggregatedCredits {
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
-  key: string; // When querying, the quantity attribute from the response will be mapped and merged to this key
-  label: string; // A label to display on the chart. Defaults to key.
-  color: string; // The color associated to the dataset
+  source: string; // Qhen querying source field is renamed into destination
+  destination: string;
 }
-export interface ChartDateMappingParams {
-  date_field: DateField; // The date_field expected in the response Object
+export interface ChartDateMappingParams extends ChartMappingParams {
+  dateField: DateField; // The date_field expected in the response Object
 }
 
 // Chart data: Generics
