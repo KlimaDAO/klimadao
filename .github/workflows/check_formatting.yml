@@ -1,0 +1,54 @@
+name: Check formatting
+on:
+  push:
+    branches: "*"
+  pull_request:
+    branches: "*"
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get Prettier version
+        id: prettier-version
+        run: >
+          echo "version=$(cat package.json | grep '\"prettier\": \"' |
+          cut -d ':' -f 2 | tr -d '"' | tr -d ' ' | tr -d ,)" >> $GITHUB_OUTPUT
+
+      - name: Get Prettier organize imports version
+        id: prettier-org-import-version
+        run: >
+          echo "version=$(cat package.json | grep '\"prettier-plugin-organize-imports\": \"' |
+          cut -d ':' -f 2 | tr -d '"' | tr -d ' ' | tr -d ,)" >> $GITHUB_OUTPUT
+
+      - name: Install Prettier
+        run: npm install -g prettier@${{ steps.prettier-version.outputs.version }}
+
+      - name: Install Prettier plugins
+        run: npm install -g --prefix=$(pwd) prettier-plugin-organize-imports@${{ steps.prettier-org-import-version.outputs.version }}
+
+      - name: Move Prettier plugins
+        run: mv lib/node_modules .
+
+      - name: Get base branch
+        id: base-branch
+        run: |
+          if [ "$GITHUB_REF" == "refs/heads/staging" ]; then
+            echo "base_branch=main" >> $GITHUB_OUTPUT
+          else
+            echo "base_branch=staging" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get changed directories
+        id: changed-dirs
+        run: |
+          changed=$(git diff --name-only origin/${{ steps.base-branch.outputs.base_branch }} | grep -v "node_modules" | cut -d/ -f1 | sort -u | tr "\n" " ")
+          echo "changed_dirs=$changed" >> $GITHUB_OUTPUT
+
+      - name: Run Prettier on changed directories
+        if: ${{ steps.changed-dirs.outputs.changed_dirs != '' }}
+        run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }}

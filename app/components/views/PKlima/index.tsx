@@ -154,7 +154,7 @@ export const PKlima: FC<Props> = (props) => {
       };
     } else if (isLoading) {
       return {
-        label: t({ id: "shared.loading", message: "Loading" }),
+        label: t`Loading`,
         disabled: true,
       };
     } else if (

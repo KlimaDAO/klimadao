@@ -52,8 +52,8 @@ export async function getAllCategories(fastify: FastifyInstance) {
   const cacheKey = `categories`;
   // Try to get the cached result
   try {
-    const cachedResult = await fastify.lcache.get<Category[]>(cacheKey)
-      ?.payload;
+    const cachedResult =
+      await fastify.lcache.get<Category[]>(cacheKey)?.payload;
 
     // If the cached result exists, return it
     if (cachedResult) return cachedResult;

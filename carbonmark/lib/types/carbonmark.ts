@@ -310,19 +310,19 @@ export type CategoryName =
   | "Blue Carbon";
 
 export type Purchase = {
-  /** Transaction hash */
   id: string;
-  /** Stringified 18 decimal BigNumber */
-  amount: BigNumber;
-  /** The purchased listing info */
-  listing: ListingWithProject;
-  /** Stringified 6 decimal BigNumber */
-  price: string;
-  /** Unix seconds timestamp */
-  timeStamp: string;
-  user: {
-    id: string;
+  amount: string;
+  listing: {
+    project: {
+      country: string;
+      key: string;
+      methodology: string;
+      name: string;
+      projectID: string;
+      vintage: string;
+    };
   };
+  price: string;
 };
 
 export type CarbonmarkToken = "usdc" | "c3" | "tco2";

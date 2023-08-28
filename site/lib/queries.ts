@@ -13,16 +13,16 @@ const hideFromProduction = IS_PRODUCTION
 
 const isDomainKlimadao = '(domain == "klimadao" || !defined(domain))';
 
-const localeFilter =
-  '(locale == $locale || (!defined(locale) && $locale == "en"))';
+const localeFilter = `(!defined(locale) || locale == "en" || locale == $locale)`;
 
 /** these filters are typicaly used for all queries, filters the documents for locale, domain and production environment */
 export const baseFilters = `${localeFilter} && ${hideFromProduction} && ${isDomainKlimadao}`;
 
 export const queries = {
   /** fetch all blog posts and podcasts, sorted by publishedAt, limit to 20 */
+
   allDocuments: /* groq */ `
-    *[_type in ["post", "podcast"] && ${baseFilters}][0...20] | order(publishedAt desc) {
+    *[_type in ["post", "podcast"] && ${baseFilters}] | order((locale == $locale) desc, publishedAt desc)[0...20] {
       "type": _type,
       publishedAt, 
       title, 
@@ -37,7 +37,7 @@ export const queries = {
 
   /** fetch all blog posts, sorted by publishedAt */
   allPosts: /* groq */ `
-    *[_type == "post" && ${baseFilters}] | order(publishedAt desc) {
+    *[_type == "post" && ${baseFilters}] | order((locale == $locale) desc, publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
@@ -49,7 +49,7 @@ export const queries = {
 
   /** fetch all blog posts with isFeaturedArticle == true, limit to 20, sorted by publishedAt */
   allFeaturedPosts: /* groq */ `
-    *[_type == "post"  && isFeaturedArticle == true && ${baseFilters}][0...20] | order(publishedAt desc) {
+    *[_type == "post"  && isFeaturedArticle == true && ${baseFilters}] | order((locale == $locale) desc, publishedAt desc)[0...20] {
       summary, 
       "slug": slug.current, 
       title, 
@@ -62,7 +62,7 @@ export const queries = {
 
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
-    *[_type == "post" && ${baseFilters}] | order(publishedAt desc) {
+    *[_type == "post" && ${baseFilters}] | order((locale == $locale) desc, publishedAt desc) {
       "slug": slug.current, 
       title
     }[0]
@@ -98,7 +98,7 @@ export const queries = {
   `,
 
   allPodcasts: /* groq */ `
-  *[_type == "podcast"  && ${baseFilters}] | order(publishedAt desc) {
+  *[_type == "podcast"  && ${baseFilters}] | order((locale == $locale) desc, publishedAt desc) {
     summary, 
     "slug": slug.current, 
     title, 

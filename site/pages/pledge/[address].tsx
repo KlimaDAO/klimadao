@@ -111,9 +111,8 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
           address: resolvedAddress,
         })
       );
-      const values: RetirementsTotalsAndBalances[] = await Promise.all(
-        promises
-      );
+      const values: RetirementsTotalsAndBalances[] =
+        await Promise.all(promises);
       const reduced = values.reduce<RetirementsTotalsAndBalances>(
         (prev, curr) => {
           prev.totalRetirements = (

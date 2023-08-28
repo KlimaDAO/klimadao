@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/macro";
-import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { Text } from "components/Text";
+import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { User } from "lib/types/carbonmark";
 import { FC } from "react";

@@ -172,10 +172,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             id: "connectModal.institutional",
           }),
           titles: {
-            connect: t({
-              id: "shared.login",
-              message: "login",
-            }),
+            connect: t`Login`,
             loading: t({
               id: "connect_modal.connecting",
               message: "Connecting...",

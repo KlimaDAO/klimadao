@@ -15,7 +15,7 @@ export const blockQuote = css`
   border-left: 1rem solid var(--klima-green);
   margin: 1.5em 1rem;
   padding: 0.5em 1rem;
-  quotes: "\\201C""\\201D""\\2018""\\2019";
+  quotes: "\\201C" "\\201D" "\\2018" "\\2019";
   &:before {
     color: var(--klima-green);
     content: open-quote;

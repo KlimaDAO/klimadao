@@ -1,4 +1,4 @@
-import fastify from "fastify";
+import Fastify from "fastify";
 import app from "./app";
 
 const PORT = 3003;
@@ -11,11 +11,10 @@ const PORT = 3003;
  * **Note** This is not required for tests as we use `app.inject` to mock requests to the FastifyInstance
  */
 async function main() {
-  const server = fastify();
+  const fastify = Fastify();
   try {
-    await server.register(app);
-    await server.listen({ port: PORT });
-
+    await fastify.register(app);
+    await fastify.listen({ port: PORT });
     console.info(`Server ready at http://localhost:${PORT}`);
   } catch (e) {
     console.error(e);

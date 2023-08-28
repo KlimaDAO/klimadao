@@ -10,7 +10,7 @@ export type Config = {
       path: string;
       include: string[];
       exclude: string[];
-    }
+    },
   ];
   service?: {
     name: "TranslationIO";
