@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import DetailPage from "components/pages/DetailPage";
 
-export default function VerraCreditsByBridgePage() {
+export default function VerraCreditsTokenizedByBridgePage() {
   return (
     <DetailPage
       pageTitle={t`Tokenized Credits by Bridge`}

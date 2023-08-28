@@ -66,7 +66,7 @@ export default function TokenizedCreditsCard() {
   return (
     <ChartCard
       title={t`Tokenized Credits By Bridge`}
-      detailUrl="/details/tokenized-credits-by-bridge"
+      detailUrl="/details/verra-credits-tokenized-by-bridge"
       charts={charts}
     />
   );
