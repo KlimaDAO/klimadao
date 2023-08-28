@@ -61,18 +61,17 @@ const ProjectsController = () => {
         {!isEmpty(projects) && !isMap && (
           <Text t="h5">{projects.length} Results</Text>
         )}
-        <div className={styles.displayToggle}>
-          <Toggle
-            selected={params.layout}
-            onChange={(val) => {
-              updateQueryParams({
-                ...router.query,
-                layout: val as FilterValues["layout"],
-              });
-            }}
-            options={viewOptions}
-          />
-        </div>
+        <Toggle
+          className={styles.toggle}
+          selected={params.layout}
+          onChange={(val) => {
+            updateQueryParams({
+              ...router.query,
+              layout: val as FilterValues["layout"],
+            });
+          }}
+          options={viewOptions}
+        />
       </div>
       <ProjectFilterModal
         showModal={showFilterModal}

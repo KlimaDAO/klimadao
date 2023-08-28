@@ -5,6 +5,7 @@ export const main = css`
 `;
 
 export const button = css`
+  height: 4.4rem;
   width: 4.8rem;
   display: flex;
   justify-content: center;
@@ -24,7 +25,6 @@ export const button = css`
   }
 
   &.selected {
-    color: white;
-    background: var(--manatee);
+    background: var(--yellow);
   }
 `;

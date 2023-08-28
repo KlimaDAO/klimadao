@@ -11,6 +11,10 @@ export const absolute = css`
     grid-column: full;
     padding: 4rem;
   }
+  // We ned to make the controls visible over variable contrast of the map
+  // Using a filter so that it works with children's rounded corners
+  // Filters don't allow complex shadows so unable to use var(--shadow-01)
+  filter: drop-shadow(0 0.2rem 0.2rem rgba(0, 0, 0, 0.24));
 `;
 
 export const controller = css`
@@ -52,41 +56,6 @@ export const displayOptions = css`
   margin-bottom: 0.8rem;
 `;
 
-export const displayToggle = css`
+export const toggle = css`
   margin-left: auto;
-`;
-
-/** List view is only available on Desktop */
-export const viewToggle = css`
-  display: none;
-
-  ${breakpoints.desktop} {
-    display: flex;
-
-    & button {
-      width: 4.8rem;
-      border-radius: 0.4rem;
-      color: black !important;
-      background: white !important;
-
-      &.selected {
-        background: var(--yellow) !important;
-      }
-    }
-
-    & div {
-      :first-of-type {
-        button {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-      :last-of-type {
-        button {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
-    }
-  }
 `;

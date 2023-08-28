@@ -6,19 +6,25 @@ type ToggleProps = {
   options: ToggleOptionProps[];
   selected: ToggleOptionProps["value"];
   onChange?: (value: string | undefined | number) => void;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 /** Multi option Toggle (radio) component  */
-export const Toggle: FC<ToggleProps> = (props) => {
+export const Toggle: FC<ToggleProps> = ({
+  options,
+  onChange,
+  selected,
+  className,
+  ...rest
+}) => {
   return (
-    <div className={styles.main}>
-      {props.options.map((option) => (
+    <div className={cx(styles.main, className)} {...rest}>
+      {options.map((option) => (
         <ToggleOption
           content={option.content}
           value={option.value}
           key={option.value}
-          onClick={() => props.onChange?.(option.value)}
-          className={cx({ selected: props.selected === option.value })}
+          onClick={() => onChange?.(option.value)}
+          className={cx({ selected: selected === option.value })}
         />
       ))}
     </div>
