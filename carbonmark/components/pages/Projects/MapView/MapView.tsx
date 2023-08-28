@@ -4,8 +4,8 @@ import { compact } from "lodash";
 import { map as mapFn, pipe, uniqBy } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useRef } from "react";
-import CarbonmarkMap from "./carbonmark-map";
 import * as styles from "./MapView.styles";
+import CarbonmarkMap from "./carbonmark-map";
 
 export const MapView = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
