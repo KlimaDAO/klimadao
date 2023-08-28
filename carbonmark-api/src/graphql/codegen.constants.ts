@@ -9,5 +9,5 @@ export const GRAPH_URLS = {
 };
 export const SANITY_URLS = {
   carbonProjects:
-    "https://l6of5nwi.api.sanity.io/v1/graphql/production/default",
+    "https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default",
 };
