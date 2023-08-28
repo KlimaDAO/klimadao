@@ -855,7 +855,8 @@ export const footer = css`
     align-items: center;
   }
 
-  a {
+  a,
+  a:visited {
     color: white;
   }
 `;

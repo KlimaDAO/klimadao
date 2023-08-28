@@ -3,7 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = (transparent = false) => css`
   background: ${transparent ? "none" : "var(--manatee)"};
-  width: 100vw;
+  grid-column: full;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -20,7 +20,8 @@ export const footer = (transparent = false) => css`
     align-items: center;
   }
 
-  a {
+  a,
+  a:visited {
     color: white;
   }
 `;
