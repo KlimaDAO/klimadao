@@ -6,15 +6,15 @@ import {
   TorusProvider,
   TypedProvider,
   WalletConnectProvider,
-  web3InitialState,
   Web3ModalState,
   Web3State,
   WrappedProvider,
+  web3InitialState,
 } from "../../components/Web3Context/types";
 import { urls } from "../../constants";
 
 /** Type guards for convenience and readability */
-const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
+export const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
   !!p && "isTorus" in p && p.isTorus;
 
 const isWalletConnectProvider = (

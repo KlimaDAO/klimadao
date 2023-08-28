@@ -23,6 +23,30 @@ export const projectsControls = css`
   }
 `;
 
+export const sortOptions = css`
+  gap: 2rem;
+  width: 100%;
+  display: flex;
+  grid-column: full;
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 0.8rem;
+`;
+
+export const dropdown = css`
+  width: 23.7rem;
+  text-align: left;
+  button {
+    width: 100%;
+    background-color: white;
+  }
+
+  & .tippy-content div > div {
+    background-color: white;
+  }
+`;
+
 export const projectsList = css`
   grid-column: full;
   justify-self: center;
@@ -42,6 +66,7 @@ export const card = css`
   grid-template-rows: auto 1fr;
   ${breakpoints.medium} {
     max-width: 32rem;
+    max-height: 36rem;
   }
   ${breakpoints.large} {
     transition: all 0.2s ease 0s;
@@ -62,6 +87,14 @@ export const cardDescription = css`
   -webkit-text-fill-color: transparent;
   background-clip: text;
   overflow: hidden;
+
+  max-height: 9rem;
+`;
+
+export const cardTitle = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const cardImage = css`
@@ -91,4 +124,51 @@ export const tags = css`
   }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+`;
+
+export const row = css`
+  gap: 2rem;
+  width: 100%;
+  display: flex;
+  grid-column: full;
+  max-width: 168rem;
+  align-items: center;
+  justify-self: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+`;
+
+/** List view is only available on Desktop */
+export const viewToggle = css`
+  display: none;
+
+  ${breakpoints.desktop} {
+    display: flex;
+
+    & button {
+      width: 4.8rem;
+      border-radius: 0.4rem;
+      color: black !important;
+      background: white !important;
+
+      &.selected {
+        background: var(--yellow) !important;
+      }
+    }
+
+    & div {
+      :first-of-type {
+        button {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      :last-of-type {
+        button {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
 `;

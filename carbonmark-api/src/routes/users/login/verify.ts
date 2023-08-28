@@ -8,6 +8,10 @@ type Body = {
 };
 
 const schema = {
+  summary: "Verify signed data",
+  description:
+    "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
+  tags: ["Auth"],
   body: {
     type: "object",
     properties: {

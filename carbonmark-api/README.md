@@ -1,39 +1,12 @@
 <!-- PROJECT LOGO -->
+
 <br />
-
-<div  align="center">
-
+<div align="center">
 <a  href="https://github.com/github_username/repo_name">
-
 <img  src="./assets/logo.png"  alt="Logo"  width="80"  height="80">
-
 </a>
-
-<h2  align="center">Carbonmark Api</h2>
-
-<p  align="center">
-
-A BFF API for Carbonmark
-
-<br />
-
-</p>
-
+<h2 align="center">Carbonmark REST API</h2>
 </div>
-
-### Built With
-
-- [Fastify](https://fastify.io)
-
-- [Vercel](https://vercel.com)
-
-- [Firebase](https://firebase.google.com)
-
-- [Apollo](https://www.apollographql.com/)
-
-- [Ethers](https://docs.ethers.org/)
-
-<br />
 
 ## Getting Started
 
@@ -65,7 +38,7 @@ vercel  link
 
 The vercel config is where all environment variables required for the project are defined and can be pulled down via the `vercel-cli`.
 
-Using the below command, the newest version of vercel cli will create a `.vercel`folder in the root and install the env variables in `.vercel/.env.development.local`.
+Using the below command, the newest version of vercel cli will create a `.vercel` folder in the root and install the env variables in `.vercel/.env.development.local`.
 
 Previous versions created and stored in an `.env.local` in the root.
 
@@ -76,13 +49,13 @@ Ensure you have updated vercel cli to the latest version (31.0.4 as of this doc)
 - run from root
 
 ```sh
-vercel  env  pull  --environment  development
+vercel env pull --environment development .env.local
 ```
 
 or
 
 ```sh
-vercel  env  pull  --environment  production
+vercel env pull --environment production .env.local
 ```
 
 ### Install dependencies
@@ -93,21 +66,9 @@ vercel  env  pull  --environment  production
 cd  carbonmark-api && npm  ci
 ```
 
-## Coming from previous version
+## Development
 
-In `carbonmark-api/`:
-
-Delete the current `dist` folder if it exists
-
-Run `npm run build` to create a new `dist` folder with the correct path
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-### `vercel dev` or `npm run dev-carbonmark-api`
-
-To start the app in dev mode.
+`npm run dev-carbonmark-api` to start the app in dev mode.
 
 Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
@@ -123,8 +84,24 @@ Run the test cases.
 
 Run the test cases via postman
 
-<!-- TODO Add description about deployment process -->
+## Releases & Versioning
 
-<!-- TODO Add description of available endpoints -->
+To increment the API version, create a new git tag of the format `carbonmark-api/vX.X.X` using [SemVer](https://semver.org/).
+Github Actions will build and deploys that version of the API to the `vX.X.X.api.carbonmark.com` domain.
 
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
+The root `api.carbonmark.com` domain is always running the latest version of the code on `main`.
+
+Breaking changes should be documented in Github tags.
+
+#### Hotfixes
+
+To create a hotfix on an earlier API version that customesr are using, check out an earlier tagged commit, create a branch, then tag and release a hotfix from that branch.
+
+## Reference Docs & OpenAPI Spec
+
+Reference docs can be found at the root.
+[api.carbonmark.com](https://api.carbonmark.com)
+
+These are generated from an OpenAPI JSON spec that is auto-generated from our Fastify schemas. The raw JSON spec is not kept in source control-- it can be accessed at [api.carbonmark.com/openapi.json](https://api.carbonmark.com/openapi.json).
+
+Fastify schemas are co-located with the respective route handlers, except for the root OpenAPI config, which is located in [src/plugins/open-api.ts](./src/plugins/open-api.ts). For more info see the @fastify/swagger plugin docs.

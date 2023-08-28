@@ -1,9 +1,9 @@
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
-import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
+import { ProjectHeader } from "components/pages/Project/ProjectHeader";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRedeemAllowance,
@@ -181,12 +181,14 @@ export const PurchaseForm: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <TotalValues balance={balance} price={props.price} />
-          </Card>
-          <Card>
-            <AssetDetails price={props.price} project={props.project} />
-          </Card>
+          <div className={styles.stickyContentWrapper}>
+            <Card>
+              <TotalValues balance={balance} price={props.price} />
+            </Card>
+            <Card>
+              <AssetDetails price={props.price} project={props.project} />
+            </Card>
+          </div>
           <SubmitButton
             onSubmit={onContinue}
             isLoading={isLoadingAllowance}

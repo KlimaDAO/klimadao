@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 import { Section, Text } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
 import { Container } from "../Container";

@@ -1,5 +1,5 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { FC } from "react";
 

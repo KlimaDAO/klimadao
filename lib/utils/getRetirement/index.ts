@@ -28,7 +28,7 @@ export const getRetirementTotalsAndBalances = async (params: {
       BigNumber,
       BigNumber,
       BigNumber,
-      BigNumber
+      BigNumber,
     ] = [
       retirementStorageContract.getRetirementTotals(params.address),
       retirementStorageContract.getRetirementPoolInfo(

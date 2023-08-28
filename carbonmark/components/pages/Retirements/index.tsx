@@ -1,12 +1,12 @@
 import {
-  CopyAddressButton,
+  CopyValueButton,
   GridContainer,
   Section,
   Text,
 } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Footer } from "components/Footer";
@@ -70,16 +70,16 @@ export const RetirementPage: NextPage<Props> = (props) => {
                 <Trans id="retirement.totals.page_subline">
                   for beneficiary
                 </Trans>
-                <CopyAddressButton
-                  address={nameserviceDomain || beneficiaryAddress}
+                <CopyValueButton
+                  value={nameserviceDomain || beneficiaryAddress}
                   label={nameserviceDomain || concattedAddress}
                   className={styles.largeCopyButton}
                 />
               </Text>
               {nameserviceDomain && (
                 <Text align="center" className={styles.address}>
-                  <CopyAddressButton
-                    address={beneficiaryAddress}
+                  <CopyValueButton
+                    value={beneficiaryAddress}
                     label={concattedAddress}
                   />
                 </Text>
@@ -128,7 +128,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="lightGray" />
+          <CopyValueButton label="Copy Link" variant="lightGray" />
         </div>
       </Section>
       <Section variant="gray" className={styles.section}>

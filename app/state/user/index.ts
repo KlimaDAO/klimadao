@@ -16,8 +16,8 @@ import {
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
 import {
   ActionReducerMapBuilder,
-  createSlice,
   PayloadAction,
+  createSlice,
 } from "@reduxjs/toolkit";
 import { RedeemPaymentMethod } from "lib/hooks/useRedeemParams";
 import { redeemBond } from "state/bonds";

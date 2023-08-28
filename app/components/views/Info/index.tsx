@@ -1,7 +1,7 @@
 import { providers } from "ethers";
 import { FC } from "react";
 
-import { Anchor as A, CopyAddressButton, Text } from "@klimadao/lib/components";
+import { Anchor as A, CopyValueButton, Text } from "@klimadao/lib/components";
 import { addresses, urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -196,9 +196,9 @@ export const Info: FC<Props> = (props) => (
                   {concatAddress(info.address)}
                 </A>
 
-                <CopyAddressButton
+                <CopyValueButton
                   aria-label={info.ariaLabel}
-                  address={info.address}
+                  value={info.address}
                 />
 
                 {typeof props.provider?.provider?.request === "function" &&

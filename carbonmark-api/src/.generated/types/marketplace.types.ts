@@ -273,10 +273,6 @@ export type Category = {
   id: Scalars['String'];
 };
 
-export type CategoryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
 export type Category_Filter = {
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
@@ -311,10 +307,6 @@ export enum Category_OrderBy {
 export type Country = {
   __typename?: 'Country';
   id: Scalars['String'];
-};
-
-export type CountryFilter = {
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type Country_Filter = {
@@ -573,13 +565,6 @@ export type ProjectListingsArgs = {
   orderDirection?: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Listing_Filter>;
-};
-
-export type ProjectFilter = {
-  category_?: InputMaybe<CategoryFilter>;
-  country_?: InputMaybe<CountryFilter>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  vintage_in?: InputMaybe<Array<InputMaybe<Scalars['BigInt']>>>;
 };
 
 export type Project_Filter = {
@@ -1363,7 +1348,7 @@ export type GetPurchasesByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, timeStamp: string, listing: { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null, project: { __typename?: 'Project', updatedAt?: string | null, id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category?: { __typename?: 'Category', id: string } | null, country?: { __typename?: 'Country', id: string } | null } }, user: { __typename?: 'User', id: any } }> };
+export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, user: { __typename?: 'User', id: any }, listing: { __typename?: 'Listing', id: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', key: string, methodology: string, name: string, projectID: string, vintage: string, country?: { __typename?: 'Country', id: string } | null } } }> };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet?: InputMaybe<Scalars['Bytes']>;
@@ -1380,7 +1365,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings?: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active?: boolean | null, deleted?: boolean | null, batches?: Array<string> | null, batchPrices?: Array<string> | null, singleUnitPrice: string, createdAt?: string | null, updatedAt?: string | null }> | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']>;
@@ -1432,21 +1417,21 @@ export const ActivityFragmentFragmentDoc = gql`
     `;
 export const GetCategoriesDocument = gql`
     query getCategories {
-  categories {
+  categories(first: 1000) {
     id
   }
 }
     `;
 export const GetCountriesDocument = gql`
     query getCountries {
-  countries {
+  countries(first: 1000) {
     id
   }
 }
     `;
 export const GetVintagesDocument = gql`
     query getVintages {
-  projects {
+  projects(first: 1000) {
     vintage
   }
 }
@@ -1456,28 +1441,29 @@ export const GetPurchasesByIdDocument = gql`
   purchases(first: 1, where: {id: $id}) {
     id
     amount
-    listing {
-      ...ListingFragment
-      project {
-        ...ProjectFragment
-        category {
-          id
-        }
-        country {
-          id
-        }
-        updatedAt
-      }
-    }
-    price
-    timeStamp
     user {
       id
     }
+    listing {
+      id
+      seller {
+        id
+      }
+      project {
+        country {
+          id
+        }
+        key
+        methodology
+        name
+        projectID
+        vintage
+      }
+    }
+    price
   }
 }
-    ${ListingFragmentFragmentDoc}
-${ProjectFragmentFragmentDoc}`;
+    `;
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: Bytes) {
   users(where: {id: $wallet}) {
@@ -1522,9 +1508,13 @@ export const FindProjectsDocument = gql`
     where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
   ) {
     ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
   }
 }
-    ${ProjectFragmentFragmentDoc}`;
+    ${ProjectFragmentFragmentDoc}
+${ListingFragmentFragmentDoc}`;
 export const GetProjectsByIdDocument = gql`
     query getProjectsById($key: String, $vintageStr: BigInt) {
   projects(where: {key: $key, vintage: $vintageStr}) {

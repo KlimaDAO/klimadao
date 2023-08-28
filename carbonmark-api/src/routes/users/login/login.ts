@@ -2,6 +2,10 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
 
 const schema = {
+  summary: "Get nonce",
+  description:
+    "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
+  tags: ["Auth"],
   body: {
     type: "object",
     properties: {

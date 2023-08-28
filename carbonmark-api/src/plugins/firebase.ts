@@ -1,24 +1,39 @@
-import fb from "@now-ims/fastify-firebase";
+import { getApps, initializeApp } from "firebase-admin/app";
+
+import { FastifyInstance } from "fastify";
 import fp from "fastify-plugin";
 import * as admin from "firebase-admin";
+import { isNil, pick } from "lodash";
 
-// Read the .env file.
-import * as dotenv from "dotenv";
-dotenv.config({ path: "../.env.local" });
+const ENV_VARS = [
+  "FIREBASE_CERT_CLIENT_EMAIL",
+  "FIREBASE_CERT_PRIVATE_KEY",
+  "FIREBASE_CERT_PROJECT_ID",
+];
 
-/**
- * This plugin adds the Firebase Admin SDK to Fastify
- * so we can easy use Firebase Auth, Firestore ect,
- *
- * @see https://github.com/now-ims/fastify-firebase
- */
-export default fp(async function (fastify) {
-  if (!process.env.FIREBASE_ADMIN_CERT) {
-    throw new Error("Environment variable FIREBASE_ADMIN_CERT is undefined");
+export default fp(async function (fastify: FastifyInstance) {
+  // Confirm that all required env vars have been set
+  if (Object.values(pick(process.env, ENV_VARS)).some(isNil)) {
+    throw new Error("Missing FIREBASE_CERT env vars");
   }
-  await fastify.register(fb, {
-    cert: admin.credential.cert(JSON.parse(process.env.FIREBASE_ADMIN_CERT)),
-  });
+
+  // Only initialise if necessary
+  if (getApps().length === 0) {
+    initializeApp({
+      credential: admin.credential.cert({
+        clientEmail: process.env.FIREBASE_CERT_CLIENT_EMAIL,
+        // We need to format escaped \n chars
+        // See: https://stackoverflow.com/questions/50299329/node-js-firebase-service-account-private-key-wont-parse
+        privateKey: process.env.FIREBASE_CERT_PRIVATE_KEY?.replace(
+          /\\n/g,
+          "\n"
+        ),
+        projectId: process.env.FIREBASE_CERT_PROJECT_ID,
+      }),
+    });
+  }
+
+  await fastify.decorate("firebase", admin.app());
 });
 
 export type FirebaseInstance = admin.app.App;

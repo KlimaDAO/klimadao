@@ -4,46 +4,43 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
-import { Dropdown } from "components/Dropdown";
+import { Text } from "components/Text";
 import { Modal, ModalProps } from "components/shared/Modal";
+import { useFetchProjects } from "hooks/useFetchProjects";
+import {
+  FilterValues,
+  SortOption,
+  defaultFilterProps,
+  useProjectsFilterParams,
+} from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
-import { omit } from "lodash";
+import { isString, pick } from "lodash";
 import { filter, map, pipe } from "lodash/fp";
 import { useRouter } from "next/router";
-import { FC } from "react";
-import { useForm } from "react-hook-form";
+import { FC, useEffect } from "react";
+import { useForm, useWatch } from "react-hook-form";
 import useSWRImmutable from "swr/immutable";
-import { getCategoryFilters, PROJECT_SORT_OPTIONS } from "./constants";
+import { getCategoryFilters } from "./constants";
 import * as styles from "./styles";
-
-type ModalFieldValues = {
-  country: string[];
-  category: string[];
-  vintage: string[];
-  sort: SortOption;
-};
-
-const DEFAULTS: ModalFieldValues = {
-  sort: "recently-updated",
-  country: [],
-  category: [],
-  vintage: [],
-};
 
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
-type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
-
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
+  const { projects, isValidating } = useFetchProjects();
+  const { defaultValues, updateQueryParams, resetQueryParams } =
+    useProjectsFilterParams();
 
-  //Set the default values and override with any existing url params
-  const defaultValues = { ...DEFAULTS, ...router.query };
-
-  const { control, reset, handleSubmit } = useForm<ModalFieldValues>({
+  // Set the default values and override with any existing url params
+  const { control, reset, setValue, getValues } = useForm<FilterValues>({
     defaultValues,
+  });
+
+  const watchers = useWatch({
+    control,
+    name: ["country", "category", "vintage"],
   });
 
   /**
@@ -85,69 +82,91 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
     value: vintage,
   }));
 
-  const onSubmit = (values: ModalFieldValues) => {
-    const { search } = router.query;
-    // Maintain any search value
-    const query = search ? { search, ...values } : values;
-    router.replace(
-      { query },
-      undefined,
-      { shallow: true } // don't refetch props nor reload page
-    );
-    //Close the modal on submit
+  useEffect(() => {
+    if (!router.isReady || !props.showModal) return;
+    updateQueryParams({
+      ...getValues(),
+      ...pick(router.query, "search", "sort" as SortOption),
+    });
+  }, [watchers]);
+
+  useEffect(() => {
+    if (!router.query || !props.showModal) return;
+    const { category = [], country = [], vintage = [] } = router.query;
+    setValue("category", isString(category) ? [category] : category);
+    setValue("country", isString(country) ? [country] : country);
+    setValue("vintage", isString(vintage) ? [vintage] : vintage);
+  }, [props.showModal]);
+
+  const resetFilters = () => {
+    resetQueryParams();
+    reset(defaultFilterProps);
     props.onToggleModal?.();
   };
 
-  const initialSort = router.query.sort ? String(router.query.sort) : undefined;
+  const getAccordionSubtitle = (index: number) => {
+    const count = watchers?.[index]?.length;
+    return count > 0 ? `${count} Selected` : "";
+  };
 
   return (
     <Modal {...props} title="Filter Results" className={styles.main}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Dropdown
-          name="sort"
-          initial={initialSort ?? "recently-updated"}
-          className="dropdown"
-          aria-label={t`Toggle sort menu`}
-          renderLabel={(selected) => `Sort By: ${selected?.label}`}
-          control={control}
-          options={Object.entries(PROJECT_SORT_OPTIONS).map(
-            ([option, label]) => ({
-              id: option,
-              label: label,
-              value: option,
-            })
-          )}
-        />
+      <form>
         {/* Disabled until data can be provided by APIs */}
-        <Accordion label={t`Country`} loading={countriesLoading}>
+        <Accordion
+          label={t`Country`}
+          subtitle={getAccordionSubtitle(0)}
+          loading={countriesLoading}
+        >
           <CheckboxGroup
             options={countryOptions}
             name="country"
             control={control}
           />
         </Accordion>
-        <Accordion label={t`Category`} loading={categoriesLoading}>
+        <Accordion
+          label={t`Category`}
+          subtitle={getAccordionSubtitle(1)}
+          loading={categoriesLoading}
+        >
           <CheckboxGroup
             options={categoryOptions}
             name="category"
             control={control}
           />
         </Accordion>
-        <Accordion label={t`Vintage`} loading={vintagesLoading}>
+        <Accordion
+          label={t`Vintage`}
+          subtitle={getAccordionSubtitle(2)}
+          loading={vintagesLoading}
+        >
           <CheckboxGroup
             options={vintageOptions}
             name="vintage"
             control={control}
           />
         </Accordion>
-        <ButtonPrimary className="action" label={t`Apply`} type="submit" />
+        <ButtonPrimary
+          type="button"
+          className="action"
+          label={t`View Results`}
+          disabled={isValidating}
+          onClick={() => props.onToggleModal?.()}
+        />
         <ButtonSecondary
           variant="transparent"
           className="action"
-          type="submit"
+          type="button"
           label={t`Clear Filters`}
-          onClick={() => reset(omit(DEFAULTS, "sort"))}
+          onClick={resetFilters}
         />
+        <Text t="h5" align="center">
+          {!isValidating
+            ? `${projects.length} ${
+                projects.length === 1 ? t`Result` : t`Results`
+              }`
+            : t`Compiling Results ...`}
+        </Text>
       </form>
     </Modal>
   );

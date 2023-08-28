@@ -66,10 +66,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
           onClick={onToggle}
           role="button"
           className={styles.dropdownHeader}
-          aria-label={t({
-            id: "resources.list.select.sort_by.toggle",
-            message: "Toggle Select Project",
-          })}
+          aria-label={t`Toggle Select Project`}
         >
           <span>
             {props.selectedAsset?.project?.name ||

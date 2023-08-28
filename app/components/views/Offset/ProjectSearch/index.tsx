@@ -1,6 +1,6 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ErrorIcon from "@mui/icons-material/Error";
 import isEmpty from "lodash/isEmpty";
 import { FC, useEffect, useState } from "react";

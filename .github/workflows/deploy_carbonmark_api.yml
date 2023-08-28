@@ -10,6 +10,21 @@ on:
       - staging
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull Vercel Environment Information
+        run: vercel env pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }} .env.local
+
+      - name: Run tests
+        run: |
+          cd carbonmark-api
+          npm install
+          npm run test
+
   deploy_preview:
     runs-on: ubuntu-latest
     environment: Preview – carbonmark-api
@@ -20,13 +35,19 @@ jobs:
       - name: Set short commit hash to environment variable
         run: echo "SHORT_COMMIT_SHA=$(echo ${{ github.event.pull_request.head.sha }} | cut -c 1-7)" >> $GITHUB_ENV
 
-      - name: Pull Vercel Environment Information
+      - name: Pull Environment Vars
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Project Artifacts
+      - name: Build API
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy Project Artifacts to Vercel
+      - name: Deploy to Vercel
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
-          vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "$url" carbonmark-api-${{ env.SHORT_COMMIT_SHA }}-klimadao.vercel.app
+          echo "DEPLOYED_URL=$url" >> $GITHUB_ENV
+
+      - name: Healthcheck deployment
+        run: npx newman run carbonmark-api/postman_collection.json --env-var "url=${{ env.DEPLOYED_URL }}"
+
+      - name: Alias deployment
+        run: vercel alias --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_TEAM_ID }} set "${{ env.DEPLOYED_URL }}" carbonmark-api-${{ env.SHORT_COMMIT_SHA }}-klimadao.vercel.app

@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "theme/typography";
 
 export const changeLanguageButton = css`
@@ -9,10 +10,19 @@ export const changeLanguageButton = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 0;
   border-radius: 0.4rem;
-  margin-right: 1.2rem;
   &:hover {
     opacity: 0.7;
+  }
+
+  > svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  ${breakpoints.medium} {
+    margin-right: 1.2rem;
   }
 `;
 
@@ -23,7 +33,9 @@ export const tooltip = css`
   border-radius: 0.8rem;
   padding: 0 1.2rem;
   min-width: 15rem;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 4px 4px rgba(0, 0, 0, 0.24),
+    0px 0px 4px rgba(0, 0, 0, 0.12);
 
   @media (max-width: 32.5rem) {
     &.tippy-box {
