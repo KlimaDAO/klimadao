@@ -15,17 +15,18 @@ export type Status =
   | "issued"
   | "deposited";
 export type Pool = "ubo" | "nbo" | "nct" | "bct";
+export interface AggregationQueryParams {
+  operator?: "sum" | "cumsum";
+}
+
 export interface CreditsQueryParams {
   bridge?: Bridge;
   pool?: Pool;
   status?: Status;
 }
-export interface AggregationQueryParams {
-  operator?: "sum" | "cumsum";
-}
 export interface PaginationQueryParams {
   page_size?: number;
-  sort_by?: number;
+  sort_by?: string;
   sort_order?: string;
 }
 // API responses
@@ -47,6 +48,16 @@ export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
 export interface AggregatedCredits {
   quantity: number;
 }
+export interface PricesItem {
+  date: string;
+  bct_price: number;
+  nct_price: number;
+  mco2_price: number;
+  ubo_price: number;
+  nbo_price: number;
+  quantity: number;
+}
+export type Prices = PaginatedResponse<PricesItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {

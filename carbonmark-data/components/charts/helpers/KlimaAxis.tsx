@@ -20,11 +20,12 @@ const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
 /* XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
   data: ChartData<T>,
-  dataKey: keyof T
+  dataKey: keyof T,
+  locale: string
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     dataKey: "date",
-    tickFormatter: helpers.formatDateAsMonths,
+    tickFormatter: helpers.formatDateAsMonths(locale),
     ticks: helpers.niceTicks(data, dataKey),
   });
 }
@@ -47,5 +48,11 @@ export function KlimaYAxisTonsProps<CI, Q, M, T>(
       ? helpers.formatQuantityAsKiloTons
       : helpers.formatQuantityAsMillionsOfTons;
 
+  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+}
+
+/* YAxis props to display prices in an appropriate format */
+export function KlimaYAxisPriceProps(locale: string) {
+  const tickFormatter = helpers.formatPrice(locale);
   return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
 }

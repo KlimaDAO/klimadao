@@ -14,8 +14,8 @@ export default function DailyVerraCreditsCard() {
   const charts: ChartDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
-  ["onchain"].forEach((bridge) => {
-    ["issued"].forEach((stat) => {
+  ["onchain", "offchain"].forEach((bridge) => {
+    ["issued", "retired"].forEach((stat) => {
       let configuration: DailyCreditsChartConfiguration;
       let dateField: DateField;
       let status: Status;

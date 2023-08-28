@@ -8,7 +8,7 @@ export interface ChartConfigurationItem<T> {
 A chart configuration is an array of configuration items that also bear data about how to query data (Q)
 */
 export type ChartConfiguration<Q, M, C> = Array<{
-  query: Q;
+  query?: Q;
   dataMapping?: M;
   chartOptions: ChartConfigurationItem<C>;
 }>;

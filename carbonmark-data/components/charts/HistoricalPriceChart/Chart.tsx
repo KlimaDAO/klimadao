@@ -1,11 +1,11 @@
 "use client"; // use client for recharts animations
-import { DailyCreditsChartConfiguration } from "lib/charts/aggregators/getDailyCredits";
+import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
-import { DailyCreditsChartData } from "lib/charts/types";
+import { ChartData, PricesItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
-  AreaChart,
   Legend,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -13,27 +13,27 @@ import {
 } from "recharts";
 import {
   KlimaLegendProps,
-  KlimaStackedAreas,
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
-  KlimaYAxisTonsProps,
+  KlimaYAxisPriceProps,
 } from "../helpers";
+import { KlimaLines } from "../helpers/KlimaLineChart";
 
 interface Props {
-  data: DailyCreditsChartData;
-  configuration: DailyCreditsChartConfiguration;
+  data: ChartData<PricesItem>;
+  configuration: SimpleChartConfiguration;
 }
 export default function Chart(props: Props) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <AreaChart data={props.data}>
+      <LineChart data={props.data}>
         <XAxis {...KlimaXAxisMonthlyProps(props.data, "date", locale)} />
-        <YAxis {...KlimaYAxisTonsProps(props.data, props.configuration)} />
+        <YAxis {...KlimaYAxisPriceProps(locale)} />
         <Tooltip
           content={KlimaTooltip(
             helpers.formatDateAsDays(locale),
-            helpers.formatQuantityAsTons
+            helpers.formatPrice(locale)
           )}
           cursor={{ fill: "transparent" }}
         />
@@ -44,8 +44,8 @@ export default function Chart(props: Props) {
           align="left"
           wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
         />
-        {KlimaStackedAreas(props.configuration)}
-      </AreaChart>
+        {KlimaLines(props.configuration)}
+      </LineChart>
     </ResponsiveContainer>
   );
 }

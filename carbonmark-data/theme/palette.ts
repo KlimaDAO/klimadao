@@ -6,4 +6,11 @@ export const palette = {
     color4: "#88C2FF",
     color5: "#CCE4FF",
   },
+  charts_alternate: {
+    color1: "#00cc33",
+    color2: "#ff8a46",
+    color3: "#0ba1ff",
+    color4: "#0ba1ff",
+    color5: "#03045e",
+  },
 };

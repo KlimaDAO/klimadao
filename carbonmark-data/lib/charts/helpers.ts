@@ -1,4 +1,5 @@
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { DateTimeFormatOptions } from "next-intl";
 import {
   AggregatedCredits,
   ChartData,
@@ -28,9 +29,11 @@ export async function prepareDailyChartData<
 ): Promise<DailyChartData<CI>> {
   // Fetch data
   const datasets = await Promise.all(
-    configuration.map((configurationItem) =>
-      fetchFunction(configurationItem.query)
-    )
+    configuration.map((configurationItem) => {
+      if (configurationItem.query === undefined)
+        throw "Queries are necessary for prepareDailyChartData to fetch data";
+      return fetchFunction(configurationItem.query);
+    })
   );
 
   // Use a dictionnary to merge data and find the smallest and biggest dates
@@ -102,9 +105,11 @@ export async function prepareAggregatedChartData<
   fetchFunction: (query: Q) => Promise<AggregatedCredits>
 ): Promise<ChartData<CI>> {
   const datasets = await Promise.all(
-    configuration.map((configurationItem) =>
-      fetchFunction(configurationItem.query)
-    )
+    configuration.map((configurationItem) => {
+      if (configurationItem.query === undefined)
+        throw "Queries are necessary for prepareDailyChartData to fetch data";
+      return fetchFunction(configurationItem.query);
+    })
   );
   const chartData: ChartData<CI> = [];
   datasets.forEach((dataset, i) => {
@@ -120,6 +125,7 @@ export async function prepareAggregatedChartData<
 }
 
 // Common formatters
+// TODO: This goes to lib?
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
 ): string {
@@ -134,21 +140,39 @@ export const formatQuantityAsTons = function (quantity: number): string {
   quantity = Math.floor(quantity);
   return `${quantity} T`;
 };
-export const formatDateAsMonths = function (date: number): string {
-  const formatted_date = new Date(date);
-  return formatted_date.toLocaleDateString("de-DE", {
+export const formatPrice = function (locale: string) {
+  return function (price: number): string {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "USD",
+      maximumSignificantDigits: 2,
+    }).format(price);
+  };
+};
+function formatDate(
+  locale: string,
+  format: DateTimeFormatOptions
+): (date: number) => string {
+  return function (date: number): string {
+    const formatted_date = new Date(date);
+    return formatted_date.toLocaleDateString(locale, format);
+  };
+}
+
+export function formatDateAsMonths(locale: string): (date: number) => string {
+  return formatDate(locale, {
     year: "numeric",
     month: "short",
   });
-};
-export const formatDateAsDays = function (date: number): string {
-  const formatted_date = new Date(date);
-  return formatted_date.toLocaleDateString("de-DE", {
+}
+export function formatDateAsDays(locale: string): (date: number) => string {
+  return formatDate(locale, {
     day: "numeric",
     year: "numeric",
     month: "short",
   });
-};
+}
+
 // Returns a list of nice ticks to use in a chart given the data
 export function niceTicks<T>(
   data: ChartData<T>,
@@ -181,6 +205,7 @@ const helpers = {
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
+  formatPrice,
   formatDateAsMonths,
   formatDateAsDays,
   prepareDailyChartData,

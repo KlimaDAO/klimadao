@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import VerraCreditsCard from "components/cards/DailyCreditsCard";
 import * as chartStyles from "components/charts/styles";
 
+import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/TokenizedCreditsByBridgeCard";
 import * as styles from "./styles";
 
@@ -15,6 +16,7 @@ export default function OverviewPage() {
           <div className={chartStyles.chartRow}>
             <VerraCreditsCard></VerraCreditsCard>
             <TokenizedCreditsByBridgeCard></TokenizedCreditsByBridgeCard>
+            <HistoricalPriceCard></HistoricalPriceCard>
           </div>
         </div>
       </div>
