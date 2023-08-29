@@ -1,6 +1,6 @@
 import { LegendProps } from "recharts";
 import { ChartConfiguration } from "./Configuration";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 const BASE_LEGEND_PROPS = {
   formatter: (value: string) => (

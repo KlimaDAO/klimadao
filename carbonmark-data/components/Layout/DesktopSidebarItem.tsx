@@ -1,7 +1,7 @@
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { NavItem } from "./NavItems";
-import * as styles from "./styles";
+import styles from "./style.module.scss";
 
 interface Props {
   navItem: NavItem;

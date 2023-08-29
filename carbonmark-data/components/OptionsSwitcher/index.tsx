@@ -3,7 +3,7 @@
  */
 import { OptionChangeHandler, Options } from "lib/charts/options";
 import { Key, useState } from "react";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 export default function OptionsSwitcher(props: {
   options: Options;

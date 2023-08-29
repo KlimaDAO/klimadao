@@ -6,7 +6,7 @@ import OptionsSwitcher from "components/OptionsSwitcher";
 import Skeleton from "components/Skeleton";
 import { Options } from "lib/charts/options";
 import { Key, Suspense, useState } from "react";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.

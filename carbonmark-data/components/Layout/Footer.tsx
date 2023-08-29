@@ -9,7 +9,7 @@ import {
 } from "@mui/icons-material";
 import { Link } from "@mui/material";
 import { FC } from "react";
-import * as styles from "./styles";
+import styles from "./style.module.scss";
 
 export const Footer: FC = () => {
   return (

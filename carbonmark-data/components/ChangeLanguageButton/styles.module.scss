@@ -1,21 +1,21 @@
-import { css } from "@emotion/css";
-import * as typography from "theme/typography";
+@import "theme/typography.module.scss";
 
-export const changeLanguageButton = css`
+.changeLanguageButton {
   min-width: 48px;
   min-height: 48px;
   width: 48px;
   height: 48px;
   color: var(--text-color-01);
   background-color: var(--surface-01);
+
   svg {
     width: 24px;
     height: 24px;
   }
-`;
+}
 
-export const tooltip = css`
-  ${typography.body1};
+.tooltip {
+  @include body1;
   text-align: center;
   background: white;
   border-radius: 0.8rem;
@@ -33,6 +33,7 @@ export const tooltip = css`
 
   .tippy-content {
     padding: 0.5rem 0;
+
     button {
       box-shadow: none;
     }
@@ -41,17 +42,19 @@ export const tooltip = css`
   .tippy-arrow {
     display: none;
   }
-`;
+}
 
-export const menuItem = css`
-  ${typography.body1};
+.menuItem {
+  @include body1;
   padding: 0;
   height: 4.4rem;
   align-items: center;
+
   &:hover {
     color: var(--bright-blue);
   }
+
   &[data-active="true"] {
     color: var(--bright-blue);
   }
-`;
+}

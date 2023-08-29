@@ -1,7 +1,7 @@
 import { Menu } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { FC, ReactNode } from "react";
-import * as styles from "./styles";
+import styles from "./style.module.scss";
 
 interface Props {
   children?: ReactNode;

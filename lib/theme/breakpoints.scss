@@ -1,0 +1,35 @@
+/** em units inside media queries take browser default (16px) */
+/** 23.5em, 376px */
+@mixin small {
+    @media (min-width: 23.5em) {
+        @content;
+    }
+}
+
+/** 36em, 576px */
+@mixin medium {
+    @media (min-width: 36em) {
+        @content;
+    }
+}
+
+/**  48em, 768px */
+@mixin large {
+    @media (min-width: 48em) {
+        @content;
+    }
+}
+
+/** 62em, 992px */
+@mixin desktop {
+    @media (min-width: 62em) {
+        @content;
+    }
+}
+
+/** 75em, 1200px */
+@mixin desktopLarge {
+    @media (min-width: 75em) {
+        @content;
+    }
+}

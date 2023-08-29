@@ -3,7 +3,7 @@ import {
   NameType,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 export function KlimaTooltip(
   xAxisFormatter: (v: number) => string,

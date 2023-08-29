@@ -5,7 +5,7 @@ import Language from "@mui/icons-material/Language";
 import { Button } from "@mui/material";
 import Tippy from "@tippyjs/react";
 import { FC, useState } from "react";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 export const ChangeLanguageButton: FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
