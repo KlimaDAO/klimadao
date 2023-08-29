@@ -162,6 +162,7 @@ const handler = (fastify: FastifyInstance) =>
     // Remove invalid projects and duplicates selecting the project with the lowest price
     const filteredUniqueProjects = pipe(
       concat,
+      compact,
       filter(validProject),
       sortBy("price"),
       uniqBy(buildProjectKey)
