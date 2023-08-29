@@ -27,16 +27,15 @@ const ProjectsController = () => {
   const isMap = params.layout === "map";
 
   const viewOptions = [
-    // @todo add tooltips
-    // <TextInfoTooltip tooltip={t`Grid view`}>
-    // </TextInfoTooltip>
     {
       content: <GridViewOutlined />,
       value: "grid",
+      tooltip: "Grid view",
     },
     {
       content: <MapOutlinedIcon />,
       value: "map",
+      tooltip: "Map view",
     },
   ];
 
@@ -45,6 +44,7 @@ const ProjectsController = () => {
     viewOptions.splice(1, 0, {
       content: <ListOutlined />,
       value: "list",
+      tooltip: "List view",
     });
 
   return (

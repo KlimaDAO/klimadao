@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
@@ -20,9 +21,10 @@ export const Toggle: FC<ToggleProps> = ({
     <div className={cx(styles.main, className)} {...rest}>
       {options.map((option) => (
         <ToggleOption
+          tooltip={option.tooltip}
+          key={option.value}
           content={option.content}
           value={option.value}
-          key={option.value}
           onClick={() => onChange?.(option.value)}
           className={cx({ selected: selected === option.value })}
         />
@@ -32,15 +34,18 @@ export const Toggle: FC<ToggleProps> = ({
 };
 
 type ToggleOptionProps = {
-  content: React.ReactNode;
+  content: React.ReactElement;
   value: string | number;
+  tooltip?: string;
 } & Pick<HTMLAttributes<HTMLButtonElement>, "onClick" | "className">;
 
 const ToggleOption: FC<ToggleOptionProps> = (props) => (
-  <button
-    onClick={props.onClick}
-    className={cx(styles.button, props.className)}
-  >
-    {props.content}
-  </button>
+  <TextInfoTooltip tooltip={props.tooltip}>
+    <button
+      onClick={props.onClick}
+      className={cx(styles.button, props.className)}
+    >
+      {props.content}
+    </button>
+  </TextInfoTooltip>
 );
