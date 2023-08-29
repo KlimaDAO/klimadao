@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-28 15:35+0000\n"
+"POT-Creation-Date: 2023-08-29 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -377,6 +377,8 @@ msgstr "जारी रखें"
 #: components/CopyAddressButton/index.tsx:36
 msgid "Copy"
 msgstr ""
+"\n"
+"नकल"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
@@ -439,7 +441,7 @@ msgstr "बन गई:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:201
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "क्रेडिट कार्ड से भुगतान पर अतिरिक्त प्रोसेसिंग शुल्क लगता है। <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
@@ -577,7 +579,7 @@ msgstr "वापस जाएँ"
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:115
 msgid "Grid view"
-msgstr ""
+msgstr "ग्रिड व्यू"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -688,7 +690,7 @@ msgstr "मुफ़्त में सूचीबद्ध करें औ�
 #. js-lingui-explicit-id
 #: components/pages/Projects/index.tsx:126
 msgid "List view"
-msgstr ""
+msgstr "लिस्ट व्यू"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:295
@@ -857,7 +859,7 @@ msgstr "हमारे सहयोगी"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
 msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
-msgstr ""
+msgstr "हमारा सिस्टम अपेक्षा से अधिक समय ले रहा है. सेवानिवृत्ति आपके <0>सेवानिवृत्ति इतिहास</0> में दिखाई देनी चाहिए जल्द ही।"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
@@ -884,7 +886,7 @@ msgstr "भुगतान सफल हुआ"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:197
 msgid "Payment processing fee"
-msgstr ""
+msgstr "रिटायरमेंट प्रोसेसिंग शुल्क"
 
 #. js-lingui-explicit-id
 #: components/LoginCard/index.tsx:21
@@ -929,7 +931,7 @@ msgstr "मूल्य न्यूनतम"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:147
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "कीमत में नेटवर्क शुल्क शामिल है. <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
@@ -1454,6 +1456,8 @@ msgstr "अपनी रिटायरमैंट को अंतिम र�
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
 msgstr ""
+"प्रोजेक्ट का चयन करें टॉगल \n"
+"करके"
 
 #. js-lingui-explicit-id
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
@@ -1588,6 +1592,8 @@ msgstr "सत्यापित करें कि संपूर्ण ज�
 #: components/ViewWalletButton/index.tsx:25
 msgid "View"
 msgstr ""
+"\n"
+"आलोकन"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
@@ -1743,7 +1749,7 @@ msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉ�
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
-msgstr ""
+msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉनस्कैन</0> पर देख सकते हैं।"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
