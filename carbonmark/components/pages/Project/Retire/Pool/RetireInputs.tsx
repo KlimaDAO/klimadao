@@ -111,20 +111,17 @@ export const RetireInputs: FC<Props> = (props) => {
   const exceededFiatBalance =
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
 
-  // const isFiat = paymentMethod === "fiat";
+  const isFiat = paymentMethod === "fiat";
 
-  // @todo -> makka add cc processing fee calculation
-
-  // /** Credit card fee string to display in the price card for fiat payments */
-  // const calcCreditCardFee = (): string => {
-  //   if (!isFiat || !Number(costs) || isLoading) return "$0.00";
-  //   // we have the total cost and the price per tonne.
-  //   const priceWithoutFees =
-  //     Number(amount) * Number(props.price.singleUnitPrice);
-  //   const fee = Number(costs) - priceWithoutFees;
-  //   if (fee <= 0) return "$0.00";
-  //   return formatToPrice(fee.toString(), locale, isFiat);
-  // };
+  /** Credit card fee string to display in the price card for fiat payments */
+  const calcCreditCardFee = (): string => {
+    if (!isFiat || !Number(totalPrice)) return "$0.00";
+    const priceWithoutFees =
+      Number(quantity) * Number(props.price.singleUnitPrice);
+    const fee = Number(totalPrice) - priceWithoutFees;
+    if (fee <= 0) return "$0.00";
+    return formatToPrice(fee.toString(), locale, isFiat);
+  };
 
   useEffect(() => {
     // remove all errors when changed
@@ -323,13 +320,12 @@ export const RetireInputs: FC<Props> = (props) => {
                       t="body3"
                       className={cx({ selected: item === field.value })}
                     >
-                      {item === "fiat" && (
+                      {isFiat ? (
                         <>
                           <Trans>Processing Fee:</Trans>
-                          <strong>$0.00</strong>
+                          <strong>{calcCreditCardFee()}</strong>
                         </>
-                      )}
-                      {item === "usdc" && (
+                      ) : (
                         <>
                           <Trans>Balance</Trans>
                           <strong>
