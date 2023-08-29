@@ -5,6 +5,24 @@
   gap: 20px;
 }
 
+.twoColumns {
+  @include desktop {
+    display: flex;
+    gap: 20px;
+  }
+
+  & > div:first-child {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  & > div:nth-child(2) {
+    @include desktop {
+      max-width: 360px;
+    }
+  }
+}
+
 .cardStackedRows {
   display: flex;
   flex-direction: column;
