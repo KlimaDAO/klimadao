@@ -9,6 +9,7 @@ import {
   PaginationQueryParams,
   Prices,
   PricesItem,
+  RawRetirementsItem,
   Token,
   TokenInfo,
   TokensInfo,
@@ -124,4 +125,14 @@ export const queryTokenInfo = async function (
   const tokens = (await paginatedQuery<TokenInfo, undefined>(urls.api.tokens))
     .items;
   return tokens.find((tokenInfo) => tokenInfo.name.toLowerCase() == token);
+};
+
+/** Queries the Klima Raw Retirements endpoint */
+export const queryRawKlimaRetirements = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<RawRetirementsItem>> {
+  return paginatedQuery<RawRetirementsItem, typeof params>(
+    urls.api.klima_raw_retirements,
+    params
+  );
 };

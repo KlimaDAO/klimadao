@@ -30,6 +30,7 @@ export interface CreditsQueryParams {
 }
 export interface PaginationQueryParams {
   page_size?: number;
+  page?: number;
   sort_by?: string;
   sort_order?: string;
 }
@@ -78,6 +79,19 @@ export interface TokenInfo {
   price: number;
 }
 export type TokensInfo = PaginatedResponse<TokenInfo>;
+
+export interface RawRetirementsItem {
+  retirement_date: string;
+  transaction_id: string;
+  beneficiary: string;
+  project_id: string;
+  bridge: string;
+  token: string;
+  origin: string;
+  proof: string;
+  quantity: number;
+}
+export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
