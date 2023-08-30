@@ -1,3 +1,4 @@
+"use client";
 import React, { createContext, FC, useCallback, useState } from "react";
 
 import { useProvider } from "../../utils/useProvider";
