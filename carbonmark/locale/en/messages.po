@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:83
-msgid "No projects found with current filters"
-msgstr "No projects found with current filters"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
 msgstr "created listing"
@@ -1230,6 +1225,11 @@ msgstr "Marketplace | Carbonmark"
 #: components/pages/Projects/index.tsx:73
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/index.tsx:83
+msgid "No projects found with current filters"
+msgstr "No projects found with current filters"
 
 #. js-lingui-explicit-id
 #: components/pages/Projects/ProjectSearch/index.tsx:45
