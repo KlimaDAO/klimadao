@@ -16,7 +16,6 @@ describe("GET /projects", () => {
     fastify = await build();
   });
 
-  /** A default response for offsets */
   beforeEach(() => {
     //Setup our gql mocks
     MOCKS.forEach(mockGqlRequest);
@@ -86,7 +85,21 @@ describe("GET /projects", () => {
     expect(data).not.toMatchObject([mockOffsetProject]);
   });
 
-  test("Empty data", async () => {});
+  test("Empty data", async () => {
+    mockGqlRequest([
+      GRAPH_URLS.marketplace,
+      "findProjects",
+      {
+        projects: [],
+      },
+    ]);
 
-  test("Invalid data", async () => {});
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    expect(response.statusCode).toBe(200);
+    const data = await response.json();
+    expect(data).toEqual([]);
+  });
 });
