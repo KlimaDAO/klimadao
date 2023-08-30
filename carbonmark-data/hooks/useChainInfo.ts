@@ -1,6 +1,6 @@
 import { useParams } from "next/navigation";
 
-// Returns chain info given a chain parameter in the url
+/**  Returns chain info given a chain parameter in the url */
 function useChainInfo(): { chain: string; chainLabel: string } {
   let { chain } = useParams();
   // Captalize chain

@@ -1,6 +1,6 @@
 import { useParams } from "next/navigation";
 
-// Returns bridge info given a bridge parameter in the url
+/** Returns bridge info given a bridge parameter in the url */
 function useBridgeInfo(): { bridge: string; bridgeLabel: string } {
   let { bridge } = useParams();
   // Captalize bridge
