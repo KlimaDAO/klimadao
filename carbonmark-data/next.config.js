@@ -61,9 +61,6 @@ module.exports = async (phase, { defaultConfig }) => {
         },
       ];
     },
-    experimental: {
-      appDir: true,
-    },
   };
   return withBundleAnalyzer({
     enabled: process.env.ANALYZE === "true",
