@@ -109,8 +109,7 @@ export const composeCarbonmarkProject = (
     longDescription: carbonProject?.content?.longDescription,
   };
 
-  const result: GetProjectResponse = merge(project, cmsData, price);
-
+  const result: GetProjectResponse = merge(project, cmsData, { price });
   return result;
 };
 

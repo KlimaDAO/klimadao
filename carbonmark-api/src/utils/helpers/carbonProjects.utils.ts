@@ -56,7 +56,7 @@ export const fetchCarbonProject = async (args: Args) => {
  * @returns {Promise<CarbonProject[]>} An array of all fetched projects.
  */
 export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
-  const [{ allProject }, { allProjectContent }] = await Promise.all([
+  const [{ allProject = [] }, { allProjectContent = [] }] = await Promise.all([
     gqlSdk.carbon_projects.getAllProjects(),
     gqlSdk.carbon_projects.getAllProjectContent(),
   ]);

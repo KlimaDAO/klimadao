@@ -131,7 +131,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     // ----- Pool Listings ----- //
-    const offsetProjects = offsetData.carbonOffsets.map((offset) => {
+    const offsetProjects = offsetData.carbonOffsets?.map((offset) => {
       const [registry, code] = offset.projectID.split("-");
 
       const cmsProject = cmsProjects.find(

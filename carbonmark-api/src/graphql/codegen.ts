@@ -40,6 +40,13 @@ const generates = Object.entries(schemas).reduce(
             typeNames: "change-case-all#pascalCase",
             transformUnderscore: false,
             terminateCircularRelationships: true,
+            fieldGeneration: {
+              _all: {
+                singleUnitPrice: {
+                  generator: "integer",
+                },
+              },
+            },
           },
         },
       ],
