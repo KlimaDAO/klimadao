@@ -7,8 +7,7 @@ export default function TokenDistributionOfProjectsPage() {
   return (
     <DetailPage
       pageTitle={t`${bridgeLabel} Distribution of Projects`}
-      chartTitle={t`${bridgeLabel} Distribution of Projects`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

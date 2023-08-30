@@ -35,6 +35,8 @@ export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
   api: {
     dailyAggregatedCredits: `${api_url}/credits/agg/daily`,
+    aggregatedCredits: `${api_url}/credits/agg`,
+    prices: `${api_url}/prices`,
   },
 };
 

@@ -7,8 +7,7 @@ export default function DigitalCarbonSupplyPage() {
   return (
     <DetailPage
       pageTitle={t`Digital Carbon Supply - ${chainLabel}`}
-      chartTitle={t`${chainLabel} Supply`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

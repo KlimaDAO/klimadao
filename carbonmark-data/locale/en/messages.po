@@ -14,6 +14,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: app/[locale]/details/verra-credits-breakdown/page.tsx:8
+msgid "Price of Digital Carbon"
+msgstr "Price of Digital Carbon"
+
+#. js-lingui-explicit-id
+#: app/[locale]/details/verra-credits-breakdown/page.tsx:9
+msgid "Historical Price"
+msgstr "Historical Price"
+
+#. js-lingui-explicit-id
+#: components/cards/HistoricalPriceCard/index.tsx:59
+msgid "Historical Prices"
+msgstr "Historical Prices"
+
+#. js-lingui-explicit-id
+#: components/cards/TokenizedCreditsByBridgeCard/index.tsx:56
+msgid "Tokenized Credits By Bridge"
+msgstr "Tokenized Credits By Bridge"
+
+#. js-lingui-explicit-id
 #: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:9
 msgid "Digital Carbon Retirements - {chainLabel}"
 msgstr "Digital Carbon Retirements - {chainLabel}"
@@ -28,6 +48,7 @@ msgstr "{chainLabel} Retirements"
 #: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:10
 #: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:10
 #: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:12
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:10
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:10
 #: app/[locale]/details/retirement-trends-by-pool/page.tsx:10
 #: app/[locale]/details/retirement-trends-by-token/page.tsx:10
@@ -37,8 +58,7 @@ msgstr "{chainLabel} Retirements"
 #: app/[locale]/details/token-by-projects/[bridge]/page.tsx:12
 #: app/[locale]/details/token-by-vintage-date/[bridge]/page.tsx:12
 #: app/[locale]/details/token-volume-over-time/[bridge]/page.tsx:12
-#: app/[locale]/details/verra-credits-breakdown/page.tsx:10
-#: app/[locale]/details/verra-credits-by-bridge/page.tsx:10
+#: app/[locale]/details/verra-credits-breakdown/page.tsx:11
 #: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:10
 #: app/[locale]/details/verra-credits-issued-by-vintage-date/page.tsx:10
 #: app/[locale]/details/verra-credits-issued-over-time/page.tsx:10
@@ -47,6 +67,7 @@ msgstr "{chainLabel} Retirements"
 #: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:10
 #: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:10
 #: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:10
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:10
 #: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:10
 msgid "Lorem Ipsum"
 msgstr "Lorem Ipsum"
@@ -144,14 +165,14 @@ msgid "{bridgeLabel} Volume Over Time"
 msgstr "{bridgeLabel} Volume Over Time"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-breakdown/page.tsx:7
-#: app/[locale]/details/verra-credits-breakdown/page.tsx:8
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:7
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:8
 msgid "Verra Credits Breakdown"
 msgstr "Verra Credits Breakdown"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-by-bridge/page.tsx:7
-#: app/[locale]/details/verra-credits-by-bridge/page.tsx:8
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:7
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:8
 msgid "Tokenized Credits by Bridge"
 msgstr "Tokenized Credits by Bridge"
 
@@ -235,7 +256,7 @@ msgid "Off Chain vs On-Chain"
 msgstr "Off Chain vs On-Chain"
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/page.tsx:10
+#: app/[locale]/overview/page.tsx:13
 msgid "State of the digital carbon market"
 msgstr "State of the digital carbon market"
 
@@ -251,7 +272,7 @@ msgid "Token details"
 msgstr "Token details"
 
 #. js-lingui-explicit-id
-#: components/cards/VerraCreditsCard/index.tsx:105
+#: components/cards/DailyCreditsCard/index.tsx:111
 msgid "Verra credits"
 msgstr "Verra credits"
 
@@ -311,21 +332,21 @@ msgid "By beneficiary"
 msgstr "By beneficiary"
 
 #. js-lingui-explicit-id
-#: lib/charts/options.ts:17
+#: lib/charts/options.ts:18
 msgid "On-chain"
 msgstr "On-chain"
 
 #. js-lingui-explicit-id
-#: lib/charts/options.ts:21
+#: lib/charts/options.ts:22
 msgid "Off-chain"
 msgstr "Off-chain"
 
 #. js-lingui-explicit-id
-#: lib/charts/options.ts:29
+#: lib/charts/options.ts:32
 msgid "Issued"
 msgstr "Issued"
 
 #. js-lingui-explicit-id
-#: lib/charts/options.ts:33
+#: lib/charts/options.ts:36
 msgid "Retired"
 msgstr "Retired"

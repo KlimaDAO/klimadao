@@ -5,8 +5,7 @@ export default function VerraCreditsBreakdownPage() {
   return (
     <DetailPage
       pageTitle={t`Verra Credits Breakdown`}
-      chartTitle={t`Verra Credits Breakdown`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

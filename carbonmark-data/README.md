@@ -21,6 +21,14 @@ The data processing is organized into layers that are (more or less) isolated fr
 
 - Pages: `app`
 
+# Understanding the ChartConfiguration type
+
+The chartConfiguration type is a generic type that takes 3 parameters:
+
+- Q: The query type - Describes the arguments that will be sent to the API
+- M: The mapping type - Describes how to map data sent by the API into data usable by Recharts
+- T: The id type - The type of the id value used to identify the rechart dataset (exemple Bridges)
+
 # Creating new Cards
 
 When creating new Cards the following should be done:

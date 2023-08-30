@@ -5,8 +5,7 @@ export default function VerraCreditsIssuedByProjectTypePage() {
   return (
     <DetailPage
       pageTitle={t`Credits Issued by Project Type`}
-      chartTitle={t`Credits by Project Type`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

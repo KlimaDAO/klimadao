@@ -5,8 +5,7 @@ export default function VerraCreditsRetiredByVintageDatePage() {
   return (
     <DetailPage
       pageTitle={t`Credits Retired by Vintage Start Date`}
-      chartTitle={t`Credits by Vintage Start Date`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

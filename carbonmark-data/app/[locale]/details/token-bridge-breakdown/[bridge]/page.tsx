@@ -7,8 +7,7 @@ export default function TokenBridgeBreakdownPage() {
   return (
     <DetailPage
       pageTitle={t`Breakdown of ${bridgeLabel} Pooled`}
-      chartTitle={t`${bridgeLabel} Pooled`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

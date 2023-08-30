@@ -5,8 +5,7 @@ export default function RetirementTrendsByPoolDetailPage() {
   return (
     <DetailPage
       pageTitle={t`Retirements by Pool`}
-      chartTitle={t`Retirements by Pool`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

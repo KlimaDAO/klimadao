@@ -23,3 +23,6 @@ export const loadTranslation = async (locale = "en"): Promise<Messages> => {
   }
   return data.messages;
 };
+export function currentLocale(): string {
+  return i18n.locale;
+}

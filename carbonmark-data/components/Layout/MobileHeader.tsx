@@ -1,5 +1,5 @@
 import { FC } from "react";
-import * as styles from "./styles";
+import styles from "./style.module.scss";
 
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { CarbonmarkDataLogo } from "components/Graphics/CarbonmarkDataLogo";

@@ -6,7 +6,7 @@ import OptionsSwitcher from "components/OptionsSwitcher";
 import Skeleton from "components/Skeleton";
 import { Options } from "lib/charts/options";
 import { Key, Suspense, useState } from "react";
-import * as styles from "./styles";
+import styles from "./styles.module.scss";
 
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -30,14 +30,14 @@ export default function OverviewCard(props: {
   // `$t{topOptionKey}|$t{bottomOptionKey}` if both options are provided
   // topOptionKey if only topOptionKey is provided
   // bottomOptionKey if only bottom
-  // if they are no options: Not implemented yet
-
+  // "default" if there are no charts for the given option
+  // empty component if everything fails
   function displayedChart(): React.ReactNode {
     const keyItems = [];
     if (props.topOptions) keyItems.push(topOptionKey);
     if (props.bottomOptions) keyItems.push(bottomOptionKey);
     const displayedKey = keyItems.join("|");
-    return props.charts[displayedKey];
+    return props.charts[displayedKey] || props.charts["default"] || <></>;
   }
 
   return (

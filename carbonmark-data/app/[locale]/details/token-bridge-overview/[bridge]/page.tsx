@@ -7,8 +7,7 @@ export default function TokenBridgeOverviewPage() {
   return (
     <DetailPage
       pageTitle={t`State of ${bridgeLabel} Digital Carbon`}
-      chartTitle={t`${bridgeLabel} Overview`}
-      chart={<></>}
+      card={t`${bridgeLabel} Overview`}
       overview={t`Lorem Ipsum`}
     />
   );

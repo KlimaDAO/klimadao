@@ -7,8 +7,7 @@ export default function TokenDistributionOfVintageDatePage() {
   return (
     <DetailPage
       pageTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
-      chartTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

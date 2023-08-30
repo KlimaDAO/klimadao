@@ -5,8 +5,7 @@ export default function RetirementTrendsByChainDetailPage() {
   return (
     <DetailPage
       pageTitle={t`Retirements by Chain`}
-      chartTitle={t`Retirements by Chain`}
-      chart={<></>}
+      card={<></>}
       overview={t`Lorem Ipsum`}
     />
   );

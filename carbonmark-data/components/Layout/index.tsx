@@ -7,7 +7,7 @@ import { DesktopSidebar } from "./DesktopSidebar";
 import { Footer } from "./Footer";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { MobileHeader } from "./MobileHeader";
-import * as styles from "./styles";
+import styles from "./style.module.scss";
 interface Props {
   children: ReactNode;
   locale: string;
