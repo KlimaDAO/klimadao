@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 
 export const cardContainer = css`
+  box-sizing: border-box;
   box-shadow: var(--box-shadow);
   border-radius: 8px;
   min-height: 284px;
@@ -48,6 +49,8 @@ export const cardHeaderDetailsLinkArrow = css`
 `;
 
 export const cardContent = css`
+  max-width: calc(100% - 1rem);
+  height: 100%;
   flex: 1 1 auto;
 `;
 export const cardFooter = css`

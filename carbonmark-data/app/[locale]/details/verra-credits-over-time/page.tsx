@@ -9,6 +9,7 @@ export default function VerraCreditsOverTimePage() {
       chartTitle={t`Verra Credits`}
       chart={<VerraCreditsCard></VerraCreditsCard>}
       overview={t`Lorem Ipsum`}
+      insights={{ content: t`Lorem Ipsum`, source: "ai" }}
     />
   );
 }
