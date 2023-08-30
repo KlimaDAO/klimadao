@@ -141,4 +141,9 @@ describe("GET /projects", () => {
     const data = await response.json();
     expect(data).toMatchObject([mockBahamasProject]);
   });
+
+  test.todo("handles missing cms data");
+
+  //Check that the cheapest project is returned when duplicates exist in multiple graphs
+  test.todo("returns cheapest project");
 });
