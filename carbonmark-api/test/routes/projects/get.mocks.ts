@@ -7,16 +7,25 @@ import {
   aListing,
   aProject as aMarketplaceProject,
 } from "../../../src/.generated/mocks/marketplace.mocks";
+import { aCarbonOffset as aOffsetProject } from "../../../src/.generated/mocks/offsets.mocks";
 import {
   GRAPH_URLS,
   SANITY_URLS,
 } from "../../../src/graphql/codegen.constants";
 
+export const mockListing = aListing({ singleUnitPrice: "101" });
+
 export const mockMarketplaceProject = aMarketplaceProject({
   projectID: "1",
   registry: "a",
-  listings: [aListing({ singleUnitPrice: "101" })],
+  listings: [mockListing],
 });
+
+export const mockOffsetProject = aOffsetProject({
+  projectID: "1",
+  registry: "a",
+});
+
 const mockCarbonProject = aCarbonProject({
   registryProjectId: "1",
   registry: "a",

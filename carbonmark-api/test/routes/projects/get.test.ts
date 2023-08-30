@@ -5,7 +5,7 @@ import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 import { mockGqlRequest } from "../../utils";
 import { ERROR } from "../routes.mock";
-import { MOCKS, mockMarketplaceProject } from "./get.mocks";
+import { MOCKS, mockMarketplaceProject, mockOffsetProject } from "./get.mocks";
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
@@ -54,13 +54,37 @@ describe("GET /projects", () => {
       method: "GET",
       url: `${DEV_URL}/projects`,
     });
-    console.log(response);
     expect(response.body).toContain("Graph error occurred");
     expect(response.statusCode).toEqual(502);
   });
 
   /** Check that duplicate projects are removed from the results */
-  test("Duplicate projects in pools and marketplace", async () => {});
+  test("Duplicate projects in pools and marketplace", async () => {
+    mockGqlRequest([
+      GRAPH_URLS.marketplace,
+      "findProjects",
+      {
+        projects: [mockMarketplaceProject],
+      },
+    ]);
+
+    mockGqlRequest([
+      GRAPH_URLS.offsets,
+      "",
+      {
+        projects: [mockOffsetProject],
+      },
+    ]);
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = await response.json();
+    expect(response.statusCode).toEqual(200);
+    expect(data).toMatchObject([mockMarketplaceProject]);
+    expect(data).not.toMatchObject([mockOffsetProject]);
+  });
 
   test("Empty data", async () => {});
 
