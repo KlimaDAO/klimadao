@@ -1,6 +1,3 @@
-/**
- * Shared schemas are defined in this file, and added to the fastify instance in src/app
- */
 import { Type } from "@sinclair/typebox";
 
 /** Adhere to JSONSchema spec by using a URI */
@@ -10,10 +7,13 @@ const network = Type.Union([Type.Literal("polygon"), Type.Literal("mumbai")], {
   $id: `${COMMON_SCHEMA_URI}/querystring/network`,
   examples: ["polygon", "mumbai"],
   description:
-    "Optional. Desired blockchain network. Default is `polygon` (AKA `mainnet`).",
+    "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
   default: "polygon",
 });
 
+/**
+ * Common schemas added to fastify at runtime in src/app
+ */
 const commonSchema = Type.Object(
   {
     network,
@@ -25,11 +25,12 @@ const commonSchema = Type.Object(
 
 /**
  * Ref objects for reuse in external schema definitions
- * @example SchemaRefs.network // { $ref: "#/querystring/network" }
+ * @example
+ * CommonSchemaRefs.querystring.network
+ * // { $ref: "http://api.carbonmark.com/schemas/querystring/network" }
  */
 const CommonSchemaRefs = {
-  /** Network querystring */
-  network: Type.Ref(network),
+  querystring: { network: Type.Ref(network) },
 } as const;
 
 export { CommonSchemaRefs, commonSchema };
