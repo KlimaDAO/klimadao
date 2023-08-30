@@ -1,7 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
-import { merge } from "lodash";
+import { isNil, merge } from "lodash";
+import { Geopoint } from "src/.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
@@ -97,13 +98,13 @@ export const getOffsetTokenPrices = (
 
 export const composeCarbonmarkProject = (
   project: FindQueryProject,
-  carbonProject: CarbonProject,
-  price: string | undefined
+  carbonProject?: CarbonProject,
+  price?: string
 ) => {
   const cmsData = {
     description: carbonProject?.description,
     name: carbonProject?.name ?? project.name,
-    methodologies: carbonProject.methodologies ?? [],
+    methodologies: carbonProject?.methodologies ?? [],
     short_description: carbonProject?.content?.shortDescription,
     longDescription: carbonProject?.content?.longDescription,
   };
@@ -114,19 +115,20 @@ export const composeCarbonmarkProject = (
 };
 
 export const composeOffsetProject = (
-  carbonProject: CarbonProject,
   offset: FindQueryOffset,
-  price: string | undefined
+  carbonProject?: CarbonProject,
+  price?: string
 ): GetProjectResponse => ({
   id: offset.id,
   // New attribute
   isPoolProject: true,
-  description: carbonProject.description,
+  description: carbonProject?.description,
   short_description: carbonProject?.content?.shortDescription,
   key: offset.projectID,
   projectID: offset.projectID.split("-")[1],
-  name: carbonProject.name ?? offset.name,
-  methodologies: carbonProject.methodologies ?? [],
+  name: carbonProject?.name ?? offset.name,
+  methodologies: carbonProject?.methodologies ?? [],
+  location: toGeoJSON(carbonProject?.geolocation),
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],
@@ -138,4 +140,19 @@ export const composeOffsetProject = (
   price,
   activities: null,
   listings: null,
+  images: carbonProject?.content?.images ?? [],
 });
+
+export const toGeoJSON = (
+  point?: Geopoint | null
+): GetProjectResponse["location"] => {
+  if ([point?.lat, point?.lng].some(isNil)) return undefined;
+  return {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- null case is caught above
+      coordinates: [point!.lng!, point!.lat!],
+    },
+  };
+};

@@ -38,4 +38,16 @@ export type GetProjectResponse = {
   activities?: Nullable<Activity[]>;
   listings?: FindProjectsQuery["projects"][number]["listings"];
   methodologies?: GetProjectQuery["allProject"][number]["methodologies"];
+  location?: {
+    // only defined for Verra projects
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
+  };
+  images?: {
+    url: string;
+    caption: string;
+  }[];
 };

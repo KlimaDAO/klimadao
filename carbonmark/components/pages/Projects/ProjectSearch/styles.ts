@@ -30,7 +30,6 @@ export const filterButton = css`
 
 export const resetFilterButton = css`
   display: none;
-  background: transparent !important;
   ${breakpoints.medium} {
     display: flex !important;
   }

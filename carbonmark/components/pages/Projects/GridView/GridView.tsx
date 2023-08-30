@@ -17,6 +17,7 @@ type Props = {
 
 export const GridView: React.FC<Props> = ({ projects }) => {
   const { locale } = useRouter();
+
   return (
     <>
       {projects?.map((project: Project, index: number) => (

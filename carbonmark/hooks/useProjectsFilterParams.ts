@@ -6,14 +6,14 @@ import { useEffect, useState } from "react";
 export type SortOption = keyof typeof PROJECT_SORT_OPTIONS;
 
 export type FilterValues = {
-  layout: "grid" | "list";
+  layout: "grid" | "list" | "map";
   sort: SortOption;
   country: string[];
   category: string[];
   vintage: string[];
 };
 
-export const defaultFilterProps: FilterValues = {
+export const defaultParams: FilterValues = {
   layout: "grid",
   sort: "recently-updated",
   country: [],
@@ -21,9 +21,8 @@ export const defaultFilterProps: FilterValues = {
   vintage: [],
 };
 
-export const useProjectsFilterParams = () => {
+export const useProjectsParams = () => {
   const router = useRouter();
-  const [sortValue, setSortValue] = useState("");
   const [filterCount, setFilterCount] = useState(0);
 
   useEffect(() => {
@@ -31,23 +30,18 @@ export const useProjectsFilterParams = () => {
     setFilterCount(filters.length);
   }, [router.query]);
 
-  useEffect(() => {
-    setSortValue((router.query.sort as SortOption) ?? "recently-updated");
-  }, [router.query]);
-
   const updateQueryParams = (query: Partial<FilterValues>) => {
     router.replace({ query }, undefined, { shallow: true });
   };
 
   const resetQueryParams = () => {
-    router.replace({ query: defaultFilterProps }, undefined, { shallow: true });
+    router.replace({ query: defaultParams }, undefined, { shallow: true });
   };
 
   return {
-    sortValue,
     filterCount,
     resetQueryParams,
     updateQueryParams,
-    defaultValues: { ...defaultFilterProps, ...router.query },
+    params: { ...defaultParams, ...router.query },
   };
 };
