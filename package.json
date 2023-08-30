@@ -16,6 +16,7 @@
   },
   "prettier": {
     "trailingComma": "es5",
+    "endOfLine": "auto",
     "plugins": [
       "prettier-plugin-organize-imports"
     ]

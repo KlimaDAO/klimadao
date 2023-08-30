@@ -38,4 +38,16 @@ export type GetProjectResponse = {
     category: string;
     name: string;
   }[];
+  location?: {
+    // only defined for Verra projects
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
+  };
+  images?: {
+    url: string;
+    caption: string;
+  }[];
 };

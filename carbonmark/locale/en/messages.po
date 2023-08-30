@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Projects/index.tsx:83
+msgid "No projects found with current filters"
+msgstr "No projects found with current filters"
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:6
 msgid "created listing"
 msgstr "created listing"
@@ -153,7 +158,7 @@ msgid "Not Connected"
 msgstr "Not Connected"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:98
+#: components/Layout/index.tsx:99
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Login"
@@ -696,17 +701,6 @@ msgstr "No listings found for this project."
 #: components/pages/Project/index.tsx:251
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:45
-msgid "Filters"
-msgstr "Filters"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:52
-#: components/ProjectFilterModal/index.tsx:160
-msgid "Clear Filters"
-msgstr "Clear Filters"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1267,37 +1261,38 @@ msgid "Credit card payments incur an additional processing fee. <0>See docs to l
 msgstr "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:79
-#: components/pages/Projects/index.tsx:80
+#: components/pages/Projects/GridView/GridView.tsx:41
+#: components/pages/Projects/ListView/ListView.tsx:157
+#: components/ProjectCard/index.tsx:60
+msgid "No project description found"
+msgstr "No project description found"
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/index.tsx:71
+#: components/pages/Projects/index.tsx:72
 msgid "Marketplace | Carbonmark"
 msgstr "Marketplace | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:81
+#: components/pages/Projects/index.tsx:73
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:99
+#: components/pages/Projects/ProjectSearch/index.tsx:45
+msgid "Filters"
+msgstr "Filters"
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/ProjectSearch/index.tsx:52
+#: components/ProjectFilterModal/index.tsx:161
+msgid "Clear Filters"
+msgstr "Clear Filters"
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/ProjectSort/index.tsx:29
 msgid "Toggle sort menu"
 msgstr "Toggle sort menu"
-
-#. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:115
-msgid "Grid view"
-msgstr "Grid view"
-
-#. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:126
-msgid "List view"
-msgstr "List view"
-
-#. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:40
-#: components/pages/Projects/ProjectView/ListView.tsx:156
-#: components/ProjectCard/index.tsx:60
-msgid "No project description found"
-msgstr "No project description found"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28
@@ -1762,37 +1757,37 @@ msgid "Vintage Oldest"
 msgstr "Vintage Oldest"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:117
+#: components/ProjectFilterModal/index.tsx:118
 msgid "Country"
 msgstr "Country"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:128
+#: components/ProjectFilterModal/index.tsx:129
 msgid "Category"
 msgstr "Category"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:139
+#: components/ProjectFilterModal/index.tsx:140
 msgid "Vintage"
 msgstr "Vintage"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:152
+#: components/ProjectFilterModal/index.tsx:153
 msgid "View Results"
 msgstr "View Results"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Result"
 msgstr "Result"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Results"
 msgstr "Results"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:168
+#: components/ProjectFilterModal/index.tsx:169
 msgid "Compiling Results ..."
 msgstr "Compiling Results ..."
 
@@ -2079,17 +2074,17 @@ msgid "offset.retire_carbon"
 msgstr "Confirm Retirement"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:89
+#: components/Layout/index.tsx:90
 msgid "connectModal.wallet"
 msgstr "connect a wallet"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:100
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:103
+#: components/Layout/index.tsx:104
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
@@ -2194,7 +2189,7 @@ msgid "retirement.single.transaction_record.title"
 msgstr "Immutable transaction record"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:93
+#: components/Layout/index.tsx:94
 msgid "connectModal.institutional"
 msgstr "institutional"
 
@@ -2431,7 +2426,7 @@ msgid "user.edit.form.input.singleUnitPrice.label"
 msgstr "Single Unit Price"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:85
+#: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "social or email"
 

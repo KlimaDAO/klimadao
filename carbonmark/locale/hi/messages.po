@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-28 06:59+0000\n"
+"POT-Creation-Date: 2023-08-30 04:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -302,7 +302,7 @@ msgid "Carbonmark's role"
 msgstr "कार्बनमार्क की भूमिका"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:128
+#: components/ProjectFilterModal/index.tsx:129
 msgid "Category"
 msgstr "कैटेगरी"
 
@@ -318,13 +318,13 @@ msgid "Choose a project and quantity"
 msgstr "एक प्रोजेक्ट और मात्रा चुनें"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:81
+#: components/pages/Projects/index.tsx:73
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "सैकड़ों प्रॉजेक्ट्स में से 20 मिलियन से भी अधिक सत्यापित डिजिटल कार्बन क्रेडिट्स में से चुनें - अभी कार्बन ख़रीदें, बेचें या रिटायर करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:52
-#: components/ProjectFilterModal/index.tsx:160
+#: components/pages/Projects/ProjectSearch/index.tsx:52
+#: components/ProjectFilterModal/index.tsx:161
 msgid "Clear Filters"
 msgstr "फ़िल्टर्स हटाएँ"
 
@@ -344,7 +344,7 @@ msgid "Compare prices across all sellers and trading pools"
 msgstr "सभी विक्रेताओं और ट्रेडिंग पूल की कीमतों की तुलना करें"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:168
+#: components/ProjectFilterModal/index.tsx:169
 msgid "Compiling Results ..."
 msgstr "परिणाम कम्पाईल किए जा रहे हैं..."
 
@@ -377,6 +377,8 @@ msgstr "जारी रखें"
 #: components/CopyAddressButton/index.tsx:36
 msgid "Copy"
 msgstr ""
+"\n"
+"नकल"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
@@ -385,7 +387,7 @@ msgid "Could not calculate Total Cost"
 msgstr "कुल लागत की गणना नहीं सकी"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:117
+#: components/ProjectFilterModal/index.tsx:118
 msgid "Country"
 msgstr "देश"
 
@@ -439,7 +441,7 @@ msgstr "बन गई:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:201
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "क्रेडिट कार्ड से भुगतान पर अतिरिक्त प्रोसेसिंग शुल्क लगता है। <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:300
@@ -529,7 +531,7 @@ msgid "FAQs"
 msgstr "अधिक्तर पूछे प्रश्न"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:45
+#: components/pages/Projects/ProjectSearch/index.tsx:45
 msgid "Filters"
 msgstr "फिल्टर"
 
@@ -573,11 +575,6 @@ msgstr "तुरंत भुगतान प्राप्त करें: �
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:48
 msgid "Go back"
 msgstr "वापस जाएँ"
-
-#. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:115
-msgid "Grid view"
-msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -686,11 +683,6 @@ msgid "List and sell for free"
 msgstr "मुफ़्त में सूचीबद्ध करें और बेचें"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:126
-msgid "List view"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
 msgstr "बस कुछ ही क्लिक में बिक्री के लिए अपनी परियोजनाओं की सूची बनाएं"
@@ -734,7 +726,7 @@ msgid "Log out"
 msgstr "लॉग आउट"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:98
+#: components/Layout/index.tsx:99
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "लॉग इन करें"
@@ -746,8 +738,8 @@ msgid "Marketplace"
 msgstr "मार्केटप्लेस"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:79
-#: components/pages/Projects/index.tsx:80
+#: components/pages/Projects/index.tsx:71
+#: components/pages/Projects/index.tsx:72
 msgid "Marketplace | Carbonmark"
 msgstr "मार्केटप्लेस | कार्बनमार्क"
 
@@ -813,11 +805,16 @@ msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:40
-#: components/pages/Projects/ProjectView/ListView.tsx:156
+#: components/pages/Projects/GridView/GridView.tsx:41
+#: components/pages/Projects/ListView/ListView.tsx:157
 #: components/ProjectCard/index.tsx:60
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/index.tsx:83
+msgid "No projects found with current filters"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -857,7 +854,7 @@ msgstr "हमारे सहयोगी"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
 msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
-msgstr ""
+msgstr "हमारा सिस्टम अपेक्षा से अधिक समय ले रहा है. सेवानिवृत्ति आपके <0>सेवानिवृत्ति इतिहास</0> में दिखाई देनी चाहिए जल्द ही।"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
@@ -884,7 +881,7 @@ msgstr "भुगतान सफल हुआ"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:197
 msgid "Payment processing fee"
-msgstr ""
+msgstr "रिटायरमेंट प्रोसेसिंग शुल्क"
 
 #. js-lingui-explicit-id
 #: components/LoginCard/index.tsx:21
@@ -929,7 +926,7 @@ msgstr "मूल्य न्यूनतम"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:147
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
-msgstr ""
+msgstr "कीमत में नेटवर्क शुल्क शामिल है. <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
@@ -1115,12 +1112,12 @@ msgid "Resources | Carbonmark"
 msgstr "संसाधन | कार्बनमार्क"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Result"
 msgstr "परिणाम"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Results"
 msgstr "परिणाम"
 
@@ -1454,6 +1451,8 @@ msgstr "अपनी रिटायरमैंट को अंतिम र�
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
 msgstr ""
+"प्रोजेक्ट का चयन करें टॉगल \n"
+"करके"
 
 #. js-lingui-explicit-id
 #: components/pages/Resources/SortyByDropDown/index.tsx:62
@@ -1468,7 +1467,7 @@ msgid "Toggle payment method"
 msgstr "भुगतान विधि टॉगल करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:99
+#: components/pages/Projects/ProjectSort/index.tsx:29
 msgid "Toggle sort menu"
 msgstr "सॉर्ट मेनू टॉगल करें"
 
@@ -1588,6 +1587,8 @@ msgstr "सत्यापित करें कि संपूर्ण ज�
 #: components/ViewWalletButton/index.tsx:25
 msgid "View"
 msgstr ""
+"\n"
+"आलोकन"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
@@ -1600,7 +1601,7 @@ msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:152
+#: components/ProjectFilterModal/index.tsx:153
 msgid "View Results"
 msgstr "परिणाम देखें"
 
@@ -1662,7 +1663,7 @@ msgid "View the project details and other info for this purchase."
 msgstr "इस ख़रीद के लिए प्रॉजेक्ट विवरण व अन्य जानकारी देखें।"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:139
+#: components/ProjectFilterModal/index.tsx:140
 msgid "Vintage"
 msgstr "विंटेज"
 
@@ -1743,7 +1744,7 @@ msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉ�
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
 msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
-msgstr ""
+msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉनस्कैन</0> पर देख सकते हैं।"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
@@ -1836,22 +1837,22 @@ msgid "buy"
 msgstr "ख़रीदें"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:93
+#: components/Layout/index.tsx:94
 msgid "connectModal.institutional"
 msgstr "संस्थागत"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:85
+#: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "सोशल या ईमेल"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:89
+#: components/Layout/index.tsx:90
 msgid "connectModal.wallet"
 msgstr "कोई वॉलेट कनेक्ट करें"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:100
 msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
@@ -1871,7 +1872,7 @@ msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:103
+#: components/Layout/index.tsx:104
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 

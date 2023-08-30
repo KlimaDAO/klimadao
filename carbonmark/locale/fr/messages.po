@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-28 06:59+0000\n"
+"POT-Creation-Date: 2023-08-30 04:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -302,7 +302,7 @@ msgid "Carbonmark's role"
 msgstr "Rôle de Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:128
+#: components/ProjectFilterModal/index.tsx:129
 msgid "Category"
 msgstr "Catégorie"
 
@@ -318,13 +318,13 @@ msgid "Choose a project and quantity"
 msgstr "Choisissez un projet et une quantité"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:81
+#: components/pages/Projects/index.tsx:73
 msgid "Choose from over 20 million verified digital carbon credits from hundreds of projects - buy, sell, or retire carbon now."
 msgstr "Choisissez parmi plus de 20 millions de crédits carbone numériques vérifiés provenant de centaines de projets - achetez, vendez ou retirer du carbone dès maintenant."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:52
-#: components/ProjectFilterModal/index.tsx:160
+#: components/pages/Projects/ProjectSearch/index.tsx:52
+#: components/ProjectFilterModal/index.tsx:161
 msgid "Clear Filters"
 msgstr "Effacer les filtres"
 
@@ -344,7 +344,7 @@ msgid "Compare prices across all sellers and trading pools"
 msgstr "Comparez les prix de tous les vendeurs et pools d'échange"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:168
+#: components/ProjectFilterModal/index.tsx:169
 msgid "Compiling Results ..."
 msgstr "Compilation des résultats..."
 
@@ -385,7 +385,7 @@ msgid "Could not calculate Total Cost"
 msgstr "Impossible de calculer le coût total"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:117
+#: components/ProjectFilterModal/index.tsx:118
 msgid "Country"
 msgstr "Pays"
 
@@ -529,7 +529,7 @@ msgid "FAQs"
 msgstr "FAQ"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/ProjectsController/index.tsx:45
+#: components/pages/Projects/ProjectSearch/index.tsx:45
 msgid "Filters"
 msgstr "Filtres"
 
@@ -573,11 +573,6 @@ msgstr "Soyez payé immédiatement : les transactions sont exécutées en quelqu
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:48
 msgid "Go back"
 msgstr "Retour"
-
-#. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:115
-msgid "Grid view"
-msgstr "Vue en grille"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
@@ -686,11 +681,6 @@ msgid "List and sell for free"
 msgstr "Listez et vendez sans frais"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:126
-msgid "List view"
-msgstr "Vue en liste"
-
-#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:295
 msgid "List your projects for sale in just a few clicks"
 msgstr "Mettez vos projets en vente en quelques clics"
@@ -734,7 +724,7 @@ msgid "Log out"
 msgstr "Se déconnecter"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:98
+#: components/Layout/index.tsx:99
 #: components/LoginCard/index.tsx:32
 msgid "Login"
 msgstr "Se connecter"
@@ -746,8 +736,8 @@ msgid "Marketplace"
 msgstr "Place de Marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:79
-#: components/pages/Projects/index.tsx:80
+#: components/pages/Projects/index.tsx:71
+#: components/pages/Projects/index.tsx:72
 msgid "Marketplace | Carbonmark"
 msgstr "Place de Marché | Carbonmark"
 
@@ -813,11 +803,16 @@ msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/ProjectView/GridView.tsx:40
-#: components/pages/Projects/ProjectView/ListView.tsx:156
+#: components/pages/Projects/GridView/GridView.tsx:41
+#: components/pages/Projects/ListView/ListView.tsx:157
 #: components/ProjectCard/index.tsx:60
 msgid "No project description found"
 msgstr "Aucune description de projet n'a été trouvée"
+
+#. js-lingui-explicit-id
+#: components/pages/Projects/index.tsx:83
+msgid "No projects found with current filters"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -857,7 +852,7 @@ msgstr "Nos Partenaires"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:35
 msgid "Our system is taking longer than expected. The retirement should appear in your<0>retirement history</0> soon."
-msgstr ""
+msgstr "Notre système met plus de temps que prévu. Le retrait devrait bientôt apparaître dans votre<0>historique des retraits de marchés</0>."
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:121
@@ -1115,12 +1110,12 @@ msgid "Resources | Carbonmark"
 msgstr "Ressources | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Result"
 msgstr "Résultat"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:166
+#: components/ProjectFilterModal/index.tsx:167
 msgid "Results"
 msgstr "Résultats"
 
@@ -1468,7 +1463,7 @@ msgid "Toggle payment method"
 msgstr "Basculer de mode de paiement"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/index.tsx:99
+#: components/pages/Projects/ProjectSort/index.tsx:29
 msgid "Toggle sort menu"
 msgstr "Afficher le menu de tri"
 
@@ -1600,7 +1595,7 @@ msgid "View Registry Details <0/>"
 msgstr "Voir les détails du registre <0/>"
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:152
+#: components/ProjectFilterModal/index.tsx:153
 msgid "View Results"
 msgstr "Voir les résultats"
 
@@ -1662,7 +1657,7 @@ msgid "View the project details and other info for this purchase."
 msgstr "Voir les détails du projet et d'autres informations concernant cet achat."
 
 #. js-lingui-explicit-id
-#: components/ProjectFilterModal/index.tsx:139
+#: components/ProjectFilterModal/index.tsx:140
 msgid "Vintage"
 msgstr "Année"
 
@@ -1836,22 +1831,22 @@ msgid "buy"
 msgstr "Acheter"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:93
+#: components/Layout/index.tsx:94
 msgid "connectModal.institutional"
 msgstr "entreprise"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:85
+#: components/Layout/index.tsx:86
 msgid "connectModal.torus"
 msgstr "réseau social ou email"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:89
+#: components/Layout/index.tsx:90
 msgid "connectModal.wallet"
 msgstr "connecter un portefeuille"
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:99
+#: components/Layout/index.tsx:100
 msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
@@ -1871,7 +1866,7 @@ msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 
 #. js-lingui-explicit-id
-#: components/Layout/index.tsx:103
+#: components/Layout/index.tsx:104
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
 
