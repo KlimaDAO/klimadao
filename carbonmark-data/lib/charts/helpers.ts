@@ -125,7 +125,6 @@ export async function prepareAggregatedChartData<
 }
 
 // Common formatters
-// TODO: This goes to lib?
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
 ): string {
