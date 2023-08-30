@@ -6,7 +6,8 @@ export interface CarouselImage {
   caption: string;
 }
 
-export interface Project {
+// export type Project = GetProjectByIdResponse;
+export type Project = {
   key: string;
   projectID: string;
   name: string | "";
@@ -22,10 +23,13 @@ export interface Project {
   activities: ProjectActivity[] | null;
   updatedAt: string; // timestamp
   // Updated to GEOPOINT type https://www.sanity.io/docs/geopoint-type
-  geolocation?: {
-    lat: number;
-    lng: number;
-    alt?: number;
+  location?: {
+    // only defined for Verra projects
+    type: "Feature";
+    geometry: {
+      type: "Point";
+      coordinates: [number, number];
+    };
   };
   description?: string;
   short_description?: string;
@@ -39,7 +43,7 @@ export interface Project {
   prices?: Price[];
   url: string;
   methodologyCategory: CategoryName;
-}
+};
 
 export interface PcbProject {
   id: string;

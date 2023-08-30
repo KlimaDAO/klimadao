@@ -176,23 +176,20 @@ const Page: NextPage<PageProps> = (props) => {
         </div>
         <div
           className={cx(styles.mapAndDescription, {
-            hasMap: !!project.geolocation,
+            hasMap: !!project.location,
           })}
         >
           {project?.images?.length ? (
             <div className={styles.carouselWrapper}>
-              <Carousel
-                images={project.images}
-                geolocation={project.geolocation}
-              />
+              <Carousel images={project.images} location={project.location} />
             </div>
           ) : (
             <>
-              {project.geolocation && (
+              {project.location && (
                 <div className="mapColumn">
                   <ProjectMap
-                    lat={project.geolocation?.lat}
-                    lng={project.geolocation?.lng}
+                    lat={project.location?.geometry.coordinates[1]}
+                    lng={project.location?.geometry.coordinates[0]}
                     zoom={5}
                   />
                 </div>
