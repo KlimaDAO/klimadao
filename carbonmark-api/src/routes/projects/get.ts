@@ -1,22 +1,28 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, curry, mapValues, min, omit } from "lodash";
+import { compact, concat, mapValues, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
-import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { extract, notNil } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
-import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { isListingActive } from "../../utils/marketplace.utils";
-import { GetProjectResponse } from "./projects.types";
 import {
-  buildProjectKey,
-  composeCarbonmarkProject,
-  composeOffsetProject,
-  getDefaultQueryArgs,
-  getOffsetTokenPrices,
-} from "./projects.utils";
+  FindProjectsQuery,
+  FindProjectsQueryVariables,
+} from "../../.generated/types/marketplace.types";
+import { gqlSdk } from "../../utils/gqlSdk";
+import {
+  PoolPrice,
+  fetchAllPoolPrices,
+} from "../../utils/helpers/fetchAllPoolPrices";
+import { buildProjectKey, getDefaultQueryArgs } from "./projects.utils";
 
-import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
-import { isMatchingCmsProject } from "../../utils/helpers/utils";
+import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
+import {
+  CarbonProject,
+  fetchAllCarbonProjects,
+} from "../../utils/helpers/carbonProjects.utils";
+import {
+  marketplaceProjectToCarbonmarkProject,
+  offsetProjectToCarbonmarkProject,
+  validProject,
+} from "./get.utils";
+import { GetProjectResponse } from "./projects.types";
 
 const schema = {
   summary: "List projects",
@@ -90,6 +96,11 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
   ): Promise<GetProjectResponse[]> {
+    let projectData: FindProjectsQuery,
+      offsetData: FindCarbonOffsetsQuery,
+      cmsProjects: CarbonProject[],
+      poolPrices: Record<string, PoolPrice>;
+
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
@@ -102,52 +113,26 @@ const handler = (fastify: FastifyInstance) =>
       search: request.query.search ?? "",
     };
 
-    const [projectData, offsetData, cmsProjects, poolPrices] =
-      await Promise.all([
+    try {
+      [projectData, offsetData, cmsProjects, poolPrices] = await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
         fetchAllCarbonProjects(),
         fetchAllPoolPrices(),
       ]);
+    } catch (error) {
+      return reply.status(502).send(error?.message);
+    }
 
     // ----- Carbonmark Listings ----- //
-    const projects = projectData.projects.map((project) => {
-      const cmsProject = cmsProjects.find(
-        curry(isMatchingCmsProject)({
-          projectId: project.projectID,
-          registry: project.registry,
-        })
-      );
-
-      // Find the lowest price
-      // @todo change to number[]
-      const listingPrices = compact(project.listings)
-        .filter(isListingActive)
-        .map(extract("singleUnitPrice"));
-
-      const lowestPrice = min(listingPrices);
-
-      return composeCarbonmarkProject(project, cmsProject, lowestPrice);
-    });
+    const projects = projectData.projects.map((project) =>
+      marketplaceProjectToCarbonmarkProject(project, cmsProjects)
+    );
 
     // ----- Pool Listings ----- //
-    const offsetProjects = offsetData.carbonOffsets?.map((offset) => {
-      const [registry, code] = offset.projectID.split("-");
-
-      const cmsProject = cmsProjects.find(
-        curry(isMatchingCmsProject)({ projectId: code, registry })
-      );
-
-      // Find the lowest price
-      // @todo change to number[]
-      const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
-      const lowestPrice = min(tokenPrices);
-
-      return composeOffsetProject(offset, cmsProject, lowestPrice);
-    });
-
-    const validProject = ({ price }: GetProjectResponse) =>
-      notNil(price) && parseFloat(price) > 0;
+    const offsetProjects = offsetData.carbonOffsets?.map((offset) =>
+      offsetProjectToCarbonmarkProject(offset, cmsProjects, poolPrices)
+    );
 
     // Remove invalid projects and duplicates selecting the project with the lowest price
     const filteredUniqueProjects: GetProjectResponse[] = pipe(
