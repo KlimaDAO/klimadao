@@ -1,5 +1,6 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
@@ -86,7 +87,7 @@ const validations = (
 
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
-
+  const { address, isConnected } = useWeb3();
   const { register, handleSubmit, formState, control, clearErrors, setValue } =
     useFormContext<FormValues>();
 
@@ -108,10 +109,17 @@ export const RetireInputs: FC<Props> = (props) => {
     quantity !== "0" &&
     Number(props.fiatMinimum) > Number(totalPrice);
 
-  const exceededFiatBalance =
-    paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
-
   const isFiat = paymentMethod === "fiat";
+
+  const isDisabled = (item: string) =>
+    item === "usdc" && !address && !isConnected;
+
+  const exceededFiatBalance =
+    isFiat && Number(props.fiatBalance) < Number(totalPrice);
+
+  const payWithItems = Object.entries(
+    carbonmarkRetirePaymentMethodMap
+  ).reverse();
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
@@ -128,11 +136,11 @@ export const RetireInputs: FC<Props> = (props) => {
     clearErrors();
     // When the user choose to pay by credit card,
     // we convert the existing quantity to a whole number (1.123 -> 2)
-    if (paymentMethod === "fiat" && !!quantity && !props.fiatAmountError) {
+    if (isFiat && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
     // clear quantity when error
-    if (paymentMethod === "fiat" && !!props.fiatAmountError) {
+    if (isFiat && !!props.fiatAmountError) {
       setValue("quantity", "");
     }
   }, [paymentMethod, props.fiatAmountError]);
@@ -174,9 +182,8 @@ export const RetireInputs: FC<Props> = (props) => {
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
-
                     // Enforce whole numbers for Fiat, API throws otherwise
-                    paymentMethod === "fiat" &&
+                    isFiat &&
                       setValue(
                         "quantity",
                         Math.ceil(Number(e.target.value)).toString()
@@ -202,9 +209,7 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <Text>
             {t`Who will this retirement be credited to?`}{" "}
-            {paymentMethod === "fiat" && (
-              <span className={styles.required}>*</span>
-            )}
+            {isFiat && <span className={styles.required}>*</span>}
           </Text>
           <InputField
             id="beneficiaryName"
@@ -212,7 +217,7 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Beneficiary name`,
               ...register("beneficiaryName", {
                 required: {
-                  value: paymentMethod === "fiat",
+                  value: isFiat,
                   message: t`Required when proceeding with Credit Card`,
                 },
               }),
@@ -227,7 +232,7 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Beneficiary wallet address (optional)`,
               ...register("beneficiaryAddress", {
                 required: {
-                  value: paymentMethod === "fiat" && !props.address,
+                  value: isFiat && !props.address,
                   message: t`You either need to provide a beneficiary address or login with your browser wallet.`,
                 },
                 validate: {
@@ -248,9 +253,7 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <Text>
             {t`Retirement Message`}{" "}
-            {paymentMethod === "fiat" && (
-              <span className={styles.required}>*</span>
-            )}
+            {isFiat && <span className={styles.required}>*</span>}
           </Text>
           <TextareaField
             id="retirementMessage"
@@ -258,7 +261,7 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Describe the purpose of this retirement`,
               ...register("retirementMessage", {
                 required: {
-                  value: paymentMethod === "fiat",
+                  value: isFiat,
                   message: t`Required when proceeding with Credit Card`,
                 },
               }),
@@ -271,29 +274,28 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
             <Text>{t`Pay with:`}</Text>
-            {!!props.userBalance && paymentMethod !== "fiat" && (
+            {!!props.userBalance && !isFiat && (
               <Text t="body3">
                 {t`Balance: ${formatToPrice(props.userBalance, locale)}`}
               </Text>
             )}
-            {paymentMethod === "fiat" && props.fiatBalance && (
+            {isFiat && props.fiatBalance && (
               <Text t="body3">{t`${formatToPrice(
                 props.fiatBalance,
                 locale
               )} maximum for credit cards`}</Text>
             )}
           </div>
-
-          {Object?.entries(carbonmarkRetirePaymentMethodMap)
-            ?.map(([item, value]) => (
-              <Controller
-                control={control}
-                name="paymentMethod"
-                key={`payment-${item}`}
-                render={({ field }) => (
+          {payWithItems?.map(([item, value]) => (
+            <Controller
+              control={control}
+              name="paymentMethod"
+              key={`payment-method-${item}`}
+              render={({ field }) => (
+                <>
                   <button
                     type="button"
-                    disabled={value.disabled}
+                    disabled={value.disabled || !!isDisabled(item)}
                     aria-label="Payment Method"
                     onClick={() => {
                       setValue(
@@ -314,18 +316,29 @@ export const RetireInputs: FC<Props> = (props) => {
                         src={value.icon}
                         alt={value.label}
                       />
-                      {value.label}
+                      {item === "fiat" ? (
+                        <>{value.label}</>
+                      ) : (
+                        <>
+                          {isConnected && address ? (
+                            value.label
+                          ) : (
+                            <Trans>Login to pay with USDC</Trans>
+                          )}
+                        </>
+                      )}
                     </div>
                     <Text
                       t="body3"
                       className={cx({ selected: item === field.value })}
                     >
-                      {isFiat ? (
+                      {item === "fiat" && (
                         <>
                           <Trans>Processing Fee:</Trans>
                           <strong>{calcCreditCardFee()}</strong>
                         </>
-                      ) : (
+                      )}
+                      {item === "usdc" && !isDisabled(item) && (
                         <>
                           <Trans>Balance</Trans>
                           <strong>
@@ -335,10 +348,10 @@ export const RetireInputs: FC<Props> = (props) => {
                       )}
                     </Text>
                   </button>
-                )}
-              />
-            ))
-            .reverse()}
+                </>
+              )}
+            />
+          ))}
         </div>
 
         {belowFiatMinimum && (

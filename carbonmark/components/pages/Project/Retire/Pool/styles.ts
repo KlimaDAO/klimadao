@@ -101,6 +101,10 @@ export const paymentMethod = css`
     background: #58585c;
   }
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   div {
     gap: 0.8rem;
     display: flex;
