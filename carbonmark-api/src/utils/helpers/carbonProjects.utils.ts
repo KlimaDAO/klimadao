@@ -77,5 +77,7 @@ export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
     })
   );
 
+  console.log(allProject);
+
   return projects;
 };

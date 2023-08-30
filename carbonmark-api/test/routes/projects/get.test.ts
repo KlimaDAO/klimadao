@@ -1,6 +1,11 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
+import { aProject as aCmsProject } from "../../../src/.generated/mocks/carbonProjects.mocks";
+import { aProject as aMarketplaceProject } from "../../../src/.generated/mocks/marketplace.mocks";
+import {
+  GRAPH_URLS,
+  SANITY_URLS,
+} from "../../../src/graphql/codegen.constants";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 import { mockGqlRequest } from "../../utils";
@@ -101,5 +106,39 @@ describe("GET /projects", () => {
     expect(response.statusCode).toBe(200);
     const data = await response.json();
     expect(data).toEqual([]);
+  });
+
+  test.only("Search", async () => {
+    const mockCmsProject = aCmsProject({
+      registryProjectId: "2",
+      registry: "b",
+      country: "Bahamas",
+    });
+    const mockBahamasProject = aMarketplaceProject({
+      projectID: "2",
+      registry: "b",
+      country: { id: "Bahamas" },
+    });
+
+    mockGqlRequest([
+      SANITY_URLS.carbonProjects,
+      "",
+      { allProject: [mockCmsProject] },
+    ]);
+    mockGqlRequest([
+      GRAPH_URLS.marketplace,
+      "findProjects",
+      {
+        projects: [mockMarketplaceProject, mockBahamasProject],
+      },
+    ]);
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects?country=Bahamas`,
+    });
+    expect(response.statusCode).toBe(200);
+    const data = await response.json();
+    expect(data).toMatchObject([mockBahamasProject]);
   });
 });
