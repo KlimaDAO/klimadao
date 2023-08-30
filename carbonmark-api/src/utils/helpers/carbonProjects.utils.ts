@@ -46,7 +46,7 @@ export const fetchCarbonProject = async (args: Args) => {
 
   return {
     ...project,
-    content,
+    ...content,
     key,
   };
 };

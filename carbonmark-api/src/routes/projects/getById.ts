@@ -4,6 +4,7 @@ import { pipe, uniq } from "lodash/fp";
 import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
+import { GetProjectByIdResponse } from "./projects.types";
 
 const schema = {
   summary: "Project details",
@@ -84,6 +85,23 @@ const schema = {
         },
         isPoolProject: { type: "boolean" },
         vintage: { type: "string" },
+        //@todo add proper types
+        listings: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: true,
+          },
+          nullable: true,
+        },
+        activities: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: true,
+          },
+          nullable: true,
+        },
       },
       examples: [
         {
@@ -116,6 +134,8 @@ const schema = {
             totalRetired: 223871.6192861833,
             totalSupply: 385835.38071381673,
           },
+          /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
+          price: "string",
           prices: [
             {
               poolName: "bct",
@@ -176,13 +196,13 @@ const handler = (fastify: FastifyInstance) =>
       min
     )(poolPriceValues, listingPriceValues);
 
-    const projectResponse = {
+    const projectResponse: GetProjectByIdResponse = {
       ...projectDetails,
       stats,
-      prices: poolPrices,
       listings,
       activities,
       price: String(bestPrice ?? 0), // remove trailing zeros
+      prices: poolPrices,
       isPoolProject: !!poolPrices.length,
       vintage,
     };

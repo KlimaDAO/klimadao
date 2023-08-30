@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, curry, isNil, mapValues, min, omit } from "lodash";
+import { compact, concat, curry, mapValues, min, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { extract, notNil } from "../../utils/functional.utils";
@@ -89,7 +89,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ) {
+  ): Promise<GetProjectResponse[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
@@ -127,11 +127,6 @@ const handler = (fastify: FastifyInstance) =>
 
       const lowestPrice = min(listingPrices);
 
-      if (isNil(cmsProject)) {
-        console.error("No matching CMS Project for this project", project.id);
-        return null;
-      }
-
       return composeCarbonmarkProject(project, cmsProject, lowestPrice);
     });
 
@@ -143,17 +138,12 @@ const handler = (fastify: FastifyInstance) =>
         curry(isMatchingCmsProject)({ projectId: code, registry })
       );
 
-      if (isNil(cmsProject)) {
-        console.error("No matching CMS Project for this offset", offset.id);
-        return null;
-      }
-
       // Find the lowest price
       // @todo change to number[]
       const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
       const lowestPrice = min(tokenPrices);
 
-      return composeOffsetProject(cmsProject, offset, lowestPrice);
+      return composeOffsetProject(offset, cmsProject, lowestPrice);
     });
 
     const validProject = ({ price }: GetProjectResponse) =>
