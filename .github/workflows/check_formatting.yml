@@ -49,6 +49,9 @@ jobs:
           changed=$(git diff --name-only origin/${{ steps.base-branch.outputs.base_branch }} | grep -v "node_modules" | cut -d/ -f1 | sort -u | tr "\n" " ")
           echo "changed_dirs=$changed" >> $GITHUB_OUTPUT
 
+      - name: Check prettier version
+        run: npx prettier -v
+
       - name: Run Prettier on changed directories
         if: ${{ steps.changed-dirs.outputs.changed_dirs != '' }}
         run: npx prettier --check ${{ steps.changed-dirs.outputs.changed_dirs }}
