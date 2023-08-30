@@ -2,8 +2,6 @@
 
 import {
   GetProjectQuery,
-  Image,
-  Maybe,
   ProjectContent,
 } from "src/.generated/types/carbonProjects.types";
 import {
@@ -50,12 +48,15 @@ export type GetProjectResponse = {
       coordinates: [number, number];
     };
   };
-  images?: Maybe<Image>[];
+  images?: {
+    url: string;
+    caption: string;
+  }[];
 };
 
 export type GetProjectByIdResponse = {
   key: string;
-  projectID?: string | null;
+  projectID: string | null | undefined;
   name?: string | null;
   registry?: string | null;
   country?: string | null;
@@ -90,4 +91,8 @@ export type GetProjectByIdResponse = {
   vintage: string;
   listings: Omit<Listing, "project">[] | null;
   activities: ActivityWithUserHandles[] | null;
+  images?: {
+    url: string;
+    caption: string;
+  }[];
 };

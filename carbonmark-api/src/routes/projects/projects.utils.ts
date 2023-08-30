@@ -140,7 +140,12 @@ export const composeOffsetProject = (
   price,
   activities: null,
   listings: null,
-  images: carbonProject?.content?.images ?? [],
+  //@todo use sanity Image type
+  images:
+    carbonProject?.content?.images?.map((image) => ({
+      caption: image?.asset?.altText ?? "",
+      url: image?.asset?.url ?? "",
+    })) ?? [],
 });
 
 export const toGeoJSON = (

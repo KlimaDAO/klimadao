@@ -5,6 +5,7 @@ import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
 import { GetProjectByIdResponse } from "./projects.types";
+import { toGeoJSON } from "./projects.utils";
 
 const schema = {
   summary: "Project details",
@@ -189,7 +190,6 @@ const handler = (fastify: FastifyInstance) =>
       Number(l.singleUnitPrice)
     );
 
-    // these are already formatted as usd numbers
     const bestPrice = pipe(
       concat,
       uniq,
@@ -201,9 +201,17 @@ const handler = (fastify: FastifyInstance) =>
       stats,
       listings,
       activities,
+      location: toGeoJSON(projectDetails.geolocation),
+      projectID: projectDetails.registryProjectId,
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
       isPoolProject: !!poolPrices.length,
+      //@todo use sanity Image type
+      images:
+        projectDetails?.images?.map((image) => ({
+          caption: image?.asset?.altText ?? "",
+          url: image?.asset?.url ?? "",
+        })) ?? [],
       vintage,
     };
     return reply.send(JSON.stringify(projectResponse));

@@ -150,13 +150,14 @@ const handler = (fastify: FastifyInstance) =>
       notNil(price) && parseFloat(price) > 0;
 
     // Remove invalid projects and duplicates selecting the project with the lowest price
-    const filteredUniqueProjects = pipe(
+    const filteredUniqueProjects: GetProjectResponse[] = pipe(
       concat,
       compact,
       filter(validProject),
       sortBy("price"),
       uniqBy(buildProjectKey)
     )(projects, offsetProjects);
+
     // Send the transformed projects array as a JSON string in the response
     return reply.send(JSON.stringify(filteredUniqueProjects));
   };

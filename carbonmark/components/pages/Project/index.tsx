@@ -52,6 +52,10 @@ const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
   const [isExpanded, setIsExpanded] = useState(false);
+  const poolPrices = project?.prices ?? [];
+  const bestPrice = project?.price;
+
+  console.log(project);
 
   // Typeguard, project should always be defined from static page props!
   if (!project) {
@@ -69,15 +73,10 @@ const Page: NextPage<PageProps> = (props) => {
   const allMethodologyNames =
     project?.methodologies?.map(({ name }) => name) || [];
 
-  // filtered on the backend
-  const poolPrices = project?.prices || [];
-
   const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
     poolPrices,
     activeListings
   );
-
-  const bestPrice = project.price;
 
   const pricesOrListings =
     !!sortedListingsAndPrices.length &&
