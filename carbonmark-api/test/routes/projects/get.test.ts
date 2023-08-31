@@ -1,20 +1,17 @@
 import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/constants/graphs.constants";
+import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
-import carbonProjects from "../../fixtures/carbon-projects";
+import carbonProjects from "../../fixtures/carbonProjects";
 import marketplace from "../../fixtures/marketplace";
-import bridgedCarbon from "../../fixtures/polygon-bridged-carbon";
+import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-jest.mock("../../../src/sanity/sanity", () => ({
-  getSanityClient: () => ({
-    // mock for sanity.fetch(fetchAllProjects)
-    fetch: jest.fn(() => {
-      return [carbonProjects.project];
-    }),
+jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => ({
+  fetchAllCarbonProjects: jest.fn(() => {
+    return [carbonProjects.carbonProject];
   }),
 }));
 
@@ -111,14 +108,14 @@ describe("GET /projects", () => {
     const expectedResponse = [
       {
         ...pick(bridgedCarbon.offset, ["id"]),
-        ...pick(carbonProjects.project, [
+        ...pick(carbonProjects.carbonProject, [
           "description",
           "name",
           "methodologies",
         ]),
         // applies short_description property from cms
         short_description:
-          carbonProjects.project.projectContent.shortDescription,
+          carbonProjects.carbonProject.content?.shortDescription,
         // always true for pool projects
         isPoolProject: true,
         // Takes numeric from full id, "VCS-191" -> "191"
@@ -129,14 +126,24 @@ describe("GET /projects", () => {
         registry: bridgedCarbon.offset.projectID.split("-")[0],
         updatedAt: bridgedCarbon.offset.lastUpdate,
         category: {
-          id: bridgedCarbon.offset.methodologyCategory,
+          id: bridgedCarbon?.offset.methodologyCategory,
         },
         country: {
-          id: bridgedCarbon.offset.country,
+          id: carbonProjects.carbonProject.country,
         },
         price: poolPrices.bct.defaultPrice,
         listings: null,
         key: bridgedCarbon.offset.projectID,
+        location: {
+          geometry: {
+            coordinates: [
+              carbonProjects.carbonProject.geolocation?.lng,
+              carbonProjects.carbonProject.geolocation?.lat,
+            ],
+            type: "Point",
+          },
+          type: "Feature",
+        },
       },
     ];
 
@@ -160,27 +167,25 @@ describe("GET /projects", () => {
     const expectedResponse = [
       {
         ...pick(marketplace.projectWithListing, [
-          "id",
           "projectAddress",
           "category",
-          "country",
-          "updatedAt",
           "vintage",
           "projectID",
           "registry",
-          "key",
         ]),
-        ...pick(carbonProjects.project, [
+        ...pick(carbonProjects.carbonProject, [
           "description",
           "name",
           "methodologies",
         ]),
+        id: marketplace?.projectWithListing.projectAddress,
         short_description:
-          carbonProjects.project.projectContent.shortDescription,
-        // in this test, bct is the lowest price
-        price: formatUSDC(
-          marketplace.projectWithListing.listings?.[0].singleUnitPrice!
-        ),
+          carbonProjects.carbonProject.content?.shortDescription,
+        country: {
+          id: carbonProjects.carbonProject.country,
+        },
+        price: "99",
+        updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
         listings: [
           pick(marketplace.projectWithListing.listings![0], [
             "id",
@@ -189,6 +194,18 @@ describe("GET /projects", () => {
             "singleUnitPrice",
           ]),
         ],
+        key: `${marketplace.projectWithListing.registry}-${marketplace.projectWithListing.projectID}`,
+        location: {
+          geometry: {
+            coordinates: [
+              carbonProjects.carbonProject.geolocation?.lng,
+              carbonProjects.carbonProject.geolocation?.lat,
+            ],
+            type: "Point",
+          },
+          type: "Feature",
+        },
+        isPoolProject: false,
       },
     ];
 

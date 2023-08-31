@@ -213,9 +213,9 @@ export const composeProjectEntries = (
       country: {
         id: carbonProject?.country || pool?.country || market?.region || "",
       },
-      key: data.key,
-      registry: pool?.projectID.split("-")[0] ?? market?.registry ?? "",
-      projectID: pool?.projectID.split("-")[1] ?? market?.registry ?? "",
+      key: projectId,
+      registry: reg,
+      projectID: regId,
       vintage: pool?.vintageYear ?? market?.vintage ?? "",
       projectAddress: pool?.tokenAddress ?? market?.projectAddress,
       updatedAt: pickUpdatedAt(data),

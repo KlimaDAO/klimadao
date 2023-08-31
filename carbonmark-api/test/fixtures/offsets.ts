@@ -10,6 +10,7 @@ const offset = aCarbonOffset({
   balanceNBO: "0",
   projectID: "VCS-191",
   vintageYear: "2008",
+  methodologyCategory: "Energy",
 });
 
 /** Fixtures for the polygon-bridged-carbon subgraph */

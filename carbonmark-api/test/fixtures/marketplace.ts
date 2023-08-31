@@ -5,6 +5,8 @@ import {
 
 const listing = aListing({
   singleUnitPrice: "99000000",
+  leftToSell: "100000000000000000000",
+  updatedAt: "1234",
 });
 
 const projectWithListing = aProject({
