@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-08-30 16:57+0000\n"
+"POT-Creation-Date: 2023-08-31 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,12 +96,12 @@ msgstr "已与此项目/历史减排效益组合桥接但尚未停用的信用�
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:53
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:85
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:84
 msgid "Amount to purchase"
 msgstr "购买金额"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:135
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:134
 msgid "Amount to retire"
 msgstr "停用金额"
 
@@ -112,8 +112,6 @@ msgstr "批准"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
 msgid "Asset Details"
 msgstr "资产详情"
 
@@ -121,6 +119,12 @@ msgstr "资产详情"
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:25
 msgid "Asset ID"
 msgstr "资产编号"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
+msgid "Asset details"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:97
@@ -152,13 +156,13 @@ msgid "Available supply exceeded"
 msgstr "超出可用供应"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:50
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
 msgid "Available to purchase"
 msgstr "可供购买"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:50
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:49
 msgid "Available to retire"
 msgstr "可停用"
 
@@ -215,7 +219,7 @@ msgstr "收益人钱包地址（可选）"
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:154
+#: components/pages/Project/index.tsx:153
 msgid "Best Price"
 msgstr "最优价格"
 
@@ -285,8 +289,8 @@ msgstr "Carbonmark 不收取额外的交易费，并提供市场上的最低价�
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:90
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:124
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:178
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:123
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:177
 msgid "Carbonmark fee"
 msgstr "Carbonmark 费"
 
@@ -437,7 +441,7 @@ msgid "Created:"
 msgstr "已创建："
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:201
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:200
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "信用卡付款需支付额外的手续费。<0>请参阅文档以了解更多信息</0>"
 
@@ -458,7 +462,7 @@ msgid "DATE"
 msgstr "日期"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:251
+#: components/pages/Project/index.tsx:250
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
@@ -479,7 +483,7 @@ msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:202
+#: components/pages/Project/index.tsx:201
 msgid "Description"
 msgstr "描述"
 
@@ -698,8 +702,8 @@ msgid "Loading your assets"
 msgstr "正在加载您的资产"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:157
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:237
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:156
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:236
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -747,7 +751,7 @@ msgid "Maximize your climate impact."
 msgstr "最大限度地提高您对气候的影响。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:161
+#: components/pages/Project/index.tsx:160
 msgid "Methodology"
 msgstr "方法"
 
@@ -798,7 +802,7 @@ msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:241
+#: components/pages/Project/index.tsx:240
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
@@ -879,7 +883,7 @@ msgid "Payment Successful"
 msgstr "支付成功"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:197
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:196
 msgid "Payment processing fee"
 msgstr "付款手续费"
 
@@ -923,15 +927,15 @@ msgstr "最低价格"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:65
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:147
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:96
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:146
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr "价格包含网络费用。<0>请参阅文档以了解更多信息</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:93
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:92
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:142
 msgid "Price per tonne"
 msgstr "每吨价格"
 
@@ -1048,12 +1052,12 @@ msgid "RETIRE CARBON"
 msgstr "碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read Less"
 msgstr "简易阅读"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read More"
 msgstr "阅读更多"
 
@@ -1212,7 +1216,7 @@ msgid "Retirement successful"
 msgstr "碳停用成功"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:36
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:35
 msgid "Retiring Token"
 msgstr "碳停用代币"
 
@@ -1472,7 +1476,7 @@ msgid "Toggle sort menu"
 msgstr "切换排序菜单"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:36
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:35
 msgid "Token you will receive"
 msgstr "您将收到的代币"
 
@@ -1483,12 +1487,12 @@ msgstr "收到的代币："
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:55
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:52
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:72
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:87
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:131
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:137
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:136
 msgid "Tonnes"
 msgstr "吨"
 
@@ -1509,7 +1513,6 @@ msgstr "总成本为必填项"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:50
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:132
 msgid "Total Price"
 msgstr "总价"
 
@@ -1525,13 +1528,14 @@ msgstr "停用总碳吨"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:107
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:141
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:140
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
 msgid "Total cost"
 msgstr "总成本"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:132
 msgid "Total price"
 msgstr "总价"
 
@@ -1594,7 +1598,7 @@ msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:224
+#: components/pages/Project/index.tsx:223
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
@@ -1635,7 +1639,7 @@ msgid "View all Retirements"
 msgstr "查看所有碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:115
+#: components/pages/Project/index.tsx:114
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
@@ -1645,8 +1649,8 @@ msgid "View and share certificate"
 msgstr "查看和共享证书"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:61
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:61
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:60
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:60
 msgid "View on PolygonScan"
 msgstr "在 PolygonScan 上查看"
 
@@ -1772,8 +1776,8 @@ msgstr "您的钱包地址："
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:133
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:169
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:168
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:249
 msgid "Your balance:"
 msgstr "您的余额："
 

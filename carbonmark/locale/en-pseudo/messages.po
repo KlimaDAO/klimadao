@@ -610,6 +610,13 @@ msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
+#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
+msgid "Retire more carbon"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:74
 msgid "View and share certificate"
 msgstr ""
@@ -622,7 +629,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:154
+#: components/pages/Project/index.tsx:153
 msgid "Best Price"
 msgstr ""
 
@@ -658,42 +665,42 @@ msgid "Updated:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:115
+#: components/pages/Project/index.tsx:114
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:161
+#: components/pages/Project/index.tsx:160
 msgid "Methodology"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:202
+#: components/pages/Project/index.tsx:201
 msgid "Description"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read Less"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read More"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:224
+#: components/pages/Project/index.tsx:223
 msgid "View Registry Details <0/>"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:241
+#: components/pages/Project/index.tsx:240
 msgid "No listings found for this project."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:251
+#: components/pages/Project/index.tsx:250
 msgid "Data for this project and vintage"
 msgstr ""
 
@@ -925,56 +932,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:87
 msgid "Purchase successful"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Resources/SortyByDropDown/index.tsx:62
-msgid "Toggle Sorted by menu"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/List.tsx:44
-msgid "There was an error getting your retirement data. Please refresh the page to try again."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:47
-msgid "There was an error getting your total retirement data"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:58
-#: components/pages/Retire/Activity/Overview.tsx:68
-msgid "Retirement Overview"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:60
-msgid "No data to show"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:70
-msgid "Total carbon tonnes retired"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:75
-#: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
-msgid "t"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Overview.tsx:81
-msgid "Total retirement transactions"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
-#: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
-msgid "Retire more carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1394,6 +1351,49 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Resources/lib/cmsDataMap.ts:82
 msgid "Z-A"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Resources/SortyByDropDown/index.tsx:62
+msgid "Toggle Sorted by menu"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/List.tsx:44
+msgid "There was an error getting your retirement data. Please refresh the page to try again."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:47
+msgid "There was an error getting your total retirement data"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:58
+#: components/pages/Retire/Activity/Overview.tsx:68
+msgid "Retirement Overview"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:60
+msgid "No data to show"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:70
+msgid "Total carbon tonnes retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:75
+#: components/pages/Retire/Activity/Quotes.tsx:73
+#: components/pages/Retire/Activity/Table.tsx:56
+msgid "t"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Overview.tsx:81
+msgid "Total retirement transactions"
 msgstr ""
 
 #. js-lingui-explicit-id
