@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { SchemaOptions, TSchema, Type } from "@sinclair/typebox";
 
 /** Adhere to JSONSchema spec by using a URI */
 const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
@@ -10,6 +10,20 @@ const network = Type.Union([Type.Literal("polygon"), Type.Literal("mumbai")], {
     "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
   default: "polygon",
 });
+
+const geoJSONPoint = Type.Object(
+  {
+    type: Type.Literal("Feature"),
+    geometry: Type.Object({
+      type: Type.Literal("Point"),
+      coordinates: Type.Tuple([Type.Number(), Type.Number()]),
+    }),
+  },
+  {
+    $id: `${COMMON_SCHEMA_URI}/geopoint`,
+    description: "A GeoJSON Point feature.",
+  }
+);
 
 /**
  * Common schemas added to fastify at runtime in src/app
@@ -31,6 +45,10 @@ const commonSchema = Type.Object(
  */
 const CommonSchemaRefs = {
   querystring: { network: Type.Ref(network) },
+  geoJSONPoint: Type.Ref(geoJSONPoint),
 } as const;
 
-export { CommonSchemaRefs, commonSchema };
+const Nullable = <T extends TSchema>(schema: T, opts?: SchemaOptions) =>
+  Type.Union([schema, Type.Null()], opts);
+
+export { CommonSchemaRefs, Nullable, commonSchema };
