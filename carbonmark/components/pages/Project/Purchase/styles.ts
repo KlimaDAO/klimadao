@@ -1,6 +1,31 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const accordion = css`
+  border: none;
+
+  button {
+    padding: 0;
+
+    > p {
+      font-size: 2rem !important;
+      font-weight: 700;
+      line-height: 2.8rem;
+      color: var(--font-02);
+    }
+  }
+
+  &[data-open="true"] {
+    .content {
+      padding: 0;
+
+      > div {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+`;
+
 export const container = css`
   grid-column: main;
   display: grid;
@@ -163,6 +188,13 @@ export const formatParagraph = css`
   p {
     margin-bottom: 1em;
   }
+`;
+
+export const title = css`
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  color: var(--font-02);
 `;
 
 export const totalsText = css`

@@ -10,6 +10,7 @@ import {
   PoolPrice,
   fetchAllPoolPrices,
 } from "../../utils/helpers/fetchAllPoolPrices";
+import { GetProjectResponse } from "./projects.types";
 import { buildProjectKey, getDefaultQueryArgs } from "./projects.utils";
 
 import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
@@ -23,7 +24,6 @@ import {
   offsetProjectToCarbonmarkProject,
   validProject,
 } from "./get.utils";
-import { GetProjectResponse } from "./projects.types";
 
 type Params = {
   country?: string;

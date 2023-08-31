@@ -570,8 +570,6 @@ msgstr "Beneficiary wallet address (optional)"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
 msgid "Asset Details"
 msgstr "Asset Details"
 
@@ -587,7 +585,7 @@ msgstr "{tokenSymbol}"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:34
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:50
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:49
 msgid "Available to retire"
 msgstr "Available to retire"
 
@@ -631,7 +629,7 @@ msgstr "Carbon Pool"
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:154
+#: components/pages/Project/index.tsx:153
 msgid "Best Price"
 msgstr "Best Price"
 
@@ -667,42 +665,42 @@ msgid "Updated:"
 msgstr "Updated:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:115
+#: components/pages/Project/index.tsx:114
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "View and purchase this carbon offset project on Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:161
+#: components/pages/Project/index.tsx:160
 msgid "Methodology"
 msgstr "Methodology"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:202
+#: components/pages/Project/index.tsx:201
 msgid "Description"
 msgstr "Description"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read Less"
 msgstr "Read Less"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:215
+#: components/pages/Project/index.tsx:214
 msgid "Read More"
 msgstr "Read More"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:224
+#: components/pages/Project/index.tsx:223
 msgid "View Registry Details <0/>"
 msgstr "View Registry Details <0/>"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:241
+#: components/pages/Project/index.tsx:240
 msgid "No listings found for this project."
 msgstr "No listings found for this project."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:251
+#: components/pages/Project/index.tsx:250
 msgid "Data for this project and vintage"
 msgstr "Data for this project and vintage"
 
@@ -791,75 +789,80 @@ msgstr "Sign In / Connect To Buy"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:50
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:132
 msgid "Total Price"
 msgstr "Total Price"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:53
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:85
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:84
 msgid "Amount to purchase"
 msgstr "Amount to purchase"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:55
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:52
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:72
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:87
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:52
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:131
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:137
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:136
 msgid "Tonnes"
 msgstr "Tonnes"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:93
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:92
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:142
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:65
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:97
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:147
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:96
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:146
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr "Price includes network fees. <0>See docs to learn more.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:90
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:124
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:178
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:123
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:177
 msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:107
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:141
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:140
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:218
 msgid "Total cost"
 msgstr "Total cost"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:133
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:169
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:168
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:249
 msgid "Your balance:"
 msgstr "Your balance:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:36
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:33
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:33
+msgid "Asset details"
+msgstr "Asset details"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:35
 msgid "Token you will receive"
 msgstr "Token you will receive"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:50
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
 msgid "Available to purchase"
 msgstr "Available to purchase"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:61
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:61
+#: components/pages/Project/Purchase/Pool/AssetDetails.tsx:60
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:60
 msgid "View on PolygonScan"
 msgstr "View on PolygonScan"
 
@@ -971,12 +974,13 @@ msgstr "There was an error loading the total cost."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:132
 msgid "Total price"
 msgstr "Total price"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:157
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:237
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:156
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:236
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -990,7 +994,7 @@ msgid "Retire from {fullProjectid} | Carbonmark"
 msgstr "Retire from {fullProjectid} | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/AssetDetails.tsx:36
+#: components/pages/Project/Retire/Pool/AssetDetails.tsx:35
 msgid "Retiring Token"
 msgstr "Retiring Token"
 
@@ -1194,17 +1198,17 @@ msgid "At this time Carbonmark cannot process credit card payments exceeding: {f
 msgstr "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:135
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:134
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:197
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:196
 msgid "Payment processing fee"
 msgstr "Payment processing fee"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:201
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:200
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 
