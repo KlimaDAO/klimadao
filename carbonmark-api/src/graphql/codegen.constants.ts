@@ -6,3 +6,7 @@ export const GRAPH_URLS = {
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
 };
+export const SANITY_URLS = {
+  carbonProjects:
+    "https://l6of5nwi.apicdn.sanity.io/v1/graphql/production/default",
+};

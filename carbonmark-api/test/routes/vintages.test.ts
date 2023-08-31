@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { aProject } from "../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
+import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { ERROR } from "./routes.mock";

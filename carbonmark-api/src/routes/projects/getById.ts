@@ -1,8 +1,11 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact } from "lodash";
+import { compact, concat, min } from "lodash";
+import { pipe, uniq } from "lodash/fp";
+import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
-import { fetchProjectDetails } from "../../utils/helpers/fetchProjectDetails";
+import { GetProjectByIdResponse } from "./projects.types";
+import { toGeoJSON } from "./projects.utils";
 
 const schema = {
   summary: "Project details",
@@ -83,6 +86,23 @@ const schema = {
         },
         isPoolProject: { type: "boolean" },
         vintage: { type: "string" },
+        //@todo add proper types
+        listings: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: true,
+          },
+          nullable: true,
+        },
+        activities: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: true,
+          },
+          nullable: true,
+        },
       },
       examples: [
         {
@@ -115,6 +135,8 @@ const schema = {
             totalRetired: 223871.6192861833,
             totalSupply: 385835.38071381673,
           },
+          /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
+          price: "string",
           prices: [
             {
               poolName: "bct",
@@ -137,8 +159,6 @@ interface Params {
   id: string;
 }
 
-//@note this file is a mess and will be replaced by https://github.com/KlimaDAO/klimadao/pull/1232
-
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -154,8 +174,8 @@ const handler = (fastify: FastifyInstance) =>
       await Promise.all([
         fetchPoolPricesAndStats({ key, vintage }),
         fetchMarketplaceListings({ key, vintage, fastify }),
-        fetchProjectDetails({
-          registry: registry.toUpperCase(),
+        fetchCarbonProject({
+          registry,
           registryProjectId,
         }),
       ]);
@@ -170,20 +190,28 @@ const handler = (fastify: FastifyInstance) =>
       Number(l.singleUnitPrice)
     );
 
-    const bestPrice =
-      [
-        ...poolPriceValues, // these are already formatted as usd numbers
-        ...listingPriceValues,
-      ].sort((a, b) => a - b)[0] || 0;
+    const bestPrice = pipe(
+      concat,
+      uniq,
+      min
+    )(poolPriceValues, listingPriceValues);
 
-    const projectResponse = {
+    const projectResponse: GetProjectByIdResponse = {
       ...projectDetails,
       stats,
-      prices: poolPrices,
       listings,
       activities,
-      price: bestPrice.toString(), // remove trailing zeros
+      location: toGeoJSON(projectDetails.geolocation),
+      projectID: projectDetails.registryProjectId,
+      price: String(bestPrice ?? 0), // remove trailing zeros
+      prices: poolPrices,
       isPoolProject: !!poolPrices.length,
+      //@todo use sanity Image type
+      images:
+        projectDetails?.images?.map((image) => ({
+          caption: image?.asset?.altText ?? "",
+          url: image?.asset?.url ?? "",
+        })) ?? [],
       vintage,
     };
     return reply.send(JSON.stringify(projectResponse));

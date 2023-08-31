@@ -11,7 +11,7 @@ import { gqlSdk } from "../gqlSdk";
 
 type WithHandle<T> = T & { handle?: string };
 
-type ActivityWithUserHandles = Omit<Activity, "seller" | "buyer"> & {
+export type ActivityWithUserHandles = Omit<Activity, "seller" | "buyer"> & {
   seller: WithHandle<User>;
   buyer?: WithHandle<User> | null;
 };

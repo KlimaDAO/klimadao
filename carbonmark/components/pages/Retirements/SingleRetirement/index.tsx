@@ -156,7 +156,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               retirement={retirement}
               isMossOffset={isMossOffset}
               description={
-                props.project?.long_description || props.project?.description
+                props.project?.long_description ?? props.project?.description
               }
               category={props.project?.methodologies?.[0]?.category || null}
             />

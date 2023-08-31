@@ -5,6 +5,7 @@ import { curry, map } from "lodash/fp";
 import fetch from "node-fetch";
 import { build } from "./helper";
 const DEV_URL = "http://localhost:3003/api";
+// const STAGING_URL = "https://staging-api.carbonmark.com/api";
 const PRODUCTION_URL = "https://api.carbonmark.com/api";
 
 // A longer than usual timeout because the APIs are slooow
