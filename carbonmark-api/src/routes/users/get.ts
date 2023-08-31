@@ -3,6 +3,10 @@ import { compact, map, merge } from "lodash";
 import { assign, get, toUpper } from "lodash/fp";
 import { Holding } from "../../.generated/types/assets.types";
 import { Activity, Listing } from "../../.generated/types/marketplace.types";
+import {
+  ByWalletUserActivity,
+  ByWalletUserListing,
+} from "../../graphql/marketplace.types";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
@@ -138,13 +142,13 @@ const handler = (fastify: FastifyInstance) =>
     ]);
 
     /** Find and assign the FB User to the given listing */
-    const mapSellerToListing = (listing: Listing) => {
-      const seller = compact(sellers).find(selector("id", listing.seller.id));
+    const mapSellerToListing = (listing: ByWalletUserListing) => {
+      const seller = compact(sellers).find(selector("id", listing.seller?.id));
       return assign(listing, seller);
     };
 
     /** Find and assign the FB User to the given activity */
-    const mapSellerBuyerToActivity = (activity: Activity) => {
+    const mapSellerBuyerToActivity = (activity: ByWalletUserActivity) => {
       const seller = compact(buyers).find(selector("id", activity.seller?.id));
       const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
       return merge(activity, { seller, buyer });

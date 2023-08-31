@@ -47,7 +47,18 @@ const projectEntry = Type.Object({
   price: Type.String(),
   updatedAt: Type.String(),
   listings: Nullable(Type.Array(listingEntry)), // null when listings are empty
-  location: Nullable(CommonSchemaRefs.geoJSONPoint),
+  location: Nullable(
+    Type.Object({
+      type: Type.Literal("Feature"),
+      geometry: Type.Object({
+        type: Type.Literal("Point"),
+        coordinates: Type.Tuple([Type.Number(), Type.Number()]),
+      }),
+    }),
+    {
+      description: "A GeoJSON Point feature.",
+    }
+  ),
   /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
   id: Type.String({ description: "Deprecated in favor of projectAddress" }),
   isPoolProject: Type.Optional(Type.Boolean()),

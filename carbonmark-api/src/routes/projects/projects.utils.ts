@@ -3,6 +3,8 @@ import { compact, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
+import { FindQueryProject } from "../../graphql/marketplace.types";
+import { FindQueryOffset } from "../../graphql/offsets.types";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
@@ -14,7 +16,6 @@ import {
 } from "../../utils/helpers/utils";
 import { ProjectEntry } from "./get.schema";
 import { POOL_INFO } from "./projects.constants";
-import { FindQueryOffset, FindQueryProject } from "./projects.types";
 
 /**
  * Build a default FindProjectsQueryVariables object for searching
@@ -112,6 +113,12 @@ export const isValidPoolProject = (project: FindQueryOffset) => {
   return !!validProjects.length;
 };
 
+export const isActiveListing = (l: {
+  active?: boolean | null;
+  deleted?: boolean | null;
+  leftToSell?: string | null;
+}) => !!l.active && !l.deleted && BigInt(l.leftToSell || "") >= 1;
+
 /**
  * For marketplace subgraph projects
  * Returns true if project has >=1 tonne in any active, unexpired listing
@@ -119,9 +126,7 @@ export const isValidPoolProject = (project: FindQueryOffset) => {
 export const isValidMarketplaceProject = (project: FindQueryProject) => {
   if (!project.listings) return false;
   const validProjects = project.listings.filter((listing) => {
-    return (
-      !!listing.active && !listing.deleted && BigInt(listing.leftToSell) >= 1
-    );
+    return isActiveListing(listing);
   });
   return !!validProjects.length;
 };
@@ -183,7 +188,7 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   poolPrices: Record<string, PoolPrice>
-) => {
+): ProjectEntry[] => {
   const entries: ProjectEntry[] = [];
   projectDataMap.forEach((data) => {
     // rename vars for brevity

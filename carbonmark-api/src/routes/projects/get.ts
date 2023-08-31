@@ -6,7 +6,6 @@ import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { ProjectEntry, schema } from "./get.schema";
-import { GetProjectResponse } from "./projects.types";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -39,7 +38,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ): Promise<GetProjectResponse[]> {
+  ): Promise<ProjectEntry[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
@@ -88,7 +87,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries: ProjectEntry[] = composeProjectEntries(
+    const entries = composeProjectEntries(
       ProjectDataMap,
       CMSDataMap,
       poolPrices
