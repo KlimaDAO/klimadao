@@ -29,28 +29,28 @@ export type Account = {
 
 export type AccountHoldingsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Holding_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Holding_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<Holding_Filter>;
+  where: InputMaybe<Holding_Filter>;
 };
 
 export type Account_Filter = {
   /** Filter for the block changed event. */
-  _change_block?: InputMaybe<BlockChangedFilter>;
-  and?: InputMaybe<Array<InputMaybe<Account_Filter>>>;
-  holdings_?: InputMaybe<Holding_Filter>;
-  id?: InputMaybe<Scalars['Bytes']>;
-  id_contains?: InputMaybe<Scalars['Bytes']>;
-  id_gt?: InputMaybe<Scalars['Bytes']>;
-  id_gte?: InputMaybe<Scalars['Bytes']>;
-  id_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  id_lt?: InputMaybe<Scalars['Bytes']>;
-  id_lte?: InputMaybe<Scalars['Bytes']>;
-  id_not?: InputMaybe<Scalars['Bytes']>;
-  id_not_contains?: InputMaybe<Scalars['Bytes']>;
-  id_not_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  or?: InputMaybe<Array<InputMaybe<Account_Filter>>>;
+  _change_block: InputMaybe<BlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<Account_Filter>>>;
+  holdings_: InputMaybe<Holding_Filter>;
+  id: InputMaybe<Scalars['Bytes']>;
+  id_contains: InputMaybe<Scalars['Bytes']>;
+  id_gt: InputMaybe<Scalars['Bytes']>;
+  id_gte: InputMaybe<Scalars['Bytes']>;
+  id_in: InputMaybe<Array<Scalars['Bytes']>>;
+  id_lt: InputMaybe<Scalars['Bytes']>;
+  id_lte: InputMaybe<Scalars['Bytes']>;
+  id_not: InputMaybe<Scalars['Bytes']>;
+  id_not_contains: InputMaybe<Scalars['Bytes']>;
+  id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  or: InputMaybe<Array<InputMaybe<Account_Filter>>>;
 };
 
 export enum Account_OrderBy {
@@ -63,9 +63,9 @@ export type BlockChangedFilter = {
 };
 
 export type Block_Height = {
-  hash?: InputMaybe<Scalars['Bytes']>;
-  number?: InputMaybe<Scalars['Int']>;
-  number_gte?: InputMaybe<Scalars['Int']>;
+  hash: InputMaybe<Scalars['Bytes']>;
+  number: InputMaybe<Scalars['Int']>;
+  number_gte: InputMaybe<Scalars['Int']>;
 };
 
 export type Holding = {
@@ -84,77 +84,77 @@ export type Holding = {
 
 export type Holding_Filter = {
   /** Filter for the block changed event. */
-  _change_block?: InputMaybe<BlockChangedFilter>;
-  account?: InputMaybe<Scalars['String']>;
-  account_?: InputMaybe<Account_Filter>;
-  account_contains?: InputMaybe<Scalars['String']>;
-  account_contains_nocase?: InputMaybe<Scalars['String']>;
-  account_ends_with?: InputMaybe<Scalars['String']>;
-  account_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  account_gt?: InputMaybe<Scalars['String']>;
-  account_gte?: InputMaybe<Scalars['String']>;
-  account_in?: InputMaybe<Array<Scalars['String']>>;
-  account_lt?: InputMaybe<Scalars['String']>;
-  account_lte?: InputMaybe<Scalars['String']>;
-  account_not?: InputMaybe<Scalars['String']>;
-  account_not_contains?: InputMaybe<Scalars['String']>;
-  account_not_contains_nocase?: InputMaybe<Scalars['String']>;
-  account_not_ends_with?: InputMaybe<Scalars['String']>;
-  account_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  account_not_in?: InputMaybe<Array<Scalars['String']>>;
-  account_not_starts_with?: InputMaybe<Scalars['String']>;
-  account_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  account_starts_with?: InputMaybe<Scalars['String']>;
-  account_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  amount?: InputMaybe<Scalars['BigInt']>;
-  amount_gt?: InputMaybe<Scalars['BigInt']>;
-  amount_gte?: InputMaybe<Scalars['BigInt']>;
-  amount_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  amount_lt?: InputMaybe<Scalars['BigInt']>;
-  amount_lte?: InputMaybe<Scalars['BigInt']>;
-  amount_not?: InputMaybe<Scalars['BigInt']>;
-  amount_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  and?: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
-  id?: InputMaybe<Scalars['Bytes']>;
-  id_contains?: InputMaybe<Scalars['Bytes']>;
-  id_gt?: InputMaybe<Scalars['Bytes']>;
-  id_gte?: InputMaybe<Scalars['Bytes']>;
-  id_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  id_lt?: InputMaybe<Scalars['Bytes']>;
-  id_lte?: InputMaybe<Scalars['Bytes']>;
-  id_not?: InputMaybe<Scalars['Bytes']>;
-  id_not_contains?: InputMaybe<Scalars['Bytes']>;
-  id_not_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  lastUpdated?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_gt?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_gte?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  lastUpdated_lt?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_lte?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_not?: InputMaybe<Scalars['BigInt']>;
-  lastUpdated_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  or?: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
-  token?: InputMaybe<Scalars['String']>;
-  token_?: InputMaybe<Token_Filter>;
-  token_contains?: InputMaybe<Scalars['String']>;
-  token_contains_nocase?: InputMaybe<Scalars['String']>;
-  token_ends_with?: InputMaybe<Scalars['String']>;
-  token_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  token_gt?: InputMaybe<Scalars['String']>;
-  token_gte?: InputMaybe<Scalars['String']>;
-  token_in?: InputMaybe<Array<Scalars['String']>>;
-  token_lt?: InputMaybe<Scalars['String']>;
-  token_lte?: InputMaybe<Scalars['String']>;
-  token_not?: InputMaybe<Scalars['String']>;
-  token_not_contains?: InputMaybe<Scalars['String']>;
-  token_not_contains_nocase?: InputMaybe<Scalars['String']>;
-  token_not_ends_with?: InputMaybe<Scalars['String']>;
-  token_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  token_not_in?: InputMaybe<Array<Scalars['String']>>;
-  token_not_starts_with?: InputMaybe<Scalars['String']>;
-  token_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  token_starts_with?: InputMaybe<Scalars['String']>;
-  token_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  _change_block: InputMaybe<BlockChangedFilter>;
+  account: InputMaybe<Scalars['String']>;
+  account_: InputMaybe<Account_Filter>;
+  account_contains: InputMaybe<Scalars['String']>;
+  account_contains_nocase: InputMaybe<Scalars['String']>;
+  account_ends_with: InputMaybe<Scalars['String']>;
+  account_ends_with_nocase: InputMaybe<Scalars['String']>;
+  account_gt: InputMaybe<Scalars['String']>;
+  account_gte: InputMaybe<Scalars['String']>;
+  account_in: InputMaybe<Array<Scalars['String']>>;
+  account_lt: InputMaybe<Scalars['String']>;
+  account_lte: InputMaybe<Scalars['String']>;
+  account_not: InputMaybe<Scalars['String']>;
+  account_not_contains: InputMaybe<Scalars['String']>;
+  account_not_contains_nocase: InputMaybe<Scalars['String']>;
+  account_not_ends_with: InputMaybe<Scalars['String']>;
+  account_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  account_not_in: InputMaybe<Array<Scalars['String']>>;
+  account_not_starts_with: InputMaybe<Scalars['String']>;
+  account_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  account_starts_with: InputMaybe<Scalars['String']>;
+  account_starts_with_nocase: InputMaybe<Scalars['String']>;
+  amount: InputMaybe<Scalars['BigInt']>;
+  amount_gt: InputMaybe<Scalars['BigInt']>;
+  amount_gte: InputMaybe<Scalars['BigInt']>;
+  amount_in: InputMaybe<Array<Scalars['BigInt']>>;
+  amount_lt: InputMaybe<Scalars['BigInt']>;
+  amount_lte: InputMaybe<Scalars['BigInt']>;
+  amount_not: InputMaybe<Scalars['BigInt']>;
+  amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  and: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  id: InputMaybe<Scalars['Bytes']>;
+  id_contains: InputMaybe<Scalars['Bytes']>;
+  id_gt: InputMaybe<Scalars['Bytes']>;
+  id_gte: InputMaybe<Scalars['Bytes']>;
+  id_in: InputMaybe<Array<Scalars['Bytes']>>;
+  id_lt: InputMaybe<Scalars['Bytes']>;
+  id_lte: InputMaybe<Scalars['Bytes']>;
+  id_not: InputMaybe<Scalars['Bytes']>;
+  id_not_contains: InputMaybe<Scalars['Bytes']>;
+  id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  lastUpdated: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_gt: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_gte: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_in: InputMaybe<Array<Scalars['BigInt']>>;
+  lastUpdated_lt: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_lte: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_not: InputMaybe<Scalars['BigInt']>;
+  lastUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  or: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  token: InputMaybe<Scalars['String']>;
+  token_: InputMaybe<Token_Filter>;
+  token_contains: InputMaybe<Scalars['String']>;
+  token_contains_nocase: InputMaybe<Scalars['String']>;
+  token_ends_with: InputMaybe<Scalars['String']>;
+  token_ends_with_nocase: InputMaybe<Scalars['String']>;
+  token_gt: InputMaybe<Scalars['String']>;
+  token_gte: InputMaybe<Scalars['String']>;
+  token_in: InputMaybe<Array<Scalars['String']>>;
+  token_lt: InputMaybe<Scalars['String']>;
+  token_lte: InputMaybe<Scalars['String']>;
+  token_not: InputMaybe<Scalars['String']>;
+  token_not_contains: InputMaybe<Scalars['String']>;
+  token_not_contains_nocase: InputMaybe<Scalars['String']>;
+  token_not_ends_with: InputMaybe<Scalars['String']>;
+  token_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  token_not_in: InputMaybe<Array<Scalars['String']>>;
+  token_not_starts_with: InputMaybe<Scalars['String']>;
+  token_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  token_starts_with: InputMaybe<Scalars['String']>;
+  token_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
 export enum Holding_OrderBy {
@@ -183,143 +183,143 @@ export enum OrderDirection {
 export type Query = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta?: Maybe<_Meta_>;
-  account?: Maybe<Account>;
+  _meta: Maybe<_Meta_>;
+  account: Maybe<Account>;
   accounts: Array<Account>;
-  holding?: Maybe<Holding>;
+  holding: Maybe<Holding>;
   holdings: Array<Holding>;
-  token?: Maybe<Token>;
+  token: Maybe<Token>;
   tokens: Array<Token>;
 };
 
 
 export type Query_MetaArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
 };
 
 
 export type QueryAccountArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type QueryAccountsArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Account_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Account_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Account_Filter>;
+  where: InputMaybe<Account_Filter>;
 };
 
 
 export type QueryHoldingArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type QueryHoldingsArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Holding_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Holding_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Holding_Filter>;
+  where: InputMaybe<Holding_Filter>;
 };
 
 
 export type QueryTokenArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type QueryTokensArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Token_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Token_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Token_Filter>;
+  where: InputMaybe<Token_Filter>;
 };
 
 export type Subscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta?: Maybe<_Meta_>;
-  account?: Maybe<Account>;
+  _meta: Maybe<_Meta_>;
+  account: Maybe<Account>;
   accounts: Array<Account>;
-  holding?: Maybe<Holding>;
+  holding: Maybe<Holding>;
   holdings: Array<Holding>;
-  token?: Maybe<Token>;
+  token: Maybe<Token>;
   tokens: Array<Token>;
 };
 
 
 export type Subscription_MetaArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
 };
 
 
 export type SubscriptionAccountArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type SubscriptionAccountsArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Account_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Account_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Account_Filter>;
+  where: InputMaybe<Account_Filter>;
 };
 
 
 export type SubscriptionHoldingArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type SubscriptionHoldingsArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Holding_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Holding_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Holding_Filter>;
+  where: InputMaybe<Holding_Filter>;
 };
 
 
 export type SubscriptionTokenArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
 
 export type SubscriptionTokensArgs = {
-  block?: InputMaybe<Block_Height>;
+  block: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy?: InputMaybe<Token_OrderBy>;
-  orderDirection?: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<Token_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
-  where?: InputMaybe<Token_Filter>;
+  where: InputMaybe<Token_Filter>;
 };
 
 export type Token = {
@@ -344,99 +344,99 @@ export type Token = {
 
 export type Token_Filter = {
   /** Filter for the block changed event. */
-  _change_block?: InputMaybe<BlockChangedFilter>;
-  and?: InputMaybe<Array<InputMaybe<Token_Filter>>>;
-  decimals?: InputMaybe<Scalars['Int']>;
-  decimals_gt?: InputMaybe<Scalars['Int']>;
-  decimals_gte?: InputMaybe<Scalars['Int']>;
-  decimals_in?: InputMaybe<Array<Scalars['Int']>>;
-  decimals_lt?: InputMaybe<Scalars['Int']>;
-  decimals_lte?: InputMaybe<Scalars['Int']>;
-  decimals_not?: InputMaybe<Scalars['Int']>;
-  decimals_not_in?: InputMaybe<Array<Scalars['Int']>>;
-  id?: InputMaybe<Scalars['Bytes']>;
-  id_contains?: InputMaybe<Scalars['Bytes']>;
-  id_gt?: InputMaybe<Scalars['Bytes']>;
-  id_gte?: InputMaybe<Scalars['Bytes']>;
-  id_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  id_lt?: InputMaybe<Scalars['Bytes']>;
-  id_lte?: InputMaybe<Scalars['Bytes']>;
-  id_not?: InputMaybe<Scalars['Bytes']>;
-  id_not_contains?: InputMaybe<Scalars['Bytes']>;
-  id_not_in?: InputMaybe<Array<Scalars['Bytes']>>;
-  latestPricePerKLIMA?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMAUpdated?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_gt?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_gte?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  latestPricePerKLIMAUpdated_lt?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_lte?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_not?: InputMaybe<Scalars['BigInt']>;
-  latestPricePerKLIMAUpdated_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  latestPricePerKLIMA_gt?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMA_gte?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMA_in?: InputMaybe<Array<Scalars['BigDecimal']>>;
-  latestPricePerKLIMA_lt?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMA_lte?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMA_not?: InputMaybe<Scalars['BigDecimal']>;
-  latestPricePerKLIMA_not_in?: InputMaybe<Array<Scalars['BigDecimal']>>;
-  latestPriceUSD?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSDUpdated?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_gt?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_gte?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  latestPriceUSDUpdated_lt?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_lte?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_not?: InputMaybe<Scalars['BigInt']>;
-  latestPriceUSDUpdated_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
-  latestPriceUSD_gt?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSD_gte?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSD_in?: InputMaybe<Array<Scalars['BigDecimal']>>;
-  latestPriceUSD_lt?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSD_lte?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSD_not?: InputMaybe<Scalars['BigDecimal']>;
-  latestPriceUSD_not_in?: InputMaybe<Array<Scalars['BigDecimal']>>;
-  name?: InputMaybe<Scalars['String']>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  name_contains_nocase?: InputMaybe<Scalars['String']>;
-  name_ends_with?: InputMaybe<Scalars['String']>;
-  name_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  name_gt?: InputMaybe<Scalars['String']>;
-  name_gte?: InputMaybe<Scalars['String']>;
-  name_in?: InputMaybe<Array<Scalars['String']>>;
-  name_lt?: InputMaybe<Scalars['String']>;
-  name_lte?: InputMaybe<Scalars['String']>;
-  name_not?: InputMaybe<Scalars['String']>;
-  name_not_contains?: InputMaybe<Scalars['String']>;
-  name_not_contains_nocase?: InputMaybe<Scalars['String']>;
-  name_not_ends_with?: InputMaybe<Scalars['String']>;
-  name_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  name_not_in?: InputMaybe<Array<Scalars['String']>>;
-  name_not_starts_with?: InputMaybe<Scalars['String']>;
-  name_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  name_starts_with?: InputMaybe<Scalars['String']>;
-  name_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  or?: InputMaybe<Array<InputMaybe<Token_Filter>>>;
-  symbol?: InputMaybe<Scalars['String']>;
-  symbol_contains?: InputMaybe<Scalars['String']>;
-  symbol_contains_nocase?: InputMaybe<Scalars['String']>;
-  symbol_ends_with?: InputMaybe<Scalars['String']>;
-  symbol_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  symbol_gt?: InputMaybe<Scalars['String']>;
-  symbol_gte?: InputMaybe<Scalars['String']>;
-  symbol_in?: InputMaybe<Array<Scalars['String']>>;
-  symbol_lt?: InputMaybe<Scalars['String']>;
-  symbol_lte?: InputMaybe<Scalars['String']>;
-  symbol_not?: InputMaybe<Scalars['String']>;
-  symbol_not_contains?: InputMaybe<Scalars['String']>;
-  symbol_not_contains_nocase?: InputMaybe<Scalars['String']>;
-  symbol_not_ends_with?: InputMaybe<Scalars['String']>;
-  symbol_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
-  symbol_not_in?: InputMaybe<Array<Scalars['String']>>;
-  symbol_not_starts_with?: InputMaybe<Scalars['String']>;
-  symbol_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
-  symbol_starts_with?: InputMaybe<Scalars['String']>;
-  symbol_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  _change_block: InputMaybe<BlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  decimals: InputMaybe<Scalars['Int']>;
+  decimals_gt: InputMaybe<Scalars['Int']>;
+  decimals_gte: InputMaybe<Scalars['Int']>;
+  decimals_in: InputMaybe<Array<Scalars['Int']>>;
+  decimals_lt: InputMaybe<Scalars['Int']>;
+  decimals_lte: InputMaybe<Scalars['Int']>;
+  decimals_not: InputMaybe<Scalars['Int']>;
+  decimals_not_in: InputMaybe<Array<Scalars['Int']>>;
+  id: InputMaybe<Scalars['Bytes']>;
+  id_contains: InputMaybe<Scalars['Bytes']>;
+  id_gt: InputMaybe<Scalars['Bytes']>;
+  id_gte: InputMaybe<Scalars['Bytes']>;
+  id_in: InputMaybe<Array<Scalars['Bytes']>>;
+  id_lt: InputMaybe<Scalars['Bytes']>;
+  id_lte: InputMaybe<Scalars['Bytes']>;
+  id_not: InputMaybe<Scalars['Bytes']>;
+  id_not_contains: InputMaybe<Scalars['Bytes']>;
+  id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  latestPricePerKLIMA: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMAUpdated: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_gt: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_gte: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_in: InputMaybe<Array<Scalars['BigInt']>>;
+  latestPricePerKLIMAUpdated_lt: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_lte: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_not: InputMaybe<Scalars['BigInt']>;
+  latestPricePerKLIMAUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  latestPricePerKLIMA_gt: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMA_gte: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMA_in: InputMaybe<Array<Scalars['BigDecimal']>>;
+  latestPricePerKLIMA_lt: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMA_lte: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMA_not: InputMaybe<Scalars['BigDecimal']>;
+  latestPricePerKLIMA_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
+  latestPriceUSD: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSDUpdated: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_gt: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_gte: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_in: InputMaybe<Array<Scalars['BigInt']>>;
+  latestPriceUSDUpdated_lt: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_lte: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_not: InputMaybe<Scalars['BigInt']>;
+  latestPriceUSDUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  latestPriceUSD_gt: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSD_gte: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSD_in: InputMaybe<Array<Scalars['BigDecimal']>>;
+  latestPriceUSD_lt: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSD_lte: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSD_not: InputMaybe<Scalars['BigDecimal']>;
+  latestPriceUSD_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
+  name: InputMaybe<Scalars['String']>;
+  name_contains: InputMaybe<Scalars['String']>;
+  name_contains_nocase: InputMaybe<Scalars['String']>;
+  name_ends_with: InputMaybe<Scalars['String']>;
+  name_ends_with_nocase: InputMaybe<Scalars['String']>;
+  name_gt: InputMaybe<Scalars['String']>;
+  name_gte: InputMaybe<Scalars['String']>;
+  name_in: InputMaybe<Array<Scalars['String']>>;
+  name_lt: InputMaybe<Scalars['String']>;
+  name_lte: InputMaybe<Scalars['String']>;
+  name_not: InputMaybe<Scalars['String']>;
+  name_not_contains: InputMaybe<Scalars['String']>;
+  name_not_contains_nocase: InputMaybe<Scalars['String']>;
+  name_not_ends_with: InputMaybe<Scalars['String']>;
+  name_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  name_not_in: InputMaybe<Array<Scalars['String']>>;
+  name_not_starts_with: InputMaybe<Scalars['String']>;
+  name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  name_starts_with: InputMaybe<Scalars['String']>;
+  name_starts_with_nocase: InputMaybe<Scalars['String']>;
+  or: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  symbol: InputMaybe<Scalars['String']>;
+  symbol_contains: InputMaybe<Scalars['String']>;
+  symbol_contains_nocase: InputMaybe<Scalars['String']>;
+  symbol_ends_with: InputMaybe<Scalars['String']>;
+  symbol_ends_with_nocase: InputMaybe<Scalars['String']>;
+  symbol_gt: InputMaybe<Scalars['String']>;
+  symbol_gte: InputMaybe<Scalars['String']>;
+  symbol_in: InputMaybe<Array<Scalars['String']>>;
+  symbol_lt: InputMaybe<Scalars['String']>;
+  symbol_lte: InputMaybe<Scalars['String']>;
+  symbol_not: InputMaybe<Scalars['String']>;
+  symbol_not_contains: InputMaybe<Scalars['String']>;
+  symbol_not_contains_nocase: InputMaybe<Scalars['String']>;
+  symbol_not_ends_with: InputMaybe<Scalars['String']>;
+  symbol_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  symbol_not_in: InputMaybe<Array<Scalars['String']>>;
+  symbol_not_starts_with: InputMaybe<Scalars['String']>;
+  symbol_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  symbol_starts_with: InputMaybe<Scalars['String']>;
+  symbol_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
 export enum Token_OrderBy {
@@ -453,11 +453,11 @@ export enum Token_OrderBy {
 export type _Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
-  hash?: Maybe<Scalars['Bytes']>;
+  hash: Maybe<Scalars['Bytes']>;
   /** The block number */
   number: Scalars['Int'];
   /** Integer representation of the timestamp stored in blocks for the chain */
-  timestamp?: Maybe<Scalars['Int']>;
+  timestamp: Maybe<Scalars['Int']>;
 };
 
 /** The type for the top-level _meta field */
@@ -485,7 +485,7 @@ export enum _SubgraphErrorPolicy_ {
 }
 
 export type GetHoldingsByWalletQueryVariables = Exact<{
-  wallet?: InputMaybe<Scalars['Bytes']>;
+  wallet: InputMaybe<Scalars['Bytes']>;
 }>;
 
 

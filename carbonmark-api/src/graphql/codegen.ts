@@ -53,6 +53,7 @@ const config = {
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
+    avoidOptionals: true,
   },
 };
 
