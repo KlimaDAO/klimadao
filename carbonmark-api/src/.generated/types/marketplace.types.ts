@@ -1324,7 +1324,7 @@ export enum _SubgraphErrorPolicy_ {
 
 export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null };
 
-export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string };
+export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category: { __typename?: 'Category', id: string } | null };
 
 export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType };
 
@@ -1365,7 +1365,7 @@ export type FindProjectsQueryVariables = Exact<{
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null }> | null }> };
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null }> | null, category: { __typename?: 'Category', id: string } | null }> };
 
 export type GetProjectsByIdQueryVariables = Exact<{
   key: InputMaybe<Scalars['String']>;
@@ -1373,7 +1373,7 @@ export type GetProjectsByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country: { __typename?: 'Country', id: string } | null, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer: { __typename?: 'User', id: any } | null }> | null }> };
+export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country: { __typename?: 'Country', id: string } | null, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer: { __typename?: 'User', id: any } | null }> | null, category: { __typename?: 'Category', id: string } | null }> };
 
 export const ListingFragmentFragmentDoc = gql`
     fragment ListingFragment on Listing {
@@ -1402,6 +1402,9 @@ export const ProjectFragmentFragmentDoc = gql`
   methodology
   projectType
   region
+  category {
+    id
+  }
 }
     `;
 export const ActivityFragmentFragmentDoc = gql`

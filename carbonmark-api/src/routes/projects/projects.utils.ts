@@ -227,7 +227,7 @@ export const composeProjectEntries = (
       id: pool?.id ?? market?.projectAddress,
       /** DEPRECATED in favor of methodologies array */
       category: {
-        id: market?.methodology ?? pool?.methodologyCategory ?? "",
+        id: market?.category?.id ?? pool?.methodologyCategory ?? "",
       },
     };
 
