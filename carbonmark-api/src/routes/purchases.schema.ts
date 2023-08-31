@@ -75,7 +75,7 @@ const params = Type.Object(
 type PurchaseParams = Static<typeof params>;
 
 const querystring = Type.Object({
-  network: Type.Optional(CommonSchemaRefs.network),
+  network: Type.Optional(CommonSchemaRefs.querystring.network),
 });
 
 const schema = {
