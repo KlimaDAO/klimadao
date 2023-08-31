@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchemaRefs } from "../common.schema";
+import { CommonSchemaRefs, Nullable } from "../common.schema";
 
 /** DEPRECATED. This will be altered with v2 */
 const listingEntry = Type.Object(
@@ -27,9 +27,8 @@ const listingEntry = Type.Object(
 type ListingEntry = Static<typeof listingEntry>;
 
 const projectEntry = Type.Object({
-  id: Type.String(),
-  description: Type.String(),
-  short_description: Type.String(),
+  description: Nullable(Type.String()),
+  short_description: Nullable(Type.String()),
   key: Type.String(),
   projectID: Type.String(),
   name: Type.String(),
@@ -47,8 +46,10 @@ const projectEntry = Type.Object({
   category: Type.Object({ id: Type.String() }),
   price: Type.String(),
   updatedAt: Type.String(),
-  listings: Type.Union([Type.Array(listingEntry), Type.Null()]), // null when listings are empty
+  listings: Nullable(Type.Array(listingEntry)), // null when listings are empty
+  location: Nullable(CommonSchemaRefs.geoJSONPoint),
   /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
+  id: Type.String({ description: "Deprecated in favor of projectAddress" }),
   isPoolProject: Type.Optional(Type.Boolean()),
 });
 

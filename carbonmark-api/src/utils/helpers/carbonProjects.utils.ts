@@ -1,10 +1,10 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
+import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
   GetAllProjectsQuery,
   ProjectContent,
-} from "src/.generated/types/carbonProjects.types";
-import { SetRequired } from "../../../../lib/utils/typescript.utils";
+} from "../../.generated/types/carbonProjects.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
@@ -21,12 +21,18 @@ type Args = {
  * @param {string} project.registry - The registry of the project.
  * @returns {string} The generated key.
  */
-const projectKey = ({ registry, registryProjectId }: CarbonProject) =>
-  `${registry}-${registryProjectId}`;
+const projectKey = ({
+  registry,
+  registryProjectId,
+}: {
+  registry: string | null;
+  registryProjectId: string | null;
+}) => `${registry}-${registryProjectId}`;
 
 export type CarbonProject = GetAllProjectsQuery["allProject"][number] & {
   content?: ProjectContent;
 };
+
 /**
  * Fetches a carbon project based on the provided registry and id.
  * @param {Object} args - The arguments.

@@ -1,22 +1,19 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, curry, mapValues, min, omit } from "lodash";
-import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
+import { mapValues, omit, sortBy } from "lodash";
+import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { formatUSDC } from "../../utils/crypto.utils";
-import { notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { isMatchingCmsProject } from "../../utils/helpers/utils";
-import { isListingActive } from "../../utils/marketplace.utils";
-import { schema } from "./get.schema";
+import { ProjectEntry, schema } from "./get.schema";
 import { GetProjectResponse } from "./projects.types";
 import {
-  buildProjectKey,
-  composeCarbonmarkProject,
-  composeOffsetProject,
+  CMSDataMap,
+  ProjectDataMap,
+  composeProjectEntries,
   getDefaultQueryArgs,
-  getOffsetTokenPrices,
+  isValidMarketplaceProject,
+  isValidPoolProject,
 } from "./projects.utils";
 
 type Params = {
@@ -55,7 +52,7 @@ const handler = (fastify: FastifyInstance) =>
       search: request.query.search ?? "",
     };
 
-    const [projectData, offsetData, cmsProjects, poolPrices] =
+    const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
@@ -63,55 +60,47 @@ const handler = (fastify: FastifyInstance) =>
         fetchAllPoolPrices(),
       ]);
 
-    // ----- Carbonmark Listings ----- //
-    const projects = projectData.projects.map((project) => {
-      const cmsProject = cmsProjects.find(
-        curry(isMatchingCmsProject)({
-          projectId: project.projectID,
-          registry: project.registry,
-        })
-      );
+    const CMSDataMap: CMSDataMap = new Map();
+    const ProjectDataMap: ProjectDataMap = new Map();
 
-      const listingPrices = compact(project.listings)
-        ?.filter(isListingActive)
-        .map(({ singleUnitPrice }) => BigInt(singleUnitPrice));
-      const lowestPrice = min(listingPrices) || BigInt(0);
-      const formattedPrice = formatUSDC(lowestPrice);
-      return composeCarbonmarkProject(project, cmsProject, formattedPrice);
+    cmsProjects.forEach((project) => {
+      if (!project.id) return;
+      CMSDataMap.set(project.id, project);
     });
 
-    // ----- Pool Listings ----- //
-    const offsetProjects = offsetData.carbonOffsets.map((offset) => {
-      const [registry, code] = offset.projectID.split("-");
-
-      const cmsProject = cmsProjects.find(
-        curry(isMatchingCmsProject)({ projectId: code, registry })
-      );
-
-      const priceStrings = getOffsetTokenPrices(offset, poolPrices);
-      const tokenPrices = priceStrings.map((p) => Number(p));
-      const lowestPrice = min(tokenPrices);
-
-      return composeOffsetProject(offset, cmsProject, String(lowestPrice));
+    /** Assign valid pool projects to map */
+    poolProjectsData.carbonOffsets.forEach((project) => {
+      if (!isValidPoolProject(project)) return;
+      const key = `${project.projectID}-${project.vintageYear}`;
+      ProjectDataMap.set(key, { poolProjectData: project, key });
     });
 
-    const validProject = ({ price }: GetProjectResponse) =>
-      notNil(price) && parseFloat(price) > 0;
+    /** Assign valid marketplace projects to map */
+    marketplaceProjectsData.projects.forEach((project) => {
+      if (!isValidMarketplaceProject(project)) return;
+      const key = `${project.key}-${project.vintage}`;
+      const existingData = ProjectDataMap.get(key);
+      ProjectDataMap.set(key, {
+        ...existingData,
+        key,
+        marketplaceProjectData: project,
+      });
+    });
 
-    // Remove invalid projects and duplicates selecting the project with the lowest price
-    const filteredUniqueProjects: GetProjectResponse[] = pipe(
-      concat,
-      compact,
-      filter(validProject),
-      sortBy((prj) => Number(prj.price)),
-      uniqBy(buildProjectKey)
-    )(projects, offsetProjects);
+    /** Compose all the data together to unique entries (unsorted) */
+    const entries: ProjectEntry[] = composeProjectEntries(
+      ProjectDataMap,
+      CMSDataMap,
+      poolPrices
+    );
+
+    const sortedEntries = sortBy(entries, (e) => Number(e.price));
 
     // Send the transformed projects array as a JSON string in the response
     return reply
       .status(200)
       .header("Content-Type", "application/json; charset=utf-8")
-      .send(filteredUniqueProjects);
+      .send(sortedEntries);
   };
 
 export default async (fastify: FastifyInstance) => {
