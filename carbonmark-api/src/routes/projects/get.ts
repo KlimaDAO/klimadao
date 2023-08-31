@@ -2,10 +2,14 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, curry, mapValues, min, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { extract, notNil } from "../../utils/functional.utils";
+import { formatUSDC } from "../../utils/crypto.utils";
+import { notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
+import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
+import { isMatchingCmsProject } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
+import { schema } from "./get.schema";
 import { GetProjectResponse } from "./projects.types";
 import {
   buildProjectKey,
@@ -14,57 +18,6 @@ import {
   getDefaultQueryArgs,
   getOffsetTokenPrices,
 } from "./projects.utils";
-
-import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
-import { isMatchingCmsProject } from "../../utils/helpers/utils";
-
-const schema = {
-  summary: "List projects",
-  description:
-    "Retrieve an array of carbon projects filtered by desired query parameters",
-  tags: ["Projects"],
-  querystring: {
-    type: "object",
-    properties: {
-      country: {
-        type: "string",
-        description: "Desired country of origin for carbon projects",
-      },
-      category: {
-        type: "string",
-        description: "Desired category of carbon projects",
-      },
-      search: {
-        type: "string",
-        description:
-          "Search carbon project names and descriptions for a string of text",
-      },
-      vintage: {
-        type: "string",
-        description: "Desired vintage of carbon projects",
-      },
-    },
-  },
-  response: {
-    "2xx": {
-      description: "Successful response",
-      type: "object",
-      properties: {
-        id: { type: "string" },
-        key: { type: "string" },
-        projectID: { type: "string" },
-        name: { type: "string" },
-        methodology: { type: "string" },
-        vintage: { type: "string" },
-        projectAddress: { type: "string" },
-        registry: { type: "string" },
-        country: { type: "string" },
-        category: { type: "string" },
-        price: { type: "string" },
-      },
-    },
-  },
-};
 
 type Params = {
   country?: string;
@@ -119,15 +72,12 @@ const handler = (fastify: FastifyInstance) =>
         })
       );
 
-      // Find the lowest price
-      // @todo change to number[]
       const listingPrices = compact(project.listings)
-        .filter(isListingActive)
-        .map(extract("singleUnitPrice"));
-
-      const lowestPrice = min(listingPrices);
-
-      return composeCarbonmarkProject(project, cmsProject, lowestPrice);
+        ?.filter(isListingActive)
+        .map(({ singleUnitPrice }) => BigInt(singleUnitPrice));
+      const lowestPrice = min(listingPrices) || BigInt(0);
+      const formattedPrice = formatUSDC(lowestPrice);
+      return composeCarbonmarkProject(project, cmsProject, formattedPrice);
     });
 
     // ----- Pool Listings ----- //
@@ -138,12 +88,11 @@ const handler = (fastify: FastifyInstance) =>
         curry(isMatchingCmsProject)({ projectId: code, registry })
       );
 
-      // Find the lowest price
-      // @todo change to number[]
-      const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
+      const priceStrings = getOffsetTokenPrices(offset, poolPrices);
+      const tokenPrices = priceStrings.map((p) => Number(p));
       const lowestPrice = min(tokenPrices);
 
-      return composeOffsetProject(offset, cmsProject, lowestPrice);
+      return composeOffsetProject(offset, cmsProject, String(lowestPrice));
     });
 
     const validProject = ({ price }: GetProjectResponse) =>
@@ -154,12 +103,15 @@ const handler = (fastify: FastifyInstance) =>
       concat,
       compact,
       filter(validProject),
-      sortBy("price"),
+      sortBy((prj) => Number(prj.price)),
       uniqBy(buildProjectKey)
     )(projects, offsetProjects);
 
     // Send the transformed projects array as a JSON string in the response
-    return reply.send(JSON.stringify(filteredUniqueProjects));
+    return reply
+      .status(200)
+      .header("Content-Type", "application/json; charset=utf-8")
+      .send(filteredUniqueProjects);
   };
 
 export default async (fastify: FastifyInstance) => {
