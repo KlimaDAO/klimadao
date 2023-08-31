@@ -44,6 +44,7 @@ const generates = Object.entries(schemas).reduce(
               _all: {
                 singleUnitPrice: {
                   generator: "integer",
+                  arguments: [0, 100],
                 },
               },
             },

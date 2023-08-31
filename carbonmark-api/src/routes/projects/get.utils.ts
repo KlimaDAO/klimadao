@@ -8,6 +8,8 @@ import { isMatchingCmsProject } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
 import { GetProjectResponse } from "./projects.types";
 import {
+  buildOffsetKey,
+  buildProjectKey,
   composeCarbonmarkProject,
   composeOffsetProject,
   getOffsetTokenPrices,
@@ -36,6 +38,10 @@ export const marketplaceProjectToCarbonmarkProject = (
     .map(extract("singleUnitPrice"));
 
   const lowestPrice = min(listingPrices);
+  if (Number(lowestPrice) < 0)
+    console.warn(
+      `Project with id ${buildProjectKey(project)} found with negative price`
+    );
 
   return composeCarbonmarkProject(project, cmsProject, lowestPrice);
 };
@@ -57,6 +63,11 @@ export const offsetProjectToCarbonmarkProject = (
   // @todo change to number[]
   const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
   const lowestPrice = min(tokenPrices);
+
+  if (Number(lowestPrice) < 0)
+    console.warn(
+      `Project with id ${buildOffsetKey(offset)} found with negative price`
+    );
 
   return composeOffsetProject(offset, cmsProject, lowestPrice);
 };

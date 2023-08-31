@@ -1,6 +1,10 @@
 import { FastifyInstance } from "fastify";
+import { isMatch } from "lodash";
 import nock from "nock";
-import { aProject as aCmsProject } from "../../../src/.generated/mocks/carbonProjects.mocks";
+import {
+  aProject as aCmsProject,
+  aProjectContent as aCmsProjectContent,
+} from "../../../src/.generated/mocks/carbonProjects.mocks";
 import { aProject as aMarketplaceProject } from "../../../src/.generated/mocks/marketplace.mocks";
 import {
   GRAPH_URLS,
@@ -114,6 +118,9 @@ describe("GET /projects", () => {
       registry: "b",
       country: "Bahamas",
     });
+    const mockCmsProjectContent = aCmsProjectContent({
+      project: mockCmsProject,
+    });
     const mockBahamasProject = aMarketplaceProject({
       projectID: "2",
       registry: "b",
@@ -122,8 +129,13 @@ describe("GET /projects", () => {
 
     mockGqlRequest([
       SANITY_URLS.carbonProjects,
-      "",
+      "getAllProject",
       { allProject: [mockCmsProject] },
+    ]);
+    mockGqlRequest([
+      SANITY_URLS.carbonProjects,
+      "getAllProjectContent",
+      { allProjectContent: [mockCmsProjectContent] },
     ]);
     mockGqlRequest([
       GRAPH_URLS.marketplace,
@@ -137,9 +149,14 @@ describe("GET /projects", () => {
       method: "GET",
       url: `${DEV_URL}/projects?country=Bahamas`,
     });
+
+    const [data] = await response.json();
+
     expect(response.statusCode).toBe(200);
-    const data = await response.json();
-    expect(data).toMatchObject([mockBahamasProject]);
+    //Should return a bahamas country
+    expect(data.country).toEqual(mockBahamasProject.country);
+    //Should return all attributes of the mock project
+    expect(isMatch(data, mockBahamasProject)).toBeTruthy();
   });
 
   test.todo("handles missing cms data");
