@@ -13,6 +13,14 @@ const plugins = [
 
 const schemas = merge(GRAPH_URLS, SANITY_URLS);
 
+//FIelds for which the returned value should be a positive integer
+const positive_integer_fields = [
+  "singleUnitPrice",
+  "price",
+  "previousPrice",
+  "amount",
+  "previousAmount",
+];
 // Generate configuration for each schema entry
 const generates = Object.entries(schemas).reduce(
   (acc, [key, schema]) => ({
@@ -41,12 +49,16 @@ const generates = Object.entries(schemas).reduce(
             transformUnderscore: false,
             terminateCircularRelationships: true,
             fieldGeneration: {
-              _all: {
-                singleUnitPrice: {
-                  generator: "integer",
-                  arguments: [0, 100],
-                },
-              },
+              _all: positive_integer_fields.reduce(
+                (obj, field) => ({
+                  ...obj,
+                  [field]: {
+                    generator: "integer",
+                    arguments: [0, 100],
+                  },
+                }),
+                {}
+              ),
             },
           },
         },

@@ -54,7 +54,7 @@ export const aHolding = (overrides?: Partial<Holding>, _relationshipsToOmit: Set
     relationshipsToOmit.add('Holding');
     return {
         account: overrides && overrides.hasOwnProperty('account') ? overrides.account! : relationshipsToOmit.has('Account') ? {} as Account : anAccount({}, relationshipsToOmit),
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'tempore deserunt voluptatem error aspernatur temporibus aut',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 68,
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'velit',
         lastUpdated: overrides && overrides.hasOwnProperty('lastUpdated') ? overrides.lastUpdated! : 'velit modi itaque alias nostrum voluptas temporibus',
         token: overrides && overrides.hasOwnProperty('token') ? overrides.token! : relationshipsToOmit.has('Token') ? {} as Token : aToken({}, relationshipsToOmit),
@@ -87,7 +87,7 @@ export const aHolding_Filter = (overrides?: Partial<Holding_Filter>, _relationsh
         account_not_starts_with_nocase: overrides && overrides.hasOwnProperty('account_not_starts_with_nocase') ? overrides.account_not_starts_with_nocase! : 'quo',
         account_starts_with: overrides && overrides.hasOwnProperty('account_starts_with') ? overrides.account_starts_with! : 'accusantium',
         account_starts_with_nocase: overrides && overrides.hasOwnProperty('account_starts_with_nocase') ? overrides.account_starts_with_nocase! : 'pariatur',
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'est qui voluptas fuga eos non quos',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 77,
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : 'eligendi dolores doloremque reiciendis fugit quia voluptatibus',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : 'dolores optio autem et similique occaecati aut',
         amount_in: overrides && overrides.hasOwnProperty('amount_in') ? overrides.amount_in! : ['occaecati velit repudiandae animi ab optio fuga'],

@@ -1002,7 +1002,7 @@ export const aDailyKlimaRetirement = (overrides?: Partial<DailyKlimaRetirement>,
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DailyKlimaRetirement');
     return {
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'recusandae',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 93,
         feeAmount: overrides && overrides.hasOwnProperty('feeAmount') ? overrides.feeAmount! : 'sint',
         id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'aspernatur sunt est quo laboriosam adipisci perferendis',
         offset: overrides && overrides.hasOwnProperty('offset') ? overrides.offset! : relationshipsToOmit.has('CarbonOffset') ? {} as CarbonOffset : aCarbonOffset({}, relationshipsToOmit),
@@ -1017,7 +1017,7 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
     relationshipsToOmit.add('DailyKlimaRetirement_Filter');
     return {
         _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'aperiam',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 3,
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : 'reprehenderit',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : 'odit',
         amount_in: overrides && overrides.hasOwnProperty('amount_in') ? overrides.amount_in! : ['hic'],
@@ -1249,7 +1249,7 @@ export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToO
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('KlimaRetire');
     return {
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'beatae',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 8,
         beneficiary: overrides && overrides.hasOwnProperty('beneficiary') ? overrides.beneficiary! : 'nihil',
         beneficiaryAddress: overrides && overrides.hasOwnProperty('beneficiaryAddress') ? overrides.beneficiaryAddress! : 'eum',
         certificateTokenID: overrides && overrides.hasOwnProperty('certificateTokenID') ? overrides.certificateTokenID! : 'omnis nesciunt consequatur deserunt nobis molestias perspiciatis',
@@ -1272,7 +1272,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _re
     relationshipsToOmit.add('KlimaRetire_Filter');
     return {
         _change_block: overrides && overrides.hasOwnProperty('_change_block') ? overrides._change_block! : relationshipsToOmit.has('BlockChangedFilter') ? {} as BlockChangedFilter : aBlockChangedFilter({}, relationshipsToOmit),
-        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 'dignissimos',
+        amount: overrides && overrides.hasOwnProperty('amount') ? overrides.amount! : 45,
         amount_gt: overrides && overrides.hasOwnProperty('amount_gt') ? overrides.amount_gt! : 'modi',
         amount_gte: overrides && overrides.hasOwnProperty('amount_gte') ? overrides.amount_gte! : 'sunt',
         amount_in: overrides && overrides.hasOwnProperty('amount_in') ? overrides.amount_in! : ['aliquid'],
