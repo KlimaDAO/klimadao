@@ -8,7 +8,11 @@ import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 import { GQLMockDefinition, mockGqlRequest } from "../../utils";
 import { ERROR } from "../routes.mock";
-import { MOCKS, mockMarketplaceProject, mockOffsetProject } from "./get.mocks";
+import {
+  MOCKS,
+  mockMarketplaceProject,
+  mockOffsetProject,
+} from "./projects.mocks";
 
 describe("GET /projects", () => {
   let fastify: FastifyInstance;
