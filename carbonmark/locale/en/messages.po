@@ -14,6 +14,36 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:4
+msgid "created listing"
+msgstr "created listing"
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:5
+msgid "deleted listing"
+msgstr "deleted listing"
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:6
+msgid "bought from"
+msgstr "bought from"
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:7
+msgid "sold to"
+msgstr "sold to"
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:8
+msgid "updated price"
+msgstr "updated price"
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:9
+msgid "updated quantity"
+msgstr "updated quantity"
+
+#. js-lingui-explicit-id
 #: components/Activities/Activity.tsx:31
 msgid "at"
 msgstr "at"
@@ -111,165 +141,6 @@ msgstr "KlimaDAO"
 #: components/pages/Home/index.tsx:554
 msgid "Contact"
 msgstr "Contact"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:74
-msgid "Sell"
-msgstr "Sell"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
-#: components/pages/Retire/FromPortfolio/index.tsx:66
-msgid "Loading your assets"
-msgstr "Loading your assets"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
-msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
-msgstr "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
-msgid "No listable assets found."
-msgstr "No listable assets found."
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
-msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
-msgstr "You can view the successful transaction now on<0> PolygonScan.</0>"
-
-#. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:74
-msgid "View and share certificate"
-msgstr "View and share certificate"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:30
-msgid "Carbon Pool"
-msgstr "Carbon Pool"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
-msgid "Buy"
-msgstr "Buy"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
-msgid "Retire now"
-msgstr "Retire now"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:39
-msgid "You are about to purchase a carbon asset."
-msgstr "You are about to purchase a carbon asset."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:42
-msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
-msgstr "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:49
-msgid "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
-msgstr "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:59
-#: components/pages/Project/Retire/Pool/RetireModal.tsx:48
-msgid "Verify all information is correct and click 'approve' to continue."
-msgstr "Verify all information is correct and click 'approve' to continue."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:71
-msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
-msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:77
-msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
-msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:90
-msgid "Processing Purchase"
-msgstr "Processing Purchase"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:91
-msgid "Purchase successful"
-msgstr "Purchase successful"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:92
-#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
-msgid "Confirm Purchase"
-msgstr "Confirm Purchase"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/index.tsx:24
-#: components/pages/Project/Retire/index.tsx:25
-msgid "Retire from {fullProjectid} | Carbonmark"
-msgstr "Retire from {fullProjectid} | Carbonmark"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
-msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
-msgstr "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Quotes.tsx:70
-msgid "retired"
-msgstr "retired"
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/index.tsx:123
-msgid "You can also retire any carbon asset in your wallet."
-msgstr "You can also retire any carbon asset in your wallet."
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/index.tsx:141
-msgid "Quick Retire"
-msgstr "Quick Retire"
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/index.tsx:146
-msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-
-#. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:106
-msgid "There was an error loading your assets. {e}"
-msgstr "There was an error loading your assets. {e}"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:4
-msgid "created listing"
-msgstr "created listing"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:5
-msgid "deleted listing"
-msgstr "deleted listing"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:6
-msgid "bought from"
-msgstr "bought from"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:7
-msgid "sold to"
-msgstr "sold to"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:8
-msgid "updated price"
-msgstr "updated price"
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:9
-msgid "updated quantity"
-msgstr "updated quantity"
 
 #. js-lingui-explicit-id
 #: components/Layout/AddressSection/index.tsx:26
@@ -607,6 +478,27 @@ msgid "Retire"
 msgstr "Retire"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/AssetProject/index.tsx:74
+msgid "Sell"
+msgstr "Sell"
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:67
+#: components/pages/Retire/FromPortfolio/index.tsx:66
+msgid "Loading your assets"
+msgstr "Loading your assets"
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:93
+msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
+msgstr "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:104
+msgid "No listable assets found."
+msgstr "No listable assets found."
+
+#. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:59
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
@@ -713,11 +605,26 @@ msgid "Retirement Successful!"
 msgstr "Retirement Successful!"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:48
+msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
+msgstr "You can view the successful transaction now on<0> PolygonScan.</0>"
+
+#. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:57
 #: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:81
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:59
 msgid "Retire more carbon"
 msgstr "Retire more carbon"
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/Retire/RetirementStatusModal/index.tsx:74
+msgid "View and share certificate"
+msgstr "View and share certificate"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:30
+msgid "Carbon Pool"
+msgstr "Carbon Pool"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
@@ -731,6 +638,16 @@ msgstr "Best Price"
 #: components/pages/Project/BuyOptions/SellerListing.tsx:78
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:45
+msgid "Buy"
+msgstr "Buy"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/BuyOptions/PoolPrice.tsx:56
+msgid "Retire now"
+msgstr "Retire now"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:58
@@ -977,6 +894,53 @@ msgid "The minimum amount to buy is 1 Tonne"
 msgstr "The minimum amount to buy is 1 Tonne"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:39
+msgid "You are about to purchase a carbon asset."
+msgstr "You are about to purchase a carbon asset."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:42
+msgid "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
+msgstr "The first step is to grant the approval to transfer your payment asset from your wallet to Carbonmark, the next step is to approve the actual transfer and complete your purchase."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:49
+msgid "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
+msgstr "Carbon assets you purchase can be listed for sale on Carbonmark at any time from your <0>portfolio</0>."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:59
+#: components/pages/Project/Retire/Pool/RetireModal.tsx:48
+msgid "Verify all information is correct and click 'approve' to continue."
+msgstr "Verify all information is correct and click 'approve' to continue."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:71
+msgid "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
+msgstr "The previous step granted the approval to transfer your payment asset from your wallet to Carbonmark."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:77
+msgid "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
+msgstr "Your purchase has not been completed yet. To finalize your purchase, verify all information is correct and then click 'submit' below."
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:90
+msgid "Processing Purchase"
+msgstr "Processing Purchase"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:91
+msgid "Purchase successful"
+msgstr "Purchase successful"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:92
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:21
+msgid "Confirm Purchase"
+msgstr "Confirm Purchase"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
 msgstr "You successfully acquired carbon!"
@@ -1024,9 +988,20 @@ msgid "Loading..."
 msgstr "Loading..."
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/index.tsx:24
+#: components/pages/Project/Retire/index.tsx:25
+msgid "Retire from {fullProjectid} | Carbonmark"
+msgstr "Retire from {fullProjectid} | Carbonmark"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:35
 msgid "Retiring Token"
 msgstr "Retiring Token"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/CreditCardModal.tsx:29
+msgid "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
+msgstr "To complete your credit card transaction, you will be redirected to Stripe, our payment processing partner."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/CreditCardModal.tsx:35
@@ -1448,6 +1423,11 @@ msgid "You"
 msgstr "You"
 
 #. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Quotes.tsx:70
+msgid "retired"
+msgstr "retired"
+
+#. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
@@ -1528,6 +1508,21 @@ msgstr "Retire from your portfolio"
 #: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
 msgstr "View all Portfolio items"
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/index.tsx:123
+msgid "You can also retire any carbon asset in your wallet."
+msgstr "You can also retire any carbon asset in your wallet."
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/index.tsx:141
+msgid "Quick Retire"
+msgstr "Quick Retire"
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/index.tsx:146
+msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
+msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
@@ -1712,6 +1707,11 @@ msgstr "Say a few words about yourself. This will be visible in your seller prof
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
 msgstr "About"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/index.tsx:106
+msgid "There was an error loading your assets. {e}"
+msgstr "There was an error loading your assets. {e}"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:156
