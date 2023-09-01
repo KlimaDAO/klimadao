@@ -24,12 +24,12 @@ const config = {
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
       //Allow the developer to set the carbonmark api url to point to their local instance if necessary
       development:
-        process.env.NEXT_PUBLIC_DATA_API_URL ??
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
     },
   },
 };
-const api_url = config.urls.api[ENVIRONMENT];
+const api_url =
+  process.env.NEXT_PUBLIC_DATA_API_URL || config.urls.api[ENVIRONMENT];
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
