@@ -1,18 +1,12 @@
 import { FastifyInstance } from "fastify";
-import { isMatch } from "lodash";
 import nock from "nock";
-import {
-  aProject as aCmsProject,
-  aProjectContent as aCmsProjectContent,
-} from "../../../src/.generated/mocks/carbonProjects.mocks";
-import { aProject as aMarketplaceProject } from "../../../src/.generated/mocks/marketplace.mocks";
 import {
   GRAPH_URLS,
   SANITY_URLS,
 } from "../../../src/graphql/codegen.constants";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
-import { mockGqlRequest } from "../../utils";
+import { GQLMockDefinition, mockGqlRequest } from "../../utils";
 import { ERROR } from "../routes.mock";
 import { MOCKS, mockMarketplaceProject, mockOffsetProject } from "./get.mocks";
 
@@ -112,55 +106,32 @@ describe("GET /projects", () => {
     expect(data).toEqual([]);
   });
 
-  test.only("Search", async () => {
-    const mockCmsProject = aCmsProject({
-      registryProjectId: "2",
-      registry: "b",
-      country: "Bahamas",
-    });
-    const mockCmsProjectContent = aCmsProjectContent({
-      project: mockCmsProject,
-    });
-    const mockBahamasProject = aMarketplaceProject({
-      projectID: "2",
-      registry: "b",
-      country: { id: "Bahamas" },
-    });
-
-    mockGqlRequest([
-      SANITY_URLS.carbonProjects,
-      "getAllProject",
-      { allProject: [mockCmsProject] },
-    ]);
-    mockGqlRequest([
-      SANITY_URLS.carbonProjects,
-      "getAllProjectContent",
-      { allProjectContent: [mockCmsProjectContent] },
-    ]);
-    mockGqlRequest([
-      GRAPH_URLS.marketplace,
-      "findProjects",
-      {
-        projects: [mockMarketplaceProject, mockBahamasProject],
-      },
-    ]);
+  //Ensure the api still returns projects when no CMS data exists
+  test("Project missing CMS Data", async () => {
+    const mocks: GQLMockDefinition[] = [
+      [SANITY_URLS.carbonProjects, "getAllProjects", { allProject: [] }],
+      [
+        GRAPH_URLS.marketplace,
+        "findProjects",
+        {
+          projects: [mockMarketplaceProject],
+        },
+      ],
+      [
+        SANITY_URLS.carbonProjects,
+        "getAllProjectContent",
+        { allProjectContent: [] },
+      ],
+    ];
+    mocks.forEach(mockGqlRequest);
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/projects?country=Bahamas`,
+      url: `${DEV_URL}/projects`,
     });
 
-    const [data] = await response.json();
-
+    const data = await response.json();
     expect(response.statusCode).toBe(200);
-    //Should return a bahamas country
-    expect(data.country).toEqual(mockBahamasProject.country);
-    //Should return all attributes of the mock project
-    expect(isMatch(data, mockBahamasProject)).toBeTruthy();
+    expect(data).toMatchObject([mockMarketplaceProject]);
   });
-
-  test.todo("handles missing cms data");
-
-  //Check that the cheapest project is returned when duplicates exist in multiple graphs
-  test.todo("returns cheapest project");
 });

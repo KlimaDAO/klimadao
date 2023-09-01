@@ -6,7 +6,7 @@ const PORT = 3003;
 /**
  * This server is required for local development because the API is deployed
  * via Vercel serverless which handles incoming requests. By separating concerns (server & app)
- * we can easily switch deployment environments and test.
+ * we can easily switch deployment environments.
  *
  * **Note** This is not required for tests as we use `app.inject` to mock requests to the FastifyInstance
  */
