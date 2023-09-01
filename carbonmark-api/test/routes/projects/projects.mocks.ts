@@ -13,7 +13,7 @@ import {
   SANITY_URLS,
 } from "../../../src/graphql/codegen.constants";
 
-export const mockListing = aListing({ singleUnitPrice: "101" });
+export const mockListing = aListing({ singleUnitPrice: "100001" });
 
 export const mockMarketplaceProject = aMarketplaceProject({
   projectID: "1",
