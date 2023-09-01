@@ -14,6 +14,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:9
+msgid "updated quantity"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:554
+msgid "Contact"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -36,11 +47,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:9
-msgid "updated quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -216,12 +222,6 @@ msgstr ""
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
 msgid "KlimaDAO"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:554
-msgid "Contact"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -568,7 +568,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:69
 msgid "Retire"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:78
@@ -597,7 +597,7 @@ msgstr ""
 #: components/pages/Users/SellerConnected/index.tsx:76
 #: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr ""
+msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:72
@@ -1056,7 +1056,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
 msgid "Purchase more Carbon"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:60
@@ -1526,7 +1526,7 @@ msgstr ""
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
-msgstr ""
+msgstr "<<<<<<< HEAD"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:70
@@ -1613,7 +1613,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
-msgstr ""
+msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:123
