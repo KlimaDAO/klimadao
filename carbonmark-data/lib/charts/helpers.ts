@@ -146,7 +146,7 @@ export const formatPrice = function (locale: string) {
     return new Intl.NumberFormat(locale, {
       style: "currency",
       currency: "USD",
-      maximumSignificantDigits: 2,
+      maximumFractionDigits: 2,
     }).format(price);
   };
 };

@@ -22,8 +22,8 @@ export default function OverviewPage() {
           </div>
         </div>
         <div className={layout.cardStackedRows}>
-        <TokensPriceCard></TokensPriceCard>
-      </div>
+          <TokensPriceCard></TokensPriceCard>
+        </div>
       </div>
     </div>
   );
