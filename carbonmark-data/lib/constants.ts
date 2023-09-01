@@ -1,4 +1,4 @@
-import { Bridge } from "./charts/types";
+import { Bridge, Coin } from "./charts/types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -41,3 +41,4 @@ export const urls = {
 };
 
 export const BRIDGES: Array<Bridge> = ["toucan", "c3", "moss"];
+export const COINS: Array<Coin> = ["btc", "nct", "mco2", "ubo", "nbo"];

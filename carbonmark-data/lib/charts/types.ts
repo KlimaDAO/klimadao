@@ -2,6 +2,8 @@ import { Key } from "react";
 
 // API level Query parameters
 export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
+export type Coin = "btc" | "nct" | "mco2" | "ubo" | "nbo";
+
 export type DateField =
   | "bridged_date"
   | "redeemed_date"

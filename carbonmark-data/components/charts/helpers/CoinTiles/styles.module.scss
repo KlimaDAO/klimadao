@@ -1,0 +1,28 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.header {
+  display:flex;
+  gap: 10px;
+}
+.headerText {
+  [aria-describedby="title"] {
+    font-weight: bold;
+    font-size: 17px;
+  }
+  [aria-describedby="fact"] {
+    font-size: 17px;
+    color: var(--text-color-01)
+  }  
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
