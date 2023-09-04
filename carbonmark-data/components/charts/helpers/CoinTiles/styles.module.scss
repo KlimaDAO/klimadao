@@ -1,6 +1,12 @@
+.tiles {
+  display: flex;
+  flex-direction: column;
+}
 .tile {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
+  padding-top: 10px;
   gap: 10px;
   color: var(--text-color-01);
   border-bottom: 1px solid var(--text-color-03);

@@ -23,6 +23,8 @@ export default function OverviewCard(props: {
   detailUrl?: string;
   topOptions?: Options;
   bottomOptions?: Options;
+  // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
+  isColumnCard?: boolean;
 }) {
   const [topOptionKey, setTopOptionKey] = useState<Key>(
     props.topOptions ? props.topOptions[0].value : ""
@@ -50,9 +52,14 @@ export default function OverviewCard(props: {
       return props.charts[displayedKey] || props.charts["default"] || <></>;
     }
   }
+  let className = styles.cardContainer;
+  if (props.isColumnCard) {
+  } else {
+    className = `${className} ${styles.rowCardContainer}`;
+  }
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={className}>
       <div className={styles.cardHeader}>
         <h2 className={styles.cardHeaderTitle}>{props.title}</h2>
         {props.topOptions && (

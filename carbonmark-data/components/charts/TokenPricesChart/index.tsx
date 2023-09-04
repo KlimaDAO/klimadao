@@ -1,5 +1,6 @@
+import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { t } from "@lingui/macro";
-import { Info } from "@mui/icons-material";
+import { InfoOutlined } from "@mui/icons-material";
 import { formatPrice } from "lib/charts/helpers";
 import { queryPrices, queryTokenInfo } from "lib/charts/queries";
 import { Token } from "lib/charts/types";
@@ -11,6 +12,8 @@ import {
   getTokenSelectiveFeeDescription,
 } from "lib/tokens";
 import { CoinTiles, CoinTilesData } from "../helpers/CoinTiles";
+import styles from "./styles.module.scss";
+
 /** Async server component  */
 export default async function TokenPricesChart() {
   const locale = currentLocale();
@@ -23,9 +26,13 @@ export default async function TokenPricesChart() {
     const tokenInfo = await queryTokenInfo(token);
 
     if (tokenInfo) {
+      const formattedCurrentSupply = formatTonnes({
+        amount: tokenInfo.current_supply.toString(),
+        locale,
+      });
       coinTilesData.push({
         title: getTokenFullName(token),
-        globalFact: t`${tokenInfo.current_supply} tonnes available`,
+        globalFact: t`${formattedCurrentSupply} tonnes available`,
         icon: getTokenIcon(token),
         facts: [
           {
@@ -36,9 +43,12 @@ export default async function TokenPricesChart() {
             value: formatPrice(locale)(tokenInfo.selective_cost_value),
             label: (
               <span>
-                {t`Selective fee`}
-                <span title={await getTokenSelectiveFeeDescription(token)}>
-                  <Info />
+                {t`Selective fee`}&nbsp;
+                <span
+                  className={styles.selectiveFeeIcon}
+                  title={await getTokenSelectiveFeeDescription(token)}
+                >
+                  <InfoOutlined fontSize={"inherit"} />
                 </span>
               </span>
             ),

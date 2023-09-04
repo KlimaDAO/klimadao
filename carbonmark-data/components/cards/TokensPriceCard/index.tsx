@@ -12,6 +12,7 @@ export default function TokensPriceCard() {
       title={t`Digital Carbon Pricing`}
       detailUrl="/details/token-prices"
       chart={chart}
+      isColumnCard={true}
     />
   );
 }

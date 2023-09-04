@@ -39,10 +39,10 @@ export function CoinTile(props: { data: CoinTileData }) {
 }
 export function CoinTiles(props: Props) {
   return (
-    <>
+    <div className={styles.tiles}>
       {props.data.map((tileData, index) => (
         <CoinTile key={index} data={tileData}></CoinTile>
       ))}
-    </>
+    </div>
   );
 }
