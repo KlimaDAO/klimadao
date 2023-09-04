@@ -14,82 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:62
-msgid "{formattedCurrentSupply} tonnes available"
-msgstr "{formattedCurrentSupply} tonnes available"
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:66
-msgid "Price per tonne"
-msgstr "Price per tonne"
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:72
-msgid "Selective fee"
-msgstr "Selective fee"
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:84
-msgid "Last 7 days"
-msgstr "Last 7 days"
-
-#. js-lingui-explicit-id
-#: components/pages/DetailPage/index.tsx:28
-msgid "Insights"
-msgstr "Insights"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:13
-msgid "Base Carbon Tonne (BCT)"
-msgstr "Base Carbon Tonne (BCT)"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:14
-msgid "Nature Carbon Tonne (NCT)"
-msgstr "Nature Carbon Tonne (NCT)"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:15
-msgid "Moss Carbon Credit (MCO2)"
-msgstr "Moss Carbon Credit (MCO2)"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:16
-msgid "Universal Basic Offset (UBO)"
-msgstr "Universal Basic Offset (UBO)"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:17
-msgid "Nature Based Offset (UBO)"
-msgstr "Nature Based Offset (UBO)"
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:37
-msgid "There is no selective redemption/retirement functionality for {0}."
-msgstr "There is no selective redemption/retirement functionality for {0}."
-
-#. js-lingui-explicit-id
-#: lib/tokens.tsx:38
-msgid "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
-msgstr "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
-
-#. js-lingui-explicit-id
-#: app/[locale]/details/price-of-digital-carbon/page.tsx:8
-#: app/[locale]/details/token-prices/page.tsx:8
-msgid "Price of Digital Carbon"
-msgstr "Price of Digital Carbon"
-
-#. js-lingui-explicit-id
-#: components/cards/HistoricalPriceCard/index.tsx:56
-msgid "Historical Prices"
-msgstr "Historical Prices"
-
-#. js-lingui-explicit-id
-#: components/cards/TokenizedCreditsByBridgeCard/index.tsx:55
-msgid "Tokenized Credits By Bridge"
-msgstr "Tokenized Credits By Bridge"
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:9
 msgid "Digital Carbon Retirements - {chainLabel}"
 msgstr "Digital Carbon Retirements - {chainLabel}"
@@ -99,7 +23,7 @@ msgstr "Digital Carbon Retirements - {chainLabel}"
 #: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:9
 #: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:9
 #: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:11
-#: app/[locale]/details/price-of-digital-carbon/page.tsx:10
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:17
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:9
 #: app/[locale]/details/retirement-trends-by-pool/page.tsx:9
 #: app/[locale]/details/retirement-trends-by-token/page.tsx:9
@@ -108,7 +32,6 @@ msgstr "Digital Carbon Retirements - {chainLabel}"
 #: app/[locale]/details/token-by-methodologies/[bridge]/page.tsx:11
 #: app/[locale]/details/token-by-projects/[bridge]/page.tsx:11
 #: app/[locale]/details/token-by-vintage-date/[bridge]/page.tsx:11
-#: app/[locale]/details/token-prices/page.tsx:10
 #: app/[locale]/details/token-volume-over-time/[bridge]/page.tsx:11
 #: app/[locale]/details/verra-credits-breakdown/page.tsx:9
 #: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:9
@@ -120,7 +43,7 @@ msgstr "Digital Carbon Retirements - {chainLabel}"
 #: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:9
 #: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:9
 #: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:9
-#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:10
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:14
 #: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:9
 msgid "Lorem Ipsum"
 msgstr "Lorem Ipsum"
@@ -139,6 +62,11 @@ msgstr "Digital Carbon Supply - Quick Facts"
 #: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:9
 msgid "Digital Carbon Supply - {chainLabel}"
 msgstr "Digital Carbon Supply - {chainLabel}"
+
+#. js-lingui-explicit-id
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:10
+msgid "Price of Digital Carbon"
+msgstr "Price of Digital Carbon"
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:7
@@ -196,11 +124,6 @@ msgid "Verra Credits Breakdown"
 msgstr "Verra Credits Breakdown"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:8
-msgid "Tokenized Credits by Bridge"
-msgstr "Tokenized Credits by Bridge"
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:7
 msgid "Credits Issued by Project Type"
 msgstr "Credits Issued by Project Type"
@@ -241,6 +164,11 @@ msgid "On-Chain Verra Credits Retired Over Time"
 msgstr "On-Chain Verra Credits Retired Over Time"
 
 #. js-lingui-explicit-id
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:8
+msgid "Tokenized Credits by Bridge"
+msgstr "Tokenized Credits by Bridge"
+
+#. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:7
 msgid "Verra Credits Tokenized Over Time"
 msgstr "Verra Credits Tokenized Over Time"
@@ -267,9 +195,25 @@ msgid "Token details"
 msgstr "Token details"
 
 #. js-lingui-explicit-id
-#: components/cards/DailyCreditsCard/index.tsx:111
+#: components/cards/DailyCreditsCard/index.tsx:112
 msgid "Verra credits"
 msgstr "Verra credits"
+
+#. js-lingui-explicit-id
+#: components/cards/HistoricalPriceCard/index.tsx:57
+msgid "Historical Prices"
+msgstr "Historical Prices"
+
+#. js-lingui-explicit-id
+#: components/cards/TokenizedCreditsByBridgeCard/index.tsx:55
+msgid "Tokenized Credits By Bridge"
+msgstr "Tokenized Credits By Bridge"
+
+#. js-lingui-explicit-id
+#: components/cards/TokensPriceCard/index.tsx:15
+#: components/charts/DigitalCarbonPricingChart.tsx:8
+msgid "Digital Carbon Pricing"
+msgstr "Digital Carbon Pricing"
 
 #. js-lingui-explicit-id
 #: components/ChangeLanguageButton/index.tsx:32
@@ -277,10 +221,24 @@ msgid "Change language"
 msgstr "Change language"
 
 #. js-lingui-explicit-id
-#: components/cards/TokensPriceCard/index.tsx:12
-#: components/charts/DigitalCarbonPricingChart.tsx:8
-msgid "Digital Carbon Pricing"
-msgstr "Digital Carbon Pricing"
+#: components/charts/TokenPricesChart/index.tsx:60
+msgid "{formattedCurrentSupply} tonnes available"
+msgstr "{formattedCurrentSupply} tonnes available"
+
+#. js-lingui-explicit-id
+#: components/charts/TokenPricesChart/index.tsx:64
+msgid "Price per tonne"
+msgstr "Price per tonne"
+
+#. js-lingui-explicit-id
+#: components/charts/TokenPricesChart/index.tsx:70
+msgid "Selective fee"
+msgstr "Selective fee"
+
+#. js-lingui-explicit-id
+#: components/charts/TokenPricesChart/index.tsx:82
+msgid "Last 7 days"
+msgstr "Last 7 days"
 
 #. js-lingui-explicit-id
 #: components/Layout/NavItems.tsx:19
@@ -302,6 +260,11 @@ msgstr "Retirement Trends"
 #: components/Layout/NavItems.tsx:39
 msgid "Token Details"
 msgstr "Token Details"
+
+#. js-lingui-explicit-id
+#: components/pages/DetailPage/index.tsx:28
+msgid "Insights"
+msgstr "Insights"
 
 #. js-lingui-explicit-id
 #: components/pages/RetirementTrendsPage/index.tsx:11
@@ -347,3 +310,38 @@ msgstr "Issued"
 #: lib/charts/options.ts:36
 msgid "Retired"
 msgstr "Retired"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:13
+msgid "Base Carbon Tonne (BCT)"
+msgstr "Base Carbon Tonne (BCT)"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:14
+msgid "Nature Carbon Tonne (NCT)"
+msgstr "Nature Carbon Tonne (NCT)"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:15
+msgid "Moss Carbon Credit (MCO2)"
+msgstr "Moss Carbon Credit (MCO2)"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:16
+msgid "Universal Basic Offset (UBO)"
+msgstr "Universal Basic Offset (UBO)"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:17
+msgid "Nature Based Offset (UBO)"
+msgstr "Nature Based Offset (UBO)"
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:37
+msgid "There is no selective redemption/retirement functionality for {0}."
+msgstr "There is no selective redemption/retirement functionality for {0}."
+
+#. js-lingui-explicit-id
+#: lib/tokens.tsx:38
+msgid "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
+msgstr "This cost includes the asset spot price + the {0}% fee to selectively redeem or retire an underlying carbon project charged by {1}"
