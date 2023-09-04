@@ -1,10 +1,10 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import HistoricalPriceChart from "components/charts/HistoricalPriceChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { palette } from "theme/palette";
 /** Historical Prices Card */
-export default function HistoricalPriceCard() {
+export default function HistoricalPriceCard(props: CardProps) {
   const configuration: SimpleChartConfiguration = [
     {
       chartOptions: {
@@ -53,6 +53,7 @@ export default function HistoricalPriceCard() {
   );
   return (
     <ChartCard
+      {...props}
       title={t`Historical Prices`}
       detailUrl="/details/price-of-digital-carbon"
       chart={chart}

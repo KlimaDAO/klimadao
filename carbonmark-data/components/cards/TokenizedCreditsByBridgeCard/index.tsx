@@ -1,11 +1,11 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import CreditsByBridgeChart from "components/charts/CreditsByBridgeChart";
 import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function TokenizedCreditsByBridgeCard() {
+export default function TokenizedCreditsByBridgeCard(props: CardProps) {
   const status = "bridged";
   const configuration: AggregatedCreditsChartConfiguration = [
     {
@@ -52,6 +52,7 @@ export default function TokenizedCreditsByBridgeCard() {
   );
   return (
     <ChartCard
+      {...props}
       title={t`Tokenized Credits By Bridge`}
       detailUrl="/details/verra-credits-tokenized-by-bridge"
       chart={chart}

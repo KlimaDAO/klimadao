@@ -10,8 +10,8 @@ export default function PriceOfDigitalCarbonPage() {
       pageTitle={t`Price of Digital Carbon`}
       card={
         <div className={layout.cardStackedRows}>
-          <HistoricalPriceCard></HistoricalPriceCard>
-          <TokensPriceCard></TokensPriceCard>
+          <HistoricalPriceCard isDetailPage={true}></HistoricalPriceCard>
+          <TokensPriceCard isDetailPage={true}></TokensPriceCard>
         </div>
       }
       overview={t`Lorem Ipsum`}

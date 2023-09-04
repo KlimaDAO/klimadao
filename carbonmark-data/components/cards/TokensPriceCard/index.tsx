@@ -1,17 +1,17 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import TokenPricesChart from "components/charts/TokenPricesChart";
 /** Historical Prices Card */
-export default function TokensPriceCard() {
+export default function TokensPriceCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenPricesChart></TokenPricesChart>
   );
   return (
     <ChartCard
+      {...props}
       title={t`Digital Carbon Pricing`}
       detailUrl="/details/token-prices"
-      detailUrlPosition="bottom"
       chart={chart}
       isColumnCard={true}
     />

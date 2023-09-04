@@ -5,8 +5,13 @@ import Link from "components/Link";
 import OptionsSwitcher from "components/OptionsSwitcher";
 import Skeleton from "components/Skeleton";
 import { Options } from "lib/charts/options";
-import React, { Key, ReactNode, Suspense, useState } from "react";
+import React, { Key, Suspense, useState } from "react";
 import styles from "./styles.module.scss";
+
+export type DetailUrlPosition = "top" | "bottom" | "none";
+export type CardProps = {
+  isDetailPage?: boolean;
+};
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
  * charts: A dictionnary contaning the possible charts to be displayed
@@ -14,6 +19,7 @@ import styles from "./styles.module.scss";
  * title: Title of the chart
  * detailUrl: Url of the detailPage
  * detailUrlPosition: Position of the detail URL (top or bottom)
+ * isDetailPage: Is this card displayed on a detail page
  * topOptions: Options to be displayed at the top of the card
  * bottomOptions: Options to be displayed at the bottom of the card
  * isColumnCard: Is this card used in a column? In this case there will be no constraint on the card height.
@@ -23,7 +29,8 @@ export default function ChartCard(props: {
   chart?: React.ReactNode;
   title: string;
   detailUrl?: string;
-  detailUrlPosition?: "top" | "bottom";
+  detailUrlPosition?: DetailUrlPosition;
+  isDetailPage?: boolean;
   topOptions?: Options;
   bottomOptions?: Options;
   // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
@@ -35,16 +42,26 @@ export default function ChartCard(props: {
   const [bottomOptionKey, setBottomOptionKey] = useState<Key>(
     props.bottomOptions ? props.bottomOptions[0].value : ""
   );
+  const isDetailPage = props.isDetailPage || false;
   const detailUrlPosition = props.detailUrlPosition || "top";
-  const detailUrlComponent: ReactNode = props.detailUrl ? (
-    <Link className={styles.cardHeaderDetailsLink} href={props.detailUrl}>
-      Details{" "}
-      <ArrowForward
-        fontSize="small"
-        className={styles.cardHeaderDetailsLinkArrow}
-      />
-    </Link>
-  ) : undefined;
+  let detailUrlComponent = <></>;
+  if (props.detailUrl && !isDetailPage) {
+    detailUrlComponent = (
+      <Link className={styles.cardHeaderDetailsLink} href={props.detailUrl}>
+        Details{" "}
+        <ArrowForward
+          fontSize="small"
+          className={styles.cardHeaderDetailsLinkArrow}
+        />
+      </Link>
+    );
+  } else {
+    detailUrlComponent = <div className={styles.cardHeaderDetailsLink}></div>;
+  }
+  const topDetailUrlComponent =
+    detailUrlPosition == "top" ? detailUrlComponent : <></>;
+  const bottomDetailUrlComponent =
+    detailUrlPosition == "bottom" ? detailUrlComponent : <></>;
 
   /** Returns the chart to display given the chosen options
    If the the chart attribute is filled, it is that chart.
@@ -83,7 +100,7 @@ export default function ChartCard(props: {
             ></OptionsSwitcher>
           </div>
         )}
-        {detailUrlComponent && detailUrlPosition == "top" && detailUrlComponent}
+        {topDetailUrlComponent}
       </div>
       <div className={styles.cardContent}>
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
@@ -96,9 +113,7 @@ export default function ChartCard(props: {
           ></OptionsSwitcher>
         )}
       </div>
-      {detailUrlComponent &&
-        detailUrlPosition == "bottom" &&
-        detailUrlComponent}
+      {bottomDetailUrlComponent}
     </div>
   );
 }
