@@ -1,7 +1,7 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
-import { addresses } from "@klimadao/lib/constants";
+import { addresses, subgraphs } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
@@ -277,8 +277,14 @@ export const addProjectsToAssets = async (params: {
         // project exists on API
         if (projectFromApi && projectFromApi.key) {
           project = projectFromApi;
+          // if no project on API, try subgraph
+        } else if (projectId) {
+          const projectFromSubgraph = await getProjectInfoFromSubgraph(
+            asset.token.id
+          );
+          project = projectFromSubgraph;
         } else {
-          // no project from API, let´s call the contract
+          // no project from API or subgraph, try contract as last resort
           if (isC3TToken(asset.token.symbol)) {
             const projectFromContract = await getProjectInfoFromC3Contract(
               asset.token.id
@@ -293,7 +299,6 @@ export const addProjectsToAssets = async (params: {
             project = projectFromContract;
           }
         }
-
         resolvedAssets.push({
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
@@ -428,6 +433,48 @@ export const getProjectInfoFromTCO2Contract = async (
     };
   } catch (e: any) {
     console.error("getProjectInfoFromTCO2Contract Error", e);
+  }
+};
+
+export const getProjectInfoFromSubgraph = async (
+  id: string
+): Promise<AssetForListing["project"] | undefined> => {
+  try {
+    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `
+        query ProjectInfo($id: String) {
+          carbonOffsets(where: {id: $id}) {
+            id
+            projectID
+            name
+            methodology
+            methodologyCategory
+            vintageYear
+          }
+        }
+                `,
+        variables: {
+          id: id.toLowerCase(),
+        },
+      }),
+    });
+    const { data } = await result.json();
+    const project = data.carbonOffsets[0];
+
+    return {
+      key: project.projectID,
+      projectID: project.projectID,
+      name: project.name,
+      methodology: project.methodology,
+      vintage: project.vintageYear,
+      category: project.methodologyCategory,
+    };
+  } catch (e: any) {
+    console.error("getProjectInfoFromSubgraph Error for id", id, e);
+    return undefined;
   }
 };
 
