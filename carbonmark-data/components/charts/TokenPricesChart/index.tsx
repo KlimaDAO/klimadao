@@ -17,7 +17,7 @@ import styles from "./styles.module.scss";
 /** Async server component
  */
 export default async function TokenPricesChart() {
-  const locale = currentLocale(); 
+  const locale = currentLocale();
   const prices7daysAgo: PricesItem = (
     await queryPrices({ sort_by: "date", sort_order: "desc", page_size: 8 })
   ).items[6];
