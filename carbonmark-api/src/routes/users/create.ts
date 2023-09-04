@@ -9,7 +9,8 @@ type Body = {
 };
 
 const schema = {
-  tags: ["user"],
+  summary: "Create user profile",
+  tags: ["Users"],
   body: {
     type: "object",
     properties: {
@@ -57,6 +58,7 @@ const handler = (fastify: FastifyInstance) =>
       createdAt: Date.now(),
       updatedAt: Date.now(),
       profileImgUrl,
+      address: wallet.toLowerCase(),
     };
 
     // Query the Firestore database for the user document with the specified wallet address

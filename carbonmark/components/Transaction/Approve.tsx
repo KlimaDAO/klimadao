@@ -100,7 +100,7 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showApproveButton && (
           <ButtonPrimary
-            label={<Trans id="shared.approve">Approve</Trans>}
+            label={<Trans>Approve</Trans>}
             onClick={() => props.onApproval()}
             className={styles.submitButton}
           />

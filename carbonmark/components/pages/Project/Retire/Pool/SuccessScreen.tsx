@@ -5,18 +5,17 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Text } from "components/Text";
 import { urls } from "lib/constants";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { CarbonmarkPaymentMethod, Project } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  project: Project;
   totalPrice?: string;
   transactionHash: string | null;
   paymentMethod?: CarbonmarkPaymentMethod;
-  address?: string;
+  beneficiaryAddress?: string;
   retirementIndex: number | null;
   subgraphIndexStatus: "indexed" | "pending" | "timeout";
 };
@@ -33,17 +32,20 @@ export const SuccessScreen: FC<Props> = (props) => {
             </Trans>
           </Text>
           <Text t="body5">
-            <Trans id="offset.successModal.body3">
-              Your transaction has been successfully processed but is taking
-              longer than normal to index. It will appear in your{" "}
-              <Link target="_blank" href={`/retirements/${props.address}`}>
-                retirements
+            <Trans>
+              Our system is taking longer than expected. The retirement should
+              appear in your
+              <Link
+                target="_blank"
+                href={`/retirements/${props.beneficiaryAddress}`}
+              >
+                retirement history
               </Link>{" "}
               soon.
             </Trans>
           </Text>
           <Text t="body5">
-            <Trans id="offset.successModal.body4">
+            <Trans>
               You can view the successful transaction now on{" "}
               <Link href={`${urls.blockExplorer}/tx/${props.transactionHash}`}>
                 PolygonScan.
@@ -59,7 +61,6 @@ export const SuccessScreen: FC<Props> = (props) => {
         </>
       ) : (
         <>
-          {" "}
           <Text t="h5" className="headline">
             <CelebrationOutlinedIcon fontSize="inherit" />
             <Trans>Thank you for supporting the planet!</Trans>
@@ -99,7 +100,7 @@ export const SuccessScreen: FC<Props> = (props) => {
               </div>
             </div>
             <ButtonPrimary
-              href={`/retirements/${props.address}/${props.retirementIndex}`}
+              href={`/retirements/${props.beneficiaryAddress}/${props.retirementIndex}`}
               label={<Trans>See your retirement receipt</Trans>}
               renderLink={(linkProps) => <Link {...linkProps} />}
               target="_blank"

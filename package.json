@@ -3,32 +3,45 @@
   "private": true,
   "workspaces": [
     "./app",
-    "./cms",
+    "./carbon-projects",
     "./carbonmark",
     "./carbonmark-api",
+    "./cms",
+    "./carbonmark-data",
     "./lib",
     "./site"
   ],
   "engines": {
-    "npm": ">=8.0.0",
-    "node": ">=16.0.0"
+    "npm": "^9.8.1",
+    "node": "^18.17.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "endOfLine": "auto",
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
   },
   "scripts": {
     "build-all": "npm run build --workspaces",
     "dev-all": "npm run dev --workspaces",
     "lint-all": "npm run lint --workspaces",
+    "prettier-check-all": "prettier --check .",
     "format-all": "prettier --write ./",
     "build-lib": "npm run build -w=lib",
     "build-site": "npm run build-lib && npm run build -w=site",
     "build-app": "npm run build-lib && npm run build -w=app",
     "build-carbonmark": "npm run build-lib && npm run build -w=carbonmark",
     "build-carbonmark-api": "npm run build-lib && npm run build -w=carbonmark",
+    "build-carbonmark-data": "npm run build-lib && npm run build -w=carbonmark-data",
     "dev-lib": "npm run dev -w=lib",
     "dev-site": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=site\"",
     "dev-app": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=app\"",
     "dev-cms": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=cms\"",
     "dev-carbonmark": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark\"",
-    "dev-carbonmark-api": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-api\"",
+    "remove-dist": "cd carbonmark-api && rm -rf dist && npm run build",
+    "dev-carbonmark-api": "npm run remove-dist && concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-api\"",
+    "dev-carbonmark-data": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=carbonmark-data\"",
     "deploy-cms": "npm run deploy -w=cms",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract && npm run -w carbonmark lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile && npm run -w carbonmark lingui:compile",
@@ -36,6 +49,9 @@
     "export-app": "npm run build-lib && IS_STATIC_EXPORT=true npm run build-app && IS_STATIC_EXPORT=true npm run export -w=app"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "@lingui/cli": "^4.4.0",
+    "concurrently": "^7.6.0",
+    "prettier": "3.0.2",
+    "prettier-plugin-organize-imports": "^3.2.3"
   }
 }

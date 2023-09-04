@@ -1,7 +1,10 @@
 import { FastifyInstance } from "fastify";
 import { map } from "lodash/fp";
 
+import { isNil, merge } from "lodash";
+import { Geopoint } from "src/.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
+import { CarbonProject } from "src/utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "src/utils/helpers/fetchAllPoolPrices";
 import { extract, notNil } from "../../utils/functional.utils";
 import {
@@ -95,41 +98,37 @@ export const getOffsetTokenPrices = (
 
 export const composeCarbonmarkProject = (
   project: FindQueryProject,
-  cmsProject: any,
-  price: string | undefined
+  carbonProject?: CarbonProject,
+  price?: string
 ) => {
   const cmsData = {
-    description: cmsProject?.description,
-    name: cmsProject?.name ?? project.name,
-    methodologies: cmsProject?.methodologies ?? [],
-    short_description: cmsProject?.projectContent?.shortDescription,
-    longDescription: cmsProject?.projectContent?.longDescription,
+    description: carbonProject?.description,
+    name: carbonProject?.name ?? project.name,
+    methodologies: carbonProject?.methodologies ?? [],
+    short_description: carbonProject?.content?.shortDescription,
+    longDescription: carbonProject?.content?.longDescription,
   };
 
-  const result: GetProjectResponse = {
-    ...project,
-    ...cmsData,
-    price,
-  };
+  const result: GetProjectResponse = merge(project, cmsData, price);
 
   return result;
 };
 
 export const composeOffsetProject = (
-  cmsData: any,
   offset: FindQueryOffset,
-  price: string | undefined
+  carbonProject?: CarbonProject,
+  price?: string
 ): GetProjectResponse => ({
   id: offset.id,
+  // New attribute
   isPoolProject: true,
-  description: cmsData ? cmsData.description : undefined,
-  short_description: cmsData?.projectContent
-    ? cmsData.projectContent.shortDescription
-    : undefined,
+  description: carbonProject?.description,
+  short_description: carbonProject?.content?.shortDescription,
   key: offset.projectID,
   projectID: offset.projectID.split("-")[1],
-  name: cmsData ? cmsData.name : offset.name,
-  methodologies: cmsData ? cmsData.methodologies : [],
+  name: carbonProject?.name ?? offset.name,
+  methodologies: carbonProject?.methodologies ?? [],
+  location: toGeoJSON(carbonProject?.geolocation),
   vintage: offset.vintageYear,
   projectAddress: offset.tokenAddress,
   registry: offset.projectID.split("-")[0],
@@ -141,4 +140,24 @@ export const composeOffsetProject = (
   price,
   activities: null,
   listings: null,
+  //@todo use sanity Image type
+  images:
+    carbonProject?.content?.images?.map((image) => ({
+      caption: image?.asset?.altText ?? "",
+      url: image?.asset?.url ?? "",
+    })) ?? [],
 });
+
+export const toGeoJSON = (
+  point?: Geopoint | null
+): GetProjectResponse["location"] => {
+  if ([point?.lat, point?.lng].some(isNil)) return undefined;
+  return {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- null case is caught above
+      coordinates: [point!.lng!, point!.lat!],
+    },
+  };
+};

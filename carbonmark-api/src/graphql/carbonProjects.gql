@@ -1,0 +1,36 @@
+# Write your query or mutation here
+query getProject($registry: String!, $registryProjectId: String!) {
+  allProject(
+    where: {
+      registry: { eq: $registry }
+      registryProjectId: { eq: $registryProjectId }
+    }
+  ) {
+    ...CarbonProjectFragment
+  }
+}
+
+query getProjectContent($registry: String!, $registryProjectId: String!) {
+  allProjectContent(
+    where: {
+      project: {
+        registryProjectId: { eq: $registryProjectId }
+        registry: { eq: $registry }
+      }
+    }
+  ) {
+    ...CarbonProjectContentFragment
+  }
+}
+
+query getAllProjects {
+  allProject {
+    ...CarbonProjectFragment
+  }
+}
+
+query getAllProjectContent {
+  allProjectContent {
+    ...CarbonProjectContentFragment
+  }
+}

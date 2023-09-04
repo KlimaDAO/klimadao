@@ -1,6 +1,7 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
-import { assign } from "lodash";
+import { DocumentData } from "firebase-admin/firestore";
+import { assign, chunk } from "lodash";
 import {
   Activity,
   Listing,
@@ -10,7 +11,7 @@ import { gqlSdk } from "../gqlSdk";
 
 type WithHandle<T> = T & { handle?: string };
 
-type ActivityWithUserHandles = Omit<Activity, "seller" | "buyer"> & {
+export type ActivityWithUserHandles = Omit<Activity, "seller" | "buyer"> & {
   seller: WithHandle<User>;
   buyer?: WithHandle<User> | null;
 };
@@ -48,6 +49,7 @@ export const fetchMarketplaceListings = async ({
   });
 
   const project = data?.projects.at(0);
+
   const filteredListings = project?.listings?.filter(filterActiveListing) || [];
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
@@ -71,52 +73,67 @@ export const fetchMarketplaceListings = async ({
       : null,
   }));
 
-  const getListingsWithProfiles = Promise.all(
-    formattedListings.map(async (listing) => {
-      const seller = await fastify.firebase
-        .firestore()
-        .collection("users")
-        .doc(listing.seller.id.toUpperCase())
-        .get();
-      return {
-        ...listing,
-        seller: {
-          ...listing.seller,
-          ...seller.data(),
-        },
-      };
-    })
+  const userIds = new Set<string>();
+  formattedListings.forEach((listing) =>
+    userIds.add(listing.seller.id.toLowerCase())
   );
-  const getActivitiesWithProfiles: Promise<ActivityWithUserHandles[]> =
-    Promise.all(
-      formattedActivities.map(async (act) => {
-        const activityWithHandles: ActivityWithUserHandles = { ...act };
-        const seller = await fastify.firebase
+  formattedActivities.forEach((activity) => {
+    userIds.add(activity.seller.id.toLowerCase());
+    if (activity.buyer) {
+      userIds.add(activity.buyer.id.toLowerCase());
+    }
+  });
+
+  const usersById = new Map<string, DocumentData | undefined>();
+
+  // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
+  if (userIds.size !== 0) {
+    const ids = Array.from(userIds);
+
+    const chunks: string[][] = chunk(ids, 30);
+
+    const userDocs = await Promise.all(
+      chunks.map((chunk) =>
+        fastify.firebase
           .firestore()
           .collection("users")
-          .doc(act.seller.id.toUpperCase())
-          .get();
-        if (seller.exists) {
-          activityWithHandles.seller.handle = seller.data()?.handle;
-        }
-        if (act.buyer) {
-          const buyer = await fastify.firebase
-            .firestore()
-            .collection("users")
-            .doc(act.buyer.id.toUpperCase())
-            .get();
-          if (buyer.exists) {
-            assign(activityWithHandles, "buyer.handle", buyer.data()?.handle);
-          }
-        }
-        return activityWithHandles;
-      })
+          .where("address", "in", chunk)
+          .get()
+      )
     );
 
-  const [listingsWithProfiles, activitiesWithProfiles] = await Promise.all([
-    getListingsWithProfiles,
-    getActivitiesWithProfiles,
-  ]);
+    userDocs.forEach((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        usersById.set(doc.id, doc.data());
+      });
+    });
+  }
 
+  const listingsWithProfiles = formattedListings.map((listing) => {
+    const sellerData = usersById.get(listing.seller.id.toLowerCase());
+    return {
+      ...listing,
+      seller: {
+        ...listing.seller,
+        ...sellerData,
+      },
+    };
+  });
+
+  const activitiesWithProfiles: ActivityWithUserHandles[] =
+    formattedActivities.map((act) => {
+      const activityWithHandles: ActivityWithUserHandles = { ...act };
+      const sellerData = usersById.get(act.seller.id.toLowerCase());
+      if (sellerData) {
+        activityWithHandles.seller.handle = sellerData.handle;
+      }
+      if (act.buyer) {
+        const buyerData = usersById.get(act.buyer.id.toLowerCase());
+        if (buyerData && buyerData.handle) {
+          assign(activityWithHandles.buyer, "handle", buyerData.handle);
+        }
+      }
+      return activityWithHandles;
+    });
   return [listingsWithProfiles, activitiesWithProfiles];
 };

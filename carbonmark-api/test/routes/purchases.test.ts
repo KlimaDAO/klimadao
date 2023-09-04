@@ -1,10 +1,37 @@
 import { FastifyInstance } from "fastify";
+import { pick } from "lodash";
 import nock from "nock";
 import { aPurchase } from "../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
+import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
+import { PurchaseResponse } from "../../src/routes/purchases.schema";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { ERROR } from "./routes.mock";
+
+const mockPurchase = aPurchase();
+
+const responseFixture: PurchaseResponse = {
+  ...pick(mockPurchase, ["amount", "id", "price"]),
+  buyer: {
+    id: mockPurchase.user.id,
+  },
+  seller: {
+    id: mockPurchase.listing.seller.id,
+  },
+  listing: {
+    id: mockPurchase.listing.id,
+    project: {
+      ...pick(mockPurchase.listing.project, [
+        "key",
+        "methodology",
+        "name",
+        "projectID",
+        "vintage",
+      ]),
+      country: mockPurchase.listing.project?.country?.id || "",
+    },
+  },
+};
 
 describe("GET /purchases/:id", () => {
   let fastify: FastifyInstance;
@@ -17,10 +44,10 @@ describe("GET /purchases/:id", () => {
 
   /** The happy path */
   test("Success", async () => {
-    const mock = aPurchase();
+    // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [mock] } });
+      .reply(200, { data: { purchases: [mockPurchase] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -28,9 +55,8 @@ describe("GET /purchases/:id", () => {
     });
 
     const data = await response.json();
-
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(mock);
+    expect(data).toEqual(responseFixture);
   });
 
   test("Purchase not found", async () => {
@@ -48,6 +74,11 @@ describe("GET /purchases/:id", () => {
   });
 
   test("Server error", async () => {
+    // silence expected console errors
+    const mockConsole = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
@@ -61,5 +92,6 @@ describe("GET /purchases/:id", () => {
 
     expect(response.statusCode).toEqual(502);
     expect(response.body).toContain("Graph error occurred");
+    mockConsole.mockRestore();
   });
 });

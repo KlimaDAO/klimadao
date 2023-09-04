@@ -1,6 +1,6 @@
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { LeafIcon } from "components/LeafIcon";
 import { FC, useEffect, useState } from "react";

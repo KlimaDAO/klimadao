@@ -1,38 +1,7 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-const FIVE_CARD_WIDTH = "168rem";
-
-export const projectsControls = css`
-  grid-column: full;
-  max-width: calc(${FIVE_CARD_WIDTH});
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  gap: 0.8rem;
-  justify-self: center;
-  .desktopLogin {
-    display: none;
-  }
-  /** Logout button is only on Desktop */
-  ${breakpoints.desktop} {
-    grid-template-columns: 1fr auto;
-    .desktopLogin {
-      display: initial;
-    }
-  }
-`;
-
-export const sortOptions = css`
-  gap: 2rem;
-  width: 100%;
-  display: flex;
-  grid-column: full;
-  max-width: 168rem;
-  align-items: center;
-  justify-self: center;
-  margin-bottom: 0.8rem;
-`;
+export const FIVE_CARD_WIDTH = "168rem";
 
 export const dropdown = css`
   width: 23.7rem;
@@ -45,16 +14,6 @@ export const dropdown = css`
   & .tippy-content div > div {
     background-color: white;
   }
-`;
-
-export const projectsList = css`
-  grid-column: full;
-  justify-self: center;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: ${FIVE_CARD_WIDTH};
 `;
 
 export const card = css`
@@ -112,16 +71,16 @@ export const cardContent = css`
   grid-template-rows: auto auto 1fr;
 `;
 
-export const tags = css`
+export const projectsList = css`
+  grid-column: full;
+  justify-self: center;
   display: flex;
-  gap: 0.8rem;
-  flex-direction: row;
-  margin-top: auto;
-  align-items: center;
-  overflow-x: auto;
-  ::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: ${FIVE_CARD_WIDTH};
+`;
+
+export const viewContainer = css`
+  grid-column: full;
 `;

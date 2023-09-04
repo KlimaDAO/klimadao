@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
+import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { CATEGORIES, ERROR } from "./routes.mock";
@@ -40,6 +40,9 @@ describe("GET /categories", () => {
 
   /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
+    const mockConsole = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
@@ -53,6 +56,7 @@ describe("GET /categories", () => {
 
     expect(response.body).toContain("Graph error occurred");
     expect(response.statusCode).toEqual(502);
+    mockConsole.mockRestore();
   });
 
   test("Empty data", async () => {
@@ -71,6 +75,9 @@ describe("GET /categories", () => {
   });
 
   test("Invalid data", async () => {
+    const mockConsole = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { categories: "invalid data" } });
@@ -84,5 +91,6 @@ describe("GET /categories", () => {
     expect(response.body).toContain(
       "Response from server did not match schema definition"
     );
+    mockConsole.mockRestore();
   });
 });

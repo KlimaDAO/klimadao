@@ -1,29 +1,31 @@
 import { cx } from "@emotion/css";
-import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { TextInfoTooltip } from "components/TextInfoTooltip";
+import { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
 
 type ToggleProps = {
   options: ToggleOptionProps[];
+  selected: ToggleOptionProps["value"];
   onChange?: (value: string | undefined | number) => void;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 /** Multi option Toggle (radio) component  */
-export const Toggle: FC<ToggleProps> = (props) => {
-  const [selected, setSelected] = useState(props.options.at(0)?.value);
-
-  /** Notify the parent component of value change */
-  useEffect(() => {
-    props.onChange?.(selected);
-  }, [selected]);
-
+export const Toggle: FC<ToggleProps> = ({
+  options,
+  onChange,
+  selected,
+  className,
+  ...rest
+}) => {
   return (
-    <div className={styles.main}>
-      {props.options.map((option) => (
+    <div className={cx(styles.main, className)} {...rest}>
+      {options.map((option) => (
         <ToggleOption
+          tooltip={option.tooltip}
+          key={option.value}
           content={option.content}
           value={option.value}
-          key={option.value}
-          onClick={() => setSelected(option.value)}
+          onClick={() => onChange?.(option.value)}
           className={cx({ selected: selected === option.value })}
         />
       ))}
@@ -32,15 +34,18 @@ export const Toggle: FC<ToggleProps> = (props) => {
 };
 
 type ToggleOptionProps = {
-  content: ReactNode | string;
+  content: React.ReactElement;
   value: string | number;
-} & HTMLAttributes<HTMLButtonElement>;
+  tooltip?: string;
+} & Pick<HTMLAttributes<HTMLButtonElement>, "onClick" | "className">;
 
 const ToggleOption: FC<ToggleOptionProps> = (props) => (
-  <button
-    onClick={props.onClick}
-    className={cx(styles.button, props.className)}
-  >
-    {props.content}
-  </button>
+  <TextInfoTooltip tooltip={props.tooltip}>
+    <button
+      onClick={props.onClick}
+      className={cx(styles.button, props.className)}
+    >
+      {props.content}
+    </button>
+  </TextInfoTooltip>
 );

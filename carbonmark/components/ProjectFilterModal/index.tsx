@@ -4,14 +4,13 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
 import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
-import { Modal, ModalProps } from "components/shared/Modal";
 import { Text } from "components/Text";
+import { Modal, ModalProps } from "components/shared/Modal";
 import { useFetchProjects } from "hooks/useFetchProjects";
 import {
-  defaultFilterProps,
   FilterValues,
-  SortOption,
-  useProjectsFilterParams,
+  defaultParams,
+  useProjectsParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
 import { Country } from "lib/types/carbonmark";
@@ -27,20 +26,22 @@ import * as styles from "./styles";
 
 type ProjectFilterModalProps = Omit<ModalProps, "title" | "children">;
 
+type FilterKeys = Pick<FilterValues, "country" | "category" | "vintage">;
+const keys = ["country", "category", "vintage"] as const;
+
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
   const { projects, isValidating } = useFetchProjects();
-  const { defaultValues, updateQueryParams, resetQueryParams } =
-    useProjectsFilterParams();
+  const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
-  const { control, reset, setValue, getValues } = useForm<FilterValues>({
-    defaultValues,
+  const { control, reset, setValue, getValues } = useForm<FilterKeys>({
+    defaultValues: pick(params, keys),
   });
 
   const watchers = useWatch({
     control,
-    name: ["country", "category", "vintage"],
+    name: keys,
   });
 
   /**
@@ -85,8 +86,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   useEffect(() => {
     if (!router.isReady || !props.showModal) return;
     updateQueryParams({
+      ...router.query,
       ...getValues(),
-      ...pick(router.query, "search", "sort" as SortOption),
     });
   }, [watchers]);
 
@@ -100,7 +101,7 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
 
   const resetFilters = () => {
     resetQueryParams();
-    reset(defaultFilterProps);
+    reset(defaultParams);
     props.onToggleModal?.();
   };
 

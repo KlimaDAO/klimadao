@@ -1,13 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, mapValues, min, omit } from "lodash";
+import { compact, concat, curry, mapValues, min, omit } from "lodash";
 import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { fetchAllProjects } from "../../sanity/queries";
-import { getSanityClient } from "../../sanity/sanity";
 import { extract, notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { findProjectWithRegistryIdAndRegistry } from "../../utils/helpers/utils";
 import { isListingActive } from "../../utils/marketplace.utils";
 import { GetProjectResponse } from "./projects.types";
 import {
@@ -18,26 +15,39 @@ import {
   getOffsetTokenPrices,
 } from "./projects.utils";
 
+import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
+import { isMatchingCmsProject } from "../../utils/helpers/utils";
+
 const schema = {
+  summary: "List projects",
+  description:
+    "Retrieve an array of carbon projects filtered by desired query parameters",
+  tags: ["Projects"],
   querystring: {
     type: "object",
     properties: {
       country: {
         type: "string",
+        description: "Desired country of origin for carbon projects",
       },
       category: {
         type: "string",
+        description: "Desired category of carbon projects",
       },
       search: {
         type: "string",
+        description:
+          "Search carbon project names and descriptions for a string of text",
       },
       vintage: {
         type: "string",
+        description: "Desired vintage of carbon projects",
       },
     },
   },
   response: {
     "2xx": {
+      description: "Successful response",
       type: "object",
       properties: {
         id: { type: "string" },
@@ -79,12 +89,9 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ) {
-    const sanity = getSanityClient();
-
+  ): Promise<GetProjectResponse[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
-
     //Get the default args to return all results unless specified
     const defaultArgs = await getDefaultQueryArgs(fastify);
 
@@ -95,27 +102,29 @@ const handler = (fastify: FastifyInstance) =>
       search: request.query.search ?? "",
     };
 
-    const [projectData, offsetData, projectsCmsData, poolPrices] =
+    const [projectData, offsetData, cmsProjects, poolPrices] =
       await Promise.all([
         gqlSdk.marketplace.findProjects(query),
         gqlSdk.offsets.findCarbonOffsets(query),
-        sanity.fetch(fetchAllProjects),
+        fetchAllCarbonProjects(),
         fetchAllPoolPrices(),
       ]);
 
     // ----- Carbonmark Listings ----- //
     const projects = projectData.projects.map((project) => {
-      const cmsProject = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        project.projectID,
-        project.registry
+      const cmsProject = cmsProjects.find(
+        curry(isMatchingCmsProject)({
+          projectId: project.projectID,
+          registry: project.registry,
+        })
       );
 
       // Find the lowest price
       // @todo change to number[]
       const listingPrices = compact(project.listings)
-        ?.filter(isListingActive)
+        .filter(isListingActive)
         .map(extract("singleUnitPrice"));
+
       const lowestPrice = min(listingPrices);
 
       return composeCarbonmarkProject(project, cmsProject, lowestPrice);
@@ -123,11 +132,10 @@ const handler = (fastify: FastifyInstance) =>
 
     // ----- Pool Listings ----- //
     const offsetProjects = offsetData.carbonOffsets.map((offset) => {
-      const [standard, code] = offset.projectID.split("-");
-      const cmsProject = findProjectWithRegistryIdAndRegistry(
-        projectsCmsData,
-        code,
-        standard
+      const [registry, code] = offset.projectID.split("-");
+
+      const cmsProject = cmsProjects.find(
+        curry(isMatchingCmsProject)({ projectId: code, registry })
       );
 
       // Find the lowest price
@@ -135,15 +143,16 @@ const handler = (fastify: FastifyInstance) =>
       const tokenPrices = getOffsetTokenPrices(offset, poolPrices);
       const lowestPrice = min(tokenPrices);
 
-      return composeOffsetProject(cmsProject, offset, lowestPrice);
+      return composeOffsetProject(offset, cmsProject, lowestPrice);
     });
 
     const validProject = ({ price }: GetProjectResponse) =>
       notNil(price) && parseFloat(price) > 0;
 
     // Remove invalid projects and duplicates selecting the project with the lowest price
-    const filteredUniqueProjects = pipe(
+    const filteredUniqueProjects: GetProjectResponse[] = pipe(
       concat,
+      compact,
       filter(validProject),
       sortBy("price"),
       uniqBy(buildProjectKey)

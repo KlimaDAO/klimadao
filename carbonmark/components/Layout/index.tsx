@@ -26,6 +26,7 @@ type Props = {
   userAddress?: string;
   children: ReactNode;
   fullContentWidth?: boolean;
+  fullContentHeight?: boolean;
 };
 
 /** App layout for desktop side-panel and mobile navigation */
@@ -76,7 +77,7 @@ export const Layout: FC<Props> = (props: Props) => {
         >
           {props.children}
         </div>
-        <Footer />
+        {!props.fullContentHeight && <Footer />}
       </main>
       <InvalidNetworkModal />
       {renderModal &&
@@ -95,10 +96,7 @@ export const Layout: FC<Props> = (props: Props) => {
             id: "connectModal.institutional",
           }),
           titles: {
-            connect: t({
-              id: "shared.login",
-              message: "Login",
-            }),
+            connect: t`Login`,
             loading: t({
               id: "connect_modal.connecting",
               message: "Connecting...",

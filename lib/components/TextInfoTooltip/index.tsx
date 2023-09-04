@@ -32,7 +32,7 @@ export const TextInfoTooltip: FC<Props> = (props) => {
 
 export const useTooltipSingleton = (): [
   JSX.Element,
-  NonNullable<TippyProps["singleton"]>
+  NonNullable<TippyProps["singleton"]>,
 ] => {
   const [source, target] = useSingleton();
   return [

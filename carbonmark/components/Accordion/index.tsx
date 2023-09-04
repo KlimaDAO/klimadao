@@ -9,6 +9,7 @@ import * as styles from "./styles";
 type AccordionProps = {
   label: string;
   subtitle?: string;
+  className?: string;
 } & PropsWithChildren;
 
 const Component: FC<AccordionProps> = (props) => {
@@ -17,7 +18,10 @@ const Component: FC<AccordionProps> = (props) => {
   const toggle = () => setOpen((prev) => !prev);
 
   return (
-    <div className={cx("accordion", styles.main)} data-open={open}>
+    <div
+      data-open={open}
+      className={cx("accordion", styles.main, props.className)}
+    >
       <button onClick={toggle} className={styles.toggle} type="button">
         <Text className={styles.label}>{props.label}</Text>
         {props.subtitle && (

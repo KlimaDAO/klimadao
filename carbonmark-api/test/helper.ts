@@ -13,7 +13,7 @@ type Args = {
  */
 export async function build(args?: Args) {
   // Create a new Fastify instance
-  let fastify: FastifyInstance = Fastify();
+  let fastify: FastifyInstance = Fastify({ logger: true });
 
   // Register the application with the Fastify instance
   await fastify.register(app);

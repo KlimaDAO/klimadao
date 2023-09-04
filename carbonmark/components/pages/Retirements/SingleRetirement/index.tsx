@@ -6,13 +6,13 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
-import { Navigation } from "components/shared/Navigation";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col } from "components/TwoColLayout";
+import { Navigation } from "components/shared/Navigation";
+import { Spinner } from "components/shared/Spinner";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -25,8 +25,8 @@ import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { ShareDetails } from "./ShareDetails";
-import * as styles from "./styles";
 import { TransactionDetails } from "./TransactionDetails";
+import * as styles from "./styles";
 
 export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
   retirement, // destructure so ts can properly narrow retirement.pending types
@@ -156,7 +156,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               retirement={retirement}
               isMossOffset={isMossOffset}
               description={
-                props.project?.long_description || props.project?.description
+                props.project?.long_description ?? props.project?.description
               }
               category={props.project?.methodologies?.[0]?.category || null}
             />

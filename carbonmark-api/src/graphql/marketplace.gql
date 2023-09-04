@@ -23,24 +23,26 @@ query getPurchasesById($id: Bytes) {
   purchases(first: 1, where: { id: $id }) {
     id
     amount
-    listing {
-      ...ListingFragment
-      project {
-        ...ProjectFragment
-        category {
-          id
-        }
-        country {
-          id
-        }
-        updatedAt
-      }
-    }
-    price
-    timeStamp
     user {
       id
     }
+    listing {
+      id
+      seller {
+        id
+      }
+      project {
+        country {
+          id
+        }
+        key
+        methodology
+        name
+        projectID
+        vintage
+      }
+    }
+    price
   }
 }
 
