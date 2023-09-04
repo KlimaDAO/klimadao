@@ -59,6 +59,28 @@ export interface PricesItem {
 }
 export type Prices = PaginatedResponse<PricesItem>;
 
+export interface TokenInfo {
+  name: string;
+  pair_address: string;
+  token_address: string;
+  bridge: string;
+  chain: string;
+  selective_cost_value: number;
+  decimals: number;
+  current_supply: number;
+  fee_redeem_factor: number;
+  price: number;
+}
+export type TokensInfo = PaginatedResponse<TokenInfo>;
+
+export interface KlimaMonthlyRetirementsByPoolItem {
+  retirement_date: string;
+  token: string;
+  amount_retired: number;
+  number_of_retirements: number;
+}
+export type KlimaMonthlyRetirementsByPool = PaginatedResponse<KlimaMonthlyRetirementsByPoolItem>;
+
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
   source: string; // Qhen querying source field is renamed into destination
