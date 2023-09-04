@@ -66,8 +66,8 @@ export default async function TokenPricesChart() {
           },
           {
             label: (
-              <span>
-                {t`Selective fee`}&nbsp;
+              <span className={styles.selectiveFee}>
+                <span>{t`Selective fee`}</span>
                 <span
                   className={styles.selectiveFeeIcon}
                   title={selectiveFeeDescription}
