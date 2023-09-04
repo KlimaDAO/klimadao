@@ -14,17 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:9
-msgid "updated quantity"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:554
-msgid "Contact"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -47,6 +36,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:8
 msgid "updated price"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Activities/Activities.constants.ts:9
+msgid "updated quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -222,6 +216,12 @@ msgstr ""
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
 msgid "KlimaDAO"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/Footer/index.tsx:54
+#: components/pages/Home/index.tsx:554
+msgid "Contact"
 msgstr ""
 
 #. js-lingui-explicit-id
