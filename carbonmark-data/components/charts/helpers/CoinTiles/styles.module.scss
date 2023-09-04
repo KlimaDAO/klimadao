@@ -9,7 +9,9 @@
   padding-top: 10px;
   gap: 10px;
   color: var(--text-color-01);
-  border-bottom: 1px solid var(--text-color-03);
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--text-color-03);
+  }
 }
 .header {
   display: flex;
