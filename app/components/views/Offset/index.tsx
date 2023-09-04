@@ -432,7 +432,9 @@ export const Offset = (props: Props) => {
       );
     }
     if (paymentMethod === "fiat") return false;
-    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+    return (
+      Number(getApprovalValue()) > Number(balances?.[paymentMethod] ?? "0")
+    );
   };
 
   const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
@@ -454,7 +456,7 @@ export const Offset = (props: Props) => {
     return (
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
-      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
+      Number(getApprovalValue()) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -861,7 +863,7 @@ export const Offset = (props: Props) => {
                   </TextInfoTooltip>
                 </div>
               }
-              amount={Number(cost)?.toLocaleString(locale)}
+              amount={Number(getApprovalValue())?.toLocaleString(locale)}
               icon={costIcon}
               name={paymentMethod}
               loading={cost === "loading"}
