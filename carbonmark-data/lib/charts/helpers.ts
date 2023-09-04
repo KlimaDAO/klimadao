@@ -146,7 +146,7 @@ export const formatPrice = function (locale: string) {
     return new Intl.NumberFormat(locale, {
       style: "currency",
       currency: "USD",
-      maximumSignificantDigits: 2,
+      maximumFractionDigits: 2,
     }).format(price);
   };
 };
@@ -204,6 +204,7 @@ export function getDataChartMax<T>(
     return Math.max(accumulator, localMax);
   }, 0);
 }
+
 const helpers = {
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,

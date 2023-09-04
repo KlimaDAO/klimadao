@@ -1,4 +1,4 @@
-import { getLocales } from "@klimadao/lib/utils/getLocales";
+import { getLocales } from "@klimadao/lib/utils/lightIndex";
 import { IS_PRODUCTION } from "lib/constants";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
