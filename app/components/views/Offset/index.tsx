@@ -863,7 +863,7 @@ export const Offset = (props: Props) => {
                   </TextInfoTooltip>
                 </div>
               }
-              amount={Number(getApprovalValue())?.toLocaleString(locale)}
+              amount={getApprovalValue()}
               icon={costIcon}
               name={paymentMethod}
               loading={cost === "loading"}
