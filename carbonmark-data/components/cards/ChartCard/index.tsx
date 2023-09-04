@@ -15,8 +15,9 @@ import styles from "./styles.module.scss";
  * detailUrl: Url of the detailPage
  * topOptions: Options to be displayed at the top of the card
  * bottomOptions: Options to be displayed at the bottom of the card
+ * isColumnCard: Is this card used in a column? In this case there will be no constraint on the card height.
  */
-export default function OverviewCard(props: {
+export default function ChartCard(props: {
   charts?: Record<string, React.ReactNode>;
   chart?: React.ReactNode;
   title: string;
