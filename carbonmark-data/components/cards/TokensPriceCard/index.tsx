@@ -11,6 +11,7 @@ export default function TokensPriceCard() {
     <ChartCard
       title={t`Digital Carbon Pricing`}
       detailUrl="/details/token-prices"
+      detailUrlPosition="bottom"
       chart={chart}
       isColumnCard={true}
     />
