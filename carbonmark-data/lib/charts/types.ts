@@ -1,8 +1,10 @@
 import { Key } from "react";
 
 // API level Query parameters
-export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
-export type Token = "bct" | "nct" | "mco2" | "ubo" | "nbo";
+export const BRIDGES = ["toucan", "c3", "moss"];
+export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
+export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
+export type Token = (typeof TOKENS)[number];
 
 export type DateField =
   | "bridged_date"

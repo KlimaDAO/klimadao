@@ -1,4 +1,4 @@
-import { Bridge, Token } from "./charts/types";
+export { BRIDGES, TOKENS } from "./charts/types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -40,6 +40,3 @@ export const urls = {
     tokens: `${api_url}/tokens`,
   },
 };
-
-export const BRIDGES: Array<Bridge> = ["toucan", "c3", "moss"];
-export const TOKENS: Array<Token> = ["bct", "nct", "mco2", "ubo", "nbo"];

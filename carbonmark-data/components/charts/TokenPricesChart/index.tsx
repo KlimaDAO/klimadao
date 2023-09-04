@@ -38,7 +38,8 @@ export default async function TokenPricesChart() {
       const price = formatPrice(locale)(tokenInfo.price);
 
       // price change
-      const price7DaysAgo = prices7daysAgo[`${token}_price`];
+      const price7DaysAgo =
+        prices7daysAgo[`${token}_price` as Extract<keyof PricesItem, number>];
       const priceChangePercentage =
         ((tokenInfo.price - price7DaysAgo) * 100) / tokenInfo.price;
       const priceChangeIcon =
