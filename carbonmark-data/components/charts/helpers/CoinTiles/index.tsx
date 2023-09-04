@@ -20,7 +20,7 @@ export function CoinTile(props: { data: CoinTileData }) {
   return (
     <div className={styles.tile}>
       <div className={styles.header}>
-        {props.data.icon}
+        <div className={styles.iconBox}>{props.data.icon}</div>
         <div className={styles.headerText}>
           <div aria-describedby="title">{props.data.title}</div>
           <div aria-describedby="fact">{props.data.globalFact}</div>

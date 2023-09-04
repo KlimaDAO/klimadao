@@ -13,11 +13,13 @@ body[data-theme="theme-light"] {
   --surface-02: #202020;
   --surface-03: #f5f8fa;
   --surface-04: #ffffff;
+  --surface-06: #ebf1f5;
   --surface-02-active: #303030;
   --text-color-01: #313131;
   --text-color-02: #9c9c9c;
   --text-color-03: #a1a1a1;
   --text-color-05: #0ba1ff;
+  --text-color-06: #767676;
 
   /* these are actually dark mode colors, but they're used for the footer*/
   --surface-05: #2a2a2a;

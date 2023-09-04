@@ -17,11 +17,23 @@
   display: flex;
   gap: 10px;
   font-size: 14px;
+  align-items: center;
 }
 .headerText {
   [aria-describedby="title"] {
     font-weight: bold;
   }
+  [aria-describedby="fact"] {
+    color: var(--text-color-06);
+  }
+}
+.iconBox {
+  padding: 4px;
+  border: 1px solid;
+  border-color: var(--surface-06);
+  background-color: var(--surface-03);
+  border-radius: 4px;
+  line-height: 0;
 }
 .content {
   display: flex;
@@ -38,6 +50,6 @@
   [aria-describedby="label"] {
     text-transform: uppercase;
     font-size: 8px;
-    color: var(--text-color-01);
+    color: var(--text-color-06);
   }
 }
