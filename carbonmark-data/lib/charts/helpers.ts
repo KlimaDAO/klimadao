@@ -64,28 +64,30 @@ export async function prepareDailyChartData<
 
   // Create a new dataset with every dates represented
   const chartData: DailyChartData<CI> = [];
-  let j = 0;
-  for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
-    let record = records[date];
-    if (j > 0) {
-      const previousRecord: GenericChartDataItem = chartData[j - 1];
-      // Use the record computed previously for this date. If the record does not exist use the record from the previous date
-      if (record === undefined) {
-        record = records[date] || Object.assign({}, previousRecord);
+  if (Object.keys(records).length) {
+    let j = 0;
+    for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
+      let record = records[date];
+      if (j > 0) {
+        const previousRecord: GenericChartDataItem = chartData[j - 1];
+        // Use the record computed previously for this date. If the record does not exist use the record from the previous date
+        if (record === undefined) {
+          record = records[date] || Object.assign({}, previousRecord);
+        }
+        // If there is no value for a key, use the value from the previous record
+        configuration.forEach((configurationItem) => {
+          if (configurationItem.dataMapping == undefined)
+            throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
+          const destination = configurationItem.dataMapping.destination;
+          record[destination] =
+            record[destination] || previousRecord[destination] || 0;
+        });
+        // Ensure the date is okay (if we copied the previous record)
+        record.date = date;
       }
-      // If there is no value for a key, use the value from the previous record
-      configuration.forEach((configurationItem) => {
-        if (configurationItem.dataMapping == undefined)
-          throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
-        const destination = configurationItem.dataMapping.destination;
-        record[destination] =
-          record[destination] || previousRecord[destination] || 0;
-      });
-      // Ensure the date is okay (if we copied the previous record)
-      record.date = date;
+      chartData.push(record as CI);
+      j++;
     }
-    chartData.push(record as CI);
-    j++;
   }
   return chartData;
 }
@@ -178,12 +180,14 @@ export function niceTicks<T>(
   key: keyof T,
   numberOfTicks?: number
 ) {
-  numberOfTicks = numberOfTicks || 4;
   const ticks = [];
-  const intervalSize = (data.length - 1) / (numberOfTicks - 1);
-  for (let i = 0; i <= data.length - 1; i += intervalSize) {
-    const value = data[Math.floor(i)][key] as string;
-    ticks.push(value);
+  if (data.length > 0) {
+    numberOfTicks = numberOfTicks || 4;
+    const intervalSize = (data.length - 1) / (numberOfTicks - 1);
+    for (let i = 0; i <= data.length - 1; i += intervalSize) {
+      const value = data[Math.floor(i)][key] as string;
+      ticks.push(value);
+    }
   }
   return ticks;
 }
