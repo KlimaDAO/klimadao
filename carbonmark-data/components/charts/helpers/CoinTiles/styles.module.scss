@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 $nbTiles: 5;
 /** Configures columns for a grid layout 
@@ -24,19 +24,19 @@ And enable css to be passed to items of all rows except the last one
 .tiles_row_layout {
   display: grid;
   gap: 24px;
-  @include onlySmall {
+  @include breakpoints.onlySmall {
     @include configureGrid(1);
   }
-  @include onlyMedium {
+  @include breakpoints.onlyMedium {
     @include configureGrid(2);
   }
-  @include onlyLarge {
+  @include breakpoints.onlyLarge {
     @include configureGrid(2);
   }
-  @include onlyDesktop {
+  @include breakpoints.onlyDesktop {
     @include configureGrid(3);
   }
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     @include configureGrid(4);
   }
 }
