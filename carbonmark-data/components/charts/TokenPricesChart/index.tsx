@@ -33,8 +33,6 @@ export default async function TokenPricesChart() {
         locale: locale,
       });
       // Price
-      // TODO: Should we localize price?
-      //const price = tokenInfo.price.toFixed(2);
       const price = formatPrice(locale)(tokenInfo.price);
 
       // price change
@@ -83,7 +81,7 @@ export default async function TokenPricesChart() {
           {
             label: t`Last 7 days`,
             value: (
-              <span>
+              <span className={styles.priceChangeValue}>
                 {priceChangeIcon}
                 {priceChangePercentage.toFixed(0)}%
               </span>
