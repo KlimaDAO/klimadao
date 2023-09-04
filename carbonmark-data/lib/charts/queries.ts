@@ -9,6 +9,9 @@ import {
   PaginationQueryParams,
   Prices,
   PricesItem,
+  Token,
+  TokenInfo,
+  TokensInfo,
 } from "./types";
 
 /** Queries the Data API
@@ -108,4 +111,17 @@ export const queryPrices = function (
   params: PaginationQueryParams
 ): Promise<Prices> {
   return paginatedQuery<PricesItem, typeof params>(urls.api.prices, params);
+};
+
+/** Queries the Tokens endpoint */
+export const queryTokensInfo = function (): Promise<TokensInfo> {
+  return paginatedQuery<TokenInfo, undefined>(urls.api.tokens);
+};
+/** Queries the Tokens endpoint and return info for a particular token */
+export const queryTokenInfo = async function (
+  token: Token
+): Promise<TokenInfo | undefined> {
+  const tokens = (await paginatedQuery<TokenInfo, undefined>(urls.api.tokens))
+    .items;
+  return tokens.find((tokenInfo) => tokenInfo.name.toLowerCase() == token);
 };

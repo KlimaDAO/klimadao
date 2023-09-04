@@ -1,11 +1,9 @@
 .cardContainer {
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
-  border-radius: 8px;
-  min-height: 284px;
-  height: 284px;
+  border-radius: 0.8rem;
   background-color: var(--surface-04);
-  padding: 12px;
+  padding: 1.2rem;
   display: flex;
   flex-flow: column;
   margin-bottom: 1rem;
@@ -13,13 +11,17 @@
   width: 100%;
   min-width: 0;
 }
+.rowCardContainer {
+  min-height: 28.4rem;
+  height: 28.4rem;
+}
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-items: center;
-  margin-bottom: 27px;
+  margin-bottom: 2.7rem;
 }
 
 .cardHeaderTitle {
@@ -42,14 +44,14 @@
     color: var(--text-color-05);
     flex: 1 1 0;
     text-align: right;
-    font-size: 14px;
+    font-size: 1.4rem;
     text-decoration: none;
   }
 }
 
 .cardHeaderDetailsLinkArrow {
   position: relative;
-  top: 5px;
+  top: 0.5rem;
 }
 
 .cardContent {
@@ -59,7 +61,7 @@
 
 .cardFooter {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   display: flex;
   width: 100%;
   justify-content: center;

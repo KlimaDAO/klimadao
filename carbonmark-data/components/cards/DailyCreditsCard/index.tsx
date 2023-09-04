@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { DailyCreditsChartConfiguration } from "lib/charts/aggregators/getDailyCredits";
 import {
@@ -10,7 +10,7 @@ import { ChartDictionnary, DateField, Status } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function DailyVerraCreditsCard() {
+export default function DailyVerraCreditsCard(props: CardProps) {
   const charts: ChartDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
@@ -108,6 +108,7 @@ export default function DailyVerraCreditsCard() {
   });
   return (
     <ChartCard
+      {...props}
       title={t`Verra credits`}
       detailUrl="/details/verra-credits-over-time"
       topOptions={getCreditsBridgeOptions()}
