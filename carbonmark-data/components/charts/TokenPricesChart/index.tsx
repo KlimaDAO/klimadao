@@ -11,12 +11,18 @@ import {
   getTokenIcon,
   getTokenSelectiveFeeDescription,
 } from "lib/tokens";
-import { CoinTiles, CoinTilesData } from "../helpers/CoinTiles";
+import {
+  CoinTiles,
+  CoinTilesData,
+  CoinTilesLayout,
+} from "../helpers/CoinTiles";
 import styles from "./styles.module.scss";
 
 /** Async server component
  */
-export default async function TokenPricesChart() {
+export default async function TokenPricesChart(props: {
+  layout: CoinTilesLayout;
+}) {
   const locale = currentLocale();
   const prices7daysAgo: PricesItem = (
     await queryPrices({ sort_by: "date", sort_order: "desc", page_size: 8 })
@@ -91,5 +97,5 @@ export default async function TokenPricesChart() {
       });
     }
   }
-  return <CoinTiles data={coinTilesData}></CoinTiles>;
+  return <CoinTiles data={coinTilesData} layout={props.layout}></CoinTiles>;
 }

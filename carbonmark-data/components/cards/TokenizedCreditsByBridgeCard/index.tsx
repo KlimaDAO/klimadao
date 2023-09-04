@@ -45,7 +45,6 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
       },
     },
   ];
-
   const chart = (
     /* @ts-expect-error async Server component */
     <CreditsByBridgeChart configuration={configuration}></CreditsByBridgeChart>

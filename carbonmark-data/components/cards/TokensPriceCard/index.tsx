@@ -1,11 +1,13 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import TokenPricesChart from "components/charts/TokenPricesChart";
-/** Historical Prices Card */
+
+/** Token Prices Card */
 export default function TokensPriceCard(props: CardProps) {
+  const layout = props.isDetailPage ? "row" : "column";
   const chart = (
     /* @ts-expect-error async Server component */
-    <TokenPricesChart></TokenPricesChart>
+    <TokenPricesChart layout={layout}></TokenPricesChart>
   );
   return (
     <ChartCard
