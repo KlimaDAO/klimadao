@@ -78,9 +78,11 @@ const validations = (
       },
       max: {
         value: Number(fiatBalance || "2000"),
-        message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
-          fiatBalance || 0
-        )}. Please adjust the quantity and try again later.`,
+        message: t`
+            At this time, Carbonmark cannot process credit card payments
+            exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
+            quantity and try again later.
+          `,
       },
     },
   },
