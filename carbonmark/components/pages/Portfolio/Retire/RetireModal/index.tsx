@@ -1,12 +1,12 @@
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import { Transaction } from "components/Transaction";
+import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { CarbonmarkToken } from "lib/types/carbonmark";
 import { StaticImageData } from "next/image";
 import { FC, ReactNode } from "react";
-import { CustomizableModal } from "../CustomizableModal";
 import * as styles from "./styles";
 
 interface Props {
@@ -90,7 +90,7 @@ export const RetireModal: FC<Props> = (props) => {
   };
 
   return (
-    <CustomizableModal
+    <Modal
       title={
         processingRetirement ? (
           <div>
@@ -102,10 +102,6 @@ export const RetireModal: FC<Props> = (props) => {
           props.title
         )
       }
-      overflowY={processingRetirement ? "hidden" : "auto"}
-      maxWidth={processingRetirement ? "43rem" : "50rem"}
-      height={processingRetirement ? "26rem" : "fit-content"}
-      maxHeight="calc(100vh - 8rem)"
       showModal={props.showModal}
       onToggleModal={processingRetirement ? undefined : onModalClose}
     >
@@ -134,6 +130,6 @@ export const RetireModal: FC<Props> = (props) => {
           }}
         />
       )}
-    </CustomizableModal>
+    </Modal>
   );
 };
