@@ -4,7 +4,7 @@ import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses, subgraphs } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
-import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import { Contract, Transaction, ethers, providers, utils } from "ethers";
 import { getProject } from "lib/api";
 import {
   createProjectIdFromAsset,
