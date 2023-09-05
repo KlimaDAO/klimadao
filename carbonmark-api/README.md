@@ -38,8 +38,6 @@ vercel link
 
 Some important environment variables are stored in vercel and need to be downloaded to your machine.
 
-### **Note:** You will need to manually remove the beginning and trailing quotation marks on the `FIREBASE_ADMIN_CERT` env var in `.env.local` otherwise you will receive a _SyntaxError: Unexpected token_ error when trying to run the project
-
 ```sh
 # run from root klimadao folder
 vercel env pull --environment=development .env.local
