@@ -91,7 +91,7 @@ const querystring = Type.Object({
   ),
 });
 
-type QueryStrings = Static<typeof querystring>;
+type QueryString = Static<typeof querystring>;
 
 const schema = {
   summary: "List projects",
@@ -111,4 +111,4 @@ const schema = {
   },
 };
 
-export { ListingEntry, ProjectEntry, QueryStrings, schema };
+export { ListingEntry, ProjectEntry, QueryString, schema };
