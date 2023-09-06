@@ -4,6 +4,7 @@ import { POOL_INFO } from "../../routes/projects/get.constants";
 import { gqlSdk } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
+
 /**
  * Map the subgraph data to a more easily consumable object
  */
@@ -24,6 +25,7 @@ type PoolInfoMap = {
   ubo: PoolInfo;
   nbo: PoolInfo;
 };
+
 /**
  * Params for fetchProjectPoolInfo
  */
@@ -48,13 +50,12 @@ const initialStats: BigNumberStats = {
   totalSupply: ethers.BigNumber.from(0),
 };
 export type Stats = {
-  totalBridged: number;
-  totalRetired: number;
+  bridged: number;
+  retired: number;
   totalSupply: number;
 };
 
 /** Return Types for Digital Carbon Query */
-
 type PoolBalance = {
   balance: string;
   id: string;
@@ -116,12 +117,8 @@ export const fetchProjectPoolInfo = async (
 
   // project bigNumber stats
   const stats: Stats = {
-    totalBridged: parseFloat(
-      ethers.utils.formatUnits(bigNumberStats.bridged, 18)
-    ),
-    totalRetired: parseFloat(
-      ethers.utils.formatUnits(bigNumberStats.retired, 18)
-    ),
+    bridged: parseFloat(ethers.utils.formatUnits(bigNumberStats.bridged, 18)),
+    retired: parseFloat(ethers.utils.formatUnits(bigNumberStats.retired, 18)),
     totalSupply: parseFloat(
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
