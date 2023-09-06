@@ -4,11 +4,10 @@ import { FastifyPluginAsync } from "fastify";
 import fs from "fs";
 import path, { join } from "path";
 import { commonSchema } from "./routes/common.schema";
-import { LOCAL_ENV_PATH } from "./utils/helpers/utils.constants";
 
 // Only pull env vars from .env if running in locally
 if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
-  dotenv.config({ path: LOCAL_ENV_PATH });
+  dotenv.config({ path: path.resolve(__dirname, "../../.env.local") });
 }
 
 export type AppOptions = {
