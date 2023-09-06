@@ -1,9 +1,4 @@
-import * as dotenv from "dotenv";
-import path from "path";
-dotenv.config({ path: path.resolve(__dirname, "../../../../.env.local") });
-// We need the above imports in this order so that env vars are loaded correctly
-
-import { CreditId } from "../../../src/utils/helpers/carbonProjects.utils";
+import { CreditId } from "../../src/utils/CreditId";
 
 describe("CreditId", () => {
   test("Accepts CreditIdentifier string", () => {
@@ -57,6 +52,19 @@ describe("CreditId", () => {
     expect(CreditId.isValidCreditId("")).toBe(false);
     expect(CreditId.isValidCreditId(null)).toBe(false);
     expect(CreditId.isValidCreditId(undefined)).toBe(false);
+  });
+
+  test("isValidProjectId - static method", () => {
+    expect(CreditId.isValidProjectId("VCS-191")).toBe(true);
+    expect(CreditId.isValidProjectId("vcs-191")).toBe(true);
+    expect(CreditId.isValidProjectId("PURO-0001")).toBe(true);
+    expect(CreditId.isValidProjectId("PURO-0001-2020")).toBe(false);
+    expect(CreditId.isValidProjectId("VCS-191-2008")).toBe(false);
+    expect(CreditId.isValidProjectId("VCS-191-")).toBe(false);
+    expect(CreditId.isValidProjectId({})).toBe(false);
+    expect(CreditId.isValidProjectId("")).toBe(false);
+    expect(CreditId.isValidProjectId(null)).toBe(false);
+    expect(CreditId.isValidProjectId(undefined)).toBe(false);
   });
 
   test("Throws on invalid string input", () => {
