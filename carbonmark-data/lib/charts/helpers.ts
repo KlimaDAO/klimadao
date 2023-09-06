@@ -182,6 +182,15 @@ export function formatDateAsDays(locale: string): (date: number) => string {
     month: "short",
   });
 }
+export function formatDateAsDaysShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    day: "numeric",
+    year: "numeric",
+    month: "numeric",
+  });
+}
 export function formatDateAndTime(locale: string): (date: number) => string {
   return function (date: number): string {
     const day = formatDateAsDays(locale)(date);
@@ -229,6 +238,7 @@ const helpers = {
   formatPrice,
   formatDateAsMonths,
   formatDateAsDays,
+  formatDateAsDaysShort,
   prepareDailyChartData,
   niceTicks,
   getDataChartMax,

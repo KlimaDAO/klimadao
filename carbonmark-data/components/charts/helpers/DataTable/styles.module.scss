@@ -1,0 +1,44 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.header {
+  background-color: var(--surface-01);
+
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    font-family: Poppins;
+  }
+}
+
+.row {
+  border-bottom: 1px solid var(--text-color-07);
+
+  td {
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+}
+
+.pagination {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.6rem;
+}
+.paginationIcon {
+  display: flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: var(--text-color-06);
+  color: white;
+}

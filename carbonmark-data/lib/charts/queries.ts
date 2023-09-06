@@ -15,6 +15,13 @@ import {
   TokensInfo,
 } from "./types";
 
+export const EMPTY_PAGINATED_RESPONSE = {
+  items: [],
+  items_count: 0,
+  pages_count: 0,
+  current_page: 0,
+};
+
 /** Queries the Data API
    R: Type of the response
    Q: Type of the Query parameters
@@ -73,17 +80,7 @@ async function paginatedQuery<RI, Q>(
   params: Q | undefined = undefined,
   revalidate?: number
 ): Promise<PaginatedResponse<RI>> {
-  return failsafeQuery(
-    url,
-    params,
-    {
-      items: [],
-      items_count: 0,
-      pages_count: 0,
-      current_page: 0,
-    },
-    revalidate
-  );
+  return failsafeQuery(url, params, EMPTY_PAGINATED_RESPONSE, revalidate);
 }
 
 /** Queries the Credits Daily Aggregations endpoint */
