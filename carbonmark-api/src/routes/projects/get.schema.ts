@@ -47,6 +47,7 @@ const projectEntry = Type.Object({
   price: Type.String(),
   updatedAt: Type.String(),
   listings: Nullable(Type.Array(listingEntry)), // null when listings are empty
+  /** This should be defined in common.schema.ts but I couldn't get the URI ref to work with Type.Union */
   location: Nullable(
     Type.Object({
       type: Type.Literal("Feature"),
