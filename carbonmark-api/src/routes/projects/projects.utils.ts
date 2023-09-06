@@ -128,9 +128,7 @@ export const isActiveListing = (l: {
  * */
 export const isValidMarketplaceProject = (project: FindQueryProject) => {
   if (!project.listings) return false;
-  const validProjects = project.listings.filter((listing) => {
-    return isActiveListing(listing);
-  });
+  const validProjects = project.listings.filter(isActiveListing);
   return !!validProjects.length;
 };
 
