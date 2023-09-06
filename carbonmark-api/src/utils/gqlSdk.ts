@@ -3,6 +3,7 @@ import { GraphQLClient } from "graphql-request";
 import { difference } from "lodash";
 import { getSdk as assetsSdk } from "../.generated/types/assets.types";
 import { getSdk as carbonProjectsSdk } from "../.generated/types/carbonProjects.types";
+import { getSdk as digitalCarbonSdk } from "../.generated/types/digitalCarbon.types";
 import { getSdk as marketplaceSdk } from "../.generated/types/marketplace.types";
 import { getSdk as offsetsSdk } from "../.generated/types/offsets.types";
 import { getSdk as tokensSdk } from "../.generated/types/tokens.types";
@@ -14,6 +15,7 @@ const ENV_VARS = [
   "CARBON_OFFSETS_GRAPH_API_URL",
   "POOL_PRICES_GRAPH_API_URL",
   "SANITY_GRAPH_API_URL",
+  "DIGITAL_CARBON_GRAPH_API_URL",
 ];
 
 const missingVars = difference(ENV_VARS, Object.keys(process.env));
@@ -33,6 +35,9 @@ const tokensClient = new GraphQLClient(process.env.POOL_PRICES_GRAPH_API_URL!);
 const carbonProjectsClient = new GraphQLClient(
   process.env.SANITY_GRAPH_API_URL!
 );
+const digitalCarbonClient = new GraphQLClient(
+  process.env.DIGITAL_CARBON_GRAPH_API_URL!
+);
 
 export const gqlSdk = {
   marketplace: marketplaceSdk(marketplaceClient),
@@ -40,5 +45,6 @@ export const gqlSdk = {
   offsets: offsetsSdk(offsetsClient),
   tokens: tokensSdk(tokensClient),
   carbon_projects: carbonProjectsSdk(carbonProjectsClient),
+  digital_carbon: digitalCarbonSdk(digitalCarbonClient),
 };
 /* eslint-enable @typescript-eslint/no-non-null-assertion -- Re-enable */
