@@ -97,6 +97,7 @@ export const RetireModal: FC<Props> = (props) => {
           onSubmit={props.onSubmit}
           onCancel={props.onCancel}
           status={props.status}
+          onGoBack={props.onCancel}
           onResetStatus={props.onResetStatus}
           spenderAddress={getAddress("retirementAggregatorV2")}
         />
