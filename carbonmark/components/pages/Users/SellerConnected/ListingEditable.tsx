@@ -5,7 +5,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
-import { BigNumber, utils } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
@@ -51,10 +51,10 @@ export const ListingEditable: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const existingQuantityBN = BigNumber.from(listingToEdit?.leftToSell || "0");
-  const newQuantityBN = utils.parseUnits(inputValues?.newQuantity || "1", 18);
+  const existingQuantityBN = BigInt(listingToEdit?.leftToSell || "0");
+  const newQuantityBN = parseUnits(inputValues?.newQuantity || "1", 18);
   const newQuantityDelta = formatUnits(
-    newQuantityBN.sub(existingQuantityBN),
+    BigInt(newQuantityBN) - BigInt(existingQuantityBN),
     18
   );
 

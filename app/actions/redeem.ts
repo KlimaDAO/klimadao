@@ -6,7 +6,8 @@ import {
   getTokenDecimals,
   safeAdd,
 } from "@klimadao/lib/utils";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { formatUnits } from "ethers/lib/utils";
 import {
   RedeemPaymentMethod,
@@ -88,9 +89,9 @@ export const redeemCarbonTransaction = async (params: {
     const txn = await aggregator[method](
       addresses["mainnet"][params.paymentMethod],
       addresses["mainnet"][params.pool],
-      utils.parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
+      parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
       [params.projectTokenAddress],
-      [utils.parseUnits(params.quantity, 18)],
+      [parseUnits(params.quantity, 18)],
       0,
       0
     );
@@ -121,7 +122,7 @@ export const getRedeemCost = async (params: {
   const amount = await aggregator.getSourceAmountSpecificRedeem(
     addresses["mainnet"][params.paymentMethod],
     addresses["mainnet"][params.pool],
-    [utils.parseUnits(params.quantity, 18)]
+    [parseUnits(params.quantity, 18)]
   );
   const decimals = getTokenDecimals(params.paymentMethod);
   const value = formatUnits(amount, decimals);

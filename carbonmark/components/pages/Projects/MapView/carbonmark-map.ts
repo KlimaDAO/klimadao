@@ -1,16 +1,15 @@
 import { BBox } from "@turf/helpers";
-import { NEXT_PUBLIC_MAPBOX_TOKEN } from "lib/constants";
 import { Project } from "lib/types/carbonmark";
-import { compact, isNil } from "lodash";
+import { compact } from "lodash";
 import { default as MapBoxGL, default as mapboxgl } from "mapbox-gl";
 import Supercluster, { AnyProps, ClusterFeature } from "supercluster";
 import { DEFAULT_OPTS } from "./carbonmark-map.constants";
 import { CarbonmarkMapOpts } from "./carbonmark-map.types";
 
-if (isNil(NEXT_PUBLIC_MAPBOX_TOKEN))
-  throw new Error("Missing NEXT_PUBLIC_MAPBOX_TOKEN env var");
+// if (isNil(NEXT_PUBLIC_MAPBOX_TOKEN))
+//   throw new Error("Missing NEXT_PUBLIC_MAPBOX_TOKEN env var");
 
-MapBoxGL.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN;
+// MapBoxGL.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN;
 
 const BRIGHT_BLUE = "#0019ff"; // var(--bright-blue)
 

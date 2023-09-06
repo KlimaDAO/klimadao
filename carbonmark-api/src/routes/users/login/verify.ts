@@ -1,4 +1,4 @@
-import * as ethers from "ethers";
+import { verifyMessage } from "ethers-v6";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
 
@@ -44,10 +44,7 @@ const handler = (fastify: FastifyInstance) =>
     const signedMessage = process.env.AUTHENTICATION_MESSAGE + dbUser.nonce;
 
     // Verify the signature
-    const signerWalletAddress = ethers.utils.verifyMessage(
-      signedMessage,
-      signature
-    );
+    const signerWalletAddress = verifyMessage(signedMessage, signature);
 
     // If the signature is invalid, send a 401 Unauthorized response
     if (

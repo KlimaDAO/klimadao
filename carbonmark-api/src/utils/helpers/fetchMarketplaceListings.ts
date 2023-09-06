@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { formatUnits } from "ethers-v6";
 import { FastifyInstance } from "fastify";
 import { DocumentData } from "firebase-admin/firestore";
 import { assign, chunk } from "lodash";
@@ -41,20 +41,20 @@ export const fetchMarketplaceListings = async ({
 
   const formattedListings = filteredListings.map((listing) => ({
     ...listing,
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    leftToSell: utils.formatUnits(listing.leftToSell, 18),
-    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+    singleUnitPrice: formatUnits(listing.singleUnitPrice, 6),
+    leftToSell: formatUnits(listing.leftToSell, 18),
+    totalAmountToSell: formatUnits(listing.totalAmountToSell, 18),
   }));
 
   const formattedActivities = filteredActivities.map((activity) => ({
     ...activity,
-    price: activity.price ? utils.formatUnits(activity.price, 6) : null,
+    price: activity.price ? formatUnits(activity.price, 6) : null,
     previousPrice: activity.previousPrice
-      ? utils.formatUnits(activity.previousPrice, 6)
+      ? formatUnits(activity.previousPrice, 6)
       : null,
-    amount: activity.amount ? utils.formatUnits(activity.amount, 18) : null,
+    amount: activity.amount ? formatUnits(activity.amount, 18) : null,
     previousAmount: activity.previousAmount
-      ? utils.formatUnits(activity.previousAmount, 18)
+      ? formatUnits(activity.previousAmount, 18)
       : null,
   }));
 

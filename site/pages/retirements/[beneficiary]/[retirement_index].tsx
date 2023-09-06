@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<
 
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
-    const isValidAddress = !isDomainInURL && utils.isAddress(beneficiaryInUrl);
+    const isValidAddress = !isDomainInURL && isAddress(beneficiaryInUrl);
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");

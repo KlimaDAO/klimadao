@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { isAddress } from "ethers-v6";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     const userInUrl = params.user;
     const isDomainInURL = getIsDomainInURL(userInUrl);
-    const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
+    const isValidAddress = !isDomainInURL && isAddress(userInUrl);
 
     let carbonmarkUser: User | null = null;
 

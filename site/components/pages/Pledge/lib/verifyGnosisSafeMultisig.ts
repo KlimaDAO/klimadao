@@ -1,6 +1,7 @@
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 import { polygonNetworks } from "@klimadao/lib/constants";
-import { Contract, utils } from "ethers";
+import { Contract } from "ethers";
+import { hashMessage, TypedDataEncoder } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 
 const ONE_HOUR = 60 * 60 * 1000;
@@ -15,7 +16,7 @@ export const waitForGnosisSignature = async (params: {
     GnosisSafeSignMessageLib.abi,
     provider
   );
-  const messageHash = utils.hashMessage(params.message);
+  const messageHash = hashMessage(params.message);
   const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
   const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
 
@@ -40,13 +41,13 @@ const EIP712_SAFE_MESSAGE_TYPE = {
 
 // https://github.com/safe-global/safe-contracts/blob/ee92957307653ae6cf7312bbcb1a13c6884ea6ea/src/utils/execution.ts
 const calculateSafeMessageHash = (safe: Contract, message: string): string => {
-  return utils._TypedDataEncoder.hash(
+  return TypedDataEncoder.hash(
     {
       verifyingContract: safe.address,
       chainId: polygonNetworks.mainnet.chainId,
     },
     EIP712_SAFE_MESSAGE_TYPE,
-    { message: utils.hashMessage(message) }
+    { message: hashMessage(message) }
   );
 };
 

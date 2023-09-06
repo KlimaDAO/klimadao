@@ -1,6 +1,7 @@
 import { getContract } from "@klimadao/lib/utils";
 import type { BigNumber } from "ethers";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { OnStatusHandler } from "lib/statusMessage";
 import { isPoolToken } from "../RetireForm";
 import type {
@@ -80,7 +81,7 @@ export const retireProjectTokenTransaction = async (params: {
   try {
     const args = [
       params.tokenAddress,
-      utils.parseUnits(params.quantity, 18),
+      parseUnits(params.quantity, 18),
       params.beneficiaryAddress || (await params.signer.getAddress()),
       params.beneficiaryName,
       params.retirementMessage,
