@@ -1,10 +1,8 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
-import {
-  CreditId,
-  fetchCarbonProject,
-} from "../../utils/helpers/carbonProjects.utils";
+import { CreditId } from "../../utils/CreditId";
+import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
 import { GetProjectByIdResponse } from "./projects.types";

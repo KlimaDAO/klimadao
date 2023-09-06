@@ -1,16 +1,14 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
-import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
+import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
+import { CreditId } from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
-import {
-  CarbonProject,
-  CreditId,
-} from "../../utils/helpers/carbonProjects.utils";
+import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
   getAllCategories,

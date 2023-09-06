@@ -2,20 +2,18 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
+import { CreditId } from "../../utils/CreditId";
 import { gqlSdk } from "../../utils/gqlSdk";
-import {
-  CreditId,
-  fetchAllCarbonProjects,
-} from "../../utils/helpers/carbonProjects.utils";
+import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { ProjectEntry, schema } from "./get.schema";
 import {
   CMSDataMap,
-  ProjectDataMap,
   composeProjectEntries,
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
+  ProjectDataMap,
 } from "./projects.utils";
 
 type Params = {
