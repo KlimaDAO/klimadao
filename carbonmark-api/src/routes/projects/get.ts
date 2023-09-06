@@ -64,13 +64,19 @@ const handler = (fastify: FastifyInstance) =>
     const ProjectDataMap: ProjectDataMap = new Map();
 
     cmsProjects.forEach((project) => {
-      if (!project.id) return;
-      CMSDataMap.set(project.id, project);
+      if (!CreditId.isValidProjectId(project.id)) return;
+      const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
+      CMSDataMap.set(`${standard}-${registryProjectId}`, project);
     });
 
     /** Assign valid pool projects to map */
     poolProjectsData.carbonOffsets.forEach((project) => {
-      if (!isValidPoolProject(project)) return;
+      if (
+        !isValidPoolProject(project) ||
+        !CreditId.isValidProjectId(project.projectID)
+      ) {
+        return;
+      }
       const [standard, registryProjectId] = project.projectID.split("-");
       const { creditId: key } = new CreditId({
         standard,
@@ -82,7 +88,12 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Assign valid marketplace projects to map */
     marketplaceProjectsData.projects.forEach((project) => {
-      if (!isValidMarketplaceProject(project)) return;
+      if (
+        !isValidMarketplaceProject(project) ||
+        !CreditId.isValidProjectId(project.key)
+      ) {
+        return;
+      }
       const [standard, registryProjectId] = project.key.split("-");
       const { creditId: key } = new CreditId({
         standard,

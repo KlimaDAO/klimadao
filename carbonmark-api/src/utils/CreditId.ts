@@ -19,7 +19,6 @@ type UntypedParams = {
   registryProjectId: string;
 };
 
-/* eslint-disable @typescript-eslint/consistent-type-assertions -- type guards */
 /**
  * Utility class for more safety and consistency when dealing with Project and credit Ids.
  *
@@ -46,11 +45,14 @@ export class CreditId {
       this.projectId = `${standard}-${registryProjectId}`;
       this.creditId = `${this.projectId}-${vintage}`;
     } else if (CreditId.isValidParams(params)) {
-      this.standard = params.standard.toUpperCase() as Standard;
-      this.registryProjectId = params.registryProjectId;
-      this.vintage = params.vintage;
-      this.projectId = `${this.standard}-${params.registryProjectId}`;
-      this.creditId = `${this.projectId}-${params.vintage}`;
+      const [standard, registryProjectId, vintage] = CreditId.splitCreditId(
+        `${params.standard}-${params.registryProjectId}-${params.vintage}` // type guard & capitalize
+      );
+      this.standard = standard;
+      this.registryProjectId = registryProjectId;
+      this.vintage = vintage;
+      this.projectId = `${standard}-${registryProjectId}`;
+      this.creditId = `${this.projectId}-${vintage}`;
     } else {
       throw new Error(`Failed to parse CreditId: ${params}`);
     }
@@ -61,7 +63,9 @@ export class CreditId {
   }
 
   /** Case insensitive type-guard @example isValidCreditId("Vcs-191-2008") // true */
-  static isValidCreditId = (id: unknown): id is CreditIdentifier => {
+  static isValidCreditId = (
+    id: unknown
+  ): id is `${string}-${string}-${string}` => {
     if (typeof id !== "string") {
       return false;
     }
@@ -70,7 +74,7 @@ export class CreditId {
   };
 
   /** Case insensitive type-guard @example isValidProjectId("vcs-191") // true */
-  static isValidProjectId = (id: unknown): id is ProjectIdentifier => {
+  static isValidProjectId = (id: unknown): id is `${string}-${string}` => {
     if (typeof id !== "string") {
       return false;
     }
@@ -78,23 +82,35 @@ export class CreditId {
     return pattern.test(id);
   };
 
+  /* eslint-disable @typescript-eslint/consistent-type-assertions -- type guards */
+  /** Validates, splits and capitalizes a CreditIdentifier string */
+  static splitCreditId(
+    creditId: string
+  ): [Standard, RegistryProjectId, Vintage] {
+    if (!this.isValidCreditId(creditId)) throw new Error("Invalid CreditId");
+    const [standard, registryProjectId, vintage] = creditId.split("-");
+    return [standard.toUpperCase() as Standard, registryProjectId, vintage];
+  }
+
+  /** Validates, splits and capitalizes a ProjectIdentifier string */
+  static splitProjectId(projectId: string): [Standard, RegistryProjectId] {
+    if (!this.isValidProjectId(projectId)) throw new Error("Invalid ProjectId");
+    const [standard, registryProjectId] = projectId.split("-");
+    return [standard.toUpperCase() as Standard, registryProjectId];
+  }
+
+  //
+  // << Private Methods >>
+  //
+
   private static isValidParams(params: unknown): params is UntypedParams {
     if (!params || typeof params !== "object") return false;
     const typedParams = params as Partial<UntypedParams>;
+    /* eslint-enable @typescript-eslint/consistent-type-assertions -- type guards */
     return (
       includes(standards, typedParams.standard?.toUpperCase()) &&
       !!Number(typedParams.registryProjectId) &&
       !!Number(typedParams.vintage)
     );
   }
-
-  /** Validates, splits and capitalizes a CreditIdentifier string */
-  static splitCreditId(
-    creditId: string
-  ): [Standard, RegistryProjectId, Vintage] {
-    if (!this.isValidCreditId(creditId)) throw new Error("Invalid creditId");
-    const [standard, registryProjectId, vintage] = creditId.split("-");
-    return [standard.toUpperCase() as Standard, registryProjectId, vintage];
-  }
 }
-/* eslint-enable @typescript-eslint/consistent-type-assertions -- type guards */

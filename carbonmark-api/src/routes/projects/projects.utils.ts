@@ -5,7 +5,11 @@ import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
-import { CreditId } from "../../utils/CreditId";
+import {
+  CreditId,
+  CreditIdentifier,
+  ProjectIdentifier,
+} from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
@@ -130,21 +134,17 @@ export const isValidMarketplaceProject = (project: FindQueryProject) => {
   return !!validProjects.length;
 };
 
-/** @example "VCS-191-2008" */
-type ProjectKey = string;
 /** A key may have a marketplace entry, a pool entry, or both. */
 type ProjectData = {
-  key: ProjectKey;
+  key: CreditIdentifier;
   poolProjectData?: FindQueryOffset;
   marketplaceProjectData?: FindQueryProject;
 };
 /** Map project keys to gql and cms data */
-export type ProjectDataMap = Map<ProjectKey, ProjectData>;
+export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;
 
-/** @example "VCS-191" */
-type ProjectId = string;
 /** note: new projects may not have a CMS entry yet */
-export type CMSDataMap = Map<ProjectId, CarbonProject>;
+export type CMSDataMap = Map<ProjectIdentifier, CarbonProject>;
 
 /** Given a marketplace entry, pool entry, or both - determine most recent updatedAt value */
 const pickUpdatedAt = (data: ProjectData): string => {
