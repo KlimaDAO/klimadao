@@ -1,3 +1,8 @@
+import * as dotenv from "dotenv";
+import path from "path";
+dotenv.config({ path: path.resolve(__dirname, "../../../../.env.local") });
+// We need the above imports in this order so that env vars are loaded correctly
+
 import { CreditId } from "../../../src/utils/helpers/carbonProjects.utils";
 
 describe("CreditId", () => {
