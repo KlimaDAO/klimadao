@@ -9,11 +9,17 @@ import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => ({
-  fetchAllCarbonProjects: jest.fn(() => {
-    return [carbonProjects.carbonProject];
-  }),
-}));
+jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
+  const carbonProjectsUtils = jest.requireActual(
+    "../../../src/utils/helpers/carbonProjects.utils"
+  );
+  return {
+    ...carbonProjectsUtils,
+    fetchAllCarbonProjects: jest.fn(() => {
+      return [carbonProjects.carbonProject];
+    }),
+  };
+});
 
 const poolPrices = {
   bct: {
@@ -48,7 +54,6 @@ jest.mock("../../../src/routes/projects/projects.utils", () => {
     "../../../src/routes/projects/projects.utils"
   );
   return {
-    __esModule: true,
     ...projectUtils,
     getDefaultQueryArgs: jest.fn(() => {
       return {
