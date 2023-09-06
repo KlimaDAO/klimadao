@@ -11,11 +11,11 @@ import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { ProjectEntry, schema } from "./get.schema";
 import {
   CMSDataMap,
+  ProjectDataMap,
   composeProjectEntries,
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
-  ProjectDataMap,
 } from "./projects.utils";
 
 type Params = {
