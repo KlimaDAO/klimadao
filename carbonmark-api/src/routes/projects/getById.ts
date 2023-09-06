@@ -1,7 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
-import { fetchCarbonProject } from "../../utils/helpers/carbonProjects.utils";
+import {
+  CreditId,
+  fetchCarbonProject,
+} from "../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../utils/helpers/fetchPoolPricesAndStats";
 import { GetProjectByIdResponse } from "./projects.types";
@@ -166,9 +169,13 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     const { id } = request.params;
-    const [registryParam, registryProjectId, vintage] = id.split("-");
-    const registry = registryParam.toUpperCase();
-    const key = `${registry}-${registryProjectId}`;
+    if (!CreditId.isValidCreditId(id)) return reply.notFound();
+    const {
+      vintage,
+      standard: registry,
+      registryProjectId,
+      projectId: key,
+    } = new CreditId(id);
 
     const [[poolPrices, stats], [listings, activities], projectDetails] =
       await Promise.all([

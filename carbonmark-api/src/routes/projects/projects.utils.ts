@@ -7,7 +7,10 @@ import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
-import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
+import {
+  CarbonProject,
+  CreditId,
+} from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
   getAllCategories,
@@ -193,10 +196,11 @@ export const composeProjectEntries = (
   projectDataMap.forEach((data) => {
     // rename vars for brevity
     const { marketplaceProjectData: market, poolProjectData: pool } = data;
-
-    // construct projectId and check if cmsData exists
-    const [reg, regId] = data.key.split("-");
-    const projectId = `${reg}-${regId}`;
+    const {
+      projectId,
+      standard: registry,
+      registryProjectId,
+    } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
 
     const methodologies =
@@ -214,8 +218,8 @@ export const composeProjectEntries = (
         id: carbonProject?.country || pool?.country || market?.region || "",
       },
       key: projectId,
-      registry: reg,
-      projectID: regId,
+      registry,
+      projectID: registryProjectId,
       vintage: pool?.vintageYear ?? market?.vintage ?? "",
       projectAddress: pool?.tokenAddress ?? market?.projectAddress,
       updatedAt: pickUpdatedAt(data),

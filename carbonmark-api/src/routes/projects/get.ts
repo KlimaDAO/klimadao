@@ -3,16 +3,19 @@ import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { gqlSdk } from "../../utils/gqlSdk";
-import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
+import {
+  CreditId,
+  fetchAllCarbonProjects,
+} from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { ProjectEntry, schema } from "./get.schema";
 import {
   CMSDataMap,
-  ProjectDataMap,
   composeProjectEntries,
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
+  ProjectDataMap,
 } from "./projects.utils";
 
 type Params = {
@@ -70,14 +73,24 @@ const handler = (fastify: FastifyInstance) =>
     /** Assign valid pool projects to map */
     poolProjectsData.carbonOffsets.forEach((project) => {
       if (!isValidPoolProject(project)) return;
-      const key = `${project.projectID}-${project.vintageYear}`;
+      const [standard, registryProjectId] = project.projectID.split("-");
+      const { creditId: key } = new CreditId({
+        standard,
+        registryProjectId,
+        vintage: project.vintageYear,
+      });
       ProjectDataMap.set(key, { poolProjectData: project, key });
     });
 
     /** Assign valid marketplace projects to map */
     marketplaceProjectsData.projects.forEach((project) => {
       if (!isValidMarketplaceProject(project)) return;
-      const key = `${project.key}-${project.vintage}`;
+      const [standard, registryProjectId] = project.key.split("-");
+      const { creditId: key } = new CreditId({
+        standard,
+        registryProjectId,
+        vintage: project.vintage,
+      });
       const existingData = ProjectDataMap.get(key);
       ProjectDataMap.set(key, {
         ...existingData,
