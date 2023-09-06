@@ -50,8 +50,8 @@ const initialStats: BigNumberStats = {
   totalSupply: ethers.BigNumber.from(0),
 };
 export type Stats = {
-  bridged: number;
-  retired: number;
+  totalBridged: number;
+  totalRetired: number;
   totalSupply: number;
 };
 
@@ -117,8 +117,12 @@ export const fetchProjectPoolInfo = async (
 
   // project bigNumber stats
   const stats: Stats = {
-    bridged: parseFloat(ethers.utils.formatUnits(bigNumberStats.bridged, 18)),
-    retired: parseFloat(ethers.utils.formatUnits(bigNumberStats.retired, 18)),
+    totalBridged: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.bridged, 18)
+    ),
+    totalRetired: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.retired, 18)
+    ),
     totalSupply: parseFloat(
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
