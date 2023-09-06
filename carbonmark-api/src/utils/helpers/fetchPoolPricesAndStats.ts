@@ -25,7 +25,6 @@ export const fetchPoolPricesAndStats = async (
   params: Params
 ): Promise<[ProjectPoolPrice[], Stats]> => {
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
-
     fetchProjectPoolInfo({
       projectID: params.key,
       vintage: Number(params.vintage),

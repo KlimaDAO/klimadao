@@ -63,6 +63,7 @@ type PoolBalance = {
     name: string;
     supply: string;
     id: string;
+    decimals: number;
   };
 };
 
@@ -128,31 +129,34 @@ export const fetchProjectPoolInfo = async (
       ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
     ),
   };
-
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
       const mainnetAddresses: AddressRecord = addresses["mainnet"];
-
       const poolId = mainnetAddresses[poolName];
 
-      const matchingTokenInfo = tokens[0].poolBalances.find(
-        (t) => t.pool.id.toLowerCase() === poolId.toLowerCase()
-      );
+      let totalSupply = 0;
 
+      tokens.forEach((token) => {
+        const matchingTokenInfo = token.poolBalances.find(
+          (t) => t.pool.id.toLowerCase() === poolId.toLowerCase()
+        );
+
+        if (matchingTokenInfo) {
+          const decimals = matchingTokenInfo.pool.decimals;
+          const humanReadableBalance = parseFloat(
+            ethers.utils.formatUnits(matchingTokenInfo.balance, decimals)
+          );
+          totalSupply += humanReadableBalance;
+        }
+      });
       return {
         ...prevMap,
         [poolName]: {
           poolName,
-          supply: matchingTokenInfo
-            ? parseFloat(
-                ethers.utils.formatUnits(matchingTokenInfo.balance, 18)
-              )
-            : "0",
+          supply: totalSupply.toString(),
           poolAddress: poolId,
-          isPoolDefault:
-            matchingTokenInfo?.id.toLowerCase() ===
-            POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
-          projectTokenAddress: matchingTokenInfo ? matchingTokenInfo.id : "",
+          isPoolDefault: false, // You'll need to determine how to set this
+          projectTokenAddress: "", // You'll need to determine how to set this
         },
       };
     },
