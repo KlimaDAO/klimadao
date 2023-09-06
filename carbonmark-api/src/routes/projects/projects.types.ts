@@ -39,8 +39,8 @@ export type GetProjectByIdResponse = {
   long_description?: string | null;
   url?: string | null;
   stats: {
-    bridged: number;
-    retired: number;
+    totalBridged: number;
+    totalRetired: number;
     totalSupply: number;
   };
   /** Lowest price across pools and listings, formatted string e.g. "0.123456" */

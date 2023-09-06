@@ -23,6 +23,7 @@ query getCarbonProjectsByProjectIDAndVintage(
           name
           supply
           id
+          decimals
         }
       }
       id

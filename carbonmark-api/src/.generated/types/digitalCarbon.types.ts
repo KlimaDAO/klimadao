@@ -3666,7 +3666,7 @@ export type GetCarbonProjectsByProjectIdAndVintageQueryVariables = Exact<{
 }>;
 
 
-export type GetCarbonProjectsByProjectIdAndVintageQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any } }> }> }> };
+export type GetCarbonProjectsByProjectIdAndVintageQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number } }> }> }> };
 
 
 export const GetCarbonProjectsByProjectIdAndVintageDocument = gql`
@@ -3692,6 +3692,7 @@ export const GetCarbonProjectsByProjectIdAndVintageDocument = gql`
           name
           supply
           id
+          decimals
         }
       }
       id
