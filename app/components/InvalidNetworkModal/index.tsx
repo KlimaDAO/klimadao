@@ -7,7 +7,7 @@ import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 export const InvalidNetworkModal: FC = () => {
-  const { provider } = useWeb3();
+  const { provider, ignoreChainId } = useWeb3();
   const [showModal, setShowModal] = useState(false);
 
   const onLoadProvider = async () => {
@@ -16,6 +16,8 @@ export const InvalidNetworkModal: FC = () => {
     // TODO: remove hardcoded chainId
     const network = await provider.getNetwork();
     if (!network) return;
+
+    if (ignoreChainId) return;
 
     if (
       network.chainId !== polygonNetworks.mainnet.chainId &&

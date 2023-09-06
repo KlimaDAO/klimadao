@@ -15,6 +15,7 @@ interface Props {
 export const Web3ContextProvider: FC<Props> = ({ appName, children }) => {
   const providerState = useProvider();
   const [showModal, setShowModal] = useState(false);
+  const [ignoreChainId, setIgnoreChainId] = useState(false);
   const toggleModal = () => setShowModal((s) => !s);
   const renderModal = useCallback(
     (props: RenderModalProps) => (
@@ -24,7 +25,13 @@ export const Web3ContextProvider: FC<Props> = ({ appName, children }) => {
   );
   return (
     <Web3Context.Provider
-      value={{ ...providerState, renderModal, toggleModal }}
+      value={{
+        ...providerState,
+        renderModal,
+        toggleModal,
+        ignoreChainId,
+        setIgnoreChainId
+      }}
     >
       {children}
     </Web3Context.Provider>

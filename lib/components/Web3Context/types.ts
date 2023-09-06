@@ -95,6 +95,8 @@ export type Web3ModalState = Web3State & {
   toggleModal: () => void;
   initializing: boolean;
   isConnectionFromCache: boolean | undefined;
+  ignoreChainId: boolean;
+  setIgnoreChainId?: (value: boolean) => void;
 };
 
 export const web3InitialState: Web3ModalState = {
@@ -109,4 +111,6 @@ export const web3InitialState: Web3ModalState = {
   isConnectionFromCache: undefined,
   renderModal: () => undefined as unknown as JSX.Element,
   toggleModal: () => undefined,
+  ignoreChainId: false,
+  setIgnoreChainId: () => undefined,
 };

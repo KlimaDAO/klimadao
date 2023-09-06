@@ -26,8 +26,8 @@ export const stakeCard = css`
     grid-column: cardsleft;
     grid-row: 2 / span 3;
     gap: 4.8rem;
-    grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
+    align-self: flex-start;
   }
 
   ${breakpoints.desktopLarge} {
@@ -60,6 +60,19 @@ export const stakeCard_ui = css`
     max-width: 48rem;
     justify-self: center;
     width: 100%;
+  }
+`;
+
+export const etherspotStakeCard_ui = css`
+  justify-self: center;
+  
+  button {
+    display: inline-block;
+    height: auto;
+  }
+  
+  svg {
+    display: inline-block;
   }
 `;
 
@@ -234,4 +247,12 @@ export const columnRight = css`
 
 export const connect_button = css`
   width: 100%;
+`;
+
+export const toggle_form_type = css`
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;
