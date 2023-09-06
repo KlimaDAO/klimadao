@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, maxBy, minBy, sortBy } from "lodash";
+import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { FindProjectsQueryVariables } from "src/.generated/types/marketplace.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
@@ -92,7 +92,7 @@ export const getOffsetTokenPrices = (
 export const toGeoJSON = (
   point?: Partial<Geopoint> | null
 ): ProjectEntry["location"] => {
-  if (!point?.lat || !point?.lng) return null;
+  if (!point || isNil(point?.lat) || isNil(point?.lng)) return null;
   return {
     type: "Feature",
     geometry: {
