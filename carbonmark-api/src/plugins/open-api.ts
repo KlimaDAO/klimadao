@@ -1,23 +1,7 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
+import { CarbonmarkProject } from "src/routes/projects/get/get.models";
 import packageJson from "../../package.json";
-
-export const ProjectType = {
-  type: "object",
-  properties: {
-    id: { type: "string" },
-    key: { type: "string" },
-    projectID: { type: "string" },
-    name: { type: "string" },
-    methodology: { type: "string" },
-    vintage: { type: "string" },
-    projectAddress: { type: "string" },
-    registry: { type: "string" },
-    country: { type: "string" },
-    category: { type: "string" },
-    price: { type: "string" },
-  },
-} as const;
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
@@ -50,7 +34,7 @@ For a developer guides and example implementations, or to learn more about Carbo
   },
   components: {
     schemas: {
-      Project: ProjectType,
+      CarbonmarkProject,
     },
   },
   externalDocs: {

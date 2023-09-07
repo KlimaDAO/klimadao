@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { ProjectEntry, QueryString } from "src/models/projects.models";
+import { CarbonmarkProject, QueryString } from "./get.models";
 
 export const schema = {
   summary: "List projects",
@@ -12,7 +12,7 @@ export const schema = {
       description: "List of projects",
       content: {
         "application/json": {
-          schema: Type.Array(ProjectEntry),
+          schema: Type.Array(CarbonmarkProject),
         },
       },
     },

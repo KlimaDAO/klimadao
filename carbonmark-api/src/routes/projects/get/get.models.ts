@@ -24,7 +24,7 @@ export const ListingEntry = Type.Object(
   }
 );
 
-export const ProjectEntry = Type.Object({
+export const CarbonmarkProject = Type.Object({
   description: Nullable(Type.String()),
   short_description: Nullable(Type.String()),
   key: Type.String(),
@@ -51,7 +51,7 @@ export const ProjectEntry = Type.Object({
       type: Type.Literal("Feature"),
       geometry: Type.Object({
         type: Type.Literal("Point"),
-        coordinates: Type.Tuple([Type.Number(), Type.Number()]),
+        coordinates: Type.Array(Type.Number(), { minItems: 2, maxItems: 2 }),
       }),
     }),
     {
@@ -89,5 +89,5 @@ export const QueryString = Type.Object({
 });
 
 export type QueryStringT = Static<typeof QueryString>;
-export type ProjectEntryT = Static<typeof ProjectEntry>;
+export type ProjectEntryT = Static<typeof CarbonmarkProject>;
 export type ListingEntryT = Static<typeof ListingEntry>;
