@@ -25,7 +25,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
+export const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
 
 /**
  * Use the aliased carbonmark-api deployment for the current commit if set manually in the CLI
