@@ -3,11 +3,11 @@ import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
 import fs from "fs";
 import path, { join } from "path";
-import { LOCAL_ENV_PATH } from "./utils/helpers/utils.constants";
+import { commonSchema } from "./routes/common.schema";
 
 // Only pull env vars from .env if running in locally
 if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
-  dotenv.config({ path: LOCAL_ENV_PATH });
+  dotenv.config({ path: path.resolve(__dirname, "../../.env.local") });
 }
 
 export type AppOptions = {
@@ -21,6 +21,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
+  fastify.addSchema(commonSchema);
   // This loads all plugins defined in src/plugins
   // those should be support plugins that are reused
   // through your application

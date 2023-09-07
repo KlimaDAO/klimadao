@@ -1,57 +1,23 @@
-// export type PoolProject = Project & CarbonOffset;
-
+import { CMSProject } from "../../graphql/carbonProjects.types";
 import {
-  GetProjectQuery,
-  ProjectContent,
-} from "src/.generated/types/carbonProjects.types";
-import {
-  Activity,
-  Category,
-  Country,
-  FindProjectsQuery,
-  Listing,
-} from "src/.generated/types/marketplace.types";
-import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
-import { ActivityWithUserHandles } from "src/utils/helpers/fetchMarketplaceListings";
-import { Nullable } from "../../../../lib/utils/typescript.utils";
+  ByIdProjectActivity,
+  ByIdProjectListing,
+} from "../../graphql/marketplace.types";
 
-/** The specific CarbonOffset type from the find findCarbonOffsets query*/
-export type FindQueryOffset = FindCarbonOffsetsQuery["carbonOffsets"][number];
+type WithHandle<T> = T & { handle?: string };
 
-/** The specific Project type from the find findProjects query*/
-export type FindQueryProject = FindProjectsQuery["projects"][number];
+/** Final project.listings response can include seller handle from firebase */
+export type ListingWithUserHandles = Omit<ByIdProjectListing, "seller"> & {
+  seller: WithHandle<ByIdProjectListing["seller"]>;
+};
 
-// The response object for the /GET endpoint
-export type GetProjectResponse = {
-  id: string;
-  key: string;
-  isPoolProject?: boolean;
-  description?: ProjectContent["longDescription"];
-  short_description: ProjectContent["shortDescription"];
-  projectID: string;
-  name: string;
-  vintage: string;
-  projectAddress: string;
-  registry: string;
-  updatedAt?: string;
-  price?: Nullable<string>;
-  category?: Nullable<Category>;
-  country?: Nullable<Country>;
-  activities?: Nullable<Activity[]>;
-  listings?: FindProjectsQuery["projects"][number]["listings"];
-  methodologies?: GetProjectQuery["allProject"][number]["methodologies"];
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
-  };
-  images?: {
-    url: string;
-    caption: string;
-  }[];
+/** Final project.activities response can include user handles from firebase */
+export type ActivityWithUserHandles = Omit<
+  ByIdProjectActivity,
+  "seller" | "buyer"
+> & {
+  seller: WithHandle<ByIdProjectActivity["seller"]>;
+  buyer?: WithHandle<ByIdProjectActivity["buyer"]> | null;
 };
 
 export type GetProjectByIdResponse = {
@@ -61,7 +27,7 @@ export type GetProjectByIdResponse = {
   registry?: string | null;
   country?: string | null;
   description?: string | null;
-  methodologies?: GetProjectQuery["allProject"][number]["methodologies"];
+  methodologies?: CMSProject["methodologies"];
   location?: {
     // only defined for Verra projects
     type: "Feature";
@@ -69,7 +35,7 @@ export type GetProjectByIdResponse = {
       type: "Point";
       coordinates: [number, number];
     };
-  };
+  } | null;
   long_description?: string | null;
   url?: string | null;
   stats: {
@@ -89,7 +55,7 @@ export type GetProjectByIdResponse = {
   }[];
   isPoolProject: boolean;
   vintage: string;
-  listings: Omit<Listing, "project">[] | null;
+  listings: ListingWithUserHandles[] | null;
   activities: ActivityWithUserHandles[] | null;
   images?: {
     url: string;

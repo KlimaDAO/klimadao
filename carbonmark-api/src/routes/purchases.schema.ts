@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { FastifySchema } from "fastify";
+import { CommonSchemaRefs } from "./common.schema";
 
 const Purchase = Type.Object({
   id: Type.String({
@@ -58,36 +58,34 @@ const Purchase = Type.Object({
 
 type PurchaseResponse = Static<typeof Purchase>;
 
-const Params = Type.Object({
-  id: Type.String({
-    description: "ID (transaction hash) of the purchase to retrieve",
-    examples: [
-      "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-    ],
-  }),
+const params = Type.Object(
+  {
+    id: Type.String({
+      description: "ID (transaction hash) of the purchase to retrieve",
+      examples: [
+        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+      ],
+    }),
+  },
+  {
+    required: ["id"],
+  }
+);
+
+type PurchaseParams = Static<typeof params>;
+
+const querystring = Type.Object({
+  network: Type.Optional(CommonSchemaRefs.querystring.network),
 });
 
-type PurchaseParams = Static<typeof Params>;
-
-const schema: FastifySchema = {
+const schema = {
   summary: "Purchase details",
   description:
     "Retrieve the details of a purchase by its ID (transaction hash)",
-  params: {
-    type: "object",
-    required: ["id"],
-    properties: {
-      id: {
-        type: "string",
-        description: "ID (transaction hash) of the purchase to retrieve",
-        examples: [
-          "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-        ],
-      },
-    },
-  },
+  querystring,
+  params,
   response: {
-    "2xx": {
+    200: {
       description: "Successful response with listing details",
       content: {
         "application/json": {

@@ -23,9 +23,12 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
   0,
   7
 );
+
+/** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
+const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
+
 /**
  * Use the aliased carbonmark-api deployment for the current commit if set manually in the CLI
- * @todo remove this once carbonmark is built via github actions
  */
 const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`
@@ -75,7 +78,7 @@ export const config = {
       development: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      production: "https://api.carbonmark.com/api",
+      production: API_PROD_URL,
       preview: API_PREVIEW_URL,
       //Allow the developer to set the carbonmark api url to point to their local instance if necessary
       development:
