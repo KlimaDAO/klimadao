@@ -1,7 +1,9 @@
 import { ethers } from "ethers";
+import { get } from "lodash";
 import { addresses } from "../../../../lib/constants/index";
 import { POOL_INFO } from "../../routes/projects/projects.constants";
 import { gqlSdk } from "../gqlSdk";
+
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
  * Map the subgraph data to a more easily consumable object
@@ -117,7 +119,8 @@ export const fetchProjectPoolInfo = async (
     }),
     initialStats
   );
-  // use decimals from graph for this
+
+  // project bigNumber stats
   const stats: Stats = {
     totalBridged: parseFloat(
       ethers.utils.formatUnits(bigNumberStats.bridged, 18)
@@ -135,28 +138,37 @@ export const fetchProjectPoolInfo = async (
       const poolId = mainnetAddresses[poolName];
 
       let totalSupply = 0;
+      let matchingTokenInfo: PoolBalance | undefined;
 
-      tokens.forEach((token) => {
-        const matchingTokenInfo = token.poolBalances.find(
+      for (const token of tokens) {
+        const potentialMatch = token.poolBalances.find(
           (t) => t.pool.id.toLowerCase() === poolId.toLowerCase()
         );
 
-        if (matchingTokenInfo) {
-          const decimals = matchingTokenInfo.pool.decimals;
-          const humanReadableBalance = parseFloat(
-            ethers.utils.formatUnits(matchingTokenInfo.balance, decimals)
+        if (potentialMatch) {
+          matchingTokenInfo = potentialMatch;
+          const decimals = potentialMatch.pool.decimals;
+          const numberBalance = parseFloat(
+            ethers.utils.formatUnits(potentialMatch.balance, decimals)
           );
-          totalSupply += humanReadableBalance;
+          totalSupply += numberBalance;
         }
-      });
+      }
+
+      if (!matchingTokenInfo) {
+        return prevMap;
+      }
+
       return {
         ...prevMap,
         [poolName]: {
           poolName,
           supply: totalSupply.toString(),
           poolAddress: poolId,
-          isPoolDefault: false, // You'll need to determine how to set this
-          projectTokenAddress: "", // You'll need to determine how to set this
+          isPoolDefault:
+            matchingTokenInfo.pool.id.toLowerCase() ===
+            POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
+          projectTokenAddress: get(tokens[0], "id", ""),
         },
       };
     },
