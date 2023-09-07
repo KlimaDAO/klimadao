@@ -16,8 +16,7 @@ export const getDefaultPoolFromPrices = (prices: TokenPrice[]) =>
 
 export const getPoolApprovalValue = (
   cost: string,
-  paymentMethod: CarbonmarkPaymentMethod,
-  maxDecimals?: number
+  paymentMethod: CarbonmarkPaymentMethod
 ): string => {
   if (!cost) return "0";
 
@@ -30,12 +29,9 @@ export const getPoolApprovalValue = (
     formatUnits(onePercent, getTokenDecimals(paymentMethod))
   );
 
-  if (maxDecimals) {
-    return (
-      Math.floor(Math.abs(Number(total)) * Math.pow(10, maxDecimals)) /
-      Math.pow(10, maxDecimals)
-    ).toString();
-  }
-
-  return total;
+  return (
+    Math.floor(
+      Math.abs(Number(total)) * Math.pow(10, getTokenDecimals(paymentMethod))
+    ) / Math.pow(10, getTokenDecimals(paymentMethod))
+  ).toString();
 };

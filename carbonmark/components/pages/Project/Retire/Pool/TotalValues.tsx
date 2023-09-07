@@ -55,7 +55,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     return formatToPrice(fee.toString(), locale, isFiat);
   };
 
-  const getApprovalValue = () => getPoolApprovalValue(props.costs, "usdc", 6);
+  const getApprovalValue = () => getPoolApprovalValue(props.costs, "usdc");
 
   useEffect(() => {
     // for the usdc icons to be visible for the required transition
