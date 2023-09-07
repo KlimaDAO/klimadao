@@ -2324,7 +2324,7 @@ msgid "retirement.single.quantity.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:53
+#: lib/constants.ts:56
 msgid "connect_modal.error_processing"
 msgstr ""
 
@@ -2645,7 +2645,7 @@ msgid "user.edit.form.edit.price.placeholder"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:49
+#: lib/constants.ts:52
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
@@ -2685,7 +2685,7 @@ msgid "retirement.single.vintage.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:45
+#: lib/constants.ts:48
 msgid "connect_modal.error_message_default"
 msgstr ""
 
