@@ -20,18 +20,12 @@ export const getPoolApprovalValue = (
 ): string => {
   if (!cost) return "0";
 
-  const onePercent = utils
-    .parseUnits(cost, getTokenDecimals(paymentMethod))
-    .div("100");
-
-  const total = safeAdd(
-    cost,
-    formatUnits(onePercent, getTokenDecimals(paymentMethod))
-  );
+  const decimals = getTokenDecimals(paymentMethod);
+  const onePercent = utils.parseUnits(cost, decimals).div("100");
+  const total = safeAdd(cost, formatUnits(onePercent, decimals));
 
   return (
-    Math.floor(
-      Math.abs(Number(total)) * Math.pow(10, getTokenDecimals(paymentMethod))
-    ) / Math.pow(10, getTokenDecimals(paymentMethod))
+    Math.floor(Math.abs(Number(total)) * Math.pow(10, decimals)) /
+    Math.pow(10, decimals)
   ).toString();
 };
