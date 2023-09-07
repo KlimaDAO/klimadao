@@ -2,6 +2,23 @@ import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
 import packageJson from "../../package.json";
 
+export const ProjectType = {
+  type: "object",
+  properties: {
+    id: { type: "string" },
+    key: { type: "string" },
+    projectID: { type: "string" },
+    name: { type: "string" },
+    methodology: { type: "string" },
+    vintage: { type: "string" },
+    projectAddress: { type: "string" },
+    registry: { type: "string" },
+    country: { type: "string" },
+    category: { type: "string" },
+    price: { type: "string" },
+  },
+} as const;
+
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
     title: "Carbonmark REST API",
@@ -31,6 +48,11 @@ For a developer guides and example implementations, or to learn more about Carbo
     /** The API version */
     version: packageJson.version,
   },
+  components: {
+    schemas: {
+      Project: ProjectType,
+    },
+  },
   externalDocs: {
     url: "https://docs.carbonmark.com/",
     description:
@@ -39,5 +61,7 @@ For a developer guides and example implementations, or to learn more about Carbo
 };
 
 export default fp(async function (fastify) {
-  await fastify.register(swagger, { openapi: OPEN_API_OPTIONS });
+  await fastify.register(swagger, {
+    openapi: OPEN_API_OPTIONS,
+  });
 });
