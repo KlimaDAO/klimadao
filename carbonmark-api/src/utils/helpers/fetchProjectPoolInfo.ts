@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { get } from "lodash";
-import { addresses } from "../../../../lib/constants/index";
+import { addresses } from "../../../../lib/constants";
 import { POOL_INFO } from "../../routes/projects/projects.constants";
 import { gqlSdk } from "../gqlSdk";
 
