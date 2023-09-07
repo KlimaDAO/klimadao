@@ -466,7 +466,7 @@ msgid "shared.balances"
 msgstr "Balances"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:921
+#: components/views/Offset/index.tsx:932
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
@@ -1000,7 +1000,7 @@ msgid "buy.cta_2"
 msgstr "Otherwise, if you already have a wallet with MATIC on Polygon, the best way to get KLIMA is to swap on <0>Sushi.com</0>. If you prefer to pay with a credit card instead, you can use <1>Transak</1> to buy KLIMA directly."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:901
+#: components/views/Offset/index.tsx:902
 msgid "offset.dropdown_payWith.label"
 msgstr "Pay with"
 
@@ -1133,7 +1133,7 @@ msgid "shared.retire"
 msgstr "Retire carbon"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:948
+#: components/views/Offset/index.tsx:959
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
@@ -1178,7 +1178,7 @@ msgid "offset.selectiveRetirement.selectProject.select"
 msgstr "Select project"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:905
+#: components/views/Offset/index.tsx:906
 msgid "offset.modal_payWith.title"
 msgstr "Select Token"
 
