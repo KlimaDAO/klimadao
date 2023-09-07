@@ -55,11 +55,11 @@ export const searchInputButton = css`
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   color: white;
   background-color: var(--manatee) !important;
-  
+
   svg {
     font-size: 2rem;
   }
-`
+`;
 
 export const showOnSmallScreens = css`
   ${breakpoints.large} {
