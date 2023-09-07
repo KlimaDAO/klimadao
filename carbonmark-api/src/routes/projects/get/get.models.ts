@@ -1,8 +1,8 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchemaRefs, Nullable } from "../common.schema";
+import { CommonSchemaRefs, Nullable } from "src/routes/common.schema";
 
 /** DEPRECATED. This will be altered with v2 */
-const listingEntry = Type.Object(
+export const ListingEntry = Type.Object(
   {
     id: Type.String({
       description: "Unique listing identifier",
@@ -24,9 +24,7 @@ const listingEntry = Type.Object(
   }
 );
 
-type ListingEntry = Static<typeof listingEntry>;
-
-const projectEntry = Type.Object({
+export const ProjectEntry = Type.Object({
   description: Nullable(Type.String()),
   short_description: Nullable(Type.String()),
   key: Type.String(),
@@ -46,7 +44,7 @@ const projectEntry = Type.Object({
   category: Type.Object({ id: Type.String() }),
   price: Type.String(),
   updatedAt: Type.String(),
-  listings: Nullable(Type.Array(listingEntry)), // null when listings are empty
+  listings: Nullable(Type.Array(ListingEntry)), // null when listings are empty
   /** This should be defined in common.schema.ts but I couldn't get the URI ref to work with Type.Union */
   location: Nullable(
     Type.Object({
@@ -65,9 +63,7 @@ const projectEntry = Type.Object({
   isPoolProject: Type.Optional(Type.Boolean()),
 });
 
-type ProjectEntry = Static<typeof projectEntry>;
-
-const querystring = Type.Object({
+export const QueryString = Type.Object({
   network: Type.Optional(CommonSchemaRefs.querystring.network),
   country: Type.Optional(
     Type.String({
@@ -92,24 +88,6 @@ const querystring = Type.Object({
   ),
 });
 
-type QueryString = Static<typeof querystring>;
-
-const schema = {
-  summary: "List projects",
-  description:
-    "Retrieve an array of carbon projects filtered by desired query parameters",
-  tags: ["Projects"],
-  querystring,
-  response: {
-    200: {
-      description: "List of projects",
-      content: {
-        "application/json": {
-          schema: Type.Array(projectEntry),
-        },
-      },
-    },
-  },
-};
-
-export { ListingEntry, ProjectEntry, QueryString, schema };
+export type QueryStringT = Static<typeof QueryString>;
+export type ProjectEntryT = Static<typeof ProjectEntry>;
+export type ListingEntryT = Static<typeof ListingEntry>;
