@@ -45,17 +45,17 @@ export const CarbonmarkProject = Type.Object({
       name: Type.String(),
     })
   ),
-  vintage: Type.String(),
-  projectAddress: Type.String(),
-  registry: Type.String(),
-  country: Type.Object({ id: Type.String() }),
-  category: Type.Object({ id: Type.String() }),
-  price: Type.String(),
-  updatedAt: Type.String(),
-  listings: Nullable(Type.Array(ListingEntry)), // null when listings are empty
   location: Nullable(GeoJSONPoint, {
     description: "A GeoJSON Point feature.",
   }),
+  vintage: Type.String(),
+  projectAddress: Type.String(),
+  registry: Type.String(),
+  updatedAt: Type.String(),
+  category: Type.Object({ id: Type.String() }),
+  country: Type.Object({ id: Type.String() }),
+  price: Type.String(),
+  listings: Nullable(Type.Array(ListingEntry)), // null when listings are empty
   /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
   id: Type.String({ description: "Deprecated in favor of projectAddress" }),
   isPoolProject: Type.Optional(Type.Boolean()),

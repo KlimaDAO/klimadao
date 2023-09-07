@@ -8,7 +8,10 @@ export interface CarouselImage {
   caption: string;
 }
 
-export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
+export type Project = OASModel<
+  NormalizeOAS<typeof schema>,
+  "CarbonmarkProject"
+>;
 
 export interface PcbProject {
   id: string;

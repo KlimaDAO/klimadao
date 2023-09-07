@@ -9,7 +9,8 @@
     "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
-    "postinstall": "npm run lingui:compile"
+    "postinstall": "npm run lingui:compile",
+    "generate:types" : "ts-node --compiler-options '{\"module\":\"commonjs\"}' ./scripts/generate-types.ts"
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.7.1",

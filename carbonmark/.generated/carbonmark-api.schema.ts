@@ -16,11 +16,28 @@ export default {
   },
   "components": {
     "schemas": {
-      "Project": {
+      "CarbonmarkProject": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "short_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "key": {
             "type": "string"
@@ -31,8 +48,27 @@ export default {
           "name": {
             "type": "string"
           },
-          "methodology": {
-            "type": "string"
+          "methodologies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "category",
+                "name"
+              ]
+            }
           },
           "vintage": {
             "type": "string"
@@ -44,15 +80,198 @@ export default {
             "type": "string"
           },
           "country": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
           },
           "category": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
           },
           "price": {
             "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "listings": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "description": "DEPRECATED. This resource will be altered in the near future.",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "Unique listing identifier",
+                      "type": "string"
+                    },
+                    "leftToSell": {
+                      "description": "Remaining supply. Unformatted 18 decimal string",
+                      "type": "string"
+                    },
+                    "tokenAddress": {
+                      "description": "Address of the asset being sold",
+                      "type": "string"
+                    },
+                    "singleUnitPrice": {
+                      "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "leftToSell",
+                    "tokenAddress",
+                    "singleUnitPrice"
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "location": {
+            "description": "A GeoJSON Point feature.",
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "Feature"
+                    ]
+                  },
+                  "geometry": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "Point"
+                        ]
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "geometry"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "description": "Deprecated in favor of projectAddress",
+            "type": "string"
+          },
+          "isPoolProject": {
+            "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "description",
+          "short_description",
+          "key",
+          "projectID",
+          "name",
+          "methodologies",
+          "vintage",
+          "projectAddress",
+          "registry",
+          "country",
+          "category",
+          "price",
+          "updatedAt",
+          "listings",
+          "location",
+          "id"
+        ]
+      },
+      "def-0": {
+        "type": "object",
+        "properties": {
+          "network": {
+            "examples": [
+              "polygon",
+              "mumbai"
+            ],
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
+            "default": "polygon",
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "polygon"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "mumbai"
+                ]
+              }
+            ],
+            "title": "http://api.carbonmark.com/schemas/querystring/network"
+          }
+        },
+        "required": [
+          "network"
+        ],
+        "title": "http://api.carbonmark.com/schemas"
+      },
+      "def-1": {
+        "examples": [
+          "polygon",
+          "mumbai"
+        ],
+        "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet).",
+        "default": "polygon",
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "polygon"
+            ]
+          },
+          {
+            "type": "string",
+            "enum": [
+              "mumbai"
+            ]
+          }
+        ],
+        "title": "http://api.carbonmark.com/schemas/querystring/network"
       }
     }
   },
@@ -140,6 +359,14 @@ export default {
         "parameters": [
           {
             "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
               "type": "string"
             },
             "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
@@ -150,7 +377,7 @@ export default {
           }
         ],
         "responses": {
-          "2XX": {
+          "200": {
             "description": "Successful response with listing details",
             "content": {
               "application/json": {
@@ -322,72 +549,6 @@ export default {
                         "2020"
                       ]
                     ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/projects": {
-      "get": {
-        "summary": "List projects",
-        "tags": [
-          "Projects"
-        ],
-        "description": "Retrieve an array of carbon projects filtered by desired query parameters",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "country",
-            "required": false,
-            "description": "Desired country of origin for carbon projects"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "category",
-            "required": false,
-            "description": "Desired category of carbon projects"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "search",
-            "required": false,
-            "description": "Search carbon project names and descriptions for a string of text"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "vintage",
-            "required": false,
-            "description": "Desired vintage of carbon projects"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {},
-                    "status": {
-                      "type": "number",
-                      "description": "HTTP status code."
-                    }
                   }
                 }
               }
@@ -849,6 +1010,275 @@ export default {
                         }
                       ]
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "summary": "List projects",
+        "tags": [
+          "Projects"
+        ],
+        "description": "Retrieve an array of carbon projects filtered by desired query parameters",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "description": "Desired country of origin for carbon projects"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "description": "Desired category of carbon projects"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search carbon project names and descriptions for a string of text"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "vintage",
+            "required": false,
+            "description": "Desired vintage of carbon projects"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of projects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "short_description": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "projectID": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "methodologies": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "category": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "category",
+                            "name"
+                          ]
+                        }
+                      },
+                      "vintage": {
+                        "type": "string"
+                      },
+                      "projectAddress": {
+                        "type": "string"
+                      },
+                      "registry": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      },
+                      "category": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      },
+                      "price": {
+                        "type": "string"
+                      },
+                      "updatedAt": {
+                        "type": "string"
+                      },
+                      "listings": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "description": "DEPRECATED. This resource will be altered in the near future.",
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "Unique listing identifier",
+                                  "type": "string"
+                                },
+                                "leftToSell": {
+                                  "description": "Remaining supply. Unformatted 18 decimal string",
+                                  "type": "string"
+                                },
+                                "tokenAddress": {
+                                  "description": "Address of the asset being sold",
+                                  "type": "string"
+                                },
+                                "singleUnitPrice": {
+                                  "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "leftToSell",
+                                "tokenAddress",
+                                "singleUnitPrice"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "location": {
+                        "description": "A GeoJSON Point feature.",
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "Feature"
+                                ]
+                              },
+                              "geometry": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Point"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "minItems": 2,
+                                    "maxItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "geometry"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "id": {
+                        "description": "Deprecated in favor of projectAddress",
+                        "type": "string"
+                      },
+                      "isPoolProject": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "description",
+                      "short_description",
+                      "key",
+                      "projectID",
+                      "name",
+                      "methodologies",
+                      "vintage",
+                      "projectAddress",
+                      "registry",
+                      "country",
+                      "category",
+                      "price",
+                      "updatedAt",
+                      "listings",
+                      "location",
+                      "id"
+                    ]
                   }
                 }
               }
