@@ -91,8 +91,6 @@ export const PurchaseModal: FC<Props> = (props) => {
     (showSuccessScreen && t`Purchase successful`) ||
     t`Confirm Purchase`;
 
-  console.log("props.approvalValue", props.approvalValue);
-
   return (
     <Modal
       title={title}

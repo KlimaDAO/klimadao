@@ -74,7 +74,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     }
   }, [costs]);
 
-  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc", 6);
+  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc");
 
   const exceededBalance =
     !!props.balance && Number(props.balance) <= Number(getApprovalValue());
