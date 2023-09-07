@@ -30,10 +30,11 @@ export const searchInputContainer = css`
 `;
 
 export const searchInput = css`
+  width: 24rem;
   background-color: var(--surface-01);
   -webkit-appearance: none; // remove default border radius for iOS
-  border-radius: 1rem;
   border: 0.175rem solid var(--surface-01);
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
 
   &:focus,
   &:hover {
@@ -48,6 +49,17 @@ export const searchInput = css`
     -webkit-appearance: none;
   }
 `;
+
+export const searchInputButton = css`
+  padding: 1.4rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: white;
+  background-color: var(--manatee) !important;
+  
+  svg {
+    font-size: 2rem;
+  }
+`
 
 export const showOnSmallScreens = css`
   ${breakpoints.large} {
