@@ -14,7 +14,7 @@ import {
   isValidMarketplaceProject,
   isValidPoolProject,
 } from "../projects.utils";
-import { ProjectEntryT } from "./get.models";
+import { CarbonmarkProjectT } from "./get.models";
 import { schema } from "./get.schema";
 
 type Params = {
@@ -40,7 +40,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ): Promise<ProjectEntryT[]> {
+  ): Promise<CarbonmarkProjectT[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified

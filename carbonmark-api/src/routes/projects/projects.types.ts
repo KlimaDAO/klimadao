@@ -3,6 +3,7 @@ import {
   ByIdProjectActivity,
   ByIdProjectListing,
 } from "../../graphql/marketplace.types";
+import { GeoJSONPointT } from "./get/get.models";
 
 type WithHandle<T> = T & { handle?: string };
 
@@ -28,14 +29,7 @@ export type GetProjectByIdResponse = {
   country?: string | null;
   description?: string | null;
   methodologies?: CMSProject["methodologies"];
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
-  } | null;
+  location?: GeoJSONPointT | null;
   long_description?: string | null;
   url?: string | null;
   stats: {

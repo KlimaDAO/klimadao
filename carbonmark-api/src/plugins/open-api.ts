@@ -1,7 +1,7 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
-import { CarbonmarkProject } from "src/routes/projects/get/get.models";
 import packageJson from "../../package.json";
+import { CarbonmarkProject } from "../routes/projects/get/get.models";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {

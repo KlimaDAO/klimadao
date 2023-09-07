@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchemaRefs, Nullable } from "src/routes/common.schema";
+import { CommonSchemaRefs, Nullable } from "../../common.schema";
 
 /** DEPRECATED. This will be altered with v2 */
 export const ListingEntry = Type.Object(
@@ -24,6 +24,14 @@ export const ListingEntry = Type.Object(
   }
 );
 
+export const GeoJSONPoint = Type.Object({
+  type: Type.Literal("Feature"),
+  geometry: Type.Object({
+    type: Type.Literal("Point"),
+    coordinates: Type.Array(Type.Number(), { minItems: 2, maxItems: 2 }),
+  }),
+});
+
 export const CarbonmarkProject = Type.Object({
   description: Nullable(Type.String()),
   short_description: Nullable(Type.String()),
@@ -45,19 +53,9 @@ export const CarbonmarkProject = Type.Object({
   price: Type.String(),
   updatedAt: Type.String(),
   listings: Nullable(Type.Array(ListingEntry)), // null when listings are empty
-  /** This should be defined in common.schema.ts but I couldn't get the URI ref to work with Type.Union */
-  location: Nullable(
-    Type.Object({
-      type: Type.Literal("Feature"),
-      geometry: Type.Object({
-        type: Type.Literal("Point"),
-        coordinates: Type.Array(Type.Number(), { minItems: 2, maxItems: 2 }),
-      }),
-    }),
-    {
-      description: "A GeoJSON Point feature.",
-    }
-  ),
+  location: Nullable(GeoJSONPoint, {
+    description: "A GeoJSON Point feature.",
+  }),
   /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
   id: Type.String({ description: "Deprecated in favor of projectAddress" }),
   isPoolProject: Type.Optional(Type.Boolean()),
@@ -88,6 +86,7 @@ export const QueryString = Type.Object({
   ),
 });
 
+export type GeoJSONPointT = Static<typeof GeoJSONPoint>;
 export type QueryStringT = Static<typeof QueryString>;
-export type ProjectEntryT = Static<typeof CarbonmarkProject>;
+export type CarbonmarkProjectT = Static<typeof CarbonmarkProject>;
 export type ListingEntryT = Static<typeof ListingEntry>;

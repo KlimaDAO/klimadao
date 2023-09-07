@@ -19,7 +19,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { ProjectEntry } from "./get.schema";
+import { CarbonmarkProjectT, GeoJSONPointT } from "./get/get.models";
 import { POOL_INFO } from "./projects.constants";
 
 /**
@@ -93,7 +93,7 @@ export const getOffsetTokenPrices = (
 
 export const toGeoJSON = (
   point?: Partial<Geopoint> | null
-): ProjectEntry["location"] => {
+): GeoJSONPointT | null => {
   if (!point || isNil(point?.lat) || isNil(point?.lng)) return null;
   return {
     type: "Feature",
@@ -187,8 +187,8 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   poolPrices: Record<string, PoolPrice>
-): ProjectEntry[] => {
-  const entries: ProjectEntry[] = [];
+): CarbonmarkProjectT[] => {
+  const entries: CarbonmarkProjectT[] = [];
   projectDataMap.forEach((data) => {
     // rename vars for brevity
     const { marketplaceProjectData: market, poolProjectData: pool } = data;
@@ -201,10 +201,11 @@ export const composeProjectEntries = (
 
     const methodologies =
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- methodology properties should never be null
-      (carbonProject?.methodologies as ProjectEntry["methodologies"]) || [];
+      (carbonProject?.methodologies as CarbonmarkProjectT["methodologies"]) ||
+      [];
 
-    // construct ProjectEntry and make typescript happy
-    const entry: ProjectEntry = {
+    // construct CarbonmarkProjectT and make typescript happy
+    const entry: CarbonmarkProjectT = {
       methodologies,
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
