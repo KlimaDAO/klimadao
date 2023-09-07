@@ -432,7 +432,7 @@ export const Stake = (props: Props) => {
             {!!props.provider && typeof window !== undefined && (
               <div className={styles.etherspotStakeCard_ui}>
                 <Etherspot
-                  provider={props.provider.provider as any}
+                  provider={(props.provider as any).provider}
                   chainId={137}
                   themeOverride={klimaTheme}
                   onLogout={async () => {
