@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
+msgid "Purchase more Carbon"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -597,7 +602,7 @@ msgstr ""
 #: components/pages/Users/SellerConnected/index.tsx:76
 #: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:72
@@ -1051,11 +1056,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
-msgid "Purchase more Carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1526,7 +1526,7 @@ msgstr ""
 #: lib/formatWalletAddress.ts:9
 #: lib/formatWalletAddress.ts:21
 msgid "You"
-msgstr "<<<<<<< HEAD"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:70
@@ -1613,7 +1613,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
-msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:123
@@ -1628,7 +1628,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:146
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr ""
+msgstr ">>>>>>> 2ae56ea9 (re-run translations)"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:47
@@ -1847,7 +1847,7 @@ msgstr ""
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
-msgstr ""
+msgstr "<<<<<<< HEAD======="
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:113
