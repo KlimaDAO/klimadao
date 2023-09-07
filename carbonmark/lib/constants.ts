@@ -32,7 +32,7 @@ const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
  */
 const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`
-  : API_PROD_URL;
+  : "https://staging-api.carbonmark.com/api";
 
 const ENVIRONMENT: Environment =
   new LogicTable({
