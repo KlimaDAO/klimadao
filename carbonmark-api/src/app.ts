@@ -35,7 +35,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
 
   void (await fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
-    options: { ...opts, prefix: "/api" },
+    options: opts,
     dirNameRoutePrefix: false,
   }));
 
