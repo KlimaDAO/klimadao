@@ -466,7 +466,7 @@ msgid "shared.balances"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:921
+#: components/views/Offset/index.tsx:932
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -1000,7 +1000,7 @@ msgid "buy.cta_2"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:901
+#: components/views/Offset/index.tsx:902
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
@@ -1133,7 +1133,7 @@ msgid "shared.retire"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:948
+#: components/views/Offset/index.tsx:959
 msgid "offset.retire_carbon"
 msgstr ""
 
@@ -1178,7 +1178,7 @@ msgid "offset.selectiveRetirement.selectProject.select"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:905
+#: components/views/Offset/index.tsx:906
 msgid "offset.modal_payWith.title"
 msgstr ""
 

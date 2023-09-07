@@ -184,3 +184,13 @@ export const input = css`
 export const connect_button = css`
   width: 100%;
 `;
+
+export const pay_with_dropdown = css`
+  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+
+  .warn {
+    color: var(--warn);
+  }
+`;
