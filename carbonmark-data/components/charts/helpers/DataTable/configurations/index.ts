@@ -17,3 +17,6 @@ export function fetchData(key: ConfigurationKey, page: number) {
 export function getColumns(key: ConfigurationKey, locale: string) {
   return configurations[key].getColumns(locale);
 }
+export function getCardRenderer(key: ConfigurationKey, locale: string) {
+  return configurations[key].cardRenderer;
+}

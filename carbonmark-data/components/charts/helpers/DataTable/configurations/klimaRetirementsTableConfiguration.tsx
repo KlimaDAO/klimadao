@@ -4,7 +4,10 @@ import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
 import { queryRawKlimaRetirements } from "lib/charts/queries";
+import { RawRetirementsItem } from "lib/charts/types";
+import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
+import styles from "./styles.module.scss";
 
 const configuration = {
   fetchFunction: (page: number) => {
@@ -62,5 +65,32 @@ const configuration = {
       ),
     },
   ],
+  cardRenderer(props: { item: RawRetirementsItem }) {
+    const locale = currentLocale();
+    return (
+      <div className={styles.card}>
+        <div className={styles.cardTitle}>{props.item.beneficiary}</div>
+        <div className={styles.facts}>
+          <div className={styles.date}>
+            {helpers.formatDateAsDaysShort(locale)(props.item.retirement_date)}
+          </div>
+
+          {props.item.bridge}
+          <VerraProjectLink
+            projectId={props.item.project_id}
+          ></VerraProjectLink>
+        </div>
+        <div className={styles.badge}>
+          {formatTonnes({
+            amount: String(props.item.quantity),
+            locale,
+            minimumFractionDigits: 2,
+          })}{" "}
+          Tonnes
+        </div>
+        <PolyscanLink transactionId={props.item.transaction_id}></PolyscanLink>
+      </div>
+    );
+  },
 };
 export default configuration;

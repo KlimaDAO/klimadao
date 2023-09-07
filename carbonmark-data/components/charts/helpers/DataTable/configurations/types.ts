@@ -1,3 +1,5 @@
+import React from "react";
+
 export type Columns<RI> = Array<{
   /** Column title */
   header: string;
@@ -10,3 +12,5 @@ export type Columns<RI> = Array<{
     | ((v: string) => string | React.ReactNode)
     | ((v: number) => string | React.ReactNode);
 }>;
+
+export type CardRenderer<RI> = (props: { item: RI }) => JSX.Element;
