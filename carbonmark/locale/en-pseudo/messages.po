@@ -14,13 +14,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
-msgid "Purchase more Carbon"
+#: components/pages/Retire/Activity/Quotes.tsx:68
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:169
-msgid "There was an error during the checkout process. Please try again."
+#: components/pages/Retire/Activity/Quotes.tsx:70
+msgid "retired"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -513,7 +515,7 @@ msgstr ""
 #: components/pages/Users/SellerConnected/index.tsx:131
 #: components/pages/Users/SellerConnected/index.tsx:145
 msgid "Please refresh the page. There was an error updating your data: {e}."
-msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:69
@@ -972,6 +974,11 @@ msgid "See your portfolio"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
+msgid "Purchase more Carbon"
+msgstr "<<<<<<< HEAD"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:60
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:117
 msgid "There was an error loading the total cost."
@@ -1016,6 +1023,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:166
 msgid "{0}"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:169
+msgid "There was an error during the checkout process. Please try again."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1416,18 +1428,6 @@ msgid "No activity to show"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Quotes.tsx:68
-#: lib/formatWalletAddress.ts:9
-#: lib/formatWalletAddress.ts:21
-msgid "You"
-msgstr "<<<<<<< HEAD"
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Quotes.tsx:70
-msgid "retired"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
 #: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
@@ -1507,7 +1507,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:118
 msgid "View all Portfolio items"
-msgstr "=======>>>>>>> 0a6bb626 (fix build & locales)"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:123
@@ -1522,7 +1522,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/index.tsx:146
 msgid "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
-msgstr ""
+msgstr ">>>>>>> 2ae56ea9 (re-run translations)"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
@@ -1706,7 +1706,7 @@ msgstr ""
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
-msgstr ""
+msgstr "<<<<<<< HEAD======="
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:106
