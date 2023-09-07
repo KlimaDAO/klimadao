@@ -482,18 +482,29 @@ export const Redeem = (props: Props) => {
             name={selectedProject?.projectID || "???"}
             labelAlignment="start"
           />
+          <div className={styles.pay_with_dropdown}>
+            <DropdownWithModal
+              label={t`Payment method`}
+              modalTitle={t`Payment Method`}
+              currentItem={paymentMethod}
+              items={paymentMethodItems}
+              warn={insufficientBalance()}
+              isModalOpen={isPaymentMethodModalOpen}
+              onToggleModal={() => setIsPaymentMethodModalOpen((s) => !s)}
+              onItemSelect={(str) =>
+                handleSelectInputToken(str as RedeemPaymentMethod)
+              }
+            />
+            {insufficientBalance() && (
+              <Text t="caption" className="warn">
+                <Trans>
+                  Your balance must equal at least 1% more than the cost of the
+                  transaction.
+                </Trans>
+              </Text>
+            )}
+          </div>
 
-          <DropdownWithModal
-            label={t`Payment method`}
-            modalTitle={t`Payment Method`}
-            currentItem={paymentMethod}
-            items={paymentMethodItems}
-            isModalOpen={isPaymentMethodModalOpen}
-            onToggleModal={() => setIsPaymentMethodModalOpen((s) => !s)}
-            onItemSelect={(str) =>
-              handleSelectInputToken(str as RedeemPaymentMethod)
-            }
-          />
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
