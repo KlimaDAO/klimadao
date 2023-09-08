@@ -12,7 +12,7 @@ import {
 import { CardRenderer, Columns } from "../configurations/types";
 import styles from "./styles.module.scss";
 
-/** An Client Component (wannabe Server Component) that renders a the actual Table
+/** A Client Component (wannabe Server Component) that renders the actual Table
  * configurationKey: Table configuration key
  * page: the page of the dataset to render
  */
