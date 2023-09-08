@@ -16,10 +16,13 @@ export const schema = {
     },
   },
   response: {
-    "2xx": {
-      description: "Successful response",
-      type: "object",
-      properties: DetailedProject,
+    200: {
+      description: "Project with id",
+      content: {
+        "application/json": {
+          schema: DetailedProject,
+        },
+      },
     },
   },
 };
