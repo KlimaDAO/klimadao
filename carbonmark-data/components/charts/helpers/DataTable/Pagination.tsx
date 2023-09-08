@@ -19,7 +19,7 @@ export default function Pagination(props: {
   return (
     <div className={styles.pagination}>
       {props.page > 0 && (
-        <>
+        <div className={styles.paginationButtons}>
           <div
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(0)}
@@ -32,11 +32,14 @@ export default function Pagination(props: {
           >
             <KeyboardArrowLeft></KeyboardArrowLeft>
           </div>
-        </>
+        </div>
       )}
+      <div className={styles.paginationCounter}>
+        {props.page} / {props.pages_count}
+      </div>
 
       {props.page < props.pages_count - 1 && (
-        <>
+        <div className={styles.paginationButtons}>
           <div
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(props.page + 1)}
@@ -49,7 +52,7 @@ export default function Pagination(props: {
           >
             <KeyboardDoubleArrowRight></KeyboardDoubleArrowRight>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
