@@ -1,10 +1,8 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
-import {
-  GetAllProjectsQuery,
-  ProjectContent,
-} from "src/.generated/types/carbonProjects.types";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
+import { ProjectContent } from "../../.generated/types/carbonProjects.types";
+import { CMSProject } from "../../graphql/carbonProjects.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
@@ -16,23 +14,21 @@ type Args = {
 
 /**
  * Generates a unique key for a project using its registry and id.
- * @param {Project} project - The project.
- * @param {string} project.id - The id of the project.
- * @param {string} project.registry - The registry of the project.
- * @returns {string} The generated key.
  */
-const projectKey = ({ registry, registryProjectId }: CarbonProject) =>
-  `${registry}-${registryProjectId}`;
+const projectKey = ({
+  registry,
+  registryProjectId,
+}: {
+  registry: string | null;
+  registryProjectId: string | null;
+}) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = GetAllProjectsQuery["allProject"][number] & {
+export type CarbonProject = CMSProject & {
   content?: ProjectContent;
 };
+
 /**
  * Fetches a carbon project based on the provided registry and id.
- * @param {Object} args - The arguments.
- * @param {string} args.registry - The registry of the project (e.g., VCS).
- * @param {string} args.id - The id of the project (e.g., 1121).
- * @returns {Promise<CarbonProject|null>} The fetched project or null if not found.
  */
 export const fetchCarbonProject = async (args: Args) => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([

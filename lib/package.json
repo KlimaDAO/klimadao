@@ -36,7 +36,7 @@
     "./constants": "./out/constants/index.js",
     "./featureFlags": "./out/featureFlags/index.js",
     "./utils": "./out/utils/index.js",
-    "./utils/getLocales": "./out/utils/getLocales/index.js",
+    "./utils/lightIndex": "./out/utils/lightIndex.js",
     "./hooks": "./out/hooks/index.js",
     "./theme/*": "./theme/*",
     "./abi/*": "./abi/*"

@@ -42,7 +42,7 @@ export default function Chart(props: Props) {
           layout="horizontal"
           verticalAlign="bottom"
           align="left"
-          wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
+          wrapperStyle={{ marginLeft: "4rem", paddingTop: "2rem" }}
         />
         {KlimaLines(props.configuration)}
       </LineChart>

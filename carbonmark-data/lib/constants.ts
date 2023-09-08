@@ -1,4 +1,4 @@
-import { Bridge } from "./charts/types";
+export { BRIDGES, TOKENS } from "./charts/types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -24,12 +24,12 @@ const config = {
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
       //Allow the developer to set the carbonmark api url to point to their local instance if necessary
       development:
-        process.env.NEXT_PUBLIC_DATA_API_URL ??
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
     },
   },
 };
-const api_url = config.urls.api[ENVIRONMENT];
+const api_url =
+  process.env.NEXT_PUBLIC_DATA_API_URL || config.urls.api[ENVIRONMENT];
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
@@ -37,7 +37,6 @@ export const urls = {
     dailyAggregatedCredits: `${api_url}/credits/agg/daily`,
     aggregatedCredits: `${api_url}/credits/agg`,
     prices: `${api_url}/prices`,
+    tokens: `${api_url}/tokens`,
   },
 };
-
-export const BRIDGES: Array<Bridge> = ["toucan", "c3", "moss"];

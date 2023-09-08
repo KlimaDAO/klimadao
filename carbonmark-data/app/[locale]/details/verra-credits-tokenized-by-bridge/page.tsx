@@ -6,7 +6,11 @@ export default function VerraCreditsTokenizedByBridgePage() {
   return (
     <DetailPage
       pageTitle={t`Tokenized Credits by Bridge`}
-      card={<TokenizedCreditsByBridgeCard></TokenizedCreditsByBridgeCard>}
+      card={
+        <TokenizedCreditsByBridgeCard
+          isDetailPage={true}
+        ></TokenizedCreditsByBridgeCard>
+      }
       overview={t`Lorem Ipsum`}
     />
   );

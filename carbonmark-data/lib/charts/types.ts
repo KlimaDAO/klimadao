@@ -1,7 +1,11 @@
 import { Key } from "react";
 
 // API level Query parameters
-export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
+export const BRIDGES = ["toucan", "c3", "moss"];
+export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
+export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
+export type Token = (typeof TOKENS)[number];
+
 export type DateField =
   | "bridged_date"
   | "redeemed_date"
@@ -45,9 +49,11 @@ export interface DailyCreditsItem {
   quantity: number;
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+
 export interface AggregatedCredits {
   quantity: number;
 }
+
 export interface PricesItem {
   date: string;
   bct_price: number;
@@ -58,6 +64,20 @@ export interface PricesItem {
   quantity: number;
 }
 export type Prices = PaginatedResponse<PricesItem>;
+
+export interface TokenInfo {
+  name: string;
+  pair_address: string;
+  token_address: string;
+  bridge: string;
+  chain: string;
+  selective_cost_value: number;
+  decimals: number;
+  current_supply: number;
+  fee_redeem_factor: number;
+  price: number;
+}
+export type TokensInfo = PaginatedResponse<TokenInfo>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {

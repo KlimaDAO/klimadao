@@ -108,6 +108,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           status={props.status}
           onResetStatus={props.onResetStatus}
           spenderAddress={getAddress("carbonmark")}
+          onGoBack={props.onCancel}
         />
       )}
       {props.isProcessing && (

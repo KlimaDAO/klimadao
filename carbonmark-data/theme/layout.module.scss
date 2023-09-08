@@ -2,13 +2,13 @@
 
 .global {
   display: flex;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .twoColumns {
   @include desktop {
     display: flex;
-    gap: 20px;
+    gap: 2rem;
   }
 
   & > div:first-child {
@@ -18,7 +18,7 @@
 
   & > div:nth-child(2) {
     @include desktop {
-      max-width: 360px;
+      max-width: 36rem;
     }
   }
 }
@@ -31,7 +31,7 @@
 }
 
 .cardRow {
-  min-height: 284px;
+  min-height: 28.4rem;
 
   & > div {
     flex: 1 1 0;

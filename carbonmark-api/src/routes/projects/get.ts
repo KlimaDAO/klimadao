@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, concat, mapValues, omit } from "lodash";
-import { filter, pipe, sortBy, split, uniqBy } from "lodash/fp";
+import { mapValues, omit } from "lodash";
+import { sortBy, split } from "lodash/fp";
 import {
   FindProjectsQuery,
   FindProjectsQueryVariables,
@@ -10,20 +10,22 @@ import {
   PoolPrice,
   fetchAllPoolPrices,
 } from "../../utils/helpers/fetchAllPoolPrices";
-import { GetProjectResponse } from "./projects.types";
-import { buildProjectKey, getDefaultQueryArgs } from "./projects.utils";
+import { getDefaultQueryArgs } from "./projects.utils";
 
 import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
+import { CreditId } from "../../utils/CreditId";
 import {
   CarbonProject,
   fetchAllCarbonProjects,
 } from "../../utils/helpers/carbonProjects.utils";
-import { schema } from "./get.schema";
+import { ProjectEntry, schema } from "./get.schema";
 import {
-  marketplaceProjectToCarbonmarkProject,
-  offsetProjectToCarbonmarkProject,
-  validProject,
-} from "./get.utils";
+  CMSDataMap,
+  ProjectDataMap,
+  composeProjectEntries,
+  isValidMarketplaceProject,
+  isValidPoolProject,
+} from "./projects.utils";
 
 type Params = {
   country?: string;
@@ -48,9 +50,9 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ): Promise<GetProjectResponse[]> {
-    let projectData: FindProjectsQuery,
-      offsetData: FindCarbonOffsetsQuery,
+  ): Promise<ProjectEntry[]> {
+    let marketplaceProjectsData: FindProjectsQuery,
+      poolProjectsData: FindCarbonOffsetsQuery,
       cmsProjects: CarbonProject[],
       poolPrices: Record<string, PoolPrice>;
 
@@ -67,38 +69,80 @@ const handler = (fastify: FastifyInstance) =>
     };
 
     try {
-      [projectData, offsetData, cmsProjects, poolPrices] = await Promise.all([
-        gqlSdk.marketplace.findProjects(query),
-        gqlSdk.offsets.findCarbonOffsets(query),
-        fetchAllCarbonProjects(),
-        fetchAllPoolPrices(),
-      ]);
+      [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
+        await Promise.all([
+          gqlSdk.marketplace.findProjects(query),
+          gqlSdk.offsets.findCarbonOffsets(query),
+          fetchAllCarbonProjects(),
+          fetchAllPoolPrices(),
+        ]);
     } catch (error) {
       console.error(error);
       return reply.status(502).send(error?.message);
     }
 
-    // ----- Carbonmark Listings ----- //
-    const projects = projectData.projects.map((project) =>
-      marketplaceProjectToCarbonmarkProject(project, cmsProjects)
+    const CMSDataMap: CMSDataMap = new Map();
+    const ProjectDataMap: ProjectDataMap = new Map();
+
+    cmsProjects.forEach((project) => {
+      if (!CreditId.isValidProjectId(project.id)) return;
+      const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
+      CMSDataMap.set(`${standard}-${registryProjectId}`, project);
+    });
+
+    /** Assign valid pool projects to map */
+    poolProjectsData.carbonOffsets.forEach((project) => {
+      if (
+        !isValidPoolProject(project) ||
+        !CreditId.isValidProjectId(project.projectID)
+      ) {
+        return;
+      }
+      const [standard, registryProjectId] = project.projectID.split("-");
+      const { creditId: key } = new CreditId({
+        standard,
+        registryProjectId,
+        vintage: project.vintageYear,
+      });
+      ProjectDataMap.set(key, { poolProjectData: project, key });
+    });
+
+    /** Assign valid marketplace projects to map */
+    marketplaceProjectsData.projects.forEach((project) => {
+      if (
+        !isValidMarketplaceProject(project) ||
+        !CreditId.isValidProjectId(project.key)
+      ) {
+        return;
+      }
+      const [standard, registryProjectId] = project.key.split("-");
+      const { creditId: key } = new CreditId({
+        standard,
+        registryProjectId,
+        vintage: project.vintage,
+      });
+      const existingData = ProjectDataMap.get(key);
+      ProjectDataMap.set(key, {
+        ...existingData,
+        key,
+        marketplaceProjectData: project,
+      });
+    });
+
+    /** Compose all the data together to unique entries (unsorted) */
+    const entries = composeProjectEntries(
+      ProjectDataMap,
+      CMSDataMap,
+      poolPrices
     );
 
-    // ----- Pool Listings ----- //
-    const offsetProjects = offsetData.carbonOffsets?.map((offset) =>
-      offsetProjectToCarbonmarkProject(offset, cmsProjects, poolPrices)
-    );
-
-    // Remove invalid projects and duplicates selecting the project with the lowest price
-    const filteredUniqueProjects: GetProjectResponse[] = pipe(
-      concat,
-      compact,
-      filter(validProject),
-      sortBy("price"),
-      uniqBy(buildProjectKey)
-    )(projects, offsetProjects);
+    const sortedEntries = sortBy(entries, (e) => Number(e.price));
 
     // Send the transformed projects array as a JSON string in the response
-    return reply.send(JSON.stringify(filteredUniqueProjects));
+    return reply
+      .status(200)
+      .header("Content-Type", "application/json; charset=utf-8")
+      .send(sortedEntries);
   };
 
 export default async (fastify: FastifyInstance) => {
