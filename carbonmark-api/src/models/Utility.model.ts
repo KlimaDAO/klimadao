@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 
 export const GeoJSONPoint = Type.Object({
   type: Type.Literal("Feature"),
@@ -12,3 +12,6 @@ export const Image = Type.Object({
   caption: Type.Optional(Type.String()),
   url: Type.Optional(Type.String()),
 });
+
+export type GeoJSONPointT = Static<typeof GeoJSONPoint>;
+export type ImageT = Static<typeof Image>;

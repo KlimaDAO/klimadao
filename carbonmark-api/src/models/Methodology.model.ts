@@ -1,7 +1,10 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
+import { Nullable } from "../routes/common.schema";
 
 export const Methodology = Type.Object({
-  id: Type.String(),
-  category: Type.String(),
-  name: Type.String(),
+  id: Nullable(Type.String()),
+  category: Nullable(Type.String()),
+  name: Nullable(Type.String()),
 });
+
+export type MethodologyT = Static<typeof Methodology>;

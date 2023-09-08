@@ -55,12 +55,16 @@ const handler = (fastify: FastifyInstance) =>
     )(poolPriceValues, listingPriceValues);
 
     const projectResponse: DetailedProjectT = {
-      ...projectDetails,
-      stats,
-      listings,
-      activities,
-      location: toGeoJSON(projectDetails.geolocation),
+      country: projectDetails.country,
+      description: projectDetails.description,
+      key: projectDetails.key,
+      registry: projectDetails.registry,
+      url: projectDetails.url,
+      name: projectDetails.name,
+      methodologies: projectDetails.methodologies,
+      long_description: projectDetails.longDescription,
       projectID: projectDetails.registryProjectId,
+      location: toGeoJSON(projectDetails.geolocation),
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
       isPoolProject: !!poolPrices.length,
@@ -69,7 +73,10 @@ const handler = (fastify: FastifyInstance) =>
           caption: image?.asset?.altText ?? "",
           url: image?.asset?.url ?? "",
         })) ?? [],
+      activities,
+      listings,
       vintage,
+      stats,
     };
     return reply.send(JSON.stringify(projectResponse));
   };

@@ -11,9 +11,12 @@ export const Activity = Type.Object({
   activityType: Type.String(),
   seller: Type.Object({
     id: Type.String(),
+    handle: Type.Optional(Nullable(Type.String())),
   }),
-  buyer: Type.Object({
-    id: Type.String(),
-    handle: Type.String(),
-  }),
+  buyer: Nullable(
+    Type.Object({
+      id: Type.String(),
+      handle: Type.Optional(Nullable(Type.String())),
+    })
+  ),
 });

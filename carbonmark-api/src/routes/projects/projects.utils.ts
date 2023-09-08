@@ -1,6 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
+import { ProjectT } from "src/models/Project.model";
+import { GeoJSONPointT } from "src/models/Utility.model";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
@@ -19,7 +21,6 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { CarbonmarkProjectT, GeoJSONPointT } from "./get.models";
 import { POOL_INFO } from "./projects.constants";
 
 /**
@@ -187,8 +188,8 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   poolPrices: Record<string, PoolPrice>
-): CarbonmarkProjectT[] => {
-  const entries: CarbonmarkProjectT[] = [];
+): ProjectT[] => {
+  const entries: ProjectT[] = [];
   projectDataMap.forEach((data) => {
     // rename vars for brevity
     const { marketplaceProjectData: market, poolProjectData: pool } = data;
@@ -199,14 +200,9 @@ export const composeProjectEntries = (
     } = new CreditId(data.key);
     const carbonProject = cmsDataMap.get(projectId);
 
-    const methodologies =
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- methodology properties should never be null
-      (carbonProject?.methodologies as CarbonmarkProjectT["methodologies"]) ||
-      [];
-
     // construct CarbonmarkProjectT and make typescript happy
-    const entry: CarbonmarkProjectT = {
-      methodologies,
+    const entry: ProjectT = {
+      methodologies: carbonProject?.methodologies ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
       name: carbonProject?.name || pool?.name || market?.name || "",

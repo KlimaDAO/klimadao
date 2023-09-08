@@ -10,7 +10,7 @@ export const Project = Type.Object({
   key: Type.String(),
   projectID: Type.String(),
   name: Type.String(),
-  methodologies: Type.Array(Methodology),
+  methodologies: Type.Array(Nullable(Methodology)),
   location: Nullable(GeoJSONPoint, {
     description: "A GeoJSON Point feature.",
   }),
