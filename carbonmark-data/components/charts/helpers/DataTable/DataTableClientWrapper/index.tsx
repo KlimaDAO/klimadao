@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ConfigurationKey } from "../configurations";
 import styles from "./styles.module.scss";
 
-export default function ClientWrapper(props: {
+export default function DataTableClientWrapper(props: {
   configurationKey: ConfigurationKey;
   pages_count: number;
 }) {

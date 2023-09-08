@@ -1,5 +1,5 @@
+import DataTableClientWrapper from "components/charts/helpers/DataTable/DataTableClientWrapper";
 import { PaginatedResponse } from "lib/charts/types";
-import ClientWrapper from "./ClientWrapper";
 import { ConfigurationKey, fetchData } from "./configurations";
 
 /** The table component is tricky because of those two constraints:
@@ -29,10 +29,10 @@ export default async function DataTable<RI>(props: {
   )) as PaginatedResponse<RI>;
   return (
     <div>
-      <ClientWrapper
+      <DataTableClientWrapper
         configurationKey={props.configurationKey}
         pages_count={data.pages_count}
-      ></ClientWrapper>
+      ></DataTableClientWrapper>
     </div>
   );
 }
