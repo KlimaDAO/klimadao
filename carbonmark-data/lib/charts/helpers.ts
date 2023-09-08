@@ -159,7 +159,7 @@ function formatDate(
     return formatted_date.toLocaleDateString(locale, format);
   };
 }
-function formatTime(locale: string): (date: number) => string {
+function formatTime(): (date: number) => string {
   return function (date: number): string {
     const formatted_date = new Date(date);
     return formatted_date.toLocaleTimeString([], {
@@ -194,7 +194,7 @@ export function formatDateAsDaysShort(
 export function formatDateAndTime(locale: string): (date: number) => string {
   return function (date: number): string {
     const day = formatDateAsDays(locale)(date);
-    const time = formatTime(locale)(date);
+    const time = formatTime()(date);
     return `${day} ${time}`;
   };
 }
