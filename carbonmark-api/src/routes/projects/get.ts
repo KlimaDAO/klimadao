@@ -12,7 +12,7 @@ import {
 } from "../../utils/helpers/fetchAllPoolPrices";
 import { getDefaultQueryArgs } from "./projects.utils";
 
-import { FindCarbonOffsetsQuery } from "src/.generated/types/offsets.types";
+import { FindCarbonOffsetsQuery } from "../../.generated/types/offsets.types";
 import { CreditId } from "../../utils/CreditId";
 import {
   CarbonProject,
