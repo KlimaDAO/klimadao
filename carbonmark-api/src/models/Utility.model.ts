@@ -1,4 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
+import { Nullable } from "../routes/common.schema";
 
 export const GeoJSONPoint = Type.Object({
   type: Type.Literal("Feature"),
@@ -9,8 +10,8 @@ export const GeoJSONPoint = Type.Object({
 });
 
 export const Image = Type.Object({
-  caption: Type.Optional(Type.String()),
-  url: Type.Optional(Type.String()),
+  caption: Nullable(Type.String()),
+  url: Nullable(Type.String()),
 });
 
 export type GeoJSONPointT = Static<typeof GeoJSONPoint>;

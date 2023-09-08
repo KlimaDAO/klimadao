@@ -21,10 +21,17 @@ const schema = {
     required: ["wallet", "signature"],
   },
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        token: { type: "string" },
+    200: {
+      description: "Successful response",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              token: { type: "string" },
+            },
+          },
+        },
       },
     },
   },

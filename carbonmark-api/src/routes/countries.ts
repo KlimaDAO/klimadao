@@ -12,28 +12,34 @@ const schema = {
   description:
     "Retrieve an array containing the countries that carbon projects originate from",
   response: {
-    "2xx": {
+    200: {
       description: "Successful response",
-      type: "array",
-      items: {
-        type: "object",
-        properties: {
-          id: { type: "string" },
+      content: {
+        "application/json": {
+          schema: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                id: { type: "string" },
+              },
+            },
+          },
+          examples: [
+            [
+              {
+                id: "Brazil",
+              },
+              {
+                id: "Bulgaria",
+              },
+              {
+                id: "China",
+              },
+            ],
+          ],
         },
       },
-      examples: [
-        [
-          {
-            id: "Brazil",
-          },
-          {
-            id: "Bulgaria",
-          },
-          {
-            id: "China",
-          },
-        ],
-      ],
     },
   },
 };

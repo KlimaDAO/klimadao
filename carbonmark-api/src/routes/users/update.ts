@@ -15,22 +15,29 @@ const schema = {
     },
   },
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        handle: { type: "string" },
-        username: { type: "string" },
-        wallet: { type: "string" },
-        description: { type: "string" },
-        profileImgUrl: {
-          anyOf: [
-            {
-              type: "string",
+    200: {
+      description: "Successful response",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              handle: { type: "string" },
+              username: { type: "string" },
+              wallet: { type: "string" },
+              description: { type: "string" },
+              profileImgUrl: {
+                anyOf: [
+                  {
+                    type: "string",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+              },
             },
-            {
-              type: "null",
-            },
-          ],
+          },
         },
       },
     },

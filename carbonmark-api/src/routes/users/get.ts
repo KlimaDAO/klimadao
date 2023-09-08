@@ -65,28 +65,35 @@ const schema = {
     },
   },
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        handle: { type: "string" },
-        username: { type: "string" },
-        description: { type: "string" },
-        profileImgUrl: {
-          anyOf: [
-            {
-              type: "string",
+    200: {
+      description: "Successful response",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              handle: { type: "string" },
+              username: { type: "string" },
+              description: { type: "string" },
+              profileImgUrl: {
+                anyOf: [
+                  {
+                    type: "string",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+              },
+              updatedAt: { type: "number" },
+              createdAt: { type: "number" },
+              wallet: { type: "string" },
+              listings: { type: "array" },
+              activities: { type: "array" },
+              assets: { type: "array" },
             },
-            {
-              type: "null",
-            },
-          ],
+          },
         },
-        updatedAt: { type: "number" },
-        createdAt: { type: "number" },
-        wallet: { type: "string" },
-        listings: { type: "array" },
-        activities: { type: "array" },
-        assets: { type: "array" },
       },
     },
   },

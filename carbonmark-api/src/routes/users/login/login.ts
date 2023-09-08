@@ -14,10 +14,17 @@ const schema = {
     required: ["wallet"],
   },
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        nonce: { type: "string" },
+    200: {
+      description: "Successful response",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              nonce: { type: "string" },
+            },
+          },
+        },
       },
     },
   },

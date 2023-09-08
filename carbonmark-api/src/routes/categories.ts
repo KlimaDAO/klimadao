@@ -10,28 +10,29 @@ const schema = {
   description:
     "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
   response: {
-    "2xx": {
+    200: {
       description: "Successful response",
-      type: "array",
-      items: {
-        type: "object",
-        properties: {
-          id: { type: "string" },
+      content: {
+        "application/json": {
+          schema: {
+            type: "array",
+            items: Category,
+          },
+          examples: [
+            [
+              {
+                id: "Blue Carbon",
+              },
+              {
+                id: "Forestry",
+              },
+              {
+                id: "Other",
+              },
+            ],
+          ],
         },
       },
-      examples: [
-        [
-          {
-            id: "Blue Carbon",
-          },
-          {
-            id: "Forestry",
-          },
-          {
-            id: "Other",
-          },
-        ],
-      ],
     },
   },
 };

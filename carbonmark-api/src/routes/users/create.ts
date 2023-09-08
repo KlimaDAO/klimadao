@@ -22,21 +22,33 @@ const schema = {
     required: ["handle", "username", "wallet", "description"],
   },
   response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        handle: { type: "string" },
-        username: { type: "string" },
-        wallet: { type: "string" },
-        updatedAt: { type: "number" },
-        createdAt: { type: "number" },
+    200: {
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              handle: { type: "string" },
+              username: { type: "string" },
+              wallet: { type: "string" },
+              updatedAt: { type: "number" },
+              createdAt: { type: "number" },
+            },
+          },
+        },
       },
     },
-    "403": {
-      type: "object",
-      properties: {
-        error: { type: "string" },
-        code: { type: "number" },
+    403: {
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              error: { type: "string" },
+              code: { type: "number" },
+            },
+          },
+        },
       },
     },
   },
