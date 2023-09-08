@@ -1,11 +1,10 @@
 "use client";
+import Pagination from "components/charts/helpers/DataTable/Pagination";
+import Table from "components/charts/helpers/DataTable/Table";
 import { useState } from "react";
-import { ConfigurationKey } from "./configurations";
-import Pagination from "./Pagination";
+import { ConfigurationKey } from "../configurations";
 import styles from "./styles.module.scss";
-import Table from "./Table";
 
-/** A client component that handles table state */
 export default function ClientWrapper(props: {
   configurationKey: ConfigurationKey;
   pages_count: number;

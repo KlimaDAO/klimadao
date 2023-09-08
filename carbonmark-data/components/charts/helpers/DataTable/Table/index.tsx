@@ -8,8 +8,8 @@ import {
   fetchData,
   getCardRenderer,
   getColumns,
-} from "./configurations";
-import { CardRenderer, Columns } from "./configurations/types";
+} from "../configurations";
+import { CardRenderer, Columns } from "../configurations/types";
 import styles from "./styles.module.scss";
 
 /** An Client Component (wannabe Server Component) that renders a the actual Table

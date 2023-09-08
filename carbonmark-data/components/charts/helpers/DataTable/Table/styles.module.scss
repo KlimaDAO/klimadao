@@ -1,13 +1,4 @@
 @import "~@klimadao/lib/theme/breakpoints.scss";
-// Wrapper
-.wrapper {
-  width: fit-content;
-  @include medium {
-    width: 100%;
-  }
-}
-
-// Table layout
 .table {
   border-collapse: collapse;
   width: 100%;
@@ -50,31 +41,4 @@
   @include medium {
     display: none;
   }
-}
-
-// Pagination
-.pagination {
-  margin-top: 0.8rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1.6rem;
-  font-family: Poppins;
-  font-size: 1.2rem;
-}
-.paginationButtons {
-  display: flex;
-  gap: 0.8rem;
-  font-size: 1.2rem;
-}
-
-.paginationIcon {
-  display: flex;
-  width: 2.4rem;
-  height: 2.4rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.4rem;
-  background-color: var(--text-color-06);
-  color: white;
 }
