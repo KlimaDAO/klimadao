@@ -7,7 +7,9 @@ const locales = Object.keys(getLocales(IS_PRODUCTION));
 export default async function middleware(request: NextRequest) {
   // All API calls are handled by the /app/api/route.ts file
   if (request.nextUrl.pathname.startsWith("/api")) {
-    return NextResponse.rewrite(new URL("/api", request.url));
+    const newRequest = request.nextUrl.clone();
+    newRequest.pathname = "/api";
+    return NextResponse.rewrite(newRequest.toString());
   } else {
     // Initialize next-intl
     const response = createMiddleware({
