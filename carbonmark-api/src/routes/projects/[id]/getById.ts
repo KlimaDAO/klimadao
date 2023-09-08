@@ -1,13 +1,13 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
+import { DetailedProjectT } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
-import { GetProjectByIdResponse } from "../projects.types";
 import { toGeoJSON } from "../projects.utils";
-import { schema } from "./getById.models";
+import { schema } from "./getById.schema";
 
 interface Params {
   id: string;
@@ -54,7 +54,7 @@ const handler = (fastify: FastifyInstance) =>
       min
     )(poolPriceValues, listingPriceValues);
 
-    const projectResponse: GetProjectByIdResponse = {
+    const projectResponse: DetailedProjectT = {
       ...projectDetails,
       stats,
       listings,
@@ -64,7 +64,6 @@ const handler = (fastify: FastifyInstance) =>
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
       isPoolProject: !!poolPrices.length,
-      //@todo use sanity Image type
       images:
         projectDetails?.images?.map((image) => ({
           caption: image?.asset?.altText ?? "",
