@@ -35,7 +35,7 @@ export default function Pagination(props: {
         </div>
       )}
       <div className={styles.paginationCounter}>
-        {props.page} / {props.pages_count}
+        {props.page + 1} / {props.pages_count}
       </div>
 
       {props.page < props.pages_count - 1 && (
