@@ -43,6 +43,7 @@ export default function Pagination(props: {
           <div
             className={styles.paginationIcon}
             onClick={() => props.onPageChange(props.page + 1)}
+            role="button"
           >
             <KeyboardArrowRight></KeyboardArrowRight>
           </div>
