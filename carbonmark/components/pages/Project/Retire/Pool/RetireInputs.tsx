@@ -15,7 +15,6 @@ import {
   CarbonmarkPaymentMethod,
   TokenPrice as PriceType,
 } from "lib/types/carbonmark.types";
-import { isUndefined } from "lodash";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -90,7 +89,7 @@ const validations = (
 
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, isConnected } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
   const { register, handleSubmit, formState, control, clearErrors, setValue } =
     useFormContext<FormValues>();
 
@@ -180,9 +179,7 @@ export const RetireInputs: FC<Props> = (props) => {
               inputProps={{
                 placeholder: t`Tonnes`,
                 type: "number",
-                min: isUndefined(paymentMethod)
-                  ? 0
-                  : getValidations().quantity.min.value,
+                min: getValidations().quantity.min.value,
                 max: Number(props.price.supply),
                 ...register("quantity", {
                   onChange: (e) => {
@@ -198,9 +195,7 @@ export const RetireInputs: FC<Props> = (props) => {
                     value: true,
                     message: t`Quantity is required`,
                   },
-                  min: isUndefined(paymentMethod)
-                    ? 0
-                    : getValidations().quantity.min,
+                  min: getValidations().quantity.min,
                   max: {
                     value: Number(props.price.supply),
                     message: t`Available supply exceeded`,
@@ -280,7 +275,9 @@ export const RetireInputs: FC<Props> = (props) => {
         </div>
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
-            <Text>{t`Pay with:`}</Text>
+            <Text>
+              {t`Pay with:`} <span className={styles.required}>*</span>
+            </Text>
             {!!props.userBalance && !isFiat && (
               <Text t="body3">
                 {t`Balance: ${formatToPrice(props.userBalance, locale)}`}
@@ -302,13 +299,18 @@ export const RetireInputs: FC<Props> = (props) => {
                 <>
                   <button
                     type="button"
-                    disabled={value.disabled || !!isDisabled(item)}
+                    disabled={value.disabled}
                     aria-label="Payment Method"
                     onClick={() => {
-                      setValue(
-                        "paymentMethod",
-                        value.id as CarbonmarkPaymentMethod
-                      );
+                      if (!isConnected && !address) {
+                        toggleModal();
+                        setValue("paymentMethod", "usdc");
+                      } else {
+                        setValue(
+                          "paymentMethod",
+                          value.id as CarbonmarkPaymentMethod
+                        );
+                      }
                     }}
                     className={cx(styles.paymentMethod, {
                       error: exceededFiatBalance,
