@@ -1,6 +1,14 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+
+// Table layout
 .table {
   border-collapse: collapse;
   width: 100%;
+  display: none;
+
+  @include medium {
+    display: block;
+  }
 }
 
 .header {
@@ -25,6 +33,19 @@
   }
 }
 
+// Cards layout
+.cards {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  @include medium {
+    display: none;
+  }
+}
+
+// Pagination
 .pagination {
   margin-top: 0.8rem;
   display: flex;
@@ -39,6 +60,7 @@
   gap: 0.8rem;
   font-size: 1.2rem;
 }
+
 .paginationIcon {
   display: flex;
   width: 2.4rem;

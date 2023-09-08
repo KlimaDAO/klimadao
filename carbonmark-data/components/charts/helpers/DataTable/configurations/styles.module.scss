@@ -1,0 +1,34 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0 0.6rem 1.4rem;
+  gap: 0.8rem;
+  border-left: 2px solid var(--text-color-03);
+  font-size: 1.2rem;
+}
+
+.cardTitle {
+  color: var(-text-color-01);
+  font-weight: bold;
+}
+
+.facts {
+  display: flex;
+  justify-content: space-between;
+  color: var(-text-color-01);
+  opacity: 0.8;
+}
+
+.date {
+  font-style: italic;
+}
+
+.badge {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  background-color: var(--text-color-03);
+  width: fit-content;
+  color: var(--text-color-04);
+}
