@@ -21,6 +21,9 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
           supply
           id
           decimals
+          dailySnapshots {
+            lastUpdateTimestamp
+          }
         }
       }
       id
@@ -28,6 +31,63 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
       bridgeProtocol
       bridged
       retired
+    }
+  }
+}
+
+query findDigitalCarbonProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: Int
+) {
+  carbonProjects(
+    first: 1000
+    where: {
+      and: [
+        { category_in: $category }
+        { country_in: $country }
+        { carbonCredits_: { vintage: $vintage } }
+        {
+          or: [
+            { name_contains_nocase: $search }
+            { projectID_contains_nocase: $search }
+          ]
+        }
+      ]
+    }
+  ) {
+    id
+    name
+    projectID
+    methodologies
+    country
+    category
+    registry
+    region
+    carbonCredits {
+      vintage
+      currentSupply
+      id
+      crossChainSupply
+      bridgeProtocol
+      bridged
+      retired
+      poolBalances {
+        balance
+        id
+        deposited
+        redeemed
+        pool {
+          name
+          supply
+          id
+          decimals
+          dailySnapshots {
+            lastUpdateTimestamp
+          }
+        }
+      }
     }
   }
 }
