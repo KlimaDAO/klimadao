@@ -1,22 +1,19 @@
-import { PaginatedResponse } from "lib/charts/types";
-import klimaRetirementsTableConfiguration from "./klimaRetirementsTableConfiguration";
-import { Columns } from "./types";
+import KlimaRetirementsTableConfiguration from "./KlimaRetirementsTableConfiguration";
 
 const configurations = {
-  klimaRetirements: klimaRetirementsTableConfiguration,
+  klimaRetirements: new KlimaRetirementsTableConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
-export type Configuration<RI> = {
-  fetchFunction: (page: number) => Promise<PaginatedResponse<RI>>;
-  getColumns: (locale: string) => Columns<RI>;
-};
 
+/** Fetches data given a table configuration*/
 export function fetchData(key: ConfigurationKey, page: number) {
   return configurations[key].fetchFunction(page);
 }
+/** Returns the columns (layout) of a table configuration */
 export function getColumns(key: ConfigurationKey, locale: string) {
   return configurations[key].getColumns(locale);
 }
-export function getCardRenderer(key: ConfigurationKey, locale: string) {
+/** Returns a JSX.Element that can render data items as cards for a table configuraton */
+export function getCardRenderer(key: ConfigurationKey) {
   return configurations[key].cardRenderer;
 }

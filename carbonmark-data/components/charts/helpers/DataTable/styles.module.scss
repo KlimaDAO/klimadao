@@ -1,4 +1,8 @@
 @import "~@klimadao/lib/theme/breakpoints.scss";
+// Wrapper
+.wrapper {
+  width: fit-content;
+}
 
 // Table layout
 .table {

@@ -10,6 +10,7 @@ import { ConfigurationKey, fetchData } from "./configurations";
  * Because of 1 and 2 we have one server component fetching the number of pages
  * It calls a client component to handle pagination
  * The client component calls a server component to actualy render the page
+ * Right now this server component is hydrated client side. But we would like it to be built server side only even when changing pages
  *
  * Because of 3 and the fact that there is a client component layer before the actual rendering of the table server side
  * all tables configurations are indexed in a dictionnary and only the dictionnary key is passed down to the final server component

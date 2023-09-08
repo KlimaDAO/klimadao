@@ -26,14 +26,13 @@ export default function Table<RI>(props: {
   );
   useEffect(() => {
     fetchData(props.configurationKey, props.page).then((data) => {
-      /* FIXME: Unfortunately we have to hardcast these */
+      /* FIXME: Unfortunately we have to hardcast this */
       setData(data as PaginatedResponse<RI>);
     });
   }, [props.page]);
   const columns = getColumns(props.configurationKey, locale) as Columns<RI>;
   const cardRenderer = getCardRenderer(
-    props.configurationKey,
-    locale
+    props.configurationKey
   ) as CardRenderer<RI>;
 
   return (
@@ -51,13 +50,15 @@ function TableLayout<RI>(props: {
   data: PaginatedResponse<RI>;
   columns: Columns<RI>;
 }) {
+  const columnKeys = Object.keys(props.columns);
+  const columns = props.columns;
   return (
     <table className={styles.table}>
       <thead>
         <tr className={styles.header}>
-          {props.columns.map((column, index) => (
-            <th key={index} className={column.cellStyle}>
-              {column.header}
+          {columnKeys.map((key) => (
+            <th key={key} className={columns[key].cellStyle}>
+              {columns[key].header}
             </th>
           ))}
         </tr>
@@ -65,9 +66,9 @@ function TableLayout<RI>(props: {
       <tbody>
         {props.data.items.map((item, index) => (
           <tr key={index} className={styles.row}>
-            {props.columns.map((column, index) => (
-              <td key={index} className={column.cellStyle}>
-                {column.formatter(item[column.dataKey] as never)}
+            {columnKeys.map((key) => (
+              <td key={key} className={columns[key].cellStyle}>
+                {columns[key].formatter(item[columns[key].dataKey] as never)}
               </td>
             ))}
           </tr>
@@ -78,7 +79,7 @@ function TableLayout<RI>(props: {
 }
 
 /**
- * Displays data as a cards
+ * Displays data as cards
  */
 function CardsLayout<RI>(props: {
   data: PaginatedResponse<RI>;
@@ -86,7 +87,7 @@ function CardsLayout<RI>(props: {
 }) {
   return (
     <div className={styles.cards}>
-      {props.data.items.map((item, index) => props.cardRenderer({ item }))}
+      {props.data.items.map((item) => props.cardRenderer({ item }))}
     </div>
   );
 }
