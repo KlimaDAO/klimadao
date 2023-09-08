@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Tab } from "@mui/material";
 import ChartCard from "components/cards/ChartCard";
+import DetailPage from "components/pages/DetailPage";
 import { useState } from "react";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
@@ -47,14 +48,29 @@ export default function RetirementTrends() {
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Some card by pool" />
+                <ChartCard
+                  isColumnCard={true}
+                  title="KlimaDAO retirements by pool"
+                />
               </div>
               <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Another card by pool" />
+                <ChartCard
+                  isColumnCard={true}
+                  title="KlimaDAO retirements by pool"
+                />
+              </div>
+              <div className={layout.cardRow}>
+                <ChartCard
+                  isColumnCard={true}
+                  title="Detailed list of KlimaDAO retirements"
+                />
               </div>
             </div>
             <div className={layout.cardStackedRows}>
-              <ChartCard isColumnCard={true} title="Stacked card by pool" />
+              <ChartCard
+                isColumnCard={true}
+                title="Carbon pool redemptions / retirements"
+              />
             </div>
           </div>
         </TabPanel>
@@ -62,14 +78,20 @@ export default function RetirementTrends() {
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Some card by token" />
+                <ChartCard
+                  isColumnCard={true}
+                  title="KlimaDAO retirements by token"
+                />
               </div>
               <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Another card by token" />
+                <ChartCard
+                  isColumnCard={true}
+                  title="Detailed list of KlimaDAO retirements"
+                />
               </div>
             </div>
             <div className={layout.cardStackedRows}>
-              <ChartCard isColumnCard={true} title="Stacked card by token" />
+              <ChartCard isColumnCard={true} title="Carbon token retirements" />
             </div>
           </div>
         </TabPanel>
@@ -77,40 +99,37 @@ export default function RetirementTrends() {
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Some card by chain" />
-              </div>
-              <div className={layout.cardRow}>
-                <ChartCard isColumnCard={true} title="Another card by chain" />
-              </div>
-            </div>
-            <div className={layout.cardStackedRows}>
-              <ChartCard isColumnCard={true} title="Stacked card by chain" />
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel value="byBeneficiary">
-          <div className={layout.twoColumns}>
-            <div className={layout.cardStackedRows}>
-              <div className={layout.cardRow}>
-                <ChartCard
-                  isColumnCard={true}
-                  title="Some card by beneficiary"
-                />
+                <ChartCard isColumnCard={true} title="Retirements by chain" />
               </div>
               <div className={layout.cardRow}>
                 <ChartCard
                   isColumnCard={true}
-                  title="Another card by beneficiary"
+                  title="Detailed list of KlimaDAO retirements"
                 />
               </div>
             </div>
             <div className={layout.cardStackedRows}>
               <ChartCard
                 isColumnCard={true}
-                title="Stacked card by beneficiary"
+                title="Carbon pool redemptions / retirements"
               />
             </div>
           </div>
+        </TabPanel>
+        <TabPanel value="byBeneficiary">
+          <DetailPage
+            card={
+              <ChartCard
+                isColumnCard={true}
+                title="Carbon pool redemptions / retirements"
+              />
+            }
+            overview={t`Lorem Ipsum`}
+            insights={{
+              content: t`Lorem Ipsum`,
+              source: "ai",
+            }}
+          />
         </TabPanel>
       </TabContext>
     </>
