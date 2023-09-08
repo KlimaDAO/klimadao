@@ -19,7 +19,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { CarbonmarkProjectT, GeoJSONPointT } from "./get/get.models";
+import { CarbonmarkProjectT, GeoJSONPointT } from "./get.models";
 import { POOL_INFO } from "./projects.constants";
 
 /**

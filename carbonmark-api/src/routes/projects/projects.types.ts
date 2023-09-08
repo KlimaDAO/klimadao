@@ -3,7 +3,7 @@ import {
   ByIdProjectActivity,
   ByIdProjectListing,
 } from "../../graphql/marketplace.types";
-import { GeoJSONPointT } from "./get/get.models";
+import { GeoJSONPointT } from "./get.models";
 
 type WithHandle<T> = T & { handle?: string };
 

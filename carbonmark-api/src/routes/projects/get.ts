@@ -1,11 +1,13 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
-import { FindProjectsQueryVariables } from "../../../.generated/types/marketplace.types";
-import { CreditId } from "../../../utils/CreditId";
-import { gqlSdk } from "../../../utils/gqlSdk";
-import { fetchAllCarbonProjects } from "../../../utils/helpers/carbonProjects.utils";
-import { fetchAllPoolPrices } from "../../../utils/helpers/fetchAllPoolPrices";
+import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
+import { CreditId } from "../../utils/CreditId";
+import { gqlSdk } from "../../utils/gqlSdk";
+import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
+import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
+import { CarbonmarkProjectT } from "./get.models";
+import { schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -13,9 +15,7 @@ import {
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
-} from "../projects.utils";
-import { CarbonmarkProjectT } from "./get.models";
-import { schema } from "./get.schema";
+} from "./projects.utils";
 
 type Params = {
   country?: string;

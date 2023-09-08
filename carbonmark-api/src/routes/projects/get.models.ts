@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchemaRefs, Nullable } from "../../common.schema";
+import { CommonSchemaRefs, Nullable } from "../common.schema";
 
 /** DEPRECATED. This will be altered with v2 */
 export const ListingEntry = Type.Object(
