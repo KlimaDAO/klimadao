@@ -10,6 +10,6 @@ export default function VerraProjectLink(props: { projectId: string }) {
   return projectNumber ? (
     <Link href={VerraUrl}> {props.projectId}</Link>
   ) : (
-    <>{t`N/A`}</>
+    <div>{t`N/A`}</div>
   );
 }

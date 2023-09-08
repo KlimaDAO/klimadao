@@ -68,7 +68,11 @@
 .textRight {
   text-align: right;
 }
-
+.blockRight {
+  :first-child {
+    margin-left: auto;
+  }
+}
 .textCenter {
   text-align: center;
 }

@@ -2,6 +2,9 @@
 // Wrapper
 .wrapper {
   width: fit-content;
+  @include medium {
+    width: 100%;
+  }
 }
 
 // Table layout
@@ -11,7 +14,7 @@
   display: none;
 
   @include medium {
-    display: block;
+    display: table;
   }
 }
 

@@ -61,7 +61,7 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
       },
       transaction_id: {
         header: "",
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockRight,
         dataKey: "transaction_id",
         formatter: (transactionId: string) => (
           <PolyscanLink transactionId={transactionId}></PolyscanLink>

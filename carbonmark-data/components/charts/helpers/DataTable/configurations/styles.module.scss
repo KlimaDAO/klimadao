@@ -8,14 +8,14 @@
 }
 
 .cardTitle {
-  color: var(-text-color-01);
+  color: var(--text-color-01);
   font-weight: bold;
 }
 
 .facts {
   display: flex;
   justify-content: space-between;
-  color: var(-text-color-01);
+  color: var(--text-color-01);
   opacity: 0.8;
 }
 
