@@ -1,4 +1,4 @@
-import { formatUnits } from "ethers-v6";
+import { utils } from "ethers";
 import { assign } from "lodash";
 import { ByWalletUserActivity } from "src/graphql/marketplace.types";
 
@@ -10,7 +10,7 @@ export const formatActivity = (
   activity: ByWalletUserActivity
 ): ByWalletUserActivity => {
   const format = (value: string | undefined | null, decimals: number) =>
-    value ? formatUnits(value, decimals) : null;
+    value ? utils.formatUnits(value, decimals) : null;
   return assign(activity, {
     amount: format(activity.amount, 18),
     previousAmount: format(activity.previousAmount, 18),
