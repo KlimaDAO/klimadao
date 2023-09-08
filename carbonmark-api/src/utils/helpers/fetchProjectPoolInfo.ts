@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 import { get } from "lodash";
-import { addresses } from "../../../../lib/constants";
 import { POOL_INFO } from "../../routes/projects/projects.constants";
 import { gqlSdk } from "../gqlSdk";
 
@@ -82,10 +81,6 @@ type CarbonCredit = {
 
 type CarbonCredits = CarbonCredit[];
 
-type AddressRecord = {
-  [key: string]: string;
-};
-
 /**
  * Query the subgraph for a list of the C3Ts and TCO2s that exist for a given project-vintage combination.
  * @param {Params} params
@@ -134,15 +129,13 @@ export const fetchProjectPoolInfo = async (
   };
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
-      const mainnetAddresses: AddressRecord = addresses["mainnet"];
-      const poolId = mainnetAddresses[poolName];
-
+      const poolAddress = POOL_INFO[poolName].poolAddress;
       let totalSupply = 0;
       let matchingTokenInfo: PoolBalance | undefined;
 
       for (const token of tokens) {
         const potentialMatch = token.poolBalances.find(
-          (t) => t.pool.id.toLowerCase() === poolId.toLowerCase()
+          (t) => t.pool.id.toLowerCase() === poolAddress.toLowerCase()
         );
 
         if (potentialMatch) {
@@ -164,7 +157,7 @@ export const fetchProjectPoolInfo = async (
         [poolName]: {
           poolName,
           supply: totalSupply.toString(),
-          poolAddress: poolId,
+          poolAddress,
           isPoolDefault:
             matchingTokenInfo.pool.id.toLowerCase() ===
             POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
