@@ -1,26 +1,33 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import { Option } from "lib/charts/options";
-import { FC } from "react";
 import styles from "./styles.module.scss";
 
-export const MobileTabSelector: FC<{
+export interface TypedOption<T> {
+  label: string;
+  value: T;
+}
+
+export const MobileTabSelector = <T extends string>(props: {
   value: string;
-  options: Array<Option>;
-  onSelectionChanged: (tab: string) => void;
+  options: Array<TypedOption<T>>;
+  onSelectionChanged: (value: T) => void;
   className: string;
-}> = ({ value, options, onSelectionChanged, className }) => {
+}) => {
   const handleChange = (event: SelectChangeEvent) => {
-    onSelectionChanged(event.target.value as string);
+    props.onSelectionChanged(event.target.value as T);
   };
 
   return (
     <Select
-      className={`${styles.select} ${className}`}
-      value={value}
+      className={`${styles.select} ${props.className}`}
+      value={props.value}
       onChange={handleChange}
     >
-      {options.map((option) => {
-        return <MenuItem value={option.value}>{option.label}</MenuItem>;
+      {props.options.map((option) => {
+        return (
+          <MenuItem value={option.value} className={styles.menuItem}>
+            {option.label}
+          </MenuItem>
+        );
       })}
     </Select>
   );

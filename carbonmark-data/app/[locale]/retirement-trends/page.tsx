@@ -8,14 +8,40 @@ import { Tab } from "@mui/material";
 import ChartCard from "components/cards/ChartCard";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import DetailPage from "components/pages/DetailPage";
-import { useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
+
+const tabs = ["byPool", "byToken", "byChain", "byBeneficiary"] as const;
+type Tab = (typeof tabs)[number];
+
+function assertUnreachable(tab: never): never {
+  throw new Error("Unreachable code");
+}
+
+const TypedTabPanel: FC<{
+  tab: Tab;
+  children: ReactNode;
+  className: string;
+}> = ({ tab, children, className }) => {
+  switch (tab) {
+    case "byPool":
+    case "byToken":
+    case "byChain":
+    case "byBeneficiary":
+      return (
+        <TabPanel value={tab} className={className}>
+          {children}
+        </TabPanel>
+      );
+  }
+  return assertUnreachable(tab);
+};
 
 export default function RetirementTrends() {
   const [activeTab, setActiveTab] = useState("byPool");
 
-  const handleChange = (event: React.SyntheticEvent, newTab: string) => {
+  const handleChange = (_: React.SyntheticEvent, newTab: string) => {
     setActiveTab(newTab);
   };
 
@@ -23,14 +49,21 @@ export default function RetirementTrends() {
     <>
       <h1>{t`Retirement Trends`}</h1>
       <TabContext value={activeTab}>
-        <MobileTabSelector
+        <MobileTabSelector<Tab>
           value={activeTab}
-          options={[
-            { label: t`By Pool`, value: "byPool" },
-            { label: t`By Token`, value: "byToken" },
-            { label: t`By Chain`, value: "byChain" },
-            { label: t`By Beneficiary`, value: "byBeneficiary" },
-          ]}
+          options={tabs.map((tab) => {
+            switch (tab) {
+              case "byPool":
+                return { label: t`By Pool`, value: tab };
+              case "byToken":
+                return { label: t`By Token`, value: tab };
+              case "byChain":
+                return { label: t`By Chain`, value: tab };
+              case "byBeneficiary":
+                return { label: t`By Beneficiary`, value: tab };
+            }
+            return assertUnreachable(tab);
+          })}
           onSelectionChanged={(tab: string) => setActiveTab(tab)}
           className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
         />
@@ -60,7 +93,7 @@ export default function RetirementTrends() {
             value="byBeneficiary"
           ></Tab>
         </TabList>
-        <TabPanel value="byPool" className={styles.noPadding}>
+        <TypedTabPanel tab="byPool" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -89,8 +122,8 @@ export default function RetirementTrends() {
               />
             </div>
           </div>
-        </TabPanel>
-        <TabPanel value="byToken" className={styles.noPadding}>
+        </TypedTabPanel>
+        <TypedTabPanel tab="byToken" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -110,8 +143,8 @@ export default function RetirementTrends() {
               <ChartCard isColumnCard={true} title="Carbon token retirements" />
             </div>
           </div>
-        </TabPanel>
-        <TabPanel value="byChain" className={styles.noPadding}>
+        </TypedTabPanel>
+        <TypedTabPanel tab="byChain" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -131,8 +164,8 @@ export default function RetirementTrends() {
               />
             </div>
           </div>
-        </TabPanel>
-        <TabPanel value="byBeneficiary" className={styles.noPadding}>
+        </TypedTabPanel>
+        <TypedTabPanel tab="byBeneficiary" className={styles.noPadding}>
           <DetailPage
             card={
               <ChartCard
@@ -146,7 +179,7 @@ export default function RetirementTrends() {
               source: "ai",
             }}
           />
-        </TabPanel>
+        </TypedTabPanel>
       </TabContext>
     </>
   );
