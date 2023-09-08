@@ -1,5 +1,39 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+
 .tabButton {
   font-family: Poppins;
   font-weight: 700;
   font-size: 1.6rem;
+}
+
+.mobileTabSelector {
+  font-size: 1.6rem;
+  background-color: var(--surface-04);
+  margin-bottom: 1.6rem;
+
+  fieldset {
+    border: 0;
+  }
+}
+
+.mobileOnly {
+  @include large {
+    display: none;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include large {
+    display: unset;
+  }
+}
+
+.noPadding {
+  padding: 0;
+
+  @include large {
+    padding: 2.4rem;
+  }
 }

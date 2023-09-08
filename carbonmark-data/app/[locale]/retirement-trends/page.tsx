@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Tab } from "@mui/material";
 import ChartCard from "components/cards/ChartCard";
+import { MobileTabSelector } from "components/MobileTabSelector";
 import DetailPage from "components/pages/DetailPage";
 import { useState } from "react";
 import layout from "theme/layout.module.scss";
@@ -22,7 +23,22 @@ export default function RetirementTrends() {
     <>
       <h1>{t`Retirement Trends`}</h1>
       <TabContext value={activeTab}>
-        <TabList value={activeTab} onChange={handleChange}>
+        <MobileTabSelector
+          value={activeTab}
+          options={[
+            { label: t`By Pool`, value: "byPool" },
+            { label: t`By Token`, value: "byToken" },
+            { label: t`By Chain`, value: "byChain" },
+            { label: t`By Beneficiary`, value: "byBeneficiary" },
+          ]}
+          onSelectionChanged={(tab: string) => setActiveTab(tab)}
+          className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
+        />
+        <TabList
+          value={activeTab}
+          onChange={handleChange}
+          className={styles.desktopOnly}
+        >
           <Tab
             className={styles.tabButton}
             label={t`By Pool`}
@@ -44,7 +60,7 @@ export default function RetirementTrends() {
             value="byBeneficiary"
           ></Tab>
         </TabList>
-        <TabPanel value="byPool">
+        <TabPanel value="byPool" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -74,7 +90,7 @@ export default function RetirementTrends() {
             </div>
           </div>
         </TabPanel>
-        <TabPanel value="byToken">
+        <TabPanel value="byToken" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -95,7 +111,7 @@ export default function RetirementTrends() {
             </div>
           </div>
         </TabPanel>
-        <TabPanel value="byChain">
+        <TabPanel value="byChain" className={styles.noPadding}>
           <div className={layout.twoColumns}>
             <div className={layout.cardStackedRows}>
               <div className={layout.cardRow}>
@@ -116,7 +132,7 @@ export default function RetirementTrends() {
             </div>
           </div>
         </TabPanel>
-        <TabPanel value="byBeneficiary">
+        <TabPanel value="byBeneficiary" className={styles.noPadding}>
           <DetailPage
             card={
               <ChartCard
