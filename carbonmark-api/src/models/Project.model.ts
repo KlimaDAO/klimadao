@@ -1,8 +1,7 @@
 import { Static, Type } from "@sinclair/typebox";
-import { Nullable } from "../routes/common.schema";
 import { Listing } from "./Listing.model";
 import { Methodology } from "./Methodology.model";
-import { GeoJSONPoint } from "./Utility.model";
+import { GeoJSONPoint, Nullable } from "./Utility.model";
 
 export const Project = Type.Object({
   description: Nullable(Type.String()),

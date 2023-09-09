@@ -1,6 +1,6 @@
 import { FastifyInstance, RouteHandlerMethod, RouteOptions } from "fastify";
 import { pick } from "lodash";
-import { version as VERSION } from "../../package.json";
+import { version as VERSION } from "../../../package.json";
 
 /** Selected ENVs to display */
 const DEBUG_KEYS = [

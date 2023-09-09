@@ -1,9 +1,8 @@
 import { Static, Type } from "@sinclair/typebox";
-import { Nullable } from "../routes/common.schema";
 import { Activity } from "./Activity.model";
 import { Listing } from "./Listing.model";
 import { Methodology } from "./Methodology.model";
-import { GeoJSONPoint, Image } from "./Utility.model";
+import { GeoJSONPoint, Image, Nullable } from "./Utility.model";
 
 const Price = Type.Object({
   poolName: Type.String(),

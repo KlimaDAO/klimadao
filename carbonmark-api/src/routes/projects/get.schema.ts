@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { NetworkParam } from "src/models/NetworkParam.model";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { Project } from "../../models/Project.model";
 
 const querystring = Type.Object({

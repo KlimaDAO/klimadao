@@ -1,6 +1,6 @@
 import { Type } from "@sinclair/typebox";
-import { Activity } from "src/models/Activity.model";
-import { Listing } from "src/models/Listing.model";
+import { Activity } from "../../models/Activity.model";
+import { Listing } from "../../models/Listing.model";
 
 export const User = Type.Object({
   handle: Type.String(),

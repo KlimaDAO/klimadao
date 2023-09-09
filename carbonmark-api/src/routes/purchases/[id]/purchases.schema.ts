@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { NetworkParam } from "src/models/NetworkParam.model";
+import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
 
 const Params = Type.Object(
@@ -38,4 +38,4 @@ export const schema = {
   },
 };
 
-export type PurchaseParams = Static<typeof Params>;
+export type ParamsT = Static<typeof Params>;

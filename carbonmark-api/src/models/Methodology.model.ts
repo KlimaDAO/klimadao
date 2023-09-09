@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { Nullable } from "../routes/common.schema";
+import { Nullable } from "./Utility.model";
 
 export const Methodology = Type.Object({
   id: Nullable(Type.String()),

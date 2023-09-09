@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { Vintage } from "src/models/Vintage.model";
+import { Vintage } from "../../models/Vintage.model";
 
 export const schema = {
   summary: "Vintages",

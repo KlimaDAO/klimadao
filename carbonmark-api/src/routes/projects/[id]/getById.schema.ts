@@ -1,6 +1,6 @@
 import { Type } from "@sinclair/typebox";
-import { CreditId } from "src/utils/CreditId";
 import { DetailedProject } from "../../../models/DetailedProject.model";
+import { CreditId } from "../../../utils/CreditId";
 
 export const Params = Type.Object({
   id: Type.RegEx(CreditId.ValidCreditIdRegex, {

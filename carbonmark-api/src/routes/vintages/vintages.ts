@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { VintageT } from "src/models/Vintage.model";
+import { VintageT } from "../../models/Vintage.model";
 import { getAllVintages } from "../../utils/helpers/utils";
 import { schema } from "./vintages.schema";
 

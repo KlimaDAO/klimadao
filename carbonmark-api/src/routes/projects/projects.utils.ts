@@ -1,12 +1,12 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
-import { ProjectT } from "src/models/Project.model";
-import { GeoJSONPointT } from "src/models/Utility.model";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
+import { ProjectT } from "../../models/Project.model";
+import { GeoJSONPointT } from "../../models/Utility.model";
 import {
   CreditId,
   CreditIdentifier,
