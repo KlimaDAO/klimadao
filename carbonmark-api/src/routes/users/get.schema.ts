@@ -1,12 +1,13 @@
 import { Type } from "@sinclair/typebox";
 import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
+import { Nullable } from "../../models/Utility.model";
 
 export const User = Type.Object({
   handle: Type.String(),
   username: Type.String(),
   description: Type.String(),
-  profileImgUrl: Type.Union([Type.String(), Type.Null()]),
+  profileImgUrl: Nullable(Type.String()),
   updatedAt: Type.Number(),
   createdAt: Type.Number(),
   wallet: Type.String(),
@@ -27,11 +28,13 @@ export const Params = Type.Object(
 );
 
 export const QueryString = Type.Object({
-  type: Type.String({
-    description:
-      "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
-    examples: ["wallet"],
-  }),
+  type: Type.Optional(
+    Type.String({
+      description:
+        "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
+      examples: ["wallet"],
+    })
+  ),
 });
 
 export const schema = {
