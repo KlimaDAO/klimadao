@@ -1,0 +1,41 @@
+import { Static, Type } from "@sinclair/typebox";
+import { Purchase } from "../../../models/Purchase.model";
+import { CommonSchemaRefs } from "../../common.schema";
+
+const Params = Type.Object(
+  {
+    id: Type.String({
+      description: "ID (transaction hash) of the purchase to retrieve",
+      examples: [
+        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+      ],
+    }),
+  },
+  {
+    required: ["id"],
+  }
+);
+
+const Querystring = Type.Object({
+  network: Type.Optional(CommonSchemaRefs.querystring.network),
+});
+
+export const schema = {
+  summary: "Purchase details",
+  description:
+    "Retrieve the details of a purchase by its ID (transaction hash)",
+  querystring: Querystring,
+  params: Params,
+  response: {
+    200: {
+      description: "Successful response with listing details",
+      content: {
+        "application/json": {
+          schema: Purchase,
+        },
+      },
+    },
+  },
+};
+
+export type PurchaseParams = Static<typeof Params>;

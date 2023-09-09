@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { isNil } from "lodash";
 import { GetPurchasesByIdQuery } from "src/.generated/types/marketplace.types";
-import { gqlSdk } from "../utils/gqlSdk";
+import { gqlSdk } from "../../../utils/gqlSdk";
 import { PurchaseParams, PurchaseResponse, schema } from "./purchases.schema";
 
 const routeHandler = (fastify: FastifyInstance) =>

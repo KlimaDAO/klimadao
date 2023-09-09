@@ -1,3 +1,4 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
@@ -7,20 +8,15 @@ import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils"
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../projects.utils";
-import { schema } from "./getById.schema";
-
-interface Params {
-  id: string;
-}
+import { Params, schema } from "./getById.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Params: Params }>,
+    request: FastifyRequest<{ Params: Static<typeof Params> }>,
     reply: FastifyReply
   ) {
     const { id } = request.params;
-    if (!CreditId.isValidCreditId(id)) return reply.notFound();
     const {
       vintage,
       standard: registry,

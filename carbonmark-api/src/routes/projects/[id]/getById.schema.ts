@@ -1,20 +1,19 @@
+import { Type } from "@sinclair/typebox";
+import { CreditId } from "src/utils/CreditId";
 import { DetailedProject } from "../../../models/DetailedProject.model";
+
+export const Params = Type.Object({
+  id: Type.RegEx(CreditId.ValidCreditIdRegex, {
+    description: "Project id & vintage",
+    examples: ["VCS-191-2008"],
+  }),
+});
 
 export const schema = {
   summary: "Project details",
   description: "Retrieve a carbon project by its project ID",
   tags: ["Projects"],
-  params: {
-    type: "object",
-    required: ["id"],
-    properties: {
-      id: {
-        type: "string",
-        description: "Project id & vintage",
-        examples: ["VCS-191-2008"],
-      },
-    },
-  },
+  params: Params,
   response: {
     200: {
       description: "Project with id",

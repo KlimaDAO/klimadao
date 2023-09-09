@@ -1,62 +1,10 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-
-type Body = {
-  handle: string;
-  wallet: string;
-  username: string;
-  description: string;
-  profileImgUrl: string;
-};
-
-const schema = {
-  summary: "Create user profile",
-  tags: ["Users"],
-  body: {
-    type: "object",
-    properties: {
-      handle: { type: "string", minLength: 3 },
-      username: { type: "string", minLength: 2 },
-      description: { type: "string", maxLength: 500 },
-      wallet: { type: "string", minLength: 26, maxLength: 64 },
-    },
-    required: ["handle", "username", "wallet", "description"],
-  },
-  response: {
-    200: {
-      content: {
-        "application/json": {
-          schema: {
-            type: "object",
-            properties: {
-              handle: { type: "string" },
-              username: { type: "string" },
-              wallet: { type: "string" },
-              updatedAt: { type: "number" },
-              createdAt: { type: "number" },
-            },
-          },
-        },
-      },
-    },
-    403: {
-      content: {
-        "application/json": {
-          schema: {
-            type: "object",
-            properties: {
-              error: { type: "string" },
-              code: { type: "number" },
-            },
-          },
-        },
-      },
-    },
-  },
-};
+import { RequestBody, schema } from "./create.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Body: Body }>,
+    request: FastifyRequest<{ Body: Static<typeof RequestBody> }>,
     reply: FastifyReply
   ) {
     // Destructure the wallet, username, handle, and description properties from the request body
@@ -120,10 +68,10 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route<{ Body: Body }>({
+  await fastify.route({
     method: "POST",
     url: "/users",
     onRequest: [fastify.authenticate],
-    schema,
     handler: handler(fastify),
+    schema,
   });
