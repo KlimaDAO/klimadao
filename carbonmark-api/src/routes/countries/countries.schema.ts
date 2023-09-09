@@ -1,5 +1,4 @@
 import { Type } from "@sinclair/typebox";
-import { Country } from "../../models/Country.model";
 
 export const schema = {
   summary: "Countries",
@@ -10,13 +9,11 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: {
-            type: "array",
-            items: {
-              type: "object",
-              properties: Type.Array(Country),
-            },
-          },
+          schema: Type.Array(
+            Type.Object({
+              id: Type.String(),
+            })
+          ),
           examples: [
             [
               {

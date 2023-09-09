@@ -14,8 +14,7 @@ import {
   getUserDocumentByWallet,
   getUserDocumentsByIds,
 } from "../../utils/helpers/users.utils";
-import { schema } from "./create.schema";
-import { Params, QueryString, User } from "./get.schema";
+import { Params, QueryString, User, schema } from "./get.schema";
 
 /** Fetch the user object from firestore and the marketplace subgraph */
 const handler = (fastify: FastifyInstance) =>
