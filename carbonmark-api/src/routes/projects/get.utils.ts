@@ -21,7 +21,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
-import { POOL_INFO } from "./projects.constants";
+import { POOL_INFO } from "./get.constants";
 
 /**
  * Build a default FindProjectsQueryVariables object for searching

@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { RequestBody, schema } from "./create.schema";
+import { RequestBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (

@@ -7,7 +7,7 @@ import { CreditId } from "../../../utils/CreditId";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
-import { toGeoJSON } from "../projects.utils";
+import { toGeoJSON } from "../get.utils";
 import { Params, schema } from "./getById.schema";
 
 // Handler function for the "/projects/:id" route
