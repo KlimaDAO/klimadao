@@ -5,8 +5,8 @@ import { assign, chunk } from "lodash";
 import {
   ActivityWithUserHandles,
   ListingWithUserHandles,
-} from "../../routes/projects/projects.types";
-import { isActiveListing } from "../../routes/projects/projects.utils";
+} from "../../routes/projects/get.types";
+import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
 
 type Params = {

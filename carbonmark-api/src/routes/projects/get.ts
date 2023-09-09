@@ -15,7 +15,7 @@ import {
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
-} from "./projects.utils";
+} from "./get.utils";
 
 type Params = {
   country?: string;

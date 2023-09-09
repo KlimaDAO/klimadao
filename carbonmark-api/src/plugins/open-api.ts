@@ -1,15 +1,15 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
-import { Activity } from "src/models/Activity.model";
-import { Category } from "src/models/Category.model";
-import { Country } from "src/models/Country.model";
-import { DetailedProject } from "src/models/DetailedProject.model";
-import { Listing } from "src/models/Listing.model";
-import { Methodology } from "src/models/Methodology.model";
-import { NetworkParam } from "src/models/NetworkParam.model";
-import { Project } from "src/models/Project.model";
-import { Purchase } from "src/models/Purchase.model";
 import packageJson from "../../package.json";
+import { Activity } from "../models/Activity.model";
+import { Category } from "../models/Category.model";
+import { Country } from "../models/Country.model";
+import { DetailedProject } from "../models/DetailedProject.model";
+import { Listing } from "../models/Listing.model";
+import { Methodology } from "../models/Methodology.model";
+import { NetworkParam } from "../models/NetworkParam.model";
+import { Project } from "../models/Project.model";
+import { Purchase } from "../models/Purchase.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
