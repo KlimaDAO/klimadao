@@ -12,7 +12,7 @@ Welcome to the API Reference docs for **version ${packageJson.version}** of the 
 ⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.
 
 ~~~ts
-const res = await fetch("https://v1.api.carbonmark.com/api/projects");
+const res = await fetch("https://v1.api.carbonmark.com/projects");
 const projects = await res.json();
 ~~~
 
