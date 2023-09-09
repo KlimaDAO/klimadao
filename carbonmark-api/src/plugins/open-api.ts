@@ -10,6 +10,7 @@ import { Methodology } from "../models/Methodology.model";
 import { NetworkParam } from "../models/NetworkParam.model";
 import { Project } from "../models/Project.model";
 import { Purchase } from "../models/Purchase.model";
+import { User } from "../models/User.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
@@ -51,6 +52,7 @@ For a developer guides and example implementations, or to learn more about Carbo
       Methodology,
       NetworkParam,
       Purchase,
+      User,
     },
   },
   externalDocs: {

@@ -1,21 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { Activity } from "../../models/Activity.model";
-import { Listing } from "../../models/Listing.model";
-import { Nullable } from "../../models/Utility.model";
-
-export const User = Type.Object({
-  handle: Type.String(),
-  username: Type.String(),
-  description: Type.String(),
-  profileImgUrl: Nullable(Type.String()),
-  updatedAt: Type.Number(),
-  createdAt: Type.Number(),
-  wallet: Type.String(),
-  listings: Type.Array(Listing),
-  activities: Type.Array(Activity),
-  //@todo replace unknown with Holding model type
-  assets: Type.Array(Type.Unknown()),
-});
+import { User } from "../../models/User.model";
 
 export const Params = Type.Object(
   {
