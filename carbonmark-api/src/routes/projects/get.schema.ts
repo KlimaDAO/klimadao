@@ -1,9 +1,9 @@
 import { Type } from "@sinclair/typebox";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { Project } from "../../models/Project.model";
-import { CommonSchemaRefs } from "../common.schema";
 
 const querystring = Type.Object({
-  network: Type.Optional(CommonSchemaRefs.querystring.network),
+  network: Type.Optional(NetworkParam),
   country: Type.Optional(
     Type.String({
       description: "Desired country of origin for carbon projects",

@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
-import { CommonSchemaRefs } from "../../common.schema";
 
 const Params = Type.Object(
   {
@@ -17,7 +17,7 @@ const Params = Type.Object(
 );
 
 const Querystring = Type.Object({
-  network: Type.Optional(CommonSchemaRefs.querystring.network),
+  network: Type.Optional(NetworkParam),
 });
 
 export const schema = {
