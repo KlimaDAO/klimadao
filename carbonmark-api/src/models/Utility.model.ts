@@ -1,5 +1,4 @@
-import { Static, Type } from "@sinclair/typebox";
-import { Nullable } from "../routes/common.schema";
+import { SchemaOptions, Static, TSchema, Type } from "@sinclair/typebox";
 
 export const GeoJSONPoint = Type.Object({
   type: Type.Literal("Feature"),
@@ -8,6 +7,9 @@ export const GeoJSONPoint = Type.Object({
     coordinates: Type.Array(Type.Number(), { minItems: 2, maxItems: 2 }),
   }),
 });
+
+export const Nullable = <T extends TSchema>(schema: T, opts?: SchemaOptions) =>
+  Type.Union([schema, Type.Null(), Type.Undefined()], opts);
 
 export const Image = Type.Object({
   caption: Nullable(Type.String()),

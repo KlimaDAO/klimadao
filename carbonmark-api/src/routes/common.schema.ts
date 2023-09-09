@@ -1,7 +1,4 @@
-import { SchemaOptions, TSchema, Type } from "@sinclair/typebox";
-
-const Nullable = <T extends TSchema>(schema: T, opts?: SchemaOptions) =>
-  Type.Union([schema, Type.Null(), Type.Undefined()], opts);
+import { Type } from "@sinclair/typebox";
 
 /** Adhere to JSONSchema spec by using a URI */
 const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
@@ -21,9 +18,7 @@ const commonSchema = Type.Object(
   {
     network,
   },
-  {
-    $id: COMMON_SCHEMA_URI,
-  }
+  { $id: COMMON_SCHEMA_URI }
 );
 
 /**
@@ -36,4 +31,4 @@ const CommonSchemaRefs = {
   querystring: { network: Type.Ref(network) },
 } as const;
 
-export { CommonSchemaRefs, Nullable, commonSchema };
+export { CommonSchemaRefs, commonSchema };
