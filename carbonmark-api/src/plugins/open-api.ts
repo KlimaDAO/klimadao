@@ -1,6 +1,7 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
 import packageJson from "../../package.json";
+import { Project } from "../models/Project.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
@@ -31,6 +32,11 @@ For a developer guides and example implementations, or to learn more about Carbo
     /** The API version */
     version: packageJson.version,
   },
+  components: {
+    schemas: {
+      Project,
+    },
+  },
   externalDocs: {
     url: "https://docs.carbonmark.com/",
     description:
@@ -39,5 +45,7 @@ For a developer guides and example implementations, or to learn more about Carbo
 };
 
 export default fp(async function (fastify) {
-  await fastify.register(swagger, { openapi: OPEN_API_OPTIONS });
+  await fastify.register(swagger, {
+    openapi: OPEN_API_OPTIONS,
+  });
 });

@@ -1,53 +1,10 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-
-const schema = {
-  summary: "Update user profile",
-  tags: ["Users"],
-  body: {
-    type: "object",
-    properties: {
-      //@todo update to hash length
-      wallet: { type: "string", minLength: 3 },
-      handle: { type: "string", minLength: 3 },
-      username: { type: "string", minLength: 2 },
-      description: { type: "string", minLength: 2, maxLength: 500 },
-      profileImgUrl: { type: "string", nullable: true },
-    },
-  },
-  response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        handle: { type: "string" },
-        username: { type: "string" },
-        wallet: { type: "string" },
-        description: { type: "string" },
-        profileImgUrl: {
-          anyOf: [
-            {
-              type: "string",
-            },
-            {
-              type: "null",
-            },
-          ],
-        },
-      },
-    },
-  },
-};
-
-type Body = {
-  handle: string;
-  wallet: string;
-  username: string;
-  description: string;
-  profileImgUrl: string;
-};
+import { RequestBody, schema } from "./update.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Body: Body }>,
+    request: FastifyRequest<{ Body: Static<typeof RequestBody> }>,
     reply: FastifyReply
   ) {
     // Destructure the wallet, username, and description properties from the request body
@@ -70,6 +27,7 @@ const handler = (fastify: FastifyInstance) =>
         .collection("users")
         .doc(wallet.toUpperCase())
         .update(updatedData);
+
       // If the update is successful, return the request body
       return reply.send(request.body);
     } catch (err) {
@@ -82,10 +40,10 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route<{ Body: Body }>({
+  await fastify.route({
     method: "PUT",
     url: "/users/:wallet",
     onRequest: [fastify.authenticate],
-    schema,
     handler: handler(fastify),
+    schema,
   });

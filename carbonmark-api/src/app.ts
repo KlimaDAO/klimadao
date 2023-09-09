@@ -2,7 +2,7 @@ import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
 import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
 import path, { join } from "path";
-import { commonSchema } from "./routes/common.schema";
+import { CommonSchema } from "./models/CommonSchema.model";
 
 // Only pull env vars from .env if running in locally
 if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
@@ -20,7 +20,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
-  fastify.addSchema(commonSchema);
+  fastify.addSchema(CommonSchema);
   // This loads all plugins defined in src/plugins
   // those should be support plugins that are reused
   // through your application
