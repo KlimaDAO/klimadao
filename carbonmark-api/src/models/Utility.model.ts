@@ -8,8 +8,8 @@ export const GeoJSONPoint = Type.Object({
   }),
 });
 
-export const Nullable = <T extends TSchema>(schema: T, opts?: SchemaOptions) =>
-  Type.Union([schema, Type.Null(), Type.Undefined()], opts);
+export const Nullable = <T extends TSchema>(type: T, opts?: SchemaOptions) =>
+  Type.Optional(Type.Union([type, Type.Null()], opts));
 
 export const Image = Type.Object({
   caption: Nullable(Type.String()),
