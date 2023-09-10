@@ -6,6 +6,7 @@ import {
   ByWalletUserActivity,
   ByWalletUserListing,
 } from "../../graphql/marketplace.types";
+import { User, UserT } from "../../models/User.model";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
@@ -14,7 +15,7 @@ import {
   getUserDocumentByWallet,
   getUserDocumentsByIds,
 } from "../../utils/helpers/users.utils";
-import { Params, QueryString, User, schema } from "./get.schema";
+import { Params, QueryString, schema } from "./get.schema";
 
 /** Fetch the user object from firestore and the marketplace subgraph */
 const handler = (fastify: FastifyInstance) =>
@@ -24,7 +25,7 @@ const handler = (fastify: FastifyInstance) =>
       Querystring: Static<typeof QueryString>;
     }>,
     reply: FastifyReply
-  ): Promise<Static<typeof User> | void> {
+  ): Promise<UserT | void> {
     const { walletOrHandle } = request.params;
     const { type } = request.query;
 
