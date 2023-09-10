@@ -4,12 +4,14 @@ import {
   GRAPH_URLS,
   SANITY_URLS,
 } from "../../../src/graphql/codegen.constants";
+import { buildCarbonmarkProjects } from "../../../src/routes/projects/projects.utils";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 import { GQLMockDefinition, mockGqlRequest } from "../../utils";
 import { ERROR } from "../routes.mock";
 import {
   MOCKS,
+  mockCarbonProject,
   mockMarketplaceProject,
   mockOffsetProject,
 } from "./projects.mocks";
@@ -29,7 +31,15 @@ describe("GET /projects", () => {
   });
 
   /** The happy path */
-  test("Success", async () => {
+  test.only("Success", async () => {
+    nock(GRAPH_URLS.offsets)
+      .post("")
+      .reply(200, { data: { carbonOffsets: [mockOffsetProject] } });
+    nock(GRAPH_URLS.marketplace)
+      .post("")
+      .reply(200, {
+        data: { projects: [mockMarketplaceProject] },
+      });
     mockGqlRequest([
       GRAPH_URLS.marketplace,
       "findProjects",
@@ -45,7 +55,14 @@ describe("GET /projects", () => {
 
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(data).toMatchObject([mockMarketplaceProject]);
+    const expectedResponse = buildCarbonmarkProjects(
+      [mockCarbonProject],
+      [],
+      [mockMarketplaceProject],
+      {}
+    );
+
+    expect(data).toMatchObject(expectedResponse);
   });
 
   /** An issue with one of the graph APIs */

@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { mapValues, omit, sortBy } from "lodash";
+import { mapValues, omit } from "lodash";
 import { split } from "lodash/fp";
 import {
   FindProjectsQuery,
@@ -10,22 +10,14 @@ import {
   PoolPrice,
   fetchAllPoolPrices,
 } from "../../utils/helpers/fetchAllPoolPrices";
-import { getDefaultQueryArgs } from "./projects.utils";
+import { buildCarbonmarkProjects, getDefaultQueryArgs } from "./projects.utils";
 
 import { FindCarbonOffsetsQuery } from "../../.generated/types/offsets.types";
-import { CreditId } from "../../utils/CreditId";
 import {
   CarbonProject,
   fetchAllCarbonProjects,
 } from "../../utils/helpers/carbonProjects.utils";
 import { ProjectEntry, schema } from "./get.schema";
-import {
-  CMSDataMap,
-  ProjectDataMap,
-  composeProjectEntries,
-  isValidMarketplaceProject,
-  isValidPoolProject,
-} from "./projects.utils";
 
 type Params = {
   country?: string;
@@ -60,7 +52,6 @@ const handler = (fastify: FastifyInstance) =>
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
     const defaultArgs = await getDefaultQueryArgs(fastify);
-
     //Build our query overriding default values
     const query: FindProjectsQueryVariables = {
       ...defaultArgs,
@@ -81,69 +72,18 @@ const handler = (fastify: FastifyInstance) =>
       return reply.status(502).send(error?.message);
     }
 
-    const CMSDataMap: CMSDataMap = new Map();
-    const ProjectDataMap: ProjectDataMap = new Map();
-
-    cmsProjects.forEach((project) => {
-      if (!CreditId.isValidProjectId(project.id)) return;
-      const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
-      CMSDataMap.set(`${standard}-${registryProjectId}`, project);
-    });
-
-    /** Assign valid pool projects to map */
-    poolProjectsData.carbonOffsets.forEach((project) => {
-      if (
-        !isValidPoolProject(project) ||
-        !CreditId.isValidProjectId(project.projectID)
-      ) {
-        return;
-      }
-      const [standard, registryProjectId] = project.projectID.split("-");
-      const { creditId: key } = new CreditId({
-        standard,
-        registryProjectId,
-        vintage: project.vintageYear,
-      });
-      ProjectDataMap.set(key, { poolProjectData: project, key });
-    });
-
-    /** Assign valid marketplace projects to map */
-    marketplaceProjectsData.projects.forEach((project) => {
-      if (
-        !isValidMarketplaceProject(project) ||
-        !CreditId.isValidProjectId(project.key)
-      ) {
-        return;
-      }
-
-      const [standard, registryProjectId] = project.key.split("-");
-      const { creditId: key } = new CreditId({
-        standard,
-        registryProjectId,
-        vintage: project.vintage,
-      });
-      const existingData = ProjectDataMap.get(key);
-      ProjectDataMap.set(key, {
-        ...existingData,
-        key,
-        marketplaceProjectData: project,
-      });
-    });
-
-    /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(
-      ProjectDataMap,
-      CMSDataMap,
+    const projects = buildCarbonmarkProjects(
+      cmsProjects,
+      poolProjectsData.carbonOffsets,
+      marketplaceProjectsData.projects,
       poolPrices
     );
-
-    const sortedEntries = sortBy(entries, (e) => Number(e.price));
 
     // Send the transformed projects array as a JSON string in the response
     return reply
       .status(200)
       .header("Content-Type", "application/json; charset=utf-8")
-      .send(sortedEntries);
+      .send(projects);
   };
 
 export default async (fastify: FastifyInstance) => {

@@ -1,3 +1,4 @@
+import type { CodegenConfig } from "@graphql-codegen/cli";
 import { merge, random } from "lodash";
 import { GRAPH_URLS, SANITY_URLS } from "./codegen.constants";
 
@@ -50,6 +51,11 @@ const generates = Object.entries(schemas).reduce(
                   generator: () => String(random(0, 100)),
                 },
               },
+              Project: {
+                key: {
+                  generator: () => "VCS-191",
+                },
+              },
             },
           },
         },
@@ -59,7 +65,7 @@ const generates = Object.entries(schemas).reduce(
   {}
 );
 
-const config = {
+const config: CodegenConfig = {
   overwrite: true,
   generates,
   config: {

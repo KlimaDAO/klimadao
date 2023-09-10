@@ -5,6 +5,7 @@ import {
 } from "../../graphql/marketplace.types";
 
 type WithHandle<T> = T & { handle?: string };
+export type Slug = string;
 
 /** Final project.listings response can include seller handle from firebase */
 export type ListingWithUserHandles = Omit<ByIdProjectListing, "seller"> & {

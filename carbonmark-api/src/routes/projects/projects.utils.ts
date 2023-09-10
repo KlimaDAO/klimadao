@@ -2,7 +2,11 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, isString, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
-import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
+import {
+  FindProjectsQuery,
+  FindProjectsQueryVariables,
+} from "../../.generated/types/marketplace.types";
+import { FindCarbonOffsetsQuery } from "../../.generated/types/offsets.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
 import {
@@ -249,4 +253,74 @@ export const composeProjectEntries = (
     entries.push(entry);
   });
   return entries;
+};
+
+/** Compose the result of multiple graphql queries into a single collection of CarbonmarkProject */
+export const buildCarbonmarkProjects = (
+  cmsProjects: CarbonProject[],
+  poolProjects: FindCarbonOffsetsQuery["carbonOffsets"],
+  marketplaceProjects: FindProjectsQuery["projects"],
+  poolPrices: Record<string, PoolPrice>
+) => {
+  console.log(cmsProjects);
+  console.log(poolProjects);
+  console.log(marketplaceProjects);
+  console.log(poolPrices);
+  const CMSDataMap: CMSDataMap = new Map();
+  const ProjectDataMap: ProjectDataMap = new Map();
+
+  cmsProjects.forEach((project) => {
+    if (!CreditId.isValidProjectId(project.id)) return;
+    const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
+    CMSDataMap.set(`${standard}-${registryProjectId}`, project);
+  });
+
+  /** Assign valid pool projects to map */
+  poolProjects.forEach((project) => {
+    if (
+      !isValidPoolProject(project) ||
+      !CreditId.isValidProjectId(project.projectID)
+    ) {
+      return;
+    }
+    const [standard, registryProjectId] = project.projectID.split("-");
+    const { creditId: key } = new CreditId({
+      standard,
+      registryProjectId,
+      vintage: project.vintageYear,
+    });
+    ProjectDataMap.set(key, { poolProjectData: project, key });
+  });
+
+  /** Assign valid marketplace projects to map */
+  marketplaceProjects.forEach((project) => {
+    if (
+      !isValidMarketplaceProject(project) ||
+      !CreditId.isValidProjectId(project.key)
+    ) {
+      return;
+    }
+
+    const [standard, registryProjectId] = project.key.split("-");
+
+    const { creditId: key } = new CreditId({
+      standard,
+      registryProjectId,
+      vintage: project.vintage,
+    });
+    const existingData = ProjectDataMap.get(key);
+
+    ProjectDataMap.set(key, {
+      ...existingData,
+      key,
+      marketplaceProjectData: project,
+    });
+  });
+
+  /** Compose all the data together to unique entries (unsorted) */
+  const entries = composeProjectEntries(ProjectDataMap, CMSDataMap, poolPrices);
+
+  const sortedEntries = sortBy(entries, (e) => Number(e.price));
+
+  return sortedEntries;
 };
