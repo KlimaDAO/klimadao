@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { mapValues, omit } from "lodash";
-import { sortBy, split } from "lodash/fp";
+import { mapValues, omit, sortBy } from "lodash";
+import { split } from "lodash/fp";
 import {
   FindProjectsQuery,
   FindProjectsQueryVariables,
@@ -115,6 +115,7 @@ const handler = (fastify: FastifyInstance) =>
       ) {
         return;
       }
+
       const [standard, registryProjectId] = project.key.split("-");
       const { creditId: key } = new CreditId({
         standard,

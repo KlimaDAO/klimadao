@@ -1,4 +1,4 @@
-import { merge } from "lodash";
+import { merge, random } from "lodash";
 import { GRAPH_URLS, SANITY_URLS } from "./codegen.constants";
 
 const GENERATED_DIR = "src/.generated/types";
@@ -45,6 +45,9 @@ const generates = Object.entries(schemas).reduce(
                 singleUnitPrice: {
                   generator: "integer",
                   arguments: [0, 100],
+                },
+                leftToSell: {
+                  generator: () => String(random(0, 100)),
                 },
               },
             },

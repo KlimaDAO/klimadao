@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
+import { compact, isNil, isString, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
@@ -11,7 +11,7 @@ import {
   ProjectIdentifier,
 } from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
-import { extract } from "../../utils/functional.utils";
+import { extract, notNil } from "../../utils/functional.utils";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
@@ -118,11 +118,26 @@ export const isValidPoolProject = (project: FindQueryOffset) => {
   return !!validProjects.length;
 };
 
+/**
+ * Checks if a string is a number representation
+ * @param str - The string to check
+ * @returns true if the string can be parsed to a number, false otherwise
+ */
+export const isNumericString = (str: unknown): boolean =>
+  isString(str) && !isNaN(parseFloat(str)) && isFinite(Number(str));
+
 export const isActiveListing = (l: {
   active?: boolean | null;
   deleted?: boolean | null;
   leftToSell?: string | null;
-}) => !!l.active && !l.deleted && BigInt(l.leftToSell || "") >= 1;
+}) =>
+  !!l.active &&
+  !l.deleted &&
+  isNumericString(l.leftToSell) &&
+  BigInt(l.leftToSell || "") >= 1;
+
+export const validProject = ({ price }: ProjectEntry) =>
+  notNil(price) && parseFloat(price) > 0;
 
 /**
  * For marketplace subgraph projects
