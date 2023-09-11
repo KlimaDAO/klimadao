@@ -1,49 +1,14 @@
+import type schema from ".generated/carbonmark-api.schema";
 import { PoolToken } from "@klimadao/lib/constants";
 import { BigNumber } from "ethers";
+import type { NormalizeOAS, OASModel } from "fets";
 
 export interface CarouselImage {
   url: string;
   caption: string;
 }
 
-// export type Project = GetProjectByIdResponse;
-export type Project = {
-  key: string;
-  projectID: string;
-  name: string | "";
-  methodologies: Array<Methodology>;
-  vintage: string;
-  images: Array<CarouselImage>;
-  projectAddress: string;
-  registry: string;
-  listings: Listing[] | null;
-  /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
-  price: string;
-  country: string | null;
-  activities: ProjectActivity[] | null;
-  updatedAt: string; // timestamp
-  // Updated to GEOPOINT type https://www.sanity.io/docs/geopoint-type
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
-  };
-  description?: string;
-  short_description?: string;
-  long_description?: string;
-  isPoolProject?: boolean; // pool project only
-  stats: {
-    totalSupply: number;
-    totalBridged: number;
-    totalRetired: number;
-  };
-  prices?: Price[];
-  url: string;
-  methodologyCategory: CategoryName;
-};
+export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
 
 export interface PcbProject {
   id: string;
