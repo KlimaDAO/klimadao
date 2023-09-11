@@ -69,14 +69,17 @@ const TwoColumnRetirementTrendsPage: FC<{
 };
 
 export default function RetirementTrends() {
-  const [activeTab, setActiveTab] = useState("byPool");
+  const queryParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState(
+    queryParams.get("tab") || "byPool"
+  );
 
   const router = useRouter();
   const pathname = usePathname();
-  const queryParams = useSearchParams();
+
   const handleChange = (_: React.SyntheticEvent, newTab: string) => {
-    setActiveTab(newTab);
     router.push(`${pathname}?tab=${newTab}`);
+    setActiveTab(newTab);
   };
 
   useEffect(() => {
