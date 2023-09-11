@@ -3,18 +3,11 @@ import { FastifyInstance } from "fastify";
 import { DocumentData } from "firebase-admin/firestore";
 import { assign, chunk } from "lodash";
 import {
-  Activity,
-  Listing,
-  User,
-} from "src/.generated/types/marketplace.types";
+  ActivityWithUserHandles,
+  ListingWithUserHandles,
+} from "../../routes/projects/projects.types";
+import { isActiveListing } from "../../routes/projects/projects.utils";
 import { gqlSdk } from "../gqlSdk";
-
-type WithHandle<T> = T & { handle?: string };
-
-export type ActivityWithUserHandles = Omit<Activity, "seller" | "buyer"> & {
-  seller: WithHandle<User>;
-  buyer?: WithHandle<User> | null;
-};
 
 type Params = {
   key: string; // Project key `"VCS-981"`
@@ -22,27 +15,19 @@ type Params = {
   fastify: FastifyInstance; // Fastify instance
 };
 
-const filterActiveListing = (listing: Omit<Listing, "project">) =>
-  Number(listing.leftToSell) > 1 && !!listing.active && !listing.deleted;
-
-const filterUnsoldActivity = (activity: Activity) =>
+const filterUnsoldActivity = (activity: { activityType?: string }) =>
   activity.activityType !== "Sold";
 
 /**
  * Query the subgraph for marketplace listings and project data for the given project
  * Filters out deleted, sold-out and inactive listings
  * Fetches seller profile info from firebase
- * @param {Params} params
- *  @example fetchMarketplaceListings({ key: "VCS-981", vintage: "2017", fastify })
- * @returns {Promise<ListingWithProfile[], ActivitiesWithProfile[]>}
  */
 export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
-}: Params): Promise<
-  [Omit<Listing, "project">[], ActivityWithUserHandles[]]
-> => {
+}: Params): Promise<[ListingWithUserHandles[], ActivityWithUserHandles[]]> => {
   const data = await gqlSdk.marketplace.getProjectsById({
     key,
     vintageStr: vintage,
@@ -50,7 +35,7 @@ export const fetchMarketplaceListings = async ({
 
   const project = data?.projects.at(0);
 
-  const filteredListings = project?.listings?.filter(filterActiveListing) || [];
+  const filteredListings = project?.listings?.filter(isActiveListing) || [];
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
@@ -120,20 +105,20 @@ export const fetchMarketplaceListings = async ({
     };
   });
 
-  const activitiesWithProfiles: ActivityWithUserHandles[] =
-    formattedActivities.map((act) => {
-      const activityWithHandles: ActivityWithUserHandles = { ...act };
-      const sellerData = usersById.get(act.seller.id.toLowerCase());
-      if (sellerData) {
-        activityWithHandles.seller.handle = sellerData.handle;
+  const activitiesWithProfiles = formattedActivities.map((act) => {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- seller will be assigned
+    const activityWithHandles = { ...act } as ActivityWithUserHandles;
+    const sellerData = usersById.get(act.seller.id.toLowerCase());
+    if (sellerData) {
+      activityWithHandles.seller.handle = sellerData.handle;
+    }
+    if (act.buyer) {
+      const buyerData = usersById.get(act.buyer.id.toLowerCase());
+      if (buyerData && buyerData.handle) {
+        assign(activityWithHandles.buyer, "handle", buyerData.handle);
       }
-      if (act.buyer) {
-        const buyerData = usersById.get(act.buyer.id.toLowerCase());
-        if (buyerData && buyerData.handle) {
-          assign(activityWithHandles.buyer, "handle", buyerData.handle);
-        }
-      }
-      return activityWithHandles;
-    });
+    }
+    return activityWithHandles;
+  });
   return [listingsWithProfiles, activitiesWithProfiles];
 };

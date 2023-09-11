@@ -104,6 +104,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           onCancel={props.onCancel}
           status={props.status}
           onResetStatus={props.onResetStatus}
+          onGoBack={props.onCancel}
           spenderAddress={getAddress("retirementAggregatorV2")}
         />
       )}

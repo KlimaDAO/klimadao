@@ -65,28 +65,30 @@ export async function prepareDailyChartData<
 
   // Create a new dataset with every dates represented
   const chartData: DailyChartData<CI> = [];
-  let j = 0;
-  for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
-    let record = records[date];
-    if (j > 0) {
-      const previousRecord: GenericChartDataItem = chartData[j - 1];
-      // Use the record computed previously for this date. If the record does not exist use the record from the previous date
-      if (record === undefined) {
-        record = records[date] || Object.assign({}, previousRecord);
+  if (Object.keys(records).length) {
+    let j = 0;
+    for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
+      let record = records[date];
+      if (j > 0) {
+        const previousRecord: GenericChartDataItem = chartData[j - 1];
+        // Use the record computed previously for this date. If the record does not exist use the record from the previous date
+        if (record === undefined) {
+          record = records[date] || Object.assign({}, previousRecord);
+        }
+        // If there is no value for a key, use the value from the previous record
+        configuration.forEach((configurationItem) => {
+          if (configurationItem.dataMapping == undefined)
+            throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
+          const destination = configurationItem.dataMapping.destination;
+          record[destination] =
+            record[destination] || previousRecord[destination] || 0;
+        });
+        // Ensure the date is okay (if we copied the previous record)
+        record.date = date;
       }
-      // If there is no value for a key, use the value from the previous record
-      configuration.forEach((configurationItem) => {
-        if (configurationItem.dataMapping == undefined)
-          throw "Mappings are necessary for prepareDailyChartData to merge the datasets";
-        const destination = configurationItem.dataMapping.destination;
-        record[destination] =
-          record[destination] || previousRecord[destination] || 0;
-      });
-      // Ensure the date is okay (if we copied the previous record)
-      record.date = date;
+      chartData.push(record as CI);
+      j++;
     }
-    chartData.push(record as CI);
-    j++;
   }
   return chartData;
 }
@@ -169,7 +171,7 @@ export const formatPrice = function (locale: string) {
     return new Intl.NumberFormat(locale, {
       style: "currency",
       currency: "USD",
-      maximumSignificantDigits: 2,
+      maximumFractionDigits: 2,
     }).format(price);
   };
 };
@@ -180,6 +182,15 @@ function formatDate(
   return function (date: number): string {
     const formatted_date = new Date(date);
     return formatted_date.toLocaleDateString(locale, format);
+  };
+}
+function formatTime(): (date: number) => string {
+  return function (date: number): string {
+    const formatted_date = new Date(date);
+    return formatted_date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
 }
 
@@ -196,6 +207,22 @@ export function formatDateAsDays(locale: string): (date: number) => string {
     month: "short",
   });
 }
+export function formatDateAsDaysShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    day: "numeric",
+    year: "numeric",
+    month: "numeric",
+  });
+}
+export function formatDateAndTime(locale: string): (date: number) => string {
+  return function (date: number): string {
+    const day = formatDateAsDays(locale)(date);
+    const time = formatTime()(date);
+    return `${day} ${time}`;
+  };
+}
 
 export function formatPercentage(value: number): string {
   return `${(value * 100).toFixed(0)}%`;
@@ -207,12 +234,14 @@ export function niceTicks<T>(
   key: keyof T,
   numberOfTicks?: number
 ) {
-  numberOfTicks = numberOfTicks || 4;
   const ticks = [];
-  const intervalSize = (data.length - 1) / (numberOfTicks - 1);
-  for (let i = 0; i <= data.length - 1; i += intervalSize) {
-    const value = data[Math.floor(i)][key] as string;
-    ticks.push(value);
+  if (data.length > 0) {
+    numberOfTicks = numberOfTicks || 4;
+    const intervalSize = (data.length - 1) / (numberOfTicks - 1);
+    for (let i = 0; i <= data.length - 1; i += intervalSize) {
+      const value = data[Math.floor(i)][key] as string;
+      ticks.push(value);
+    }
   }
   return ticks;
 }
@@ -229,7 +258,9 @@ export function getDataChartMax<T>(
     return Math.max(accumulator, localMax);
   }, 0);
 }
+
 const helpers = {
+  formatDateAndTime,
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
@@ -237,6 +268,7 @@ const helpers = {
   formatPercentage,
   formatDateAsMonths,
   formatDateAsDays,
+  formatDateAsDaysShort,
   prepareDailyChartData,
   niceTicks,
   getDataChartMax,

@@ -1,15 +1,14 @@
 import { utils } from "ethers";
 import { assign } from "lodash";
-import { Activity } from "src/.generated/types/marketplace.types";
+import { ByWalletUserActivity } from "src/graphql/marketplace.types";
 
 /**
  * Formats the given activity object by converting the amount, previousAmount, price, and previousPrice
  * from their raw form into a more readable format using ethers' formatUnits function.
- *
- * @param {Activity} activity - The activity object to be formatted.
- * @returns {Activity} The formatted activity object.
  */
-export const formatActivity = (activity: Activity): Activity => {
+export const formatActivity = (
+  activity: ByWalletUserActivity
+): ByWalletUserActivity => {
   const format = (value: string | undefined | null, decimals: number) =>
     value ? utils.formatUnits(value, decimals) : null;
   return assign(activity, {

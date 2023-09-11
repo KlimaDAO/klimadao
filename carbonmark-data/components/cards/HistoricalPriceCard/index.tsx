@@ -1,12 +1,11 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import HistoricalPriceChart from "components/charts/HistoricalPriceChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
-import { ChartDictionnary, PricesItem } from "lib/charts/types";
+import { PricesItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 /** Historical Prices Card */
-export default function HistoricalPriceCard() {
-  const charts: ChartDictionnary = {};
+export default function HistoricalPriceCard(props: CardProps) {
   const configuration: SimpleChartConfiguration<PricesItem> = [
     {
       chartOptions: {
@@ -49,16 +48,16 @@ export default function HistoricalPriceCard() {
       },
     },
   ];
-
-  charts["default"] = (
+  const chart = (
     /* @ts-expect-error async Server component */
     <HistoricalPriceChart configuration={configuration}></HistoricalPriceChart>
   );
   return (
     <ChartCard
+      {...props}
       title={t`Historical Prices`}
       detailUrl="/details/price-of-digital-carbon"
-      charts={charts}
+      chart={chart}
     />
   );
 }

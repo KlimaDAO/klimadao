@@ -10,7 +10,7 @@ export const palette = {
     color1: "#00cc33",
     color2: "#ff8a46",
     color3: "#0ba1ff",
-    color4: "#0ba1ff",
+    color4: "#ff76d4",
     color5: "#03045e",
   },
 };

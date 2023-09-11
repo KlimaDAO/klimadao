@@ -7,7 +7,9 @@ export default function RetirementTrendsByPoolDetailPage() {
     <DetailPage
       pageTitle={t`Retirements by Pool`}
       card={
-        <KlimaDAORetirementsByPoolBarCard></KlimaDAORetirementsByPoolBarCard>
+        <KlimaDAORetirementsByPoolBarCard
+          isDetailPage={true}
+        ></KlimaDAORetirementsByPoolBarCard>
       }
       overview={t`Lorem Ipsum`}
     />

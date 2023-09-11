@@ -1,4 +1,4 @@
-import { Bridge } from "./charts/types";
+export { BRIDGES, TOKENS } from "./charts/types";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -24,12 +24,23 @@ const config = {
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
       //Allow the developer to set the carbonmark api url to point to their local instance if necessary
       development:
-        process.env.NEXT_PUBLIC_DATA_API_URL ??
         "https://staging-carbon-dashboard-9yimq.ondigitalocean.app/api/v1",
     },
   },
 };
-const api_url = config.urls.api[ENVIRONMENT];
+/** URL of the 'REAL' Dash API
+ * used by the proxy
+ */
+export const dash_api_url =
+  process.env.NEXT_PUBLIC_DATA_API_URL || config.urls.api[ENVIRONMENT];
+
+/** URL used by the query functions  */
+const api_url =
+  typeof window === "undefined"
+    ? // Server side we contact the actual Dash API endpoint
+      dash_api_url
+    : // Client side we use the proxy
+      "/api";
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
@@ -39,7 +50,6 @@ export const urls = {
     prices: `${api_url}/prices`,
     tokens: `${api_url}/tokens`,
     klimaMonthlyRetirementsByPool: `${api_url}/retirements/klima/agg/tokens/monthly`,
+    klimaRawRetirements: `${api_url}/retirements/klima/raw`,
   },
 };
-
-export const BRIDGES: Array<Bridge> = ["toucan", "c3", "moss"];

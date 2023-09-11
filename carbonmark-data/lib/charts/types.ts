@@ -1,7 +1,11 @@
 import { Key } from "react";
 
 // API level Query parameters
-export type Bridge = "offchain" | "all" | "toucan" | "c3" | "moss";
+export const BRIDGES = ["toucan", "c3", "moss"];
+export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
+export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
+export type Token = (typeof TOKENS)[number];
+
 export type DateField =
   | "bridged_date"
   | "redeemed_date"
@@ -15,7 +19,6 @@ export type Status =
   | "issued"
   | "deposited";
 export type Pool = "ubo" | "nbo" | "nct" | "bct";
-export type Token = Pool | "mco2";
 export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
@@ -27,6 +30,7 @@ export interface CreditsQueryParams {
 }
 export interface PaginationQueryParams {
   page_size?: number;
+  page?: number;
   sort_by?: string;
   sort_order?: string;
 }
@@ -46,9 +50,11 @@ export interface DailyCreditsItem {
   quantity: number;
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+
 export interface AggregatedCredits {
   quantity: number;
 }
+
 export interface PricesItem {
   date: string;
   bct_price: number;
@@ -92,6 +98,19 @@ export interface KlimaMonthlyRetirementsItem {
 }
 export type KlimaMonthlyRetirements =
   PaginatedResponse<KlimaMonthlyRetirementsItem>;
+
+export interface RawRetirementsItem {
+  retirement_date: string;
+  transaction_id: string;
+  beneficiary: string;
+  project_id: string;
+  bridge: string;
+  token: string;
+  origin: string;
+  proof: string;
+  quantity: number;
+}
+export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {

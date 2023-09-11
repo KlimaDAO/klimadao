@@ -1,12 +1,12 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import ChartCard, { CardProps } from "components/cards/ChartCard";
 import KlimaDAORetirementsByPoolBarChart from "components/charts/KlimaDAORetirementsByPoolBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { KlimaMonthlyRetirementsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Klima DAO Retirements by pool Card */
-export default function KlimaDAORetirementsByPoolBarCard() {
+export default function KlimaDAORetirementsByPoolBarCard(props: CardProps) {
   const configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem> = [
     {
       chartOptions: {
@@ -50,19 +50,19 @@ export default function KlimaDAORetirementsByPoolBarCard() {
     },
   ];
 
-  const charts = {
-    default: (
-      /* @ts-expect-error async Server component */
-      <KlimaDAORetirementsByPoolBarChart
-        configuration={configuration}
-      ></KlimaDAORetirementsByPoolBarChart>
-    ),
-  };
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <KlimaDAORetirementsByPoolBarChart
+      configuration={configuration}
+    ></KlimaDAORetirementsByPoolBarChart>
+  );
+
   return (
     <ChartCard
+      {...props}
       title={t`KlimaDAO Retirements By Pool`}
       detailUrl="/details/retirement-trends-by-pool"
-      charts={charts}
+      chart={chart}
     />
   );
 }
