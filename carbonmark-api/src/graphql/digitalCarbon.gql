@@ -1,7 +1,4 @@
-query getCarbonProjectsByProjectIDAndVintage(
-  $projectID: String!
-  $vintage: Int
-) {
+query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
     registry
     region

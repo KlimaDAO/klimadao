@@ -29,7 +29,7 @@ type PoolInfoMap = {
  */
 
 type Params = {
-  projectID: string; // Project key `"VCS-981"`
+  projectID: string; // Project id `"VCS-981"`
   vintage: number; // Vintage Int 2017
 };
 
@@ -82,7 +82,7 @@ type CarbonCredit = {
 type CarbonCredits = CarbonCredit[];
 
 /**
- * Query the subgraph for a list of the C3Ts and TCO2s that exist for a given project-vintage combination.
+ * Query the subgraph for a list of the C3Ts and TCO2s that exist for a credit vintage.
  * @param {Params} params
  *  @example fetchCarbonProjectTokens({ key: "VCS-981", vintage: "2017" })
  * @returns {Promise<[PoolInfoMap, Stats]>}
@@ -92,11 +92,10 @@ type CarbonCredits = CarbonCredit[];
 export const fetchProjectPoolInfo = async (
   params: Params
 ): Promise<[Partial<PoolInfoMap>, Stats]> => {
-  const data =
-    await gqlSdk.digital_carbon.getCarbonProjectsByProjectIDAndVintage({
-      projectID: params.projectID,
-      vintage: Number(params.vintage),
-    });
+  const data = await gqlSdk.digital_carbon.getProjectCredits({
+    projectID: params.projectID,
+    vintage: Number(params.vintage),
+  });
 
   /** @type {QueryResponse[]} */
 
@@ -159,7 +158,7 @@ export const fetchProjectPoolInfo = async (
           supply: totalSupply.toString(),
           poolAddress,
           isPoolDefault:
-            matchingTokenInfo.pool.id.toLowerCase() ===
+            matchingTokenInfo.id.toLowerCase() ===
             POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
           projectTokenAddress: get(tokens[0], "id", ""),
         },
