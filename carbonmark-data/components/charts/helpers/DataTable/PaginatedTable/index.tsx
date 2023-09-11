@@ -1,8 +1,11 @@
+import {
+  ConfigurationKey,
+  fetchData,
+} from "components/charts/helpers/DataTable/configurations";
+import Table from "components/charts/helpers/DataTable/Table";
 import { EMPTY_PAGINATED_RESPONSE } from "lib/charts/queries";
 import { PaginatedResponse } from "lib/charts/types";
 import { useEffect, useState } from "react";
-import { ConfigurationKey, fetchData } from "../configurations";
-import Table from "../Table";
 
 /** A Client Component (wannabe Server Component) that renders the actual Table
  * configurationKey: Table configuration key

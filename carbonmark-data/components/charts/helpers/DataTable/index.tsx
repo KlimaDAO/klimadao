@@ -1,7 +1,10 @@
+import {
+  ConfigurationKey,
+  fetchData,
+} from "components/charts/helpers/DataTable/configurations";
 import DataTableClientWrapper from "components/charts/helpers/DataTable/DataTableClientWrapper";
+import Table from "components/charts/helpers/DataTable/Table";
 import { PaginatedResponse } from "lib/charts/types";
-import { ConfigurationKey, fetchData } from "./configurations";
-import Table from "./Table";
 /** The table component is tricky because of those two constraints:
  * - 1. Data must be fetched by server components
  * - 2. Number of pages must be known by the pagination (client component)
