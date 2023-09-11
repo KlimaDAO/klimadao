@@ -8,7 +8,8 @@ import { Tab } from "@mui/material";
 import ChartCard from "components/cards/ChartCard";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import DetailPage from "components/pages/DetailPage";
-import { FC, ReactNode, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FC, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
@@ -70,9 +71,20 @@ const TwoColumnRetirementTrendsPage: FC<{
 export default function RetirementTrends() {
   const [activeTab, setActiveTab] = useState("byPool");
 
+  const router = useRouter();
+  const pathname = usePathname();
+  const queryParams = useSearchParams();
   const handleChange = (_: React.SyntheticEvent, newTab: string) => {
     setActiveTab(newTab);
+    router.push(`${pathname}?tab=${newTab}`);
   };
+
+  useEffect(() => {
+    const tab = queryParams.get("tab");
+    if (tab != null) {
+      setActiveTab(tab);
+    }
+  }, []);
 
   return (
     <>
