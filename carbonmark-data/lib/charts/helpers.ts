@@ -1,5 +1,6 @@
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { DateTimeFormatOptions } from "next-intl";
+import { SimpleChartConfiguration } from "./aggregators";
 import {
   AggregatedCredits,
   ChartData,
@@ -124,6 +125,30 @@ export async function prepareAggregatedChartData<
   return chartData;
 }
 
+/*
+  This function takes ChartData and transform values into percentages given a chart configuration
+  Params:
+   - fetchFunction: The function that queries the API
+  Generics:
+   - CI: Expected type of items returned in the chart data array
+   - Q: Type of the query and mapping parameters
+*/
+export function transformToPercentages<CI>(
+  data: ChartData<CI>,
+  configuration: SimpleChartConfiguration<CI>
+): ChartData<CI> {
+  data.forEach((item) => {
+    const total = configuration.reduce((prev, conf) => {
+      return prev + (item[conf.chartOptions.id] as number);
+    }, 0);
+    configuration.forEach((conf) => {
+      (item[conf.chartOptions.id] as number) =
+        (item[conf.chartOptions.id] as number) / total;
+    });
+  });
+  return data;
+}
+
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
@@ -172,6 +197,10 @@ export function formatDateAsDays(locale: string): (date: number) => string {
   });
 }
 
+export function formatPercentage(value: number): string {
+  return `${(value * 100).toFixed(0)}%`;
+}
+
 // Returns a list of nice ticks to use in a chart given the data
 export function niceTicks<T>(
   data: ChartData<T>,
@@ -205,6 +234,7 @@ const helpers = {
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
   formatPrice,
+  formatPercentage,
   formatDateAsMonths,
   formatDateAsDays,
   prepareDailyChartData,

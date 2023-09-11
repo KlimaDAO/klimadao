@@ -21,7 +21,7 @@ import { KlimaLines } from "../helpers/KlimaLineChart";
 
 interface Props {
   data: ChartData<PricesItem>;
-  configuration: SimpleChartConfiguration;
+  configuration: SimpleChartConfiguration<PricesItem>;
 }
 export default function Chart(props: Props) {
   const locale = currentLocale();

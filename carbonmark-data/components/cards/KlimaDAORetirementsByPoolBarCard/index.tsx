@@ -2,16 +2,17 @@ import { t } from "@lingui/macro";
 import ChartCard from "components/cards/ChartCard";
 import KlimaDAORetirementsByPoolBarChart from "components/charts/KlimaDAORetirementsByPoolBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { KlimaMonthlyRetirementsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Klima DAO Retirements by pool Card */
 export default function KlimaDAORetirementsByPoolBarCard() {
-  const configuration: SimpleChartConfiguration = [
+  const configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem> = [
     {
       chartOptions: {
         id: "amount_retired_bct",
         label: "BCT",
-        color: palette.charts_alternate.color1,
+        color: palette.charts.color1,
         legendOrder: 1,
       },
     },
@@ -19,7 +20,7 @@ export default function KlimaDAORetirementsByPoolBarCard() {
       chartOptions: {
         id: "amount_retired_nct",
         label: "NCT",
-        color: palette.charts_alternate.color2,
+        color: palette.charts.color2,
         legendOrder: 2,
       },
     },
@@ -27,7 +28,7 @@ export default function KlimaDAORetirementsByPoolBarCard() {
       chartOptions: {
         id: "amount_retired_mco2",
         label: "MCO2",
-        color: palette.charts_alternate.color3,
+        color: palette.charts.color3,
         legendOrder: 3,
       },
     },
@@ -35,7 +36,7 @@ export default function KlimaDAORetirementsByPoolBarCard() {
       chartOptions: {
         id: "amount_retired_ubo",
         label: "UBO",
-        color: palette.charts_alternate.color4,
+        color: palette.charts.color4,
         legendOrder: 4,
       },
     },
@@ -43,7 +44,7 @@ export default function KlimaDAORetirementsByPoolBarCard() {
       chartOptions: {
         id: "amount_retired_nbo",
         label: "NBO",
-        color: palette.charts_alternate.color5,
+        color: palette.charts.color5,
         legendOrder: 5,
       },
     },
@@ -60,7 +61,7 @@ export default function KlimaDAORetirementsByPoolBarCard() {
   return (
     <ChartCard
       title={t`KlimaDAO Retirements By Pool`}
-      detailUrl="/details/price-of-digital-carbon"
+      detailUrl="/details/retirement-trends-by-pool"
       charts={charts}
     />
   );

@@ -100,6 +100,7 @@ export const queryKlimaMonthlyRetirementsByPool = async function (
   params: PaginationQueryParams
 ): Promise<PaginatedResponse<KlimaMonthlyRetirementsItem>> {
   return paginatedQuery<KlimaMonthlyRetirementsItem, PaginationQueryParams>(
-    urls.api.klimaMonthlyRetirementsByPool
+    urls.api.klimaMonthlyRetirementsByPool,
+    params
   );
 };

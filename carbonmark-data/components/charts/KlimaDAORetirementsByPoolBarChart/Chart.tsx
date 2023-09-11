@@ -4,8 +4,8 @@ import helpers from "lib/charts/helpers";
 import { ChartData, KlimaMonthlyRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
+  BarChart,
   Legend,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -13,29 +13,29 @@ import {
 } from "recharts";
 import {
   KlimaLegendProps,
+  KlimaStackedBars,
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
-  KlimaYAxisPriceProps,
+  KlimaYAxisPercentageProps,
 } from "../helpers";
-import { KlimaLines } from "../helpers/KlimaLineChart";
 
 interface Props {
   data: ChartData<KlimaMonthlyRetirementsItem>;
-  configuration: SimpleChartConfiguration;
+  configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>;
 }
 export default function Chart(props: Props) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={props.data}>
+      <BarChart data={props.data}>
         <XAxis
           {...KlimaXAxisMonthlyProps(props.data, "retirement_date", locale)}
         />
-        <YAxis {...KlimaYAxisPriceProps(locale)} />
+        <YAxis {...KlimaYAxisPercentageProps()} />
         <Tooltip
           content={KlimaTooltip(
             helpers.formatDateAsDays(locale),
-            helpers.formatPrice(locale)
+            helpers.formatPercentage
           )}
           cursor={{ fill: "transparent" }}
         />
@@ -46,8 +46,8 @@ export default function Chart(props: Props) {
           align="left"
           wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
         />
-        {KlimaLines(props.configuration)}
-      </LineChart>
+        {KlimaStackedBars(props.configuration)}
+      </BarChart>
     </ResponsiveContainer>
   );
 }
