@@ -2,7 +2,7 @@ import { getApps, initializeApp } from "firebase-admin/app";
 
 import { FastifyInstance } from "fastify";
 import fp from "fastify-plugin";
-import * as admin from "firebase-admin";
+import { app, credential } from "firebase-admin";
 import { difference } from "lodash";
 import { notEmpty } from "../utils/functional.utils";
 
@@ -22,7 +22,7 @@ export default fp(async function (fastify: FastifyInstance) {
   // Only initialise if necessary
   if (getApps().length === 0) {
     initializeApp({
-      credential: admin.credential.cert({
+      credential: credential.cert({
         clientEmail: process.env.FIREBASE_CERT_CLIENT_EMAIL,
         // We need to format escaped \n chars
         // See: https://stackoverflow.com/questions/50299329/node-js-firebase-service-account-private-key-wont-parse
@@ -35,10 +35,10 @@ export default fp(async function (fastify: FastifyInstance) {
     });
   }
 
-  await fastify.decorate("firebase", admin.app());
+  await fastify.decorate("firebase", app());
 });
 
-export type FirebaseInstance = admin.app.App;
+export type FirebaseInstance = app.App;
 
 declare module "fastify" {
   export interface FastifyInstance {

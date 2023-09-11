@@ -1,4 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { ValidHandle } from "./create";
 
 const schema = {
   summary: "Update user profile",
@@ -6,8 +7,7 @@ const schema = {
   body: {
     type: "object",
     properties: {
-      //@todo update to hash length
-      wallet: { type: "string", minLength: 3 },
+      wallet: ValidHandle,
       handle: { type: "string", minLength: 3 },
       username: { type: "string", minLength: 2 },
       description: { type: "string", minLength: 2, maxLength: 500 },
@@ -64,12 +64,28 @@ const handler = (fastify: FastifyInstance) =>
           profileImgUrl && profileImgUrl.length ? profileImgUrl : null,
       };
 
+      // Check if the handle already exists in our database
+      const usersRef = fastify.firebase.firestore().collection("users");
+
+      const userSnapshot = await usersRef
+        .where("handle", "==", handle.toLowerCase())
+        .limit(1)
+        .get();
+
+      if (!userSnapshot.empty) {
+        return reply.code(403).send({
+          code: 403,
+          error: "A user with this handle is already registered!",
+        });
+      }
+
       // Try updating the user document with the specified data
       await fastify.firebase
         .firestore()
         .collection("users")
         .doc(wallet.toUpperCase())
         .update(updatedData);
+
       // If the update is successful, return the request body
       return reply.send(request.body);
     } catch (err) {

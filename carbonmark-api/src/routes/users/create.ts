@@ -1,3 +1,4 @@
+import { Type } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 type Body = {
@@ -8,13 +9,25 @@ type Body = {
   profileImgUrl: string;
 };
 
+export const ValidHandle = Type.Intersect([
+  Type.String({
+    pattern: "^(?!0x)[a-zA-Z0-9]*$",
+    description: "Handle cannot be an Ethereum address",
+  }),
+  Type.String({
+    minLength: 3,
+    maxLength: 24,
+    description: "Handle must be longer than 3 and shorter than 24 characters",
+  }),
+]);
+
 const schema = {
   summary: "Create user profile",
   tags: ["Users"],
   body: {
     type: "object",
     properties: {
-      handle: { type: "string", minLength: 3 },
+      handle: ValidHandle,
       username: { type: "string", minLength: 2 },
       description: { type: "string", maxLength: 500 },
       wallet: { type: "string", minLength: 26, maxLength: 64 },
@@ -72,21 +85,22 @@ const handler = (fastify: FastifyInstance) =>
     if (user.exists) {
       return reply.code(403).send({
         code: 403,
-        error: "This user is already registered!",
+        error: "This wallet address is already registered!",
       });
     }
 
+    // Check if the handle already exists in our database
     const usersRef = fastify.firebase.firestore().collection("users");
 
     const userSnapshot = await usersRef
       .where("handle", "==", handle.toLowerCase())
       .limit(1)
       .get();
-    // If no documents are found, return a 404 error
+
     if (!userSnapshot.empty) {
       return reply.code(403).send({
         code: 403,
-        error: "This user is already registered!",
+        error: "A user with this handle is already registered!",
       });
     }
 
