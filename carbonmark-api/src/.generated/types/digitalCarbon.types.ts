@@ -1,3 +1,5 @@
+import { GraphQLClient } from 'graphql-request';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
