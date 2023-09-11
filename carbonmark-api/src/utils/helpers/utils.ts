@@ -24,18 +24,25 @@ export async function getAllVintages(
     return cachedResult;
   }
 
-  const [{ projects }, { carbonOffsets }] = await Promise.all([
-    gqlSdk.marketplace.getVintages(),
-    gqlSdk.offsets.getCarbonOffsetsVintages(),
-  ]);
+  const [{ projects }, { carbonProjects: digitalCarbonProjects }] =
+    await Promise.all([
+      gqlSdk.marketplace.getVintages(),
+      gqlSdk.digital_carbon.getDigitalCarbonProjectsVintages(),
+    ]);
 
   /** Handle invalid responses */
-  if (!isArray(projects) || !isArray(carbonOffsets)) {
+  if (!isArray(projects) || !isArray(digitalCarbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
   projects.forEach((item) => uniqueValues.add(item.vintage));
-  carbonOffsets.forEach((item) => uniqueValues.add(item.vintageYear));
+  digitalCarbonProjects.forEach((project) => {
+    project.carbonCredits.forEach((credit) => {
+      if (credit.vintage) {
+        uniqueValues.add(credit.vintage.toString());
+      }
+    });
+  });
 
   const result = Array.from(uniqueValues).sort().filter(notEmptyOrNil);
 

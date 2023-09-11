@@ -1,3 +1,11 @@
+query getDigitalCarbonProjectsVintages {
+  carbonProjects(first: 1000) {
+    carbonCredits {
+      vintage
+    }
+  }
+}
+
 query getDigitalCarbonProjectsCategories {
   carbonProjects(first: 1000) {
     category
