@@ -19,7 +19,6 @@ export default fp(async (fastify) => {
       try {
         /** We need the ability to disable authentication when testing */
         if (!process.env.IGNORE_AUTH) {
-          console.log("SHOULDNT BE HERE");
           await request.jwtVerify();
         }
       } catch (err) {
