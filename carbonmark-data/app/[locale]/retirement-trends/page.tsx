@@ -15,7 +15,7 @@ import styles from "./styles.module.scss";
 const tabs = ["byPool", "byToken", "byChain", "byBeneficiary"] as const;
 type Tab = (typeof tabs)[number];
 
-function assertUnreachable(tab: never): never {
+function assertUnreachable(_: never): never {
   throw new Error("Unreachable code");
 }
 
@@ -46,13 +46,21 @@ const TwoColumnRetirementTrendsPage: FC<{
   return (
     <div className={`${layout.twoColumns} ${className ? className : ""}`}>
       <div className={layout.cardStackedRows}>
-        {leftColumn.map((node) => {
-          return <div className={layout.cardRow}>{node}</div>;
+        {leftColumn.map((node, key) => {
+          return (
+            <div className={layout.cardRow} key={key}>
+              {node}
+            </div>
+          );
         })}
       </div>
       <div className={layout.cardStackedRows}>
-        {rightColumn.map((node) => {
-          return <div className={layout.cardRow}>{node}</div>;
+        {rightColumn.map((node, key) => {
+          return (
+            <div className={layout.cardRow} key={key}>
+              {node}
+            </div>
+          );
         })}
       </div>
     </div>
@@ -91,7 +99,7 @@ export default function RetirementTrends() {
         <TabList
           value={activeTab}
           onChange={handleChange}
-          className={styles.desktopOnly}
+          className={layout.desktopOnly}
         >
           <Tab
             className={styles.tabButton}
@@ -118,20 +126,24 @@ export default function RetirementTrends() {
           <TwoColumnRetirementTrendsPage
             leftColumn={[
               <ChartCard
+                key={0}
                 isColumnCard={true}
                 title="KlimaDAO retirements by pool"
               />,
               <ChartCard
+                key={1}
                 isColumnCard={true}
                 title="KlimaDAO retirements by pool"
               />,
               <ChartCard
+                key={2}
                 isColumnCard={true}
                 title="Detailed list of KlimaDAO retirements"
               />,
             ]}
             rightColumn={[
               <ChartCard
+                key={0}
                 isColumnCard={true}
                 title="Carbon pool redemptions / retirements"
               />,
@@ -142,16 +154,19 @@ export default function RetirementTrends() {
           <TwoColumnRetirementTrendsPage
             leftColumn={[
               <ChartCard
+                key={0}
                 isColumnCard={true}
                 title="KlimaDAO retirements by token"
               />,
               <ChartCard
+                key={1}
                 isColumnCard={true}
                 title="Detailed list of KlimaDAO retirements"
               />,
             ]}
             rightColumn={[
               <ChartCard
+                key={0}
                 isColumnCard={true}
                 title="Carbon token retirements"
               />,
@@ -161,14 +176,20 @@ export default function RetirementTrends() {
         <TypedTabPanel tab="byChain" className={styles.noPadding}>
           <TwoColumnRetirementTrendsPage
             leftColumn={[
-              <ChartCard isColumnCard={true} title="Retirements by chain" />,
               <ChartCard
+                key={0}
+                isColumnCard={true}
+                title="Retirements by chain"
+              />,
+              <ChartCard
+                key={1}
                 isColumnCard={true}
                 title="Detailed list of KlimaDAO retirements"
               />,
             ]}
             rightColumn={[
               <ChartCard
+                key={0}
                 isColumnCard={true}
                 title="Carbon pool redemptions / retirements"
               />,

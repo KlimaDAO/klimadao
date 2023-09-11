@@ -42,3 +42,17 @@
     gap: 1rem;
   }
 }
+
+.mobileOnly {
+  @include large {
+    display: none;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include large {
+    display: unset;
+  }
+}

@@ -24,7 +24,11 @@ export const MobileTabSelector = <T extends string>(props: {
     >
       {props.options.map((option) => {
         return (
-          <MenuItem value={option.value} className={styles.menuItem}>
+          <MenuItem
+            key={option.value}
+            value={option.value}
+            className={styles.menuItem}
+          >
             {option.label}
           </MenuItem>
         );
