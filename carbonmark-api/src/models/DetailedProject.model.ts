@@ -2,16 +2,8 @@ import { Static, Type } from "@sinclair/typebox";
 import { Activity } from "./Activity.model";
 import { Listing } from "./Listing.model";
 import { Methodology } from "./Methodology.model";
+import { TokenPrice } from "./TokenPrice.model";
 import { GeoJSONPoint, Image, Nullable } from "./Utility.model";
-
-const Price = Type.Object({
-  poolName: Type.String(),
-  supply: Type.String(),
-  poolAddress: Type.String(),
-  isPoolDefault: Type.Boolean(),
-  projectTokenAddress: Type.String(),
-  singleUnitPrice: Type.String(),
-});
 
 export const DetailedProject = Type.Object({
   key: Type.String(),
@@ -30,7 +22,7 @@ export const DetailedProject = Type.Object({
     totalRetired: Type.Number(),
     totalSupply: Type.Number(),
   }),
-  prices: Type.Array(Price),
+  prices: Type.Array(TokenPrice),
   listings: Type.Array(Listing),
   activities: Type.Array(Activity),
   price: Type.String(),

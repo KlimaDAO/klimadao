@@ -16,6 +16,14 @@ export const Listing = Type.Object(
       description:
         "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
     }),
+    //These attributes were taken from the ListingFragmentType
+    totalAmountToSell: Type.String(),
+    active: Type.Optional(Type.Union([Type.Boolean(), Type.Null()])),
+    deleted: Type.Optional(Type.Union([Type.Boolean(), Type.Null()])),
+    batches: Type.Optional(Type.Array(Type.String())),
+    batchPrices: Type.Optional(Type.Array(Type.String())),
+    createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
+    updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
   },
   {
     description:

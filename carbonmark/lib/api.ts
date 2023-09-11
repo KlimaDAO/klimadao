@@ -1,13 +1,7 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
-import {
-  Category,
-  CategoryName,
-  Country,
-  Project,
-  User,
-} from "lib/types/carbonmark";
+import { CategoryName, Project, User } from "lib/types/carbonmark";
 import { createDownloadLink } from "./createDownloadLink";
 import { fetcher } from "./fetcher";
 import { notNil } from "./utils/functional.utils";

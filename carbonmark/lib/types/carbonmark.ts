@@ -1,15 +1,30 @@
 import type schema from ".generated/carbonmark-api.schema";
-import { PoolToken } from "@klimadao/lib/constants";
 import { BigNumber } from "ethers";
 import type { NormalizeOAS, OASModel } from "fets";
+import { notNil } from "lib/utils/functional.utils";
 
-export interface CarouselImage {
-  url: string;
-  caption: string;
-}
+export type CarouselImage = DetailedProject["images"][number];
 
 export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
+export type Listing = OASModel<NormalizeOAS<typeof schema>, "Listing">;
+export type TokenPrice = OASModel<NormalizeOAS<typeof schema>, "TokenPrice">;
+export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
 
+export type DetailedProject = OASModel<
+  NormalizeOAS<typeof schema>,
+  "DetailedProject"
+>;
+
+export function isTokenPrice(obj: unknown): obj is TokenPrice {
+  return (
+    notNil(obj) &&
+    typeof obj === "object" &&
+    "singleUnitPrice" in obj &&
+    "totalSupply" in obj &&
+    "totalRetired" in obj &&
+    "totalBridged" in obj
+  );
+}
 export interface PcbProject {
   id: string;
   projectID: string;
@@ -31,7 +46,7 @@ export interface PcbProject {
   totalBridged: string | null;
   totalRetired: string | null;
   currentSupply: string | null;
-  prices?: Price[];
+  prices?: TokenPrice[];
   url?: string;
   methodologyCategory: CategoryName;
   category: string;
@@ -47,80 +62,6 @@ export interface PcbProject {
   storageMethod: string;
   vintageYear: string;
 }
-
-export type Price = {
-  /** Lowercase name of pool / pool token e.g. "bct" */
-  poolName: Exclude<PoolToken, "mco2">;
-  /** Remaining supply in pool */
-  supply: string;
-  /** Address of the pool itself, e.g. bct token address */
-  poolAddress: boolean;
-  /** Address of the project token in this pool */
-  projectTokenAddress: string;
-  /** True if default project for pool and no selective redemption fee applies */
-  isPoolDefault: boolean;
-  /** formatted USDC price for 1 tonne e.g. "0.123456" */
-  singleUnitPrice: string;
-};
-
-export interface User {
-  handle: string;
-  username: string;
-  description: string;
-  profileImgUrl: string | null;
-  wallet: string;
-  listings: ListingWithProject[];
-  activities: UserActivity[];
-  assets: Asset[];
-}
-
-export interface Listing {
-  id: string;
-  /** Plain integer, not a bignumber */
-  totalAmountToSell: string;
-  /** Unformatted 18 decimal string */
-  leftToSell: string;
-  tokenAddress: string;
-  active: boolean; // false when amount is "0"
-  deleted: boolean; // user deleted this listing
-  batches: [];
-  batchPrices: [];
-  /** Unformatted USDC e.g. 1000000 */
-  singleUnitPrice: string;
-  createdAt: string;
-  updatedAt: string;
-  seller?: {
-    handle: string;
-    username: string;
-    description: string;
-    profileImgUrl: string;
-    id: string;
-  };
-}
-
-/** Some endpoints do not include this `project` property. */
-export interface ListingWithProject extends Listing {
-  /** careful, project is not present on Project["listings"] entries */
-  project: {
-    id: string;
-    key: string;
-    name: string;
-    category: Category;
-    /** TODO: from api, in /user.listings, Country is not present */
-    country?: string;
-    methodology: string;
-    projectAddress: string;
-    projectID: string;
-    registry: string;
-    vintage: string;
-  };
-}
-
-export type PriceFlagged = Price & {
-  isPoolProject: true;
-};
-
-export type ProjectBuyOption = Listing | PriceFlagged;
 
 export type ActivityActionT =
   | "UpdatedQuantity"
@@ -268,15 +209,22 @@ export type Country = {
 
 export type Vintage = string;
 
-export type CategoryName =
-  | "Agriculture"
-  | "Energy Efficiency"
-  | "Forestry"
-  | "Industrial Processing"
-  | "Renewable Energy"
-  | "Other"
-  | "Other Nature-Based"
-  | "Blue Carbon";
+const CATEGORY_NAMES = [
+  "Agriculture",
+  "Energy Efficiency",
+  "Forestry",
+  "Industrial Processing",
+  "Renewable Energy",
+  "Other",
+  "Other Nature-Based",
+  "Blue Carbon",
+] as const;
+
+export type CategoryName = (typeof CATEGORY_NAMES)[number];
+
+export function isCategoryName(name: string): name is CategoryName {
+  return CATEGORY_NAMES.includes(name as CategoryName);
+}
 
 export type Purchase = {
   id: string;

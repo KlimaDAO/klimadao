@@ -5,18 +5,16 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
-import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
+import { Activity as ActivityT, UserActivity } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { getActivityActions } from "./Activities.constants";
+import { ActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
 interface Props {
-  activity: UserActivity | ProjectActivity;
+  activity: ActivityT;
 }
 
-const isUserActivity = (
-  activity: UserActivity | ProjectActivity
-): activity is UserActivity => {
+const isUserActivity = (activity: ActivityT): activity is UserActivity => {
   // only user activity objects have the project entry
   return !!(activity as UserActivity).project;
 };
@@ -25,33 +23,28 @@ const isUserActivity = (
 export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
-
+  const activity = props.activity;
   let firstActor, secondActor;
   let amountA, amountB;
   let transactionString = t`at`;
 
-  const isPurchaseActivity = props.activity.activityType === "Purchase";
-  const isSaleActivity = props.activity.activityType === "Sold";
-  const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
-  const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
+  const isPurchaseActivity = activity.activityType === "Purchase";
+  const isSaleActivity = activity.activityType === "Sold";
+  const isUpdateQuantity = activity.activityType === "UpdatedQuantity";
+  const isUpdatePrice = activity.activityType === "UpdatedPrice";
 
-  const seller = props.activity.seller;
-  const buyer = props.activity.buyer;
+  const seller = activity.seller;
+  const buyer = activity.buyer;
 
   // type guard
-  const project = isUserActivity(props.activity)
-    ? props.activity.project
-    : null;
+  const project = isUserActivity(activity) ? activity.project : null;
 
   /** By default the seller is the "source" of all actions */
   firstActor = seller;
 
   /** By default activities are buy or sell transactions */
-  amountA =
-    !!props.activity.amount &&
-    `${formatToTonnes(props.activity.amount, locale)}t`;
-  amountB =
-    !!props.activity.price && `${formatToPrice(props.activity.price, locale)}`;
+  amountA = !!activity.amount && `${formatToTonnes(activity.amount, locale)}t`;
+  amountB = !!activity.price && `${formatToPrice(activity.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
@@ -67,18 +60,15 @@ export const Activity = (props: Props) => {
   /** Price Labels */
   if (isUpdatePrice) {
     amountA =
-      props.activity.previousPrice &&
-      formatToPrice(props.activity.previousPrice, locale);
-    amountB =
-      props.activity.price && formatToPrice(props.activity.price, locale);
+      activity.previousPrice && formatToPrice(activity.previousPrice, locale);
+    amountB = activity.price && formatToPrice(activity.price, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
     amountA =
-      props.activity.previousAmount &&
-      formatToTonnes(props.activity.previousAmount);
-    amountB = props.activity.amount && formatToTonnes(props.activity.amount);
+      activity.previousAmount && formatToTonnes(activity.previousAmount);
+    amountB = activity.amount && formatToTonnes(activity.amount);
   }
 
   /** Determine the conjunction between the labels */
@@ -90,7 +80,7 @@ export const Activity = (props: Props) => {
   }
 
   return (
-    <div key={props.activity.id} className={styles.activity}>
+    <div key={activity.id} className={styles.activity}>
       {project && (
         <Link href={createProjectLink(project)}>
           <Text t="h5" className={styles.link}>
@@ -102,7 +92,7 @@ export const Activity = (props: Props) => {
         <i>
           {getElapsedTime({
             locale: locale || "en",
-            timeStamp: Number(props.activity.timeStamp),
+            timeStamp: Number(activity.timeStamp),
           })}
         </i>
       </Text>
@@ -120,7 +110,7 @@ export const Activity = (props: Props) => {
           )
         )}
 
-        {getActivityActions()[props.activity.activityType]}
+        {ActivityActions[activity.activityType]}
 
         {!!secondActor && secondActor.handle ? (
           <Link className="account" href={`/users/${secondActor.handle}`}>

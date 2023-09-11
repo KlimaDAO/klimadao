@@ -1,69 +1,43 @@
 import { formatUnits } from "@klimadao/lib/utils";
-import {
-  Listing,
-  ListingWithProject,
-  Price,
-  PriceFlagged,
-  ProjectBuyOption,
-} from "lib/types/carbonmark";
+import { Listing, TokenPrice } from "lib/types/carbonmark";
+import { sortBy } from "lodash";
 
-export const getAmountLeftToSell = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) =>
+export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
     const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
     return leftToSellTotal;
   }, 0);
 
-export const getTotalAmountToSell = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) =>
+export const getTotalAmountToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
     const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
     return totalAmountTo;
   }, 0);
 
-export const getTotalAmountSold = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) => {
+export const getTotalAmountSold = (listings: Listing[]) => {
   const totalAmount = getTotalAmountToSell(listings);
   const leftToSell = getAmountLeftToSell(listings);
   return totalAmount - leftToSell;
 };
 
-export const getActiveListings = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) => listings.filter((l) => l.active && l.deleted === false);
+export const getActiveListings = (listings: Listing[]) =>
+  listings.filter((l) => l.active && l.deleted === false);
 
-export const getAllListings = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) => listings.filter((l) => l.deleted === false);
+export const getAllListings = (listings: Listing[]) =>
+  listings.filter((l) => l.deleted === false);
 
-export const getSortByUpdateListings = <T extends Listing | ListingWithProject>(
-  listings: T[]
-) => listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+export const getSortByUpdateListings = (listings: Listing[]) =>
+  listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
-export const getLowestPriceFromBuyOptions = (options: ProjectBuyOption[]) => {
-  return options[0].singleUnitPrice;
+export const sortPricesAndListingsByBestPrice = (
+  prices: TokenPrice[],
+  listings: Listing[]
+) => {
+  const flaggedPrices = flagPrices(prices);
+  const mergedArray = [...flaggedPrices, ...listings];
+
+  return sortBy(mergedArray, "singleUnitPrice");
 };
 
-export const sortPricesAndListingsByBestPrice = <
-  T extends Listing | ListingWithProject,
->(
-  prices: Price[],
-  listings: T[]
-): ProjectBuyOption[] => {
-  const flaggedPrices = !!prices?.length && flagPrices(prices);
-  // Ugly, but otherwise babel throws !
-  const mergedArray = [...(flaggedPrices || []), ...(listings || [])];
-
-  return mergedArray.sort(
-    (a, b) => Number(a.singleUnitPrice) - Number(b.singleUnitPrice)
-  );
-};
-
-export const flagPrices = (prices: Price[]): PriceFlagged[] =>
-  prices.map((price) => ({
-    ...price,
-    isPoolProject: true,
-  }));
+export const flagPrices = (prices: TokenPrice[]) =>
+  prices.map((p) => ({ ...p, isPoolProject: true }));

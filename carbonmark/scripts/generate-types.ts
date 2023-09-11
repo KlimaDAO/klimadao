@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-const SCHEMA_URL = "https://v1.1.0.api.carbonmark.com/openapi.json";
+// const SCHEMA_URL = "https://v1.1.0.api.carbonmark.com/openapi.json";
+const SCHEMA_URL = "http://localhost:3003/openapi.json";
 
 (async function () {
   const resp = await fetch(SCHEMA_URL);
