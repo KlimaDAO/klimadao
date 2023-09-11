@@ -15,7 +15,7 @@ export type AggregatedCreditsChartConfiguration = ChartConfiguration<
   Bridge
 >;
 
-/* Fetches multiple verra credits globally aggregated and merge them to be used in a chart */
+/* Fetches query retirements information and transform quantities into percentages to be used in a chart */
 export async function getKlimaMonthlyRetirementsByPool(
   configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>
 ) {
