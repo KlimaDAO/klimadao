@@ -15,6 +15,7 @@ export function KlimaStackedBars<Q, M, T>(
     <Bar
       key={item.chartOptions.id}
       {...KlimaBarProps({
+        name: item.chartOptions.label,
         dataKey: item.chartOptions.id,
         fill: item.chartOptions.color,
         stackId: 1,
