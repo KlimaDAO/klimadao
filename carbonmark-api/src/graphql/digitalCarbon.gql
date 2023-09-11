@@ -1,3 +1,9 @@
+query getDigitalCarbonProjectsCountries {
+  carbonProjects(first: 1000) {
+    country
+  }
+}
+
 query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
     registry
@@ -39,7 +45,7 @@ query findDigitalCarbonProjects(
   $country: [String!]
   $category: [String!]
   $search: String
-  $vintage: Int
+  $vintage: [Int!]
 ) {
   carbonProjects(
     first: 1000
@@ -47,7 +53,7 @@ query findDigitalCarbonProjects(
       and: [
         { category_in: $category }
         { country_in: $country }
-        { carbonCredits_: { vintage: $vintage } }
+        { carbonCredits_: { vintage_in: $vintage } }
         {
           or: [
             { name_contains_nocase: $search }

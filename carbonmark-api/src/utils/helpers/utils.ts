@@ -11,7 +11,6 @@ import { CarbonOffset } from "../../.generated/types/offsets.types";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
 import { CarbonProject } from "./carbonProjects.utils";
-
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
@@ -77,7 +76,6 @@ export async function getAllCategories(fastify: FastifyInstance) {
     categories?.map(extract("id")),
     carbonOffsets?.map(extract("methodologyCategory")),
   ];
-
   // This function pipeline combines and deduplicates categories from different sources
   // and maps them to objects with an "id" property
   const fn = pipe(
@@ -110,13 +108,13 @@ export async function getAllCountries(fastify: FastifyInstance) {
     return cachedResult;
   }
 
-  const [{ countries }, { carbonOffsets }] = await Promise.all([
+  const [{ countries }, { carbonProjects }] = await Promise.all([
     gqlSdk.marketplace.getCountries(),
-    gqlSdk.offsets.getCarbonOffsetsCountries(),
+    gqlSdk.digital_carbon.getDigitalCarbonProjectsCountries(),
   ]);
 
   /** Handle invalid responses */
-  if (!isArray(countries) || !isArray(carbonOffsets)) {
+  if (!isArray(countries) || !isArray(carbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
@@ -130,7 +128,7 @@ export async function getAllCountries(fastify: FastifyInstance) {
 
   const result: Country[] = fn([
     countries?.map(extract("id")),
-    carbonOffsets.map(extract("country")),
+    carbonProjects.map(extract("country")),
   ]);
 
   await fastify.lcache.set(cacheKey, { payload: result });
