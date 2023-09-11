@@ -81,7 +81,7 @@ export default function RetirementTrends() {
 
   useEffect(() => {
     const tab = queryParams.get("tab");
-    if (tab != null) {
+    if (tab != null && tabs.some((value) => value == tab)) {
       setActiveTab(tab);
     }
   }, []);
