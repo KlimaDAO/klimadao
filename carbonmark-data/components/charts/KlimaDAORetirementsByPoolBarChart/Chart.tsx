@@ -27,7 +27,7 @@ export default function Chart(props: Props) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={props.data}>
+      <BarChart data={props.data} barCategoryGap={4}>
         <XAxis
           {...KlimaXAxisMonthlyProps(props.data, "retirement_date", locale)}
         />
