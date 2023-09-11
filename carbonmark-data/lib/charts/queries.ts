@@ -5,14 +5,14 @@ import {
   CreditsQueryParams,
   DailyCredits,
   DailyCreditsItem,
-  KlimaMonthlyRetirementsByPool,
+  KlimaMonthlyRetirementsItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
   PricesItem,
   Token,
   TokenInfo,
-  TokensInfo
+  TokensInfo,
 } from "./types";
 
 /* Queries the Data API
@@ -96,6 +96,10 @@ export const queryTokenInfo = async function (
 };
 
 /** Queries the monthly aggregated Klima retirements endpoint */
-export const queryKlimaMonthlyRetirementsByPool = async function (): Promise<PaginatedResponse<KlimaMonthlyRetirementsByPool>> {
-  return paginatedQuery<KlimaMonthlyRetirementsByPool, undefined>(urls.api.klimaMonthlyRetirementsByPool);
+export const queryKlimaMonthlyRetirementsByPool = async function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsItem>> {
+  return paginatedQuery<KlimaMonthlyRetirementsItem, PaginationQueryParams>(
+    urls.api.klimaMonthlyRetirementsByPool
+  );
 };

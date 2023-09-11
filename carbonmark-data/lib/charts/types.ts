@@ -15,6 +15,7 @@ export type Status =
   | "issued"
   | "deposited";
 export type Pool = "ubo" | "nbo" | "nct" | "bct";
+export type Token = Pool | "mco2";
 export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
@@ -73,13 +74,24 @@ export interface TokenInfo {
 }
 export type TokensInfo = PaginatedResponse<TokenInfo>;
 
-export interface KlimaMonthlyRetirementsByPoolItem {
+export interface KlimaMonthlyRetirementsItem {
   retirement_date: string;
   token: string;
   amount_retired: number;
   number_of_retirements: number;
+  amount_retired_bct: number;
+  number_of_retirements_bct: number;
+  amount_retired_nct: number;
+  number_of_retirements_nct: number;
+  amount_retired_ubo: number;
+  number_of_retirements_ubo: number;
+  amount_retired_mco2: number;
+  number_of_retirements_mco2: number;
+  amount_retired_nbo: number;
+  number_of_retirements_nbo: number;
 }
-export type KlimaMonthlyRetirementsByPool = PaginatedResponse<KlimaMonthlyRetirementsByPoolItem>;
+export type KlimaMonthlyRetirements =
+  PaginatedResponse<KlimaMonthlyRetirementsItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
