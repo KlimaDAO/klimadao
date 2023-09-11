@@ -1,3 +1,9 @@
+query getDigitalCarbonProjectsCategories {
+  carbonProjects(first: 1000) {
+    category
+  }
+}
+
 query getDigitalCarbonProjectsCountries {
   carbonProjects(first: 1000) {
     country

@@ -61,20 +61,20 @@ export async function getAllCategories(fastify: FastifyInstance) {
   }
 
   // Fetch categories from the marketplace & carbon offsets categories
-  const [{ categories }, { carbonOffsets }] = await Promise.all([
+  const [{ categories }, { carbonProjects }] = await Promise.all([
     gqlSdk.marketplace.getCategories(),
-    gqlSdk.offsets.getCarbonOffsetsCategories(),
+    gqlSdk.digital_carbon.getDigitalCarbonProjectsCategories(),
   ]);
 
   /** Handle invalid responses */
-  if (!isArray(categories) || !isArray(carbonOffsets)) {
+  if (!isArray(categories) || !isArray(carbonProjects)) {
     throw new Error("Response from server did not match schema definition");
   }
 
   // Extract the required values from the fetched data
   const values = [
     categories?.map(extract("id")),
-    carbonOffsets?.map(extract("methodologyCategory")),
+    carbonProjects?.map(extract("category")),
   ];
   // This function pipeline combines and deduplicates categories from different sources
   // and maps them to objects with an "id" property
