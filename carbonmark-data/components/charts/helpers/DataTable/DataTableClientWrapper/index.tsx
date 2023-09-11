@@ -1,6 +1,6 @@
 "use client";
+import PaginatedTable from "components/charts/helpers/DataTable/PaginatedTable";
 import Pagination from "components/charts/helpers/DataTable/Pagination";
-import Table from "components/charts/helpers/DataTable/Table";
 import { useState } from "react";
 import { ConfigurationKey } from "../configurations";
 import styles from "./styles.module.scss";
@@ -13,7 +13,10 @@ export default function DataTableClientWrapper(props: {
 
   return (
     <div className={styles.wrapper}>
-      <Table page={page} configurationKey={props.configurationKey}></Table>
+      <PaginatedTable
+        page={page}
+        configurationKey={props.configurationKey}
+      ></PaginatedTable>
       <Pagination
         page={page}
         pages_count={props.pages_count}

@@ -1,7 +1,7 @@
 import DataTableClientWrapper from "components/charts/helpers/DataTable/DataTableClientWrapper";
 import { PaginatedResponse } from "lib/charts/types";
 import { ConfigurationKey, fetchData } from "./configurations";
-
+import Table from "./Table";
 /** The table component is tricky because of those two constraints:
  * - 1. Data must be fetched by server components
  * - 2. Number of pages must be known by the pagination (client component)
@@ -19,20 +19,30 @@ import { ConfigurationKey, fetchData } from "./configurations";
 
 /** An async server component that does an initial data fetching to know the number of pages this dataset has
  * configurationKey: Table configuration key
+ * usePagination: Use a simple Server Component to show data without pagination
  */
 export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
+  withPagination: boolean;
 }) {
+  const withPagination = props.withPagination || false;
   const data = (await fetchData(
     props.configurationKey,
     0
   )) as PaginatedResponse<RI>;
   return (
-    <div>
-      <DataTableClientWrapper
-        configurationKey={props.configurationKey}
-        pages_count={data.pages_count}
-      ></DataTableClientWrapper>
-    </div>
+    <>
+      {withPagination && (
+        <DataTableClientWrapper
+          configurationKey={props.configurationKey}
+          pages_count={data.pages_count}
+        ></DataTableClientWrapper>
+      )}
+      {!withPagination && (
+        <div>
+          <Table configurationKey={props.configurationKey} data={data}></Table>
+        </div>
+      )}
+    </>
   );
 }

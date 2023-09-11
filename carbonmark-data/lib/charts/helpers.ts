@@ -1,4 +1,6 @@
+import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { currentLocale } from "lib/i18n";
 import { DateTimeFormatOptions } from "next-intl";
 import { SimpleChartConfiguration } from "./aggregators";
 import {
@@ -200,6 +202,14 @@ export function formatDateAsMonths(locale: string): (date: number) => string {
     month: "short",
   });
 }
+export function formatDateAsMonthsShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    year: "2-digit",
+    month: "short",
+  });
+}
 export function formatDateAsDays(locale: string): (date: number) => string {
   return formatDate(locale, {
     day: "numeric",
@@ -226,6 +236,15 @@ export function formatDateAndTime(locale: string): (date: number) => string {
 
 export function formatPercentage(value: number): string {
   return `${(value * 100).toFixed(0)}%`;
+}
+
+export function formatTonnes(amount: number): string {
+  const locale = currentLocale();
+  return genericFormatTonnes({
+    amount: String(amount),
+    locale,
+    minimumFractionDigits: 2,
+  });
 }
 
 // Returns a list of nice ticks to use in a chart given the data
@@ -266,7 +285,9 @@ const helpers = {
   formatQuantityAsTons,
   formatPrice,
   formatPercentage,
+  formatTonnes,
   formatDateAsMonths,
+  formatDateAsMonthsShort,
   formatDateAsDays,
   formatDateAsDaysShort,
   prepareDailyChartData,

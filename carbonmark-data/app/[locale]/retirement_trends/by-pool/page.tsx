@@ -1,4 +1,5 @@
 import KlimaDAORetirementsByPoolBarCard from "components/cards/KlimaDAORetirementsByPoolBarCard";
+import KlimaDAORetirementsByPoolTableCard from "components/cards/KlimaDAORetirementsByPoolTableCard";
 import RetirementTrendsPage from "components/pages/RetirementTrendsPage";
 import layout from "theme/layout.module.scss";
 
@@ -10,7 +11,7 @@ export default function RetirementTrendsByPoolPage() {
           <div className={layout.cardRow}>
             <KlimaDAORetirementsByPoolBarCard></KlimaDAORetirementsByPoolBarCard>
           </div>
-          <div className={layout.cardRow}>KlimaDAO Retirements by Pool</div>
+          <KlimaDAORetirementsByPoolTableCard></KlimaDAORetirementsByPoolTableCard>
           <div className={layout.cardRow}>
             Detailed list of KlimaDAO Retirements
           </div>

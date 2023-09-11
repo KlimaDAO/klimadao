@@ -20,7 +20,8 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
       page,
     });
   }
-  getColumns(locale: string): Columns<RawRetirementsItem> {
+  getColumns(): Columns<RawRetirementsItem> {
+    const locale = currentLocale();
     return {
       beneficiary: {
         header: t`Beneficiary address`,
@@ -70,31 +71,28 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
     };
   }
   cardRenderer = (props: { item: RawRetirementsItem }) => {
-    const locale = currentLocale();
     return (
       <div className={styles.card}>
         <div className={styles.cardTitle}>{props.item.beneficiary}</div>
         <div className={styles.facts}>
           <div className={styles.date}>
-            {this.formatValue(props.item, "retirement_date", locale)}
+            {this.formatValue(props.item, "retirement_date")}
           </div>
-          {this.formatValue(props.item, "token", locale)}
-          {this.formatValue(props.item, "project_id", locale)}
+          {this.formatValue(props.item, "token")}
+          {this.formatValue(props.item, "project_id")}
         </div>
         <div className={styles.badge}>
-          {t`${this.formatValue(props.item, "quantity", locale)} Tonnes`}
+          {t`${this.formatValue(props.item, "quantity")} Tonnes`}
         </div>
-        {this.formatValue(props.item, "transaction_id", locale)}
+        {this.formatValue(props.item, "transaction_id")}
       </div>
     );
   };
   desktopRenderer = (props: {
     data: PaginatedResponse<RawRetirementsItem>;
   }) => {
-    const locale = currentLocale();
-    return this.TableLayout({
+    return this.VerticalTableLayout({
       data: props.data,
-      columns: this.getColumns(locale),
     });
   };
   mobileRenderer = (props: { data: PaginatedResponse<RawRetirementsItem> }) => {
