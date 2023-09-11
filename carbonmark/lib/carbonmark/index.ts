@@ -1,4 +1,4 @@
-import { Project, Purchase, User } from "lib/types/carbonmark";
+import { DetailedProject, Project, Purchase, User } from "lib/types/carbonmark";
 
 import { urls } from "lib/constants";
 
@@ -15,7 +15,7 @@ export const getCarbonmarkProjects = async (): Promise<Project[]> => {
 
 export const getCarbonmarkProject = async (
   projectId: string
-): Promise<Project> => {
+): Promise<DetailedProject> => {
   try {
     const result = await fetch(`${urls.api.projects}/${projectId}`);
     const json = await result.json();

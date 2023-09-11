@@ -4,13 +4,13 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createSellerLink } from "lib/createUrls";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { Listing, Project } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";
 
 export interface Props {
-  project: Project;
+  project: DetailedProject;
   seller?: Listing["seller"];
 }
 

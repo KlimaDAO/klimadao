@@ -5,15 +5,15 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { getFullProjectId } from "lib/projectGetter";
-import { Price, Project } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireForm } from "./Pool/RetireForm";
 import * as styles from "./styles";
 
 export interface ProjectRetirePageProps {
-  project: Project;
-  poolPrice: Price;
+  project: DetailedProject;
+  poolPrice: TokenPrice;
 }
 
 export const ProjectRetire: NextPage<ProjectRetirePageProps> = (props) => {

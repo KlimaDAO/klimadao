@@ -19,17 +19,6 @@ import Other from "public/category/Other.jpg";
 import OtherNatureBased from "public/category/OtherNatureBased.jpg";
 import RenewableEnergy from "public/category/RenewableEnergy.jpg";
 
-export const categoryNames: CategoryName[] = [
-  "Agriculture",
-  "Energy Efficiency",
-  "Forestry",
-  "Industrial Processing",
-  "Other Nature-Based",
-  "Other",
-  "Renewable Energy",
-  "Blue Carbon",
-];
-
 type CategoryInfoMap = {
   [key in CategoryName]: {
     key: CategoryName;

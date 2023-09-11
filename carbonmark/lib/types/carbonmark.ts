@@ -3,17 +3,18 @@ import { BigNumber } from "ethers";
 import type { NormalizeOAS, OASModel } from "fets";
 import { notNil } from "lib/utils/functional.utils";
 
-export type CarouselImage = DetailedProject["images"][number];
-
+/** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
 export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
 export type Listing = OASModel<NormalizeOAS<typeof schema>, "Listing">;
 export type TokenPrice = OASModel<NormalizeOAS<typeof schema>, "TokenPrice">;
 export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
-
+export type User = OASModel<NormalizeOAS<typeof schema>, "User">;
 export type DetailedProject = OASModel<
   NormalizeOAS<typeof schema>,
   "DetailedProject"
 >;
+
+export type CarouselImage = DetailedProject["images"][number];
 
 export function isTokenPrice(obj: unknown): obj is TokenPrice {
   return (
@@ -222,9 +223,8 @@ const CATEGORY_NAMES = [
 
 export type CategoryName = (typeof CATEGORY_NAMES)[number];
 
-export function isCategoryName(name: string): name is CategoryName {
-  return CATEGORY_NAMES.includes(name as CategoryName);
-}
+export const isCategoryName = (name?: string | null): name is CategoryName =>
+  CATEGORY_NAMES.includes(name as CategoryName);
 
 export type Purchase = {
   id: string;
