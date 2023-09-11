@@ -1,3 +1,4 @@
+import { PaginatedResponse } from "lib/charts/types";
 import React from "react";
 
 type Formatter =
@@ -18,4 +19,7 @@ export interface Columns<RI> {
   [key: string]: Column<RI>;
 }
 
-export type CardRenderer<RI> = (props: { item: RI }) => JSX.Element;
+export type DataRenderer<RI> = (props: {
+  data: PaginatedResponse<RI>;
+}) => JSX.Element;
+export type ItemRenderer<RI> = (props: { item: RI }) => JSX.Element;

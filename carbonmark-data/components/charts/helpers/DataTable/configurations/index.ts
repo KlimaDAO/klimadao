@@ -13,7 +13,11 @@ export function fetchData(key: ConfigurationKey, page: number) {
 export function getColumns(key: ConfigurationKey, locale: string) {
   return configurations[key].getColumns(locale);
 }
-/** Returns a JSX.Element that can render data items as cards for a table configuraton */
-export function getCardRenderer(key: ConfigurationKey) {
-  return configurations[key].cardRenderer;
+/** Returns a JSX.Element that can render data items for desktop */
+export function getDesktopRenderer(key: ConfigurationKey) {
+  return configurations[key].desktopRenderer;
+}
+/** Returns a JSX.Element that can render data items for mobile */
+export function getMobileRenderer(key: ConfigurationKey) {
+  return configurations[key].mobileRenderer;
 }

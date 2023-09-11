@@ -4,7 +4,7 @@ import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
 import { queryRawKlimaRetirements } from "lib/charts/queries";
-import { RawRetirementsItem } from "lib/charts/types";
+import { PaginatedResponse, RawRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
@@ -87,5 +87,20 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
         {this.formatValue(props.item, "transaction_id", locale)}
       </div>
     );
+  };
+  desktopRenderer = (props: {
+    data: PaginatedResponse<RawRetirementsItem>;
+  }) => {
+    const locale = currentLocale();
+    return this.TableLayout({
+      data: props.data,
+      columns: this.getColumns(locale),
+    });
+  };
+  mobileRenderer = (props: { data: PaginatedResponse<RawRetirementsItem> }) => {
+    return this.CardsLayout({
+      data: props.data,
+      cardRenderer: this.cardRenderer,
+    });
   };
 }

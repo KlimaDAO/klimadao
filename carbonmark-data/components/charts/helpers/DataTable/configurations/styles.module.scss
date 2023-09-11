@@ -1,3 +1,39 @@
+// Tables styling
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.header {
+  background-color: var(--surface-01);
+
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    font-family: Poppins;
+  }
+}
+
+.row {
+  border-bottom: 1px solid var(--text-color-07);
+
+  td {
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+}
+
+// Cards styling
+.cards {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
