@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
+import digitalCarbon from "../fixtures/digitalCarbon";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { COUNTRIES, ERROR } from "./routes.mock";
@@ -16,17 +17,18 @@ describe("GET /countries", () => {
   });
 
   /** A default response for offsets */
-  beforeEach(() =>
+  beforeEach(() => {
     nock(GRAPH_URLS.offsets)
       .post("")
-      .reply(200, { data: { carbonOffsets: COUNTRIES } })
-  );
+      .reply(200, { data: { carbonOffsets: COUNTRIES } });
+  });
 
   /** The happy path */
   test("Success", async () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { countries: COUNTRIES } });
+    nock(GRAPH_URLS.digitalCarbon).post("").reply(200, digitalCarbon.countries);
 
     const response = await fastify.inject({
       method: "GET",
@@ -46,6 +48,7 @@ describe("GET /countries", () => {
       .reply(200, {
         errors: [ERROR],
       });
+    nock(GRAPH_URLS.digitalCarbon).post("").reply(200, digitalCarbon.countries);
 
     const response = await fastify.inject({
       method: "GET",
@@ -60,6 +63,7 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { countries: [] } });
+    nock(GRAPH_URLS.digitalCarbon).post("").reply(200, digitalCarbon.countries);
 
     const response = await fastify.inject({
       method: "GET",
@@ -75,6 +79,9 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { categories: "invalid data" } });
+    nock(GRAPH_URLS.digitalCarbon)
+      .post("")
+      .reply(200, { data: { carbonProjects: [] } });
 
     const response = await fastify.inject({
       method: "GET",
