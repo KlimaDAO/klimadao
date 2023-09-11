@@ -9,10 +9,18 @@ import {
   PaginationQueryParams,
   Prices,
   PricesItem,
+  RawRetirementsItem,
   Token,
   TokenInfo,
   TokensInfo,
 } from "./types";
+
+export const EMPTY_PAGINATED_RESPONSE = {
+  items: [],
+  items_count: 0,
+  pages_count: 0,
+  current_page: 0,
+};
 
 /** Queries the Data API
    R: Type of the response
@@ -72,17 +80,7 @@ async function paginatedQuery<RI, Q>(
   params: Q | undefined = undefined,
   revalidate?: number
 ): Promise<PaginatedResponse<RI>> {
-  return failsafeQuery(
-    url,
-    params,
-    {
-      items: [],
-      items_count: 0,
-      pages_count: 0,
-      current_page: 0,
-    },
-    revalidate
-  );
+  return failsafeQuery(url, params, EMPTY_PAGINATED_RESPONSE, revalidate);
 }
 
 /** Queries the Credits Daily Aggregations endpoint */
@@ -124,4 +122,14 @@ export const queryTokenInfo = async function (
   const tokens = (await paginatedQuery<TokenInfo, undefined>(urls.api.tokens))
     .items;
   return tokens.find((tokenInfo) => tokenInfo.name.toLowerCase() == token);
+};
+
+/** Queries the Klima Raw Retirements endpoint */
+export const queryRawKlimaRetirements = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<RawRetirementsItem>> {
+  return paginatedQuery<RawRetirementsItem, typeof params>(
+    urls.api.klima_raw_retirements,
+    params
+  );
 };

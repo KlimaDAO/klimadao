@@ -28,8 +28,19 @@ const config = {
     },
   },
 };
-const api_url =
+/** URL of the 'REAL' Dash API
+ * used by the proxy
+ */
+export const dash_api_url =
   process.env.NEXT_PUBLIC_DATA_API_URL || config.urls.api[ENVIRONMENT];
+
+/** URL used by the query functions  */
+const api_url =
+  typeof window === "undefined"
+    ? // Server side we contact the actual Dash API endpoint
+      dash_api_url
+    : // Client side we use the proxy
+      "/api";
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
@@ -38,5 +49,6 @@ export const urls = {
     aggregatedCredits: `${api_url}/credits/agg`,
     prices: `${api_url}/prices`,
     tokens: `${api_url}/tokens`,
+    klima_raw_retirements: `${api_url}/retirements/klima/raw`,
   },
 };
