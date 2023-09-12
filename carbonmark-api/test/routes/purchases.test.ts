@@ -3,14 +3,14 @@ import { pick } from "lodash";
 import nock from "nock";
 import { aPurchase } from "../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
-import { PurchaseT } from "../../src/models/Purchase.model";
+import { Purchase } from "../../src/models/Purchase.model";
 import { build } from "../helper";
 import { DEV_URL } from "../test.constants";
 import { ERROR } from "./routes.mock";
 
 const mockPurchase = aPurchase();
 
-const responseFixture: PurchaseT = {
+const responseFixture: Purchase = {
   ...pick(mockPurchase, ["amount", "id", "price"]),
   buyer: {
     id: mockPurchase.user.id,
