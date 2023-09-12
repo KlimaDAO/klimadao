@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-11 15:36+0000\n"
+"POT-Creation-Date: 2023-09-12 03:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +52,7 @@ msgstr "Contáctenos"
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:46
 msgid "Docs"
-msgstr ""
+msgstr "Docs"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:33
