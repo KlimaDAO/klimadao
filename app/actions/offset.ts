@@ -1,4 +1,5 @@
-import { BigNumber, Contract, providers, utils } from "ethers";
+import { BigNumber, Contract, providers } from "ethers";
+import { formatUnits as eFormatUnits, parseUnits } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Thunk } from "state";
 import {
@@ -107,7 +108,7 @@ export const getOffsetConsumptionCost = async (params: {
     contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
   });
-  const parsed = utils.parseUnits(
+  const parsed = parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
@@ -177,7 +178,7 @@ export const retireCarbonTransaction = async (params: {
 
     params.onStatus("userConfirmation");
 
-    const parsedMaxAmountIn = utils.parseUnits(
+    const parsedMaxAmountIn = parseUnits(
       params.maxAmountIn,
       getTokenDecimals(params.inputToken)
     );
@@ -189,10 +190,7 @@ export const retireCarbonTransaction = async (params: {
         addresses["mainnet"][params.retirementToken],
         params.projectAddress,
         parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
+        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
@@ -204,10 +202,7 @@ export const retireCarbonTransaction = async (params: {
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
         parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
+        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
@@ -248,7 +243,7 @@ export const approveProjectToken = async (params: {
       IERC20.abi,
       params.signer
     );
-    const parsedValue = utils.parseUnits(params.value, 18);
+    const parsedValue = parseUnits(params.value, 18);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].retirementAggregatorV2,
@@ -331,7 +326,7 @@ export const getProjectTokenBalances = (params: {
             ...arr,
             {
               address: token.id,
-              quantity: utils.formatUnits(amount, 18),
+              quantity: eFormatUnits(amount, 18),
               symbol: token.symbol,
               allowance: allowances[i], // for performance, fetch the allowance on-the-fly when they select it in the dropdown
             },
@@ -360,7 +355,7 @@ export const retireProjectTokenTransaction = async (params: {
   try {
     const args = [
       params.projectTokenAddress,
-      utils.parseUnits(params.quantity, 18),
+      parseUnits(params.quantity, 18),
       params.beneficiaryAddress || (await params.signer.getAddress()),
       params.beneficiaryName,
       params.retirementMessage,

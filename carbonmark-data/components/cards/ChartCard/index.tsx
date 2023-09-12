@@ -48,11 +48,7 @@ export default function ChartCard(props: {
   if (props.detailUrl && !isDetailPage) {
     detailUrlComponent = (
       <Link className={styles.cardHeaderDetailsLink} href={props.detailUrl}>
-        Details{" "}
-        <ArrowForward
-          fontSize="small"
-          className={styles.cardHeaderDetailsLinkArrow}
-        />
+        Details <ArrowForward fontSize="small" />
       </Link>
     );
   } else {

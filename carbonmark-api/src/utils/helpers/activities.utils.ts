@@ -1,6 +1,6 @@
 import { utils } from "ethers";
 import { assign } from "lodash";
-import { ByWalletUserActivity } from "src/graphql/marketplace.types";
+import { ByWalletUserActivity } from "../../graphql/marketplace.types";
 
 /**
  * Formats the given activity object by converting the amount, previousAmount, price, and previousPrice

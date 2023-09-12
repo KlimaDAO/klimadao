@@ -29,6 +29,7 @@
     "@turf/helpers": "^6.5.0",
     "embla-carousel-react": "^8.0.0-rc06",
     "ethers": "^5.7.2",
+    "ethers-v6": "npm:ethers@^6.7.1",
     "firebase-admin": "^11.7.0",
     "jspdf": "^2.5.1",
     "lodash": "^4.17.21",

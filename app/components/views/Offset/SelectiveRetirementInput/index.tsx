@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { ChangeEvent, FC } from "react";
 import * as styles from "./styles";
 
@@ -22,9 +22,7 @@ export const SelectiveRetirementInput: FC<Props> = (props) => {
         id: "offset.enter_address",
         message: "Enter 0x address",
       })}
-      data-error={
-        !!props.projectAddress && !utils.isAddress(props.projectAddress)
-      }
+      data-error={!!props.projectAddress && !isAddress(props.projectAddress)}
       pattern="^0x[a-fA-F0-9]{40}$"
       disabled={props.disabled}
     />

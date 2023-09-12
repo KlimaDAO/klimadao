@@ -1,5 +1,8 @@
+import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { currentLocale } from "lib/i18n";
 import { DateTimeFormatOptions } from "next-intl";
+import { SimpleChartConfiguration } from "./aggregators";
 import {
   AggregatedCredits,
   ChartData,
@@ -126,6 +129,30 @@ export async function prepareAggregatedChartData<
   return chartData;
 }
 
+/*
+  This function takes ChartData and transform values into percentages given a chart configuration
+  Params:
+   - fetchFunction: The function that queries the API
+  Generics:
+   - CI: Expected type of items returned in the chart data array
+   - Q: Type of the query and mapping parameters
+*/
+export function transformToPercentages<CI>(
+  data: ChartData<CI>,
+  configuration: SimpleChartConfiguration<CI>
+): ChartData<CI> {
+  data.forEach((item) => {
+    const total = configuration.reduce((prev, conf) => {
+      return prev + (item[conf.chartOptions.id] as number);
+    }, 0);
+    configuration.forEach((conf) => {
+      (item[conf.chartOptions.id] as number) =
+        (item[conf.chartOptions.id] as number) / total;
+    });
+  });
+  return data;
+}
+
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
@@ -175,6 +202,14 @@ export function formatDateAsMonths(locale: string): (date: number) => string {
     month: "short",
   });
 }
+export function formatDateAsMonthsShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    year: "2-digit",
+    month: "short",
+  });
+}
 export function formatDateAsDays(locale: string): (date: number) => string {
   return formatDate(locale, {
     day: "numeric",
@@ -197,6 +232,19 @@ export function formatDateAndTime(locale: string): (date: number) => string {
     const time = formatTime()(date);
     return `${day} ${time}`;
   };
+}
+
+export function formatPercentage(value: number): string {
+  return `${(value * 100).toFixed(0)}%`;
+}
+
+export function formatTonnes(amount: number): string {
+  const locale = currentLocale();
+  return genericFormatTonnes({
+    amount: String(amount),
+    locale,
+    minimumFractionDigits: 2,
+  });
 }
 
 // Returns a list of nice ticks to use in a chart given the data
@@ -236,7 +284,10 @@ const helpers = {
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
   formatPrice,
+  formatPercentage,
+  formatTonnes,
   formatDateAsMonths,
+  formatDateAsMonthsShort,
   formatDateAsDays,
   formatDateAsDaysShort,
   prepareDailyChartData,

@@ -4,7 +4,8 @@ import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits } from "@klimadao/lib/utils";
-import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import { Contract, ethers, providers, Transaction } from "ethers";
+import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getProject } from "lib/api";
 import {
   createProjectIdFromAsset,
@@ -45,7 +46,7 @@ export const getCarbonmarkAllowance = async (params: {
     getAddress("carbonmark")
   );
 
-  return ethers.utils.formatUnits(allowance, 18);
+  return ethersFormatUnits(allowance, 18);
 };
 
 export const getAggregatorV2Allowance = async (params: {
@@ -63,7 +64,7 @@ export const getAggregatorV2Allowance = async (params: {
     getAddress("retirementAggregatorV2")
   );
 
-  return ethers.utils.formatUnits(allowance, 18);
+  return ethersFormatUnits(allowance, 18);
 };
 
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
@@ -94,7 +95,7 @@ export const approveTokenSpend = async (params: {
       throw new Error("Must provide either tokenName or tokenAddress");
     }
     const decimals = params.tokenName ? getTokenDecimals(params.tokenName) : 18; // assume 18 if no tokenName is provided
-    const parsedValue = utils.parseUnits(params.value, decimals);
+    const parsedValue = parseUnits(params.value, decimals);
 
     params.onStatus("userConfirmation");
     const txn = await tokenContract.approve(
@@ -136,8 +137,8 @@ export const createListingTransaction = async (params: {
 
     const listingTxn = await carbonmarkContract.addListing(
       params.tokenAddress,
-      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.totalAmountToSell, 18), // C3 token
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [], // TODO batches price
       params.tokenType
@@ -176,8 +177,8 @@ export const updateListingTransaction = async (params: {
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       params.tokenAddress,
-      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.totalAmountToSell, 18), // C3 token
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [] // TODO batches price
     );
@@ -213,8 +214,8 @@ export const makePurchase = async (params: {
 
     const purchaseTxn = await carbonmarkContract.purchase(
       params.listingId,
-      utils.parseUnits(params.amount, 18), // C3 token
-      utils.parseUnits(params.price, getTokenDecimals("usdc"))
+      parseUnits(params.amount, 18), // C3 token
+      parseUnits(params.price, getTokenDecimals("usdc"))
     );
 
     params.onStatus("networkConfirmation", "");
@@ -297,7 +298,7 @@ export const addProjectsToAssets = async (params: {
         resolvedAssets.push({
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
-          balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+          balance: ethersFormatUnits(asset.amount, asset.token.decimals),
           tokenType: getTokenType(asset),
           project,
         });
@@ -326,7 +327,7 @@ export const createCompositeAsset = (
 
   const compositeAsset: AssetForRetirement = {
     tokenName: asset.token.name,
-    balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+    balance: ethersFormatUnits(asset.amount, asset.token.decimals),
     tokenType: getTokenType(asset),
     tokenSymbol: asset.token.symbol,
     project,
@@ -378,7 +379,7 @@ export const getProjectInfoFromC3Contract = async (
       projectID: projectInfo.project_id,
       name: projectInfo.name,
       methodology: projectInfo.methodology,
-      vintage: ethers.utils.formatUnits(vintage, 0),
+      vintage: ethersFormatUnits(vintage, 0),
       category: getCategoryFromMethodology(projectInfo.methodology),
     };
   } catch (e: any) {
