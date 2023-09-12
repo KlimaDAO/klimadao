@@ -2,11 +2,12 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
+import { Project } from "../../models/Project.model";
 import { CreditId } from "../../utils/CreditId";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { ProjectEntry, schema } from "./get.schema";
+import { schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -14,7 +15,7 @@ import {
   getDefaultQueryArgs,
   isValidMarketplaceProject,
   isValidPoolProject,
-} from "./projects.utils";
+} from "./get.utils";
 
 type Params = {
   country?: string;
@@ -39,7 +40,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ): Promise<ProjectEntry[]> {
+  ): Promise<Project[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
@@ -128,7 +129,7 @@ export default async (fastify: FastifyInstance) => {
   await fastify.route({
     method: "GET",
     url: "/projects",
-    schema,
     handler: handler(fastify),
+    schema,
   });
 };

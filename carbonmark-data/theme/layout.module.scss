@@ -61,6 +61,20 @@
   }
 }
 
+.mobileOnly {
+  @include large {
+    display: none;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include large {
+    display: unset;
+  }
+}
+
 .textLeft {
   text-align: left;
 }

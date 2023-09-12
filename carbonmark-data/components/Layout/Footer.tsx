@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import { Link } from "@mui/material";
 import { FC } from "react";
+import layout from "theme/layout.module.scss";
 import styles from "./style.module.scss";
 
 export const Footer: FC = () => {
@@ -16,28 +17,28 @@ export const Footer: FC = () => {
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
         <Link href="#">Home</Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           Buy
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           Stake
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           App
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           Docs
         </Link>
-        <Link href="#" className={styles.desktopOnly}>
+        <Link href="#" className={layout.desktopOnly}>
           Klima App
         </Link>
-        <Link href="#" className={styles.desktopOnly}>
+        <Link href="#" className={layout.desktopOnly}>
           Carbonmark
         </Link>
-        <Link href="#" className={styles.desktopOnly}>
+        <Link href="#" className={layout.desktopOnly}>
           Klima Data
         </Link>
-        <Link href="#" className={styles.desktopOnly}>
+        <Link href="#" className={layout.desktopOnly}>
           Official Docs
         </Link>
         <Link href="#">Blog</Link>
@@ -54,10 +55,10 @@ export const Footer: FC = () => {
         <Link href="#">
           <DiscordSvg />
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           <Reddit />
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           <GitHub />
         </Link>
         <Link href="#">
@@ -66,7 +67,7 @@ export const Footer: FC = () => {
         <Link href="#">
           <Telegram />
         </Link>
-        <Link href="#" className={styles.mobileOnly}>
+        <Link href="#" className={layout.mobileOnly}>
           <RssFeed />
         </Link>
       </div>

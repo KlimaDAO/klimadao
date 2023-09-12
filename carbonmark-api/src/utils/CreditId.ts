@@ -33,12 +33,16 @@ export class CreditId {
   projectId: ProjectIdentifier;
   creditId: CreditIdentifier;
 
+  public static ValidCreditIdRegex = /^(VCS|PURO|ICR)-\d+-(19\d{2}|20\d{2})$/i;
+  public static ValidProjectIdRegex = /^(VCS|PURO|ICR)-\d+$/i; // case insensitive
+
   constructor(params: UntypedParams);
   constructor(params: string);
   constructor(params: string | UntypedParams) {
-    if (CreditId.isValidCreditId(params)) {
-      const [standard, registryProjectId, vintage] =
-        CreditId.splitCreditId(params);
+    if (CreditId.ValidCreditIdRegex.test(String(params))) {
+      const [standard, registryProjectId, vintage] = CreditId.splitCreditId(
+        String(params)
+      );
       this.standard = standard;
       this.registryProjectId = registryProjectId;
       this.vintage = vintage;
@@ -65,22 +69,12 @@ export class CreditId {
   /** Case insensitive type-guard @example isValidCreditId("Vcs-191-2008") // true */
   static isValidCreditId = (
     id: unknown
-  ): id is `${string}-${string}-${string}` => {
-    if (typeof id !== "string") {
-      return false;
-    }
-    const pattern = /^(VCS|PURO|ICR)-\d+-(19\d{2}|20\d{2})$/i; // case insensitive
-    return pattern.test(id);
-  };
+  ): id is `${string}-${string}-${string}` =>
+    CreditId.ValidCreditIdRegex.test(String(id));
 
   /** Case insensitive type-guard @example isValidProjectId("vcs-191") // true */
-  static isValidProjectId = (id: unknown): id is `${string}-${string}` => {
-    if (typeof id !== "string") {
-      return false;
-    }
-    const pattern = /^(VCS|PURO|ICR)-\d+$/i; // case insensitive
-    return pattern.test(id);
-  };
+  static isValidProjectId = (id: unknown): id is `${string}-${string}` =>
+    CreditId.ValidProjectIdRegex.test(String(id));
 
   /* eslint-disable @typescript-eslint/consistent-type-assertions -- type guards */
   /** Validates, splits and capitalizes a CreditIdentifier string */

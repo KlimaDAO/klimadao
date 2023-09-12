@@ -1,5 +1,5 @@
 import { aCarbonOffset } from "../../src/.generated/mocks/offsets.mocks";
-import { POOL_INFO } from "../../src/routes/projects/projects.constants";
+import { POOL_INFO } from "../../src/routes/projects/get.constants";
 
 /** VCS-191-2008 entry from subgraph */
 const offset = aCarbonOffset({
