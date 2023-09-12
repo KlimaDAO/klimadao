@@ -629,7 +629,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:153
+#: components/pages/Project/index.tsx:151
 msgid "Best Price"
 msgstr ""
 
@@ -665,42 +665,42 @@ msgid "Updated:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:114
+#: components/pages/Project/index.tsx:112
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:160
+#: components/pages/Project/index.tsx:158
 msgid "Methodology"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:199
 msgid "Description"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read Less"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read More"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:221
 msgid "View Registry Details <0/>"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:238
 msgid "No listings found for this project."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:250
+#: components/pages/Project/index.tsx:248
 msgid "Data for this project and vintage"
 msgstr ""
 
