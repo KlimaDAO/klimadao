@@ -1,6 +1,6 @@
 import { FastifyInstance, RouteHandler } from "fastify";
 import { getAllCountries } from "../../utils/helpers/utils";
-import { schema } from "./countries.schema";
+import { schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance): RouteHandler =>
   async function (request, reply) {

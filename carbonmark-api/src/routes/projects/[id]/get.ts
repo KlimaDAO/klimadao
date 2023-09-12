@@ -8,7 +8,7 @@ import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils"
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
-import { Params, schema } from "./getById.schema";
+import { Params, schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>

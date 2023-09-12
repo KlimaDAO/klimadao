@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
-import { schema } from "./login.schema";
+import { schema } from "./post.schema";
 
 type Body = {
   wallet: string;

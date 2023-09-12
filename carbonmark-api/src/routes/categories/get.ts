@@ -1,6 +1,6 @@
 import { FastifyInstance, RouteHandler } from "fastify";
 import { getAllCategories } from "../../utils/helpers/utils";
-import { schema } from "./categories.schema";
+import { schema } from "./get.schema";
 
 const handler =
   (fastify: FastifyInstance): RouteHandler =>

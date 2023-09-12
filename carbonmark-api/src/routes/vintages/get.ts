@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Vintage } from "../../models/Vintage.model";
 import { getAllVintages } from "../../utils/helpers/utils";
-import { schema } from "./vintages.schema";
+import { schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (_: FastifyRequest, reply: FastifyReply) {

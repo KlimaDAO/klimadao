@@ -3,7 +3,7 @@ import { isNil } from "lodash";
 import { Purchase } from "src/models/Purchase.model";
 import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
 import { gqlSdk } from "../../../utils/gqlSdk";
-import { ParamsT, schema } from "./purchases.schema";
+import { ParamsT, schema } from "./get.schema";
 
 const routeHandler = (fastify: FastifyInstance) =>
   fastify.route<{

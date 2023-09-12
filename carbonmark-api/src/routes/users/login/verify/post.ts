@@ -1,7 +1,7 @@
 import * as ethers from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../../utils/crypto.utils";
-import { schema } from "./verify.schema";
+import { schema } from "./post.schema";
 
 type Body = {
   signature: string;
