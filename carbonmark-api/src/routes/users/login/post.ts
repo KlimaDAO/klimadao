@@ -1,27 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { generateNonce } from "../../../utils/crypto.utils";
-
-const schema = {
-  summary: "Get nonce",
-  description:
-    "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
-  tags: ["Auth"],
-  body: {
-    type: "object",
-    properties: {
-      wallet: { type: "string", minLength: 26, maxLength: 64 },
-    },
-    required: ["wallet"],
-  },
-  response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        nonce: { type: "string" },
-      },
-    },
-  },
-};
+import { schema } from "./post.schema";
 
 type Body = {
   wallet: string;

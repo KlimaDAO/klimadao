@@ -1,13 +1,14 @@
 import { FastifyInstance } from "fastify";
 import { isNil } from "lodash";
-import { GetPurchasesByIdQuery } from "src/.generated/types/marketplace.types";
-import { gqlSdk } from "../utils/gqlSdk";
-import { PurchaseParams, PurchaseResponse, schema } from "./purchases.schema";
+import { Purchase } from "src/models/Purchase.model";
+import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
+import { gqlSdk } from "../../../utils/gqlSdk";
+import { ParamsT, schema } from "./get.schema";
 
 const routeHandler = (fastify: FastifyInstance) =>
   fastify.route<{
-    Params: PurchaseParams;
-    Reply: PurchaseResponse | { error: string };
+    Params: ParamsT;
+    Reply: Purchase | { error: string };
   }>({
     method: "GET",
     url: "/purchases/:id",
@@ -29,7 +30,7 @@ const routeHandler = (fastify: FastifyInstance) =>
 
       const country = data.listing?.project?.country?.id || "";
 
-      const purchase: PurchaseResponse = {
+      const purchase: Purchase = {
         ...data,
         buyer: data.user,
         seller: data.listing?.seller,

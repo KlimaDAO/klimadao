@@ -1,33 +1,11 @@
 import * as ethers from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { generateNonce } from "../../../utils/crypto.utils";
+import { generateNonce } from "../../../../utils/crypto.utils";
+import { schema } from "./post.schema";
 
 type Body = {
   signature: string;
   wallet: string;
-};
-
-const schema = {
-  summary: "Verify signed data",
-  description:
-    "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
-  tags: ["Auth"],
-  body: {
-    type: "object",
-    properties: {
-      wallet: { type: "string", minLength: 26, maxLength: 64 },
-      signature: { type: "string" },
-    },
-    required: ["wallet", "signature"],
-  },
-  response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        token: { type: "string" },
-      },
-    },
-  },
 };
 
 const handler = (fastify: FastifyInstance) =>
@@ -73,6 +51,6 @@ export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "POST",
     url: "/users/login/verify",
-    schema,
     handler: handler(fastify),
+    schema,
   });
