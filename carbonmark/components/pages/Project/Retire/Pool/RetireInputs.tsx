@@ -7,7 +7,7 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
@@ -195,7 +195,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 validate: {
                   isAddress: (v) =>
                     v === "" || // no beneficiary, fallback to default address
-                    utils.isAddress(v) || // allow polygon addresses only
+                    isAddress(v) || // allow polygon addresses only
                     t`Not a valid polygon address`,
                 },
               }),

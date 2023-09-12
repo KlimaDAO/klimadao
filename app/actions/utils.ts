@@ -9,7 +9,8 @@ import {
   getTokenDecimals,
 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { AppNotificationStatus, TxnStatus } from "state/app";
 
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
@@ -57,7 +58,7 @@ export const changeApprovalTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
-    const parsedValue = utils.parseUnits(params.value, decimals);
+    const parsedValue = parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"][params.spender],

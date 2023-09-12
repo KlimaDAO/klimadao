@@ -6,7 +6,8 @@ import {
   getTokenDecimals,
   safeAdd,
 } from "@klimadao/lib/utils";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { formatUnits } from "ethers/lib/utils";
 import { getAddress } from "lib/networkAware/getAddress";
 import { OnStatusHandler } from "lib/statusMessage";
@@ -74,11 +75,8 @@ export const redeemCarbonTransaction = async (params: {
       txn = await aggregator[method](
         getAddress(params.paymentMethod),
         getAddress(params.pool),
-        utils.parseUnits(
-          params.maxCost,
-          getTokenDecimals(params.paymentMethod)
-        ),
-        utils.parseUnits(params.quantity, 18),
+        parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
+        parseUnits(params.quantity, 18),
         TransferMode.EXTERNAL,
         TransferMode.EXTERNAL
       );
@@ -91,12 +89,9 @@ export const redeemCarbonTransaction = async (params: {
       txn = await aggregator[method](
         getAddress(params.paymentMethod),
         getAddress(params.pool),
-        utils.parseUnits(
-          params.maxCost,
-          getTokenDecimals(params.paymentMethod)
-        ),
+        parseUnits(params.maxCost, getTokenDecimals(params.paymentMethod)),
         [params.projectTokenAddress],
-        [utils.parseUnits(params.quantity, 18)],
+        [parseUnits(params.quantity, 18)],
         0,
         0
       );
@@ -131,7 +126,7 @@ export const getRedeemCost = async (params: {
     provider: getStaticProvider(),
   });
 
-  const parsed = utils.parseUnits(params.quantity, 18); // why here always 18?
+  const parsed = parseUnits(params.quantity, 18); // why here always 18?
 
   let sourceAmount;
 

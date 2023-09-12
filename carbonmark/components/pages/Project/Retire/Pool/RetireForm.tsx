@@ -5,7 +5,7 @@ import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { utils } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRetirementAllowance,
@@ -198,12 +198,14 @@ export const RetireForm: FC<Props> = (props) => {
   const getApprovalValue = (): string => {
     if (!inputValues?.totalPrice) return "0";
 
-    const onePercent = utils
-      .parseUnits(
-        inputValues.totalPrice,
-        getTokenDecimals(inputValues.paymentMethod)
-      )
-      .div("100");
+    const onePercent =
+      BigInt(
+        parseUnits(
+          inputValues.totalPrice,
+          getTokenDecimals(inputValues.paymentMethod)
+        )
+      ) / BigInt(100);
+
     const val = safeAdd(
       inputValues.totalPrice,
       formatUnits(onePercent, getTokenDecimals(inputValues.paymentMethod))
