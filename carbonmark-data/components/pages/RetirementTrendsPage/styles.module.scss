@@ -1,24 +1,26 @@
-.text {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+@import "~@klimadao/lib/theme/breakpoints.scss";
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 6rem;
+.tabButton {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
 
-  /**
-  @todo import the breakpoint for desktopLarge here
-  */
-  @media (min-width: 75em) {
-    grid-template-columns: 1fr 1fr;
-    width: 80rem;
+.mobileOnly {
+  @include large {
+    display: none;
   }
 }
 
-.insights {
-  h2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.desktopOnly {
+  display: none;
+
+  @include large {
+    display: unset;
   }
+}
+
+.noPadding {
+  padding-left: 0;
+  padding-right: 0;
 }
