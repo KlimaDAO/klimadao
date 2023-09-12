@@ -80,6 +80,25 @@ export interface TokenInfo {
 }
 export type TokensInfo = PaginatedResponse<TokenInfo>;
 
+export interface KlimaMonthlyRetirementsItem {
+  retirement_date: string;
+  token: string;
+  amount_retired: number;
+  number_of_retirements: number;
+  amount_retired_bct: number;
+  number_of_retirements_bct: number;
+  amount_retired_nct: number;
+  number_of_retirements_nct: number;
+  amount_retired_ubo: number;
+  number_of_retirements_ubo: number;
+  amount_retired_mco2: number;
+  number_of_retirements_mco2: number;
+  amount_retired_nbo: number;
+  number_of_retirements_nbo: number;
+}
+export type KlimaMonthlyRetirements =
+  PaginatedResponse<KlimaMonthlyRetirementsItem>;
+
 export interface RawRetirementsItem {
   retirement_date: string;
   transaction_id: string;

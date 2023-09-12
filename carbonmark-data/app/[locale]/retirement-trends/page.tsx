@@ -5,9 +5,11 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Tab } from "@mui/material";
-import ChartCard from "components/cards/ChartCard";
 import { MobileTabSelector } from "components/MobileTabSelector";
-import DetailPage from "components/pages/DetailPage";
+import RetirementTrendsByBeneficiaryTab from "components/tabs/RetirementTrendsByBeneficiaryTab";
+import RetirementTrendsByChainTab from "components/tabs/RetirementTrendsByChainTab";
+import RetirementTrendsByPoolTab from "components/tabs/RetirementTrendsByPoolTab";
+import RetirementTrendsByTokenTab from "components/tabs/RetirementTrendsByTokenTab";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
@@ -38,36 +40,6 @@ const TypedTabPanel: FC<{
   }
   return assertUnreachable(tab);
 };
-
-const TwoColumnRetirementTrendsPage: FC<{
-  leftColumn: Array<ReactNode>;
-  rightColumn: Array<ReactNode>;
-  className?: string;
-}> = ({ leftColumn, rightColumn, className }) => {
-  return (
-    <div className={`${layout.twoColumns} ${className ? className : ""}`}>
-      <div className={layout.cardStackedRows}>
-        {leftColumn.map((node, key) => {
-          return (
-            <div className={layout.cardRow} key={key}>
-              {node}
-            </div>
-          );
-        })}
-      </div>
-      <div className={layout.cardStackedRows}>
-        {rightColumn.map((node, key) => {
-          return (
-            <div className={layout.cardRow} key={key}>
-              {node}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
 export default function RetirementTrends() {
   const queryParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(
@@ -111,11 +83,7 @@ export default function RetirementTrends() {
           onSelectionChanged={(tab: string) => setActiveTab(tab)}
           className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
         />
-        <TabList
-          value={activeTab}
-          onChange={handleChange}
-          className={layout.desktopOnly}
-        >
+        <TabList onChange={handleChange} className={layout.desktopOnly}>
           <Tab
             className={styles.tabButton}
             label={t`By Pool`}
@@ -138,93 +106,16 @@ export default function RetirementTrends() {
           ></Tab>
         </TabList>
         <TypedTabPanel tab="byPool" className={styles.noPadding}>
-          <TwoColumnRetirementTrendsPage
-            leftColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="KlimaDAO retirements by pool"
-              />,
-              <ChartCard
-                key={1}
-                isColumnCard={true}
-                title="KlimaDAO retirements by pool"
-              />,
-              <ChartCard
-                key={2}
-                isColumnCard={true}
-                title="Detailed list of KlimaDAO retirements"
-              />,
-            ]}
-            rightColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Carbon pool redemptions / retirements"
-              />,
-            ]}
-          />
+          <RetirementTrendsByPoolTab></RetirementTrendsByPoolTab>
         </TypedTabPanel>
         <TypedTabPanel tab="byToken" className={styles.noPadding}>
-          <TwoColumnRetirementTrendsPage
-            leftColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="KlimaDAO retirements by token"
-              />,
-              <ChartCard
-                key={1}
-                isColumnCard={true}
-                title="Detailed list of KlimaDAO retirements"
-              />,
-            ]}
-            rightColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Carbon token retirements"
-              />,
-            ]}
-          />
+          <RetirementTrendsByTokenTab></RetirementTrendsByTokenTab>
         </TypedTabPanel>
         <TypedTabPanel tab="byChain" className={styles.noPadding}>
-          <TwoColumnRetirementTrendsPage
-            leftColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Retirements by chain"
-              />,
-              <ChartCard
-                key={1}
-                isColumnCard={true}
-                title="Detailed list of KlimaDAO retirements"
-              />,
-            ]}
-            rightColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Carbon pool redemptions / retirements"
-              />,
-            ]}
-          />
+          <RetirementTrendsByChainTab></RetirementTrendsByChainTab>
         </TypedTabPanel>
         <TypedTabPanel tab="byBeneficiary" className={styles.noPadding}>
-          <DetailPage
-            card={
-              <ChartCard
-                isColumnCard={true}
-                title="Carbon pool redemptions / retirements"
-              />
-            }
-            overview={t`Lorem Ipsum`}
-            insights={{
-              content: t`Lorem Ipsum`,
-              source: "ai",
-            }}
-          />
+          <RetirementTrendsByBeneficiaryTab></RetirementTrendsByBeneficiaryTab>
         </TypedTabPanel>
       </TabContext>
     </>

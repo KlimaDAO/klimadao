@@ -1,11 +1,11 @@
 "use client"; // use client for recharts animations
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
-import { ChartData, PricesItem } from "lib/charts/types";
+import { ChartData, KlimaMonthlyRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
+  BarChart,
   Legend,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -13,27 +13,29 @@ import {
 } from "recharts";
 import {
   KlimaLegendProps,
+  KlimaStackedBars,
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
-  KlimaYAxisPriceProps,
+  KlimaYAxisPercentageProps,
 } from "../helpers";
-import { KlimaLines } from "../helpers/KlimaLineChart";
 
 interface Props {
-  data: ChartData<PricesItem>;
-  configuration: SimpleChartConfiguration<PricesItem>;
+  data: ChartData<KlimaMonthlyRetirementsItem>;
+  configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>;
 }
 export default function Chart(props: Props) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={props.data}>
-        <XAxis {...KlimaXAxisMonthlyProps(props.data, "date", locale)} />
-        <YAxis {...KlimaYAxisPriceProps(locale)} />
+      <BarChart data={props.data} barCategoryGap={"5%"}>
+        <XAxis
+          {...KlimaXAxisMonthlyProps(props.data, "retirement_date", locale)}
+        />
+        <YAxis {...KlimaYAxisPercentageProps()} />
         <Tooltip
           content={KlimaTooltip(
             helpers.formatDateAsDays(locale),
-            helpers.formatPrice(locale)
+            helpers.formatPercentage
           )}
           cursor={{ fill: "transparent" }}
         />
@@ -42,10 +44,10 @@ export default function Chart(props: Props) {
           layout="horizontal"
           verticalAlign="bottom"
           align="left"
-          wrapperStyle={{ marginLeft: "4rem", paddingTop: "2rem" }}
+          wrapperStyle={{ marginLeft: "40px", paddingTop: "20px" }}
         />
-        {KlimaLines(props.configuration)}
-      </LineChart>
+        {KlimaStackedBars(props.configuration)}
+      </BarChart>
     </ResponsiveContainer>
   );
 }

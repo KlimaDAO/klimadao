@@ -24,7 +24,7 @@ export function KlimaXAxisMonthlyProps<T>(
   locale: string
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
-    dataKey: "date",
+    dataKey,
     tickFormatter: helpers.formatDateAsMonths(locale),
     ticks: helpers.niceTicks(data, dataKey),
   });
@@ -55,4 +55,17 @@ export function KlimaYAxisTonsProps<CI, Q, M, T>(
 export function KlimaYAxisPriceProps(locale: string) {
   const tickFormatter = helpers.formatPrice(locale);
   return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+}
+
+/* YAxis props to display percentages in an appropriate format */
+export function KlimaYAxisPercentageProps() {
+  const tickFormatter = helpers.formatPercentage;
+  return Object.assign(
+    {
+      domain: [0, 1],
+      ticks: [0, 0.2, 0.4, 0.6, 0.8, 1],
+    },
+    BASE_YAXIS_PROPS,
+    { tickFormatter }
+  );
 }
