@@ -1,7 +1,7 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 
 /** DEPRECATED. This will be altered with v2 */
-export const Listing = Type.Object(
+export const ListingModel = Type.Object(
   {
     id: Type.String({
       description: "Unique listing identifier",
@@ -22,3 +22,5 @@ export const Listing = Type.Object(
       "DEPRECATED. This resource will be altered in the near future.",
   }
 );
+
+export type Listing = Static<typeof ListingModel>;

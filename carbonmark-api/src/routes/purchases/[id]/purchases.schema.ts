@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { NetworkParam } from "../../../models/NetworkParam.model";
-import { Purchase } from "../../../models/Purchase.model";
+import { PurchaseModel } from "../../../models/Purchase.model";
 
 const Params = Type.Object(
   {
@@ -31,7 +31,7 @@ export const schema = {
       description: "Successful response with listing details",
       content: {
         "application/json": {
-          schema: Purchase,
+          schema: PurchaseModel,
         },
       },
     },

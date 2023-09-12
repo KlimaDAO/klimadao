@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { DetailedProject } from "../../../models/DetailedProject.model";
+import { DetailedProjectModel } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 
 export const Params = Type.Object({
@@ -19,7 +19,7 @@ export const schema = {
       description: "Project with id",
       content: {
         "application/json": {
-          schema: DetailedProject,
+          schema: DetailedProjectModel,
         },
       },
     },

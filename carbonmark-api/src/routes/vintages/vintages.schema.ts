@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { Vintage } from "../../models/Vintage.model";
+import { VintageModel } from "../../models/Vintage.model";
 
 export const schema = {
   summary: "Vintages",
@@ -9,7 +9,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: Type.Array(Vintage),
+          schema: Type.Array(VintageModel),
           examples: [
             [
               "2006",

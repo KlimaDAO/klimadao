@@ -1,6 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const Purchase = Type.Object({
+export const PurchaseModel = Type.Object({
   id: Type.String({
     description: "ID (transaction hash) of the purchase",
     examples: [
@@ -55,4 +55,4 @@ export const Purchase = Type.Object({
   }),
 });
 
-export type PurchaseT = Static<typeof Purchase>;
+export type Purchase = Static<typeof PurchaseModel>;

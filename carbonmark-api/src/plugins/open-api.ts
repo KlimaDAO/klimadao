@@ -2,15 +2,15 @@ import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
 import packageJson from "../../package.json";
 import { Activity } from "../models/Activity.model";
-import { Category } from "../models/Category.model";
-import { Country } from "../models/Country.model";
-import { DetailedProject } from "../models/DetailedProject.model";
-import { Listing } from "../models/Listing.model";
-import { Methodology } from "../models/Methodology.model";
+import { CategoryModel } from "../models/Category.model";
+import { CountryModel } from "../models/Country.model";
+import { DetailedProjectModel } from "../models/DetailedProject.model";
+import { ListingModel } from "../models/Listing.model";
+import { MethodologyModel } from "../models/Methodology.model";
 import { NetworkParam } from "../models/NetworkParam.model";
-import { Project } from "../models/Project.model";
-import { Purchase } from "../models/Purchase.model";
-import { User } from "../models/User.model";
+import { ProjectModel } from "../models/Project.model";
+import { PurchaseModel } from "../models/Purchase.model";
+import { UserModel } from "../models/User.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
@@ -43,16 +43,16 @@ For a developer guides and example implementations, or to learn more about Carbo
   },
   components: {
     schemas: {
-      Project,
-      DetailedProject,
+      Project: ProjectModel,
+      DetailedProject: DetailedProjectModel,
       Activity,
-      Category,
-      Country,
-      Listing,
-      Methodology,
+      Category: CategoryModel,
+      Country: CountryModel,
+      Listing: ListingModel,
+      Methodology: MethodologyModel,
       NetworkParam,
-      Purchase,
-      User,
+      Purchase: PurchaseModel,
+      User: UserModel,
     },
   },
   externalDocs: {

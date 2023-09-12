@@ -1,9 +1,9 @@
 import { Static, Type } from "@sinclair/typebox";
-import { Activity } from "./Activity.model";
-import { Listing } from "./Listing.model";
+import { ActivityModel } from "./Activity.model";
+import { ListingModel } from "./Listing.model";
 import { Nullable } from "./Utility.model";
 
-export const User = Type.Object({
+export const UserModel = Type.Object({
   handle: Type.String(),
   username: Type.String(),
   description: Type.String(),
@@ -11,10 +11,10 @@ export const User = Type.Object({
   updatedAt: Type.Number(),
   createdAt: Type.Number(),
   wallet: Type.String(),
-  listings: Type.Array(Listing),
-  activities: Type.Array(Activity),
+  listings: Type.Array(ListingModel),
+  activities: Type.Array(ActivityModel),
   //@todo replace unknown with Holding model type
   assets: Type.Array(Type.Unknown()),
 });
 
-export type UserT = Static<typeof User>;
+export type User = Static<typeof UserModel>;

@@ -1,11 +1,11 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { VintageT } from "../../models/Vintage.model";
+import { Vintage } from "../../models/Vintage.model";
 import { getAllVintages } from "../../utils/helpers/utils";
 import { schema } from "./vintages.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (_: FastifyRequest, reply: FastifyReply) {
-    let response: VintageT[];
+    let response: Vintage[];
     try {
       response = await getAllVintages(fastify);
     } catch (error) {

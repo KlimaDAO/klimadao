@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { ProjectT } from "../../models/Project.model";
+import { Project } from "../../models/Project.model";
 import { CreditId } from "../../utils/CreditId";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
@@ -40,7 +40,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
-  ): Promise<ProjectT[]> {
+  ): Promise<Project[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
