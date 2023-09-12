@@ -55,8 +55,6 @@ const Page: NextPage<PageProps> = (props) => {
   const poolPrices = project?.prices ?? [];
   const bestPrice = project?.price;
 
-  console.log(project);
-
   // Typeguard, project should always be defined from static page props!
   if (!project) {
     return null;
