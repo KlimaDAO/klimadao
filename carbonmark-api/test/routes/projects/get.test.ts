@@ -44,14 +44,15 @@ const poolPrices = {
   },
 };
 
+//@todo this is super fragile, need to refactor or use nock
 jest.mock("../../../src/utils/helpers/fetchAllPoolPrices", () => ({
   fetchAllPoolPrices: jest.fn(() => poolPrices),
 }));
 
 /** We want to mock network requests without breaking other utils */
-jest.mock("../../../src/routes/projects/projects.utils", () => {
+jest.mock("../../../src/routes/projects/get.utils", () => {
   const projectUtils = jest.requireActual(
-    "../../../src/routes/projects/projects.utils"
+    "../../../src/routes/projects/get.utils"
   );
   return {
     ...projectUtils,

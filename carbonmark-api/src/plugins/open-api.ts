@@ -1,6 +1,17 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
 import packageJson from "../../package.json";
+import { ActivityModel } from "../models/Activity.model";
+import { AssetModel } from "../models/Asset.model";
+import { CategoryModel } from "../models/Category.model";
+import { CountryModel } from "../models/Country.model";
+import { DetailedProjectModel } from "../models/DetailedProject.model";
+import { ListingModel } from "../models/Listing.model";
+import { MethodologyModel } from "../models/Methodology.model";
+import { NetworkParamModel } from "../models/NetworkParam.model";
+import { ProjectModel } from "../models/Project.model";
+import { PurchaseModel } from "../models/Purchase.model";
+import { UserModel } from "../models/User.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
@@ -31,6 +42,21 @@ For a developer guides and example implementations, or to learn more about Carbo
     /** The API version */
     version: packageJson.version,
   },
+  components: {
+    schemas: {
+      Project: ProjectModel,
+      DetailedProject: DetailedProjectModel,
+      Activity: ActivityModel,
+      Category: CategoryModel,
+      Country: CountryModel,
+      Listing: ListingModel,
+      Methodology: MethodologyModel,
+      NetworkParam: NetworkParamModel,
+      Purchase: PurchaseModel,
+      User: UserModel,
+      Asset: AssetModel,
+    },
+  },
   externalDocs: {
     url: "https://docs.carbonmark.com/",
     description:
@@ -39,5 +65,7 @@ For a developer guides and example implementations, or to learn more about Carbo
 };
 
 export default fp(async function (fastify) {
-  await fastify.register(swagger, { openapi: OPEN_API_OPTIONS });
+  await fastify.register(swagger, {
+    openapi: OPEN_API_OPTIONS,
+  });
 });

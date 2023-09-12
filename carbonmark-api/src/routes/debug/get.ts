@@ -1,6 +1,6 @@
 import { FastifyInstance, RouteHandlerMethod, RouteOptions } from "fastify";
 import { pick } from "lodash";
-import { version as VERSION } from "../../package.json";
+import { version as VERSION } from "../../../package.json";
 
 /** Selected ENVs to display */
 const DEBUG_KEYS = [
@@ -15,14 +15,21 @@ const schema = {
   hide: true,
   response: {
     200: {
-      type: "object",
-      properties: {
-        POOL_PRICES_GRAPH_API_URL: { type: "string" },
-        ASSETS_GRAPH_API_URL: { type: "string" },
-        CARBON_OFFSETS_GRAPH_API_URL: { type: "string" },
-        GRAPH_API_URL: { type: "string" },
-        VERCEL_ENV: { type: "string" },
-        VERSION: { type: "string" },
+      description: "Debug information",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              POOL_PRICES_GRAPH_API_URL: { type: "string" },
+              ASSETS_GRAPH_API_URL: { type: "string" },
+              CARBON_OFFSETS_GRAPH_API_URL: { type: "string" },
+              GRAPH_API_URL: { type: "string" },
+              VERCEL_ENV: { type: "string" },
+              VERSION: { type: "string" },
+            },
+          },
+        },
       },
     },
   },
