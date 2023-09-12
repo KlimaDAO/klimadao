@@ -55,7 +55,8 @@ export interface AggregatedCreditsByProjectsItem {
   project_type: string;
   quantity: number;
 }
-export type AggregatedCreditsByProjects = PaginatedResponse<AggregatedCreditsByProjects>;
+export type AggregatedCreditsByProjects =
+  PaginatedResponse<AggregatedCreditsByProjects>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -171,10 +172,9 @@ export type AggregatedCreditsChartData =
 export interface TreeMapItem {
   name: string;
   size?: number;
-  children?: TreeMapData
+  children?: TreeMapData;
 }
-export type TreeMapData = Array<TreeMapItem>
-
+export type TreeMapData = Array<TreeMapItem>;
 
 // Chart dictionnary for cards
 export type ChartDictionnary = Record<Key, React.ReactNode>;

@@ -14,7 +14,7 @@ import {
   RawRetirementsItem,
   Token,
   TokenInfo,
-  TokensInfo
+  TokensInfo,
 } from "./types";
 
 export const EMPTY_PAGINATED_RESPONSE = {
@@ -37,14 +37,20 @@ async function query<R, Q extends object>(
   revalidate = revalidate || 3600;
   // Remove undefined parameters
   if (params) {
-    const cleanParams = (Object.keys(params) as Array<keyof typeof params>).reduce((res, key) => {
-      if (params[key] !== undefined) res[key] = params[key];
-      return res;
-    }, {} as typeof params)
-    const searchParams = new URLSearchParams(cleanParams as Record<string, string>);
+    const cleanParams = (
+      Object.keys(params) as Array<keyof typeof params>
+    ).reduce(
+      (res, key) => {
+        if (params[key] !== undefined) res[key] = params[key];
+        return res;
+      },
+      {} as typeof params
+    );
+    const searchParams = new URLSearchParams(
+      cleanParams as Record<string, string>
+    );
     if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
   }
-  console.log(url);
   const res = await fetch(url, { next: { revalidate } });
   // Handle HTTP errors
   const errorMessage = `Failed to fetch ${url}`;

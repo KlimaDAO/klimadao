@@ -3,19 +3,19 @@ import TokenDistributionOfProjectsChart from "components/charts/TokenDistributio
 import { CreditsQueryParams } from "lib/charts/types";
 import ChartCard, { CardProps } from "../ChartCard";
 
-export default function TokenDistributionOfProjectsCard(props: CardProps & CreditsQueryParams) {
+export default function TokenDistributionOfProjectsCard(
+  props: CardProps & CreditsQueryParams
+) {
   /* @ts-expect-error async Server component */
-  const chart = <TokenDistributionOfProjectsChart 
-  bridge={props.bridge}
-  pool={props.pool}
-  status={props.status}
-  ></TokenDistributionOfProjectsChart>;
+  const chart = (
+    <TokenDistributionOfProjectsChart
+      bridge={props.bridge}
+      pool={props.pool}
+      status={props.status}
+    ></TokenDistributionOfProjectsChart>
+  );
 
   return (
-    <ChartCard
-      {...props}
-      title={t`Distribution of Projects`}
-      chart={chart}
-    />
+    <ChartCard {...props} title={t`Distribution of Projects`} chart={chart} />
   );
 }
