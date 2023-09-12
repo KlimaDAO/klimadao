@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-07 15:35+0000\n"
+"POT-Creation-Date: 2023-09-12 03:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1452,7 +1452,7 @@ msgstr "Verifizieren Sie die Informationen und klicken Sie unten auf \"Absenden\
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
-msgstr ""
+msgstr "\"Projekt auswählen\" selektieren"
 
 #. js-lingui-explicit-id
 #: components/pages/Resources/SortyByDropDown/index.tsx:62

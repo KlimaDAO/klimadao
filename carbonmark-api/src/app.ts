@@ -1,9 +1,8 @@
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
 import * as dotenv from "dotenv";
 import { FastifyPluginAsync } from "fastify";
-import fs from "fs";
 import path, { join } from "path";
-import { commonSchema } from "./routes/common.schema";
+import { CommonSchema } from "./models/CommonSchema.model";
 
 // Only pull env vars from .env if running in locally
 if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
@@ -21,7 +20,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
-  fastify.addSchema(commonSchema);
+  fastify.addSchema(CommonSchema);
   // This loads all plugins defined in src/plugins
   // those should be support plugins that are reused
   // through your application
@@ -35,48 +34,9 @@ const app: FastifyPluginAsync<AppOptions> = async (
 
   void (await fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
-    options: { ...opts, prefix: "/api" },
+    options: opts,
     dirNameRoutePrefix: false,
   }));
-
-  // We add /openapi.json by hand as we don't want it to have the /api/ prefix
-  fastify.route({
-    method: "GET",
-    url: "/openapi.json",
-    schema: {
-      hide: true, // hide from docs
-    },
-    handler: (_req, res) => {
-      try {
-        const json = fastify.swagger();
-        return res.status(200).send(json);
-      } catch (error) {
-        console.error(error);
-        return res.status(502).send(error?.message);
-      }
-    },
-  });
-
-  // Render stoplight docs to the root
-  fastify.route({
-    method: "GET",
-    url: "/",
-    schema: {
-      hide: true, // hidden from docs
-    },
-    handler: (_req, reply) => {
-      try {
-        const html = fs.readFileSync(
-          path.resolve(__dirname, "referenceDocs.html"),
-          "utf8"
-        );
-        return reply.status(200).type("text/html").send(html);
-      } catch (error) {
-        console.error(error);
-        return reply.status(502).send(error?.message);
-      }
-    },
-  });
 
   void (await fastify.setErrorHandler((error, request, reply) => {
     fastify.log.error(error); // Log the error

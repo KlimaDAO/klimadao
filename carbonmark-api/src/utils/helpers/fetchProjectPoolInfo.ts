@@ -1,5 +1,5 @@
 import { get } from "lodash";
-import { POOL_INFO } from "../../routes/projects/projects.constants";
+import { POOL_INFO } from "../../routes/projects/get.constants";
 import { gqlSdk } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
