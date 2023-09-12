@@ -53,14 +53,14 @@ const handler = (fastify: FastifyInstance) =>
 
     try {
       // Try creating a new user document with the specified data
-      await fastify.firebase
+      const document = await fastify.firebase
         .firestore()
         .collection("users")
         .doc(wallet.toUpperCase())
         .set(createData);
 
       // If the document is successfully created, return the request body
-      return reply.send(request.body);
+      return reply.send(document);
     } catch (err) {
       console.error(err);
       // If an error occurs, return the error in the response
