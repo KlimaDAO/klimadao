@@ -1,5 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
-import { NetworkParam } from "../../../models/NetworkParam.model";
+import { NetworkParamModel } from "../../../models/NetworkParam.model";
 import { PurchaseModel } from "../../../models/Purchase.model";
 
 const Params = Type.Object(
@@ -17,7 +17,7 @@ const Params = Type.Object(
 );
 
 const Querystring = Type.Object({
-  network: Type.Optional(NetworkParam),
+  network: Type.Optional(NetworkParamModel),
 });
 
 export const schema = {

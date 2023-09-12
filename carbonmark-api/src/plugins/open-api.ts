@@ -1,13 +1,14 @@
 import swagger, { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
 import fp from "fastify-plugin";
 import packageJson from "../../package.json";
-import { Activity } from "../models/Activity.model";
+import { ActivityModel } from "../models/Activity.model";
+import { AssetModel } from "../models/Asset.model";
 import { CategoryModel } from "../models/Category.model";
 import { CountryModel } from "../models/Country.model";
 import { DetailedProjectModel } from "../models/DetailedProject.model";
 import { ListingModel } from "../models/Listing.model";
 import { MethodologyModel } from "../models/Methodology.model";
-import { NetworkParam } from "../models/NetworkParam.model";
+import { NetworkParamModel } from "../models/NetworkParam.model";
 import { ProjectModel } from "../models/Project.model";
 import { PurchaseModel } from "../models/Purchase.model";
 import { UserModel } from "../models/User.model";
@@ -45,14 +46,15 @@ For a developer guides and example implementations, or to learn more about Carbo
     schemas: {
       Project: ProjectModel,
       DetailedProject: DetailedProjectModel,
-      Activity,
+      Activity: ActivityModel,
       Category: CategoryModel,
       Country: CountryModel,
       Listing: ListingModel,
       Methodology: MethodologyModel,
-      NetworkParam,
+      NetworkParam: NetworkParamModel,
       Purchase: PurchaseModel,
       User: UserModel,
+      Asset: AssetModel,
     },
   },
   externalDocs: {

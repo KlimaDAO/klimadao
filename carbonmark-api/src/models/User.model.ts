@@ -1,5 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { ActivityModel } from "./Activity.model";
+import { AssetModel } from "./Asset.model";
 import { ListingModel } from "./Listing.model";
 import { Nullable } from "./Utility.model";
 
@@ -14,7 +15,7 @@ export const UserModel = Type.Object({
   listings: Type.Array(ListingModel),
   activities: Type.Array(ActivityModel),
   //@todo replace unknown with Holding model type
-  assets: Type.Array(Type.Unknown()),
+  assets: Type.Array(AssetModel),
 });
 
 export type User = Static<typeof UserModel>;
