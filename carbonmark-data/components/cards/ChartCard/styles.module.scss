@@ -42,11 +42,11 @@
   &,
   &:hover,
   &.visited {
-    justify-self: end;
+    justify-self: flex-end;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.4rem;
     color: var(--text-color-05);
     flex: 1 0;

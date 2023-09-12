@@ -8,6 +8,8 @@ import { Tab } from "@mui/material";
 import ChartCard from "components/cards/ChartCard";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import DetailPage from "components/pages/DetailPage";
+import RetirementTrendsByPoolTab from "components/tabs/RetirementTrendsByPoolTab";
+import RetirementTrendsByTokenTab from "components/tabs/RetirementTrendsByTokenTab";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
@@ -39,7 +41,7 @@ const TypedTabPanel: FC<{
   return assertUnreachable(tab);
 };
 
-const TwoColumnRetirementTrendsPage: FC<{
+export const TwoColumnRetirementTrendsPage: FC<{
   leftColumn: Array<ReactNode>;
   rightColumn: Array<ReactNode>;
   className?: string;
@@ -138,55 +140,10 @@ export default function RetirementTrends() {
           ></Tab>
         </TabList>
         <TypedTabPanel tab="byPool" className={styles.noPadding}>
-          <TwoColumnRetirementTrendsPage
-            leftColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="KlimaDAO retirements by pool"
-              />,
-              <ChartCard
-                key={1}
-                isColumnCard={true}
-                title="KlimaDAO retirements by pool"
-              />,
-              <ChartCard
-                key={2}
-                isColumnCard={true}
-                title="Detailed list of KlimaDAO retirements"
-              />,
-            ]}
-            rightColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Carbon pool redemptions / retirements"
-              />,
-            ]}
-          />
+          <RetirementTrendsByPoolTab></RetirementTrendsByPoolTab>
         </TypedTabPanel>
         <TypedTabPanel tab="byToken" className={styles.noPadding}>
-          <TwoColumnRetirementTrendsPage
-            leftColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="KlimaDAO retirements by token"
-              />,
-              <ChartCard
-                key={1}
-                isColumnCard={true}
-                title="Detailed list of KlimaDAO retirements"
-              />,
-            ]}
-            rightColumn={[
-              <ChartCard
-                key={0}
-                isColumnCard={true}
-                title="Carbon token retirements"
-              />,
-            ]}
-          />
+          <RetirementTrendsByTokenTab></RetirementTrendsByTokenTab>
         </TypedTabPanel>
         <TypedTabPanel tab="byChain" className={styles.noPadding}>
           <TwoColumnRetirementTrendsPage
