@@ -1,6 +1,7 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
+  AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
   CreditsQueryParams,
   DailyCredits,
@@ -13,7 +14,7 @@ import {
   RawRetirementsItem,
   Token,
   TokenInfo,
-  TokensInfo,
+  TokensInfo
 } from "./types";
 
 export const EMPTY_PAGINATED_RESPONSE = {
@@ -27,15 +28,23 @@ export const EMPTY_PAGINATED_RESPONSE = {
    R: Type of the response
    Q: Type of the Query parameters
 */
-async function query<R, Q>(
+async function query<R, Q extends object>(
   url: string,
-  params: Q,
+  params: Q | undefined,
   revalidate?: number
 ): Promise<R> {
   // Default cache of 3600s
   revalidate = revalidate || 3600;
-  const searchParams = new URLSearchParams(params as Record<string, string>);
-  if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
+  // Remove undefined parameters
+  if (params) {
+    const cleanParams = (Object.keys(params) as Array<keyof typeof params>).reduce((res, key) => {
+      if (params[key] !== undefined) res[key] = params[key];
+      return res;
+    }, {} as typeof params)
+    const searchParams = new URLSearchParams(cleanParams as Record<string, string>);
+    if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
+  }
+  console.log(url);
   const res = await fetch(url, { next: { revalidate } });
   // Handle HTTP errors
   const errorMessage = `Failed to fetch ${url}`;
@@ -58,9 +67,9 @@ async function query<R, Q>(
    Q: Type of the Query parameters
    Returns a default response in case a network error
 */
-async function failsafeQuery<R, Q>(
+async function failsafeQuery<R, Q extends object>(
   url: string,
-  params: Q,
+  params: Q | undefined,
   defaultValue: R,
   revalidate?: number
 ): Promise<R> {
@@ -76,7 +85,7 @@ async function failsafeQuery<R, Q>(
    - RI: Type of the response items
    - Q: Type of the Query parameters
 */
-async function paginatedQuery<RI, Q>(
+async function paginatedQuery<RI, Q extends object | undefined>(
   url: string,
   params: Q | undefined = undefined,
   revalidate?: number
@@ -102,6 +111,16 @@ export const queryAggregatedCredits = function (
     urls.api.aggregatedCredits,
     params,
     { quantity: 0 }
+  );
+};
+
+/** Queries the Credits Aggregations by projects endpoint */
+export const queryAggregatedCreditsByProjects = function (
+  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByProjectsItem>> {
+  return paginatedQuery<AggregatedCreditsByProjectsItem, typeof params>(
+    urls.api.aggregatedCreditsByProjects,
+    params
   );
 };
 
