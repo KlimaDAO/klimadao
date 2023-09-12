@@ -1,14 +1,14 @@
-import { TwoColumnRetirementTrendsPage } from "app/[locale]/retirement-trends/page";
 import ChartCard from "components/cards/ChartCard";
 import KlimaDAORetirementsByPoolBarCard from "components/cards/KlimaDAORetirementsByPoolBarCard";
 import KlimaDAORetirementsByPoolTableCard from "components/cards/KlimaDAORetirementsByPoolTableCard";
+import { TwoColumnRetirementTrendsTab } from "components/tabs/TwoColumnRetirementTrendsTab";
 
 /**
  * A UI layout component to position Retirement Trends pages content
  */
 export default function RetirementTrendsByPoolTab() {
   return (
-    <TwoColumnRetirementTrendsPage
+    <TwoColumnRetirementTrendsTab
       leftColumn={[
         <KlimaDAORetirementsByPoolBarCard
           key={0}
