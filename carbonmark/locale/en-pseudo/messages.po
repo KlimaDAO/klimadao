@@ -1354,7 +1354,7 @@ msgid "Z-A"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/SortyByDropDown/index.tsx:62
+#: components/pages/Resources/SortyByDropDown/index.tsx:63
 msgid "Toggle Sorted by menu"
 msgstr ""
 
@@ -2039,7 +2039,7 @@ msgid "resources.form.categories.header"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:241
+#: components/pages/Resources/ResourcesList/index.tsx:245
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
@@ -2259,7 +2259,7 @@ msgid "transaction.status.user_confirmation"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:248
+#: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr ""
 
@@ -2374,12 +2374,12 @@ msgid "profile.edit_modal.submit"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:172
+#: components/pages/Resources/ResourcesList/index.tsx:171
 msgid "resources.form.input.search.label"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:163
+#: components/pages/Resources/ResourcesList/index.tsx:162
 msgid "resources.form.input.search.placeholder"
 msgstr ""
 
@@ -2404,7 +2404,7 @@ msgid "retirement.single.share_retirement.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:297
+#: components/pages/Resources/ResourcesList/index.tsx:301
 msgid "resources.mobile_modal.button.show_results"
 msgstr ""
 
@@ -2436,27 +2436,27 @@ msgid "purchase.loading.allowance.error"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:227
+#: components/pages/Resources/ResourcesList/index.tsx:231
 msgid "resources.page.list.on_fetch_error"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:235
+#: components/pages/Resources/ResourcesList/index.tsx:239
 msgid "resources.page.list.no_search_results.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:196
+#: components/pages/Resources/ResourcesList/index.tsx:200
 msgid "resources.form.input.sort_by.label"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:270
+#: components/pages/Resources/ResourcesList/index.tsx:274
 msgid "resources.mobile_modal.title"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:202
+#: components/pages/Resources/ResourcesList/index.tsx:206
 msgid "shared.resources.sort_by.header"
 msgstr ""
 
