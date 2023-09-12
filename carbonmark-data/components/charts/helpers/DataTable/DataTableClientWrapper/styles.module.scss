@@ -1,0 +1,7 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+.wrapper {
+  width: fit-content;
+  @include medium {
+    width: 100%;
+  }
+}

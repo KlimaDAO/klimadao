@@ -58,9 +58,7 @@ export async function fetchProjectInfo(
    * */
   project_key: string
 ): Promise<ProjectInfo> {
-  const res = await fetch(
-    `https://api.carbonmark.com/api/projects/${project_key}`
-  );
+  const res = await fetch(`https://api.carbonmark.com/projects/${project_key}`);
   const data = await res.json();
   return data;
 }

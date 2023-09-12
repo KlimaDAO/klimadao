@@ -159,6 +159,15 @@ function formatDate(
     return formatted_date.toLocaleDateString(locale, format);
   };
 }
+function formatTime(): (date: number) => string {
+  return function (date: number): string {
+    const formatted_date = new Date(date);
+    return formatted_date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+}
 
 export function formatDateAsMonths(locale: string): (date: number) => string {
   return formatDate(locale, {
@@ -172,6 +181,22 @@ export function formatDateAsDays(locale: string): (date: number) => string {
     year: "numeric",
     month: "short",
   });
+}
+export function formatDateAsDaysShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    day: "numeric",
+    year: "numeric",
+    month: "numeric",
+  });
+}
+export function formatDateAndTime(locale: string): (date: number) => string {
+  return function (date: number): string {
+    const day = formatDateAsDays(locale)(date);
+    const time = formatTime()(date);
+    return `${day} ${time}`;
+  };
 }
 
 // Returns a list of nice ticks to use in a chart given the data
@@ -206,12 +231,14 @@ export function getDataChartMax<T>(
 }
 
 const helpers = {
+  formatDateAndTime,
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
   formatPrice,
   formatDateAsMonths,
   formatDateAsDays,
+  formatDateAsDaysShort,
   prepareDailyChartData,
   niceTicks,
   getDataChartMax,

@@ -23,6 +23,24 @@
   }
 }
 
+.twoColumns {
+  @include desktop {
+    display: flex;
+    gap: 20px;
+  }
+
+  & > div:first-child {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  & > div:nth-child(2) {
+    @include desktop {
+      max-width: 360px;
+    }
+  }
+}
+
 .cardStackedRows {
   display: flex;
   flex-direction: column;
@@ -55,4 +73,20 @@
   @include large {
     display: unset;
   }
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textRight {
+  text-align: right;
+}
+.blockRight {
+  :first-child {
+    margin-left: auto;
+  }
+}
+.textCenter {
+  text-align: center;
 }
