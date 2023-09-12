@@ -83,11 +83,7 @@ export default function RetirementTrends() {
           onSelectionChanged={(tab: string) => setActiveTab(tab)}
           className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
         />
-        <TabList
-          value={activeTab}
-          onChange={handleChange}
-          className={layout.desktopOnly}
-        >
+        <TabList onChange={handleChange} className={layout.desktopOnly}>
           <Tab
             className={styles.tabButton}
             label={t`By Pool`}
