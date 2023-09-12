@@ -1,42 +1,17 @@
 @import "~@klimadao/lib/theme/breakpoints.scss";
 .table {
-  border-collapse: collapse;
-  width: 100%;
+  color: var(--text-color-01);
+}
+.desktopOnly {
   display: none;
 
   @include medium {
-    display: table;
+    display: block;
   }
 }
 
-.header {
-  background-color: var(--surface-01);
-
-  th {
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 0.8rem;
-    font-size: 0.8rem;
-    font-family: Poppins;
-  }
-}
-
-.row {
-  border-bottom: 1px solid var(--text-color-07);
-
-  td {
-    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
-    white-space: nowrap;
-    font-size: 1rem;
-  }
-}
-
-// Cards layout
-.cards {
-  display: flex;
-  width: fit-content;
-  flex-direction: column;
-  gap: 0.8rem;
+.mobileOnly {
+  display: block;
 
   @include medium {
     display: none;

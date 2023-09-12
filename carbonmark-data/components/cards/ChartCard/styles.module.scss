@@ -25,6 +25,7 @@
 }
 
 .cardHeaderTitle {
+  white-space: nowrap;
   flex: 1 1 0;
   font-size: 1.4rem;
   font-weight: 700;
@@ -41,17 +42,18 @@
   &,
   &:hover,
   &.visited {
+    justify-self: flex-end;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
     color: var(--text-color-05);
-    flex: 1 1 0;
+    flex: 1 0;
     text-align: right;
     font-size: 1.4rem;
     text-decoration: none;
   }
-}
-
-.cardHeaderDetailsLinkArrow {
-  position: relative;
-  top: 0.5rem;
 }
 
 .cardContent {

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-12 03:17+0000\n"
+"POT-Creation-Date: 2023-09-12 18:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,7 +219,7 @@ msgstr "लाभार्थी वॉलेट पता (वैकल्प�
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:153
+#: components/pages/Project/index.tsx:151
 msgid "Best Price"
 msgstr "सर्वोत्तम क़ीमत"
 
@@ -464,7 +464,7 @@ msgid "DATE"
 msgstr "दिनांक"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:250
+#: components/pages/Project/index.tsx:248
 msgid "Data for this project and vintage"
 msgstr "इस प्रॉजेक्ट और विंटेज के लिए डेटा"
 
@@ -485,7 +485,7 @@ msgid "Describe the purpose of this retirement"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:199
 msgid "Description"
 msgstr "विवरण"
 
@@ -753,7 +753,7 @@ msgid "Maximize your climate impact."
 msgstr "अपने जलवायु प्रभाव को अधिकतम करें."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:160
+#: components/pages/Project/index.tsx:158
 msgid "Methodology"
 msgstr "कार्यप्रणाली"
 
@@ -804,7 +804,7 @@ msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:238
 msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
@@ -1050,12 +1050,12 @@ msgid "RETIRE CARBON"
 msgstr "कार्बन रिटायर करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read Less"
 msgstr "कम पढ़ें"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read More"
 msgstr "और पढ़ें"
 
@@ -1459,7 +1459,7 @@ msgstr ""
 "करके"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/SortyByDropDown/index.tsx:62
+#: components/pages/Resources/SortyByDropDown/index.tsx:63
 msgid "Toggle Sorted by menu"
 msgstr "मेनू द्वारा क्रमबद्ध टॉगल करें"
 
@@ -1600,7 +1600,7 @@ msgid "View Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल देखें"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:221
 msgid "View Registry Details <0/>"
 msgstr "रजिस्ट्री विवरण देखें <0/>"
 
@@ -1641,7 +1641,7 @@ msgid "View all Retirements"
 msgstr "सभी रिटयरमेंट देखें"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:114
+#: components/pages/Project/index.tsx:112
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "कार्बनमार्क पर यह कार्बन ऑफ़सेट प्रॉजेक्ट देखें और ख़रीदें"
 
@@ -2204,17 +2204,17 @@ msgid "resources.form.filters.clear_all"
 msgstr "सबकुछ मिटाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:172
+#: components/pages/Resources/ResourcesList/index.tsx:171
 msgid "resources.form.input.search.label"
 msgstr "सर्च करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:163
+#: components/pages/Resources/ResourcesList/index.tsx:162
 msgid "resources.form.input.search.placeholder"
 msgstr "खोज..."
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:196
+#: components/pages/Resources/ResourcesList/index.tsx:200
 msgid "resources.form.input.sort_by.label"
 msgstr "इसके अनुसार क्रमबद्ध करें"
 
@@ -2224,32 +2224,32 @@ msgid "resources.form.input.sort_by.select"
 msgstr "चुनें"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:297
+#: components/pages/Resources/ResourcesList/index.tsx:301
 msgid "resources.mobile_modal.button.show_results"
 msgstr "परिणाम दिखाओ"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:270
+#: components/pages/Resources/ResourcesList/index.tsx:274
 msgid "resources.mobile_modal.title"
 msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:235
+#: components/pages/Resources/ResourcesList/index.tsx:239
 msgid "resources.page.list.no_search_results.title"
 msgstr "क्षमा करें। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:227
+#: components/pages/Resources/ResourcesList/index.tsx:231
 msgid "resources.page.list.on_fetch_error"
 msgstr "क्षमा कीजिए! कुछ गड़बड़ हो गयी।"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:248
+#: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "कृपया किसी भिन्न फ़िल्टर कॉम्बिनेशन का उपयोग करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:241
+#: components/pages/Resources/ResourcesList/index.tsx:245
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो-त्रुटियों के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज-शब्द आज़माएँ।"
 
@@ -2510,7 +2510,7 @@ msgid "shared.resourcecenter"
 msgstr "संसाधन केंद्र"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:202
+#: components/pages/Resources/ResourcesList/index.tsx:206
 msgid "shared.resources.sort_by.header"
 msgstr "इसके अनुसार क्रमबद्ध करें"
 

@@ -33,7 +33,7 @@ export const navItems = (): Array<NavItem> => {
     {
       label: t`Retirement Trends`,
       icon: <StackedLineChart />,
-      url: "/retirement_trends",
+      url: "/retirement-trends",
     },
     {
       label: t`Token Details`,

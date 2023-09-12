@@ -38,7 +38,7 @@ export const SortyByDropDown: FC<Props> = (props) => {
     <div className={styles.tippyContainer}>
       <Tippy
         content={
-          <div className={styles.dropDownMenu}>
+          <>
             {getSortedByQueries().map((option) => (
               <SortByButton
                 key={option.id}
@@ -47,13 +47,14 @@ export const SortyByDropDown: FC<Props> = (props) => {
                 active={sortedBy === option.value}
               />
             ))}
-          </div>
+          </>
         }
         interactive={true}
         onClickOutside={onToggle}
         visible={isOpen}
         placement="bottom-end"
         appendTo="parent"
+        arrow={false}
       >
         <button
           onClick={onToggle}

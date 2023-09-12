@@ -52,7 +52,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
     <div className={cx(styles.tippyContainer, className)}>
       <Tippy
         content={
-          <div className={styles.dropDownMenu}>
+          <>
             {options.map((option) => (
               <DropdownButton
                 key={option.id}
@@ -63,7 +63,7 @@ export function Dropdown<V, T extends FieldValues = FieldValues>(
                 disabled={option.disabled}
               />
             ))}
-          </div>
+          </>
         }
         disabled={disableToggle}
         arrow={false}

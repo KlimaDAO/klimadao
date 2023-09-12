@@ -20,14 +20,16 @@ export const dropdownHeader = css`
 `;
 
 export const tippyContainer = css`
-  .tippy-box {
-    margin-top: 0rem;
+  .tippy-content {
+    background-color: var(--surface-01);
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.6rem;
   }
-`;
 
-export const dropDownMenu = css`
-  background-color: var(--surface-01);
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: var(--shadow-03);
+  .tippy-box {
+    border-radius: 1rem;
+    background-color: var(--surface-01);
+    box-shadow: var(--shadow-03);
+  }
 `;
