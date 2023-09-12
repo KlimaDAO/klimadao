@@ -302,15 +302,13 @@ export const RetireInputs: FC<Props> = (props) => {
                     disabled={value.disabled}
                     aria-label="Payment Method"
                     onClick={() => {
-                      if (!isConnected && !address) {
+                      if (value.id === "usdc" && !isConnected && !address) {
                         toggleModal();
-                        setValue("paymentMethod", "usdc");
-                      } else {
-                        setValue(
-                          "paymentMethod",
-                          value.id as CarbonmarkPaymentMethod
-                        );
                       }
+                      setValue(
+                        "paymentMethod",
+                        value.id as CarbonmarkPaymentMethod
+                      );
                     }}
                     className={cx(styles.paymentMethod, {
                       error: exceededFiatBalance,
