@@ -1,5 +1,4 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { ValidHandle } from "./create";
 
 const schema = {
   summary: "Update user profile",
@@ -7,10 +6,10 @@ const schema = {
   body: {
     type: "object",
     properties: {
-      wallet: ValidHandle,
-      handle: { type: "string", minLength: 3 },
+      handle: { type: "string", minLength: 3, maxLength: 24 },
       username: { type: "string", minLength: 2 },
       description: { type: "string", minLength: 2, maxLength: 500 },
+      wallet: { type: "string", pattern: "^(0x)?[a-zA-Z0-9]{3,24}$" },
       profileImgUrl: { type: "string", nullable: true },
     },
   },

@@ -1,4 +1,3 @@
-import { Type } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 type Body = {
@@ -9,25 +8,13 @@ type Body = {
   profileImgUrl: string;
 };
 
-export const ValidHandle = Type.Intersect([
-  Type.String({
-    pattern: "^(?!0x)[a-zA-Z0-9]*$",
-    description: "Handle cannot be an Ethereum address",
-  }),
-  Type.String({
-    minLength: 3,
-    maxLength: 24,
-    description: "Handle must be longer than 3 and shorter than 24 characters",
-  }),
-]);
-
 const schema = {
   summary: "Create user profile",
   tags: ["Users"],
   body: {
     type: "object",
     properties: {
-      handle: ValidHandle,
+      handle: { type: "string", minLength: 3, maxLength: 24 },
       username: { type: "string", minLength: 2 },
       description: { type: "string", maxLength: 500 },
       wallet: { type: "string", minLength: 26, maxLength: 64 },

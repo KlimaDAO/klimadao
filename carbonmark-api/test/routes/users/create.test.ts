@@ -49,7 +49,7 @@ describe("POST /User", () => {
       method: "POST",
       url: `${DEV_URL}/users`,
       body: {
-        handle: MOCK_ADDRESS.slice(0, 24),
+        handle: MOCK_ADDRESS.slice(0, 48),
         wallet: MOCK_ADDRESS,
         username: "blah",
         description: "blah",
@@ -57,6 +57,22 @@ describe("POST /User", () => {
     });
 
     expect(response.statusCode).toBe(400);
-    expect(response.body).toContain("body/handle must match pattern");
+    expect(response.body).toContain(
+      "body/handle must NOT have more than 24 characters"
+    );
+  });
+
+  test("should allow 0x names (not addresses)", async () => {
+    const response = await app.inject({
+      method: "POST",
+      url: `${DEV_URL}/users`,
+      body: {
+        handle: "0xmycoolhandle",
+        wallet: MOCK_ADDRESS,
+        username: "blah",
+        description: "blah",
+      },
+    });
+    expect(response.statusCode).toBe(200);
   });
 });
