@@ -6,8 +6,8 @@ import ChartCard, { CardProps } from "../ChartCard";
 export default function TokenDistributionOfProjectsCard(
   props: CardProps & CreditsQueryParams
 ) {
-  /* @ts-expect-error async Server component */
   const chart = (
+    /* @ts-expect-error async Server component */
     <TokenDistributionOfProjectsChart
       bridge={props.bridge}
       pool={props.pool}
