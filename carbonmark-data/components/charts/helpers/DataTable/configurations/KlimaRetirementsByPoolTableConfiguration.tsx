@@ -6,8 +6,10 @@ import {
   PaginatedResponse,
 } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
+import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
+
 import { Columns } from "./types";
 
 export default class KlimaRetirementsByPoolTableConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsItem> {
@@ -27,7 +29,7 @@ export default class KlimaRetirementsByPoolTableConfiguration extends AbstractTa
     return {
       retirement_date: {
         header: "",
-        cellStyle: styles.header,
+        cellStyle: `${styles.header} ${layout.nowrap}`,
         dataKey: "retirement_date",
         formatter: helpers.formatDateAsMonthsShort(locale),
       },

@@ -31,7 +31,7 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
       },
       project_id: {
         header: t`Project`,
-        cellStyle: layout.textCenter,
+        cellStyle: `${layout.textCenter} ${layout.nowrap}`,
         dataKey: "project_id",
         formatter: (projectId: string) => (
           <VerraProjectLink projectId={projectId}></VerraProjectLink>

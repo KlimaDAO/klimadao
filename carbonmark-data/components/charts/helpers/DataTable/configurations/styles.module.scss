@@ -1,3 +1,5 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+
 // Tables styling
 .table {
   border-collapse: collapse;
@@ -6,8 +8,9 @@
 
 .header {
   background-color: var(--surface-01);
-  white-space: nowrap;
-
+  @include medium {
+    white-space: nowrap;
+  }
   th,
   td {
     font-weight: bold;
@@ -20,11 +23,8 @@
 
 .row {
   border-bottom: 1px solid var(--text-color-07);
-  white-space: nowrap;
-
   td {
     padding: 1.2rem 0.8rem 1.2rem 0.8rem;
-    white-space: nowrap;
     font-size: 1rem;
   }
 }
