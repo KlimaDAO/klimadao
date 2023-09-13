@@ -1,8 +1,10 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { assign, set } from "lodash";
-import { Activity } from "src/models/Activity.model";
-import { Listing } from "src/models/Listing.model";
+import {
+  CreditActivityWithHandle,
+  CreditListingWithHandle,
+} from "../../graphql/marketplaceMumbai.types";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
 import { getUserDocumentsByIds } from "./users.utils";
@@ -25,9 +27,12 @@ export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
-}: Params): Promise<[Listing[], Activity[]]> => {
-  const data = await gqlSdk.marketplace.getProjectsById({
-    key,
+}: Params): Promise<
+  [CreditListingWithHandle[], CreditActivityWithHandle[]]
+> => {
+  // TODO: support network param
+  const data = await gqlSdk.marketplaceMumbai.getCreditListings({
+    projectId: key,
     vintageStr: vintage,
   });
 
