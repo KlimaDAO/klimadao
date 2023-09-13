@@ -1,5 +1,6 @@
 import { app } from "firebase-admin";
 import { compact, isEmpty } from "lodash";
+import { User, isUser } from "../../models/User.model";
 
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
@@ -23,12 +24,14 @@ export const getUserByWallet = async (
 export const getUserDocumentsByIds = async (
   fb: app.App,
   ids: string[]
-): Promise<FirebaseFirestore.DocumentData[] | undefined> => {
+): Promise<User[] | undefined> => {
   if (isEmpty(ids)) return undefined;
   const docRefs = compact(ids).map((id) =>
     fb.firestore().collection("users").doc(id)
   );
-  return await fb.firestore().getAll(...docRefs);
+  const docs = await fb.firestore().getAll(...docRefs);
+
+  return docs.map((doc) => doc.data()).filter(isUser);
 };
 
 /**

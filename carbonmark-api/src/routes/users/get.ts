@@ -66,14 +66,20 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Find and assign the FB User to the given listing */
     const mapSellerToListing = (listing: ByWalletUserListing) => {
-      const seller = compact(sellers).find(selector("id", listing.seller?.id));
-      return assign(listing, seller);
+      const seller = compact(sellers).find(
+        selector("wallet", listing.seller?.id)
+      );
+      return assign(listing, { seller });
     };
 
     /** Find and assign the FB User to the given activity */
     const mapSellerBuyerToActivity = (activity: ByWalletUserActivity) => {
-      const seller = compact(buyers).find(selector("id", activity.seller?.id));
-      const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
+      const seller = compact(buyers).find(
+        selector("wallet", activity.seller?.id)
+      );
+      const buyer = compact(buyers).find(
+        selector("wallet", activity.buyer?.id)
+      );
       return merge(activity, { seller, buyer });
     };
 

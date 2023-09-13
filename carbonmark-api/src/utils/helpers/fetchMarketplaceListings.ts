@@ -2,10 +2,7 @@ import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { DocumentData } from "firebase-admin/firestore";
 import { assign, chunk } from "lodash";
-import {
-  ActivityWithUserHandles,
-  ListingWithUserHandles,
-} from "../../routes/projects/get.types";
+import { Listing } from "src/models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
 
@@ -27,7 +24,7 @@ export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
-}: Params): Promise<[ListingWithUserHandles[], ActivityWithUserHandles[]]> => {
+}: Params): Promise<[Listing[], Listing[]]> => {
   const data = await gqlSdk.marketplace.getProjectsById({
     key,
     vintageStr: vintage,
@@ -106,8 +103,7 @@ export const fetchMarketplaceListings = async ({
   });
 
   const activitiesWithProfiles = formattedActivities.map((act) => {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- seller will be assigned
-    const activityWithHandles = { ...act } as ActivityWithUserHandles;
+    const activityWithHandles = { ...act };
     const sellerData = usersById.get(act.seller.id.toLowerCase());
     if (sellerData) {
       activityWithHandles.seller.handle = sellerData.handle;
