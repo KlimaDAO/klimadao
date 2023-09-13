@@ -35,7 +35,7 @@ const mainnet = {
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
-  carbonmark: "0x77F2014496Cd168662f74F860353BE1d16deCB2E", // Diamond
+  carbonmark: "", // TODO: v2 Diamond
 };
 
 const testnet: typeof mainnet = {
@@ -75,7 +75,7 @@ const testnet: typeof mainnet = {
   retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
-  carbonmark: "0x694Ccc69525aecC522393e1e3623B937771ED1Af", // Diamond
+  carbonmark: "0x5dc7083cd6ff9a46c36661750fabcbb9ae2abed2", // v2 Diamond
 };
 
 export const addresses = {
