@@ -1,4 +1,5 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
+import { Nullable } from "./Utility.model";
 
 /** DEPRECATED. This will be altered with v2 */
 export const Listing = Type.Object(
@@ -20,8 +21,8 @@ export const Listing = Type.Object(
     totalAmountToSell: Type.String(),
     active: Type.Optional(Type.Union([Type.Boolean(), Type.Null()])),
     deleted: Type.Optional(Type.Union([Type.Boolean(), Type.Null()])),
-    batches: Type.Optional(Type.Array(Type.String())),
-    batchPrices: Type.Optional(Type.Array(Type.String())),
+    batches: Nullable(Type.Array(Type.String())),
+    batchPrices: Nullable(Type.Array(Type.String())),
     createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
     updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
   },
@@ -30,3 +31,5 @@ export const Listing = Type.Object(
       "DEPRECATED. This resource will be altered in the near future.",
   }
 );
+
+export type ListingT = Static<typeof Listing>;

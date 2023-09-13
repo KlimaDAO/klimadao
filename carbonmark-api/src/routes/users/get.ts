@@ -6,7 +6,7 @@ import {
   ByWalletUserActivity,
   ByWalletUserListing,
 } from "../../graphql/marketplace.types";
-import { User, UserT } from "../../models/User.model";
+import { UserT } from "../../models/User.model";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
@@ -82,7 +82,7 @@ const handler = (fastify: FastifyInstance) =>
       .map(mapSellerBuyerToActivity)
       .map(formatActivity);
 
-    const response: Static<typeof User> = {
+    const response: UserT = {
       createdAt: document.createdAt,
       description: document.description,
       handle: document.handle,
