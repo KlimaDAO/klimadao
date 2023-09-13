@@ -39,8 +39,8 @@ export const getCreditsStatusOptions: () => Options = () => {
   ];
 };
 
-// Return options for chain switcher widgets
-export const getChainsOptions: () => Options = () => {
+// Return options for chain (ommiting celo) switcher widgets
+export const getChainsOptionsWithoutCelo: () => Options = () => {
   return [
     {
       label: "Polygon",
@@ -50,9 +50,15 @@ export const getChainsOptions: () => Options = () => {
       label: "Ethereum",
       value: "eth",
     },
-    {
-      label: "Celo",
-      value: "celo",
-    },
   ];
+};
+
+// Return options for chain switcher widgets
+export const getChainsOptions: () => Options = () => {
+  const options = getChainsOptionsWithoutCelo();
+  options.push({
+    label: "Celo",
+    value: "celo",
+  });
+  return options;
 };
