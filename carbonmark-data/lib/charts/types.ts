@@ -55,6 +55,45 @@ export interface DailyCreditsItem {
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
 
+export interface DailyCarbonMetricsItem {
+  date: string,
+  bct_supply_polygon: number,
+  nct_supply_polygon: number,
+  mco2_supply_polygon: number,
+  ubo_supply_polygon: number,
+  nbo_supply_polygon: number,
+  bct_redeemed_polygon: number,
+  nct_redeemed_polygon: number,
+  ubo_redeemed_polygon: number,
+  nbo_redeemed_polygon: number,
+  total_carbon_supply_polygon: number,
+  mco2_retired_polygon: number,
+  tco2_retired_polygon: number,
+  c3t_retired_polygon: number,
+  bct_klima_retired_polygon: number,
+  nct_klima_retired_polygon: number,
+  mco2_klima_retired_polygon: number,
+  ubo_klima_retired_polygon: number,
+  nco_klima_retired_polygon: number,
+  total_klima_retirements: number,
+  tco2_klima_retired_polygon: number,
+  c3t_klima_retired_polygon: number,
+  not_klima_retired_polygon: number,
+  mco2_supply_eth: number,
+  total_carbon_supply_eth: number,
+  mco2_retired_eth: number,
+  bct_supply_celo: number,
+  nct_supply_celo: number,
+  mco2_supply_celo: number,
+  total_carbon_supply_celo: number,
+  mco2_retired_celo: number,
+  total_retirements: number
+}
+
+export type DailyCarbonMetrics =
+  PaginatedResponse<DailyCarbonMetricsItem>;
+
+
 export interface DailyPolygonCarbonMetricsItem {
   date: string;
   bct_supply: number;

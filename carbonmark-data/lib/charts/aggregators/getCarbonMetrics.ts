@@ -1,9 +1,12 @@
 import { queryDailyCarbonMetrics } from "lib/charts/queries";
 import {
+  DailyCarbonMetricsItem,
   DailyCeloCarbonMetricsItem,
   DailyEthCarbonMetricsItem,
   DailyPolygonCarbonMetricsItem,
 } from "lib/charts/types";
+import { SimpleChartConfiguration } from ".";
+import { monthlySample, transformToPercentages } from "../helpers";
 
 const dailyParams = {
   sort_by: "date",
@@ -72,4 +75,19 @@ export async function getCeloLatestCarbonMetrics() {
       latestParams
     )
   ).items[0];
+}
+
+/* Fetches All carbon metrics  */
+export async function getDailyCarbonMetrics() {
+  return (
+    await queryDailyCarbonMetrics<DailyCarbonMetricsItem>(
+      "all",
+      dailyParams
+    )
+  ).items;
+}
+
+export async function getTokenCarbonMetricsInPercent(configuration: SimpleChartConfiguration<DailyCarbonMetricsItem>) {
+  const data = await getDailyCarbonMetrics()
+  return transformToPercentages(monthlySample(data, "date"), configuration);
 }

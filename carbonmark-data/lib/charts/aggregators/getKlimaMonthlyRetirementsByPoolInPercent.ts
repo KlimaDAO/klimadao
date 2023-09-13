@@ -16,7 +16,7 @@ export type AggregatedCreditsChartConfiguration = ChartConfiguration<
 >;
 
 /* Fetches query retirements information and transform quantities into percentages to be used in a chart */
-export async function getKlimaMonthlyRetirementsByPool(
+export async function getKlimaMonthlyRetirementsByPoolInPercent(
   configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>
 ) {
   const data = (

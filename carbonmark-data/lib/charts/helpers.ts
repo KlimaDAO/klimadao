@@ -152,6 +152,23 @@ export function transformToPercentages<CI>(
   });
   return data;
 }
+/** 
+  This function returns a monthly sample of ChartData
+*/
+export function monthlySample<CI>(
+  data: ChartData<CI>,
+  dateField: keyof CI
+): ChartData<CI> {
+  const res = [] as ChartData<CI>;
+  data.forEach((item) => {
+    const date = new Date(item[dateField] as string);
+    if (date.getDate() == 1) {
+      res.push(item);
+    }
+    
+  });
+  return res;
+}
 
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
