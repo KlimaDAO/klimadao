@@ -15,17 +15,10 @@
   }
 
   [aria-describedby="title"] {
-    padding: 2rem 0 2rem 0;
-    border: 0.1rem solid;
-    border-left: none;
-    border-right: none;
-    border-color: var(--text-color-03);
-    color: var(--text-color-01);
-    height: 6rem;
-    width: 18rem;
-    display: grid;
-    align-items: center;
-    font: Inter;
+    padding: 2rem 0;
+    border-top: 0.1rem solid var(--text-color-03);
+    border-bottom: 0.1rem solid var(--text-color-03);
+    font-family: Inter;
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 2rem;
