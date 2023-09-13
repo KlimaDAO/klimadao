@@ -1,10 +1,16 @@
+/**
+ * Mocks the Firebase Admin SDK for testing purposes.
+ *
+ * @param {any} overrides - Optional. An object containing methods to override the default mock methods.
+ */
 export function mockFirebase(overrides?: any) {
+  jest.resetModules();
+
   jest.mock("firebase-admin/app", () => ({
     initializeApp: jest.fn(),
     getApps: jest.fn().mockReturnValue([{}]),
   }));
 
-  jest.resetModules();
   jest.mock("firebase-admin", () => ({
     app: jest.fn(() => ({
       firestore: jest.fn(() => ({
@@ -20,4 +26,14 @@ export function mockFirebase(overrides?: any) {
       })),
     })),
   }));
+}
+
+//Disables the `bearer.ts` plugin
+export function disableAuth() {
+  process.env.IGNORE_AUTH = "true";
+}
+
+//Renable the `bearer.ts` plugin
+export function enableAuth() {
+  delete process.env.IGNORE_AUTH;
 }

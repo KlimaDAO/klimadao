@@ -1,6 +1,6 @@
-import { build, disableAuth } from "../../helper";
+import { build } from "../../helper";
 import { DEV_URL, MOCK_ADDRESS } from "../../test.constants";
-import { mockFirebase } from "../../test.utils";
+import { disableAuth, mockFirebase } from "../../test.utils";
 
 describe("PUT /User", () => {
   beforeAll(() => {
