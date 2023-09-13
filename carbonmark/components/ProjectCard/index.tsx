@@ -8,7 +8,7 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { CategoryName, DetailedProject } from "lib/types/carbonmark";
+import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
 import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";

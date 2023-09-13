@@ -1,4 +1,4 @@
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { PurchaseForm } from "./PurchaseForm";
 

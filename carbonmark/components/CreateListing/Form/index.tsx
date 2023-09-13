@@ -3,7 +3,7 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
-import { AssetForListing } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";

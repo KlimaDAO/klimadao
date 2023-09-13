@@ -20,14 +20,13 @@ import { useFetchProject } from "hooks/useFetchProject";
 import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
+import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
   CategoryName,
   DetailedProject,
-  isCategoryName,
-  isTokenPrice,
   Listing,
   TokenPrice,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import { extract, notNil, selector } from "lib/utils/functional.utils";
 import { compact, concat, isEmpty, isNil, sortBy } from "lodash";
 import { NextPage } from "next";

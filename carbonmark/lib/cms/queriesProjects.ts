@@ -1,5 +1,5 @@
 import { getSanityClient } from "lib/cms/fetchCarbonProjectsCMS";
-import { Methodology } from "lib/types/carbonmark";
+import { Methodology } from "lib/types/carbonmark.types";
 
 const groqAllProjects = () => /* groq */ `
   *[_type == 'project'] {

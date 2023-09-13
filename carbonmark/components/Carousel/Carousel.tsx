@@ -6,7 +6,7 @@ import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { ProjectMap } from "components/pages/Project/ProjectMap";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { useResponsive } from "hooks/useResponsive";
-import { CarouselImage, Project } from "lib/types/carbonmark";
+import { CarouselImage, Project } from "lib/types/carbonmark.types";
 import { useCallback, useEffect, useState } from "react";
 import * as styles from "./styles";
 

@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { DetailedProject, Listing } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { StatsBar } from "./StatsBar";
 import { StatsListings } from "./StatsListings";

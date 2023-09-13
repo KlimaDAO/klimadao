@@ -5,7 +5,10 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
-import { Activity as ActivityT, UserActivity } from "lib/types/carbonmark";
+import {
+  Activity as ActivityT,
+  UserActivity,
+} from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ActivityActions } from "./Activities.constants";

@@ -10,7 +10,10 @@ import {
   redeemCarbonTransaction,
 } from "lib/actions.redeem";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { DetailedProject, TokenPrice as PriceType } from "lib/types/carbonmark";
+import {
+  DetailedProject,
+  TokenPrice as PriceType,
+} from "lib/types/carbonmark.types";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as styles from "../styles";

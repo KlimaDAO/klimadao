@@ -4,7 +4,7 @@ import { Transaction } from "components/Transaction";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { CarbonmarkToken } from "lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark.types";
 import { StaticImageData } from "next/image";
 import { FC, ReactNode } from "react";
 import * as styles from "./styles";

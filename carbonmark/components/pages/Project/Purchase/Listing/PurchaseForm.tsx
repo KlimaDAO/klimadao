@@ -10,7 +10,7 @@ import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { DetailedProject, Listing } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";

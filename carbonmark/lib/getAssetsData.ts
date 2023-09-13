@@ -1,4 +1,4 @@
-import { Asset } from "lib/types/carbonmark";
+import { Asset } from "lib/types/carbonmark.types";
 
 const C3T_PREFIX = "C3T-";
 const TCO2_PREFIX = "TCO2-";

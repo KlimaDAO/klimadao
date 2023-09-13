@@ -10,7 +10,7 @@ import {
 } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";

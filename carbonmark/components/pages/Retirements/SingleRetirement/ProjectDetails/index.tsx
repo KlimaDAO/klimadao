@@ -8,7 +8,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
 import { urls as carbonmarkUrls } from "lib/constants";
-import { CategoryName, Project } from "lib/types/carbonmark";
+import { CategoryName, Project } from "lib/types/carbonmark.types";
 import Image from "next/image";
 import carbonmarkLogo from "public/carbonmark.svg";
 import Moss from "public/category/MOSS.jpeg";

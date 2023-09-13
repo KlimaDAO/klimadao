@@ -1,11 +1,11 @@
 import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
 import { getProjectsQueryString } from "lib/getProjectsQueryString";
+import { Project } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
 import { negate } from "lodash/fp";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Project } from "../lib/types/carbonmark";
 
 /** SWR hook that listens to the router for query param changes */
 export const useFetchProjects = () => {

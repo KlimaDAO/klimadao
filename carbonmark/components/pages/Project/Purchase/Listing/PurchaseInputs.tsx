@@ -9,7 +9,7 @@ import { urls } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
-import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";

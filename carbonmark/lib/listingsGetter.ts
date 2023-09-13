@@ -1,5 +1,5 @@
 import { formatUnits } from "@klimadao/lib/utils";
-import { Listing, TokenPrice } from "lib/types/carbonmark";
+import { Listing, TokenPrice } from "lib/types/carbonmark.types";
 import { sortBy } from "lodash";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>

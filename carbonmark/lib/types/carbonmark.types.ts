@@ -2,7 +2,6 @@ import type schema from ".generated/carbonmark-api.schema";
 import { BigNumber } from "ethers";
 import type { NormalizeOAS, OASModel } from "fets";
 import { CATEGORY_INFO } from "lib/getCategoryInfo";
-import { notNil } from "lib/utils/functional.utils";
 
 /** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
 export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
@@ -19,21 +18,9 @@ export type DetailedProject = OASModel<
 >;
 
 export type CategoryName = keyof typeof CATEGORY_INFO;
-export const isCategoryName = (name?: string | null): name is CategoryName =>
-  Object.keys(CATEGORY_INFO).includes(name as CategoryName);
 
 export type CarouselImage = OASModel<NormalizeOAS<typeof schema>, "Image">;
 
-export function isTokenPrice(obj: unknown): obj is TokenPrice {
-  return (
-    notNil(obj) &&
-    typeof obj === "object" &&
-    "singleUnitPrice" in obj &&
-    "totalSupply" in obj &&
-    "totalRetired" in obj &&
-    "totalBridged" in obj
-  );
-}
 export interface PcbProject {
   id: string;
   projectID: string;

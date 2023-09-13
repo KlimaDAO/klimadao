@@ -1,4 +1,4 @@
-import { Project, TokenPrice } from "lib/types/carbonmark";
+import { Project, TokenPrice } from "lib/types/carbonmark.types";
 
 type ProjectData = {
   key: Project["key"];

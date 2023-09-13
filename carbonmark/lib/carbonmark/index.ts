@@ -1,4 +1,4 @@
-import { DetailedProject } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark.types";
 
 import { client } from "lib/api/client";
 

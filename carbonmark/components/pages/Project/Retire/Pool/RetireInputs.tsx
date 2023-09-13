@@ -14,7 +14,7 @@ import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
   TokenPrice as PriceType,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";

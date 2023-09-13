@@ -2,7 +2,7 @@ import { PurchaseReceipt } from "components/pages/Purchases";
 import { client } from "lib/api/client";
 import { loadTranslation } from "lib/i18n";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
-import { Purchase } from "lib/types/carbonmark";
+import { Purchase } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 

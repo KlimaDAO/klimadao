@@ -13,7 +13,7 @@ import {
   useProjectsParams,
 } from "hooks/useProjectsFilterParams";
 import { urls } from "lib/constants";
-import { Country } from "lib/types/carbonmark";
+import { Country } from "lib/types/carbonmark.types";
 import { sortBy } from "lib/utils/array.utils";
 import { isString, pick } from "lodash";
 import { filter, map, pipe } from "lodash/fp";

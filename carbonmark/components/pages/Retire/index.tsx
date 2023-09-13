@@ -11,7 +11,7 @@ import { Text } from "components/Text";
 import { useGetDomainFromAddress } from "hooks/useGetDomainFromAddress";
 import { createProjectPoolRetireLink } from "lib/createUrls";
 import { getDefaultPoolFromPrices } from "lib/getPoolData";
-import { DetailedProject } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireActivity } from "./Activity";

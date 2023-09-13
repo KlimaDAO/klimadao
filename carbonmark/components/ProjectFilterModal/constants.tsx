@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Text } from "components/Text";
 import { CATEGORY_INFO } from "lib/getCategoryInfo";
-import { Project } from "lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark.types";
 import { sortBy } from "lib/utils/array.utils";
 import { IdentityFn } from "lib/utils/types.utils";
 import * as styles from "./styles";

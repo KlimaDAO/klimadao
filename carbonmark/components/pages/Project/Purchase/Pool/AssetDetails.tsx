@@ -9,7 +9,7 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";

@@ -3,7 +3,7 @@ import { t, Trans } from "@lingui/macro";
 import { InfoOutlined } from "@mui/icons-material";
 import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
-import { DetailedProject } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";

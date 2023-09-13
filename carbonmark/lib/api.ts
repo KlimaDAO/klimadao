@@ -6,11 +6,11 @@ import {
   Country,
   Project,
   User,
-  isCategoryName,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import { client } from "./api/client";
 import { createDownloadLink } from "./createDownloadLink";
 import { fetcher } from "./fetcher";
+import { isCategoryName } from "./types/carbonmark.guard";
 import { extract, notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {

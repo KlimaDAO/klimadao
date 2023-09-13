@@ -11,7 +11,7 @@ import {
   isConnectedAddress,
 } from "lib/formatWalletAddress";
 import { LO } from "lib/luckyOrange";
-import { DetailedProject, Listing } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";

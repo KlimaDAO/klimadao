@@ -4,7 +4,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createSellerLink } from "lib/createUrls";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { DetailedProject, Listing } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";

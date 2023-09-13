@@ -7,7 +7,7 @@ import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ProfileLogo } from "../../ProfileLogo";

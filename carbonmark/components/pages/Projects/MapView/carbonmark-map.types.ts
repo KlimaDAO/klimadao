@@ -1,4 +1,4 @@
-import { Project } from "lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark.types";
 import Supercluster from "supercluster";
 
 export type CarbonmarkMapOpts = Omit<mapboxgl.MapboxOptions, "container"> & {

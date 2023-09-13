@@ -7,7 +7,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { CategoryName, Listing as ListingT } from "lib/types/carbonmark";
+import { CategoryName, Listing as ListingT } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";

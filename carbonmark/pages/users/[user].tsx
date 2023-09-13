@@ -8,7 +8,7 @@ import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
 import { client } from "lib/api/client";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 
 interface Params extends ParsedUrlQuery {
   user: string;

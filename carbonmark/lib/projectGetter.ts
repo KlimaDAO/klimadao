@@ -3,8 +3,8 @@ import {
   CategoryName,
   DetailedProject,
   Project,
-  isCategoryName,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
+import { isCategoryName } from "./types/carbonmark.guard";
 
 export const getCategoryFromProject = (
   project: Project | DetailedProject

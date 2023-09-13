@@ -5,7 +5,7 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { getFullProjectId } from "lib/projectGetter";
-import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { RetireForm } from "./Pool/RetireForm";

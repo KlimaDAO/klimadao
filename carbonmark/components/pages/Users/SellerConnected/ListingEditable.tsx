@@ -17,7 +17,10 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing, Listing as ListingT } from "lib/types/carbonmark";
+import {
+  AssetForListing,
+  Listing as ListingT,
+} from "lib/types/carbonmark.types";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";

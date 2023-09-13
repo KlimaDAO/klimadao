@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { DetailedProject, Listing } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { Price } from "./Listing/Price";
 import * as styles from "./styles";

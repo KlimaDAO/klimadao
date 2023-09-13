@@ -1,8 +1,8 @@
 import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import type { SWRConfiguration } from "swr";
 import useSWR from "swr";
-import { DetailedProject } from "../lib/types/carbonmark";
 
 export const useFetchProject = (
   projectID: string,

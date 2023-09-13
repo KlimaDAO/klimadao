@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import * as styles from "./styles";
 

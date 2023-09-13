@@ -7,7 +7,7 @@ import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { DetailedProject } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
