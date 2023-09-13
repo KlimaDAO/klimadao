@@ -2,7 +2,6 @@ import { Type } from "@sinclair/typebox";
 
 export const RequestBody = Type.Object({
   wallet: Type.String({ minLength: 3 }),
-  handle: Type.String({ minLength: 3, maxLength: 24 }),
   username: Type.String({ minLength: 2 }),
   description: Type.String({ minLength: 2, maxLength: 500 }),
   profileImgUrl: Type.Optional(Type.String()),

@@ -8,31 +8,16 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // Destructure the wallet, username, and description properties from the request body
-    const { wallet, username, description, profileImgUrl, handle } =
-      request.body;
+    const { wallet, username, description, profileImgUrl } = request.body;
 
     try {
       const updatedData = {
         username,
         description,
-        handle,
         updatedAt: Date.now(),
         profileImgUrl:
           profileImgUrl && profileImgUrl.length ? profileImgUrl : null,
       };
-
-      // Check if the handle already exists in our database
-      const usersRef = fastify.firebase.firestore().collection("users");
-      const userSnapshot = await usersRef
-        .where("handle", "==", handle.toLowerCase())
-        .limit(1)
-        .get();
-
-      if (!userSnapshot.empty) {
-        return reply.code(403).send({
-          error: "A user with this handle is already registered!",
-        });
-      }
 
       // Try updating the user document with the specified data
       await fastify.firebase

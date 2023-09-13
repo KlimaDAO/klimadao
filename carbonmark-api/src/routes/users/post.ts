@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { RequestBody, schema } from "./post.schema";
+import { CreateUserResponse, RequestBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -51,14 +51,14 @@ const handler = (fastify: FastifyInstance) =>
 
     try {
       // Try creating a new user document with the specified data
-      const document = await fastify.firebase
+      await fastify.firebase
         .firestore()
         .collection("users")
         .doc(wallet.toUpperCase())
         .set(createData);
 
       // If the document is successfully created, return the request body
-      return reply.send(document);
+      return reply.code(200).send(request.body);
     } catch (err) {
       console.error(err);
       // If an error occurs, return the error in the response
@@ -67,7 +67,10 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route({
+  await fastify.route<{
+    Body: Static<typeof RequestBody>;
+    Reply: CreateUserResponse | { error: string };
+  }>({
     method: "POST",
     url: "/users",
     onRequest: [fastify.authenticate],
