@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import VerraCreditsCard from "components/cards/DailyCreditsCard";
 import layout from "theme/layout.module.scss";
 
+import DailyCarbonSupplyCard from "components/cards/DailyCarbonSupplyCard";
 import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/TokensPriceCard";
@@ -19,6 +20,9 @@ export default function OverviewPage() {
           <div className={layout.cardRow}>
             <TokenizedCreditsByBridgeCard></TokenizedCreditsByBridgeCard>
             <HistoricalPriceCard></HistoricalPriceCard>
+          </div>
+          <div className={layout.cardRow}>
+            <DailyCarbonSupplyCard></DailyCarbonSupplyCard>
           </div>
         </div>
         <div className={layout.cardStackedRows}>

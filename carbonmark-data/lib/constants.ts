@@ -51,5 +51,6 @@ export const urls = {
     tokens: `${api_url}/tokens`,
     klimaMonthlyRetirementsByPool: `${api_url}/retirements/klima/agg/tokens/monthly`,
     klimaRawRetirements: `${api_url}/retirements/klima/raw`,
+    dailyCarbonMetrics: `${api_url}/carbon_metrics`,
   },
 };

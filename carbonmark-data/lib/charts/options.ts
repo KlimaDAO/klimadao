@@ -38,3 +38,21 @@ export const getCreditsStatusOptions: () => Options = () => {
     },
   ];
 };
+
+// Return options for chain switcher widgets
+export const getChainsOptions: () => Options = () => {
+  return [
+    {
+      label: "Polygon",
+      value: "polygon",
+    },
+    {
+      label: "Ethereum",
+      value: "eth",
+    },
+    {
+      label: "Celo",
+      value: "celo",
+    },
+  ];
+};
