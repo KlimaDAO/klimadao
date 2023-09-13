@@ -224,16 +224,30 @@ export default {
                       ]
                     },
                     "batches": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "batchPrices": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "createdAt": {
                       "anyOf": [
@@ -624,16 +638,30 @@ export default {
                   ]
                 },
                 "batches": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "batchPrices": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "createdAt": {
                   "anyOf": [
@@ -986,16 +1014,30 @@ export default {
             ]
           },
           "batches": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "batchPrices": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "createdAt": {
             "anyOf": [
@@ -1289,16 +1331,30 @@ export default {
                   ]
                 },
                 "batches": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "batchPrices": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "createdAt": {
                   "anyOf": [
@@ -1450,7 +1506,45 @@ export default {
           },
           "assets": {
             "type": "array",
-            "items": {}
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    },
+                    "decimals": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "symbol",
+                    "decimals"
+                  ]
+                },
+                "amount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "token",
+                "amount"
+              ]
+            }
           }
         },
         "required": [
@@ -1463,6 +1557,45 @@ export default {
           "listings",
           "activities",
           "assets"
+        ]
+      },
+      "Asset": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "token": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "decimals": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "symbol",
+              "decimals"
+            ]
+          },
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "token",
+          "amount"
         ]
       },
       "TokenPrice": {
@@ -1526,6 +1659,31 @@ export default {
           "isPoolDefault",
           "singleUnitPrice"
         ]
+      },
+      "Image": {
+        "type": "object",
+        "properties": {
+          "caption": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
       },
       "def-0": {
         "type": "object",
@@ -1618,48 +1776,6 @@ export default {
                     },
                     {
                       "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
                     }
                   ]
                 ]
@@ -1960,16 +2076,30 @@ export default {
                                   ]
                                 },
                                 "batches": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  }
+                                  "anyOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
                                 },
                                 "batchPrices": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  }
+                                  "anyOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
                                 },
                                 "createdAt": {
                                   "anyOf": [
@@ -2030,6 +2160,88 @@ export default {
                     ]
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
               }
             }
           }
@@ -2154,16 +2366,30 @@ export default {
                             ]
                           },
                           "batches": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
                           },
                           "batchPrices": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
                           },
                           "createdAt": {
                             "anyOf": [
@@ -2315,7 +2541,45 @@ export default {
                     },
                     "assets": {
                       "type": "array",
-                      "items": {}
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "token": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "symbol": {
+                                "type": "string"
+                              },
+                              "decimals": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name",
+                              "symbol",
+                              "decimals"
+                            ]
+                          },
+                          "amount": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "token",
+                          "amount"
+                        ]
+                      }
                     }
                   },
                   "required": [
@@ -2519,233 +2783,6 @@ export default {
                     "handle",
                     "username",
                     "description"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/purchases/{id}": {
-      "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
-        "parameters": [
-          {
-            "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
-            },
-            "in": "query",
-            "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Stringified 18 decimal BigNumber",
-                      "examples": [
-                        "1000000000000000000"
-                      ],
-                      "type": "string"
-                    },
-                    "buyer": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the buyer",
-                          "examples": [
-                            "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "seller": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the seller",
-                          "examples": [
-                            "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Stringified 6 decimal BigNumber",
-                      "examples": [
-                        "1000000"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "buyer",
-                    "seller",
-                    "listing",
-                    "price"
                   ]
                 }
               }
@@ -3110,16 +3147,30 @@ export default {
                             ]
                           },
                           "batches": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
                           },
                           "batchPrices": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
                           },
                           "createdAt": {
                             "anyOf": [
@@ -3289,6 +3340,193 @@ export default {
                     "price",
                     "isPoolProject",
                     "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Stringified 18 decimal BigNumber",
+                      "examples": [
+                        "1000000000000000000"
+                      ],
+                      "type": "string"
+                    },
+                    "buyer": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "Address of the buyer",
+                          "examples": [
+                            "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "seller": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "Address of the seller",
+                          "examples": [
+                            "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Stringified 6 decimal BigNumber",
+                      "examples": [
+                        "1000000"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "buyer",
+                    "seller",
+                    "listing",
+                    "price"
                   ]
                 }
               }

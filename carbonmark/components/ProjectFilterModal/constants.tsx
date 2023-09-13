@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Text } from "components/Text";
-import { categoryNames, getCategoryInfo } from "lib/getCategoryInfo";
+import { CATEGORY_INFO } from "lib/getCategoryInfo";
 import { Project } from "lib/types/carbonmark";
 import { sortBy } from "lib/utils/array.utils";
 import { IdentityFn } from "lib/utils/types.utils";
@@ -30,7 +30,7 @@ export const PROJECT_SORT_FNS: Record<string, IdentityFn<Project[]>> = {
 
 /** We need this function to find icons etc that are defined here and not returned by the API */
 export const getCategoryFilters = () => {
-  const allCategories = categoryNames.map((name) => getCategoryInfo(name));
+  const allCategories = Object.values(CATEGORY_INFO);
   const projectFilters: Record<string, CheckboxOption[]> = {
     CATEGORIES: allCategories.map((category) => ({
       label: (

@@ -7,7 +7,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { ListingWithProject } from "lib/types/carbonmark";
+import { Listing as ListingT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
@@ -15,7 +15,7 @@ import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  listing: ListingWithProject;
+  listing: ListingT;
   children: ReactNode;
 };
 

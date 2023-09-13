@@ -1,5 +1,5 @@
 import { PurchaseReceipt } from "components/pages/Purchases";
-import { getPurchase } from "lib/carbonmark";
+import { client } from "lib/api/client";
 import { loadTranslation } from "lib/i18n";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Purchase } from "lib/types/carbonmark";
@@ -49,14 +49,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No translation found");
     }
 
-    let purchase = null;
-    try {
-      purchase = await getPurchase({ id: params.purchase_id });
-    } catch (e) {
-      // Only log the error on server,
-      // Render page with default data because transaction was valid on chain
-      console.error("Failed to get Purchase from Carbonmark API", e);
-    }
+    const purchase = await client[`/purchases/{id}`].get({
+      params: {
+        id: params.purchase_id,
+      },
+    });
 
     return {
       props: {

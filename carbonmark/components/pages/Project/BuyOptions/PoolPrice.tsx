@@ -10,13 +10,13 @@ import {
 } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
-import { DetailedProject, PriceFlagged } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  price: PriceFlagged;
+  price: TokenPrice;
   project: DetailedProject;
   isBestPrice: boolean;
 };

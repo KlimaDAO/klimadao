@@ -1,6 +1,7 @@
 import type schema from ".generated/carbonmark-api.schema";
 import { BigNumber } from "ethers";
 import type { NormalizeOAS, OASModel } from "fets";
+import { CATEGORY_INFO } from "lib/getCategoryInfo";
 import { notNil } from "lib/utils/functional.utils";
 
 /** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
@@ -9,12 +10,18 @@ export type Listing = OASModel<NormalizeOAS<typeof schema>, "Listing">;
 export type TokenPrice = OASModel<NormalizeOAS<typeof schema>, "TokenPrice">;
 export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
 export type User = OASModel<NormalizeOAS<typeof schema>, "User">;
+export type Category = OASModel<NormalizeOAS<typeof schema>, "Category">;
+export type Country = OASModel<NormalizeOAS<typeof schema>, "Country">;
 export type DetailedProject = OASModel<
   NormalizeOAS<typeof schema>,
   "DetailedProject"
 >;
 
-export type CarouselImage = DetailedProject["images"][number];
+export type CategoryName = keyof typeof CATEGORY_INFO;
+export const isCategoryName = (name?: string | null): name is CategoryName =>
+  Object.keys(CATEGORY_INFO).includes(name as CategoryName);
+
+export type CarouselImage = OASModel<NormalizeOAS<typeof schema>, "Image">;
 
 export function isTokenPrice(obj: unknown): obj is TokenPrice {
   return (
@@ -146,17 +153,6 @@ export interface UserActivity {
   };
 }
 
-export type Asset = {
-  id: string;
-  token: {
-    id: string;
-    name: string;
-    symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
-    decimals: number;
-  };
-  amount: string;
-};
-
 // data from C3 ABI function "getProjectInfo"
 export type ProjectInfo = {
   active: boolean;
@@ -200,31 +196,7 @@ export type Methodology = {
   category: CategoryName;
 };
 
-export type Category = {
-  id: CategoryName;
-};
-
-export type Country = {
-  id: string;
-};
-
 export type Vintage = string;
-
-const CATEGORY_NAMES = [
-  "Agriculture",
-  "Energy Efficiency",
-  "Forestry",
-  "Industrial Processing",
-  "Renewable Energy",
-  "Other",
-  "Other Nature-Based",
-  "Blue Carbon",
-] as const;
-
-export type CategoryName = (typeof CATEGORY_NAMES)[number];
-
-export const isCategoryName = (name?: string | null): name is CategoryName =>
-  CATEGORY_NAMES.includes(name as CategoryName);
 
 export type Purchase = {
   id: string;

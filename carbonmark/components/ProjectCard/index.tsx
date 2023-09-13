@@ -8,7 +8,7 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { CategoryName, Methodology, Project } from "lib/types/carbonmark";
+import { CategoryName, Project } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -62,7 +62,7 @@ export const ProjectCard: FC<Props> = (props) => {
         <div className={styles.tags}>
           <Vintage vintage={project.vintage} />
           {project?.methodologies?.length > 1 ? (
-            project.methodologies.map((methodology: Methodology, index) => (
+            project.methodologies.map((methodology, index) => (
               <Category
                 key={`${methodology?.id}-${index}`}
                 category={methodology?.category as CategoryName}

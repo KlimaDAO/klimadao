@@ -85,14 +85,14 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                 />
               ) : (
                 <>
-                  <TextInfoTooltip tooltip={image.caption}>
+                  <TextInfoTooltip tooltip={image.caption ?? ""}>
                     <div className="icon-wrapper">
                       <InfoOutlinedIcon width={20} height={20} />
                     </div>
                   </TextInfoTooltip>
                   <img
-                    src={image.url}
-                    alt={image.caption}
+                    src={image.url ?? ""}
+                    alt={image.caption ?? ""}
                     className={styles.slideImg}
                   />
                 </>
@@ -125,8 +125,8 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                     <div className={styles.selected} />
                   )}
                   <img
-                    src={image.url}
-                    alt={image.caption}
+                    src={image.url ?? ""}
+                    alt={image.caption ?? ""}
                     className={styles.thumbsSlideImg}
                   />
                 </button>
