@@ -47,13 +47,18 @@ export const projectHeaderText = css`
   font-size: 1.6rem;
   line-height: 2rem;
 
-  a {
-    color: var(--klima-blue);
-  }
-
   ${breakpoints.medium} {
     font-size: 3.2rem;
     line-height: 3.6rem;
+  }
+`;
+
+export const sellerLink = css`
+  color: var(--white);
+  z-index: 1;
+  text-decoration: underline;
+  :visited {
+    color: var(--white);
   }
 `;
 

@@ -22,13 +22,12 @@ export const ProjectHeader: FC<Props> = (props) => (
     <div className="stack">
       {!!props.seller?.handle && (
         <div className="stack">
-          <Text t="h5" className={styles.projectHeaderText}>
-            <Link
-              href={createSellerLink(props.seller?.handle || props.seller?.id)}
-            >
-              @{props.seller?.handle || concatAddress(props.seller.id)}
-            </Link>
-          </Text>
+          <Link
+            className={styles.sellerLink}
+            href={createSellerLink(props.seller?.handle || props.seller?.id)}
+          >
+            @{props.seller?.handle || concatAddress(props.seller.id)}
+          </Link>
         </div>
       )}
       <Text t="h3" className={styles.projectHeaderText}>
