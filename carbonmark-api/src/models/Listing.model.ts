@@ -2,7 +2,7 @@ import { Static, Type } from "@sinclair/typebox";
 import { Nullable } from "./Utility.model";
 
 /** DEPRECATED. This will be altered with v2 */
-export const Listing = Type.Object(
+export const ListingModel = Type.Object(
   {
     id: Type.String({
       description: "Unique listing identifier",
@@ -32,4 +32,4 @@ export const Listing = Type.Object(
   }
 );
 
-export type ListingT = Static<typeof Listing>;
+export type Listing = Static<typeof ListingModel>;

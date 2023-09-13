@@ -1,5 +1,4 @@
-import { utils } from "ethers";
-
+import { formatUnits } from "ethers-v6";
 import { Thunk } from "state";
 import { setAppState } from "state/app";
 
@@ -60,7 +59,7 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
 
       dispatch(
         setAppState({
-          currentIndex: utils.formatUnits(currentIndex, "gwei"),
+          currentIndex: formatUnits(currentIndex, "gwei"),
           currentBlock,
           fiveDayRate,
           stakingAnnualPercent,

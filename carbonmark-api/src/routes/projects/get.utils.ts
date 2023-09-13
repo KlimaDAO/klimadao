@@ -5,8 +5,8 @@ import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
-import { ProjectT } from "../../models/Project.model";
-import { GeoJSONPointT } from "../../models/Utility.model";
+import { Project } from "../../models/Project.model";
+import { GeoJSONPoint } from "../../models/Utility.model";
 import {
   CreditId,
   CreditIdentifier,
@@ -94,7 +94,7 @@ export const getOffsetTokenPrices = (
 
 export const toGeoJSON = (
   point?: Partial<Geopoint> | null
-): GeoJSONPointT | null => {
+): GeoJSONPoint | null => {
   if (!point || isNil(point?.lat) || isNil(point?.lng)) return null;
   return {
     type: "Feature",
@@ -188,8 +188,8 @@ export const composeProjectEntries = (
   projectDataMap: ProjectDataMap,
   cmsDataMap: CMSDataMap,
   poolPrices: Record<string, PoolPrice>
-): ProjectT[] => {
-  const entries: ProjectT[] = [];
+): Project[] => {
+  const entries: Project[] = [];
   projectDataMap.forEach((data) => {
     // rename vars for brevity
     const { marketplaceProjectData: market, poolProjectData: pool } = data;
@@ -201,7 +201,7 @@ export const composeProjectEntries = (
     const carbonProject = cmsDataMap.get(projectId);
 
     // construct CarbonmarkProjectT and make typescript happy
-    const entry: ProjectT = {
+    const entry: Project = {
       methodologies: carbonProject?.methodologies ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,

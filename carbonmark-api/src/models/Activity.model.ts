@@ -1,7 +1,7 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 import { Nullable } from "./Utility.model";
 
-export const Activity = Type.Object({
+export const ActivityModel = Type.Object({
   id: Type.String(),
   amount: Nullable(Type.String()),
   previousAmount: Nullable(Type.String()),
@@ -20,3 +20,5 @@ export const Activity = Type.Object({
     })
   ),
 });
+
+export type Activity = Static<typeof ActivityModel>;

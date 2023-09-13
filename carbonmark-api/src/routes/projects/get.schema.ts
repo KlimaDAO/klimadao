@@ -1,9 +1,9 @@
 import { Type } from "@sinclair/typebox";
-import { NetworkParam } from "../../models/NetworkParam.model";
-import { Project } from "../../models/Project.model";
+import { NetworkParamModel } from "../../models/NetworkParam.model";
+import { ProjectModel } from "../../models/Project.model";
 
 const querystring = Type.Object({
-  network: Type.Optional(NetworkParam),
+  network: Type.Optional(NetworkParamModel),
   country: Type.Optional(
     Type.String({
       description: "Desired country of origin for carbon projects",
@@ -38,7 +38,7 @@ export const schema = {
       description: "List of projects",
       content: {
         "application/json": {
-          schema: Type.Array(Project),
+          schema: Type.Array(ProjectModel),
         },
       },
     },

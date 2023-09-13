@@ -1,4 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const Category = Type.Object({ id: Type.String() });
-export type CategoryT = Static<typeof Category>;
+export const CategoryModel = Type.Object({ id: Type.String() });
+export type Category = Static<typeof CategoryModel>;

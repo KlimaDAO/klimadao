@@ -1,6 +1,6 @@
 import { SchemaOptions, Static, TSchema, Type } from "@sinclair/typebox";
 
-export const GeoJSONPoint = Type.Object({
+export const GeoJSONPointModel = Type.Object({
   type: Type.Literal("Feature"),
   geometry: Type.Object({
     type: Type.Literal("Point"),
@@ -11,10 +11,10 @@ export const GeoJSONPoint = Type.Object({
 export const Nullable = <T extends TSchema>(type: T, opts?: SchemaOptions) =>
   Type.Optional(Type.Union([type, Type.Null()], opts));
 
-export const Image = Type.Object({
+export const ImageModel = Type.Object({
   caption: Nullable(Type.String()),
   url: Nullable(Type.String()),
 });
 
-export type GeoJSONPointT = Static<typeof GeoJSONPoint>;
-export type ImageT = Static<typeof Image>;
+export type GeoJSONPoint = Static<typeof GeoJSONPointModel>;
+export type Image = Static<typeof ImageModel>;

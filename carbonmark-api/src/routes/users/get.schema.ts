@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { User } from "../../models/User.model";
+import { UserModel } from "../../models/User.model";
 
 export const Params = Type.Object(
   {
@@ -32,7 +32,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: User,
+          schema: UserModel,
         },
       },
     },

@@ -5,7 +5,7 @@ import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { User } from "lib/types/carbonmark";
 import { FC, useState } from "react";
@@ -154,7 +154,7 @@ export const EditProfile: FC<Props> = (props) => {
                     },
                     validate: {
                       isAddress: (v) =>
-                        !utils.isAddress(v) || // do not allow polygon addresses
+                        !isAddress(v) || // do not allow polygon addresses
                         t`Handle should not be an address`,
                       isNewHandle: async (v) =>
                         (await fetchIsNewHandle(v)) || // ensure unique handles

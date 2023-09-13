@@ -61,6 +61,20 @@
   }
 }
 
+.mobileOnly {
+  @include large {
+    display: none;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include large {
+    display: unset;
+  }
+}
+
 .textLeft {
   text-align: left;
 }
@@ -75,4 +89,8 @@
 }
 .textCenter {
   text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

@@ -10,7 +10,7 @@ const PoolToken = Type.Union(
   { description: "Lowercase name of pool / pool token e.g. 'bct'" }
 );
 
-export const TokenPrice = Type.Object({
+export const TokenPriceModel = Type.Object({
   // Name of the pool
   poolName: PoolToken,
   // The number of tokens in the pool available for retirement
@@ -34,4 +34,4 @@ export const TokenPrice = Type.Object({
   }),
 });
 
-export type TokenPriceT = Static<typeof TokenPrice>;
+export type TokenPriceT = Static<typeof TokenPriceModel>;

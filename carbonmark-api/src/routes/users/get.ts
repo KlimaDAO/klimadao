@@ -6,7 +6,7 @@ import {
   ByWalletUserActivity,
   ByWalletUserListing,
 } from "../../graphql/marketplace.types";
-import { UserT } from "../../models/User.model";
+import { User } from "../../models/User.model";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
@@ -25,7 +25,7 @@ const handler = (fastify: FastifyInstance) =>
       Querystring: Static<typeof QueryString>;
     }>,
     reply: FastifyReply
-  ): Promise<UserT | void> {
+  ): Promise<User | void> {
     const { walletOrHandle } = request.params;
     const { type } = request.query;
 
@@ -82,7 +82,7 @@ const handler = (fastify: FastifyInstance) =>
       .map(mapSellerBuyerToActivity)
       .map(formatActivity);
 
-    const response: UserT = {
+    const response: User = {
       createdAt: document.createdAt,
       description: document.description,
       handle: document.handle,

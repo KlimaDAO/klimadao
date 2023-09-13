@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-11 15:36+0000\n"
+"POT-Creation-Date: 2023-09-12 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,7 +219,7 @@ msgstr "Adresse du portefeuille du bénéficiaire (facultatif)"
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
 #: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:153
+#: components/pages/Project/index.tsx:151
 msgid "Best Price"
 msgstr "Meilleur prix"
 
@@ -462,7 +462,7 @@ msgid "DATE"
 msgstr "DATE"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:250
+#: components/pages/Project/index.tsx:248
 msgid "Data for this project and vintage"
 msgstr "Données pour ce projet et année"
 
@@ -483,7 +483,7 @@ msgid "Describe the purpose of this retirement"
 msgstr "Décrivez le but de ce retrait du marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:201
+#: components/pages/Project/index.tsx:199
 msgid "Description"
 msgstr "Description"
 
@@ -751,7 +751,7 @@ msgid "Maximize your climate impact."
 msgstr "Maximisez votre impact climatique."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:160
+#: components/pages/Project/index.tsx:158
 msgid "Methodology"
 msgstr "Méthodologie"
 
@@ -802,7 +802,7 @@ msgid "No listable assets found."
 msgstr "Aucun actif à vendre n'a été trouvé."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:240
+#: components/pages/Project/index.tsx:238
 msgid "No listings found for this project."
 msgstr "Aucune annonce trouvée pour ce projet."
 
@@ -1048,12 +1048,12 @@ msgid "RETIRE CARBON"
 msgstr "RETIRER DU CARBONE"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read Less"
 msgstr "En lire moins"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:214
+#: components/pages/Project/index.tsx:212
 msgid "Read More"
 msgstr "En savoir plus"
 
@@ -1455,7 +1455,7 @@ msgid "Toggle Select Project"
 msgstr "Activer ou désactiver la sélection de projet"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/SortyByDropDown/index.tsx:62
+#: components/pages/Resources/SortyByDropDown/index.tsx:63
 msgid "Toggle Sorted by menu"
 msgstr "Basculer vers le menu \"Trié par\""
 
@@ -1594,7 +1594,7 @@ msgid "View Carbonmark Profile"
 msgstr "Voir le profil Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:223
+#: components/pages/Project/index.tsx:221
 msgid "View Registry Details <0/>"
 msgstr "Voir les détails du registre <0/>"
 
@@ -1635,7 +1635,7 @@ msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:114
+#: components/pages/Project/index.tsx:112
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "Voir et acheter ce projet de compensation carbone sur Carbonmark"
 
@@ -2198,17 +2198,17 @@ msgid "resources.form.filters.clear_all"
 msgstr "Tout effacer"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:172
+#: components/pages/Resources/ResourcesList/index.tsx:171
 msgid "resources.form.input.search.label"
 msgstr "Recherche"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:163
+#: components/pages/Resources/ResourcesList/index.tsx:162
 msgid "resources.form.input.search.placeholder"
 msgstr "Rechercher..."
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:196
+#: components/pages/Resources/ResourcesList/index.tsx:200
 msgid "resources.form.input.sort_by.label"
 msgstr "Trier par"
 
@@ -2218,32 +2218,32 @@ msgid "resources.form.input.sort_by.select"
 msgstr "Sélectionner"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:297
+#: components/pages/Resources/ResourcesList/index.tsx:301
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Afficher les résultats"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:270
+#: components/pages/Resources/ResourcesList/index.tsx:274
 msgid "resources.mobile_modal.title"
 msgstr "Trier par"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:235
+#: components/pages/Resources/ResourcesList/index.tsx:239
 msgid "resources.page.list.no_search_results.title"
 msgstr "Désolé. Nous n'avons pas trouvé de résultats correspondants."
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:227
+#: components/pages/Resources/ResourcesList/index.tsx:231
 msgid "resources.page.list.on_fetch_error"
 msgstr "Désolé ! Un problème est survenu."
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:248
+#: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Veuillez utiliser une autre combinaison de filtres."
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:241
+#: components/pages/Resources/ResourcesList/index.tsx:245
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
@@ -2504,7 +2504,7 @@ msgid "shared.resourcecenter"
 msgstr "Centre de Ressources"
 
 #. js-lingui-explicit-id
-#: components/pages/Resources/ResourcesList/index.tsx:202
+#: components/pages/Resources/ResourcesList/index.tsx:206
 msgid "shared.resources.sort_by.header"
 msgstr "Trier par :"
 

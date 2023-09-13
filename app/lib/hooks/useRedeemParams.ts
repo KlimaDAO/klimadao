@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -62,7 +62,7 @@ const parseRedeemParams = (params: URLSearchParams) => {
           : undefined;
     } else if (param === "projectTokenAddress") {
       const tkn = params.get("projectTokenAddress")?.toLowerCase() || undefined;
-      data[param] = tkn && utils.isAddress(tkn) ? tkn : undefined;
+      data[param] = tkn && isAddress(tkn) ? tkn : undefined;
     } else if (param === "quantity") {
       const quantity = params.get(param);
       data[param] = quantity && Number(quantity) ? quantity : undefined;

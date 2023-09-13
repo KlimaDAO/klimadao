@@ -5,6 +5,7 @@ import {
   CreditsQueryParams,
   DailyCredits,
   DailyCreditsItem,
+  KlimaMonthlyRetirementsItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
@@ -124,12 +125,22 @@ export const queryTokenInfo = async function (
   return tokens.find((tokenInfo) => tokenInfo.name.toLowerCase() == token);
 };
 
+/** Queries the monthly aggregated Klima retirements endpoint */
+export const queryKlimaMonthlyRetirementsByPool = async function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsItem>> {
+  return paginatedQuery<KlimaMonthlyRetirementsItem, PaginationQueryParams>(
+    urls.api.klimaMonthlyRetirementsByPool,
+    params
+  );
+};
+
 /** Queries the Klima Raw Retirements endpoint */
 export const queryRawKlimaRetirements = function (
   params: PaginationQueryParams
 ): Promise<PaginatedResponse<RawRetirementsItem>> {
   return paginatedQuery<RawRetirementsItem, typeof params>(
-    urls.api.klima_raw_retirements,
+    urls.api.klimaRawRetirements,
     params
   );
 };

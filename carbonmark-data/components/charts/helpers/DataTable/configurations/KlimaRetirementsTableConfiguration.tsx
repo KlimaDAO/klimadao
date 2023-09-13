@@ -4,7 +4,7 @@ import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
 import { queryRawKlimaRetirements } from "lib/charts/queries";
-import { RawRetirementsItem } from "lib/charts/types";
+import { PaginatedResponse, RawRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
@@ -20,7 +20,8 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
       page,
     });
   }
-  getColumns(locale: string): Columns<RawRetirementsItem> {
+  getColumns(): Columns<RawRetirementsItem> {
+    const locale = currentLocale();
     return {
       beneficiary: {
         header: t`Beneficiary address`,
@@ -30,7 +31,7 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
       },
       project_id: {
         header: t`Project`,
-        cellStyle: layout.textCenter,
+        cellStyle: `${layout.textCenter} ${layout.nowrap}`,
         dataKey: "project_id",
         formatter: (projectId: string) => (
           <VerraProjectLink projectId={projectId}></VerraProjectLink>
@@ -70,22 +71,34 @@ export default class KlimaRetirementsTableConfiguration extends AbstractTableCon
     };
   }
   cardRenderer = (props: { item: RawRetirementsItem }) => {
-    const locale = currentLocale();
     return (
       <div className={styles.card}>
         <div className={styles.cardTitle}>{props.item.beneficiary}</div>
         <div className={styles.facts}>
           <div className={styles.date}>
-            {this.formatValue(props.item, "retirement_date", locale)}
+            {this.formatValue(props.item, "retirement_date")}
           </div>
-          {this.formatValue(props.item, "token", locale)}
-          {this.formatValue(props.item, "project_id", locale)}
+          {this.formatValue(props.item, "token")}
+          {this.formatValue(props.item, "project_id")}
         </div>
         <div className={styles.badge}>
-          {t`${this.formatValue(props.item, "quantity", locale)} Tonnes`}
+          {t`${this.formatValue(props.item, "quantity")} Tonnes`}
         </div>
-        {this.formatValue(props.item, "transaction_id", locale)}
+        {this.formatValue(props.item, "transaction_id")}
       </div>
     );
+  };
+  desktopRenderer = (props: {
+    data: PaginatedResponse<RawRetirementsItem>;
+  }) => {
+    return this.VerticalTableLayout({
+      data: props.data,
+    });
+  };
+  mobileRenderer = (props: { data: PaginatedResponse<RawRetirementsItem> }) => {
+    return this.CardsLayout({
+      data: props.data,
+      cardRenderer: this.cardRenderer,
+    });
   };
 }

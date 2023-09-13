@@ -1,9 +1,7 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
+import { COMMON_SCHEMA_URI } from "../app.constants";
 
-/** Adhere to JSONSchema spec by using a URI */
-export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
-
-export const NetworkParam = Type.Union(
+export const NetworkParamModel = Type.Union(
   [Type.Literal("polygon"), Type.Literal("mumbai")],
   {
     $id: `${COMMON_SCHEMA_URI}/querystring/network`,
@@ -13,3 +11,5 @@ export const NetworkParam = Type.Union(
     default: "polygon",
   }
 );
+
+export type NetworkParam = Static<typeof NetworkParamModel>;

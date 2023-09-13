@@ -1,7 +1,8 @@
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { addresses } from "@klimadao/lib/constants";
 import { formatUnits } from "@klimadao/lib/utils";
-import { Contract, providers, utils } from "ethers";
+import { Contract, providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { getAggregatorV2Allowance } from "lib/actions";
 import { OnStatusHandler, TxnStatus } from "lib/statusMessage";
 
@@ -34,7 +35,7 @@ export const approveProjectToken = async (params: {
       IERC20.abi,
       params.signer
     );
-    const parsedValue = utils.parseUnits(params.value, 18);
+    const parsedValue = parseUnits(params.value, 18);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].retirementAggregatorV2,

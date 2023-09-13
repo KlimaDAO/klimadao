@@ -18,8 +18,8 @@ export const fetchPoolPricesAndStats = async (
 ): Promise<[TokenPriceT[], Stats]> => {
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo({
-      key: params.key,
-      vintage: params.vintage,
+      projectID: params.key,
+      vintage: Number(params.vintage),
     }),
     fetchAllPoolPrices(), // fetch the price for all known lps
   ]);
