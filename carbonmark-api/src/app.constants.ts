@@ -7,6 +7,7 @@ const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 /** Note: the keys of the below objects are used when selecting gql files for type generation */
 export const GRAPH_URLS = {
   marketplace: `${GRAPH_API_ROOT}/najada/marketplace-matic`,
+  marketplaceMumbai: `${GRAPH_API_ROOT}/cujowolf/carbonmark-mumbai`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
