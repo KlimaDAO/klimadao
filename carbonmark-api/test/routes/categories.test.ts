@@ -14,11 +14,11 @@ describe("GET /categories", () => {
     fastify = await build();
   });
 
-  /** A default response for offsets */
+  /** A default response for digital-carbon */
   beforeEach(() =>
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS.digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: [] } })
+      .reply(200, { data: { carbonProjects: [] } })
   );
 
   /** The happy path */
@@ -38,7 +38,7 @@ describe("GET /categories", () => {
     expect(data).toEqual(CATEGORIES);
   });
 
-  /** An issue with one of the graph APIs */
+  // /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
     const mockConsole = jest
       .spyOn(console, "error")
