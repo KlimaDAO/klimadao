@@ -1,23 +1,18 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
+import { Nullable } from "../../models/Utility.model";
 
 export const RequestBody = Type.Object(
   {
-    handle: Type.String({ minLength: 3 }),
+    handle: Type.String({ minLength: 3, maxLength: 24 }),
     username: Type.String({ minLength: 2 }),
-    description: Type.String({ maxLength: 500 }),
     wallet: Type.String({ minLength: 26, maxLength: 64 }),
-    profileImgUrl: Type.String(),
+    description: Nullable(Type.String({ maxLength: 500 })),
+    profileImgUrl: Nullable(Type.String()),
   },
   { required: ["handle", "username", "wallet", "description"] }
 );
 
-export const ResponseSchema = Type.Object({
-  handle: Type.String(),
-  username: Type.String(),
-  wallet: Type.String(),
-  updatedAt: Type.Number(),
-  createdAt: Type.Number(),
-});
+export type CreateUserResponse = Static<typeof RequestBody>;
 
 export const schema = {
   summary: "Create user profile",
@@ -27,7 +22,7 @@ export const schema = {
     200: {
       content: {
         "application/json": {
-          schema: ResponseSchema,
+          schema: RequestBody,
         },
       },
     },
@@ -36,7 +31,6 @@ export const schema = {
         "application/json": {
           schema: Type.Object({
             error: Type.String(),
-            code: Type.Number(),
           }),
         },
       },
