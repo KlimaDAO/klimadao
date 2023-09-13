@@ -1,5 +1,5 @@
 import ChartCard from "components/cards/ChartCard";
-import { TwoColumnRetirementTrendsTab } from "components/tabs/TwoColumnRetirementTrendsTab";
+import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
  * A UI layout component to position Retirement Trends pages content

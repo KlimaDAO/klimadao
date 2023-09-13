@@ -3,11 +3,11 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DataTable from "components/charts/helpers/DataTable";
 
 /** Klima DAO Retirements by pool Card */
-export default function KlimaDAORetirementsByPoolTableCard(props: CardProps) {
+export default function KlimaDAORetirementsByPoolSummaryCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
     <DataTable
-      configurationKey="KlimaRetirementsByPool"
+      configurationKey="KlimaRetirementsByPoolSummary"
       withPagination={false}
     ></DataTable>
   );

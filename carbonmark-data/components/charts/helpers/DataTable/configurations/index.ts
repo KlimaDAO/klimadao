@@ -1,20 +1,25 @@
-import KlimaRetirementsByPoolTableConfiguration from "./KlimaRetirementsByPoolTableConfiguration";
-import KlimaRetirementsTableConfiguration from "./KlimaRetirementsTableConfiguration";
+import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
+import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 const configurations = {
-  klimaRetirements: new KlimaRetirementsTableConfiguration(),
-  KlimaRetirementsByPool: new KlimaRetirementsByPoolTableConfiguration(),
+  KlimaRetirementsByPoolSummary:
+    new KlimaRetirementsByPoolSummaryConfiguration(),
+  KlimaRetirementsByPoolList: new KlimaRetirementsByPoolListConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
-
+function getConfiguration(key: ConfigurationKey) {
+  const res = configurations[key];
+  if (res) return res;
+  throw `Unknown table configuration : ${key}`;
+}
 /** Fetches data given a table configuration*/
 export function fetchData(key: ConfigurationKey, page: number) {
-  return configurations[key].fetchFunction(page);
+  return getConfiguration(key).fetchFunction(page);
 }
 /** Returns a JSX.Element that can render data items for desktop */
 export function getDesktopRenderer(key: ConfigurationKey) {
-  return configurations[key].desktopRenderer;
+  return getConfiguration(key).desktopRenderer;
 }
 /** Returns a JSX.Element that can render data items for mobile */
 export function getMobileRenderer(key: ConfigurationKey) {
-  return configurations[key].mobileRenderer;
+  return getConfiguration(key).mobileRenderer;
 }

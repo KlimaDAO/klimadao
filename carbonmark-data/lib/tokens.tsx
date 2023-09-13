@@ -14,7 +14,7 @@ export function getTokenFullName(token: Token) {
   if (token == "nct") return t`Nature Carbon Tonne (NCT)`;
   if (token == "mco2") return t`Moss Carbon Credit (MCO2)`;
   if (token == "ubo") return t`Universal Basic Offset (UBO)`;
-  if (token == "nbo") return t`Nature Based Offset (UBO)`;
+  if (token == "nbo") return t`Nature Based Offset (NBO)`;
   return "";
 }
 

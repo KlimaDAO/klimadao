@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import {
   getEthDailyCarbonMetrics,
   getPolygonDailyCarbonMetrics,
-} from "lib/charts/aggregators/getDailyCarbonSupply";
+} from "lib/charts/aggregators/getCarbonMetrics";
 import { palette } from "theme/palette";
 import Chart from "./Chart";
 

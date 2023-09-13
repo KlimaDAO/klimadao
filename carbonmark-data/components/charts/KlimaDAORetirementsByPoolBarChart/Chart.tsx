@@ -33,9 +33,8 @@ export default function Chart(props: Props) {
         />
         <YAxis {...KlimaYAxisPercentageProps()} />
         <Tooltip
-          content={KlimaTooltip(
-            helpers.formatDateAsDays(locale),
-            helpers.formatPercentage
+          content={KlimaTooltip(helpers.formatDateAsDays(locale), (x) =>
+            helpers.formatPercentage({ value: x, fractionDigits: 0 })
           )}
           cursor={{ fill: "transparent" }}
         />

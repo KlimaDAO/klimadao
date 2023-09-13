@@ -11,7 +11,7 @@ import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
 import { Columns } from "./types";
 
-export default class KlimaRetirementsTableConfiguration extends AbstractTableConfiguration<RawRetirementsItem> {
+export default class KlimaRetirementsByPoolListConfiguration extends AbstractTableConfiguration<RawRetirementsItem> {
   fetchFunction(page: number) {
     return queryRawKlimaRetirements({
       sort_by: "retirement_date",

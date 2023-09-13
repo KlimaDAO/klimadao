@@ -3,7 +3,7 @@ import {
   getCeloDailyCarbonMetrics,
   getEthDailyCarbonMetrics,
   getPolygonDailyCarbonMetrics,
-} from "lib/charts/aggregators/getDailyCarbonSupply";
+} from "lib/charts/aggregators/getCarbonMetrics";
 import { palette } from "theme/palette";
 import { ChartConfigurationItem } from "../helpers/Configuration";
 import Chart, { ChartKey } from "./Chart";

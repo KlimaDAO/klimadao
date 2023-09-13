@@ -1,6 +1,6 @@
 import ChartCard from "components/cards/ChartCard";
-import KlimaDAORetirementsCard from "components/cards/KlimaDAORetirementsCard";
-import { TwoColumnRetirementTrendsTab } from "components/tabs/TwoColumnRetirementTrendsTab";
+import KlimaDAORetirementsCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolListCard";
+import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
  * A UI layout component to position Retirement Trends pages content

@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 
 import { Columns } from "./types";
 
-export default class KlimaRetirementsByPoolTableConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsItem> {
+export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsItem> {
   async fetchFunction(_page: number) {
     const data = await queryKlimaMonthlyRetirementsByPool({
       sort_by: "retirement_date",
@@ -37,7 +37,8 @@ export default class KlimaRetirementsByPoolTableConfiguration extends AbstractTa
         header: t`Amount Retired`,
         cellStyle: styles.row,
         dataKey: "amount_retired",
-        formatter: helpers.formatTonnes,
+        formatter: (x: string | number) =>
+          helpers.formatTonnes({ amount: Number(x), minimumFractionDigits: 2 }),
       },
       number_of_retirements: {
         header: t`Number of transactions`,
@@ -50,9 +51,9 @@ export default class KlimaRetirementsByPoolTableConfiguration extends AbstractTa
         cellStyle: styles.row,
         dataKey: "number_of_retirements",
         formatter: (x: string | number, item: KlimaMonthlyRetirementsItem) => {
-          return helpers.formatTonnes(
-            item.amount_retired / item.number_of_retirements
-          );
+          return helpers.formatTonnes({
+            amount: item.amount_retired / item.number_of_retirements,
+          });
         },
       },
     };

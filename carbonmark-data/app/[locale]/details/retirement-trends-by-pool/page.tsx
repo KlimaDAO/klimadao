@@ -1,11 +1,11 @@
 import { t } from "@lingui/macro";
-import KlimaDAORetirementsByPoolBarCard from "components/cards/KlimaDAORetirementsByPoolBarCard";
+import KlimaDAORetirementsByPoolBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolBarCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function RetirementTrendsByPoolDetailPage() {
   return (
     <DetailPage
-      pageTitle={t`Retirements by Pool`}
+      pageTitle={t`Retirements by pool`}
       card={
         <KlimaDAORetirementsByPoolBarCard
           isDetailPage={true}

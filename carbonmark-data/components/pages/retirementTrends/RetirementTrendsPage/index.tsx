@@ -64,7 +64,7 @@ export default function RetirementTrendsPage(props: {
 
   return (
     <>
-      <h1>{t`Retirement Trends`}</h1>
+      <h1>{t`Retirement trends`}</h1>
       <TabContext value={activeTab}>
         <MobileTabSelector<Tab>
           value={activeTab}
