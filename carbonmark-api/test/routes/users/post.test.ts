@@ -1,44 +1,26 @@
 import { FastifyInstance } from "fastify";
 import { build } from "../../helper";
 import { DEV_URL, MOCK_ADDRESS } from "../../test.constants";
-
-// to find a better way to do this
-jest.mock("firebase-admin/app", () => ({
-  initializeApp: jest.fn(),
-  getApps: jest.fn().mockReturnValue([{}]),
-}));
-jest.mock("firebase-admin", () => ({
-  app: jest.fn(() => ({
-    firestore: jest.fn(() => ({
-      collection: jest.fn(() => ({
-        where: jest.fn(() => ({
-          limit: jest.fn(() => ({
-            get: jest.fn(() => ({
-              empty: true,
-            })),
-          })),
-        })),
-        doc: jest.fn(() => ({
-          set: jest.fn(),
-          get: jest.fn(() => ({
-            exists: false,
-          })),
-        })),
-      })),
-    })),
-  })),
-}));
+import { disableAuth, mockFirebase } from "../../test.utils";
 
 describe("POST /User", () => {
   let app: FastifyInstance;
 
-  // Setup the server
-  afterEach(async () => {
-    delete process.env.IGNORE_AUTH;
-    await app.close();
-  });
   beforeEach(async () => {
-    process.env.IGNORE_AUTH = "true";
+    mockFirebase({
+      limit: jest.fn(() => ({
+        get: jest.fn(() => ({
+          empty: true,
+        })),
+      })),
+      doc: jest.fn(() => ({
+        set: jest.fn(),
+        get: jest.fn(() => ({
+          exists: false,
+        })),
+      })),
+    });
+    disableAuth();
     app = await build();
   });
 
@@ -71,6 +53,7 @@ describe("POST /User", () => {
         description: "blah",
       },
     });
+    console.log(response.body);
     expect(response.statusCode).toBe(200);
   });
 });

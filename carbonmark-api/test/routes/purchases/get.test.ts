@@ -1,12 +1,12 @@
 import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
-import { aPurchase } from "../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
-import { Purchase } from "../../src/models/Purchase.model";
-import { build } from "../helper";
-import { DEV_URL } from "../test.constants";
-import { ERROR } from "./routes.mock";
+import { aPurchase } from "../../../src/.generated/mocks/marketplace.mocks";
+import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
+import { Purchase } from "../../../src/models/Purchase.model";
+import { build } from "../../helper";
+import { DEV_URL } from "../../test.constants";
+import { ERROR } from "../routes.mock";
 
 const mockPurchase = aPurchase();
 

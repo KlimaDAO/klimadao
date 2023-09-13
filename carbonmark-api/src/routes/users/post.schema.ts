@@ -37,7 +37,6 @@ export const schema = {
         "application/json": {
           schema: Type.Object({
             error: Type.String(),
-            code: Type.Number(),
           }),
         },
       },
