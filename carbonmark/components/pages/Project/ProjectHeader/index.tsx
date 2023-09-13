@@ -1,3 +1,4 @@
+import { concatAddress } from "@klimadao/lib/utils";
 import { Category } from "components/Category";
 import { ProjectImage } from "components/ProjectImage";
 import { Text } from "components/Text";
@@ -22,8 +23,10 @@ export const ProjectHeader: FC<Props> = (props) => (
       {!!props.seller?.handle && (
         <div className="stack">
           <Text t="h5" className={styles.projectHeaderText}>
-            <Link href={createSellerLink(props.seller.handle)}>
-              @{props.seller.handle}
+            <Link
+              href={createSellerLink(props.seller?.handle || props.seller?.id)}
+            >
+              @{props.seller?.handle || concatAddress(props.seller.id)}
             </Link>
           </Text>
         </div>
