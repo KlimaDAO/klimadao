@@ -1,10 +1,9 @@
 import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
-import { queryDailyCarbonMetrics } from "lib/charts/queries";
 import {
-  DailyCeloCarbonMetricsItem,
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-} from "lib/charts/types";
+  getCeloDailyCarbonMetrics,
+  getEthDailyCarbonMetrics,
+  getPolygonDailyCarbonMetrics,
+} from "lib/charts/aggregators/getDailyCarbonSupply";
 import { palette } from "theme/palette";
 import { ChartConfigurationItem } from "../helpers/Configuration";
 import Chart, { ChartKey } from "./Chart";
@@ -41,13 +40,7 @@ const NBO_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
 };
 /** Polygon carbon Supply chart */
 export async function DailyPolygonCarbonSupplyChart() {
-  const data = (
-    await queryDailyCarbonMetrics<DailyPolygonCarbonMetricsItem>("polygon", {
-      sort_by: "date",
-      sort_order: "asc",
-      page_size: -1,
-    })
-  ).items;
+  const data = await getPolygonDailyCarbonMetrics();
   const configuration: SimpleChartConfigurationFromType<ChartKey> = [
     {
       chartOptions: BCT_CHART_OPTIONS,
@@ -68,13 +61,7 @@ export async function DailyPolygonCarbonSupplyChart() {
 
 /** Eth carbon Supply chart */
 export async function DailyEthCarbonSupplyChart() {
-  const data = (
-    await queryDailyCarbonMetrics<DailyEthCarbonMetricsItem>("eth", {
-      sort_by: "date",
-      sort_order: "asc",
-      page_size: -1,
-    })
-  ).items;
+  const data = await getEthDailyCarbonMetrics();
   const configuration: SimpleChartConfigurationFromType<ChartKey> = [
     {
       chartOptions: MCO2_CHART_OPTIONS,
@@ -85,13 +72,7 @@ export async function DailyEthCarbonSupplyChart() {
 
 /** Celo carbon Supply chart */
 export async function DailyCeloCarbonSupplyChart() {
-  const data = (
-    await queryDailyCarbonMetrics<DailyCeloCarbonMetricsItem>("celo", {
-      sort_by: "date",
-      sort_order: "asc",
-      page_size: -1,
-    })
-  ).items;
+  const data = await getCeloDailyCarbonMetrics();
   const configuration: SimpleChartConfigurationFromType<ChartKey> = [
     {
       chartOptions: BCT_CHART_OPTIONS,

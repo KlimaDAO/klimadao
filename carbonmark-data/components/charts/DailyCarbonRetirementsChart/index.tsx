@@ -1,21 +1,14 @@
 import { t } from "@lingui/macro";
-import { queryDailyCarbonMetrics } from "lib/charts/queries";
 import {
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-} from "lib/charts/types";
+  getEthDailyCarbonMetrics,
+  getPolygonDailyCarbonMetrics,
+} from "lib/charts/aggregators/getDailyCarbonSupply";
 import { palette } from "theme/palette";
 import Chart from "./Chart";
 
 /** Polygon carbon Retirements chart */
 export async function DailyPolygonCarbonRetirementsChart() {
-  const data = (
-    await queryDailyCarbonMetrics<DailyPolygonCarbonMetricsItem>("polygon", {
-      sort_by: "date",
-      sort_order: "asc",
-      page_size: -1,
-    })
-  ).items;
+  const data = await getPolygonDailyCarbonMetrics();
   const configuration = [
     {
       chartOptions: {
@@ -40,13 +33,7 @@ export async function DailyPolygonCarbonRetirementsChart() {
 
 /** Polygon carbon Supply chart */
 export async function DailyEthCarbonRetirementsChart() {
-  const data = (
-    await queryDailyCarbonMetrics<DailyEthCarbonMetricsItem>("eth", {
-      sort_by: "date",
-      sort_order: "asc",
-      page_size: -1,
-    })
-  ).items;
+  const data = await getEthDailyCarbonMetrics();
   const configuration = [
     {
       chartOptions: {
