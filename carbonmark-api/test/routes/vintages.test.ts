@@ -17,9 +17,9 @@ describe("GET /vintages", () => {
 
   /** A default response for offsets */
   beforeEach(() =>
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS.digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: [] } })
+      .reply(200, { data: { carbonProjects: [] } })
   );
 
   /** The happy path */
