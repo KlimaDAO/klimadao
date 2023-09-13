@@ -6,9 +6,9 @@ import { Nullable } from "./Utility.model";
 
 //This model matches the document structure in https://console.firebase.google.com/project/klimadao-staging
 export const UserModel = Type.Object({
-  handle: Type.String(),
+  handle: Nullable(Type.String()),
   username: Type.String(),
-  description: Type.String(),
+  description: Nullable(Type.String()),
   profileImgUrl: Nullable(Type.String()),
   updatedAt: Type.Number(),
   createdAt: Type.Number(),

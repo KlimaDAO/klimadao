@@ -4,9 +4,9 @@ import { CountryModel } from "./Country.model";
 import { Nullable } from "./Utility.model";
 
 const ListingSeller = Type.Object({
-  handle: Type.String(),
-  username: Type.String(),
-  description: Type.String(),
+  handle: Nullable(Type.String()),
+  username: Nullable(Type.String()),
+  description: Nullable(Type.String()),
   profileImgUrl: Nullable(Type.String()),
   id: Type.String(),
 });
