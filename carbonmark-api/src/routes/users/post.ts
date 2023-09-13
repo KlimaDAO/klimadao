@@ -12,13 +12,13 @@ const handler = (fastify: FastifyInstance) =>
       request.body;
 
     const createData = {
-      username,
       handle: handle.toLowerCase(),
-      description,
       createdAt: Date.now(),
       updatedAt: Date.now(),
-      profileImgUrl,
       address: wallet.toLowerCase(),
+      username,
+      description,
+      profileImgUrl,
     };
 
     // Query the Firestore database for the user document with the specified wallet address
@@ -31,7 +31,6 @@ const handler = (fastify: FastifyInstance) =>
     // If the user document exists, return a 403 error with a message
     if (user.exists) {
       return reply.code(403).send({
-        code: 403,
         error: "This wallet address is already registered!",
       });
     }
@@ -46,7 +45,6 @@ const handler = (fastify: FastifyInstance) =>
 
     if (!userSnapshot.empty) {
       return reply.code(403).send({
-        code: 403,
         error: "A user with this handle is already registered!",
       });
     }

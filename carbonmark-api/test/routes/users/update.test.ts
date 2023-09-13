@@ -1,22 +1,49 @@
-import { FastifyInstance } from "fastify";
-import { build } from "../../helper";
+import { build, disableAuth } from "../../helper";
+import { DEV_URL, MOCK_ADDRESS } from "../../test.constants";
+import { mockFirebase } from "../../test.utils";
 
 describe("PUT /User", () => {
-  let app: FastifyInstance;
+  beforeAll(() => {
+    disableAuth();
+  });
+  test("should block updating to existing handle", async () => {
+    // ock Firebase with an existing user
+    mockFirebase({ get: jest.fn().mockReturnValueOnce({ empty: false }) });
 
-  // Setup the server
-  afterEach(async () => await app.close());
-  beforeEach(async () => {
-    app = await build();
+    const app = await build();
+    const response = await app.inject({
+      method: "PUT",
+      url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
+      body: {
+        handle: MOCK_ADDRESS.slice(0, 24),
+        wallet: MOCK_ADDRESS,
+        username: "blah",
+        description: "blah",
+      },
+    });
+    expect(response.statusCode).toBe(403);
+    expect(response.body).toContain(
+      "A user with this handle is already registered!"
+    );
   });
 
-  test.skip("should block updating to existing handle", async () => {
-    // const { nonce } = await app
-    //   .inject({
-    //     method: "PUT",
-    //     url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
-    //     body: {},
-    //   })
-    //   .then((d) => d.json());
+  test("should allow updates", async () => {
+    // Mock Firebase with no users
+    mockFirebase({ get: jest.fn().mockReturnValue({ empty: true }) });
+
+    const app = await build();
+
+    const response = await app.inject({
+      method: "PUT",
+      url: `${DEV_URL}/users/${MOCK_ADDRESS}`,
+      body: {
+        handle: MOCK_ADDRESS.slice(0, 24),
+        wallet: MOCK_ADDRESS,
+        username: "blah",
+        description: "blah",
+      },
+    });
+    console.log(response.body);
+    expect(response.statusCode).toBe(200);
   });
 });

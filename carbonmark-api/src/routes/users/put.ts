@@ -23,7 +23,6 @@ const handler = (fastify: FastifyInstance) =>
 
       // Check if the handle already exists in our database
       const usersRef = fastify.firebase.firestore().collection("users");
-
       const userSnapshot = await usersRef
         .where("handle", "==", handle.toLowerCase())
         .limit(1)
@@ -31,7 +30,6 @@ const handler = (fastify: FastifyInstance) =>
 
       if (!userSnapshot.empty) {
         return reply.code(403).send({
-          code: 403,
           error: "A user with this handle is already registered!",
         });
       }
@@ -50,7 +48,7 @@ const handler = (fastify: FastifyInstance) =>
       // If an error occurs, return a 404 error with a message
       return reply
         .code(403)
-        .send({ code: 404, error: "There was an issue updating the document" });
+        .send({ error: "There was an issue updating the document" });
     }
   };
 

@@ -1,8 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { build } from "../../helper";
-import { DEV_URL } from "../../test.constants";
-
-const MOCK_ADDRESS = "0x0123456789012345678901234567890123456789";
+import { DEV_URL, MOCK_ADDRESS } from "../../test.constants";
 
 // to find a better way to do this
 jest.mock("firebase-admin/app", () => ({
