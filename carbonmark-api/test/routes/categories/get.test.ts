@@ -2,14 +2,12 @@ import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
 import { build } from "../../helper";
-import { DEV_URL } from "../../test.constants";
-import { CATEGORIES, ERROR } from "../routes.mock";
+import { CATEGORIES, DEV_URL, ERROR } from "../../test.constants";
 
 describe("GET /categories", () => {
   let fastify: FastifyInstance;
 
   // Setup the server
-  afterEach(async () => await fastify.close());
   beforeEach(async () => {
     fastify = await build();
   });

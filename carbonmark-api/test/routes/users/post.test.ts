@@ -7,24 +7,13 @@ describe("POST /User", () => {
   let app: FastifyInstance;
 
   beforeEach(async () => {
-    mockFirebase({
-      limit: jest.fn(() => ({
-        get: jest.fn(() => ({
-          empty: true,
-        })),
-      })),
-      doc: jest.fn(() => ({
-        set: jest.fn(),
-        get: jest.fn(() => ({
-          exists: false,
-        })),
-      })),
-    });
     disableAuth();
     app = await build();
   });
 
   test("should block ethereum address as handle when creating a user", async () => {
+    mockFirebase({ get: jest.fn(() => ({ empty: true })) });
+
     const response = await app.inject({
       method: "POST",
       url: `${DEV_URL}/users`,
@@ -43,6 +32,8 @@ describe("POST /User", () => {
   });
 
   test("should allow 0x names (not addresses)", async () => {
+    mockFirebase({ get: jest.fn(() => ({ exists: false })) });
+
     const response = await app.inject({
       method: "POST",
       url: `${DEV_URL}/users`,

@@ -3,14 +3,12 @@ import nock from "nock";
 import { aProject } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
 import { build } from "../../helper";
-import { DEV_URL } from "../../test.constants";
-import { ERROR } from "../routes.mock";
+import { DEV_URL, ERROR } from "../../test.constants";
 
 describe("GET /vintages", () => {
   let fastify: FastifyInstance;
 
   // Setup the server
-  afterEach(async () => await fastify.close());
   beforeEach(async () => {
     fastify = await build();
   });

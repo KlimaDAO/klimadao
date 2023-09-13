@@ -2,14 +2,12 @@ import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
 import { build } from "../../helper";
-import { DEV_URL } from "../../test.constants";
-import { COUNTRIES, ERROR } from "../routes.mock";
+import { COUNTRIES, DEV_URL, ERROR } from "../../test.constants";
 
 describe("GET /countries", () => {
   let fastify: FastifyInstance;
 
   // Setup the server
-  afterEach(async () => await fastify.close());
   beforeEach(async () => {
     fastify = await build();
     nock.cleanAll();
