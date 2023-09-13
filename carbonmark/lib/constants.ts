@@ -80,7 +80,7 @@ export const config = {
     api: {
       production: API_PROD_URL,
       preview: API_PREVIEW_URL,
-      development: API_PREVIEW_URL,
+      development: "http://localhost:3003",
     },
     fiat: {
       production: "https://checkout.offsetra.com/api",
