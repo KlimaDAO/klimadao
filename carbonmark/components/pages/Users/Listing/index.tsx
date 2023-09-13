@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
+import { isNil } from "lodash";
 import * as styles from "./styles";
 
 type Props = {
@@ -21,21 +22,26 @@ type Props = {
 
 export const Listing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const category = props.listing.project.category.id as CategoryName;
+  const project = props.listing.project;
+  const category = project?.category?.id as CategoryName;
+  if (isNil(project)) {
+    console.error(`Listing ${props.listing.id} without project`);
+    return null;
+  }
   return (
     <Card>
       <div className={styles.tags}>
         <Category category={category} />
-        <Vintage vintage={props.listing.project.vintage} />
-        <ProjectKey projectKey={props.listing.project.key} />
+        <Vintage vintage={project.vintage} />
+        <ProjectKey projectKey={project.key} />
       </div>
-      <Link href={createProjectLink(props.listing.project)}>
+      <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
-          {props.listing.project.name}
+          {project.name}
         </Text>
       </Link>
       <div className={styles.image}>
-        <Link href={createProjectLink(props.listing.project)}>
+        <Link href={createProjectLink(project)}>
           <ProjectImage category={category} />
         </Link>
       </div>

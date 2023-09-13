@@ -35,9 +35,7 @@ function getSellerId(seller: Listing["seller"]): string | undefined {
     return undefined;
   }
 
-  return seller.handle !== undefined
-    ? seller.handle
-    : formatWalletAddress(seller.id);
+  return seller.handle ?? formatWalletAddress(seller.id);
 }
 
 export const SellerListing: FC<Props> = (props) => {

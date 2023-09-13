@@ -66,7 +66,7 @@ export const EditListing: FC<Props> = (props) => {
           <Trans id="user.listing.edit.project.label">Project</Trans>
         </Text>
         <Text t="body1" className={styles.editLabelProjectName}>
-          {props.listing.project.name}
+          {props.listing.project?.name}
         </Text>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>

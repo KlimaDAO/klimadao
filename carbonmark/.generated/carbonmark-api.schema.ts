@@ -270,107 +270,50 @@ export default {
                       ]
                     },
                     "seller": {
-                      "type": "object",
-                      "properties": {
-                        "handle": {
-                          "type": "string"
-                        },
-                        "username": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "profileImgUrl": {
-                          "type": "string"
-                        },
-                        "id": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "handle",
-                        "username",
-                        "description",
-                        "profileImgUrl",
-                        "id"
-                      ]
-                    },
-                    "project": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "key": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "category": {
+                      "anyOf": [
+                        {
                           "type": "object",
                           "properties": {
-                            "id": {
+                            "handle": {
                               "anyOf": [
                                 {
-                                  "type": "string",
-                                  "enum": [
-                                    "Renewable Energy"
-                                  ]
+                                  "type": "string"
                                 },
                                 {
-                                  "type": "string",
-                                  "enum": [
-                                    "Forestry"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Other Nature-Based"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Other"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Energy Efficiency"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Agriculture"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Industrial Processing"
-                                  ]
-                                },
-                                {
-                                  "type": "string",
-                                  "enum": [
-                                    "Blue Carbon"
-                                  ]
+                                  "type": "null"
                                 }
                               ]
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "country": {
-                          "type": "object",
-                          "properties": {
+                            },
+                            "username": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "description": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "profileImgUrl": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
                             "id": {
                               "type": "string"
                             }
@@ -379,33 +322,91 @@ export default {
                             "id"
                           ]
                         },
-                        "methodology": {
-                          "type": "string"
-                        },
-                        "projectAddress": {
-                          "type": "string"
-                        },
-                        "projectID": {
-                          "type": "string"
-                        },
-                        "registry": {
-                          "type": "string"
-                        },
-                        "vintage": {
-                          "type": "string"
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "key",
-                        "name",
-                        "category",
-                        "country",
-                        "methodology",
-                        "projectAddress",
-                        "projectID",
-                        "registry",
-                        "vintage"
+                      ]
+                    },
+                    "project": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "category": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id"
+                                  ]
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "country": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id"
+                                  ]
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "methodology": {
+                              "type": "string"
+                            },
+                            "projectAddress": {
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "type": "string"
+                            },
+                            "registry": {
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "key",
+                            "name",
+                            "methodology",
+                            "projectAddress",
+                            "projectID",
+                            "registry",
+                            "vintage"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
                       ]
                     }
                   },
@@ -414,8 +415,7 @@ export default {
                     "leftToSell",
                     "tokenAddress",
                     "singleUnitPrice",
-                    "totalAmountToSell",
-                    "project"
+                    "totalAmountToSell"
                   ]
                 }
               },
@@ -859,107 +859,50 @@ export default {
                   ]
                 },
                 "seller": {
-                  "type": "object",
-                  "properties": {
-                    "handle": {
-                      "type": "string"
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "profileImgUrl": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "handle",
-                    "username",
-                    "description",
-                    "profileImgUrl",
-                    "id"
-                  ]
-                },
-                "project": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "key": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "category": {
+                  "anyOf": [
+                    {
                       "type": "object",
                       "properties": {
-                        "id": {
+                        "handle": {
                           "anyOf": [
                             {
-                              "type": "string",
-                              "enum": [
-                                "Renewable Energy"
-                              ]
+                              "type": "string"
                             },
                             {
-                              "type": "string",
-                              "enum": [
-                                "Forestry"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Other Nature-Based"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Other"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Energy Efficiency"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Agriculture"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Industrial Processing"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Blue Carbon"
-                              ]
+                              "type": "null"
                             }
                           ]
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "country": {
-                      "type": "object",
-                      "properties": {
+                        },
+                        "username": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
                         "id": {
                           "type": "string"
                         }
@@ -968,33 +911,91 @@ export default {
                         "id"
                       ]
                     },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
-                    "vintage": {
-                      "type": "string"
+                    {
+                      "type": "null"
                     }
-                  },
-                  "required": [
-                    "id",
-                    "key",
-                    "name",
-                    "category",
-                    "country",
-                    "methodology",
-                    "projectAddress",
-                    "projectID",
-                    "registry",
-                    "vintage"
+                  ]
+                },
+                "project": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "country": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "methodology": {
+                          "type": "string"
+                        },
+                        "projectAddress": {
+                          "type": "string"
+                        },
+                        "projectID": {
+                          "type": "string"
+                        },
+                        "registry": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "key",
+                        "name",
+                        "methodology",
+                        "projectAddress",
+                        "projectID",
+                        "registry",
+                        "vintage"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
                   ]
                 }
               },
@@ -1003,8 +1004,7 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell",
-                "project"
+                "totalAmountToSell"
               ]
             }
           },
@@ -1067,27 +1067,41 @@ export default {
                   ]
                 },
                 "activityType": {
-                  "type": "string"
-                },
-                "seller": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
+                  "anyOf": [
+                    {
                       "type": "string"
                     },
-                    "handle": {
-                      "anyOf": [
-                        {
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "seller": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
                           "type": "string"
                         },
-                        {
-                          "type": "null"
+                        "handle": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
                         }
+                      },
+                      "required": [
+                        "id"
                       ]
+                    },
+                    {
+                      "type": "null"
                     }
-                  },
-                  "required": [
-                    "id"
                   ]
                 },
                 "buyer": {
@@ -1120,9 +1134,7 @@ export default {
                 }
               },
               "required": [
-                "id",
-                "activityType",
-                "seller"
+                "id"
               ]
             }
           },
@@ -1205,27 +1217,41 @@ export default {
             ]
           },
           "activityType": {
-            "type": "string"
-          },
-          "seller": {
-            "type": "object",
-            "properties": {
-              "id": {
+            "anyOf": [
+              {
                 "type": "string"
               },
-              "handle": {
-                "anyOf": [
-                  {
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "seller": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
                     "type": "string"
                   },
-                  {
-                    "type": "null"
+                  "handle": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
+                },
+                "required": [
+                  "id"
                 ]
+              },
+              {
+                "type": "null"
               }
-            },
-            "required": [
-              "id"
             ]
           },
           "buyer": {
@@ -1258,65 +1284,14 @@ export default {
           }
         },
         "required": [
-          "id",
-          "activityType",
-          "seller"
+          "id"
         ]
       },
       "Category": {
         "type": "object",
         "properties": {
           "id": {
-            "anyOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "Renewable Energy"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Forestry"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Other Nature-Based"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Other"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Energy Efficiency"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Agriculture"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Industrial Processing"
-                ]
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "Blue Carbon"
-                ]
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -1424,107 +1399,50 @@ export default {
             ]
           },
           "seller": {
-            "type": "object",
-            "properties": {
-              "handle": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "profileImgUrl": {
-                "type": "string"
-              },
-              "id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "handle",
-              "username",
-              "description",
-              "profileImgUrl",
-              "id"
-            ]
-          },
-          "project": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "key": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "category": {
+            "anyOf": [
+              {
                 "type": "object",
                 "properties": {
-                  "id": {
+                  "handle": {
                     "anyOf": [
                       {
-                        "type": "string",
-                        "enum": [
-                          "Renewable Energy"
-                        ]
+                        "type": "string"
                       },
                       {
-                        "type": "string",
-                        "enum": [
-                          "Forestry"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Other Nature-Based"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Other"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Energy Efficiency"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Agriculture"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Industrial Processing"
-                        ]
-                      },
-                      {
-                        "type": "string",
-                        "enum": [
-                          "Blue Carbon"
-                        ]
+                        "type": "null"
                       }
                     ]
-                  }
-                },
-                "required": [
-                  "id"
-                ]
-              },
-              "country": {
-                "type": "object",
-                "properties": {
+                  },
+                  "username": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "profileImgUrl": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "id": {
                     "type": "string"
                   }
@@ -1533,33 +1451,91 @@ export default {
                   "id"
                 ]
               },
-              "methodology": {
-                "type": "string"
-              },
-              "projectAddress": {
-                "type": "string"
-              },
-              "projectID": {
-                "type": "string"
-              },
-              "registry": {
-                "type": "string"
-              },
-              "vintage": {
-                "type": "string"
+              {
+                "type": "null"
               }
-            },
-            "required": [
-              "id",
-              "key",
-              "name",
-              "category",
-              "country",
-              "methodology",
-              "projectAddress",
-              "projectID",
-              "registry",
-              "vintage"
+            ]
+          },
+          "project": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "country": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "methodology": {
+                    "type": "string"
+                  },
+                  "projectAddress": {
+                    "type": "string"
+                  },
+                  "projectID": {
+                    "type": "string"
+                  },
+                  "registry": {
+                    "type": "string"
+                  },
+                  "vintage": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "name",
+                  "methodology",
+                  "projectAddress",
+                  "projectID",
+                  "registry",
+                  "vintage"
+                ]
+              },
+              {
+                "type": "null"
+              }
             ]
           }
         },
@@ -1568,8 +1544,7 @@ export default {
           "leftToSell",
           "tokenAddress",
           "singleUnitPrice",
-          "totalAmountToSell",
-          "project"
+          "totalAmountToSell"
         ]
       },
       "Methodology": {
@@ -1762,13 +1737,27 @@ export default {
         "type": "object",
         "properties": {
           "handle": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "username": {
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "profileImgUrl": {
             "anyOf": [
@@ -1881,107 +1870,50 @@ export default {
                   ]
                 },
                 "seller": {
-                  "type": "object",
-                  "properties": {
-                    "handle": {
-                      "type": "string"
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "profileImgUrl": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "handle",
-                    "username",
-                    "description",
-                    "profileImgUrl",
-                    "id"
-                  ]
-                },
-                "project": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "key": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "category": {
+                  "anyOf": [
+                    {
                       "type": "object",
                       "properties": {
-                        "id": {
+                        "handle": {
                           "anyOf": [
                             {
-                              "type": "string",
-                              "enum": [
-                                "Renewable Energy"
-                              ]
+                              "type": "string"
                             },
                             {
-                              "type": "string",
-                              "enum": [
-                                "Forestry"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Other Nature-Based"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Other"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Energy Efficiency"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Agriculture"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Industrial Processing"
-                              ]
-                            },
-                            {
-                              "type": "string",
-                              "enum": [
-                                "Blue Carbon"
-                              ]
+                              "type": "null"
                             }
                           ]
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "country": {
-                      "type": "object",
-                      "properties": {
+                        },
+                        "username": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
                         "id": {
                           "type": "string"
                         }
@@ -1990,33 +1922,91 @@ export default {
                         "id"
                       ]
                     },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
-                    "vintage": {
-                      "type": "string"
+                    {
+                      "type": "null"
                     }
-                  },
-                  "required": [
-                    "id",
-                    "key",
-                    "name",
-                    "category",
-                    "country",
-                    "methodology",
-                    "projectAddress",
-                    "projectID",
-                    "registry",
-                    "vintage"
+                  ]
+                },
+                "project": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "country": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "methodology": {
+                          "type": "string"
+                        },
+                        "projectAddress": {
+                          "type": "string"
+                        },
+                        "projectID": {
+                          "type": "string"
+                        },
+                        "registry": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "key",
+                        "name",
+                        "methodology",
+                        "projectAddress",
+                        "projectID",
+                        "registry",
+                        "vintage"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
                   ]
                 }
               },
@@ -2025,8 +2015,7 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell",
-                "project"
+                "totalAmountToSell"
               ]
             }
           },
@@ -2089,27 +2078,41 @@ export default {
                   ]
                 },
                 "activityType": {
-                  "type": "string"
-                },
-                "seller": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
+                  "anyOf": [
+                    {
                       "type": "string"
                     },
-                    "handle": {
-                      "anyOf": [
-                        {
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "seller": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
                           "type": "string"
                         },
-                        {
-                          "type": "null"
+                        "handle": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
                         }
+                      },
+                      "required": [
+                        "id"
                       ]
+                    },
+                    {
+                      "type": "null"
                     }
-                  },
-                  "required": [
-                    "id"
                   ]
                 },
                 "buyer": {
@@ -2142,9 +2145,7 @@ export default {
                 }
               },
               "required": [
-                "id",
-                "activityType",
-                "seller"
+                "id"
               ]
             }
           },
@@ -2193,9 +2194,7 @@ export default {
           }
         },
         "required": [
-          "handle",
           "username",
-          "description",
           "updatedAt",
           "createdAt",
           "wallet",
@@ -2404,56 +2403,7 @@ export default {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Renewable Energy"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Forestry"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Other Nature-Based"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Other"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Energy Efficiency"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Agriculture"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Industrial Processing"
-                            ]
-                          },
-                          {
-                            "type": "string",
-                            "enum": [
-                              "Blue Carbon"
-                            ]
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2471,48 +2421,6 @@ export default {
                     },
                     {
                       "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
                     }
                   ]
                 ]
@@ -2859,107 +2767,50 @@ export default {
                                   ]
                                 },
                                 "seller": {
-                                  "type": "object",
-                                  "properties": {
-                                    "handle": {
-                                      "type": "string"
-                                    },
-                                    "username": {
-                                      "type": "string"
-                                    },
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "profileImgUrl": {
-                                      "type": "string"
-                                    },
-                                    "id": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "handle",
-                                    "username",
-                                    "description",
-                                    "profileImgUrl",
-                                    "id"
-                                  ]
-                                },
-                                "project": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "key": {
-                                      "type": "string"
-                                    },
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "category": {
+                                  "anyOf": [
+                                    {
                                       "type": "object",
                                       "properties": {
-                                        "id": {
+                                        "handle": {
                                           "anyOf": [
                                             {
-                                              "type": "string",
-                                              "enum": [
-                                                "Renewable Energy"
-                                              ]
+                                              "type": "string"
                                             },
                                             {
-                                              "type": "string",
-                                              "enum": [
-                                                "Forestry"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Other Nature-Based"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Other"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Energy Efficiency"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Agriculture"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Industrial Processing"
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "enum": [
-                                                "Blue Carbon"
-                                              ]
+                                              "type": "null"
                                             }
                                           ]
-                                        }
-                                      },
-                                      "required": [
-                                        "id"
-                                      ]
-                                    },
-                                    "country": {
-                                      "type": "object",
-                                      "properties": {
+                                        },
+                                        "username": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "description": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "profileImgUrl": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
                                         "id": {
                                           "type": "string"
                                         }
@@ -2968,33 +2819,91 @@ export default {
                                         "id"
                                       ]
                                     },
-                                    "methodology": {
-                                      "type": "string"
-                                    },
-                                    "projectAddress": {
-                                      "type": "string"
-                                    },
-                                    "projectID": {
-                                      "type": "string"
-                                    },
-                                    "registry": {
-                                      "type": "string"
-                                    },
-                                    "vintage": {
-                                      "type": "string"
+                                    {
+                                      "type": "null"
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "key",
-                                    "name",
-                                    "category",
-                                    "country",
-                                    "methodology",
-                                    "projectAddress",
-                                    "projectID",
-                                    "registry",
-                                    "vintage"
+                                  ]
+                                },
+                                "project": {
+                                  "anyOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "category": {
+                                          "anyOf": [
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "id"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "country": {
+                                          "anyOf": [
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "id"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "methodology": {
+                                          "type": "string"
+                                        },
+                                        "projectAddress": {
+                                          "type": "string"
+                                        },
+                                        "projectID": {
+                                          "type": "string"
+                                        },
+                                        "registry": {
+                                          "type": "string"
+                                        },
+                                        "vintage": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "key",
+                                        "name",
+                                        "methodology",
+                                        "projectAddress",
+                                        "projectID",
+                                        "registry",
+                                        "vintage"
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
                                   ]
                                 }
                               },
@@ -3003,8 +2912,7 @@ export default {
                                 "leftToSell",
                                 "tokenAddress",
                                 "singleUnitPrice",
-                                "totalAmountToSell",
-                                "project"
+                                "totalAmountToSell"
                               ]
                             }
                           },
@@ -3068,6 +2976,88 @@ export default {
         }
       }
     },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -3113,13 +3103,27 @@ export default {
                   "type": "object",
                   "properties": {
                     "handle": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "username": {
                       "type": "string"
                     },
                     "description": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "profileImgUrl": {
                       "anyOf": [
@@ -3232,107 +3236,50 @@ export default {
                             ]
                           },
                           "seller": {
-                            "type": "object",
-                            "properties": {
-                              "handle": {
-                                "type": "string"
-                              },
-                              "username": {
-                                "type": "string"
-                              },
-                              "description": {
-                                "type": "string"
-                              },
-                              "profileImgUrl": {
-                                "type": "string"
-                              },
-                              "id": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "handle",
-                              "username",
-                              "description",
-                              "profileImgUrl",
-                              "id"
-                            ]
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "key": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
+                            "anyOf": [
+                              {
                                 "type": "object",
                                 "properties": {
-                                  "id": {
+                                  "handle": {
                                     "anyOf": [
                                       {
-                                        "type": "string",
-                                        "enum": [
-                                          "Renewable Energy"
-                                        ]
+                                        "type": "string"
                                       },
                                       {
-                                        "type": "string",
-                                        "enum": [
-                                          "Forestry"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Other Nature-Based"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Other"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Energy Efficiency"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Agriculture"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Industrial Processing"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Blue Carbon"
-                                        ]
+                                        "type": "null"
                                       }
                                     ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              "country": {
-                                "type": "object",
-                                "properties": {
+                                  },
+                                  "username": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "description": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "profileImgUrl": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
                                   "id": {
                                     "type": "string"
                                   }
@@ -3341,33 +3288,91 @@ export default {
                                   "id"
                                 ]
                               },
-                              "methodology": {
-                                "type": "string"
-                              },
-                              "projectAddress": {
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "type": "string"
-                              },
-                              "registry": {
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "type": "string"
+                              {
+                                "type": "null"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "key",
-                              "name",
-                              "category",
-                              "country",
-                              "methodology",
-                              "projectAddress",
-                              "projectID",
-                              "registry",
-                              "vintage"
+                            ]
+                          },
+                          "project": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "category": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "country": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "methodology": {
+                                    "type": "string"
+                                  },
+                                  "projectAddress": {
+                                    "type": "string"
+                                  },
+                                  "projectID": {
+                                    "type": "string"
+                                  },
+                                  "registry": {
+                                    "type": "string"
+                                  },
+                                  "vintage": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "key",
+                                  "name",
+                                  "methodology",
+                                  "projectAddress",
+                                  "projectID",
+                                  "registry",
+                                  "vintage"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
                             ]
                           }
                         },
@@ -3376,8 +3381,7 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell",
-                          "project"
+                          "totalAmountToSell"
                         ]
                       }
                     },
@@ -3440,27 +3444,41 @@ export default {
                             ]
                           },
                           "activityType": {
-                            "type": "string"
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
+                            "anyOf": [
+                              {
                                 "type": "string"
                               },
-                              "handle": {
-                                "anyOf": [
-                                  {
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "seller": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
                                     "type": "string"
                                   },
-                                  {
-                                    "type": "null"
+                                  "handle": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
                                   }
+                                },
+                                "required": [
+                                  "id"
                                 ]
+                              },
+                              {
+                                "type": "null"
                               }
-                            },
-                            "required": [
-                              "id"
                             ]
                           },
                           "buyer": {
@@ -3493,9 +3511,7 @@ export default {
                           }
                         },
                         "required": [
-                          "id",
-                          "activityType",
-                          "seller"
+                          "id"
                         ]
                       }
                     },
@@ -3544,9 +3560,7 @@ export default {
                     }
                   },
                   "required": [
-                    "handle",
                     "username",
-                    "description",
                     "updatedAt",
                     "createdAt",
                     "wallet",
@@ -3746,46 +3760,6 @@ export default {
                     "description"
                   ]
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
               }
             }
           }
@@ -4391,107 +4365,50 @@ export default {
                             ]
                           },
                           "seller": {
-                            "type": "object",
-                            "properties": {
-                              "handle": {
-                                "type": "string"
-                              },
-                              "username": {
-                                "type": "string"
-                              },
-                              "description": {
-                                "type": "string"
-                              },
-                              "profileImgUrl": {
-                                "type": "string"
-                              },
-                              "id": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "handle",
-                              "username",
-                              "description",
-                              "profileImgUrl",
-                              "id"
-                            ]
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "key": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
+                            "anyOf": [
+                              {
                                 "type": "object",
                                 "properties": {
-                                  "id": {
+                                  "handle": {
                                     "anyOf": [
                                       {
-                                        "type": "string",
-                                        "enum": [
-                                          "Renewable Energy"
-                                        ]
+                                        "type": "string"
                                       },
                                       {
-                                        "type": "string",
-                                        "enum": [
-                                          "Forestry"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Other Nature-Based"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Other"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Energy Efficiency"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Agriculture"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Industrial Processing"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Blue Carbon"
-                                        ]
+                                        "type": "null"
                                       }
                                     ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              "country": {
-                                "type": "object",
-                                "properties": {
+                                  },
+                                  "username": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "description": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "profileImgUrl": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
                                   "id": {
                                     "type": "string"
                                   }
@@ -4500,33 +4417,91 @@ export default {
                                   "id"
                                 ]
                               },
-                              "methodology": {
-                                "type": "string"
-                              },
-                              "projectAddress": {
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "type": "string"
-                              },
-                              "registry": {
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "type": "string"
+                              {
+                                "type": "null"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "key",
-                              "name",
-                              "category",
-                              "country",
-                              "methodology",
-                              "projectAddress",
-                              "projectID",
-                              "registry",
-                              "vintage"
+                            ]
+                          },
+                          "project": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "category": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "country": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id"
+                                        ]
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "methodology": {
+                                    "type": "string"
+                                  },
+                                  "projectAddress": {
+                                    "type": "string"
+                                  },
+                                  "projectID": {
+                                    "type": "string"
+                                  },
+                                  "registry": {
+                                    "type": "string"
+                                  },
+                                  "vintage": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "key",
+                                  "name",
+                                  "methodology",
+                                  "projectAddress",
+                                  "projectID",
+                                  "registry",
+                                  "vintage"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
                             ]
                           }
                         },
@@ -4535,8 +4510,7 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell",
-                          "project"
+                          "totalAmountToSell"
                         ]
                       }
                     },
@@ -4599,27 +4573,41 @@ export default {
                             ]
                           },
                           "activityType": {
-                            "type": "string"
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
+                            "anyOf": [
+                              {
                                 "type": "string"
                               },
-                              "handle": {
-                                "anyOf": [
-                                  {
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "seller": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
                                     "type": "string"
                                   },
-                                  {
-                                    "type": "null"
+                                  "handle": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
                                   }
+                                },
+                                "required": [
+                                  "id"
                                 ]
+                              },
+                              {
+                                "type": "null"
                               }
-                            },
-                            "required": [
-                              "id"
                             ]
                           },
                           "buyer": {
@@ -4652,9 +4640,7 @@ export default {
                           }
                         },
                         "required": [
-                          "id",
-                          "activityType",
-                          "seller"
+                          "id"
                         ]
                       }
                     },

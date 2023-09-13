@@ -8,6 +8,7 @@ import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { User } from "lib/types/carbonmark.types";
+import { isNil } from "lodash";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ProfileLogo } from "../../ProfileLogo";
@@ -47,7 +48,8 @@ export const EditProfile: FC<Props> = (props) => {
 
   const hasError = !isLoading && !!errorMessage;
 
-  const fetchIsNewHandle = async (handle: string) => {
+  const fetchIsNewHandle = async (handle?: string | null) => {
+    if (isNil(handle)) return true;
     try {
       const handleFromApi = await getUser({
         user: handle,

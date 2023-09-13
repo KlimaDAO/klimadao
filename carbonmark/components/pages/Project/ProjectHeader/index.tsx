@@ -19,7 +19,7 @@ export const ProjectHeader: FC<Props> = (props) => (
     <ProjectImage category={getCategoryFromProject(props.project)} />
     <div className={styles.imageGradient}></div>
     <div className="stack">
-      {!!props.seller && (
+      {!!props.seller?.handle && (
         <div className="stack">
           <Text t="h5" className={styles.projectHeaderText}>
             <Link href={createSellerLink(props.seller.handle)}>

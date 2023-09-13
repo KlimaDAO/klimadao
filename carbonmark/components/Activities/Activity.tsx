@@ -113,7 +113,7 @@ export const Activity = (props: Props) => {
           )
         )}
 
-        {ActivityActions[activity.activityType]}
+        {ActivityActions[activity.activityType ?? ""] ?? "Undefined"}
 
         {!!secondActor && secondActor.handle ? (
           <Link className="account" href={`/users/${secondActor.handle}`}>
