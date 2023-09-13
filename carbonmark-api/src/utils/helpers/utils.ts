@@ -119,12 +119,6 @@ export async function getAllCountries(fastify: FastifyInstance) {
     gqlSdk.marketplace.getCountries(),
     gqlSdk.digital_carbon.getDigitalCarbonProjectsCountries(),
   ]);
-
-  /** Handle invalid responses */
-  if (!isArray(countries) || !isArray(carbonProjects)) {
-    throw new Error("Response from server did not match schema definition");
-  }
-
   const fn = pipe(
     concat,
     flatten,

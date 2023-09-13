@@ -140,8 +140,7 @@ export const isValidPoolProject = (project: FindQueryDigitalCarbon) => {
       );
       if (
         poolAddresses.includes(poolBalance.pool.id) &&
-        // should this be pool.balance?
-        Number(poolBalance.pool.supply) > 0
+        Number(poolBalance.balance) > 0
       ) {
         validProjects.push(poolBalance);
       }

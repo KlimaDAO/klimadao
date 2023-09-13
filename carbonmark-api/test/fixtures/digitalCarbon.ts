@@ -28,12 +28,25 @@ const countries = {
       {
         country: "",
       },
+      {
+        country: "India",
+      },
+      {
+        country: "Brazil",
+      },
     ],
+  },
+};
+
+const empty_countries = {
+  data: {
+    carbonProjects: [],
   },
 };
 
 const fixtures = {
   countries,
+  empty_countries,
 };
 
 export default fixtures;
