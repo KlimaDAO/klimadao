@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { RequestBody, schema } from "./post.schema";
+import { CreateUserResponse, RequestBody, schema } from "./post.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
@@ -12,13 +12,13 @@ const handler = (fastify: FastifyInstance) =>
       request.body;
 
     const createData = {
-      username,
       handle: handle.toLowerCase(),
-      description,
       createdAt: Date.now(),
       updatedAt: Date.now(),
-      profileImgUrl,
       address: wallet.toLowerCase(),
+      username,
+      description,
+      profileImgUrl,
     };
 
     // Query the Firestore database for the user document with the specified wallet address
@@ -31,22 +31,21 @@ const handler = (fastify: FastifyInstance) =>
     // If the user document exists, return a 403 error with a message
     if (user.exists) {
       return reply.code(403).send({
-        code: 403,
-        error: "This user is already registered!",
+        error: "This wallet address is already registered!",
       });
     }
 
+    // Check if the handle already exists in our database
     const usersRef = fastify.firebase.firestore().collection("users");
 
     const userSnapshot = await usersRef
       .where("handle", "==", handle.toLowerCase())
       .limit(1)
       .get();
-    // If no documents are found, return a 404 error
+
     if (!userSnapshot.empty) {
       return reply.code(403).send({
-        code: 403,
-        error: "This user is already registered!",
+        error: "A user with this handle is already registered!",
       });
     }
 
@@ -59,7 +58,7 @@ const handler = (fastify: FastifyInstance) =>
         .set(createData);
 
       // If the document is successfully created, return the request body
-      return reply.send(request.body);
+      return reply.code(200).send(request.body);
     } catch (err) {
       console.error(err);
       // If an error occurs, return the error in the response
@@ -68,7 +67,10 @@ const handler = (fastify: FastifyInstance) =>
   };
 
 export default async (fastify: FastifyInstance) =>
-  await fastify.route({
+  await fastify.route<{
+    Body: Static<typeof RequestBody>;
+    Reply: CreateUserResponse | { error: string };
+  }>({
     method: "POST",
     url: "/users",
     onRequest: [fastify.authenticate],
