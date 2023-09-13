@@ -12,6 +12,7 @@ export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
 export type User = OASModel<NormalizeOAS<typeof schema>, "User">;
 export type Category = OASModel<NormalizeOAS<typeof schema>, "Category">;
 export type Country = OASModel<NormalizeOAS<typeof schema>, "Country">;
+export type Asset = OASModel<NormalizeOAS<typeof schema>, "Asset">;
 export type DetailedProject = OASModel<
   NormalizeOAS<typeof schema>,
   "DetailedProject"

@@ -8,14 +8,15 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { CategoryName, Project } from "lib/types/carbonmark";
+import { CategoryName, DetailedProject } from "lib/types/carbonmark";
+import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {
-  project: Project;
+  project: DetailedProject;
   className?: string;
   url?: string;
 };
@@ -61,8 +62,8 @@ export const ProjectCard: FC<Props> = (props) => {
         </Text>
         <div className={styles.tags}>
           <Vintage vintage={project.vintage} />
-          {project?.methodologies?.length > 1 ? (
-            project.methodologies.map((methodology, index) => (
+          {!isEmpty(project?.methodologies) ? (
+            project.methodologies?.map((methodology, index) => (
               <Category
                 key={`${methodology?.id}-${index}`}
                 category={methodology?.category as CategoryName}

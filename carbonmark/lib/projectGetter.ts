@@ -20,7 +20,7 @@ export const getFullProjectId = (project: DetailedProject | Project) =>
   `${project.key}-${project.vintage}`;
 
 export const createProjectTokenName = (
-  project: Project,
+  project: DetailedProject,
   tokenType: CarbonToken
 ) => {
   const projectID = getFullProjectId(project);

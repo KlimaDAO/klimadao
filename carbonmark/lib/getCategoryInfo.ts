@@ -67,5 +67,5 @@ export const CATEGORY_INFO = {
   },
 } as const;
 
-export const getCategoryInfo = (category: CategoryName) =>
+export const getCategoryInfo = (category: keyof typeof CATEGORY_INFO) =>
   CATEGORY_INFO[category] ?? CATEGORY_INFO.Other;

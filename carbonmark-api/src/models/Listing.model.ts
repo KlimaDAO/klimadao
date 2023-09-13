@@ -1,5 +1,15 @@
 import { Static, Type } from "@sinclair/typebox";
+import { CategoryModel } from "./Category.model";
+import { CountryModel } from "./Country.model";
 import { Nullable } from "./Utility.model";
+
+const ListingSeller = Type.Object({
+  handle: Type.String(),
+  username: Type.String(),
+  description: Type.String(),
+  profileImgUrl: Type.String(),
+  id: Type.String(),
+});
 
 /** DEPRECATED. This will be altered with v2 */
 export const ListingModel = Type.Object(
@@ -25,6 +35,20 @@ export const ListingModel = Type.Object(
     batchPrices: Nullable(Type.Array(Type.String())),
     createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
     updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
+    seller: Type.Optional(ListingSeller),
+    //@todo remove this and use the /projects endpoint to fetch
+    project: Type.Object({
+      id: Type.String(),
+      key: Type.String(),
+      name: Type.String(),
+      category: CategoryModel,
+      country: CountryModel,
+      methodology: Type.String(),
+      projectAddress: Type.String(),
+      projectID: Type.String(),
+      registry: Type.String(),
+      vintage: Type.String(),
+    }),
   },
   {
     description:

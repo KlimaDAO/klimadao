@@ -7,7 +7,7 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { Listing as ListingT } from "lib/types/carbonmark";
+import { CategoryName, Listing as ListingT } from "lib/types/carbonmark";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
@@ -21,10 +21,11 @@ type Props = {
 
 export const Listing: FC<Props> = (props) => {
   const { locale } = useRouter();
+  const category = props.listing.project.category.id as CategoryName;
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={props.listing.project.category.id} />
+        <Category category={category} />
         <Vintage vintage={props.listing.project.vintage} />
         <ProjectKey projectKey={props.listing.project.key} />
       </div>
@@ -35,7 +36,7 @@ export const Listing: FC<Props> = (props) => {
       </Link>
       <div className={styles.image}>
         <Link href={createProjectLink(props.listing.project)}>
-          <ProjectImage category={props.listing.project.category.id} />
+          <ProjectImage category={category} />
         </Link>
       </div>
       <div className={styles.amounts}>

@@ -16,6 +16,7 @@ export const DetailedProjectModel = Type.Object({
   methodologies: Nullable(Type.Array(Nullable(MethodologyModel))),
   images: Type.Array(ImageModel),
   long_description: Nullable(Type.String()),
+  short_description: Nullable(Type.String()),
   url: Nullable(Type.String()),
   stats: Type.Object({
     totalBridged: Type.Number(),
@@ -30,4 +31,4 @@ export const DetailedProjectModel = Type.Object({
   vintage: Type.String(),
 });
 
-export type DetailedProjectT = Static<typeof DetailedProjectModel>;
+export type DetailedProject = Static<typeof DetailedProjectModel>;

@@ -268,6 +268,96 @@ export default {
                           "type": "null"
                         }
                       ]
+                    },
+                    "seller": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "profileImgUrl": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "handle",
+                        "username",
+                        "description",
+                        "profileImgUrl",
+                        "id"
+                      ]
+                    },
+                    "project": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "country": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        "methodology": {
+                          "type": "string"
+                        },
+                        "projectAddress": {
+                          "type": "string"
+                        },
+                        "projectID": {
+                          "type": "string"
+                        },
+                        "registry": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "key",
+                        "name",
+                        "category",
+                        "country",
+                        "methodology",
+                        "projectAddress",
+                        "projectID",
+                        "registry",
+                        "vintage"
+                      ]
                     }
                   },
                   "required": [
@@ -275,7 +365,33 @@ export default {
                     "leftToSell",
                     "tokenAddress",
                     "singleUnitPrice",
-                    "totalAmountToSell"
+                    "totalAmountToSell",
+                    "project"
+                  ]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "images": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "caption": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "caption"
                   ]
                 }
               },
@@ -498,6 +614,16 @@ export default {
               }
             ]
           },
+          "short_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "url": {
             "anyOf": [
               {
@@ -682,6 +808,96 @@ export default {
                       "type": "null"
                     }
                   ]
+                },
+                "seller": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "profileImgUrl": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "handle",
+                    "username",
+                    "description",
+                    "profileImgUrl",
+                    "id"
+                  ]
+                },
+                "project": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "category",
+                    "country",
+                    "methodology",
+                    "projectAddress",
+                    "projectID",
+                    "registry",
+                    "vintage"
+                  ]
                 }
               },
               "required": [
@@ -689,7 +905,8 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "project"
               ]
             }
           },
@@ -1058,6 +1275,96 @@ export default {
                 "type": "null"
               }
             ]
+          },
+          "seller": {
+            "type": "object",
+            "properties": {
+              "handle": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "profileImgUrl": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "handle",
+              "username",
+              "description",
+              "profileImgUrl",
+              "id"
+            ]
+          },
+          "project": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "category": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              },
+              "country": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              },
+              "methodology": {
+                "type": "string"
+              },
+              "projectAddress": {
+                "type": "string"
+              },
+              "projectID": {
+                "type": "string"
+              },
+              "registry": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "key",
+              "name",
+              "category",
+              "country",
+              "methodology",
+              "projectAddress",
+              "projectID",
+              "registry",
+              "vintage"
+            ]
           }
         },
         "required": [
@@ -1065,7 +1372,8 @@ export default {
           "leftToSell",
           "tokenAddress",
           "singleUnitPrice",
-          "totalAmountToSell"
+          "totalAmountToSell",
+          "project"
         ]
       },
       "Methodology": {
@@ -1375,6 +1683,96 @@ export default {
                       "type": "null"
                     }
                   ]
+                },
+                "seller": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "profileImgUrl": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "handle",
+                    "username",
+                    "description",
+                    "profileImgUrl",
+                    "id"
+                  ]
+                },
+                "project": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "category",
+                    "country",
+                    "methodology",
+                    "projectAddress",
+                    "projectID",
+                    "registry",
+                    "vintage"
+                  ]
                 }
               },
               "required": [
@@ -1382,7 +1780,8 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "project"
               ]
             }
           },
@@ -1522,6 +1921,7 @@ export default {
                       "type": "string"
                     },
                     "symbol": {
+                      "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                       "type": "string"
                     },
                     "decimals": {
@@ -1575,6 +1975,7 @@ export default {
                 "type": "string"
               },
               "symbol": {
+                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                 "type": "string"
               },
               "decimals": {
@@ -1776,6 +2177,48 @@ export default {
                     },
                     {
                       "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
                     }
                   ]
                 ]
@@ -2120,6 +2563,96 @@ export default {
                                       "type": "null"
                                     }
                                   ]
+                                },
+                                "seller": {
+                                  "type": "object",
+                                  "properties": {
+                                    "handle": {
+                                      "type": "string"
+                                    },
+                                    "username": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "profileImgUrl": {
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "handle",
+                                    "username",
+                                    "description",
+                                    "profileImgUrl",
+                                    "id"
+                                  ]
+                                },
+                                "project": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "category": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    },
+                                    "country": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id"
+                                      ]
+                                    },
+                                    "methodology": {
+                                      "type": "string"
+                                    },
+                                    "projectAddress": {
+                                      "type": "string"
+                                    },
+                                    "projectID": {
+                                      "type": "string"
+                                    },
+                                    "registry": {
+                                      "type": "string"
+                                    },
+                                    "vintage": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "key",
+                                    "name",
+                                    "category",
+                                    "country",
+                                    "methodology",
+                                    "projectAddress",
+                                    "projectID",
+                                    "registry",
+                                    "vintage"
+                                  ]
                                 }
                               },
                               "required": [
@@ -2127,7 +2660,33 @@ export default {
                                 "leftToSell",
                                 "tokenAddress",
                                 "singleUnitPrice",
-                                "totalAmountToSell"
+                                "totalAmountToSell",
+                                "project"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "images": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                },
+                                "caption": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "url",
+                                "caption"
                               ]
                             }
                           },
@@ -2160,88 +2719,6 @@ export default {
                     ]
                   }
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
               }
             }
           }
@@ -2410,6 +2887,96 @@ export default {
                                 "type": "null"
                               }
                             ]
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "handle": {
+                                "type": "string"
+                              },
+                              "username": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "profileImgUrl": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "handle",
+                              "username",
+                              "description",
+                              "profileImgUrl",
+                              "id"
+                            ]
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              },
+                              "country": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              },
+                              "methodology": {
+                                "type": "string"
+                              },
+                              "projectAddress": {
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "key",
+                              "name",
+                              "category",
+                              "country",
+                              "methodology",
+                              "projectAddress",
+                              "projectID",
+                              "registry",
+                              "vintage"
+                            ]
                           }
                         },
                         "required": [
@@ -2417,7 +2984,8 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "project"
                         ]
                       }
                     },
@@ -2557,6 +3125,7 @@ export default {
                                 "type": "string"
                               },
                               "symbol": {
+                                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                                 "type": "string"
                               },
                               "decimals": {
@@ -2791,6 +3360,46 @@ export default {
         }
       }
     },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects/{id}": {
       "get": {
         "summary": "Project details",
@@ -3007,6 +3616,16 @@ export default {
                         }
                       ]
                     },
+                    "short_description": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
                     "url": {
                       "anyOf": [
                         {
@@ -3191,6 +3810,96 @@ export default {
                                 "type": "null"
                               }
                             ]
+                          },
+                          "seller": {
+                            "type": "object",
+                            "properties": {
+                              "handle": {
+                                "type": "string"
+                              },
+                              "username": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "profileImgUrl": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "handle",
+                              "username",
+                              "description",
+                              "profileImgUrl",
+                              "id"
+                            ]
+                          },
+                          "project": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              },
+                              "country": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id"
+                                ]
+                              },
+                              "methodology": {
+                                "type": "string"
+                              },
+                              "projectAddress": {
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "key",
+                              "name",
+                              "category",
+                              "country",
+                              "methodology",
+                              "projectAddress",
+                              "projectID",
+                              "registry",
+                              "vintage"
+                            ]
                           }
                         },
                         "required": [
@@ -3198,7 +3907,8 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "project"
                         ]
                       }
                     },

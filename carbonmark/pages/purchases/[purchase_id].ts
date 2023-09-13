@@ -49,11 +49,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No translation found");
     }
 
-    const purchase = await client[`/purchases/{id}`].get({
+    const response = await client[`/purchases/{id}`].get({
       params: {
         id: params.purchase_id,
       },
     });
+
+    const purchase = await response.json();
 
     return {
       props: {

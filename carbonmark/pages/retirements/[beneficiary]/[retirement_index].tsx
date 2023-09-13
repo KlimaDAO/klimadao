@@ -7,7 +7,7 @@ import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { Project } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -25,7 +25,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  project?: Project | null;
+  project?: DetailedProject | null;
 }
 
 // second param should always be a number

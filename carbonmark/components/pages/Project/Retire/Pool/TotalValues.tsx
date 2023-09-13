@@ -7,7 +7,7 @@ import { getConsumptionCost } from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { Price } from "lib/types/carbonmark";
+import { TokenPrice } from "lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -16,7 +16,7 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  price: Price;
+  price: TokenPrice;
   userBalance: string | null;
   fiatBalance: string | null;
 };
