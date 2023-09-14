@@ -1,9 +1,17 @@
 import fs from "fs";
 import path from "path";
 
-// const SCHEMA_URL = "https://v1.1.0.api.carbonmark.com/openapi.json";
-const SCHEMA_URL = "http://localhost:3003/openapi.json";
+const SCHEMA_URL = "https://v1.1.0.api.carbonmark.com/openapi.json";
+// const SCHEMA_URL = "http://localhost:3003/openapi.json";
 
+/**
+ * This script fetches the CarbonMark API schema from the provided URL and writes it to a local file.
+ * This allows the client to infer types from the schema.
+ *
+ * SCHEMA_URL: The URL of the CarbonMark API schema.
+ *
+ * Note: Uncomment the localhost SCHEMA_URL to develop against a local API instance.
+ */
 (async function () {
   const resp = await fetch(SCHEMA_URL);
 
