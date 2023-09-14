@@ -1,4 +1,7 @@
 import type schema from ".generated/carbonmark-api.schema";
 import { createClient, type NormalizeOAS } from "fets";
+import { urls } from "lib/constants";
 
-export const client = createClient<NormalizeOAS<typeof schema>>({});
+export const client = createClient<NormalizeOAS<typeof schema>>({
+  endpoint: urls.api.base,
+});
