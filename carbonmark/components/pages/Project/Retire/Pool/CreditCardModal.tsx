@@ -11,6 +11,7 @@ export interface Props {
   showModal: boolean;
   isRedirecting: boolean;
   onCancel: () => void;
+  onFiatError: () => void;
   onSubmit: () => void;
   checkoutError: null | string;
 }
@@ -23,30 +24,45 @@ export const CreditCardModal: FC<Props> = (props) => {
       onToggleModal={props.onCancel}
     >
       <div className={styles.confirmCreditCard}>
-        {!props.isRedirecting && (
-          <>
-            <Text>
-              <Trans>
-                To complete your credit card transaction, you will be redirected
-                to Stripe, our payment processing partner.
-              </Trans>
-            </Text>
-            <ButtonPrimary onClick={props.onSubmit} label={t`Continue`} />
-            <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
-          </>
-        )}
+        {!props.isRedirecting &&
+          (!props.checkoutError ? (
+            <>
+              <Text>
+                <Trans>
+                  To complete your credit card transaction, you will be
+                  redirected to Stripe, our payment processing partner.
+                </Trans>
+              </Text>
+              <ButtonPrimary
+                onClick={props.onSubmit}
+                disabled={!!props.checkoutError}
+                label={t`Continue`}
+              />
+              <CarbonmarkButton
+                onClick={
+                  !!props.checkoutError ? props.onFiatError : props.onCancel
+                }
+                label={t`Go back`}
+              />
+            </>
+          ) : (
+            <>
+              <Text>
+                <Trans>{props.checkoutError}</Trans>
+              </Text>
+              <CarbonmarkButton
+                onClick={
+                  !!props.checkoutError ? props.onFiatError : props.onCancel
+                }
+                label={t`Go back`}
+              />
+            </>
+          ))}
 
         {props.isRedirecting && (
           <div className={styles.spinnerWrap}>
             <Spinner />
           </div>
-        )}
-
-        {!!props.checkoutError && (
-          <>
-            <Text>{props.checkoutError}</Text>
-            <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
-          </>
         )}
       </div>
     </Modal>

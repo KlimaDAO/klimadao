@@ -54,6 +54,7 @@ export const RetireForm: FC<Props> = (props) => {
     "indexed" | "pending" | "timeout"
   >("pending");
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
+  const [fiatAmountError, setFiatAmountError] = useState<boolean>(false);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -124,6 +125,11 @@ export const RetireForm: FC<Props> = (props) => {
     setTransactionHash(null);
   };
 
+  const resetOnAmountError = () => {
+    setCheckoutError(null);
+    setFiatAmountError(true);
+  };
+
   const onModalClose = !isPending ? resetStateAndCancel : undefined;
 
   const onUpdateStatus = (status: TxnStatus, message?: string) => {
@@ -156,9 +162,13 @@ export const RetireForm: FC<Props> = (props) => {
     } catch (e) {
       console.error(e);
       setIsRedirecting(false);
-      setCheckoutError(
-        t`There was an error during the checkout process. Please try again.`
-      );
+      if (e.name === "MinPurchaseRequired") {
+        setCheckoutError(t`${e.message}`);
+      } else {
+        setCheckoutError(
+          t`There was an error during the checkout process. Please try again.`
+        );
+      }
     }
   };
 
@@ -170,6 +180,7 @@ export const RetireForm: FC<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     if (values.paymentMethod === "fiat") {
       continueWithFiat(values);
+      setFiatAmountError(false);
       return;
     }
 
@@ -304,6 +315,7 @@ export const RetireForm: FC<Props> = (props) => {
                 fiatBalance={fiatBalance}
                 price={props.price}
                 address={address}
+                fiatAmountError={fiatAmountError}
               />
 
               <SubmitButton
@@ -389,6 +401,10 @@ export const RetireForm: FC<Props> = (props) => {
         showModal={showCreditCardModal}
         isRedirecting={isRedirecting}
         onCancel={() => setShowCreditCardModal(false)}
+        onFiatError={() => {
+          setShowCreditCardModal(false);
+          resetOnAmountError();
+        }}
         onSubmit={handleFiat}
         checkoutError={checkoutError}
       />

@@ -29,6 +29,7 @@ type Props = {
   userBalance: string | null;
   fiatBalance: string | null;
   address?: string;
+  fiatAmountError?: boolean;
 };
 
 const validations = (
@@ -92,10 +93,14 @@ export const RetireInputs: FC<Props> = (props) => {
     clearErrors();
     // When the user choose to pay by credit card,
     // we convert the existing quantity to a whole number (1.123 -> 2)
-    if (paymentMethod === "fiat" && !!quantity) {
+    if (paymentMethod === "fiat" && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
-  }, [paymentMethod]);
+    // clear quantity when error
+    if (paymentMethod === "fiat" && !!props.fiatAmountError) {
+      setValue("quantity", "");
+    }
+  }, [paymentMethod, props.fiatAmountError]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
