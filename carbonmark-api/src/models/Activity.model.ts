@@ -8,11 +8,13 @@ export const ActivityModel = Type.Object({
   price: Nullable(Type.String()),
   previousPrice: Nullable(Type.String()),
   timeStamp: Nullable(Type.String()),
-  activityType: Type.String(),
-  seller: Type.Object({
-    id: Type.String(),
-    handle: Type.Optional(Nullable(Type.String())),
-  }),
+  activityType: Nullable(Type.String()),
+  seller: Nullable(
+    Type.Object({
+      id: Type.String(),
+      handle: Type.Optional(Nullable(Type.String())),
+    })
+  ),
   buyer: Nullable(
     Type.Object({
       id: Type.String(),

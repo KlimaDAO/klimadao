@@ -7,35 +7,42 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { ListingWithProject } from "lib/types/carbonmark";
+import { CategoryName, Listing as ListingT } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
+import { isNil } from "lodash";
 import * as styles from "./styles";
 
 type Props = {
-  listing: ListingWithProject;
+  listing: ListingT;
   children: ReactNode;
 };
 
 export const Listing: FC<Props> = (props) => {
   const { locale } = useRouter();
+  const project = props.listing.project;
+  const category = project?.category?.id as CategoryName;
+  if (isNil(project)) {
+    console.error(`Listing ${props.listing.id} without project`);
+    return null;
+  }
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={props.listing.project.category.id} />
-        <Vintage vintage={props.listing.project.vintage} />
-        <ProjectKey projectKey={props.listing.project.key} />
+        <Category category={category} />
+        <Vintage vintage={project.vintage} />
+        <ProjectKey projectKey={project.key} />
       </div>
-      <Link href={createProjectLink(props.listing.project)}>
+      <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
-          {props.listing.project.name}
+          {project.name}
         </Text>
       </Link>
       <div className={styles.image}>
-        <Link href={createProjectLink(props.listing.project)}>
-          <ProjectImage category={props.listing.project.category.id} />
+        <Link href={createProjectLink(project)}>
+          <ProjectImage category={category} />
         </Link>
       </div>
       <div className={styles.amounts}>

@@ -11,7 +11,7 @@ import {
   isConnectedAddress,
 } from "lib/formatWalletAddress";
 import { LO } from "lib/luckyOrange";
-import { Listing, Project } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -19,7 +19,7 @@ import * as styles from "./styles";
 
 type Props = {
   listing: Listing;
-  project: Project;
+  project: DetailedProject;
   isBestPrice: boolean;
 };
 
@@ -35,15 +35,14 @@ function getSellerId(seller: Listing["seller"]): string | undefined {
     return undefined;
   }
 
-  return seller.handle !== undefined
-    ? seller.handle
-    : formatWalletAddress(seller.id);
+  return seller.handle ?? formatWalletAddress(seller.id);
 }
 
 export const SellerListing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, isConnected, toggleModal } = useWeb3();
-
+  const updatedAt = props.listing.updatedAt;
+  const createdAt = props.listing.createdAt;
   const isConnectedSeller =
     !!props.listing.seller &&
     isConnectedAddress(props.listing.seller.id, address);
@@ -81,11 +80,11 @@ export const SellerListing: FC<Props> = (props) => {
       <div className={styles.dates}>
         <Text t="body1">
           <Trans>Created:</Trans>{" "}
-          <span>{getFormattedDate(props.listing.createdAt, locale)}</span>
+          <span>{createdAt && getFormattedDate(createdAt, locale)}</span>
         </Text>
         <Text t="body1">
           <Trans>Updated:</Trans>{" "}
-          <span>{getFormattedDate(props.listing.updatedAt, locale)}</span>
+          <span>{updatedAt && getFormattedDate(updatedAt, locale)}</span>
         </Text>
       </div>
 

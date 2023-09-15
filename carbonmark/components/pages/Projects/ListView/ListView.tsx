@@ -11,7 +11,7 @@ import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { Project } from "lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark.types";
 import { isEqual, split } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";

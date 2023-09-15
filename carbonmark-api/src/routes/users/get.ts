@@ -6,7 +6,7 @@ import {
   ByWalletUserActivity,
   ByWalletUserListing,
 } from "../../graphql/marketplace.types";
-import { User, UserModel } from "../../models/User.model";
+import { User } from "../../models/User.model";
 import { selector } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
@@ -66,14 +66,20 @@ const handler = (fastify: FastifyInstance) =>
 
     /** Find and assign the FB User to the given listing */
     const mapSellerToListing = (listing: ByWalletUserListing) => {
-      const seller = compact(sellers).find(selector("id", listing.seller?.id));
-      return assign(listing, seller);
+      const seller = compact(sellers).find(
+        selector("address", listing.seller?.id)
+      );
+      return assign(listing, { seller });
     };
 
     /** Find and assign the FB User to the given activity */
     const mapSellerBuyerToActivity = (activity: ByWalletUserActivity) => {
-      const seller = compact(buyers).find(selector("id", activity.seller?.id));
-      const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
+      const seller = compact(buyers).find(
+        selector("address", activity.seller?.id)
+      );
+      const buyer = compact(buyers).find(
+        selector("address", activity.buyer?.id)
+      );
       return merge(activity, { seller, buyer });
     };
 
@@ -82,7 +88,7 @@ const handler = (fastify: FastifyInstance) =>
       .map(mapSellerBuyerToActivity)
       .map(formatActivity);
 
-    const response: Static<typeof UserModel> = {
+    const response: User = {
       createdAt: document.createdAt,
       description: document.description,
       handle: document.handle,

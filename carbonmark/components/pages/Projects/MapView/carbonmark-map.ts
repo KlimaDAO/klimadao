@@ -1,6 +1,6 @@
 import { BBox } from "@turf/helpers";
 import { NEXT_PUBLIC_MAPBOX_TOKEN } from "lib/constants";
-import { Project } from "lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark.types";
 import { compact, isNil } from "lodash";
 import { default as MapBoxGL, default as mapboxgl } from "mapbox-gl";
 import Supercluster, { AnyProps, ClusterFeature } from "supercluster";

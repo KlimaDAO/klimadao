@@ -9,7 +9,7 @@ import { Text } from "components/Text";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { Purchase } from "lib/types/carbonmark";
+import { Purchase } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";

@@ -12,7 +12,7 @@ import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { OnStatusHandler } from "lib/statusMessage";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
 
 export const getRetirementAllowance = async (params: {
   userAddress: string;

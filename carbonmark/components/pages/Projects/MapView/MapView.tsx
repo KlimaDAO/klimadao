@@ -1,5 +1,5 @@
 import { useFetchProjects } from "hooks/useFetchProjects";
-import { Project } from "lib/types/carbonmark";
+import { Project } from "lib/types/carbonmark.types";
 import { compact } from "lodash";
 import { map as mapFn, pipe, uniqBy } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";

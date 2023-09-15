@@ -11,7 +11,7 @@ import { parseUnits } from "ethers-v6";
 import { formatUnits } from "ethers/lib/utils";
 import { getAddress } from "lib/networkAware/getAddress";
 import { OnStatusHandler } from "lib/statusMessage";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
 
 export const getRedeemAllowance = async (params: {
   userAddress: string;

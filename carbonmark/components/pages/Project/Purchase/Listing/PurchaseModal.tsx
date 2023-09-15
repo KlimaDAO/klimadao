@@ -5,7 +5,7 @@ import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { CarbonmarkToken } from "lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "../styles";

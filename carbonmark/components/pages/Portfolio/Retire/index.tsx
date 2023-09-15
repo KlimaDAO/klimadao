@@ -8,7 +8,10 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
-import type { AssetForRetirement, PcbProject } from "lib/types/carbonmark";
+import type {
+  AssetForRetirement,
+  PcbProject,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";

@@ -21,6 +21,14 @@ export const ProjectModel = Type.Object({
   country: Type.Object({ id: Type.String() }),
   price: Type.String(),
   listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
+  images: Nullable(
+    Type.Array(
+      Type.Object({
+        url: Type.String(),
+        caption: Type.String(),
+      })
+    )
+  ),
   /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
   id: Type.String({ description: "Deprecated in favor of projectAddress" }),
   isPoolProject: Type.Optional(Type.Boolean()),

@@ -11,8 +11,11 @@ import { InputField, TextareaField } from "components/shared/Form";
 import { ethers, providers } from "ethers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import type { AssetForRetirement, CarbonmarkToken } from "lib/types/carbonmark";
-import { CategoryName } from "lib/types/carbonmark";
+import type {
+  AssetForRetirement,
+  CarbonmarkToken,
+} from "lib/types/carbonmark.types";
+import { CategoryName } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useEffect, useState } from "react";
 import { RetireModal } from "../RetireModal";
