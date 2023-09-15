@@ -1,6 +1,6 @@
-import ChartCard from "components/cards/ChartCard";
 import KlimaDAORetirementsByTokenBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByTokenBarCard";
 import KlimaDAORetirementsByTokenListCard from "components/cards/retirementTrends/KlimaDAORetirementsByTokenListCard";
+import KlimaDAORetirementsByTokenOverviewCard from "components/cards/retirementTrends/KlimaDAORetirementsByTokenOverviewCard";
 import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
@@ -18,11 +18,9 @@ export default function RetirementTrendsByTokenTab() {
         ></KlimaDAORetirementsByTokenListCard>,
       ]}
       rightColumn={[
-        <ChartCard
-          key={0}
-          isColumnCard={true}
-          title="Carbon token retirements"
-        />,
+        <KlimaDAORetirementsByTokenOverviewCard
+          key={1}
+        ></KlimaDAORetirementsByTokenOverviewCard>,
       ]}
     />
   );
