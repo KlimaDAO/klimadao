@@ -302,7 +302,6 @@ export function getDataChartMax<T>(
     return Math.max(accumulator, localMax);
   }, 0);
 }
-
 const helpers = {
   formatDateAndTime,
   formatQuantityAsMillionsOfTons,
