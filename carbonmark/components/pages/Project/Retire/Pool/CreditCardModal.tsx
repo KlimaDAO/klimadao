@@ -24,29 +24,28 @@ export const CreditCardModal: FC<Props> = (props) => {
       onToggleModal={props.onCancel}
     >
       <div className={styles.confirmCreditCard}>
+        {!props.isRedirecting && !props.checkoutError && (
+          <>
+            <Text>
+              <Trans>
+                To complete your credit card transaction, you will be redirected
+                to Stripe, our payment processing partner.
+              </Trans>
+            </Text>
+            <ButtonPrimary onClick={props.onSubmit} label={t`Continue`} />
+            <CarbonmarkButton
+              onClick={
+                !!props.checkoutError ? props.onFiatError : props.onCancel
+              }
+              label={t`Go back`}
+            />
+          </>
+        )}
         {!props.isRedirecting &&
-          (!props.checkoutError ? (
+          !!props.checkoutError &&
+          props.checkoutError.length > 0 && (
             <>
-              <Text>
-                <Trans>
-                  To complete your credit card transaction, you will be
-                  redirected to Stripe, our payment processing partner.
-                </Trans>
-              </Text>
-              <ButtonPrimary
-                onClick={props.onSubmit}
-                disabled={!!props.checkoutError}
-                label={t`Continue`}
-              />
-              <CarbonmarkButton
-                onClick={
-                  !!props.checkoutError ? props.onFiatError : props.onCancel
-                }
-                label={t`Go back`}
-              />
-            </>
-          ) : (
-            <>
+              {console.log("TEST", props.checkoutError)}
               <Text>
                 <Trans>{props.checkoutError}</Trans>
               </Text>
@@ -57,7 +56,7 @@ export const CreditCardModal: FC<Props> = (props) => {
                 label={t`Go back`}
               />
             </>
-          ))}
+          )}
 
         {props.isRedirecting && (
           <div className={styles.spinnerWrap}>
