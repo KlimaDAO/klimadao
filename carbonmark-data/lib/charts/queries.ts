@@ -138,12 +138,22 @@ export const queryKlimaMonthlyRetirementsByPool = async function (
   );
 };
 
-/** Queries the Klima Raw Retirements endpoint */
-export const queryRawKlimaRetirements = function (
+/** Queries the Klima raw retirements endpoint */
+export const queryKlimaRawRetirements = function (
   params: PaginationQueryParams
 ): Promise<PaginatedResponse<RawRetirementsItem>> {
   return paginatedQuery<RawRetirementsItem, typeof params>(
     urls.api.klimaRawRetirements,
+    params
+  );
+};
+
+/** Queries the Global raw retirements endpoint */
+export const queryAllRawRetirements = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<RawRetirementsItem>> {
+  return paginatedQuery<RawRetirementsItem, typeof params>(
+    urls.api.allRawRetirements,
     params
   );
 };

@@ -165,8 +165,8 @@ export interface RawRetirementsItem {
   bridge: string;
   token: string;
   origin: string;
-  proof: string;
   quantity: number;
+  serial_number: string;
 }
 export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
 

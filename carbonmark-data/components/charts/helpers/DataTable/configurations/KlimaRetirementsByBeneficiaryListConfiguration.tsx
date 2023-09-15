@@ -6,10 +6,7 @@ import {
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
-import {
-  formatTonnes,
-  getBeneficiaryColumn,
-} from "./KlimaRetirementsListConfigurationBase";
+import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
 import { Columns } from "./types";
 

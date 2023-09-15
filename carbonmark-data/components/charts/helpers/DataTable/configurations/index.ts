@@ -1,4 +1,5 @@
 import KlimaRetirementsByBeneficiaryListConfiguration from "./KlimaRetirementsByBeneficiaryListConfiguration";
+import KlimaRetirementsByChainListConfiguration from "./KlimaRetirementsByChainListConfiguration";
 import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
 import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 import KlimaRetirementsByTokenListConfiguration from "./KlimaRetirementsByTokenListConfiguration";
@@ -7,6 +8,7 @@ const configurations = {
     new KlimaRetirementsByPoolSummaryConfiguration(),
   KlimaRetirementsByPoolList: new KlimaRetirementsByPoolListConfiguration(),
   KlimaRetirementsByTokenList: new KlimaRetirementsByTokenListConfiguration(),
+  KlimaRetirementsByChainList: new KlimaRetirementsByChainListConfiguration(),
   KlimaRetirementsByBeneficiaryList:
     new KlimaRetirementsByBeneficiaryListConfiguration(),
 };

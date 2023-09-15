@@ -1,38 +1,20 @@
-import { formatTonnes as formatTonnesGeneric } from "@klimadao/lib/utils/lightIndex";
 import { t } from "@lingui/macro";
 import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
-import { queryRawKlimaRetirements } from "lib/charts/queries";
+import { queryKlimaRawRetirements } from "lib/charts/queries";
 import { PaginatedResponse, RawRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
+import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
 import { Column } from "./types";
 
-export function getBeneficiaryColumn<
-  T extends { beneficiary: string },
->(): Column<T> {
-  return {
-    header: t`Beneficiary address`,
-    cellStyle: layout.textLeft,
-    dataKey: "beneficiary",
-    formatter: (x: string | number) => x,
-  };
-}
-export function formatTonnes(amount: string | number) {
-  const locale = currentLocale();
-  return formatTonnesGeneric({
-    amount: String(amount),
-    locale,
-    minimumFractionDigits: 2,
-  });
-}
 /** A base configuration for The detailed list of klima retirement trends */
 export default abstract class KlimaRetirementsListConfigurationBase extends AbstractTableConfiguration<RawRetirementsItem> {
   fetchFunction(page: number) {
-    return queryRawKlimaRetirements({
+    return queryKlimaRawRetirements({
       sort_by: "retirement_date",
       sort_order: "desc",
       page_size: 10,
