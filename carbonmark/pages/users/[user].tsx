@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     if (!isDomainInURL && !isValidAddress) {
       const response = await client["/users/{walletOrHandle}"].get({
-        query: { type: "handle" },
         params: { walletOrHandle: params.user },
       });
       if (response.ok) {
@@ -58,6 +57,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     // Haven't fetched carbonmark API yet?
     if (!carbonmarkUser) {
       const response = await client["/users/{walletOrHandle}"].get({
+        query: { type: "wallet" },
         params: {
           walletOrHandle: userAddress,
         },

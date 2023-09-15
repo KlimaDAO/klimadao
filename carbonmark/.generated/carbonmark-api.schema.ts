@@ -2430,6 +2430,48 @@ export default {
         }
       }
     },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects": {
       "get": {
         "summary": "List projects",
@@ -2976,88 +3018,6 @@ export default {
         }
       }
     },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -3068,9 +3028,29 @@ export default {
         "parameters": [
           {
             "schema": {
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "wallet"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "handle"
+                  ]
+                }
+              ]
             },
-            "example": "wallet",
+            "examples": {
+              "wallet": {
+                "value": "wallet"
+              },
+              "handle": {
+                "value": "handle"
+              }
+            },
             "in": "query",
             "name": "type",
             "required": false,
@@ -3588,22 +3568,17 @@ export default {
                 "required": [
                   "handle",
                   "username",
-                  "description",
-                  "wallet",
-                  "profileImgUrl"
+                  "wallet"
                 ],
                 "type": "object",
                 "properties": {
                   "handle": {
                     "minLength": 3,
+                    "maxLength": 24,
                     "type": "string"
                   },
                   "username": {
                     "minLength": 2,
-                    "type": "string"
-                  },
-                  "description": {
-                    "maxLength": 500,
                     "type": "string"
                   },
                   "wallet": {
@@ -3611,8 +3586,26 @@ export default {
                     "maxLength": 64,
                     "type": "string"
                   },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "maxLength": 500,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "profileImgUrl": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 }
               }
@@ -3626,31 +3619,49 @@ export default {
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "handle": {
-                      "type": "string"
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "wallet": {
-                      "type": "string"
-                    },
-                    "updatedAt": {
-                      "type": "number"
-                    },
-                    "createdAt": {
-                      "type": "number"
-                    }
-                  },
                   "required": [
                     "handle",
                     "username",
-                    "wallet",
-                    "updatedAt",
-                    "createdAt"
-                  ]
+                    "wallet"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "minLength": 3,
+                      "maxLength": 24,
+                      "type": "string"
+                    },
+                    "username": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "wallet": {
+                      "minLength": 26,
+                      "maxLength": 64,
+                      "type": "string"
+                    },
+                    "description": {
+                      "anyOf": [
+                        {
+                          "maxLength": 500,
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "profileImgUrl": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -3664,14 +3675,10 @@ export default {
                   "properties": {
                     "error": {
                       "type": "string"
-                    },
-                    "code": {
-                      "type": "number"
                     }
                   },
                   "required": [
-                    "error",
-                    "code"
+                    "error"
                   ]
                 }
               }
@@ -3696,10 +3703,6 @@ export default {
                     "minLength": 3,
                     "type": "string"
                   },
-                  "handle": {
-                    "minLength": 3,
-                    "type": "string"
-                  },
                   "username": {
                     "minLength": 2,
                     "type": "string"
@@ -3715,7 +3718,6 @@ export default {
                 },
                 "required": [
                   "wallet",
-                  "handle",
                   "username",
                   "description"
                 ]
@@ -3736,10 +3738,6 @@ export default {
                       "minLength": 3,
                       "type": "string"
                     },
-                    "handle": {
-                      "minLength": 3,
-                      "type": "string"
-                    },
                     "username": {
                       "minLength": 2,
                       "type": "string"
@@ -3755,11 +3753,50 @@ export default {
                   },
                   "required": [
                     "wallet",
-                    "handle",
                     "username",
                     "description"
                   ]
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
               }
             }
           }

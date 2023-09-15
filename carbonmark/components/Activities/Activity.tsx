@@ -26,28 +26,32 @@ const isUserActivity = (activity: ActivityT): activity is UserActivity => {
 export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
-  const activity = props.activity;
   let firstActor, secondActor;
   let amountA, amountB;
   let transactionString = t`at`;
 
-  const isPurchaseActivity = activity.activityType === "Purchase";
-  const isSaleActivity = activity.activityType === "Sold";
-  const isUpdateQuantity = activity.activityType === "UpdatedQuantity";
-  const isUpdatePrice = activity.activityType === "UpdatedPrice";
+  const isPurchaseActivity = props.activity.activityType === "Purchase";
+  const isSaleActivity = props.activity.activityType === "Sold";
+  const isUpdateQuantity = props.activity.activityType === "UpdatedQuantity";
+  const isUpdatePrice = props.activity.activityType === "UpdatedPrice";
 
-  const seller = activity.seller;
-  const buyer = activity.buyer;
+  const seller = props.activity.seller;
+  const buyer = props.activity.buyer;
 
   // type guard
-  const project = isUserActivity(activity) ? activity.project : null;
+  const project = isUserActivity(props.activity)
+    ? props.activity.project
+    : null;
 
   /** By default the seller is the "source" of all actions */
   firstActor = seller;
 
   /** By default activities are buy or sell transactions */
-  amountA = !!activity.amount && `${formatToTonnes(activity.amount, locale)}t`;
-  amountB = !!activity.price && `${formatToPrice(activity.price, locale)}`;
+  amountA =
+    !!props.activity.amount &&
+    `${formatToTonnes(props.activity.amount, locale)}t`;
+  amountB =
+    !!props.activity.price && `${formatToPrice(props.activity.price, locale)}`;
 
   /** Determine the order in which to display addresses based on the activity type */
   if (isPurchaseActivity) {
@@ -63,15 +67,18 @@ export const Activity = (props: Props) => {
   /** Price Labels */
   if (isUpdatePrice) {
     amountA =
-      activity.previousPrice && formatToPrice(activity.previousPrice, locale);
-    amountB = activity.price && formatToPrice(activity.price, locale);
+      props.activity.previousPrice &&
+      formatToPrice(props.activity.previousPrice, locale);
+    amountB =
+      props.activity.price && formatToPrice(props.activity.price, locale);
   }
 
   /** Quantity Labels */
   if (isUpdateQuantity) {
     amountA =
-      activity.previousAmount && formatToTonnes(activity.previousAmount);
-    amountB = activity.amount && formatToTonnes(activity.amount);
+      props.activity.previousAmount &&
+      formatToTonnes(props.activity.previousAmount);
+    amountB = props.activity.amount && formatToTonnes(props.activity.amount);
   }
 
   /** Determine the conjunction between the labels */
@@ -83,7 +90,7 @@ export const Activity = (props: Props) => {
   }
 
   return (
-    <div key={activity.id} className={styles.activity}>
+    <div key={props.activity.id} className={styles.activity}>
       {project && (
         <Link href={createProjectLink(project)}>
           <Text t="h5" className={styles.link}>
@@ -95,7 +102,7 @@ export const Activity = (props: Props) => {
         <i>
           {getElapsedTime({
             locale: locale || "en",
-            timeStamp: Number(activity.timeStamp),
+            timeStamp: Number(props.activity.timeStamp),
           })}
         </i>
       </Text>
@@ -113,7 +120,7 @@ export const Activity = (props: Props) => {
           )
         )}
 
-        {ActivityActions[activity.activityType ?? ""] ?? "Undefined"}
+        {ActivityActions[props.activity.activityType ?? ""] ?? "Undefined"}
 
         {!!secondActor && secondActor.handle ? (
           <Link className="account" href={`/users/${secondActor.handle}`}>

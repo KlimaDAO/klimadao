@@ -34,10 +34,11 @@ export const sortPricesAndListingsByBestPrice = (
   listings: Listing[]
 ) => {
   const flaggedPrices = flagPrices(prices);
+  //Convert to Number since singleUnitPrice is a string representation
   const mergedArray = [...flaggedPrices, ...listings];
 
-  return sortBy(mergedArray, "singleUnitPrice");
+  return sortBy(mergedArray, (x) => Number(x.singleUnitPrice));
 };
 
-export const flagPrices = (prices: TokenPrice[]) =>
+const flagPrices = (prices: TokenPrice[]) =>
   prices.map((p) => ({ ...p, isPoolProject: true }));

@@ -1,6 +1,5 @@
 import { app } from "firebase-admin";
-import { compact, isEmpty } from "lodash";
-import { User, isUser } from "../../models/User.model";
+import { chunk, isEmpty } from "lodash";
 
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
@@ -22,16 +21,29 @@ export const getUserByWallet = async (
 
 /** @note this may have a max limit of 300 records for ids, need to confirm */
 export const getUserDocumentsByIds = async (
-  fb: app.App,
-  ids: string[]
-): Promise<User[] | undefined> => {
-  if (isEmpty(ids)) return undefined;
-  const docRefs = compact(ids).map((id) =>
-    fb.firestore().collection("users").doc(id)
-  );
-  const docs = await fb.firestore().getAll(...docRefs);
+  firebase: app.App,
+  userIds: string[]
+): Promise<FirebaseFirestore.DocumentData[] | undefined> => {
+  // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
+  if (!isEmpty(userIds)) {
+    const ids = Array.from(userIds);
 
-  return docs.map((doc) => doc.data()).filter(isUser);
+    const chunks: string[][] = chunk(ids, 30);
+
+    const snapshots = await Promise.all(
+      chunks.map((chunk) =>
+        firebase
+          .firestore()
+          .collection("users")
+          .where("address", "in", chunk)
+          .get()
+      )
+    );
+
+    return snapshots
+      .flatMap((snapshot) => snapshot.docs)
+      .map((doc) => doc.data());
+  }
 };
 
 /**

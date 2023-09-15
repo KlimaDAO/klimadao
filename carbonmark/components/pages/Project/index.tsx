@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
@@ -17,7 +16,6 @@ import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
 import { useFetchProject } from "hooks/useFetchProject";
-import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
 import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
@@ -31,7 +29,6 @@ import { extract, notNil, selector } from "lib/utils/functional.utils";
 import { compact, concat, isEmpty, isNil, sortBy } from "lodash";
 import { NextPage } from "next";
 import { useState } from "react";
-import { SWRConfig } from "swr";
 import { PoolPrice } from "./BuyOptions/PoolPrice";
 import { SellerListing } from "./BuyOptions/SellerListing";
 import { ProjectMap } from "./ProjectMap";
@@ -68,7 +65,7 @@ const Page: NextPage<PageProps> = (props) => {
 
   const pricesAndListings: (Listing | TokenPrice)[] = sortBy(
     concat<Listing | TokenPrice>(listings, prices),
-    "singleUnitPrice"
+    (x) => Number(x.singleUnitPrice)
   );
 
   const pricesOrListings = pricesAndListings.map((element, index) => {
@@ -251,16 +248,3 @@ const Page: NextPage<PageProps> = (props) => {
     </>
   );
 };
-
-export const Project: NextPage<PageProps> = (props) => (
-  <SWRConfig
-    value={{
-      fetcher,
-      fallback: {
-        [`${urls.api.projects}/${props.projectID}`]: props.project,
-      },
-    }}
-  >
-    <Page {...props} />
-  </SWRConfig>
-);
