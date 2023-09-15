@@ -19,6 +19,10 @@ export default abstract class TableConfiguration<RI> {
   ): string | React.ReactNode {
     return this.getColumns()[key].formatter(item[key] as never, item);
   }
+  /** Returns the title of a column */
+  getTitle(key: Extract<keyof RI, string>): string | React.ReactNode {
+    return this.getColumns()[key].header;
+  }
   /**
    * Display data as a table with items as columns
    */

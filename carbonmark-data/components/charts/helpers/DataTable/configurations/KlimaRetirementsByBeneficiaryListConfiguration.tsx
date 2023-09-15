@@ -1,16 +1,74 @@
-import { RawRetirementsItem } from "lib/charts/types";
-import KlimaRetirementsListConfigurationBase from "./KlimaRetirementsListConfigurationBase";
+import { t } from "@lingui/macro";
+import { queryKlimaRetirementsByBeneficiary } from "lib/charts/queries";
+import {
+  KlimaRetirementsByBeneficiaryItem,
+  PaginatedResponse,
+} from "lib/charts/types";
+import layout from "theme/layout.module.scss";
+import AbstractTableConfiguration from "./AbstractTableConfiguration";
+import {
+  formatTonnes,
+  getBeneficiaryColumn,
+} from "./KlimaRetirementsListConfigurationBase";
+import styles from "./styles.module.scss";
 import { Columns } from "./types";
 
-export default class KlimaRetirementsByBeneficiaryListConfiguration extends KlimaRetirementsListConfigurationBase {
-  getColumns(): Columns<RawRetirementsItem> {
+export default class KlimaRetirementsByBeneficiaryListConfiguration extends AbstractTableConfiguration<KlimaRetirementsByBeneficiaryItem> {
+  fetchFunction(page: number) {
+    return queryKlimaRetirementsByBeneficiary({
+      sort_by: "amount_retired",
+      sort_order: "desc",
+      page_size: 10,
+      page,
+    });
+  }
+  getColumns(): Columns<KlimaRetirementsByBeneficiaryItem> {
     return {
-      beneficiary: this.beneficiaryColumn,
-      project_id: this.projectIdColumn,
-      token: this.protocolColumn,
-      retirement_date: this.retirementDateColumn,
-      quantity: this.quantityColumn,
-      transaction_id: this.transactionIdColumn,
+      beneficiary: getBeneficiaryColumn(),
+      amount_retired: {
+        header: t`Amount retired`,
+        cellStyle: layout.textRight,
+        dataKey: "amount_retired",
+        formatter: formatTonnes,
+      },
+      number_of_retirements: {
+        header: t`Number of retirements`,
+        cellStyle: layout.textRight,
+        dataKey: "number_of_retirements",
+        formatter: (x: string | number) => x,
+      },
     };
   }
+  desktopRenderer = (props: {
+    data: PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
+  }) => {
+    return this.VerticalTableLayout({
+      data: props.data,
+    });
+  };
+  mobileRenderer = (props: {
+    data: PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
+  }) => {
+    return this.CardsLayout({
+      data: props.data,
+      cardRenderer: this.cardRenderer,
+    });
+  };
+  cardRenderer = (props: { item: KlimaRetirementsByBeneficiaryItem }) => {
+    return (
+      <div className={styles.card}>
+        <div className={styles.cardTitle}>{props.item.beneficiary}</div>
+        <div className={styles.facts}>
+          <span>{this.getTitle("number_of_retirements")}</span>
+          {this.formatValue(props.item, "number_of_retirements")}
+        </div>
+        <div className={styles.facts}>
+          <span>{this.getTitle("amount_retired")}</span>
+          <span className={styles.badge}>
+            {this.formatValue(props.item, "amount_retired")}
+          </span>
+        </div>
+      </div>
+    );
+  };
 }

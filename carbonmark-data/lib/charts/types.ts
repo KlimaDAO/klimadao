@@ -149,6 +149,14 @@ export interface KlimaMonthlyRetirementsItem {
 export type KlimaMonthlyRetirements =
   PaginatedResponse<KlimaMonthlyRetirementsItem>;
 
+export interface KlimaRetirementsByBeneficiaryItem {
+  beneficiary: string;
+  amount_retired: number;
+  number_of_retirements: number;
+}
+export type KlimaRetirementsByBeneficiary =
+  PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
+
 export interface RawRetirementsItem {
   retirement_date: string;
   transaction_id: string;

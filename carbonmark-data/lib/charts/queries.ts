@@ -8,6 +8,7 @@ import {
   DailyCredits,
   DailyCreditsItem,
   KlimaMonthlyRetirementsItem,
+  KlimaRetirementsByBeneficiaryItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
@@ -143,6 +144,16 @@ export const queryRawKlimaRetirements = function (
 ): Promise<PaginatedResponse<RawRetirementsItem>> {
   return paginatedQuery<RawRetirementsItem, typeof params>(
     urls.api.klimaRawRetirements,
+    params
+  );
+};
+
+/** Queries the Klima Retirements beneficiaries aggregation endpoint */
+export const queryKlimaRetirementsByBeneficiary = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaRetirementsByBeneficiaryItem>> {
+  return paginatedQuery<KlimaRetirementsByBeneficiaryItem, typeof params>(
+    urls.api.klimaRetirementsByBeneficiary,
     params
   );
 };

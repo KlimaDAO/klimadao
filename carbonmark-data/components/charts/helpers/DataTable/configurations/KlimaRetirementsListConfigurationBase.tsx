@@ -1,4 +1,4 @@
-import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes as formatTonnesGeneric } from "@klimadao/lib/utils/lightIndex";
 import { t } from "@lingui/macro";
 import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
@@ -11,6 +11,24 @@ import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
 import { Column } from "./types";
 
+export function getBeneficiaryColumn<
+  T extends { beneficiary: string },
+>(): Column<T> {
+  return {
+    header: t`Beneficiary address`,
+    cellStyle: layout.textLeft,
+    dataKey: "beneficiary",
+    formatter: (x: string | number) => x,
+  };
+}
+export function formatTonnes(amount: string | number) {
+  const locale = currentLocale();
+  return formatTonnesGeneric({
+    amount: String(amount),
+    locale,
+    minimumFractionDigits: 2,
+  });
+}
 /** A base configuration for The detailed list of klima retirement trends */
 export default abstract class KlimaRetirementsListConfigurationBase extends AbstractTableConfiguration<RawRetirementsItem> {
   fetchFunction(page: number) {
@@ -25,12 +43,7 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
     return currentLocale();
   }
   get beneficiaryColumn(): Column<RawRetirementsItem> {
-    return {
-      header: t`Beneficiary address`,
-      cellStyle: layout.textLeft,
-      dataKey: "beneficiary",
-      formatter: (x: string | number) => x,
-    };
+    return getBeneficiaryColumn();
   }
   get projectIdColumn(): Column<RawRetirementsItem> {
     return {
@@ -47,11 +60,7 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
       header: t`Pool`,
       cellStyle: layout.textCenter,
       dataKey: "token",
-      formatter: (x: string | number) => {
-        if (x == "BCT" || x == "NCT") return "TCO2";
-        if (x == "UBO" || x == "NBO") return "C3T";
-        return "";
-      },
+      formatter: (x: string | number) => x,
     };
   }
   get protocolColumn(): Column<RawRetirementsItem> {
@@ -86,17 +95,11 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
     };
   }
   get quantityColumn(): Column<RawRetirementsItem> {
-    const locale = currentLocale();
     return {
       header: t`Tonnes`,
       cellStyle: layout.textRight,
       dataKey: "quantity",
-      formatter: (amount: string | number) =>
-        formatTonnes({
-          amount: String(amount),
-          locale,
-          minimumFractionDigits: 2,
-        }),
+      formatter: formatTonnes,
     };
   }
 
