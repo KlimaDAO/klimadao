@@ -7,8 +7,9 @@ import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
-import { getCategoryFromProject } from "lib/projectGetter";
-import { CategoryName, DetailedProject } from "lib/types/carbonmark.types";
+import { asCategoryName, getCategoryFromProject } from "lib/projectGetter";
+import { DetailedProject } from "lib/types/carbonmark.types";
+import { get, pipe, uniq } from "lodash/fp";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -23,27 +24,29 @@ type Props = {
 export const ProjectCard: FC<Props> = (props) => {
   const { locale } = useRouter();
 
-  const { project } = props;
+  const methodologies = props.project?.methodologies?.map(
+    pipe(get("category"), asCategoryName, uniq)
+  );
 
   return (
     <Link
-      href={props.url || createProjectLink(project)}
+      href={props.url || createProjectLink(props.project)}
       passHref
       className={cx(styles.card, props.className)}
     >
       <div className={styles.cardImage}>
-        <ProjectImage category={getCategoryFromProject(project)} />
+        <ProjectImage category={getCategoryFromProject(props.project)} />
       </div>
       <div className={styles.cardContent}>
         <div className={styles.price}>
-          <Text t="h4">{formatToPrice(project.price, locale)}</Text>
-          {project.stats.totalSupply && (
+          <Text t="h4">{formatToPrice(props.project.price, locale)}</Text>
+          {props.project.stats.totalSupply && (
             <div className={styles.supply}>
               <Text t="body2" color="lighter" align="end">
                 <Trans>Available Tonnes:</Trans>
                 <br />
                 {trimWithLocale(
-                  Number(project.stats.totalSupply),
+                  Number(props.project.stats.totalSupply),
                   2,
                   locale || "en"
                 )}
@@ -52,25 +55,18 @@ export const ProjectCard: FC<Props> = (props) => {
           )}
         </div>
         <Text t="h5" className={styles.cardTitle}>
-          {project.name || "! MISSING PROJECT NAME !"}
+          {props.project.name || "! MISSING PROJECT NAME !"}
         </Text>
         <Text t="body1" className={styles.cardDescription}>
-          {project.short_description ||
-            project.description ||
-            t`No project description found`}
+          {props.project.short_description ||
+            props.project.description ||
+            t`No props.project description found`}
         </Text>
         <div className={styles.tags}>
-          <Vintage vintage={project.vintage} />
-          {(project?.methodologies ?? []).length > 1 ? (
-            project.methodologies?.map((methodology, index) => (
-              <Category
-                key={`${methodology?.id}-${index}`}
-                category={methodology?.category as CategoryName}
-              />
-            ))
-          ) : (
-            <Category category={getCategoryFromProject(project)} />
-          )}
+          <Vintage vintage={props.project.vintage} />
+          {uniq(methodologies)?.map((methodology) => (
+            <Category key={methodology} category={methodology} />
+          ))}
         </div>
       </div>
     </Link>
