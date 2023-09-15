@@ -55,6 +55,12 @@ export interface DailyCreditsItem {
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
 
+export interface AggregatedCreditsByProjectsItem {
+  project_type: string;
+  quantity: number;
+}
+export type AggregatedCreditsByProjects =
+  PaginatedResponse<AggregatedCreditsByProjects>;
 export interface DailyPolygonCarbonMetricsItem {
   date: string;
   bct_supply: number;
@@ -215,6 +221,14 @@ export interface AggregatedCreditsChartDataItem
 
 export type AggregatedCreditsChartData =
   ChartData<AggregatedCreditsChartDataItem>;
+
+// Chat Data: Treemaps
+export interface TreeMapItem {
+  name: string;
+  size?: number;
+  children?: TreeMapData;
+}
+export type TreeMapData = Array<TreeMapItem>;
 
 // Chart dictionnary for cards
 export type ChartDictionnary = Record<Key, React.ReactNode>;
