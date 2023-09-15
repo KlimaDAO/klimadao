@@ -3,7 +3,7 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -35,7 +35,7 @@ export default async function handler(
       ? await getAddressByDomain(beneficiaryAddress)
       : beneficiaryAddress;
 
-    if (!utils.isAddress(resolvedAddress)) {
+    if (!isAddress(resolvedAddress)) {
       return res.status(400).send("Invalid beneficiary address or domain");
     }
 

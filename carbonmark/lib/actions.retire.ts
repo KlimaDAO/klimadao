@@ -3,7 +3,8 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { PoolToken } from "@klimadao/lib/constants";
 import { RetirementReceipt } from "@klimadao/lib/types/offset";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
-import { BigNumber, Contract, providers, utils } from "ethers";
+import { BigNumber, Contract, providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { urls } from "lib/constants";
 import { getFiatRetirementCost } from "lib/fiat/fiatCosts";
 import { getAddress } from "lib/networkAware/getAddress";
@@ -63,7 +64,7 @@ export const getConsumptionCost = async (params: {
     contractName: "retirementAggregatorV2",
     provider: getStaticProvider(),
   });
-  const parsed = utils.parseUnits(
+  const parsed = parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
@@ -100,7 +101,7 @@ export const approveRetireProjectToken = async (params: {
       IERC20.abi,
       params.signer
     );
-    const parsedValue = utils.parseUnits(params.value, 18);
+    const parsedValue = parseUnits(params.value, 18);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       getAddress("retirementAggregatorV2"),
@@ -160,7 +161,7 @@ export const retireCarbonTransaction = async (params: {
 
     params.onStatus("userConfirmation");
 
-    const parsedMaxAmountIn = utils.parseUnits(
+    const parsedMaxAmountIn = parseUnits(
       params.maxAmountIn,
       getTokenDecimals(params.paymentMethod)
     );
@@ -177,10 +178,7 @@ export const retireCarbonTransaction = async (params: {
         getAddress(params.paymentMethod),
         getAddress(params.retirementToken),
         parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
+        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
@@ -193,10 +191,7 @@ export const retireCarbonTransaction = async (params: {
         getAddress(params.retirementToken),
         params.projectAddress,
         parsedMaxAmountIn,
-        utils.parseUnits(
-          params.quantity,
-          getTokenDecimals(params.retirementToken)
-        ),
+        parseUnits(params.quantity, getTokenDecimals(params.retirementToken)),
         "",
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,

@@ -9,7 +9,8 @@ import {
   RetirementData,
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
-import { Contract, ContractTransaction, Wallet, utils } from "ethers";
+import { Contract, ContractTransaction, Wallet } from "ethers";
+import { formatUnits, parseUnits } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { NextApiHandler } from "next";
 
@@ -68,8 +69,8 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
       formData.name,
       formData.loveLetter,
       {
-        maxFeePerGas: utils.parseUnits("60", 9),
-        maxPriorityFeePerGas: utils.parseUnits("60", 9),
+        maxFeePerGas: parseUnits("60", 9),
+        maxPriorityFeePerGas: parseUnits("60", 9),
       }
     );
     const receipt = await txn.wait(1);
@@ -82,7 +83,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     const response = retirementDataSchema.validateSync({
       index,
       beneficiaryAddress,
-      quantity: utils.formatUnits(quantity, 18),
+      quantity: formatUnits(quantity, 18),
       transactionHash: receipt.transactionHash,
     });
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-12 10:58+0000\n"
+"POT-Creation-Date: 2023-09-14 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Offset/index.tsx:548
-#: components/views/Redeem/index.tsx:269
+#: components/views/Redeem/index.tsx:270
 #: components/views/Stake/index.tsx:251
 #: components/views/Wrap/index.tsx:229
 msgid "Approve"
@@ -33,13 +33,13 @@ msgid "Beneficiary name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:358
+#: components/views/Redeem/index.tsx:359
 msgid "Buy & Redeem Carbon"
 msgstr "购买和赎回碳"
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:498
+#: components/views/Redeem/index.tsx:499
 msgid "Buy Carbon"
 msgstr "购买碳"
 
@@ -49,7 +49,7 @@ msgid "Capacity"
 msgstr "容量"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:274
+#: components/views/Redeem/index.tsx:275
 msgid "Continue"
 msgstr "继续"
 
@@ -60,21 +60,21 @@ msgstr "输入数量"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:485
-#: components/views/Redeem/index.tsx:243
-#: components/views/Redeem/index.tsx:414
+#: components/views/Redeem/index.tsx:244
+#: components/views/Redeem/index.tsx:415
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "Enter quantity"
 msgstr "输入数量"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:396
+#: components/views/Redeem/index.tsx:397
 msgid "How many tonnes would you like to acquire?"
 msgstr "您想要多少吨碳？"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:538
-#: components/views/Redeem/index.tsx:264
+#: components/views/Redeem/index.tsx:265
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "Insufficient balance"
@@ -103,8 +103,8 @@ msgstr "正在加载项目信息..."
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:472
 #: components/views/Offset/index.tsx:610
-#: components/views/Redeem/index.tsx:238
-#: components/views/Redeem/index.tsx:322
+#: components/views/Redeem/index.tsx:239
+#: components/views/Redeem/index.tsx:323
 #: components/views/Stake/index.tsx:429
 #: components/views/Stake/index.tsx:436
 #: components/views/Stake/index.tsx:443
@@ -143,12 +143,12 @@ msgid "Pay with fiat or crypto, or retire credits you already own. Your message 
 msgstr "可使用法定货币或加密货币支付，亦或您停用碳而拥有的积分。您的信息和数据将永久铭刻在区块链上。在 <0> docs</0> 中了解我们所支持代币的更多信息."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:470
+#: components/views/Redeem/index.tsx:471
 msgid "Payment Method"
 msgstr "付款方式"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:469
+#: components/views/Redeem/index.tsx:470
 msgid "Payment method"
 msgstr "付款方式"
 
@@ -159,8 +159,8 @@ msgid "Project details <0/>"
 msgstr "项目详情<0/>"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:371
 #: components/views/Redeem/index.tsx:372
+#: components/views/Redeem/index.tsx:373
 msgid "Select carbon pool"
 msgstr "选择碳池"
 
@@ -185,7 +185,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:438
+#: components/views/Redeem/index.tsx:439
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "此费用包括滑点和矿池收取的任何赎回费用"
 
@@ -222,7 +222,7 @@ msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Cre
 msgstr "您的钱包需加载 USDC、KLIMA 或碳池代币。信用卡支付功能即将推出。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:458
+#: components/views/Redeem/index.tsx:459
 msgid "You receive"
 msgstr "您收到"
 
@@ -796,19 +796,19 @@ msgstr "输入 0x 地址"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:631
-#: components/views/Redeem/index.tsx:336
+#: components/views/Redeem/index.tsx:337
 msgid "offset.incompatible"
 msgstr "不兼容输入的代币"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:514
-#: components/views/Redeem/index.tsx:248
+#: components/views/Redeem/index.tsx:249
 msgid "offset.insufficient_project_tonnage"
 msgstr "项目吨位不足"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:777
-#: components/views/Redeem/index.tsx:423
+#: components/views/Redeem/index.tsx:424
 msgid "offset.invalid_project_tonnage"
 msgstr "不能超过所选项目的可用吨位"
 
@@ -999,7 +999,7 @@ msgstr "您已停用了..."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:850
-#: components/views/Redeem/index.tsx:434
+#: components/views/Redeem/index.tsx:435
 msgid "offset_cost"
 msgstr "成本"
 
@@ -1088,7 +1088,7 @@ msgid "pklima.update"
 msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之前获得的代币，并挣得奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:361
+#: components/views/Redeem/index.tsx:362
 msgid "redeem.description"
 msgstr "为特定的碳抵消项目获取代币。项目代币将从碳池中赎回并转移到您的钱包，因此您可以稍后进行交易或碳停用。"
 
@@ -1155,7 +1155,7 @@ msgstr "无效收款人地址"
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:530
-#: components/views/Redeem/index.tsx:256
+#: components/views/Redeem/index.tsx:257
 msgid "shared.invalid_project_address"
 msgstr "无效项目地址"
 
@@ -1170,7 +1170,7 @@ msgstr "无效数量"
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:464
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:230
+#: components/views/Redeem/index.tsx:231
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -1309,27 +1309,27 @@ msgid "stake.unstake_klima"
 msgstr "取消质押KLIMA"
 
 #. js-lingui-explicit-id
-#: actions/utils.ts:32
+#: actions/utils.ts:33
 msgid "status.done"
 msgstr "交易完成。"
 
 #. js-lingui-explicit-id
-#: actions/utils.ts:27
+#: actions/utils.ts:28
 msgid "status.error"
 msgstr "❌ 错误：出了点问题..."
 
 #. js-lingui-explicit-id
-#: actions/utils.ts:39
+#: actions/utils.ts:40
 msgid "status.network_confirmation"
 msgstr "交易已启动。等待网络确认。"
 
 #. js-lingui-explicit-id
-#: actions/utils.ts:34
+#: actions/utils.ts:35
 msgid "status.user_confirmation"
 msgstr "请点击您钱包中的 \"确认\" 以继续。"
 
 #. js-lingui-explicit-id
-#: actions/utils.ts:21
+#: actions/utils.ts:22
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 

@@ -16,7 +16,7 @@ export default function KlimaDAORetirementsByPoolTableCard(props: CardProps) {
     <ChartCard
       {...props}
       isColumnCard={true}
-      title={t`KlimaDAO Retirements By Pool`}
+      title={t`KlimaDAO retirements by pool`}
       chart={chart}
     />
   );

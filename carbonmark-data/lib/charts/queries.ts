@@ -3,6 +3,7 @@ import {
   AggregatedCredits,
   AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
+  Chain,
   CreditsQueryParams,
   DailyCredits,
   DailyCreditsItem,
@@ -169,3 +170,16 @@ export const queryRawKlimaRetirements = function (
     params
   );
 };
+
+/** Queries the Carbon Metrics endpoint
+ * RI is either DailyPolygonCarbonMetricsItem, DailyCeloCarbonMetricsItem or DailyEthCarbonMetricsItem
+ */
+export function queryDailyCarbonMetrics<RI>(
+  chain: Chain,
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<RI>> {
+  return paginatedQuery<RI, typeof params>(
+    `${urls.api.dailyCarbonMetrics}/${chain}`,
+    params
+  );
+}

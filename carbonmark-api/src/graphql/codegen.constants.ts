@@ -5,6 +5,7 @@ export const GRAPH_URLS = {
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
+  digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
 };
 export const SANITY_URLS = {
   carbonProjects:

@@ -60,7 +60,7 @@ export default function KlimaDAORetirementsByPoolBarCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
-      title={t`KlimaDAO Retirements By Pool`}
+      title={t`KlimaDAO retirements by pool`}
       detailUrl="/details/retirement-trends-by-pool"
       chart={chart}
     />

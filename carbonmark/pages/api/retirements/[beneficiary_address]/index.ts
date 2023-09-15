@@ -1,6 +1,6 @@
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { queryProjects } from "lib/cms/queriesProjects";
 import { NextApiHandler } from "next";
 
@@ -22,7 +22,7 @@ const getRetirements: NextApiHandler<
           ? beneficiary_address[0]
           : beneficiary_address;
 
-        const validAddress = address && utils.isAddress(address);
+        const validAddress = address && isAddress(address);
 
         if (!beneficiary_address || !validAddress) {
           return res.status(400).json({
