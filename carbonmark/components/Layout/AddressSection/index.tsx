@@ -37,6 +37,11 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
           {props.domain.name}
         </Text>
       )}
+      {web3?.network?.chainId == 80001 && (
+        <div className={styles.testnetBadge}>
+          <Text t="button">🔬TESTNET MODE🏗️</Text>
+        </div>
+      )}
     </div>
   );
 };

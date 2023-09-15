@@ -3,6 +3,7 @@ import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { UserTracker } from "components/UserTracker";
+import { IS_PRODUCTION } from "lib/constants";
 import { activateLocale, loadTranslation } from "lib/i18n";
 import type { AppProps } from "next/app";
 import Script from "next/script";
@@ -62,7 +63,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider appName="carbonmark">
+      <Web3ContextProvider
+        appName="carbonmark"
+        showMumbaiOption={!IS_PRODUCTION}
+      >
         <UserTracker>
           <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
             <Component {...pageProps} />

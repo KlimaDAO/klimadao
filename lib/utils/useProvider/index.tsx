@@ -2,6 +2,7 @@ import { providers } from "ethers";
 import { useEffect, useState } from "react";
 import {
   CoinbaseProvider,
+  ConnectFn,
   ConnectedWeb3State,
   TorusProvider,
   TypedProvider,
@@ -46,10 +47,7 @@ export const useProvider = (): Web3ModalState => {
     window.location.reload();
   };
 
-  const connect = async (
-    wallet?: string,
-    useCache?: boolean
-  ): Promise<void> => {
+  const connect: ConnectFn = async (wallet, options) => {
     const connectedWallet = localStorage.getItem("web3-wallet");
     try {
       let provider: TypedProvider;
@@ -102,11 +100,18 @@ export const useProvider = (): Web3ModalState => {
         await torus.init({
           buildEnv: "production",
           enableLogging: false,
-          network: {
-            host: urls.polygonMainnetRpc,
-            chainId: 137,
-            networkName: "Polygon",
-          },
+          network:
+            options?.network === "mumbai"
+              ? {
+                  host: urls.polygonTestnetRpc,
+                  chainId: 80001,
+                  networkName: "Mumbai Matic",
+                }
+              : {
+                  host: urls.polygonMainnetRpc,
+                  chainId: 137,
+                  networkName: "Polygon",
+                },
           showTorusButton: false,
           useLocalStorage: true,
           // torus types are incorrect
@@ -130,7 +135,7 @@ export const useProvider = (): Web3ModalState => {
         network,
         isConnected: true,
         initializing: false,
-        isConnectionFromCache: useCache || false,
+        isConnectionFromCache: options?.useCache || false,
       };
       setWeb3State(newState);
     } catch (e: any) {
@@ -152,7 +157,7 @@ export const useProvider = (): Web3ModalState => {
   useEffect(() => {
     const wallet = localStorage.getItem("web3-wallet");
     if (wallet) {
-      connect(wallet, true);
+      connect(wallet, { useCache: true });
     } else {
       setWeb3State((s) => ({ ...s, initializing: false }));
     }

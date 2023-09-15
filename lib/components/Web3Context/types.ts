@@ -82,13 +82,19 @@ export interface RenderModalProps {
   };
   buttonClassName?: string;
   onClose?: () => void;
+  showMumbaiOption?: boolean;
 }
 
 export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
+export type ConnectFn = (
+  wallet?: string,
+  options?: { network?: string; useCache?: boolean }
+) => Promise<void>;
+
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
 export type Web3ModalState = Web3State & {
-  connect?: (wallet?: string) => Promise<void>;
+  connect?: ConnectFn;
   disconnect?: () => Promise<void>;
   showModal: boolean;
   renderModal: (props: RenderModalProps) => JSX.Element;

@@ -45,6 +45,7 @@ export interface ConnectModalProps {
   /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
   showModal: boolean;
+  showMumbaiOption?: boolean;
 }
 
 type WindowEthereum = providers.ExternalProvider & {
@@ -60,6 +61,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
   const [errorName, setErrorName] = useState<
     "default" | "rejected" | "alreadyProcessing" | undefined
   >();
+  const [isMumbai, setIsMumbai] = useState(false);
 
   useEffect(() => {
     if (window) setEth((window as any).ethereum as WindowEthereum);
@@ -94,7 +96,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
       } else if (params.wallet === "walletConnect" && connect) {
         await connect("walletConnect");
       } else if (params.wallet === "torus" && connect) {
-        await connect("torus");
+        await connect("torus", { network: isMumbai ? "mumbai" : "polygon" });
       }
       toggleModal();
       setStep("connect");
@@ -139,6 +141,17 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 <p className={styles.subText}>{props.torusText}</p>
                 <div className={styles.rightLine} />
               </span>
+              {props.showMumbaiOption && (
+                <div className={styles.checkboxContainer}>
+                  <input
+                    type="checkbox"
+                    id="mumbai"
+                    onChange={() => setIsMumbai((s) => !s)}
+                    checked={isMumbai}
+                  />
+                  <label htmlFor="mumbai">Use Mumbai Torus</label>
+                </div>
+              )}
               <button
                 className={styles.torusButtons}
                 onClick={() => handleConnect({ wallet: "torus" })}
