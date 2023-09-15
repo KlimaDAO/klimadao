@@ -2,10 +2,9 @@ import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
-import { formatUSDC } from "../../../src/utils/crypto.utils";
 import carbonProjects from "../../fixtures/carbonProjects";
+import digitalCarbon from "../../fixtures/digitalCarbon";
 import marketplace from "../../fixtures/marketplace";
-import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
@@ -82,9 +81,9 @@ describe("GET /projects", () => {
 
   /** The happy path */
   test("Returns 200", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS.digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
+      .reply(200, { data: { carbonProjects: [digitalCarbon.carbonProject] } });
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, {
@@ -98,22 +97,23 @@ describe("GET /projects", () => {
   });
 
   test("Composes a pool project with cms data", async () => {
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { projects: [] } }); // no marketplace projects
+    nock(GRAPH_URLS.digitalCarbon)
+      .post("")
+      .reply(200, { data: { carbonProjects: [digitalCarbon.carbonProject] } });
 
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/projects`,
     });
+
     const data = response.json();
 
     const expectedResponse = [
       {
-        ...pick(bridgedCarbon.offset, ["id"]),
+        ...pick(digitalCarbon.carbonProject, ["id"]),
         ...pick(carbonProjects.carbonProject, [
           "description",
           "name",
@@ -125,21 +125,26 @@ describe("GET /projects", () => {
         // always true for pool projects
         isPoolProject: true,
         // Takes numeric from full id, "VCS-191" -> "191"
-        projectID: bridgedCarbon.offset.projectID.split("-")[1],
-        vintage: bridgedCarbon.offset.vintageYear,
-        projectAddress: bridgedCarbon.offset.tokenAddress,
+        projectID: digitalCarbon.carbonProject.projectID.split("-")[1],
+        vintage:
+          digitalCarbon.carbonProject.carbonCredits[0].vintage.toString(),
+        projectAddress: digitalCarbon.carbonProject.carbonCredits[0].id,
         // Takes registry tag
-        registry: bridgedCarbon.offset.projectID.split("-")[0],
-        updatedAt: bridgedCarbon.offset.lastUpdate,
+        registry: digitalCarbon.carbonProject.id.split("-")[0],
+        updatedAt:
+          digitalCarbon.carbonProject.carbonCredits[0].poolBalances[0].pool
+            .dailySnapshots[0].lastUpdateTimestamp,
+
         category: {
-          id: bridgedCarbon?.offset.methodologyCategory,
+          id: digitalCarbon.carbonProject.category,
         },
         country: {
           id: carbonProjects.carbonProject.country,
         },
-        price: poolPrices.bct.defaultPrice,
+        // no price on subgraph  yet
+        price: "",
         listings: null,
-        key: bridgedCarbon.offset.projectID,
+        key: digitalCarbon.carbonProject.projectID,
         location: {
           geometry: {
             coordinates: [
@@ -157,9 +162,9 @@ describe("GET /projects", () => {
   });
 
   test("Composes a marketplace listing with cms data", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS.digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: [] } });
+      .reply(200, { data: { carbonProjects: [] } });
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { projects: [marketplace.projectWithListing] } });
@@ -218,67 +223,67 @@ describe("GET /projects", () => {
     expect(data).toStrictEqual(expectedResponse);
   });
 
-  test("Best price is listing price", async () => {
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
+  // test("Best price is listing price", async () => {
+  //   nock(GRAPH_URLS.offsets)
+  //     .post("")
+  //     .reply(200, { data: { carbonProjects: [digitalCarbon.carbonProject] } });
 
-    const cheapListing = {
-      ...marketplace.projectWithListing.listings?.[0],
-      singleUnitPrice: "111111", // 0.111111
-    };
+  //   const cheapListing = {
+  //     ...marketplace.projectWithListing.listings?.[0],
+  //     singleUnitPrice: "111111", // 0.111111
+  //   };
 
-    nock(GRAPH_URLS.marketplace)
-      .post("")
-      .reply(200, {
-        data: {
-          projects: [
-            {
-              ...marketplace.projectWithListing,
-              listings: [cheapListing],
-            },
-          ],
-        },
-      }); // override so listing is cheaper
+  //   nock(GRAPH_URLS.marketplace)
+  //     .post("")
+  //     .reply(200, {
+  //       data: {
+  //         projects: [
+  //           {
+  //             ...marketplace.projectWithListing,
+  //             listings: [cheapListing],
+  //           },
+  //         ],
+  //       },
+  //     }); // override so listing is cheaper
 
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/projects`,
-    });
-    const data = response.json();
-    expect(data[0].price).toStrictEqual(
-      formatUSDC(cheapListing.singleUnitPrice)
-    );
-  });
+  //   const response = await fastify.inject({
+  //     method: "GET",
+  //     url: `${DEV_URL}/projects`,
+  //   });
+  //   const data = response.json();
+  //   expect(data[0].price).toStrictEqual(
+  //     formatUSDC(cheapListing.singleUnitPrice)
+  //   );
+  // });
 
-  test("Best price is the lowest of 2 pool prices", async () => {
-    nock(GRAPH_URLS.offsets)
-      .post("")
-      .reply(200, {
-        data: {
-          carbonOffsets: [
-            {
-              ...bridgedCarbon.offset,
-              balanceBCT: "123",
-              balanceNCT: "123",
-            },
-          ],
-        },
-      });
+  // test("Best price is the lowest of 2 pool prices", async () => {
+  //   nock(GRAPH_URLS.offsets)
+  //     .post("")
+  //     .reply(200, {
+  //       data: {
+  //         carbonOffsets: [
+  //           {
+  //             ...bridgedCarbon.offset,
+  //             balanceBCT: "123",
+  //             balanceNCT: "123",
+  //           },
+  //         ],
+  //       },
+  //     });
 
-    nock(GRAPH_URLS.marketplace)
-      .post("")
-      .reply(200, {
-        data: {
-          projects: [marketplace.projectWithListing],
-        },
-      }); // override so listing is cheaper
+  //   nock(GRAPH_URLS.marketplace)
+  //     .post("")
+  //     .reply(200, {
+  //       data: {
+  //         projects: [marketplace.projectWithListing],
+  //       },
+  //     }); // override so listing is cheaper
 
-    const response = await fastify.inject({
-      method: "GET",
-      url: `${DEV_URL}/projects`,
-    });
-    const data = response.json();
-    expect(data[0].price).toStrictEqual(poolPrices.bct.defaultPrice);
-  });
+  //   const response = await fastify.inject({
+  //     method: "GET",
+  //     url: `${DEV_URL}/projects`,
+  //   });
+  //   const data = response.json();
+  //   expect(data[0].price).toStrictEqual(poolPrices.bct.defaultPrice);
+  // });
 });

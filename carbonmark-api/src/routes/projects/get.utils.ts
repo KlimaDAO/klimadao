@@ -264,7 +264,8 @@ export const composeProjectEntries = (
         poolBalances?.carbonCredits[0].vintage.toString() ??
         market?.vintage ??
         "",
-      projectAddress: poolBalances?.id ?? market?.projectAddress,
+      projectAddress:
+        poolBalances?.carbonCredits?.[0].id ?? market?.projectAddress,
       updatedAt: pickUpdatedAt(data),
       // price: pickBestPrice(data, poolPrices),
       price: pickBestPrice(data, poolPrices),

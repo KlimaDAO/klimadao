@@ -14,22 +14,24 @@ type PartialCarbonPoolCreditBalance = Partial<CarbonPoolCreditBalance>;
 type PartialCarbonPoolDailySnapshot = Partial<CarbonPoolDailySnapshot>;
 
 const creditBalance: PartialCarbonPoolCreditBalance = {
-  id: "0xaa7dbd1598251f856c12f63557a4c4397c253ceaaa7dbd1598251f856c12f63557a4c4397c253cea",
+  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
 };
 
 const dailySnapshot: PartialCarbonPoolDailySnapshot = {
+  // Note: You did not provide a new value for this id, so it remains the same.
   id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea014b0000",
+  lastUpdateTimestamp: "1628582400",
 };
 
 const poolBalance: PartialCarbonPoolCreditBalance = {
-  balance: "0",
-  id: "0xaa7dbd1598251f856c12f63557a4c4397c253ceaaa7dbd1598251f856c12f63557a4c4397c253cea",
-  deposited: "0",
-  redeemed: "0",
+  balance: "320307910491148199345054",
+  id: "0x2f800db0fdb5223b3c3f354886d907a671414a7fb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  deposited: "320308000000000000000000",
+  redeemed: "89508851800654946",
   pool: {
-    name: "Moss Carbon Credit (PoS)",
-    supply: "312781489636583528430443",
-    id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+    name: "Toucan Protocol: Base Carbon Tonne",
+    supply: "18546102526284342155938612",
+    id: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
     decimals: 18,
     creditBalances: [creditBalance as CarbonPoolCreditBalance],
     crossChainSupply: "0",
@@ -40,23 +42,23 @@ const poolBalance: PartialCarbonPoolCreditBalance = {
 type PartialCarbonCredit = Partial<CarbonCredit>;
 
 const carbonCredit: PartialCarbonCredit = {
-  vintage: 2021,
-  currentSupply: "312781489636583528430443",
-  id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+  vintage: 2011,
+  currentSupply: "320308000000000000000000",
+  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
   crossChainSupply: "0",
-  bridgeProtocol: BridgeProtocol.Moss,
-  bridged: "863113930784517728586729",
-  retired: "17078058859699017192441",
+  bridgeProtocol: BridgeProtocol.Toucan,
+  bridged: "320308000000000000000000",
+  retired: "0",
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
 };
 
 const carbonProject = aCarbonProject({
-  id: "Moss",
-  name: "",
-  projectID: "Moss",
-  methodologies: "",
-  country: "",
-  category: "",
+  id: "VCS-191",
+  name: "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
+  projectID: "VCS-191",
+  methodologies: "ACM0002",
+  country: "China",
+  category: "Renewable Energy",
   registry: Registry.Verra,
   region: "",
   carbonCredits: [carbonCredit as CarbonCredit],
