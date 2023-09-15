@@ -71,7 +71,7 @@ export const fetchMarketplaceListings = async ({
 
   const users = await getUserDocumentsByIds(fastify.firebase, ids);
   const usersById = new Map(
-    users?.map((user) => [user.wallet.toUpperCase(), user])
+    users?.map((user) => [user.address.toUpperCase(), user])
   );
 
   const listingsWithProfiles = formattedListings.map((listing) => {
@@ -99,5 +99,6 @@ export const fetchMarketplaceListings = async ({
     }
     return activityWithHandles;
   });
+
   return [listingsWithProfiles, activitiesWithProfiles];
 };

@@ -23,16 +23,21 @@ const handler = (fastify: FastifyInstance) =>
       registryProjectId,
       projectId: key,
     } = new CreditId(id);
-
-    const [[poolPrices, stats], [listings, activities], projectDetails] =
-      await Promise.all([
-        fetchPoolPricesAndStats({ key, vintage }),
-        fetchMarketplaceListings({ key, vintage, fastify }),
-        fetchCarbonProject({
-          registry,
-          registryProjectId,
-        }),
-      ]);
+    let poolPrices, stats, listings, activities, projectDetails;
+    try {
+      [[poolPrices, stats], [listings, activities], projectDetails] =
+        await Promise.all([
+          fetchPoolPricesAndStats({ key, vintage }),
+          fetchMarketplaceListings({ key, vintage, fastify }),
+          fetchCarbonProject({
+            registry,
+            registryProjectId,
+          }),
+        ]);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
 
     if (!projectDetails) {
       // only render pages if project details exist (render even if there are no listings!)

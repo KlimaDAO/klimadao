@@ -1,6 +1,15 @@
 import { app } from "firebase-admin";
 import { chunk, isEmpty } from "lodash";
 
+type FbUserDocument = {
+  profileImgUrl: string;
+  description: string;
+  handle: string;
+  username: string;
+  address: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
  * @param {app.App} fb - The Firebase app instance.
@@ -23,7 +32,7 @@ export const getUserByWallet = async (
 export const getUserDocumentsByIds = async (
   firebase: app.App,
   userIds: string[]
-): Promise<FirebaseFirestore.DocumentData[] | undefined> => {
+): Promise<FbUserDocument[] | undefined> => {
   // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
   if (!isEmpty(userIds)) {
     const ids = Array.from(userIds);
@@ -40,9 +49,12 @@ export const getUserDocumentsByIds = async (
       )
     );
 
-    return snapshots
-      .flatMap((snapshot) => snapshot.docs)
-      .map((doc) => doc.data());
+    return (
+      snapshots
+        .flatMap((snapshot) => snapshot.docs)
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- need to find a way to enforce typing on firebase
+        .map((doc) => doc.data() as FbUserDocument)
+    );
   }
 };
 
