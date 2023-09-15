@@ -1,88 +1,101 @@
-import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
-import {
-  getCeloDailyCarbonMetrics,
-  getEthDailyCarbonMetrics,
-  getPolygonDailyCarbonMetrics,
-} from "lib/charts/aggregators/getCarbonMetrics";
+import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { getCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
+import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
-import { ChartConfigurationItem } from "../helpers/Configuration";
-import Chart, { ChartKey } from "./Chart";
+import Chart from "./Chart";
 
-const BCT_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
-  id: "bct_supply",
-  label: "BCT",
-  color: palette.charts.color5,
-  legendOrder: 1,
-};
-const NCT_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
-  id: "nct_supply",
-  label: "NCT",
-  color: palette.charts.color4,
-  legendOrder: 2,
-};
-const MCO2_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
-  id: "mco2_supply",
-  label: "MCO2",
-  color: palette.charts.color3,
-  legendOrder: 3,
-};
-const UBO_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
-  id: "ubo_supply",
-  label: "UBO",
-  color: palette.charts.color2,
-  legendOrder: 4,
-};
-const NBO_CHART_OPTIONS: ChartConfigurationItem<ChartKey> = {
-  id: "nbo_supply",
-  label: "NBO",
-  color: palette.charts.color1,
-  legendOrder: 5,
-};
 /** Polygon carbon Supply chart */
 export async function DailyPolygonCarbonSupplyChart() {
-  const data = await getPolygonDailyCarbonMetrics();
-  const configuration: SimpleChartConfigurationFromType<ChartKey> = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
-      chartOptions: BCT_CHART_OPTIONS,
+      chartOptions: {
+        id: "bct_supply_polygon",
+        label: "BCT",
+        color: palette.charts.color5,
+        legendOrder: 1,
+      },
     },
     {
-      chartOptions: NCT_CHART_OPTIONS,
+      chartOptions: {
+        id: "nct_supply_polygon",
+        label: "NCT",
+        color: palette.charts.color4,
+        legendOrder: 2,
+      },
     },
     {
-      chartOptions: MCO2_CHART_OPTIONS,
+      chartOptions: {
+        id: "mco2_supply_polygon",
+        label: "MCO2",
+        color: palette.charts.color3,
+        legendOrder: 3,
+      },
     },
-    { chartOptions: UBO_CHART_OPTIONS },
     {
-      chartOptions: NBO_CHART_OPTIONS,
+      chartOptions: {
+        id: "ubo_supply_polygon",
+        label: "UBO",
+        color: palette.charts.color2,
+        legendOrder: 4,
+      },
+    },
+    {
+      chartOptions: {
+        id: "nbo_supply_polygon",
+        label: "NBO",
+        color: palette.charts.color1,
+        legendOrder: 5,
+      },
     },
   ];
+  const data = await getCarbonMetrics(configuration);
   return <Chart data={data} configuration={configuration} />;
 }
 
 /** Eth carbon Supply chart */
 export async function DailyEthCarbonSupplyChart() {
-  const data = await getEthDailyCarbonMetrics();
-  const configuration: SimpleChartConfigurationFromType<ChartKey> = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
-      chartOptions: MCO2_CHART_OPTIONS,
+      chartOptions: {
+        id: "mco2_supply_eth",
+        label: "MCO2",
+        color: palette.charts.color3,
+        legendOrder: 3,
+      },
     },
   ];
+  const data = await getCarbonMetrics(configuration);
   return <Chart data={data} configuration={configuration} />;
 }
 
 /** Celo carbon Supply chart */
 export async function DailyCeloCarbonSupplyChart() {
-  const data = await getCeloDailyCarbonMetrics();
-  const configuration: SimpleChartConfigurationFromType<ChartKey> = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
-      chartOptions: BCT_CHART_OPTIONS,
+      chartOptions: {
+        id: "bct_supply_celo",
+        label: "BCT",
+        color: palette.charts.color5,
+        legendOrder: 1,
+      },
     },
     {
-      chartOptions: NCT_CHART_OPTIONS,
+      chartOptions: {
+        id: "nct_supply_celo",
+        label: "NCT",
+        color: palette.charts.color3,
+        legendOrder: 2,
+      },
     },
     {
-      chartOptions: MCO2_CHART_OPTIONS,
+      chartOptions: {
+        id: "mco2_supply_celo",
+        label: "MCO2",
+        color: palette.charts.color1,
+        legendOrder: 3,
+      },
     },
   ];
+  const data = await getCarbonMetrics(configuration);
   return <Chart data={data} configuration={configuration} />;
 }

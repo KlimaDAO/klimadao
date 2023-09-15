@@ -1,14 +1,7 @@
 import { t } from "@lingui/macro";
-import {
-  getEthLatestCarbonMetrics,
-  getPolygonLatestCarbonMetrics,
-} from "lib/charts/aggregators/getCarbonMetrics";
+import { getLatestCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
 import { formatPercentage, formatTonnes } from "lib/charts/helpers";
-import {
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-  Token,
-} from "lib/charts/types";
+import { CarbonMetricsItem, Token } from "lib/charts/types";
 import { TOKENS } from "lib/constants";
 import { getTokenFullName, getTokenIcon } from "lib/tokens";
 import {
@@ -22,10 +15,7 @@ import {
 export default async function KlimaDAORetirementsByPoolOverviewChart(props: {
   layout: CoinTilesLayout;
 }) {
-  const polygonMetrics: DailyPolygonCarbonMetricsItem =
-    await getPolygonLatestCarbonMetrics();
-  const ethMetrics: DailyEthCarbonMetricsItem =
-    await getEthLatestCarbonMetrics();
+  const metrics: CarbonMetricsItem = await getLatestCarbonMetrics();
 
   const coinTilesData: CoinTilesData = [];
   for (let i = 0; i < TOKENS.length; i++) {
@@ -33,20 +23,20 @@ export default async function KlimaDAORetirementsByPoolOverviewChart(props: {
     // Redeemed
     let tonnesRedeemed;
     if (token == "mco2") {
-      tonnesRedeemed = ethMetrics.mco2_retired;
+      tonnesRedeemed = metrics.mco2_retired_eth;
     } else {
       tonnesRedeemed =
-        polygonMetrics[
-          `${token}_redeemed` as Extract<
-            keyof DailyPolygonCarbonMetricsItem,
+        metrics[
+          `${token}_redeemed_polygon` as Extract<
+            keyof CarbonMetricsItem,
             number
           >
         ];
     }
     const tonnesRedeemedViaKlimadao =
-      polygonMetrics[
-        `${token}_klima_retired` as Extract<
-          keyof DailyPolygonCarbonMetricsItem,
+      metrics[
+        `${token}_klima_retired_polygon` as Extract<
+          keyof CarbonMetricsItem,
           number
         >
       ];

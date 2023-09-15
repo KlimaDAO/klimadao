@@ -1,93 +1,35 @@
-import { queryDailyCarbonMetrics } from "lib/charts/queries";
-import {
-  DailyCarbonMetricsItem,
-  DailyCeloCarbonMetricsItem,
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-} from "lib/charts/types";
+import { queryCarbonMetrics } from "lib/charts/queries";
+import { CarbonMetricsItem } from "lib/charts/types";
 import { SimpleChartConfiguration } from ".";
-import { monthlySample, transformToPercentages } from "../helpers";
+import { pruneNullRows, transformToPercentages } from "../helpers";
 
-const dailyParams = {
-  sort_by: "date",
-  sort_order: "asc",
-  page_size: -1,
-};
-
-const latestParams = {
-  sort_by: "date",
-  sort_order: "desc",
-  page_size: 1,
-};
-
-/* Fetches Polygon daily carbon metrics  */
-export async function getPolygonDailyCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyPolygonCarbonMetricsItem>(
-      "polygon",
-      dailyParams
-    )
-  ).items;
-}
-
-/* Fetches Eth daily carbon metrics  */
-export async function getEthDailyCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyEthCarbonMetricsItem>("eth", dailyParams)
-  ).items;
-}
-
-/* Fetches Celo daily carbon metrics  */
-export async function getCeloDailyCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyCeloCarbonMetricsItem>(
-      "celo",
-      dailyParams
-    )
-  ).items;
+/* Fetches daily carbon metrics  */
+export async function getCarbonMetrics(
+  configuration: SimpleChartConfiguration<CarbonMetricsItem>
+) {
+  const data = await queryCarbonMetrics<CarbonMetricsItem>("all", {
+    sort_by: "date",
+    sort_order: "asc",
+    page_size: -1,
+    sample: "monthly",
+  });
+  return pruneNullRows(data.items, configuration);
 }
 
 /* Fetches Polygon latest carbon metrics  */
-export async function getPolygonLatestCarbonMetrics() {
+export async function getLatestCarbonMetrics() {
   return (
-    await queryDailyCarbonMetrics<DailyPolygonCarbonMetricsItem>(
-      "polygon",
-      latestParams
-    )
+    await queryCarbonMetrics<CarbonMetricsItem>("all", {
+      sort_by: "date",
+      sort_order: "desc",
+      page_size: 1,
+    })
   ).items[0];
 }
 
-/* Fetches Eth latest carbon metrics  */
-export async function getEthLatestCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyEthCarbonMetricsItem>(
-      "eth",
-      latestParams
-    )
-  ).items[0];
-}
-
-/* Fetches Celo latest carbon metrics  */
-export async function getCeloLatestCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyCeloCarbonMetricsItem>(
-      "celo",
-      latestParams
-    )
-  ).items[0];
-}
-
-/* Fetches All carbon metrics  */
-export async function getDailyCarbonMetrics() {
-  return (
-    await queryDailyCarbonMetrics<DailyCarbonMetricsItem>(
-      "all",
-      dailyParams
-    )
-  ).items;
-}
-
-export async function getTokenCarbonMetricsInPercent(configuration: SimpleChartConfiguration<DailyCarbonMetricsItem>) {
-  const data = await getDailyCarbonMetrics()
-  return transformToPercentages(monthlySample(data, "date"), configuration);
+export async function getTokenCarbonMetricsInPercent(
+  configuration: SimpleChartConfiguration<CarbonMetricsItem>
+) {
+  const data = await getCarbonMetrics(configuration);
+  return transformToPercentages(data, configuration);
 }

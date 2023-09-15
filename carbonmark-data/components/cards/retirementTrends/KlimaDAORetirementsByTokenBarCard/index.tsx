@@ -2,19 +2,19 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import KlimaDAORetirementsByTokenBarChart from "components/charts/KlimaDAORetirementsByTokenBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
-import { DailyCarbonMetricsItem } from "lib/charts/types";
+import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 /** Klima DAO Retirements by pool Card */
 export default function KlimaDAORetirementsByTokenBarCard(props: CardProps) {
-  const dateField = "date"
-  const configuration: SimpleChartConfiguration<DailyCarbonMetricsItem> = [
+  const dateField = "date";
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
         id: "c3t_retired_polygon",
         label: "C3T",
         color: palette.charts.color1,
         legendOrder: 1,
-      }
+      },
     },
     {
       chartOptions: {
@@ -22,16 +22,16 @@ export default function KlimaDAORetirementsByTokenBarCard(props: CardProps) {
         label: "TCO2",
         color: palette.charts.color3,
         legendOrder: 2,
-      }
-        },
+      },
+    },
     {
       chartOptions: {
         id: "mco2_retired_eth",
         label: "MCO2",
         color: palette.charts.color5,
         legendOrder: 3,
-      }
-        },
+      },
+    },
   ];
 
   const chart = (

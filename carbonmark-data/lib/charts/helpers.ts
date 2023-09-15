@@ -153,21 +153,18 @@ export function transformToPercentages<CI>(
   return data;
 }
 /** 
-  This function returns a monthly sample of ChartData
+  Returns chart data where there are no rows with all charted data equals 0
 */
-export function monthlySample<CI>(
+export function pruneNullRows<CI>(
   data: ChartData<CI>,
-  dateField: keyof CI
+  configuration: SimpleChartConfiguration<CI>
 ): ChartData<CI> {
-  const res = [] as ChartData<CI>;
-  data.forEach((item) => {
-    const date = new Date(item[dateField] as string);
-    if (date.getDate() == 1) {
-      res.push(item);
-    }
-    
+  return data.filter((item) => {
+    return configuration.some((conf) => {
+      const value = item[conf.chartOptions.id];
+      return Number(value) != 0;
+    });
   });
-  return res;
 }
 
 // Common formatters

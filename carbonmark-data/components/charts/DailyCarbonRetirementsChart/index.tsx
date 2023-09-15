@@ -1,18 +1,16 @@
 import { t } from "@lingui/macro";
-import {
-  getEthDailyCarbonMetrics,
-  getPolygonDailyCarbonMetrics,
-} from "lib/charts/aggregators/getCarbonMetrics";
+import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { getCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
+import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 import Chart from "./Chart";
 
 /** Polygon carbon Retirements chart */
 export async function DailyPolygonCarbonRetirementsChart() {
-  const data = await getPolygonDailyCarbonMetrics();
-  const configuration = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
-        id: "total_klima_retirements",
+        id: "total_klima_retirements_polygon",
         label: t`Retired via KlimaDAO`,
         color: palette.charts.color5,
         legendOrder: 1,
@@ -20,29 +18,29 @@ export async function DailyPolygonCarbonRetirementsChart() {
     },
     {
       chartOptions: {
-        id: "not_klima_retired",
+        id: "not_klima_retired_polygon",
         label: t`Retired outside of KlimaDAO`,
         color: palette.charts.color1,
         legendOrder: 2,
       },
     },
   ];
-
+  const data = await getCarbonMetrics(configuration);
   return <Chart data={data} configuration={configuration} />;
 }
 
 /** Polygon carbon Supply chart */
 export async function DailyEthCarbonRetirementsChart() {
-  const data = await getEthDailyCarbonMetrics();
-  const configuration = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
-        id: "total_retirements",
+        id: "total_retirements_eth",
         label: t`Retired outside of KlimaDAO`,
         color: palette.charts.color5,
         legendOrder: 1,
       },
     },
   ];
+  const data = await getCarbonMetrics(configuration);
   return <Chart data={data} configuration={configuration} />;
 }

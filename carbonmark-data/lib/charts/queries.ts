@@ -2,6 +2,7 @@ import { urls } from "lib/constants";
 import {
   AggregatedCredits,
   AggregationQueryParams,
+  CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
   DailyCredits,
@@ -149,9 +150,9 @@ export const queryRawKlimaRetirements = function (
 /** Queries the Carbon Metrics endpoint
  * RI is either DailyPolygonCarbonMetricsItem, DailyCeloCarbonMetricsItem or DailyEthCarbonMetricsItem
  */
-export function queryDailyCarbonMetrics<RI>(
+export function queryCarbonMetrics<RI>(
   chain: Chain,
-  params: PaginationQueryParams
+  params: PaginationQueryParams & CarbonMetricsQueryParams
 ): Promise<PaginatedResponse<RI>> {
   return paginatedQuery<RI, typeof params>(
     `${urls.api.dailyCarbonMetrics}/${chain}`,

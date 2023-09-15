@@ -7,6 +7,8 @@ import Chart from "./Chart";
 export default async function KlimaDAORetirementsByPoolBarChart(props: {
   configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>;
 }) {
-  const data = await getKlimaMonthlyRetirementsByPoolInPercent(props.configuration);
+  const data = await getKlimaMonthlyRetirementsByPoolInPercent(
+    props.configuration
+  );
   return <Chart configuration={props.configuration} data={data} />;
 }
