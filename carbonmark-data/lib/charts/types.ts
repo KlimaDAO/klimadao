@@ -2,9 +2,11 @@ import { Key } from "react";
 
 // API level Query parameters
 export const BRIDGES = ["toucan", "c3", "moss"];
+export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
 export type Token = (typeof TOKENS)[number];
+export type Chain = (typeof CHAIN)[number];
 
 export type DateField =
   | "bridged_date"
@@ -22,7 +24,9 @@ export type Pool = "ubo" | "nbo" | "nct" | "bct";
 export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
-
+export interface CarbonSupplyQueryParams {
+  chain: Chain;
+}
 export interface CreditsQueryParams {
   bridge?: Bridge;
   pool?: Pool;
@@ -50,6 +54,63 @@ export interface DailyCreditsItem {
   quantity: number;
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+
+export interface AggregatedCreditsByProjectsItem {
+  project_type: string;
+  quantity: number;
+}
+export type AggregatedCreditsByProjects =
+  PaginatedResponse<AggregatedCreditsByProjects>;
+export interface DailyPolygonCarbonMetricsItem {
+  date: string;
+  bct_supply: number;
+  nct_supply: number;
+  mco2_supply: number;
+  ubo_supply: number;
+  nbo_supply: number;
+  bct_redeemed: number;
+  nct_redeemed: number;
+  ubo_redeemed: number;
+  nbo_redeemed: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  tco2_retired: number;
+  c3t_retired: number;
+  total_retirements: number;
+  bct_klima_retired: number;
+  nct_klima_retired: number;
+  mco2_klima_retired: number;
+  ubo_klima_retired: number;
+  nco_klima_retired: number;
+  total_klima_retirements: number;
+  tco2_klima_retired: number;
+  c3t_klima_retired: number;
+  not_klima_retired: number;
+}
+export type DailyPolygonCarbonMetrics =
+  PaginatedResponse<DailyPolygonCarbonMetricsItem>;
+
+export interface DailyEthCarbonMetricsItem {
+  date: string;
+  mco2_supply: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  total_retirements: number;
+}
+export type DailyEthCarbonMetrics =
+  PaginatedResponse<DailyEthCarbonMetricsItem>;
+
+export interface DailyCeloCarbonMetricsItem {
+  date: string;
+  bct_supply: number;
+  nct_supply: number;
+  mco2_supply: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  total_retirements: number;
+}
+export type DailyCeloCarbonMetrics =
+  PaginatedResponse<DailyCeloCarbonMetricsItem>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -160,6 +221,14 @@ export interface AggregatedCreditsChartDataItem
 
 export type AggregatedCreditsChartData =
   ChartData<AggregatedCreditsChartDataItem>;
+
+// Chat Data: Treemaps
+export interface TreeMapItem {
+  name: string;
+  size?: number;
+  children?: TreeMapData;
+}
+export type TreeMapData = Array<TreeMapItem>;
 
 // Chart dictionnary for cards
 export type ChartDictionnary = Record<Key, React.ReactNode>;

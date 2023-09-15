@@ -25,7 +25,7 @@ export const ProjectCard: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const methodologies = props.project?.methodologies?.map(
-    pipe(get("category"), asCategoryName, uniq)
+    pipe(get("category"), asCategoryName)
   );
 
   return (

@@ -7,7 +7,7 @@ import layout from "theme/layout.module.scss";
 export default function PriceOfDigitalCarbonPage() {
   return (
     <DetailPage
-      pageTitle={t`Price of Digital Carbon`}
+      pageTitle={t`Price of digital carbon`}
       card={
         <div className={layout.cardStackedRows}>
           <HistoricalPriceCard isDetailPage={true}></HistoricalPriceCard>
