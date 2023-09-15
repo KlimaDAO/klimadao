@@ -1,3 +1,4 @@
+import KlimaRetirementsByBeneficiaryListConfiguration from "./KlimaRetirementsByBeneficiaryListConfiguration";
 import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
 import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 import KlimaRetirementsByTokenListConfiguration from "./KlimaRetirementsByTokenListConfiguration";
@@ -6,6 +7,8 @@ const configurations = {
     new KlimaRetirementsByPoolSummaryConfiguration(),
   KlimaRetirementsByPoolList: new KlimaRetirementsByPoolListConfiguration(),
   KlimaRetirementsByTokenList: new KlimaRetirementsByTokenListConfiguration(),
+  KlimaRetirementsByBeneficiaryList:
+    new KlimaRetirementsByBeneficiaryListConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
 function getConfiguration(key: ConfigurationKey) {

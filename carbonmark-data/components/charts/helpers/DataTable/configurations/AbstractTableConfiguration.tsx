@@ -25,7 +25,6 @@ export default abstract class TableConfiguration<RI> {
   VerticalTableLayout(props: { data: PaginatedResponse<RI> }) {
     const columns = this.getColumns();
     const columnKeys = Object.keys(columns);
-
     return (
       <table className={styles.table}>
         <thead>

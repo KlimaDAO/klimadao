@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import ChartCard from "components/cards/ChartCard";
+import KlimaDAORetirementsByBeneficiaryListCard from "components/cards/retirementTrends/KlimaDAORetirementsByBeneficiaryListCard";
 import DetailPage from "components/pages/DetailPage";
 /**
  * A UI layout component to position Retirement Trends pages content
@@ -8,10 +8,7 @@ export default function RetirementTrendsByBeneficiaryTab() {
   return (
     <DetailPage
       card={
-        <ChartCard
-          isColumnCard={true}
-          title="Carbon pool redemptions / retirements"
-        />
+        <KlimaDAORetirementsByBeneficiaryListCard></KlimaDAORetirementsByBeneficiaryListCard>
       }
       overview={t`Lorem Ipsum`}
       insights={{
