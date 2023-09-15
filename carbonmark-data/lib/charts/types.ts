@@ -4,9 +4,11 @@ import { Key } from "react";
 export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
+export const PROTOCOLS = ["c3t", "tco2", "mco2"];
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
-export type Token = (typeof TOKENS)[number];
 export type Chain = (typeof CHAIN)[number];
+export type Token = (typeof TOKENS)[number];
+export type Protocol = (typeof PROTOCOLS)[number];
 
 export type DateField =
   | "bridged_date"
