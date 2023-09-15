@@ -7,9 +7,7 @@ import DetailPage from "components/pages/DetailPage";
 export default function RetirementTrendsByBeneficiaryTab() {
   return (
     <DetailPage
-      card={
-        <KlimaDAORetirementsByBeneficiaryListCard></KlimaDAORetirementsByBeneficiaryListCard>
-      }
+      card={<KlimaDAORetirementsByBeneficiaryListCard />}
       overview={t`Lorem Ipsum`}
       insights={{
         content: t`Lorem Ipsum`,

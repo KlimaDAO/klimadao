@@ -9,7 +9,7 @@ export default function KlimaDAORetirementsByPoolSummaryCard(props: CardProps) {
     <DataTable
       configurationKey="KlimaRetirementsByPoolSummary"
       withPagination={false}
-    ></DataTable>
+    />
   );
 
   return (

@@ -10,18 +10,10 @@ export default function RetirementTrendsByTokenTab() {
   return (
     <TwoColumnRetirementTrendsTab
       leftColumn={[
-        <KlimaDAORetirementsByTokenBarCard
-          key={0}
-        ></KlimaDAORetirementsByTokenBarCard>,
-        <KlimaDAORetirementsByTokenListCard
-          key={1}
-        ></KlimaDAORetirementsByTokenListCard>,
+        <KlimaDAORetirementsByTokenBarCard key={0} />,
+        <KlimaDAORetirementsByTokenListCard key={1} />,
       ]}
-      rightColumn={[
-        <KlimaDAORetirementsByTokenOverviewCard
-          key={1}
-        ></KlimaDAORetirementsByTokenOverviewCard>,
-      ]}
+      rightColumn={[<KlimaDAORetirementsByTokenOverviewCard key={1} />]}
     />
   );
 }

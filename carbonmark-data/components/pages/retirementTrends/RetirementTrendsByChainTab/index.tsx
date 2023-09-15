@@ -1,4 +1,4 @@
-import ChartCard from "components/cards/ChartCard";
+import KlimaDAORetirementsByChainBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainBarCard";
 import KlimaDAORetirementsByChainListCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainListCard";
 import KlimaDAORetirementsByChainOverviewCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainOverviewCard";
 import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
@@ -10,14 +10,10 @@ export default function RetirementTrendsByChainTab() {
   return (
     <TwoColumnRetirementTrendsTab
       leftColumn={[
-        <ChartCard key={0} isColumnCard={true} title="Retirements by chain" />,
-        <KlimaDAORetirementsByChainListCard
-          key={1}
-        ></KlimaDAORetirementsByChainListCard>,
+        <KlimaDAORetirementsByChainBarCard key={0} />,
+        <KlimaDAORetirementsByChainListCard key={1} />,
       ]}
-      rightColumn={[
-        <KlimaDAORetirementsByChainOverviewCard></KlimaDAORetirementsByChainOverviewCard>,
-      ]}
+      rightColumn={[<KlimaDAORetirementsByChainOverviewCard key={0} />]}
     />
   );
 }

@@ -8,7 +8,7 @@ export default function KlimaDAORetirementsByTokenOverviewCard(
 ) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <KlimaDAORetirementsByTokenOverviewChart></KlimaDAORetirementsByTokenOverviewChart>
+    <KlimaDAORetirementsByTokenOverviewChart />
   );
 
   return (

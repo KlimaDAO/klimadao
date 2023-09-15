@@ -1,12 +1,11 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import KlimaDAORetirementsByTokenBarChart from "components/charts/KlimaDAORetirementsByTokenBarChart";
+import KlimaDAORetirementsByChainBarChart from "components/charts/KlimaDAORetirementsByChainBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 /** Klima DAO Retirements by pool Card */
-export default function KlimaDAORetirementsByTokenBarCard(props: CardProps) {
-  const dateField = "date";
+export default function KlimaDAORetirementsByChainBarCard(props: CardProps) {
   const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
@@ -36,7 +35,7 @@ export default function KlimaDAORetirementsByTokenBarCard(props: CardProps) {
 
   const chart = (
     /* @ts-expect-error async Server component */
-    <KlimaDAORetirementsByTokenBarChart configuration={configuration} />
+    <KlimaDAORetirementsByChainBarChart configuration={configuration} />
   );
 
   return (

@@ -3,7 +3,7 @@ import {
   Bridge,
   ChartMappingParams,
   CreditsQueryParams,
-  KlimaMonthlyRetirementsItem,
+  KlimaMonthlyRetirementsByTokenItem,
 } from "lib/charts/types";
 import { SimpleChartConfiguration } from ".";
 import { transformToPercentages } from "../helpers";
@@ -17,7 +17,7 @@ export type AggregatedCreditsChartConfiguration = ChartConfiguration<
 
 /* Fetches query retirements information and transform quantities into percentages to be used in a chart */
 export async function getKlimaMonthlyRetirementsByPool(
-  configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsItem>
+  configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsByTokenItem>
 ) {
   const data = (
     await queryKlimaMonthlyRetirementsByPool({

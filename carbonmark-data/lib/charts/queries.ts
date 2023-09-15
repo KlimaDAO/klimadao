@@ -7,7 +7,8 @@ import {
   CreditsQueryParams,
   DailyCredits,
   DailyCreditsItem,
-  KlimaMonthlyRetirementsItem,
+  KlimaMonthlyRetirementsByOriginItem,
+  KlimaMonthlyRetirementsByTokenItem,
   KlimaRetirementsByBeneficiaryItem,
   PaginatedResponse,
   PaginationQueryParams,
@@ -131,11 +132,21 @@ export const queryTokenInfo = async function (
 /** Queries the monthly aggregated Klima retirements endpoint */
 export const queryKlimaMonthlyRetirementsByPool = async function (
   params: PaginationQueryParams
-): Promise<PaginatedResponse<KlimaMonthlyRetirementsItem>> {
-  return paginatedQuery<KlimaMonthlyRetirementsItem, PaginationQueryParams>(
-    urls.api.klimaMonthlyRetirementsByPool,
-    params
-  );
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>> {
+  return paginatedQuery<
+    KlimaMonthlyRetirementsByTokenItem,
+    PaginationQueryParams
+  >(urls.api.klimaMonthlyRetirementsByPool, params);
+};
+
+/** Queries the Credits Daily Aggregations endpoint */
+export const queryMonthlyRetirementsByOrigin = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsByOriginItem>> {
+  return paginatedQuery<
+    KlimaMonthlyRetirementsByOriginItem,
+    PaginationQueryParams
+  >(urls.api.allMonthlyRetirementsByOrigin, params);
 };
 
 /** Queries the Klima raw retirements endpoint */

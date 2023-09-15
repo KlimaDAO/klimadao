@@ -11,19 +11,11 @@ export default function RetirementTrendsByPoolTab() {
   return (
     <TwoColumnRetirementTrendsTab
       leftColumn={[
-        <KlimaDAORetirementsByPoolBarCard
-          key={0}
-        ></KlimaDAORetirementsByPoolBarCard>,
-        <KlimaDAORetirementsByPoolSummaryCard
-          key={1}
-        ></KlimaDAORetirementsByPoolSummaryCard>,
-        <KlimaDAORetirementsByPoolListCard
-          key={2}
-        ></KlimaDAORetirementsByPoolListCard>,
+        <KlimaDAORetirementsByPoolBarCard key={0} />,
+        <KlimaDAORetirementsByPoolSummaryCard key={1} />,
+        <KlimaDAORetirementsByPoolListCard key={2} />,
       ]}
-      rightColumn={[
-        <KlimaDAORetirementsByPoolOverviewCard></KlimaDAORetirementsByPoolOverviewCard>,
-      ]}
+      rightColumn={[<KlimaDAORetirementsByPoolOverviewCard key={0} />]}
     />
   );
 }

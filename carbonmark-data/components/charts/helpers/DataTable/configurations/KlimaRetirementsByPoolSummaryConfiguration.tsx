@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import { helpers } from "lib/charts";
 import { queryKlimaMonthlyRetirementsByPool } from "lib/charts/queries";
 import {
-  KlimaMonthlyRetirementsItem,
+  KlimaMonthlyRetirementsByTokenItem,
   PaginatedResponse,
 } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 
 import { Columns } from "./types";
 
-export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsItem> {
+export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsByTokenItem> {
   async fetchFunction(_page: number) {
     const data = await queryKlimaMonthlyRetirementsByPool({
       sort_by: "retirement_date",
@@ -24,7 +24,7 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
     );
     return data;
   }
-  getColumns(): Columns<KlimaMonthlyRetirementsItem> {
+  getColumns(): Columns<KlimaMonthlyRetirementsByTokenItem> {
     const locale = currentLocale();
     return {
       retirement_date: {
@@ -50,7 +50,10 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
         header: t`Avg tonnes per transaction`,
         cellStyle: styles.row,
         dataKey: "number_of_retirements",
-        formatter: (x: string | number, item: KlimaMonthlyRetirementsItem) => {
+        formatter: (
+          x: string | number,
+          item: KlimaMonthlyRetirementsByTokenItem
+        ) => {
           return helpers.formatTonnes({
             amount: item.amount_retired / item.number_of_retirements,
           });
@@ -59,14 +62,14 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
     };
   }
   desktopRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsItem>;
+    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
   }) => {
     return this.HorizontalTableLayout({
       data: props.data,
     });
   };
   mobileRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsItem>;
+    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
   }) => {
     return this.VerticalTableLayout({
       data: props.data,

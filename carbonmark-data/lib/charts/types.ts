@@ -129,7 +129,7 @@ export interface TokenInfo {
 }
 export type TokensInfo = PaginatedResponse<TokenInfo>;
 
-export interface KlimaMonthlyRetirementsItem {
+export interface KlimaMonthlyRetirementsByTokenItem {
   retirement_date: string;
   token: string;
   amount_retired: number;
@@ -145,8 +145,27 @@ export interface KlimaMonthlyRetirementsItem {
   amount_retired_nbo: number;
   number_of_retirements_nbo: number;
 }
-export type KlimaMonthlyRetirements =
-  PaginatedResponse<KlimaMonthlyRetirementsItem>;
+export type KlimaMonthlyRetirementsBytoken =
+  PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
+
+export interface KlimaMonthlyRetirementsByOriginItem {
+  retirement_date: string;
+  token: string;
+  amount_retired: number;
+  number_of_retirements: number;
+  amount_retired_bct: number;
+  number_of_retirements_bct: number;
+  amount_retired_nct: number;
+  number_of_retirements_nct: number;
+  amount_retired_ubo: number;
+  number_of_retirements_ubo: number;
+  amount_retired_mco2: number;
+  number_of_retirements_mco2: number;
+  amount_retired_nbo: number;
+  number_of_retirements_nbo: number;
+}
+export type KlimaMonthlyRetirementsByOrigin =
+  PaginatedResponse<KlimaMonthlyRetirementsByOriginItem>;
 
 export interface KlimaRetirementsByBeneficiaryItem {
   beneficiary: string;

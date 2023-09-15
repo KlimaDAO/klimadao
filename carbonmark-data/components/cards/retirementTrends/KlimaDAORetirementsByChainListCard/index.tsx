@@ -5,7 +5,7 @@ import DataTable from "components/charts/helpers/DataTable";
 export default function KlimaDAORetirementsByChainListCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <DataTable configurationKey="KlimaRetirementsByChainList"></DataTable>
+    <DataTable configurationKey="KlimaRetirementsByChainList" />
   );
 
   return (
