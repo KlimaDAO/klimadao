@@ -7,7 +7,7 @@ interface CoinTileDataFact {
 }
 type CoinTileData = {
   title: string;
-  globalFact: ReactNode;
+  globalFact?: ReactNode;
   icon: ReactNode;
   facts: Array<CoinTileDataFact>;
 };

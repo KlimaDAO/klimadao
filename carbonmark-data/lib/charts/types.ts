@@ -81,7 +81,6 @@ export interface CarbonMetricsItem {
   mco2_klima_retired_polygon: number;
   ubo_klima_retired_polygon: number;
   nco_klima_retired_polygon: number;
-  total_klima_retirements: number;
   tco2_klima_retired_polygon: number;
   c3t_klima_retired_polygon: number;
   not_klima_retired_polygon: number;

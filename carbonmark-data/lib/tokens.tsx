@@ -1,10 +1,10 @@
 import { t } from "@lingui/macro";
+import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
 import bctIcon from "components/Graphics/bct.png";
 import mco2Icon from "components/Graphics/mco2.png";
 import nboIcon from "components/Graphics/nbo.png";
 import nctIcon from "components/Graphics/nct.png";
 import uboIcon from "components/Graphics/ubo.png";
-import Image from "next/image";
 import { queryTokenInfo } from "./charts/queries";
 import { Token } from "./charts/types";
 
@@ -25,7 +25,7 @@ export function getTokenIcon(token: Token) {
   if (token == "mco2") icon = mco2Icon;
   if (token == "ubo") icon = uboIcon;
   if (token == "nbo") icon = nboIcon;
-  return <Image src={icon} width={32} height={32} alt={`${token} icon`} />;
+  return <OverviewCardIcon icon={icon} alt={token} />;
 }
 
 /** Returns the helper text of the selective fee for the given Token */

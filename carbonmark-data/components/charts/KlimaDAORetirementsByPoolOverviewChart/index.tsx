@@ -45,7 +45,6 @@ export default async function KlimaDAORetirementsByPoolOverviewChart(props: {
     // Price
     coinTilesData.push({
       title: getTokenFullName(token),
-      globalFact: "",
       icon: getTokenIcon(token),
       facts: [
         {

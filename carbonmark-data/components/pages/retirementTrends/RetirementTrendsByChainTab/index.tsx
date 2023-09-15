@@ -1,5 +1,6 @@
 import ChartCard from "components/cards/ChartCard";
 import KlimaDAORetirementsByChainListCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainListCard";
+import KlimaDAORetirementsByChainOverviewCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainOverviewCard";
 import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
@@ -15,11 +16,7 @@ export default function RetirementTrendsByChainTab() {
         ></KlimaDAORetirementsByChainListCard>,
       ]}
       rightColumn={[
-        <ChartCard
-          key={0}
-          isColumnCard={true}
-          title="Carbon pool redemptions / retirements"
-        />,
+        <KlimaDAORetirementsByChainOverviewCard></KlimaDAORetirementsByChainOverviewCard>,
       ]}
     />
   );

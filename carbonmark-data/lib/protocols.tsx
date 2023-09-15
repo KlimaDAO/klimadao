@@ -3,8 +3,7 @@ import c3tIcon from "components/Graphics/c3t.png";
 import mco2Icon from "components/Graphics/mco2.png";
 import tco2Icon from "components/Graphics/tco2.png";
 
-import Image from "next/image";
-
+import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
 import { Protocol } from "./charts/types";
 
 /** Returns the translated version of a coin name */
@@ -21,5 +20,5 @@ export function getProtocolIcon(protocol: Protocol) {
   if (protocol == "tco2") icon = tco2Icon;
   if (protocol == "mco2") icon = mco2Icon;
 
-  return <Image src={icon} width={32} height={32} alt={`${protocol} icon`} />;
+  return <OverviewCardIcon icon={icon} alt={protocol} />;
 }

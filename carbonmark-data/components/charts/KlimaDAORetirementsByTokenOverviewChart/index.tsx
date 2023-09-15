@@ -43,7 +43,6 @@ export default async function KlimaDAORetirementsByTokenOverviewChart(props: {
       tonnesRetiredViaKlimadao / tonnesRetired;
     coinTilesData.push({
       title: getProtocolFullName(protocol),
-      globalFact: "",
       icon: getProtocolIcon(protocol),
       facts: [
         {
