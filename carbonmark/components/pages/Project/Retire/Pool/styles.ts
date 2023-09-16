@@ -283,3 +283,71 @@ export const viewButton = css`
 export const fullWidthButton = css`
   width: 100%;
 `;
+
+export const fadeOut = css`
+  transition:
+    opacity 800ms linear,
+    display 800ms linear;
+  display: none;
+  opacity: 0;
+`;
+
+export const slideTextDefault = css`
+  color: var(--klima-green);
+`;
+
+export const slideTextColor = css`
+  animation: changeColor 800ms forwards 1s;
+`;
+
+export const slideTextSm = css`
+  animation: slide-sm 400ms forwards 600ms;
+
+  @keyframes slide-sm {
+    from {
+      display: block;
+    }
+    to {
+      transform: translateX(-28px);
+    }
+  }
+`;
+
+export const slideText = css`
+  animation:
+    slide 400ms forwards 600ms,
+    changeColor 800ms forwards 1s;
+
+  @keyframes slide {
+    from {
+      display: block;
+    }
+    to {
+      transform: translateX(-42px);
+    }
+  }
+
+  @keyframes changeColor {
+    0% {
+      color: var(--klima-green);
+    }
+    100% {
+      color: #000;
+    }
+  }
+`;
+
+export const showSection = css`
+  height: 0;
+  overflow: hidden;
+  animation: show-section 1s ease 3.5s forwards;
+
+  @keyframes show-section {
+    from {
+      height: 0;
+    }
+    to {
+      height: auto;
+    }
+  }
+`;

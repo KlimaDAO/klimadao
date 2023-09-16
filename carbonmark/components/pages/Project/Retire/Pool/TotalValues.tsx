@@ -163,18 +163,22 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </Text>
 
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
+          <div className="icon">
+            <Image
+              className={cx({ [styles.fadeOut]: isFiat })}
+              width={20}
+              height={20}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
 
-          <Text t="h5">
+          <Text
+            t="h5"
+            className={cx({
+              [styles.slideTextSm]: isFiat,
+            })}
+          >
             {formatToPrice(props.price.singleUnitPrice, locale, isFiat)}
           </Text>
         </div>
@@ -183,17 +187,23 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
-          <Text t="h5">{formatToPrice(CARBONMARK_FEE, locale, isFiat)}</Text>
+          <div className="icon">
+            <Image
+              className={cx({ [styles.fadeOut]: isFiat })}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              width={20}
+              height={20}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
+          <Text
+            t="h5"
+            className={cx({
+              [styles.slideTextSm]: isFiat,
+            })}
+          >
+            {formatToPrice(CARBONMARK_FEE, locale, isFiat)}
+          </Text>
         </div>
       </div>
 
@@ -215,7 +225,15 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               <HelpOutline className={styles.helpIcon} />
             </TextInfoTooltip>
           </Text>
-          <Text t="h5">{calcCreditCardFee()}</Text>
+          <Text
+            t="h5"
+            className={cx({
+              [styles.slideTextColor]: isFiat,
+              [styles.slideTextDefault]: isFiat,
+            })}
+          >
+            {calcCreditCardFee()}
+          </Text>
         </div>
       )}
 
@@ -224,19 +242,20 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={36}
-                height={36}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
+          <div className="icon">
+            <Image
+              className={cx({ [styles.fadeOut]: isFiat })}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              width={36}
+              height={36}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
           <Text
             t="h3"
             className={cx(styles.breakText, {
+              [styles.slideText]: isFiat,
+              [styles.slideTextDefault]: isFiat,
               error: exceededBalance || !!error,
             })}
           >
