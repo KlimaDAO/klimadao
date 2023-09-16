@@ -14,18 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Quotes.tsx:68
-#: lib/formatWalletAddress.ts:9
-#: lib/formatWalletAddress.ts:21
-msgid "You"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Quotes.tsx:70
-msgid "retired"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -1425,6 +1413,18 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:38
 msgid "No activity to show"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Quotes.tsx:68
+#: lib/formatWalletAddress.ts:9
+#: lib/formatWalletAddress.ts:21
+msgid "You"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Retire/Activity/Quotes.tsx:70
+msgid "retired"
 msgstr ""
 
 #. js-lingui-explicit-id

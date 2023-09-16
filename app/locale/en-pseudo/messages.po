@@ -60,7 +60,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:516
+#: components/views/Redeem/index.tsx:527
 msgid "Buy Carbon"
 msgstr ""
 
@@ -155,6 +155,12 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:818
 msgid "Beneficiary 0x address (optional)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:921
+#: components/views/Redeem/index.tsx:500
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr ""
 
 #. js-lingui-explicit-id
