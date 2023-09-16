@@ -60,7 +60,7 @@ msgstr "Switch to Polygon"
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:516
+#: components/views/Redeem/index.tsx:527
 msgid "Buy Carbon"
 msgstr "Buy Carbon"
 
@@ -156,6 +156,12 @@ msgstr "Beneficiary name"
 #: components/views/Offset/index.tsx:818
 msgid "Beneficiary 0x address (optional)"
 msgstr "Beneficiary 0x address (optional)"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:921
+#: components/views/Redeem/index.tsx:500
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr "Your balance must equal at least 1% more than the cost of the transaction."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:91

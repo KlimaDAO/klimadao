@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
-msgid "Purchase more Carbon"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -1056,6 +1051,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
+msgid "Purchase more Carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
