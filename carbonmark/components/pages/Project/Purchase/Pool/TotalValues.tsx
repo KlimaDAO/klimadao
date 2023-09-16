@@ -156,7 +156,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               error: exceededBalance || !!error,
             })}
           >
-            {isLoading ? t`Loading...` : getApprovalValue()}
+            {isLoading ? t`Loading...` : Number(costs)?.toLocaleString(locale)}
           </Text>
         </div>
       </div>
