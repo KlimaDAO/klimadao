@@ -1,6 +1,6 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -29,7 +29,7 @@ export const Pledge: NextPage = () => {
 
     const address = event.currentTarget.address.value;
 
-    if (utils.isAddress(address) || getIsDomainInURL(address)) {
+    if (isAddress(address) || getIsDomainInURL(address)) {
       await router.push(`/pledge/${address}`);
     } else {
       setError(true);

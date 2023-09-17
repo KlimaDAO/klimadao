@@ -5,7 +5,7 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
-import { BigNumber, utils } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
@@ -17,21 +17,24 @@ import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing, ListingWithProject } from "lib/types/carbonmark";
+import {
+  AssetForListing,
+  Listing as ListingT,
+} from "lib/types/carbonmark.types";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 import * as styles from "./styles";
 
 type Props = {
-  listings: ListingWithProject[];
+  listings: ListingT[];
   assets: AssetForListing[];
   onFinishEditing: () => void;
   isUpdatingData: boolean;
 };
 
 const getBalanceForListing = (
-  listing: ListingWithProject,
+  listing: ListingT,
   assets: AssetForListing[]
 ): number => {
   const matchingBalance = assets.find(
@@ -42,19 +45,17 @@ const getBalanceForListing = (
 
 export const ListingEditable: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
-  const [listingToEdit, setListingToEdit] = useState<ListingWithProject | null>(
-    null
-  );
+  const [listingToEdit, setListingToEdit] = useState<ListingT | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const existingQuantityBN = BigNumber.from(listingToEdit?.leftToSell || "0");
-  const newQuantityBN = utils.parseUnits(inputValues?.newQuantity || "1", 18);
+  const existingQuantityBN = BigInt(listingToEdit?.leftToSell || "0");
+  const newQuantityBN = parseUnits(inputValues?.newQuantity || "1", 18);
   const newQuantityDelta = formatUnits(
-    newQuantityBN.sub(existingQuantityBN),
+    BigInt(newQuantityBN) - BigInt(existingQuantityBN),
     18
   );
 

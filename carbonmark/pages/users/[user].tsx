@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { isAddress } from "ethers-v6";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -7,8 +7,8 @@ import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
-import { getCarbonmarkUser } from "lib/carbonmark";
-import { User } from "lib/types/carbonmark";
+import { client } from "lib/api/client";
+import { User } from "lib/types/carbonmark.types";
 
 interface Params extends ParsedUrlQuery {
   user: string;
@@ -32,18 +32,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     const userInUrl = params.user;
     const isDomainInURL = getIsDomainInURL(userInUrl);
-    const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
+    const isValidAddress = !isDomainInURL && isAddress(userInUrl);
 
     let carbonmarkUser: User | null = null;
 
     if (!isDomainInURL && !isValidAddress) {
-      const userData = await getCarbonmarkUser({
-        user: params.user,
-        type: "handle",
+      const response = await client["/users/{walletOrHandle}"].get({
+        params: { walletOrHandle: params.user },
       });
-      // API returns object on 404 not found
-      if (userData?.handle) {
-        carbonmarkUser = userData;
+      if (response.ok) {
+        carbonmarkUser = await response.json();
       } else {
         throw new Error("Not a valid user address");
       }
@@ -58,11 +56,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // Haven't fetched carbonmark API yet?
     if (!carbonmarkUser) {
-      const userData = await getCarbonmarkUser({
-        user: userAddress,
-        type: "wallet",
+      const response = await client["/users/{walletOrHandle}"].get({
+        query: { type: "wallet" },
+        params: {
+          walletOrHandle: userAddress,
+        },
       });
-      if (userData?.handle) {
+      if (response.ok) {
+        const userData = await response.json();
         return {
           redirect: {
             destination: `/users/${userData?.handle}`,

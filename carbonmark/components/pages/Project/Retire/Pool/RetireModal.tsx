@@ -5,7 +5,7 @@ import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { CarbonmarkToken } from "lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import * as styles from "./styles";
 
@@ -97,6 +97,7 @@ export const RetireModal: FC<Props> = (props) => {
           onSubmit={props.onSubmit}
           onCancel={props.onCancel}
           status={props.status}
+          onGoBack={props.onCancel}
           onResetStatus={props.onResetStatus}
           spenderAddress={getAddress("retirementAggregatorV2")}
         />

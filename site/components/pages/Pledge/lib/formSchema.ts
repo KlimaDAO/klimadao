@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import * as yup from "yup";
 
 // extends yup.string schema with custom validation methods
@@ -8,7 +8,7 @@ yup.addMethod<yup.StringSchema>(
   "isAddress",
   function (errorMessage: string) {
     return this.test("is-address", errorMessage, function (value) {
-      if (utils.isAddress(value || "")) return true;
+      if (isAddress(value || "")) return true;
 
       return this.createError({ message: errorMessage });
     });

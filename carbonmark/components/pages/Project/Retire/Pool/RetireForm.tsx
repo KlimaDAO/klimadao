@@ -5,7 +5,7 @@ import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { utils } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRetirementAllowance,
@@ -16,7 +16,7 @@ import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
 import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { Price as PriceType, Project } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -33,8 +33,8 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 export interface Props {
-  project: Project;
-  price: PriceType;
+  project: DetailedProject;
+  price: TokenPrice;
 }
 
 export const RetireForm: FC<Props> = (props) => {
@@ -198,12 +198,14 @@ export const RetireForm: FC<Props> = (props) => {
   const getApprovalValue = (): string => {
     if (!inputValues?.totalPrice) return "0";
 
-    const onePercent = utils
-      .parseUnits(
-        inputValues.totalPrice,
-        getTokenDecimals(inputValues.paymentMethod)
-      )
-      .div("100");
+    const onePercent =
+      BigInt(
+        parseUnits(
+          inputValues.totalPrice,
+          getTokenDecimals(inputValues.paymentMethod)
+        )
+      ) / BigInt(100);
+
     const val = safeAdd(
       inputValues.totalPrice,
       formatUnits(onePercent, getTokenDecimals(inputValues.paymentMethod))

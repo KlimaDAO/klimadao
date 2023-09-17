@@ -6,5 +6,8 @@ import fp from "fastify-plugin";
  * @see https://github.com/fastify/fastify-response-validation
  */
 export default fp(async function (fastify) {
-  await fastify.register(responseValidation);
+  await fastify.register(responseValidation, {
+    // Uncomment the below if you are having issues with typebox validations to know which route is responsible
+    // responseValidation: false,
+  });
 });

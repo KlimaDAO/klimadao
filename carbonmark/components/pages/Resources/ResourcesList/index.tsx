@@ -158,7 +158,6 @@ export const ResourcesList: FC<Props> = (props) => {
             <div className={styles.searchInputContainer}>
               <InputField
                 id="search"
-                icon={<SearchIcon fontSize="large" />}
                 inputProps={{
                   placeholder: t({
                     id: "resources.form.input.search.placeholder",
@@ -174,6 +173,11 @@ export const ResourcesList: FC<Props> = (props) => {
                   message: "Search",
                 })}
                 hideLabel
+              />
+              <ButtonPrimary
+                className={styles.searchInputButton}
+                icon={<SearchIcon />}
+                onClick={handleSubmit(onSearchSubmit)}
               />
             </div>
           </form>

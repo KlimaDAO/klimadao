@@ -5,18 +5,19 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { formatHandle, formatWalletAddress } from "lib/formatWalletAddress";
 import { getElapsedTime } from "lib/getElapsedTime";
-import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
+import {
+  Activity as ActivityT,
+  UserActivity,
+} from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { getActivityActions } from "./Activities.constants";
+import { ActivityActions } from "./Activities.constants";
 import * as styles from "./styles";
 interface Props {
-  activity: UserActivity | ProjectActivity;
+  activity: ActivityT;
 }
 
-const isUserActivity = (
-  activity: UserActivity | ProjectActivity
-): activity is UserActivity => {
+const isUserActivity = (activity: ActivityT): activity is UserActivity => {
   // only user activity objects have the project entry
   return !!(activity as UserActivity).project;
 };
@@ -25,7 +26,6 @@ const isUserActivity = (
 export const Activity = (props: Props) => {
   const { address: connectedAddress } = useWeb3();
   const { locale } = useRouter();
-
   let firstActor, secondActor;
   let amountA, amountB;
   let transactionString = t`at`;
@@ -120,7 +120,7 @@ export const Activity = (props: Props) => {
           )
         )}
 
-        {getActivityActions()[props.activity.activityType]}
+        {ActivityActions[props.activity.activityType ?? ""] ?? "Undefined"}
 
         {!!secondActor && secondActor.handle ? (
           <Link className="account" href={`/users/${secondActor.handle}`}>

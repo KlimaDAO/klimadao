@@ -28,16 +28,12 @@ export const dropdownHeader = css`
 
 export const tippyContainer = css`
   .tippy-box {
+    background-color: var(--surface-01);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-03);
     margin-top: 0rem;
-    background: none;
+    font-size: 1.6rem;
   }
-`;
-
-export const dropDownMenu = css`
-  background-color: var(--surface-02);
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: var(--shadow-03);
 `;
 
 export const dropdownButton = css`

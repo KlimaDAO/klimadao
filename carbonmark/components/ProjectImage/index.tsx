@@ -1,6 +1,6 @@
 import { getImageSizes } from "@klimadao/lib/utils";
 import { getCategoryInfo } from "lib/getCategoryInfo";
-import { CategoryName } from "lib/types/carbonmark";
+import { CategoryName } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { FC } from "react";
 

@@ -1,4 +1,5 @@
-import { GRAPH_URLS } from "../constants/graphs.constants";
+import { merge } from "lodash";
+import { GRAPH_URLS, SANITY_URLS } from "./codegen.constants";
 
 const GENERATED_DIR = "src/.generated/types";
 const GENERATED_MOCKS_DIR = "src/.generated/mocks";
@@ -10,10 +11,10 @@ const plugins = [
   "typescript-graphql-request",
 ];
 
-const schema = GRAPH_URLS;
+const schemas = merge(GRAPH_URLS, SANITY_URLS);
 
 // Generate configuration for each schema entry
-const generates = Object.entries(schema).reduce(
+const generates = Object.entries(schemas).reduce(
   (acc, [key, schema]) => ({
     ...acc,
     [`${GENERATED_DIR}/${key}.types.ts`]: {
@@ -52,6 +53,7 @@ const config = {
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
+    avoidOptionals: true,
   },
 };
 

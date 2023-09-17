@@ -7,7 +7,7 @@ import { getRedeemCost } from "lib/actions.redeem";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { Price } from "lib/types/carbonmark";
+import { TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -17,7 +17,7 @@ import { FormValues } from "./types";
 
 type TotalValuesProps = {
   balance: string | null;
-  price: Price;
+  price: TokenPrice;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
@@ -79,8 +79,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   return (
     <>
-      <Text t="h4">{t`Total price`}</Text>
-
+      <Text t="h4" className={styles.title}>{t`Total price`}</Text>
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Amount to purchase`}</Text>
         <Text t="h5" className={styles.breakText}>

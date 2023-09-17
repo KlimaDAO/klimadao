@@ -1,4 +1,4 @@
-import { POOL_INFO } from "../../routes/projects/projects.constants";
+import { POOL_INFO } from "../../routes/projects/get.constants";
 import { gqlSdk } from "../gqlSdk";
 
 /**
@@ -20,7 +20,7 @@ const calculateSelectivePrice = (defaultPrice: number, poolName: string) => {
 
 /**
  * Query the subgraph for a list of all prices for tracked pairs (bct, nct, nbo, ubo)
- * @returns {Promise<Record<string, PoolPrice>} - Array of prices and addresses
+ * @returns {Promise<Record<string, PoolPrice>} - Map of prices and addresses
  */
 export const fetchAllPoolPrices = async () => {
   const data = await gqlSdk.tokens.getPoolPrices();

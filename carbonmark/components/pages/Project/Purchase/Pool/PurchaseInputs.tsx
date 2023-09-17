@@ -8,7 +8,10 @@ import { urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
-import { CarbonmarkPaymentMethod, Price } from "lib/types/carbonmark";
+import {
+  CarbonmarkPaymentMethod,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -18,7 +21,7 @@ import { FormValues } from "./types";
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  price: Price;
+  price: TokenPrice;
   values: null | FormValues;
   balance: string | null;
 };

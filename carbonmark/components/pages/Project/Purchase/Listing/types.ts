@@ -1,4 +1,4 @@
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
 
 export type FormValues = {
   listingId: string;

@@ -1,6 +1,6 @@
 import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import type { SWRConfiguration } from "swr";
 import useSWR from "swr";
 

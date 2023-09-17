@@ -1,9 +1,8 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../src/constants/graphs.constants";
+import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
 import { build } from "../helper";
-import { CATEGORIES } from "../routes/routes.mock";
-import { DEV_URL } from "../test.constants";
+import { CATEGORIES, DEV_URL } from "../test.constants";
 
 describe("Rate Limiter", () => {
   let app: FastifyInstance;
