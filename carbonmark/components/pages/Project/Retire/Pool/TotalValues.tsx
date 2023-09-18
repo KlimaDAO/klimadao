@@ -19,6 +19,7 @@ type TotalValuesProps = {
   price: TokenPrice;
   userBalance: string | null;
   fiatBalance: string | null;
+  fiatMinimum: string | null;
 };
 
 const getStringBetween = (str: string, start: string, end: string) => {
@@ -79,6 +80,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         });
 
         setCosts(totalPrice);
+
+        if (isFiat && Number(totalPrice) < Number(props.fiatMinimum)) {
+          setError(
+            t`At this time Carbonmark cannot process credit card payments below $${props.fiatMinimum}`
+          );
+        }
       } catch (e: any) {
         console.error("e", e);
 

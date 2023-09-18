@@ -47,6 +47,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [userBalance, setUserBalance] = useState<string | null>(null);
+  const [fiatMinimum, setFiatMinimum] = useState<string | null>(null);
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
@@ -100,6 +101,10 @@ export const RetireForm: FC<Props> = (props) => {
         fiatInfo?.MAX_USDC
           ? setFiatBalance(fiatInfo.MAX_USDC)
           : setFiatBalance("2000"); // default for production
+
+        fiatInfo?.MIN_FIAT_CENTS
+          ? setFiatMinimum(fiatInfo.MIN_FIAT_CENTS)
+          : setFiatMinimum("100"); // default in fiat api
       } catch (e) {
         console.error(e);
         setFiatBalance("2000"); // default for production
@@ -341,6 +346,7 @@ export const RetireForm: FC<Props> = (props) => {
                 <TotalValues
                   price={props.price}
                   userBalance={userBalance}
+                  fiatMinimum={fiatMinimum}
                   fiatBalance={fiatBalance}
                 />
               </Card>

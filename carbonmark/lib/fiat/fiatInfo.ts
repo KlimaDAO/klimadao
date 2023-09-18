@@ -1,6 +1,7 @@
 import { urls } from "lib/constants";
 
 interface Response {
+  MIN_FIAT_CENTS: string;
   MAX_USDC: string;
   MIN_FIAT_CENTS: string;
 }
