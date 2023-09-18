@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/ProjectCard/index.tsx:63
-msgid "No props.project description found"
-msgstr "No props.project description found"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -1734,6 +1729,11 @@ msgstr "Updating your data..."
 #: components/pages/Users/SellerUnconnected/index.tsx:84
 msgid "No active listings."
 msgstr "No active listings."
+
+#. js-lingui-explicit-id
+#: components/ProjectCard/index.tsx:63
+msgid "No props.project description found"
+msgstr "No props.project description found"
 
 #. js-lingui-explicit-id
 #: components/ProjectFilterModal/constants.tsx:11
