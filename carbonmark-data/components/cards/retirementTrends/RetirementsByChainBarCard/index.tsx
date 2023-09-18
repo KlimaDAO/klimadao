@@ -35,7 +35,7 @@ export default function RetirementsByChainBarCard(props: CardProps) {
     <ChartCard
       {...props}
       title={t`KlimaDAO retirements by chain`}
-      detailUrl="/details/retirement-trends-by-token"
+      detailUrl="/details/retirement-trends-by-chain"
       chart={chart}
     />
   );

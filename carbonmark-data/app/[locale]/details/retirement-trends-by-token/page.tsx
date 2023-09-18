@@ -1,16 +1,12 @@
 import { t } from "@lingui/macro";
-import KlimaDAORetirementsByTokenBarCard from "components/cards/retirementTrends/RetirementsByTokenBarCard";
+import RetirementsByTokenBarCard from "components/cards/retirementTrends/RetirementsByTokenBarCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function RetirementTrendsByTokenDetailPage() {
   return (
     <DetailPage
       pageTitle={t`Retirements by token`}
-      card={
-        <KlimaDAORetirementsByTokenBarCard
-          isDetailPage={true}
-        ></KlimaDAORetirementsByTokenBarCard>
-      }
+      card={<RetirementsByTokenBarCard isDetailPage={true} />}
       overview={t`Lorem Ipsum`}
     />
   );
