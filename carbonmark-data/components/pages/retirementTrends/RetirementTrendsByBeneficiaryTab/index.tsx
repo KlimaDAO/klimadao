@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import KlimaDAORetirementsByBeneficiaryListCard from "components/cards/retirementTrends/KlimaDAORetirementsByBeneficiaryListCard";
+import RetirementsByBeneficiaryListCard from "components/cards/retirementTrends/RetirementsByBeneficiaryListCard";
 import DetailPage from "components/pages/DetailPage";
 /**
  * A UI layout component to position Retirement Trends pages content
@@ -7,7 +7,7 @@ import DetailPage from "components/pages/DetailPage";
 export default function RetirementTrendsByBeneficiaryTab() {
   return (
     <DetailPage
-      card={<KlimaDAORetirementsByBeneficiaryListCard />}
+      card={<RetirementsByBeneficiaryListCard />}
       overview={t`Lorem Ipsum`}
       insights={{
         content: t`Lorem Ipsum`,

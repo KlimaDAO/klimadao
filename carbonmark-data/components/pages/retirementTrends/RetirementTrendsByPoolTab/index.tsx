@@ -1,7 +1,7 @@
-import KlimaDAORetirementsByPoolBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolBarCard";
-import KlimaDAORetirementsByPoolListCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolListCard";
-import KlimaDAORetirementsByPoolOverviewCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolOverviewCard";
-import KlimaDAORetirementsByPoolSummaryCard from "components/cards/retirementTrends/KlimaDAORetirementsByPoolSummaryCard";
+import RetirementsByPoolBarCard from "components/cards/retirementTrends/RetirementsByPoolBarCard";
+import RetirementsByPoolListCard from "components/cards/retirementTrends/RetirementsByPoolListCard";
+import RetirementsByPoolOverviewCard from "components/cards/retirementTrends/RetirementsByPoolOverviewCard";
+import RetirementsByPoolSummaryCard from "components/cards/retirementTrends/RetirementsByPoolSummaryCard";
 import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
@@ -11,11 +11,11 @@ export default function RetirementTrendsByPoolTab() {
   return (
     <TwoColumnRetirementTrendsTab
       leftColumn={[
-        <KlimaDAORetirementsByPoolBarCard key={0} />,
-        <KlimaDAORetirementsByPoolSummaryCard key={1} />,
-        <KlimaDAORetirementsByPoolListCard key={2} />,
+        <RetirementsByPoolBarCard key={0} />,
+        <RetirementsByPoolSummaryCard key={1} />,
+        <RetirementsByPoolListCard key={2} />,
       ]}
-      rightColumn={[<KlimaDAORetirementsByPoolOverviewCard key={0} />]}
+      rightColumn={[<RetirementsByPoolOverviewCard key={0} />]}
     />
   );
 }

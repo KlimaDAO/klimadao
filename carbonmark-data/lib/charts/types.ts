@@ -39,6 +39,9 @@ export interface PaginationQueryParams {
   page?: number;
   sort_by?: string;
   sort_order?: string;
+
+  retirement_date_gt?: number;
+  retirement_date_lt?: number;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
@@ -131,7 +134,6 @@ export type TokensInfo = PaginatedResponse<TokenInfo>;
 
 export interface KlimaMonthlyRetirementsByTokenItem {
   retirement_date: string;
-  token: string;
   amount_retired: number;
   number_of_retirements: number;
   amount_retired_bct: number;
@@ -150,19 +152,10 @@ export type KlimaMonthlyRetirementsBytoken =
 
 export interface KlimaMonthlyRetirementsByOriginItem {
   retirement_date: string;
-  token: string;
-  amount_retired: number;
-  number_of_retirements: number;
-  amount_retired_bct: number;
-  number_of_retirements_bct: number;
-  amount_retired_nct: number;
-  number_of_retirements_nct: number;
-  amount_retired_ubo: number;
-  number_of_retirements_ubo: number;
-  amount_retired_mco2: number;
-  number_of_retirements_mco2: number;
-  amount_retired_nbo: number;
-  number_of_retirements_nbo: number;
+  amount_retired_offchain: number;
+  number_of_retirements_offchain: number;
+  amount_retired_klima: number;
+  number_of_retirements_klima: number;
 }
 export type KlimaMonthlyRetirementsByOrigin =
   PaginatedResponse<KlimaMonthlyRetirementsByOriginItem>;

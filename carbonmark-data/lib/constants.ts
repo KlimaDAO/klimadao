@@ -50,7 +50,7 @@ export const urls = {
     prices: `${api_url}/prices`,
     tokens: `${api_url}/tokens`,
     klimaMonthlyRetirementsByPool: `${api_url}/retirements/klima/agg/tokens/monthly`,
-    allMonthlyRetirementsByOrigin: `${api_url}/retirements/all/agg/origin`,
+    allMonthlyRetirementsByOrigin: `${api_url}/retirements/all/agg/origin/monthly`,
     klimaRawRetirements: `${api_url}/retirements/klima/raw`,
     allRawRetirements: `${api_url}/retirements/all/raw`,
     klimaRetirementsByBeneficiary: `${api_url}/retirements/klima/agg/beneficiaries`,

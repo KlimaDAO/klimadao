@@ -1,6 +1,6 @@
-import KlimaDAORetirementsByChainBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainBarCard";
-import KlimaDAORetirementsByChainListCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainListCard";
-import KlimaDAORetirementsByChainOverviewCard from "components/cards/retirementTrends/KlimaDAORetirementsByChainOverviewCard";
+import RetirementsByChainBarCard from "components/cards/retirementTrends/RetirementsByChainBarCard";
+import RetirementsByChainListCard from "components/cards/retirementTrends/RetirementsByChainListCard";
+import RetirementsByChainOverviewCard from "components/cards/retirementTrends/RetirementsByChainOverviewCard";
 import { TwoColumnRetirementTrendsTab } from "components/pages/retirementTrends/TwoColumnRetirementTrendsTab";
 
 /**
@@ -10,10 +10,10 @@ export default function RetirementTrendsByChainTab() {
   return (
     <TwoColumnRetirementTrendsTab
       leftColumn={[
-        <KlimaDAORetirementsByChainBarCard key={0} />,
-        <KlimaDAORetirementsByChainListCard key={1} />,
+        <RetirementsByChainBarCard key={0} />,
+        <RetirementsByChainListCard key={1} />,
       ]}
-      rightColumn={[<KlimaDAORetirementsByChainOverviewCard key={0} />]}
+      rightColumn={[<RetirementsByChainOverviewCard key={0} />]}
     />
   );
 }
