@@ -12,21 +12,29 @@ type FbUserDocument = {
 };
 /**
  * This function retrieves a user by their wallet address from the Firestore database.
- * @param {app.App} fb - The Firebase app instance.
- * @param {string} wallet - The wallet address of the user.
- * @returns {Promise<any>} The data of the user if found, otherwise null.
  */
-export const getUserDocumentByWallet = async (
-  fb: app.App,
-  wallet: string
-): Promise<FirebaseFirestore.DocumentData | undefined> =>
-  await fb.firestore().collection("users").doc(wallet.toUpperCase()).get();
+export const getProfileByAddress = async (params: {
+  firebase: app.App;
+  address: string;
+}): Promise<any> => {
+  const doc = await params.firebase
+    .firestore()
+    .collection("users")
+    .doc(params.address.toUpperCase())
+    .get();
+  if (!doc.exists) return null;
+  return doc.data();
+};
 
-export const getUserByWallet = async (
-  fb: app.App,
-  wallet: string
-): Promise<FirebaseFirestore.DocumentData | undefined> =>
-  (await getUserDocumentByWallet(fb, wallet))?.data();
+interface UserProfile {
+  address: string;
+  createdAt: number;
+  description: string;
+  handle: string;
+  profileImgUrl?: string;
+  updatedAt: number;
+  username: string;
+}
 
 /** @note this may have a max limit of 300 records for ids, need to confirm */
 export const getUserDocumentsByIds = async (
@@ -59,21 +67,55 @@ export const getUserDocumentsByIds = async (
 };
 
 /**
- * This function retrieves a user by their handle from the Firestore database.
- * @param {app.App} fb - The Firebase app instance.
- * @param {string} handle - The handle of the user.
- * @returns {Promise<any>} The data of the user if found, otherwise null.
+ * Provide a sorted deduplicated array of lower-case wallet addresses
+ * Get a Map of user profiles. Performance-optimized firestore query
  */
-export const getUserDocumentByHandle = async (
-  fb: app.App,
-  handle: string
-): Promise<FirebaseFirestore.DocumentData | undefined> => {
-  const document = await fb
+export const getUserProfilesByIds = async (params: {
+  firebase: app.App;
+  addresses: string[];
+}): Promise<Map<string, UserProfile>> => {
+  const UserProfileMap = new Map<string, UserProfile>();
+
+  const chunks = chunk(params.addresses, 30);
+  // .where "in" query is more performant than .getAll(..docIds)
+  // but it is limited to 30 items per comparison
+  const chunkPromises = chunks.map((chunk) =>
+    params.firebase
+      .firestore()
+      .collection("users")
+      .where("address", "in", chunk)
+      .get()
+  );
+  const querySnapshots = await Promise.all(chunkPromises);
+  querySnapshots
+    .flatMap((s) => s.docs)
+    .forEach((d) => {
+      if (!d.exists) return;
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known
+      const profile = d.data() as UserProfile;
+      UserProfileMap.set(profile.address, profile);
+    });
+  return UserProfileMap;
+};
+
+/**
+ * This function retrieves a user by their handle from the Firestore database.
+ */
+export const getProfileByHandle = async (params: {
+  firebase: app.App;
+  handle: string;
+}) => {
+  const snapshot = await params.firebase
     .firestore()
     .collection("users")
-    .where("handle", "==", handle.toLowerCase())
+    .where("handle", "==", params.handle.toLowerCase())
     .limit(1)
     .get();
-
-  return document.docs.at(0);
+  if (snapshot.empty) return null;
+  if (snapshot.size > 1) {
+    throw new Error(
+      `Multiple users found with handle: ${params.handle.toLowerCase()}. This should never happen.`
+    );
+  }
+  return snapshot.docs.at(0)?.data() || null;
 };
