@@ -3,10 +3,7 @@ import {
   AggregatedCredits,
   AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
-
   CarbonMetricsQueryParams,
-
-
   Chain,
   CreditsQueryParams,
   DailyCredits,

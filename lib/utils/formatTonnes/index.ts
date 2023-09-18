@@ -15,7 +15,11 @@ export const formatTonnes = (params: {
   const minimumFractionDigits = params.minimumFractionDigits || 0;
   const amountNumber = Number(params.amount);
   const maximumFractionDigits =
-    params.maximumFractionDigits !== undefined ? params.maximumFractionDigits : amountNumber >= 0.01 ? 2 : 6;
+    params.maximumFractionDigits !== undefined
+      ? params.maximumFractionDigits
+      : amountNumber >= 0.01
+      ? 2
+      : 6;
   return amountNumber.toLocaleString(params.locale, {
     maximumFractionDigits,
     minimumFractionDigits,
