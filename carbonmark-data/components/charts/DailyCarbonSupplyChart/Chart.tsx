@@ -1,7 +1,18 @@
 "use client"; // use client for recharts animations
+<<<<<<< HEAD
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
 import { CarbonMetricsItem, ChartData } from "lib/charts/types";
+=======
+import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
+import helpers from "lib/charts/helpers";
+import {
+  ChartData,
+  DailyCeloCarbonMetricsItem,
+  DailyEthCarbonMetricsItem,
+  DailyPolygonCarbonMetricsItem,
+} from "lib/charts/types";
+>>>>>>> c2683ac1e7b8271cc95480d861fe5fb3d2151d99
 import { currentLocale } from "lib/i18n";
 import {
   AreaChart,

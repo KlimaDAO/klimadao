@@ -8,7 +8,7 @@ import {
   Country,
   Project,
   Vintage,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 
 export interface ProjectsPageStaticProps {

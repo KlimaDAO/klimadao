@@ -2,15 +2,16 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
 import {
-  Category,
   CategoryName,
   Country,
   Project,
   User,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
+import { client } from "./api/client";
 import { createDownloadLink } from "./createDownloadLink";
 import { fetcher } from "./fetcher";
-import { notNil } from "./utils/functional.utils";
+import { isCategoryName } from "./types/carbonmark.guard";
+import { extract, notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch(`${urls.api.users}/login`, {
@@ -185,8 +186,11 @@ export const getUser = async (params: {
 export const getProject = async (projectId: string): Promise<Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);
 
-export const getCategories = async (): Promise<Category[]> =>
-  await fetcher(urls.api.categories);
+export const getCategories = async (): Promise<CategoryName[]> => {
+  const response = await await client["/categories"].get();
+  const categories = await response.json();
+  return categories.map(extract("id")).filter(isCategoryName);
+};
 
 export const getCountries = async (): Promise<Country[]> =>
   await fetcher(urls.api.countries);

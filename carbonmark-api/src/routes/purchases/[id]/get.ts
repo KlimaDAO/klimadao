@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { isNil } from "lodash";
-import { Purchase } from "src/models/Purchase.model";
 import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
+import { Purchase } from "../../../models/Purchase.model";
 import { gqlSdk } from "../../../utils/gqlSdk";
 import { ParamsT, schema } from "./get.schema";
 

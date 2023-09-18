@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-13 09:09+0000\n"
+"POT-Creation-Date: 2023-09-15 23:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgid "0% listing fee"
 msgstr "0% 挂牌费"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "推荐使用 200x200 PNG图片。将图片上传到 imgur.com 或 postimages.org 等主机，然后粘贴完整的 URL。直接上传照片即将推出！"
 
@@ -38,12 +38,12 @@ msgid "500 - Server error occurred"
 msgstr "500 - 服务器发生错误"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:208
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:211
 msgid "<0>* </0> Required Field"
 msgstr "<0>*</0>必填项目"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:168
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
 msgid "@Username (note: this can not be changed!)"
 msgstr "@用户名（注意：用户名不可修改！）"
 
@@ -53,7 +53,7 @@ msgid "A-Z"
 msgstr "A - Z"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -70,7 +70,7 @@ msgid "Activity"
 msgstr "活动"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:77
+#: lib/getCategoryInfo.ts:53
 msgid "Agriculture"
 msgstr "农业"
 
@@ -80,7 +80,7 @@ msgid "All assets sourced from major registries"
 msgstr "所有资产均来自主要注册机构"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:80
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:83
 msgid "Amount is required"
 msgstr "金额为必填项"
 
@@ -139,7 +139,7 @@ msgstr "目前，Carbonmark 无法处理超出 {0} 范围的信用卡付款."
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:58
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
-#: components/ProjectCard/index.tsx:43
+#: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "可用吨数："
 
@@ -150,7 +150,7 @@ msgstr "超出可用余额"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:87
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:88
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:91
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:153
 msgid "Available supply exceeded"
 msgstr "超出可用供应"
@@ -173,7 +173,7 @@ msgstr "可用的："
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:55
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:63
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:66
 msgid "Available: {0}"
 msgstr "可用：{0}"
 
@@ -183,14 +183,14 @@ msgid "BETA"
 msgstr "测试版"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/index.tsx:50
+#: components/pages/Project/Purchase/index.tsx:54
 #: components/pages/Project/Retire/index.tsx:37
 msgid "Back to Project"
 msgstr "返回项目"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:102
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:103
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:106
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:239
 msgid "Balance: {0}"
 msgstr "余额：{0}"
@@ -211,20 +211,20 @@ msgid "Beneficiary name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:288
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:189
 msgid "Beneficiary wallet address (optional)"
 msgstr "收益人钱包地址（可选）"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:34
-#: components/pages/Project/BuyOptions/SellerListing.tsx:63
-#: components/pages/Project/index.tsx:151
+#: components/pages/Project/BuyOptions/SellerListing.tsx:62
+#: components/pages/Project/index.tsx:144
 msgid "Best Price"
 msgstr "最优价格"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:89
+#: lib/getCategoryInfo.ts:65
 msgid "Blue Carbon"
 msgstr "蓝碳"
 
@@ -383,7 +383,7 @@ msgid "Copy"
 msgstr "复制"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:47
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:50
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:332
 msgid "Could not calculate Total Cost"
 msgstr "无法计算总成本"
@@ -436,7 +436,7 @@ msgid "Create your own retirement"
 msgstr "创造你自己的碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/SellerListing.tsx:83
+#: components/pages/Project/BuyOptions/SellerListing.tsx:82
 msgid "Created:"
 msgstr "已创建："
 
@@ -452,7 +452,7 @@ msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:145
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:146
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:149
 msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "目前，Carbonmark 仅接受 Polygon USDC 或信用卡付款。 <0> 了解如何在 Polygon 上获取 USDC </0>"
 
@@ -462,7 +462,7 @@ msgid "DATE"
 msgstr "日期"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:248
+#: components/pages/Project/index.tsx:241
 msgid "Data for this project and vintage"
 msgstr "该项目和历史减排效益的数据"
 
@@ -483,7 +483,7 @@ msgid "Describe the purpose of this retirement"
 msgstr "描述本次碳停用的目的"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:199
+#: components/pages/Project/index.tsx:192
 msgid "Description"
 msgstr "描述"
 
@@ -498,12 +498,12 @@ msgid "Digitize your carbon by using a supported bridge"
 msgstr "使用平台支持的跨链桥将您的碳数字化"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:185
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:187
 msgid "Display name"
 msgstr "显示名称"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:180
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "Display name is required"
 msgstr "显示名称为必填项"
 
@@ -523,7 +523,7 @@ msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:71
+#: lib/getCategoryInfo.ts:47
 msgid "Energy Efficiency"
 msgstr "能源效率"
 
@@ -558,7 +558,7 @@ msgid "For project developers"
 msgstr "对于项目开发商"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:53
+#: lib/getCategoryInfo.ts:29
 msgid "Forestry"
 msgstr "林业"
 
@@ -579,23 +579,23 @@ msgid "Go back"
 msgstr "返回"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
 msgid "Handle is required"
 msgstr "用户名为必填项"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:158
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
 msgid "Handle should not be an address"
 msgstr "用户名不应是地址"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:153
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
 msgid "Handle should not contain any special characters"
 msgstr "用户名不应包含任何特殊字符"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:111
-#: components/pages/Portfolio/Retire/index.tsx:104
+#: components/pages/Portfolio/Retire/index.tsx:107
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "您是否已经创建了 Carbonmark <0> 个人资料</0>？"
 
@@ -614,7 +614,7 @@ msgstr "以下是现成的、打折的碳代币列表，可以快速、轻松地
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:91
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:92
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:95
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "您想购买多少吨碳？"
 
@@ -634,7 +634,7 @@ msgid "If you would like to retire some or all of the carbon credits from this p
 msgstr "如果您想取消此次购买的部分或全部碳信用额度，请转至您的<0>投资组合</0>，单击“停用”键并按照说明进行操作。"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:83
+#: lib/getCategoryInfo.ts:59
 msgid "Industrial Processing"
 msgstr "工业加工"
 
@@ -751,7 +751,7 @@ msgid "Maximize your climate impact."
 msgstr "最大限度地提高您对气候的影响。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:158
+#: components/pages/Project/index.tsx:151
 msgid "Methodology"
 msgstr "方法"
 
@@ -802,14 +802,13 @@ msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:238
+#: components/pages/Project/index.tsx:231
 msgid "No listings found for this project."
 msgstr "未找到此项目的列表。"
 
 #. js-lingui-explicit-id
 #: components/pages/Projects/GridView/GridView.tsx:41
 #: components/pages/Projects/ListView/ListView.tsx:157
-#: components/ProjectCard/index.tsx:60
 msgid "No project description found"
 msgstr "未找到项目描述"
 
@@ -817,6 +816,11 @@ msgstr "未找到项目描述"
 #: components/pages/Projects/index.tsx:83
 msgid "No projects found with current filters"
 msgstr "使用当前过滤器未找到任何项目"
+
+#. js-lingui-explicit-id
+#: components/ProjectCard/index.tsx:63
+msgid "No props.project description found"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -839,12 +843,12 @@ msgid "Oldest First"
 msgstr "最早优先"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:65
+#: lib/getCategoryInfo.ts:41
 msgid "Other"
 msgstr "其他"
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:59
+#: lib/getCategoryInfo.ts:35
 msgid "Other Nature-Based"
 msgstr "其他基于自然的"
 
@@ -872,7 +876,7 @@ msgstr "项目"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:99
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:100
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:103
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
 msgid "Pay with:"
 msgstr "使用...支付"
@@ -962,7 +966,7 @@ msgid "Processing Retirement"
 msgstr "正在处理碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/index.tsx:104
+#: components/pages/Retirements/SingleRetirement/index.tsx:105
 msgid "Processing data..."
 msgstr "处理数据..."
 
@@ -973,7 +977,7 @@ msgid "Profile"
 msgstr "个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:196
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
 msgid "Profile picture"
 msgstr "头像"
 
@@ -995,12 +999,12 @@ msgstr "购买收据 | Carbonmark"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:53
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:61
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:64
 msgid "Purchase amount (tonnes):"
 msgstr "采购量（吨）："
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:100
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:104
 msgid "Purchase more Carbon"
 msgstr "购买更多的碳"
 
@@ -1010,8 +1014,8 @@ msgid "Purchase successful"
 msgstr "购买成功"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/index.tsx:37
-#: components/pages/Project/Purchase/index.tsx:38
+#: components/pages/Project/Purchase/index.tsx:41
+#: components/pages/Project/Purchase/index.tsx:42
 msgid "Purchase {0} | Carbonmark"
 msgstr "购买 {0} | Carbonmark"
 
@@ -1022,7 +1026,7 @@ msgstr "数量"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/PoolPrice.tsx:41
-#: components/pages/Project/BuyOptions/SellerListing.tsx:79
+#: components/pages/Project/BuyOptions/SellerListing.tsx:78
 msgid "Quantity Available:"
 msgstr "可用数量："
 
@@ -1052,12 +1056,12 @@ msgid "RETIRE CARBON"
 msgstr "碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:212
+#: components/pages/Project/index.tsx:205
 msgid "Read Less"
 msgstr "简易阅读"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:212
+#: components/pages/Project/index.tsx:205
 msgid "Read More"
 msgstr "阅读更多"
 
@@ -1086,7 +1090,7 @@ msgid "Remaining Supply:"
 msgstr "剩余供应："
 
 #. js-lingui-explicit-id
-#: lib/getCategoryInfo.ts:47
+#: lib/getCategoryInfo.ts:23
 msgid "Renewable Energy"
 msgstr "再生能源"
 
@@ -1133,7 +1137,7 @@ msgid "Retire"
 msgstr "停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:194
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
 msgid "Retire carbon credits for yourself, or on behalf of another person or organization."
 msgstr "为自己或代表其他人或组织停用碳信用额度。"
 
@@ -1181,8 +1185,8 @@ msgid "Retire now, or acquire carbon to retire later - you decide what to do whe
 msgstr "现在就停用碳，或者获取数字碳待以后停用 - 当您拥有了碳资产，您就可以决定要做什么。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/index.tsx:77
-#: components/pages/Portfolio/Retire/index.tsx:78
+#: components/pages/Portfolio/Retire/index.tsx:80
+#: components/pages/Portfolio/Retire/index.tsx:81
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
@@ -1221,12 +1225,12 @@ msgid "Retiring Token"
 msgstr "碳停用代币"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:205
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "简单介绍一下自己。这将显示在您的卖家档案中。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:95
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:99
 msgid "See your portfolio"
 msgstr "查看您的投资组合"
 
@@ -1251,7 +1255,7 @@ msgid "Sell your digital carbon directly to buyers"
 msgstr "将您的数字碳直接出售给买家"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/SellerListing.tsx:59
+#: components/pages/Project/BuyOptions/SellerListing.tsx:58
 msgid "Seller Listing"
 msgstr "卖家挂牌信息"
 
@@ -1263,12 +1267,12 @@ msgid "Sign In / Connect To Buy"
 msgstr "登录/连接购买"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:101
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:104
 msgid "Something went wrong loading the allowance"
 msgstr "加载津贴时出错"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:111
 msgid "Something went wrong. Please try again. {error}"
 msgstr "出了些问题。请再试一次。 {error}"
 
@@ -1283,13 +1287,13 @@ msgid "Sorry, something went wrong."
 msgstr "抱歉，出了一些问题。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Sorry, this handle already exists"
 msgstr "抱歉，此用户名已存在"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:105
-#: components/pages/Portfolio/Retire/index.tsx:99
+#: components/pages/Portfolio/Retire/index.tsx:102
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "对不起。我们无法找到任何您的用户的相关 Carbonmark 数据。"
 
@@ -1362,7 +1366,7 @@ msgid "The first step is to grant the approval to transfer your payment asset fr
 msgstr "第一步是批准将您的支付资产从您的钱包转移到 Carbonmark，下一步是批准实际转移并完成您的购买。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:200
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:203
 msgid "The information below will be broadcast publicly to verify your environmental claim. This transaction is permanent; the information cannot be changed once your transaction is complete."
 msgstr "以下信息将公开广播以验证您的环保声明。该交易是永久性的；一旦您的交易完成，信息将无法更改。"
 
@@ -1373,7 +1377,7 @@ msgid "The largest selection of digital carbon credits worldwide. Buy, sell, and
 msgstr "全球最大的数字碳信用选择。通过零佣金交易立即从任何项目购买、出售和停用数字碳。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:84
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:87
 msgid "The minimum amount to buy is 1 Tonne"
 msgstr "最低购买量为 1 吨"
 
@@ -1465,7 +1469,7 @@ msgstr "切换按菜单排序"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:111
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:112
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:115
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:256
 msgid "Toggle payment method"
 msgstr "切换付款方式"
@@ -1481,14 +1485,14 @@ msgid "Token you will receive"
 msgstr "您将收到的代币"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:55
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:59
 msgid "Tokens received:"
 msgstr "收到的代币："
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:55
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:72
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:75
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:131
@@ -1550,7 +1554,7 @@ msgid "Total retirement transactions"
 msgstr "停用碳交易总额"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:74
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:78
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:82
 msgid "Total sale cost"
 msgstr "总销售成本"
@@ -1561,7 +1565,7 @@ msgid "Unprecedented transparency across the digital carbon market."
 msgstr "整个数字碳市场前所未有的透明度。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/SellerListing.tsx:87
+#: components/pages/Project/BuyOptions/SellerListing.tsx:86
 msgid "Updated:"
 msgstr "已更新："
 
@@ -1598,7 +1602,7 @@ msgid "View Carbonmark Profile"
 msgstr "查看 Carbonmark 配置文件"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:221
+#: components/pages/Project/index.tsx:214
 msgid "View Registry Details <0/>"
 msgstr "查看注册表详细信息 <0/>"
 
@@ -1613,7 +1617,7 @@ msgid "View a complete overview of the digital carbon that you own in your Portf
 msgstr "查看您在投资组合中拥有的数字碳的完整概览。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/index.tsx:79
+#: components/pages/Portfolio/Retire/index.tsx:82
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "查看您在停用碳时拥有的数字碳的完整概述。"
 
@@ -1639,7 +1643,7 @@ msgid "View all Retirements"
 msgstr "查看所有碳停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/index.tsx:112
+#: components/pages/Project/index.tsx:105
 msgid "View and purchase this carbon offset project on Carbonmark"
 msgstr "在 Carbonmark 上查看和购买此碳抵消项目"
 
@@ -1691,7 +1695,7 @@ msgid "We couldn't find any assets in your portfolio."
 msgstr "我们在您的投资组合中找不到任何资产。"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/index.tsx:108
+#: components/pages/Retirements/SingleRetirement/index.tsx:109
 msgid "We haven't finished processing the blockchain data for this retirement. This usually takes a few seconds, but might take longer if the network is congested."
 msgstr "我们还没有完成这次碳停用的区块链数据处理。这通常需要几秒钟，但如果网络拥塞，可能需要更长时间。"
 
@@ -1749,7 +1753,7 @@ msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr "您现在可以在<0> PolygonScan </0>上查看成功的交易。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:107
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "You chose to reject the transaction."
 msgstr "您已选择拒绝交易."
 
@@ -1759,13 +1763,13 @@ msgid "You either need to provide a beneficiary address or login with your brows
 msgstr "您需要提供收款人地址或使用浏览器钱包登录。"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:51
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:54
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:48
 msgid "You exceeded your available amount of tokens"
 msgstr "您超出了可用的代币数量"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:39
+#: components/pages/Project/Purchase/Pool/SuccessScreen.tsx:43
 msgid "You successfully acquired carbon!"
 msgstr "您已成功获得了碳！"
 
@@ -1782,7 +1786,7 @@ msgid "Your balance:"
 msgstr "您的余额："
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:175
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:177
 msgid "Your display name"
 msgstr "您的显示名称"
 
@@ -1798,7 +1802,7 @@ msgid "Your seller data"
 msgstr "您的卖家数据"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:141
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
 msgid "Your unique handle"
 msgstr "您的唯一用户名"
 
@@ -1829,12 +1833,12 @@ msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:8
+#: components/Activities/Activities.constants.ts:6
 msgid "bought from"
 msgstr "买自"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/SellerListing.tsx:105
+#: components/pages/Project/BuyOptions/SellerListing.tsx:104
 msgid "buy"
 msgstr "购买"
 
@@ -1909,12 +1913,12 @@ msgid "create.submit_2"
 msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:6
+#: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "创建列表"
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:7
+#: components/Activities/Activities.constants.ts:5
 msgid "deleted listing"
 msgstr "删除列表"
 
@@ -1926,22 +1930,22 @@ msgid "each"
 msgstr "每个"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:178
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:179
 msgid "edit_listing.approval_1"
 msgstr "您即将将该资产的所有权从您的钱包转移到 Carbonmark。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:184
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
 msgid "edit_listing.approval_2"
 msgstr "您可以随时删除您的在售商品，直到它被出售。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:196
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "edit_listing.submit_1"
 msgstr "上一步已批准将此资产从您的钱包转移到 Carbonmark，您的资产尚未转移。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:202
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "edit_listting.submit_2"
 msgstr "要完成将此资产转移到 Carbonmark 并使您的挂牌生效，请验证所有信息是否正确，然后单击下面的提交。"
 
@@ -1991,47 +1995,47 @@ msgid "menu.retire"
 msgstr "停用"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:216
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:219
 msgid "offset.amount_in_tonnes"
 msgstr "您想抵消多少吨碳？ <0>*</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:226
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:229
 msgid "offset.amount_in_tonnes_2"
 msgstr "可用：{balance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:308
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:311
 msgid "offset.default_retirement_address"
 msgstr "默认的已连接钱包地址"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:241
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:244
 msgid "offset.offset_quantity"
 msgstr "输入要抵消的数量"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:392
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:395
 msgid "offset.retire_carbon"
 msgstr "确认退休"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:271
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:274
 msgid "offset.retirement_beneficiary_name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:259
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:262
 msgid "offset.retirement_credit"
 msgstr "本次碳停用将归功于谁？"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:317
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:320
 msgid "offset.retirement_message"
 msgstr "停用消息"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:328
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:331
 msgid "offset.retirement_retirement_message"
 msgstr "停用消息"
 
@@ -2052,7 +2056,7 @@ msgid "offset.successModal.body3"
 msgstr "您的交易已成功处理，但索引所需的时间比正常情况要长。很快它将出现在您的<0>停用碳</0>栏中。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:349
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:352
 msgid "offset_disclaimer"
 msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
@@ -2072,7 +2076,7 @@ msgid "profile.editListing_modal.submit"
 msgstr "更新挂牌信息"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:227
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:229
 msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
@@ -2087,17 +2091,17 @@ msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加描述。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:164
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:165
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:221
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:222
 msgid "profile.listing.edit"
 msgstr "编辑"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:253
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:254
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2252,12 +2256,12 @@ msgid "resources.page.list.search_submit.no_search_results"
 msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:370
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:373
 msgid "retire.back_button"
 msgstr "返回"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/RetireForm/index.tsx:361
+#: components/pages/Portfolio/Retire/RetireForm/index.tsx:364
 msgid "retire.submit_button"
 msgstr "碳停用"
 
@@ -2277,17 +2281,17 @@ msgid "retirement.footer.about_carbonmark.title"
 msgstr "关于 Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/index.tsx:88
+#: components/pages/Retirements/SingleRetirement/index.tsx:89
 msgid "retirement.head.metaDescription"
 msgstr "由 Carbonmark 提供支持的完全透明的链上抵消。"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/index.tsx:85
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {formattedAmount} 碳吨数"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/index.tsx:80
+#: components/pages/Retirements/SingleRetirement/index.tsx:81
 msgid "retirement.head.title"
 msgstr "Carbonmark | 碳停用收据"
 
@@ -2477,7 +2481,7 @@ msgid "retirement.totals.total_retirement_transactions"
 msgstr "总碳停用交易"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:233
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:234
 msgid "seller.edit_listing.title"
 msgstr "编辑挂牌"
 
@@ -2487,12 +2491,12 @@ msgid "seller.listing.buy"
 msgstr "购买"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:46
+#: components/pages/Users/Listing/index.tsx:53
 msgid "seller.listing.quantity_available"
 msgstr "可用数量："
 
 #. js-lingui-explicit-id
-#: components/pages/Project/BuyOptions/SellerListing.tsx:95
+#: components/pages/Project/BuyOptions/SellerListing.tsx:94
 #: components/pages/Users/SellerUnconnected/index.tsx:61
 msgid "shared.connect_to_buy"
 msgstr "登录/连接购买"
@@ -2513,7 +2517,7 @@ msgid "shared.resources.sort_by.header"
 msgstr "排序方式："
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:9
+#: components/Activities/Activities.constants.ts:7
 msgid "sold to"
 msgstr "卖给"
 
@@ -2536,7 +2540,7 @@ msgstr "吨"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:199
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:280
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:281
 msgid "tonnes.long"
 msgstr "吨"
 
@@ -2651,12 +2655,12 @@ msgid "transaction_modal.view.submit.title"
 msgstr "2. 提交"
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:10
+#: components/Activities/Activities.constants.ts:8
 msgid "updated price"
 msgstr "更新价格"
 
 #. js-lingui-explicit-id
-#: components/Activities/Activities.constants.ts:11
+#: components/Activities/Activities.constants.ts:9
 msgid "updated quantity"
 msgstr "更新数量"
 

@@ -25,7 +25,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
+export const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -92,6 +92,7 @@ export const config = {
 
 export const urls = {
   api: {
+    base: config.urls.api[ENVIRONMENT],
     projects: `${config.urls.api[ENVIRONMENT]}/projects`,
     users: `${config.urls.api[ENVIRONMENT]}/users`,
     purchases: `${config.urls.api[ENVIRONMENT]}/purchases`,

@@ -1,49 +1,25 @@
-import { PoolToken } from "@klimadao/lib/constants";
+import type schema from ".generated/carbonmark-api.schema";
 import { BigNumber } from "ethers";
+import type { NormalizeOAS, OASModel } from "fets";
+import { CATEGORY_INFO } from "lib/getCategoryInfo";
 
-export interface CarouselImage {
-  url: string;
-  caption: string;
-}
+/** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
+export type Project = OASModel<NormalizeOAS<typeof schema>, "Project">;
+export type Listing = OASModel<NormalizeOAS<typeof schema>, "Listing">;
+export type TokenPrice = OASModel<NormalizeOAS<typeof schema>, "TokenPrice">;
+export type Activity = OASModel<NormalizeOAS<typeof schema>, "Activity">;
+export type User = OASModel<NormalizeOAS<typeof schema>, "User">;
+export type Category = OASModel<NormalizeOAS<typeof schema>, "Category">;
+export type Country = OASModel<NormalizeOAS<typeof schema>, "Country">;
+export type Asset = OASModel<NormalizeOAS<typeof schema>, "Asset">;
+export type DetailedProject = OASModel<
+  NormalizeOAS<typeof schema>,
+  "DetailedProject"
+>;
 
-// export type Project = GetProjectByIdResponse;
-export type Project = {
-  key: string;
-  projectID: string;
-  name: string | "";
-  methodologies: Array<Methodology>;
-  vintage: string;
-  images: Array<CarouselImage>;
-  projectAddress: string;
-  registry: string;
-  listings: Listing[] | null;
-  /** Lowest price across pools and listings, formatted string e.g. "0.123456" */
-  price: string;
-  country: string | null;
-  activities: ProjectActivity[] | null;
-  updatedAt: string; // timestamp
-  // Updated to GEOPOINT type https://www.sanity.io/docs/geopoint-type
-  location?: {
-    // only defined for Verra projects
-    type: "Feature";
-    geometry: {
-      type: "Point";
-      coordinates: [number, number];
-    };
-  };
-  description?: string;
-  short_description?: string;
-  long_description?: string;
-  isPoolProject?: boolean; // pool project only
-  stats: {
-    totalSupply: number;
-    totalBridged: number;
-    totalRetired: number;
-  };
-  prices?: Price[];
-  url: string;
-  methodologyCategory: CategoryName;
-};
+export type CategoryName = keyof typeof CATEGORY_INFO;
+
+export type CarouselImage = OASModel<NormalizeOAS<typeof schema>, "Image">;
 
 export interface PcbProject {
   id: string;
@@ -66,7 +42,7 @@ export interface PcbProject {
   totalBridged: string | null;
   totalRetired: string | null;
   currentSupply: string | null;
-  prices?: Price[];
+  prices?: TokenPrice[];
   url?: string;
   methodologyCategory: CategoryName;
   category: string;
@@ -82,80 +58,6 @@ export interface PcbProject {
   storageMethod: string;
   vintageYear: string;
 }
-
-export type Price = {
-  /** Lowercase name of pool / pool token e.g. "bct" */
-  poolName: Exclude<PoolToken, "mco2">;
-  /** Remaining supply in pool */
-  supply: string;
-  /** Address of the pool itself, e.g. bct token address */
-  poolAddress: boolean;
-  /** Address of the project token in this pool */
-  projectTokenAddress: string;
-  /** True if default project for pool and no selective redemption fee applies */
-  isPoolDefault: boolean;
-  /** formatted USDC price for 1 tonne e.g. "0.123456" */
-  singleUnitPrice: string;
-};
-
-export interface User {
-  handle: string;
-  username: string;
-  description: string;
-  profileImgUrl: string | null;
-  wallet: string;
-  listings: ListingWithProject[];
-  activities: UserActivity[];
-  assets: Asset[];
-}
-
-export interface Listing {
-  id: string;
-  /** Plain integer, not a bignumber */
-  totalAmountToSell: string;
-  /** Unformatted 18 decimal string */
-  leftToSell: string;
-  tokenAddress: string;
-  active: boolean; // false when amount is "0"
-  deleted: boolean; // user deleted this listing
-  batches: [];
-  batchPrices: [];
-  /** Unformatted USDC e.g. 1000000 */
-  singleUnitPrice: string;
-  createdAt: string;
-  updatedAt: string;
-  seller?: {
-    handle: string;
-    username: string;
-    description: string;
-    profileImgUrl: string;
-    id: string;
-  };
-}
-
-/** Some endpoints do not include this `project` property. */
-export interface ListingWithProject extends Listing {
-  /** careful, project is not present on Project["listings"] entries */
-  project: {
-    id: string;
-    key: string;
-    name: string;
-    category: Category;
-    /** TODO: from api, in /user.listings, Country is not present */
-    country?: string;
-    methodology: string;
-    projectAddress: string;
-    projectID: string;
-    registry: string;
-    vintage: string;
-  };
-}
-
-export type PriceFlagged = Price & {
-  isPoolProject: true;
-};
-
-export type ProjectBuyOption = Listing | PriceFlagged;
 
 export type ActivityActionT =
   | "UpdatedQuantity"
@@ -239,17 +141,6 @@ export interface UserActivity {
   };
 }
 
-export type Asset = {
-  id: string;
-  token: {
-    id: string;
-    name: string;
-    symbol: "BCT" | "NBO" | "UBO" | "NCT" | `${"TCO2-" | "C3T-"}${string}`;
-    decimals: number;
-  };
-  amount: string;
-};
-
 // data from C3 ABI function "getProjectInfo"
 export type ProjectInfo = {
   active: boolean;
@@ -293,25 +184,7 @@ export type Methodology = {
   category: CategoryName;
 };
 
-export type Category = {
-  id: CategoryName;
-};
-
-export type Country = {
-  id: string;
-};
-
 export type Vintage = string;
-
-export type CategoryName =
-  | "Agriculture"
-  | "Energy Efficiency"
-  | "Forestry"
-  | "Industrial Processing"
-  | "Renewable Energy"
-  | "Other"
-  | "Other Nature-Based"
-  | "Blue Carbon";
 
 export type Purchase = {
   id: string;

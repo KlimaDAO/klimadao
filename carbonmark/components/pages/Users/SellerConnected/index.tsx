@@ -14,7 +14,7 @@ import { addProjectsToAssets } from "lib/actions";
 import { activityIsAdded, getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { AssetForListing, User } from "lib/types/carbonmark";
+import { AssetForListing, User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";

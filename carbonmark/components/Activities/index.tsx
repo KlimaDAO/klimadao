@@ -2,13 +2,13 @@ import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Spinner } from "components/shared/Spinner";
-import { ProjectActivity, UserActivity } from "lib/types/carbonmark";
+import { Activity as ActivityT } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { Activity } from "./Activity";
 import * as styles from "./styles";
 
 interface Props {
-  activities: ProjectActivity[] | UserActivity[];
+  activities: ActivityT[];
   isLoading?: boolean;
 }
 

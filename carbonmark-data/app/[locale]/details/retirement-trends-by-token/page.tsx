@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import KlimaDAORetirementsByTokenBarCard from "components/cards/retirementTrends/KlimaDAORetirementsByTokenBarCard";
+import KlimaDAORetirementsByTokenBarCard from "components/cards/retirementTrends/RetirementsByTokenBarCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function RetirementTrendsByTokenDetailPage() {

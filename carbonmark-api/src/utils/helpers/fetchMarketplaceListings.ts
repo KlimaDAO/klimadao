@@ -1,13 +1,11 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
-import { DocumentData } from "firebase-admin/firestore";
-import { assign, chunk } from "lodash";
-import {
-  ActivityWithUserHandles,
-  ListingWithUserHandles,
-} from "../../routes/projects/get.types";
+import { assign, set } from "lodash";
+import { Activity } from "src/models/Activity.model";
+import { Listing } from "src/models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
+import { getUserDocumentsByIds } from "./users.utils";
 
 type Params = {
   key: string; // Project key `"VCS-981"`
@@ -27,7 +25,7 @@ export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
-}: Params): Promise<[ListingWithUserHandles[], ActivityWithUserHandles[]]> => {
+}: Params): Promise<[Listing[], Activity[]]> => {
   const data = await gqlSdk.marketplace.getProjectsById({
     key,
     vintageStr: vintage,
@@ -69,33 +67,15 @@ export const fetchMarketplaceListings = async ({
     }
   });
 
-  const usersById = new Map<string, DocumentData | undefined>();
+  const ids = Array.from(userIds);
 
-  // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
-  if (userIds.size !== 0) {
-    const ids = Array.from(userIds);
-
-    const chunks: string[][] = chunk(ids, 30);
-
-    const userDocs = await Promise.all(
-      chunks.map((chunk) =>
-        fastify.firebase
-          .firestore()
-          .collection("users")
-          .where("address", "in", chunk)
-          .get()
-      )
-    );
-
-    userDocs.forEach((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        usersById.set(doc.id, doc.data());
-      });
-    });
-  }
+  const users = await getUserDocumentsByIds(fastify.firebase, ids);
+  const usersById = new Map(
+    users?.map((user) => [user.address.toUpperCase(), user])
+  );
 
   const listingsWithProfiles = formattedListings.map((listing) => {
-    const sellerData = usersById.get(listing.seller.id.toLowerCase());
+    const sellerData = usersById.get(listing.seller.id.toUpperCase());
     return {
       ...listing,
       seller: {
@@ -106,19 +86,19 @@ export const fetchMarketplaceListings = async ({
   });
 
   const activitiesWithProfiles = formattedActivities.map((act) => {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- seller will be assigned
-    const activityWithHandles = { ...act } as ActivityWithUserHandles;
-    const sellerData = usersById.get(act.seller.id.toLowerCase());
+    const activityWithHandles = { ...act };
+    const sellerData = usersById.get(act.seller.id.toUpperCase());
     if (sellerData) {
-      activityWithHandles.seller.handle = sellerData.handle;
+      set(activityWithHandles, "seller.handle", sellerData.handle);
     }
     if (act.buyer) {
-      const buyerData = usersById.get(act.buyer.id.toLowerCase());
+      const buyerData = usersById.get(act.buyer.id.toUpperCase());
       if (buyerData && buyerData.handle) {
         assign(activityWithHandles.buyer, "handle", buyerData.handle);
       }
     }
     return activityWithHandles;
   });
+
   return [listingsWithProfiles, activitiesWithProfiles];
 };

@@ -24,7 +24,7 @@ import {
   AssetForListing,
   AssetForRetirement,
   PcbProject,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import {
   getCategoryFromProject,
   getMethodologyFromProject,

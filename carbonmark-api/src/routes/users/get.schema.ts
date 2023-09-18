@@ -13,10 +13,10 @@ export const Params = Type.Object(
 
 export const QueryString = Type.Object({
   type: Type.Optional(
-    Type.String({
+    Type.Union([Type.Literal("wallet"), Type.Literal("handle")], {
       description:
         "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
-      examples: ["wallet"],
+      examples: ["wallet", "handle"],
     })
   ),
 });

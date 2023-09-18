@@ -13,8 +13,8 @@ import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
-  Price as PriceType,
-} from "lib/types/carbonmark";
+  TokenPrice as PriceType,
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";

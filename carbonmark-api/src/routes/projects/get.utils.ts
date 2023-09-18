@@ -210,6 +210,10 @@ export const composeProjectEntries = (
       country: {
         id: carbonProject?.country || pool?.country || market?.region || "",
       },
+      images: carbonProject?.content?.images?.map((img) => ({
+        url: img?.asset?.url ?? "",
+        caption: img?.asset?.description ?? "",
+      })),
       key: projectId,
       registry,
       projectID: registryProjectId,

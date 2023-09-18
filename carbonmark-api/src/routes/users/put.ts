@@ -8,14 +8,12 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // Destructure the wallet, username, and description properties from the request body
-    const { wallet, username, description, profileImgUrl, handle } =
-      request.body;
+    const { wallet, username, description, profileImgUrl } = request.body;
 
     try {
       const updatedData = {
         username,
         description,
-        handle,
         updatedAt: Date.now(),
         profileImgUrl:
           profileImgUrl && profileImgUrl.length ? profileImgUrl : null,
@@ -35,7 +33,7 @@ const handler = (fastify: FastifyInstance) =>
       // If an error occurs, return a 404 error with a message
       return reply
         .code(403)
-        .send({ code: 404, error: "There was an issue updating the document" });
+        .send({ error: "There was an issue updating the document" });
     }
   };
 
