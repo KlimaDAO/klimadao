@@ -1,6 +1,5 @@
 "use client";
 
-import { t } from "@lingui/macro";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -29,7 +28,7 @@ function TypedTabPanel(props: {
     </TabPanel>
   );
 }
-export default function PageWithTabs(props: { tabs: TabParams }) {
+export default function PageWithTabs(props: { title:string, tabs: TabParams }) {
   const queryParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(
     queryParams.get("tab") || props.tabs[0].key
@@ -52,7 +51,7 @@ export default function PageWithTabs(props: { tabs: TabParams }) {
 
   return (
     <>
-      <h1>{t`Retirement trends`}</h1>
+      <h1>{props.title}</h1>
       <TabContext value={activeTab}>
         <MobileTabSelector
           value={activeTab}
