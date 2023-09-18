@@ -5,47 +5,61 @@ export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
 export const PROTOCOLS = ["c3t", "tco2", "mco2"];
+export type Pool = "ubo" | "nbo" | "nct" | "bct" | "all";
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
 export type Chain = (typeof CHAIN)[number];
 export type Token = (typeof TOKENS)[number];
 export type Protocol = (typeof PROTOCOLS)[number];
+export type DateFilteringOption = "lifetime" | "last30d" | "last7d";
 
-export type DateField =
-  | "bridged_date"
-  | "redeemed_date"
-  | "retirement_date"
-  | "issuance_date"
-  | "deposited_date";
+export interface DateFieldInterface {
+  bridged_date: number;
+  redeemed_date: number;
+  retirement_date: number;
+  issuance_date: number;
+  deposited_date: number;
+}
+export type DateField = keyof DateFieldInterface;
+export interface DateFieldQueryParamsInterface {
+  bridged_date_gt?: string;
+  redeemed_date_gt?: string;
+  retirement_date_gt?: string;
+  issuance_date_gt?: string;
+  deposited_date_gt?: string;
+  bridged_date_lt?: string;
+  redeemed_date_lt?: string;
+  retirement_date_lt?: string;
+  issuance_date_lt?: string;
+  deposited_date_lt?: string;
+}
+export type DateFieldParam = keyof DateFieldQueryParamsInterface;
 export type Status =
   | "bridged"
   | "redeemed"
   | "retired"
   | "issued"
   | "deposited";
-export type Pool = "ubo" | "nbo" | "nct" | "bct";
 export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
 export interface CarbonSupplyQueryParams {
   chain: Chain;
 }
-export interface CreditsQueryParams {
+export type CreditsQueryParams = {
   bridge?: Bridge;
   pool?: Pool;
   status?: Status;
-}
+} & DateFieldQueryParamsInterface;
 export interface PaginationQueryParams {
   page_size?: number;
   page?: number;
   sort_by?: string;
   sort_order?: string;
-
-  retirement_date_gt?: number;
-  retirement_date_lt?: number;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
 }
+
 // API responses
 export interface PaginatedResponse<RI> {
   items: Array<RI>;
@@ -294,5 +308,5 @@ export interface TreeMapItem {
 }
 export type TreeMapData = Array<TreeMapItem>;
 
-// Chart dictionnary for cards
-export type ChartDictionnary = Record<Key, React.ReactNode>;
+/** Node dictionnary for cards or tab */
+export type NodeDictionnary = Record<Key, React.ReactNode>;

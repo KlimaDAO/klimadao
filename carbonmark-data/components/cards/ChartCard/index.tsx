@@ -24,23 +24,23 @@ export type CardProps = {
  * bottomOptions: Options to be displayed at the bottom of the card
  * isColumnCard: Is this card used in a column? In this case there will be no constraint on the card height.
  */
-export default function ChartCard(props: {
+export default function ChartCard<T extends Key, B extends Key>(props: {
   charts?: Record<string, React.ReactNode>;
   chart?: React.ReactNode;
   title: string;
   detailUrl?: string;
   detailUrlPosition?: DetailUrlPosition;
   isDetailPage?: boolean;
-  topOptions?: Options;
-  bottomOptions?: Options;
+  topOptions?: Options<T>;
+  bottomOptions?: Options<B>;
   // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
   isColumnCard?: boolean;
 }) {
-  const [topOptionKey, setTopOptionKey] = useState<Key>(
-    props.topOptions ? props.topOptions[0].value : ""
+  const [topOptionKey, setTopOptionKey] = useState<T | undefined>(
+    props.topOptions ? props.topOptions[0].value : undefined
   );
-  const [bottomOptionKey, setBottomOptionKey] = useState<Key>(
-    props.bottomOptions ? props.bottomOptions[0].value : ""
+  const [bottomOptionKey, setBottomOptionKey] = useState<B | undefined>(
+    props.bottomOptions ? props.bottomOptions[0].value : undefined
   );
   const isDetailPage = props.isDetailPage || false;
   const detailUrlPosition = props.detailUrlPosition || "top";

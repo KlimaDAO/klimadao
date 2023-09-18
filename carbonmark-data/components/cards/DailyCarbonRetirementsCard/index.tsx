@@ -5,11 +5,11 @@ import {
   DailyPolygonCarbonRetirementsChart,
 } from "components/charts/DailyCarbonRetirementsChart";
 import { getChainsOptionsWithoutCelo } from "lib/charts/options";
-import { ChartDictionnary } from "lib/charts/types";
+import { NodeDictionnary } from "lib/charts/types";
 
 /** Verra Credits Card */
 export default function DailyCarbonRetirementsCard(props: CardProps) {
-  const charts: ChartDictionnary = {
+  const charts: NodeDictionnary = {
     /* @ts-expect-error async Server component */
     polygon: <DailyPolygonCarbonRetirementsChart />,
     /* @ts-expect-error async Server component */

@@ -15,7 +15,7 @@ import styles from "./styles.module.scss";
 type TabParam = {
   key: string;
   label: string;
-  optionsList?: Array<Options>;
+  optionsList?: Array<Options<string>>;
   content?: ReactNode;
   contents?: Record<string, React.ReactNode>;
 };
@@ -46,9 +46,32 @@ export default function PageWithTabs(props: {
       tab.optionsList ? tab.optionsList.map((options) => options[0].value) : []
     );
   };
-
   /** Stores all options selections */
   const [optionKeys, setOptionKeys] = useState<Key[][]>(getDetaultOptions);
+
+  /** Compute Dynamic Options Lists. Lists that contains only options that will lead to a valid content */
+  function getTabsDynamicOptionsList() {
+    // For each tab
+    return props.tabs.map((tab, tabIndex) => {
+      // For each option list
+      if (tab.optionsList)
+        return tab.optionsList.map((options, widgetIndex) => {
+          // Check if there is content for that option
+          const newOptions: Options<string> = [];
+          options.forEach((option) => {
+            const keys = [...optionKeys[tabIndex]];
+            keys[widgetIndex] = option.value;
+            const key = keys.join("|");
+            if (tab.contents && tab.contents[key] !== undefined)
+              newOptions.push(option);
+          });
+          return newOptions;
+        });
+      else return [];
+    });
+  }
+
+  let tabsDynamicOptionsList: Options<string>[][] = getTabsDynamicOptionsList();
 
   const router = useRouter();
   const pathname = usePathname();
@@ -65,6 +88,10 @@ export default function PageWithTabs(props: {
       setActiveTab(queryKey);
     }
   }, []);
+
+  useEffect(() => {
+    tabsDynamicOptionsList = getTabsDynamicOptionsList();
+  }, [optionKeys]);
 
   // Handle Options change
   function onOptionChange(tabIndex: number, widgetIndex: number) {
@@ -90,7 +117,7 @@ export default function PageWithTabs(props: {
 
     if (tab?.contents) {
       const displayedKey = optionKeys[tabIndex].join("|");
-      return tab.contents[displayedKey] || tab.contents["default"] || <></>;
+      return tab.contents[displayedKey] || <></>;
     }
   }
   return (
@@ -116,15 +143,17 @@ export default function PageWithTabs(props: {
         </TabList>
         {props.tabs.map(
           (tab, tabIndex) =>
-            tab.optionsList && (
+            tabsDynamicOptionsList[tabIndex] && (
               <TypedTabPanel tab={tab.key} className={styles.noPadding}>
-                {tab.optionsList.map((options, widgetIndex) => (
-                  <OptionsSwitcher
-                    options={options}
-                    onSelectionChange={onOptionChange(tabIndex, widgetIndex)}
-                    value={optionKeys[tabIndex][widgetIndex]}
-                  />
-                ))}
+                {tabsDynamicOptionsList[tabIndex].map(
+                  (options, widgetIndex) => (
+                    <OptionsSwitcher
+                      options={options}
+                      onSelectionChange={onOptionChange(tabIndex, widgetIndex)}
+                      value={optionKeys[tabIndex][widgetIndex]}
+                    />
+                  )
+                )}
               </TypedTabPanel>
             )
         )}

@@ -56,13 +56,14 @@ async function query<R, Q extends object>(
     if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
   }
   const res = await fetch(url, { next: { revalidate } });
+  const text = await res.text();
   // Handle HTTP errors
-  const errorMessage = `Failed to fetch ${url}`;
+  const errorMessage = `${text} \n Failed to fetch ${url}`;
   if (!res.ok) {
     console.error(errorMessage);
     throw new Error(errorMessage);
   }
-  const text = await res.text();
+
   try {
     return JSON.parse(text);
   } catch (e) {

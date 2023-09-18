@@ -1,18 +1,14 @@
 import { t } from "@lingui/macro";
+import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
 import TokenDistributionOfProjectsChart from "components/charts/TokenDistributionOfProjectsChart";
-import { CreditsQueryParams } from "lib/charts/types";
-import ChartCard, { CardProps } from "../ChartCard";
+import ChartCard, { CardProps } from "../../ChartCard";
 
 export default function TokenDistributionOfProjectsCard(
-  props: CardProps & CreditsQueryParams
+  props: CardProps & TokenDetailsProps
 ) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <TokenDistributionOfProjectsChart
-      bridge={props.bridge}
-      pool={props.pool}
-      status={props.status}
-    ></TokenDistributionOfProjectsChart>
+    <TokenDistributionOfProjectsChart {...props} />
   );
 
   return (
