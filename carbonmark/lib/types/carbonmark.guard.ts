@@ -1,15 +1,18 @@
 import { CATEGORY_INFO } from "lib/getCategoryInfo";
 import { notNil } from "lib/utils/functional.utils";
-import { CategoryName, TokenPrice } from "./carbonmark.types";
+import { CategoryName, Listing, TokenPrice } from "./carbonmark.types";
 
-export function isTokenPrice(obj: unknown): obj is TokenPrice {
+export function isTokenPrice(
+  obj: TokenPrice | Listing | null
+): obj is TokenPrice {
   return (
     notNil(obj) &&
     typeof obj === "object" &&
-    "singleUnitPrice" in obj &&
-    "totalSupply" in obj &&
-    "totalRetired" in obj &&
-    "totalBridged" in obj
+    "poolName" in obj &&
+    "supply" in obj &&
+    "poolAddress" in obj &&
+    "projectTokenAddress" in obj &&
+    "singleUnitPrice" in obj
   );
 }
 
