@@ -43,11 +43,11 @@ export const getCreditsStatusOptions: () => Options = () => {
 export const getChainsOptionsWithoutCelo: () => Options = () => {
   return [
     {
-      label: "Polygon",
+      label: t`Polygon`,
       value: "polygon",
     },
     {
-      label: "Ethereum",
+      label: t`Ethereum`,
       value: "eth",
     },
   ];
@@ -57,8 +57,44 @@ export const getChainsOptionsWithoutCelo: () => Options = () => {
 export const getChainsOptions: () => Options = () => {
   const options = getChainsOptionsWithoutCelo();
   options.push({
-    label: "Celo",
+    label: t`Celo`,
     value: "celo",
   });
   return options;
+};
+
+// Return options for chain switcher widgets
+export const getC3TokensOptions: () => Options = () => {
+  return [
+    {
+      label: t`All Tokens`,
+      value: "all",
+    },
+    {
+      label: t`UBO`,
+      value: "ubo",
+    },
+    {
+      label: t`NBO`,
+      value: "nbo",
+    },
+  ];
+};
+
+// Return options for chain switcher widgets
+export const getToucanTokensOptions: () => Options = () => {
+  return [
+    {
+      label: t`All Tokens`,
+      value: "all",
+    },
+    {
+      label: t`BCT`,
+      value: "bct",
+    },
+    {
+      label: t`NCT`,
+      value: "nct",
+    },
+  ];
 };

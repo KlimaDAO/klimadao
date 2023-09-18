@@ -8,8 +8,11 @@ import styles from "./styles.module.scss";
 export default function OptionsSwitcher(props: {
   options: Options;
   onSelectionChange: OptionChangeHandler;
+  value?: Key;
 }) {
-  const [selected, setSelected] = useState<Key>(props.options[0].value);
+  const [selected, setSelected] = useState<Key>(
+    props.value || props.options[0].value
+  );
   const select: OptionChangeHandler = (value) => {
     setSelected(value);
     return props.onSelectionChange(value);
