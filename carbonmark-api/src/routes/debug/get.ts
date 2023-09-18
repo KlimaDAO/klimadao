@@ -3,13 +3,7 @@ import { pick } from "lodash";
 import { version as VERSION } from "../../../package.json";
 
 /** Selected ENVs to display */
-const DEBUG_KEYS = [
-  "POOL_PRICES_GRAPH_API_URL",
-  "ASSETS_GRAPH_API_URL",
-  "CARBON_OFFSETS_GRAPH_API_URL",
-  "GRAPH_API_URL",
-  "VERCEL_ENV",
-];
+const DEBUG_KEYS = ["VERCEL_ENV"];
 
 const schema = {
   hide: true,
@@ -21,10 +15,6 @@ const schema = {
           schema: {
             type: "object",
             properties: {
-              POOL_PRICES_GRAPH_API_URL: { type: "string" },
-              ASSETS_GRAPH_API_URL: { type: "string" },
-              CARBON_OFFSETS_GRAPH_API_URL: { type: "string" },
-              GRAPH_API_URL: { type: "string" },
               VERCEL_ENV: { type: "string" },
               VERSION: { type: "string" },
             },
