@@ -972,7 +972,7 @@ export type GetUserByWalletQueryVariables = Exact<{
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string } }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
 
 export const GetCreditListingsDocument = gql`
@@ -1053,6 +1053,7 @@ export const GetUserByWalletDocument = gql`
       }
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+      id
       amount
       previousAmount
       price
@@ -1062,6 +1063,12 @@ export const GetUserByWalletDocument = gql`
       project {
         key
         vintage
+      }
+      buyer {
+        id
+      }
+      seller {
+        id
       }
     }
   }

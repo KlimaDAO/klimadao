@@ -1,4 +1,7 @@
-import { GetCreditListingsQuery } from "../.generated/types/marketplaceMumbai.types";
+import {
+  GetCreditListingsQuery,
+  GetUserByWalletQuery,
+} from "../.generated/types/marketplaceMumbai.types";
 
 type WithHandle<T> = T & { handle?: string | null | undefined };
 
@@ -26,3 +29,13 @@ export type CreditActivityWithHandle = Omit<
   seller: WithHandle<CreditActivity["seller"]>;
   buyer: WithHandle<CreditActivity["buyer"]>;
 };
+
+//
+// gql.marketplaceMumbai.getUserByWallet(query)
+// -----------------------------------
+
+export type User = NonNullable<GetUserByWalletQuery["users"]>[number];
+
+export type UserListing = NonNullable<User["listings"]>[number];
+
+export type UserActivity = NonNullable<User["activities"]>[number];
