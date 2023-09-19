@@ -8,8 +8,8 @@ export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 const ENVIRONMENT: "production" | "preview" | "development" = IS_PRODUCTION
   ? "production"
   : IS_LOCAL_DEVELOPMENT
-  ? "development"
-  : "preview";
+    ? "development"
+    : "preview";
 
 const config = {
   urls: {
@@ -38,9 +38,9 @@ export const dash_api_url =
 const api_url =
   typeof window === "undefined"
     ? // Server side we contact the actual Dash API endpoint
-      dash_api_url
+    dash_api_url
     : // Client side we use the proxy
-      "/api";
+    "/api";
 
 export const urls = {
   baseUrl: config.urls.baseUrl[ENVIRONMENT],
@@ -57,5 +57,6 @@ export const urls = {
     aggregatedCreditsByProjects: `${api_url}/credits/agg/projects`,
     dailyCarbonMetrics: `${api_url}/carbon_metrics`,
     aggregatedCreditsByPoolAndDates: `${api_url}/pools/agg/tokens`,
+    aggregatedCreditsByPoolAndVintage: `${api_url}/credits/agg/pool/vintage`,
   },
 };

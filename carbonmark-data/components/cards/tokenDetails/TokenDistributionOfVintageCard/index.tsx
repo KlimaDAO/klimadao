@@ -1,32 +1,31 @@
 import { t } from "@lingui/macro";
-import { poolsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
-import { statusToDateField } from "lib/charts/dateField";
-import { queryMonthlyAggregatedCreditsByPool } from "lib/charts/queries";
-import { MonthlyAggregatedCreditsByPoolItem, Status } from "lib/charts/types";
+import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
+import { AggregatedCreditsByPoolAndVintageItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 
-export default function TokenVolumeOverTimeCard(
+export default function TokenDistributionOfVintageCard(
   props: CardProps & TokenDetailsProps
 ) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <TokenVolumeOverTimeChart {...props} />
+    <TokenDistributionOfVintageChart {...props} />
   );
 
-  return <ChartCard {...props} title={t`Volume over time`} chart={chart} />;
+  return <ChartCard {...props} title={t`Distribution of vintage start dates`} chart={chart} />;
 }
 
 /** Async server component that renders a Recharts client component */
-async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
-  const params = poolsQueryParamsFromProps(props);
-  const freq = props.since == "lifetime" ? "monthly" : "daily";
-  const data = (await queryMonthlyAggregatedCreditsByPool(freq, params)).items;
-  const configuration: SimpleChartConfiguration<MonthlyAggregatedCreditsByPoolItem> =
+async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
+  const params = creditsQueryParamsFromProps(props);
+  const data = (await queryAggregatedCreditsByPoolAndVintage(params)).items;
+  console.log(data)
+  const configuration: SimpleChartConfiguration<AggregatedCreditsByPoolAndVintageItem> =
     [];
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
     configuration.push({
@@ -74,12 +73,12 @@ async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
       },
     });
   }
-  const dateField = statusToDateField(params.status as Status);
+
   return (
     <KBarChart
       data={data}
       configuration={configuration}
-      dateField={dateField}
+      dateField="vintage"
     />
   );
 }

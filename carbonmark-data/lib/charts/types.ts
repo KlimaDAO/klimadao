@@ -221,21 +221,29 @@ export interface RawRetirementsItem {
   serial_number: string;
 }
 export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
-
-export interface MonthlyAggregatedCreditsByPoolItem extends DateFieldInterface {
-  quantity_bct: number;
-  count_bct: number;
-  quantity_nct: number;
-  count_nct: number;
-  quantity_mco2: number;
-  count_mco2: number;
-  quantity_ubo: number;
-  count_ubo: number;
-  quantity_nbo: number;
-  count_nbo: number;
+export interface PoolQuantitiesInterface {
+  bct_quantity: number;
+  nct_quantity: number;
+  mco2_quantity: number;
+  ubo_quantity: number;
+  nbo_quantity: number;
+}
+export interface MonthlyAggregatedCreditsByPoolItem extends PoolQuantitiesInterface, DateFieldInterface {
+  bct_quantity: number;
+  nct_quantity: number;
+  mco2_quantity: number;
+  ubo_quantity: number;
+  nbo_quantity: number;
 }
 export type MonthlyAggregatedCreditsByPool =
   PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>;
+
+export interface AggregatedCreditsByPoolAndVintageItem extends PoolQuantitiesInterface {
+  vintage: number;
+  total_quantity: number;
+}
+export type AggregatedCreditsByPoolAndVintage =
+  PaginatedResponse<AggregatedCreditsByPoolAndVintageItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
