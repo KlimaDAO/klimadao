@@ -15,17 +15,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import * as styles from "./styles";
 
-type Props = {
+export type PageProps = {
   purchase: Purchase | null;
   transaction: string;
 };
 
-export const PurchaseReceipt: NextPage<Props> = (props) => {
+export const PurchaseReceipt: NextPage<PageProps> = (props) => {
   const { locale } = useRouter();
   const amount =
     props.purchase?.amount && formatBigToTonnes(props.purchase.amount, locale);
   const metaDescription = props.purchase
-    ? t`${amount} tonnes were purchased for project ${props.purchase.listing.project.projectID}`
+    ? t`${amount} tonnes were purchased for project ${props.purchase?.listing?.project?.key}`
     : t`View the project details and other info for this purchase.`;
 
   return (
@@ -38,7 +38,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
       />
 
       <Layout>
-        {!!props.purchase && (
+        {!!props.purchase?.listing.project && (
           <div className={styles.fullWidth}>
             <Link
               href={createProjectLink(props.purchase.listing.project)}
@@ -94,7 +94,7 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                     button and follow the directions.
                   </Trans>
                 </Text>
-                {!!props.purchase && (
+                {!!props.purchase && !!props.purchase.listing.project && (
                   <>
                     <div className="summary">
                       <div className="cols">
@@ -116,14 +116,11 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                           </Text>
                         </div>
                       </div>
-
-                      <Text t="body1">
-                        <Trans>Project</Trans>
+                      <Text>
+                        {props.purchase.listing.project.key}-
+                        {props.purchase.listing.project.vintage}
                       </Text>
-                      <Text t="body1" color="lighter">
-                        {props.purchase.listing.project.methodology}
-                      </Text>
-                      <Text t="body1">
+                      <Text>
                         <Link
                           href={createProjectLink(
                             props.purchase.listing.project
@@ -133,9 +130,10 @@ export const PurchaseReceipt: NextPage<Props> = (props) => {
                           {props.purchase.listing.project.name}
                         </Link>
                       </Text>
-                      <Text t="body1">
-                        {props.purchase.listing.project.country}
+                      <Text color="lighter">
+                        {props.purchase.listing.project.methodology}
                       </Text>
+                      <Text>{props.purchase.listing.project.country}</Text>
                     </div>
                     <CarbonmarkButton
                       href="/portfolio"
