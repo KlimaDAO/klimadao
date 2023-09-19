@@ -59,7 +59,7 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
 
       dispatch(
         setAppState({
-          currentIndex: formatUnits(currentIndex, "gwei"),
+          currentIndex: formatUnits(BigInt(currentIndex), "gwei"),
           currentBlock,
           fiveDayRate,
           stakingAnnualPercent,
