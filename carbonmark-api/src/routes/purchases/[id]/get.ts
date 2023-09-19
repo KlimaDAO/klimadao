@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { isNil } from "lodash";
 import { NetworkParam } from "src/models/NetworkParam.model";
-import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
 import { Purchase } from "../../../models/Purchase.model";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { ParamsT, schema } from "./get.schema";
@@ -15,7 +14,7 @@ const routeHandler = (fastify: FastifyInstance) =>
     method: "GET",
     url: "/purchases/:id",
     handler: async (request, reply) => {
-      let response: GetPurchasesByIdQuery;
+      let response;
       const sdk = gql_sdk(request.query.network);
       try {
         response = await sdk.marketplace.getPurchasesById(request.params);

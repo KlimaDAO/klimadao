@@ -1,8 +1,10 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
-import { ProjectContent } from "../../.generated/types/carbonProjects.types";
-import { CMSProject } from "../../graphql/carbonProjects.types";
+import {
+  GetProjectQuery,
+  ProjectContent,
+} from "../../.generated/types/carbonProjects.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
@@ -23,7 +25,7 @@ const projectKey = ({
   registryProjectId: string | null;
 }) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = CMSProject & {
+export type CarbonProject = GetProjectQuery["allProject"][number] & {
   content?: ProjectContent;
 };
 
