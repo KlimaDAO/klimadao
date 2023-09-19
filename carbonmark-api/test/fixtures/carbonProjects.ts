@@ -2,7 +2,6 @@ import {
   aProject,
   aProjectContent,
 } from "../../src/.generated/mocks/carbonProjects.mocks";
-import { CarbonProject } from "../../src/utils/helpers/carbonProjects.utils";
 
 const content = aProjectContent({
   project: {
@@ -20,7 +19,7 @@ const cmsProject = aProject({
 });
 
 // Generated types are wrong, id is string - https://github.com/KlimaDAO/klimadao/issues/1500
-const carbonProject: CarbonProject = {
+const carbonProject = {
   ...cmsProject,
   // override these because the type from aProject() is wrong
   id: "VCS-191",
