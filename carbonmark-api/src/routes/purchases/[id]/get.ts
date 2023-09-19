@@ -1,51 +1,81 @@
-import { FastifyInstance } from "fastify";
-import { isNil } from "lodash";
-import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
+import { Static } from "@sinclair/typebox";
+import { isHexString } from "ethers-v6";
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { Purchase as MumbaiPurchase } from "../../../graphql/marketplaceMumbai.types";
+import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
+import { CreditId } from "../../../utils/CreditId";
 import { gqlSdk } from "../../../utils/gqlSdk";
-import { ParamsT, schema } from "./get.schema";
+import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
+import { schema } from "./get.schema";
 
-const routeHandler = (fastify: FastifyInstance) =>
-  fastify.route<{
-    Params: ParamsT;
-    Reply: Purchase | { error: string };
-  }>({
-    method: "GET",
-    url: "/purchases/:id",
-    handler: async (request, reply) => {
-      let response: GetPurchasesByIdQuery;
-      try {
-        response = await gqlSdk.marketplace.getPurchasesById(request.params);
-      } catch (error) {
-        // Return bad gateway and pass the error
-        console.error(error);
-        return reply.status(502).send(error?.message);
-      }
+/** Purchase ids are a txn hash */
+const isValidPurchaseId = (id?: string | null) => {
+  if (!id) return false;
+  return id.length === 66 && isHexString(id);
+};
 
-      const data = response.purchases?.at(0);
-      /** Handle the not found case */
-      if (isNil(data)) {
-        return reply.status(404).send({ error: "Purchase not found" });
-      }
+const getPurchaseById = async (params: {
+  id: string | null;
+  network?: NetworkParam;
+}): Promise<Purchase | MumbaiPurchase | null> => {
+  const graph =
+    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
+  const response = await graph.getPurchasesById({
+    id: params.id,
+  });
+  return response.purchases?.at(0) || null;
+};
 
-      const country = data.listing?.project?.country?.id || "";
-
-      const purchase: Purchase = {
-        ...data,
-        buyer: data.user,
-        seller: data.listing?.seller,
-        listing: {
-          id: data.listing.id,
-          project: {
-            ...data.listing.project,
-            country, // override to avoid country.id
-          },
-        },
-      };
-
-      return reply.status(200).send(purchase);
-    },
-    schema,
+const handler = async function (
+  request: FastifyRequest<{
+    Params: Static<typeof schema.params>;
+    Querystring: Static<typeof schema.querystring>;
+  }>,
+  reply: FastifyReply
+) {
+  if (!isValidPurchaseId(request.params.id)) {
+    return reply.badRequest("Invalid purchase id: " + request.params.id);
+  }
+  const purchase = await getPurchaseById({
+    id: request.params.id,
+    network: request.query.network,
   });
 
-export default routeHandler;
+  /** Handle the not found case */
+  if (!purchase) {
+    return reply.notFound("Purchase not found");
+  }
+  const [standard, registryProjectId] = CreditId.splitProjectId(
+    purchase.listing.project.key
+  );
+  const project = await fetchCarbonProject({
+    registry: standard,
+    registryProjectId,
+  });
+
+  const response: Purchase = {
+    ...purchase,
+    listing: {
+      id: purchase.listing.id,
+      project: {
+        key: purchase.listing.project.key,
+        vintage: purchase.listing.project.vintage,
+        methodology: project.methodologies?.[0]?.id ?? "",
+        name: project.name ?? "",
+        projectID: registryProjectId,
+        country: project.country ?? "",
+      },
+    },
+  };
+
+  return reply.status(200).send(response);
+};
+
+export default (fastify: FastifyInstance) =>
+  fastify.route({
+    method: "GET",
+    url: "/purchases/:id",
+    handler,
+    schema,
+  });
