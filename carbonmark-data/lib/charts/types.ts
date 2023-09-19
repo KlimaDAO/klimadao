@@ -13,11 +13,11 @@ export type Protocol = (typeof PROTOCOLS)[number];
 export type DateFilteringOption = "lifetime" | "last30d" | "last7d";
 
 export interface DateFieldInterface {
-  bridged_date: number;
-  redeemed_date: number;
-  retirement_date: number;
-  issuance_date: number;
-  deposited_date: number;
+  bridged_date?: string;
+  redeemed_date?: string;
+  retirement_date?: string;
+  issuance_date?: string;
+  deposited_date?: string;
 }
 export type DateField = keyof DateFieldInterface;
 export interface DateFieldQueryParamsInterface {
@@ -67,12 +67,7 @@ export interface PaginatedResponse<RI> {
   pages_count: number;
   current_page: number;
 }
-export interface DailyCreditsItem {
-  bridged_date?: string;
-  redeemed_date?: string;
-  retirement_date?: string;
-  issuance_date?: string;
-  deposited_date?: string;
+export interface DailyCreditsItem extends DateFieldInterface {
   quantity: number;
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
@@ -250,6 +245,21 @@ export interface RawRetirementsItem {
   serial_number: string;
 }
 export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
+
+export interface MonthlyAggregatedCreditsByPoolItem extends DateFieldInterface {
+  quantity_bct: number;
+  count_bct: number;
+  quantity_nct: number;
+  count_nct: number;
+  quantity_mco2: number;
+  count_mco2: number;
+  quantity_ubo: number;
+  count_ubo: number;
+  quantity_nbo: number;
+  count_nbo: number;
+}
+export type MonthlyAggregatedCreditsByPool =
+  PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {

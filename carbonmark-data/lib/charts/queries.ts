@@ -11,6 +11,7 @@ import {
   KlimaMonthlyRetirementsByOriginItem,
   KlimaMonthlyRetirementsByTokenItem,
   KlimaRetirementsByBeneficiaryItem,
+  MonthlyAggregatedCreditsByPoolItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
@@ -56,13 +57,18 @@ async function query<R, Q extends object>(
     if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
   }
   let errorMessage = `Failed to fetch ${url}`;
-
-  const res = await fetch(url, { next: { revalidate } });
+  let res: Response;
+  try {
+    res = await fetch(url, { next: { revalidate } });
+  } catch (e) {
+    // Handle HTTP errors
+    throw new Error(errorMessage);
+  }
   const text = await res.text();
 
   errorMessage = `${text} \n ${errorMessage}`;
   if (!res.ok) {
-    // Handle Browser HTTP errors
+    // Handle HTTP errors
     throw new Error(errorMessage);
   }
 
@@ -216,6 +222,17 @@ export function queryCarbonMetrics<RI>(
 ): Promise<PaginatedResponse<RI>> {
   return paginatedQuery<RI, typeof params>(
     `${urls.api.dailyCarbonMetrics}/${chain}`,
+    params
+  );
+}
+
+/** Queries the Pools tokens & dates aggregation endpoint */
+export function queryMonthlyAggregatedCreditsByPool(
+  freq: string,
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>> {
+  return paginatedQuery<MonthlyAggregatedCreditsByPoolItem, typeof params>(
+    `${urls.api.aggregatedCreditsByPoolAndDates}/${freq}`,
     params
   );
 }

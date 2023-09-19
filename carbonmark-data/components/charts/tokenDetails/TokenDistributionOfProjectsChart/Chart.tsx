@@ -1,7 +1,7 @@
 "use client"; // use client for recharts animations
 import { TreeMapData } from "lib/charts/types";
 import { ResponsiveContainer, Treemap } from "recharts";
-import TreeMapItem from "../helpers/TreeMapItem";
+import TreeMapItem from "../../helpers/TreeMapItem";
 
 interface Props {
   data: TreeMapData;

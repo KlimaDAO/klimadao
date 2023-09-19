@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
-import TokenDistributionOfProjectsChart from "components/charts/TokenDistributionOfProjectsChart";
+import TokenDistributionOfProjectsChart from "components/charts/tokenDetails/TokenDistributionOfProjectsChart";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 export default function TokenDistributionOfProjectsCard(
