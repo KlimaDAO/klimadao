@@ -104,7 +104,7 @@ export const getUserProfilesByIds = async (params: {
 export const getProfileByHandle = async (params: {
   firebase: app.App;
   handle: string;
-}) => {
+}): Promise<UserProfile | null> => {
   const snapshot = await params.firebase
     .firestore()
     .collection("users")
@@ -112,10 +112,7 @@ export const getProfileByHandle = async (params: {
     .limit(1)
     .get();
   if (snapshot.empty) return null;
-  if (snapshot.size > 1) {
-    throw new Error(
-      `Multiple users found with handle: ${params.handle.toLowerCase()}. This should never happen.`
-    );
-  }
-  return snapshot.docs.at(0)?.data() || null;
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- apply known type
+  const profile = snapshot.docs.at(0)?.data() as UserProfile | undefined;
+  return profile || null;
 };

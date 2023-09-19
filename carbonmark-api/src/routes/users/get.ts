@@ -74,7 +74,7 @@ const getUserByWallet = async (params: {
   const graph =
     params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
   const { users } = await graph.getUserByWallet({
-    wallet: params.address,
+    wallet: params.address.toLowerCase(),
   });
   return users.at(0);
 };
@@ -129,12 +129,11 @@ const handler = (fastify: FastifyInstance) =>
         handle: params.walletOrHandle,
       });
       // if there is no profile, we can't continue without an address
-      if (!handleProfile) {
+      if (!handleProfile || !isAddress(handleProfile.address)) {
         return reply.notFound("No user profile found.");
       }
     }
-    const address = handleProfile?.wallet || params.walletOrHandle; // now we know we have an address
-
+    const address = handleProfile?.address || params.walletOrHandle; // now we know we have an address
     const [profile, user, assets] = await Promise.all([
       handleProfile ||
         getProfileByAddress({ firebase: fastify.firebase, address }),
