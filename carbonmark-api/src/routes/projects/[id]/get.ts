@@ -33,7 +33,7 @@ const handler = (fastify: FastifyInstance) =>
     try {
       [[poolPrices, stats], [listings, activities], projectDetails] =
         await Promise.all([
-          fetchPoolPricesAndStats({ key, vintage }),
+          fetchPoolPricesAndStats(sdk, { key, vintage }),
           fetchMarketplaceListings(sdk, { key, vintage, fastify }),
           fetchCarbonProject(sdk, {
             registry,

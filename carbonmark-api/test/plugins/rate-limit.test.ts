@@ -15,11 +15,11 @@ describe("Rate Limiter", () => {
 
   test("should limit requests", async () => {
     for (let i = 0; i < 100 + 1; i++) {
-      nock(GRAPH_URLS.offsets)
+      nock(GRAPH_URLS["polygon"].offsets)
         .post("")
         .reply(200, { data: { carbonOffsets: [] } });
 
-      nock(GRAPH_URLS.marketplace)
+      nock(GRAPH_URLS["polygon"].marketplace)
         .post("")
         .reply(200, { data: { categories: CATEGORIES } });
 

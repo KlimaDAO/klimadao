@@ -14,14 +14,14 @@ describe("GET /categories", () => {
 
   /** A default response for offsets */
   beforeEach(() =>
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [] } })
   );
 
   /** The happy path */
   test("Success", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { categories: CATEGORIES } });
 
@@ -41,7 +41,7 @@ describe("GET /categories", () => {
     const mockConsole = jest
       .spyOn(console, "error")
       .mockImplementation(() => {});
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         errors: [ERROR],
@@ -58,7 +58,7 @@ describe("GET /categories", () => {
   });
 
   test("Empty data", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { categories: [] } });
 
@@ -76,7 +76,7 @@ describe("GET /categories", () => {
     const mockConsole = jest
       .spyOn(console, "error")
       .mockImplementation(() => {});
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { categories: "invalid data" } });
 

@@ -1,5 +1,6 @@
 import { get } from "lodash";
 import { TokenPriceT } from "../../models/TokenPrice.model";
+import { GQL_SDK } from "../gqlSdk";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
 import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
 
@@ -14,14 +15,15 @@ type Params = {
  * @returns {Promise<[ProjectPoolPrice[], Stats]>} - 1 entry for each asset. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
 export const fetchPoolPricesAndStats = async (
+  sdk: GQL_SDK,
   params: Params
 ): Promise<[TokenPriceT[], Stats]> => {
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
-    fetchProjectPoolInfo({
+    fetchProjectPoolInfo(sdk, {
       projectID: params.key,
       vintage: Number(params.vintage),
     }),
-    fetchAllPoolPrices(), // fetch the price for all known lps
+    fetchAllPoolPrices(sdk), // fetch the price for all known lps
   ]);
   /** @type {ProjectPoolPrice[]} */
   const initialPrices: TokenPriceT[] = [];

@@ -5,13 +5,14 @@ const GENERATED_DIR = "src/.generated/types";
 const GENERATED_MOCKS_DIR = "src/.generated/mocks";
 const DOCUMENTS_DIR = "src/graphql";
 
-const plugins = [
+const PLUGINS = [
   "typescript",
   "typescript-operations",
   "typescript-graphql-request",
 ];
 
-const schemas = merge(GRAPH_URLS, SANITY_URLS);
+//Only generate types and mocks from polygon schema. @todo confirm that the testnet schemas do not diverge.
+const schemas = merge(GRAPH_URLS["polygon"], SANITY_URLS);
 
 // Generate configuration for each schema entry
 const generates = Object.entries(schemas).reduce(
@@ -23,7 +24,7 @@ const generates = Object.entries(schemas).reduce(
         `${DOCUMENTS_DIR}/${key}.gql`,
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
-      plugins,
+      plugins: PLUGINS,
     },
     [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
       schema,
