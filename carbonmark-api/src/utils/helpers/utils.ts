@@ -8,9 +8,14 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
 import { CarbonProject } from "./carbonProjects.utils";
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
+const ENV = (process.env.VERCEL_ENV ?? "development") as
+  | "development"
+  | "production";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -154,7 +159,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNBO,
-      tokenAddress: process.env.NBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")?.priceInUsd,
       name: "NBO",
     });
@@ -164,7 +169,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceUBO,
-      tokenAddress: process.env.UBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].UBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")?.priceInUsd,
       name: "UBO",
     });
@@ -174,7 +179,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNCT,
-      tokenAddress: process.env.NTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")?.priceInUsd,
       name: "NCT",
     });
@@ -184,7 +189,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceBCT,
-      tokenAddress: process.env.BTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].BTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")?.priceInUsd,
       name: "BCT",
     });

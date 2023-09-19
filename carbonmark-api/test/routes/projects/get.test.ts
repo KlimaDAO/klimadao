@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
+import { GRAPH_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
 import carbonProjects from "../../fixtures/carbonProjects";
 import marketplace from "../../fixtures/marketplace";

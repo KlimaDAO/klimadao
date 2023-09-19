@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-15 23:49+0000\n"
+"POT-Creation-Date: 2023-09-19 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -820,7 +820,7 @@ msgstr "Aucun projet n'a été trouvé avec les filtres sélectionnés"
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "Aucune description de projet n'a été trouvée"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22

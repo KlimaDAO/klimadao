@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
 import { aPurchase } from "../../../src/.generated/mocks/marketplace.mocks";
-import { GRAPH_URLS } from "../../../src/graphql/codegen.constants";
+import { GRAPH_URLS } from "../../../src/app.constants";
 import { Purchase } from "../../../src/models/Purchase.model";
 import { build } from "../../helper";
 import { DEV_URL, ERROR } from "../../test.constants";

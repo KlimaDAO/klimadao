@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
+import { GRAPH_URLS } from "../../src/app.constants";
 import { build } from "../helper";
 import { CATEGORIES, DEV_URL } from "../test.constants";
 
