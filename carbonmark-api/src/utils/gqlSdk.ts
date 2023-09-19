@@ -36,7 +36,7 @@ export type GQL_SDK = {
 };
 
 export const gql_sdk = (
-  network: NetworkParam | undefined = "mumbai"
+  network: NetworkParam | undefined = "polygon"
 ): GQL_SDK => {
   const graph_urls = GRAPH_URLS[network];
   return {
