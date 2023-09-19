@@ -55,12 +55,14 @@ async function query<R, Q extends object>(
     );
     if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
   }
+  let errorMessage = `Failed to fetch ${url}`;
+
   const res = await fetch(url, { next: { revalidate } });
   const text = await res.text();
-  // Handle HTTP errors
-  const errorMessage = `${text} \n Failed to fetch ${url}`;
+
+  errorMessage = `${text} \n ${errorMessage}`;
   if (!res.ok) {
-    console.error(errorMessage);
+    // Handle Browser HTTP errors
     throw new Error(errorMessage);
   }
 
@@ -68,7 +70,6 @@ async function query<R, Q extends object>(
     return JSON.parse(text);
   } catch (e) {
     // Handle JSON decoding errors
-    console.error(errorMessage);
     throw new Error(errorMessage);
   }
 }
@@ -88,6 +89,7 @@ async function failsafeQuery<R, Q extends object>(
     return await query(url, params, revalidate);
   } catch (e) {
     // Catch errors and return an empty response so the page can still be rendered
+    console.error(e);
     return Promise.resolve(defaultValue);
   }
 }
