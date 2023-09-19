@@ -119,19 +119,21 @@ const handler = (fastify: FastifyInstance) =>
   ): Promise<User | void> {
     const { query, params } = request;
 
+    const walletOrHandle = params.walletOrHandle.toLowerCase();
+
     // If handle is provided, we must do a profile lookup first.
     let handleProfile;
-    if (!isAddress(params.walletOrHandle)) {
+    if (!isAddress(walletOrHandle)) {
       handleProfile = await getProfileByHandle({
         firebase: fastify.firebase,
-        handle: params.walletOrHandle,
+        handle: walletOrHandle,
       });
       // if there is no profile, we can't continue without an address
       if (!handleProfile || !isAddress(handleProfile.address)) {
-        return reply.notFound("No user profile found.");
+        return reply.notFound("No user profile found for given handle.");
       }
     }
-    const address = handleProfile?.address || params.walletOrHandle; // now we know we have an address
+    const address = handleProfile?.address || walletOrHandle; // now we know we have an address
     const [profile, user, assets] = await Promise.all([
       handleProfile ||
         getProfileByAddress({ firebase: fastify.firebase, address }),
