@@ -13,7 +13,7 @@ import * as styles from "./styles";
 
 export const Balances: FC = () => {
   const { locale } = useRouter();
-  const { address } = useWeb3();
+  const { address, networkLabel } = useWeb3();
   const [balances, setBalances] = useState<Balance[]>([]);
 
   const updateBalance = (updatedBalance: Balance) => {
@@ -32,6 +32,7 @@ export const Balances: FC = () => {
     const usdcBalance = async () => {
       const usdc = await getUSDCBalance({
         userAddress: address,
+        network: networkLabel,
       });
 
       updateBalance({

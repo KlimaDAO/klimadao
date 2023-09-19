@@ -29,7 +29,7 @@ export interface Props {
 
 export const PurchaseForm: FC<Props> = (props) => {
   const { push } = useRouter();
-  const { address, provider } = useWeb3();
+  const { address, provider, networkLabel } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
@@ -52,6 +52,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     const getBalance = async () => {
       const balance = await getUSDCBalance({
         userAddress: address,
+        network: networkLabel,
       });
 
       setBalance(balance);
@@ -94,6 +95,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         address,
         spender: "carbonmark",
         token: "usdc",
+        network: networkLabel,
       });
       setAllowanceValue(allowance.usdc.carbonmark);
       setInputValues(values);
@@ -137,13 +139,21 @@ export const PurchaseForm: FC<Props> = (props) => {
   const onMakePurchase = async () => {
     LO.track("Purchase: Submit Clicked");
     if (!provider || !inputValues) return;
+    if (!props.listing.seller?.id) {
+      // type guard
+      throw new Error(
+        "No seller id present for this listing: " + props.listing.id
+      );
+    }
 
     try {
       setIsProcessing(true);
       const result = await makePurchase({
         listingId: inputValues.listingId,
-        amount: inputValues.amount,
-        price: inputValues.price,
+        quantity: inputValues.amount,
+        singleUnitPrice: inputValues.price,
+        creditTokenAddress: props.listing.tokenAddress,
+        sellerAddress: props.listing.seller.id,
         provider,
         onStatus: onUpdateStatus,
       });

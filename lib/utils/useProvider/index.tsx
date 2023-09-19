@@ -133,6 +133,7 @@ export const useProvider = (): Web3ModalState => {
         signer,
         address,
         network,
+        networkLabel: network.chainId === 80001 ? "testnet" : "mainnet",
         isConnected: true,
         initializing: false,
         isConnectionFromCache: options?.useCache || false,

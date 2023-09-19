@@ -145,11 +145,13 @@ export const getUserUntil = async (params: {
   retryUntil: (u: User) => boolean;
   maxAttempts?: number;
   retryInterval?: number;
+  network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const fetchUser = () =>
     getUser({
       user: params.address,
       type: "wallet",
+      network: params.network,
     });
 
   const updatedUser = await pollUntil({
@@ -180,8 +182,13 @@ export const getProjects = async (
 export const getUser = async (params: {
   user: string;
   type: "wallet" | "handle";
-}): Promise<User> =>
-  await fetcher(`${urls.api.users}/${params.user}?type=${params.type}`);
+  network?: "mumbai" | "polygon";
+}): Promise<User> => {
+  const { network = "polygon" } = params;
+  return await fetcher(
+    `${urls.api.users}/${params.user}?type=${params.type}&network=${network}`
+  );
+};
 
 export const getProject = async (projectId: string): Promise<Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);

@@ -30,20 +30,30 @@ import {
   getMethodologyFromProject,
 } from "./projectGetter";
 
+export const getSignerNetwork = (
+  signer: providers.JsonRpcSigner
+): "testnet" | "mainnet" => {
+  return signer.provider.network.chainId === 80001 ? "testnet" : "mainnet";
+};
+
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
+  network?: "testnet" | "mainnet";
 }): Promise<string> => {
+  const chain = params.network === "testnet" ? "mumbai" : "polygon";
   const tokenContract = new Contract(
     params.tokenAddress,
     IERC20.abi,
-    getStaticProvider()
+    getStaticProvider({
+      chain,
+    })
   );
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getAddress("carbonmark")
+    getAddress("carbonmark", params.network)
   );
 
   return ethersFormatUnits(allowance, 18);
@@ -79,11 +89,13 @@ export const approveTokenSpend = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
+    const network = getSignerNetwork(params.signer);
     let tokenContract: Contract;
     if (params.tokenName) {
       tokenContract = getContract({
         contractName: params.tokenName,
         provider: params.signer,
+        network,
       });
     } else if (params.tokenAddress) {
       tokenContract = new Contract(
@@ -99,7 +111,7 @@ export const approveTokenSpend = async (params: {
 
     params.onStatus("userConfirmation");
     const txn = await tokenContract.approve(
-      getAddress(params.spender),
+      getAddress(params.spender, network),
       parsedValue.toString()
     );
 
@@ -199,23 +211,35 @@ export const updateListingTransaction = async (params: {
 
 export const makePurchase = async (params: {
   listingId: string;
-  amount: string;
-  price: string;
+  sellerAddress: string;
+  creditTokenAddress: string;
+  singleUnitPrice: string;
+  quantity: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
   try {
+    const signer = params.provider.getSigner();
+    const network = getSignerNetwork(signer);
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
-      provider: params.provider.getSigner(),
+      provider: signer,
+      network,
     });
 
     params.onStatus("userConfirmation", "");
 
-    const purchaseTxn = await carbonmarkContract.purchase(
+    const maxCost = String(
+      Number(params.quantity) * Number(params.singleUnitPrice)
+    );
+
+    const purchaseTxn = await carbonmarkContract.fillListing(
       params.listingId,
-      parseUnits(params.amount, 18), // C3 token
-      parseUnits(params.price, getTokenDecimals("usdc"))
+      params.sellerAddress,
+      params.creditTokenAddress,
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.quantity, 18), // C3 token
+      parseUnits(maxCost, 6)
     );
 
     params.onStatus("networkConfirmation", "");
@@ -432,10 +456,15 @@ export const getProjectInfoFromTCO2Contract = async (
   }
 };
 
-export const getUSDCBalance = async (params: { userAddress: string }) => {
+export const getUSDCBalance = async (params: {
+  userAddress: string;
+  network?: "testnet" | "mainnet";
+}) => {
+  const chain = params.network === "testnet" ? "mumbai" : "polygon";
   const tokenContract = getContract({
     contractName: "usdc",
-    provider: getStaticProvider(),
+    provider: getStaticProvider({ chain }),
+    network: params.network,
   });
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance, getTokenDecimals("usdc"));
