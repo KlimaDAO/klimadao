@@ -965,7 +965,7 @@ export type GetPurchasesByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, user: { __typename?: 'User', id: any }, listing: { __typename?: 'Listing', id: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', key: string, vintage: string } } }> };
+export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', key: string, vintage: string } } }> };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
@@ -1016,14 +1016,8 @@ export const GetPurchasesByIdDocument = gql`
   purchases(first: 1, where: {id: $id}) {
     id
     amount
-    user {
-      id
-    }
     listing {
       id
-      seller {
-        id
-      }
       project {
         key
         vintage

@@ -1,5 +1,6 @@
 import {
   GetCreditListingsQuery,
+  GetPurchasesByIdQuery,
   GetUserByWalletQuery,
 } from "../.generated/types/marketplaceMumbai.types";
 
@@ -39,3 +40,9 @@ export type User = NonNullable<GetUserByWalletQuery["users"]>[number];
 export type UserListing = NonNullable<User["listings"]>[number];
 
 export type UserActivity = NonNullable<User["activities"]>[number];
+
+//
+// gql.marketplaceMumbai.getPurchasesById(query)
+// -----------------------------------
+
+export type Purchase = NonNullable<GetPurchasesByIdQuery["purchases"]>[number];
