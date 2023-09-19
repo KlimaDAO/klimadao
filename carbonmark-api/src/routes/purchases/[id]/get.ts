@@ -1,21 +1,24 @@
 import { FastifyInstance } from "fastify";
 import { isNil } from "lodash";
+import { NetworkParam } from "src/models/NetworkParam.model";
 import { GetPurchasesByIdQuery } from "../../../.generated/types/marketplace.types";
 import { Purchase } from "../../../models/Purchase.model";
-import { gqlSdk } from "../../../utils/gqlSdk";
+import { gql_sdk } from "../../../utils/gqlSdk";
 import { ParamsT, schema } from "./get.schema";
 
 const routeHandler = (fastify: FastifyInstance) =>
   fastify.route<{
     Params: ParamsT;
+    Querystring: { network: NetworkParam };
     Reply: Purchase | { error: string };
   }>({
     method: "GET",
     url: "/purchases/:id",
     handler: async (request, reply) => {
       let response: GetPurchasesByIdQuery;
+      const sdk = gql_sdk(request.query.network);
       try {
-        response = await gqlSdk.marketplace.getPurchasesById(request.params);
+        response = await sdk.marketplace.getPurchasesById(request.params);
       } catch (error) {
         // Return bad gateway and pass the error
         console.error(error);

@@ -50,7 +50,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
     // Check if the global query parameter exists
     if (request.query) {
       // Handle the global query parameter
-      console.log("BLAH", request.query);
+      console.log(request.query);
     }
     done();
   });

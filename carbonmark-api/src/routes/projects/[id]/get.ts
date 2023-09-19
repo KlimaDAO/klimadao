@@ -3,7 +3,9 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
+import { NetworkParam } from "../../../models/NetworkParam.model";
 import { CreditId } from "../../../utils/CreditId";
+import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
@@ -13,10 +15,14 @@ import { Params, schema } from "./get.schema";
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Params: Static<typeof Params> }>,
+    request: FastifyRequest<{
+      Querystring: { network: NetworkParam };
+      Params: Static<typeof Params>;
+    }>,
     reply: FastifyReply
   ) {
     const { id } = request.params;
+    const sdk = gql_sdk(request.query.network);
     const {
       vintage,
       standard: registry,
@@ -28,8 +34,8 @@ const handler = (fastify: FastifyInstance) =>
       [[poolPrices, stats], [listings, activities], projectDetails] =
         await Promise.all([
           fetchPoolPricesAndStats({ key, vintage }),
-          fetchMarketplaceListings({ key, vintage, fastify }),
-          fetchCarbonProject({
+          fetchMarketplaceListings(sdk, { key, vintage, fastify }),
+          fetchCarbonProject(sdk, {
             registry,
             registryProjectId,
           }),

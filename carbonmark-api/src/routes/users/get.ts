@@ -6,9 +6,10 @@ import {
   ByWalletUserActivity,
   ByWalletUserListing,
 } from "../../graphql/marketplace.types";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { User } from "../../models/User.model";
 import { selector } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
+import { gql_sdk } from "../../utils/gqlSdk";
 import { formatActivity } from "../../utils/helpers/activities.utils";
 import {
   getUserDocumentByHandle,
@@ -22,12 +23,13 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
       Params: Static<typeof Params>;
-      Querystring: Static<typeof QueryString>;
+      Querystring: Static<typeof QueryString> & { network: NetworkParam };
     }>,
     reply: FastifyReply
   ): Promise<User | void> {
     const { walletOrHandle } = request.params;
     const { type } = request.query;
+    const sdk = gql_sdk(request.query.network);
 
     const fetchUserFn =
       type === "wallet" ? getUserDocumentByWallet : getUserDocumentByHandle;
@@ -44,9 +46,13 @@ const handler = (fastify: FastifyInstance) =>
     const wallet = firebaseUserDocument.id.toLowerCase();
 
     // Query the GraphQL API with the wallet address to get more user data
-    const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
+    const { users } = await sdk.marketplace.getUserByWallet({
+      wallet,
+    });
 
-    const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
+    const { accounts } = await sdk.assets.getHoldingsByWallet({
+      wallet,
+    });
 
     const user = users.at(0);
 

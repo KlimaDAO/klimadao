@@ -2,9 +2,10 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { Project } from "../../models/Project.model";
 import { CreditId } from "../../utils/CreditId";
-import { gqlSdk } from "../../utils/gqlSdk";
+import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
 import { schema } from "./get.schema";
@@ -22,7 +23,7 @@ type Params = {
   category?: string;
   search?: string;
   vintage?: string;
-};
+} & { network: NetworkParam };
 
 /**
  * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
@@ -41,10 +42,11 @@ const handler = (fastify: FastifyInstance) =>
     request: FastifyRequest<{ Querystring: Params }>,
     reply: FastifyReply
   ): Promise<Project[]> {
+    const sdk = gql_sdk(request.query.network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
     const args = mapValues(omit(request.query, "search"), split(","));
     //Get the default args to return all results unless specified
-    const defaultArgs = await getDefaultQueryArgs(fastify);
+    const defaultArgs = await getDefaultQueryArgs(sdk, fastify);
 
     //Build our query overriding default values
     const query: FindProjectsQueryVariables = {
@@ -55,10 +57,10 @@ const handler = (fastify: FastifyInstance) =>
 
     const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
-        gqlSdk.marketplace.findProjects(query),
-        gqlSdk.offsets.findCarbonOffsets(query),
-        fetchAllCarbonProjects(),
-        fetchAllPoolPrices(),
+        sdk.marketplace.findProjects(query),
+        sdk.offsets.findCarbonOffsets(query),
+        fetchAllCarbonProjects(sdk),
+        fetchAllPoolPrices(sdk),
       ]);
 
     const CMSDataMap: CMSDataMap = new Map();

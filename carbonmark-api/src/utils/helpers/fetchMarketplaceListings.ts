@@ -4,7 +4,7 @@ import { assign, set } from "lodash";
 import { Activity } from "src/models/Activity.model";
 import { Listing } from "src/models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
 import { getUserDocumentsByIds } from "./users.utils";
 
 type Params = {
@@ -21,12 +21,11 @@ const filterUnsoldActivity = (activity: { activityType?: string }) =>
  * Filters out deleted, sold-out and inactive listings
  * Fetches seller profile info from firebase
  */
-export const fetchMarketplaceListings = async ({
-  key,
-  vintage,
-  fastify,
-}: Params): Promise<[Listing[], Activity[]]> => {
-  const data = await gqlSdk.marketplace.getProjectsById({
+export const fetchMarketplaceListings = async (
+  sdk: GQL_SDK,
+  { key, vintage, fastify }: Params
+): Promise<[Listing[], Activity[]]> => {
+  const data = await sdk.marketplace.getProjectsById({
     key,
     vintageStr: vintage,
   });

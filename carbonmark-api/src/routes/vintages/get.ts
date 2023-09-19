@@ -1,13 +1,19 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { Vintage } from "../../models/Vintage.model";
+import { gql_sdk } from "../../utils/gqlSdk";
 import { getAllVintages } from "../../utils/helpers/utils";
 import { schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance) =>
-  async function (_: FastifyRequest, reply: FastifyReply) {
+  async function (
+    request: FastifyRequest<{ Querystring: { network: NetworkParam } }>,
+    reply: FastifyReply
+  ) {
     let response: Vintage[];
+    const sdk = gql_sdk(request.query.network);
     try {
-      response = await getAllVintages(fastify);
+      response = await getAllVintages(sdk, fastify);
     } catch (error) {
       //Return bad gateway and pass the error
       console.error(error);

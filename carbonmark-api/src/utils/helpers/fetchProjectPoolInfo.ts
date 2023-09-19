@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { get } from "lodash";
 import { POOL_INFO } from "../../routes/projects/get.constants";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
@@ -90,9 +90,10 @@ type CarbonCredits = CarbonCredit[];
  */
 
 export const fetchProjectPoolInfo = async (
+  sdk: GQL_SDK,
   params: Params
 ): Promise<[Partial<PoolInfoMap>, Stats]> => {
-  const data = await gqlSdk.digital_carbon.getProjectCredits({
+  const data = await sdk.digital_carbon.getProjectCredits({
     projectID: params.projectID,
     vintage: Number(params.vintage),
   });

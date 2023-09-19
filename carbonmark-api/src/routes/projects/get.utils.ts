@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
+import { GQL_SDK } from "src/utils/gqlSdk";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
@@ -34,13 +35,14 @@ import { POOL_INFO } from "./get.constants";
  * # to return all possible values
  */
 export const getDefaultQueryArgs = async (
+  sdk: GQL_SDK,
   fastify: FastifyInstance
 ): Promise<FindProjectsQueryVariables> => {
   //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
-    getAllCategories(fastify).then(map(extract("id"))),
-    getAllCountries(fastify).then(map(extract("id"))),
-    getAllVintages(fastify),
+    getAllCategories(sdk, fastify).then(map(extract("id"))),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
   ]);
 
   return {
