@@ -1,4 +1,5 @@
 import { get } from "lodash";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { TokenPriceT } from "../../models/TokenPrice.model";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
 import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
@@ -6,6 +7,7 @@ import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
 type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
+  network?: NetworkParam;
 };
 
 /**
@@ -16,6 +18,9 @@ type Params = {
 export const fetchPoolPricesAndStats = async (
   params: Params
 ): Promise<[TokenPriceT[], Stats]> => {
+  if (params.network !== "polygon") {
+    return [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
+  }
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo({
       projectID: params.key,

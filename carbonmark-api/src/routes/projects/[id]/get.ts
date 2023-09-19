@@ -8,12 +8,15 @@ import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils"
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
-import { Params, schema } from "./get.schema";
+import { schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Params: Static<typeof Params> }>,
+    request: FastifyRequest<{
+      Params: Static<typeof schema.params>;
+      Querystring: Static<typeof schema.querystring>;
+    }>,
     reply: FastifyReply
   ) {
     const { id } = request.params;
@@ -27,8 +30,17 @@ const handler = (fastify: FastifyInstance) =>
     try {
       [[poolPrices, stats], [listings, activities], projectDetails] =
         await Promise.all([
-          fetchPoolPricesAndStats({ key, vintage }),
-          fetchMarketplaceListings({ key, vintage, fastify }),
+          fetchPoolPricesAndStats({
+            key,
+            vintage,
+            network: request.query.network,
+          }),
+          fetchMarketplaceListings({
+            key,
+            vintage,
+            fastify,
+            network: request.query.network,
+          }),
           fetchCarbonProject({
             registry,
             registryProjectId,

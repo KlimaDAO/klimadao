@@ -1,10 +1,11 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
-import { assign, set } from "lodash";
+import { set } from "lodash";
 import {
   CreditActivityWithHandle,
   CreditListingWithHandle,
 } from "../../graphql/marketplaceMumbai.types";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
 import { getUserDocumentsByIds } from "./users.utils";
@@ -13,13 +14,30 @@ type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
+  network?: NetworkParam;
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string }) =>
   activity.activityType !== "Sold";
 
+export const getCreditListings = async (params: {
+  projectId: string;
+  vintageStr: string;
+  network?: NetworkParam;
+}) => {
+  const graph =
+    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
+
+  const data = await graph.getCreditListings({
+    projectId: params.projectId,
+    vintageStr: params.vintageStr,
+  });
+  const project = data?.projects.at(0);
+  return project;
+};
+
 /**
- * Query the subgraph for marketplace listings and project data for the given project
+ * Query the subgraph for active marketplace listings and project data for the given project
  * Filters out deleted, sold-out and inactive listings
  * Fetches seller profile info from firebase
  */
@@ -27,17 +45,15 @@ export const fetchMarketplaceListings = async ({
   key,
   vintage,
   fastify,
+  network,
 }: Params): Promise<
   [CreditListingWithHandle[], CreditActivityWithHandle[]]
 > => {
-  // TODO: support network param
-  const data = await gqlSdk.marketplaceMumbai.getCreditListings({
+  const project = await getCreditListings({
     projectId: key,
     vintageStr: vintage,
+    network,
   });
-
-  const project = data?.projects.at(0);
-
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];

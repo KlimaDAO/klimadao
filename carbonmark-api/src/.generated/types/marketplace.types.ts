@@ -1375,6 +1375,14 @@ export type GetProjectsByIdQueryVariables = Exact<{
 
 export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country: { __typename?: 'Country', id: string } | null, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer: { __typename?: 'User', id: any } | null }> | null, category: { __typename?: 'Category', id: string } | null }> };
 
+export type GetCreditListingsQueryVariables = Exact<{
+  projectId: InputMaybe<Scalars['String']>;
+  vintageStr: InputMaybe<Scalars['BigInt']>;
+}>;
+
+
+export type GetCreditListingsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, listings: Array<{ __typename?: 'Listing', createdAt: string | null, updatedAt: string | null, id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, timeStamp: string | null, activityType: ActivityType, price: string | null, previousPrice: string | null, amount: string | null, previousAmount: string | null, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+
 export const ListingFragmentFragmentDoc = gql`
     fragment ListingFragment on Listing {
   id
@@ -1533,6 +1541,42 @@ export const GetProjectsByIdDocument = gql`
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
+export const GetCreditListingsDocument = gql`
+    query getCreditListings($projectId: String, $vintageStr: BigInt) {
+  projects(where: {key: $projectId, vintage: $vintageStr}) {
+    id
+    listings {
+      createdAt
+      updatedAt
+      id
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      singleUnitPrice
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      timeStamp
+      activityType
+      price
+      previousPrice
+      amount
+      previousAmount
+      buyer {
+        id
+      }
+      seller {
+        id
+      }
+    }
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1561,6 +1605,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getProjectsById(variables?: GetProjectsByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsByIdQuery>(GetProjectsByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectsById', 'query');
+    },
+    getCreditListings(variables?: GetCreditListingsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCreditListingsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCreditListingsQuery>(GetCreditListingsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCreditListings', 'query');
     }
   };
 }

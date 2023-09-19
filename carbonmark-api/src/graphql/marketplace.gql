@@ -113,3 +113,38 @@ query getProjectsById($key: String, $vintageStr: BigInt) {
     }
   }
 }
+
+query getCreditListings($projectId: String, $vintageStr: BigInt) {
+  projects(where: { key: $projectId, vintage: $vintageStr }) {
+    id
+    listings {
+      createdAt
+      updatedAt
+      id
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      singleUnitPrice
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      timeStamp
+      activityType
+      price
+      previousPrice
+      amount
+      previousAmount
+      buyer {
+        id
+      }
+      seller {
+        id
+      }
+    }
+  }
+}
