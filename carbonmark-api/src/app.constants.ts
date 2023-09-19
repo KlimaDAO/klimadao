@@ -14,7 +14,7 @@ export const GRAPH_URLS = {
     digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
   },
   mumbai: {
-    marketplace: `${GRAPH_API_ROOT}/najada/marketplace-matic`,
+    marketplace: `${GRAPH_API_ROOT}/cujowolf/carbonmark-mumbai`,
     assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
     offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
     tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
