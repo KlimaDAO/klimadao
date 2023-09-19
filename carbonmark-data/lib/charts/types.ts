@@ -143,30 +143,6 @@ export interface DailyPolygonCarbonMetricsItem {
   c3t_klima_retired: number;
   not_klima_retired: number;
 }
-export type DailyPolygonCarbonMetrics =
-  PaginatedResponse<DailyPolygonCarbonMetricsItem>;
-
-export interface DailyEthCarbonMetricsItem {
-  date: string;
-  mco2_supply: number;
-  total_carbon_supply: number;
-  mco2_retired: number;
-  total_retirements: number;
-}
-export type DailyEthCarbonMetrics =
-  PaginatedResponse<DailyEthCarbonMetricsItem>;
-
-export interface DailyCeloCarbonMetricsItem {
-  date: string;
-  bct_supply: number;
-  nct_supply: number;
-  mco2_supply: number;
-  total_carbon_supply: number;
-  mco2_retired: number;
-  total_retirements: number;
-}
-export type DailyCeloCarbonMetrics =
-  PaginatedResponse<DailyCeloCarbonMetricsItem>;
 
 export interface AggregatedCredits {
   quantity: number;
