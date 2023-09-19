@@ -1,5 +1,5 @@
 import { Static } from "@sinclair/typebox";
-import { Contract, JsonRpcProvider, isAddress } from "ethers-v6";
+import { Contract, JsonRpcProvider, formatUnits, isAddress } from "ethers-v6";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
@@ -8,8 +8,6 @@ import { RPC_URLS } from "../../app.constants";
 import { Holding } from "../../graphql/assets.types";
 import { ByWalletUser } from "../../graphql/marketplace.types";
 import { User as MumbaiUser } from "../../graphql/marketplaceMumbai.types";
-import { Activity } from "../../models/Activity.model";
-import { Listing } from "../../models/Listing.model";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { User } from "../../models/User.model";
 import { gqlSdk } from "../../utils/gqlSdk";
@@ -148,7 +146,7 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     const activities =
-      user?.activities?.map((a): Activity => {
+      user?.activities?.map((a) => {
         // remember: not all users have profiles.
         const buyer = !!a.buyer?.id && {
           id: a.buyer.id,
@@ -161,20 +159,22 @@ const handler = (fastify: FastifyInstance) =>
         };
         return {
           ...a,
+          amount: formatUnits(a.amount || "0", 18),
+          price: formatUnits(a.price || "0", 6),
+          previousAmount: formatUnits(a.previousAmount || "0", 18),
+          previousPrice: formatUnits(a.previousPrice || "0", 6),
           buyer: buyer || null,
           seller: seller || null,
         };
       }) || [];
 
     const listings =
-      user?.listings?.map(
-        (l): Listing => ({
-          id: l.id,
-          leftToSell: l.leftToSell,
-          tokenAddress: l.tokenAddress,
-          singleUnitPrice: l.singleUnitPrice,
-        })
-      ) || [];
+      user?.listings?.map((l) => ({
+        id: l.id,
+        leftToSell: l.leftToSell,
+        tokenAddress: l.tokenAddress,
+        singleUnitPrice: l.singleUnitPrice,
+      })) || [];
 
     const response: User = {
       createdAt: profile?.createdAt || 0,
