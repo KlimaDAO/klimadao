@@ -24,7 +24,8 @@ export function KlimaXAxisMonthlyProps<T>(
   locale: string
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
-    dataKey,
+    // FIXME: We should not need to hard cast here
+    dataKey: dataKey as string,
     tickFormatter: helpers.formatDateAsMonths(locale),
     ticks: helpers.niceTicks(data, dataKey),
   });

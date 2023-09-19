@@ -8,11 +8,7 @@ import {
 } from "components/charts/helpers";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
-import {
-  ChartData,
-  DateField,
-  MonthlyAggregatedCreditsByPoolItem,
-} from "lib/charts/types";
+import { ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
   BarChart,
@@ -23,18 +19,19 @@ import {
   YAxis,
 } from "recharts";
 
-interface Props {
-  data: ChartData<MonthlyAggregatedCreditsByPoolItem>;
-  configuration: SimpleChartConfiguration<MonthlyAggregatedCreditsByPoolItem>;
-  dateField: DateField;
+interface Props<T extends object> {
+  data: ChartData<T>;
+  configuration: SimpleChartConfiguration<T>;
+  dateField: keyof T;
 }
-export default function Chart(props: Props) {
+/** FIXME: Refactor to KlimaBarChart */
+export default function KBarChart<T extends object>(props: Props<T>) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={props.data} barCategoryGap={"5%"}>
         <XAxis
-          {...KlimaXAxisMonthlyProps(props.data, props.dateField, locale)}
+          {...KlimaXAxisMonthlyProps<T>(props.data, props.dateField, locale)}
         />
         <YAxis {...KlimaYAxisTonsProps(props.data, props.configuration)} />
         <Tooltip
