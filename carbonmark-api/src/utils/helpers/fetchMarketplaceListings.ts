@@ -99,7 +99,7 @@ export const fetchMarketplaceListings = async ({
     if (act.buyer) {
       const buyerData = usersById.get(act.buyer.id.toUpperCase());
       if (buyerData && buyerData.handle) {
-        assign(activityWithHandles.buyer, "handle", buyerData.handle);
+        set(activityWithHandles, "buyer.handle", buyerData.handle);
       }
     }
     return activityWithHandles;
