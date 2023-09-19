@@ -174,6 +174,7 @@ const handler = (fastify: FastifyInstance) =>
         leftToSell: l.leftToSell,
         tokenAddress: l.tokenAddress,
         singleUnitPrice: l.singleUnitPrice,
+        totalAmountToSell: l.totalAmountToSell,
       })) || [];
 
     const response: User = {

@@ -27,8 +27,8 @@ export type CreditActivityWithHandle = Omit<
   CreditActivity,
   "seller" | "buyer"
 > & {
-  seller: WithHandle<CreditActivity["seller"]>;
-  buyer: WithHandle<CreditActivity["buyer"]>;
+  seller: WithHandle<CreditActivity["seller"]> | null;
+  buyer: WithHandle<CreditActivity["buyer"]> | null;
 };
 
 //

@@ -46,7 +46,6 @@ export const getUserDocumentsByIds = async (
     const ids = Array.from(userIds);
 
     const chunks: string[][] = chunk(ids, 30);
-
     const snapshots = await Promise.all(
       chunks.map((chunk) =>
         firebase
