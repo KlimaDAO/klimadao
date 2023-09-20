@@ -150,7 +150,6 @@ export const getUserUntil = async (params: {
   const fetchUser = () =>
     getUser({
       user: params.address,
-      type: "wallet",
       network: params.network,
     });
 
@@ -181,13 +180,10 @@ export const getProjects = async (
 
 export const getUser = async (params: {
   user: string;
-  type: "wallet" | "handle";
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const { network = "polygon" } = params;
-  return await fetcher(
-    `${urls.api.users}/${params.user}?type=${params.type}&network=${network}`
-  );
+  return await fetcher(`${urls.api.users}/${params.user}?network=${network}`);
 };
 
 export const getProject = async (projectId: string): Promise<Project> =>

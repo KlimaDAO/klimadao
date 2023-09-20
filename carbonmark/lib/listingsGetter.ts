@@ -1,5 +1,4 @@
-import { Listing, TokenPrice } from "lib/types/carbonmark.types";
-import { sortBy } from "lodash";
+import { Listing } from "lib/types/carbonmark.types";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
@@ -27,17 +26,3 @@ export const getAllListings = (listings: Listing[]) =>
 
 export const getSortByUpdateListings = (listings: Listing[]) =>
   listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
-
-export const sortPricesAndListingsByBestPrice = (
-  prices: TokenPrice[],
-  listings: Listing[]
-) => {
-  const flaggedPrices = flagPrices(prices);
-  //Convert to Number since singleUnitPrice is a string representation
-  const mergedArray = [...flaggedPrices, ...listings];
-
-  return sortBy(mergedArray, (x) => Number(x.singleUnitPrice));
-};
-
-const flagPrices = (prices: TokenPrice[]) =>
-  prices.map((p) => ({ ...p, isPoolProject: true }));
