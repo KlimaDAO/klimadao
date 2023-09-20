@@ -13,7 +13,8 @@ import {
   WrappedProvider,
   web3InitialState,
 } from "../../components/Web3Context/types";
-import { urls } from "../../constants";
+import { polygonNetworks, urls } from "../../constants";
+import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
 export const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
@@ -110,13 +111,13 @@ export const useProvider = (): Web3ModalState => {
           enableLogging: false,
           network: isTestnet
             ? {
-                host: urls.polygonTestnetRpc,
-                chainId: 80001,
+                host: polygonNetworks["testnet"].rpcUrls[0],
+                chainId: polygonNetworks["testnet"].chainId,
                 networkName: "Mumbai Matic",
               }
             : {
-                host: urls.polygonMainnetRpc,
-                chainId: 137,
+                host: polygonNetworks["mainnet"].rpcUrls[0],
+                chainId: polygonNetworks["mainnet"].chainId,
                 networkName: "Polygon",
               },
           showTorusButton: false,
@@ -143,7 +144,7 @@ export const useProvider = (): Web3ModalState => {
         signer,
         address,
         network,
-        networkLabel: network.chainId === 80001 ? "mumbai" : "polygon",
+        networkLabel: isTestnetChainId(network.chainId) ? "mumbai" : "polygon",
         isConnected: true,
         initializing: false,
         isConnectionFromCache: options?.useCache || false,

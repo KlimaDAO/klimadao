@@ -3,8 +3,8 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import { formatUnits } from "@klimadao/lib/utils";
-import { Contract, ethers, providers, Transaction } from "ethers";
+import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
+import { Contract, Transaction, ethers, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getProject } from "lib/api";
 import {
@@ -30,10 +30,12 @@ import {
   getMethodologyFromProject,
 } from "./projectGetter";
 
-export const getSignerNetwork = (
+const getSignerNetwork = (
   signer: providers.JsonRpcSigner
 ): "polygon" | "mumbai" => {
-  return signer.provider.network.chainId === 80001 ? "mumbai" : "polygon";
+  return isTestnetChainId(signer.provider.network.chainId)
+    ? "mumbai"
+    : "polygon";
 };
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */

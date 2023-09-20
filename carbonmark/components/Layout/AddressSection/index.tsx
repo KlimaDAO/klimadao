@@ -1,6 +1,10 @@
 import { urls } from "@klimadao/lib/constants";
 import { Domain } from "@klimadao/lib/types/domains";
-import { isTorusProvider, useWeb3 } from "@klimadao/lib/utils";
+import {
+  isTestnetChainId,
+  isTorusProvider,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { CopyAddressButton } from "components/CopyAddressButton";
 import { Text } from "components/Text";
@@ -37,7 +41,7 @@ export const AddressSection: FC<AddressSectionProps> = (props) => {
           {props.domain.name}
         </Text>
       )}
-      {web3?.network?.chainId == 80001 && (
+      {isTestnetChainId(web3?.network?.chainId) && (
         <div className={styles.testnetBadge}>
           <Text t="button">🔬TESTNET MODE🏗️</Text>
         </div>
