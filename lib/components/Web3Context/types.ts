@@ -54,6 +54,7 @@ export interface ConnectedWeb3State {
   address: string;
   signer: providers.JsonRpcSigner;
   network: providers.Network;
+  networkLabel: "polygon" | "mumbai";
   initializing: false;
   isConnectionFromCache: boolean;
 }
@@ -82,19 +83,34 @@ export interface RenderModalProps {
   };
   buttonClassName?: string;
   onClose?: () => void;
+  showMumbaiOption?: boolean;
 }
 
 export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
+export type WalletLabel =
+  | "torus"
+  | "torus-mumbai"
+  | "walletconnect"
+  | "coinbase"
+  | "injected"
+  | "walletConnect";
+
+export type ConnectFn = (
+  wallet?: WalletLabel,
+  options?: { useCache?: boolean }
+) => Promise<void>;
+
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
 export type Web3ModalState = Web3State & {
-  connect?: (wallet?: string) => Promise<void>;
+  connect?: ConnectFn;
   disconnect?: () => Promise<void>;
   showModal: boolean;
   renderModal: (props: RenderModalProps) => JSX.Element;
   toggleModal: () => void;
   initializing: boolean;
   isConnectionFromCache: boolean | undefined;
+  networkLabel: "polygon" | "mumbai";
 };
 
 export const web3InitialState: Web3ModalState = {
@@ -105,6 +121,7 @@ export const web3InitialState: Web3ModalState = {
   address: undefined,
   signer: undefined,
   network: undefined,
+  networkLabel: "polygon",
   showModal: false,
   isConnectionFromCache: undefined,
   renderModal: () => undefined as unknown as JSX.Element,

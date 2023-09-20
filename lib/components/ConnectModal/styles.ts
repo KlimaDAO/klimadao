@@ -209,6 +209,12 @@ export const modalContent = css`
   }
 `;
 
+export const checkboxContainer = css`
+  display: flex;
+  gap: 0.4rem;
+  padding-bottom: 0.8rem;
+`;
+
 export const errorButton = css`
   background-color: #0019ff; // bright-blue, same in dark/light mode
   color: #fff !important; // same in dark/light mode
