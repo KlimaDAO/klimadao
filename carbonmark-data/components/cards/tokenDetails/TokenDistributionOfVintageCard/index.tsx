@@ -4,9 +4,11 @@ import ChartCard, { CardProps } from "../../ChartCard";
 
 import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
+import { KlimaXAxisVintageProps } from "components/charts/helpers/KlimaAxis";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
 import { AggregatedCreditsByPoolAndVintageItem } from "lib/charts/types";
+import { XAxis } from "recharts";
 import { palette } from "theme/palette";
 
 export default function TokenDistributionOfVintageCard(
@@ -17,14 +19,20 @@ export default function TokenDistributionOfVintageCard(
     <TokenDistributionOfVintageChart {...props} />
   );
 
-  return <ChartCard {...props} title={t`Distribution of vintage start dates`} chart={chart} />;
+  return (
+    <ChartCard
+      {...props}
+      title={t`Distribution of vintage start dates`}
+      chart={chart}
+    />
+  );
 }
 
 /** Async server component that renders a Recharts client component */
 async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
   const params = creditsQueryParamsFromProps(props);
   const data = (await queryAggregatedCreditsByPoolAndVintage(params)).items;
-  console.log(data)
+  console.log(data);
   const configuration: SimpleChartConfiguration<AggregatedCreditsByPoolAndVintageItem> =
     [];
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
@@ -79,6 +87,7 @@ async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
       data={data}
       configuration={configuration}
       dateField="vintage"
+      XAxis={<XAxis {...KlimaXAxisVintageProps(data, "vintage")} />}
     />
   );
 }

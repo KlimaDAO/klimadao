@@ -31,6 +31,18 @@ export function KlimaXAxisMonthlyProps<T>(
   });
 }
 
+/* XAxis props to display vintage dates */
+export function KlimaXAxisVintageProps<T>(
+  data: ChartData<T>,
+  dataKey: keyof T
+) {
+  return Object.assign({}, BASE_XAXIS_PROPS, {
+    // FIXME: We should not need to hard cast here
+    dataKey: dataKey as string,
+    ticks: helpers.niceTicks(data, dataKey),
+  });
+}
+
 /* YAxis props to display quantity in an appropriate format */
 export function KlimaYAxisTonsProps<CI, Q, M, T>(
   data: ChartData<CI>,

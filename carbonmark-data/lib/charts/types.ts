@@ -228,7 +228,9 @@ export interface PoolQuantitiesInterface {
   ubo_quantity: number;
   nbo_quantity: number;
 }
-export interface MonthlyAggregatedCreditsByPoolItem extends PoolQuantitiesInterface, DateFieldInterface {
+export interface MonthlyAggregatedCreditsByPoolItem
+  extends PoolQuantitiesInterface,
+    DateFieldInterface {
   bct_quantity: number;
   nct_quantity: number;
   mco2_quantity: number;
@@ -238,7 +240,8 @@ export interface MonthlyAggregatedCreditsByPoolItem extends PoolQuantitiesInterf
 export type MonthlyAggregatedCreditsByPool =
   PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>;
 
-export interface AggregatedCreditsByPoolAndVintageItem extends PoolQuantitiesInterface {
+export interface AggregatedCreditsByPoolAndVintageItem
+  extends PoolQuantitiesInterface {
   vintage: number;
   total_quantity: number;
 }

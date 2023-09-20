@@ -26,6 +26,7 @@ async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
   const params = poolsQueryParamsFromProps(props);
   const freq = props.since == "lifetime" ? "monthly" : "daily";
   const data = (await queryMonthlyAggregatedCreditsByPool(freq, params)).items;
+  console.log(data);
   const configuration: SimpleChartConfiguration<MonthlyAggregatedCreditsByPoolItem> =
     [];
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
