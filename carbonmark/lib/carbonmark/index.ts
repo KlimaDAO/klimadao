@@ -13,6 +13,8 @@ export const getCarbonmarkProject = async (
     query: { network: opts?.network },
   });
   if (!res.ok) {
+    const error = await res.json();
+    console.error(error);
     return null;
   }
   return res.json();
