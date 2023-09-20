@@ -129,7 +129,7 @@ export const useProvider = (): Web3ModalState => {
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
         localStorage.setItem(
           "web3-wallet",
-          connectedWallet || wallet || "torus"
+          isTestnet ? "torus-mumbai" : "torus"
         );
       } else {
         throw new Error("Error connecting");
