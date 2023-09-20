@@ -14,6 +14,7 @@ export function loadOrCreateCarbonPoolCreditBalance(
   balance.pool = poolAddress
   balance.credit = creditAddress
   balance.balance = ZERO_BI
+  balance.crossChainSupply = ZERO_BI
   balance.deposited = ZERO_BI
   balance.redeemed = ZERO_BI
   balance.lastSnapshotDayID = 0
@@ -33,6 +34,17 @@ export function recordCreditBalanceRedeem(poolAddress: Address, creditAddress: A
   let balance = loadOrCreateCarbonPoolCreditBalance(poolAddress, creditAddress)
   balance.balance = balance.balance.minus(amount)
   balance.redeemed = balance.redeemed.plus(amount)
+  balance.save()
+}
+
+export function updateCreditBalanceCrossChainBridged(
+  poolAddress: Address,
+  creditAddress: Address,
+  amount: BigInt
+): void {
+  let balance = loadOrCreateCarbonPoolCreditBalance(poolAddress, creditAddress)
+  balance.balance = balance.balance.minus(amount)
+  balance.crossChainSupply = balance.crossChainSupply.plus(amount)
   balance.save()
 }
 
@@ -100,6 +112,7 @@ export function takeCarbonPoolCreditBalanceDailySnapshot(
   )
 
   newSnapshot.deltaBalance = creditBalance.balance.minus(priorSnapshot.balance)
+  newSnapshot.deltaCrossChainSupply = creditBalance.crossChainSupply.minus(priorSnapshot.crossChainSupply)
   newSnapshot.deltaDeposited = creditBalance.deposited.minus(priorSnapshot.deposited)
   newSnapshot.deltaRedeemed = creditBalance.redeemed.minus(priorSnapshot.redeemed)
   newSnapshot.lastUpdateTimestamp = timestamp
@@ -124,9 +137,11 @@ export function loadOrCreateCarbonPoolCreditBalanceDailySnapshot(
     snapshot.dayID = dayID
     snapshot.poolSnapshot = poolAddress.concatI32(dayID)
     snapshot.balance = creditBalance.balance
+    snapshot.crossChainSupply = creditBalance.crossChainSupply
     snapshot.deposited = creditBalance.deposited
     snapshot.redeemed = creditBalance.redeemed
     snapshot.deltaBalance = ZERO_BI
+    snapshot.deltaCrossChainSupply = ZERO_BI
     snapshot.deltaDeposited = ZERO_BI
     snapshot.deltaRedeemed = ZERO_BI
     snapshot.lastUpdateTimestamp = timestamp

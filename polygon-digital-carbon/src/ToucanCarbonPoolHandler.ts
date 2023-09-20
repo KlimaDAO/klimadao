@@ -1,5 +1,5 @@
 import { Transfer } from '../generated/BCT/ERC20'
-import { Deposited, Redeemed } from '../generated/BCT/ToucanCarbonPool'
+import { Deposited, Redeemed, TCO2Bridged } from '../generated/BCT/ToucanCarbonPool'
 import { handlePoolTransfer } from './TransferHandler'
 import { loadOrCreateAccount } from './utils/Account'
 import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool, savePoolDeposit, savePoolRedeem } from './utils/CarbonPool'
@@ -7,6 +7,7 @@ import {
   checkForCarbonPoolCreditSnapshot,
   recordCreditBalanceDeposit,
   recordCreditBalanceRedeem,
+  updateCreditBalanceCrossChainBridged,
 } from './utils/CarbonPoolCreditBalance'
 import { createTokenWithCall } from './utils/Token'
 
@@ -57,6 +58,10 @@ export function handleRedeemed(event: Redeemed): void {
   pool.save()
 
   recordCreditBalanceRedeem(event.address, event.params.erc20, event.params.amount)
+}
+
+export function handleToucanTCO2Bridged(event: TCO2Bridged): void {
+  updateCreditBalanceCrossChainBridged(event.address, event.params.tco2, event.params.amount)
 }
 
 export function handleTransfer(event: Transfer): void {

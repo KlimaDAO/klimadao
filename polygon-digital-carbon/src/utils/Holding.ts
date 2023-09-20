@@ -10,6 +10,8 @@ export function loadOrCreateHolding(account: Address, token: Address): Holding {
   holding.account = account
   holding.token = token
   holding.amount = ZERO_BI
+  holding.activeProvenanceRecords = []
+  holding.historicalProvenanceRecords = []
   holding.lastUpdated = ZERO_BI
   holding.save()
   return holding as Holding

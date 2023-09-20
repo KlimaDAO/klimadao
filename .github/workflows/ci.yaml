@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
         working-directory: '${{ matrix.value }}'
 
       # Generate code and check for uncommitted changes

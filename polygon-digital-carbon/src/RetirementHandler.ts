@@ -6,9 +6,15 @@ import { Retired, Retired1 as Retired_1_4_0 } from '../generated/templates/Touca
 import { incrementAccountRetirements, loadOrCreateAccount } from './utils/Account'
 import { loadCarbonCredit, loadOrCreateCarbonCredit } from './utils/CarbonCredit'
 import { loadOrCreateCarbonProject } from './utils/CarbonProject'
+import { recordProvenance } from './utils/Provenance'
 import { saveRetire } from './utils/Retire'
 
 export function saveToucanRetirement(event: Retired): void {
+  // Disregard events with zero amount
+  if (event.params.tokenId == ZERO_BI) {
+    return
+  }
+
   let credit = loadCarbonCredit(event.address)
 
   credit.retired = credit.retired.plus(event.params.tokenId)
@@ -33,9 +39,24 @@ export function saveToucanRetirement(event: Retired): void {
   )
 
   incrementAccountRetirements(event.transaction.from)
+
+  recordProvenance(
+    event.transaction.hash,
+    event.address,
+    event.params.sender,
+    ZERO_ADDRESS,
+    'RETIREMENT',
+    event.params.tokenId,
+    event.block.timestamp
+  )
 }
 
 export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
+  // Disregard events with zero amount
+  if (event.params.amount == ZERO_BI) {
+    return
+  }
+
   let credit = loadCarbonCredit(event.address)
 
   credit.retired = credit.retired.plus(event.params.amount)
@@ -60,6 +81,16 @@ export function saveToucanRetirement_1_4_0(event: Retired_1_4_0): void {
   )
 
   incrementAccountRetirements(event.transaction.from)
+
+  recordProvenance(
+    event.transaction.hash,
+    event.address,
+    event.params.sender,
+    ZERO_ADDRESS,
+    'RETIREMENT',
+    event.params.amount,
+    event.block.timestamp
+  )
 }
 
 export function handleVCUOMinted(event: VCUOMinted): void {
@@ -93,6 +124,16 @@ export function handleVCUOMinted(event: VCUOMinted): void {
     '',
     event.block.timestamp,
     null
+  )
+
+  recordProvenance(
+    event.transaction.hash,
+    projectAddress,
+    event.params.sender,
+    ZERO_ADDRESS,
+    'RETIREMENT',
+    retireAmount,
+    event.block.timestamp
   )
 
   incrementAccountRetirements(event.transaction.from)

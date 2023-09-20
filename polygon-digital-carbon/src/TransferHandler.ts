@@ -12,8 +12,12 @@ import { CrossChainBridge } from '../generated/schema'
 import { checkForCarbonPoolSnapshot, loadOrCreateCarbonPool } from './utils/CarbonPool'
 import { checkForCarbonPoolCreditSnapshot } from './utils/CarbonPoolCreditBalance'
 import { loadOrCreateEcosystem } from './utils/Ecosystem'
+import { recordProvenance } from './utils/Provenance'
 
 export function handleCreditTransfer(event: Transfer): void {
+  // Ignore transfers of zero value
+  if (event.params.value == ZERO_BI) return
+
   if (event.address == MCO2_ERC20_CONTRACT) loadOrCreateCarbonCredit(MCO2_ERC20_CONTRACT, 'MOSS')
   let credit = loadCarbonCredit(event.address)
 
@@ -33,6 +37,20 @@ export function handleCreditTransfer(event: Transfer): void {
         event.params.value,
         event.block.timestamp
       )
+
+      if (event.address != MCO2_ERC20_CONTRACT) {
+        recordProvenance(
+          event.transaction.hash,
+          event.address,
+          event.params.from,
+          event.params.to,
+          'ORIGINATION',
+          event.params.value,
+          event.block.timestamp
+        )
+
+        credit.provenanceCount += 1
+      }
     }
   } else {
     loadOrCreateAccount(event.params.from)
@@ -41,8 +59,8 @@ export function handleCreditTransfer(event: Transfer): void {
     fromHolding.lastUpdated = event.block.timestamp
     fromHolding.save()
 
-    // Delete holding entity if there are no tokens held
-    if (fromHolding.amount == ZERO_BI) {
+    // Delete holding entity if there are no tokens held and this isn't needed for provenance records.
+    if (fromHolding.amount == ZERO_BI && fromHolding.historicalProvenanceRecords.length == 0) {
       store.remove('Holding', fromHolding.id.toHexString())
     }
   }
@@ -55,6 +73,20 @@ export function handleCreditTransfer(event: Transfer): void {
     toHolding.amount = toHolding.amount.plus(event.params.value)
     toHolding.lastUpdated = event.block.timestamp
     toHolding.save()
+
+    if (event.params.from != ZERO_ADDRESS && event.address != MCO2_ERC20_CONTRACT) {
+      recordProvenance(
+        event.transaction.hash,
+        event.address,
+        event.params.from,
+        event.params.to,
+        'TRANSFER',
+        event.params.value,
+        event.block.timestamp
+      )
+
+      credit.provenanceCount += 1
+    }
   }
 
   // Update active credits list
@@ -92,6 +124,9 @@ export function handleCreditTransfer(event: Transfer): void {
 }
 
 export function handlePoolTransfer(event: Transfer): void {
+  // Ignore transfers of zero value
+  if (event.params.value == ZERO_BI) return
+
   if (event.params.from != ZERO_ADDRESS) {
     loadOrCreateAccount(event.params.from)
     let fromHolding = loadOrCreateHolding(event.params.from, event.address)
@@ -115,9 +150,15 @@ export function handlePoolTransfer(event: Transfer): void {
 }
 
 export function handleToucanRetired(event: Retired): void {
+  // Ignore retirements of zero value
+  if (event.params.tokenId == ZERO_BI) return
+
   saveToucanRetirement(event)
 }
 
 export function handleToucanRetired_1_4_0(event: Retired_1_4_0): void {
+  // Ignore retirements of zero value
+  if (event.params.amount == ZERO_BI) return
+
   saveToucanRetirement_1_4_0(event)
 }

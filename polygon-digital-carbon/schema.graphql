@@ -23,6 +23,50 @@ enum CrossChainBridgeDirection {
   RECEIVED
 }
 
+enum ProvenanceType {
+  ORIGINATION
+  TRANSFER
+  RETIREMENT
+}
+
+type ProvenanceRecord @entity {
+  "Token address - Holding address - increment"
+  id: Bytes!
+
+  "Credit token address"
+  token: Bytes!
+
+  "Transaction hash creating this record"
+  transactionHash: Bytes!
+
+  "Action being made with the credit"
+  transactionType: ProvenanceType!
+
+  "Any applicable registry serial numbers for origination"
+  registrySerialNumbers: [String!]!
+
+  "Prior records associated with this transaction"
+  priorRecords: [ProvenanceRecord!]!
+
+  "Sender of the credit"
+  sender: Bytes!
+
+  "Receiver of the credit"
+  receiver: Bytes!
+
+  "Original amount received"
+  originalAmount: BigInt!
+
+  "Remaining amount held"
+  remainingAmount: BigInt!
+
+  "Unix timestamp created"
+  createdAt: BigInt!
+
+  "Unix timestamp updated"
+  updatedAt: BigInt!
+}
+
 type Token @entity {
   "Ethereum contract address"
   id: Bytes!
@@ -58,6 +102,23 @@ type Ecosystem @entity {
 
   "Active credits with supply > 0"
   activeCredits: [Bytes!]!
+}
+
+type Epoch @entity {
+  "sKLIMA epoch number"
+  id: ID!
+
+  "Numeric field for sorting"
+  epoch: BigInt!
+
+  "Total active carbon credit supply"
+  creditSupply: BigInt!
+
+  "Change in active supply since last epoch"
+  deltaCreditSupply: BigInt!
+
+  "600 epoch credit supply SMA"
+  creditSMA: BigInt!
 }
 
 type Methodology @entity {
@@ -132,6 +193,12 @@ type CarbonCredit @entity {
 
   "Current pool balances for this credit"
   poolBalances: [CarbonPoolCreditBalance!]! @derivedFrom(field: "credit")
+
+  "Total provenance records for this credit"
+  provenanceCount: Int!
+
+  "Last batch ID that was fractionalized if applicable"
+  lastBatchId: BigInt!
 }
 
 type CarbonCreditSnapshot @entity {
@@ -265,6 +332,21 @@ type KlimaRetire @entity {
 }
 
 ##############################
+#### Bridge Specific Data ####
+##############################
+
+type ToucanBatch @entity {
+  "Token ID"
+  id: ID!
+
+  "Registry serial numbers associated with this batch"
+  registrySerialNumbers: [String!]!
+
+  "Creation Transaction hash"
+  creationTransactionHash: Bytes!
+}
+
+##############################
 ###### Carbon Pool Data ######
 ##############################
 
@@ -343,6 +425,9 @@ type CarbonPoolCreditBalance @entity {
   "Current balance"
   balance: BigInt!
 
+  "Current balance bridge to another chain"
+  crossChainSupply: BigInt!
+
   "LTD deposited amount"
   deposited: BigInt!
 
@@ -380,6 +465,9 @@ type CarbonPoolCreditBalanceDailySnapshot @entity {
   "Current balance"
   balance: BigInt!
 
+  "Current balance bridge to another chain"
+  crossChainSupply: BigInt!
+
   "Deposited amount"
   deposited: BigInt!
 
@@ -388,6 +476,9 @@ type CarbonPoolCreditBalanceDailySnapshot @entity {
 
   "Delta balance"
   deltaBalance: BigInt!
+
+  "Delta balance bridge to another chain"
+  deltaCrossChainSupply: BigInt!
 
   "Delta Redeemed"
   deltaRedeemed: BigInt!
@@ -492,6 +583,10 @@ type Holding @entity {
 
   "Amount currently held in native units"
   amount: BigInt!
+
+  activeProvenanceRecords: [ProvenanceRecord!]!
+
+  historicalProvenanceRecords: [ProvenanceRecord!]!
 
   "Timestamp last updated"
   lastUpdated: BigInt!

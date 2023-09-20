@@ -14,8 +14,8 @@
     "deploy-local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 klimadao-pairs"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "0.45.0",
-    "@graphprotocol/graph-ts": "0.29.3",
+    "@graphprotocol/graph-cli": "0.56.0",
+    "@graphprotocol/graph-ts": "0.31.0",
     "prettier": "2.7.1"
   }
 }

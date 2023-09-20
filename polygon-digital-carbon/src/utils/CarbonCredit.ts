@@ -18,6 +18,8 @@ export function loadOrCreateCarbonCredit(tokenAddress: Address, bridge: string):
     credit.crossChainSupply = ZERO_BI
     credit.bridged = ZERO_BI
     credit.retired = ZERO_BI
+    credit.provenanceCount = 0
+    credit.lastBatchId = ZERO_BI
     credit.save()
   }
   return credit as CarbonCredit

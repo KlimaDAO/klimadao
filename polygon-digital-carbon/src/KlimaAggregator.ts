@@ -10,8 +10,12 @@ import { loadRetire } from './utils/Retire'
 import { ZERO_ADDRESS } from '../../lib/utils/Constants'
 import { saveKlimaRetire } from './utils/KlimaRetire'
 import { KLIMA_CARBON_RETIREMENTS_CONTRACT } from '../../lib/utils/Constants'
+import { ZERO_BI } from '../../lib/utils/Decimals'
 
 export function handleMossRetired(event: MossRetired): void {
+  // Ignore zero value retirements
+  if (event.params.retiredAmount == ZERO_BI) return
+
   let klimaRetirements = KlimaCarbonRetirements.bind(Address.fromString(KLIMA_CARBON_RETIREMENTS_CONTRACT))
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
@@ -34,6 +38,9 @@ export function handleMossRetired(event: MossRetired): void {
 }
 
 export function handleToucanRetired(event: ToucanRetired): void {
+  // Ignore zero value retirements
+  if (event.params.retiredAmount == ZERO_BI) return
+
   let klimaRetirements = KlimaCarbonRetirements.bind(Address.fromString(KLIMA_CARBON_RETIREMENTS_CONTRACT))
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
@@ -56,6 +63,9 @@ export function handleToucanRetired(event: ToucanRetired): void {
 }
 
 export function handleC3Retired(event: C3Retired): void {
+  // Ignore zero value retirements
+  if (event.params.retiredAmount == ZERO_BI) return
+
   let klimaRetirements = KlimaCarbonRetirements.bind(Address.fromString(KLIMA_CARBON_RETIREMENTS_CONTRACT))
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 
@@ -78,6 +88,9 @@ export function handleC3Retired(event: C3Retired): void {
 }
 
 export function handleCarbonRetired(event: CarbonRetired): void {
+  // Ignore zero value retirements
+  if (event.params.retiredAmount == ZERO_BI) return
+
   let klimaRetirements = KlimaCarbonRetirements.bind(Address.fromString(KLIMA_CARBON_RETIREMENTS_CONTRACT))
   let index = klimaRetirements.retirements(event.params.beneficiaryAddress).value0.minus(BigInt.fromI32(1))
 

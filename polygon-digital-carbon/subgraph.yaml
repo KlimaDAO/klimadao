@@ -10,7 +10,7 @@ dataSources:
     source:
       address: '0x2359677E513Bc83106268514c5B2De3C29C849ea'
       abi: ToucanCarbonOffsetsFactory
-      startBlock: 20100000
+      startBlock: 20078328
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -29,12 +29,36 @@ dataSources:
         - event: TokenCreated(uint256,address)
           handler: handleNewTCO2
   - kind: ethereum/contract
+    name: ToucanCarbonOffsetBatch
+    network: matic
+    source:
+      address: '0x8A4d7458dDe3023A3B24225D62087701A88b09DD'
+      abi: ToucanCarbonOffsetBatches
+      startBlock: 20078307
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ToucanCarbonOffsetBatchHandler.ts
+      entities:
+        - ToucanCarbonOffsetBatch
+      abis:
+        - name: ToucanCarbonOffsetBatches
+          file: ../lib/abis/ToucanCarbonOffsetBatches.json
+      eventHandlers:
+        - event: BatchMinted(address,uint256)
+          handler: handleBatchMinted
+        - event: BatchUpdated(uint256,string,uint256)
+          handler: handleBatchUpdated
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleBatchTransfer
+  - kind: ethereum/contract
     name: BCT
     network: matic
     source:
       address: '0x2F800Db0fdb5223b3C3f354886d907A671414A7F'
       abi: ToucanCarbonPool
-      startBlock: 20100000
+      startBlock: 20078351
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -52,6 +76,8 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
+        - event: TCO2Bridged(indexed uint32,indexed address,uint256)
+          handler: handleToucanTCO2Bridged
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
   - kind: ethereum/contract
@@ -78,6 +104,8 @@ dataSources:
           handler: handleDeposited
         - event: Redeemed(address,address,uint256)
           handler: handleRedeemed
+        - event: TCO2Bridged(indexed uint32,indexed address,uint256)
+          handler: handleToucanTCO2Bridged
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
   # Toucan cross chain bridges
@@ -183,7 +211,7 @@ dataSources:
     source:
       address: '0xa4c951B30952f5E2feFC8a92F4d3c7551925A63B'
       abi: C3ProjectTokenFactory
-      startBlock: 25427000
+      startBlock: 25427652
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -207,7 +235,7 @@ dataSources:
     source:
       address: '0x2B3eCb0991AF0498ECE9135bcD04013d7993110c'
       abi: C3CarbonPool
-      startBlock: 25429000
+      startBlock: 25429110
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -233,7 +261,7 @@ dataSources:
     source:
       address: '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48'
       abi: C3CarbonPool
-      startBlock: 25428000
+      startBlock: 25428966
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -377,7 +405,7 @@ dataSources:
     source:
       address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
       abi: sKlimaERC20V1
-      startBlock: 20400000
+      startBlock: 20190686
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
