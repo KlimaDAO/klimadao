@@ -1,4 +1,4 @@
-import { isHexString } from "ethers-v6";
+import { utils } from "ethers";
 import { Purchase as MumbaiPurchase } from "../../../graphql/marketplaceMumbai.types";
 import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
@@ -7,7 +7,7 @@ import { gqlSdk } from "../../../utils/gqlSdk";
 /** Purchase ids are a txn hash */
 export const isValidPurchaseId = (id?: string | null) => {
   if (!id) return false;
-  return id.length === 66 && isHexString(id);
+  return id.length === 66 && utils.isHexString(id);
 };
 
 export const getPurchaseById = async (params: {

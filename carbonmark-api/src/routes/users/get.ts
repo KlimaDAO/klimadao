@@ -1,5 +1,5 @@
 import { Static } from "@sinclair/typebox";
-import { formatUnits, isAddress } from "ethers-v6";
+import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { User } from "../../models/User.model";
 import {
@@ -29,13 +29,13 @@ const handler = (fastify: FastifyInstance) =>
 
     // If handle is provided, we must do a profile lookup first.
     let handleProfile;
-    if (!isAddress(walletOrHandle)) {
+    if (!utils.isAddress(walletOrHandle)) {
       handleProfile = await getProfileByHandle({
         firebase: fastify.firebase,
         handle: walletOrHandle,
       });
       // if there is no profile, we can't continue without an address
-      if (!handleProfile || !isAddress(handleProfile.address)) {
+      if (!handleProfile || !utils.isAddress(handleProfile.address)) {
         return reply.notFound("No user profile found for given handle.");
       }
     }
@@ -67,10 +67,10 @@ const handler = (fastify: FastifyInstance) =>
         };
         return {
           ...a,
-          amount: formatUnits(a.amount || "0", 18),
-          price: formatUnits(a.price || "0", 6),
-          previousAmount: formatUnits(a.previousAmount || "0", 18),
-          previousPrice: formatUnits(a.previousPrice || "0", 6),
+          amount: utils.formatUnits(a.amount || "0", 18),
+          price: utils.formatUnits(a.price || "0", 6),
+          previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
+          previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
           buyer: buyer || null,
           seller: seller || null,
         };

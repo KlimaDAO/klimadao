@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-20 16:32+0000\n"
+"POT-Creation-Date: 2023-09-20 23:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -828,7 +828,7 @@ msgid "No retirement message provided."
 msgstr "未提供碳停用信息"
 
 #. js-lingui-explicit-id
-#: components/Layout/AddressSection/index.tsx:26
+#: components/Layout/AddressSection/index.tsx:30
 msgid "Not Connected"
 msgstr "未连接"
 
@@ -1774,7 +1774,7 @@ msgid "You successfully acquired carbon!"
 msgstr "您已成功获得了碳！"
 
 #. js-lingui-explicit-id
-#: components/Layout/AddressSection/index.tsx:22
+#: components/Layout/AddressSection/index.tsx:26
 msgid "Your Wallet Address:"
 msgstr "您的钱包地址："
 
@@ -2061,7 +2061,7 @@ msgid "offset_disclaimer"
 msgstr "请注意不要在您的碳停用姓名或消息中包含任何敏感的个人信息（例如电子邮件地址）。您在此处输入的信息一旦提交将无法更改，并将永久存在于公共区块链上。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Balances/index.tsx:48
+#: components/pages/Portfolio/Balances/index.tsx:49
 msgid "portfolio.balances.title"
 msgstr "余额"
 
@@ -2166,7 +2166,7 @@ msgid "purchase.input.price.required"
 msgstr "价格为必填项"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:103
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
 msgid "purchase.loading.allowance.error"
 msgstr "加载津贴时出了点问题"
 

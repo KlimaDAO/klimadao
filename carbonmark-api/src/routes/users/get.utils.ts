@@ -1,4 +1,4 @@
-import { Contract, JsonRpcProvider } from "ethers-v6";
+import { Contract, providers } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
 import ERC20 from "../../abis/ERC20.json";
@@ -14,7 +14,7 @@ import { gqlSdk } from "../../utils/gqlSdk";
 const fetchTestnetHoldings = async (params: {
   address: string;
 }): Promise<Holding[]> => {
-  const provider = new JsonRpcProvider(RPC_URLS.polygonTestnetRpc);
+  const provider = new providers.JsonRpcProvider(RPC_URLS.polygonTestnetRpc);
   // we hardcode known testnet tokens here
   const TOKEN_INFO = [
     {
