@@ -30,7 +30,19 @@ export function KlimaXAxisMonthlyProps<T>(
     ticks: helpers.niceTicks(data, dataKey),
   });
 }
-
+/* XAxis props to display ticks as days */
+export function KlimaXAxisDailyProps<T>(
+  data: ChartData<T>,
+  dataKey: keyof T,
+  locale: string
+) {
+  return Object.assign({}, BASE_XAXIS_PROPS, {
+    // FIXME: We should not need to hard cast here
+    dataKey: dataKey as string,
+    tickFormatter: helpers.formatDateAsDays(locale),
+    ticks: helpers.niceTicks(data, dataKey),
+  });
+}
 /* XAxis props to display vintage dates */
 export function KlimaXAxisVintageProps<T>(
   data: ChartData<T>,
@@ -40,6 +52,7 @@ export function KlimaXAxisVintageProps<T>(
     // FIXME: We should not need to hard cast here
     dataKey: dataKey as string,
     ticks: helpers.niceTicks(data, dataKey),
+    tickFormatter: (x: number) => String(x),
   });
 }
 

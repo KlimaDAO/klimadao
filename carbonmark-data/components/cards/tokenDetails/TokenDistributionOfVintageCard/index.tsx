@@ -2,18 +2,20 @@ import { t } from "@lingui/macro";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import ChartCard, { CardProps } from "../../ChartCard";
 
-import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
+import {
+  TokenDetailsProps,
+  getChartConfiguration,
+} from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { KlimaXAxisVintageProps } from "components/charts/helpers/KlimaAxis";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
-import { AggregatedCreditsByPoolAndVintageItem } from "lib/charts/types";
-import { currentLocale } from "lib/i18n";
-import { palette } from "theme/palette";
 
 export default function TokenDistributionOfVintageCard(
   props: CardProps & TokenDetailsProps
 ) {
+  // No vintage card for retired credits on particular pools
+  if (props.pool != "all" && props.status != "retired") {
+    return <></>;
+  }
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenDistributionOfVintageChart {...props} />
@@ -32,63 +34,13 @@ export default function TokenDistributionOfVintageCard(
 async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
   const params = creditsQueryParamsFromProps(props);
   const data = (await queryAggregatedCreditsByPoolAndVintage(params)).items;
-  console.log(data);
-  const configuration: SimpleChartConfiguration<AggregatedCreditsByPoolAndVintageItem> =
-    [];
-  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
-    configuration.push({
-      chartOptions: {
-        id: "ubo_quantity",
-        label: t`UBO`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
-    });
-  }
-  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
-    configuration.push({
-      chartOptions: {
-        id: "nbo_quantity",
-        label: t`NBO`,
-        color: palette.charts.color5,
-        legendOrder: 2,
-      },
-    });
-  }
-  if (
-    props.bridge == "toucan" &&
-    (props.pool == "all" || props.pool == "bct")
-  ) {
-    configuration.push({
-      chartOptions: {
-        id: "bct_quantity",
-        label: t`BCT`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
-    });
-  }
-  if (
-    props.bridge == "toucan" &&
-    (props.pool == "all" || props.pool == "nct")
-  ) {
-    configuration.push({
-      chartOptions: {
-        id: "nct_quantity",
-        label: t`NCT`,
-        color: palette.charts.color5,
-        legendOrder: 2,
-      },
-    });
-  }
-  const locale = currentLocale();
+  const configuration = getChartConfiguration(props);
   return (
     <KBarChart
       data={data}
       configuration={configuration}
       dateField="vintage"
-      XAxisProps={KlimaXAxisVintageProps(data, "vintage")}
-      TooltipXAxis="none"
+      XAxis="vintage"
     />
   );
 }

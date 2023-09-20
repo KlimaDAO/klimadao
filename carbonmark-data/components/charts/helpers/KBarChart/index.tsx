@@ -3,6 +3,7 @@ import {
   KlimaLegendProps,
   KlimaStackedBars,
   KlimaTooltip,
+  KlimaXAxisDailyProps,
   KlimaXAxisMonthlyProps,
   KlimaYAxisTonsProps,
 } from "components/charts/helpers";
@@ -17,29 +18,51 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  XAxisProps,
   YAxis,
-  YAxisProps,
 } from "recharts";
+import { KlimaXAxisVintageProps } from "../KlimaAxis";
 
 interface Props<T extends object> {
   data: ChartData<T>;
   configuration: SimpleChartConfiguration<T>;
   dateField: keyof T;
-  XAxisProps?: XAxisProps;
-  YAxisProps?: YAxisProps;
-  TooltipXAxis?: string;
-  TooltipYAxis?: string;
+  XAxis?: string;
+  YAxis?: string;
   LegendProps?: Omit<LegendProps, "ref">;
 }
 /** FIXME: Refactor to KlimaBarChart */
 export default function KBarChart<T extends object>(props: Props<T>) {
   const locale = currentLocale();
-  const LocalXAxisProps =
-    props.XAxisProps ||
-    KlimaXAxisMonthlyProps<T>(props.data, props.dateField, locale);
-  const LocalYAxisProps =
-    props.YAxisProps || KlimaYAxisTonsProps(props.data, props.configuration);
+  // Default configuration
+  let XAxisProps = KlimaXAxisMonthlyProps<T>(
+    props.data,
+    props.dateField,
+    locale
+  );
+  let YAxisProps = KlimaYAxisTonsProps(props.data, props.configuration);
+  let toolTipXAxisFormatter = helpers.formatDateAsMonths(locale);
+  let toolTipYAxisFormatter = (x: number) =>
+    helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
+
+  if (props.XAxis == "days") {
+    toolTipXAxisFormatter = helpers.formatDateAsDays(locale);
+    XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField, locale);
+  }
+
+  if (props.XAxis == "months") {
+    toolTipXAxisFormatter = helpers.formatDateAsMonths(locale);
+    XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField, locale);
+  }
+
+  if (props.XAxis == "vintage") {
+    toolTipXAxisFormatter = (x: number) => String(x);
+    XAxisProps = KlimaXAxisVintageProps<T>(props.data, props.dateField);
+  }
+
+  if (props.YAxis == "tons") {
+    toolTipYAxisFormatter = (x: number) =>
+      helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
+  }
   const LocalLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(props.configuration), {
@@ -48,23 +71,12 @@ export default function KBarChart<T extends object>(props: Props<T>) {
       align: "left",
       wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
     });
-  const toolTipXAxisFormatter =
-    props.TooltipXAxis == "days"
-      ? helpers.formatDateAsDays(locale)
-      : props.TooltipXAxis == "months"
-      ? helpers.formatDateAsMonths(locale)
-      : (x: number) => String(x);
-  const toolTipYAxisFormatter =
-    props.TooltipXAxis == "tons"
-      ? (x: number) =>
-          helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 })
-      : (x: number) =>
-          helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={props.data} barCategoryGap={"5%"}>
-        <XAxis {...LocalXAxisProps} />
-        <YAxis {...LocalYAxisProps} />
+        <XAxis {...XAxisProps} />
+        <YAxis {...YAxisProps} />
         <Tooltip
           content={KlimaTooltip(toolTipXAxisFormatter, toolTipYAxisFormatter)}
           cursor={{ fill: "transparent" }}
