@@ -11,7 +11,6 @@ const ListingSeller = Type.Object({
   id: Type.String(),
 });
 
-/** DEPRECATED. This will be altered with v2 */
 export const ListingModel = Type.Object(
   {
     id: Type.String({
@@ -53,8 +52,7 @@ export const ListingModel = Type.Object(
     ),
   },
   {
-    description:
-      "DEPRECATED. This resource will be altered in the near future.",
+    description: "Marketplace listing with per-tonne price and project info.",
   }
 );
 
