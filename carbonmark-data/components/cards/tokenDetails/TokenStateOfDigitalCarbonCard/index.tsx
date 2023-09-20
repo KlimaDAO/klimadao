@@ -31,12 +31,11 @@ export default function TokenStateOfDigitalCarbonCard(
 
 /** Async server component that renders a Recharts client component */
 async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props);
   const bridged = (
-    await queryAggregatedCredits({ ...params, ...{ status: "bridged" } })
+    await queryAggregatedCredits(creditsQueryParamsFromProps(props, "bridged"))
   ).quantity;
   const retired = (
-    await queryAggregatedCredits({ ...params, ...{ status: "retired" } })
+    await queryAggregatedCredits(creditsQueryParamsFromProps(props, "retired"))
   ).quantity;
   const outstanding = bridged - retired;
   const configuration: SimpleChartConfigurationFromType<

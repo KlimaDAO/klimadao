@@ -230,7 +230,7 @@ export function queryCarbonMetrics<RI>(
 }
 
 /** Queries the Pools tokens & dates aggregation endpoint */
-export function queryMonthlyAggregatedCreditsByPool(
+export function queryAggregatedCreditsByPoolAndDates(
   freq: string,
   params: PaginationQueryParams & CreditsQueryParams
 ): Promise<PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>> {

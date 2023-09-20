@@ -74,5 +74,15 @@ export function getChartConfiguration<T extends PoolQuantitiesInterface>(
       },
     });
   }
+  if (props.bridge == "moss") {
+    configuration.push({
+      chartOptions: {
+        id: "mco2_quantity",
+        label: t`MCO2`,
+        color: palette.charts.color3,
+        legendOrder: 2,
+      },
+    });
+  }
   return configuration;
 }

@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { poolsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {
@@ -8,7 +8,7 @@ import {
 } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
 import { statusToDateField } from "lib/charts/dateField";
-import { queryMonthlyAggregatedCreditsByPool } from "lib/charts/queries";
+import { queryAggregatedCreditsByPoolAndDates } from "lib/charts/queries";
 import { Status } from "lib/charts/types";
 
 export default function TokenVolumeOverTimeCard(
@@ -24,12 +24,13 @@ export default function TokenVolumeOverTimeCard(
 
 /** Async server component that renders a Recharts client component */
 async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
-  const params = poolsQueryParamsFromProps(props);
+  const params = creditsQueryParamsFromProps(props);
   const freq = props.since == "lifetime" ? "monthly" : "daily";
-  const data = (await queryMonthlyAggregatedCreditsByPool(freq, params)).items;
+  const data = (await queryAggregatedCreditsByPoolAndDates(freq, params)).items;
   const configuration = getChartConfiguration(props);
   const XAxis = props.since == "lifetime" ? "months" : "days";
   const dateField = statusToDateField(params.status as Status);
+
   return (
     <KBarChart
       data={data}

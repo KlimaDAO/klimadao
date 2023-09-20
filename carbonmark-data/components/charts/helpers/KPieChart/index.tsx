@@ -29,10 +29,9 @@ export default function KPieChart<
   const LocalLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(props.configuration), {
-      layout: "horizontal",
-      verticalAlign: "bottom",
-      align: "left",
-      wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
+      verticalAlign: "middle",
+      align: "center",
+      layout: "vertical",
     });
   const showLegend = props.showLegend === undefined ? true : props.showLegend;
 

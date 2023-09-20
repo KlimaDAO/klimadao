@@ -2,6 +2,7 @@ import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
 import {
   CreditsQueryParams,
   DateFieldParam,
+  Status,
   TreeMapData,
 } from "lib/charts/types";
 import { statusToDateFieldGt } from "../dateField";
@@ -10,15 +11,17 @@ import { queryAggregatedCreditsByProjects } from "../queries";
 
 /** Transforms widget options into credits query parameters */
 export function creditsQueryParamsFromProps(
-  props: TokenDetailsProps
+  props: TokenDetailsProps,
+  forceStatus?: Status
 ): CreditsQueryParams {
+  const status = forceStatus === undefined ? props.status : forceStatus;
   const queryParams: CreditsQueryParams = {
     bridge: props.bridge,
     pool: props.pool,
-    status: props.status,
+    status,
   };
 
-  const dateField: DateFieldParam = statusToDateFieldGt(props.status);
+  const dateField: DateFieldParam = statusToDateFieldGt(status);
   if (props.since == "last7d") {
     queryParams[dateField] = dateForQuery(Date.now() - 60 * 60 * 24 * 7 * 1000);
   } else if (props.since == "last30d") {

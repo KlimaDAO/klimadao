@@ -15,30 +15,39 @@ import { NodeDictionnary } from "lib/charts/types";
 export default function TokenDetailsPage() {
   const c3Contents: NodeDictionnary = {};
   const toucanContents: NodeDictionnary = {};
-  getDateFilteringOptions().forEach((date) =>
+  const mossContents: NodeDictionnary = {};
+  getDateFilteringOptions().forEach((date) => {
     getPoolStatusOptions().forEach((status) => {
-      // There is no data for retired tokens in
-      toucanContents[`all|${date.value}|${status.value}`] = (
-        <TokenDetailsTab
-          bridge="toucan"
-          pool="all"
-          status={status.value}
-          since={date.value}
-        />
-      );
-    })
-  );
-  getToucanPoolsOptions().forEach((pool) => {
-    toucanContents[`${pool.value}|lifetime|bridged`] = (
+      getToucanPoolsOptions().forEach((pool) => {
+        if (pool.value == "all" || status.value == "bridged") {
+          toucanContents[`${pool.value}|${date.value}|${status.value}`] = (
+            <TokenDetailsTab
+              bridge="toucan"
+              pool={pool.value}
+              status={status.value}
+              since={date.value}
+            />
+          );
+          c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
+            <TokenDetailsTab
+              bridge="c3"
+              pool={pool.value}
+              status={status.value}
+              since={date.value}
+            />
+          );
+        }
+      });
+    });
+    mossContents[`${date.value}`] = (
       <TokenDetailsTab
-        bridge="toucan"
-        pool={pool.value}
+        bridge="moss"
+        pool="all"
         status="bridged"
-        since="lifetime"
+        since={date.value}
       />
     );
   });
-
   return (
     <PageWithTabs
       title={t`Token details`}
@@ -52,6 +61,12 @@ export default function TokenDetailsPage() {
             getPoolStatusOptions(),
           ],
           contents: c3Contents,
+        },
+        {
+          key: "moss",
+          label: t`Moss`,
+          optionsList: [getDateFilteringOptions()],
+          contents: mossContents,
         },
         {
           key: "toucan",
