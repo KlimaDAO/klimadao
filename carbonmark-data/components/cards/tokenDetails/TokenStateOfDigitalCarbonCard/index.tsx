@@ -3,7 +3,10 @@ import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregate
 import { palette } from "theme/palette";
 import ChartCard, { CardProps } from "../../ChartCard";
 
-import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
+import {
+  TokenDetailsProps,
+  propsToDetailsURL,
+} from "components/cards/tokenDetails/helpers";
 import { formatTonnes } from "components/charts/helpers/DataTable/configurations/helpers";
 import KPieChart from "components/charts/helpers/KPieChart";
 import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
@@ -24,6 +27,7 @@ export default function TokenStateOfDigitalCarbonCard(
     <ChartCard
       {...props}
       title={t`State of ${capitalize(props.bridge)} digital carbon`}
+      detailUrl={propsToDetailsURL(props, "state-of-digital-carbon")}
       chart={chart}
     />
   );

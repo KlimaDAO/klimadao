@@ -5,6 +5,7 @@ import ChartCard, { CardProps } from "../../ChartCard";
 import {
   TokenDetailsProps,
   getChartConfiguration,
+  propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
 import { statusToDateField } from "lib/charts/dateField";
@@ -19,7 +20,14 @@ export default function TokenVolumeOverTimeCard(
     <TokenVolumeOverTimeChart {...props} />
   );
 
-  return <ChartCard {...props} title={t`Volume over time`} chart={chart} />;
+  return (
+    <ChartCard
+      {...props}
+      title={t`Volume over time`}
+      chart={chart}
+      detailUrl={propsToDetailsURL(props, "token-volume-over-time")}
+    />
+  );
 }
 
 /** Async server component that renders a Recharts client component */

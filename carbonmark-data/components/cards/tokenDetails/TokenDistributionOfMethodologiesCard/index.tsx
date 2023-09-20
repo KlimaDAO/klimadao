@@ -5,6 +5,7 @@ import ChartCard, { CardProps } from "../../ChartCard";
 import {
   TokenDetailsProps,
   getChartConfiguration,
+  propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
 import { queryAggregatedCreditsByPoolAndMethodology } from "lib/charts/queries";
@@ -26,6 +27,7 @@ export default function TokenDistributionOfMethodologiesCard(
       {...props}
       title={t`Distribution of methodologies`}
       chart={chart}
+      detailUrl={propsToDetailsURL(props, "token-by-methodologies")}
     />
   );
 }

@@ -23,10 +23,10 @@ export function tokenDetailChartProps(props: TokenDetailsProps) {
     since: props.since,
   };
 }
-
-export function getChartConfiguration<T extends PoolQuantitiesInterface>(
-  props: TokenDetailsProps
-) {
+export function propsToDetailsURL(props: TokenDetailsProps, slug: string) {
+  return `/details/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
+}
+export function getChartConfiguration(props: TokenDetailsProps) {
   const configuration: SimpleChartConfiguration<PoolQuantitiesInterface> = [];
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
     configuration.push({

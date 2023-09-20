@@ -1,19 +1,19 @@
 import { t } from "@lingui/macro";
-import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
+import TokenPoolBreakdownCard from "components/cards/tokenDetails/TokenPoolBreakdownCard";
 import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
-export default function TokenDistributionOfVintageDatePage({
+export default function TokenPoolBreakdownPage({
   params,
   searchParams,
 }: TokenDetailPageProps) {
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
+      pageTitle={t`Breakdown of ${bridgeLabel} pooled`}
       card={
-        <TokenDistributionOfVintageCard
+        <TokenPoolBreakdownCard
           isDetailPage={true}
           {...params}
           {...searchParams}

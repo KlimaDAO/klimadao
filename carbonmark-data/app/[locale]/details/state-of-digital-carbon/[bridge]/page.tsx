@@ -1,19 +1,19 @@
 import { t } from "@lingui/macro";
-import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
+import TokenStateOfDigitalCarbonCard from "components/cards/tokenDetails/TokenStateOfDigitalCarbonCard";
 import DetailPage from "components/pages/DetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
-export default function TokenDistributionOfVintageDatePage({
+export default function TokenStateOfDigitalCarbonPage({
   params,
   searchParams,
 }: TokenDetailPageProps) {
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
+      pageTitle={t`State of ${bridgeLabel} digital carbon`}
       card={
-        <TokenDistributionOfVintageCard
+        <TokenStateOfDigitalCarbonCard
           isDetailPage={true}
           {...params}
           {...searchParams}

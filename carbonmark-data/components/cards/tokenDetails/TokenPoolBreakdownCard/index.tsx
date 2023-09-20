@@ -3,7 +3,10 @@ import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregate
 import { palette } from "theme/palette";
 import ChartCard, { CardProps } from "../../ChartCard";
 
-import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
+import {
+  TokenDetailsProps,
+  propsToDetailsURL,
+} from "components/cards/tokenDetails/helpers";
 import KPieChart from "components/charts/helpers/KPieChart";
 import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
 import { queryAggregatedCredits } from "lib/charts/queries";
@@ -31,6 +34,7 @@ export default function TokenPoolBreakdownCard(
     <ChartCard
       {...props}
       title={t`Breakdown of ${capitalize(props.bridge)} pooled`}
+      detailUrl={propsToDetailsURL(props, "breakdown-of-digital-carbon")}
       chart={chart}
     />
   );

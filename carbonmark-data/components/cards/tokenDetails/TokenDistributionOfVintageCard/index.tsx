@@ -5,6 +5,7 @@ import ChartCard, { CardProps } from "../../ChartCard";
 import {
   TokenDetailsProps,
   getChartConfiguration,
+  propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
 import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
@@ -25,6 +26,7 @@ export default function TokenDistributionOfVintageCard(
     <ChartCard
       {...props}
       title={t`Distribution of vintage start dates`}
+      detailUrl={propsToDetailsURL(props, "token-by-vintage-date")}
       chart={chart}
     />
   );

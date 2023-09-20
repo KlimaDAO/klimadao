@@ -1,7 +1,10 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "../../ChartCard";
 
-import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
+import {
+  TokenDetailsProps,
+  propsToDetailsURL,
+} from "components/cards/tokenDetails/helpers";
 import DataTable from "components/charts/helpers/DataTable";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 
@@ -17,6 +20,7 @@ export default function TokenOriginsCard(props: CardProps & TokenDetailsProps) {
       {...props}
       title={t`Origin of credits`}
       chart={chart}
+      detailUrl={propsToDetailsURL(props, "token-by-origins")}
       isColumnCard={true}
     />
   );
