@@ -95,7 +95,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         address,
         spender: "carbonmark",
         token: "usdc",
-        network: networkLabel,
+        network: networkLabel === "mumbai" ? "testnet" : "mainnet",
       });
       setAllowanceValue(allowance.usdc.carbonmark);
       setInputValues(values);

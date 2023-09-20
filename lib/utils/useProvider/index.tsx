@@ -7,6 +7,7 @@ import {
   TorusProvider,
   TypedProvider,
   WalletConnectProvider,
+  WalletLabel,
   Web3ModalState,
   Web3State,
   WrappedProvider,
@@ -92,26 +93,32 @@ export const useProvider = (): Web3ModalState => {
         provider = getWeb3Provider(walletConnectProvider);
         localStorage.setItem("web3-wallet", "walletConnect");
 
-        /** HANDLE TORUS */
-      } else if (wallet === "torus" || connectedWallet === "torus") {
+        /** HANDLE TORUS AND TORUS-MUMBAI*/
+      } else if (
+        wallet === "torus" ||
+        connectedWallet === "torus" ||
+        wallet === "torus-mumbai" ||
+        connectedWallet === "torus-mumbai"
+      ) {
+        const isTestnet =
+          wallet === "torus-mumbai" || connectedWallet === "torus-mumbai";
         const { default: Torus } = await import("@toruslabs/torus-embed");
         const torus = new Torus();
         await torus.cleanUp();
         await torus.init({
           buildEnv: "production",
           enableLogging: false,
-          network:
-            options?.network === "mumbai"
-              ? {
-                  host: urls.polygonTestnetRpc,
-                  chainId: 80001,
-                  networkName: "Mumbai Matic",
-                }
-              : {
-                  host: urls.polygonMainnetRpc,
-                  chainId: 137,
-                  networkName: "Polygon",
-                },
+          network: isTestnet
+            ? {
+                host: urls.polygonTestnetRpc,
+                chainId: 80001,
+                networkName: "Mumbai Matic",
+              }
+            : {
+                host: urls.polygonMainnetRpc,
+                chainId: 137,
+                networkName: "Polygon",
+              },
           showTorusButton: false,
           useLocalStorage: true,
           // torus types are incorrect
@@ -120,7 +127,10 @@ export const useProvider = (): Web3ModalState => {
         await torus.login();
         provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
-        localStorage.setItem("web3-wallet", "torus");
+        localStorage.setItem(
+          "web3-wallet",
+          connectedWallet || wallet || "torus"
+        );
       } else {
         throw new Error("Error connecting");
       }
@@ -133,7 +143,7 @@ export const useProvider = (): Web3ModalState => {
         signer,
         address,
         network,
-        networkLabel: network.chainId === 80001 ? "testnet" : "mainnet",
+        networkLabel: network.chainId === 80001 ? "mumbai" : "polygon",
         isConnected: true,
         initializing: false,
         isConnectionFromCache: options?.useCache || false,
@@ -156,7 +166,7 @@ export const useProvider = (): Web3ModalState => {
 
   // Auto connect to the cached provider if web3-wallet has a value
   useEffect(() => {
-    const wallet = localStorage.getItem("web3-wallet");
+    const wallet = localStorage.getItem("web3-wallet") as WalletLabel | null;
     if (wallet) {
       connect(wallet, { useCache: true });
     } else {

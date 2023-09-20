@@ -84,19 +84,26 @@ export const ConnectModal = (props: ConnectModalProps) => {
   useScrollLock(props.showModal);
 
   const handleConnect = async (params: {
-    wallet: "coinbase" | "torus" | "walletConnect" | "injected";
+    wallet:
+      | "coinbase"
+      | "torus"
+      | "torus-mumbai"
+      | "walletConnect"
+      | "injected";
   }) => {
     try {
-      if (!params.wallet) return;
+      if (!params.wallet || !connect) return;
       setStep("loading");
-      if (params.wallet === "injected" && connect) {
+      if (params.wallet === "injected") {
         await connect("injected");
-      } else if (params.wallet === "coinbase" && connect) {
+      } else if (params.wallet === "coinbase") {
         await connect("coinbase");
-      } else if (params.wallet === "walletConnect" && connect) {
+      } else if (params.wallet === "walletConnect") {
         await connect("walletConnect");
-      } else if (params.wallet === "torus" && connect) {
-        await connect("torus", { network: isMumbai ? "mumbai" : "polygon" });
+      } else if (params.wallet === "torus") {
+        await connect("torus");
+      } else if (params.wallet === "torus-mumbai") {
+        await connect("torus-mumbai");
       }
       toggleModal();
       setStep("connect");
@@ -154,7 +161,9 @@ export const ConnectModal = (props: ConnectModalProps) => {
               )}
               <button
                 className={styles.torusButtons}
-                onClick={() => handleConnect({ wallet: "torus" })}
+                onClick={() =>
+                  handleConnect({ wallet: isMumbai ? "torus-mumbai" : "torus" })
+                }
               >
                 <span className={styles.buttonBackground}>
                   <TwitterIcon className={styles.twitter} />

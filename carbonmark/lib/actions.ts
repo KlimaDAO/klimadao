@@ -32,22 +32,21 @@ import {
 
 export const getSignerNetwork = (
   signer: providers.JsonRpcSigner
-): "testnet" | "mainnet" => {
-  return signer.provider.network.chainId === 80001 ? "testnet" : "mainnet";
+): "polygon" | "mumbai" => {
+  return signer.provider.network.chainId === 80001 ? "mumbai" : "polygon";
 };
 
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
-  network?: "testnet" | "mainnet";
+  network?: "mumbai" | "polygon";
 }): Promise<string> => {
-  const chain = params.network === "testnet" ? "mumbai" : "polygon";
   const tokenContract = new Contract(
     params.tokenAddress,
     IERC20.abi,
     getStaticProvider({
-      chain,
+      chain: params.network,
     })
   );
 
@@ -95,7 +94,7 @@ export const approveTokenSpend = async (params: {
       tokenContract = getContract({
         contractName: params.tokenName,
         provider: params.signer,
-        network,
+        network: network === "mumbai" ? "testnet" : "mainnet",
       });
     } else if (params.tokenAddress) {
       tokenContract = new Contract(
@@ -224,7 +223,7 @@ export const makePurchase = async (params: {
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
       provider: signer,
-      network,
+      network: network === "mumbai" ? "testnet" : "mainnet",
     });
 
     params.onStatus("userConfirmation", "");
@@ -458,13 +457,12 @@ export const getProjectInfoFromTCO2Contract = async (
 
 export const getUSDCBalance = async (params: {
   userAddress: string;
-  network?: "testnet" | "mainnet";
+  network?: "polygon" | "mumbai";
 }) => {
-  const chain = params.network === "testnet" ? "mumbai" : "polygon";
   const tokenContract = getContract({
     contractName: "usdc",
-    provider: getStaticProvider({ chain }),
-    network: params.network,
+    provider: getStaticProvider({ chain: params.network }),
+    network: params.network === "mumbai" ? "testnet" : "mainnet",
   });
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance, getTokenDecimals("usdc"));
