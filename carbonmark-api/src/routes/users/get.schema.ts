@@ -13,12 +13,6 @@ export const Params = Type.Object(
 );
 
 export const QueryString = Type.Object({
-  type: Type.Optional(
-    Type.Union([Type.Literal("wallet"), Type.Literal("handle")], {
-      description: "Deprecated.",
-      examples: ["wallet", "handle"],
-    })
-  ),
   network: Type.Optional(NetworkParamModel),
 });
 

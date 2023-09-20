@@ -81,7 +81,6 @@ const handler = (fastify: FastifyInstance) =>
       location: toGeoJSON(projectDetails.geolocation),
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
-      isPoolProject: !!poolPrices.length,
       images:
         projectDetails?.images?.map((image) => ({
           caption: image?.asset?.altText,
