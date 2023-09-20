@@ -47,8 +47,8 @@ const validations = (
     },
     totalPrice: {
       min: {
-        value: 0.0000001,
-        message: t`The minimum amount to retire is 0.0000001 Tonnes`,
+        value: 0.001,
+        message: t`The minimum amount to retire is 0.001 Tonnes`,
       },
       max: {
         value: Number(userBalance || "0"),
