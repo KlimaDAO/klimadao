@@ -96,7 +96,6 @@ export const RetireForm: FC<Props> = (props) => {
     const getFiatMaxBalance = async () => {
       try {
         const fiatInfo = await getFiatInfo();
-        console.log("fiatInfo", fiatInfo);
 
         fiatInfo?.MAX_USDC
           ? setFiatBalance(fiatInfo.MAX_USDC)
