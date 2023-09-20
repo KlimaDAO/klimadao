@@ -14,26 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:51
-msgid "The minimum amount to retire is 0.0000001 Tonnes"
-msgstr "The minimum amount to retire is 0.0000001 Tonnes"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
-msgid "At this time, Carbonmark cannot process credit card payments below {0}"
-msgstr "At this time, Carbonmark cannot process credit card payments below {0}"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:167
-msgid "{0}"
-msgstr "{0}"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
-msgid "At this time Carbonmark cannot process credit card payments below ${0}"
-msgstr "At this time Carbonmark cannot process credit card payments below ${0}"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -1029,6 +1009,11 @@ msgid "Go back"
 msgstr "Go back"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:167
+msgid "{0}"
+msgstr "{0}"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:170
 msgid "There was an error during the checkout process. Please try again."
 msgstr "There was an error during the checkout process. Please try again."
@@ -1040,6 +1025,7 @@ msgstr "something went wrong loading the allowance"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:45
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:51
 msgid "The minimum amount to retire is 0.001 Tonnes"
 msgstr "The minimum amount to retire is 0.001 Tonnes"
 
@@ -1047,6 +1033,11 @@ msgstr "The minimum amount to retire is 0.001 Tonnes"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "The minimum amount to retire is 1 Tonnes"
 msgstr "The minimum amount to retire is 1 Tonnes"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
+msgid "At this time, Carbonmark cannot process credit card payments below {0}"
+msgstr "At this time, Carbonmark cannot process credit card payments below {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
@@ -1210,6 +1201,11 @@ msgstr "See your retirement receipt"
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
 msgid "Retire more Carbon"
 msgstr "Retire more Carbon"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
+msgid "At this time Carbonmark cannot process credit card payments below ${0}"
+msgstr "At this time Carbonmark cannot process credit card payments below ${0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:105
