@@ -1,30 +1,5 @@
 import { app } from "firebase-admin";
-import { chunk, isEmpty } from "lodash";
-
-type FbUserDocument = {
-  profileImgUrl: string;
-  description: string;
-  handle: string;
-  username: string;
-  address: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
-/**
- * This function retrieves a user by their wallet address from the Firestore database.
- */
-export const getProfileByAddress = async (params: {
-  firebase: app.App;
-  address: string;
-}): Promise<any> => {
-  const doc = await params.firebase
-    .firestore()
-    .collection("users")
-    .doc(params.address.toUpperCase())
-    .get();
-  if (!doc.exists) return null;
-  return doc.data();
-};
+import { chunk } from "lodash";
 
 interface UserProfile {
   address: string;
@@ -36,33 +11,21 @@ interface UserProfile {
   username: string;
 }
 
-/** @note this may have a max limit of 300 records for ids, need to confirm */
-export const getUserDocumentsByIds = async (
-  firebase: app.App,
-  userIds: string[]
-): Promise<FbUserDocument[] | undefined> => {
-  // We must split the array of addresses into chunk arrays of 30 elements/ea because firestore "in" queries are limited to 30 items.
-  if (!isEmpty(userIds)) {
-    const ids = Array.from(userIds);
-
-    const chunks: string[][] = chunk(ids, 30);
-    const snapshots = await Promise.all(
-      chunks.map((chunk) =>
-        firebase
-          .firestore()
-          .collection("users")
-          .where("address", "in", chunk)
-          .get()
-      )
-    );
-
-    return (
-      snapshots
-        .flatMap((snapshot) => snapshot.docs)
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- need to find a way to enforce typing on firebase
-        .map((doc) => doc.data() as FbUserDocument)
-    );
-  }
+/**
+ * This function retrieves a user by their wallet address from the Firestore database.
+ */
+export const getProfileByAddress = async (params: {
+  firebase: app.App;
+  address: string;
+}): Promise<UserProfile | null> => {
+  const doc = await params.firebase
+    .firestore()
+    .collection("users")
+    .doc(params.address.toUpperCase())
+    .get();
+  if (!doc.exists) return null;
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- known type
+  return doc.data() as UserProfile;
 };
 
 /**
