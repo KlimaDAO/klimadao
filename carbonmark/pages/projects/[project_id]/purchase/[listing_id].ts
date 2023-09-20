@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   try {
-    let project = await getCarbonmarkProject({ id: project_id });
+    let project = await getCarbonmarkProject(project_id);
 
     if (!project) {
       throw new Error("No project found");
@@ -40,8 +40,7 @@ export const getStaticProps: GetStaticProps<
 
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
-      project = await getCarbonmarkProject({
-        id: project_id,
+      project = await getCarbonmarkProject(project_id, {
         network: "mumbai",
       });
       listing = project?.listings.find(findListing);
