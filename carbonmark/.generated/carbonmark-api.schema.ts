@@ -151,17 +151,6 @@ export default {
           "updatedAt": {
             "type": "string"
           },
-          "category": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
-          },
           "country": {
             "type": "object",
             "properties": {
@@ -181,7 +170,7 @@ export default {
               {
                 "type": "array",
                 "items": {
-                  "description": "DEPRECATED. This resource will be altered in the near future.",
+                  "description": "Marketplace listing with per-tonne price and project info.",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -448,13 +437,6 @@ export default {
                 "type": "null"
               }
             ]
-          },
-          "id": {
-            "description": "Deprecated in favor of projectAddress",
-            "type": "string"
-          },
-          "isPoolProject": {
-            "type": "boolean"
           }
         },
         "required": [
@@ -466,10 +448,8 @@ export default {
           "projectAddress",
           "registry",
           "updatedAt",
-          "category",
           "country",
-          "price",
-          "id"
+          "price"
         ]
       },
       "DetailedProject": {
@@ -770,7 +750,7 @@ export default {
           "listings": {
             "type": "array",
             "items": {
-              "description": "DEPRECATED. This resource will be altered in the near future.",
+              "description": "Marketplace listing with per-tonne price and project info.",
               "type": "object",
               "properties": {
                 "id": {
@@ -1141,9 +1121,6 @@ export default {
           "price": {
             "type": "string"
           },
-          "isPoolProject": {
-            "type": "boolean"
-          },
           "vintage": {
             "type": "string"
           }
@@ -1156,7 +1133,6 @@ export default {
           "listings",
           "activities",
           "price",
-          "isPoolProject",
           "vintage"
         ]
       },
@@ -1310,7 +1286,7 @@ export default {
         ]
       },
       "Listing": {
-        "description": "DEPRECATED. This resource will be altered in the near future.",
+        "description": "Marketplace listing with per-tonne price and project info.",
         "type": "object",
         "properties": {
           "id": {
@@ -1749,7 +1725,7 @@ export default {
           "listings": {
             "type": "array",
             "items": {
-              "description": "DEPRECATED. This resource will be altered in the near future.",
+              "description": "Marketplace listing with per-tonne price and project info.",
               "type": "object",
               "properties": {
                 "id": {
@@ -2656,17 +2632,6 @@ export default {
                       "updatedAt": {
                         "type": "string"
                       },
-                      "category": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      },
                       "country": {
                         "type": "object",
                         "properties": {
@@ -2686,7 +2651,7 @@ export default {
                           {
                             "type": "array",
                             "items": {
-                              "description": "DEPRECATED. This resource will be altered in the near future.",
+                              "description": "Marketplace listing with per-tonne price and project info.",
                               "type": "object",
                               "properties": {
                                 "id": {
@@ -2953,13 +2918,6 @@ export default {
                             "type": "null"
                           }
                         ]
-                      },
-                      "id": {
-                        "description": "Deprecated in favor of projectAddress",
-                        "type": "string"
-                      },
-                      "isPoolProject": {
-                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -2971,10 +2929,8 @@ export default {
                       "projectAddress",
                       "registry",
                       "updatedAt",
-                      "category",
                       "country",
-                      "price",
-                      "id"
+                      "price"
                     ]
                   }
                 }
@@ -2992,36 +2948,6 @@ export default {
         ],
         "description": "Get a user's profile and activity",
         "parameters": [
-          {
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "wallet"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "handle"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "wallet": {
-                "value": "wallet"
-              },
-              "handle": {
-                "value": "handle"
-              }
-            },
-            "in": "query",
-            "name": "type",
-            "required": false,
-            "description": "Deprecated."
-          },
           {
             "schema": {
               "default": "polygon",
@@ -3124,7 +3050,7 @@ export default {
                     "listings": {
                       "type": "array",
                       "items": {
-                        "description": "DEPRECATED. This resource will be altered in the near future.",
+                        "description": "Marketplace listing with per-tonne price and project info.",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -4153,7 +4079,7 @@ export default {
                     "listings": {
                       "type": "array",
                       "items": {
-                        "description": "DEPRECATED. This resource will be altered in the near future.",
+                        "description": "Marketplace listing with per-tonne price and project info.",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -4524,9 +4450,6 @@ export default {
                     "price": {
                       "type": "string"
                     },
-                    "isPoolProject": {
-                      "type": "boolean"
-                    },
                     "vintage": {
                       "type": "string"
                     }
@@ -4539,7 +4462,6 @@ export default {
                     "listings",
                     "activities",
                     "price",
-                    "isPoolProject",
                     "vintage"
                   ]
                 }
