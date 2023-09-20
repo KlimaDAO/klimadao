@@ -8,7 +8,7 @@ import { KlimaXAxisVintageProps } from "components/charts/helpers/KlimaAxis";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { queryAggregatedCreditsByPoolAndVintage } from "lib/charts/queries";
 import { AggregatedCreditsByPoolAndVintageItem } from "lib/charts/types";
-import { XAxis } from "recharts";
+import { currentLocale } from "lib/i18n";
 import { palette } from "theme/palette";
 
 export default function TokenDistributionOfVintageCard(
@@ -81,13 +81,14 @@ async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
       },
     });
   }
-
+  const locale = currentLocale();
   return (
     <KBarChart
       data={data}
       configuration={configuration}
       dateField="vintage"
-      XAxis={<XAxis {...KlimaXAxisVintageProps(data, "vintage")} />}
+      XAxisProps={KlimaXAxisVintageProps(data, "vintage")}
+      TooltipXAxis="none"
     />
   );
 }

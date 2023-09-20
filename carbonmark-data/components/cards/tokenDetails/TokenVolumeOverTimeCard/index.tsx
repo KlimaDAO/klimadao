@@ -81,6 +81,7 @@ async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
       data={data}
       configuration={configuration}
       dateField={dateField}
+      TooltipXAxis="months"
     />
   );
 }
