@@ -10,7 +10,7 @@ export const getCarbonmarkProject = async (
 ): Promise<DetailedProject | null> => {
   const res = await client["/projects/{id}"].get({
     params: { id: creditId },
-    query: { network: opts?.network || "polygon" },
+    query: { network: opts?.network },
   });
   if (!res.ok) {
     return null;
