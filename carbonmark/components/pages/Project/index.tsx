@@ -255,13 +255,12 @@ const Page: NextPage<PageProps> = (props) => {
 
 export const Project: NextPage<PageProps> = (props) => {
   const { networkLabel } = useWeb3();
-  const network = networkLabel === "mainnet" ? "polygon" : "mumbai";
   return (
     <SWRConfig
       value={{
         fetcher,
         fallback: {
-          [`${urls.api.projects}/${props.projectID}?network=${network}`]:
+          [`${urls.api.projects}/${props.projectID}?network=${networkLabel}`]:
             props.project,
         },
       }}
