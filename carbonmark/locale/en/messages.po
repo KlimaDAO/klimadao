@@ -143,12 +143,12 @@ msgid "Contact"
 msgstr "Contact"
 
 #. js-lingui-explicit-id
-#: components/Layout/AddressSection/index.tsx:22
+#: components/Layout/AddressSection/index.tsx:26
 msgid "Your Wallet Address:"
 msgstr "Your Wallet Address:"
 
 #. js-lingui-explicit-id
-#: components/Layout/AddressSection/index.tsx:26
+#: components/Layout/AddressSection/index.tsx:30
 msgid "Not Connected"
 msgstr "Not Connected"
 
@@ -1968,7 +1968,7 @@ msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Balances/index.tsx:48
+#: components/pages/Portfolio/Balances/index.tsx:49
 msgid "portfolio.balances.title"
 msgstr "Balances"
 
@@ -2435,7 +2435,7 @@ msgid "connectModal.torus"
 msgstr "social or email"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:103
+#: components/pages/Project/Purchase/Listing/PurchaseForm.tsx:105
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
