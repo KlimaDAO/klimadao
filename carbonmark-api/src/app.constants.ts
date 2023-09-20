@@ -8,6 +8,7 @@ const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 /** Note: the keys of the below objects are used when selecting gql files for type generation */
 export const GRAPH_URLS = {
   marketplace: `${GRAPH_API_ROOT}/najada/marketplace-matic`,
+  // v0.0.2 - https://github.com/KlimaDAO/klima-subgraph/releases/
   marketplaceMumbai: `${GRAPH_API_ROOT_ID}/QmYaSLxLhoqekxuip14HyEKXFuW9DQZE8CndFrHGHyeoB8`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
