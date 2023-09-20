@@ -1,6 +1,7 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
+  AggregatedCreditsByPoolAndMethodologyItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
@@ -246,4 +247,14 @@ export function queryAggregatedCreditsByPoolAndVintage(
     urls.api.aggregatedCreditsByPoolAndVintage,
     params
   );
+}
+
+/** Queries the Credits pool and methodology aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndMethodology(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>> {
+  return paginatedQuery<
+    AggregatedCreditsByPoolAndMethodologyItem,
+    typeof params
+  >(urls.api.aggregatedCreditsByPoolAndMethodology, params);
 }

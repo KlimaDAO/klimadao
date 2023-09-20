@@ -1,3 +1,4 @@
+import TokenDistributionOfMethodologiesCard from "components/cards/tokenDetails/TokenDistributionOfMethodologiesCard";
 import TokenDistributionOfProjectsCard from "components/cards/tokenDetails/TokenDistributionOfProjectsCard";
 import TokenDistributionOfVintageCard from "components/cards/tokenDetails/TokenDistributionOfVintageCard";
 import TokenVolumeOverTimeCard from "components/cards/tokenDetails/TokenVolumeOverTimeCard";
@@ -11,6 +12,7 @@ export default function TokenDetailsTab(props: TokenDetailsProps) {
         <TokenDistributionOfVintageCard {...props} />
       </div>
       <div className={layout.cardRow}>
+        <TokenDistributionOfMethodologiesCard {...props} />
         <TokenDistributionOfProjectsCard {...props} />
       </div>
     </div>

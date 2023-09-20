@@ -10,6 +10,7 @@ const BASE_AXIS_PROPS = {
 const BASE_XAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
   dy: 10,
   axisLine: false,
+  interval: 0,
 });
 /* Base parameters for YAxis */
 const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
@@ -53,6 +54,21 @@ export function KlimaXAxisVintageProps<T>(
     dataKey: dataKey as string,
     ticks: helpers.niceTicks(data, dataKey),
     tickFormatter: (x: number) => String(x),
+  });
+}
+
+/* XAxis props to display methodologies */
+export function KlimaXAxisMethodologyProps<T>(
+  data: ChartData<T>,
+  dataKey: keyof T
+) {
+  return Object.assign({}, BASE_XAXIS_PROPS, {
+    // FIXME: We should not need to hard cast here
+    dataKey: dataKey as string,
+    tickFormatter: (x: number) => String(x),
+    ticks: [],
+    tick: { fontSize: 8 },
+    angle: -22,
   });
 }
 

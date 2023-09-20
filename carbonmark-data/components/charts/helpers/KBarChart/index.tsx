@@ -20,7 +20,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { KlimaXAxisVintageProps } from "../KlimaAxis";
+import {
+  KlimaXAxisMethodologyProps,
+  KlimaXAxisVintageProps,
+} from "../KlimaAxis";
 
 interface Props<T extends object> {
   data: ChartData<T>;
@@ -58,7 +61,10 @@ export default function KBarChart<T extends object>(props: Props<T>) {
     toolTipXAxisFormatter = (x: number) => String(x);
     XAxisProps = KlimaXAxisVintageProps<T>(props.data, props.dateField);
   }
-
+  if (props.XAxis == "methodology") {
+    toolTipXAxisFormatter = (x: number) => String(x);
+    XAxisProps = KlimaXAxisMethodologyProps<T>(props.data, props.dateField);
+  }
   if (props.YAxis == "tons") {
     toolTipYAxisFormatter = (x: number) =>
       helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });

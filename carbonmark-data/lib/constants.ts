@@ -58,5 +58,6 @@ export const urls = {
     dailyCarbonMetrics: `${api_url}/carbon_metrics`,
     aggregatedCreditsByPoolAndDates: `${api_url}/pools/agg/tokens`,
     aggregatedCreditsByPoolAndVintage: `${api_url}/credits/agg/pool/vintage`,
+    aggregatedCreditsByPoolAndMethodology: `${api_url}/credits/agg/pool/methodology`,
   },
 };
