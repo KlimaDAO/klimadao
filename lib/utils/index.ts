@@ -1,5 +1,4 @@
 export { concatAddress } from "./concatAddress";
-// ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { formatTonnes } from "./formatTonnes";
@@ -36,7 +35,7 @@ export { getTotalCarbonRetired } from "./getTotalCarbonRetired";
 export { getTotalPoolRetired } from "./getTotalPoolRetired";
 export { getTotalRetirements } from "./getTotalRetirements";
 export { getTreasuryBalance } from "./getTreasuryBalance";
-// KNS
+export { isTestnetChainId } from "./isTestnetChainId";
 export {
   KNSContract,
   getAddressByKNS,
