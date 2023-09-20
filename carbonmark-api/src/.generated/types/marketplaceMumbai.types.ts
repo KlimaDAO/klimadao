@@ -1346,13 +1346,26 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type GetCreditListingsQueryVariables = Exact<{
-  projectId: InputMaybe<Scalars['String']>;
-  vintageStr: InputMaybe<Scalars['BigInt']>;
-}>;
+export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } };
+
+export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category: { __typename?: 'Category', id: string } | null };
+
+export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
+
+export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCreditListingsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, listings: Array<{ __typename?: 'Listing', createdAt: string | null, updatedAt: string | null, id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, timeStamp: string | null, activityType: ActivityType, price: string | null, previousPrice: string | null, amount: string | null, previousAmount: string | null, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
+
+export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
+
+export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
 
 export type GetPurchasesByIdQueryVariables = Exact<{
   id: InputMaybe<Scalars['Bytes']>;
@@ -1366,42 +1379,100 @@ export type GetUserByWalletQueryVariables = Exact<{
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+
+export type FindProjectsQueryVariables = Exact<{
+  country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+  search: InputMaybe<Scalars['String']>;
+  vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
+}>;
 
 
-export const GetCreditListingsDocument = gql`
-    query getCreditListings($projectId: String, $vintageStr: BigInt) {
-  projects(where: {key: $projectId, vintage: $vintageStr}) {
+export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string } | null }> };
+
+export type GetCreditListingsQueryVariables = Exact<{
+  projectId: InputMaybe<Scalars['String']>;
+  vintageStr: InputMaybe<Scalars['BigInt']>;
+}>;
+
+
+export type GetCreditListingsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+
+export const ListingFragmentFragmentDoc = gql`
+    fragment ListingFragment on Listing {
+  id
+  totalAmountToSell
+  leftToSell
+  tokenAddress
+  active
+  deleted
+  singleUnitPrice
+  createdAt
+  updatedAt
+  seller {
     id
-    listings {
-      createdAt
-      updatedAt
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      singleUnitPrice
-      seller {
-        id
-      }
-    }
-    activities {
-      id
-      timeStamp
-      activityType
-      price
-      previousPrice
-      amount
-      previousAmount
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
-    }
+  }
+  expiration
+  minFillAmount
+}
+    `;
+export const ProjectFragmentFragmentDoc = gql`
+    fragment ProjectFragment on Project {
+  id
+  key
+  projectID
+  name
+  vintage
+  projectAddress
+  registry
+  methodology
+  projectType
+  region
+  category {
+    id
+  }
+}
+    `;
+export const ActivityFragmentFragmentDoc = gql`
+    fragment ActivityFragment on Activity {
+  id
+  amount
+  previousAmount
+  price
+  previousPrice
+  timeStamp
+  activityType
+  project {
+    key
+    vintage
+  }
+  buyer {
+    id
+  }
+  seller {
+    id
+  }
+}
+    `;
+export const GetCategoriesDocument = gql`
+    query getCategories {
+  categories(first: 1000) {
+    id
+  }
+}
+    `;
+export const GetCountriesDocument = gql`
+    query getCountries {
+  countries(first: 1000) {
+    id
+  }
+}
+    `;
+export const GetVintagesDocument = gql`
+    query getVintages {
+  projects(first: 1000) {
+    vintage
   }
 }
     `;
@@ -1425,43 +1496,42 @@ export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: Bytes) {
   users(where: {id: $wallet}) {
     listings {
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      batches
-      batchPrices
-      singleUnitPrice
-      createdAt
-      updatedAt
-      seller {
-        id
-      }
+      ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      id
-      amount
-      previousAmount
-      price
-      previousPrice
-      timeStamp
-      activityType
-      project {
-        key
-        vintage
-      }
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
+      ...ActivityFragment
     }
   }
 }
-    `;
+    ${ListingFragmentFragmentDoc}
+${ActivityFragmentFragmentDoc}`;
+export const FindProjectsDocument = gql`
+    query findProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
+  projects(
+    where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
+  ) {
+    ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
+  }
+}
+    ${ProjectFragmentFragmentDoc}
+${ListingFragmentFragmentDoc}`;
+export const GetCreditListingsDocument = gql`
+    query getCreditListings($projectId: String, $vintageStr: BigInt) {
+  projects(where: {key: $projectId, vintage: $vintageStr}) {
+    id
+    listings {
+      ...ListingFragment
+    }
+    activities {
+      ...ActivityFragment
+    }
+  }
+}
+    ${ListingFragmentFragmentDoc}
+${ActivityFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1470,14 +1540,26 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getCreditListings(variables?: GetCreditListingsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCreditListingsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCreditListingsQuery>(GetCreditListingsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCreditListings', 'query');
+    getCategories(variables?: GetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
+    },
+    getCountries(variables?: GetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCountriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
+    },
+    getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
     getPurchasesById(variables?: GetPurchasesByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesByIdQuery>(GetPurchasesByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchasesById', 'query');
     },
     getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
+    },
+    findProjects(variables?: FindProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FindProjectsQuery>(FindProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findProjects', 'query');
+    },
+    getCreditListings(variables?: GetCreditListingsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCreditListingsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCreditListingsQuery>(GetCreditListingsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCreditListings', 'query');
     }
   };
 }
