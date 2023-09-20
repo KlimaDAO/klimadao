@@ -61,10 +61,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // if not found, check that the txn actually exists. If not, throw 404
     if (!purchase) {
-      const provider = getStaticProvider(); // mainnet
-      const transactionReceipt = await provider.getTransactionReceipt(
+      let transactionReceipt = await getStaticProvider().getTransactionReceipt(
         params.purchase_id
       );
+      if (!transactionReceipt && !IS_PRODUCTION) {
+        transactionReceipt = await getStaticProvider({
+          chain: "mumbai",
+        }).getTransactionReceipt(params.purchase_id);
+      }
       if (!transactionReceipt) {
         throw new Error("No transaction receipt found");
       }
