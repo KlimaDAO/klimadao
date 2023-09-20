@@ -1621,36 +1621,6 @@ export default {
             ],
             "type": "string"
           },
-          "buyer": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Address of the buyer",
-                "examples": [
-                  "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
-                ],
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
-          },
-          "seller": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Address of the seller",
-                "examples": [
-                  "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
-                ],
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
-          },
           "listing": {
             "type": "object",
             "properties": {
@@ -1727,8 +1697,6 @@ export default {
         "required": [
           "id",
           "amount",
-          "buyer",
-          "seller",
           "listing",
           "price"
         ]
@@ -2167,7 +2135,6 @@ export default {
                       "type": "string"
                     },
                     "symbol": {
-                      "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                       "type": "string"
                     },
                     "decimals": {
@@ -2219,7 +2186,6 @@ export default {
                 "type": "string"
               },
               "symbol": {
-                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                 "type": "string"
               },
               "decimals": {
@@ -3054,7 +3020,38 @@ export default {
             "in": "query",
             "name": "type",
             "required": false,
-            "description": "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter"
+            "description": "Deprecated."
+          },
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
           {
             "schema": {
@@ -3513,7 +3510,6 @@ export default {
                                 "type": "string"
                               },
                               "symbol": {
-                                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                                 "type": "string"
                               },
                               "decimals": {
@@ -3803,10 +3799,13 @@ export default {
         }
       }
     },
-    "/purchases/{id}": {
+    "/projects/{id}": {
       "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "summary": "Project details",
+        "tags": [
+          "Projects"
+        ],
+        "description": "Retrieve a carbon project by its project ID",
         "parameters": [
           {
             "schema": {
@@ -3839,165 +3838,6 @@ export default {
             "required": false,
             "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Stringified 18 decimal BigNumber",
-                      "examples": [
-                        "1000000000000000000"
-                      ],
-                      "type": "string"
-                    },
-                    "buyer": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the buyer",
-                          "examples": [
-                            "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "seller": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the seller",
-                          "examples": [
-                            "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Stringified 6 decimal BigNumber",
-                      "examples": [
-                        "1000000"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "buyer",
-                    "seller",
-                    "listing",
-                    "price"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/projects/{id}": {
-      "get": {
-        "summary": "Project details",
-        "tags": [
-          "Projects"
-        ],
-        "description": "Retrieve a carbon project by its project ID",
-        "parameters": [
           {
             "schema": {
               "type": "string",
@@ -4701,6 +4541,161 @@ export default {
                     "price",
                     "isPoolProject",
                     "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Stringified 18 decimal BigNumber",
+                      "examples": [
+                        "1000000000000000000"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Stringified 6 decimal BigNumber",
+                      "examples": [
+                        "1000000"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
                   ]
                 }
               }

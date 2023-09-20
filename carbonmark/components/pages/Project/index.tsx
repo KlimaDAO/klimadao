@@ -2,6 +2,7 @@ import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
 import { REGISTRIES } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -252,15 +253,20 @@ const Page: NextPage<PageProps> = (props) => {
   );
 };
 
-export const Project: NextPage<PageProps> = (props) => (
-  <SWRConfig
-    value={{
-      fetcher,
-      fallback: {
-        [`${urls.api.projects}/${props.projectID}`]: props.project,
-      },
-    }}
-  >
-    <Page {...props} />
-  </SWRConfig>
-);
+export const Project: NextPage<PageProps> = (props) => {
+  const { networkLabel } = useWeb3();
+  const network = networkLabel === "mainnet" ? "polygon" : "mumbai";
+  return (
+    <SWRConfig
+      value={{
+        fetcher,
+        fallback: {
+          [`${urls.api.projects}/${props.projectID}?network=${network}`]:
+            props.project,
+        },
+      }}
+    >
+      <Page {...props} />
+    </SWRConfig>
+  );
+};

@@ -1,16 +1,15 @@
-import { formatUnits } from "@klimadao/lib/utils";
 import { Listing, TokenPrice } from "lib/types/carbonmark.types";
 import { sortBy } from "lodash";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
+    const leftToSellTotal = acc + Number(curr.leftToSell);
     return leftToSellTotal;
   }, 0);
 
 export const getTotalAmountToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
+    const totalAmountTo = acc + Number(curr.totalAmountToSell);
     return totalAmountTo;
   }, 0);
 
