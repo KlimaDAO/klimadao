@@ -1,31 +1,10 @@
 import { Static } from "@sinclair/typebox";
-import { isHexString } from "ethers-v6";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { Purchase as MumbaiPurchase } from "../../../graphql/marketplaceMumbai.types";
-import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
-import { gqlSdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { schema } from "./get.schema";
-
-/** Purchase ids are a txn hash */
-const isValidPurchaseId = (id?: string | null) => {
-  if (!id) return false;
-  return id.length === 66 && isHexString(id);
-};
-
-const getPurchaseById = async (params: {
-  id: string | null;
-  network?: NetworkParam;
-}): Promise<Purchase | MumbaiPurchase | null> => {
-  const graph =
-    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
-  const response = await graph.getPurchasesById({
-    id: params.id,
-  });
-  return response.purchases?.at(0) || null;
-};
+import { getPurchaseById, isValidPurchaseId } from "./get.utils";
 
 const handler = async function (
   request: FastifyRequest<{
