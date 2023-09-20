@@ -11,7 +11,6 @@ export interface Props {
   showModal: boolean;
   isRedirecting: boolean;
   onCancel: () => void;
-  onFiatError: () => void;
   onSubmit: () => void;
   checkoutError: null | string;
 }
@@ -33,31 +32,9 @@ export const CreditCardModal: FC<Props> = (props) => {
               </Trans>
             </Text>
             <ButtonPrimary onClick={props.onSubmit} label={t`Continue`} />
-            <CarbonmarkButton
-              onClick={
-                !!props.checkoutError ? props.onFiatError : props.onCancel
-              }
-              label={t`Go back`}
-            />
+            <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
           </>
         )}
-        {!props.isRedirecting &&
-          !!props.checkoutError &&
-          props.checkoutError.length > 0 && (
-            <>
-              {console.log("TEST", props.checkoutError)}
-              <Text>
-                <Trans>{props.checkoutError}</Trans>
-              </Text>
-              <CarbonmarkButton
-                onClick={
-                  !!props.checkoutError ? props.onFiatError : props.onCancel
-                }
-                label={t`Go back`}
-              />
-            </>
-          )}
-
         {props.isRedirecting && (
           <div className={styles.spinnerWrap}>
             <Spinner />

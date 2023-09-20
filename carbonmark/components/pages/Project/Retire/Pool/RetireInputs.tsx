@@ -28,13 +28,15 @@ type Props = {
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
+  fiatMinimum: string | null;
   address?: string;
   fiatAmountError?: boolean;
 };
 
 const validations = (
   userBalance: string | null,
-  fiatBalance: string | null
+  fiatBalance: string | null,
+  fiatMinimum: string | null
 ) => ({
   usdc: {
     quantity: {
@@ -44,6 +46,10 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: 0.0000001,
+        message: t`The minimum amount to retire is 0.0000001 Tonnes`,
+      },
       max: {
         value: Number(userBalance || "0"),
         message: t`You exceeded your available amount of tokens`,
@@ -58,6 +64,12 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: Number(fiatMinimum || "0"),
+        message: t`At this time, Carbonmark cannot process credit card payments below ${formatToPrice(
+          fiatMinimum || 0
+        )}`,
+      },
       max: {
         value: Number(fiatBalance || "2000"),
         message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
@@ -83,7 +95,14 @@ export const RetireInputs: FC<Props> = (props) => {
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
-    validations(props.userBalance, props.fiatBalance)[paymentMethod];
+    validations(props.userBalance, props.fiatBalance, props.fiatMinimum)[
+      paymentMethod
+    ];
+
+  const belowFiatMinimum =
+    paymentMethod === "fiat" &&
+    quantity !== "0" &&
+    Number(props.fiatMinimum) > Number(totalPrice);
 
   const exceededFiatBalance =
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
@@ -256,7 +275,7 @@ export const RetireInputs: FC<Props> = (props) => {
             name="paymentMethod"
             initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
             className={cx(styles.paymentDropdown, {
-              error: exceededFiatBalance,
+              error: exceededFiatBalance || belowFiatMinimum,
             })}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
@@ -291,6 +310,12 @@ export const RetireInputs: FC<Props> = (props) => {
             )}
           />
         </div>
+
+        {belowFiatMinimum && (
+          <Text t="body1" className={styles.errorMessagePrice}>
+            {getValidations().totalPrice.min.message}
+          </Text>
+        )}
 
         {exceededFiatBalance && (
           <Text t="body1" className={styles.errorMessagePrice}>
