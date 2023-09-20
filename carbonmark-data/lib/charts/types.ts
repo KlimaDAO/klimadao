@@ -256,6 +256,14 @@ export interface AggregatedCreditsByPoolAndMethodologyItem
 export type AggregatedCreditsByPoolAndMethodology =
   PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>;
 
+export interface AggregatedCreditsByCountryItem {
+  country: string;
+  country_code: string;
+  quantity: number;
+}
+export type AggregatedCreditsByCountry =
+  PaginatedResponse<AggregatedCreditsByCountryItem>;
+
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
   source: string; // Qhen querying source field is renamed into destination

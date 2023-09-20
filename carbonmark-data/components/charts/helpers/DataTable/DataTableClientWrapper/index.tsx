@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
  */
 export default function DataTableClientWrapper(props: {
   configurationKey: ConfigurationKey;
+  params: object;
   firstPageTable: JSX.Element;
   pages_count: number;
 }) {
@@ -24,6 +25,7 @@ export default function DataTableClientWrapper(props: {
         <PaginatedTable
           page={page}
           configurationKey={props.configurationKey}
+          params={props.params}
         ></PaginatedTable>
       )}
       <Pagination
