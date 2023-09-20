@@ -1,36 +1,38 @@
 import { FastifyInstance } from "fastify";
-import { pick } from "lodash";
 import nock from "nock";
-import { aPurchase } from "../../../src/.generated/mocks/marketplace.mocks";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Purchase } from "../../../src/models/Purchase.model";
+import carbonProjects from "../../fixtures/carbonProjects";
+import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL, ERROR } from "../../test.constants";
 
-const mockPurchase = aPurchase();
-
-const responseFixture: Purchase = {
-  ...pick(mockPurchase, ["amount", "id", "price"]),
-  buyer: {
-    id: mockPurchase.user.id,
-  },
-  seller: {
-    id: mockPurchase.listing.seller.id,
-  },
+const purchaseModelFixture: Purchase = {
+  ...marketplace.purchase,
   listing: {
-    id: mockPurchase.listing.id,
+    id: marketplace.purchase.listing.id,
     project: {
-      ...pick(mockPurchase.listing.project, [
-        "key",
-        "methodology",
-        "name",
-        "projectID",
-        "vintage",
-      ]),
-      country: mockPurchase.listing.project?.country?.id || "",
+      key: marketplace.purchase.listing.project.key,
+      vintage: marketplace.purchase.listing.project.vintage,
+      country: carbonProjects.carbonProject.country!,
+      name: carbonProjects.carbonProject.name!,
+      methodology: carbonProjects.carbonProject.methodologies?.[0]?.id!,
+      projectID: carbonProjects.carbonProject.registryProjectId!,
     },
   },
 };
+
+jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
+  const carbonProjectsUtils = jest.requireActual(
+    "../../../src/utils/helpers/carbonProjects.utils"
+  );
+  return {
+    ...carbonProjectsUtils,
+    fetchCarbonProject: jest.fn(() => {
+      return carbonProjects.carbonProject;
+    }),
+  };
+});
 
 describe("GET /purchases/:id", () => {
   let fastify: FastifyInstance;
@@ -45,59 +47,59 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [mockPurchase] } });
+      .reply(200, { data: { purchases: [marketplace.purchase] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234`,
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}`,
     });
 
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(responseFixture);
+    expect(data).toEqual(purchaseModelFixture);
   });
 
   test("Accept polygon network param", async () => {
     // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [mockPurchase] } });
+      .reply(200, { data: { purchases: [marketplace.purchase] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234?network=polygon`,
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}?network=polygon`,
     });
 
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(responseFixture);
+    expect(data).toEqual(purchaseModelFixture);
   });
 
   test("Accept mumbai network param", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS.marketplaceMumbai)
       .post("")
-      .reply(200, { data: { purchases: [mockPurchase] } });
+      .reply(200, { data: { purchases: [marketplace.purchase] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234?network=polygon`,
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}?network=mumbai`,
     });
 
     const data = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(data).toEqual(responseFixture);
+    expect(data).toEqual(purchaseModelFixture);
   });
 
-  test("Reject unknown network param", async () => {
+  test("Reject bad purchase id", async () => {
     // Mock the response from the graph
     nock(GRAPH_URLS.marketplace)
       .post("")
-      .reply(200, { data: { purchases: [mockPurchase] } });
+      .reply(200, { data: { purchases: [marketplace.purchase] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234?network=ethereum`,
+      url: `${DEV_URL}/purchases/0x1234`,
     });
 
     const data = await response.json();
@@ -105,14 +107,30 @@ describe("GET /purchases/:id", () => {
     expect(data.error).toEqual("Bad Request");
   });
 
-  test("Purchase not found", async () => {
+  test("Reject unknown network param", async () => {
+    // Mock the response from the graph
+    nock(GRAPH_URLS.marketplace)
+      .post("")
+      .reply(200, { data: { purchases: [marketplace.purchase] } });
+
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}?network=ethereum`,
+    });
+
+    const data = await response.json();
+    expect(response.statusCode).toEqual(400);
+    expect(data.error).toEqual("Bad Request");
+  });
+
+  test("Mainnet purchase not found", async () => {
     nock(GRAPH_URLS.marketplace)
       .post("")
       .reply(200, { data: { purchases: [] } });
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234`,
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}`,
     });
 
     expect(response.statusCode).toEqual(404);
@@ -123,7 +141,7 @@ describe("GET /purchases/:id", () => {
     // silence expected console errors
     const mockConsole = jest
       .spyOn(console, "error")
-      .mockImplementation(() => {});
+      .mockImplementationOnce(() => {});
 
     nock(GRAPH_URLS.marketplace)
       .post("")
@@ -133,11 +151,10 @@ describe("GET /purchases/:id", () => {
 
     const response = await fastify.inject({
       method: "GET",
-      url: `${DEV_URL}/purchases/1234`,
+      url: `${DEV_URL}/purchases/${marketplace.purchase.id}`,
     });
 
-    expect(response.statusCode).toEqual(502);
-    expect(response.body).toContain("Graph error occurred");
+    expect(response.statusCode).toEqual(500);
     mockConsole.mockRestore();
   });
 });

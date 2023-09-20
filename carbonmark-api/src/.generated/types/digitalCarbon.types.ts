@@ -257,6 +257,8 @@ export enum Bridge_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   Id = 'id',
@@ -277,10 +279,14 @@ export type CarbonCredit = {
   currentSupply: Scalars['BigInt'];
   /** Ethereum address where the token is deployed */
   id: Scalars['Bytes'];
+  /** Last batch ID that was fractionalized if applicable */
+  lastBatchId: Scalars['BigInt'];
   /** Current pool balances for this credit */
   poolBalances: Array<CarbonPoolCreditBalance>;
   /** Carbon Project this token belongs to */
   project: CarbonProject;
+  /** Total provenance records for this credit */
+  provenanceCount: Scalars['Int'];
   /** Total tokens retired */
   retired: Scalars['BigInt'];
   /** All retirement events for this credit */
@@ -431,6 +437,8 @@ export enum CarbonCreditSnapshot_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   CrossChainSupply = 'crossChainSupply',
@@ -483,6 +491,14 @@ export type CarbonCredit_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  lastBatchId: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_gt: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_gte: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_in: InputMaybe<Array<Scalars['BigInt']>>;
+  lastBatchId_lt: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_lte: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_not: InputMaybe<Scalars['BigInt']>;
+  lastBatchId_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   or: InputMaybe<Array<InputMaybe<CarbonCredit_Filter>>>;
   poolBalances_: InputMaybe<CarbonPoolCreditBalance_Filter>;
   project: InputMaybe<Scalars['String']>;
@@ -506,6 +522,14 @@ export type CarbonCredit_Filter = {
   project_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   project_starts_with: InputMaybe<Scalars['String']>;
   project_starts_with_nocase: InputMaybe<Scalars['String']>;
+  provenanceCount: InputMaybe<Scalars['Int']>;
+  provenanceCount_gt: InputMaybe<Scalars['Int']>;
+  provenanceCount_gte: InputMaybe<Scalars['Int']>;
+  provenanceCount_in: InputMaybe<Array<Scalars['Int']>>;
+  provenanceCount_lt: InputMaybe<Scalars['Int']>;
+  provenanceCount_lte: InputMaybe<Scalars['Int']>;
+  provenanceCount_not: InputMaybe<Scalars['Int']>;
+  provenanceCount_not_in: InputMaybe<Array<Scalars['Int']>>;
   retired: InputMaybe<Scalars['BigInt']>;
   retired_gt: InputMaybe<Scalars['BigInt']>;
   retired_gte: InputMaybe<Scalars['BigInt']>;
@@ -532,6 +556,7 @@ export enum CarbonCredit_OrderBy {
   CrossChainSupply = 'crossChainSupply',
   CurrentSupply = 'currentSupply',
   Id = 'id',
+  LastBatchId = 'lastBatchId',
   PoolBalances = 'poolBalances',
   Project = 'project',
   ProjectCategory = 'project__category',
@@ -542,6 +567,7 @@ export enum CarbonCredit_OrderBy {
   ProjectProjectId = 'project__projectID',
   ProjectRegion = 'project__region',
   ProjectRegistry = 'project__registry',
+  ProvenanceCount = 'provenanceCount',
   Retired = 'retired',
   Retires = 'retires',
   Vintage = 'vintage'
@@ -610,6 +636,8 @@ export type CarbonPoolCreditBalance = {
   balance: Scalars['BigInt'];
   /** Credit being pooled */
   credit: CarbonCredit;
+  /** Current balance bridge to another chain */
+  crossChainSupply: Scalars['BigInt'];
   dailySnapshots: Array<CarbonPoolCreditBalanceDailySnapshot>;
   /** LTD deposited amount */
   deposited: Scalars['BigInt'];
@@ -640,10 +668,14 @@ export type CarbonPoolCreditBalanceDailySnapshot = {
   credit: CarbonCredit;
   /** ID of the creditBalance entity */
   creditBalance: CarbonPoolCreditBalance;
+  /** Current balance bridge to another chain */
+  crossChainSupply: Scalars['BigInt'];
   /** Day ID of this snapshot */
   dayID: Maybe<Scalars['Int']>;
   /** Delta balance */
   deltaBalance: Scalars['BigInt'];
+  /** Delta balance bridge to another chain */
+  deltaCrossChainSupply: Scalars['BigInt'];
   /** Delta Deposited */
   deltaDeposited: Scalars['BigInt'];
   /** Delta Redeemed */
@@ -736,6 +768,14 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   credit_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   credit_starts_with: InputMaybe<Scalars['String']>;
   credit_starts_with_nocase: InputMaybe<Scalars['String']>;
+  crossChainSupply: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_gt: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_gte: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_in: InputMaybe<Array<Scalars['BigInt']>>;
+  crossChainSupply_lt: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_lte: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_not: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   dayID: InputMaybe<Scalars['Int']>;
   dayID_gt: InputMaybe<Scalars['Int']>;
   dayID_gte: InputMaybe<Scalars['Int']>;
@@ -752,6 +792,14 @@ export type CarbonPoolCreditBalanceDailySnapshot_Filter = {
   deltaBalance_lte: InputMaybe<Scalars['BigInt']>;
   deltaBalance_not: InputMaybe<Scalars['BigInt']>;
   deltaBalance_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  deltaCrossChainSupply: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_gt: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_gte: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_in: InputMaybe<Array<Scalars['BigInt']>>;
+  deltaCrossChainSupply_lt: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_lte: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_not: InputMaybe<Scalars['BigInt']>;
+  deltaCrossChainSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   deltaDeposited: InputMaybe<Scalars['BigInt']>;
   deltaDeposited_gt: InputMaybe<Scalars['BigInt']>;
   deltaDeposited_gte: InputMaybe<Scalars['BigInt']>;
@@ -862,6 +910,7 @@ export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
   Credit = 'credit',
   CreditBalance = 'creditBalance',
   CreditBalanceBalance = 'creditBalance__balance',
+  CreditBalanceCrossChainSupply = 'creditBalance__crossChainSupply',
   CreditBalanceDeposited = 'creditBalance__deposited',
   CreditBalanceId = 'creditBalance__id',
   CreditBalanceLastSnapshotDayId = 'creditBalance__lastSnapshotDayID',
@@ -872,10 +921,14 @@ export enum CarbonPoolCreditBalanceDailySnapshot_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
+  CrossChainSupply = 'crossChainSupply',
   DayId = 'dayID',
   DeltaBalance = 'deltaBalance',
+  DeltaCrossChainSupply = 'deltaCrossChainSupply',
   DeltaDeposited = 'deltaDeposited',
   DeltaRedeemed = 'deltaRedeemed',
   Deposited = 'deposited',
@@ -935,6 +988,14 @@ export type CarbonPoolCreditBalance_Filter = {
   credit_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   credit_starts_with: InputMaybe<Scalars['String']>;
   credit_starts_with_nocase: InputMaybe<Scalars['String']>;
+  crossChainSupply: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_gt: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_gte: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_in: InputMaybe<Array<Scalars['BigInt']>>;
+  crossChainSupply_lt: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_lte: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_not: InputMaybe<Scalars['BigInt']>;
+  crossChainSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   dailySnapshots_: InputMaybe<CarbonPoolCreditBalanceDailySnapshot_Filter>;
   deposited: InputMaybe<Scalars['BigInt']>;
   deposited_gt: InputMaybe<Scalars['BigInt']>;
@@ -1010,8 +1071,11 @@ export enum CarbonPoolCreditBalance_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
+  CrossChainSupply = 'crossChainSupply',
   DailySnapshots = 'dailySnapshots',
   Deposited = 'deposited',
   Id = 'id',
@@ -1587,6 +1651,8 @@ export enum CrossChainBridge_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   Direction = 'direction',
@@ -1636,18 +1702,107 @@ export enum Ecosystem_OrderBy {
   Id = 'id'
 }
 
+export type Epoch = {
+  __typename?: 'Epoch';
+  /** 600 epoch credit supply SMA */
+  creditSMA: Scalars['BigInt'];
+  /** Total active carbon credit supply */
+  creditSupply: Scalars['BigInt'];
+  /** Change in active supply since last epoch */
+  deltaCreditSupply: Scalars['BigInt'];
+  /** Numeric field for sorting */
+  epoch: Scalars['BigInt'];
+  /** sKLIMA epoch number */
+  id: Scalars['ID'];
+};
+
+export type Epoch_Filter = {
+  /** Filter for the block changed event. */
+  _change_block: InputMaybe<BlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<Epoch_Filter>>>;
+  creditSMA: InputMaybe<Scalars['BigInt']>;
+  creditSMA_gt: InputMaybe<Scalars['BigInt']>;
+  creditSMA_gte: InputMaybe<Scalars['BigInt']>;
+  creditSMA_in: InputMaybe<Array<Scalars['BigInt']>>;
+  creditSMA_lt: InputMaybe<Scalars['BigInt']>;
+  creditSMA_lte: InputMaybe<Scalars['BigInt']>;
+  creditSMA_not: InputMaybe<Scalars['BigInt']>;
+  creditSMA_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  creditSupply: InputMaybe<Scalars['BigInt']>;
+  creditSupply_gt: InputMaybe<Scalars['BigInt']>;
+  creditSupply_gte: InputMaybe<Scalars['BigInt']>;
+  creditSupply_in: InputMaybe<Array<Scalars['BigInt']>>;
+  creditSupply_lt: InputMaybe<Scalars['BigInt']>;
+  creditSupply_lte: InputMaybe<Scalars['BigInt']>;
+  creditSupply_not: InputMaybe<Scalars['BigInt']>;
+  creditSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  deltaCreditSupply: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_gt: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_gte: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_in: InputMaybe<Array<Scalars['BigInt']>>;
+  deltaCreditSupply_lt: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_lte: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_not: InputMaybe<Scalars['BigInt']>;
+  deltaCreditSupply_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  epoch: InputMaybe<Scalars['BigInt']>;
+  epoch_gt: InputMaybe<Scalars['BigInt']>;
+  epoch_gte: InputMaybe<Scalars['BigInt']>;
+  epoch_in: InputMaybe<Array<Scalars['BigInt']>>;
+  epoch_lt: InputMaybe<Scalars['BigInt']>;
+  epoch_lte: InputMaybe<Scalars['BigInt']>;
+  epoch_not: InputMaybe<Scalars['BigInt']>;
+  epoch_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  id: InputMaybe<Scalars['ID']>;
+  id_gt: InputMaybe<Scalars['ID']>;
+  id_gte: InputMaybe<Scalars['ID']>;
+  id_in: InputMaybe<Array<Scalars['ID']>>;
+  id_lt: InputMaybe<Scalars['ID']>;
+  id_lte: InputMaybe<Scalars['ID']>;
+  id_not: InputMaybe<Scalars['ID']>;
+  id_not_in: InputMaybe<Array<Scalars['ID']>>;
+  or: InputMaybe<Array<InputMaybe<Epoch_Filter>>>;
+};
+
+export enum Epoch_OrderBy {
+  CreditSma = 'creditSMA',
+  CreditSupply = 'creditSupply',
+  DeltaCreditSupply = 'deltaCreditSupply',
+  Epoch = 'epoch',
+  Id = 'id'
+}
+
 export type Holding = {
   __typename?: 'Holding';
   /** Account this belongs to */
   account: Account;
+  activeProvenanceRecords: Array<ProvenanceRecord>;
   /** Amount currently held in native units */
   amount: Scalars['BigInt'];
+  historicalProvenanceRecords: Array<ProvenanceRecord>;
   /** {Account}-{Token} */
   id: Scalars['Bytes'];
   /** Timestamp last updated */
   lastUpdated: Scalars['BigInt'];
   /** Token being held */
   token: Token;
+};
+
+
+export type HoldingActiveProvenanceRecordsArgs = {
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<ProvenanceRecord_Filter>;
+};
+
+
+export type HoldingHistoricalProvenanceRecordsArgs = {
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<ProvenanceRecord_Filter>;
 };
 
 export type HoldingDailySnapshot = {
@@ -1781,6 +1936,13 @@ export type Holding_Filter = {
   account_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   account_starts_with: InputMaybe<Scalars['String']>;
   account_starts_with_nocase: InputMaybe<Scalars['String']>;
+  activeProvenanceRecords: InputMaybe<Array<Scalars['String']>>;
+  activeProvenanceRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  activeProvenanceRecords_contains: InputMaybe<Array<Scalars['String']>>;
+  activeProvenanceRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  activeProvenanceRecords_not: InputMaybe<Array<Scalars['String']>>;
+  activeProvenanceRecords_not_contains: InputMaybe<Array<Scalars['String']>>;
+  activeProvenanceRecords_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
   amount: InputMaybe<Scalars['BigInt']>;
   amount_gt: InputMaybe<Scalars['BigInt']>;
   amount_gte: InputMaybe<Scalars['BigInt']>;
@@ -1790,6 +1952,13 @@ export type Holding_Filter = {
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   and: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  historicalProvenanceRecords: InputMaybe<Array<Scalars['String']>>;
+  historicalProvenanceRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  historicalProvenanceRecords_contains: InputMaybe<Array<Scalars['String']>>;
+  historicalProvenanceRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  historicalProvenanceRecords_not: InputMaybe<Array<Scalars['String']>>;
+  historicalProvenanceRecords_not_contains: InputMaybe<Array<Scalars['String']>>;
+  historicalProvenanceRecords_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -1836,7 +2005,9 @@ export enum Holding_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   AccountTotalRetirements = 'account__totalRetirements',
+  ActiveProvenanceRecords = 'activeProvenanceRecords',
   Amount = 'amount',
+  HistoricalProvenanceRecords = 'historicalProvenanceRecords',
   Id = 'id',
   LastUpdated = 'lastUpdated',
   Token = 'token',
@@ -2203,14 +2374,18 @@ export enum PoolDeposit_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   Id = 'id',
   Pool = 'pool',
   PoolCreditSnapshotId = 'poolCreditSnapshotID',
   PoolCreditSnapshotIdBalance = 'poolCreditSnapshotID__balance',
+  PoolCreditSnapshotIdCrossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
   PoolCreditSnapshotIdDayId = 'poolCreditSnapshotID__dayID',
   PoolCreditSnapshotIdDeltaBalance = 'poolCreditSnapshotID__deltaBalance',
+  PoolCreditSnapshotIdDeltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
   PoolCreditSnapshotIdDeltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
   PoolCreditSnapshotIdDeltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
   PoolCreditSnapshotIdDeposited = 'poolCreditSnapshotID__deposited',
@@ -2404,14 +2579,18 @@ export enum PoolRedeem_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   Id = 'id',
   Pool = 'pool',
   PoolCreditSnapshotId = 'poolCreditSnapshotID',
   PoolCreditSnapshotIdBalance = 'poolCreditSnapshotID__balance',
+  PoolCreditSnapshotIdCrossChainSupply = 'poolCreditSnapshotID__crossChainSupply',
   PoolCreditSnapshotIdDayId = 'poolCreditSnapshotID__dayID',
   PoolCreditSnapshotIdDeltaBalance = 'poolCreditSnapshotID__deltaBalance',
+  PoolCreditSnapshotIdDeltaCrossChainSupply = 'poolCreditSnapshotID__deltaCrossChainSupply',
   PoolCreditSnapshotIdDeltaDeposited = 'poolCreditSnapshotID__deltaDeposited',
   PoolCreditSnapshotIdDeltaRedeemed = 'poolCreditSnapshotID__deltaRedeemed',
   PoolCreditSnapshotIdDeposited = 'poolCreditSnapshotID__deposited',
@@ -2434,6 +2613,170 @@ export enum PoolRedeem_OrderBy {
   PoolNextSnapshotDayId = 'pool__nextSnapshotDayID',
   PoolSupply = 'pool__supply',
   Timestamp = 'timestamp'
+}
+
+export type ProvenanceRecord = {
+  __typename?: 'ProvenanceRecord';
+  /** Unix timestamp created */
+  createdAt: Scalars['BigInt'];
+  /** Token address - Holding address - increment */
+  id: Scalars['Bytes'];
+  /** Original amount received */
+  originalAmount: Scalars['BigInt'];
+  /** Prior records associated with this transaction */
+  priorRecords: Array<ProvenanceRecord>;
+  /** Receiver of the credit */
+  receiver: Scalars['Bytes'];
+  /** Any applicable registry serial numbers for origination */
+  registrySerialNumbers: Array<Scalars['String']>;
+  /** Remaining amount held */
+  remainingAmount: Scalars['BigInt'];
+  /** Sender of the credit */
+  sender: Scalars['Bytes'];
+  /** Credit token address */
+  token: Scalars['Bytes'];
+  /** Transaction hash creating this record */
+  transactionHash: Scalars['Bytes'];
+  /** Action being made with the credit */
+  transactionType: ProvenanceType;
+  /** Unix timestamp updated */
+  updatedAt: Scalars['BigInt'];
+};
+
+
+export type ProvenanceRecordPriorRecordsArgs = {
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<ProvenanceRecord_Filter>;
+};
+
+export type ProvenanceRecord_Filter = {
+  /** Filter for the block changed event. */
+  _change_block: InputMaybe<BlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<ProvenanceRecord_Filter>>>;
+  createdAt: InputMaybe<Scalars['BigInt']>;
+  createdAt_gt: InputMaybe<Scalars['BigInt']>;
+  createdAt_gte: InputMaybe<Scalars['BigInt']>;
+  createdAt_in: InputMaybe<Array<Scalars['BigInt']>>;
+  createdAt_lt: InputMaybe<Scalars['BigInt']>;
+  createdAt_lte: InputMaybe<Scalars['BigInt']>;
+  createdAt_not: InputMaybe<Scalars['BigInt']>;
+  createdAt_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  id: InputMaybe<Scalars['Bytes']>;
+  id_contains: InputMaybe<Scalars['Bytes']>;
+  id_gt: InputMaybe<Scalars['Bytes']>;
+  id_gte: InputMaybe<Scalars['Bytes']>;
+  id_in: InputMaybe<Array<Scalars['Bytes']>>;
+  id_lt: InputMaybe<Scalars['Bytes']>;
+  id_lte: InputMaybe<Scalars['Bytes']>;
+  id_not: InputMaybe<Scalars['Bytes']>;
+  id_not_contains: InputMaybe<Scalars['Bytes']>;
+  id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  or: InputMaybe<Array<InputMaybe<ProvenanceRecord_Filter>>>;
+  originalAmount: InputMaybe<Scalars['BigInt']>;
+  originalAmount_gt: InputMaybe<Scalars['BigInt']>;
+  originalAmount_gte: InputMaybe<Scalars['BigInt']>;
+  originalAmount_in: InputMaybe<Array<Scalars['BigInt']>>;
+  originalAmount_lt: InputMaybe<Scalars['BigInt']>;
+  originalAmount_lte: InputMaybe<Scalars['BigInt']>;
+  originalAmount_not: InputMaybe<Scalars['BigInt']>;
+  originalAmount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  priorRecords: InputMaybe<Array<Scalars['String']>>;
+  priorRecords_: InputMaybe<ProvenanceRecord_Filter>;
+  priorRecords_contains: InputMaybe<Array<Scalars['String']>>;
+  priorRecords_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  priorRecords_not: InputMaybe<Array<Scalars['String']>>;
+  priorRecords_not_contains: InputMaybe<Array<Scalars['String']>>;
+  priorRecords_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  receiver: InputMaybe<Scalars['Bytes']>;
+  receiver_contains: InputMaybe<Scalars['Bytes']>;
+  receiver_gt: InputMaybe<Scalars['Bytes']>;
+  receiver_gte: InputMaybe<Scalars['Bytes']>;
+  receiver_in: InputMaybe<Array<Scalars['Bytes']>>;
+  receiver_lt: InputMaybe<Scalars['Bytes']>;
+  receiver_lte: InputMaybe<Scalars['Bytes']>;
+  receiver_not: InputMaybe<Scalars['Bytes']>;
+  receiver_not_contains: InputMaybe<Scalars['Bytes']>;
+  receiver_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  registrySerialNumbers: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_contains: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not_contains: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  remainingAmount: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_gt: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_gte: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_in: InputMaybe<Array<Scalars['BigInt']>>;
+  remainingAmount_lt: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_lte: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_not: InputMaybe<Scalars['BigInt']>;
+  remainingAmount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  sender: InputMaybe<Scalars['Bytes']>;
+  sender_contains: InputMaybe<Scalars['Bytes']>;
+  sender_gt: InputMaybe<Scalars['Bytes']>;
+  sender_gte: InputMaybe<Scalars['Bytes']>;
+  sender_in: InputMaybe<Array<Scalars['Bytes']>>;
+  sender_lt: InputMaybe<Scalars['Bytes']>;
+  sender_lte: InputMaybe<Scalars['Bytes']>;
+  sender_not: InputMaybe<Scalars['Bytes']>;
+  sender_not_contains: InputMaybe<Scalars['Bytes']>;
+  sender_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  token: InputMaybe<Scalars['Bytes']>;
+  token_contains: InputMaybe<Scalars['Bytes']>;
+  token_gt: InputMaybe<Scalars['Bytes']>;
+  token_gte: InputMaybe<Scalars['Bytes']>;
+  token_in: InputMaybe<Array<Scalars['Bytes']>>;
+  token_lt: InputMaybe<Scalars['Bytes']>;
+  token_lte: InputMaybe<Scalars['Bytes']>;
+  token_not: InputMaybe<Scalars['Bytes']>;
+  token_not_contains: InputMaybe<Scalars['Bytes']>;
+  token_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  transactionHash: InputMaybe<Scalars['Bytes']>;
+  transactionHash_contains: InputMaybe<Scalars['Bytes']>;
+  transactionHash_gt: InputMaybe<Scalars['Bytes']>;
+  transactionHash_gte: InputMaybe<Scalars['Bytes']>;
+  transactionHash_in: InputMaybe<Array<Scalars['Bytes']>>;
+  transactionHash_lt: InputMaybe<Scalars['Bytes']>;
+  transactionHash_lte: InputMaybe<Scalars['Bytes']>;
+  transactionHash_not: InputMaybe<Scalars['Bytes']>;
+  transactionHash_not_contains: InputMaybe<Scalars['Bytes']>;
+  transactionHash_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  transactionType: InputMaybe<ProvenanceType>;
+  transactionType_in: InputMaybe<Array<ProvenanceType>>;
+  transactionType_not: InputMaybe<ProvenanceType>;
+  transactionType_not_in: InputMaybe<Array<ProvenanceType>>;
+  updatedAt: InputMaybe<Scalars['BigInt']>;
+  updatedAt_gt: InputMaybe<Scalars['BigInt']>;
+  updatedAt_gte: InputMaybe<Scalars['BigInt']>;
+  updatedAt_in: InputMaybe<Array<Scalars['BigInt']>>;
+  updatedAt_lt: InputMaybe<Scalars['BigInt']>;
+  updatedAt_lte: InputMaybe<Scalars['BigInt']>;
+  updatedAt_not: InputMaybe<Scalars['BigInt']>;
+  updatedAt_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+};
+
+export enum ProvenanceRecord_OrderBy {
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  OriginalAmount = 'originalAmount',
+  PriorRecords = 'priorRecords',
+  Receiver = 'receiver',
+  RegistrySerialNumbers = 'registrySerialNumbers',
+  RemainingAmount = 'remainingAmount',
+  Sender = 'sender',
+  Token = 'token',
+  TransactionHash = 'transactionHash',
+  TransactionType = 'transactionType',
+  UpdatedAt = 'updatedAt'
+}
+
+export enum ProvenanceType {
+  Origination = 'ORIGINATION',
+  Retirement = 'RETIREMENT',
+  Transfer = 'TRANSFER'
 }
 
 export type Query = {
@@ -2462,6 +2805,8 @@ export type Query = {
   crossChainBridges: Array<CrossChainBridge>;
   ecosystem: Maybe<Ecosystem>;
   ecosystems: Array<Ecosystem>;
+  epoch: Maybe<Epoch>;
+  epoches: Array<Epoch>;
   holding: Maybe<Holding>;
   holdingDailySnapshot: Maybe<HoldingDailySnapshot>;
   holdingDailySnapshots: Array<HoldingDailySnapshot>;
@@ -2474,10 +2819,14 @@ export type Query = {
   poolDeposits: Array<PoolDeposit>;
   poolRedeem: Maybe<PoolRedeem>;
   poolRedeems: Array<PoolRedeem>;
+  provenanceRecord: Maybe<ProvenanceRecord>;
+  provenanceRecords: Array<ProvenanceRecord>;
   retire: Maybe<Retire>;
   retires: Array<Retire>;
   token: Maybe<Token>;
   tokens: Array<Token>;
+  toucanBatch: Maybe<ToucanBatch>;
+  toucanBatches: Array<ToucanBatch>;
 };
 
 
@@ -2684,6 +3033,24 @@ export type QueryEcosystemsArgs = {
 };
 
 
+export type QueryEpochArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryEpochesArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<Epoch_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<Epoch_Filter>;
+};
+
+
 export type QueryHoldingArgs = {
   block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
@@ -2792,6 +3159,24 @@ export type QueryPoolRedeemsArgs = {
 };
 
 
+export type QueryProvenanceRecordArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryProvenanceRecordsArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<ProvenanceRecord_Filter>;
+};
+
+
 export type QueryRetireArgs = {
   block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
@@ -2825,6 +3210,24 @@ export type QueryTokensArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where: InputMaybe<Token_Filter>;
+};
+
+
+export type QueryToucanBatchArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryToucanBatchesArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ToucanBatch_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<ToucanBatch_Filter>;
 };
 
 export enum Registry {
@@ -3082,6 +3485,8 @@ export enum Retire_OrderBy {
   CreditCrossChainSupply = 'credit__crossChainSupply',
   CreditCurrentSupply = 'credit__currentSupply',
   CreditId = 'credit__id',
+  CreditLastBatchId = 'credit__lastBatchId',
+  CreditProvenanceCount = 'credit__provenanceCount',
   CreditRetired = 'credit__retired',
   CreditVintage = 'credit__vintage',
   Id = 'id',
@@ -3133,6 +3538,8 @@ export type Subscription = {
   crossChainBridges: Array<CrossChainBridge>;
   ecosystem: Maybe<Ecosystem>;
   ecosystems: Array<Ecosystem>;
+  epoch: Maybe<Epoch>;
+  epoches: Array<Epoch>;
   holding: Maybe<Holding>;
   holdingDailySnapshot: Maybe<HoldingDailySnapshot>;
   holdingDailySnapshots: Array<HoldingDailySnapshot>;
@@ -3145,10 +3552,14 @@ export type Subscription = {
   poolDeposits: Array<PoolDeposit>;
   poolRedeem: Maybe<PoolRedeem>;
   poolRedeems: Array<PoolRedeem>;
+  provenanceRecord: Maybe<ProvenanceRecord>;
+  provenanceRecords: Array<ProvenanceRecord>;
   retire: Maybe<Retire>;
   retires: Array<Retire>;
   token: Maybe<Token>;
   tokens: Array<Token>;
+  toucanBatch: Maybe<ToucanBatch>;
+  toucanBatches: Array<ToucanBatch>;
 };
 
 
@@ -3355,6 +3766,24 @@ export type SubscriptionEcosystemsArgs = {
 };
 
 
+export type SubscriptionEpochArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionEpochesArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<Epoch_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<Epoch_Filter>;
+};
+
+
 export type SubscriptionHoldingArgs = {
   block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
@@ -3463,6 +3892,24 @@ export type SubscriptionPoolRedeemsArgs = {
 };
 
 
+export type SubscriptionProvenanceRecordArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionProvenanceRecordsArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ProvenanceRecord_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<ProvenanceRecord_Filter>;
+};
+
+
 export type SubscriptionRetireArgs = {
   block: InputMaybe<Block_Height>;
   id: Scalars['ID'];
@@ -3496,6 +3943,24 @@ export type SubscriptionTokensArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where: InputMaybe<Token_Filter>;
+};
+
+
+export type SubscriptionToucanBatchArgs = {
+  block: InputMaybe<Block_Height>;
+  id: Scalars['ID'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionToucanBatchesArgs = {
+  block: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy: InputMaybe<ToucanBatch_OrderBy>;
+  orderDirection: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where: InputMaybe<ToucanBatch_Filter>;
 };
 
 export type Token = {
@@ -3624,6 +4089,53 @@ export enum Token_OrderBy {
   LatestPriceUsdUpdated = 'latestPriceUSDUpdated',
   Name = 'name',
   Symbol = 'symbol'
+}
+
+export type ToucanBatch = {
+  __typename?: 'ToucanBatch';
+  /** Creation Transaction hash */
+  creationTransactionHash: Scalars['Bytes'];
+  /** Token ID */
+  id: Scalars['ID'];
+  /** Registry serial numbers associated with this batch */
+  registrySerialNumbers: Array<Scalars['String']>;
+};
+
+export type ToucanBatch_Filter = {
+  /** Filter for the block changed event. */
+  _change_block: InputMaybe<BlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<ToucanBatch_Filter>>>;
+  creationTransactionHash: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_contains: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_gt: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_gte: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_in: InputMaybe<Array<Scalars['Bytes']>>;
+  creationTransactionHash_lt: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_lte: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_not: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_not_contains: InputMaybe<Scalars['Bytes']>;
+  creationTransactionHash_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  id: InputMaybe<Scalars['ID']>;
+  id_gt: InputMaybe<Scalars['ID']>;
+  id_gte: InputMaybe<Scalars['ID']>;
+  id_in: InputMaybe<Array<Scalars['ID']>>;
+  id_lt: InputMaybe<Scalars['ID']>;
+  id_lte: InputMaybe<Scalars['ID']>;
+  id_not: InputMaybe<Scalars['ID']>;
+  id_not_in: InputMaybe<Array<Scalars['ID']>>;
+  or: InputMaybe<Array<InputMaybe<ToucanBatch_Filter>>>;
+  registrySerialNumbers: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_contains: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not_contains: InputMaybe<Array<Scalars['String']>>;
+  registrySerialNumbers_not_contains_nocase: InputMaybe<Array<Scalars['String']>>;
+};
+
+export enum ToucanBatch_OrderBy {
+  CreationTransactionHash = 'creationTransactionHash',
+  Id = 'id',
+  RegistrySerialNumbers = 'registrySerialNumbers'
 }
 
 export type _Block_ = {

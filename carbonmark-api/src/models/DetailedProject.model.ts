@@ -27,7 +27,6 @@ export const DetailedProjectModel = Type.Object({
   listings: Type.Array(ListingModel),
   activities: Type.Array(ActivityModel),
   price: Type.String(),
-  isPoolProject: Type.Boolean(),
   vintage: Type.String(),
 });
 

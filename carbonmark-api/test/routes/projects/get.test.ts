@@ -114,7 +114,6 @@ describe("GET /projects", () => {
     //@todo replace with composeEntries function
     const expectedResponse = [
       {
-        ...pick(bridgedCarbon.offset, ["id"]),
         ...pick(carbonProjects.carbonProject, [
           "description",
           "name",
@@ -123,8 +122,6 @@ describe("GET /projects", () => {
         // applies short_description property from cms
         short_description:
           carbonProjects.carbonProject.content?.shortDescription,
-        // always true for pool projects
-        isPoolProject: true,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: bridgedCarbon.offset.projectID.split("-")[1],
         vintage: bridgedCarbon.offset.vintageYear,
@@ -132,9 +129,6 @@ describe("GET /projects", () => {
         // Takes registry tag
         registry: bridgedCarbon.offset.projectID.split("-")[0],
         updatedAt: bridgedCarbon.offset.lastUpdate,
-        category: {
-          id: bridgedCarbon?.offset.methodologyCategory,
-        },
         country: {
           id: carbonProjects.carbonProject.country,
         },
@@ -179,7 +173,6 @@ describe("GET /projects", () => {
       {
         ...pick(marketplace.projectWithListing, [
           "projectAddress",
-          "category",
           "vintage",
           "projectID",
           "registry",
@@ -189,7 +182,6 @@ describe("GET /projects", () => {
           "name",
           "methodologies",
         ]),
-        id: marketplace?.projectWithListing.projectAddress,
         short_description:
           carbonProjects.carbonProject.content?.shortDescription,
         country: {
@@ -227,7 +219,6 @@ describe("GET /projects", () => {
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
-        isPoolProject: false,
       },
     ];
 
