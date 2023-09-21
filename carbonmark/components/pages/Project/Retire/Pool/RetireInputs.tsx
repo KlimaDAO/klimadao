@@ -66,7 +66,7 @@ const validations = (
     totalPrice: {
       min: {
         value: Number(fiatMinimum || "0"),
-        message: t`At this time, Carbonmark cannot process credit card payments below ${formatToPrice(
+        message: t`Credit card minimum purchase is ${formatToPrice(
           fiatMinimum || 0
         )}`,
       },

@@ -14,8 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:88
-msgid "At this time Carbonmark cannot process credit card payments below ${formattedFiatMinimum}"
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
+msgid "Credit card minimum purchase is {0}"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
+msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -810,42 +815,42 @@ msgstr ""
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:155
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:145
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
 msgid "Tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:92
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:151
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:149
 msgid "Price per tonne"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:65
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:96
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:155
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:153
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:90
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:123
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:186
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:184
 msgid "Carbonmark fee"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:107
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:140
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:227
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:225
 msgid "Total cost"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:133
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:168
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:252
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
 msgid "Your balance:"
 msgstr ""
 
@@ -973,19 +978,19 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:59
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:109
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:107
 msgid "There was an error loading the total cost."
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:141
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:139
 msgid "Total price"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:156
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:245
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:243
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -1037,11 +1042,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
 msgid "The minimum amount to retire is 1 Tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
-msgid "At this time, Carbonmark cannot process credit card payments below {0}"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1208,22 +1208,22 @@ msgid "Retire more Carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:106
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:104
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:141
 msgid "Amount to retire"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:205
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:203
 msgid "Payment processing fee"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:209
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:207
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr ""
 

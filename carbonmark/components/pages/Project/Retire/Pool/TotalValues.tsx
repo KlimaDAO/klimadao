@@ -84,9 +84,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
         if (isFiat && Number(totalPrice) < Number(props.fiatMinimum)) {
           const formattedFiatMinimum = Number(props.fiatMinimum).toFixed(2);
-          setError(
-            t`At this time Carbonmark cannot process credit card payments below $${formattedFiatMinimum}`
-          );
+          setError(t`Credit card minimum purchase is $${formattedFiatMinimum}`);
         }
       } catch (e: any) {
         console.error("e", e);
