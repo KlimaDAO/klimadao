@@ -449,6 +449,7 @@ export const Stake = (props: Props) => {
                   hideSettingsButton
                   hideCloseTransactionBlockButton
                   hideWalletBlockNavigation
+                  hideWalletToggle
                   hideWalletBlock
                 />
               </div>
