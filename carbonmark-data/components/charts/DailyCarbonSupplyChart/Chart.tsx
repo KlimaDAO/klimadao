@@ -1,12 +1,7 @@
 "use client"; // use client for recharts animations
-import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
+import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
-import {
-  ChartData,
-  DailyCeloCarbonMetricsItem,
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-} from "lib/charts/types";
+import { CarbonMetricsItem, ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
   AreaChart,
@@ -24,22 +19,11 @@ import {
   KlimaYAxisTonsProps,
 } from "../helpers";
 
-export type ChartKey =
-  | "bct_supply"
-  | "nct_supply"
-  | "mco2_supply"
-  | "ubo_supply"
-  | "nbo_supply";
-
-interface Props<ChartKey> {
-  data: ChartData<
-    | DailyPolygonCarbonMetricsItem
-    | DailyCeloCarbonMetricsItem
-    | DailyEthCarbonMetricsItem
-  >;
-  configuration: SimpleChartConfigurationFromType<ChartKey>;
+interface Props {
+  data: ChartData<CarbonMetricsItem>;
+  configuration: SimpleChartConfiguration<CarbonMetricsItem>;
 }
-export default function Chart<T>(props: Props<T>) {
+export default function Chart(props: Props) {
   const locale = currentLocale();
   return (
     <ResponsiveContainer width="100%" height="100%">

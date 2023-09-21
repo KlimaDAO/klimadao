@@ -59,7 +59,8 @@ export function KlimaYAxisPriceProps(locale: string) {
 
 /* YAxis props to display percentages in an appropriate format */
 export function KlimaYAxisPercentageProps() {
-  const tickFormatter = helpers.formatPercentage;
+  const tickFormatter = (x: number) =>
+    helpers.formatPercentage({ value: x, fractionDigits: 0 });
   return Object.assign(
     {
       domain: [0, 1],

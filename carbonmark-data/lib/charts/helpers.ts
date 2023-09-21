@@ -152,6 +152,20 @@ export function transformToPercentages<CI>(
   });
   return data;
 }
+/** 
+  Returns chart data where there are no rows with all charted data equals 0
+*/
+export function pruneNullRows<CI>(
+  data: ChartData<CI>,
+  configuration: SimpleChartConfiguration<CI>
+): ChartData<CI> {
+  return data.filter((item) => {
+    return configuration.some((conf) => {
+      const value = item[conf.chartOptions.id];
+      return Number(value) != 0;
+    });
+  });
+}
 
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
@@ -234,16 +248,27 @@ export function formatDateAndTime(locale: string): (date: number) => string {
   };
 }
 
-export function formatPercentage(value: number): string {
-  return `${(value * 100).toFixed(0)}%`;
+export function formatPercentage(params: {
+  value: number;
+  fractionDigits?: number;
+}): string {
+  const fractionDigits =
+    params.fractionDigits !== undefined ? params.fractionDigits : 2;
+  return `${(params.value * 100).toFixed(fractionDigits)}%`;
 }
 
-export function formatTonnes(amount: number): string {
+/** A wrapper around lib's genericFormatTonnes that uses the current locale */
+export function formatTonnes(params: {
+  amount: number;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+}): string {
   const locale = currentLocale();
   return genericFormatTonnes({
-    amount: String(amount),
+    amount: String(params.amount),
     locale,
-    minimumFractionDigits: 2,
+    minimumFractionDigits: params.minimumFractionDigits,
+    maximumFractionDigits: params.maximumFractionDigits,
   });
 }
 
@@ -277,7 +302,6 @@ export function getDataChartMax<T>(
     return Math.max(accumulator, localMax);
   }, 0);
 }
-
 const helpers = {
   formatDateAndTime,
   formatQuantityAsMillionsOfTons,

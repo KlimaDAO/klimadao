@@ -3,11 +3,14 @@ import {
   AggregatedCredits,
   AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
+  CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
   DailyCredits,
   DailyCreditsItem,
-  KlimaMonthlyRetirementsItem,
+  KlimaMonthlyRetirementsByOriginItem,
+  KlimaMonthlyRetirementsByTokenItem,
+  KlimaRetirementsByBeneficiaryItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
@@ -154,15 +157,25 @@ export const queryTokenInfo = async function (
 /** Queries the monthly aggregated Klima retirements endpoint */
 export const queryKlimaMonthlyRetirementsByPool = async function (
   params: PaginationQueryParams
-): Promise<PaginatedResponse<KlimaMonthlyRetirementsItem>> {
-  return paginatedQuery<KlimaMonthlyRetirementsItem, PaginationQueryParams>(
-    urls.api.klimaMonthlyRetirementsByPool,
-    params
-  );
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>> {
+  return paginatedQuery<
+    KlimaMonthlyRetirementsByTokenItem,
+    PaginationQueryParams
+  >(urls.api.klimaMonthlyRetirementsByPool, params);
 };
 
-/** Queries the Klima Raw Retirements endpoint */
-export const queryRawKlimaRetirements = function (
+/** Queries the Credits Daily Aggregations endpoint */
+export const queryMonthlyRetirementsByOrigin = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaMonthlyRetirementsByOriginItem>> {
+  return paginatedQuery<
+    KlimaMonthlyRetirementsByOriginItem,
+    PaginationQueryParams
+  >(urls.api.allMonthlyRetirementsByOrigin, params);
+};
+
+/** Queries the Klima raw retirements endpoint */
+export const queryKlimaRawRetirements = function (
   params: PaginationQueryParams
 ): Promise<PaginatedResponse<RawRetirementsItem>> {
   return paginatedQuery<RawRetirementsItem, typeof params>(
@@ -171,12 +184,32 @@ export const queryRawKlimaRetirements = function (
   );
 };
 
+/** Queries the Global raw retirements endpoint */
+export const queryAllRawRetirements = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<RawRetirementsItem>> {
+  return paginatedQuery<RawRetirementsItem, typeof params>(
+    urls.api.allRawRetirements,
+    params
+  );
+};
+
+/** Queries the Klima Retirements beneficiaries aggregation endpoint */
+export const queryKlimaRetirementsByBeneficiary = function (
+  params: PaginationQueryParams
+): Promise<PaginatedResponse<KlimaRetirementsByBeneficiaryItem>> {
+  return paginatedQuery<KlimaRetirementsByBeneficiaryItem, typeof params>(
+    urls.api.klimaRetirementsByBeneficiary,
+    params
+  );
+};
+
 /** Queries the Carbon Metrics endpoint
  * RI is either DailyPolygonCarbonMetricsItem, DailyCeloCarbonMetricsItem or DailyEthCarbonMetricsItem
  */
-export function queryDailyCarbonMetrics<RI>(
+export function queryCarbonMetrics<RI>(
   chain: Chain,
-  params: PaginationQueryParams
+  params: PaginationQueryParams & CarbonMetricsQueryParams
 ): Promise<PaginatedResponse<RI>> {
   return paginatedQuery<RI, typeof params>(
     `${urls.api.dailyCarbonMetrics}/${chain}`,

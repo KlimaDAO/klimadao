@@ -50,7 +50,7 @@ export default function HistoricalPriceCard(props: CardProps) {
   ];
   const chart = (
     /* @ts-expect-error async Server component */
-    <HistoricalPriceChart configuration={configuration}></HistoricalPriceChart>
+    <HistoricalPriceChart configuration={configuration} />
   );
   return (
     <ChartCard
