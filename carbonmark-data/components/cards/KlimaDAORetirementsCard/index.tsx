@@ -9,7 +9,7 @@ export default function KlimaDAORetirementsCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
-      title={t`Detailed list of KlimaDAO Retirements`}
+      title={t`Detailed list of KlimaDAO retirements`}
       isColumnCard={true}
       chart={chart}
     />

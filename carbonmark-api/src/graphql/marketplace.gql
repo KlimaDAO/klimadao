@@ -23,22 +23,10 @@ query getPurchasesById($id: Bytes) {
   purchases(first: 1, where: { id: $id }) {
     id
     amount
-    user {
-      id
-    }
     listing {
       id
-      seller {
-        id
-      }
       project {
-        country {
-          id
-        }
         key
-        methodology
-        name
-        projectID
         vintage
       }
     }
@@ -120,6 +108,41 @@ query getProjectsById($key: String, $vintageStr: BigInt) {
         id
       }
       buyer {
+        id
+      }
+    }
+  }
+}
+
+query getCreditListings($projectId: String, $vintageStr: BigInt) {
+  projects(where: { key: $projectId, vintage: $vintageStr }) {
+    id
+    listings {
+      createdAt
+      updatedAt
+      id
+      totalAmountToSell
+      leftToSell
+      tokenAddress
+      active
+      deleted
+      singleUnitPrice
+      seller {
+        id
+      }
+    }
+    activities {
+      id
+      timeStamp
+      activityType
+      price
+      previousPrice
+      amount
+      previousAmount
+      buyer {
+        id
+      }
+      seller {
         id
       }
     }

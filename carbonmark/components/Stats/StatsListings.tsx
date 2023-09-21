@@ -5,7 +5,7 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { Text } from "components/Text";
 import { getAmountLeftToSell, getTotalAmountSold } from "lib/listingsGetter";
-import { Listing } from "lib/types/carbonmark";
+import { Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";

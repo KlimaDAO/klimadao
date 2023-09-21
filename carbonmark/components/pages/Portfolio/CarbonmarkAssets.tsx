@@ -5,7 +5,7 @@ import { Text } from "components/Text";
 import { addProjectsToAssets } from "lib/actions";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { LO } from "lib/luckyOrange";
-import { AssetForListing, User } from "lib/types/carbonmark";
+import { AssetForListing, User } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";

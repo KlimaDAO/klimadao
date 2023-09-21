@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
-import { AssetForListing } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark.types";
 import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";

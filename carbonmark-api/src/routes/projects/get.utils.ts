@@ -210,6 +210,10 @@ export const composeProjectEntries = (
       country: {
         id: carbonProject?.country || pool?.country || market?.region || "",
       },
+      images: carbonProject?.content?.images?.map((img) => ({
+        url: img?.asset?.url ?? "",
+        caption: img?.asset?.description ?? "",
+      })),
       key: projectId,
       registry,
       projectID: registryProjectId,
@@ -217,15 +221,7 @@ export const composeProjectEntries = (
       projectAddress: pool?.tokenAddress ?? market?.projectAddress,
       updatedAt: pickUpdatedAt(data),
       price: pickBestPrice(data, poolPrices),
-      listings: market?.listings || null, // null for pool projects
-      /** DEPRECATED */
-      isPoolProject: !!pool,
-      /** DEPRECATED in favor of projectAddress */
-      id: pool?.id ?? market?.projectAddress,
-      /** DEPRECATED in favor of methodologies array */
-      category: {
-        id: market?.category?.id ?? pool?.methodologyCategory ?? "",
-      },
+      listings: market?.listings || null,
     };
 
     entries.push(entry);

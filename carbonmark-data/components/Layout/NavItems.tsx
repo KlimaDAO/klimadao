@@ -23,7 +23,7 @@ export const navItems = (): Array<NavItem> => {
     {
       label: t`Off vs On-Chain`,
       icon: <Link />,
-      url: "/off-vs-on-chain",
+      url: "/off-chain-vs-on-chain",
     },
     {
       label: t`Supply`,

@@ -6,7 +6,7 @@ import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { ProjectMap } from "components/pages/Project/ProjectMap";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { useResponsive } from "hooks/useResponsive";
-import { CarouselImage, Project } from "lib/types/carbonmark";
+import { CarouselImage, Project } from "lib/types/carbonmark.types";
 import { useCallback, useEffect, useState } from "react";
 import * as styles from "./styles";
 
@@ -85,14 +85,14 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                 />
               ) : (
                 <>
-                  <TextInfoTooltip tooltip={image.caption}>
+                  <TextInfoTooltip tooltip={image.caption ?? ""}>
                     <div className="icon-wrapper">
                       <InfoOutlinedIcon width={20} height={20} />
                     </div>
                   </TextInfoTooltip>
                   <img
-                    src={image.url}
-                    alt={image.caption}
+                    src={image.url ?? ""}
+                    alt={image.caption ?? ""}
                     className={styles.slideImg}
                   />
                 </>
@@ -125,8 +125,8 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                     <div className={styles.selected} />
                   )}
                   <img
-                    src={image.url}
-                    alt={image.caption}
+                    src={image.url ?? ""}
+                    alt={image.caption ?? ""}
                     className={styles.thumbsSlideImg}
                   />
                 </button>

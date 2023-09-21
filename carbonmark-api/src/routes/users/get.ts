@@ -1,21 +1,18 @@
 import { Static } from "@sinclair/typebox";
+import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, map, merge } from "lodash";
-import { assign, get, toUpper } from "lodash/fp";
+import { User } from "../../models/User.model";
 import {
-  ByWalletUserActivity,
-  ByWalletUserListing,
-} from "../../graphql/marketplace.types";
-import { User, UserModel } from "../../models/User.model";
-import { selector } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
-import { formatActivity } from "../../utils/helpers/activities.utils";
-import {
-  getUserDocumentByHandle,
-  getUserDocumentByWallet,
-  getUserDocumentsByIds,
+  getProfileByAddress,
+  getProfileByHandle,
+  getUserProfilesByIds,
 } from "../../utils/helpers/users.utils";
 import { Params, QueryString, schema } from "./get.schema";
+import {
+  getHoldingsByWallet,
+  getUniqueWallets,
+  getUserByWallet,
+} from "./get.utils";
 
 /** Fetch the user object from firestore and the marketplace subgraph */
 const handler = (fastify: FastifyInstance) =>
@@ -26,73 +23,79 @@ const handler = (fastify: FastifyInstance) =>
     }>,
     reply: FastifyReply
   ): Promise<User | void> {
-    const { walletOrHandle } = request.params;
-    const { type } = request.query;
+    const { query, params } = request;
 
-    const fetchUserFn =
-      type === "wallet" ? getUserDocumentByWallet : getUserDocumentByHandle;
+    const walletOrHandle = params.walletOrHandle.toLowerCase();
 
-    const firebaseUserDocument = await fetchUserFn(
-      fastify.firebase,
-      walletOrHandle
-    );
-    // If no documents are found, return a 404 error
-    if (!firebaseUserDocument?.exists) return reply.notFound();
-
-    const document = firebaseUserDocument.data();
-
-    const wallet = firebaseUserDocument.id.toLowerCase();
-
-    // Query the GraphQL API with the wallet address to get more user data
-    const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
-
-    const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
-
-    const user = users.at(0);
-
-    // Graph listings for the user
-    const listings = map(user?.listings, assign({ selected: false }));
-
-    const activities = compact(user?.activities);
-
-    const sellerIds = listings.map(get("seller.id"), toUpper);
-    const buyerIds = activities.map(get("buyer.id"), toUpper);
-
-    /** Fetch all buyers and sellers */
-    const [sellers, buyers] = await Promise.all([
-      getUserDocumentsByIds(fastify.firebase, sellerIds),
-      getUserDocumentsByIds(fastify.firebase, buyerIds),
+    // If handle is provided, we must do a profile lookup first.
+    let handleProfile;
+    if (!utils.isAddress(walletOrHandle)) {
+      handleProfile = await getProfileByHandle({
+        firebase: fastify.firebase,
+        handle: walletOrHandle,
+      });
+      // if there is no profile, we can't continue without an address
+      if (!handleProfile || !utils.isAddress(handleProfile.address)) {
+        return reply.notFound("No user profile found for given handle.");
+      }
+    }
+    const address = handleProfile?.address || walletOrHandle; // now we know we have an address
+    const [profile, user, assets] = await Promise.all([
+      handleProfile ||
+        getProfileByAddress({ firebase: fastify.firebase, address }),
+      getUserByWallet({ address, network: query.network }),
+      getHoldingsByWallet({ address, network: query.network }),
     ]);
 
-    /** Find and assign the FB User to the given listing */
-    const mapSellerToListing = (listing: ByWalletUserListing) => {
-      const seller = compact(sellers).find(selector("id", listing.seller?.id));
-      return assign(listing, seller);
-    };
+    // TODO: user more performant util here
+    const UserProfilesMap = await getUserProfilesByIds({
+      firebase: fastify.firebase,
+      addresses: getUniqueWallets(user?.activities ?? []),
+    });
 
-    /** Find and assign the FB User to the given activity */
-    const mapSellerBuyerToActivity = (activity: ByWalletUserActivity) => {
-      const seller = compact(buyers).find(selector("id", activity.seller?.id));
-      const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
-      return merge(activity, { seller, buyer });
-    };
+    const activities =
+      user?.activities?.map((a) => {
+        // remember: not all users have profiles.
+        const buyer = !!a.buyer?.id && {
+          id: a.buyer.id,
+          handle: UserProfilesMap.get(a.buyer.id.toLowerCase())?.handle || null,
+        };
+        const seller = !!a.seller?.id && {
+          id: a.seller.id,
+          handle:
+            UserProfilesMap.get(a.seller.id.toLowerCase())?.handle || null,
+        };
+        return {
+          ...a,
+          amount: utils.formatUnits(a.amount || "0", 18),
+          price: utils.formatUnits(a.price || "0", 6),
+          previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
+          previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
+          buyer: buyer || null,
+          seller: seller || null,
+        };
+      }) || [];
 
-    const listingsWithSellerData = listings.map(mapSellerToListing);
-    const activitiesWithUserData = activities
-      .map(mapSellerBuyerToActivity)
-      .map(formatActivity);
+    const listings =
+      user?.listings?.map((l) => ({
+        id: l.id,
+        leftToSell: l.leftToSell,
+        tokenAddress: l.tokenAddress,
+        singleUnitPrice: l.singleUnitPrice,
+        totalAmountToSell: l.totalAmountToSell,
+      })) || [];
 
-    const response: Static<typeof UserModel> = {
-      createdAt: document.createdAt,
-      description: document.description,
-      handle: document.handle,
-      profileImgUrl: document.profileImgUrl,
-      updatedAt: document.updatedAt,
-      username: document.username,
-      listings: listingsWithSellerData,
-      activities: activitiesWithUserData,
-      assets: accounts.at(0)?.holdings ?? [],
-      wallet,
+    const response: User = {
+      createdAt: profile?.createdAt || 0,
+      description: profile?.description || "", // TODO extract to nullable `profile` property.
+      handle: profile?.handle || "",
+      profileImgUrl: profile?.profileImgUrl || null,
+      updatedAt: profile?.updatedAt || 0,
+      username: profile?.username || "",
+      listings,
+      activities,
+      assets,
+      wallet: address,
     };
 
     return reply.send(response);

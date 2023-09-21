@@ -11,7 +11,7 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
-import { AssetForListing } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";

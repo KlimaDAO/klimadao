@@ -55,7 +55,7 @@ export default function HistoricalPriceCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
-      title={t`Historical Prices`}
+      title={t`Historical prices`}
       detailUrl="/details/price-of-digital-carbon"
       chart={chart}
     />

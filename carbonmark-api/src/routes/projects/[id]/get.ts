@@ -2,18 +2,21 @@ import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
-import { DetailedProjectT } from "../../../models/DetailedProject.model";
+import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
-import { Params, schema } from "./get.schema";
+import { schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Params: Static<typeof Params> }>,
+    request: FastifyRequest<{
+      Params: Static<typeof schema.params>;
+      Querystring: Static<typeof schema.querystring>;
+    }>,
     reply: FastifyReply
   ) {
     const { id } = request.params;
@@ -23,16 +26,30 @@ const handler = (fastify: FastifyInstance) =>
       registryProjectId,
       projectId: key,
     } = new CreditId(id);
-
-    const [[poolPrices, stats], [listings, activities], projectDetails] =
-      await Promise.all([
-        fetchPoolPricesAndStats({ key, vintage }),
-        fetchMarketplaceListings({ key, vintage, fastify }),
-        fetchCarbonProject({
-          registry,
-          registryProjectId,
-        }),
-      ]);
+    let poolPrices, stats, listings, activities, projectDetails;
+    try {
+      [[poolPrices, stats], [listings, activities], projectDetails] =
+        await Promise.all([
+          fetchPoolPricesAndStats({
+            key,
+            vintage,
+            network: request.query.network,
+          }),
+          fetchMarketplaceListings({
+            key,
+            vintage,
+            fastify,
+            network: request.query.network,
+          }),
+          fetchCarbonProject({
+            registry,
+            registryProjectId,
+          }),
+        ]);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
 
     if (!projectDetails) {
       // only render pages if project details exist (render even if there are no listings!)
@@ -50,7 +67,7 @@ const handler = (fastify: FastifyInstance) =>
       min
     )(poolPriceValues, listingPriceValues);
 
-    const projectResponse: DetailedProjectT = {
+    const projectResponse: DetailedProject = {
       country: projectDetails.country,
       description: projectDetails.description,
       key: projectDetails.key,
@@ -58,12 +75,12 @@ const handler = (fastify: FastifyInstance) =>
       url: projectDetails.url,
       name: projectDetails.name,
       methodologies: projectDetails.methodologies ?? [],
+      short_description: projectDetails.shortDescription,
       long_description: projectDetails.longDescription,
       projectID: projectDetails.registryProjectId,
       location: toGeoJSON(projectDetails.geolocation),
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
-      isPoolProject: !!poolPrices.length,
       images:
         projectDetails?.images?.map((image) => ({
           caption: image?.asset?.altText,

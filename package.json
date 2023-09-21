@@ -32,7 +32,7 @@
     "build-site": "npm run build-lib && npm run build -w=site",
     "build-app": "npm run build-lib && npm run build -w=app",
     "build-carbonmark": "npm run build-lib && npm run build -w=carbonmark",
-    "build-carbonmark-api": "npm run build-lib && npm run build -w=carbonmark",
+    "build-carbonmark-api": "npm run build-lib && npm run build -w=carbonmark-api",
     "build-carbonmark-data": "npm run build-lib && npm run build -w=carbonmark-data",
     "dev-lib": "npm run dev -w=lib",
     "dev-site": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm run dev -w=site\"",

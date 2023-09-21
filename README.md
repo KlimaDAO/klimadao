@@ -51,6 +51,15 @@ Other scripts you should know about:
 - `npm run format-all`: Format all files with `prettier`.
 - `npm run extract-strings:dev`: Extract translation files for the source language "en".
 
+## Type Generation
+Typescript types for Carbonmark and Carbonmark API are generated via the `generate:types` script in each respective project. 
+
+Regenerate types in any of the following changes:
+
+1. Models in the API  (.model files)
+2. Change to any of the dependant subgraphs (see `codegen.constants.ts`)
+3. API Version targeted by Carbonmark
+
 ## Translations
 
 ### For Developers
