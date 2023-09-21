@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
-msgid "Credit card minimum purchase is {0}"
-msgstr "Credit card minimum purchase is {0}"
-
-#. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
-msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr "Credit card minimum purchase is ${formattedFiatMinimum}"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -1045,6 +1035,11 @@ msgid "The minimum amount to retire is 1 Tonnes"
 msgstr "The minimum amount to retire is 1 Tonnes"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
+msgid "Credit card minimum purchase is {0}"
+msgstr "Credit card minimum purchase is {0}"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
 msgstr "At this time, Carbonmark cannot process credit card payments exceeding {0}."
@@ -1206,6 +1201,11 @@ msgstr "See your retirement receipt"
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:110
 msgid "Retire more Carbon"
 msgstr "Retire more Carbon"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
+msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
+msgstr "Credit card minimum purchase is ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:104
