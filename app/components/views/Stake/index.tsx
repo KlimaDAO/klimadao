@@ -104,9 +104,9 @@ const klimaTheme = {
       secondary: '#9889e4',
       selectInputRadioOn: '#ff7733',
       selectInputRadioOff: 'var(--surface-02)',
-      walletButton: 'linear-gradient(to bottom, #fd9250, #ff5548)',
-      walletChainDropdown: '#fff',
-      walletChainButtonActive: '#ffeee6',
+      walletButton: 'linear-gradient(to bottom, var(--klima-green), var(--klima-green))',
+      walletChainDropdown: 'var(--surface-03)',
+      walletChainButtonActive: 'var(--klima-green)',
       deployButton: '#ff884d',
       blockParagraphBorder: 'transparent',
       settingMenuMain: 'linear-gradient(rgb(253, 146, 80), rgb(255, 85, 72))',
@@ -115,6 +115,7 @@ const klimaTheme = {
       settingsIcon: '#fd9250',
       loadingAnimationBackground: 'var(--surface-03)',
       loadingAnimationForeground: 'var(--surface-02)',
+      walletDisplayTypeButtonActive: 'var(--klima-green)',
     },
     text: {
       main: '#fff',
@@ -146,10 +147,11 @@ const klimaTheme = {
       listItemQuickButtonPrimary: '#fff',
       transactionStatusLink: 'var(--klima-green)',
       pasteIcon: 'var(--klima-green)',
-      walletDropdownIcon: '#221f33',
+      walletDropdownIcon: '#fff',
       settingsModalSubHeader: '#fff',
       settingsMenuItem: '#000',
       settingsMenuItemHover: 'var(--klima-green)',
+      searchIcon: 'var(--klima-green)',
     },
   },
 };
@@ -161,13 +163,17 @@ export const Stake = (props: Props) => {
   const [view, setView] = useState<"stake" | "unstake">("stake");
   const [quantity, setQuantity] = useState("");
   const [showTransactionModal, setShowTransactionModal] = useState(false);
-  const [showEtherspotBuidler, setShowEtherspotBuidler] = useState(false);
 
   const { disconnect, setIgnoreChainId } = useWeb3();
 
   useEffect(() => {
-    if (setIgnoreChainId) setIgnoreChainId(showEtherspotBuidler);
-  }, [showEtherspotBuidler]);
+    if (!setIgnoreChainId) return;
+    setIgnoreChainId(true);
+    return () => {
+      if (!setIgnoreChainId) return;
+      setIgnoreChainId(false);
+    };
+  }, []);
 
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -419,195 +425,37 @@ export const Stake = (props: Props) => {
             </Trans>
           </Text>
         </div>
-        {showEtherspotBuidler && (
-          <>
-            {!props.provider && (
-              <div className={styles.stakeCard_ui}>
-                <ButtonPrimary
-                  className={styles.submitButton}
-                  {...getButtonProps()}
-                />
-              </div>
-            )}
-            {!!props.provider && typeof window !== undefined && (
-              <div className={styles.etherspotStakeCard_ui}>
-                <Etherspot
-                  provider={(props.provider as any).provider}
-                  chainId={137}
-                  themeOverride={klimaTheme}
-                  onLogout={async () => {
-                    try {
-                      if (props.isConnected && disconnect) disconnect();
-                    } catch (e) {
-                      //
-                    }
-                  }}
-                  defaultTransactionBlocks={[{ type: "KLIMA_STAKE" }]}
-                  hideTransactionBlockTitle
-                  hideAddTransactionButton
-                  hideAddButton
-                  hideSettingsButton
-                  hideCloseTransactionBlockButton
-                  hideWalletBlockNavigation
-                  hideWalletToggle
-                  hideWalletBlock
-                />
-              </div>
-            )}
-          </>
-        )}
-
-        {!showEtherspotBuidler && (
-          <div className={styles.stakeCard_ui}>
-            <div className={styles.inputsContainer}>
-              <div className={styles.stakeSwitch}>
-                <button
-                  className={styles.switchButton}
-                  type="button"
-                  onClick={() => {
-                    setQuantity("");
-                    setStatus(null);
-                    setView("stake");
-                  }}
-                  data-active={view === "stake"}
-                >
-                  <Trans id="stake.stake">Stake</Trans>
-                </button>
-                <button
-                  className={styles.switchButton}
-                  type="button"
-                  onClick={() => {
-                    setQuantity("");
-                    setStatus(null);
-                    setView("unstake");
-                  }}
-                  data-active={view === "unstake"}
-                >
-                  <Trans id="stake.unstake">Unstake</Trans>
-                </button>
-              </div>
-              <div className={styles.stakeInput}>
-                <Trans
-                  id={inputPlaceholderMessage[view].id}
-                  render={({ translation }) => (
-                    <input
-                      className={styles.stakeInput_input}
-                      value={quantity}
-                      onChange={(e) => {
-                        setQuantity(e.target.value);
-                        setStatus(null);
-                      }}
-                      type="number"
-                      placeholder={translation as string}
-                      min="0"
-                    />
-                  )}
-                />
-                <button
-                  className={styles.stakeInput_max}
-                  type="button"
-                  onClick={setMax}
-                >
-                  <Trans id="shared.max">Max</Trans>
-                </button>
-              </div>
-              {props.address && (
-                <div className={styles.address}>
-                  {concatAddress(props.address)}
-                </div>
-              )}
-              <div className="hr" />
+          {!props.provider && (
+            <div className={styles.stakeCard_ui}>
+              <ButtonPrimary
+                className={styles.submitButton}
+                {...getButtonProps()}
+              />
             </div>
-
-            <div className={styles.infoTable}>
-              <div className={styles.infoTable_label}>
-                <Trans id="stake.5_day_rewards">5 Day Rewards</Trans>
-                <TextInfoTooltip
-                  content={
-                    <Trans
-                      id="stake.5_day_rewards.tooltip"
-                      comment="Long sentence"
-                    >
-                      Approximate rewards, including compounding, should you
-                      remain staked for 5 days.
-                    </Trans>
+          )}
+          {!!props.provider && typeof window !== undefined && (
+            <div className={styles.etherspotStakeCard_ui}>
+              <Etherspot
+                provider={(props.provider as any).provider}
+                chainId={137}
+                themeOverride={klimaTheme}
+                onLogout={async () => {
+                  try {
+                    if (props.isConnected && disconnect) disconnect();
+                  } catch (e) {
+                    //
                   }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-              <div className={styles.infoTable_label}>
-                <Trans id="stake.akr">AKR</Trans>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="stake.akr.tooltip" comment="Long sentence">
-                      Annualized KLIMA Rewards, including compounding, should the
-                      current reward rate remain unchanged for 12 months (reward
-                      rate may be subject to change).
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-              <div className={styles.infoTable_label}>
-                <Trans id="stake.index">Index</Trans>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="stake.index.tooltip" comment="Long sentence">
-                      Amount of KLIMA you would have today if you staked 1 KLIMA
-                      on launch day. Useful for accounting purposes.
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-              <div className={styles.infoTable_value}>
-                {fiveDayRatePercent ? (
-                  trimWithPlaceholder(fiveDayRatePercent, 2, locale) + "%"
-                ) : (
-                  <Trans>Loading...</Trans>
-                )}
-              </div>
-              <div className={styles.infoTable_value}>
-                {stakingAKR ? (
-                  trimWithPlaceholder(stakingAKR, 0, locale) + "%"
-                ) : (
-                  <Trans>Loading...</Trans>
-                )}
-              </div>
-              <div className={styles.infoTable_value}>
-                {currentIndex ? (
-                  trimWithPlaceholder(currentIndex, 2, locale) + " sKLIMA"
-                ) : (
-                  <Trans>Loading...</Trans>
-                )}
-              </div>
+                }}
+                defaultTransactionBlocks={[{ type: "KLIMA_STAKE", closeable: false }]}
+                hideTransactionBlockTitle
+                hideAddTransactionButton
+                hideAddButton
+                hideSettingsButton
+                hideWalletBlock
+                walletBlockActionsReplaceBehaviour
+              />
             </div>
-
-            <div className={styles.buttonRow}>
-              {showSpinner ? (
-                <div className={styles.buttonRow_spinner}>
-                  <Spinner />
-                </div>
-              ) : (
-                <ButtonPrimary
-                  className={styles.submitButton}
-                  {...getButtonProps()}
-                />
-              )}
-            </div>
-          </div>
-        )}
-        <Text
-          t="button"
-          align="center"
-          onClick={() => setShowEtherspotBuidler(!showEtherspotBuidler)}
-          className={styles.toggle_form_type}
-        >
-          Show {showEtherspotBuidler ? 'Regular Staking' : 'Etherspot Buidler Staking'}
-        </Text>
+          )}
       </div>
 
       {showTransactionModal && (
