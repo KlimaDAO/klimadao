@@ -22,9 +22,9 @@ export const PageHeader: FC<{
         <div>
           <h1 className={styles.title}>
             {showBackButton && (
-              <div onClick={() => router.back()} role="button">
+              <span onClick={() => router.back()} role="button">
                 <KeyboardArrowLeft />
-              </div>
+              </span>
             )}
             {title}
           </h1>
