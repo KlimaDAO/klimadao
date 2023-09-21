@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -389,8 +390,6 @@ export const Stake = (props: Props) => {
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
-
-  console.log(props.provider)
 
   return (
     <>
