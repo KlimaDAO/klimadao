@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
  */
 export default function DetailPage(props: {
   card: React.ReactNode | Promise<React.ReactNode>;
-  pageTitle: string;
+  pageTitle?: string;
   overview: string;
   insights?: {
     content: string;
@@ -16,7 +16,9 @@ export default function DetailPage(props: {
 }) {
   return (
     <div>
-      <PageHeader title={props.pageTitle} showBackButton={true} />
+      {props.pageTitle && (
+        <PageHeader title={props.pageTitle} showBackButton={true} />
+      )}
       {props.card}
       <div className={styles.text}>
         <div>
