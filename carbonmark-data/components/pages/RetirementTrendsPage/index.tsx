@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Tab } from "@mui/material";
 import { MobileTabSelector } from "components/MobileTabSelector";
+import { PageHeader } from "components/PageHeader/PageHeader";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, ReactNode, useEffect, useState } from "react";
 import layout from "theme/layout.module.scss";
@@ -64,7 +65,7 @@ export default function RetirementTrendsPage(props: {
 
   return (
     <>
-      <h1>{t`Retirement Trends`}</h1>
+      <PageHeader title={t`Retirement Trends`} />
       <TabContext value={activeTab}>
         <MobileTabSelector<Tab>
           value={activeTab}
