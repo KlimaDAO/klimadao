@@ -65,7 +65,7 @@ export default function RetirementTrendsPage(props: {
 
   return (
     <>
-      <PageHeader title={t`Retirement Trends`} />
+      <PageHeader title={t`Retirement trends`} />
       <TabContext value={activeTab}>
         <MobileTabSelector<Tab>
           value={activeTab}

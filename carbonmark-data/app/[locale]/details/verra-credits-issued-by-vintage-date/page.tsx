@@ -4,7 +4,7 @@ import DetailPage from "components/pages/DetailPage";
 export default function VerraCreditsIssuedByVintagePage() {
   return (
     <DetailPage
-      pageTitle={t`Credits Issued by Vintage Start Date`}
+      pageTitle={t`Credits issued by vintage start date`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />

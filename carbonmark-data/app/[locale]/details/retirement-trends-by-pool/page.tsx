@@ -5,7 +5,7 @@ import DetailPage from "components/pages/DetailPage";
 export default function RetirementTrendsByPoolDetailPage() {
   return (
     <DetailPage
-      pageTitle={t`Retirements by Pool`}
+      pageTitle={t`Retirements by pool`}
       card={
         <KlimaDAORetirementsByPoolBarCard
           isDetailPage={true}

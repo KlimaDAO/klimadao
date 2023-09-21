@@ -6,7 +6,7 @@ export default function DigitalCarbonSupplyPage() {
   const { chainLabel } = useChainInfo();
   return (
     <DetailPage
-      pageTitle={t`Digital Carbon Supply - ${chainLabel}`}
+      pageTitle={t`Digital carbon supply - ${chainLabel}`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />
