@@ -26,26 +26,26 @@ import { PaginatedResponse } from "lib/charts/types";
  */
 export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
-  withPagination: boolean;
+  withPagination?: boolean;
 }) {
-  const withPagination = props.withPagination || false;
+  const withPagination = props.withPagination || true;
   const data = (await fetchData(
     props.configurationKey,
     0
   )) as PaginatedResponse<RI>;
+  const firstPageTable = (
+    <Table configurationKey={props.configurationKey} data={data}></Table>
+  );
   return (
     <>
       {withPagination && (
         <DataTableClientWrapper
           configurationKey={props.configurationKey}
           pages_count={data.pages_count}
+          firstPageTable={firstPageTable}
         ></DataTableClientWrapper>
       )}
-      {!withPagination && (
-        <div>
-          <Table configurationKey={props.configurationKey} data={data}></Table>
-        </div>
-      )}
+      {!withPagination && <div>{firstPageTable}</div>}
     </>
   );
 }

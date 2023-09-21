@@ -47,6 +47,7 @@ export const RetireForm: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [userBalance, setUserBalance] = useState<string | null>(null);
+  const [fiatMinimum, setFiatMinimum] = useState<string | null>(null);
   const [fiatBalance, setFiatBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
   const [retirementBlockNumber, setRetirementBlockNumber] = useState<number>(0);
@@ -54,10 +55,12 @@ export const RetireForm: FC<Props> = (props) => {
     "indexed" | "pending" | "timeout"
   >("pending");
   const [retirementIndex, setRetirementIndex] = useState<number | null>(null);
+  const [fiatAmountError, setFiatAmountError] = useState<boolean>(false);
 
   const [showCreditCardModal, setShowCreditCardModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [checkoutError, setCheckoutError] = useState<null | string>(null);
+  const [costs, setCosts] = useState("");
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -98,6 +101,10 @@ export const RetireForm: FC<Props> = (props) => {
         fiatInfo?.MAX_USDC
           ? setFiatBalance(fiatInfo.MAX_USDC)
           : setFiatBalance("2000"); // default for production
+
+        fiatInfo?.MIN_FIAT_CENTS
+          ? setFiatMinimum(fiatInfo.MIN_FIAT_CENTS)
+          : setFiatMinimum("100"); // default in fiat api
       } catch (e) {
         console.error(e);
         setFiatBalance("2000"); // default for production
@@ -113,8 +120,8 @@ export const RetireForm: FC<Props> = (props) => {
     isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
-  const disableSubmit = !quantity || Number(quantity) <= 0;
-
+  const disableSubmit =
+    !quantity || Number(quantity) <= 0 || Number(costs) < Number(fiatMinimum);
   const resetStateAndCancel = () => {
     setInputValues(null);
     setAllowanceValue(null);
@@ -156,9 +163,13 @@ export const RetireForm: FC<Props> = (props) => {
     } catch (e) {
       console.error(e);
       setIsRedirecting(false);
-      setCheckoutError(
-        t`There was an error during the checkout process. Please try again.`
-      );
+      if (e.name === "MinPurchaseRequired") {
+        setCheckoutError(t`${e.message}`);
+      } else {
+        setCheckoutError(
+          t`There was an error during the checkout process. Please try again.`
+        );
+      }
     }
   };
 
@@ -170,6 +181,7 @@ export const RetireForm: FC<Props> = (props) => {
   const onContinue = async (values: FormValues) => {
     if (values.paymentMethod === "fiat") {
       continueWithFiat(values);
+      setFiatAmountError(false);
       return;
     }
 
@@ -302,8 +314,10 @@ export const RetireForm: FC<Props> = (props) => {
                 values={inputValues}
                 userBalance={userBalance}
                 fiatBalance={fiatBalance}
+                fiatMinimum={fiatMinimum}
                 price={props.price}
                 address={address}
+                fiatAmountError={fiatAmountError}
               />
 
               <SubmitButton
@@ -328,7 +342,10 @@ export const RetireForm: FC<Props> = (props) => {
                 <TotalValues
                   price={props.price}
                   userBalance={userBalance}
+                  fiatMinimum={fiatMinimum}
                   fiatBalance={fiatBalance}
+                  costs={costs}
+                  setCosts={setCosts}
                 />
               </Card>
             </div>

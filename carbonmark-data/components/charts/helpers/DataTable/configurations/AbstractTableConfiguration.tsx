@@ -17,7 +17,12 @@ export default abstract class TableConfiguration<RI> {
     item: RI,
     key: Extract<keyof RI, string>
   ): string | React.ReactNode {
-    return this.getColumns()[key].formatter(item[key] as never, item);
+    const column = this.getColumns()[key];
+    return column ? column.formatter(item[key] as never, item) : <></>;
+  }
+  /** Returns the title of a column */
+  getTitle(key: Extract<keyof RI, string>): string | React.ReactNode {
+    return this.getColumns()[key].header;
   }
   /**
    * Display data as a table with items as columns
@@ -25,7 +30,6 @@ export default abstract class TableConfiguration<RI> {
   VerticalTableLayout(props: { data: PaginatedResponse<RI> }) {
     const columns = this.getColumns();
     const columnKeys = Object.keys(columns);
-
     return (
       <table className={styles.table}>
         <thead>

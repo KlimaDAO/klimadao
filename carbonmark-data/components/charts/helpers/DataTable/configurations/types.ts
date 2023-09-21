@@ -4,7 +4,7 @@ import React from "react";
 type Formatter<RI> =
   | ((v: string, item: RI) => string | React.ReactNode)
   | ((v: number, item: RI) => string | React.ReactNode);
-interface Column<RI> {
+export interface Column<RI> {
   /** Column title */
   header: string;
   /** key in the dataset to be displayed in the column cells */

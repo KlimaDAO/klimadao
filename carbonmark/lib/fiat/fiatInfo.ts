@@ -2,6 +2,7 @@ import { urls } from "lib/constants";
 
 interface Response {
   MAX_USDC: string;
+  MIN_FIAT_CENTS: string;
 }
 
 export const getFiatInfo = async (): Promise<Response> => {
