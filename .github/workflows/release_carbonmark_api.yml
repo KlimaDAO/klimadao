@@ -42,14 +42,25 @@ jobs:
           name=$(git --no-pager tag --sort=creatordate --merged ${{ github.ref_name }} | grep '^carbonmark-api/' | tail -2 | head -1)
           echo "previousTag=$name" >> $GITHUB_ENV
 
-      - name: Generate release notes
+      - name: Generate changelog
         id: release_notes
         run: |
           RELEASE_NOTES=$(git log ${{ env.previousTag }}..${{ github.ref_name }} --pretty=format:"- %s (%an, %cd)" -- carbonmark-api)
-          echo "releaseNotes=$RELEASE_NOTES_SINGLELINE" >> $GITHUB_ENV
+          # All of this rubbish below is to remove new line characters so that GH doesn't try to execute our release log
           echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
           echo "$RELEASE_NOTES" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - name: Display Changelog
+      - name: Debug changelog
         run: echo "${{ env.RELEASE_NOTES }}"
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: carbonmark-api-${{ env.RELEASE_VERSION }}
+          body: ${{ env.RELEASE_NOTES }}
+          draft: true
+          prerelease: false
