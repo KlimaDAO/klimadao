@@ -24,6 +24,7 @@ import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
 } from "../KlimaAxis";
+import NoDataChartWrapper from "../NoDataChartWrapper";
 
 interface Props<T extends object> {
   data: ChartData<T>;
@@ -32,6 +33,7 @@ interface Props<T extends object> {
   XAxis?: string;
   YAxis?: string;
   LegendProps?: Omit<LegendProps, "ref">;
+  noDataText?: string;
 }
 /** FIXME: Refactor to KlimaBarChart */
 export default function KBarChart<T extends object>(props: Props<T>) {
@@ -79,17 +81,19 @@ export default function KBarChart<T extends object>(props: Props<T>) {
     });
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={props.data} barCategoryGap={"5%"}>
-        <XAxis {...XAxisProps} />
-        <YAxis {...YAxisProps} />
-        <Tooltip
-          content={KlimaTooltip(toolTipXAxisFormatter, toolTipYAxisFormatter)}
-          cursor={{ fill: "transparent" }}
-        />
-        <Legend {...LocalLegendProps} />
-        {KlimaStackedBars(props.configuration)}
-      </BarChart>
-    </ResponsiveContainer>
+    <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={props.data} barCategoryGap={"5%"}>
+          <XAxis {...XAxisProps} />
+          <YAxis {...YAxisProps} />
+          <Tooltip
+            content={KlimaTooltip(toolTipXAxisFormatter, toolTipYAxisFormatter)}
+            cursor={{ fill: "transparent" }}
+          />
+          <Legend {...LocalLegendProps} />
+          {KlimaStackedBars(props.configuration)}
+        </BarChart>
+      </ResponsiveContainer>
+    </NoDataChartWrapper>
   );
 }

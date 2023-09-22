@@ -12,12 +12,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { ChartConfigurationItem } from "../Configuration";
+import NoDataChartWrapper from "../NoDataChartWrapper";
 
 interface Props<CI extends { quantity: number }, T extends object> {
   data: ChartData<CI>;
   configuration: SimpleChartConfiguration<T>;
   LegendProps?: Omit<LegendProps, "ref">;
   showLegend?: boolean;
+  noDataText?: string;
 }
 /** FIXME: Refactor to KlimaBarChart */
 export default function KPieChart<
@@ -35,7 +37,7 @@ export default function KPieChart<
     });
   const showLegend = props.showLegend === undefined ? true : props.showLegend;
 
-  // Transform data so id and labels from configuration can be used
+  // Transform data so id and labels from configuration are available to recharts
   const chartData: ChartData<
     ChartConfigurationItem<keyof T> & { quantity: number }
   > = props.data.map((item, i) => {
@@ -49,23 +51,25 @@ export default function KPieChart<
     return record;
   });
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <PieChart>
-        <Pie
-          data={props.data}
-          dataKey="quantity"
-          nameKey="label"
-          cx="50%"
-          cy="50%"
-          innerRadius={60}
-          outerRadius={80}
-        >
-          {chartData.map((entry) => (
-            <Cell key={entry.id} fill={entry.color} />
-          ))}
-        </Pie>
-        {showLegend && <Legend {...LocalLegendProps} />}
-      </PieChart>
-    </ResponsiveContainer>
+    <NoDataChartWrapper data={chartData} noDataText={props.noDataText}>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={props.data}
+            dataKey="quantity"
+            nameKey="label"
+            cx="50%"
+            cy="50%"
+            innerRadius={60}
+            outerRadius={80}
+          >
+            {chartData.map((entry) => (
+              <Cell key={entry.id} fill={entry.color} />
+            ))}
+          </Pie>
+          {showLegend && <Legend {...LocalLegendProps} />}
+        </PieChart>
+      </ResponsiveContainer>
+    </NoDataChartWrapper>
   );
 }
