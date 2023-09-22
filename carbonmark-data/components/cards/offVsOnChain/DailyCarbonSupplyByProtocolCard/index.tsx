@@ -1,32 +1,61 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import { DailyCarbonSupplyChart } from "components/charts/helpers/DailyCarbonSupplyChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
-import { CarbonMetricsItem } from "lib/charts/types";
+import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { palette } from "theme/palette";
 /** Verra Credits Card */
 export default function DailyCarbonSupplyByProtocolCard(props: CardProps) {
-  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
+  const dateField = "bridged_date";
+  const status = "bridged";
+  const source = "quantity";
+
+  const configuration = [
     {
+      query: {
+        bridge: "toucan",
+        status,
+      },
+      dataMapping: {
+        source,
+        destination: "toucan",
+        dateField,
+      },
       chartOptions: {
-        id: "total_toucan_supply",
-        label: t`Toucan`,
+        id: "toucan",
+        label: "Toucan",
         color: palette.charts.color5,
         legendOrder: 1,
       },
     },
     {
+      query: {
+        bridge: "moss",
+        status,
+      },
+      dataMapping: {
+        source,
+        destination: "moss",
+        dateField,
+      },
       chartOptions: {
-        id: "total_moss_supply",
-        label: "NCT",
+        id: "moss",
+        label: "Moss",
         color: palette.charts.color3,
         legendOrder: 2,
       },
     },
     {
+      query: {
+        bridge: "c3",
+        status,
+      },
+      dataMapping: {
+        source,
+        destination: "c3",
+        dateField,
+      },
       chartOptions: {
-        id: "total_c3_supply",
-        label: "MCO2",
+        id: "c3",
+        label: "C3",
         color: palette.charts.color1,
         legendOrder: 3,
       },
@@ -35,7 +64,7 @@ export default function DailyCarbonSupplyByProtocolCard(props: CardProps) {
 
   const chart = (
     /* @ts-expect-error async Server component */
-    <DailyCarbonSupplyChart configuration={configuration} />
+    <DailyCreditsChart configuration={configuration} />
   );
 
   return (
