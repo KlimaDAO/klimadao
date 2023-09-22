@@ -1,5 +1,4 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import { palette } from "theme/palette";
 import ChartCard, { CardProps } from "../../ChartCard";
 
@@ -36,10 +35,10 @@ export default function TokenStateOfDigitalCarbonCard(
 /** Async server component that renders a Recharts client component */
 async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
   const bridged = (
-    await queryAggregatedCredits(creditsQueryParamsFromProps(props, "bridged"))
+    await queryAggregatedCredits({ bridge: props.bridge, status: "bridged" })
   ).quantity;
   const retired = (
-    await queryAggregatedCredits(creditsQueryParamsFromProps(props, "retired"))
+    await queryAggregatedCredits({ bridge: props.bridge, status: "retired" })
   ).quantity;
   const outstanding = bridged - retired;
   const configuration: SimpleChartConfigurationFromType<
@@ -82,21 +81,21 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
               className={styles.dot}
               style={{ backgroundColor: palette.charts.color1 }}
             ></span>
-            {t`${formatTonnes(bridged)} Tonnes Bridged`}{" "}
+            {t`${formatTonnes(bridged)} tonnes bridged`}{" "}
           </div>
           <div className={styles.legendItem}>
             <span
               className={styles.dot}
               style={{ backgroundColor: palette.charts.color3 }}
             ></span>
-            {t`${formatTonnes(retired)} Tonnes Retired`}{" "}
+            {t`${formatTonnes(retired)} tonnes retired`}{" "}
           </div>
           <div className={styles.legendItem}>
             <span
               className={styles.dot}
               style={{ backgroundColor: palette.charts.color5 }}
             ></span>
-            {t`${formatTonnes(outstanding)} Tonnes Outstanding`}{" "}
+            {t`${formatTonnes(outstanding)} tonnes outstanding`}{" "}
           </div>
         </div>
       </div>

@@ -50,8 +50,9 @@ export default function KPieChart<
     };
     return record;
   });
+  const nonZeroData = chartData.filter((data) => data.quantity > 0);
   return (
-    <NoDataChartWrapper data={chartData} noDataText={props.noDataText}>
+    <NoDataChartWrapper data={nonZeroData} noDataText={props.noDataText}>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie

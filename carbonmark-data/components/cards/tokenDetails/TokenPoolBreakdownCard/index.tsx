@@ -94,7 +94,7 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
   const data = [
     {
       quantity: bct,
-      id: "nct",
+      id: "bct",
     },
     {
       quantity: nct,
@@ -115,13 +115,13 @@ async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
   const nbo = (
     await queryAggregatedCredits({
       ...params,
-      ...{ pool: "nbo", bridge: "c3" },
+      ...{ pool: "ubo", bridge: "c3" },
     })
   ).quantity;
   const ubo = (
     await queryAggregatedCredits({
       ...params,
-      ...{ pool: "ubo", bridge: "c3" },
+      ...{ pool: "nbo", bridge: "c3" },
     })
   ).quantity;
   const all = (
@@ -163,17 +163,16 @@ async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
   const data = [
     {
       quantity: nbo,
-      id: "nct",
+      id: "ubo",
     },
     {
       quantity: ubo,
-      id: "nct",
+      id: "nbo",
     },
     {
       quantity: not_pooled,
       id: "not_pooled",
     },
   ];
-
   return <KPieChart data={data} configuration={configuration} />;
 }
