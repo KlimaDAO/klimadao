@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import { PageHeader } from "components/PageHeader/PageHeader";
 import DailyCarbonSupplyByProtocolCard from "components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard";
 import DailyIssuedVerraCreditsCard from "components/cards/offVsOnChain/DailyIssuedVerraCreditsCard";
+import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import layout from "theme/layout.module.scss";
 
@@ -17,7 +18,9 @@ export default function OffVsOnChainPage() {
           <DailyIssuedVerraCreditsCard />
           <DailyCarbonSupplyByProtocolCard />
         </div>
-        <div className={layout.cardRow}></div>
+        <div className={layout.cardRow}>
+          <VerraCreditsDistributionOfProjectsCard />
+        </div>
         <div className={layout.cardRow}></div>
       </div>
     </div>
