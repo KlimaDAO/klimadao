@@ -46,8 +46,10 @@ jobs:
         id: release_notes
         run: |
           RELEASE_NOTES=$(git log ${{ env.previousTag }}..${{ github.ref_name }} --pretty=format:"- %s (%an, %cd)" -- carbonmark-api)
-          RELEASE_NOTES_SINGLELINE=$(echo "$RELEASE_NOTES" | base64)
           echo "releaseNotes=$RELEASE_NOTES_SINGLELINE" >> $GITHUB_ENV
+          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_NOTES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Display Changelog
-        run: echo "${{ env.releaseNotes }}" | base64 --decode
+        run: echo "${{ env.RELEASE_NOTES }}"
