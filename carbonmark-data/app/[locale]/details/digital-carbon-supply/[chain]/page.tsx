@@ -13,13 +13,13 @@ export default function DigitalDailyCarbonSupplyPage({
   let card = <></>;
   switch (params.chain) {
     case "polygon":
-      card = <DailyPolygonCarbonSupplyCard />;
+      card = <DailyPolygonCarbonSupplyCard isDetailPage={true} />;
       break;
     case "eth":
-      card = <DailyEthCarbonSupplyCard />;
+      card = <DailyEthCarbonSupplyCard isDetailPage={true} />;
       break;
     case "celo":
-      card = <DailyCeloCarbonSupplyCard />;
+      card = <DailyCeloCarbonSupplyCard isDetailPage={true} />;
       break;
   }
   return (

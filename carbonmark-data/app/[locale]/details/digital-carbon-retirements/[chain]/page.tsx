@@ -12,10 +12,10 @@ export default function DigitalDailyRetirementsPage({
   let card = <></>;
   switch (params.chain) {
     case "polygon":
-      card = <DailyPolygonRetirementsCard />;
+      card = <DailyPolygonRetirementsCard isDetailPage={true} />;
       break;
     case "eth":
-      card = <DailyEthRetirementsCard />;
+      card = <DailyEthRetirementsCard isDetailPage={true} />;
       break;
   }
   return (

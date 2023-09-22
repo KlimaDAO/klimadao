@@ -60,6 +60,10 @@
     gap: 1rem;
   }
 }
+div.card50percent {
+  flex-basis: 50%;
+  flex-grow: 0;
+}
 
 .mobileOnly {
   @include large {

@@ -1,5 +1,6 @@
 import { t } from "@lingui/macro";
 import CarbonSupplyByBlockChainCard from "components/cards/supply/CarbonSupplyByBlockchainCard";
+import CarbonSupplyQuickFactsCard from "components/cards/supply/CarbonSupplyQuickFactsCard";
 import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSupplyCard";
 import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupplyCard";
 import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
@@ -14,6 +15,7 @@ export default function SupplyPage() {
       <div className={layout.cardStackedRows}>
         <div></div>
         <div className={layout.cardRow}>
+          <CarbonSupplyQuickFactsCard />
           <CarbonSupplyByBlockChainCard />
         </div>
         <div className={layout.cardRow}>
@@ -25,7 +27,9 @@ export default function SupplyPage() {
           <DailyEthRetirementsCard />
         </div>
         <div className={layout.cardRow}>
-          <DailyCeloCarbonSupplyCard />
+          <div className={layout.card50percent}>
+            <DailyCeloCarbonSupplyCard />
+          </div>
         </div>
       </div>
     </div>
