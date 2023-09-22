@@ -6,7 +6,7 @@ export default function TokenBridgeBreakdownPage() {
   const { bridgeLabel } = useBridgeInfo();
   return (
     <DetailPage
-      pageTitle={t`Breakdown of ${bridgeLabel} Pooled`}
+      pageTitle={t`Breakdown of ${bridgeLabel} pooled`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />

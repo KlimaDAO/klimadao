@@ -6,7 +6,7 @@ export default function TokenDistributionOfProjectsPage() {
   const { bridgeLabel } = useBridgeInfo();
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Projects`}
+      pageTitle={t`${bridgeLabel} distribution of projects`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />
