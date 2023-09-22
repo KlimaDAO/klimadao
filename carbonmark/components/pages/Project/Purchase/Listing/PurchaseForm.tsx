@@ -11,6 +11,7 @@ import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { DetailedProject, Listing } from "lib/types/carbonmark.types";
+import { waitForIndexStatus } from "lib/waitForIndexStatus";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -54,7 +55,7 @@ export const PurchaseForm: FC<Props> = (props) => {
         userAddress: address,
         network: networkLabel,
       });
-
+      console.log("balance", networkLabel);
       setBalance(balance);
     };
 
@@ -157,10 +158,17 @@ export const PurchaseForm: FC<Props> = (props) => {
         provider,
         onStatus: onUpdateStatus,
       });
-
       if (result.hash) {
-        push(`/purchases/${result.hash}`);
-        LO.track("Purchase: Purchase Completed");
+        const retirementBlockNumber = await provider
+          .getTransactionReceipt(result.hash)
+          .then((receipt) => receipt?.blockNumber);
+        const status = await waitForIndexStatus(retirementBlockNumber);
+        if (status === "indexed") {
+          push(`/purchases/${result.hash}`);
+          LO.track("Purchase: Purchase Completed");
+        } else {
+          console.error("Purchase failed to index");
+        }
       }
     } catch (e) {
       console.error("makePurchase error", e);
