@@ -7,19 +7,19 @@ import { navItems } from "./NavItems";
 
 export const DesktopSidebar: FC = () => {
   return (
-    <>
-      <div className={styles.desktopSidebar}>
+    <div className={styles.desktopSidebar}>
+      <div className={styles.desktopSidebarBrand}>
         <CarbonmarkDataLogo width={180} height={30} />
-        <div aria-describedby="title">Carbon Dashboard</div>
-        <div aria-describedby="links">
-          {navItems().map((navItem) => (
-            <DesktopSidebarItem
-              navItem={navItem}
-              key={navItem.url}
-            ></DesktopSidebarItem>
-          ))}
-        </div>
       </div>
-    </>
+      <div aria-describedby="title">Carbon Dashboard</div>
+      <div aria-describedby="links">
+        {navItems().map((navItem) => (
+          <DesktopSidebarItem
+            navItem={navItem}
+            key={navItem.url}
+          ></DesktopSidebarItem>
+        ))}
+      </div>
+    </div>
   );
 };

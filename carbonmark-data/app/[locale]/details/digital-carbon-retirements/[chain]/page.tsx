@@ -6,7 +6,7 @@ export default function DigitalCarbonRetirementsPage() {
   const { chainLabel } = useChainInfo();
   return (
     <DetailPage
-      pageTitle={t`Digital Carbon Retirements - ${chainLabel}`}
+      pageTitle={t`Digital carbon retirements - ${chainLabel}`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />

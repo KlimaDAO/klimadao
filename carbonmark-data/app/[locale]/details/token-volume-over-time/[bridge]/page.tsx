@@ -11,7 +11,7 @@ export default function TokenVolumeOverTimePage({
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} volume Over Time`}
+      pageTitle={t`${bridgeLabel} volume over Time`}
       card={
         <TokenVolumeOverTimeCard
           isDetailPage={true}
