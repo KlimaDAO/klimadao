@@ -1,11 +1,7 @@
 "use client"; // use client for recharts animations
 import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
-import {
-  ChartData,
-  DailyEthCarbonMetricsItem,
-  DailyPolygonCarbonMetricsItem,
-} from "lib/charts/types";
+import { CarbonMetricsItem, ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import {
   AreaChart,
@@ -26,7 +22,7 @@ import {
 export type ChartKey = "total_klima_retirements" | "not_klima_retired";
 
 interface Props<ChartKey> {
-  data: ChartData<DailyPolygonCarbonMetricsItem | DailyEthCarbonMetricsItem>;
+  data: ChartData<CarbonMetricsItem>;
   configuration: SimpleChartConfigurationFromType<ChartKey>;
 }
 export default function Chart<T>(props: Props<T>) {
