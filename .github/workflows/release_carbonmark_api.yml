@@ -46,7 +46,7 @@ jobs:
         id: release_notes
         run: |
           RELEASE_NOTES=$(git log ${{ env.previousTag }}..${{ github.ref_name }} --pretty=format:"- %s (%an, %cd)" -- carbonmark-api)
-          echo "::set-output name=body::$RELEASE_NOTES"
+          echo "releaseNotes=$RELEASE_NOTES" >> $GITHUB_ENV
 
       - name: Display Changelog
-        run: echo "${{ steps.release_notes.outputs.body }}"
+        run: echo "${{ env.releaseNotes }}"
