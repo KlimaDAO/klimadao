@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-21 18:29+0000\n"
+"POT-Creation-Date: 2023-09-22 11:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,12 +443,12 @@ msgstr "Créé :"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:87
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "Le montant minimum d'achat par carte de crédit est de {formattedFiatMinimum} $"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "L'achat minimum par carte de crédit est de {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:207
@@ -2755,7 +2755,7 @@ msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont conne
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:167
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:267

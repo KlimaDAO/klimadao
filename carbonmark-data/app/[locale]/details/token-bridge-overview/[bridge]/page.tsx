@@ -6,7 +6,7 @@ export default function TokenBridgeOverviewPage() {
   const { bridgeLabel } = useBridgeInfo();
   return (
     <DetailPage
-      pageTitle={t`State of ${bridgeLabel} Digital Carbon`}
+      pageTitle={t`State of ${bridgeLabel} digital carbon`}
       card={t`${bridgeLabel} Overview`}
       overview={t`Lorem Ipsum`}
     />
