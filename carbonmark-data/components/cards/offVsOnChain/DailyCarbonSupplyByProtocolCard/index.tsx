@@ -1,14 +1,15 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../herlpers";
 /** Verra Credits Card */
 export default function DailyCarbonSupplyByProtocolCard(
   props: CardProps & OffVsOnChainProps
 ) {
-  const dateField = "bridged_date";
-  const status = "bridged";
+  const status = props.status == "issued" ? "bridged" : props.status;
+  const dateField = statusToDateField(status);
   const source = "quantity";
 
   const configuration = [
@@ -69,11 +70,15 @@ export default function DailyCarbonSupplyByProtocolCard(
     /* @ts-expect-error async Server component */
     <DailyCreditsChart configuration={configuration} />
   );
+  const title =
+    props.status == "issued"
+      ? t`Cummulative Verra registry credits tokenized over time`
+      : t`On-Chain Verra credits retired over time`;
 
   return (
     <ChartCard
       {...props}
-      title={t`Cummulative verra registry credits tokenized over time`}
+      title={title}
       detailUrl="/details/digital-carbon-supply-snapshot"
       chart={chart}
     />

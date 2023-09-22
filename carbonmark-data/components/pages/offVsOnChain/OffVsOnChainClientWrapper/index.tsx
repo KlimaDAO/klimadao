@@ -14,7 +14,6 @@ export default function OffVsOnChainClientWrapper(props: {
     getCreditsStatusOptions()[0].value
   );
   function displayedTab(): React.ReactNode {
-    console.log(optionKey);
     return optionKey == "issued" ? (
       props.issuedCreditsTab
     ) : optionKey == "retired" ? (

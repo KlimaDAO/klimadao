@@ -10,7 +10,7 @@ export default function VerraCreditsDistributionOfProjectsCard(
   const params: CreditsFilteringProps = {
     bridge: "offchain",
     pool: "all",
-    status: "issued",
+    status: props.status,
     since: "lifetime",
   };
   const chart = (
