@@ -11,7 +11,7 @@ export default function TokenBridgeBreakdownPage({
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`Breakdown of ${bridgeLabel} Pooled`}
+      pageTitle={t`Breakdown of ${bridgeLabel} pooled`}
       card={
         <TokenPoolBreakdownCard
           isDetailPage={true}

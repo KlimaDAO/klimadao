@@ -22,12 +22,14 @@ const Layout = function ({ children, locale, translation }: Props) {
   return (
     <>
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
-        <DesktopSidebar></DesktopSidebar>
-        <MobileHeader></MobileHeader>
-        <div className={styles.content}>
-          <main className={styles.main}>{children}</main>
-          <Footer />
-          <MobileBottomNav />
+        <div className={styles.desktopLayout}>
+          <DesktopSidebar></DesktopSidebar>
+          <MobileHeader></MobileHeader>
+          <div className={styles.content}>
+            <main className={styles.main}>{children}</main>
+            <Footer />
+            <MobileBottomNav />
+          </div>
         </div>
       </I18nProvider>
     </>

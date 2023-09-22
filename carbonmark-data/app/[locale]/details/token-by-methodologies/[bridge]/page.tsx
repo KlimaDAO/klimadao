@@ -11,7 +11,7 @@ export default function TokenDistributionOfMethodologiesPage({
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Methodologies`}
+      pageTitle={t`${bridgeLabel} distribution of methodologies`}
       card={
         <TokenDistributionOfMethodologiesCard
           isDetailPage={true}

@@ -24,7 +24,7 @@ export default function DigitalDailyCarbonSupplyPage({
   }
   return (
     <DetailPage
-      pageTitle={t`Digital Carbon Supply - ${chainLabel}`}
+      pageTitle={t`Digital carbon supply - ${chainLabel}`}
       card={card}
       overview={t`Lorem Ipsum`}
     />

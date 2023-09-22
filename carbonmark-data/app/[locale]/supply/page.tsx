@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { PageHeader } from "components/PageHeader/PageHeader";
 import CarbonSupplyByBlockChainCard from "components/cards/supply/CarbonSupplyByBlockchainCard";
 import CarbonSupplyQuickFactsCard from "components/cards/supply/CarbonSupplyQuickFactsCard";
 import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSupplyCard";
@@ -11,7 +12,9 @@ import layout from "theme/layout.module.scss";
 export default function SupplyPage() {
   return (
     <div>
-      <h1>{t`Supply`}</h1>
+      <>
+        <PageHeader title={t`Supply`} />
+      </>
       <div className={layout.cardStackedRows}>
         <div></div>
         <div className={layout.cardRow}>

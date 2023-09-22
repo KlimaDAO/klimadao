@@ -11,7 +11,7 @@ export default function TokenDistributionOfVintageDatePage({
   const bridgeLabel = capitalize(params.bridge);
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
+      pageTitle={t`${bridgeLabel} Distribution of vintage start dates`}
       card={
         <TokenDistributionOfVintageCard
           isDetailPage={true}

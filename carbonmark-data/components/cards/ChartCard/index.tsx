@@ -102,11 +102,19 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
       </div>
       <div className={styles.cardFooter}>
+        {props.topOptions && (
+          <div className={styles.cardFooterSwitcher}>
+            <OptionsSwitcher
+              options={props.topOptions}
+              onSelectionChange={setTopOptionKey}
+            ></OptionsSwitcher>
+          </div>
+        )}
         {props.bottomOptions && (
           <OptionsSwitcher
             options={props.bottomOptions}
             onSelectionChange={setBottomOptionKey}
-          ></OptionsSwitcher>
+          />
         )}
       </div>
       {bottomDetailUrlComponent}

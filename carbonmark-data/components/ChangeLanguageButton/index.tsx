@@ -7,7 +7,9 @@ import Tippy from "@tippyjs/react";
 import { FC, useState } from "react";
 import styles from "./styles.module.scss";
 
-export const ChangeLanguageButton: FC = () => {
+export const ChangeLanguageButton: FC<{ className?: string }> = ({
+  className,
+}) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
@@ -28,7 +30,7 @@ export const ChangeLanguageButton: FC = () => {
       visible={showTooltip}
     >
       <Button
-        className={styles.changeLanguageButton}
+        className={`${styles.changeLanguageButton} ${className}`}
         aria-label={t`Change language`}
         onClick={() => setShowTooltip(!showTooltip)}
       >
