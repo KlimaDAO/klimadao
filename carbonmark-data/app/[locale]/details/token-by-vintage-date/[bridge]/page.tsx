@@ -6,7 +6,7 @@ export default function TokenDistributionOfVintageDatePage() {
   const { bridgeLabel } = useBridgeInfo();
   return (
     <DetailPage
-      pageTitle={t`${bridgeLabel} Distribution of Vintage Start Dates`}
+      pageTitle={t`${bridgeLabel} distribution of vintage start dates`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />

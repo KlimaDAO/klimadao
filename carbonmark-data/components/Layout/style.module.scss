@@ -4,35 +4,28 @@
   display: none;
 
   @include desktop {
-    position: fixed;
-    width: 18rem;
-    overflow: auto;
-    padding: 4.8rem 2rem 4.8rem 2rem;
+    position: sticky;
+    top: 1rem;
+    padding: 4.8rem 2rem;
     gap: 4rem;
-    display: grid;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     background-color: var(--surface-04);
   }
 
   [aria-describedby="title"] {
-    padding: 2rem 0 2rem 0;
-    border: 0.1rem solid;
-    border-left: none;
-    border-right: none;
-    border-color: var(--text-color-03);
-    color: var(--text-color-01);
-    height: 6rem;
-    width: 18rem;
-    display: grid;
-    align-items: center;
-    font: Inter;
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 0.1rem solid var(--text-color-03);
+    border-bottom: 0.1rem solid var(--text-color-03);
+    font-family: Inter;
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 2rem;
   }
 
   [aria-describedby="links"] {
-    width: 18rem;
+    font-size: 1.4rem;
     display: grid;
     gap: 1.6rem;
     padding-bottom: 4rem;
@@ -41,9 +34,9 @@
 }
 
 .desktopSidebarItem {
-  width: 18rem;
+  min-width: 18rem;
   height: 4.8rem;
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   display: flex;
   align-items: center;
   text-align: left;
@@ -63,6 +56,11 @@
       color: var(--text-color-04);
     }
   }
+}
+
+.desktopSidebarBrand {
+  display: grid;
+  place-content: center;
 }
 
 .desktopSidebarIcon {
@@ -137,23 +135,17 @@
 .main {
   padding: 0 1.6rem;
   flex: 1;
+
+  @include desktop {
+    padding: 0 4rem;
+  }
 }
 
 .content {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  margin-left: 0;
-  height: 100dvh;
   background-color: var(--surface-03);
-
-  @include desktop {
-    margin-left: 22rem;
-  }
-
-  h1 {
-    margin-top: 4.6rem;
-    margin-bottom: 2.6rem;
-  }
 }
 
 .mobileMenuButton {
@@ -220,5 +212,14 @@
   svg {
     width: 1.6rem;
     height: 1.6rem;
+  }
+}
+
+.desktopLayout {
+  @include desktop {
+    align-items: start;
+    display: grid;
+    grid-template-columns: min-content auto;
+    min-height: 100vh;
   }
 }
