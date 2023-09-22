@@ -2,8 +2,11 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { palette } from "theme/palette";
+import { OffVsOnChainProps } from "../herlpers";
 /** Verra Credits Card */
-export default function DailyIssuedVerraCreditsCard(props: CardProps) {
+export default function DailyVerraCreditsCard(
+  props: CardProps & OffVsOnChainProps
+) {
   const dateField = "issuance_date";
   const status = "issued";
   const source = "quantity";

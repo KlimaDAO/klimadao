@@ -2,9 +2,10 @@ import { t } from "@lingui/macro";
 import CreditsDistributionOfProjectsChart from "components/charts/CreditsDistributionOfProjectsChart";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
 import ChartCard, { CardProps } from "../../ChartCard";
+import { OffVsOnChainProps } from "../herlpers";
 
 export default function VerraCreditsDistributionOfProjectsCard(
-  props: CardProps
+  props: CardProps & OffVsOnChainProps
 ) {
   const params: CreditsFilteringProps = {
     bridge: "offchain",

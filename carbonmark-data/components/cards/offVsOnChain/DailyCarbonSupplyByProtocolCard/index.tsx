@@ -2,8 +2,11 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { palette } from "theme/palette";
+import { OffVsOnChainProps } from "../herlpers";
 /** Verra Credits Card */
-export default function DailyCarbonSupplyByProtocolCard(props: CardProps) {
+export default function DailyCarbonSupplyByProtocolCard(
+  props: CardProps & OffVsOnChainProps
+) {
   const dateField = "bridged_date";
   const status = "bridged";
   const source = "quantity";
