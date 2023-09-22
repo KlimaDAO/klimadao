@@ -2,7 +2,7 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { DailyCeloCarbonSupplyChart } from "components/charts/DailyCarbonSupplyChart";
 
-export default function CeloCarbonSupplyCard(props: CardProps) {
+export default function DailyCeloCarbonSupplyCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
     <DailyCeloCarbonSupplyChart />

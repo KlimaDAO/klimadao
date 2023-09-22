@@ -1,27 +1,25 @@
 import { t } from "@lingui/macro";
-import CeloCarbonSupplyCard from "components/cards/supply/CeloCarbonSupplyCard";
-import {
-  default as EthCarbonSupplyCard,
-  default as PolygonCarbonSupplyCard,
-} from "components/cards/supply/EthCarbonSupplyCard";
+import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSupplyCard";
+import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupplyCard";
+import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
 import DetailPage from "components/pages/DetailPage";
 import { ChainDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
-export default function DigitalCarbonSupplyPage({
+export default function DigitalDailyCarbonSupplyPage({
   params,
 }: ChainDetailPageProps) {
   const chainLabel = capitalize(params.chain);
   let card = <></>;
   switch (params.chain) {
     case "polygon":
-      card = <PolygonCarbonSupplyCard />;
+      card = <DailyPolygonCarbonSupplyCard />;
       break;
     case "eth":
-      card = <EthCarbonSupplyCard />;
+      card = <DailyEthCarbonSupplyCard />;
       break;
     case "celo":
-      card = <CeloCarbonSupplyCard />;
+      card = <DailyCeloCarbonSupplyCard />;
       break;
   }
   return (

@@ -1,8 +1,10 @@
 import { t } from "@lingui/macro";
 import CarbonSupplyByBlockChainCard from "components/cards/supply/CarbonSupplyByBlockchainCard";
-import CeloCarbonSupplyCard from "components/cards/supply/CeloCarbonSupplyCard";
-import EthCarbonSupplyCard from "components/cards/supply/EthCarbonSupplyCard";
-import PolygonCarbonSupplyCard from "components/cards/supply/PolygonCarbonSupplyCard";
+import DailyCeloCarbonSupplyCard from "components/cards/supply/DailyCeloCarbonSupplyCard";
+import DailyEthCarbonSupplyCard from "components/cards/supply/DailyEthCarbonSupplyCard";
+import DailyEthRetirementsCard from "components/cards/supply/DailyEthRetirementsCard";
+import DailyPolygonCarbonSupplyCard from "components/cards/supply/DailyPolygonCarbonSupplyCard";
+import DailyPolygonRetirementsCard from "components/cards/supply/DailyPolygonRetirementsCard";
 import layout from "theme/layout.module.scss";
 
 export default function SupplyPage() {
@@ -15,13 +17,15 @@ export default function SupplyPage() {
           <CarbonSupplyByBlockChainCard />
         </div>
         <div className={layout.cardRow}>
-          <PolygonCarbonSupplyCard />
+          <DailyPolygonCarbonSupplyCard />
+          <DailyPolygonRetirementsCard />
         </div>
         <div className={layout.cardRow}>
-          <EthCarbonSupplyCard />
+          <DailyEthCarbonSupplyCard />
+          <DailyEthRetirementsCard />
         </div>
         <div className={layout.cardRow}>
-          <CeloCarbonSupplyCard />
+          <DailyCeloCarbonSupplyCard />
         </div>
       </div>
     </div>
