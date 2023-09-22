@@ -1,7 +1,7 @@
+import c3tIcon from "@klimadao/app/public/icons/C3T.png";
+import mco2Icon from "@klimadao/app/public/icons/MCO2.png";
+import tco2Icon from "@klimadao/app/public/icons/TCO2.png";
 import { t } from "@lingui/macro";
-import c3tIcon from "components/Graphics/c3t.png";
-import mco2Icon from "components/Graphics/mco2.png";
-import tco2Icon from "components/Graphics/tco2.png";
 
 import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
 import { Protocol } from "./charts/types";
