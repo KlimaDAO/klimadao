@@ -5,7 +5,7 @@ import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Text } from "components/Text";
 import { urls } from "lib/constants";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { FC } from "react";

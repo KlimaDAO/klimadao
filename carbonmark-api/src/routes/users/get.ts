@@ -1,168 +1,101 @@
+import { Static } from "@sinclair/typebox";
+import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { compact, map, merge } from "lodash";
-import { assign, get, toUpper } from "lodash/fp";
-import { Holding } from "../../.generated/types/assets.types";
-import { Activity, Listing } from "../../.generated/types/marketplace.types";
-import { selector } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
-import { formatActivity } from "../../utils/helpers/activities.utils";
+import { User } from "../../models/User.model";
 import {
-  getUserDocumentByHandle,
-  getUserDocumentByWallet,
-  getUserDocumentsByIds,
+  getProfileByAddress,
+  getProfileByHandle,
+  getUserProfilesByIds,
 } from "../../utils/helpers/users.utils";
-interface Params {
-  walletOrHandle: string;
-}
-
-interface Querystring {
-  type: string;
-}
-type ResponseType = {
-  handle: string;
-  username: string;
-  description: string;
-  profileImgUrl: string | null;
-  updatedAt: number;
-  createdAt: number;
-  wallet: string;
-  listings: Listing[];
-  activities: Activity[];
-  assets: Holding[];
-};
-
-const schema = {
-  summary: "User details",
-  description: "Get a user's profile and activity",
-  tags: ["Users"],
-  querystring: {
-    type: "object",
-    properties: {
-      type: {
-        description:
-          "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
-        type: "string",
-        examples: ["wallet"],
-      },
-    },
-  },
-  params: {
-    type: "object",
-    required: ["walletOrHandle"],
-    properties: {
-      walletOrHandle: {
-        type: "string",
-        description: "A user handle or wallet address",
-        examples: [
-          "atmosfearful",
-          "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
-        ],
-      },
-    },
-  },
-  response: {
-    "2xx": {
-      type: "object",
-      properties: {
-        handle: { type: "string" },
-        username: { type: "string" },
-        description: { type: "string" },
-        profileImgUrl: {
-          anyOf: [
-            {
-              type: "string",
-            },
-            {
-              type: "null",
-            },
-          ],
-        },
-        updatedAt: { type: "number" },
-        createdAt: { type: "number" },
-        wallet: { type: "string" },
-        listings: { type: "array" },
-        activities: { type: "array" },
-        assets: { type: "array" },
-      },
-    },
-  },
-};
+import { Params, QueryString, schema } from "./get.schema";
+import {
+  getHoldingsByWallet,
+  getUniqueWallets,
+  getUserByWallet,
+} from "./get.utils";
 
 /** Fetch the user object from firestore and the marketplace subgraph */
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Params: Params; Querystring: Querystring }>,
+    request: FastifyRequest<{
+      Params: Static<typeof Params>;
+      Querystring: Static<typeof QueryString>;
+    }>,
     reply: FastifyReply
-  ): Promise<ResponseType | void> {
-    // Destructure the userIdentifier parameter from the request object
-    const { walletOrHandle } = request.params;
+  ): Promise<User | void> {
+    const { query, params } = request;
 
-    // Destructure the type query parameter from the request object
-    const { type } = request.query;
+    const walletOrHandle = params.walletOrHandle.toLowerCase();
 
-    // Fetch our user
-    const fetchUserFn =
-      type === "wallet" ? getUserDocumentByWallet : getUserDocumentByHandle;
-
-    const firebaseUserDocument = await fetchUserFn(
-      fastify.firebase,
-      walletOrHandle
-    );
-    // If no documents are found, return a 404 error
-    if (!firebaseUserDocument?.exists) return reply.notFound();
-
-    const firebaseUser = firebaseUserDocument.data();
-
-    const wallet = firebaseUserDocument.id.toLowerCase();
-
-    // Query the GraphQL API with the wallet address to get more user data
-    const { users } = await gqlSdk.marketplace.getUserByWallet({ wallet });
-
-    const marketplaceUser = users.at(0);
-
-    // Graph listings for the user
-    const listings = map(
-      marketplaceUser?.listings,
-      assign({ selected: false })
-    );
-
-    const activities = compact(marketplaceUser?.activities);
-
-    const sellerIds = listings.map(get("seller.id"), toUpper);
-    const buyerIds = activities.map(get("buyer.id"), toUpper);
-
-    /** Fetch all buyers and sellers */
-    const [sellers, buyers] = await Promise.all([
-      getUserDocumentsByIds(fastify.firebase, sellerIds),
-      getUserDocumentsByIds(fastify.firebase, buyerIds),
+    // If handle is provided, we must do a profile lookup first.
+    let handleProfile;
+    if (!utils.isAddress(walletOrHandle)) {
+      handleProfile = await getProfileByHandle({
+        firebase: fastify.firebase,
+        handle: walletOrHandle,
+      });
+      // if there is no profile, we can't continue without an address
+      if (!handleProfile || !utils.isAddress(handleProfile.address)) {
+        return reply.notFound("No user profile found for given handle.");
+      }
+    }
+    const address = handleProfile?.address || walletOrHandle; // now we know we have an address
+    const [profile, user, assets] = await Promise.all([
+      handleProfile ||
+        getProfileByAddress({ firebase: fastify.firebase, address }),
+      getUserByWallet({ address, network: query.network }),
+      getHoldingsByWallet({ address, network: query.network }),
     ]);
 
-    /** Find and assign the FB User to the given listing */
-    const mapSellerToListing = (listing: Listing) => {
-      const seller = compact(sellers).find(selector("id", listing.seller.id));
-      return assign(listing, seller);
-    };
+    // TODO: user more performant util here
+    const UserProfilesMap = await getUserProfilesByIds({
+      firebase: fastify.firebase,
+      addresses: getUniqueWallets(user?.activities ?? []),
+    });
 
-    /** Find and assign the FB User to the given activity */
-    const mapSellerBuyerToActivity = (activity: Activity) => {
-      const seller = compact(buyers).find(selector("id", activity.seller?.id));
-      const buyer = compact(buyers).find(selector("id", activity.buyer?.id));
-      return merge(activity, { seller, buyer });
-    };
+    const activities =
+      user?.activities?.map((a) => {
+        // remember: not all users have profiles.
+        const buyer = !!a.buyer?.id && {
+          id: a.buyer.id,
+          handle: UserProfilesMap.get(a.buyer.id.toLowerCase())?.handle || null,
+        };
+        const seller = !!a.seller?.id && {
+          id: a.seller.id,
+          handle:
+            UserProfilesMap.get(a.seller.id.toLowerCase())?.handle || null,
+        };
+        return {
+          ...a,
+          amount: utils.formatUnits(a.amount || "0", 18),
+          price: utils.formatUnits(a.price || "0", 6),
+          previousAmount: utils.formatUnits(a.previousAmount || "0", 18),
+          previousPrice: utils.formatUnits(a.previousPrice || "0", 6),
+          buyer: buyer || null,
+          seller: seller || null,
+        };
+      }) || [];
 
-    const listingsWithSellerData = listings.map(mapSellerToListing);
-    const activitiesWithUserData = activities
-      .map(mapSellerBuyerToActivity)
-      .map(formatActivity);
+    const listings =
+      user?.listings?.map((l) => ({
+        id: l.id,
+        leftToSell: l.leftToSell,
+        tokenAddress: l.tokenAddress,
+        singleUnitPrice: l.singleUnitPrice,
+        totalAmountToSell: l.totalAmountToSell,
+      })) || [];
 
-    const { accounts } = await gqlSdk.assets.getHoldingsByWallet({ wallet });
-
-    const response: ResponseType = {
-      ...firebaseUser,
-      listings: listingsWithSellerData,
-      activities: activitiesWithUserData,
-      assets: accounts.at(0)?.holdings,
-      wallet,
+    const response: User = {
+      createdAt: profile?.createdAt || 0,
+      description: profile?.description || "", // TODO extract to nullable `profile` property.
+      handle: profile?.handle || "",
+      profileImgUrl: profile?.profileImgUrl || null,
+      updatedAt: profile?.updatedAt || 0,
+      username: profile?.username || "",
+      listings,
+      activities,
+      assets,
+      wallet: address,
     };
 
     return reply.send(response);
@@ -172,6 +105,6 @@ export default async (fastify: FastifyInstance) =>
   await fastify.route({
     method: "GET",
     url: "/users/:walletOrHandle",
-    schema,
     handler: handler(fastify),
+    schema,
   });

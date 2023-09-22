@@ -1,0 +1,33 @@
+query getProjectCredits($projectID: String!, $vintage: Int) {
+  carbonProjects(where: { projectID: $projectID }) {
+    registry
+    region
+    projectID
+    name
+    methodologies
+    id
+    country
+    category
+    carbonCredits(where: { vintage: $vintage }) {
+      vintage
+      currentSupply
+      poolBalances {
+        balance
+        id
+        deposited
+        redeemed
+        pool {
+          name
+          supply
+          id
+          decimals
+        }
+      }
+      id
+      crossChainSupply
+      bridgeProtocol
+      bridged
+      retired
+    }
+  }
+}

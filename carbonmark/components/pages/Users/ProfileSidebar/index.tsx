@@ -1,7 +1,7 @@
 import { Activities } from "components/Activities";
 import { Stats } from "components/Stats";
 import { getActiveListings, getAllListings } from "lib/listingsGetter";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { FC } from "react";
 
 type Props = {

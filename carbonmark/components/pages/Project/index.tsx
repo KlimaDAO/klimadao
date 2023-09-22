@@ -19,20 +19,16 @@ import { Vintage } from "components/Vintage";
 import { useFetchProject } from "hooks/useFetchProject";
 import { urls } from "lib/constants";
 import { formatList, formatToPrice } from "lib/formatNumbers";
-import {
-  getActiveListings,
-  getAllListings,
-  sortPricesAndListingsByBestPrice,
-} from "lib/listingsGetter";
-import { getCategoryFromProject } from "lib/projectGetter";
+import { getActiveListings, getAllListings } from "lib/listingsGetter";
+import { isCategoryName, isTokenPrice } from "lib/types/carbonmark.guard";
 import {
   CategoryName,
-  Methodology,
-  PriceFlagged,
-  ProjectBuyOption,
-  Project as ProjectType,
-} from "lib/types/carbonmark";
-import { notNil, selector } from "lib/utils/functional.utils";
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
+import { extract, notNil, selector } from "lib/utils/functional.utils";
+import { compact, concat, isEmpty, isNil, sortBy } from "lodash";
 import { NextPage } from "next";
 import { useState } from "react";
 import { SWRConfig } from "swr";
@@ -42,65 +38,60 @@ import { ProjectMap } from "./ProjectMap";
 import * as styles from "./styles";
 
 export type PageProps = {
-  project: ProjectType;
+  project: DetailedProject;
   projectID: string;
 };
-
-const isPoolPrice = (option: ProjectBuyOption): option is PriceFlagged =>
-  (option as PriceFlagged).isPoolProject !== undefined;
 
 const Page: NextPage<PageProps> = (props) => {
   const { project } = useFetchProject(props.projectID);
   const [isExpanded, setIsExpanded] = useState(false);
-  const poolPrices = project?.prices ?? [];
   const bestPrice = project?.price;
 
-  console.log(project);
-
-  // Typeguard, project should always be defined from static page props!
-  if (!project) {
+  // Project should always be defined from static page props!
+  if (isNil(project)) {
+    console.error(`Invalid project for ${props.projectID}`);
     return null;
   }
 
-  const allListings =
-    Array.isArray(project.listings) && getAllListings(project.listings);
-  const activeListings =
-    (Array.isArray(project.listings) && getActiveListings(project.listings)) ||
-    [];
+  const listings = getAllListings(project.listings);
+  const prices = compact(project?.prices);
+  const activeListings = getActiveListings(project.listings);
+  const methodologies = compact(project.methodologies);
+  const category = methodologies.at(0)?.category ?? "Other";
+  const allMethodologyIds = compact(methodologies.map(extract("id")));
+  const allMethodologyNames = compact(methodologies.map(extract("name")));
 
-  const category = getCategoryFromProject(project);
-  const allMethodologyIds = project?.methodologies?.map(({ id }) => id) || [];
-  const allMethodologyNames =
-    project?.methodologies?.map(({ name }) => name) || [];
+  if (!isCategoryName(category)) {
+    console.error(`Invalid category name: ${category}`);
+    return null;
+  }
 
-  const sortedListingsAndPrices = sortPricesAndListingsByBestPrice(
-    poolPrices,
-    activeListings
+  const pricesAndListings: (Listing | TokenPrice)[] = sortBy(
+    concat<Listing | TokenPrice>(listings, prices),
+    (x) => Number(x.singleUnitPrice)
   );
 
-  const pricesOrListings =
-    !!sortedListingsAndPrices.length &&
-    sortedListingsAndPrices.map((option, index) => {
-      if (isPoolPrice(option)) {
-        return (
-          <PoolPrice
-            key={option.singleUnitPrice + index}
-            price={option}
-            project={project}
-            isBestPrice={bestPrice === option.singleUnitPrice}
-          />
-        );
-      }
-
+  const pricesOrListings = pricesAndListings.map((element, index) => {
+    if (isTokenPrice(element)) {
       return (
-        <SellerListing
-          key={option.singleUnitPrice + index}
+        <PoolPrice
+          key={element.singleUnitPrice + index}
+          price={element}
           project={project}
-          listing={option}
-          isBestPrice={bestPrice === option.singleUnitPrice}
+          isBestPrice={bestPrice === element.singleUnitPrice}
         />
       );
-    });
+    }
+
+    return (
+      <SellerListing
+        key={element.singleUnitPrice + index}
+        project={project}
+        listing={element}
+        isBestPrice={bestPrice === element.singleUnitPrice}
+      />
+    );
+  });
   /** Match the registry key "VCS" to the correct registry */
   const registry = Object.values(REGISTRIES).find(
     selector("id", project.registry)
@@ -129,11 +120,11 @@ const Page: NextPage<PageProps> = (props) => {
               {project.registry}-{project.projectID}
             </Text>
             <Vintage vintage={project.vintage} />
-            {project?.methodologies?.length > 1 ? (
-              project.methodologies.map((methodology: Methodology, index) => (
+            {!isEmpty(methodologies) ? (
+              methodologies.map((methodology) => (
                 <Category
-                  key={`${methodology?.id}-${index}`}
-                  category={methodology?.category as CategoryName}
+                  key={methodology?.id}
+                  category={(methodology.category as CategoryName) ?? "Other"}
                 />
               ))
             ) : (
@@ -161,7 +152,7 @@ const Page: NextPage<PageProps> = (props) => {
             </Text>
             <Text t="body1" color="lighter" align="end">
               {formatList(allMethodologyIds, "narrow")}
-              {props?.project?.methodologies?.length && (
+              {project.methodologies?.length && (
                 <TextInfoTooltip
                   className={styles.infoContent}
                   align="start"
@@ -229,10 +220,10 @@ const Page: NextPage<PageProps> = (props) => {
         </div>
         <div className={styles.listingsHeader}>
           <Text t="h4">Listings</Text>
-          {sortedListingsAndPrices ? (
+          {pricesAndListings ? (
             <Text t="body1">
-              We found <strong>{sortedListingsAndPrices.length}</strong> prices
-              for this project:
+              We found <strong>{pricesAndListings.length}</strong> prices for
+              this project:
             </Text>
           ) : (
             <Text t="body1" color="default">
@@ -250,10 +241,10 @@ const Page: NextPage<PageProps> = (props) => {
               description={t`Data for this project and vintage`}
               totalSupply={project.stats.totalSupply}
               totalRetired={project.stats.totalRetired}
-              allListings={allListings || []}
-              activeListings={activeListings || []}
+              allListings={listings}
+              activeListings={activeListings}
             />
-            <Activities activities={project.activities || []} />
+            <Activities activities={project.activities} />
           </div>
         </div>
       </Layout>

@@ -2,10 +2,11 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import HistoricalPriceChart from "components/charts/HistoricalPriceChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { PricesItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 /** Historical Prices Card */
 export default function HistoricalPriceCard(props: CardProps) {
-  const configuration: SimpleChartConfiguration = [
+  const configuration: SimpleChartConfiguration<PricesItem> = [
     {
       chartOptions: {
         id: "bct_price",
@@ -49,12 +50,12 @@ export default function HistoricalPriceCard(props: CardProps) {
   ];
   const chart = (
     /* @ts-expect-error async Server component */
-    <HistoricalPriceChart configuration={configuration}></HistoricalPriceChart>
+    <HistoricalPriceChart configuration={configuration} />
   );
   return (
     <ChartCard
       {...props}
-      title={t`Historical Prices`}
+      title={t`Historical prices`}
       detailUrl="/details/price-of-digital-carbon"
       chart={chart}
     />

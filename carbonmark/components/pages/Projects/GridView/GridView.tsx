@@ -6,7 +6,7 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToPrice } from "lib/formatNumbers";
 import { getCategoryFromProject } from "lib/projectGetter";
-import { CategoryName, Methodology, Project } from "lib/types/carbonmark";
+import { CategoryName, Project } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as styles from "./styles";
@@ -43,14 +43,12 @@ export const GridView: React.FC<Props> = ({ projects }) => {
             <div className={styles.tags}>
               <Vintage vintage={project.vintage} />
               {project?.methodologies?.length > 1 ? (
-                project.methodologies.map(
-                  (methodology: Methodology, index: number) => (
-                    <Category
-                      key={`${methodology?.id}-${index}`}
-                      category={methodology?.category as CategoryName}
-                    />
-                  )
-                )
+                project.methodologies.map((methodology, index) => (
+                  <Category
+                    key={`${methodology?.id}-${index}`}
+                    category={methodology?.category as CategoryName}
+                  />
+                ))
               ) : (
                 <Category category={getCategoryFromProject(project)} />
               )}

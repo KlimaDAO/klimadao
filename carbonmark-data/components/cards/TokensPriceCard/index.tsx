@@ -12,7 +12,7 @@ export default function TokensPriceCard(props: CardProps) {
   return (
     <ChartCard
       {...props}
-      title={t`Digital Carbon Pricing`}
+      title={t`Digital carbon pricing`}
       detailUrl="/details/price-of-digital-carbon"
       detailUrlPosition="bottom"
       chart={chart}

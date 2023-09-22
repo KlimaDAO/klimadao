@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
-import { Listing, Project } from "lib/types/carbonmark";
+import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { StatsBar } from "./StatsBar";
 import { StatsListings } from "./StatsListings";
@@ -10,8 +10,8 @@ import * as styles from "./styles";
 interface Props {
   allListings?: Listing[];
   activeListings?: Listing[];
-  totalSupply?: Project["stats"]["totalSupply"];
-  totalRetired?: Project["stats"]["totalRetired"];
+  totalSupply?: DetailedProject["stats"]["totalSupply"];
+  totalRetired?: DetailedProject["stats"]["totalRetired"];
   description: string;
 }
 

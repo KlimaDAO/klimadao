@@ -1,7 +1,11 @@
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 
-export type SimpleChartConfiguration = ChartConfiguration<
+export type SimpleChartConfigurationFromType<C> = ChartConfiguration<
   object,
   object,
-  string
+  C
+>;
+
+export type SimpleChartConfiguration<C> = SimpleChartConfigurationFromType<
+  keyof C
 >;

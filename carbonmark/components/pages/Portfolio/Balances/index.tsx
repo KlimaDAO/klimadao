@@ -5,7 +5,7 @@ import { Text } from "components/Text";
 import { getUSDCBalance } from "lib/actions";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
-import { Balance } from "lib/types/carbonmark";
+import { Balance } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -13,7 +13,7 @@ import * as styles from "./styles";
 
 export const Balances: FC = () => {
   const { locale } = useRouter();
-  const { address } = useWeb3();
+  const { address, networkLabel } = useWeb3();
   const [balances, setBalances] = useState<Balance[]>([]);
 
   const updateBalance = (updatedBalance: Balance) => {
@@ -32,6 +32,7 @@ export const Balances: FC = () => {
     const usdcBalance = async () => {
       const usdc = await getUSDCBalance({
         userAddress: address,
+        network: networkLabel,
       });
 
       updateBalance({

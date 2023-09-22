@@ -2,9 +2,13 @@ import { Key } from "react";
 
 // API level Query parameters
 export const BRIDGES = ["toucan", "c3", "moss"];
+export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
+export const PROTOCOLS = ["c3t", "tco2", "mco2"];
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
+export type Chain = (typeof CHAIN)[number];
 export type Token = (typeof TOKENS)[number];
+export type Protocol = (typeof PROTOCOLS)[number];
 
 export type DateField =
   | "bridged_date"
@@ -22,7 +26,9 @@ export type Pool = "ubo" | "nbo" | "nct" | "bct";
 export interface AggregationQueryParams {
   operator?: "sum" | "cumsum";
 }
-
+export interface CarbonSupplyQueryParams {
+  chain: Chain;
+}
 export interface CreditsQueryParams {
   bridge?: Bridge;
   pool?: Pool;
@@ -30,8 +36,15 @@ export interface CreditsQueryParams {
 }
 export interface PaginationQueryParams {
   page_size?: number;
+  page?: number;
   sort_by?: string;
   sort_order?: string;
+
+  retirement_date_gt?: number;
+  retirement_date_lt?: number;
+}
+export interface CarbonMetricsQueryParams {
+  sample?: string;
 }
 // API responses
 export interface PaginatedResponse<RI> {
@@ -49,6 +62,102 @@ export interface DailyCreditsItem {
   quantity: number;
 }
 export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+
+export interface CarbonMetricsItem {
+  date: string;
+  bct_supply_polygon: number;
+  nct_supply_polygon: number;
+  mco2_supply_polygon: number;
+  ubo_supply_polygon: number;
+  nbo_supply_polygon: number;
+  bct_redeemed_polygon: number;
+  nct_redeemed_polygon: number;
+  ubo_redeemed_polygon: number;
+  nbo_redeemed_polygon: number;
+  total_carbon_supply_polygon: number;
+  mco2_retired_polygon: number;
+  tco2_retired_polygon: number;
+  c3t_retired_polygon: number;
+  total_retirements_polygon: number;
+  bct_klima_retired_polygon: number;
+  nct_klima_retired_polygon: number;
+  mco2_klima_retired_polygon: number;
+  ubo_klima_retired_polygon: number;
+  nco_klima_retired_polygon: number;
+  tco2_klima_retired_polygon: number;
+  c3t_klima_retired_polygon: number;
+  not_klima_retired_polygon: number;
+  total_klima_retirements_polygon: number;
+  mco2_supply_eth: number;
+  total_carbon_supply_eth: number;
+  mco2_retired_eth: number;
+  total_retirements_eth: number;
+  bct_supply_celo: number;
+  nct_supply_celo: number;
+  mco2_supply_celo: number;
+  total_carbon_supply_celo: number;
+  mco2_retired_celo: number;
+  total_retirements_celo: number;
+  total_retirements: number;
+}
+
+export type CarbonMetrics = PaginatedResponse<CarbonMetricsItem>;
+export interface AggregatedCreditsByProjectsItem {
+  project_type: string;
+  quantity: number;
+}
+export type AggregatedCreditsByProjects =
+  PaginatedResponse<AggregatedCreditsByProjects>;
+export interface DailyPolygonCarbonMetricsItem {
+  date: string;
+  bct_supply: number;
+  nct_supply: number;
+  mco2_supply: number;
+  ubo_supply: number;
+  nbo_supply: number;
+  bct_redeemed: number;
+  nct_redeemed: number;
+  ubo_redeemed: number;
+  nbo_redeemed: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  tco2_retired: number;
+  c3t_retired: number;
+  total_retirements: number;
+  bct_klima_retired: number;
+  nct_klima_retired: number;
+  mco2_klima_retired: number;
+  ubo_klima_retired: number;
+  nco_klima_retired: number;
+  total_klima_retirements: number;
+  tco2_klima_retired: number;
+  c3t_klima_retired: number;
+  not_klima_retired: number;
+}
+export type DailyPolygonCarbonMetrics =
+  PaginatedResponse<DailyPolygonCarbonMetricsItem>;
+
+export interface DailyEthCarbonMetricsItem {
+  date: string;
+  mco2_supply: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  total_retirements: number;
+}
+export type DailyEthCarbonMetrics =
+  PaginatedResponse<DailyEthCarbonMetricsItem>;
+
+export interface DailyCeloCarbonMetricsItem {
+  date: string;
+  bct_supply: number;
+  nct_supply: number;
+  mco2_supply: number;
+  total_carbon_supply: number;
+  mco2_retired: number;
+  total_retirements: number;
+}
+export type DailyCeloCarbonMetrics =
+  PaginatedResponse<DailyCeloCarbonMetricsItem>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -78,6 +187,55 @@ export interface TokenInfo {
   price: number;
 }
 export type TokensInfo = PaginatedResponse<TokenInfo>;
+
+export interface KlimaMonthlyRetirementsByTokenItem {
+  retirement_date: string;
+  amount_retired: number;
+  number_of_retirements: number;
+  amount_retired_bct: number;
+  number_of_retirements_bct: number;
+  amount_retired_nct: number;
+  number_of_retirements_nct: number;
+  amount_retired_ubo: number;
+  number_of_retirements_ubo: number;
+  amount_retired_mco2: number;
+  number_of_retirements_mco2: number;
+  amount_retired_nbo: number;
+  number_of_retirements_nbo: number;
+}
+export type KlimaMonthlyRetirementsBytoken =
+  PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
+
+export interface KlimaMonthlyRetirementsByOriginItem {
+  retirement_date: string;
+  amount_retired_offchain: number;
+  number_of_retirements_offchain: number;
+  amount_retired_klima: number;
+  number_of_retirements_klima: number;
+}
+export type KlimaMonthlyRetirementsByOrigin =
+  PaginatedResponse<KlimaMonthlyRetirementsByOriginItem>;
+
+export interface KlimaRetirementsByBeneficiaryItem {
+  beneficiary: string;
+  amount_retired: number;
+  number_of_retirements: number;
+}
+export type KlimaRetirementsByBeneficiary =
+  PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
+
+export interface RawRetirementsItem {
+  retirement_date: string;
+  transaction_id: string;
+  beneficiary: string;
+  project_id: string;
+  bridge: string;
+  token: string;
+  origin: string;
+  quantity: number;
+  serial_number: string;
+}
+export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
@@ -127,6 +285,14 @@ export interface AggregatedCreditsChartDataItem
 
 export type AggregatedCreditsChartData =
   ChartData<AggregatedCreditsChartDataItem>;
+
+// Chat Data: Treemaps
+export interface TreeMapItem {
+  name: string;
+  size?: number;
+  children?: TreeMapData;
+}
+export type TreeMapData = Array<TreeMapItem>;
 
 // Chart dictionnary for cards
 export type ChartDictionnary = Record<Key, React.ReactNode>;

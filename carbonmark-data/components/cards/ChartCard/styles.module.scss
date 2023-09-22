@@ -1,16 +1,24 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+
 .cardContainer {
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
   border-radius: 0.8rem;
   background-color: var(--surface-04);
-  padding: 1.2rem;
+  padding: 0 1.4rem;
+  padding-top: 1.2rem;
   display: flex;
   flex-flow: column;
   margin-bottom: 1rem;
   position: relative;
   width: 100%;
   min-width: 0;
+
+  @include desktop {
+    padding: 1.2rem 1.4rem;
+  }
 }
+
 .rowCardContainer {
   min-height: 28.4rem;
   height: 28.4rem;
@@ -25,33 +33,36 @@
 }
 
 .cardHeaderTitle {
+  white-space: nowrap;
   flex: 1 1 0;
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
 }
 
-.cardHeaderSwitcher {
+.blubb {
   flex: 1 1 0;
   display: flex;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .cardHeaderDetailsLink {
   &,
   &:hover,
   &.visited {
+    justify-self: flex-end;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
     color: var(--text-color-05);
-    flex: 1 1 0;
+    flex: 1 0;
     text-align: right;
     font-size: 1.4rem;
     text-decoration: none;
   }
-}
-
-.cardHeaderDetailsLinkArrow {
-  position: relative;
-  top: 0.5rem;
 }
 
 .cardContent {
@@ -60,9 +71,30 @@
 }
 
 .cardFooter {
-  position: absolute;
-  bottom: 0;
+  flex: 1 1 0;
+  margin-right: 1rem;
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
+
+  @include desktop {
+    margin: 0;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.cardFooterSwitcher {
+  @include desktop {
+    display: none;
+  }
+}
+
+.cardHeaderSwitcher {
+  display: none;
+  @include desktop {
+    display: block;
+  }
 }

@@ -1,0 +1,19 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+.table {
+  color: var(--text-color-01);
+}
+.desktopOnly {
+  display: none;
+
+  @include medium {
+    display: block;
+  }
+}
+
+.mobileOnly {
+  display: block;
+
+  @include medium {
+    display: none;
+  }
+}

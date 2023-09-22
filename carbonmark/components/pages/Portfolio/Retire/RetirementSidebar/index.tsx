@@ -2,7 +2,7 @@ import { Anchor } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "components/Text";
-import type { AssetForRetirement } from "lib/types/carbonmark";
+import type { AssetForRetirement } from "lib/types/carbonmark.types";
 import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import * as styles from "./styles";

@@ -1,5 +1,5 @@
 import { merge } from "lodash";
-import { GRAPH_URLS, SANITY_URLS } from "./codegen.constants";
+import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
 
 const GENERATED_DIR = "src/.generated/types";
 const GENERATED_MOCKS_DIR = "src/.generated/mocks";
@@ -53,6 +53,7 @@ const config = {
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
+    avoidOptionals: true,
   },
 };
 

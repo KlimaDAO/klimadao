@@ -23,7 +23,7 @@ export const navItems = (): Array<NavItem> => {
     {
       label: t`Off vs On-Chain`,
       icon: <Link />,
-      url: "/off_vs_on_chain",
+      url: "/off-chain-vs-on-chain",
     },
     {
       label: t`Supply`,
@@ -33,12 +33,12 @@ export const navItems = (): Array<NavItem> => {
     {
       label: t`Retirement Trends`,
       icon: <StackedLineChart />,
-      url: "/retirement_trends",
+      url: "/retirement-trends",
     },
     {
       label: t`Token Details`,
       icon: <PaidOutlined />,
-      url: "/token_details",
+      url: "/token-details",
     },
   ];
 };

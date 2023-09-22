@@ -4,6 +4,11 @@ import app from "../src/app";
 type Args = {
   allowNetworkRequest?: boolean;
 };
+let fastify: FastifyInstance;
+
+afterEach(async () => {
+  await fastify?.close();
+});
 
 /**
  * This function is used to build and prepare a Fastify instance for use.
@@ -13,7 +18,7 @@ type Args = {
  */
 export async function build(args?: Args) {
   // Create a new Fastify instance
-  let fastify: FastifyInstance = Fastify({ logger: true });
+  fastify = Fastify({ logger: false });
 
   // Register the application with the Fastify instance
   await fastify.register(app);

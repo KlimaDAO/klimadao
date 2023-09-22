@@ -1,5 +1,8 @@
+import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { currentLocale } from "lib/i18n";
 import { DateTimeFormatOptions } from "next-intl";
+import { SimpleChartConfiguration } from "./aggregators";
 import {
   AggregatedCredits,
   ChartData,
@@ -126,6 +129,44 @@ export async function prepareAggregatedChartData<
   return chartData;
 }
 
+/*
+  This function takes ChartData and transform values into percentages given a chart configuration
+  Params:
+   - fetchFunction: The function that queries the API
+  Generics:
+   - CI: Expected type of items returned in the chart data array
+   - Q: Type of the query and mapping parameters
+*/
+export function transformToPercentages<CI>(
+  data: ChartData<CI>,
+  configuration: SimpleChartConfiguration<CI>
+): ChartData<CI> {
+  data.forEach((item) => {
+    const total = configuration.reduce((prev, conf) => {
+      return prev + (item[conf.chartOptions.id] as number);
+    }, 0);
+    configuration.forEach((conf) => {
+      (item[conf.chartOptions.id] as number) =
+        (item[conf.chartOptions.id] as number) / total;
+    });
+  });
+  return data;
+}
+/** 
+  Returns chart data where there are no rows with all charted data equals 0
+*/
+export function pruneNullRows<CI>(
+  data: ChartData<CI>,
+  configuration: SimpleChartConfiguration<CI>
+): ChartData<CI> {
+  return data.filter((item) => {
+    return configuration.some((conf) => {
+      const value = item[conf.chartOptions.id];
+      return Number(value) != 0;
+    });
+  });
+}
+
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
   quantity: number
@@ -159,10 +200,27 @@ function formatDate(
     return formatted_date.toLocaleDateString(locale, format);
   };
 }
+function formatTime(): (date: number) => string {
+  return function (date: number): string {
+    const formatted_date = new Date(date);
+    return formatted_date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+}
 
 export function formatDateAsMonths(locale: string): (date: number) => string {
   return formatDate(locale, {
     year: "numeric",
+    month: "short",
+  });
+}
+export function formatDateAsMonthsShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    year: "2-digit",
     month: "short",
   });
 }
@@ -171,6 +229,46 @@ export function formatDateAsDays(locale: string): (date: number) => string {
     day: "numeric",
     year: "numeric",
     month: "short",
+  });
+}
+export function formatDateAsDaysShort(
+  locale: string
+): (date: number) => string {
+  return formatDate(locale, {
+    day: "numeric",
+    year: "numeric",
+    month: "numeric",
+  });
+}
+export function formatDateAndTime(locale: string): (date: number) => string {
+  return function (date: number): string {
+    const day = formatDateAsDays(locale)(date);
+    const time = formatTime()(date);
+    return `${day} ${time}`;
+  };
+}
+
+export function formatPercentage(params: {
+  value: number;
+  fractionDigits?: number;
+}): string {
+  const fractionDigits =
+    params.fractionDigits !== undefined ? params.fractionDigits : 2;
+  return `${(params.value * 100).toFixed(fractionDigits)}%`;
+}
+
+/** A wrapper around lib's genericFormatTonnes that uses the current locale */
+export function formatTonnes(params: {
+  amount: number;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+}): string {
+  const locale = currentLocale();
+  return genericFormatTonnes({
+    amount: String(params.amount),
+    locale,
+    minimumFractionDigits: params.minimumFractionDigits,
+    maximumFractionDigits: params.maximumFractionDigits,
   });
 }
 
@@ -204,14 +302,18 @@ export function getDataChartMax<T>(
     return Math.max(accumulator, localMax);
   }, 0);
 }
-
 const helpers = {
+  formatDateAndTime,
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
   formatQuantityAsTons,
   formatPrice,
+  formatPercentage,
+  formatTonnes,
   formatDateAsMonths,
+  formatDateAsMonthsShort,
   formatDateAsDays,
+  formatDateAsDaysShort,
   prepareDailyChartData,
   niceTicks,
   getDataChartMax,

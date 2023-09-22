@@ -45,6 +45,7 @@ export interface ConnectModalProps {
   /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
   showModal: boolean;
+  showMumbaiOption?: boolean;
 }
 
 type WindowEthereum = providers.ExternalProvider & {
@@ -60,6 +61,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
   const [errorName, setErrorName] = useState<
     "default" | "rejected" | "alreadyProcessing" | undefined
   >();
+  const [isMumbai, setIsMumbai] = useState(false);
 
   useEffect(() => {
     if (window) setEth((window as any).ethereum as WindowEthereum);
@@ -82,19 +84,26 @@ export const ConnectModal = (props: ConnectModalProps) => {
   useScrollLock(props.showModal);
 
   const handleConnect = async (params: {
-    wallet: "coinbase" | "torus" | "walletConnect" | "injected";
+    wallet:
+      | "coinbase"
+      | "torus"
+      | "torus-mumbai"
+      | "walletConnect"
+      | "injected";
   }) => {
     try {
-      if (!params.wallet) return;
+      if (!params.wallet || !connect) return;
       setStep("loading");
-      if (params.wallet === "injected" && connect) {
+      if (params.wallet === "injected") {
         await connect("injected");
-      } else if (params.wallet === "coinbase" && connect) {
+      } else if (params.wallet === "coinbase") {
         await connect("coinbase");
-      } else if (params.wallet === "walletConnect" && connect) {
+      } else if (params.wallet === "walletConnect") {
         await connect("walletConnect");
-      } else if (params.wallet === "torus" && connect) {
+      } else if (params.wallet === "torus") {
         await connect("torus");
+      } else if (params.wallet === "torus-mumbai") {
+        await connect("torus-mumbai");
       }
       toggleModal();
       setStep("connect");
@@ -139,9 +148,22 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 <p className={styles.subText}>{props.torusText}</p>
                 <div className={styles.rightLine} />
               </span>
+              {props.showMumbaiOption && (
+                <div className={styles.checkboxContainer}>
+                  <input
+                    type="checkbox"
+                    id="mumbai"
+                    onChange={() => setIsMumbai((s) => !s)}
+                    checked={isMumbai}
+                  />
+                  <label htmlFor="mumbai">Use Mumbai Torus</label>
+                </div>
+              )}
               <button
                 className={styles.torusButtons}
-                onClick={() => handleConnect({ wallet: "torus" })}
+                onClick={() =>
+                  handleConnect({ wallet: isMumbai ? "torus-mumbai" : "torus" })
+                }
               >
                 <span className={styles.buttonBackground}>
                   <TwitterIcon className={styles.twitter} />

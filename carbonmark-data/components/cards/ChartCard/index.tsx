@@ -48,11 +48,7 @@ export default function ChartCard(props: {
   if (props.detailUrl && !isDetailPage) {
     detailUrlComponent = (
       <Link className={styles.cardHeaderDetailsLink} href={props.detailUrl}>
-        Details{" "}
-        <ArrowForward
-          fontSize="small"
-          className={styles.cardHeaderDetailsLinkArrow}
-        />
+        Details <ArrowForward fontSize="small" />
       </Link>
     );
   } else {
@@ -106,11 +102,19 @@ export default function ChartCard(props: {
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
       </div>
       <div className={styles.cardFooter}>
+        {props.topOptions && (
+          <div className={styles.cardFooterSwitcher}>
+            <OptionsSwitcher
+              options={props.topOptions}
+              onSelectionChange={setTopOptionKey}
+            ></OptionsSwitcher>
+          </div>
+        )}
         {props.bottomOptions && (
           <OptionsSwitcher
             options={props.bottomOptions}
             onSelectionChange={setBottomOptionKey}
-          ></OptionsSwitcher>
+          />
         )}
       </div>
       {bottomDetailUrlComponent}

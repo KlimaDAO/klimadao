@@ -1,4 +1,4 @@
-import { utils } from "ethers";
+import { verifyMessage } from "ethers-v6";
 import { verifyGnosisSignature } from ".";
 
 interface Params {
@@ -13,7 +13,7 @@ export const decodeSignerAddress = (params: {
   signature: string;
   expectedMessage: string;
 }): string => {
-  const decodedAddress = utils.verifyMessage(
+  const decodedAddress = verifyMessage(
     params.expectedMessage, // expected signed string and expected nonce e.g. "sign pledge 0123145181"
     params.signature // actual signature, which can be either 1. pledge owner, 2. secondary wallet 3. random wallet trying to hack us
   );

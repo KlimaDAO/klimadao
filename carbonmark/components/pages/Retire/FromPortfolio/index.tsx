@@ -5,7 +5,7 @@ import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import { AssetForListing } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark.types";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import * as styles from "./styles";

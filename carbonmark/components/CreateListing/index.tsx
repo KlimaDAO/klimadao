@@ -12,7 +12,7 @@ import {
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing } from "lib/types/carbonmark";
+import { AssetForListing } from "lib/types/carbonmark.types";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";

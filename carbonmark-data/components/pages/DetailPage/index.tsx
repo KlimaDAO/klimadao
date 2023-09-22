@@ -1,4 +1,5 @@
 import { t } from "@lingui/macro";
+import { PageHeader } from "components/PageHeader/PageHeader";
 import styles from "./styles.module.scss";
 
 /**
@@ -6,7 +7,7 @@ import styles from "./styles.module.scss";
  */
 export default function DetailPage(props: {
   card: React.ReactNode | Promise<React.ReactNode>;
-  pageTitle: string;
+  pageTitle?: string;
   overview: string;
   insights?: {
     content: string;
@@ -15,7 +16,9 @@ export default function DetailPage(props: {
 }) {
   return (
     <div>
-      <h1>{props.pageTitle}</h1>
+      {props.pageTitle && (
+        <PageHeader title={props.pageTitle} showBackButton={true} />
+      )}
       {props.card}
       <div className={styles.text}>
         <div>
