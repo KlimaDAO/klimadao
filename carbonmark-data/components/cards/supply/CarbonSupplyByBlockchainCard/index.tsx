@@ -3,8 +3,9 @@ import { palette } from "theme/palette";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import KPieChart from "components/charts/helpers/KPieChart";
-import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
-import { queryAggregatedCredits } from "lib/charts/queries";
+import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { getLatestCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
+import { CarbonMetricsItem } from "lib/charts/types";
 
 export default function CarbonSupplyByBlockChainCard(props: CardProps) {
   const chart = (
@@ -24,22 +25,10 @@ export default function CarbonSupplyByBlockChainCard(props: CardProps) {
 
 /** Async server component that renders a Recharts client component */
 async function CarbonSupplyByBlockChainChart() {
-  const polygon = (
-    await queryAggregatedCredits({ bridge: "polygon", status: "bridged" })
-  ).quantity;
-  const eth = (
-    await queryAggregatedCredits({ bridge: "eth", status: "bridged" })
-  ).quantity;
-  const celo = (
-    await queryAggregatedCredits({ bridge: "celo", status: "bridged" })
-  ).quantity;
-
-  const configuration: SimpleChartConfigurationFromType<
-    "polygon" | "eth" | "celo"
-  > = [
+  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
-        id: "polygon",
+        id: "total_carbon_supply_polygon",
         label: t`Polygon`,
         color: palette.charts.color1,
         legendOrder: 1,
@@ -47,7 +36,7 @@ async function CarbonSupplyByBlockChainChart() {
     },
     {
       chartOptions: {
-        id: "eth",
+        id: "total_carbon_supply_eth",
         label: t`Ethereum`,
         color: palette.charts.color3,
         legendOrder: 2,
@@ -55,25 +44,27 @@ async function CarbonSupplyByBlockChainChart() {
     },
     {
       chartOptions: {
-        id: "celo",
+        id: "total_carbon_supply_celo",
         label: t`Celo`,
         color: palette.charts.color5,
         legendOrder: 3,
       },
     },
   ];
+  const metrics = await getLatestCarbonMetrics();
+
   const data = [
     {
-      quantity: polygon,
-      id: "polygon",
+      quantity: metrics.total_carbon_supply_polygon,
+      id: "total_carbon_supply_polygon",
     },
     {
-      quantity: eth,
-      id: "eth",
+      quantity: metrics.total_carbon_supply_eth,
+      id: "total_carbon_supply_eth",
     },
     {
-      quantity: celo,
-      id: "celo",
+      quantity: metrics.total_carbon_supply_celo,
+      id: "total_carbon_supply_celo",
     },
   ];
   return <KPieChart data={data} configuration={configuration} />;
