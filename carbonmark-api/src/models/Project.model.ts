@@ -17,7 +17,6 @@ export const ProjectModel = Type.Object({
   projectAddress: Type.String(),
   registry: Type.String(),
   updatedAt: Type.String(),
-  category: Type.Object({ id: Type.String() }),
   country: Type.Object({ id: Type.String() }),
   price: Type.String(),
   listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
@@ -29,9 +28,6 @@ export const ProjectModel = Type.Object({
       })
     )
   ),
-  /** THE FOLLOWING FIELDS ARE TO BE DEPRECATED */
-  id: Type.String({ description: "Deprecated in favor of projectAddress" }),
-  isPoolProject: Type.Optional(Type.Boolean()),
 });
 
 export type Project = Static<typeof ProjectModel>;

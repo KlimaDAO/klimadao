@@ -1,4 +1,5 @@
 import { Type } from "@sinclair/typebox";
+import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { UserModel } from "../../models/User.model";
 
 export const Params = Type.Object(
@@ -12,13 +13,7 @@ export const Params = Type.Object(
 );
 
 export const QueryString = Type.Object({
-  type: Type.Optional(
-    Type.Union([Type.Literal("wallet"), Type.Literal("handle")], {
-      description:
-        "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter",
-      examples: ["wallet", "handle"],
-    })
-  ),
+  network: Type.Optional(NetworkParamModel),
 });
 
 export const schema = {

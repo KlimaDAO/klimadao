@@ -21,17 +21,6 @@ type TabParam = {
 };
 export type TabParams = Array<TabParam>;
 
-function TypedTabPanel(props: {
-  tab: string;
-  children: ReactNode;
-  className: string;
-}) {
-  return (
-    <TabPanel value={props.tab} className={props.className}>
-      {props.children}
-    </TabPanel>
-  );
-}
 export default function PageWithTabs(props: {
   title: string;
   tabs: TabParams;
@@ -144,7 +133,7 @@ export default function PageWithTabs(props: {
         {props.tabs.map(
           (tab, tabIndex) =>
             tabsDynamicOptionsList[tabIndex] && (
-              <TypedTabPanel tab={tab.key} className={styles.noPadding}>
+              <TabPanel value={tab.key} className={styles.noPadding}>
                 {tabsDynamicOptionsList[tabIndex].map(
                   (options, widgetIndex) => (
                     <OptionsSwitcher
@@ -154,14 +143,14 @@ export default function PageWithTabs(props: {
                     />
                   )
                 )}
-              </TypedTabPanel>
+              </TabPanel>
             )
         )}
 
         {props.tabs.map((tab, tabIndex) => (
-          <TypedTabPanel tab={tab.key} className={styles.noPadding}>
+          <TabPanel value={tab.key} className={styles.noPadding}>
             {displayedTab(tabIndex)}
-          </TypedTabPanel>
+          </TabPanel>
         ))}
       </TabContext>
     </>

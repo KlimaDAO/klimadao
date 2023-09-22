@@ -59,6 +59,9 @@ export interface PaginationQueryParams {
 export interface CarbonMetricsQueryParams {
   sample?: string;
 }
+export interface CarbonMetricsQueryParams {
+  sample?: string;
+}
 
 // API responses
 export interface PaginatedResponse<RI> {

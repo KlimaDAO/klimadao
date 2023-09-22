@@ -1,16 +1,5 @@
-import { merge } from "lodash";
 import { Listing } from "../.generated/types/marketplace.types";
-import { FirebaseInstance } from "../plugins/firebase";
-import { getFirebaseUser } from "./firebase.utils";
 import { notNil } from "./functional.utils";
-
-export const updateListingUser =
-  (fb: FirebaseInstance) => async (listing: Partial<Listing>) => {
-    const sellerId = listing.seller?.id.toUpperCase();
-    const { data } = await getFirebaseUser(sellerId, fb);
-    const seller = merge({ ...data() }, listing.seller);
-    return { ...listing, seller };
-  };
 
 export const isListingActive = (listing: Partial<Listing>) =>
   notNil(listing.leftToSell) &&

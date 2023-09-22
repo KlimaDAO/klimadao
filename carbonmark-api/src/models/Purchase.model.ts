@@ -11,18 +11,6 @@ export const PurchaseModel = Type.Object({
     description: "Stringified 18 decimal BigNumber",
     examples: ["1000000000000000000"],
   }),
-  buyer: Type.Object({
-    id: Type.String({
-      description: "Address of the buyer",
-      examples: ["0xAAA699f2098ac92c2f4914979fcb22aba86d259"],
-    }),
-  }),
-  seller: Type.Object({
-    id: Type.String({
-      description: "Address of the seller",
-      examples: ["0xBBB699f2098ac92c2f4914979fcb22aba86d259"],
-    }),
-  }),
   listing: Type.Object({
     id: Type.String({
       description: "ID of the listing that was purchased",
