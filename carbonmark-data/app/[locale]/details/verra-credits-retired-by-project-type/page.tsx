@@ -4,7 +4,7 @@ import DetailPage from "components/pages/DetailPage";
 export default function VerraCreditsRetiredByProjectTypePage() {
   return (
     <DetailPage
-      pageTitle={t`Credits Retired by Project Type`}
+      pageTitle={t`Credits retired by project type`}
       card={<></>}
       overview={t`Lorem Ipsum`}
     />
