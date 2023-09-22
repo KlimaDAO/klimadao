@@ -1,498 +1,433 @@
 {
-	"info": {
-		"_postman_id": "4eea85ed-1464-4a25-bd36-56b3b6ff5f2c",
-		"name": "carbonmark-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "275500"
-	},
-	"item": [
-		{
-			"name": "getCategories",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/categories",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"categories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getCountries",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/countries",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"countries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getVintages",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/vintages",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"vintages"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getPurchases",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/purchases/:purchaseId",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"purchases",
-						":purchaseId"
-					],
-					"variable": [
-						{
-							"key": "purchaseId",
-							"value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjects",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/projects",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"projects"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjectsSearch",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/projects?search=Dayingjiang&vintage=2008",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"projects"
-					],
-					"query": [
-						{
-							"key": "search",
-							"value": "Dayingjiang"
-						},
-						{
-							"key": "vintage",
-							"value": "2008"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjectById",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/projects/:id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"projects",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "VCS-191-2008"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getUserByWallet",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/users/:walletid?type=wallet",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						":walletid"
-					],
-					"query": [
-						{
-							"key": "type",
-							"value": "wallet"
-						}
-					],
-					"variable": [
-						{
-							"key": "walletid",
-							"value": "0X4E78011CE80EE02D2C3E649FB657E45898257815"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getUserByHandle",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Status code is 200', function () {",
-							"        pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/users/:handle",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						":handle"
-					],
-					"query": [
-						{
-							"key": "type",
-							"value": "wallet",
-							"disabled": true
-						}
-					],
-					"variable": [
-						{
-							"key": "handle",
-							"value": "emc"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addUser",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-							"  postman.setNextRequest(null);",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"handle\": \"testHandle\",\n    \"username\": \"testUsername\",\n    \"description\": \"test description\",\n    \"wallet\": \"\",\n    \"profileImgUrl\":\"\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/users",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "loginUser",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-							"  postman.setNextRequest(null);",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"wallet\":\"{{wallet}}\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/users/login",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verifyUser",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
-							"  postman.setNextRequest(null);",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"wallet\":\"{{wallet}}\",\n  \"signature\":\"{{signature}}\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/users/login/verify",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						"login",
-						"verify"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	]
+  "info": {
+    "_postman_id": "4eea85ed-1464-4a25-bd36-56b3b6ff5f2c",
+    "name": "carbonmark-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "275500"
+  },
+  "item": [
+    {
+      "name": "getCategories",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/categories",
+          "host": ["{{url}}"],
+          "path": ["categories"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getCountries",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/countries",
+          "host": ["{{url}}"],
+          "path": ["countries"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getVintages",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/vintages",
+          "host": ["{{url}}"],
+          "path": ["vintages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getPurchases",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/purchases/:purchaseId",
+          "host": ["{{url}}"],
+          "path": ["purchases", ":purchaseId"],
+          "variable": [
+            {
+              "key": "purchaseId",
+              "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjects",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects",
+          "host": ["{{url}}"],
+          "path": ["projects"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectsSearch",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects?search=Dayingjiang&vintage=2008",
+          "host": ["{{url}}"],
+          "path": ["projects"],
+          "query": [
+            {
+              "key": "search",
+              "value": "Dayingjiang"
+            },
+            {
+              "key": "vintage",
+              "value": "2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectById",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects/:id",
+          "host": ["{{url}}"],
+          "path": ["projects", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "VCS-191-2008"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getUserByWallet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/users/:walletid?type=wallet",
+          "host": ["{{url}}"],
+          "path": ["users", ":walletid"],
+          "query": [
+            {
+              "key": "type",
+              "value": "wallet"
+            }
+          ],
+          "variable": [
+            {
+              "key": "walletid",
+              "value": "0X4E78011CE80EE02D2C3E649FB657E45898257815"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getUserByHandle",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/users/:handle",
+          "host": ["{{url}}"],
+          "path": ["users", ":handle"],
+          "query": [
+            {
+              "key": "type",
+              "value": "wallet",
+              "disabled": true
+            }
+          ],
+          "variable": [
+            {
+              "key": "handle",
+              "value": "emc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "addUser",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+              "  postman.setNextRequest(null);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"handle\": \"testHandle\",\n    \"username\": \"testUsername\",\n    \"description\": \"test description\",\n    \"wallet\": \"\",\n    \"profileImgUrl\":\"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/users",
+          "host": ["{{url}}"],
+          "path": ["users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "loginUser",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+              "  postman.setNextRequest(null);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"wallet\":\"{{wallet}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/users/login",
+          "host": ["{{url}}"],
+          "path": ["users", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "verifyUser",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.environment.get(\"SKIP_MUTATIONS\") === \"true\") {",
+              "  postman.setNextRequest(null);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"wallet\":\"{{wallet}}\",\n  \"signature\":\"{{signature}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/users/login/verify",
+          "host": ["{{url}}"],
+          "path": ["users", "login", "verify"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
 }
