@@ -16,7 +16,6 @@ export default function SupplyPage() {
         <PageHeader title={t`Supply`} />
       </>
       <div className={layout.cardStackedRows}>
-        <div></div>
         <div className={layout.cardRow}>
           <CarbonSupplyQuickFactsCard />
           <CarbonSupplyByBlockChainCard />

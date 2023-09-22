@@ -17,7 +17,7 @@ import {
   KlimaTooltip,
   KlimaXAxisMonthlyProps,
   KlimaYAxisTonsProps,
-} from "../helpers";
+} from "../../helpers";
 
 interface Props {
   data: ChartData<CarbonMetricsItem>;

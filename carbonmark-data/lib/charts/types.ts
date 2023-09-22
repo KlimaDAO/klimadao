@@ -110,6 +110,9 @@ export interface CarbonMetricsItem {
   total_carbon_supply_celo: number;
   mco2_retired_celo: number;
   total_retirements_celo: number;
+  total_toucan_supply: number;
+  total_c3_supply: number;
+  total_moss_supply: number;
   total_retirements: number;
 }
 

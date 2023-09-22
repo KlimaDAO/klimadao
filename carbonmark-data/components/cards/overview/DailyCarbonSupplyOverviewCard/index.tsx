@@ -9,7 +9,7 @@ import { getChainsOptions } from "lib/charts/options";
 import { NodeDictionnary } from "lib/charts/types";
 
 /** Verra Credits Card */
-export default function DailyCarbonSupplyCard(props: CardProps) {
+export default function DailyCarbonSupplyOverviewCard(props: CardProps) {
   const charts: NodeDictionnary = {
     /* @ts-expect-error async Server component */
     polygon: <DailyPolygonCarbonSupplyChart />,

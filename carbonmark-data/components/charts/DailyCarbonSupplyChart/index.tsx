@@ -1,8 +1,7 @@
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
-import { getCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
-import Chart from "./Chart";
+import { DailyCarbonSupplyChart } from "../helpers/DailyCarbonSupplyChart";
 
 /** Polygon carbon Supply chart */
 export async function DailyPolygonCarbonSupplyChart() {
@@ -48,8 +47,8 @@ export async function DailyPolygonCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
 /** Eth carbon Supply chart */
@@ -64,8 +63,8 @@ export async function DailyEthCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
 /** Celo carbon Supply chart */
@@ -96,6 +95,6 @@ export async function DailyCeloCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }

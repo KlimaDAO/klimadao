@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import DailyVerraCreditsCard from "components/cards/DailyCreditsCard";
+import DailyVerraCreditsCard from "components/cards/overview/DailyCreditsCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function VerraCreditsOverTimePage() {
