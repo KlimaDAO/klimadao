@@ -42,15 +42,11 @@ jobs:
           name=$(git --no-pager tag --sort=creatordate --merged ${{ github.ref_name }} | grep '^carbonmark-api/' | tail -2 | head -1)
           echo "previousTag=$name" >> $GITHUB_ENV
 
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4
-        with:
-          fromTag: "${{ env.previousTag }}"
-          toTag: "${{ github.ref_name }}"
-          path: "carbonmark-api"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          RELEASE_NOTES=$(git log ${{ env.previousTag }}..${{ github.ref_name }} --pretty=format:"- %s (%an, %cd)" -- carbonmark-api)
+          echo "::set-output name=body::$RELEASE_NOTES"
 
       - name: Display Changelog
-        run: echo "${{ steps.build_changelog.outputs.changelog }}"
+        run: echo "${{ steps.release_notes.outputs.body }}"
