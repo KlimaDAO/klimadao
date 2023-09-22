@@ -38,7 +38,7 @@ export function getChartConfiguration(props: TokenDetailsProps) {
       },
     });
   }
-  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
+  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "nbo")) {
     configuration.push({
       chartOptions: {
         id: "nbo_quantity",

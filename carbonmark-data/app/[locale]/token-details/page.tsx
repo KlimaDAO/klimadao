@@ -16,6 +16,7 @@ export default function TokenDetailsPage() {
   const c3Contents: NodeDictionnary = {};
   const toucanContents: NodeDictionnary = {};
   const mossContents: NodeDictionnary = {};
+
   getDateFilteringOptions().forEach((date) => {
     getPoolStatusOptions().forEach((status) => {
       getToucanPoolsOptions().forEach((pool) => {
@@ -28,6 +29,10 @@ export default function TokenDetailsPage() {
               since={date.value}
             />
           );
+        }
+      });
+      getC3PoolsOptions().forEach((pool) => {
+        if (pool.value == "all" || status.value == "bridged") {
           c3Contents[`${pool.value}|${date.value}|${status.value}`] = (
             <TokenDetailsTab
               bridge="c3"
@@ -48,6 +53,7 @@ export default function TokenDetailsPage() {
       />
     );
   });
+
   return (
     <PageWithTabs
       title={t`Token details`}
