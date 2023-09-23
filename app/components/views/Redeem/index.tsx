@@ -462,7 +462,7 @@ export const Redeem = (props: Props) => {
                 </TextInfoTooltip>
               </div>
             }
-            amount={getApprovalValue()}
+            amount={cost}
             icon={tokenInfo[paymentMethod].icon}
             name={paymentMethod}
             loading={cost === "loading"}
