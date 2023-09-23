@@ -863,7 +863,7 @@ export const Offset = (props: Props) => {
                   </TextInfoTooltip>
                 </div>
               }
-              amount={getApprovalValue()}
+              amount={cost}
               icon={costIcon}
               name={paymentMethod}
               loading={cost === "loading"}
