@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts && tsc --noEmit",
     "start:test": "npm run build && fastify start -l info dist/app.js --port 3003",
     "test:postman": "./postman_tests.sh",
-    "generate:types": "tsnd ./src/graphql/codegen.ts"
+    "generate:types": "rm -rf ./.generated/types && rm -rf ./.generated/mocks && graphql-codegen --config src/graphql/codegen.ts"
   },
   "keywords": [],
   "author": "",
@@ -44,7 +44,6 @@
     "@graphql-codegen/typescript": "3.0.4",
     "@graphql-codegen/typescript-graphql-request": "^5.0.0",
     "@graphql-codegen/typescript-operations": "^3.0.4",
-    "@types/inquirer": "^9.0.3",
     "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.0.0",
@@ -57,7 +56,6 @@
     "fastify-cli": "^5.7.1",
     "fastify-tsconfig": "^1.0.1",
     "graphql-codegen-typescript-mock-data": "^3.5.0",
-    "inquirer": "^8.2.6",
     "jest": "^29.6.1",
     "lodash": "^4.17.21",
     "newman": "^5.3.2",
