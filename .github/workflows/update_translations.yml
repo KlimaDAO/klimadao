@@ -28,7 +28,7 @@ jobs:
       ACTOR: ${{ secrets.PUSH_ACTOR }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PUSH_ACTOR_TOKEN }}
           ref: ${{ inputs.branch }}
