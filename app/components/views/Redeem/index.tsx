@@ -24,7 +24,7 @@ import { TransactionModal } from "components/TransactionModal";
 import { SelectiveRetirement } from "components/views/Offset/SelectiveRetirement";
 import { CarbonProject } from "components/views/Offset/SelectiveRetirement/queryProjectDetails";
 import { providers } from "ethers";
-import { isAddress } from "ethers-v6";
+import { isAddress, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import {
   RedeemPaymentMethod,
@@ -159,9 +159,8 @@ export const Redeem = (props: Props) => {
     if (paymentMethod === projectTokenAddress) {
       return cost;
     }
-    const onePercent = utils
-      .parseUnits(cost, getTokenDecimals(paymentMethod))
-      .div("100");
+    const onePercent =
+      BigInt(parseUnits(cost, getTokenDecimals(paymentMethod))) / BigInt("100");
     return safeAdd(
       cost,
       formatUnits(onePercent, getTokenDecimals(paymentMethod))
