@@ -1,9 +1,8 @@
-import RetirementTrendsPage from "components/pages/RetirementTrendsPage";
-import RetirementTrendsByBeneficiaryTab from "components/tabs/RetirementTrendsByBeneficiaryTab";
-import RetirementTrendsByChainTab from "components/tabs/RetirementTrendsByChainTab";
-import RetirementTrendsByPoolTab from "components/tabs/RetirementTrendsByPoolTab";
-import RetirementTrendsByTokenTab from "components/tabs/RetirementTrendsByTokenTab";
-
+import RetirementTrendsByBeneficiaryTab from "components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab";
+import RetirementTrendsByChainTab from "components/pages/retirementTrends/RetirementTrendsByChainTab";
+import RetirementTrendsByPoolTab from "components/pages/retirementTrends/RetirementTrendsByPoolTab";
+import RetirementTrendsByTokenTab from "components/pages/retirementTrends/RetirementTrendsByTokenTab";
+import RetirementTrendsPage from "components/pages/retirementTrends/RetirementTrendsPage";
 /** Retirement Trends Page
  * Uses a Client Component (RetirementTrendsPage) to handle tab navigation
  * Tabs are actually Components rendered Server side passed to the Client Component as props

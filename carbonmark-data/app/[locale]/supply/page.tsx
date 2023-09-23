@@ -1,9 +1,10 @@
 import { t } from "@lingui/macro";
+import { PageHeader } from "components/PageHeader/PageHeader";
 
 export default function SupplyPage() {
   return (
-    <div>
-      <h1>{t`Supply`}</h1>
-    </div>
+    <>
+      <PageHeader title={t`Supply`} />
+    </>
   );
 }

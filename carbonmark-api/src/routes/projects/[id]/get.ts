@@ -3,21 +3,20 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
-import { NetworkParam } from "../../../models/NetworkParam.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
 import { toGeoJSON } from "../get.utils";
-import { Params, schema } from "./get.schema";
+import { schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
-      Querystring: { network: NetworkParam };
-      Params: Static<typeof Params>;
+      Params: Static<typeof schema.params>;
+      Querystring: Static<typeof schema.querystring>;
     }>,
     reply: FastifyReply
   ) {
@@ -75,7 +74,6 @@ const handler = (fastify: FastifyInstance) =>
       location: toGeoJSON(projectDetails.geolocation),
       price: String(bestPrice ?? 0), // remove trailing zeros
       prices: poolPrices,
-      isPoolProject: !!poolPrices.length,
       images:
         projectDetails?.images?.map((image) => ({
           caption: image?.asset?.altText,

@@ -2,6 +2,7 @@
 export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 
 const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
+const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 
 /** Graph URLS */
 /** Note: the keys of the below objects are used when selecting gql files for type generation */
@@ -14,7 +15,8 @@ export const GRAPH_URLS = {
     digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
   },
   mumbai: {
-    marketplace: `${GRAPH_API_ROOT}/cujowolf/carbonmark-mumbai`,
+    // v0.0.2 - https://github.com/KlimaDAO/klima-subgraph/releases/
+    marketplace: `${GRAPH_API_ROOT_ID}/QmYaSLxLhoqekxuip14HyEKXFuW9DQZE8CndFrHGHyeoB8`,
     assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
     offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
     tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
@@ -49,4 +51,8 @@ export const TOKEN_ADDRESSES = {
     NTC_POOL: "0xd838290e877e0188a4a44700463419ed96c16107",
     BTC_POOL: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   },
+};
+
+export const RPC_URLS = {
+  polygonTestnetRpc: "https://rpc-mumbai.maticvigil.com",
 };

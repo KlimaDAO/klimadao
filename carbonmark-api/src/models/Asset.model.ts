@@ -5,7 +5,7 @@ export const AssetModel = Type.Object({
   token: Type.Object({
     id: Type.String(),
     name: Type.String(),
-    symbol: Type.String({ pattern: "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$" }),
+    symbol: Type.String(),
     decimals: Type.Number(),
   }),
   amount: Type.String(),

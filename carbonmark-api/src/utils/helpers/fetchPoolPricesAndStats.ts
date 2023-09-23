@@ -1,4 +1,5 @@
 import { get } from "lodash";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { TokenPriceT } from "../../models/TokenPrice.model";
 import { GQL_SDK } from "../gqlSdk";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
@@ -7,6 +8,7 @@ import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
 type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
+  network?: NetworkParam;
 };
 
 /**
@@ -18,6 +20,9 @@ export const fetchPoolPricesAndStats = async (
   sdk: GQL_SDK,
   params: Params
 ): Promise<[TokenPriceT[], Stats]> => {
+  if (params.network !== "polygon") {
+    return [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
+  }
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
     fetchProjectPoolInfo(sdk, {
       projectID: params.key,
