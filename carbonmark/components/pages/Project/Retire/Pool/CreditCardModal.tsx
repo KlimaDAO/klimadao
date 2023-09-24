@@ -23,7 +23,7 @@ export const CreditCardModal: FC<Props> = (props) => {
       onToggleModal={props.onCancel}
     >
       <div className={styles.confirmCreditCard}>
-        {!props.isRedirecting && (
+        {!props.isRedirecting && !props.checkoutError && (
           <>
             <Text>
               <Trans>
@@ -35,18 +35,10 @@ export const CreditCardModal: FC<Props> = (props) => {
             <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
           </>
         )}
-
         {props.isRedirecting && (
           <div className={styles.spinnerWrap}>
             <Spinner />
           </div>
-        )}
-
-        {!!props.checkoutError && (
-          <>
-            <Text>{props.checkoutError}</Text>
-            <CarbonmarkButton onClick={props.onCancel} label={t`Go back`} />
-          </>
         )}
       </div>
     </Modal>

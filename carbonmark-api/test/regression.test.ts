@@ -4,8 +4,9 @@ import { isArray, isObject, mapValues, sortBy } from "lodash";
 import { curry, map } from "lodash/fp";
 import fetch from "node-fetch";
 import { build } from "./helper";
-const DEV_URL = "http://localhost:3003/api";
-const PRODUCTION_URL = "https://api.carbonmark.com/api";
+const DEV_URL = "http://localhost:3003";
+// const STAGING_URL = "https://staging-api.carbonmark.com";
+const PRODUCTION_URL = "https://api.carbonmark.com";
 
 // A longer than usual timeout because the APIs are slooow
 const TIMEOUT = 1000 * 100;

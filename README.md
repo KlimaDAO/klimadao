@@ -11,6 +11,8 @@ The backend Node.js web-service and smart contracts are located in separate repo
 
 `@klimadao/carbonmark-api` -> A [Fastify](https://www.fastify.io/) API acting as a Backend-for-Frontend for Carbonmark
 
+`@klimadao/carbonmark-data` -> carbon.klimadao.finance site
+
 `@klimadao/cms` -> A Sanity CMS that powers our blog, deployed to [klimadao.sanity.studio](https://klimadao.sanity.studio). NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder.
 
 `@klimadao/lib` -> Components and utilities that are shared between packages.
@@ -48,6 +50,15 @@ Other scripts you should know about:
 - `npm run build-all`: build all workspaces.
 - `npm run format-all`: Format all files with `prettier`.
 - `npm run extract-strings:dev`: Extract translation files for the source language "en".
+
+## Type Generation
+Typescript types for Carbonmark and Carbonmark API are generated via the `generate:types` script in each respective project. 
+
+Regenerate types in any of the following changes:
+
+1. Models in the API  (.model files)
+2. Change to any of the dependant subgraphs (see `codegen.constants.ts`)
+3. API Version targeted by Carbonmark
 
 ## Translations
 

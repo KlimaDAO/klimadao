@@ -1,7 +1,7 @@
 import { urls } from "@klimadao/lib/constants";
 import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
 import { Props, RetirementPage } from "components/pages/Retirements";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
 
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
-    const isValidAddress = !isDomainInURL && utils.isAddress(beneficiaryInUrl);
+    const isValidAddress = !isDomainInURL && isAddress(beneficiaryInUrl);
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");

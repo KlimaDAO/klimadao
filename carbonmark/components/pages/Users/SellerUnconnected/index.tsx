@@ -66,7 +66,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
                   />
                 )}
 
-                {address && isConnected && (
+                {address && isConnected && listing.project && (
                   <ButtonPrimary
                     label={<Trans id="seller.listing.buy">Buy</Trans>}
                     className={styles.buyButton}

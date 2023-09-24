@@ -80,6 +80,8 @@ export const mobileLogo = css`
 
 export const desktopNavMenu = css`
   display: none;
+  //To properly allow modal overlay
+  z-index: 1;
   ${breakpoints.desktop} {
     display: flex;
   }

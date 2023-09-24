@@ -2,7 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Spinner } from "components/shared/Spinner";
-import { CarbonmarkPaymentMethod } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import { SubmitHandler, useFormContext } from "react-hook-form";
 import * as styles from "./styles";

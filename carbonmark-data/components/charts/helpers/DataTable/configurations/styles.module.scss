@@ -1,0 +1,73 @@
+@import "~@klimadao/lib/theme/breakpoints.scss";
+
+// Tables styling
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.header {
+  background-color: var(--surface-01);
+  @include medium {
+    white-space: nowrap;
+  }
+  th,
+  td {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    font-family: Poppins;
+  }
+}
+
+.row {
+  border-bottom: 1px solid var(--text-color-07);
+  td {
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+// Cards styling
+.cards {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0 0.6rem 1.4rem;
+  gap: 0.8rem;
+  border-left: 2px solid var(--text-color-03);
+  font-size: 1.2rem;
+}
+
+.cardTitle {
+  color: var(--text-color-01);
+  font-weight: bold;
+}
+
+.facts {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-color-01);
+  opacity: 0.8;
+}
+
+.date {
+  font-style: italic;
+}
+
+.badge {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  background-color: var(--text-color-03);
+  width: fit-content;
+  color: var(--text-color-04);
+}

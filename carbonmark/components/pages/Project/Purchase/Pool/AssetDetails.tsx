@@ -3,20 +3,21 @@ import { Anchor } from "@klimadao/lib/components";
 import { PoolToken } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { Accordion } from "components/Accordion";
 import { Text } from "components/Text";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
-import { Price, Project } from "lib/types/carbonmark";
+import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "../styles";
 
 type TotalValuesProps = {
-  price: Price;
-  project: Project;
+  price: TokenPrice;
+  project: DetailedProject;
 };
 
 export const AssetDetails: FC<TotalValuesProps> = (props) => {
@@ -29,9 +30,7 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
   const availableTonnes = formatToTonnes(props.price.supply, locale, 2);
 
   return (
-    <>
-      <Text t="h4">{t`Asset Details`}</Text>
-
+    <Accordion label={t`Asset details`} className={styles.accordion}>
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Token you will receive`}</Text>
         <div className={cx(styles.iconAndText)}>
@@ -62,6 +61,6 @@ export const AssetDetails: FC<TotalValuesProps> = (props) => {
           </Text>
         </Anchor>
       </div>
-    </>
+    </Accordion>
   );
 };

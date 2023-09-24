@@ -19,7 +19,7 @@ interface Props {
   onResetStatus: () => void;
   approvalText?: React.ReactNode;
   submitText?: React.ReactNode;
-  onGoBack?: () => void;
+  onGoBack: () => void;
   spenderAddress: string;
 }
 

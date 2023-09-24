@@ -21,7 +21,7 @@ jobs:
       status: ${{ steps.status_check.outputs.status }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install action package
         run: cd ./.github/actions/check-status && npm install && npm run build

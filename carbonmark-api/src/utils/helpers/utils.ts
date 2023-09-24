@@ -8,8 +8,14 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
 import { gqlSdk } from "../gqlSdk";
+import { CarbonProject } from "./carbonProjects.utils";
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
+const ENV = (process.env.VERCEL_ENV ?? "development") as
+  | "development"
+  | "production";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
@@ -153,7 +159,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNBO,
-      tokenAddress: process.env.NBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")?.priceInUsd,
       name: "NBO",
     });
@@ -163,7 +169,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceUBO,
-      tokenAddress: process.env.UBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].UBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")?.priceInUsd,
       name: "UBO",
     });
@@ -173,7 +179,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNCT,
-      tokenAddress: process.env.NTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")?.priceInUsd,
       name: "NCT",
     });
@@ -183,7 +189,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceBCT,
-      tokenAddress: process.env.BTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].BTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")?.priceInUsd,
       name: "BCT",
     });
@@ -198,14 +204,17 @@ export type TokenPrice = {
   name: string;
 };
 
-export function findProjectWithRegistryIdAndRegistry(
-  projects: unknown[],
-  registryId: unknown,
-  registry: unknown
-) {
-  return projects.find(
-    (project) =>
-      //@ts-ignore -- We need typing on sanity queries
-      project.registryProjectId === registryId && project.registry === registry
-  );
-}
+type IsMatchingCmsProjectArgs = {
+  registry: string; // (e.g VCS)
+  projectId: string; // (e.g 1120)
+};
+/**
+ * Checks if the provided project matches the given registry and project ID
+ * @param {IsMatchingCmsProjectArgs} args - An object containing the registry and project ID to match
+ * @param {Sanity.Default.Schema.Project} project - The project to check
+ * @returns {boolean} - Returns true if the project matches the given registry and project ID, false otherwise
+ */
+export const isMatchingCmsProject = (
+  { registry, projectId }: IsMatchingCmsProjectArgs,
+  project: CarbonProject
+) => project?.registryProjectId === projectId && project.registry === registry;

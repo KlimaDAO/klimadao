@@ -1,0 +1,16 @@
+@import "theme/typography.module.scss";
+
+.select {
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: var(--surface-04);
+  margin-bottom: 1.6rem;
+
+  fieldset {
+    border: 0;
+  }
+}
+
+.menuItem {
+  font-size: 1.6rem;
+}

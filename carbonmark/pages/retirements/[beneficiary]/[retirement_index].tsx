@@ -2,12 +2,12 @@ import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import { Project } from "lib/types/carbonmark";
+import { DetailedProject } from "lib/types/carbonmark.types";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -25,7 +25,7 @@ export interface SingleRetirementPageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
-  project?: Project | null;
+  project?: DetailedProject | null;
 }
 
 // second param should always be a number
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<
 
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
-    const isValidAddress = !isDomainInURL && utils.isAddress(beneficiaryInUrl);
+    const isValidAddress = !isDomainInURL && isAddress(beneficiaryInUrl);
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");

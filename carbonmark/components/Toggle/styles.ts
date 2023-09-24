@@ -2,18 +2,15 @@ import { css } from "@emotion/css";
 
 export const main = css`
   display: flex;
-  height:100%:
-
 `;
 
 export const button = css`
-  height: 100%;
+  height: 4.4rem;
   width: 4.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  padding: 1.4rem;
+  padding: 1.2rem;
   background: var(--surface-01);
   color: var(--font-01);
 
@@ -28,7 +25,6 @@ export const button = css`
   }
 
   &.selected {
-    color: white;
-    background: var(--klima-blue);
+    background: var(--yellow);
   }
 `;

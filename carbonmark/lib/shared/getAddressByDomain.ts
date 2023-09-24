@@ -4,7 +4,7 @@ import {
   isENSDomain,
   isKNSDomain,
 } from "@klimadao/lib/utils";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { INFURA_ID } from "./secrets";
 
 /** Server-side only util */
@@ -15,7 +15,7 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
       isENSDomain(domain) && (await getAddressByENS(domain, INFURA_ID));
     const address = kns || ens;
 
-    if (!address || !utils.isAddress(address)) {
+    if (!address || !isAddress(address)) {
       throw new Error("Not a valid address");
     }
     return address.toLowerCase();

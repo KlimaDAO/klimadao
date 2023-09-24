@@ -22,7 +22,8 @@ import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
 import { SelectiveRetirement } from "components/views/Offset/SelectiveRetirement";
 import { CarbonProject } from "components/views/Offset/SelectiveRetirement/queryProjectDetails";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { isAddress } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import {
   RedeemPaymentMethod,
@@ -251,7 +252,7 @@ export const Redeem = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (!projectTokenAddress || !utils.isAddress(projectTokenAddress)) {
+    } else if (!projectTokenAddress || !isAddress(projectTokenAddress)) {
       return {
         label: t({
           id: "shared.invalid_project_address",
@@ -385,7 +386,7 @@ export const Redeem = (props: Props) => {
             setSelectedProject={setSelectedProject}
             disableDefault={true}
           />
-          {utils.isAddress(projectTokenAddress) && !selectedProject && (
+          {isAddress(projectTokenAddress) && !selectedProject && (
             /** Show supplemental details for when they use params */
             <ProjectTokenDetails address={projectTokenAddress} pool={pool} />
           )}

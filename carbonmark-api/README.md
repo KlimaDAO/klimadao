@@ -31,38 +31,25 @@ You will need to be authenticated to the following in order to run the project:
 - run from root
 
 ```sh
-vercel  link
+vercel link
 ```
 
 ### Environment Variables
 
-The vercel config is where all environment variables required for the project are defined and can be pulled down via the `vercel-cli`.
-
-Using the below command, the newest version of vercel cli will create a `.vercel` folder in the root and install the env variables in `.vercel/.env.development.local`.
-
-Previous versions created and stored in an `.env.local` in the root.
-
-Ensure you have updated vercel cli to the latest version (31.0.4 as of this doc)
-
-### **Note:** You will need to manually remove the beginning and trailing quotation marks on the `FIREBASE_ADMIN_CERT` env var in `.vercel/env.development.local` otherwise you will receive a _SyntaxError: Unexpected token_ error when trying to run the project
-
-- run from root
+Some important environment variables are stored in vercel and need to be downloaded to your machine.
 
 ```sh
-vercel env pull --environment development .env.local
+# run from root klimadao folder
+vercel env pull --environment=development .env.local
 ```
 
-or
 
-```sh
-vercel env pull --environment production .env.local
-```
 
 ### Install dependencies
 
-- run from root
 
 ```sh
+# run from root klimadao folder
 cd  carbonmark-api && npm  ci
 ```
 
@@ -95,7 +82,7 @@ Breaking changes should be documented in Github tags.
 
 #### Hotfixes
 
-To create a hotfix on an earlier API version that customesr are using, check out an earlier tagged commit, create a branch, then tag and release a hotfix from that branch.
+To create a hotfix on an earlier API version that customers are using, check out an earlier tagged commit, create a branch, then tag and release a hotfix from that branch.
 
 ## Reference Docs & OpenAPI Spec
 

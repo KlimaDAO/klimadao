@@ -7,7 +7,7 @@ import { getConsumptionCost } from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { Price } from "lib/types/carbonmark";
+import { TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -16,9 +16,12 @@ import * as styles from "./styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  price: Price;
+  price: TokenPrice;
   userBalance: string | null;
   fiatBalance: string | null;
+  fiatMinimum: string | null;
+  costs: string;
+  setCosts: (costs: string) => void;
 };
 
 const getStringBetween = (str: string, start: string, end: string) => {
@@ -31,9 +34,8 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const isPoolDefault = props.price.isPoolDefault;
 
   const { locale, asPath } = useRouter();
-  const { formState, control, setValue } = useFormContext<FormValues>();
+  const { control, setValue } = useFormContext<FormValues>();
   const [isLoading, setIsLoading] = useState(false);
-  const [costs, setCosts] = useState("");
   const [error, setError] = useState("");
 
   const amount = useWatch({ name: "quantity", control });
@@ -43,11 +45,11 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   /** Credit card fee string to display in the price card for fiat payments */
   const calcCreditCardFee = (): string => {
-    if (!isFiat || !Number(costs) || isLoading) return "$0.00";
+    if (!isFiat || !Number(props.costs) || isLoading) return "$0.00";
     // we have the total cost and the price per tonne.
     const priceWithoutFees =
       Number(amount) * Number(props.price.singleUnitPrice);
-    const fee = Number(costs) - priceWithoutFees;
+    const fee = Number(props.costs) - priceWithoutFees;
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
   };
@@ -62,7 +64,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         // wait for react-hook-form to convert quantity to whole numbers when fiat!
         (isFiat && !Number.isInteger(Number(amount)))
       ) {
-        setCosts("0");
+        props.setCosts("0");
         setIsLoading(false);
         return;
       }
@@ -78,7 +80,12 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           currentUrl: asPath,
         });
 
-        setCosts(totalPrice);
+        props.setCosts(totalPrice);
+
+        if (isFiat && Number(totalPrice) < Number(props.fiatMinimum)) {
+          const formattedFiatMinimum = Number(props.fiatMinimum).toFixed(2);
+          setError(t`Credit card minimum purchase is $${formattedFiatMinimum}`);
+        }
       } catch (e: any) {
         console.error("e", e);
 
@@ -92,13 +99,13 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           );
 
           // Update costs with value from error
-          !!maxCosts && setCosts(maxCosts.trim());
+          !!maxCosts && props.setCosts(maxCosts.trim());
           setError(
             t`At this time Carbonmark cannot process credit card payments exceeding: ${fiatBalance}`
           );
         } else {
           setError(t`There was an error loading the total cost.`);
-          setCosts("0");
+          props.setCosts("0");
         }
       } finally {
         setIsLoading(false);
@@ -111,26 +118,25 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   }, [amount, paymentMethod]);
 
   useEffect(() => {
-    if (!!costs) {
-      setValue("totalPrice", costs);
+    if (!!props.costs) {
+      setValue("totalPrice", props.costs);
     }
-  }, [costs]);
+  }, [props.costs]);
 
   const exceededBalance =
     !!props.userBalance &&
     !isFiat &&
-    Number(props.userBalance) <= Number(costs);
+    Number(props.userBalance) <= Number(props.costs);
   const currentBalance = formatToPrice(props.userBalance || "0", locale);
   const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
 
   const formattedCosts =
-    (isFiat && formatToPrice(costs, locale)) ||
-    Number(costs)?.toLocaleString(locale);
+    (isFiat && formatToPrice(props.costs, locale)) ||
+    Number(props.costs)?.toLocaleString(locale);
 
   return (
     <>
-      <Text t="h4">{t`Total Price`}</Text>
-
+      <Text t="h4" className={styles.title}>{t`Total price`}</Text>
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Amount to retire`}</Text>
         <Text t="h5" className={styles.breakText}>
@@ -238,12 +244,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           </Text>
         </div>
       </div>
-
-      {formState.errors.totalPrice?.message && (
-        <Text t="body1" className={styles.errorMessagePrice}>
-          {formState.errors.totalPrice?.message}
-        </Text>
-      )}
 
       {exceededBalance && (
         <Text t="body1" className={styles.errorMessagePrice}>

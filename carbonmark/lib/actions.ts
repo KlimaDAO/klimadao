@@ -3,8 +3,9 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
-import { formatUnits } from "@klimadao/lib/utils";
-import { Contract, ethers, providers, Transaction, utils } from "ethers";
+import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
+import { Contract, Transaction, ethers, providers } from "ethers";
+import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import { getProject } from "lib/api";
 import {
   createProjectIdFromAsset,
@@ -23,29 +24,40 @@ import {
   AssetForListing,
   AssetForRetirement,
   PcbProject,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
 import {
   getCategoryFromProject,
   getMethodologyFromProject,
 } from "./projectGetter";
 
+const getSignerNetwork = (
+  signer: providers.JsonRpcSigner
+): "polygon" | "mumbai" => {
+  return isTestnetChainId(signer.provider.network.chainId)
+    ? "mumbai"
+    : "polygon";
+};
+
 /** Get allowance for carbonmark contract, spending an 18 decimal token. Don't use this for USDC */
 export const getCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
+  network?: "mumbai" | "polygon";
 }): Promise<string> => {
   const tokenContract = new Contract(
     params.tokenAddress,
     IERC20.abi,
-    getStaticProvider()
+    getStaticProvider({
+      chain: params.network,
+    })
   );
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getAddress("carbonmark")
+    getAddress("carbonmark", params.network)
   );
 
-  return ethers.utils.formatUnits(allowance, 18);
+  return ethersFormatUnits(allowance, 18);
 };
 
 export const getAggregatorV2Allowance = async (params: {
@@ -63,7 +75,7 @@ export const getAggregatorV2Allowance = async (params: {
     getAddress("retirementAggregatorV2")
   );
 
-  return ethers.utils.formatUnits(allowance, 18);
+  return ethersFormatUnits(allowance, 18);
 };
 
 /** Approve a known `tokenName`, or `tokenAddress` to be spent by the `spender` contract */
@@ -78,11 +90,13 @@ export const approveTokenSpend = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
+    const network = getSignerNetwork(params.signer);
     let tokenContract: Contract;
     if (params.tokenName) {
       tokenContract = getContract({
         contractName: params.tokenName,
         provider: params.signer,
+        network: network === "mumbai" ? "testnet" : "mainnet",
       });
     } else if (params.tokenAddress) {
       tokenContract = new Contract(
@@ -94,11 +108,11 @@ export const approveTokenSpend = async (params: {
       throw new Error("Must provide either tokenName or tokenAddress");
     }
     const decimals = params.tokenName ? getTokenDecimals(params.tokenName) : 18; // assume 18 if no tokenName is provided
-    const parsedValue = utils.parseUnits(params.value, decimals);
+    const parsedValue = parseUnits(params.value, decimals);
 
     params.onStatus("userConfirmation");
     const txn = await tokenContract.approve(
-      getAddress(params.spender),
+      getAddress(params.spender, network),
       parsedValue.toString()
     );
 
@@ -136,8 +150,8 @@ export const createListingTransaction = async (params: {
 
     const listingTxn = await carbonmarkContract.addListing(
       params.tokenAddress,
-      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.totalAmountToSell, 18), // C3 token
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [], // TODO batches price
       params.tokenType
@@ -176,8 +190,8 @@ export const updateListingTransaction = async (params: {
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       params.tokenAddress,
-      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.totalAmountToSell, 18), // C3 token
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
       [], // TODO batches
       [] // TODO batches price
     );
@@ -198,23 +212,35 @@ export const updateListingTransaction = async (params: {
 
 export const makePurchase = async (params: {
   listingId: string;
-  amount: string;
-  price: string;
+  sellerAddress: string;
+  creditTokenAddress: string;
+  singleUnitPrice: string;
+  quantity: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
   try {
+    const signer = params.provider.getSigner();
+    const network = getSignerNetwork(signer);
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
-      provider: params.provider.getSigner(),
+      provider: signer,
+      network: network === "mumbai" ? "testnet" : "mainnet",
     });
 
     params.onStatus("userConfirmation", "");
 
-    const purchaseTxn = await carbonmarkContract.purchase(
+    const maxCost = String(
+      Number(params.quantity) * Number(params.singleUnitPrice)
+    );
+
+    const purchaseTxn = await carbonmarkContract.fillListing(
       params.listingId,
-      utils.parseUnits(params.amount, 18), // C3 token
-      utils.parseUnits(params.price, getTokenDecimals("usdc"))
+      params.sellerAddress,
+      params.creditTokenAddress,
+      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
+      parseUnits(params.quantity, 18), // C3 token
+      parseUnits(maxCost, 6)
     );
 
     params.onStatus("networkConfirmation", "");
@@ -297,7 +323,7 @@ export const addProjectsToAssets = async (params: {
         resolvedAssets.push({
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
-          balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+          balance: ethersFormatUnits(asset.amount, asset.token.decimals),
           tokenType: getTokenType(asset),
           project,
         });
@@ -326,7 +352,7 @@ export const createCompositeAsset = (
 
   const compositeAsset: AssetForRetirement = {
     tokenName: asset.token.name,
-    balance: ethers.utils.formatUnits(asset.amount, asset.token.decimals),
+    balance: ethersFormatUnits(asset.amount, asset.token.decimals),
     tokenType: getTokenType(asset),
     tokenSymbol: asset.token.symbol,
     project,
@@ -378,7 +404,7 @@ export const getProjectInfoFromC3Contract = async (
       projectID: projectInfo.project_id,
       name: projectInfo.name,
       methodology: projectInfo.methodology,
-      vintage: ethers.utils.formatUnits(vintage, 0),
+      vintage: ethersFormatUnits(vintage, 0),
       category: getCategoryFromMethodology(projectInfo.methodology),
     };
   } catch (e: any) {
@@ -431,10 +457,14 @@ export const getProjectInfoFromTCO2Contract = async (
   }
 };
 
-export const getUSDCBalance = async (params: { userAddress: string }) => {
+export const getUSDCBalance = async (params: {
+  userAddress: string;
+  network?: "polygon" | "mumbai";
+}) => {
   const tokenContract = getContract({
     contractName: "usdc",
-    provider: getStaticProvider(),
+    provider: getStaticProvider({ chain: params.network }),
+    network: params.network === "mumbai" ? "testnet" : "mainnet",
   });
   const balance = await tokenContract.balanceOf(params.userAddress);
   return formatUnits(balance, getTokenDecimals("usdc"));

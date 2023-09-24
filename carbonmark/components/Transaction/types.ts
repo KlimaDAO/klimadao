@@ -1,4 +1,4 @@
-import { CarbonmarkToken } from "lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark.types";
 
 export type Value = {
   value: string;

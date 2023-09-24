@@ -5,7 +5,7 @@ import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
 import { urls } from "lib/constants";
 import { fetcher } from "lib/fetcher";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";

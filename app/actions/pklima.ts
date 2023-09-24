@@ -1,10 +1,10 @@
-import { providers, utils } from "ethers";
-
 import {
   formatUnits,
   getContract,
   trimStringDecimals,
 } from "@klimadao/lib/utils";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
 import { OnStatusHandler } from "./utils";
@@ -61,9 +61,7 @@ export const exerciseTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");
-    const txn = await contract.exercise(
-      utils.parseUnits(params.value, "ether")
-    );
+    const txn = await contract.exercise(parseUnits(params.value, "ether"));
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction was successful");

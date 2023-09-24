@@ -14,6 +14,7 @@ import { Col } from "components/TwoColLayout";
 import { Navigation } from "components/shared/Navigation";
 import { Spinner } from "components/shared/Spinner";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
+import { CategoryName } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
@@ -156,9 +157,12 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = ({
               retirement={retirement}
               isMossOffset={isMossOffset}
               description={
-                props.project?.long_description || props.project?.description
+                props.project?.long_description ?? props.project?.description
               }
-              category={props.project?.methodologies?.[0]?.category || null}
+              category={
+                (props.project?.methodologies?.[0]?.category as CategoryName) ??
+                null
+              }
             />
             <div className={cx(styles.visibleMobile)}>
               <TransactionDetails

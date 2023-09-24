@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "43e79c75-4421-409d-ab6d-cb38e66fcdb7",
+    "_postman_id": "6d6815a9-6e6b-4ea5-a551-aa8f29502604",
     "name": "carbonmark-api",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "275500"
@@ -25,9 +25,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/categories",
+          "raw": "{{url}}/categories",
           "host": ["{{url}}"],
-          "path": ["api", "categories"]
+          "path": ["categories"]
         }
       },
       "response": []
@@ -51,9 +51,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/countries",
+          "raw": "{{url}}/countries",
           "host": ["{{url}}"],
-          "path": ["api", "countries"]
+          "path": ["countries"]
         }
       },
       "response": []
@@ -77,9 +77,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/vintages",
+          "raw": "{{url}}/vintages",
           "host": ["{{url}}"],
-          "path": ["api", "vintages"]
+          "path": ["vintages"]
         }
       },
       "response": []
@@ -103,9 +103,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/purchases/:purchaseId",
+          "raw": "{{url}}/purchases/:purchaseId",
           "host": ["{{url}}"],
-          "path": ["api", "purchases", ":purchaseId"],
+          "path": ["purchases", ":purchaseId"],
           "variable": [
             {
               "key": "purchaseId",
@@ -117,7 +117,7 @@
       "response": []
     },
     {
-      "name": "getAllProjects",
+      "name": "getProjects",
       "event": [
         {
           "listen": "test",
@@ -135,9 +135,35 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/projects?search=Dayingjiang&vintage=2008",
+          "raw": "{{url}}/projects",
           "host": ["{{url}}"],
-          "path": ["api", "projects"],
+          "path": ["projects"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProjectsSearch",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/projects?search=Dayingjiang&vintage=2008",
+          "host": ["{{url}}"],
+          "path": ["projects"],
           "query": [
             {
               "key": "search",
@@ -171,9 +197,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/projects/:id",
+          "raw": "{{url}}/projects/:id",
           "host": ["{{url}}"],
-          "path": ["api", "projects", ":id"],
+          "path": ["projects", ":id"],
           "variable": [
             {
               "key": "id",
@@ -203,9 +229,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/users/:walletid?type=wallet",
+          "raw": "{{url}}/users/:walletid?type=wallet",
           "host": ["{{url}}"],
-          "path": ["api", "users", ":walletid"],
+          "path": ["users", ":walletid"],
           "query": [
             {
               "key": "type",
@@ -241,9 +267,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{url}}/api/users/:handle",
+          "raw": "{{url}}/users/:handle",
           "host": ["{{url}}"],
-          "path": ["api", "users", ":handle"],
+          "path": ["users", ":handle"],
           "query": [
             {
               "key": "type",
@@ -296,9 +322,9 @@
           }
         },
         "url": {
-          "raw": "{{url}}/api/users",
+          "raw": "{{url}}/users",
           "host": ["{{url}}"],
-          "path": ["api", "users"]
+          "path": ["users"]
         }
       },
       "response": []
@@ -338,9 +364,9 @@
           }
         },
         "url": {
-          "raw": "{{url}}/api/users/login",
+          "raw": "{{url}}/users/login",
           "host": ["{{url}}"],
-          "path": ["api", "users", "login"]
+          "path": ["users", "login"]
         }
       },
       "response": []
@@ -380,9 +406,9 @@
           }
         },
         "url": {
-          "raw": "{{url}}/api/users/login/verify",
+          "raw": "{{url}}/users/login/verify",
           "host": ["{{url}}"],
-          "path": ["api", "users", "login", "verify"]
+          "path": ["users", "login", "verify"]
         }
       },
       "response": []

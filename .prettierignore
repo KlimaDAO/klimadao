@@ -11,3 +11,4 @@
 **/package*.json
 *.md
 **/.sanity/
+**/.nyc_output/

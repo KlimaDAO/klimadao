@@ -1,6 +1,6 @@
 import { Text } from "components/Text";
 import { getCategoryInfo } from "lib/getCategoryInfo";
-import { CategoryName } from "lib/types/carbonmark";
+import { CategoryName } from "lib/types/carbonmark.types";
 import { FC } from "react";
 import * as styles from "./styles";
 

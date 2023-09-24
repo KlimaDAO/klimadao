@@ -7,14 +7,14 @@ import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
-  Price as PriceType,
-} from "lib/types/carbonmark";
+  TokenPrice as PriceType,
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -28,12 +28,15 @@ type Props = {
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
+  fiatMinimum: string | null;
   address?: string;
+  fiatAmountError?: boolean;
 };
 
 const validations = (
   userBalance: string | null,
-  fiatBalance: string | null
+  fiatBalance: string | null,
+  fiatMinimum: string | null
 ) => ({
   usdc: {
     quantity: {
@@ -43,6 +46,10 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: 0.001,
+        message: t`The minimum amount to retire is 0.001 Tonnes`,
+      },
       max: {
         value: Number(userBalance || "0"),
         message: t`You exceeded your available amount of tokens`,
@@ -57,6 +64,12 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: Number(fiatMinimum || "0"),
+        message: t`Credit card minimum purchase is ${formatToPrice(
+          fiatMinimum || 0
+        )}`,
+      },
       max: {
         value: Number(fiatBalance || "2000"),
         message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
@@ -82,7 +95,14 @@ export const RetireInputs: FC<Props> = (props) => {
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
-    validations(props.userBalance, props.fiatBalance)[paymentMethod];
+    validations(props.userBalance, props.fiatBalance, props.fiatMinimum)[
+      paymentMethod
+    ];
+
+  const belowFiatMinimum =
+    paymentMethod === "fiat" &&
+    quantity !== "0" &&
+    Number(props.fiatMinimum) > Number(totalPrice);
 
   const exceededFiatBalance =
     paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
@@ -92,10 +112,14 @@ export const RetireInputs: FC<Props> = (props) => {
     clearErrors();
     // When the user choose to pay by credit card,
     // we convert the existing quantity to a whole number (1.123 -> 2)
-    if (paymentMethod === "fiat" && !!quantity) {
+    if (paymentMethod === "fiat" && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
-  }, [paymentMethod]);
+    // clear quantity when error
+    if (paymentMethod === "fiat" && !!props.fiatAmountError) {
+      setValue("quantity", "");
+    }
+  }, [paymentMethod, props.fiatAmountError]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -195,7 +219,7 @@ export const RetireInputs: FC<Props> = (props) => {
                 validate: {
                   isAddress: (v) =>
                     v === "" || // no beneficiary, fallback to default address
-                    utils.isAddress(v) || // allow polygon addresses only
+                    isAddress(v) || // allow polygon addresses only
                     t`Not a valid polygon address`,
                 },
               }),
@@ -251,7 +275,7 @@ export const RetireInputs: FC<Props> = (props) => {
             name="paymentMethod"
             initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
             className={cx(styles.paymentDropdown, {
-              error: exceededFiatBalance,
+              error: exceededFiatBalance || belowFiatMinimum,
             })}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
@@ -286,6 +310,12 @@ export const RetireInputs: FC<Props> = (props) => {
             )}
           />
         </div>
+
+        {belowFiatMinimum && (
+          <Text t="body1" className={styles.errorMessagePrice}>
+            {getValidations().totalPrice.min.message}
+          </Text>
+        )}
 
         {exceededFiatBalance && (
           <Text t="body1" className={styles.errorMessagePrice}>
