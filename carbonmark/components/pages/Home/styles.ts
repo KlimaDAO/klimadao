@@ -846,6 +846,7 @@ export const footer = css`
 
   ${breakpoints.desktop} {
     padding: 4rem;
+    padding-bottom: 10rem;
     gap: 3rem;
   }
 
