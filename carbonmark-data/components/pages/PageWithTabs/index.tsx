@@ -6,6 +6,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { Tab } from "@mui/material";
 import { MobileTabSelector } from "components/MobileTabSelector";
 import OptionsSwitcher from "components/OptionsSwitcher";
+import { PageHeader } from "components/PageHeader/PageHeader";
 import { Options } from "lib/charts/options";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Key, ReactNode, useEffect, useState } from "react";
@@ -111,7 +112,7 @@ export default function PageWithTabs(props: {
   }
   return (
     <>
-      <h1>{props.title}</h1>
+      <PageHeader title={props.title} />
       <TabContext value={activeTab}>
         <MobileTabSelector
           value={activeTab}

@@ -16,7 +16,7 @@ export async function getCarbonMetrics(
   return pruneNullRows(data.items, configuration);
 }
 
-/* Fetches Polygon latest carbon metrics  */
+/* Fetches latest carbon metrics  */
 export async function getLatestCarbonMetrics() {
   return (
     await queryCarbonMetrics<CarbonMetricsItem>("all", {
@@ -25,6 +25,17 @@ export async function getLatestCarbonMetrics() {
       page_size: 1,
     })
   ).items[0];
+}
+
+/* Fetches carbon metrics from 7 days ago  */
+export async function getCarbonMetrics7daysAgo() {
+  return (
+    await queryCarbonMetrics<CarbonMetricsItem>("all", {
+      sort_by: "date",
+      sort_order: "desc",
+      page_size: 7,
+    })
+  ).items[6];
 }
 
 export async function getTokenCarbonMetricsInPercent(
