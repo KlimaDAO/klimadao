@@ -111,7 +111,7 @@ export default function PageWithTabs(props: {
   }
   return (
     <>
-      <h1>{props.title}</h1>
+      <PageHeader title={props.title} />
       <TabContext value={activeTab}>
         <MobileTabSelector
           value={activeTab}
