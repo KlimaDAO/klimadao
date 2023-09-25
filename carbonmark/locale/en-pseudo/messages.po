@@ -1401,7 +1401,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
+#: components/pages/Retire/Activity/Table.tsx:62
 msgid "t"
 msgstr ""
 
@@ -1434,27 +1434,27 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:66
+#: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:40
+#: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:41
+#: components/pages/Retire/Activity/Table.tsx:47
 msgid "QTY"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:42
+#: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:88
 msgid "No Activity to show."
 msgstr ""
 
