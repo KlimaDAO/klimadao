@@ -1,6 +1,9 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
+  AggregatedCreditsByCountryItem,
+  AggregatedCreditsByPoolAndMethodologyItem,
+  AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectsItem,
   AggregationQueryParams,
   CarbonMetricsQueryParams,
@@ -11,6 +14,7 @@ import {
   KlimaMonthlyRetirementsByOriginItem,
   KlimaMonthlyRetirementsByTokenItem,
   KlimaRetirementsByBeneficiaryItem,
+  MonthlyAggregatedCreditsByPoolItem,
   PaginatedResponse,
   PaginationQueryParams,
   Prices,
@@ -55,19 +59,26 @@ async function query<R, Q extends object>(
     );
     if (searchParams.toString().length > 0) url = `${url}?${searchParams}`;
   }
-  const res = await fetch(url, { next: { revalidate } });
-  // Handle HTTP errors
-  const errorMessage = `Failed to fetch ${url}`;
-  if (!res.ok) {
-    console.error(errorMessage);
+  let errorMessage = `Failed to fetch ${url}`;
+  let res: Response;
+  try {
+    res = await fetch(url, { next: { revalidate } });
+  } catch (e) {
+    // Handle HTTP errors
     throw new Error(errorMessage);
   }
   const text = await res.text();
+
+  errorMessage = `${text} \n ${errorMessage}`;
+  if (!res.ok) {
+    // Handle HTTP errors
+    throw new Error(errorMessage);
+  }
+
   try {
     return JSON.parse(text);
   } catch (e) {
     // Handle JSON decoding errors
-    console.error(errorMessage);
     throw new Error(errorMessage);
   }
 }
@@ -87,6 +98,7 @@ async function failsafeQuery<R, Q extends object>(
     return await query(url, params, revalidate);
   } catch (e) {
     // Catch errors and return an empty response so the page can still be rendered
+    console.error(e);
     return Promise.resolve(defaultValue);
   }
 }
@@ -213,6 +225,47 @@ export function queryCarbonMetrics<RI>(
 ): Promise<PaginatedResponse<RI>> {
   return paginatedQuery<RI, typeof params>(
     `${urls.api.dailyCarbonMetrics}/${chain}`,
+    params
+  );
+}
+
+/** Queries the Pools tokens & dates aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndDates(
+  freq: string,
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>> {
+  return paginatedQuery<MonthlyAggregatedCreditsByPoolItem, typeof params>(
+    `${urls.api.aggregatedCreditsByPoolAndDates}/${freq}`,
+    params
+  );
+}
+
+/** Queries the Credits pool and vintage aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndVintage(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndVintageItem>> {
+  return paginatedQuery<AggregatedCreditsByPoolAndVintageItem, typeof params>(
+    urls.api.aggregatedCreditsByPoolAndVintage,
+    params
+  );
+}
+
+/** Queries the Credits pool and methodology aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndMethodology(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>> {
+  return paginatedQuery<
+    AggregatedCreditsByPoolAndMethodologyItem,
+    typeof params
+  >(urls.api.aggregatedCreditsByPoolAndMethodology, params);
+}
+
+/** Queries the Credits countries aggregation endpoint */
+export function queryAggregatedCreditsByCountry(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByCountryItem>> {
+  return paginatedQuery<AggregatedCreditsByCountryItem, typeof params>(
+    urls.api.aggregatedCreditsByCountry,
     params
   );
 }
