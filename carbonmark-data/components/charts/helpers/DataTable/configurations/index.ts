@@ -3,10 +3,8 @@ import KlimaRetirementsByChainListConfiguration from "./KlimaRetirementsByChainL
 import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
 import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 import KlimaRetirementsByTokenListConfiguration from "./KlimaRetirementsByTokenListConfiguration";
-import {
-  default as TokenOriginsListConfiguration,
-  default as VerraCreditsOriginsListConfiguration,
-} from "./VerraCreditsOriginsListConfiguration";
+import TokenOriginsListConfiguration from "./TokenOriginsListConfiguration";
+import VerraCreditsOriginsListConfiguration from "./VerraCreditsOriginsListConfiguration";
 const configurations = {
   KlimaRetirementsByPoolSummary:
     new KlimaRetirementsByPoolSummaryConfiguration(),
