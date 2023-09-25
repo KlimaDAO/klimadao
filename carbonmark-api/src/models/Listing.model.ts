@@ -35,6 +35,12 @@ export const ListingModel = Type.Object(
     createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
     updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
     seller: Nullable(ListingSeller),
+    expiration: Type.String({
+      description: "Unix Timestamp (seconds) when the listing expires.",
+    }),
+    minFillAmount: Type.String({
+      description: "Minimum quantity for purchase transaction to succeed.",
+    }),
     //@todo remove this and use the /projects endpoint to fetch
     project: Nullable(
       Type.Object({
