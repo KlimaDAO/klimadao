@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  & > div {
+    flex: 1 1 0;
+  }
+}
+.issuedvsBridgedWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  align-items: center;
+  text-align: center;
+}
+.pieChartWrapper {
+  max-width: calc(100% - 1rem);
+  min-width: calc(100% - 1rem);
+  // FIXME: Using a non fixed value here makes recharts increase the pie height forever
+  min-height: 14rem;
+  max-height: 100%;
+}
+.pieChartInnerLegend {
+  div[aria-describedby="value"] {
+    font-size: 1.6rem;
+  }
+  div[aria-describedby="label"] {
+    font-size: 0.8rem;
+  }
+}
+.issuedvsTokenizedWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  div[aria-describedby="chart"] {
+    max-width: calc(100% - 1rem);
+    min-height: 4rem;
+  }
+}
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.value {
+  font-size: 2.4rem;
+  color: var(--text-color-01);
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+.highlight {
+  color: var(--brand-colors-klima-green);
+}
