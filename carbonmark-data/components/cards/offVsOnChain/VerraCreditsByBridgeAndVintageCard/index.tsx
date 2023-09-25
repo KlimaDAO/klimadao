@@ -5,7 +5,7 @@ import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { queryAggregatedCreditsByBridgeAndVintage } from "lib/charts/queries";
 import { AggregatedCreditsByBridgeAndVintageItem } from "lib/charts/types";
 import { palette } from "theme/palette";
-import { OffVsOnChainProps } from "../herlpers";
+import { OffVsOnChainProps } from "../helpers";
 
 /** Verra Credits by bridge and vintage Card */
 export default function VerraCreditsByBridgeAndVintageCard(
@@ -16,14 +16,13 @@ export default function VerraCreditsByBridgeAndVintageCard(
     <VerraCreditsByBridgeAndVintageChart {...props} />
   );
   const title = t`Credits by vintage start dates`;
+  const detailUrl =
+    props.status == "issued"
+      ? "/details/verra-credits-issued-by-vintage-date"
+      : "/details/verra-credits-retired-by-vintage-date";
 
   return (
-    <ChartCard
-      {...props}
-      title={title}
-      detailUrl="/details/digital-carbon-supply-snapshot"
-      chart={chart}
-    />
+    <ChartCard {...props} title={title} detailUrl={detailUrl} chart={chart} />
   );
 }
 async function VerraCreditsByBridgeAndVintageChart(props: OffVsOnChainProps) {

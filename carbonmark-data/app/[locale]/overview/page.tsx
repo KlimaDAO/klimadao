@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import VerraCreditsCard from "components/cards/overview/DailyCreditsCard";
+import VerraCreditsCard from "components/cards/overview/DailyVerraCreditsOverviewCard";
 import layout from "theme/layout.module.scss";
 
 import { PageHeader } from "components/PageHeader/PageHeader";

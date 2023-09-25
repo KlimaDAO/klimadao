@@ -25,7 +25,7 @@ export default function VerraCreditsBreakdownCard(props: CardProps) {
     <ChartCard
       {...props}
       title={title}
-      detailUrl="/details/digital-carbon-supply-snapshot"
+      detailUrl="/details/verra-credits-breakdown"
       chart={chart}
     />
   );

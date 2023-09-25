@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import DataTable from "components/charts/helpers/DataTable";
 import ChartCard, { CardProps } from "../../ChartCard";
-import { OffVsOnChainProps } from "../herlpers";
+import { OffVsOnChainProps } from "../helpers";
 
 export default function VerraCreditsOriginCard(
   props: CardProps & OffVsOnChainProps

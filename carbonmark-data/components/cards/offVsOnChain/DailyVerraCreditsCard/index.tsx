@@ -3,7 +3,7 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
-import { OffVsOnChainProps } from "../herlpers";
+import { OffVsOnChainProps } from "../helpers";
 /** Verra Credits Card */
 export default function DailyVerraCreditsCard(
   props: CardProps & OffVsOnChainProps
@@ -41,12 +41,11 @@ export default function DailyVerraCreditsCard(
       ? t`Cummulative Verra registry credits issued over time`
       : t`Off-Chain Verra credits retired over time`;
 
+  const detailUrl =
+    props.status == "issued"
+      ? "/details/verra-credits-issued-over-time"
+      : "/details/verra-credits-retired-off-chain-over-time";
   return (
-    <ChartCard
-      {...props}
-      title={title}
-      detailUrl="/details/digital-carbon-supply-snapshot"
-      chart={chart}
-    />
+    <ChartCard {...props} title={title} detailUrl={detailUrl} chart={chart} />
   );
 }

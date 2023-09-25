@@ -1,7 +1,7 @@
 import DailyCarbonSupplyByProtocolCard from "components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard";
 import DailyVerraCreditsCard from "components/cards/offVsOnChain/DailyVerraCreditsCard";
 import VerraCreditsByBridgeAndVintageCard from "components/cards/offVsOnChain/VerraCreditsByBridgeAndVintageCard";
-import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfCountries";
+import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import VerraCreditsOriginCard from "components/cards/offVsOnChain/VerraCreditsOriginCard";
 
 import { Status } from "lib/charts/types";

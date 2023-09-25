@@ -10,7 +10,7 @@ import { DateField, NodeDictionnary, Status } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function DailyVerraCreditsCard(props: CardProps) {
+export default function DailyVerraCreditsOverviewCard(props: CardProps) {
   const charts: NodeDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
