@@ -227,6 +227,22 @@ export interface RawRetirementsItem {
   serial_number: string;
 }
 export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
+
+export interface BridgeQuantitiesInterface {
+  toucan_quantity?: number;
+  c3_quantity?: number;
+  moss_quantity?: number;
+  offchain_quantity?: number;
+  total_quantity?: number;
+  not_bridged_quantity?: number;
+}
+export interface AggregatedCreditsByBridgeAndVintageItem
+  extends BridgeQuantitiesInterface {
+  vintage: number;
+}
+export type AggregatedCreditsByBridgeAndVintage =
+  ChartData<AggregatedCreditsByBridgeAndVintageItem>;
+
 export interface PoolQuantitiesInterface {
   bct_quantity: number;
   nct_quantity: number;
@@ -236,13 +252,8 @@ export interface PoolQuantitiesInterface {
 }
 export interface MonthlyAggregatedCreditsByPoolItem
   extends PoolQuantitiesInterface,
-    DateFieldInterface {
-  bct_quantity: number;
-  nct_quantity: number;
-  mco2_quantity: number;
-  ubo_quantity: number;
-  nbo_quantity: number;
-}
+    DateFieldInterface {}
+
 export type MonthlyAggregatedCreditsByPool =
   PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>;
 
@@ -299,13 +310,10 @@ export type DailyChartData<CI extends GenericDailyChartDataItem> =
 export type DailyCreditsChartQueryParams = CreditsQueryParams &
   ChartMappingParams &
   ChartDateMappingParams;
-export interface DailyCreditsChartDataItem extends GenericDailyChartDataItem {
-  toucan?: number;
-  c3?: number;
-  moss?: number;
-  offchain?: number;
-  date: number;
-}
+
+export interface DailyCreditsChartDataItem
+  extends GenericDailyChartDataItem,
+    BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
 // Chart data: Aggregated credits

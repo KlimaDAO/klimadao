@@ -20,11 +20,11 @@ export default function DailyVerraCreditsCard(
       },
       dataMapping: {
         source,
-        destination: "offchain",
+        destination: "offchain_quantity",
         dateField,
       },
       chartOptions: {
-        id: "offchain",
+        id: "offchain_quantity",
         label: "Verra",
         color: palette.charts.color5,
         legendOrder: 1,
