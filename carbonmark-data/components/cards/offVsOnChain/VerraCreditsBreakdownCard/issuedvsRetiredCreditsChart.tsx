@@ -21,7 +21,7 @@ export async function OffchainRetiredCreditsCard() {
   const legend = (
     <>
       {t`Verra credits retired`}{" "}
-      <span className={styles.highlight}>{t`on-chain`}</span>
+      <span className={styles.highlight}>{t`off-chain`}</span>
     </>
   );
   return (
@@ -39,7 +39,7 @@ export async function OnchainRetiredCreditsCard() {
   const legend = (
     <>
       {t`Verra credits retired`}{" "}
-      <span className={styles.highlight}>{t`off-chain`}</span>
+      <span className={styles.highlight}>{t`on-chain`}</span>
     </>
   );
   return (

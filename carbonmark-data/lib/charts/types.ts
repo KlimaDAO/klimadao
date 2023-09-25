@@ -70,6 +70,26 @@ export interface PaginatedResponse<RI> {
   pages_count: number;
   current_page: number;
 }
+export interface BridgeQuantitiesInterface {
+  toucan_quantity?: number;
+  c3_quantity?: number;
+  moss_quantity?: number;
+  offchain_quantity?: number;
+  total_quantity?: number;
+  not_bridged_quantity?: number;
+}
+export interface PoolQuantitiesInterface {
+  bct_quantity: number;
+  nct_quantity: number;
+  mco2_quantity: number;
+  ubo_quantity: number;
+  nbo_quantity: number;
+}
+export interface OriginInterface {
+  country: string;
+  country_code: string;
+}
+
 export interface DailyCreditsItem extends DateFieldInterface {
   quantity: number;
 }
@@ -228,14 +248,6 @@ export interface RawRetirementsItem {
 }
 export type RawRetirements = PaginatedResponse<RawRetirementsItem>;
 
-export interface BridgeQuantitiesInterface {
-  toucan_quantity?: number;
-  c3_quantity?: number;
-  moss_quantity?: number;
-  offchain_quantity?: number;
-  total_quantity?: number;
-  not_bridged_quantity?: number;
-}
 export interface AggregatedCreditsByBridgeAndVintageItem
   extends BridgeQuantitiesInterface {
   vintage: number;
@@ -243,13 +255,15 @@ export interface AggregatedCreditsByBridgeAndVintageItem
 export type AggregatedCreditsByBridgeAndVintage =
   ChartData<AggregatedCreditsByBridgeAndVintageItem>;
 
-export interface PoolQuantitiesInterface {
-  bct_quantity: number;
-  nct_quantity: number;
-  mco2_quantity: number;
-  ubo_quantity: number;
-  nbo_quantity: number;
+export interface AggregatedCreditsByBridgeAndOriginItem
+  extends BridgeQuantitiesInterface,
+    OriginInterface {
+  total_bridged: number;
+  percentage?: number;
 }
+export type AggregatedCreditsByBridgeAndOrigin =
+  ChartData<AggregatedCreditsByBridgeAndOriginItem>;
+
 export interface MonthlyAggregatedCreditsByPoolItem
   extends PoolQuantitiesInterface,
     DateFieldInterface {}
@@ -273,13 +287,12 @@ export interface AggregatedCreditsByPoolAndMethodologyItem
 export type AggregatedCreditsByPoolAndMethodology =
   PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>;
 
-export interface AggregatedCreditsByCountryItem {
-  country: string;
-  country_code: string;
+export interface AggregatedCreditsByOriginItem extends OriginInterface {
   quantity: number;
 }
-export type AggregatedCreditsByCountry =
-  PaginatedResponse<AggregatedCreditsByCountryItem>;
+
+export type AggregatedCreditsByOrigin =
+  PaginatedResponse<AggregatedCreditsByOriginItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
