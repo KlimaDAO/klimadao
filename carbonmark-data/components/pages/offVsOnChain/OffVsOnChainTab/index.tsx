@@ -1,10 +1,9 @@
 import DailyCarbonSupplyByProtocolCard from "components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard";
 import DailyVerraCreditsCard from "components/cards/offVsOnChain/DailyVerraCreditsCard";
 import VerraCreditsByBridgeAndVintageCard from "components/cards/offVsOnChain/VerraCreditsByBridgeAndVintageCard";
-import {
-  default as VerraCreditsDistributionOfProjectsCard,
-  default as VerraCreditsOriginCard,
-} from "components/cards/offVsOnChain/VerraCreditsOriginCard";
+import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfCountries";
+import VerraCreditsOriginCard from "components/cards/offVsOnChain/VerraCreditsOriginCard";
+
 import { Status } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 
@@ -19,9 +18,7 @@ export default function OffVsOnChainTab(props: { status: Status }) {
         <DailyCarbonSupplyByProtocolCard {...props} />
       </div>
       <div className={layout.cardRow}>
-        <VerraCreditsByBridgeAndVintageCard
-          {...props}
-        ></VerraCreditsByBridgeAndVintageCard>
+        <VerraCreditsByBridgeAndVintageCard {...props} />
         <VerraCreditsDistributionOfProjectsCard {...props} />
       </div>
       <div className={layout.cardRow}>

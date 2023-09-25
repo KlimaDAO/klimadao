@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
  */
 export default function CustomLegendItem(props: {
   color: string;
-  text: string;
+  text: React.ReactNode;
 }) {
   return (
     <div className={styles.legendItem}>

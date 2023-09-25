@@ -54,7 +54,9 @@ export async function IssuedVsTokenizedCreditsChart() {
         <div className={styles.value}>{formatTonnes({ amount: issued })}</div>
         <CustomLegendItem
           color={palette.charts.color5}
-          text={t`Verra credits issued`}
+          text={
+            <div className={styles.smallLabel}>{t`Verra credits issued`}</div>
+          }
         />
       </div>
       <div aria-describedby="chart">
@@ -67,7 +69,11 @@ export async function IssuedVsTokenizedCreditsChart() {
         </div>
         <CustomLegendItem
           color={palette.charts.color1}
-          text={t`Verra credits tokenized`}
+          text={
+            <div
+              className={styles.smallLabel}
+            >{t`Verra credits tokenized`}</div>
+          }
         />
       </div>
     </div>

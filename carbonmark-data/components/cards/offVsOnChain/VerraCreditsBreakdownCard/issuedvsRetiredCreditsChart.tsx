@@ -19,10 +19,11 @@ export async function OffchainRetiredCreditsCard() {
     await queryAggregatedCredits({ bridge: "offchain", status: "retired" })
   ).quantity;
   const legend = (
-    <>
+    <span className={styles.smallLabel}>
+      {" "}
       {t`Verra credits retired`}{" "}
       <span className={styles.highlight}>{t`off-chain`}</span>
-    </>
+    </span>
   );
   return (
     <RetiredCreditsChart issued={issued} retired={retired} legend={legend} />
@@ -37,10 +38,11 @@ export async function OnchainRetiredCreditsCard() {
     await queryAggregatedCredits({ bridge: "all", status: "retired" })
   ).quantity;
   const legend = (
-    <>
+    <span className={styles.smallLabel}>
+      {" "}
       {t`Verra credits retired`}{" "}
       <span className={styles.highlight}>{t`on-chain`}</span>
-    </>
+    </span>
   );
   return (
     <RetiredCreditsChart issued={issued} retired={retired} legend={legend} />
@@ -98,7 +100,7 @@ function RetiredCreditsChart(props: {
         <div className={styles.value}>
           {formatTonnes({ amount: props.retired, maximumFractionDigits: 0 })}
         </div>
-        <div>{props.legend}</div>
+        {props.legend}
       </div>
     </div>
   );
@@ -114,7 +116,7 @@ function RetiredCreditsLegendContent(props: {
       <div aria-describedby="value">
         {formatPercentage({ value: percentage })}
       </div>
-      <div aria-describedby="label">{t`of retired credits`}</div>
+      <div className={styles.smallLabel}>{t`of retired credits`}</div>
     </div>
   );
 }

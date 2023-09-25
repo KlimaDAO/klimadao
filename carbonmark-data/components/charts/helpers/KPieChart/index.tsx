@@ -61,7 +61,7 @@ export default function KPieChart<
             nameKey="label"
             cx="50%"
             cy="50%"
-            innerRadius="95%"
+            innerRadius="93%"
             outerRadius="100%"
           >
             {chartData.map((entry) => (
