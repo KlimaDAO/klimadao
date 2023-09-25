@@ -1,0 +1,12 @@
+.legendItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dot {
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
