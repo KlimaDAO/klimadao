@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-22 11:33+0000\n"
+"POT-Creation-Date: 2023-09-25 21:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,12 +443,12 @@ msgstr "Creado:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:87
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "La compra mínima con tarjeta de crédito es ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "La compra mínima con tarjeta de crédito es {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:207
@@ -467,7 +467,7 @@ msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to
 msgstr "Actualmente, Carbonmark sólo acepta pagos con USDC en Polygon. <0>Aprenda cómo adquirir USDC en Polygon.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:42
+#: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
 msgstr "FECHA"
 
@@ -780,7 +780,7 @@ msgid "New Unit Price (USDC)"
 msgstr "Nuevo precio unitario (USDC)"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:88
 msgid "No Activity to show."
 msgstr "No hay actividad para mostrar."
 
@@ -829,7 +829,7 @@ msgstr "No se encontraron proyectos con los filtros actuales"
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "No se ha encontrado la descripción de props.project"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -877,7 +877,7 @@ msgid "Over 20 million verified digital carbon credits from hundreds of projects
 msgstr "Más de 20 millones de créditos de carbono digitales verificados de cientos de proyectos, con más de 4.000 millones de dólares negociados hasta la fecha."
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:40
+#: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr "PROYECTO"
 
@@ -1025,7 +1025,7 @@ msgid "Purchase {0} | Carbonmark"
 msgstr "Compra {0} | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:41
+#: components/pages/Retire/Activity/Table.tsx:47
 msgid "QTY"
 msgstr "CANTIDAD"
 
@@ -1644,7 +1644,7 @@ msgstr "Ver todos los proyectos"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:66
+#: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
 msgstr "Ver todos los retiros"
 
@@ -2539,7 +2539,7 @@ msgstr "algo ha ido mal al cargar el subsidio"
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
+#: components/pages/Retire/Activity/Table.tsx:62
 msgid "t"
 msgstr "t"
 
@@ -2759,7 +2759,7 @@ msgstr "Esta función sólo está disponible para usuarios que hayan iniciado se
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:167
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:267

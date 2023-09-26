@@ -1,35 +1,21 @@
-query getCreditListings($projectId: String, $vintageStr: BigInt) {
-  projects(where: { key: $projectId, vintage: $vintageStr }) {
+# @todo these "first:1000" will possibly miss results if there are more than 1000
+# this will cause a silent error. GQL Resolver needs to be updated to allow null search params
+# to return all possible values
+query getCategories {
+  categories(first: 1000) {
     id
-    listings {
-      createdAt
-      updatedAt
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      singleUnitPrice
-      seller {
-        id
-      }
-    }
-    activities {
-      id
-      timeStamp
-      activityType
-      price
-      previousPrice
-      amount
-      previousAmount
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
-    }
+  }
+}
+
+query getCountries {
+  countries(first: 1000) {
+    id
+  }
+}
+
+query getVintages {
+  projects(first: 1000) {
+    vintage
   }
 }
 
@@ -51,39 +37,43 @@ query getPurchasesById($id: Bytes) {
 query getUserByWallet($wallet: Bytes) {
   users(where: { id: $wallet }) {
     listings {
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      batches
-      batchPrices
-      singleUnitPrice
-      createdAt
-      updatedAt
-      seller {
-        id
-      }
+      ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      id
-      amount
-      previousAmount
-      price
-      previousPrice
-      timeStamp
-      activityType
-      project {
-        key
-        vintage
-      }
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
+      ...ActivityFragment
+    }
+  }
+}
+
+query findProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [BigInt!]
+) {
+  projects(
+    where: {
+      category_: { id_in: $category }
+      country_: { id_in: $country }
+      name_contains_nocase: $search
+      vintage_in: $vintage
+    }
+  ) {
+    ...ProjectFragment
+    listings {
+      ...ListingFragment
+    }
+  }
+}
+
+query getCreditListings($projectId: String, $vintageStr: BigInt) {
+  projects(where: { key: $projectId, vintage: $vintageStr }) {
+    id
+    listings {
+      ...ListingFragment
+    }
+    activities {
+      ...ActivityFragment
     }
   }
 }

@@ -1,10 +1,8 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
-import {
-  CreditActivityWithHandle,
-  CreditListingWithHandle,
-} from "../../graphql/marketplaceMumbai.types";
+import { Activity } from "../../models/Activity.model";
+import { Listing } from "../../models/Listing.model";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { gqlSdk } from "../gqlSdk";
@@ -46,9 +44,7 @@ export const fetchMarketplaceListings = async ({
   vintage,
   fastify,
   network,
-}: Params): Promise<
-  [CreditListingWithHandle[], CreditActivityWithHandle[]]
-> => {
+}: Params): Promise<[Listing[], Activity[]]> => {
   const project = await getCreditListings({
     projectId: key,
     vintageStr: vintage,
@@ -58,8 +54,10 @@ export const fetchMarketplaceListings = async ({
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
+  // TODO abstract to util and share logic with User.listings and DetailedProject.listings
   const formattedListings = filteredListings.map((listing) => ({
     ...listing,
+    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
     singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
     leftToSell: utils.formatUnits(listing.leftToSell, 18),
     totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
