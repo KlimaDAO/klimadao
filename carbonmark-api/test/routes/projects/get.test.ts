@@ -155,6 +155,7 @@ describe("GET /projects", () => {
     expect(data).toStrictEqual(expectedResponse);
   });
 
+  //** FYI This test will fail if no matching offset exists in the mock */
   test("Composes a marketplace listing with cms data", async () => {
     nock(GRAPH_URLS.offsets)
       .post("")
