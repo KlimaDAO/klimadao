@@ -45,8 +45,20 @@ query getUserByWallet($wallet: Bytes) {
   }
 }
 
-query findProjects($search: String, $vintage: [BigInt!]) {
-  projects(where: { name_contains_nocase: $search, vintage_in: $vintage }) {
+query findProjects(
+  $country: [String!]
+  $category: [String!]
+  $search: String
+  $vintage: [BigInt!]
+) {
+  projects(
+    where: {
+      category_: { id_in: $category }
+      country_: { id_in: $country }
+      name_contains_nocase: $search
+      vintage_in: $vintage
+    }
+  ) {
     ...ProjectFragment
     listings {
       ...ListingFragment
