@@ -1,5 +1,6 @@
 import { helpers } from "lib/charts";
 import { ChartData } from "lib/charts/types";
+import { currentLocale } from "lib/i18n";
 import { ChartConfiguration } from "./Configuration";
 /* Base parameters for all Axis */
 const BASE_AXIS_PROPS = {
@@ -94,8 +95,12 @@ export function KlimaYAxisTonsProps<CI, Q, M, T>(
 }
 
 /* YAxis props to display prices in an appropriate format */
-export function KlimaYAxisPriceProps(locale: string) {
-  const tickFormatter = helpers.formatPrice(locale);
+export function KlimaYAxisPriceProps() {
+  const locale = currentLocale();
+  const formatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
+  const tickFormatter = (value: number) => formatter.format(value);
   return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
 }
 

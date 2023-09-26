@@ -1,8 +1,8 @@
 "use client"; // use client for recharts animations
-import { KlimaLegendProps, KlimaStackedBars } from "components/charts/helpers";
+import { KlimaLegendProps, KlimaLines } from "components/charts/helpers";
 import {
-  BarChart,
   Legend,
+  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -17,7 +17,7 @@ import {
 } from "../props";
 
 /** FIXME: Refactor to KlimaBarChart */
-export default function KBarChart<T extends object>(props: ChartProps<T>) {
+export default function KLineChart<T extends object>(props: ChartProps<T>) {
   const LocalLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(props.configuration), {
@@ -26,16 +26,17 @@ export default function KBarChart<T extends object>(props: ChartProps<T>) {
       align: "left",
       wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
     });
+
   return (
     <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={props.data} barCategoryGap={"5%"}>
-          {props.XAxis && <XAxis {...getXAxisProps(props)} />}
-          {props.YAxis && <YAxis {...getYAxisProps(props)} />}
+        <LineChart data={props.data}>
+          <XAxis {...getXAxisProps(props)} />
+          <YAxis {...getYAxisProps(props)} />
           <Tooltip {...getKlimaTooltipProps(props)} />
           <Legend {...LocalLegendProps} />
-          {KlimaStackedBars(props.configuration)}
-        </BarChart>
+          {KlimaLines(props.configuration)}
+        </LineChart>
       </ResponsiveContainer>
     </NoDataChartWrapper>
   );
