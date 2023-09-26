@@ -31,30 +31,13 @@
     }
   }
 
-  .tippy-content {
+  div[aria-describedby="tooltip-content"] {
     padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
 
     button {
       box-shadow: none;
     }
-  }
-
-  .tippy-arrow {
-    display: none;
-  }
-}
-
-.menuItem {
-  @include body1;
-  padding: 0;
-  height: 4.4rem;
-  align-items: center;
-
-  &:hover {
-    color: var(--bright-blue);
-  }
-
-  &[data-active="true"] {
-    color: var(--bright-blue);
   }
 }
