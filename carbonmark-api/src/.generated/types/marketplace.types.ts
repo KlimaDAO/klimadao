@@ -1382,8 +1382,6 @@ export type GetUserByWalletQueryVariables = Exact<{
 export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
 export type FindProjectsQueryVariables = Exact<{
-  country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
-  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
 }>;
@@ -1506,10 +1504,8 @@ export const GetUserByWalletDocument = gql`
     ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
 export const FindProjectsDocument = gql`
-    query findProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
-  projects(
-    where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
-  ) {
+    query findProjects($search: String, $vintage: [BigInt!]) {
+  projects(where: {name_contains_nocase: $search, vintage_in: $vintage}) {
     ...ProjectFragment
     listings {
       ...ListingFragment
