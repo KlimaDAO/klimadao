@@ -1,10 +1,10 @@
+import bctIcon from "@klimadao/app/public/icons/BCT.png";
+import mco2Icon from "@klimadao/app/public/icons/MCO2.png";
+import nboIcon from "@klimadao/app/public/icons/NBO.png";
+import nctIcon from "@klimadao/app/public/icons/NCT.png";
+import uboIcon from "@klimadao/app/public/icons/UBO.png";
 import { t } from "@lingui/macro";
 import OverviewCardIcon from "components/Graphics/OverviewCardIcon";
-import bctIcon from "components/Graphics/bct.png";
-import mco2Icon from "components/Graphics/mco2.png";
-import nboIcon from "components/Graphics/nbo.png";
-import nctIcon from "components/Graphics/nct.png";
-import uboIcon from "components/Graphics/ubo.png";
 import { queryTokenInfo } from "./charts/queries";
 import { Token } from "./charts/types";
 

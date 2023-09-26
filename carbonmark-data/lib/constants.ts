@@ -56,5 +56,9 @@ export const urls = {
     klimaRetirementsByBeneficiary: `${api_url}/retirements/klima/agg/beneficiaries`,
     aggregatedCreditsByProjects: `${api_url}/credits/agg/projects`,
     dailyCarbonMetrics: `${api_url}/carbon_metrics`,
+    aggregatedCreditsByPoolAndDates: `${api_url}/credits/agg/pool`,
+    aggregatedCreditsByPoolAndVintage: `${api_url}/credits/agg/pool/vintage`,
+    aggregatedCreditsByPoolAndMethodology: `${api_url}/credits/agg/pool/methodology`,
+    aggregatedCreditsByCountry: `${api_url}/credits/agg/countries`,
   },
 };

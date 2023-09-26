@@ -14,12 +14,13 @@ import { useEffect, useState } from "react";
 export default function PaginatedTable<RI>(props: {
   configurationKey: ConfigurationKey;
   page: number;
+  params: object;
 }) {
   const [data, setData] = useState<PaginatedResponse<RI>>(
     EMPTY_PAGINATED_RESPONSE
   );
   useEffect(() => {
-    fetchData(props.configurationKey, props.page).then((data) => {
+    fetchData(props.configurationKey, props.page, props.params).then((data) => {
       /* FIXME: Unfortunately we have to hardcast this */
       setData(data as PaginatedResponse<RI>);
     });

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-22 11:33+0000\n"
+"POT-Creation-Date: 2023-09-25 21:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -467,7 +467,7 @@ msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:42
+#: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
 msgstr ""
 
@@ -780,7 +780,7 @@ msgid "New Unit Price (USDC)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:88
 msgid "No Activity to show."
 msgstr ""
 
@@ -877,7 +877,7 @@ msgid "Over 20 million verified digital carbon credits from hundreds of projects
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:40
+#: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgid "Purchase {0} | Carbonmark"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:41
+#: components/pages/Retire/Activity/Table.tsx:47
 msgid "QTY"
 msgstr ""
 
@@ -1644,7 +1644,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:66
+#: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
 msgstr ""
 
@@ -2535,7 +2535,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
+#: components/pages/Retire/Activity/Table.tsx:62
 msgid "t"
 msgstr ""
 

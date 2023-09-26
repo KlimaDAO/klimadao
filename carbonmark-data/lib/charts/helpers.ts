@@ -166,6 +166,10 @@ export function pruneNullRows<CI>(
     });
   });
 }
+// Date helpers
+export const dateForQuery = function (date: number) {
+  return new Date(date).toISOString().split(".")[0];
+};
 
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (

@@ -6,12 +6,12 @@ import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
 } from "lib/charts/options";
-import { ChartDictionnary, DateField, Status } from "lib/charts/types";
+import { DateField, NodeDictionnary, Status } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
 export default function DailyVerraCreditsCard(props: CardProps) {
-  const charts: ChartDictionnary = {};
+  const charts: NodeDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
   ["onchain", "offchain"].forEach((bridge) => {

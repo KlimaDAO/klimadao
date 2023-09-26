@@ -1,5 +1,7 @@
 export { KlimaAreaProps, KlimaStackedAreas } from "./KlimaAreaChart";
 export {
+  KlimaXAxisDailyProps,
+  KlimaXAxisMethodologyProps,
   KlimaXAxisMonthlyProps,
   KlimaYAxisPercentageProps,
   KlimaYAxisPriceProps,

@@ -1,6 +1,7 @@
 import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { t } from "@lingui/macro";
 import { ArrowDropDown, ArrowDropUp, InfoOutlined } from "@mui/icons-material";
+import PercentageChange from "components/PercentageChage";
 import { formatPrice } from "lib/charts/helpers";
 import { queryPrices, queryTokenInfo } from "lib/charts/queries";
 import { PricesItem, Token } from "lib/charts/types";
@@ -87,10 +88,10 @@ export default async function TokenPricesChart(props: {
           {
             label: t`Last 7 days`,
             value: (
-              <span className={styles.priceChangeValue}>
-                {priceChangeIcon}
-                {priceChangePercentage.toFixed(0)}%
-              </span>
+              <PercentageChange
+                currentValue={tokenInfo.price}
+                previousValue={price7DaysAgo}
+              ></PercentageChange>
             ),
           },
         ],
