@@ -66,10 +66,14 @@ query findProjects(
   }
 }
 
-query getCreditListings($projectId: String, $vintageStr: BigInt) {
+query getCreditListings(
+  $projectId: String
+  $vintageStr: BigInt
+  $expiresAfter: BigInt
+) {
   projects(where: { key: $projectId, vintage: $vintageStr }) {
     id
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
     activities {

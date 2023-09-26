@@ -1394,6 +1394,7 @@ export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __type
 export type GetCreditListingsQueryVariables = Exact<{
   projectId: InputMaybe<Scalars['String']>;
   vintageStr: InputMaybe<Scalars['BigInt']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1519,10 +1520,10 @@ export const FindProjectsDocument = gql`
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}`;
 export const GetCreditListingsDocument = gql`
-    query getCreditListings($projectId: String, $vintageStr: BigInt) {
+    query getCreditListings($projectId: String, $vintageStr: BigInt, $expiresAfter: BigInt) {
   projects(where: {key: $projectId, vintage: $vintageStr}) {
     id
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
     activities {
