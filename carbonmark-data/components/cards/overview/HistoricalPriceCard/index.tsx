@@ -6,7 +6,6 @@ import { queryPrices } from "lib/charts/queries";
 import { PricesItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 
-
 /** Historical Prices Card */
 export default function HistoricalPriceCard(props: CardProps) {
   const chart = (
@@ -23,7 +22,7 @@ export default function HistoricalPriceCard(props: CardProps) {
   );
 }
 
-/** Async server component that renders a Recharts client component */
+/** HistoricalPrice chart */
 async function HistoricalPriceChart() {
   const configuration: SimpleChartConfiguration<PricesItem> = [
     {
@@ -70,5 +69,12 @@ async function HistoricalPriceChart() {
   const data = (
     await queryPrices({ sort_by: "date", sort_order: "asc", page_size: -1 })
   ).items;
-  return <KLineChart configuration={configuration} data={data} dateField="date" YAxis="price" />;
+  return (
+    <KLineChart
+      configuration={configuration}
+      data={data}
+      dateField="date"
+      YAxis="price"
+    />
+  );
 }

@@ -6,11 +6,13 @@ import OptionsSwitcher from "components/OptionsSwitcher";
 import Skeleton from "components/Skeleton";
 import { Options } from "lib/charts/options";
 import React, { Key, Suspense, useState } from "react";
+import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
 export type DetailUrlPosition = "top" | "bottom" | "none";
 export type CardProps = {
   isDetailPage?: boolean;
+  centerTitle?: boolean;
 };
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -28,6 +30,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
   charts?: Record<string, React.ReactNode>;
   chart?: React.ReactNode;
   title: string;
+  centerTitle?: boolean;
   detailUrl?: string;
   detailUrlPosition?: DetailUrlPosition;
   isDetailPage?: boolean;
@@ -52,12 +55,18 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
       </Link>
     );
   } else {
-    detailUrlComponent = <div className={styles.cardHeaderDetailsLink}></div>;
+    /** Remove the detailUrlComponent if we try to center the card title */
+    if (props.centerTitle != true)
+      detailUrlComponent = <div className={styles.cardHeaderDetailsLink}></div>;
   }
   const topDetailUrlComponent =
     detailUrlPosition == "top" ? detailUrlComponent : <></>;
   const bottomDetailUrlComponent =
     detailUrlPosition == "bottom" ? detailUrlComponent : <></>;
+
+  const cardHeaderTitleStyle = `${styles.cardHeaderTitle} ${
+    props.centerTitle ? layout.textCenter : ""
+  }`;
 
   /** Returns the chart to display given the chosen options
    If the the chart attribute is filled, it is that chart.
@@ -87,7 +96,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
   return (
     <div className={className}>
       <div className={styles.cardHeader}>
-        <h2 className={styles.cardHeaderTitle}>{props.title}</h2>
+        <h2 className={cardHeaderTitleStyle}>{props.title}</h2>
         {props.topOptions && (
           <div className={styles.cardHeaderSwitcher}>
             <OptionsSwitcher
