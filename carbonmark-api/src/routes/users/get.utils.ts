@@ -61,11 +61,15 @@ const fetchTestnetHoldings = async (params: {
 export const getUserByWallet = async (params: {
   address: string;
   network?: NetworkParam;
+  expiresAfter?: string;
 }): Promise<ByWalletUser | MumbaiUser | undefined> => {
   const graph =
     params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
+  const expiresAfter =
+    params.expiresAfter || Math.floor(Date.now() / 1000).toString();
   const { users } = await graph.getUserByWallet({
     wallet: params.address.toLowerCase(),
+    expiresAfter,
   });
   return users.at(0);
 };
