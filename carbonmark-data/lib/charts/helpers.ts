@@ -186,22 +186,18 @@ export const formatQuantityAsTons = function (quantity: number): string {
   quantity = Math.floor(quantity);
   return `${quantity} T`;
 };
-export const formatPrice = function (locale: string) {
-  return function (price: number): string {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 2,
-    }).format(price);
-  };
+export const formatPrice = function (price: number): string {
+  return new Intl.NumberFormat(currentLocale(), {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+  }).format(price);
 };
-function formatDate(
-  locale: string,
-  format: DateTimeFormatOptions
-): (date: number) => string {
+
+function formatDate(format: DateTimeFormatOptions): (date: number) => string {
   return function (date: number): string {
     const formatted_date = new Date(date);
-    return formatted_date.toLocaleDateString(locale, format);
+    return formatted_date.toLocaleDateString(currentLocale(), format);
   };
 }
 function formatTime(): (date: number) => string {
@@ -214,39 +210,35 @@ function formatTime(): (date: number) => string {
   };
 }
 
-export function formatDateAsMonths(locale: string): (date: number) => string {
-  return formatDate(locale, {
+export function formatDateAsMonths(date: number) {
+  return formatDate({
     year: "numeric",
     month: "short",
-  });
+  })(date);
 }
-export function formatDateAsMonthsShort(
-  locale: string
-): (date: number) => string {
-  return formatDate(locale, {
+export function formatDateAsMonthsShort(date: number) {
+  return formatDate({
     year: "2-digit",
     month: "short",
-  });
+  })(date);
 }
-export function formatDateAsDays(locale: string): (date: number) => string {
-  return formatDate(locale, {
+export function formatDateAsDays(date: number) {
+  return formatDate({
     day: "numeric",
     year: "numeric",
     month: "short",
-  });
+  })(date);
 }
-export function formatDateAsDaysShort(
-  locale: string
-): (date: number) => string {
-  return formatDate(locale, {
+export function formatDateAsDaysShort(date: number) {
+  return formatDate({
     day: "numeric",
     year: "numeric",
     month: "numeric",
-  });
+  })(date);
 }
-export function formatDateAndTime(locale: string): (date: number) => string {
+export function formatDateAndTime(date: number) {
   return function (date: number): string {
-    const day = formatDateAsDays(locale)(date);
+    const day = formatDateAsDays(date);
     const time = formatTime()(date);
     return `${day} ${time}`;
   };

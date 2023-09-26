@@ -50,17 +50,13 @@ export type YAxisType = "tons" | "price" | "percentage" | undefined;
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   const locale = currentLocale();
   // Default format months
-  let XAxisProps = KlimaXAxisMonthlyProps<T>(
-    props.data,
-    props.dateField,
-    locale
-  );
+  let XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField);
   if (props.XAxis == "days") {
-    XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField, locale);
+    XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField);
   }
 
   if (props.XAxis == "months") {
-    XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField, locale);
+    XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField);
   }
 
   if (props.XAxis == "vintage") {
@@ -89,13 +85,13 @@ export function getToolTipXAxisFormatter<T extends object>(
 ) {
   const locale = currentLocale();
   // Default format months
-  let toolTipXAxisFormatter = helpers.formatDateAsMonths(locale);
+  let toolTipXAxisFormatter = helpers.formatDateAsMonths;
   if (props.XAxis == "days") {
-    toolTipXAxisFormatter = helpers.formatDateAsDays(locale);
+    toolTipXAxisFormatter = helpers.formatDateAsDays;
   }
 
   if (props.XAxis == "months") {
-    toolTipXAxisFormatter = helpers.formatDateAsMonths(locale);
+    toolTipXAxisFormatter = helpers.formatDateAsMonths;
   }
 
   if (props.XAxis == "vintage") {
@@ -114,7 +110,7 @@ export function getToolTipYAxisFormatter<T extends object>(
   let toolTipYAxisFormatter = (x: number) =>
     helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
   if (props.YAxis == "price") {
-    toolTipYAxisFormatter = helpers.formatPrice(locale);
+    toolTipYAxisFormatter = helpers.formatPrice;
   }
   if (props.YAxis == "percentage") {
     toolTipYAxisFormatter = (x) =>

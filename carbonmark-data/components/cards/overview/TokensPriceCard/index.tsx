@@ -58,7 +58,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
         locale: locale,
       });
       // Price
-      const price = formatPrice(locale)(tokenInfo.price);
+      const price = formatPrice(tokenInfo.price);
 
       // price change
       const price7DaysAgo =
@@ -74,9 +74,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
 
       // Selective cost
       const selectiveCostInfo =
-        token != "mco2"
-          ? formatPrice(locale)(tokenInfo.selective_cost_value)
-          : "-";
+        token != "mco2" ? formatPrice(tokenInfo.selective_cost_value) : "-";
       const selectiveFeeDescription =
         await getTokenSelectiveFeeDescription(token);
 

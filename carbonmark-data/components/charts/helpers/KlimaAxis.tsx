@@ -22,26 +22,21 @@ const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
 /* XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
   data: ChartData<T>,
-  dataKey: keyof T,
-  locale: string
+  dataKey: keyof T
 ) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     // FIXME: We should not need to hard cast here
     dataKey: dataKey as string,
-    tickFormatter: helpers.formatDateAsMonths(locale),
+    tickFormatter: helpers.formatDateAsMonths,
     ticks: helpers.niceTicks(data, dataKey),
   });
 }
 /* XAxis props to display ticks as days */
-export function KlimaXAxisDailyProps<T>(
-  data: ChartData<T>,
-  dataKey: keyof T,
-  locale: string
-) {
+export function KlimaXAxisDailyProps<T>(data: ChartData<T>, dataKey: keyof T) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     // FIXME: We should not need to hard cast here
     dataKey: dataKey as string,
-    tickFormatter: helpers.formatDateAsDays(locale),
+    tickFormatter: helpers.formatDateAsDays,
     ticks: helpers.niceTicks(data, dataKey),
   });
 }
