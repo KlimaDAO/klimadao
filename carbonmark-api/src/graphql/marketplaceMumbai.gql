@@ -50,6 +50,7 @@ query findProjects(
   $category: [String!]
   $search: String
   $vintage: [BigInt!]
+  $expiresAfter: BigInt
 ) {
   projects(
     where: {
@@ -60,7 +61,7 @@ query findProjects(
     }
   ) {
     ...ProjectFragment
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }

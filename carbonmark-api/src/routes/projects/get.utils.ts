@@ -48,6 +48,7 @@ export const getDefaultQueryArgs = async (
     country,
     vintage,
     search: "",
+    expiresAfter: Math.floor(Date.now() / 1000).toString(),
   };
 };
 
