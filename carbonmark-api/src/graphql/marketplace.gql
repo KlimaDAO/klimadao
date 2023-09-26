@@ -38,33 +38,9 @@ query getUserByWallet($wallet: Bytes) {
   users(where: { id: $wallet }) {
     listings {
       ...ListingFragment
-      seller {
-        id
-      }
-      project {
-        ...ProjectFragment
-        category {
-          id
-        }
-      }
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
-      project {
-        category {
-          id
-        }
-        ...ProjectFragment
-      }
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
-    }
-    purchases {
-      id
     }
   }
 }
@@ -90,61 +66,14 @@ query findProjects(
   }
 }
 
-query getProjectsById($key: String, $vintageStr: BigInt) {
-  projects(where: { key: $key, vintage: $vintageStr }) {
-    ...ProjectFragment
-    country {
-      id
-    }
-    listings {
-      ...ListingFragment
-      seller {
-        id
-      }
-    }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      ...ActivityFragment
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
-    }
-  }
-}
-
 query getCreditListings($projectId: String, $vintageStr: BigInt) {
   projects(where: { key: $projectId, vintage: $vintageStr }) {
     id
     listings {
-      createdAt
-      updatedAt
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      singleUnitPrice
-      seller {
-        id
-      }
+      ...ListingFragment
     }
     activities {
-      id
-      timeStamp
-      activityType
-      price
-      previousPrice
-      amount
-      previousAmount
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
+      ...ActivityFragment
     }
   }
 }

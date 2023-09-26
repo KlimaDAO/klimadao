@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-21 18:29+0000\n"
+"POT-Creation-Date: 2023-09-25 21:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,12 +443,12 @@ msgstr "Créé :"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:87
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "Le montant minimum d'achat par carte de crédit est de {formattedFiatMinimum} $"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "L'achat minimum par carte de crédit est de {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:207
@@ -467,7 +467,7 @@ msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to
 msgstr "Actuellement, Carbonmark n'accepte que les paiements en USDC sur Polygon. <0>Découvrir comment acquérir des USDC sur Polygon.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:42
+#: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
 msgstr "DATE"
 
@@ -780,7 +780,7 @@ msgid "New Unit Price (USDC)"
 msgstr "Nouveau Prix Unitaire (USDC)"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:88
 msgid "No Activity to show."
 msgstr "Aucune activité à montrer"
 
@@ -877,7 +877,7 @@ msgid "Over 20 million verified digital carbon credits from hundreds of projects
 msgstr "Plus de 20 millions de crédits carbone numériques vérifiés provenant de centaines de projets, avec plus de 4 milliards de dollars échangés à ce jour."
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:40
+#: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr "PROJET"
 
@@ -1025,7 +1025,7 @@ msgid "Purchase {0} | Carbonmark"
 msgstr "Achat {0} | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:41
+#: components/pages/Retire/Activity/Table.tsx:47
 msgid "QTY"
 msgstr "QTÉ"
 
@@ -1644,7 +1644,7 @@ msgstr "Voir tous les Projets"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:66
+#: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
 msgstr "Voir tous les Retraits"
 
@@ -2535,7 +2535,7 @@ msgstr "quelque chose s'est mal passé lors du chargement de l'autorisation"
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
+#: components/pages/Retire/Activity/Table.tsx:62
 msgid "t"
 msgstr "t"
 
@@ -2755,7 +2755,7 @@ msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont conne
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:167
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:267

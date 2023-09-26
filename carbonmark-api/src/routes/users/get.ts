@@ -1,6 +1,7 @@
 import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { Listing } from "../../models/Listing.model";
 import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
@@ -77,13 +78,15 @@ const handler = (fastify: FastifyInstance) =>
       }) || [];
 
     const listings =
-      user?.listings?.map((l) => ({
-        id: l.id,
-        leftToSell: l.leftToSell,
-        tokenAddress: l.tokenAddress,
-        singleUnitPrice: l.singleUnitPrice,
-        totalAmountToSell: l.totalAmountToSell,
-      })) || [];
+      user?.listings?.map(
+        (l): Listing => ({
+          ...l,
+          minFillAmount: utils.formatUnits(l.minFillAmount, 18),
+          leftToSell: utils.formatUnits(l.leftToSell, 18),
+          singleUnitPrice: utils.formatUnits(l.singleUnitPrice, 6),
+          totalAmountToSell: utils.formatUnits(l.totalAmountToSell),
+        })
+      ) || [];
 
     const response: User = {
       createdAt: profile?.createdAt || 0,
