@@ -3,9 +3,9 @@ import VerraCreditsCard from "components/cards/overview/DailyVerraCreditsOvervie
 import layout from "theme/layout.module.scss";
 
 import { PageHeader } from "components/PageHeader/PageHeader";
-import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
 import DailyCarbonRetirementsCard from "components/cards/overview/DailyCarbonRetirementsCard";
 import DailyCarbonSupplyOverviewCard from "components/cards/overview/DailyCarbonSupplyOverviewCard";
+import HistoricalPriceCard from "components/cards/overview/HistoricalPriceCard";
 import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 
