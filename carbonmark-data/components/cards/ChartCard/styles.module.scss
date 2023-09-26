@@ -22,6 +22,11 @@
 .rowCardContainer {
   min-height: 28.4rem;
   height: 28.4rem;
+
+  &[aria-roledescription="detailPage"] {
+    min-height: 40rem;
+    height: 40rem;
+  }
 }
 
 .cardHeader {
@@ -94,6 +99,7 @@
 
 .cardHeaderSwitcher {
   display: none;
+
   @include desktop {
     display: block;
   }

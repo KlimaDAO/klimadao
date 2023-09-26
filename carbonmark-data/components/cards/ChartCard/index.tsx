@@ -46,6 +46,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
     props.bottomOptions ? props.bottomOptions[0].value : undefined
   );
   const isDetailPage = props.isDetailPage || false;
+  const roleDescription = isDetailPage ? "detailPage" : "mainPage";
   const detailUrlPosition = props.detailUrlPosition || "top";
   let detailUrlComponent = <></>;
   if (props.detailUrl && !isDetailPage) {
@@ -94,7 +95,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
   }
 
   return (
-    <div className={className}>
+    <div className={className} aria-roledescription={roleDescription}>
       <div className={styles.cardHeader}>
         <h2 className={cardHeaderTitleStyle}>{props.title}</h2>
         {props.topOptions && (
