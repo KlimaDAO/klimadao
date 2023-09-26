@@ -10,7 +10,7 @@ interface Props<T extends object> {
   configuration: SimpleChartConfiguration<T>;
   noDataText?: string;
 }
-/** FIXME: Refactor to KlimaBarChart */
+/** FIXME: Refactor to KlimaHorizontalStackedBarChart */
 export default function KHorizontalStackedBarChart<T extends object>(
   props: Props<T>
 ) {

@@ -1,12 +1,30 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import RetirementsByPoolBarChart from "components/charts/RetirementsByPoolBarChart";
+import KBarChart from "components/charts/helpers/KBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { getKlimaMonthlyRetirementsByPoolInPercent } from "lib/charts/aggregators/getKlimaMonthlyRetirementsByPoolInPercent";
 import { KlimaMonthlyRetirementsByTokenItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Klima DAO Retirements by pool Card */
 export default function RetirementsByPoolBarCard(props: CardProps) {
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <RetirementsByPoolBarChart />
+  );
+
+  return (
+    <ChartCard
+      {...props}
+      title={t`KlimaDAO retirements by pool`}
+      detailUrl="/details/retirement-trends-by-pool"
+      chart={chart}
+    />
+  );
+}
+
+/** Async server component that renders a Recharts client component */
+async function RetirementsByPoolBarChart() {
   const configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsByTokenItem> =
     [
       {
@@ -50,18 +68,13 @@ export default function RetirementsByPoolBarCard(props: CardProps) {
         },
       },
     ];
-
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByPoolBarChart configuration={configuration} />
-  );
-
+  const data = await getKlimaMonthlyRetirementsByPoolInPercent(configuration);
   return (
-    <ChartCard
-      {...props}
-      title={t`KlimaDAO retirements by pool`}
-      detailUrl="/details/retirement-trends-by-pool"
-      chart={chart}
+    <KBarChart
+      configuration={configuration}
+      data={data}
+      YAxis="percentage"
+      dateField="retirement_date"
     />
   );
 }

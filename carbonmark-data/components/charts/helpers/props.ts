@@ -17,6 +17,7 @@ import { LegendProps } from "recharts";
 import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
+  KlimaYAxisPercentageProps,
   KlimaYAxisPriceProps,
   KlimaYAxisTonsProps,
 } from "./KlimaAxis";
@@ -44,7 +45,7 @@ export type XAxisType =
   | "vintage"
   | "methodology"
   | undefined;
-export type YAxisType = "tons" | "price" | undefined;
+export type YAxisType = "tons" | "price" | "percentage" | undefined;
 
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   const locale = currentLocale();
@@ -78,7 +79,9 @@ export function getYAxisProps<T extends object>(props: ChartProps<T>) {
   if (props.YAxis == "price") {
     YAxisProps = KlimaYAxisPriceProps();
   }
-
+  if (props.YAxis == "percentage") {
+    YAxisProps = KlimaYAxisPercentageProps();
+  }
   return YAxisProps;
 }
 export function getToolTipXAxisFormatter<T extends object>(
@@ -112,6 +115,10 @@ export function getToolTipYAxisFormatter<T extends object>(
     helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
   if (props.YAxis == "price") {
     toolTipYAxisFormatter = helpers.formatPrice(locale);
+  }
+  if (props.YAxis == "percentage") {
+    toolTipYAxisFormatter = (x) =>
+      helpers.formatPercentage({ value: x, fractionDigits: 2 });
   }
 
   return toolTipYAxisFormatter;

@@ -1,8 +1,8 @@
 "use client"; // use client for recharts animations
-import { KlimaLegendProps, KlimaLines } from "components/charts/helpers";
+import { KlimaLegendProps, KlimaStackedAreas } from "components/charts/helpers";
 import {
+  AreaChart,
   Legend,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -16,8 +16,8 @@ import {
   getYAxisProps,
 } from "../props";
 
-/** FIXME: Refactor to KlimaLineChart */
-export default function KLineChart<T extends object>(props: ChartProps<T>) {
+/** FIXME: Refactor to KlimaAreaChart */
+export default function KAreaChart<T extends object>(props: ChartProps<T>) {
   const LocalLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(props.configuration), {
@@ -30,13 +30,13 @@ export default function KLineChart<T extends object>(props: ChartProps<T>) {
   return (
     <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={props.data}>
+        <AreaChart data={props.data}>
           <XAxis {...getXAxisProps(props)} />
           <YAxis {...getYAxisProps(props)} />
           <Tooltip {...getKlimaTooltipProps(props)} />
           <Legend {...LocalLegendProps} />
-          {KlimaLines(props.configuration)}
-        </LineChart>
+          {KlimaStackedAreas(props.configuration)}
+        </AreaChart>
       </ResponsiveContainer>
     </NoDataChartWrapper>
   );
