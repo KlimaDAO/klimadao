@@ -3,7 +3,7 @@ import {
   TokenDetailsProps,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
-import TokenDistributionOfProjectsChart from "components/charts/tokenDetails/TokenDistributionOfProjectsChart";
+import CreditsDistributionOfProjectsChart from "components/charts/CreditsDistributionOfProjectsChart";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 export default function TokenDistributionOfProjectsCard(
@@ -11,7 +11,7 @@ export default function TokenDistributionOfProjectsCard(
 ) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <TokenDistributionOfProjectsChart {...props} />
+    <CreditsDistributionOfProjectsChart {...props} />
   );
 
   return (
