@@ -1,11 +1,30 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import CreditsByBridgeChart from "components/charts/CreditsByBridgeChart";
-import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
+import KPieChart from "components/charts/helpers/KPieChart";
+import {
+  AggregatedCreditsChartConfiguration,
+  getAggregatedCredits,
+} from "lib/charts/aggregators/getAggregatedCredits";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
 export default function TokenizedCreditsByBridgeCard(props: CardProps) {
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <TokenizedCreditsByBridgeChart />
+  );
+  return (
+    <ChartCard
+      {...props}
+      title={t`Tokenized credits by bridge`}
+      detailUrl="/details/verra-credits-tokenized-by-bridge"
+      chart={chart}
+    />
+  );
+}
+
+/** Async server component that renders a Recharts client component */
+async function TokenizedCreditsByBridgeChart() {
   const status = "bridged";
   const configuration: AggregatedCreditsChartConfiguration = [
     {
@@ -45,16 +64,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
       },
     },
   ];
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <CreditsByBridgeChart configuration={configuration}></CreditsByBridgeChart>
-  );
-  return (
-    <ChartCard
-      {...props}
-      title={t`Tokenized credits by bridge`}
-      detailUrl="/details/verra-credits-tokenized-by-bridge"
-      chart={chart}
-    />
-  );
+
+  const data = await getAggregatedCredits(configuration);
+  return <KPieChart data={data} configuration={configuration} />;
 }
