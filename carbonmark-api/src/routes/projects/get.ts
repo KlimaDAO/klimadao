@@ -98,8 +98,10 @@ const handler = (fastify: FastifyInstance) =>
        * ... if country or category were provided in the query
        */
       .filter(({ id }) =>
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo Use CreditID
-        notNil(ProjectDataMap.get(id as CreditIdentifier))
+        args.category || args.country
+          ? // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo Use CreditID
+            notNil(ProjectDataMap.get(id as CreditIdentifier))
+          : true
       )
       .forEach((project) => {
         if (
