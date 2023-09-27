@@ -11,7 +11,9 @@ import { palette } from "theme/palette";
 export default function TokenizedCreditsByBridgeCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <TokenizedCreditsByBridgeChart showPercentageInLegend={props.isDetailPage} />
+    <TokenizedCreditsByBridgeChart
+      showPercentageInLegend={props.isDetailPage}
+    />
   );
   return (
     <ChartCard
@@ -25,7 +27,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
 
 /** Async server component that renders a Recharts client component */
 async function TokenizedCreditsByBridgeChart(props: {
-  showPercentageInLegend: boolean;
+  showPercentageInLegend?: boolean;
 }) {
   const status = "bridged";
   const configuration: AggregatedCreditsChartConfiguration = [
@@ -73,6 +75,7 @@ async function TokenizedCreditsByBridgeChart(props: {
       data={data}
       configuration={configuration}
       showPercentageInLegend={props.showPercentageInLegend}
+      YAxis="tons"
     />
   );
 }

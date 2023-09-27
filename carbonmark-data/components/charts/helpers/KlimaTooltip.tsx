@@ -5,10 +5,10 @@ import {
 } from "recharts/types/component/DefaultTooltipContent";
 import styles from "./styles.module.scss";
 
-export function KlimaTooltip(
-  xAxisFormatter: (v: number) => string,
-  yAxisFormatter: (v: number) => string
-) {
+export function KlimaTooltip(params: {
+  xAxisFormatter?: (v: number) => string;
+  yAxisFormatter?: (v: number) => string;
+}) {
   function KlimaTooltipComponent<
     TValue extends ValueType,
     TName extends NameType,
@@ -17,13 +17,15 @@ export function KlimaTooltip(
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltip}>
-          <p>{xAxisFormatter(label)}</p>
+          {params.xAxisFormatter && <p>{params.xAxisFormatter(label)}</p>}
           <div className={styles.tooltipItems}>
             {payload.map((pld) => (
               <div key={pld.name}>
                 <div>{pld.name}</div>
                 <div style={{ color: pld.color }}>
-                  {pld.value && yAxisFormatter(pld.value as number)}
+                  {pld.value &&
+                    params.yAxisFormatter &&
+                    params.yAxisFormatter(pld.value as number)}
                 </div>
               </div>
             ))}

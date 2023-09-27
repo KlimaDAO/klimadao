@@ -69,7 +69,6 @@ export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   return XAxisProps;
 }
 export function getYAxisProps<T extends object>(props: ChartProps<T>) {
-  const locale = currentLocale();
   // Default format tons
   let YAxisProps = KlimaYAxisTonsProps(props.data, props.configuration);
   if (props.YAxis == "price") {
@@ -80,39 +79,35 @@ export function getYAxisProps<T extends object>(props: ChartProps<T>) {
   }
   return YAxisProps;
 }
-export function getToolTipXAxisFormatter<T extends object>(
-  props: ChartProps<T>
-) {
+export function getToolTipXAxisFormatter<T extends object>(XAxis: XAxisType) {
   const locale = currentLocale();
   // Default format months
   let toolTipXAxisFormatter = helpers.formatDateAsMonths;
-  if (props.XAxis == "days") {
+  if (XAxis == "days") {
     toolTipXAxisFormatter = helpers.formatDateAsDays;
   }
 
-  if (props.XAxis == "months") {
+  if (XAxis == "months") {
     toolTipXAxisFormatter = helpers.formatDateAsMonths;
   }
 
-  if (props.XAxis == "vintage") {
+  if (XAxis == "vintage") {
     toolTipXAxisFormatter = (x: number) => String(x);
   }
-  if (props.XAxis == "methodology") {
+  if (XAxis == "methodology") {
     toolTipXAxisFormatter = (x: number) => String(x);
   }
   return toolTipXAxisFormatter;
 }
-export function getToolTipYAxisFormatter<T extends object>(
-  props: ChartProps<T>
-) {
+export function getToolTipYAxisFormatter(YAxis: YAxisType) {
   const locale = currentLocale();
   // Default format tons
   let toolTipYAxisFormatter = (x: number) =>
     helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
-  if (props.YAxis == "price") {
+  if (YAxis == "price") {
     toolTipYAxisFormatter = helpers.formatPrice;
   }
-  if (props.YAxis == "percentage") {
+  if (YAxis == "percentage") {
     toolTipYAxisFormatter = (x) =>
       helpers.formatPercentage({ value: x, fractionDigits: 2 });
   }
@@ -122,10 +117,10 @@ export function getToolTipYAxisFormatter<T extends object>(
 
 export function getKlimaTooltipProps<T extends object>(props: ChartProps<T>) {
   return {
-    content: KlimaTooltip(
-      getToolTipXAxisFormatter(props),
-      getToolTipYAxisFormatter(props)
-    ),
+    content: KlimaTooltip({
+      xAxisFormatter: getToolTipXAxisFormatter(props.XAxis),
+      yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
+    }),
     cursor: { fill: "transparent" },
   };
 }

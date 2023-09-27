@@ -1,12 +1,14 @@
 "use client"; // use client for recharts animations
-import { KlimaLegendProps } from "components/charts/helpers";
+import { KlimaLegendProps, KlimaTooltip } from "components/charts/helpers";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage } from "lib/charts/helpers";
 import { ChartData } from "lib/charts/types";
-import { Cell, Legend, LegendProps, Pie, PieChart } from "recharts";
+import { cloneDeep } from "lodash";
+import { Cell, Legend, LegendProps, Pie, PieChart, Tooltip } from "recharts";
 import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import ChartWrapper from "../ChartWrapper";
 import { ChartConfigurationItem } from "../Configuration";
+import { YAxisType, getToolTipYAxisFormatter } from "../props";
 
 interface Props<CI extends { quantity: number }, T extends object> {
   data: ChartData<CI>;
@@ -16,16 +18,19 @@ interface Props<CI extends { quantity: number }, T extends object> {
   showPercentageInLegend?: boolean;
   legendContent?: ContentType;
   noDataText?: string;
+  YAxis?: YAxisType;
 }
 /** FIXME: Refactor to KlimaBarChart */
 export default function KPieChart<
   CI extends { quantity: number },
   T extends object,
 >(props: Props<CI, T>) {
+  // Copy configuration because we are going to alter it
+  const configuration = cloneDeep(props.configuration);
   // Default configuration
   const LocalLegendProps =
     props.LegendProps ||
-    Object.assign({}, KlimaLegendProps(props.configuration), {
+    Object.assign({}, KlimaLegendProps(configuration), {
       verticalAlign: "middle",
       align: "center",
       layout: "vertical",
@@ -39,7 +44,7 @@ export default function KPieChart<
   const chartData: ChartData<
     ChartConfigurationItem<keyof T> & { quantity: number }
   > = nonZeroData.map((item, i) => {
-    const chartOptions = props.configuration[i].chartOptions;
+    const chartOptions = configuration[i].chartOptions;
     let label = chartOptions.label || chartOptions.id;
     if (props.showPercentageInLegend) {
       const percentage = formatPercentage({
@@ -74,6 +79,14 @@ export default function KPieChart<
             <Cell key={entry.id} fill={entry.color} />
           ))}
         </Pie>
+        <Tooltip
+          {...{
+            content: KlimaTooltip({
+              yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
+            }),
+            cursor: { fill: "transparent" },
+          }}
+        />
         {showLegend && (
           <Legend {...LocalLegendProps} content={props.legendContent} />
         )}
