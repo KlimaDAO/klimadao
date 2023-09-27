@@ -70,6 +70,26 @@ export interface PaginatedResponse<RI> {
   pages_count: number;
   current_page: number;
 }
+export interface BridgeQuantitiesInterface {
+  toucan_quantity?: number;
+  c3_quantity?: number;
+  moss_quantity?: number;
+  offchain_quantity?: number;
+  total_quantity?: number;
+  not_bridged_quantity?: number;
+}
+export interface PoolQuantitiesInterface {
+  bct_quantity: number;
+  nct_quantity: number;
+  mco2_quantity: number;
+  ubo_quantity: number;
+  nbo_quantity: number;
+}
+export interface OriginInterface {
+  country: string;
+  country_code: string;
+}
+
 export interface DailyCreditsItem extends DateFieldInterface {
   quantity: number;
 }
@@ -110,6 +130,9 @@ export interface CarbonMetricsItem {
   total_carbon_supply_celo: number;
   mco2_retired_celo: number;
   total_retirements_celo: number;
+  total_toucan_supply: number;
+  total_c3_supply: number;
+  total_moss_supply: number;
   total_retirements: number;
 }
 
@@ -267,6 +290,33 @@ export interface AggregatedCreditsByCountryItem {
 export type AggregatedCreditsByCountry =
   PaginatedResponse<AggregatedCreditsByCountryItem>;
 
+export interface AggregatedCreditsByBridgeAndVintageItem
+  extends BridgeQuantitiesInterface {
+  vintage: number;
+}
+export type AggregatedCreditsByBridgeAndVintage =
+  ChartData<AggregatedCreditsByBridgeAndVintageItem>;
+
+export interface AggregatedCreditsByBridgeAndOriginItem
+  extends BridgeQuantitiesInterface,
+    OriginInterface {
+  total_bridged: number;
+  percentage?: number;
+}
+export type AggregatedCreditsByBridgeAndOrigin =
+  ChartData<AggregatedCreditsByBridgeAndOriginItem>;
+
+export interface MonthlyAggregatedCreditsByPoolItem
+  extends PoolQuantitiesInterface,
+    DateFieldInterface {}
+
+export interface AggregatedCreditsByOriginItem extends OriginInterface {
+  quantity: number;
+}
+
+export type AggregatedCreditsByOrigin =
+  PaginatedResponse<AggregatedCreditsByOriginItem>;
+
 // ChartData mappings (used to transform API responses into chart data)
 export interface ChartMappingParams {
   source: string; // Qhen querying source field is renamed into destination
@@ -296,13 +346,10 @@ export type DailyChartData<CI extends GenericDailyChartDataItem> =
 export type DailyCreditsChartQueryParams = CreditsQueryParams &
   ChartMappingParams &
   ChartDateMappingParams;
-export interface DailyCreditsChartDataItem extends GenericDailyChartDataItem {
-  toucan?: number;
-  c3?: number;
-  moss?: number;
-  offchain?: number;
-  date: number;
-}
+
+export interface DailyCreditsChartDataItem
+  extends GenericDailyChartDataItem,
+    BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
 // Chart data: Aggregated credits
