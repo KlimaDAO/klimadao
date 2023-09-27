@@ -1385,6 +1385,7 @@ export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __type
 export type FindProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1506,10 +1507,10 @@ export const GetUserByWalletDocument = gql`
     ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
 export const FindProjectsDocument = gql`
-    query findProjects($search: String, $vintage: [BigInt!]) {
+    query findProjects($search: String, $vintage: [BigInt!], $expiresAfter: BigInt) {
   projects(where: {name_contains_nocase: $search, vintage_in: $vintage}) {
     ...ProjectFragment
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
   }

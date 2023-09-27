@@ -18,7 +18,7 @@ export const QueryString = Type.Object({
     Type.String({
       description:
         "Only return listings that expire after this timestamp (Unix seconds)",
-      default: "Current system timestamp.",
+      default: Math.floor(Date.now() / 1000).toString(),
       examples: ["1620000000"],
     })
   ),

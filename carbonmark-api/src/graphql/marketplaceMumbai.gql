@@ -45,10 +45,14 @@ query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   }
 }
 
-query findProjects($search: String, $vintage: [BigInt!]) {
+query findProjects(
+  $search: String
+  $vintage: [BigInt!]
+  $expiresAfter: BigInt
+) {
   projects(where: { name_contains_nocase: $search, vintage_in: $vintage }) {
     ...ProjectFragment
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }

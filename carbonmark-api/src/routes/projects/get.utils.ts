@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
-import { FindCarbonOffsetsQueryVariables } from "src/.generated/types/offsets.types";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
 import { FindQueryProject } from "../../graphql/marketplace.types";
 import { FindQueryOffset } from "../../graphql/offsets.types";
@@ -33,9 +32,7 @@ import { POOL_INFO } from "./get.constants";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
-export const getDefaultQueryArgs = async (
-  fastify: FastifyInstance
-): Promise<FindCarbonOffsetsQueryVariables> => {
+export const getDefaultQueryArgs = async (fastify: FastifyInstance) => {
   //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
     getAllCategories(fastify).then(map(extract("id"))),
@@ -48,6 +45,7 @@ export const getDefaultQueryArgs = async (
     country,
     vintage,
     search: "",
+    expiresAfter: Math.floor(Date.now() / 1000).toString(),
   };
 };
 
