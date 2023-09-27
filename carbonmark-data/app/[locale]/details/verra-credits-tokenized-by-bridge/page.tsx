@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import TokenizedCreditsByBridgeCard from "components/cards/TokenizedCreditsByBridgeCard";
+import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function VerraCreditsTokenizedByBridgePage() {

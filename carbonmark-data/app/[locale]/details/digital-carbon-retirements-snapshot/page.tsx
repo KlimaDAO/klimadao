@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import DailyCarbonRetirementsCard from "components/cards/DailyCarbonRetirementsCard";
+import DailyCarbonRetirementsCard from "components/cards/overview/DailyCarbonRetirementsCard";
 import DetailPage from "components/pages/DetailPage";
 
 export default function DigitalCarbonRetirementsPage() {

@@ -60,6 +60,14 @@
     gap: 1rem;
   }
 }
+.prioritizeFirstCard {
+  & > div:first-child {
+    flex: 1 0.5;
+  }
+  & > div:not(:first-child) {
+    flex: 0.5;
+  }
+}
 div.card50percent {
   flex-basis: 50%;
   flex-grow: 0;

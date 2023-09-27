@@ -6,6 +6,7 @@ import {
   TokenDetailsProps,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
+import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
 import { formatTonnes } from "components/charts/helpers/DataTable/configurations/helpers";
 import KPieChart from "components/charts/helpers/KPieChart";
 import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
@@ -76,27 +77,18 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
     <div className={styles.cardContent}>
       <div className={styles.legend}>
         <div>
-          <div className={styles.legendItem}>
-            <span
-              className={styles.dot}
-              style={{ backgroundColor: palette.charts.color1 }}
-            ></span>
-            {t`${formatTonnes(bridged)} tonnes bridged`}{" "}
-          </div>
-          <div className={styles.legendItem}>
-            <span
-              className={styles.dot}
-              style={{ backgroundColor: palette.charts.color3 }}
-            ></span>
-            {t`${formatTonnes(retired)} tonnes retired`}{" "}
-          </div>
-          <div className={styles.legendItem}>
-            <span
-              className={styles.dot}
-              style={{ backgroundColor: palette.charts.color5 }}
-            ></span>
-            {t`${formatTonnes(outstanding)} tonnes outstanding`}{" "}
-          </div>
+          <CustomLegendItem
+            color={palette.charts.color1}
+            text={t`${formatTonnes(bridged)} tonnes bridged`}
+          />
+          <CustomLegendItem
+            color={palette.charts.color3}
+            text={t`${formatTonnes(retired)} tonnes retired`}
+          />
+          <CustomLegendItem
+            color={palette.charts.color5}
+            text={t`${formatTonnes(outstanding)} tonnes outstanding`}
+          />
         </div>
       </div>
       <KPieChart data={data} configuration={configuration} showLegend={false} />
