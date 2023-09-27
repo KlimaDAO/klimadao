@@ -1,3 +1,4 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
@@ -7,7 +8,7 @@ import { notNil } from "../../utils/functional.utils";
 import { gqlSdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { schema } from "./get.schema";
+import { querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -16,13 +17,6 @@ import {
   isValidMarketplaceProject,
   isValidPoolProject,
 } from "./get.utils";
-
-type Params = {
-  country?: string;
-  category?: string;
-  search?: string;
-  vintage?: string;
-};
 
 /**
  * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
@@ -40,11 +34,14 @@ type Params = {
  */
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Querystring: Params }>,
+    request: FastifyRequest<{ Querystring: Static<typeof querystring> }>,
     reply: FastifyReply
   ): Promise<Project[]> {
     //Transform the list params (category, country etc) provided so as to be an array of strings
-    const args = mapValues(omit(request.query, "search"), split(","));
+    const args = mapValues(
+      omit(request.query, "search", "expiresAfter"),
+      split(",")
+    );
     //Get the default args to return all results unless specified
     const allOptions = await getDefaultQueryArgs(fastify);
 
@@ -53,6 +50,9 @@ const handler = (fastify: FastifyInstance) =>
         gqlSdk.marketplace.findProjects({
           vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
+          expiresAfter:
+            request.query.expiresAfter ??
+            Math.floor(Date.now() / 1000).toString(),
         }),
         gqlSdk.offsets.findCarbonOffsets({
           category: args.category ?? allOptions.category,

@@ -13,6 +13,8 @@ type Params = {
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
   network?: NetworkParam;
+  /** UNIX seconds - default is current system timestamp */
+  expiresAfter?: string;
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string }) =>
