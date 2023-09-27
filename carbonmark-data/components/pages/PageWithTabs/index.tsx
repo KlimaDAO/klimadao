@@ -114,45 +114,58 @@ export default function PageWithTabs(props: {
     <>
       <PageHeader title={props.title} />
       <TabContext value={activeTab}>
-        <MobileTabSelector
-          value={activeTab}
-          options={props.tabs.map((tab) => {
-            return { label: tab.label, value: tab.key };
-          })}
-          onSelectionChanged={(key: string) => setActiveTab(key)}
-          className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
-        />
-        <TabList onChange={handleChange} className={layout.desktopOnly}>
-          {props.tabs.map((tab) => (
-            <Tab
-              className={styles.tabButton}
-              label={tab.label}
-              value={tab.key}
-            ></Tab>
-          ))}
-        </TabList>
-        {props.tabs.map(
-          (tab, tabIndex) =>
-            tabsDynamicOptionsList[tabIndex] && (
-              <TabPanel value={tab.key} className={styles.noPadding}>
-                {tabsDynamicOptionsList[tabIndex].map(
-                  (options, widgetIndex) => (
-                    <OptionsSwitcher
-                      options={options}
-                      onSelectionChange={onOptionChange(tabIndex, widgetIndex)}
-                      value={optionKeys[tabIndex][widgetIndex]}
-                    />
-                  )
-                )}
-              </TabPanel>
-            )
-        )}
+        <div className={styles.tabRoot}>
+          <MobileTabSelector
+            value={activeTab}
+            options={props.tabs.map((tab) => {
+              return { label: tab.label, value: tab.key };
+            })}
+            onSelectionChanged={(key: string) => setActiveTab(key)}
+            className={`${styles.mobileOnly} ${styles.mobileTabSelector}`}
+          />
+          <TabList
+            onChange={handleChange}
+            className={`${layout.desktopOnly} ${styles.tabList}`}
+          >
+            {props.tabs.map((tab) => (
+              <Tab
+                className={styles.tabButton}
+                label={tab.label}
+                value={tab.key}
+              ></Tab>
+            ))}
+          </TabList>
+          {props.tabs.map(
+            (tab, tabIndex) =>
+              tabsDynamicOptionsList[tabIndex] && (
+                <TabPanel value={tab.key} className={styles.noPadding}>
+                  <div className={styles.optionsSwitchers}>
+                    {tabsDynamicOptionsList[tabIndex].map(
+                      (options, widgetIndex) => (
+                        <div className={styles.optionsSwitcherWrapper}>
+                          <OptionsSwitcher
+                            options={options}
+                            onSelectionChange={onOptionChange(
+                              tabIndex,
+                              widgetIndex
+                            )}
+                            value={optionKeys[tabIndex][widgetIndex]}
+                            className={styles.optionsSwitcher}
+                          />
+                        </div>
+                      )
+                    )}
+                  </div>
+                </TabPanel>
+              )
+          )}
 
-        {props.tabs.map((tab, tabIndex) => (
-          <TabPanel value={tab.key} className={styles.noPadding}>
-            {displayedTab(tabIndex)}
-          </TabPanel>
-        ))}
+          {props.tabs.map((tab, tabIndex) => (
+            <TabPanel value={tab.key} className={styles.noPadding}>
+              {displayedTab(tabIndex)}
+            </TabPanel>
+          ))}
+        </div>
       </TabContext>
     </>
   );

@@ -9,6 +9,7 @@ export default function OptionsSwitcher<T extends Key>(props: {
   options: Options<T>;
   onSelectionChange: OptionChangeHandler<T>;
   value?: T;
+  className?: string;
 }) {
   const [selected, setSelected] = useState<T>(
     props.value || props.options[0].value
@@ -18,7 +19,9 @@ export default function OptionsSwitcher<T extends Key>(props: {
     return props.onSelectionChange(value);
   };
   return (
-    <ul className={styles.list}>
+    <ul
+      className={`${styles.list} ${!!props.className ? props.className : ""}`}
+    >
       {props.options.map((option) => (
         <li
           key={option.value}
