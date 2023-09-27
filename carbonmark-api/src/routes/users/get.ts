@@ -44,7 +44,11 @@ const handler = (fastify: FastifyInstance) =>
     const [profile, user, assets] = await Promise.all([
       handleProfile ||
         getProfileByAddress({ firebase: fastify.firebase, address }),
-      getUserByWallet({ address, network: query.network }),
+      getUserByWallet({
+        address,
+        network: query.network,
+        expiresAfter: query.expiresAfter,
+      }),
       getHoldingsByWallet({ address, network: query.network }),
     ]);
 

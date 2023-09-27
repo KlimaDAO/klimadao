@@ -14,6 +14,14 @@ export const Params = Type.Object(
 
 export const QueryString = Type.Object({
   network: Type.Optional(NetworkParamModel),
+  expiresAfter: Type.Optional(
+    Type.String({
+      description:
+        "Only return listings that expire after this timestamp (Unix seconds)",
+      default: "Current system timestamp.",
+      examples: ["1620000000"],
+    })
+  ),
 });
 
 export const schema = {
