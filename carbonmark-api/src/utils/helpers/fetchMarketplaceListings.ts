@@ -3,7 +3,6 @@ import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
 import { Activity } from "src/models/Activity.model";
 import { Listing } from "src/models/Listing.model";
-import { NetworkParam } from "../../models/NetworkParam.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { getUserProfilesByIds } from "./users.utils";
@@ -12,7 +11,8 @@ type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
-  network?: NetworkParam;
+  /** UNIX seconds - default is current system timestamp */
+  expiresAfter?: string;
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string }) =>
@@ -23,11 +23,16 @@ export const getCreditListings = async (
   params: {
     projectId: string;
     vintageStr: string;
+    /** UNIX seconds - default is current system timestamp */
+    expiresAfter?: string;
   }
 ) => {
+  const expiresAfter =
+    params.expiresAfter || String(Math.floor(Date.now() / 1000));
   const data = await sdk.marketplace.getCreditListings({
     projectId: params.projectId,
     vintageStr: params.vintageStr,
+    expiresAfter,
   });
   const project = data?.projects.at(0);
   return project;
@@ -42,7 +47,7 @@ export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
   { key, vintage, fastify }: Params
 ): Promise<[Listing[], Activity[]]> => {
-  const project = await getCreditListings(sdk, {
+  const project = await sdk.marketplace.getCreditListings({
     projectId: key,
     vintageStr: vintage,
   });
@@ -50,8 +55,10 @@ export const fetchMarketplaceListings = async (
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
+  // TODO abstract to util and share logic with User.listings and DetailedProject.listings
   const formattedListings = filteredListings.map((listing) => ({
     ...listing,
+    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
     singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
     leftToSell: utils.formatUnits(listing.leftToSell, 18),
     totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),

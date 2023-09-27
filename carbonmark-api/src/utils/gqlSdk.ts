@@ -2,27 +2,27 @@ import { GraphQLClient } from "graphql-request";
 import {
   getSdk as assetsSdk,
   Sdk as AssetsSdk,
-} from "../.generated/polygon/types/assets.types";
+} from "../.generated/types/assets.types";
 import {
   getSdk as carbonProjectsSdk,
   Sdk as CarbonProjectsSdk,
-} from "../.generated/polygon/types/carbonProjects.types";
+} from "../.generated/types/carbonProjects.types";
 import {
   getSdk as digitalCarbonSdk,
   Sdk as DigitalCarbonSdk,
-} from "../.generated/polygon/types/digitalCarbon.types";
+} from "../.generated/types/digitalCarbon.types";
 import {
   getSdk as marketplaceSdk,
   Sdk as MarketplaceSdk,
-} from "../.generated/polygon/types/marketplace.types";
+} from "../.generated/types/marketplace.types";
 import {
   getSdk as offsetsSdk,
   Sdk as OffsetsSdk,
-} from "../.generated/polygon/types/offsets.types";
+} from "../.generated/types/offsets.types";
 import {
   getSdk as tokensSdk,
   Sdk as TokensSdk,
-} from "../.generated/polygon/types/tokens.types";
+} from "../.generated/types/tokens.types";
 import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
 import { NetworkParam } from "../models/NetworkParam.model";
 

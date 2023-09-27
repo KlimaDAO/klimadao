@@ -20,7 +20,7 @@ module.exports = async (phase, { defaultConfig }) => {
         },
         {
           source: "/:locale/token-details",
-          destination: "/:locale/token-details/toucan",
+          destination: "/:locale/token-details",
         },
         {
           source: "/:locale/retirement_trends",

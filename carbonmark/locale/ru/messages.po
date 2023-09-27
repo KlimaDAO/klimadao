@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-22 11:33+0000\n"
+"POT-Creation-Date: 2023-09-27 21:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -467,7 +467,7 @@ msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to
 msgstr "В настоящее время Carbonmark принимает только платежи Polygon USDC. <0>Узнайте, как приобрести USDC на Polygon.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:42
+#: components/pages/Retire/Activity/Table.tsx:48
 msgid "DATE"
 msgstr "ДАТА"
 
@@ -780,7 +780,7 @@ msgid "New Unit Price (USDC)"
 msgstr "Новая цена за единицу (USDC)"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:82
+#: components/pages/Retire/Activity/Table.tsx:88
 msgid "No Activity to show."
 msgstr "Нет активности для отображения."
 
@@ -877,7 +877,7 @@ msgid "Over 20 million verified digital carbon credits from hundreds of projects
 msgstr "Более 20 млн. верифицированных цифровых углеродных кредитов, полученных в результате реализации сотен проектов, с оборотом более 4 млрд. долл."
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:40
+#: components/pages/Retire/Activity/Table.tsx:46
 msgid "PROJECT"
 msgstr "ПРОЕКТ"
 
@@ -1025,7 +1025,7 @@ msgid "Purchase {0} | Carbonmark"
 msgstr "Купить {0} | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/Activity/Table.tsx:41
+#: components/pages/Retire/Activity/Table.tsx:47
 msgid "QTY"
 msgstr "КОЛ-ВО"
 
@@ -1644,7 +1644,7 @@ msgstr "Посмотреть все проекты"
 
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Quotes.tsx:82
-#: components/pages/Retire/Activity/Table.tsx:66
+#: components/pages/Retire/Activity/Table.tsx:72
 msgid "View all Retirements"
 msgstr "Просмотреть всего выведено"
 
@@ -2537,7 +2537,7 @@ msgstr "что-то пошло не так при загрузке пособи�
 #. js-lingui-explicit-id
 #: components/pages/Retire/Activity/Overview.tsx:75
 #: components/pages/Retire/Activity/Quotes.tsx:73
-#: components/pages/Retire/Activity/Table.tsx:56
+#: components/pages/Retire/Activity/Table.tsx:62
 msgid "t"
 msgstr "т"
 

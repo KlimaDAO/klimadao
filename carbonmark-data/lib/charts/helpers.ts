@@ -166,6 +166,10 @@ export function pruneNullRows<CI>(
     });
   });
 }
+// Date helpers
+export const dateForQuery = function (date: number) {
+  return new Date(date).toISOString().split(".")[0];
+};
 
 // Common formatters
 export const formatQuantityAsMillionsOfTons = function (
@@ -281,7 +285,7 @@ export function niceTicks<T>(
   const ticks = [];
   if (data.length > 0) {
     numberOfTicks = numberOfTicks || 4;
-    const intervalSize = (data.length - 1) / (numberOfTicks - 1);
+    const intervalSize = Math.max(1, (data.length - 1) / (numberOfTicks - 1));
     for (let i = 0; i <= data.length - 1; i += intervalSize) {
       const value = data[Math.floor(i)][key] as string;
       ticks.push(value);

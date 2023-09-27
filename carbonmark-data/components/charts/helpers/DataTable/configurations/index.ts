@@ -3,6 +3,8 @@ import KlimaRetirementsByChainListConfiguration from "./KlimaRetirementsByChainL
 import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
 import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 import KlimaRetirementsByTokenListConfiguration from "./KlimaRetirementsByTokenListConfiguration";
+import TokenOriginsListConfiguration from "./TokenOriginsListConfiguration";
+import VerraCreditsOriginsListConfiguration from "./VerraCreditsOriginsListConfiguration";
 const configurations = {
   KlimaRetirementsByPoolSummary:
     new KlimaRetirementsByPoolSummaryConfiguration(),
@@ -11,6 +13,8 @@ const configurations = {
   KlimaRetirementsByChainList: new KlimaRetirementsByChainListConfiguration(),
   KlimaRetirementsByBeneficiaryList:
     new KlimaRetirementsByBeneficiaryListConfiguration(),
+  TokenOriginsList: new TokenOriginsListConfiguration(),
+  VerraCreditsOriginsList: new VerraCreditsOriginsListConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
 function getConfiguration(key: ConfigurationKey) {
@@ -19,8 +23,12 @@ function getConfiguration(key: ConfigurationKey) {
   throw `Unknown table configuration : ${key}`;
 }
 /** Fetches data given a table configuration*/
-export function fetchData(key: ConfigurationKey, page: number) {
-  return getConfiguration(key).fetchFunction(page);
+export function fetchData(
+  key: ConfigurationKey,
+  page: number,
+  params?: object
+) {
+  return getConfiguration(key).fetchFunction(page, params);
 }
 /** Returns a JSX.Element that can render data items for desktop */
 export function getDesktopRenderer(key: ConfigurationKey) {

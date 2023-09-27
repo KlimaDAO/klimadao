@@ -1,6 +1,5 @@
 import {
   FindProjectsQuery,
-  GetProjectsByIdQuery,
   GetPurchasesByIdQuery,
   GetUserByWalletQuery,
 } from "../.generated/types/marketplace.types";
@@ -11,21 +10,6 @@ import {
 
 /** The specific Project type from the find findProjects query*/
 export type FindQueryProject = FindProjectsQuery["projects"][number];
-
-//
-// gql.marketplace.getProjectsById(query)
-// --------------------------------------
-
-/** Project entry from getProjectsById() */
-type ByIdProject = GetProjectsByIdQuery["projects"][number];
-
-/** Listing entry from getProjectsById().projects[0].listings */
-export type ByIdProjectListing = NonNullable<ByIdProject["listings"]>[number];
-
-/** Activity entry from getProjectsById().projects[0].activities */
-export type ByIdProjectActivity = NonNullable<
-  ByIdProject["activities"]
->[number];
 
 //
 // gql.marketplace.getUserByWallet(query)

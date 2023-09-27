@@ -5,7 +5,10 @@ import { Columns, DataRenderer, ItemRenderer } from "./types";
 
 export default abstract class TableConfiguration<RI> {
   /** Function used to fetch data */
-  abstract fetchFunction(page: number): Promise<PaginatedResponse<RI>>;
+  abstract fetchFunction(
+    page: number,
+    params: object
+  ): Promise<PaginatedResponse<RI>>;
   /** Returns the columns (layout) for this table */
   abstract getColumns(): Columns<RI>;
   /** Returns a JSX.Element that can render data items for mobile */

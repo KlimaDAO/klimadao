@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
-interface CoinTileDataFact {
+export interface CoinTileDataFact {
   value: ReactNode;
   label: ReactNode;
 }

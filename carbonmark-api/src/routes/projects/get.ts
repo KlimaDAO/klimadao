@@ -1,14 +1,14 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
-import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { NetworkParam } from "../../models/NetworkParam.model";
 import { Project } from "../../models/Project.model";
-import { CreditId } from "../../utils/CreditId";
+import { CreditId, CreditIdentifier } from "../../utils/CreditId";
+import { notNil } from "../../utils/functional.utils";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { schema } from "./get.schema";
+import { querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -17,13 +17,6 @@ import {
   isValidMarketplaceProject,
   isValidPoolProject,
 } from "./get.utils";
-
-type Params = {
-  country?: string;
-  category?: string;
-  search?: string;
-  vintage?: string;
-} & { network: NetworkParam };
 
 /**
  * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
@@ -34,31 +27,40 @@ type Params = {
  * 4. Convert each CarbonOffset to a new PoolProject
  * 5. Return the combined collection of Projects & PoolProjects
  *
+ * *Note*: This route will only return results for which there is an entry in the offsets graph
+ *
  * @param fastify
  * @returns
  */
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Querystring: Params }>,
+    request: FastifyRequest<{ Querystring: Static<typeof querystring> }>,
     reply: FastifyReply
   ): Promise<Project[]> {
     const sdk = gql_sdk(request.query.network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
-    const args = mapValues(omit(request.query, "search"), split(","));
+    const args = mapValues(
+      omit(request.query, "search", "expiresAfter"),
+      split(",")
+    );
     //Get the default args to return all results unless specified
-    const defaultArgs = await getDefaultQueryArgs(sdk, fastify);
-
-    //Build our query overriding default values
-    const query: FindProjectsQueryVariables = {
-      ...defaultArgs,
-      ...args,
-      search: request.query.search ?? "",
-    };
+    const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
     const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
-        sdk.marketplace.findProjects(query),
-        sdk.offsets.findCarbonOffsets(query),
+        sdk.marketplace.findProjects({
+          vintage: args.vintage ?? allOptions.vintage,
+          search: request.query.search ?? "",
+          expiresAfter:
+            request.query.expiresAfter ??
+            Math.floor(Date.now() / 1000).toString(),
+        }),
+        sdk.offsets.findCarbonOffsets({
+          category: args.category ?? allOptions.category,
+          country: args.country ?? allOptions.country,
+          vintage: args.vintage ?? allOptions.vintage,
+          search: request.query.search ?? "",
+        }),
         fetchAllCarbonProjects(sdk),
         fetchAllPoolPrices(sdk),
       ]);
@@ -90,26 +92,38 @@ const handler = (fastify: FastifyInstance) =>
     });
 
     /** Assign valid marketplace projects to map */
-    marketplaceProjectsData.projects.forEach((project) => {
-      if (
-        !isValidMarketplaceProject(project) ||
-        !CreditId.isValidProjectId(project.key)
-      ) {
-        return;
-      }
-      const [standard, registryProjectId] = project.key.split("-");
-      const { creditId: key } = new CreditId({
-        standard,
-        registryProjectId,
-        vintage: project.vintage,
+    marketplaceProjectsData.projects
+      /**
+       * Because marketplace projects do not contain country and category information we need to filter these
+       * to match only those for which there is an offset project that was filtered previously by country or category
+       * ... if country or category were provided in the query
+       */
+      .filter(({ id }) =>
+        args.category || args.country
+          ? // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo Use CreditID
+            notNil(ProjectDataMap.get(id as CreditIdentifier))
+          : true
+      )
+      .forEach((project) => {
+        if (
+          !isValidMarketplaceProject(project) ||
+          !CreditId.isValidProjectId(project.key)
+        ) {
+          return;
+        }
+        const [standard, registryProjectId] = project.key.split("-");
+        const { creditId: key } = new CreditId({
+          standard,
+          registryProjectId,
+          vintage: project.vintage,
+        });
+        const existingData = ProjectDataMap.get(key);
+        ProjectDataMap.set(key, {
+          ...existingData,
+          key,
+          marketplaceProjectData: project,
+        });
       });
-      const existingData = ProjectDataMap.get(key);
-      ProjectDataMap.set(key, {
-        ...existingData,
-        key,
-        marketplaceProjectData: project,
-      });
-    });
 
     /** Compose all the data together to unique entries (unsorted) */
     const entries = composeProjectEntries(
