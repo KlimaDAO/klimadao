@@ -1,14 +1,7 @@
 "use client"; // use client for recharts animations
 import { KlimaLegendProps, KlimaStackedBars } from "components/charts/helpers";
-import {
-  BarChart,
-  Legend,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import NoDataChartWrapper from "../NoDataChartWrapper";
+import { BarChart, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import ChartWrapper from "../ChartWrapper";
 import {
   ChartProps,
   getKlimaTooltipProps,
@@ -27,16 +20,14 @@ export default function KBarChart<T extends object>(props: ChartProps<T>) {
       wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
     });
   return (
-    <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={props.data} barCategoryGap={"5%"}>
-          {props.XAxis && <XAxis {...getXAxisProps(props)} />}
-          {props.YAxis && <YAxis {...getYAxisProps(props)} />}
-          <Tooltip {...getKlimaTooltipProps(props)} />
-          <Legend {...LocalLegendProps} />
-          {KlimaStackedBars(props.configuration)}
-        </BarChart>
-      </ResponsiveContainer>
-    </NoDataChartWrapper>
+    <ChartWrapper data={props.data} noDataText={props.noDataText}>
+      <BarChart data={props.data} barCategoryGap={"5%"}>
+        {props.XAxis && <XAxis {...getXAxisProps(props)} />}
+        {props.YAxis && <YAxis {...getYAxisProps(props)} />}
+        <Tooltip {...getKlimaTooltipProps(props)} />
+        <Legend {...LocalLegendProps} />
+        {KlimaStackedBars(props.configuration)}
+      </BarChart>
+    </ChartWrapper>
   );
 }

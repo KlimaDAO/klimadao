@@ -2,17 +2,10 @@
 import { KlimaLegendProps } from "components/charts/helpers";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { ChartData } from "lib/charts/types";
-import {
-  Cell,
-  Legend,
-  LegendProps,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-} from "recharts";
+import { Cell, Legend, LegendProps, Pie, PieChart } from "recharts";
 import { ContentType } from "recharts/types/component/DefaultLegendContent";
+import ChartWrapper from "../ChartWrapper";
 import { ChartConfigurationItem } from "../Configuration";
-import NoDataChartWrapper from "../NoDataChartWrapper";
 
 interface Props<CI extends { quantity: number }, T extends object> {
   data: ChartData<CI>;
@@ -52,27 +45,25 @@ export default function KPieChart<
   });
   const nonZeroData = chartData.filter((data) => data.quantity > 0);
   return (
-    <NoDataChartWrapper data={nonZeroData} noDataText={props.noDataText}>
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-          <Pie
-            data={props.data}
-            dataKey="quantity"
-            nameKey="label"
-            cx="50%"
-            cy="50%"
-            innerRadius="93%"
-            outerRadius="100%"
-          >
-            {chartData.map((entry) => (
-              <Cell key={entry.id} fill={entry.color} />
-            ))}
-          </Pie>
-          {showLegend && (
-            <Legend {...LocalLegendProps} content={props.legendContent} />
-          )}
-        </PieChart>
-      </ResponsiveContainer>
-    </NoDataChartWrapper>
+    <ChartWrapper data={nonZeroData} noDataText={props.noDataText}>
+      <PieChart>
+        <Pie
+          data={props.data}
+          dataKey="quantity"
+          nameKey="label"
+          cx="50%"
+          cy="50%"
+          innerRadius="93%"
+          outerRadius="100%"
+        >
+          {chartData.map((entry) => (
+            <Cell key={entry.id} fill={entry.color} />
+          ))}
+        </Pie>
+        {showLegend && (
+          <Legend {...LocalLegendProps} content={props.legendContent} />
+        )}
+      </PieChart>
+    </ChartWrapper>
   );
 }

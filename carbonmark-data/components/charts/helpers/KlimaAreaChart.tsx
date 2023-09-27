@@ -6,6 +6,7 @@ const BASE_AREA_PROPS = {
   stackId: "1",
   connectNulls: true,
   fillOpacity: 1,
+  isAnimationActive: false,
 };
 
 export function KlimaAreaProps(props: AreaProps): Omit<AreaProps, "ref"> {

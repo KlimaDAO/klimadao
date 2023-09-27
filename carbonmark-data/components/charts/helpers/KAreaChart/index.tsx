@@ -1,14 +1,7 @@
 "use client"; // use client for recharts animations
 import { KlimaLegendProps, KlimaStackedAreas } from "components/charts/helpers";
-import {
-  AreaChart,
-  Legend,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import NoDataChartWrapper from "../NoDataChartWrapper";
+import { AreaChart, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import ChartWrapper from "../ChartWrapper";
 import {
   ChartProps,
   getKlimaTooltipProps,
@@ -28,16 +21,14 @@ export default function KAreaChart<T extends object>(props: ChartProps<T>) {
     });
 
   return (
-    <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={props.data}>
-          <XAxis {...getXAxisProps(props)} />
-          <YAxis {...getYAxisProps(props)} />
-          <Tooltip {...getKlimaTooltipProps(props)} />
-          <Legend {...LocalLegendProps} />
-          {KlimaStackedAreas(props.configuration)}
-        </AreaChart>
-      </ResponsiveContainer>
-    </NoDataChartWrapper>
+    <ChartWrapper data={props.data} noDataText={props.noDataText}>
+      <AreaChart data={props.data}>
+        <XAxis {...getXAxisProps(props)} />
+        <YAxis {...getYAxisProps(props)} />
+        <Tooltip {...getKlimaTooltipProps(props)} />
+        <Legend {...LocalLegendProps} />
+        {KlimaStackedAreas(props.configuration)}
+      </AreaChart>
+    </ChartWrapper>
   );
 }
