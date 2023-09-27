@@ -1,13 +1,13 @@
 import { t } from "@lingui/macro";
-import VerraCreditsCard from "components/cards/DailyCreditsCard";
+import VerraCreditsCard from "components/cards/overview/DailyVerraCreditsOverviewCard";
 import layout from "theme/layout.module.scss";
 
-import DailyCarbonRetirementsCard from "components/cards/DailyCarbonRetirementsCard";
-import DailyCarbonSupplyCard from "components/cards/DailyCarbonSupplyCard";
-import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
-import TokenizedCreditsByBridgeCard from "components/cards/TokenizedCreditsByBridgeCard";
-import TokensPriceCard from "components/cards/TokensPriceCard";
 import { PageHeader } from "components/PageHeader/PageHeader";
+import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
+import DailyCarbonRetirementsCard from "components/cards/overview/DailyCarbonRetirementsCard";
+import DailyCarbonSupplyOverviewCard from "components/cards/overview/DailyCarbonSupplyOverviewCard";
+import TokenizedCreditsByBridgeCard from "components/cards/overview/TokenizedCreditsByBridgeCard";
+import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
 export default function OverviewPage() {
@@ -30,7 +30,7 @@ export default function OverviewPage() {
             <HistoricalPriceCard></HistoricalPriceCard>
           </div>
           <div className={layout.cardRow}>
-            <DailyCarbonSupplyCard></DailyCarbonSupplyCard>
+            <DailyCarbonSupplyOverviewCard></DailyCarbonSupplyOverviewCard>
             <DailyCarbonRetirementsCard></DailyCarbonRetirementsCard>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
+import { CreditsFilteringProps } from "components/charts/helpers/props";
 import {
   CreditsQueryParams,
   DateFieldParam,
@@ -11,7 +11,7 @@ import { queryAggregatedCreditsByProjects } from "../queries";
 
 /** Transforms widget options into credits query parameters */
 export function creditsQueryParamsFromProps(
-  props: TokenDetailsProps,
+  props: CreditsFilteringProps,
   forceStatus?: Status
 ): CreditsQueryParams {
   const status = forceStatus === undefined ? props.status : forceStatus;
@@ -33,16 +33,16 @@ export function creditsQueryParamsFromProps(
 }
 /** Transforms widget options into pools query parameters */
 export function poolsQueryParamsFromProps(
-  props: TokenDetailsProps
+  props: CreditsFilteringProps
 ): CreditsQueryParams {
-  const queryParams: TokenDetailsProps = { ...props };
+  const queryParams: CreditsFilteringProps = { ...props };
   if (queryParams.status == "bridged") queryParams.status = "deposited";
   return creditsQueryParamsFromProps(queryParams);
 }
 
 /* Fetches aggregated credits by projects and format them for a tree chart */
 export async function getAggregatedCreditsByProjects(
-  props: TokenDetailsProps
+  props: CreditsFilteringProps
 ): Promise<TreeMapData> {
   const params = creditsQueryParamsFromProps(props);
 
