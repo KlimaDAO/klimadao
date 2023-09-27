@@ -34,9 +34,9 @@ query getPurchasesById($id: Bytes) {
   }
 }
 
-query getUserByWallet($wallet: Bytes) {
+query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: { id: $wallet }) {
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {

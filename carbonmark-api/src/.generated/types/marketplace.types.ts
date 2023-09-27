@@ -1376,6 +1376,7 @@ export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ _
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1493,9 +1494,9 @@ export const GetPurchasesByIdDocument = gql`
 }
     `;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: Bytes) {
+    query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: {id: $wallet}) {
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
