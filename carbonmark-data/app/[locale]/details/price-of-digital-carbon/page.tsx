@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import HistoricalPriceCard from "components/cards/HistoricalPriceCard";
-import TokensPriceCard from "components/cards/TokensPriceCard";
+import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 import DetailPage from "components/pages/DetailPage";
 import layout from "theme/layout.module.scss";
 
