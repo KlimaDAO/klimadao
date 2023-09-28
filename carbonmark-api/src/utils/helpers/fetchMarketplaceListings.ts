@@ -29,12 +29,10 @@ export const getCreditListings = async (
 ) => {
   const expiresAfter =
     params.expiresAfter || String(Math.floor(Date.now() / 1000));
-  const data = await sdk.marketplace.getCreditListings({
+  const project = await sdk.marketplace.getProjectById({
     projectId: params.projectId,
-    vintageStr: params.vintageStr,
     expiresAfter,
   });
-  const project = data?.projects.at(0);
   return project;
 };
 
@@ -45,11 +43,11 @@ export const getCreditListings = async (
  */
 export const fetchMarketplaceListings = async (
   sdk: GQL_SDK,
-  { key, vintage, fastify }: Params
+  { key, vintage, expiresAfter, fastify }: Params
 ): Promise<[Listing[], Activity[]]> => {
-  const project = await sdk.marketplace.getCreditListings({
-    projectId: key,
-    vintageStr: vintage,
+  const { project } = await sdk.marketplace.getProjectById({
+    projectId: key + "-" + vintage,
+    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
   });
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
   const filteredActivities =

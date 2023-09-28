@@ -45,15 +45,6 @@ const app: FastifyPluginAsync<AppOptions> = async (
       error: error.message,
     });
   }));
-
-  fastify.addHook("preValidation", (request: any, reply: any, done) => {
-    // Check if the global query parameter exists
-    if (request.query) {
-      // Handle the global query parameter
-      console.log(request.query);
-    }
-    done();
-  });
 };
 
 export default app;

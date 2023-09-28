@@ -35,13 +35,11 @@ const handler = (fastify: FastifyInstance) =>
           fetchPoolPricesAndStats(sdk, {
             key,
             vintage,
-            network: request.query.network,
           }),
           fetchMarketplaceListings(sdk, {
             key,
             vintage,
             fastify,
-            network: request.query.network,
             expiresAfter: request.query.expiresAfter,
           }),
           fetchCarbonProject(sdk, {

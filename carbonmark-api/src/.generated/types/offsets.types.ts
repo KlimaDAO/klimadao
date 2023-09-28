@@ -2827,6 +2827,8 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
+export type CarbonOffsetFragmentFragment = { __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string };
+
 export type GetCarbonOffsetsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2848,7 +2850,7 @@ export type GetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
 }>;
 
 
-export type GetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+export type GetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
 
 export type FindCarbonOffsetsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
@@ -2858,9 +2860,34 @@ export type FindCarbonOffsetsQueryVariables = Exact<{
 }>;
 
 
-export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, storageMethod: string, lastUpdate: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any }> };
+export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
 
-
+export const CarbonOffsetFragmentFragmentDoc = gql`
+    fragment CarbonOffsetFragment on CarbonOffset {
+  id
+  name
+  tokenAddress
+  vintage
+  vintageYear
+  bridge
+  projectID
+  methodology
+  methodologyCategory
+  country
+  category
+  name
+  registry
+  totalBridged
+  totalRetired
+  currentSupply
+  storageMethod
+  balanceUBO
+  balanceNBO
+  balanceNCT
+  balanceBCT
+  lastUpdate
+}
+    `;
 export const GetCarbonOffsetsCategoriesDocument = gql`
     query getCarbonOffsetsCategories {
   carbonOffsets(first: 1000) {
@@ -2885,60 +2912,20 @@ export const GetCarbonOffsetsVintagesDocument = gql`
 export const GetCarbonOffsetsByProjectAndVintageDocument = gql`
     query getCarbonOffsetsByProjectAndVintage($key: String!, $vintageStr: String) {
   carbonOffsets(where: {projectID: $key, vintageYear: $vintageStr}) {
-    id
-    name
-    tokenAddress
-    vintage
-    vintageYear
-    bridge
-    projectID
-    methodology
-    methodologyCategory
-    country
-    category
-    name
-    registry
-    totalBridged
-    totalRetired
-    currentSupply
-    storageMethod
-    balanceUBO
-    balanceNBO
-    balanceNCT
-    balanceBCT
+    ...CarbonOffsetFragment
   }
 }
-    `;
+    ${CarbonOffsetFragmentFragmentDoc}`;
 export const FindCarbonOffsetsDocument = gql`
     query findCarbonOffsets($country: [String!], $category: [String!], $search: String, $vintage: [String!]) {
   carbonOffsets(
     first: 1000
     where: {and: [{methodologyCategory_in: $category}, {country_in: $country}, {vintageYear_in: $vintage}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}
   ) {
-    id
-    name
-    tokenAddress
-    vintage
-    vintageYear
-    bridge
-    projectID
-    methodology
-    methodologyCategory
-    country
-    category
-    name
-    registry
-    totalBridged
-    totalRetired
-    storageMethod
-    lastUpdate
-    balanceUBO
-    balanceNBO
-    balanceNCT
-    balanceBCT
+    ...CarbonOffsetFragment
   }
 }
-    `;
+    ${CarbonOffsetFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 

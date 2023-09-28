@@ -48,7 +48,7 @@ const handler = (fastify: FastifyInstance) =>
 
     const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
-        sdk.marketplace.findProjects({
+        sdk.marketplace.getProjects({
           vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
           expiresAfter:
@@ -66,7 +66,7 @@ const handler = (fastify: FastifyInstance) =>
       ]);
 
     const CMSDataMap: CMSDataMap = new Map();
-    const ProjectDataMap: ProjectDataMap = new Map();
+    const ProjectMap: ProjectDataMap = new Map();
 
     cmsProjects.forEach((project) => {
       if (!CreditId.isValidProjectId(project.id)) return;
@@ -88,7 +88,7 @@ const handler = (fastify: FastifyInstance) =>
         registryProjectId,
         vintage: project.vintageYear,
       });
-      ProjectDataMap.set(key, { poolProjectData: project, key });
+      ProjectMap.set(key, { poolProjectData: project, key });
     });
 
     /** Assign valid marketplace projects to map */
@@ -101,7 +101,7 @@ const handler = (fastify: FastifyInstance) =>
       .filter(({ id }) =>
         args.category || args.country
           ? // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo Use CreditID
-            notNil(ProjectDataMap.get(id as CreditIdentifier))
+            notNil(ProjectMap.get(id as CreditIdentifier))
           : true
       )
       .forEach((project) => {
@@ -117,8 +117,8 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
           vintage: project.vintage,
         });
-        const existingData = ProjectDataMap.get(key);
-        ProjectDataMap.set(key, {
+        const existingData = ProjectMap.get(key);
+        ProjectMap.set(key, {
           ...existingData,
           key,
           marketplaceProjectData: project,
@@ -126,11 +126,7 @@ const handler = (fastify: FastifyInstance) =>
       });
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(
-      ProjectDataMap,
-      CMSDataMap,
-      poolPrices
-    );
+    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
 
