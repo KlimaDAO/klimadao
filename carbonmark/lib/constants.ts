@@ -56,6 +56,10 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
+/** Default number of days until a listing expires */
+export const DEFAULT_EXPIRATION_DAYS = 90;
+/** Default minimum fill for a listing */
+export const DEFAULT_MIN_FILL_AMOUNT = 1;
 
 export const getConnectErrorStrings = () => ({
   default: t({

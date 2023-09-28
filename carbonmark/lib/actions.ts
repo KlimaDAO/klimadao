@@ -25,6 +25,7 @@ import {
   AssetForRetirement,
   PcbProject,
 } from "lib/types/carbonmark.types";
+import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
 import {
   getCategoryFromProject,
   getMethodologyFromProject,
@@ -57,7 +58,7 @@ export const getCarbonmarkAllowance = async (params: {
     getAddress("carbonmark", params.network)
   );
 
-  return ethersFormatUnits(allowance, 18);
+  return formatUnits(allowance);
 };
 
 export const getAggregatorV2Allowance = async (params: {
@@ -132,29 +133,42 @@ export const approveTokenSpend = async (params: {
   }
 };
 
+/** Takes a `days` argument, converts it to seconds and adds it to the current date timestamp
+ * @returns {string} timestamp in Unix seconds
+ */
+const getExpirationTimestamp = (days: number): string => {
+  // 1000ms/s * 60s/m * 60m/hr * 24hr/d * days
+  const milliseconds = 1000 * 60 * 60 * 24 * days;
+  const expireTimestamp = Date.now() + milliseconds;
+  return Math.floor(expireTimestamp / 1000).toString(); // ms to seconds
+};
+
 export const createListingTransaction = async (params: {
+  /** 0x address of asset to sell */
   tokenAddress: string;
-  totalAmountToSell: string;
-  singleUnitPrice: string;
-  tokenType: "1" | "2";
+  /** Amount to list (tonnes) @example "123.456" */
+  amount: string;
+  /** Price per tonne (usdc) @example "12.45" */
+  unitPrice: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }) => {
   try {
+    const signer = params.provider.getSigner();
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
-      provider: params.provider.getSigner(),
+      provider: signer,
+      network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await carbonmarkContract.addListing(
+    const listingTxn = await carbonmarkContract.createListing(
       params.tokenAddress,
-      parseUnits(params.totalAmountToSell, 18), // C3 token
-      parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
-      [], // TODO batches
-      [], // TODO batches price
-      params.tokenType
+      parseUnits(params.amount, 18),
+      parseUnits(params.unitPrice, getTokenDecimals("usdc")),
+      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
+      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
 
     params.onStatus("networkConfirmation", "");
