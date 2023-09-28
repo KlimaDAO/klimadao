@@ -2,7 +2,6 @@ import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { Listing } from "../../models/Listing.model";
-import { NetworkParam } from "../../models/NetworkParam.model";
 import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
@@ -21,7 +20,7 @@ const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
       Params: Static<typeof Params>;
-      Querystring: Static<typeof QueryString> & { network: NetworkParam };
+      Querystring: Static<typeof QueryString>;
     }>,
     reply: FastifyReply
   ): Promise<User | void> {

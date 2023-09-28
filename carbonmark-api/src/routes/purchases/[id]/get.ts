@@ -1,17 +1,17 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
-import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
-import { ParamsT, schema } from "./get.schema";
+import { ParamsT, Querystring, schema } from "./get.schema";
 import { isValidPurchaseId } from "./get.utils";
 
 const handler = async (
   request: FastifyRequest<{
     Params: ParamsT;
-    Querystring: { network: NetworkParam };
+    Querystring: Static<typeof Querystring>;
   }>,
   reply: FastifyReply
 ) => {

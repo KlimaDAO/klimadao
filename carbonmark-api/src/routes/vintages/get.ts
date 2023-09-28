@@ -1,13 +1,13 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { NetworkParam } from "../../models/NetworkParam.model";
 import { Vintage } from "../../models/Vintage.model";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { getAllVintages } from "../../utils/helpers/utils";
-import { schema } from "./get.schema";
+import { Querystring, schema } from "./get.schema";
 
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Querystring: { network: NetworkParam } }>,
+    request: FastifyRequest<{ Querystring: Static<typeof Querystring> }>,
     reply: FastifyReply
   ) {
     let response: Vintage[];

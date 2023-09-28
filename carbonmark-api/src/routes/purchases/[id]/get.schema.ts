@@ -16,7 +16,7 @@ const Params = Type.Object(
   }
 );
 
-const Querystring = CommonSchema;
+export const Querystring = CommonSchema;
 
 export const schema = {
   summary: "Purchase details",
