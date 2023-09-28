@@ -57,7 +57,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     // Haven't fetched carbonmark API yet?
     if (!carbonmarkUser) {
       const response = await client["/users/{walletOrHandle}"].get({
-        query: { type: "wallet" },
         params: {
           walletOrHandle: userAddress,
         },

@@ -27,10 +27,13 @@ export const accordion = css`
 `;
 
 export const container = css`
-  grid-column: main;
+  grid-column: full;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 2.4rem;
+  ${breakpoints.large} {
+    grid-column: main;
+  }
 `;
 
 export const loginButton = css`

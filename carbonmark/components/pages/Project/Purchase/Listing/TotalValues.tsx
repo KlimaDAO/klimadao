@@ -1,5 +1,4 @@
 import { cx } from "@emotion/css";
-import { formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
@@ -20,10 +19,7 @@ type TotalValuesProps = {
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
-  const singleUnitPrice = formatUnits(
-    props.singleUnitPrice,
-    getTokenDecimals("usdc")
-  );
+  const singleUnitPrice = props.singleUnitPrice;
 
   const { locale } = useRouter();
   const { formState, control, setValue } = useFormContext<FormValues>();
