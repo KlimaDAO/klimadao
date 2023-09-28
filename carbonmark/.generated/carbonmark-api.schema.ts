@@ -2,7 +2,7 @@ export default {
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 1.1.0** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\n⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-0** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\n⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@ export default {
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "1.1.0"
+    "version": "2.0.0-0"
   },
   "components": {
     "schemas": {
@@ -316,6 +316,14 @@ export default {
                         }
                       ]
                     },
+                    "expiration": {
+                      "description": "Unix Timestamp (seconds) when the listing expires.",
+                      "type": "string"
+                    },
+                    "minFillAmount": {
+                      "description": "Minimum quantity for purchase transaction to succeed.",
+                      "type": "string"
+                    },
                     "project": {
                       "anyOf": [
                         {
@@ -404,7 +412,9 @@ export default {
                     "leftToSell",
                     "tokenAddress",
                     "singleUnitPrice",
-                    "totalAmountToSell"
+                    "totalAmountToSell",
+                    "expiration",
+                    "minFillAmount"
                   ]
                 }
               },
@@ -896,6 +906,14 @@ export default {
                     }
                   ]
                 },
+                "expiration": {
+                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                  "type": "string"
+                },
+                "minFillAmount": {
+                  "description": "Minimum quantity for purchase transaction to succeed.",
+                  "type": "string"
+                },
                 "project": {
                   "anyOf": [
                     {
@@ -984,7 +1002,9 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "expiration",
+                "minFillAmount"
               ]
             }
           },
@@ -1432,6 +1452,14 @@ export default {
               }
             ]
           },
+          "expiration": {
+            "description": "Unix Timestamp (seconds) when the listing expires.",
+            "type": "string"
+          },
+          "minFillAmount": {
+            "description": "Minimum quantity for purchase transaction to succeed.",
+            "type": "string"
+          },
           "project": {
             "anyOf": [
               {
@@ -1520,7 +1548,9 @@ export default {
           "leftToSell",
           "tokenAddress",
           "singleUnitPrice",
-          "totalAmountToSell"
+          "totalAmountToSell",
+          "expiration",
+          "minFillAmount"
         ]
       },
       "Methodology": {
@@ -1871,6 +1901,14 @@ export default {
                     }
                   ]
                 },
+                "expiration": {
+                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                  "type": "string"
+                },
+                "minFillAmount": {
+                  "description": "Minimum quantity for purchase transaction to succeed.",
+                  "type": "string"
+                },
                 "project": {
                   "anyOf": [
                     {
@@ -1959,7 +1997,9 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "expiration",
+                "minFillAmount"
               ]
             }
           },
@@ -2488,6 +2528,17 @@ export default {
             "name": "vintage",
             "required": false,
             "description": "Desired vintage of carbon projects"
+          },
+          {
+            "schema": {
+              "default": "1695861140",
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
           }
         ],
         "responses": {
@@ -2797,6 +2848,14 @@ export default {
                                     }
                                   ]
                                 },
+                                "expiration": {
+                                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                                  "type": "string"
+                                },
+                                "minFillAmount": {
+                                  "description": "Minimum quantity for purchase transaction to succeed.",
+                                  "type": "string"
+                                },
                                 "project": {
                                   "anyOf": [
                                     {
@@ -2885,7 +2944,9 @@ export default {
                                 "leftToSell",
                                 "tokenAddress",
                                 "singleUnitPrice",
-                                "totalAmountToSell"
+                                "totalAmountToSell",
+                                "expiration",
+                                "minFillAmount"
                               ]
                             }
                           },
@@ -2978,6 +3039,17 @@ export default {
             "name": "network",
             "required": false,
             "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "default": "1695861140",
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return listings that expire after this timestamp (Unix seconds)"
           },
           {
             "schema": {
@@ -3196,6 +3268,14 @@ export default {
                               }
                             ]
                           },
+                          "expiration": {
+                            "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "string"
+                          },
+                          "minFillAmount": {
+                            "description": "Minimum quantity for purchase transaction to succeed.",
+                            "type": "string"
+                          },
                           "project": {
                             "anyOf": [
                               {
@@ -3284,7 +3364,9 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "expiration",
+                          "minFillAmount"
                         ]
                       }
                     },
@@ -3733,6 +3815,17 @@ export default {
         ],
         "description": "Retrieve a carbon project by its project ID",
         "parameters": [
+          {
+            "schema": {
+              "default": "Current system timestamp.",
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
+          },
           {
             "schema": {
               "default": "polygon",
@@ -4225,6 +4318,14 @@ export default {
                               }
                             ]
                           },
+                          "expiration": {
+                            "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "string"
+                          },
+                          "minFillAmount": {
+                            "description": "Minimum quantity for purchase transaction to succeed.",
+                            "type": "string"
+                          },
                           "project": {
                             "anyOf": [
                               {
@@ -4313,7 +4414,9 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "expiration",
+                          "minFillAmount"
                         ]
                       }
                     },
