@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
-import { queryAggregatedCreditsByCountry } from "lib/charts/queries";
+import { queryAggregatedCreditsByOrigin } from "lib/charts/queries";
 import {
-  AggregatedCreditsByCountryItem,
+  AggregatedCreditsByOriginItem,
   CreditsQueryParams,
   PaginatedResponse,
 } from "lib/charts/types";
@@ -10,9 +10,9 @@ import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes } from "./helpers";
 import { Columns } from "./types";
 
-export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<AggregatedCreditsByCountryItem> {
+export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<AggregatedCreditsByOriginItem> {
   fetchFunction(page: number, params?: CreditsQueryParams) {
-    return queryAggregatedCreditsByCountry(
+    return queryAggregatedCreditsByOrigin(
       Object.assign(
         {},
         {
@@ -25,7 +25,7 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
       )
     );
   }
-  getColumns(): Columns<AggregatedCreditsByCountryItem> {
+  getColumns(): Columns<AggregatedCreditsByOriginItem> {
     return {
       country: {
         header: t`Country`,
@@ -48,14 +48,14 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
     };
   }
   desktopRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByCountryItem>;
+    data: PaginatedResponse<AggregatedCreditsByOriginItem>;
   }) => {
     return this.VerticalTableLayout({
       data: props.data,
     });
   };
   mobileRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByCountryItem>;
+    data: PaginatedResponse<AggregatedCreditsByOriginItem>;
   }) => {
     return this.VerticalTableLayout({
       data: props.data,

@@ -4,6 +4,7 @@ import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolLis
 import KlimaRetirementsByPoolSummaryConfiguration from "./KlimaRetirementsByPoolSummaryConfiguration";
 import KlimaRetirementsByTokenListConfiguration from "./KlimaRetirementsByTokenListConfiguration";
 import TokenOriginsListConfiguration from "./TokenOriginsListConfiguration";
+import VerraCreditsOriginsListConfiguration from "./VerraCreditsOriginsListConfiguration";
 const configurations = {
   KlimaRetirementsByPoolSummary:
     new KlimaRetirementsByPoolSummaryConfiguration(),
@@ -13,6 +14,7 @@ const configurations = {
   KlimaRetirementsByBeneficiaryList:
     new KlimaRetirementsByBeneficiaryListConfiguration(),
   TokenOriginsList: new TokenOriginsListConfiguration(),
+  VerraCreditsOriginsList: new VerraCreditsOriginsListConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
 function getConfiguration(key: ConfigurationKey) {

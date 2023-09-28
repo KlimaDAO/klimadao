@@ -10,7 +10,7 @@ import { DateField, NodeDictionnary, Status } from "lib/charts/types";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
-export default function DailyVerraCreditsCard(props: CardProps) {
+export default function DailyVerraCreditsOverviewCard(props: CardProps) {
   const charts: NodeDictionnary = {};
 
   // Pre-compute charts for the various options combinations */
@@ -33,11 +33,11 @@ export default function DailyVerraCreditsCard(props: CardProps) {
             },
             dataMapping: {
               source,
-              destination: "toucan",
+              destination: "toucan_quantity",
               dateField,
             },
             chartOptions: {
-              id: "toucan",
+              id: "toucan_quantity",
               label: "Toucan",
               color: palette.charts.color5,
               legendOrder: 1,
@@ -50,11 +50,11 @@ export default function DailyVerraCreditsCard(props: CardProps) {
             },
             dataMapping: {
               source,
-              destination: "moss",
+              destination: "moss_quantity",
               dateField,
             },
             chartOptions: {
-              id: "moss",
+              id: "moss_quantity",
               label: "Moss",
               color: palette.charts.color3,
               legendOrder: 2,
@@ -67,11 +67,11 @@ export default function DailyVerraCreditsCard(props: CardProps) {
             },
             dataMapping: {
               source,
-              destination: "c3",
+              destination: "c3_quantity",
               dateField,
             },
             chartOptions: {
-              id: "c3",
+              id: "c3_quantity",
               label: "C3",
               color: palette.charts.color1,
               legendOrder: 3,
@@ -89,11 +89,11 @@ export default function DailyVerraCreditsCard(props: CardProps) {
             },
             dataMapping: {
               source,
-              destination: "offchain",
+              destination: "offchain_quantity",
               dateField,
             },
             chartOptions: {
-              id: "offchain",
+              id: "offchain_quantity",
               label: "Offchain",
               color: palette.charts.color3,
             },

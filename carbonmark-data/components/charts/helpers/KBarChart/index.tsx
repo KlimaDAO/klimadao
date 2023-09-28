@@ -49,6 +49,7 @@ export default function KBarChart<T extends object>(props: Props<T>) {
   let toolTipYAxisFormatter = (x: number) =>
     helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
 
+  // Applying custom configuration
   if (props.XAxis == "days") {
     toolTipXAxisFormatter = helpers.formatDateAsDays(locale);
     XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField, locale);
@@ -79,13 +80,12 @@ export default function KBarChart<T extends object>(props: Props<T>) {
       align: "left",
       wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
     });
-
   return (
     <NoDataChartWrapper data={props.data} noDataText={props.noDataText}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={props.data} barCategoryGap={"5%"}>
-          <XAxis {...XAxisProps} />
-          <YAxis {...YAxisProps} />
+          {props.XAxis && <XAxis {...XAxisProps} />}
+          {props.YAxis && <YAxis {...YAxisProps} />}
           <Tooltip
             content={KlimaTooltip(toolTipXAxisFormatter, toolTipYAxisFormatter)}
             cursor={{ fill: "transparent" }}

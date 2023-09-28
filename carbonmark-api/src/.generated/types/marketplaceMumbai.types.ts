@@ -1376,16 +1376,16 @@ export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ _
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
 export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
 export type FindProjectsQueryVariables = Exact<{
-  country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
-  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1394,6 +1394,7 @@ export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __type
 export type GetCreditListingsQueryVariables = Exact<{
   projectId: InputMaybe<Scalars['String']>;
   vintageStr: InputMaybe<Scalars['BigInt']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
@@ -1493,9 +1494,9 @@ export const GetPurchasesByIdDocument = gql`
 }
     `;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: Bytes) {
+    query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: {id: $wallet}) {
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
@@ -1506,12 +1507,10 @@ export const GetUserByWalletDocument = gql`
     ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
 export const FindProjectsDocument = gql`
-    query findProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
-  projects(
-    where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
-  ) {
+    query findProjects($search: String, $vintage: [BigInt!], $expiresAfter: BigInt) {
+  projects(where: {name_contains_nocase: $search, vintage_in: $vintage}) {
     ...ProjectFragment
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
   }
@@ -1519,10 +1518,10 @@ export const FindProjectsDocument = gql`
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}`;
 export const GetCreditListingsDocument = gql`
-    query getCreditListings($projectId: String, $vintageStr: BigInt) {
+    query getCreditListings($projectId: String, $vintageStr: BigInt, $expiresAfter: BigInt) {
   projects(where: {key: $projectId, vintage: $vintageStr}) {
     id
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
     activities {

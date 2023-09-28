@@ -4,6 +4,14 @@ import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 import Chart from "./Chart";
 
+/** Generic Daily Carbon Supply Chart */
+export async function DailyCarbonSupplyChart(props: {
+  configuration: SimpleChartConfiguration<CarbonMetricsItem>;
+}) {
+  const data = await getCarbonMetrics(props.configuration);
+  return <Chart data={data} configuration={props.configuration} />;
+}
+
 /** Polygon carbon Supply chart */
 export async function DailyPolygonCarbonSupplyChart() {
   const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
@@ -48,8 +56,8 @@ export async function DailyPolygonCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
 /** Eth carbon Supply chart */
@@ -64,8 +72,8 @@ export async function DailyEthCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
 /** Celo carbon Supply chart */
@@ -96,6 +104,6 @@ export async function DailyCeloCarbonSupplyChart() {
       },
     },
   ];
-  const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  /* @ts-expect-error async Server component */
+  return <DailyCarbonSupplyChart configuration={configuration} />;
 }
