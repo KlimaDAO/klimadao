@@ -137,6 +137,7 @@ export const PurchaseReceipt: NextPage<PageProps> = (props) => {
                     </div>
                     <CarbonmarkButton
                       href="/portfolio"
+                      renderLink={(p) => <Link {...p} />}
                       label={
                         <Trans id="purchase.button.view_assets">
                           View Your Assets
