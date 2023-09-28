@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-28 01:36+0000\n"
+"POT-Creation-Date: 2023-09-28 20:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -101,7 +101,7 @@ msgid "Amount to purchase"
 msgstr "खरीदने की राशि"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:141
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:148
 msgid "Amount to retire"
 msgstr "रिटायरमैंट की राशि"
 
@@ -127,7 +127,7 @@ msgid "Asset details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:104
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:111
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr "इस समय कार्बनमार्क इससे अधिक क्रेडिट कार्ड भुगतान संसाधित नहीं कर सकता: {fiatBalance}"
 
@@ -290,7 +290,7 @@ msgstr "कार्बनमार्क कोई अतिरिक्त ल
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:86
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:123
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:184
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:190
 msgid "Carbonmark fee"
 msgstr "कार्बनमार्क शुल्क"
 
@@ -443,7 +443,7 @@ msgid "Created:"
 msgstr "बन गई:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:94
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
 msgstr ""
 
@@ -453,7 +453,7 @@ msgid "Credit card minimum purchase is {0}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:207
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:220
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "क्रेडिट कार्ड से भुगतान पर अतिरिक्त प्रोसेसिंग शुल्क लगता है। <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
@@ -714,7 +714,7 @@ msgstr "आपके ऐसेट्स लोड हो रहे हैं"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:156
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:243
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:268
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -896,7 +896,7 @@ msgid "Payment Successful"
 msgstr "भुगतान सफल हुआ"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:203
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:216
 msgid "Payment processing fee"
 msgstr "रिटायरमेंट प्रोसेसिंग शुल्क"
 
@@ -941,14 +941,14 @@ msgstr "मूल्य न्यूनतम"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:96
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:153
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr "कीमत में नेटवर्क शुल्क शामिल है. <0>अधिक जानने के लिए दस्तावेज़ देखें।</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:92
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:149
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:156
 msgid "Price per tonne"
 msgstr "कीमत प्रति टन"
 
@@ -1421,7 +1421,7 @@ msgstr "आपका कुल रिटयरमेंट डेटा प्�
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:59
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:107
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:114
 msgid "There was an error loading the total cost."
 msgstr "कुल लागत लोड करने में गलती हुई थी."
 
@@ -1501,7 +1501,7 @@ msgstr "टोकन प्राप्त हुए:"
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:155
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:150
 msgid "Tonnes"
 msgstr "टन"
 
@@ -1538,13 +1538,13 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:103
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:140
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:225
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:246
 msgid "Total cost"
 msgstr "कुल लागत"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:139
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:146
 msgid "Total price"
 msgstr "कुल कीमत"
 
@@ -1788,7 +1788,7 @@ msgstr "आपका वॉलेट पता:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:168
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:275
 msgid "Your balance:"
 msgstr "आपका बैलेंस:"
 

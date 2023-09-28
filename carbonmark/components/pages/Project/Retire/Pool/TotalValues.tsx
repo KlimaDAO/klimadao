@@ -55,6 +55,13 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   };
 
   useEffect(() => {
+    // for the usdc icons to be visible for the required transition
+    // on first load the default paymentMethod is set as usdc & then
+    // immediately set to fiat.
+    setValue("paymentMethod", "fiat");
+  }, []);
+
+  useEffect(() => {
     const newCosts = async () => {
       setError("");
 
@@ -163,37 +170,43 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
         </Text>
 
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
+          <div className="icon">
+            <Image
+              width={20}
+              height={20}
+              className={cx(isFiat && styles.iconFade)}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
 
-          <Text t="h5">
+          <Text t="h5" className={cx(isFiat && styles.textTransition)}>
             {formatToPrice(props.price.singleUnitPrice, locale, isFiat)}
           </Text>
         </div>
       </div>
 
-      <div className={styles.totalsText}>
-        <Text color="lightest">{t`Carbonmark fee`}</Text>
+      <div className={cx(styles.totalsText, styles.feeText)}>
+        <Text>{t`Carbonmark fee`}</Text>
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={20}
-                height={20}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
-          <Text t="h5">{formatToPrice(CARBONMARK_FEE, locale, isFiat)}</Text>
+          <div className="icon">
+            <Image
+              width={20}
+              height={20}
+              className={cx(isFiat && styles.iconFade)}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
+          <Text
+            t="h5"
+            className={cx(
+              isFiat && styles.textTransition,
+              isFiat && "carbonmark-fee"
+            )}
+          >
+            {formatToPrice(CARBONMARK_FEE, locale, isFiat)}
+          </Text>
         </div>
       </div>
 
@@ -215,7 +228,15 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               <HelpOutline className={styles.helpIcon} />
             </TextInfoTooltip>
           </Text>
-          <Text t="h5">{calcCreditCardFee()}</Text>
+          <Text
+            t="h5"
+            className={cx(
+              isFiat && styles.textTransition,
+              isFiat && "processing-fee"
+            )}
+          >
+            {calcCreditCardFee()}
+          </Text>
         </div>
       )}
 
@@ -224,21 +245,25 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       <div className={styles.totalsText}>
         <Text color="lightest">{t`Total cost`}</Text>
         <div className={cx(styles.iconAndText)}>
-          {!isFiat && (
-            <div className="icon">
-              <Image
-                src={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].icon}
-                width={36}
-                height={36}
-                alt={carbonmarkPaymentMethodMap[paymentMethod || "usdc"].id}
-              />
-            </div>
-          )}
+          <div className="icon">
+            <Image
+              width={36}
+              height={36}
+              className={cx(isFiat && styles.iconFade)}
+              src={carbonmarkPaymentMethodMap["usdc"].icon}
+              alt={carbonmarkPaymentMethodMap["usdc"].id}
+            />
+          </div>
           <Text
             t="h3"
-            className={cx(styles.breakText, {
-              error: exceededBalance || !!error,
-            })}
+            className={cx(
+              isFiat && styles.textTransition,
+              isFiat && "total-cost",
+              styles.breakText,
+              {
+                error: exceededBalance || !!error,
+              }
+            )}
           >
             {isLoading ? t`Loading...` : formattedCosts}
           </Text>

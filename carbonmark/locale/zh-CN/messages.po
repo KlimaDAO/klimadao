@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-28 01:36+0000\n"
+"POT-Creation-Date: 2023-09-28 20:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -101,7 +101,7 @@ msgid "Amount to purchase"
 msgstr "购买金额"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:141
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:148
 msgid "Amount to retire"
 msgstr "停用金额"
 
@@ -127,7 +127,7 @@ msgid "Asset details"
 msgstr "资产详情"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:104
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:111
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr "目前，Carbonmark 无法处理超出 {fiatBalance} 范围的信用卡付款."
 
@@ -290,7 +290,7 @@ msgstr "Carbonmark 不收取额外的交易费，并提供市场上的最低价�
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:86
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:123
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:184
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:190
 msgid "Carbonmark fee"
 msgstr "Carbonmark 费"
 
@@ -441,17 +441,17 @@ msgid "Created:"
 msgstr "已创建："
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:87
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:94
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "信用卡最低购买金额为 ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "信用卡最低购买金额为 {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:207
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:220
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "信用卡付款需支付额外的手续费。<0>请参阅文档以了解更多信息</0>"
 
@@ -712,7 +712,7 @@ msgstr "正在加载您的资产"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:156
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:243
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:268
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -829,7 +829,7 @@ msgstr "使用当前过滤器未找到任何项目"
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "未找到 props.project 描述"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
@@ -896,7 +896,7 @@ msgid "Payment Successful"
 msgstr "支付成功"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:203
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:216
 msgid "Payment processing fee"
 msgstr "付款手续费"
 
@@ -941,14 +941,14 @@ msgstr "最低价格"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:96
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:153
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr "价格包含网络费用。<0>请参阅文档以了解更多信息</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:92
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:149
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:156
 msgid "Price per tonne"
 msgstr "每吨价格"
 
@@ -1423,7 +1423,7 @@ msgstr "获取您的总碳停用数据时出错"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:59
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:107
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:114
 msgid "There was an error loading the total cost."
 msgstr "加载总费用时出错。"
 
@@ -1501,7 +1501,7 @@ msgstr "收到的代币："
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:155
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:143
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:150
 msgid "Tonnes"
 msgstr "吨"
 
@@ -1538,13 +1538,13 @@ msgstr "停用总碳吨"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:103
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:140
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:225
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:246
 msgid "Total cost"
 msgstr "总成本"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:82
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:139
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:146
 msgid "Total price"
 msgstr "总价"
 
@@ -1786,7 +1786,7 @@ msgstr "您的钱包地址："
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:168
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:275
 msgid "Your balance:"
 msgstr "您的余额："
 
