@@ -1,34 +1,35 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { isNil } from "lodash";
 import { Purchase } from "../../../models/Purchase.model";
 import { CreditId } from "../../../utils/CreditId";
+import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
-import { schema } from "./get.schema";
-import { getPurchaseById, isValidPurchaseId } from "./get.utils";
+import { ParamsT, Querystring, schema } from "./get.schema";
+import { isValidPurchaseId } from "./get.utils";
 
-const handler = async function (
+const handler = async (
   request: FastifyRequest<{
-    Params: Static<typeof schema.params>;
-    Querystring: Static<typeof schema.querystring>;
+    Params: ParamsT;
+    Querystring: Static<typeof Querystring>;
   }>,
   reply: FastifyReply
-) {
+) => {
   if (!isValidPurchaseId(request.params.id)) {
     return reply.badRequest("Invalid purchase id: " + request.params.id);
   }
-  const purchase = await getPurchaseById({
-    id: request.params.id,
-    network: request.query.network,
-  });
+  const sdk = gql_sdk(request.query.network);
+  const { purchase } = await sdk.marketplace.getPurchaseById(request.params);
 
   /** Handle the not found case */
-  if (!purchase) {
-    return reply.notFound("Purchase not found");
+  if (isNil(purchase)) {
+    return reply.status(404).send({ error: "Purchase not found" });
   }
+
   const [standard, registryProjectId] = CreditId.splitProjectId(
     purchase.listing.project.key
   );
-  const project = await fetchCarbonProject({
+  const project = await fetchCarbonProject(sdk, {
     registry: standard,
     registryProjectId,
   });

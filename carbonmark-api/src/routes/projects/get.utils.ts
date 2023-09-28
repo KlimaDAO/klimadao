@@ -2,8 +2,11 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
-import { FindQueryProject } from "../../graphql/marketplace.types";
-import { FindQueryOffset } from "../../graphql/offsets.types";
+import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
+import {
+  CarbonOffset,
+  GetCarbonOffsetsByProjectAndVintageQuery,
+} from "../../.generated/types/offsets.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
 import {
@@ -13,6 +16,7 @@ import {
 } from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
+import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
@@ -32,12 +36,15 @@ import { POOL_INFO } from "./get.constants";
  * # this will cause a silent error. GQL Resolver needs to be updated to allow null search params
  * # to return all possible values
  */
-export const getDefaultQueryArgs = async (fastify: FastifyInstance) => {
+export const getDefaultQueryArgs = async (
+  sdk: GQL_SDK,
+  fastify: FastifyInstance
+) => {
   //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
-    getAllCategories(fastify).then(map(extract("id"))),
-    getAllCountries(fastify).then(map(extract("id"))),
-    getAllVintages(fastify),
+    getAllCategories(sdk, fastify).then(map(extract("id"))),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
   ]);
 
   return {
@@ -55,7 +62,7 @@ export const getDefaultQueryArgs = async (fastify: FastifyInstance) => {
  * Sorted cheapest first.
  */
 export const getOffsetTokenPrices = (
-  offset: FindQueryOffset,
+  offset: GetCarbonOffsetsByProjectAndVintageQuery["carbonOffsets"][number],
   poolPrices: Record<string, PoolPrice>
 ) => {
   const prices: string[] = [];
@@ -107,7 +114,12 @@ export const toGeoJSON = (
  * For polygon-bridged-carbon subgraph projects
  * Returns true if project has >=1 tonne in any pool
  * */
-export const isValidPoolProject = (project: FindQueryOffset) => {
+export const isValidPoolProject = (
+  project: Pick<
+    CarbonOffset,
+    "balanceBCT" | "balanceNBO" | "balanceNCT" | "balanceUBO"
+  >
+) => {
   const validProjects = [
     project.balanceBCT,
     project.balanceNCT,
@@ -127,7 +139,9 @@ export const isActiveListing = (l: {
  * For marketplace subgraph projects
  * Returns true if project has >=1 tonne in any active, unexpired listing
  * */
-export const isValidMarketplaceProject = (project: FindQueryProject) => {
+export const isValidMarketplaceProject = (
+  project: Pick<Project, "listings">
+) => {
   if (!project.listings) return false;
   const validProjects = project.listings.filter(isActiveListing);
   return !!validProjects.length;
@@ -136,8 +150,8 @@ export const isValidMarketplaceProject = (project: FindQueryProject) => {
 /** A key may have a marketplace entry, a pool entry, or both. */
 type ProjectData = {
   key: CreditIdentifier;
-  poolProjectData?: FindQueryOffset;
-  marketplaceProjectData?: FindQueryProject;
+  poolProjectData?: GetCarbonOffsetsByProjectAndVintageQuery["carbonOffsets"][number];
+  marketplaceProjectData?: GetProjectsQuery["projects"][number];
 };
 /** Map project keys to gql and cms data */
 export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;
@@ -214,9 +228,10 @@ export const composeProjectEntries = (
       })),
       key: projectId,
       registry,
+      region: data.marketplaceProjectData?.region ?? "",
       projectID: registryProjectId,
       vintage: pool?.vintageYear ?? market?.vintage ?? "",
-      projectAddress: pool?.tokenAddress ?? market?.projectAddress,
+      projectAddress: pool?.tokenAddress ?? market?.projectAddress ?? "",
       updatedAt: pickUpdatedAt(data),
       price: pickBestPrice(data, poolPrices),
       listings: market?.listings || null,

@@ -18,6 +18,7 @@ export const ProjectModel = Type.Object({
   registry: Type.String(),
   updatedAt: Type.String(),
   country: Type.Object({ id: Type.String() }),
+  region: Type.String(),
   price: Type.String(),
   listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
   images: Nullable(

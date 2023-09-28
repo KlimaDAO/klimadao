@@ -1,11 +1,13 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
-import { ProjectContent } from "../../.generated/types/carbonProjects.types";
-import { CMSProject } from "../../graphql/carbonProjects.types";
+import {
+  GetProjectQuery,
+  ProjectContent,
+} from "../../.generated/types/carbonProjects.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
 
 type Args = {
   registry: string; // e.g VCS
@@ -23,17 +25,17 @@ const projectKey = ({
   registryProjectId: string | null;
 }) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = CMSProject & {
+export type CarbonProject = GetProjectQuery["allProject"][number] & {
   content?: ProjectContent;
 };
 
 /**
  * Fetches a carbon project based on the provided registry and id.
  */
-export const fetchCarbonProject = async (args: Args) => {
+export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    gqlSdk.carbon_projects.getProject(args),
-    gqlSdk.carbon_projects.getProjectContent(args),
+    sdk.carbon_projects.getProject(args),
+    sdk.carbon_projects.getProjectContent(args),
   ]);
 
   const project = allProject.at(0);
@@ -51,10 +53,12 @@ export const fetchCarbonProject = async (args: Args) => {
  * Fetches all carbon projects and their content
  * @returns {Promise<CarbonProject[]>} An array of all fetched projects.
  */
-export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
+export const fetchAllCarbonProjects = async (
+  sdk: GQL_SDK
+): Promise<CarbonProject[]> => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    gqlSdk.carbon_projects.getAllProjects(),
-    gqlSdk.carbon_projects.getAllProjectContent(),
+    sdk.carbon_projects.getAllProjects(),
+    sdk.carbon_projects.getAllProjectContent(),
   ]);
 
   // Clean the content, removing those without project references

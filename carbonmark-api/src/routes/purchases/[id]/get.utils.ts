@@ -1,8 +1,6 @@
 import { utils } from "ethers";
-import { Purchase as MumbaiPurchase } from "../../../graphql/marketplaceMumbai.types";
 import { NetworkParam } from "../../../models/NetworkParam.model";
-import { Purchase } from "../../../models/Purchase.model";
-import { gqlSdk } from "../../../utils/gqlSdk";
+import { gql_sdk } from "../../../utils/gqlSdk";
 
 /** Purchase ids are a txn hash */
 export const isValidPurchaseId = (id?: string | null) => {
@@ -11,13 +9,11 @@ export const isValidPurchaseId = (id?: string | null) => {
 };
 
 export const getPurchaseById = async (params: {
-  id: string | null;
+  id: string;
   network?: NetworkParam;
-}): Promise<Purchase | MumbaiPurchase | null> => {
-  const graph =
-    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
-  const response = await graph.getPurchasesById({
+}) => {
+  const purchase = await gql_sdk(params.network).marketplace.getPurchaseById({
     id: params.id,
   });
-  return response.purchases?.at(0) || null;
+  return purchase;
 };

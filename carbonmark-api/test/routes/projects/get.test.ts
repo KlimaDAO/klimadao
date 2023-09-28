@@ -82,10 +82,10 @@ describe("GET /projects", () => {
 
   /** The happy path */
   test("Returns 200", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         data: { projects: [marketplace.projectWithListing] },
@@ -98,10 +98,10 @@ describe("GET /projects", () => {
   });
 
   test("Composes a pool project with cms data", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } }); // no marketplace projects
 
@@ -135,6 +135,7 @@ describe("GET /projects", () => {
         price: poolPrices.bct.defaultPrice,
         listings: null,
         key: bridgedCarbon.offset.projectID,
+        region: "",
         location: {
           geometry: {
             coordinates: [
@@ -157,10 +158,10 @@ describe("GET /projects", () => {
 
   //** FYI This test will fail if no matching offset exists in the mock */
   test("Composes a marketplace listing with cms data", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [] } });
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [marketplace.projectWithListing] } });
 
@@ -228,7 +229,7 @@ describe("GET /projects", () => {
   });
 
   test("Best price is listing price", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
 
@@ -237,7 +238,7 @@ describe("GET /projects", () => {
       singleUnitPrice: "111111", // 0.111111
     };
 
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         data: {
@@ -261,7 +262,7 @@ describe("GET /projects", () => {
   });
 
   test("Best price is the lowest of 2 pool prices", async () => {
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, {
         data: {
@@ -275,7 +276,7 @@ describe("GET /projects", () => {
         },
       });
 
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         data: {

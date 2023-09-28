@@ -4,6 +4,7 @@ import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
 import { DetailedProject } from "../../../models/DetailedProject.model";
 import { CreditId } from "../../../utils/CreditId";
+import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
@@ -20,6 +21,7 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     const { id } = request.params;
+    const sdk = gql_sdk(request.query.network);
     const {
       vintage,
       standard: registry,
@@ -30,19 +32,17 @@ const handler = (fastify: FastifyInstance) =>
     try {
       [[poolPrices, stats], [listings, activities], projectDetails] =
         await Promise.all([
-          fetchPoolPricesAndStats({
+          fetchPoolPricesAndStats(sdk, {
             key,
             vintage,
-            network: request.query.network,
           }),
-          fetchMarketplaceListings({
+          fetchMarketplaceListings(sdk, {
             key,
             vintage,
             fastify,
-            network: request.query.network,
             expiresAfter: request.query.expiresAfter,
           }),
-          fetchCarbonProject({
+          fetchCarbonProject(sdk, {
             registry,
             registryProjectId,
           }),
