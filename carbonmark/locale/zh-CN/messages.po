@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-09-28 01:36+0000\n"
+"POT-Creation-Date: 2023-09-28 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,12 +443,12 @@ msgstr "已创建："
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:87
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "信用卡最低购买金额为 ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "信用卡最低购买金额为 {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:207
@@ -829,7 +829,7 @@ msgstr "使用当前过滤器未找到任何项目"
 #. js-lingui-explicit-id
 #: components/ProjectCard/index.tsx:63
 msgid "No props.project description found"
-msgstr ""
+msgstr "未找到 props.project 描述"
 
 #. js-lingui-explicit-id
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:22
