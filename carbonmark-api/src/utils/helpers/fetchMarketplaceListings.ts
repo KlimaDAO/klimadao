@@ -13,6 +13,8 @@ type Params = {
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
   network?: NetworkParam;
+  /** UNIX seconds - default is current system timestamp */
+  expiresAfter?: string;
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string }) =>
@@ -22,13 +24,17 @@ export const getCreditListings = async (params: {
   projectId: string;
   vintageStr: string;
   network?: NetworkParam;
+  /** UNIX seconds - default is current system timestamp */
+  expiresAfter?: string;
 }) => {
   const graph =
     params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
-
+  const expiresAfter =
+    params.expiresAfter || String(Math.floor(Date.now() / 1000));
   const data = await graph.getCreditListings({
     projectId: params.projectId,
     vintageStr: params.vintageStr,
+    expiresAfter,
   });
   const project = data?.projects.at(0);
   return project;

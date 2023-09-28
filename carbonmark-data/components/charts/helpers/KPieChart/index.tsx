@@ -2,7 +2,6 @@
 import { KlimaLegendProps } from "components/charts/helpers";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { ChartData } from "lib/charts/types";
-import { currentLocale } from "lib/i18n";
 import {
   Cell,
   Legend,
@@ -11,6 +10,7 @@ import {
   PieChart,
   ResponsiveContainer,
 } from "recharts";
+import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import { ChartConfigurationItem } from "../Configuration";
 import NoDataChartWrapper from "../NoDataChartWrapper";
 
@@ -19,6 +19,7 @@ interface Props<CI extends { quantity: number }, T extends object> {
   configuration: SimpleChartConfiguration<T>;
   LegendProps?: Omit<LegendProps, "ref">;
   showLegend?: boolean;
+  legendContent?: ContentType;
   noDataText?: string;
 }
 /** FIXME: Refactor to KlimaBarChart */
@@ -26,7 +27,6 @@ export default function KPieChart<
   CI extends { quantity: number },
   T extends object,
 >(props: Props<CI, T>) {
-  const locale = currentLocale();
   // Default configuration
   const LocalLegendProps =
     props.LegendProps ||
@@ -61,14 +61,16 @@ export default function KPieChart<
             nameKey="label"
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius="93%"
+            outerRadius="100%"
           >
             {chartData.map((entry) => (
               <Cell key={entry.id} fill={entry.color} />
             ))}
           </Pie>
-          {showLegend && <Legend {...LocalLegendProps} />}
+          {showLegend && (
+            <Legend {...LocalLegendProps} content={props.legendContent} />
+          )}
         </PieChart>
       </ResponsiveContainer>
     </NoDataChartWrapper>

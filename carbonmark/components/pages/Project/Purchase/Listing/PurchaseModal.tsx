@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
@@ -80,6 +81,7 @@ const PurchaseSubmit: FC = () => {
 };
 
 export const PurchaseModal: FC<Props> = (props) => {
+  const { networkLabel } = useWeb3();
   return (
     <Modal
       title={
@@ -107,7 +109,7 @@ export const PurchaseModal: FC<Props> = (props) => {
           onCancel={props.onCancel}
           status={props.status}
           onResetStatus={props.onResetStatus}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={getAddress("carbonmark", networkLabel)}
           onGoBack={props.onCancel}
         />
       )}

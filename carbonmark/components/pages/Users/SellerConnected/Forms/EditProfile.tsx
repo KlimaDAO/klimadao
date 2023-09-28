@@ -53,7 +53,6 @@ export const EditProfile: FC<Props> = (props) => {
     try {
       const handleFromApi = await getUser({
         user: handle,
-        type: "handle",
       });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();

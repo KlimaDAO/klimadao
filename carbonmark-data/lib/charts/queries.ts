@@ -1,7 +1,9 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
-  AggregatedCreditsByCountryItem,
+  AggregatedCreditsByBridgeAndOriginItem,
+  AggregatedCreditsByBridgeAndVintageItem,
+  AggregatedCreditsByOriginItem,
   AggregatedCreditsByPoolAndMethodologyItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectsItem,
@@ -261,11 +263,31 @@ export function queryAggregatedCreditsByPoolAndMethodology(
 }
 
 /** Queries the Credits countries aggregation endpoint */
-export function queryAggregatedCreditsByCountry(
+export function queryAggregatedCreditsByOrigin(
   params: PaginationQueryParams & CreditsQueryParams
-): Promise<PaginatedResponse<AggregatedCreditsByCountryItem>> {
-  return paginatedQuery<AggregatedCreditsByCountryItem, typeof params>(
+): Promise<PaginatedResponse<AggregatedCreditsByOriginItem>> {
+  return paginatedQuery<AggregatedCreditsByOriginItem, typeof params>(
     urls.api.aggregatedCreditsByCountry,
+    params
+  );
+}
+
+/** Queries the Credits bridge and vintage aggregation endpoint */
+export function queryAggregatedCreditsByBridgeAndVintage(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndVintageItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndVintageItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndVintage,
+    params
+  );
+}
+
+/** Queries the Credits bridge and countries aggregation endpoint */
+export function queryAggregatedCreditsByBridgeAndOrigin(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndOriginItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndOriginItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndCountries,
     params
   );
 }

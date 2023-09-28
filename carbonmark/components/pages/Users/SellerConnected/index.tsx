@@ -118,7 +118,6 @@ export const SellerConnected: FC<Props> = (props) => {
       // get fresh data again
       const userFromApi = await getUser({
         user: props.userAddress,
-        type: "wallet",
       });
 
       // Merge with data from Updated Profile as backend might be slow!
