@@ -251,6 +251,10 @@ export const connect_button = css`
 
 export const toggle_form_type = css`
   cursor: pointer;
+  margin-left: 25px;
+  margin-bottom: 10px;
+  text-transform: inherit;
+  font-weight: inherit;
 
   &:hover {
     opacity: 0.5;

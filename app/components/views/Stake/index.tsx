@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -41,7 +40,7 @@ import { ImageCard } from "components/ImageCard";
 import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
-import { addresses, urls } from "@klimadao/lib/constants";
+import { addresses } from "@klimadao/lib/constants";
 import { tokenInfo } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
@@ -164,17 +163,13 @@ export const Stake = (props: Props) => {
   const [view, setView] = useState<"stake" | "unstake">("stake");
   const [quantity, setQuantity] = useState("");
   const [showTransactionModal, setShowTransactionModal] = useState(false);
+  const [showEtherspotBuidler, setShowEtherspotBuidler] = useState(false);
 
   const { disconnect, setIgnoreChainId } = useWeb3();
 
   useEffect(() => {
-    if (!setIgnoreChainId) return;
-    setIgnoreChainId(true);
-    return () => {
-      if (!setIgnoreChainId) return;
-      setIgnoreChainId(false);
-    };
-  }, []);
+    if (setIgnoreChainId) setIgnoreChainId(showEtherspotBuidler);
+  }, [showEtherspotBuidler]);
 
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -419,42 +414,207 @@ export const Stake = (props: Props) => {
             <FiberNewRoundedIcon className="new-releases-icon" />
             <Trans id="stake.lifi">
               Cross-chain staking is now available through{" "}
-              <Anchor href={urls.lifiStake}>LI.FI and Etherspot</Anchor>, with
+              <Anchor
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowEtherspotBuidler(true);
+                }}
+              >
+                LI.FI and Etherspot
+              </Anchor>, with
               support for multiple chains and tokens.
             </Trans>
           </Text>
         </div>
-          {!props.provider && (
-            <div className={styles.stakeCard_ui}>
-              <ButtonPrimary
-                className={styles.submitButton}
-                {...getButtonProps()}
-              />
+
+        {showEtherspotBuidler && (
+          <>
+            {!props.provider && (
+              <div className={styles.stakeCard_ui}>
+                <ButtonPrimary
+                  className={styles.submitButton}
+                  {...getButtonProps()}
+                />
+              </div>
+            )}
+            {!!props.provider && typeof window !== undefined && (
+              <div className={styles.etherspotStakeCard_ui}>
+                {showEtherspotBuidler && (
+                  <Text
+                    t="button"
+                    onClick={() => setShowEtherspotBuidler(false)}
+                    className={styles.toggle_form_type}
+                  >
+                    &larr; Show Regular Staking
+                  </Text>
+                )}
+                <Etherspot
+                  provider={(props.provider as any).provider}
+                  chainId={137}
+                  themeOverride={klimaTheme}
+                  onLogout={async () => {
+                    try {
+                      if (props.isConnected && disconnect) disconnect();
+                    } catch (e) {
+                      //
+                    }
+                  }}
+                  defaultTransactionBlocks={[{ type: "KLIMA_STAKE", closeable: false }]}
+                  hideTransactionBlockTitle
+                  hideAddTransactionButton
+                  hideAddButton
+                  hideSettingsButton
+                  hideWalletBlock
+                  walletBlockActionsReplaceBehaviour
+                />
+              </div>
+            )}
+          </>
+        )}
+
+        {!showEtherspotBuidler && (
+          <div className={styles.stakeCard_ui}>
+            <div className={styles.inputsContainer}>
+              <div className={styles.stakeSwitch}>
+                <button
+                  className={styles.switchButton}
+                  type="button"
+                  onClick={() => {
+                    setQuantity("");
+                    setStatus(null);
+                    setView("stake");
+                  }}
+                  data-active={view === "stake"}
+                >
+                  <Trans id="stake.stake">Stake</Trans>
+                </button>
+                <button
+                  className={styles.switchButton}
+                  type="button"
+                  onClick={() => {
+                    setQuantity("");
+                    setStatus(null);
+                    setView("unstake");
+                  }}
+                  data-active={view === "unstake"}
+                >
+                  <Trans id="stake.unstake">Unstake</Trans>
+                </button>
+              </div>
+              <div className={styles.stakeInput}>
+                <Trans
+                  id={inputPlaceholderMessage[view].id}
+                  render={({ translation }) => (
+                    <input
+                      className={styles.stakeInput_input}
+                      value={quantity}
+                      onChange={(e) => {
+                        setQuantity(e.target.value);
+                        setStatus(null);
+                      }}
+                      type="number"
+                      placeholder={translation as string}
+                      min="0"
+                    />
+                  )}
+                />
+                <button
+                  className={styles.stakeInput_max}
+                  type="button"
+                  onClick={setMax}
+                >
+                  <Trans id="shared.max">Max</Trans>
+                </button>
+              </div>
+              {props.address && (
+                <div className={styles.address}>
+                  {concatAddress(props.address)}
+                </div>
+              )}
+              <div className="hr" />
             </div>
-          )}
-          {!!props.provider && typeof window !== undefined && (
-            <div className={styles.etherspotStakeCard_ui}>
-              <Etherspot
-                provider={(props.provider as any).provider}
-                chainId={137}
-                themeOverride={klimaTheme}
-                onLogout={async () => {
-                  try {
-                    if (props.isConnected && disconnect) disconnect();
-                  } catch (e) {
-                    //
+
+            <div className={styles.infoTable}>
+              <div className={styles.infoTable_label}>
+                <Trans id="stake.5_day_rewards">5 Day Rewards</Trans>
+                <TextInfoTooltip
+                  content={
+                    <Trans
+                      id="stake.5_day_rewards.tooltip"
+                      comment="Long sentence"
+                    >
+                      Approximate rewards, including compounding, should you
+                      remain staked for 5 days.
+                    </Trans>
                   }
-                }}
-                defaultTransactionBlocks={[{ type: "KLIMA_STAKE", closeable: false }]}
-                hideTransactionBlockTitle
-                hideAddTransactionButton
-                hideAddButton
-                hideSettingsButton
-                hideWalletBlock
-                walletBlockActionsReplaceBehaviour
-              />
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+              <div className={styles.infoTable_label}>
+                <Trans id="stake.akr">AKR</Trans>
+                <TextInfoTooltip
+                  content={
+                    <Trans id="stake.akr.tooltip" comment="Long sentence">
+                      Annualized KLIMA Rewards, including compounding, should the
+                      current reward rate remain unchanged for 12 months (reward
+                      rate may be subject to change).
+                    </Trans>
+                  }
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+              <div className={styles.infoTable_label}>
+                <Trans id="stake.index">Index</Trans>
+                <TextInfoTooltip
+                  content={
+                    <Trans id="stake.index.tooltip" comment="Long sentence">
+                      Amount of KLIMA you would have today if you staked 1 KLIMA
+                      on launch day. Useful for accounting purposes.
+                    </Trans>
+                  }
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+              <div className={styles.infoTable_value}>
+                {fiveDayRatePercent ? (
+                  trimWithPlaceholder(fiveDayRatePercent, 2, locale) + "%"
+                ) : (
+                  <Trans>Loading...</Trans>
+                )}
+              </div>
+              <div className={styles.infoTable_value}>
+                {stakingAKR ? (
+                  trimWithPlaceholder(stakingAKR, 0, locale) + "%"
+                ) : (
+                  <Trans>Loading...</Trans>
+                )}
+              </div>
+              <div className={styles.infoTable_value}>
+                {currentIndex ? (
+                  trimWithPlaceholder(currentIndex, 2, locale) + " sKLIMA"
+                ) : (
+                  <Trans>Loading...</Trans>
+                )}
+              </div>
             </div>
-          )}
+
+            <div className={styles.buttonRow}>
+              {showSpinner ? (
+                <div className={styles.buttonRow_spinner}>
+                  <Spinner />
+                </div>
+              ) : (
+                <ButtonPrimary
+                  className={styles.submitButton}
+                  {...getButtonProps()}
+                />
+              )}
+            </div>
+          </div>
+        )}
       </div>
 
       {showTransactionModal && (
