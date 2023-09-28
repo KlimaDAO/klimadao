@@ -17,8 +17,11 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address, toggleModal, initializing } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address);
+  const { isConnected, address, toggleModal, initializing, networkLabel } =
+    useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address, {
+    network: networkLabel,
+  });
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 

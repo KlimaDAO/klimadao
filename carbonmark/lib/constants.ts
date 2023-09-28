@@ -25,7 +25,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
+export const API_PROD_URL = "https://v2.0.0-0.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -34,6 +34,16 @@ export const API_PROD_URL = "https://v1.1.0.api.carbonmark.com/api";
 const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
   ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
   : API_PROD_URL;
+
+/**
+ * The API URL to target when developing the app,
+ * useful for generating types that have not yet been deployed or are on  new version of the API
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/ npm run dev-carbonmark & npm run dev-carbonmark-api
+ * or for types
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/ npm run generate:types*/
+const API_DEVELOPMENT_URL =
+  process.env.NEXT_PUBLIC_CARBONMARK_API_URL ?? API_PREVIEW_URL;
+
 const ENVIRONMENT: Environment =
   new LogicTable({
     production: IS_PRODUCTION,
@@ -80,7 +90,7 @@ export const config = {
     api: {
       production: API_PROD_URL,
       preview: API_PREVIEW_URL,
-      development: API_PREVIEW_URL,
+      development: API_DEVELOPMENT_URL,
     },
     fiat: {
       production: "https://checkout.offsetra.com/api",

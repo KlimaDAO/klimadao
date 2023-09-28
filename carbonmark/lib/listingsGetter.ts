@@ -1,16 +1,14 @@
-import { formatUnits } from "@klimadao/lib/utils";
-import { Listing, TokenPrice } from "lib/types/carbonmark.types";
-import { sortBy } from "lodash";
+import { Listing } from "lib/types/carbonmark.types";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
+    const leftToSellTotal = acc + Number(curr.leftToSell);
     return leftToSellTotal;
   }, 0);
 
 export const getTotalAmountToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
+    const totalAmountTo = acc + Number(curr.totalAmountToSell);
     return totalAmountTo;
   }, 0);
 
@@ -28,17 +26,3 @@ export const getAllListings = (listings: Listing[]) =>
 
 export const getSortByUpdateListings = (listings: Listing[]) =>
   listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
-
-export const sortPricesAndListingsByBestPrice = (
-  prices: TokenPrice[],
-  listings: Listing[]
-) => {
-  const flaggedPrices = flagPrices(prices);
-  //Convert to Number since singleUnitPrice is a string representation
-  const mergedArray = [...flaggedPrices, ...listings];
-
-  return sortBy(mergedArray, (x) => Number(x.singleUnitPrice));
-};
-
-const flagPrices = (prices: TokenPrice[]) =>
-  prices.map((p) => ({ ...p, isPoolProject: true }));

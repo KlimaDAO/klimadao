@@ -3,12 +3,14 @@ import {
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
 import { getCarbonmarkProject } from "lib/carbonmark";
+import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;
+  listing_id: string;
 }
 
 export const getStaticProps: GetStaticProps<
@@ -16,20 +18,35 @@ export const getStaticProps: GetStaticProps<
   Params
 > = async (ctx) => {
   const { params, locale } = ctx;
+  // destructure for type guarding
+  const { project_id, listing_id } = params || {};
 
-  if (!params || !params?.project_id) {
-    throw new Error("No matching params found");
+  if (!project_id || !listing_id) {
+    throw new Error("Bad request");
   }
 
   try {
-    const project = await getCarbonmarkProject(params.project_id);
+    let project = await getCarbonmarkProject(project_id);
+
+    if (!project) {
+      throw new Error("No project found");
+    }
+
+    const findListing = (l: { id: string }) =>
+      l.id.toLowerCase() === listing_id.toLowerCase();
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
-    const listing =
-      !!project.listings?.length &&
-      project.listings.find((listing) => listing.id === params?.listing_id);
+    let listing = project.listings.find(findListing);
 
-    if (!listing) {
+    if (!listing && !IS_PRODUCTION) {
+      // check testnet listings
+      project = await getCarbonmarkProject(project_id, {
+        network: "mumbai",
+      });
+      listing = project?.listings.find(findListing);
+    }
+
+    if (!project || !listing) {
       throw new Error("No matching listing found");
     }
 
