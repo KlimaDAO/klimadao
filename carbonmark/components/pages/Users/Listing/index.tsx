@@ -6,7 +6,7 @@ import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { CategoryName, Listing as ListingT } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -43,13 +43,13 @@ export const Listing: FC<Props> = (props) => {
       </div>
       <div className={styles.amounts}>
         <Text t="h4">
-          {formatBigToPrice(props.listing.singleUnitPrice, locale)}
+          {formatToPrice(props.listing.singleUnitPrice, locale)}
         </Text>
         <Text t="body1">
           <Trans id="seller.listing.quantity_available">
             Quantity Available:
           </Trans>{" "}
-          {formatBigToTonnes(props.listing.leftToSell, locale)}
+          {formatToTonnes(props.listing.leftToSell, locale)}
         </Text>
       </div>
       {props.children}

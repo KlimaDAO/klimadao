@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -32,8 +33,11 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
+  const { networkLabel } = useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser(
+    props.userAddress,
+    { network: networkLabel }
+  );
   const [isPending, setIsPending] = useState(false);
 
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
