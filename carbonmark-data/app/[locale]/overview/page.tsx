@@ -12,11 +12,11 @@ import TokensPriceCard from "components/cards/overview/TokensPriceCard";
 /** Overview page (index/landing page) captured via rewrite in next.config.js*/
 export default function OverviewPage() {
   return (
-    <div>
+    <>
       <PageHeader
         title={t`State of the digital carbon market`}
         subheading={{
-          href: "/",
+          href: "/overview/digital-carbon",
           label: t`What is digital carbon?`,
         }}
       />
@@ -38,6 +38,6 @@ export default function OverviewPage() {
           <TokensPriceCard></TokensPriceCard>
         </div>
       </div>
-    </div>
+    </>
   );
 }

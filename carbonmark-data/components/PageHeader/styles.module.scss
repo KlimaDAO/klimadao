@@ -1,11 +1,15 @@
 @import "~@klimadao/lib/theme/breakpoints.scss";
 
 .header {
-  margin-top: 4.6rem;
+  margin-top: 1.6rem;
   margin-bottom: 2.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include desktop {
+    margin-top: 4.6rem;
+  }
 }
 
 .headings {
