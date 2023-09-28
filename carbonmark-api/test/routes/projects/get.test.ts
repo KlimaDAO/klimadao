@@ -135,6 +135,7 @@ describe("GET /projects", () => {
         price: poolPrices.bct.defaultPrice,
         listings: null,
         key: bridgedCarbon.offset.projectID,
+        region: "",
         location: {
           geometry: {
             coordinates: [

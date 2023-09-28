@@ -1,10 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
-import { NetworkParam } from "src/models/NetworkParam.model";
-import { CreditId } from "src/utils/CreditId";
-import { fetchCarbonProject } from "src/utils/helpers/carbonProjects.utils";
+import { NetworkParam } from "../../../models/NetworkParam.model";
 import { Purchase } from "../../../models/Purchase.model";
+import { CreditId } from "../../../utils/CreditId";
 import { gql_sdk } from "../../../utils/gqlSdk";
+import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { ParamsT, schema } from "./get.schema";
 import { isValidPurchaseId } from "./get.utils";
 

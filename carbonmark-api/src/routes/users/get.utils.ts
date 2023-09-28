@@ -1,10 +1,10 @@
 import { Contract, providers } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
-import { Holding } from "src/types/assets.types";
 import ERC20 from "../../abis/ERC20.json";
 import { RPC_URLS } from "../../app.constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
+import { Holding } from "../../types/assets.types";
 import { gql_sdk } from "../../utils/gqlSdk";
 
 /** Hacky Mumbai simulation for known testnet assets

@@ -1,13 +1,12 @@
 import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
-import { GetProjectsQuery } from "src/.generated/types/marketplace.types";
+import { Geopoint } from "../../.generated/types/carbonProjects.types";
+import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
 import {
   CarbonOffset,
   GetCarbonOffsetsByProjectAndVintageQuery,
-} from "src/.generated/types/offsets.types";
-import { GQL_SDK } from "src/utils/gqlSdk";
-import { Geopoint } from "../../.generated/types/carbonProjects.types";
+} from "../../.generated/types/offsets.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
 import {
@@ -17,6 +16,7 @@ import {
 } from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
+import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {

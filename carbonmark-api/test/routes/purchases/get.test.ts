@@ -47,7 +47,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -63,7 +63,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -79,7 +79,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["mumbai"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -95,7 +95,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -111,7 +111,7 @@ describe("GET /purchases/:id", () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",

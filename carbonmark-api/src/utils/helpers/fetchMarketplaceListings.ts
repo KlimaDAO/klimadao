@@ -1,8 +1,8 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
-import { Activity } from "src/models/Activity.model";
-import { Listing } from "src/models/Listing.model";
+import { Activity } from "../../models/Activity.model";
+import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
 import { getUserProfilesByIds } from "./users.utils";

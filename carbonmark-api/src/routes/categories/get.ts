@@ -1,5 +1,5 @@
 import { FastifyInstance, RouteHandler } from "fastify";
-import { NetworkParam } from "src/models/NetworkParam.model";
+import { NetworkParam } from "../../models/NetworkParam.model";
 import { gql_sdk } from "../../utils/gqlSdk";
 import { getAllCategories } from "../../utils/helpers/utils";
 import { schema } from "./get.schema";
