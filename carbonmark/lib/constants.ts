@@ -45,7 +45,7 @@ const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
 const API_DEVELOPMENT_URL =
   process.env.NEXT_PUBLIC_CARBONMARK_API_URL ?? API_PREVIEW_URL;
 
-const ENVIRONMENT: Environment =
+export const ENVIRONMENT: Environment =
   new LogicTable({
     production: IS_PRODUCTION,
     development: IS_LOCAL_DEVELOPMENT,
@@ -74,10 +74,19 @@ export const getConnectErrorStrings = () => ({
 });
 
 export const config = {
+  // todo, deprecate in favor of networks e.g. "mumbai", "polygon"
   networks: {
     production: "mainnet",
     preview: "mainnet",
     development: "mainnet",
+  },
+  featureFlags: {
+    /** Ability to create listings from assets in portfolio */
+    createListing: {
+      production: false,
+      preview: true,
+      development: true,
+    },
   },
   urls: {
     baseUrl: {
