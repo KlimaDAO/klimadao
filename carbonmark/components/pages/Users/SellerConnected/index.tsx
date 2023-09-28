@@ -13,6 +13,7 @@ import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
 import { activityIsAdded, getUser, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
+import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { AssetForListing, User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
@@ -177,28 +178,42 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        {isCarbonmarkUser && (
-          <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
-            <div>
-              <CarbonmarkButton
-                label={
-                  <>
-                    <span className={styles.addListingButtonText}>
-                      <Trans>Create New Listing</Trans>
-                    </span>
-                    <span className={styles.addListingButtonIcon}>
-                      <AddIcon />
-                    </span>
-                  </>
-                }
-                disabled={true} // disabled until carbonmark V2
-                onClick={() => {
-                  // setShowCreateListingModal(true)
-                }}
-              />
-            </div>
-          </TextInfoTooltip>
-        )}
+        {isCarbonmarkUser &&
+          (getFeatureFlag("createListing") ? (
+            <CarbonmarkButton
+              label={
+                <>
+                  <span className={styles.addListingButtonText}>
+                    <Trans>Create New Listing</Trans>
+                  </span>
+                  <span className={styles.addListingButtonIcon}>
+                    <AddIcon />
+                  </span>
+                </>
+              }
+              onClick={() => {
+                setShowCreateListingModal(true);
+              }}
+            />
+          ) : (
+            <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+              <div>
+                <CarbonmarkButton
+                  label={
+                    <>
+                      <span className={styles.addListingButtonText}>
+                        <Trans>Create New Listing</Trans>
+                      </span>
+                      <span className={styles.addListingButtonIcon}>
+                        <AddIcon />
+                      </span>
+                    </>
+                  }
+                  disabled={true} // disabled until carbonmark V2
+                />
+              </div>
+            </TextInfoTooltip>
+          ))}
       </div>
 
       <TwoColLayout>
