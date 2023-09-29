@@ -42,6 +42,7 @@ export const PurchaseForm: FC<Props> = (props) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
+  const [costs, setCosts] = useState("");
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -108,13 +109,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = () => {
-    if (!inputValues?.totalPrice || !inputValues.paymentMethod) return "0";
-    return getPoolApprovalValue(
-      inputValues.totalPrice,
-      inputValues.paymentMethod
-    );
-  };
+  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc");
 
   // compare with total price including fees
   const hasApproval = () => {
@@ -180,6 +175,7 @@ export const PurchaseForm: FC<Props> = (props) => {
                 price={props.price}
                 values={inputValues}
                 balance={balance}
+                approvalValue={getApprovalValue()}
               />
 
               <SubmitButton
@@ -195,7 +191,13 @@ export const PurchaseForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <TotalValues balance={balance} price={props.price} />
+              <TotalValues
+                balance={balance}
+                price={props.price}
+                costs={costs}
+                setCosts={setCosts}
+                approvalValue={getApprovalValue()}
+              />
             </Card>
             <Card>
               <AssetDetails price={props.price} project={props.project} />
@@ -211,20 +213,8 @@ export const PurchaseForm: FC<Props> = (props) => {
 
       <PurchaseModal
         hasApproval={hasApproval()}
-        amount={{
-          value: inputValues?.totalPrice || "0",
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
-        approvalValue={{
-          value: getApprovalValue(),
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
+        amount={inputValues?.totalPrice || "0"}
+        approvalValue={getApprovalValue()}
         isProcessing={isProcessing}
         status={status}
         showModal={showTransactionView}

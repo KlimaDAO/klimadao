@@ -79,6 +79,13 @@ export const RetireForm: FC<Props> = (props) => {
   const router = useRouter();
 
   useEffect(() => {
+    // for the usdc icons to be visible for the required transition
+    // on first load the default paymentMethod is set as usdc & then
+    // immediately set to fiat.
+    methods.setValue("paymentMethod", "fiat");
+  }, []);
+
+  useEffect(() => {
     if (!address) return;
 
     const getBalance = async () => {
@@ -207,13 +214,7 @@ export const RetireForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = () => {
-    if (!inputValues?.totalPrice || !inputValues.paymentMethod) return "0";
-    return getPoolApprovalValue(
-      inputValues.totalPrice,
-      inputValues.paymentMethod
-    );
-  };
+  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc");
 
   // compare with total price including fees
   const hasApproval = () => {
@@ -307,6 +308,7 @@ export const RetireForm: FC<Props> = (props) => {
                 price={props.price}
                 address={address}
                 fiatAmountError={fiatAmountError}
+                approvalValue={getApprovalValue()}
               />
               <SubmitButton
                 onSubmit={onContinue}
@@ -333,6 +335,7 @@ export const RetireForm: FC<Props> = (props) => {
                   fiatBalance={fiatBalance}
                   costs={costs}
                   setCosts={setCosts}
+                  approvalValue={getApprovalValue()}
                 />
               </Card>
             </div>
@@ -349,20 +352,8 @@ export const RetireForm: FC<Props> = (props) => {
 
       <RetireModal
         hasApproval={hasApproval()}
-        amount={{
-          value: inputValues?.totalPrice || "0",
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
-        approvalValue={{
-          value: getApprovalValue(),
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
+        amount={inputValues?.totalPrice || "0"}
+        approvalValue={getApprovalValue()}
         isProcessing={isProcessing}
         status={status}
         showModal={showTransactionView}

@@ -295,3 +295,7 @@ export const stickyContentWrapper = css`
   position: sticky;
   top: 1rem;
 `;
+
+export const warn = css`
+  color: var(--warn);
+`;

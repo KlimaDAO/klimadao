@@ -7,7 +7,6 @@ import { getRedeemCost } from "lib/actions.redeem";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { getPoolApprovalValue } from "lib/getPoolData";
 import { TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -17,8 +16,11 @@ import * as styles from "../styles";
 import { FormValues } from "./types";
 
 type TotalValuesProps = {
-  balance: string | null;
   price: TokenPrice;
+  balance: string | null;
+  costs: string;
+  setCosts: (costs: string) => void;
+  approvalValue: string;
 };
 
 export const TotalValues: FC<TotalValuesProps> = (props) => {
@@ -27,7 +29,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
 
   const { locale } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [costs, setCosts] = useState("");
   const [error, setError] = useState("");
 
   const { formState, control, setValue } = useFormContext<FormValues>();
@@ -40,7 +41,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
       setError("");
 
       if (Number(quantity) <= 0) {
-        setCosts("0");
+        props.setCosts("0");
         setIsLoading(false);
         return;
       }
@@ -54,7 +55,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
           isPoolDefault,
         });
 
-        setCosts(totalPrice);
+        props.setCosts(totalPrice);
       } catch (e) {
         console.error("Get redeem costs error", e);
         setError(t`There was an error loading the total cost.`);
@@ -69,15 +70,13 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   }, [quantity]);
 
   useEffect(() => {
-    if (!!costs) {
-      setValue("totalPrice", costs);
+    if (!!props.costs) {
+      setValue("totalPrice", props.costs);
     }
-  }, [costs]);
-
-  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc");
+  }, [props.costs]);
 
   const exceededBalance =
-    !!props.balance && Number(props.balance) <= Number(getApprovalValue());
+    !!props.balance && Number(props.balance) <= Number(props.approvalValue);
   const currentBalance = formatToPrice(props.balance || "0", locale);
 
   return (
@@ -156,7 +155,9 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
               error: exceededBalance || !!error,
             })}
           >
-            {isLoading ? t`Loading...` : Number(costs)?.toLocaleString(locale)}
+            {isLoading
+              ? t`Loading...`
+              : Number(props.costs)?.toLocaleString(locale)}
           </Text>
         </div>
       </div>
