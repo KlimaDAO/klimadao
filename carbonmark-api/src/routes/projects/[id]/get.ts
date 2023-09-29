@@ -37,6 +37,7 @@ const handler = (fastify: FastifyInstance) =>
           fetchPoolPricesAndStats(sdk, {
             key,
             vintage,
+            network: request.query.network || "polygon",
           }),
           fetchMarketplaceListings(sdk, {
             key,

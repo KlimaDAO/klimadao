@@ -8,7 +8,7 @@ import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
 type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
-  network?: NetworkParam;
+  network: NetworkParam;
 };
 
 /**
