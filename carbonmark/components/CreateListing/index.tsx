@@ -195,12 +195,10 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={{
-            value: `${inputValues.totalAmountToSell}  ${t({
-              id: "tonnes.long",
-              message: "tonnes",
-            })}`,
-          }}
+          amount={`${inputValues.totalAmountToSell}  ${t({
+            id: "tonnes.long",
+            message: "tonnes",
+          })}`}
           price={{
             value: inputValues.singleUnitPrice,
             token: "usdc",

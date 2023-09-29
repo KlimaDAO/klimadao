@@ -277,12 +277,10 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            amount={{
-              value: `${newQuantityDelta} ${t({
-                id: "tonnes.long",
-                message: "tonnes",
-              })}`,
-            }}
+            amount={`${newQuantityDelta} ${t({
+              id: "tonnes.long",
+              message: "tonnes",
+            })}`}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
