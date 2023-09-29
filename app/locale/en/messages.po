@@ -80,54 +80,6 @@ msgid "Loading..."
 msgstr "Loading..."
 
 #. js-lingui-explicit-id
-#: components/TransactionModal/Approve.tsx:93
-#: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:548
-#: components/views/Redeem/index.tsx:270
-#: components/views/Stake/index.tsx:251
-#: components/views/Wrap/index.tsx:229
-msgid "Approve"
-msgstr "Approve"
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:411
-#: components/views/PKlima/index.tsx:157
-msgid "Loading"
-msgstr "Loading"
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:417
-msgid "Enter Quantity"
-msgstr "Enter Quantity"
-
-#. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:697
-msgid "Capacity"
-msgstr "Capacity"
-
-#. js-lingui-explicit-id
-#: components/views/Home/index.tsx:181
-msgid "Login"
-msgstr "Login"
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:485
-#: components/views/Redeem/index.tsx:244
-#: components/views/Redeem/index.tsx:415
-#: components/views/Stake/index.tsx:241
-#: components/views/Wrap/index.tsx:211
-msgid "Enter quantity"
-msgstr "Enter quantity"
-
-#. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:538
-#: components/views/Redeem/index.tsx:265
-#: components/views/Stake/index.tsx:246
-#: components/views/Wrap/index.tsx:224
-msgid "Insufficient balance"
-msgstr "Insufficient balance"
-
-#. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:677
 msgid "Offset"
 msgstr "Offset"
@@ -185,6 +137,54 @@ msgstr "Tonnes available: {0}"
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
 msgid "Project details <0/>"
 msgstr "Project details <0/>"
+
+#. js-lingui-explicit-id
+#: components/TransactionModal/Approve.tsx:93
+#: components/views/Bond/index.tsx:454
+#: components/views/Offset/index.tsx:548
+#: components/views/Redeem/index.tsx:270
+#: components/views/Stake/index.tsx:251
+#: components/views/Wrap/index.tsx:229
+msgid "Approve"
+msgstr "Approve"
+
+#. js-lingui-explicit-id
+#: components/views/Bond/index.tsx:411
+#: components/views/PKlima/index.tsx:157
+msgid "Loading"
+msgstr "Loading"
+
+#. js-lingui-explicit-id
+#: components/views/Bond/index.tsx:417
+msgid "Enter Quantity"
+msgstr "Enter Quantity"
+
+#. js-lingui-explicit-id
+#: components/views/Bond/index.tsx:697
+msgid "Capacity"
+msgstr "Capacity"
+
+#. js-lingui-explicit-id
+#: components/views/Home/index.tsx:181
+msgid "Login"
+msgstr "Login"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:485
+#: components/views/Redeem/index.tsx:244
+#: components/views/Redeem/index.tsx:415
+#: components/views/Stake/index.tsx:241
+#: components/views/Wrap/index.tsx:211
+msgid "Enter quantity"
+msgstr "Enter quantity"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:538
+#: components/views/Redeem/index.tsx:265
+#: components/views/Stake/index.tsx:246
+#: components/views/Wrap/index.tsx:224
+msgid "Insufficient balance"
+msgstr "Insufficient balance"
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:275
@@ -445,13 +445,13 @@ msgid "offset.selectiveRetirement.selectProject.back"
 msgstr "Back to filters"
 
 #. js-lingui-explicit-id
-#: components/views/Bond/index.tsx:620
-msgid "bond.balance"
+#: components/views/Wrap/index.tsx:372
+msgid "wrap.balance"
 msgstr "Balance"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:372
-msgid "wrap.balance"
+#: components/views/Bond/index.tsx:620
+msgid "bond.balance"
 msgstr "Balance"
 
 #. Long sentence
