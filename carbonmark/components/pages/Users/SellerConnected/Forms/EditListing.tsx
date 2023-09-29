@@ -1,6 +1,7 @@
 import { formatTonnes, formatUnits } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
+import { ExpiredTag } from "components/ExpiredTag";
 import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
@@ -145,6 +146,16 @@ export const EditListing: FC<Props> = (props) => {
             }}
             errorMessage={formState.errors.newSingleUnitPrice?.message}
           />
+
+          <div className={styles.expiration}>
+            <Text t="body1">
+              <Trans>Expiration</Trans>
+            </Text>
+            <div>
+              <Text t="body1">90 days (12-12-2024)</Text>
+              <ExpiredTag />
+            </div>
+          </div>
 
           <ButtonPrimary
             label={

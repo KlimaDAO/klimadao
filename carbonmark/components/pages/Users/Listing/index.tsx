@@ -1,6 +1,8 @@
 import { Trans } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Category } from "components/Category";
+import { ExpiredTag } from "components/ExpiredTag";
+import { InvalidTag } from "components/InvalidTag";
 import { ProjectImage } from "components/ProjectImage";
 import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
@@ -8,11 +10,10 @@ import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { CategoryName, Listing as ListingT } from "lib/types/carbonmark.types";
+import { isNil } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
-
-import { isNil } from "lodash";
 import * as styles from "./styles";
 
 type Props = {
@@ -31,9 +32,15 @@ export const Listing: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={category} />
-        <Vintage vintage={project.vintage} />
-        <ProjectKey projectKey={project.key} />
+        <div>
+          <Category category={category} />
+          <Vintage vintage={project.vintage} />
+          <ProjectKey projectKey={project.key} />
+        </div>
+        <div>
+          <ExpiredTag />
+          <InvalidTag />
+        </div>
       </div>
       <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
