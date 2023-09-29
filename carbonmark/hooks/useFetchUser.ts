@@ -4,14 +4,21 @@ import { User } from "lib/types/carbonmark.types";
 import type { SWRConfiguration } from "swr";
 import useSWR from "swr";
 
-export const useFetchUser = (address?: string, options?: SWRConfiguration) => {
+type Opts = SWRConfiguration & {
+  network?: "mumbai" | "polygon";
+};
+
+export const useFetchUser = (address?: string, options?: Opts) => {
+  const { network = "polygon", ...swrConfig } = options || {};
   const { data, ...rest } = useSWR<User>(
-    address ? `${urls.api.users}/${address}?type=wallet` : null,
+    address
+      ? `${urls.api.users}/${address}?type=wallet&network=${network}`
+      : null,
     fetcher,
-    options
+    swrConfig
   );
 
-  const carbonmarkUser = !!data?.handle ? data : null;
+  const carbonmarkUser = !!data?.wallet ? data : null;
 
   return { carbonmarkUser, ...rest };
 };

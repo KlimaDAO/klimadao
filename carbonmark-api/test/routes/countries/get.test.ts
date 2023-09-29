@@ -15,14 +15,14 @@ describe("GET /countries", () => {
 
   /** A default response for offsets */
   beforeEach(() =>
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: COUNTRIES } })
   );
 
   /** The happy path */
   test("Success", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { countries: COUNTRIES } });
 
@@ -39,7 +39,7 @@ describe("GET /countries", () => {
 
   /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         errors: [ERROR],
@@ -55,7 +55,7 @@ describe("GET /countries", () => {
   });
 
   test("Empty data", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { countries: [] } });
 
@@ -70,7 +70,7 @@ describe("GET /countries", () => {
   });
 
   test("Invalid data", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { categories: "invalid data" } });
 

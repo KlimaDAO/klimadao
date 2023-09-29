@@ -2,7 +2,7 @@ export default {
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 1.1.0** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\n⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-1** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@ export default {
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "1.1.0"
+    "version": "2.0.0-1"
   },
   "components": {
     "schemas": {
@@ -151,17 +151,6 @@ export default {
           "updatedAt": {
             "type": "string"
           },
-          "category": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
-          },
           "country": {
             "type": "object",
             "properties": {
@@ -173,6 +162,9 @@ export default {
               "id"
             ]
           },
+          "region": {
+            "type": "string"
+          },
           "price": {
             "type": "string"
           },
@@ -181,7 +173,7 @@ export default {
               {
                 "type": "array",
                 "items": {
-                  "description": "DEPRECATED. This resource will be altered in the near future.",
+                  "description": "Marketplace listing with per-tonne price and project info.",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -327,6 +319,14 @@ export default {
                         }
                       ]
                     },
+                    "expiration": {
+                      "description": "Unix Timestamp (seconds) when the listing expires.",
+                      "type": "string"
+                    },
+                    "minFillAmount": {
+                      "description": "Minimum quantity for purchase transaction to succeed.",
+                      "type": "string"
+                    },
                     "project": {
                       "anyOf": [
                         {
@@ -415,7 +415,9 @@ export default {
                     "leftToSell",
                     "tokenAddress",
                     "singleUnitPrice",
-                    "totalAmountToSell"
+                    "totalAmountToSell",
+                    "expiration",
+                    "minFillAmount"
                   ]
                 }
               },
@@ -448,13 +450,6 @@ export default {
                 "type": "null"
               }
             ]
-          },
-          "id": {
-            "description": "Deprecated in favor of projectAddress",
-            "type": "string"
-          },
-          "isPoolProject": {
-            "type": "boolean"
           }
         },
         "required": [
@@ -466,10 +461,9 @@ export default {
           "projectAddress",
           "registry",
           "updatedAt",
-          "category",
           "country",
-          "price",
-          "id"
+          "region",
+          "price"
         ]
       },
       "DetailedProject": {
@@ -770,7 +764,7 @@ export default {
           "listings": {
             "type": "array",
             "items": {
-              "description": "DEPRECATED. This resource will be altered in the near future.",
+              "description": "Marketplace listing with per-tonne price and project info.",
               "type": "object",
               "properties": {
                 "id": {
@@ -916,6 +910,14 @@ export default {
                     }
                   ]
                 },
+                "expiration": {
+                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                  "type": "string"
+                },
+                "minFillAmount": {
+                  "description": "Minimum quantity for purchase transaction to succeed.",
+                  "type": "string"
+                },
                 "project": {
                   "anyOf": [
                     {
@@ -1004,7 +1006,9 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "expiration",
+                "minFillAmount"
               ]
             }
           },
@@ -1141,9 +1145,6 @@ export default {
           "price": {
             "type": "string"
           },
-          "isPoolProject": {
-            "type": "boolean"
-          },
           "vintage": {
             "type": "string"
           }
@@ -1156,7 +1157,6 @@ export default {
           "listings",
           "activities",
           "price",
-          "isPoolProject",
           "vintage"
         ]
       },
@@ -1310,7 +1310,7 @@ export default {
         ]
       },
       "Listing": {
-        "description": "DEPRECATED. This resource will be altered in the near future.",
+        "description": "Marketplace listing with per-tonne price and project info.",
         "type": "object",
         "properties": {
           "id": {
@@ -1456,6 +1456,14 @@ export default {
               }
             ]
           },
+          "expiration": {
+            "description": "Unix Timestamp (seconds) when the listing expires.",
+            "type": "string"
+          },
+          "minFillAmount": {
+            "description": "Minimum quantity for purchase transaction to succeed.",
+            "type": "string"
+          },
           "project": {
             "anyOf": [
               {
@@ -1544,7 +1552,9 @@ export default {
           "leftToSell",
           "tokenAddress",
           "singleUnitPrice",
-          "totalAmountToSell"
+          "totalAmountToSell",
+          "expiration",
+          "minFillAmount"
         ]
       },
       "Methodology": {
@@ -1620,36 +1630,6 @@ export default {
               "1000000000000000000"
             ],
             "type": "string"
-          },
-          "buyer": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Address of the buyer",
-                "examples": [
-                  "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
-                ],
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
-          },
-          "seller": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Address of the seller",
-                "examples": [
-                  "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
-                ],
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ]
           },
           "listing": {
             "type": "object",
@@ -1727,8 +1707,6 @@ export default {
         "required": [
           "id",
           "amount",
-          "buyer",
-          "seller",
           "listing",
           "price"
         ]
@@ -1781,7 +1759,7 @@ export default {
           "listings": {
             "type": "array",
             "items": {
-              "description": "DEPRECATED. This resource will be altered in the near future.",
+              "description": "Marketplace listing with per-tonne price and project info.",
               "type": "object",
               "properties": {
                 "id": {
@@ -1927,6 +1905,14 @@ export default {
                     }
                   ]
                 },
+                "expiration": {
+                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                  "type": "string"
+                },
+                "minFillAmount": {
+                  "description": "Minimum quantity for purchase transaction to succeed.",
+                  "type": "string"
+                },
                 "project": {
                   "anyOf": [
                     {
@@ -2015,7 +2001,9 @@ export default {
                 "leftToSell",
                 "tokenAddress",
                 "singleUnitPrice",
-                "totalAmountToSell"
+                "totalAmountToSell",
+                "expiration",
+                "minFillAmount"
               ]
             }
           },
@@ -2167,7 +2155,6 @@ export default {
                       "type": "string"
                     },
                     "symbol": {
-                      "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                       "type": "string"
                     },
                     "decimals": {
@@ -2219,7 +2206,6 @@ export default {
                 "type": "string"
               },
               "symbol": {
-                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                 "type": "string"
               },
               "decimals": {
@@ -2546,6 +2532,17 @@ export default {
             "name": "vintage",
             "required": false,
             "description": "Desired vintage of carbon projects"
+          },
+          {
+            "schema": {
+              "default": "1695949275",
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
           }
         ],
         "responses": {
@@ -2690,17 +2687,6 @@ export default {
                       "updatedAt": {
                         "type": "string"
                       },
-                      "category": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      },
                       "country": {
                         "type": "object",
                         "properties": {
@@ -2712,6 +2698,9 @@ export default {
                           "id"
                         ]
                       },
+                      "region": {
+                        "type": "string"
+                      },
                       "price": {
                         "type": "string"
                       },
@@ -2720,7 +2709,7 @@ export default {
                           {
                             "type": "array",
                             "items": {
-                              "description": "DEPRECATED. This resource will be altered in the near future.",
+                              "description": "Marketplace listing with per-tonne price and project info.",
                               "type": "object",
                               "properties": {
                                 "id": {
@@ -2866,6 +2855,14 @@ export default {
                                     }
                                   ]
                                 },
+                                "expiration": {
+                                  "description": "Unix Timestamp (seconds) when the listing expires.",
+                                  "type": "string"
+                                },
+                                "minFillAmount": {
+                                  "description": "Minimum quantity for purchase transaction to succeed.",
+                                  "type": "string"
+                                },
                                 "project": {
                                   "anyOf": [
                                     {
@@ -2954,7 +2951,9 @@ export default {
                                 "leftToSell",
                                 "tokenAddress",
                                 "singleUnitPrice",
-                                "totalAmountToSell"
+                                "totalAmountToSell",
+                                "expiration",
+                                "minFillAmount"
                               ]
                             }
                           },
@@ -2987,13 +2986,6 @@ export default {
                             "type": "null"
                           }
                         ]
-                      },
-                      "id": {
-                        "description": "Deprecated in favor of projectAddress",
-                        "type": "string"
-                      },
-                      "isPoolProject": {
-                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3005,10 +2997,9 @@ export default {
                       "projectAddress",
                       "registry",
                       "updatedAt",
-                      "category",
                       "country",
-                      "price",
-                      "id"
+                      "region",
+                      "price"
                     ]
                   }
                 }
@@ -3028,33 +3019,45 @@ export default {
         "parameters": [
           {
             "schema": {
+              "default": "polygon",
               "anyOf": [
                 {
                   "type": "string",
                   "enum": [
-                    "wallet"
+                    "polygon"
                   ]
                 },
                 {
                   "type": "string",
                   "enum": [
-                    "handle"
+                    "mumbai"
                   ]
                 }
               ]
             },
             "examples": {
-              "wallet": {
-                "value": "wallet"
+              "polygon": {
+                "value": "polygon"
               },
-              "handle": {
-                "value": "handle"
+              "mumbai": {
+                "value": "mumbai"
               }
             },
             "in": "query",
-            "name": "type",
+            "name": "network",
             "required": false,
-            "description": "When providing an wallet `0x` address instead of a handle, you must attach the `type=wallet` query parameter"
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "default": "1695949275",
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return listings that expire after this timestamp (Unix seconds)"
           },
           {
             "schema": {
@@ -3127,7 +3130,7 @@ export default {
                     "listings": {
                       "type": "array",
                       "items": {
-                        "description": "DEPRECATED. This resource will be altered in the near future.",
+                        "description": "Marketplace listing with per-tonne price and project info.",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -3273,6 +3276,14 @@ export default {
                               }
                             ]
                           },
+                          "expiration": {
+                            "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "string"
+                          },
+                          "minFillAmount": {
+                            "description": "Minimum quantity for purchase transaction to succeed.",
+                            "type": "string"
+                          },
                           "project": {
                             "anyOf": [
                               {
@@ -3361,7 +3372,9 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "expiration",
+                          "minFillAmount"
                         ]
                       }
                     },
@@ -3513,7 +3526,6 @@ export default {
                                 "type": "string"
                               },
                               "symbol": {
-                                "pattern": "^(BCT|NBO|UBO|NCT|TCO2-.*|C3T-.*)$",
                                 "type": "string"
                               },
                               "decimals": {
@@ -3803,11 +3815,24 @@ export default {
         }
       }
     },
-    "/purchases/{id}": {
+    "/projects/{id}": {
       "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "summary": "Project details",
+        "tags": [
+          "Projects"
+        ],
+        "description": "Retrieve a carbon project by its project ID",
         "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "1620000000",
+            "in": "query",
+            "name": "expiresAfter",
+            "required": false,
+            "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
+          },
           {
             "schema": {
               "default": "polygon",
@@ -3839,165 +3864,6 @@ export default {
             "required": false,
             "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with listing details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Stringified 18 decimal BigNumber",
-                      "examples": [
-                        "1000000000000000000"
-                      ],
-                      "type": "string"
-                    },
-                    "buyer": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the buyer",
-                          "examples": [
-                            "0xAAA699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "seller": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Address of the seller",
-                          "examples": [
-                            "0xBBB699f2098ac92c2f4914979fcb22aba86d259"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Stringified 6 decimal BigNumber",
-                      "examples": [
-                        "1000000"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "buyer",
-                    "seller",
-                    "listing",
-                    "price"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/projects/{id}": {
-      "get": {
-        "summary": "Project details",
-        "tags": [
-          "Projects"
-        ],
-        "description": "Retrieve a carbon project by its project ID",
-        "parameters": [
           {
             "schema": {
               "type": "string",
@@ -4313,7 +4179,7 @@ export default {
                     "listings": {
                       "type": "array",
                       "items": {
-                        "description": "DEPRECATED. This resource will be altered in the near future.",
+                        "description": "Marketplace listing with per-tonne price and project info.",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -4459,6 +4325,14 @@ export default {
                               }
                             ]
                           },
+                          "expiration": {
+                            "description": "Unix Timestamp (seconds) when the listing expires.",
+                            "type": "string"
+                          },
+                          "minFillAmount": {
+                            "description": "Minimum quantity for purchase transaction to succeed.",
+                            "type": "string"
+                          },
                           "project": {
                             "anyOf": [
                               {
@@ -4547,7 +4421,9 @@ export default {
                           "leftToSell",
                           "tokenAddress",
                           "singleUnitPrice",
-                          "totalAmountToSell"
+                          "totalAmountToSell",
+                          "expiration",
+                          "minFillAmount"
                         ]
                       }
                     },
@@ -4684,9 +4560,6 @@ export default {
                     "price": {
                       "type": "string"
                     },
-                    "isPoolProject": {
-                      "type": "boolean"
-                    },
                     "vintage": {
                       "type": "string"
                     }
@@ -4699,8 +4572,162 @@ export default {
                     "listings",
                     "activities",
                     "price",
-                    "isPoolProject",
                     "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": true,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Stringified 18 decimal BigNumber",
+                      "examples": [
+                        "1000000000000000000"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Stringified 6 decimal BigNumber",
+                      "examples": [
+                        "1000000"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
                   ]
                 }
               }

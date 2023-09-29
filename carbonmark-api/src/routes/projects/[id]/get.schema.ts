@@ -11,6 +11,13 @@ export const Params = Type.Object({
 });
 
 export const QueryString = Type.Object({
+  expiresAfter: Type.Optional(
+    Type.String({
+      description:
+        "Only return projects listings that expire after this timestamp (Unix seconds)",
+      examples: ["1620000000"],
+    })
+  ),
   network: Type.Optional(NetworkParamModel),
 });
 

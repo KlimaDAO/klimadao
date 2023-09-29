@@ -19,8 +19,8 @@ query getVintages {
   }
 }
 
-query getPurchasesById($id: Bytes) {
-  purchases(first: 1, where: { id: $id }) {
+query getPurchaseById($id: ID!) {
+  purchase(id: $id) {
     id
     amount
     listing {
@@ -34,9 +34,9 @@ query getPurchasesById($id: Bytes) {
   }
 }
 
-query getUserByWallet($wallet: Bytes) {
+query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: { id: $wallet }) {
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
@@ -45,22 +45,18 @@ query getUserByWallet($wallet: Bytes) {
   }
 }
 
-query findProjects($search: String, $vintage: [BigInt!]) {
+query getProjects($search: String, $vintage: [BigInt!], $expiresAfter: BigInt) {
   projects(where: { name_contains_nocase: $search, vintage_in: $vintage }) {
     ...ProjectFragment
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }
 }
 
-query getCreditListings(
-  $projectId: String
-  $vintageStr: BigInt
-  $expiresAfter: BigInt
-) {
-  projects(where: { key: $projectId, vintage: $vintageStr }) {
-    id
+query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
+  project(id: $projectId) {
+    ...ProjectFragment
     listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }

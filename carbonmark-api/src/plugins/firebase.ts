@@ -12,13 +12,13 @@ const ENV_VARS = [
   "FIREBASE_CERT_PROJECT_ID",
 ];
 
-export default fp(async function (fastify: FastifyInstance) {
-  const missingVars = difference(ENV_VARS, Object.keys(process.env));
-  // Confirm that all required env vars have been set
-  if (notEmpty(missingVars)) {
-    throw new Error(`Missing FIREBASE_CERT env vars: ${missingVars}`);
-  }
+const missingVars = difference(ENV_VARS, Object.keys(process.env));
+// Confirm that all required env vars have been set
+if (notEmpty(missingVars)) {
+  throw new Error(`Missing FIREBASE_CERT env vars: ${missingVars}`);
+}
 
+export default fp(async function (fastify: FastifyInstance) {
   // Only initialise if necessary
   if (getApps().length === 0) {
     initializeApp({

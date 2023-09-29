@@ -19,6 +19,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
   try {
     const project = await getCarbonmarkProject(params.project_id);
+    if (!project) {
+      throw new Error("No project found");
+    }
     const translation = await loadTranslation(locale);
 
     if (!translation) {

@@ -1,13 +1,14 @@
+import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { mapValues, omit, sortBy } from "lodash";
 import { split } from "lodash/fp";
 import { Project } from "../../models/Project.model";
 import { CreditId, CreditIdentifier } from "../../utils/CreditId";
 import { notNil } from "../../utils/functional.utils";
-import { gqlSdk } from "../../utils/gqlSdk";
+import { gql_sdk } from "../../utils/gqlSdk";
 import { fetchAllCarbonProjects } from "../../utils/helpers/carbonProjects.utils";
 import { fetchAllPoolPrices } from "../../utils/helpers/fetchAllPoolPrices";
-import { schema } from "./get.schema";
+import { querystring, schema } from "./get.schema";
 import {
   CMSDataMap,
   ProjectDataMap,
@@ -16,13 +17,6 @@ import {
   isValidMarketplaceProject,
   isValidPoolProject,
 } from "./get.utils";
-
-type Params = {
-  country?: string;
-  category?: string;
-  search?: string;
-  vintage?: string;
-};
 
 /**
  * This handler fetches data from multiple sources and builds a resulting list of Projects (& PoolProjects)
@@ -40,32 +34,39 @@ type Params = {
  */
 const handler = (fastify: FastifyInstance) =>
   async function (
-    request: FastifyRequest<{ Querystring: Params }>,
+    request: FastifyRequest<{ Querystring: Static<typeof querystring> }>,
     reply: FastifyReply
   ): Promise<Project[]> {
+    const sdk = gql_sdk(request.query.network);
     //Transform the list params (category, country etc) provided so as to be an array of strings
-    const args = mapValues(omit(request.query, "search"), split(","));
+    const args = mapValues(
+      omit(request.query, "search", "expiresAfter"),
+      split(",")
+    );
     //Get the default args to return all results unless specified
-    const allOptions = await getDefaultQueryArgs(fastify);
+    const allOptions = await getDefaultQueryArgs(sdk, fastify);
 
     const [marketplaceProjectsData, poolProjectsData, cmsProjects, poolPrices] =
       await Promise.all([
-        gqlSdk.marketplace.findProjects({
+        sdk.marketplace.getProjects({
           vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
+          expiresAfter:
+            request.query.expiresAfter ??
+            Math.floor(Date.now() / 1000).toString(),
         }),
-        gqlSdk.offsets.findCarbonOffsets({
+        sdk.offsets.findCarbonOffsets({
           category: args.category ?? allOptions.category,
           country: args.country ?? allOptions.country,
           vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
         }),
-        fetchAllCarbonProjects(),
-        fetchAllPoolPrices(),
+        fetchAllCarbonProjects(sdk),
+        fetchAllPoolPrices(sdk),
       ]);
 
     const CMSDataMap: CMSDataMap = new Map();
-    const ProjectDataMap: ProjectDataMap = new Map();
+    const ProjectMap: ProjectDataMap = new Map();
 
     cmsProjects.forEach((project) => {
       if (!CreditId.isValidProjectId(project.id)) return;
@@ -87,7 +88,7 @@ const handler = (fastify: FastifyInstance) =>
         registryProjectId,
         vintage: project.vintageYear,
       });
-      ProjectDataMap.set(key, { poolProjectData: project, key });
+      ProjectMap.set(key, { poolProjectData: project, key });
     });
 
     /** Assign valid marketplace projects to map */
@@ -100,7 +101,7 @@ const handler = (fastify: FastifyInstance) =>
       .filter(({ id }) =>
         args.category || args.country
           ? // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- @todo Use CreditID
-            notNil(ProjectDataMap.get(id as CreditIdentifier))
+            notNil(ProjectMap.get(id as CreditIdentifier))
           : true
       )
       .forEach((project) => {
@@ -116,8 +117,8 @@ const handler = (fastify: FastifyInstance) =>
           registryProjectId,
           vintage: project.vintage,
         });
-        const existingData = ProjectDataMap.get(key);
-        ProjectDataMap.set(key, {
+        const existingData = ProjectMap.get(key);
+        ProjectMap.set(key, {
           ...existingData,
           key,
           marketplaceProjectData: project,
@@ -125,11 +126,7 @@ const handler = (fastify: FastifyInstance) =>
       });
 
     /** Compose all the data together to unique entries (unsorted) */
-    const entries = composeProjectEntries(
-      ProjectDataMap,
-      CMSDataMap,
-      poolPrices
-    );
+    const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
 

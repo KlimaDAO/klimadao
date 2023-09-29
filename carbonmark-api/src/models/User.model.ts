@@ -20,6 +20,7 @@ export const UserModel = Type.Object({
 
 export type User = Static<typeof UserModel>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- typeguard
 export function isUser(obj: any): obj is User {
   return (
     obj &&

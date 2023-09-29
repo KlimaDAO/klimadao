@@ -2,7 +2,7 @@ import {
   aListing,
   aProject,
 } from "../../src/.generated/mocks/marketplace.mocks";
-import { Purchase } from "../../src/graphql/marketplace.types";
+import { GetPurchaseByIdQuery } from "../../src/.generated/types/marketplace.types";
 
 const listing = aListing({
   singleUnitPrice: "99000000",
@@ -19,7 +19,7 @@ const projectWithListing = aProject({
 });
 
 /** marketplace.getPurchaseById() */
-const purchase: Purchase = {
+const purchase: GetPurchaseByIdQuery["purchase"] = {
   amount: "1000000000000000000", // 1t
   id: "0xfe2949e3644b88d2e00e5f84f6266c191dbb0379a18e00a18192116de7c5c779",
   price: "1000000", // $1

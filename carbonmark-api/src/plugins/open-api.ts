@@ -21,7 +21,7 @@ const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
     description: `
 Welcome to the API Reference docs for **version ${packageJson.version}** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.
 ## Quick start
-⚠️Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.
+Be sure to prefix a version number, otherwise your application will be exposed to breaking changes.
 
 ~~~ts
 const res = await fetch("https://v1.api.carbonmark.com/projects");
