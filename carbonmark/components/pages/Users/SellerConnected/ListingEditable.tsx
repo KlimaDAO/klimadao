@@ -288,13 +288,9 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            amount={{
-              value: t`${
-                hasApproval()
-                  ? newQuantity
-                  : getTotalAssetApproval(listingToEdit)
-              } tonnes`,
-            }}
+            amount={t`${
+              hasApproval() ? newQuantity : getTotalAssetApproval(listingToEdit)
+            } tonnes`}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",

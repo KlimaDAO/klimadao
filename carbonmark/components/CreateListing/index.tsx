@@ -216,13 +216,11 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={{
-            value: t`${
-              hasApproval()
-                ? Number(inputValues?.amount)
-                : getTotalAssetApproval(inputValues)
-            } tonnes`,
-          }}
+          amount={t`${
+            hasApproval()
+              ? Number(inputValues?.amount)
+              : getTotalAssetApproval(inputValues)
+          } tonnes`}
           price={{
             value: inputValues.unitPrice,
             token: "usdc",

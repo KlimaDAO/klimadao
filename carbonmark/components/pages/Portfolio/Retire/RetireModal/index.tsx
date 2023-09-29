@@ -112,10 +112,7 @@ export const RetireModal: FC<Props> = (props) => {
       ) : (
         <Transaction
           hasApproval={props.isApproved}
-          amount={{
-            value: props.value,
-            token: props.token.key as CarbonmarkToken,
-          }}
+          amount={props.value}
           spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}
           onSubmit={onSubmit}

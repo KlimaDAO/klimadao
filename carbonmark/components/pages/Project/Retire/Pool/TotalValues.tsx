@@ -7,7 +7,6 @@ import { getConsumptionCost } from "lib/actions.retire";
 import { CARBONMARK_FEE, urls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
-import { getPoolApprovalValue } from "lib/getPoolData";
 import { TokenPrice } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
@@ -55,8 +54,6 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
   };
-
-  const getApprovalValue = () => getPoolApprovalValue(props.costs, "usdc");
 
   useEffect(() => {
     // for the usdc icons to be visible for the required transition

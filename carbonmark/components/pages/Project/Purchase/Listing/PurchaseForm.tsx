@@ -214,13 +214,7 @@ export const PurchaseForm: FC<Props> = (props) => {
 
       <PurchaseModal
         hasApproval={hasApproval()}
-        amount={{
-          value: inputValues?.price || "0",
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
+        amount={inputValues?.price || "0"}
         isProcessing={isProcessing}
         status={status}
         showModal={showTransactionView}
