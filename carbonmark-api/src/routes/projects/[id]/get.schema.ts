@@ -15,7 +15,6 @@ export const QueryString = Type.Object({
     Type.String({
       description:
         "Only return projects listings that expire after this timestamp (Unix seconds)",
-      default: "Current system timestamp.",
       examples: ["1620000000"],
     })
   ),
