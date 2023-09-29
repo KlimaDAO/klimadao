@@ -109,7 +109,7 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = () => getPoolApprovalValue(costs, "usdc");
+  const getApprovalValue = () => getPoolApprovalValue(costs);
 
   // compare with total price including fees
   const hasApproval = () => {
