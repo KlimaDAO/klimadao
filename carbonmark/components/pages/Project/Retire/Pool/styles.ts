@@ -346,3 +346,7 @@ export const textTransition = css`
     }
   }
 `;
+
+export const warn = css`
+  color: var(--warn);
+`;

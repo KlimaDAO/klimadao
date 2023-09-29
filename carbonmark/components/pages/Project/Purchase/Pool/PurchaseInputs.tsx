@@ -15,7 +15,7 @@ import {
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { SubmitHandler, useFormContext } from "react-hook-form";
+import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";
 import * as styles from "../styles";
 import { FormValues } from "./types";
 
@@ -24,6 +24,7 @@ type Props = {
   price: TokenPrice;
   values: null | FormValues;
   balance: string | null;
+  approvalValue: string;
 };
 
 export const PurchaseInputs: FC<Props> = (props) => {
@@ -32,10 +33,17 @@ export const PurchaseInputs: FC<Props> = (props) => {
   const { register, handleSubmit, formState, control, clearErrors } =
     useFormContext<FormValues>();
 
+  const paymentMethod = useWatch({ name: "paymentMethod", control });
+
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
     LO.track("Purchase: Continue Clicked");
     props.onSubmit(values);
   };
+
+  const exceededBalance =
+    paymentMethod !== "fiat" &&
+    !!props.balance &&
+    Number(props.balance) <= Number(props.approvalValue);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -142,20 +150,29 @@ export const PurchaseInputs: FC<Props> = (props) => {
               disabled: val.disabled,
             }))}
           />
-          <div className={styles.paymentHelp}>
-            <HelpOutline className={styles.helpIcon} />
-            <div className={styles.paymentText}>
-              <Text t="body3">
-                <Trans>
-                  Currently, Carbonmark only accepts Polygon USDC payments.{" "}
-                  <Anchor
-                    href={`${urls.docs}/get-started/how-to-get-usdc-or-matic`}
-                  >
-                    Learn how to acquire USDC on Polygon.
-                  </Anchor>
-                </Trans>
-              </Text>
-            </div>
+
+          {exceededBalance && (
+            <Text className={styles.warn}>
+              <Trans>
+                Your balance must equal at least 1% more than the cost of the
+                transaction.
+              </Trans>
+            </Text>
+          )}
+        </div>
+        <div className={styles.paymentHelp}>
+          <HelpOutline className={styles.helpIcon} />
+          <div className={styles.paymentText}>
+            <Text t="body3">
+              <Trans>
+                Currently, Carbonmark only accepts Polygon USDC payments.{" "}
+                <Anchor
+                  href={`${urls.docs}/get-started/how-to-get-usdc-or-matic`}
+                >
+                  Learn how to acquire USDC on Polygon.
+                </Anchor>
+              </Trans>
+            </Text>
           </div>
         </div>
       </div>

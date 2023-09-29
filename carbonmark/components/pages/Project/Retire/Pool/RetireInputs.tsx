@@ -31,6 +31,7 @@ type Props = {
   fiatMinimum: string | null;
   address?: string;
   fiatAmountError?: boolean;
+  approvalValue: string;
 };
 
 const validations = (
@@ -120,6 +121,11 @@ export const RetireInputs: FC<Props> = (props) => {
       setValue("quantity", "");
     }
   }, [paymentMethod, props.fiatAmountError]);
+
+  const exceededBalance =
+    paymentMethod !== "fiat" &&
+    !!props.userBalance &&
+    Number(props.userBalance) <= Number(props.approvalValue);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -309,6 +315,15 @@ export const RetireInputs: FC<Props> = (props) => {
               })
             )}
           />
+
+          {exceededBalance && (
+            <Text className={styles.warn}>
+              <Trans>
+                Your balance must equal at least 1% more than the cost of the
+                transaction.
+              </Trans>
+            </Text>
+          )}
         </div>
 
         {belowFiatMinimum && (

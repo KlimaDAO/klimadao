@@ -14,7 +14,7 @@ import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {
-  amount: Value;
+  amount: string;
   price?: Value;
   spenderAddress: string;
   onSubmit: () => void;
@@ -59,12 +59,9 @@ export const Submit: FC<Props> = (props) => {
               <Trans id="transaction_modal.submit.amount">Submit amount</Trans>
             </Text>
           }
-          value={props.amount.value}
-          icon={
-            props.amount.token &&
-            carbonmarkTokenInfoMap[props.amount.token].icon
-          }
-          iconName={props.amount.token}
+          value={props.amount}
+          icon={carbonmarkTokenInfoMap["usdc"].icon}
+          iconName="usdc"
         />
         {!!props.price && (
           <HighlightValue

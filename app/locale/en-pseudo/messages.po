@@ -60,7 +60,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:527
+#: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr ""
 
@@ -70,8 +70,8 @@ msgstr ""
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:474
 #: components/views/Offset/index.tsx:612
-#: components/views/Redeem/index.tsx:256
-#: components/views/Redeem/index.tsx:340
+#: components/views/Redeem/index.tsx:255
+#: components/views/Redeem/index.tsx:339
 #: components/views/Stake/index.tsx:429
 #: components/views/Stake/index.tsx:436
 #: components/views/Stake/index.tsx:443
@@ -83,7 +83,7 @@ msgstr ""
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Offset/index.tsx:550
-#: components/views/Redeem/index.tsx:287
+#: components/views/Redeem/index.tsx:286
 #: components/views/Stake/index.tsx:251
 #: components/views/Wrap/index.tsx:229
 msgid "Approve"
@@ -112,8 +112,8 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:487
-#: components/views/Redeem/index.tsx:261
-#: components/views/Redeem/index.tsx:432
+#: components/views/Redeem/index.tsx:260
+#: components/views/Redeem/index.tsx:431
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "Enter quantity"
@@ -121,7 +121,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:540
-#: components/views/Redeem/index.tsx:282
+#: components/views/Redeem/index.tsx:281
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "Insufficient balance"
@@ -159,7 +159,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:921
-#: components/views/Redeem/index.tsx:500
+#: components/views/Redeem/index.tsx:499
 msgid "Your balance must equal at least 1% more than the cost of the transaction."
 msgstr ""
 
@@ -193,43 +193,43 @@ msgid "Project details <0/>"
 msgstr ">>>>>>> 0a6bb626 (fix build & locales)"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:292
+#: components/views/Redeem/index.tsx:291
 msgid "Continue"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:376
+#: components/views/Redeem/index.tsx:375
 msgid "Buy & Redeem Carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/views/Redeem/index.tsx:388
 #: components/views/Redeem/index.tsx:389
-#: components/views/Redeem/index.tsx:390
 msgid "Select carbon pool"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:414
+#: components/views/Redeem/index.tsx:413
 msgid "How many tonnes would you like to acquire?"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:456
+#: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:476
+#: components/views/Redeem/index.tsx:475
 msgid "You receive"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:487
+#: components/views/Redeem/index.tsx:486
 msgid "Payment method"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:488
+#: components/views/Redeem/index.tsx:487
 msgid "Payment Method"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgid "pklima.supply_limit.tooltip"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:379
+#: components/views/Redeem/index.tsx:378
 msgid "redeem.description"
 msgstr ""
 
@@ -536,7 +536,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:779
-#: components/views/Redeem/index.tsx:441
+#: components/views/Redeem/index.tsx:440
 msgid "offset.invalid_project_tonnage"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:852
-#: components/views/Redeem/index.tsx:452
+#: components/views/Redeem/index.tsx:451
 msgid "offset_cost"
 msgstr ""
 
@@ -849,7 +849,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:633
-#: components/views/Redeem/index.tsx:354
+#: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
 msgstr ""
 
@@ -860,7 +860,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:516
-#: components/views/Redeem/index.tsx:266
+#: components/views/Redeem/index.tsx:265
 msgid "offset.insufficient_project_tonnage"
 msgstr ""
 
@@ -871,7 +871,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:532
-#: components/views/Redeem/index.tsx:274
+#: components/views/Redeem/index.tsx:273
 msgid "shared.invalid_project_address"
 msgstr ""
 
@@ -911,7 +911,7 @@ msgstr ""
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:466
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:248
+#: components/views/Redeem/index.tsx:247
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"

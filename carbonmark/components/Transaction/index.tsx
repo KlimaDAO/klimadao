@@ -9,9 +9,9 @@ import { Value } from "./types";
 
 interface Props {
   hasApproval: boolean;
-  amount: Value;
+  amount: string;
   price?: Value;
-  approvalValue?: Value;
+  approvalValue?: string;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;

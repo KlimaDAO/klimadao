@@ -14,6 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:152
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:320
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr "Your balance must equal at least 1% more than the cost of the transaction."
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -564,7 +570,7 @@ msgstr "<0>* </0> Required Field"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:213
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:218
 msgid "Beneficiary wallet address (optional)"
 msgstr "Beneficiary wallet address (optional)"
 
@@ -730,53 +736,53 @@ msgstr "each"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:52
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:64
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:68
 msgid "Purchase amount (tonnes):"
 msgstr "Purchase amount (tonnes):"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:54
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:66
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:70
 msgid "Available: {0}"
 msgstr "Available: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:86
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:91
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:177
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:95
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:182
 msgid "Available supply exceeded"
 msgstr "Available supply exceeded"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:95
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:99
 msgid "How many tonnes of carbon do you want to buy?"
 msgstr "How many tonnes of carbon do you want to buy?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:98
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:103
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:260
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:107
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:265
 msgid "Pay with:"
 msgstr "Pay with:"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:106
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:110
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:268
 msgid "Balance: {0}"
 msgstr "Balance: {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:110
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:115
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:280
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:119
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:285
 msgid "Toggle payment method"
 msgstr "Toggle payment method"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:144
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:149
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:163
 msgid "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "Currently, Carbonmark only accepts Polygon USDC payments. <0>Learn how to acquire USDC on Polygon.</0>"
 
@@ -794,53 +800,53 @@ msgstr "Total Price"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:49
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:87
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 msgid "Amount to purchase"
 msgstr "Amount to purchase"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:51
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:51
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:75
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:89
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:79
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:88
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:155
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:153
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:160
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:154
 msgid "Tonnes"
 msgstr "Tonnes"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:95
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:159
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:160
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:99
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:163
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:98
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:164
 msgid "Price includes network fees. <0>See docs to learn more.</0>"
 msgstr "Price includes network fees. <0>See docs to learn more.</0>"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:86
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:126
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:193
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:125
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:194
 msgid "Carbonmark fee"
 msgstr "Carbonmark fee"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:103
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:143
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:249
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:142
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:250
 msgid "Total cost"
 msgstr "Total cost"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:129
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:171
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:278
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:172
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:279
 msgid "Your balance:"
 msgstr "Your balance:"
 
@@ -867,29 +873,29 @@ msgid "View on PolygonScan"
 msgstr "View on PolygonScan"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:105
+#: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:106
 msgid "Something went wrong loading the allowance"
 msgstr "Something went wrong loading the allowance"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:50
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:362
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:54
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:376
 msgid "Could not calculate Total Cost"
 msgstr "Could not calculate Total Cost"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:54
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:55
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:58
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:56
 msgid "You exceeded your available amount of tokens"
 msgstr "You exceeded your available amount of tokens"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:83
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:87
 msgid "Amount is required"
 msgstr "Amount is required"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:87
+#: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:91
 msgid "The minimum amount to buy is 1 Tonne"
 msgstr "The minimum amount to buy is 1 Tonne"
 
@@ -967,20 +973,20 @@ msgid "Purchase more Carbon"
 msgstr "Purchase more Carbon"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:60
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:117
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:61
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:118
 msgid "There was an error loading the total cost."
 msgstr "There was an error loading the total cost."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:85
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:149
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:84
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:150
 msgid "Total price"
 msgstr "Total price"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:159
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:271
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:272
 #: components/pages/Retire/Activity/Overview.tsx:71
 #: components/pages/Retire/Activity/Overview.tsx:82
 #: components/SpinnerWithLabel/index.tsx:15
@@ -1024,116 +1030,116 @@ msgid "something went wrong loading the allowance"
 msgstr "something went wrong loading the allowance"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:45
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:51
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:46
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:52
 msgid "The minimum amount to retire is 0.001 Tonnes"
 msgstr "The minimum amount to retire is 0.001 Tonnes"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:64
 msgid "The minimum amount to retire is 1 Tonnes"
 msgstr "The minimum amount to retire is 1 Tonnes"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:70
 msgid "Credit card minimum purchase is {0}"
 msgstr "Credit card minimum purchase is {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:76
 msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
 msgstr "At this time, Carbonmark cannot process credit card payments exceeding {0}."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:139
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:144
 msgid "Required Field"
 msgstr "Required Field"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:145
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:150
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "How many tonnes of carbon would you like to retire?"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:149
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:154
 msgid "Available:"
 msgstr "Available:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:172
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:177
 msgid "Quantity is required"
 msgstr "Quantity is required"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:181
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:186
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr "How many tonnes of carbon do you want to retire?"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:190
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:206
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:195
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:211
 msgid "Who will this retirement be credited to?"
 msgstr "Who will this retirement be credited to?"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:198
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:203
 msgid "Beneficiary name"
 msgstr "Beneficiary name"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:202
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:248
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:207
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:253
 msgid "Required when proceeding with Credit Card"
 msgstr "Required when proceeding with Credit Card"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:217
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:222
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "You either need to provide a beneficiary address or login with your browser wallet."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:223
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:228
 msgid "Not a valid polygon address"
 msgstr "Not a valid polygon address"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:227
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:232
 msgid "Beneficiary Address"
 msgstr "Beneficiary Address"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:231
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
 msgid "Defaults to the connected wallet address"
 msgstr "Defaults to the connected wallet address"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:252
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:241
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
 msgid "Retirement Message"
 msgstr "Retirement Message"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:249
 msgid "Describe the purpose of this retirement"
 msgstr "Describe the purpose of this retirement"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:272
 msgid "{0} maximum for credit cards"
 msgstr "{0} maximum for credit cards"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:330
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:344
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:346
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:360
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:365
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:379
 msgid "Total Cost is required"
 msgstr "Total Cost is required"
 
@@ -1203,27 +1209,27 @@ msgid "Retire more Carbon"
 msgstr "Retire more Carbon"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:97
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:98
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
 msgstr "Credit card minimum purchase is ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:114
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:115
 msgid "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 msgstr "At this time Carbonmark cannot process credit card payments exceeding: {fiatBalance}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:151
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:152
 msgid "Amount to retire"
 msgstr "Amount to retire"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:219
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:220
 msgid "Payment processing fee"
 msgstr "Payment processing fee"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:223
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:224
 msgid "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 msgstr "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 
