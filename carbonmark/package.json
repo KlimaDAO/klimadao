@@ -10,7 +10,7 @@
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
     "postinstall": "npm run lingui:compile",
-    "generate:types" : "ts-node --compiler-options '{\"module\":\"commonjs\"}' ./scripts/generate-types.ts"
+    "generate:types": "tsx ./scripts/generate-types.ts"
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.7.1",
@@ -30,8 +30,8 @@
     "@turf/helpers": "^6.5.0",
     "embla-carousel-react": "^8.0.0-rc06",
     "ethers": "^5.7.2",
-    "fets": "^0.4.13",
     "ethers-v6": "npm:ethers@^6.7.1",
+    "fets": "^0.4.13",
     "firebase-admin": "^11.7.0",
     "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
@@ -61,7 +61,7 @@
     "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
     "eslint-config-next": "^13.3.1",
-    "ts-node": "^10.9.1",
+    "tsx": "^3.13.0",
     "typescript": "^4.9.5"
   },
   "engines": {
