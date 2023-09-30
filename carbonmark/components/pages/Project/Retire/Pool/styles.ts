@@ -80,7 +80,7 @@ export const paymentDropdown = css`
     gap: 1rem;
   }
 
-  &.error button {
+  &.error > button {
     border: 1px solid var(--warn);
   }
 `;
@@ -174,6 +174,10 @@ export const errorMessagePrice = css`
   margin-bottom: 0.2rem;
   word-break: break-word;
   margin-top: -0.8rem;
+
+  &.balance {
+    margin-top: 0.4rem;
+  }
 
   ${breakpoints.large} {
     font-size: 1.4rem;
@@ -384,8 +388,4 @@ export const textTransition = css`
       color: #000;
     }
   }
-`;
-
-export const warn = css`
-  color: var(--warn);
 `;

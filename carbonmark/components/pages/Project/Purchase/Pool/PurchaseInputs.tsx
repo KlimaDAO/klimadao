@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
@@ -116,10 +117,14 @@ export const PurchaseInputs: FC<Props> = (props) => {
             )}
           </div>
 
+          <>{console.log("exceededBalance", exceededBalance)}</>
+
           <Dropdown
             name="paymentMethod"
             initial={carbonmarkPaymentMethodMap["usdc"].id}
-            className={styles.paymentDropdown}
+            className={cx(styles.paymentDropdown, {
+              error: exceededBalance,
+            })}
             aria-label={t`Toggle payment method`}
             renderLabel={(selected) => (
               <div className={styles.paymentDropDownHeader}>
@@ -152,7 +157,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
           />
 
           {exceededBalance && (
-            <Text className={styles.warn}>
+            <Text t="body1" className={cx(styles.errorMessagePrice, "balance")}>
               <Trans>
                 Your balance must equal at least 1% more than the cost of the
                 transaction.

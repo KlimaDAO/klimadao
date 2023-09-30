@@ -317,7 +317,10 @@ export const RetireInputs: FC<Props> = (props) => {
                       );
                     }}
                     className={cx(styles.paymentMethod, {
-                      error: exceededFiatBalance,
+                      error:
+                        exceededFiatBalance ||
+                        belowFiatMinimum ||
+                        exceededBalance,
                       selected: item === field.value,
                     })}
                   >
@@ -365,6 +368,15 @@ export const RetireInputs: FC<Props> = (props) => {
               )}
             />
           ))}
+
+          {exceededBalance && (
+            <Text t="body1" className={cx(styles.errorMessagePrice, "balance")}>
+              <Trans>
+                Your balance must equal at least 1% more than the cost of the
+                transaction.
+              </Trans>
+            </Text>
+          )}
         </div>
 
         {belowFiatMinimum && (
