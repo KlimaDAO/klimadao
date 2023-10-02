@@ -66,7 +66,7 @@ export const RetireForm: FC<Props> = (props) => {
     mode: "onChange",
     defaultValues: {
       projectTokenAddress: props.price.projectTokenAddress,
-      paymentMethod: "usdc",
+      paymentMethod: "fiat",
       ...inputValues,
     },
   });
@@ -162,6 +162,7 @@ export const RetireForm: FC<Props> = (props) => {
       return;
     } catch (e) {
       console.error(e);
+
       setIsRedirecting(false);
       if (e.name === "MinPurchaseRequired") {
         setCheckoutError(t`${e.message}`);
