@@ -15,40 +15,40 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
+#: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:22
 #: app/[locale]/details/digital-carbon-retirements-snapshot/page.tsx:14
-#: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:11
-#: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:9
-#: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:9
+#: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:25
+#: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:10
+#: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:10
 #: app/[locale]/details/digital-carbon-supply-snapshot/page.tsx:10
-#: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:11
+#: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:29
 #: app/[locale]/details/price-of-digital-carbon/page.tsx:17
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:10
 #: app/[locale]/details/retirement-trends-by-pool/page.tsx:10
 #: app/[locale]/details/retirement-trends-by-token/page.tsx:10
 #: app/[locale]/details/state-of-digital-carbon/[bridge]/page.tsx:22
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:22
-#: app/[locale]/details/token-bridge-overview/[bridge]/page.tsx:11
 #: app/[locale]/details/token-by-methodologies/[bridge]/page.tsx:22
 #: app/[locale]/details/token-by-projects/[bridge]/page.tsx:22
 #: app/[locale]/details/token-by-vintage-date/[bridge]/page.tsx:22
 #: app/[locale]/details/token-volume-over-time/[bridge]/page.tsx:22
-#: app/[locale]/details/verra-credits-breakdown/page.tsx:9
-#: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:9
-#: app/[locale]/details/verra-credits-issued-by-vintage-date/page.tsx:9
-#: app/[locale]/details/verra-credits-issued-over-time/page.tsx:9
+#: app/[locale]/details/verra-credits-breakdown/page.tsx:10
+#: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:15
+#: app/[locale]/details/verra-credits-issued-by-vintage-date/page.tsx:15
+#: app/[locale]/details/verra-credits-issued-over-time/page.tsx:10
 #: app/[locale]/details/verra-credits-over-time/page.tsx:10
 #: app/[locale]/details/verra-credits-over-time/page.tsx:11
-#: app/[locale]/details/verra-credits-retired-by-project-type/page.tsx:9
-#: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:9
-#: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:9
-#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:9
-#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:14
-#: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:9
+#: app/[locale]/details/verra-credits-retired-by-project-type/page.tsx:15
+#: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:15
+#: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:10
+#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:12
+#: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:15
+#: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:12
 #: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:11
 #: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:13
 msgid "Lorem Ipsum"
@@ -60,18 +60,18 @@ msgid "Digital carbon retirements snapshot"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:9
-msgid "Digital Carbon Retirements - {chainLabel}"
+#: app/[locale]/details/digital-carbon-retirements/[chain]/page.tsx:23
+msgid "Digital carbon retirements - {chainLabel}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:7
-msgid "Digital Carbon Supply - By Blockchain"
+#: app/[locale]/details/digital-carbon-supply-by-blockchain/page.tsx:8
+msgid "Digital carbon supply by Blockchain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:7
-msgid "Digital Carbon Supply - Quick Facts"
+#: app/[locale]/details/digital-carbon-supply-quick-facts/page.tsx:8
+msgid "Digital carbon supply - quick Facts"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -80,8 +80,8 @@ msgid "Digital carbon supply snapshot"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:9
-msgid "Digital Carbon Supply - {chainLabel}"
+#: app/[locale]/details/digital-carbon-supply/[chain]/page.tsx:27
+msgid "Digital carbon supply - {chainLabel}"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -110,58 +110,44 @@ msgid "State of {bridgeLabel} digital carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
-msgid "Breakdown of {bridgeLabel} Pooled"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: app/[locale]/details/token-bridge-overview/[bridge]/page.tsx:9
-msgid "State of {bridgeLabel} Digital Carbon"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: app/[locale]/details/token-bridge-overview/[bridge]/page.tsx:10
-msgid "{bridgeLabel} Overview"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/token-by-methodologies/[bridge]/page.tsx:14
-msgid "{bridgeLabel} Distribution of Methodologies"
+msgid "{bridgeLabel} distribution of methodologies"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/token-by-projects/[bridge]/page.tsx:14
-msgid "{bridgeLabel} Distribution of Projects"
+msgid "{bridgeLabel} distribution of projects"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/token-by-vintage-date/[bridge]/page.tsx:14
-msgid "{bridgeLabel} Distribution of Vintage Start Dates"
+msgid "{bridgeLabel} Distribution of vintage start dates"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/token-volume-over-time/[bridge]/page.tsx:14
-msgid "{bridgeLabel} volume Over Time"
+msgid "{bridgeLabel} volume over Time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-breakdown/page.tsx:7
-msgid "Verra Credits Breakdown"
+#: app/[locale]/details/verra-credits-breakdown/page.tsx:8
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:22
+msgid "Verra credits breakdown"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:7
-msgid "Credits Issued by Project Type"
+#: app/[locale]/details/verra-credits-issued-by-project-type/page.tsx:8
+msgid "Credits issued by project type"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-issued-by-vintage-date/page.tsx:7
-msgid "Credits Issued by Vintage Start Date"
+#: app/[locale]/details/verra-credits-issued-by-vintage-date/page.tsx:8
+msgid "Credits issued by vintage start date"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-issued-over-time/page.tsx:7
-msgid "Verra Credits Issued Over Time"
+#: app/[locale]/details/verra-credits-issued-over-time/page.tsx:8
+msgid "Verra credits retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -170,44 +156,49 @@ msgid "Verra credits over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-by-project-type/page.tsx:7
-msgid "Credits Retired by Project Type"
+#: app/[locale]/details/verra-credits-retired-by-project-type/page.tsx:8
+msgid "Credits retired by project type"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:7
-msgid "Credits Retired by Vintage Start Date"
+#: app/[locale]/details/verra-credits-retired-by-vintage-date/page.tsx:8
+msgid "Credits retired by vintage start date"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:7
-msgid "Off-Chain Verra Credits Retired Over Time"
+#: app/[locale]/details/verra-credits-retired-off-chain-over-time/page.tsx:8
+msgid "Off-chain Verra credits retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:7
-msgid "On-Chain Verra Credits Retired Over Time"
+#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:8
+msgid "On-chain Verra credits retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-tokenized-by-bridge/page.tsx:8
-#: components/cards/TokenizedCreditsByBridgeCard/index.tsx:55
+#: components/cards/overview/TokenizedCreditsByBridgeCard/index.tsx:21
 msgid "Tokenized credits by bridge"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:7
-msgid "Verra Credits Tokenized Over Time"
+#: app/[locale]/details/verra-credits-tokenized-over-time/page.tsx:8
+msgid "Verra credits tokenized over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/off-chain-vs-on-chain/page.tsx:6
-msgid "Off Chain vs On-Chain"
+#: app/[locale]/off-chain-vs-on-chain/page.tsx:15
+msgid "Off vs On-chain carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/page.tsx:15
+#: app/[locale]/overview/page.tsx:17
 msgid "State of the digital carbon market"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/overview/page.tsx:20
+msgid "What is digital carbon?"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -236,45 +227,154 @@ msgid "By beneficiary"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/supply/page.tsx:6
-#: components/cards/DailyCarbonSupplyCard/index.tsx:24
+#: app/[locale]/supply/page.tsx:16
+#: components/cards/overview/DailyCarbonSupplyCard/index.tsx:23
+#: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:23
 #: components/Layout/NavItems.tsx:29
 msgid "Supply"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:53
+#: app/[locale]/token-details/page.tsx:59
 msgid "Token details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:57
+#: app/[locale]/token-details/page.tsx:63
 msgid "C3"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:67
+#: app/[locale]/token-details/page.tsx:73
 msgid "Moss"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/token-details/page.tsx:73
+#: app/[locale]/token-details/page.tsx:79
 msgid "Toucan"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/DailyCarbonRetirementsCard/index.tsx:21
+#: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:75
+msgid "Cummulative Verra registry credits tokenized over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:76
+msgid "On-Chain Verra credits retired over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:41
+msgid "Cummulative Verra registry credits issued over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:42
+msgid "Off-Chain Verra credits retired over time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:24
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:43
+msgid "Verra credits retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:25
+msgid "off-chain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:44
+msgid "on-chain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:61
+#: lib/charts/options.ts:32
+msgid "Issued"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:69
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:51
+#: lib/charts/options.ts:36
+#: lib/charts/options.ts:110
+msgid "Retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedvsRetiredCreditsChart.tsx:119
+msgid "of retired credits"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedVsTokenizedCreditsChart.tsx:58
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:82
+msgid "Verra credits issued"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/issuedVsTokenizedCreditsChart.tsx:75
+msgid "Verra credits tokenized"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsByBridgeAndVintageCard/index.tsx:18
+msgid "Credits by vintage start dates"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard/index.tsx:28
+msgid "Credits by project type"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/offVsOnChain/VerraCreditsOriginCard/index.tsx:20
+msgid "Credits tokenized vs credits issued by origin"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/DailyCarbonRetirementsCard/index.tsx:21
 msgid "On-chain retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/DailyCreditsCard/index.tsx:112
+#: components/cards/overview/DailyVerraCreditsOverviewCard/index.tsx:112
 msgid "Verra credits"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/HistoricalPriceCard/index.tsx:58
-msgid "Historical prices"
+#: components/cards/overview/HistoricalPriceCard/index.tsx:18
+msgid "Historical prices (USD)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:33
+msgid "Digital carbon pricing"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:83
+msgid "{formattedCurrentSupply} tonnes available"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:87
+msgid "Price per tonne"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:93
+msgid "Selective fee"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:105
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
+#: lib/charts/options.ts:128
+msgid "Last 7 days"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -286,55 +386,156 @@ msgid "Detailed list of KlimaDAO retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:14
+#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:19
+msgid "KlimaDAO retirements by chain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:32
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:81
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:64
 #: lib/charts/options.ts:22
 msgid "Off-chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:22
+#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:40
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:61
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:44
 #: lib/charts/options.ts:18
 msgid "On-chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:37
-msgid "KlimaDAO retirements by chain"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:16
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:27
 msgid "Carbon retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByPoolBarCard/index.tsx:62
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:65
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:85
+msgid "Total tonnes retired"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:72
+msgid "Retired via klimaDAO"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:92
+msgid "Of total retired credits"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByPoolBarCard/index.tsx:19
 #: components/cards/retirementTrends/RetirementsByPoolSummaryCard/index.tsx:19
 msgid "KlimaDAO retirements by pool"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:16
+#: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:25
 msgid "Carbon pool redemptions / retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByTokenBarCard/index.tsx:45
+#: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:69
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:67
+msgid "Total tonnes redeemed"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:76
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:74
+msgid "Redeemed via KlimaDAO"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByTokenBarCard/index.tsx:19
 msgid "KlimaDAO retirements by token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:16
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:24
 msgid "Carbon token retirements"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:19
+msgid "Carbon supply by blockchain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:32
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:41
+#: lib/charts/options.ts:46
+msgid "Polygon"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:40
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:45
+#: lib/charts/options.ts:50
+msgid "Ethereum"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:48
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:49
+#: lib/charts/options.ts:60
+msgid "Celo"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:22
+msgid "Quick facts"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:93
+msgid "Total supply (tonnes)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:107
+msgid "Total retirements (tonnes)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:111
+#: components/charts/DailyCarbonRetirementsChart/index.tsx:14
+msgid "Retired via KlimaDAO"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/DailyCeloCarbonSupplyCard/index.tsx:14
+msgid "Celo supply"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/DailyEthCarbonSupplyCard/index.tsx:14
+msgid "Ethereum supply"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/DailyEthRetirementsCard/index.tsx:13
+msgid "Ethereum retirements"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/DailyPolygonCarbonSupplyCard/index.tsx:13
+msgid "Polygon supply"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/supply/DailyPolygonRetirementsCard/index.tsx:13
+msgid "Polygon retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/helpers.ts:35
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:149
+#: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:45
 #: lib/charts/options.ts:74
 msgid "UBO"
 msgstr ""
@@ -342,6 +543,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/helpers.ts:45
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:141
+#: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:55
 #: lib/charts/options.ts:78
 msgid "NBO"
 msgstr ""
@@ -349,6 +551,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/helpers.ts:58
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:72
+#: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:65
 #: lib/charts/options.ts:92
 msgid "BCT"
 msgstr ""
@@ -356,12 +559,14 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/helpers.ts:71
 #: components/cards/tokenDetails/TokenPoolBreakdownCard/index.tsx:80
+#: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:75
 #: lib/charts/options.ts:96
 msgid "NCT"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/tokenDetails/helpers.ts:81
+#: components/charts/helpers/CarbonSupplyOverTimeChart/index.ts:85
 msgid "MCO2"
 msgstr ""
 
@@ -402,30 +607,23 @@ msgid "State of {0} digital carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:51
-#: lib/charts/options.ts:36
-#: lib/charts/options.ts:110
-msgid "Retired"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:59
 msgid "Outstanding"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:85
-msgid "{0} Tonnes Bridged"
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:82
+msgid "{0} tonnes bridged"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:92
-msgid "{0} Tonnes Retired"
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:86
+msgid "{0} tonnes retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:99
-msgid "{0} Tonnes Outstanding"
+#: components/cards/tokenDetails/TokenStateOfDigitalCarbonCard/index.tsx:90
+msgid "{0} tonnes outstanding"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -434,23 +632,13 @@ msgid "Volume over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/TokensPriceCard/index.tsx:15
-msgid "Digital carbon pricing"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/ChangeLanguageButton/index.tsx:32
+#: components/ChangeLanguageButton/index.tsx:34
 msgid "Change language"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/DailyCarbonRetirementsChart/index.tsx:14
-msgid "Retired via KlimaDAO"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/charts/DailyCarbonRetirementsChart/index.tsx:22
-#: components/charts/DailyCarbonRetirementsChart/index.tsx:38
+#: components/charts/DailyCarbonRetirementsChart/index.tsx:40
 msgid "Retired outside of KlimaDAO"
 msgstr ""
 
@@ -533,7 +721,38 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:31
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:37
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:52
 msgid "Country"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
+msgid "Toucan bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:64
+msgid "Moss bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:70
+msgid "C3 bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:76
+msgid "Total tokenized VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:88
+msgid "Precentage"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/NoDataWrapper/index.tsx:15
+msgid "No data availble"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -542,57 +761,8 @@ msgid "N/A"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:48
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:68
-msgid "Total tonnes retired"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:55
-msgid "Retired via klimaDAO"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/RetirementsByChainOverviewChart/index.tsx:75
-msgid "Of total retired credits"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/RetirementsByPoolOverviewChart/index.tsx:51
-#: components/charts/RetirementsByTokenOverviewChart/index.tsx:49
-msgid "Total tonnes redeemed"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/RetirementsByPoolOverviewChart/index.tsx:58
-#: components/charts/RetirementsByTokenOverviewChart/index.tsx:56
-msgid "Redeemed via KlimaDAO"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:66
-msgid "{formattedCurrentSupply} tonnes available"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:70
-msgid "Price per tonne"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:76
-msgid "Selective fee"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/TokenPricesChart/index.tsx:88
-#: lib/charts/options.ts:128
-msgid "Last 7 days"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Layout/NavItems.tsx:19
-#: components/pages/DetailPage/index.tsx:22
+#: components/pages/DetailPage/index.tsx:25
 msgid "Overview"
 msgstr ""
 
@@ -612,28 +782,13 @@ msgid "Token Details"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/DetailPage/index.tsx:28
+#: components/pages/DetailPage/index.tsx:31
 msgid "Insights"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/charts/options.ts:32
-msgid "Issued"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/charts/options.ts:46
-msgid "Polygon"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/charts/options.ts:50
-msgid "Ethereum"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: lib/charts/options.ts:60
-msgid "Celo"
+#: components/Skeleton/index.tsx:4
+msgid "Fetching data..."
 msgstr ""
 
 #. js-lingui-explicit-id
