@@ -9,6 +9,8 @@ import { DEV_URL, ERROR } from "../../test.constants";
 
 const purchaseModelFixture: Purchase = {
   ...marketplace.purchase,
+  amount: "1.0",
+  price: "5.0",
   listing: {
     id: marketplace.purchase.listing.id,
     project: {
@@ -43,7 +45,7 @@ describe("GET /purchases/:id", () => {
   });
 
   /** The happy path */
-  test("Success", async () => {
+  test("Returns and formats BigNumber values", async () => {
     // Mock the response from the graph
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")

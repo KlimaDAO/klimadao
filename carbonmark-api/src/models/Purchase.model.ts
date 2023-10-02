@@ -8,8 +8,8 @@ export const PurchaseModel = Type.Object({
     ],
   }),
   amount: Type.String({
-    description: "Stringified 18 decimal BigNumber",
-    examples: ["1000000000000000000"],
+    description: "Quantity of credits purchased",
+    examples: ["1.0"],
   }),
   listing: Type.Object({
     id: Type.String({
@@ -38,8 +38,8 @@ export const PurchaseModel = Type.Object({
     }),
   }),
   price: Type.String({
-    description: "Stringified 6 decimal BigNumber",
-    examples: ["1000000"],
+    description: "Total purchase price (USDC)",
+    examples: ["5.0"],
   }),
 });
 
