@@ -2323,7 +2323,7 @@ msgid "retirement.single.proof_of.title"
 msgstr "Proof of"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:53
+#: components/pages/Users/Listing/index.tsx:49
 msgid "seller.listing.quantity_available"
 msgstr "Quantity Available:"
 
@@ -2338,7 +2338,7 @@ msgid "retirement.single.quantity.title"
 msgstr "QUANTITY RETIRED"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:68
+#: lib/constants.ts:69
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
@@ -2659,7 +2659,7 @@ msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC per ton"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:64
+#: lib/constants.ts:65
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
@@ -2699,7 +2699,7 @@ msgid "retirement.single.vintage.title"
 msgstr "Vintage:"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:60
+#: lib/constants.ts:61
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 

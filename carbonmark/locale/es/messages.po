@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-02 20:13+0000\n"
+"POT-Creation-Date: 2023-10-02 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1866,17 +1866,17 @@ msgid "connect_modal.connecting"
 msgstr "Conectando..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:60
+#: lib/constants.ts:61
 msgid "connect_modal.error_message_default"
 msgstr "Hemos tenido problemas para realizar la conexión. Por favor, inténtelo de nuevo."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:64
+#: lib/constants.ts:65
 msgid "connect_modal.error_message_refused"
 msgstr "El usuario rechazó la conexión."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:68
+#: lib/constants.ts:69
 msgid "connect_modal.error_processing"
 msgstr "Solicitud ya procesada. Por favor, abra su monedero y complete la solicitud."
 
@@ -2496,7 +2496,7 @@ msgid "seller.listing.buy"
 msgstr "Comprar"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:53
+#: components/pages/Users/Listing/index.tsx:49
 msgid "seller.listing.quantity_available"
 msgstr "Cantidad disponible:"
 
