@@ -16,14 +16,14 @@ And enable css to be passed to items of all rows except the last one
 }
 .tiles_column_layout {
   display: grid;
-  gap: 24px;
+  gap: 2.4rem;
   > div:not(:last-child) {
     border-bottom: 1px solid var(--text-color-03);
   }
 }
 .tiles_row_layout {
   display: grid;
-  gap: 24px;
+  gap: 2.4rem;
   @include breakpoints.onlySmall {
     @include configureGrid(1);
   }
@@ -43,15 +43,15 @@ And enable css to be passed to items of all rows except the last one
 .tile {
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  gap: 10px;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  gap: 1rem;
   color: var(--text-color-01);
 }
 .header {
   display: flex;
-  gap: 10px;
-  font-size: 14px;
+  gap: 1rem;
+  font-size: 1.4rem;
   align-items: center;
 }
 .headerText {
@@ -63,11 +63,11 @@ And enable css to be passed to items of all rows except the last one
   }
 }
 .iconBox {
-  padding: 4px;
+  padding: 0.4rem;
   border: 1px solid;
   border-color: var(--surface-06);
   background-color: var(--surface-03);
-  border-radius: 4px;
+  border-radius: 0.4rem;
   line-height: 0;
 }
 .content {
@@ -80,11 +80,11 @@ And enable css to be passed to items of all rows except the last one
   align-items: center;
   [aria-describedby="value"] {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
   }
   [aria-describedby="label"] {
     text-transform: uppercase;
-    font-size: 8px;
+    font-size: 0.8rem;
     color: var(--text-color-06);
   }
 }
