@@ -88,6 +88,7 @@ function RetiredCreditsChart(props: {
         <KPieChart
           data={data}
           configuration={configuration}
+          showTooltip={false}
           legendContent={
             <RetiredCreditsLegendContent
               retired={props.retired}
