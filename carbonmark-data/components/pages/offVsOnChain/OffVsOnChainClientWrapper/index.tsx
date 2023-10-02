@@ -3,6 +3,7 @@ import OptionsSwitcher from "components/OptionsSwitcher";
 import { getCreditsStatusOptions } from "lib/charts/options";
 import { Status } from "lib/charts/types";
 import { ReactNode, useState } from "react";
+import styles from "./styles.module.scss";
 /**
  * A UI layout component to position Retirement Trends pages content
  */
@@ -25,6 +26,7 @@ export default function OffVsOnChainClientWrapper(props: {
   return (
     <>
       <OptionsSwitcher
+        className={styles.centered}
         options={getCreditsStatusOptions()}
         onSelectionChange={setOptionKey}
       ></OptionsSwitcher>
