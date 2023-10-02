@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-02 15:47+0000\n"
+"POT-Creation-Date: 2023-10-02 20:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgid "0% listing fee"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgid "<0>* </0> Required Field"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
 msgid "@Username (note: this can not be changed!)"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgid "A-Z"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:209
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -508,12 +508,12 @@ msgid "Digitize your carbon by using a supported bridge"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:186
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:187
 msgid "Display name"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "Display name is required"
 msgstr ""
 
@@ -588,17 +588,17 @@ msgid "Go back"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
 msgid "Handle is required"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:159
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
 msgid "Handle should not be an address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
 msgid "Handle should not contain any special characters"
 msgstr ""
 
@@ -982,7 +982,7 @@ msgid "Profile"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
 msgid "Profile picture"
 msgstr ""
 
@@ -1225,7 +1225,7 @@ msgid "Retiring Token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:206
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr ""
 
@@ -1272,7 +1272,7 @@ msgid "Something went wrong loading the allowance"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:111
 msgid "Something went wrong. Please try again. {error}"
 msgstr ""
 
@@ -1287,7 +1287,7 @@ msgid "Sorry, something went wrong."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:162
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Sorry, this handle already exists"
 msgstr ""
 
@@ -1754,7 +1754,7 @@ msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:108
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "You chose to reject the transaction."
 msgstr ""
 
@@ -1787,7 +1787,7 @@ msgid "Your balance:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:177
 msgid "Your display name"
 msgstr ""
 
@@ -1803,7 +1803,7 @@ msgid "Your seller data"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
 msgid "Your unique handle"
 msgstr ""
 
@@ -1864,17 +1864,17 @@ msgid "connect_modal.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:58
+#: lib/constants.ts:60
 msgid "connect_modal.error_message_default"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:62
+#: lib/constants.ts:64
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:66
+#: lib/constants.ts:68
 msgid "connect_modal.error_processing"
 msgstr ""
 
@@ -2077,7 +2077,7 @@ msgid "profile.editListing_modal.submit"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:228
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:229
 msgid "profile.edit_modal.submit"
 msgstr ""
 

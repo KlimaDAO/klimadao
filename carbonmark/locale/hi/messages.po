@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-02 15:47+0000\n"
+"POT-Creation-Date: 2023-10-02 20:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgid "0% listing fee"
 msgstr "0% लिस्टिंग शुल्क"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "200x200 PNG की सलाह दी जाती है। अपनी इमेज को imgur.com या postimages.org जैसे होस्ट पर अपलोड करें और पूरा URL पेस्ट करें। सीधे फोटो अपलोड करने का ऑप्शन जल्द ही आ रहा है!"
 
@@ -43,7 +43,7 @@ msgid "<0>* </0> Required Field"
 msgstr "<0>*</0> आवश्यक क्षेत्र"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:169
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
 msgid "@Username (note: this can not be changed!)"
 msgstr "@यूज़रनेम (ध्यान रहे: इसे बदला नहीं जा सकता!)"
 
@@ -53,7 +53,7 @@ msgid "A-Z"
 msgstr "A-Z"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:209
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
@@ -510,12 +510,12 @@ msgid "Digitize your carbon by using a supported bridge"
 msgstr "समर्थित ब्रिज का उपयोग करके अपने कार्बन को डिजिटाइज़ करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:186
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:187
 msgid "Display name"
 msgstr "प्रदर्शित नाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:181
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
 msgid "Display name is required"
 msgstr "प्रदर्शित नाम आवश्यक है"
 
@@ -590,17 +590,17 @@ msgid "Go back"
 msgstr "वापस जाएँ"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
 msgid "Handle is required"
 msgstr "हैंडल आवश्यक है"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:159
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
 msgid "Handle should not be an address"
 msgstr "हैंडल को कोई ऐड्रेस नहीं होना चाहिए"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:154
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
 msgid "Handle should not contain any special characters"
 msgstr "हैंडल में कोई विशेष वर्ण नहीं होना चाहिए"
 
@@ -984,7 +984,7 @@ msgid "Profile"
 msgstr "प्रोफ़ाइल"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:197
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
 msgid "Profile picture"
 msgstr "प्रोफ़ाइल फोटो"
 
@@ -1227,7 +1227,7 @@ msgid "Retiring Token"
 msgstr "रिटायरिंग टोकन"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:206
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "अपने बारे में कुछ शब्द कहें। यह आपके सेलर प्रोफ़ाइल में दिखाई देगा।"
 
@@ -1274,7 +1274,7 @@ msgid "Something went wrong loading the allowance"
 msgstr "भत्ता लोड करते समय कुछ गड़बड़ी हुई"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:111
 msgid "Something went wrong. Please try again. {error}"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें। {error}"
 
@@ -1289,7 +1289,7 @@ msgid "Sorry, something went wrong."
 msgstr "क्षमा करें, कुछ गड़बड़ हो गई।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:162
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
 msgid "Sorry, this handle already exists"
 msgstr "क्षमा करें, यह हैंडल पहले से मौजूद है"
 
@@ -1760,7 +1760,7 @@ msgid "You can view the successful transaction now on<0> PolygonScan.</0>"
 msgstr "अब आप सफल लेनदेन को <0>पॉलीगॉनस्कैन</0> पर देख सकते हैं।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:108
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
 msgid "You chose to reject the transaction."
 msgstr "आपने लेन-देन को अस्वीकार करना चुना है।"
 
@@ -1793,7 +1793,7 @@ msgid "Your balance:"
 msgstr "आपका बैलेंस:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:176
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:177
 msgid "Your display name"
 msgstr "आपका प्रदर्शित होने वाला नाम"
 
@@ -1809,7 +1809,7 @@ msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:142
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
 msgid "Your unique handle"
 msgstr "आपका यूनिक हैंडल"
 
@@ -1870,17 +1870,17 @@ msgid "connect_modal.connecting"
 msgstr "कनेक्ट हो रहा है..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:58
+#: lib/constants.ts:60
 msgid "connect_modal.error_message_default"
 msgstr "कनेक्शन में कुछ गड़बड़ी हो गई। कृपया पुन: प्रयास करें।"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:62
+#: lib/constants.ts:64
 msgid "connect_modal.error_message_refused"
 msgstr "उपयोगकर्ता ने कनेक्शन अस्वीकार कर दिया।"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:66
+#: lib/constants.ts:68
 msgid "connect_modal.error_processing"
 msgstr "अनुरोध पहले से प्रोसेस हो रहा है। कृपया अपना वॉलेट ओपन करें और अनुरोध पूरा करें।"
 
@@ -2083,7 +2083,7 @@ msgid "profile.editListing_modal.submit"
 msgstr "सूचीकरण अपडेट करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:228
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:229
 msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
