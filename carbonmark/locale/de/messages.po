@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-02 15:36+0000\n"
+"POT-Creation-Date: 2023-10-02 15:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1403,7 +1403,7 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "Der vorherige Schritt hat den Transfer des Assets aus Ihrer Wallet zu Carbonmark genehmigt."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:170
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:171
 msgid "There was an error during the checkout process. Please try again."
 msgstr "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
 
@@ -2523,7 +2523,7 @@ msgid "sold to"
 msgstr "Verkauft an"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:204
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:205
 msgid "something went wrong loading the allowance"
 msgstr "Beim Laden des Guthabens ist etwas schiefgelaufen"
 
@@ -2748,7 +2748,7 @@ msgid "user.login.description"
 msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen Sie sich bitte ein oder erstellen Sie über den Button einen Account."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireForm.tsx:167
+#: components/pages/Project/Retire/Pool/RetireForm.tsx:168
 msgid "{0}"
 msgstr ""
 
