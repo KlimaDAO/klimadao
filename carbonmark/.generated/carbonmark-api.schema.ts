@@ -2,7 +2,7 @@ export default {
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.0-1** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-3** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@ export default {
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.0-1"
+    "version": "2.0.0-3"
   },
   "components": {
     "schemas": {
@@ -336,57 +336,6 @@ export default {
                         "key": {
                           "type": "string"
                         },
-                        "name": {
-                          "type": "string"
-                        },
-                        "category": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "country": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "methodology": {
-                          "type": "string"
-                        },
-                        "projectAddress": {
-                          "type": "string"
-                        },
-                        "projectID": {
-                          "type": "string"
-                        },
-                        "registry": {
-                          "type": "string"
-                        },
                         "vintage": {
                           "type": "string"
                         }
@@ -394,11 +343,6 @@ export default {
                       "required": [
                         "id",
                         "key",
-                        "name",
-                        "methodology",
-                        "projectAddress",
-                        "projectID",
-                        "registry",
                         "vintage"
                       ]
                     }
@@ -921,57 +865,6 @@ export default {
                     "key": {
                       "type": "string"
                     },
-                    "name": {
-                      "type": "string"
-                    },
-                    "category": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "country": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
                     "vintage": {
                       "type": "string"
                     }
@@ -979,11 +872,6 @@ export default {
                   "required": [
                     "id",
                     "key",
-                    "name",
-                    "methodology",
-                    "projectAddress",
-                    "projectID",
-                    "registry",
                     "vintage"
                   ]
                 }
@@ -1461,57 +1349,6 @@ export default {
               "key": {
                 "type": "string"
               },
-              "name": {
-                "type": "string"
-              },
-              "category": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "country": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "methodology": {
-                "type": "string"
-              },
-              "projectAddress": {
-                "type": "string"
-              },
-              "projectID": {
-                "type": "string"
-              },
-              "registry": {
-                "type": "string"
-              },
               "vintage": {
                 "type": "string"
               }
@@ -1519,11 +1356,6 @@ export default {
             "required": [
               "id",
               "key",
-              "name",
-              "methodology",
-              "projectAddress",
-              "projectID",
-              "registry",
               "vintage"
             ]
           }
@@ -1607,9 +1439,9 @@ export default {
             "type": "string"
           },
           "amount": {
-            "description": "Stringified 18 decimal BigNumber",
+            "description": "Quantity of credits purchased",
             "examples": [
-              "1000000000000000000"
+              "1.0"
             ],
             "type": "string"
           },
@@ -1679,9 +1511,9 @@ export default {
             ]
           },
           "price": {
-            "description": "Stringified 6 decimal BigNumber",
+            "description": "Total purchase price (USDC)",
             "examples": [
-              "1000000"
+              "5.0"
             ],
             "type": "string"
           }
@@ -1904,57 +1736,6 @@ export default {
                     "key": {
                       "type": "string"
                     },
-                    "name": {
-                      "type": "string"
-                    },
-                    "category": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "country": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "methodology": {
-                      "type": "string"
-                    },
-                    "projectAddress": {
-                      "type": "string"
-                    },
-                    "projectID": {
-                      "type": "string"
-                    },
-                    "registry": {
-                      "type": "string"
-                    },
                     "vintage": {
                       "type": "string"
                     }
@@ -1962,11 +1743,6 @@ export default {
                   "required": [
                     "id",
                     "key",
-                    "name",
-                    "methodology",
-                    "projectAddress",
-                    "projectID",
-                    "registry",
                     "vintage"
                   ]
                 }
@@ -2350,48 +2126,6 @@ export default {
     }
   },
   "paths": {
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/categories": {
       "get": {
         "summary": "Categories",
@@ -2425,6 +2159,48 @@ export default {
                     },
                     {
                       "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
                     }
                   ]
                 ]
@@ -2511,7 +2287,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1696209839",
+              "default": "1696288898",
               "type": "string"
             },
             "example": "1620000000",
@@ -2848,57 +2624,6 @@ export default {
                                     "key": {
                                       "type": "string"
                                     },
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "category": {
-                                      "anyOf": [
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "id"
-                                          ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "country": {
-                                      "anyOf": [
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "id"
-                                          ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "methodology": {
-                                      "type": "string"
-                                    },
-                                    "projectAddress": {
-                                      "type": "string"
-                                    },
-                                    "projectID": {
-                                      "type": "string"
-                                    },
-                                    "registry": {
-                                      "type": "string"
-                                    },
                                     "vintage": {
                                       "type": "string"
                                     }
@@ -2906,11 +2631,6 @@ export default {
                                   "required": [
                                     "id",
                                     "key",
-                                    "name",
-                                    "methodology",
-                                    "projectAddress",
-                                    "projectID",
-                                    "registry",
                                     "vintage"
                                   ]
                                 }
@@ -3020,7 +2740,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1696209839",
+              "default": "1696288899",
               "type": "string"
             },
             "example": "1620000000",
@@ -3263,57 +2983,6 @@ export default {
                               "key": {
                                 "type": "string"
                               },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
-                                "anyOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ]
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "country": {
-                                "anyOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ]
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "methodology": {
-                                "type": "string"
-                              },
-                              "projectAddress": {
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "type": "string"
-                              },
-                              "registry": {
-                                "type": "string"
-                              },
                               "vintage": {
                                 "type": "string"
                               }
@@ -3321,11 +2990,6 @@ export default {
                             "required": [
                               "id",
                               "key",
-                              "name",
-                              "methodology",
-                              "projectAddress",
-                              "projectID",
-                              "registry",
                               "vintage"
                             ]
                           }
@@ -4306,57 +3970,6 @@ export default {
                               "key": {
                                 "type": "string"
                               },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
-                                "anyOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ]
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "country": {
-                                "anyOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ]
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "methodology": {
-                                "type": "string"
-                              },
-                              "projectAddress": {
-                                "type": "string"
-                              },
-                              "projectID": {
-                                "type": "string"
-                              },
-                              "registry": {
-                                "type": "string"
-                              },
                               "vintage": {
                                 "type": "string"
                               }
@@ -4364,11 +3977,6 @@ export default {
                             "required": [
                               "id",
                               "key",
-                              "name",
-                              "methodology",
-                              "projectAddress",
-                              "projectID",
-                              "registry",
                               "vintage"
                             ]
                           }
@@ -4579,7 +4187,7 @@ export default {
             "schema": {
               "type": "string"
             },
-            "example": "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8",
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
             "in": "path",
             "name": "id",
             "required": true,
@@ -4602,9 +4210,9 @@ export default {
                       "type": "string"
                     },
                     "amount": {
-                      "description": "Stringified 18 decimal BigNumber",
+                      "description": "Quantity of credits purchased",
                       "examples": [
-                        "1000000000000000000"
+                        "1.0"
                       ],
                       "type": "string"
                     },
@@ -4674,9 +4282,9 @@ export default {
                       ]
                     },
                     "price": {
-                      "description": "Stringified 6 decimal BigNumber",
+                      "description": "Total purchase price (USDC)",
                       "examples": [
-                        "1000000"
+                        "5.0"
                       ],
                       "type": "string"
                     }
