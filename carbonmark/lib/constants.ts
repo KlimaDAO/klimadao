@@ -9,7 +9,8 @@ type Environment = "production" | "preview" | "development";
 export const IS_PRODUCTION =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 /** True if local development (not preview deployment) */
-export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
+export const IS_LOCAL_DEVELOPMENT =
+  process.env.NODE_ENV === "development" || process.env.NODE_ENV == undefined;
 /** For preview deployments on Vercel */
 export const IS_PREVIEW = !IS_PRODUCTION && !IS_LOCAL_DEVELOPMENT;
 
@@ -38,9 +39,9 @@ const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
 /**
  * The API URL to target when developing the app,
  * useful for generating types that have not yet been deployed or are on  new version of the API
- * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/ npm run dev-carbonmark & npm run dev-carbonmark-api
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003 npm run dev-carbonmark & npm run dev-carbonmark-api
  * or for types
- * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003/ npm run generate:types*/
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003 npm run generate:types*/
 const API_DEVELOPMENT_URL =
   process.env.NEXT_PUBLIC_CARBONMARK_API_URL ?? API_PREVIEW_URL;
 

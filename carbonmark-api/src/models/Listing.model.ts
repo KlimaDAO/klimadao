@@ -1,6 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CategoryModel } from "./Category.model";
-import { CountryModel } from "./Country.model";
 import { Nullable } from "./Utility.model";
 
 const ListingSeller = Type.Object({
@@ -41,21 +39,11 @@ export const ListingModel = Type.Object(
     minFillAmount: Type.String({
       description: "Minimum quantity for purchase transaction to succeed.",
     }),
-    //@todo remove this and use the /projects endpoint to fetch
-    project: Nullable(
-      Type.Object({
-        id: Type.String(),
-        key: Type.String(),
-        name: Type.String(),
-        category: Nullable(CategoryModel),
-        country: Nullable(CountryModel),
-        methodology: Type.String(),
-        projectAddress: Type.String(),
-        projectID: Type.String(),
-        registry: Type.String(),
-        vintage: Type.String(),
-      })
-    ),
+    project: Type.Object({
+      id: Type.String(),
+      key: Type.String(),
+      vintage: Type.String(),
+    }),
   },
   {
     description: "Marketplace listing with per-tonne price and project info.",

@@ -11,7 +11,7 @@ const listing = aListing({
 });
 
 const projectWithListing = aProject({
-  projectID: "191",
+  id: "VCS-191-2008",
   registry: "VCS",
   listings: [listing],
   vintage: "2008",
@@ -26,6 +26,7 @@ const purchase: GetPurchaseByIdQuery["purchase"] = {
   listing: {
     id: "0x01",
     project: {
+      id: "VCS-191-2008",
       key: "VCS-191",
       vintage: "2008",
     },

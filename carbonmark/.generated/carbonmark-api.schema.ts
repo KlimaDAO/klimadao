@@ -328,85 +328,78 @@ export default {
                       "type": "string"
                     },
                     "project": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "string"
-                            },
-                            "key": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            },
-                            "category": {
-                              "anyOf": [
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "id"
-                                  ]
-                                },
-                                {
-                                  "type": "null"
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
                                 }
+                              },
+                              "required": [
+                                "id"
                               ]
                             },
-                            "country": {
-                              "anyOf": [
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "id"
-                                  ]
-                                },
-                                {
-                                  "type": "null"
-                                }
-                              ]
-                            },
-                            "methodology": {
-                              "type": "string"
-                            },
-                            "projectAddress": {
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "type": "string"
-                            },
-                            "registry": {
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "type": "string"
+                            {
+                              "type": "null"
                             }
-                          },
-                          "required": [
-                            "id",
-                            "key",
-                            "name",
-                            "methodology",
-                            "projectAddress",
-                            "projectID",
-                            "registry",
-                            "vintage"
                           ]
                         },
-                        {
-                          "type": "null"
+                        "country": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "methodology": {
+                          "type": "string"
+                        },
+                        "projectAddress": {
+                          "type": "string"
+                        },
+                        "projectID": {
+                          "type": "string"
+                        },
+                        "registry": {
+                          "type": "string"
+                        },
+                        "vintage": {
+                          "type": "string"
                         }
+                      },
+                      "required": [
+                        "id",
+                        "key",
+                        "name",
+                        "methodology",
+                        "projectAddress",
+                        "projectID",
+                        "registry",
+                        "vintage"
                       ]
                     }
                   },
@@ -417,7 +410,8 @@ export default {
                     "singleUnitPrice",
                     "totalAmountToSell",
                     "expiration",
-                    "minFillAmount"
+                    "minFillAmount",
+                    "project"
                   ]
                 }
               },
@@ -919,85 +913,78 @@ export default {
                   "type": "string"
                 },
                 "project": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "key": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "category": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
                             }
+                          },
+                          "required": [
+                            "id"
                           ]
                         },
-                        "country": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "methodology": {
-                          "type": "string"
-                        },
-                        "projectAddress": {
-                          "type": "string"
-                        },
-                        "projectID": {
-                          "type": "string"
-                        },
-                        "registry": {
-                          "type": "string"
-                        },
-                        "vintage": {
-                          "type": "string"
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "key",
-                        "name",
-                        "methodology",
-                        "projectAddress",
-                        "projectID",
-                        "registry",
-                        "vintage"
                       ]
                     },
-                    {
-                      "type": "null"
+                    "country": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
                     }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "methodology",
+                    "projectAddress",
+                    "projectID",
+                    "registry",
+                    "vintage"
                   ]
                 }
               },
@@ -1008,7 +995,8 @@ export default {
                 "singleUnitPrice",
                 "totalAmountToSell",
                 "expiration",
-                "minFillAmount"
+                "minFillAmount",
+                "project"
               ]
             }
           },
@@ -1465,85 +1453,78 @@ export default {
             "type": "string"
           },
           "project": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "key": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "category": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      },
-                      {
-                        "type": "null"
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
                       }
+                    },
+                    "required": [
+                      "id"
                     ]
                   },
-                  "country": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "methodology": {
-                    "type": "string"
-                  },
-                  "projectAddress": {
-                    "type": "string"
-                  },
-                  "projectID": {
-                    "type": "string"
-                  },
-                  "registry": {
-                    "type": "string"
-                  },
-                  "vintage": {
-                    "type": "string"
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "id",
-                  "key",
-                  "name",
-                  "methodology",
-                  "projectAddress",
-                  "projectID",
-                  "registry",
-                  "vintage"
                 ]
               },
-              {
-                "type": "null"
+              "country": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "methodology": {
+                "type": "string"
+              },
+              "projectAddress": {
+                "type": "string"
+              },
+              "projectID": {
+                "type": "string"
+              },
+              "registry": {
+                "type": "string"
+              },
+              "vintage": {
+                "type": "string"
               }
+            },
+            "required": [
+              "id",
+              "key",
+              "name",
+              "methodology",
+              "projectAddress",
+              "projectID",
+              "registry",
+              "vintage"
             ]
           }
         },
@@ -1554,7 +1535,8 @@ export default {
           "singleUnitPrice",
           "totalAmountToSell",
           "expiration",
-          "minFillAmount"
+          "minFillAmount",
+          "project"
         ]
       },
       "Methodology": {
@@ -1914,85 +1896,78 @@ export default {
                   "type": "string"
                 },
                 "project": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "key": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "category": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
                             }
+                          },
+                          "required": [
+                            "id"
                           ]
                         },
-                        "country": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ]
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "methodology": {
-                          "type": "string"
-                        },
-                        "projectAddress": {
-                          "type": "string"
-                        },
-                        "projectID": {
-                          "type": "string"
-                        },
-                        "registry": {
-                          "type": "string"
-                        },
-                        "vintage": {
-                          "type": "string"
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "key",
-                        "name",
-                        "methodology",
-                        "projectAddress",
-                        "projectID",
-                        "registry",
-                        "vintage"
                       ]
                     },
-                    {
-                      "type": "null"
+                    "country": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "methodology": {
+                      "type": "string"
+                    },
+                    "projectAddress": {
+                      "type": "string"
+                    },
+                    "projectID": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "type": "string"
+                    },
+                    "vintage": {
+                      "type": "string"
                     }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "methodology",
+                    "projectAddress",
+                    "projectID",
+                    "registry",
+                    "vintage"
                   ]
                 }
               },
@@ -2003,7 +1978,8 @@ export default {
                 "singleUnitPrice",
                 "totalAmountToSell",
                 "expiration",
-                "minFillAmount"
+                "minFillAmount",
+                "project"
               ]
             }
           },
@@ -2374,48 +2350,6 @@ export default {
     }
   },
   "paths": {
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/countries": {
       "get": {
         "summary": "Countries",
@@ -2449,6 +2383,48 @@ export default {
                     },
                     {
                       "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
                     }
                   ]
                 ]
@@ -2535,7 +2511,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1695949275",
+              "default": "1696209839",
               "type": "string"
             },
             "example": "1620000000",
@@ -2864,85 +2840,78 @@ export default {
                                   "type": "string"
                                 },
                                 "project": {
-                                  "anyOf": [
-                                    {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string"
-                                        },
-                                        "key": {
-                                          "type": "string"
-                                        },
-                                        "name": {
-                                          "type": "string"
-                                        },
-                                        "category": {
-                                          "anyOf": [
-                                            {
-                                              "type": "object",
-                                              "properties": {
-                                                "id": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "required": [
-                                                "id"
-                                              ]
-                                            },
-                                            {
-                                              "type": "null"
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "category": {
+                                      "anyOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
                                             }
+                                          },
+                                          "required": [
+                                            "id"
                                           ]
                                         },
-                                        "country": {
-                                          "anyOf": [
-                                            {
-                                              "type": "object",
-                                              "properties": {
-                                                "id": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "required": [
-                                                "id"
-                                              ]
-                                            },
-                                            {
-                                              "type": "null"
-                                            }
-                                          ]
-                                        },
-                                        "methodology": {
-                                          "type": "string"
-                                        },
-                                        "projectAddress": {
-                                          "type": "string"
-                                        },
-                                        "projectID": {
-                                          "type": "string"
-                                        },
-                                        "registry": {
-                                          "type": "string"
-                                        },
-                                        "vintage": {
-                                          "type": "string"
+                                        {
+                                          "type": "null"
                                         }
-                                      },
-                                      "required": [
-                                        "id",
-                                        "key",
-                                        "name",
-                                        "methodology",
-                                        "projectAddress",
-                                        "projectID",
-                                        "registry",
-                                        "vintage"
                                       ]
                                     },
-                                    {
-                                      "type": "null"
+                                    "country": {
+                                      "anyOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "id"
+                                          ]
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "methodology": {
+                                      "type": "string"
+                                    },
+                                    "projectAddress": {
+                                      "type": "string"
+                                    },
+                                    "projectID": {
+                                      "type": "string"
+                                    },
+                                    "registry": {
+                                      "type": "string"
+                                    },
+                                    "vintage": {
+                                      "type": "string"
                                     }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "key",
+                                    "name",
+                                    "methodology",
+                                    "projectAddress",
+                                    "projectID",
+                                    "registry",
+                                    "vintage"
                                   ]
                                 }
                               },
@@ -2953,7 +2922,8 @@ export default {
                                 "singleUnitPrice",
                                 "totalAmountToSell",
                                 "expiration",
-                                "minFillAmount"
+                                "minFillAmount",
+                                "project"
                               ]
                             }
                           },
@@ -3050,7 +3020,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1695949275",
+              "default": "1696209839",
               "type": "string"
             },
             "example": "1620000000",
@@ -3285,85 +3255,78 @@ export default {
                             "type": "string"
                           },
                           "project": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "key": {
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "type": "string"
-                                  },
-                                  "category": {
-                                    "anyOf": [
-                                      {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "id"
-                                        ]
-                                      },
-                                      {
-                                        "type": "null"
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
                                       }
+                                    },
+                                    "required": [
+                                      "id"
                                     ]
                                   },
-                                  "country": {
-                                    "anyOf": [
-                                      {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "id"
-                                        ]
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "methodology": {
-                                    "type": "string"
-                                  },
-                                  "projectAddress": {
-                                    "type": "string"
-                                  },
-                                  "projectID": {
-                                    "type": "string"
-                                  },
-                                  "registry": {
-                                    "type": "string"
-                                  },
-                                  "vintage": {
-                                    "type": "string"
+                                  {
+                                    "type": "null"
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "key",
-                                  "name",
-                                  "methodology",
-                                  "projectAddress",
-                                  "projectID",
-                                  "registry",
-                                  "vintage"
                                 ]
                               },
-                              {
-                                "type": "null"
+                              "country": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "id"
+                                    ]
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "methodology": {
+                                "type": "string"
+                              },
+                              "projectAddress": {
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
                               }
+                            },
+                            "required": [
+                              "id",
+                              "key",
+                              "name",
+                              "methodology",
+                              "projectAddress",
+                              "projectID",
+                              "registry",
+                              "vintage"
                             ]
                           }
                         },
@@ -3374,7 +3337,8 @@ export default {
                           "singleUnitPrice",
                           "totalAmountToSell",
                           "expiration",
-                          "minFillAmount"
+                          "minFillAmount",
+                          "project"
                         ]
                       }
                     },
@@ -4334,85 +4298,78 @@ export default {
                             "type": "string"
                           },
                           "project": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "key": {
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "type": "string"
-                                  },
-                                  "category": {
-                                    "anyOf": [
-                                      {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "id"
-                                        ]
-                                      },
-                                      {
-                                        "type": "null"
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
                                       }
+                                    },
+                                    "required": [
+                                      "id"
                                     ]
                                   },
-                                  "country": {
-                                    "anyOf": [
-                                      {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "id"
-                                        ]
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "methodology": {
-                                    "type": "string"
-                                  },
-                                  "projectAddress": {
-                                    "type": "string"
-                                  },
-                                  "projectID": {
-                                    "type": "string"
-                                  },
-                                  "registry": {
-                                    "type": "string"
-                                  },
-                                  "vintage": {
-                                    "type": "string"
+                                  {
+                                    "type": "null"
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "key",
-                                  "name",
-                                  "methodology",
-                                  "projectAddress",
-                                  "projectID",
-                                  "registry",
-                                  "vintage"
                                 ]
                               },
-                              {
-                                "type": "null"
+                              "country": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "id"
+                                    ]
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "methodology": {
+                                "type": "string"
+                              },
+                              "projectAddress": {
+                                "type": "string"
+                              },
+                              "projectID": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string"
+                              },
+                              "vintage": {
+                                "type": "string"
                               }
+                            },
+                            "required": [
+                              "id",
+                              "key",
+                              "name",
+                              "methodology",
+                              "projectAddress",
+                              "projectID",
+                              "registry",
+                              "vintage"
                             ]
                           }
                         },
@@ -4423,7 +4380,8 @@ export default {
                           "singleUnitPrice",
                           "totalAmountToSell",
                           "expiration",
-                          "minFillAmount"
+                          "minFillAmount",
+                          "project"
                         ]
                       }
                     },

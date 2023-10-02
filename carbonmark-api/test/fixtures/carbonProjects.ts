@@ -16,6 +16,7 @@ const project = aProject({
   country: "China",
   registry: "VCS",
   registryProjectId: "191",
+  region: "Asia",
 });
 
 // Generated types are wrong, id is string - https://github.com/KlimaDAO/klimadao/issues/1500

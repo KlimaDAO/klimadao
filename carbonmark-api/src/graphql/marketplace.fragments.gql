@@ -11,6 +11,9 @@ fragment ListingFragment on Listing {
   seller {
     id
   }
+  project {
+    ...ProjectFragment
+  }
   expiration
   minFillAmount
 }
@@ -18,17 +21,7 @@ fragment ListingFragment on Listing {
 fragment ProjectFragment on Project {
   id
   key
-  projectID
-  name
   vintage
-  projectAddress
-  registry
-  methodology
-  projectType
-  region
-  category {
-    id
-  }
 }
 
 fragment ActivityFragment on Activity {
