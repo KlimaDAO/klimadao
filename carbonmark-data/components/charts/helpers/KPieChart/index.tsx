@@ -17,6 +17,7 @@ interface Props<CI extends { quantity: number }, T extends object> {
   LegendProps?: Omit<LegendProps, "ref">;
   showLegend?: boolean;
   showPercentageInLegend?: boolean;
+  showTooltip?: boolean;
   legendContent?: ContentType;
   noDataText?: string;
   YAxis?: YAxisType;
@@ -55,7 +56,7 @@ export default function KPieChart<
     return record;
   });
   // Conpute legend props
-  const LocalLegendProps =
+  const localLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(configuration), {
       verticalAlign: "middle",
@@ -63,6 +64,8 @@ export default function KPieChart<
       layout: "vertical",
     });
   const showLegend = props.showLegend === undefined ? true : props.showLegend;
+  const showTooltip =
+    props.showTooltip === undefined ? true : props.showTooltip;
 
   // Used to programmaticaly show/Hide tooltips see: https://codesandbox.io/s/recharts-programmatically-show-tooltip-bhfnwt?file=/src/App.tsx:666-700
   const chartRef = useRef<any>();
@@ -101,7 +104,6 @@ export default function KPieChart<
       isTooltipActive: false,
     });
   };
-
   return (
     <ChartWrapper data={chartData} noDataText={props.noDataText}>
       <PieChart ref={chartRef}>
@@ -116,17 +118,19 @@ export default function KPieChart<
             <Cell key={entry.id} fill={entry.color} />
           ))}
         </Pie>
-        <Tooltip
-          {...{
-            content: KlimaTooltip({
-              yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
-            }),
-            cursor: { fill: "transparent" },
-          }}
-        />
+        {showTooltip && (
+          <Tooltip
+            {...{
+              content: KlimaTooltip({
+                yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
+              }),
+              cursor: { fill: "transparent" },
+            }}
+          />
+        )}
         {showLegend && (
           <Legend
-            {...LocalLegendProps}
+            {...localLegendProps}
             content={props.legendContent}
             onMouseOver={legendItemOnMouseOver}
             onMouseLeave={legendItemOnMouseLeave}

@@ -12,7 +12,7 @@ import {
 
 /** FIXME: Refactor to KlimaLineChart */
 export default function KLineChart<T extends object>(props: ChartProps<T>) {
-  const LocalLegendProps =
+  const localLegendProps =
     props.LegendProps ||
     Object.assign(
       {},
@@ -26,7 +26,7 @@ export default function KLineChart<T extends object>(props: ChartProps<T>) {
         <XAxis {...getXAxisProps(props)} />
         <YAxis {...getYAxisProps(props)} />
         <Tooltip {...getKlimaTooltipProps(props)} />
-        <Legend {...LocalLegendProps} />
+        <Legend {...localLegendProps} />
         {KlimaLines(props.configuration)}
       </LineChart>
     </ChartWrapper>

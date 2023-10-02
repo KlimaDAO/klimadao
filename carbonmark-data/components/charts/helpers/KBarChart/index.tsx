@@ -12,7 +12,7 @@ import {
 
 /** FIXME: Refactor to KlimaBarChart */
 export default function KBarChart<T extends object>(props: ChartProps<T>) {
-  const LocalLegendProps =
+  const localLegendProps =
     props.LegendProps ||
     Object.assign(
       {},
@@ -25,7 +25,7 @@ export default function KBarChart<T extends object>(props: ChartProps<T>) {
         {props.XAxis && <XAxis {...getXAxisProps(props)} />}
         {props.YAxis && <YAxis {...getYAxisProps(props)} />}
         <Tooltip {...getKlimaTooltipProps(props)} />
-        <Legend {...LocalLegendProps} />
+        <Legend {...localLegendProps} />
         {KlimaStackedBars(props.configuration)}
       </BarChart>
     </ChartWrapper>
