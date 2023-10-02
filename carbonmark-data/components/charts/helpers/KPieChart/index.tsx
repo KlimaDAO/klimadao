@@ -28,15 +28,6 @@ export default function KPieChart<
 >(props: Props<CI, T>) {
   // Copy configuration because we are going to alter it
   const configuration = cloneDeep(props.configuration);
-  // Default configuration
-  const LocalLegendProps =
-    props.LegendProps ||
-    Object.assign({}, KlimaLegendProps(configuration), {
-      verticalAlign: "middle",
-      align: "center",
-      layout: "vertical",
-    });
-  const showLegend = props.showLegend === undefined ? true : props.showLegend;
   const nonZeroData = props.data.filter((item) => item.quantity > 0);
   const total = nonZeroData.reduce((previousValue, item) => {
     return previousValue + item.quantity;
@@ -63,6 +54,15 @@ export default function KPieChart<
     chartOptions.label = label;
     return record;
   });
+  // Conpute legend props
+  const LocalLegendProps =
+    props.LegendProps ||
+    Object.assign({}, KlimaLegendProps(configuration), {
+      verticalAlign: "middle",
+      align: "center",
+      layout: "vertical",
+    });
+  const showLegend = props.showLegend === undefined ? true : props.showLegend;
 
   // Used to programmaticaly show/Hide tooltips see: https://codesandbox.io/s/recharts-programmatically-show-tooltip-bhfnwt?file=/src/App.tsx:666-700
   const chartRef = useRef<any>();
@@ -70,7 +70,6 @@ export default function KPieChart<
     if (!chartRef.current) {
       return;
     }
-    console.log(chartRef.current.state);
 
     const graphicalItems = chartRef.current.state.formattedGraphicalItems[0];
     let activeItem: any = undefined;
@@ -80,13 +79,8 @@ export default function KPieChart<
         activeItem = graphicalItems.props.sectors[index];
       }
     }
-    console.log(activeItem, graphicalItems.props);
-
     if (!activeItem) {
-      console.error(
-        "check chart state! previous versions have 'formattedGraphicalItems' with two 't', or state structure changed",
-        chartRef.current.state
-      );
+      console.error("check chart state!", chartRef.current.state);
       return;
     }
 
@@ -109,14 +103,12 @@ export default function KPieChart<
   };
 
   return (
-    <ChartWrapper data={nonZeroData} noDataText={props.noDataText}>
+    <ChartWrapper data={chartData} noDataText={props.noDataText}>
       <PieChart ref={chartRef}>
         <Pie
           data={props.data}
           dataKey="quantity"
           nameKey="label"
-          cx="50%"
-          cy="50%"
           innerRadius="93%"
           outerRadius="100%"
         >
