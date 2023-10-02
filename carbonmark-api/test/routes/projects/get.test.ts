@@ -118,6 +118,7 @@ describe("GET /projects", () => {
           "description",
           "name",
           "methodologies",
+          "region",
         ]),
         // applies short_description property from cms
         short_description:
@@ -135,7 +136,6 @@ describe("GET /projects", () => {
         price: poolPrices.bct.defaultPrice,
         listings: null,
         key: bridgedCarbon.offset.projectID,
-        region: "",
         location: {
           geometry: {
             coordinates: [
@@ -156,7 +156,6 @@ describe("GET /projects", () => {
     expect(data).toStrictEqual(expectedResponse);
   });
 
-  //** FYI This test will fail if no matching offset exists in the mock */
   test("Composes a marketplace listing with cms data", async () => {
     nock(GRAPH_URLS["polygon"].offsets)
       .post("")
@@ -173,12 +172,7 @@ describe("GET /projects", () => {
 
     const expectedResponse = [
       {
-        ...pick(marketplace.projectWithListing, [
-          "projectAddress",
-          "vintage",
-          "projectID",
-          "registry",
-        ]),
+        ...pick(marketplace.projectWithListing, ["key", "vintage"]),
         ...pick(carbonProjects.carbonProject, [
           "description",
           "name",
@@ -206,7 +200,6 @@ describe("GET /projects", () => {
             "singleUnitPrice",
           ]),
         ],
-        key: `${marketplace.projectWithListing.registry}-${marketplace.projectWithListing.projectID}`,
         location: {
           geometry: {
             coordinates: [

@@ -1,6 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CategoryModel } from "./Category.model";
-import { CountryModel } from "./Country.model";
 import { Nullable } from "./Utility.model";
 
 const ListingSeller = Type.Object({
@@ -44,13 +42,6 @@ export const ListingModel = Type.Object(
     project: Type.Object({
       id: Type.String(),
       key: Type.String(),
-      name: Type.String(),
-      category: Nullable(CategoryModel),
-      country: Nullable(CountryModel),
-      methodology: Type.String(),
-      projectAddress: Type.String(),
-      projectID: Type.String(),
-      registry: Type.String(),
       vintage: Type.String(),
     }),
   },
