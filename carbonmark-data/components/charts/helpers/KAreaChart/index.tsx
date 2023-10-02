@@ -14,7 +14,11 @@ import {
 export default function KAreaChart<T extends object>(props: ChartProps<T>) {
   const LocalLegendProps =
     props.LegendProps ||
-    Object.assign({}, KlimaLegendProps(props.configuration), BOTTOM_LEFT_LEGEND_PROPS);
+    Object.assign(
+      {},
+      KlimaLegendProps(props.configuration),
+      BOTTOM_LEFT_LEGEND_PROPS
+    );
 
   return (
     <ChartWrapper data={props.data} noDataText={props.noDataText}>
