@@ -187,7 +187,8 @@ export const formatQuantityAsTons = function (quantity: number): string {
   return `${quantity} T`;
 };
 export const formatPrice = function (price: number): string {
-  return new Intl.NumberFormat(currentLocale(), {
+  // Enforce prices formatting in english locale ($0.00)
+  return new Intl.NumberFormat("en", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 2,
