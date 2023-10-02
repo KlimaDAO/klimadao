@@ -7,6 +7,7 @@ import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
+import { VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
 import { FC, useState } from "react";
@@ -150,7 +151,7 @@ export const EditProfile: FC<Props> = (props) => {
                       message: t`Handle is required`,
                     },
                     pattern: {
-                      value: /^[a-zA-Z0-9]+$/, // no special characters!
+                      value: VALID_HANDLE_REGEX, // no special characters!
                       message: t`Handle should not contain any special characters`,
                     },
                     validate: {
