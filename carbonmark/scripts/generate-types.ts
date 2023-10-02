@@ -1,6 +1,6 @@
 import fs from "fs";
-import { urls } from "lib/constants";
 import path from "path";
+import { urls } from "../lib/constants";
 
 const SCHEMA_URL = `${urls.api.base}/openapi.json`;
 
@@ -12,6 +12,7 @@ const SCHEMA_URL = `${urls.api.base}/openapi.json`;
  *
  * Note: Uncomment the localhost SCHEMA_URL to develop against a local API instance.
  */
+
 (async function () {
   const resp = await fetch(SCHEMA_URL);
 

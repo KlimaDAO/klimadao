@@ -11,6 +11,9 @@ fragment ListingFragment on Listing {
   seller {
     id
   }
+  project {
+    ...ProjectFragment
+  }
   expiration
   minFillAmount
 }
