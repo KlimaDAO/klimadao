@@ -13,9 +13,9 @@ interface Props {
 
 /** Init the web3Modal and expose via react context  */
 export const Web3ContextProvider: FC<Props> = ({ appName, children }) => {
-  const providerState = useProvider();
-  const [showModal, setShowModal] = useState(false);
   const [ignoreChainId, setIgnoreChainId] = useState(false);
+  const providerState = useProvider({ ignoreChainId });
+  const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal((s) => !s);
   const renderModal = useCallback(
     (props: RenderModalProps) => (

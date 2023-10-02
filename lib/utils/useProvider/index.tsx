@@ -29,8 +29,12 @@ const getWeb3Provider = (p: any): TypedProvider => {
   return new providers.Web3Provider(p) as TypedProvider;
 };
 
+type UseProviderProps = {
+  ignoreChainId?: boolean;
+} | undefined;
+
 /** React Hook to create and manage the web3Modal lifecycle */
-export const useProvider = (): Web3ModalState => {
+export const useProvider = (props: UseProviderProps): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
 
   const disconnect = async () => {
@@ -173,6 +177,7 @@ export const useProvider = (): Web3ModalState => {
       }
     };
     const handleChainChanged = () => {
+      if (props?.ignoreChainId) return;
       window.location.reload();
     };
     const handleDisconnect = () => {
@@ -201,7 +206,7 @@ export const useProvider = (): Web3ModalState => {
         handleDisconnect
       );
     };
-  }, [web3state.provider]);
+  }, [web3state.provider, props]);
 
   return {
     ...(web3state as Web3ModalState),
