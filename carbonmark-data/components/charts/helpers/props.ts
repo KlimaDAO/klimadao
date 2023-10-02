@@ -50,7 +50,10 @@ export type YAxisType = "tons" | "price" | "percentage" | undefined;
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   const locale = currentLocale();
   // Default format months
-  let XAxisProps: XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField);
+  let XAxisProps: XAxisProps = KlimaXAxisMonthlyProps<T>(
+    props.data,
+    props.dateField
+  );
   if (props.XAxis == "days") {
     XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField);
   }
@@ -123,3 +126,10 @@ export function getKlimaTooltipProps<T extends object>(props: ChartProps<T>) {
     cursor: { fill: "transparent" },
   };
 }
+
+export const BOTTOM_LEFT_LEGEND_PROPS = {
+  layout: "horizontal",
+  verticalAlign: "bottom",
+  align: "left",
+  wrapperStyle: { marginLeft: "0.4rem", paddingTop: "0.2rem" },
+};

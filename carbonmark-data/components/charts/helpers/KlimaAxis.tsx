@@ -20,11 +20,19 @@ const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
   axisLine: true,
 });
 /** XAxis Tick formatter that optimize anchoring for the first and last ticks */
-function XAxisTickFormatter(props:any) {
-  const textAnchor = props.index== 0 ? "begin" :
-    props.index== props.visibleTicksCount-1 ? "end" : "middle"
+function XAxisTickFormatter(props: any) {
+  const textAnchor =
+    props.index == 0
+      ? "begin"
+      : props.index == props.visibleTicksCount - 1
+      ? "end"
+      : "middle";
 
-return <Text {...props} textAnchor={textAnchor} fontSize={props.dy}>{props.tickFormatter(props.payload.value)}</Text>
+  return (
+    <Text {...props} textAnchor={textAnchor} fontSize={props.dy}>
+      {props.tickFormatter(props.payload.value)}
+    </Text>
+  );
 }
 /** XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
@@ -36,7 +44,7 @@ export function KlimaXAxisMonthlyProps<T>(
     dataKey: dataKey as string,
     tickFormatter: helpers.formatDateAsMonths,
     ticks: helpers.niceTicks(data, dataKey),
-    tick: <XAxisTickFormatter />
+    tick: <XAxisTickFormatter />,
   });
 }
 /** XAxis props to display ticks as days */
