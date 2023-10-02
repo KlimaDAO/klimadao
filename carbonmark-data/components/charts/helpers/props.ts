@@ -65,7 +65,6 @@ export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   if (props.XAxis == "methodology") {
     XAxisProps = KlimaXAxisMethodologyProps<T>(props.data, props.dateField);
   }
-
   return XAxisProps;
 }
 export function getYAxisProps<T extends object>(props: ChartProps<T>) {

@@ -10,9 +10,12 @@ export async function getMonthlyRetirementsByOriginInPercent(
   const data = (
     await queryMonthlyRetirementsByOrigin({
       sort_by: "retirement_date",
-      sort_order: "asc",
-      page_size: -1,
+      sort_order: "desc",
+      page_size: 24,
     })
   ).items;
+  data.sort((item1, item2) => {
+    return item1.retirement_date > item2.retirement_date ? 1 : -1;
+  });
   return transformToPercentages(data, configuration);
 }

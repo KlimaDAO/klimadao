@@ -49,6 +49,7 @@ async function RetirementsByChainBarChart() {
       configuration={configuration}
       data={data}
       YAxis="percentage"
+      XAxis="months"
       dateField="retirement_date"
     />
   );

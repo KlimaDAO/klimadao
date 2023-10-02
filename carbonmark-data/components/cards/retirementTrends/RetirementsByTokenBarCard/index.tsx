@@ -58,6 +58,7 @@ async function RetirementsByTokenBarChart() {
       configuration={configuration}
       data={data}
       YAxis="percentage"
+      XAxis="months"
       dateField="date"
     />
   );

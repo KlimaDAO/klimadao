@@ -74,6 +74,7 @@ async function RetirementsByPoolBarChart() {
       configuration={configuration}
       data={data}
       YAxis="percentage"
+      XAxis="months"
       dateField="retirement_date"
     />
   );
