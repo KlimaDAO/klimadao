@@ -13,7 +13,7 @@ import {
   Status,
 } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
-import { LegendProps } from "recharts";
+import { LegendProps, XAxisProps } from "recharts";
 import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
@@ -50,7 +50,7 @@ export type YAxisType = "tons" | "price" | "percentage" | undefined;
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   const locale = currentLocale();
   // Default format months
-  let XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField);
+  let XAxisProps: XAxisProps = KlimaXAxisMonthlyProps<T>(props.data, props.dateField);
   if (props.XAxis == "days") {
     XAxisProps = KlimaXAxisDailyProps<T>(props.data, props.dateField);
   }
