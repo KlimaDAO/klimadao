@@ -53,6 +53,8 @@ const ENVIRONMENT: Environment =
 
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
+/** No special chars */
+export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
 
 export const getConnectErrorStrings = () => ({
   default: t({
