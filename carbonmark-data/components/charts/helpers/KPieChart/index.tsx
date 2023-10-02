@@ -4,6 +4,7 @@ import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage } from "lib/charts/helpers";
 import { ChartData } from "lib/charts/types";
 import { cloneDeep } from "lodash";
+import { useRef } from "react";
 import { Cell, Legend, LegendProps, Pie, PieChart, Tooltip } from "recharts";
 import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import ChartWrapper from "../ChartWrapper";
@@ -63,9 +64,53 @@ export default function KPieChart<
     return record;
   });
 
+  // Used to programmaticaly show/Hide tooltips see: https://codesandbox.io/s/recharts-programmatically-show-tooltip-bhfnwt?file=/src/App.tsx:666-700
+  const chartRef = useRef<any>();
+  const legendItemOnMouseOver = (item: any) => {
+    if (!chartRef.current) {
+      return;
+    }
+    console.log(chartRef.current.state);
+
+    const graphicalItems = chartRef.current.state.formattedGraphicalItems[0];
+    let activeItem: any = undefined;
+    let index = 0;
+    for (; index < graphicalItems.props.data.length; index++) {
+      if (graphicalItems.props.data[index].id == item.id) {
+        activeItem = graphicalItems.props.sectors[index];
+      }
+    }
+    console.log(activeItem, graphicalItems.props);
+
+    if (!activeItem) {
+      console.error(
+        "check chart state! previous versions have 'formattedGraphicalItems' with two 't', or state structure changed",
+        chartRef.current.state
+      );
+      return;
+    }
+
+    chartRef.current.setState(
+      {
+        activeTooltipIndex: index,
+      },
+      () => {
+        chartRef.current.handleItemMouseEnter(activeItem);
+      }
+    );
+  };
+  const legendItemOnMouseLeave = () => {
+    if (!chartRef.current) {
+      return;
+    }
+    chartRef.current.setState({
+      isTooltipActive: false,
+    });
+  };
+
   return (
     <ChartWrapper data={nonZeroData} noDataText={props.noDataText}>
-      <PieChart>
+      <PieChart ref={chartRef}>
         <Pie
           data={props.data}
           dataKey="quantity"
@@ -88,7 +133,12 @@ export default function KPieChart<
           }}
         />
         {showLegend && (
-          <Legend {...LocalLegendProps} content={props.legendContent} />
+          <Legend
+            {...LocalLegendProps}
+            content={props.legendContent}
+            onMouseOver={legendItemOnMouseOver}
+            onMouseLeave={legendItemOnMouseLeave}
+          />
         )}
       </PieChart>
     </ChartWrapper>
