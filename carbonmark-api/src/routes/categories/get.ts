@@ -1,6 +1,6 @@
 import { Static } from "@sinclair/typebox";
 import { FastifyInstance, RouteHandler } from "fastify";
-import { gql_sdk } from "../../utils/gqlSdk";
+import { gql_sdk } from "src/utils/gqlSdk";
 import { getAllCategories } from "../../utils/helpers/utils";
 import { QueryString } from "../users/get.schema";
 import { schema } from "./get.schema";

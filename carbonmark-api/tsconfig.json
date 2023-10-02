@@ -6,7 +6,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "useUnknownInCatchVariables": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"],
+      "@klimadao/*": ["../*"]
+    }
   },
   "include": ["src/**/*.ts", "scripts/**/*.ts"]
 }
