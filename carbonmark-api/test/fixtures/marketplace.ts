@@ -20,9 +20,9 @@ const projectWithListing = aProject({
 
 /** marketplace.getPurchaseById() */
 const purchase: GetPurchaseByIdQuery["purchase"] = {
-  amount: "1000000000000000000", // 1t
+  amount: "1000000000000000000", // 1 tonne
   id: "0xfe2949e3644b88d2e00e5f84f6266c191dbb0379a18e00a18192116de7c5c779",
-  price: "1000000", // $1
+  price: "5000000", // 5 USDC
   listing: {
     id: "0x01",
     project: {

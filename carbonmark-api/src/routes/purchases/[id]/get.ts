@@ -1,4 +1,5 @@
 import { Static } from "@sinclair/typebox";
+import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { isNil } from "lodash";
 import { Purchase } from "../../../models/Purchase.model";
@@ -35,7 +36,9 @@ const handler = async (
   });
 
   const response: Purchase = {
-    ...purchase,
+    id: purchase.id,
+    amount: utils.formatUnits(purchase.amount, 18),
+    price: utils.formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,
       project: {
