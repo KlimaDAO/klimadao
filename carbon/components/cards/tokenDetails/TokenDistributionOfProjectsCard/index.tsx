@@ -9,10 +9,7 @@ import ChartCard, { CardProps } from "../../ChartCard";
 export default function TokenDistributionOfProjectsCard(
   props: CardProps & TokenDetailsProps
 ) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <CreditsDistributionOfProjectsChart {...props} />
-  );
+  const chart = <CreditsDistributionOfProjectsChart {...props} />;
 
   return (
     <ChartCard

@@ -16,7 +16,7 @@ export type CoinTilesData = Array<CoinTileData>;
 export type CoinTilesLayout = "row" | "column";
 interface Props {
   data: CoinTilesData;
-  layout: CoinTilesLayout;
+  layout?: CoinTilesLayout;
 }
 export function CoinTile(props: { data: CoinTileData }) {
   return (

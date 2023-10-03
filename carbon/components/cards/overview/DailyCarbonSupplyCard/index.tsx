@@ -10,11 +10,10 @@ import { NodeDictionnary } from "lib/charts/types";
 /** Verra Credits Card */
 export default function DailyCarbonSupplyOverviewCard(props: CardProps) {
   const charts: NodeDictionnary = {
-    /* @ts-expect-error async Server component */
     polygon: <DailyPolygonCarbonSupplyChart />,
-    /* @ts-expect-error async Server component */
+
     eth: <DailyEthCarbonSupplyChart />,
-    /* @ts-expect-error async Server component */
+
     celo: <DailyCeloCarbonSupplyChart />,
   };
   return (

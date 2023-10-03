@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 export default function PaginatedTable<RI>(props: {
   configurationKey: ConfigurationKey;
   page: number;
-  params: object;
+  params?: object;
 }) {
   const [data, setData] = useState<PaginatedResponse<RI> | null>(null);
   useEffect(() => {

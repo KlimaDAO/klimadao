@@ -15,10 +15,7 @@ import { CarbonMetricsItem } from "lib/charts/types";
 
 /** Klima DAO Retirements by token Card */
 export default function RetirementsByChainOverviewCard(props: CardProps) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByChainOverviewChart />
-  );
+  const chart = <RetirementsByChainOverviewChart />;
 
   return (
     <ChartCard
@@ -32,7 +29,7 @@ export default function RetirementsByChainOverviewCard(props: CardProps) {
 
 /** Async server component */
 async function RetirementsByChainOverviewChart(props: {
-  layout: CoinTilesLayout;
+  layout?: CoinTilesLayout;
 }) {
   const metrics: CarbonMetricsItem = await getLatestCarbonMetrics();
   const onChainTotalTonnesRetired = metrics.total_retirements;

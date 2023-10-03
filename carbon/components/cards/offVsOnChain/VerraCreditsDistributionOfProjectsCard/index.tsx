@@ -13,10 +13,7 @@ export default function VerraCreditsDistributionOfProjectsCard(
     status: props.status,
     since: "lifetime",
   };
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <CreditsDistributionOfProjectsChart {...params} />
-  );
+  const chart = <CreditsDistributionOfProjectsChart {...params} />;
   const detailUrl =
     props.status == "issued"
       ? "/details/verra-credits-issued-by-project-type"

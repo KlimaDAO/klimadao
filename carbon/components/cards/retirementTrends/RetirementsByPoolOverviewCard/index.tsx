@@ -13,10 +13,7 @@ import { getTokenFullName, getTokenIcon } from "lib/tokens";
 
 /** Klima DAO Retirements by pool Card */
 export default function RetirementsByPoolOverviewCard(props: CardProps) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByPoolOverviewChart />
-  );
+  const chart = <RetirementsByPoolOverviewChart />;
 
   return (
     <ChartCard
@@ -31,7 +28,7 @@ export default function RetirementsByPoolOverviewCard(props: CardProps) {
 /** Async server component
  */
 async function RetirementsByPoolOverviewChart(props: {
-  layout: CoinTilesLayout;
+  layout?: CoinTilesLayout;
 }) {
   const metrics: CarbonMetricsItem = await getLatestCarbonMetrics();
 

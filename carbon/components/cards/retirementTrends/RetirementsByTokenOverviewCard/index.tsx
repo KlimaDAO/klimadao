@@ -12,10 +12,7 @@ import { getProtocolFullName, getProtocolIcon } from "lib/protocols";
 
 /** Klima DAO Retirements by token Card */
 export default function RetirementsByTokenOverviewCard(props: CardProps) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByTokenOverviewChart />
-  );
+  const chart = <RetirementsByTokenOverviewChart />;
 
   return (
     <ChartCard
@@ -30,7 +27,7 @@ export default function RetirementsByTokenOverviewCard(props: CardProps) {
 /** Async server component
  */
 async function RetirementsByTokenOverviewChart(props: {
-  layout: CoinTilesLayout;
+  layout?: CoinTilesLayout;
 }) {
   const metrics: CarbonMetricsItem = await getLatestCarbonMetrics();
 

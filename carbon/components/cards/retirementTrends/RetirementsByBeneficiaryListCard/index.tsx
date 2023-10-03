@@ -4,7 +4,6 @@ import DataTable from "components/charts/helpers/DataTable";
 
 export default function RetirementsByBeneficiaryListCard(props: CardProps) {
   const chart = (
-    /* @ts-expect-error async Server component */
     <DataTable configurationKey="KlimaRetirementsByBeneficiaryList"></DataTable>
   );
 

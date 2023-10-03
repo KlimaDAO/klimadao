@@ -3,10 +3,7 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DataTable from "components/charts/helpers/DataTable";
 
 export default function RetirementsByPoolListCard(props: CardProps) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <DataTable configurationKey="KlimaRetirementsByPoolList" />
-  );
+  const chart = <DataTable configurationKey="KlimaRetirementsByPoolList" />;
 
   return (
     <ChartCard

@@ -17,10 +17,7 @@ export default function TokenDistributionOfVintageCard(
   if (props.pool != "all" && props.status != "retired") {
     return <></>;
   }
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <TokenDistributionOfVintageChart {...props} />
-  );
+  const chart = <TokenDistributionOfVintageChart {...props} />;
 
   return (
     <ChartCard

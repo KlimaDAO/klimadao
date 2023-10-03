@@ -32,10 +32,7 @@ export default function DailyVerraCreditsCard(
     },
   ];
 
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <DailyCreditsChart configuration={configuration} />
-  );
+  const chart = <DailyCreditsChart configuration={configuration} />;
   const title =
     props.status == "issued"
       ? t`Cummulative Verra registry credits issued over time`

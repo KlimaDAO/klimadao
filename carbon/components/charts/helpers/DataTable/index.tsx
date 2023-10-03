@@ -27,7 +27,7 @@ import NoDataWrapper from "../NoDataWrapper";
  */
 export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
-  params: object;
+  params?: object;
   withPagination?: boolean;
 }) {
   const withPagination = props.withPagination || true;

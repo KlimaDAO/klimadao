@@ -18,10 +18,7 @@ export default function TokenStateOfDigitalCarbonCard(
   props: CardProps & TokenDetailsProps
 ) {
   // No methodologies card for retired credits on particular pools
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <TokenStateOfDigitalCarbonChart {...props} />
-  );
+  const chart = <TokenStateOfDigitalCarbonChart {...props} />;
 
   return (
     <ChartCard

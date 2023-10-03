@@ -17,10 +17,7 @@ export default function TokenDistributionOfMethodologiesCard(
   if (props.pool != "all" && props.status != "retired") {
     return <></>;
   }
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <TokenDistributionOfMethodologiesChart {...props} />
-  );
+  const chart = <TokenDistributionOfMethodologiesChart {...props} />;
 
   return (
     <ChartCard

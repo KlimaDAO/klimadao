@@ -66,10 +66,7 @@ export default function DailyCarbonSupplyByProtocolCard(
     },
   ];
 
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <DailyCreditsChart configuration={configuration} />
-  );
+  const chart = <DailyCreditsChart configuration={configuration} />;
   const title =
     props.status == "issued"
       ? t`Cummulative Verra registry credits tokenized over time`

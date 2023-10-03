@@ -8,10 +8,7 @@ import { palette } from "theme/palette";
 
 /** Klima DAO Retirements by pool Card */
 export default function RetirementsByTokenBarCard(props: CardProps) {
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByTokenBarChart />
-  );
+  const chart = <RetirementsByTokenBarChart />;
 
   return (
     <ChartCard
