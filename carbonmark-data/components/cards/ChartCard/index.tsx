@@ -10,9 +10,11 @@ import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 
 export type DetailUrlPosition = "top" | "bottom" | "none";
+export type BottomOptionsPosition = "left" | "center";
 export type CardProps = {
   isDetailPage?: boolean;
   centerTitle?: boolean;
+  bottomOptionsPosition?: BottomOptionsPosition;
 };
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -24,21 +26,22 @@ export type CardProps = {
  * isDetailPage: Is this card displayed on a detail page
  * topOptions: Options to be displayed at the top of the card
  * bottomOptions: Options to be displayed at the bottom of the card
+ * bottomOptionsPosition: Position of the bottom options
  * isColumnCard: Is this card used in a column? In this case there will be no constraint on the card height.
  */
-export default function ChartCard<T extends Key, B extends Key>(props: {
-  charts?: Record<string, React.ReactNode>;
-  chart?: React.ReactNode;
-  title: string;
-  centerTitle?: boolean;
-  detailUrl?: string;
-  detailUrlPosition?: DetailUrlPosition;
-  isDetailPage?: boolean;
-  topOptions?: Options<T>;
-  bottomOptions?: Options<B>;
-  // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
-  isColumnCard?: boolean;
-}) {
+export default function ChartCard<T extends Key, B extends Key>(
+  props: {
+    charts?: Record<string, React.ReactNode>;
+    chart?: React.ReactNode;
+    title: string;
+    detailUrl?: string;
+    detailUrlPosition?: DetailUrlPosition;
+    topOptions?: Options<T>;
+    bottomOptions?: Options<B>;
+    // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
+    isColumnCard?: boolean;
+  } & CardProps
+) {
   const [topOptionKey, setTopOptionKey] = useState<T | undefined>(
     props.topOptions ? props.topOptions[0].value : undefined
   );
@@ -48,6 +51,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
   const isDetailPage = props.isDetailPage || false;
   const roleDescription = isDetailPage ? "detailPage" : "mainPage";
   const detailUrlPosition = props.detailUrlPosition || "top";
+  const bottomOptionsPosition = props.bottomOptionsPosition || "center";
   let detailUrlComponent = <></>;
   if (props.detailUrl && !isDetailPage) {
     detailUrlComponent = (
@@ -88,14 +92,21 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
       return props.charts[displayedKey] || props.charts["default"] || <></>;
     }
   }
-  let className = styles.cardContainer;
+  // Card class computation
+  let cardClassName = styles.cardContainer;
   if (props.isColumnCard) {
   } else {
-    className = `${className} ${styles.rowCardContainer}`;
+    cardClassName = `${cardClassName} ${styles.rowCardContainer}`;
+  }
+
+  // Footer class computation
+  let footerClassName = styles.cardFooter;
+  if (bottomOptionsPosition == "center") {
+    footerClassName = `${footerClassName} ${styles.overlapLegend}`;
   }
 
   return (
-    <div className={className} aria-roledescription={roleDescription}>
+    <div className={cardClassName} aria-roledescription={roleDescription}>
       <div className={styles.cardHeader}>
         <h2 className={cardHeaderTitleStyle}>{props.title}</h2>
         {props.topOptions && (
@@ -111,7 +122,7 @@ export default function ChartCard<T extends Key, B extends Key>(props: {
       <div className={styles.cardContent}>
         <Suspense fallback={<Skeleton />}>{displayedChart()}</Suspense>
       </div>
-      <div className={styles.cardFooter}>
+      <div className={footerClassName}>
         {props.topOptions && (
           <div className={styles.cardFooterSwitcher}>
             <OptionsSwitcher
