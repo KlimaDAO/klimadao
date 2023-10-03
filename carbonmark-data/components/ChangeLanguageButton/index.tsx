@@ -28,7 +28,7 @@ export const ChangeLanguageButton: FC<{ className?: string }> = ({
         <div aria-describedby="tooltip-content">
           {Object.keys(locales).map((localeKey) => (
             <Link key={localeKey} locale={localeKey} href={href}>
-              <Button>{locales[localeKey].label}</Button>
+              {locales[localeKey].label}
             </Link>
           ))}
         </div>
