@@ -1,4 +1,4 @@
-import { formatUnits } from "ethers-v6";
+import { utils } from "ethers";
 import {
   GetProjectsQuery,
   Listing,
@@ -34,10 +34,10 @@ type GetProjectListing = NonNullable<
 export const formatListing = (listing: GetProjectListing): ListingModel => {
   return {
     ...listing,
-    leftToSell: formatUnits(listing.leftToSell, 18),
-    singleUnitPrice: formatUnits(listing.singleUnitPrice, 6),
-    minFillAmount: formatUnits(listing.minFillAmount, 18),
-    totalAmountToSell: formatUnits(listing.totalAmountToSell, 18),
+    leftToSell: utils.formatUnits(listing.leftToSell, 18),
+    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
+    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
+    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
     project: {
       ...listing.project,
       category: listing.project.category?.id || "",
