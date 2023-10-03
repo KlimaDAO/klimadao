@@ -22,6 +22,14 @@ fragment ProjectFragment on Project {
   id
   key
   vintage
+  name
+  category {
+    id
+  }
+  country {
+    id
+  }
+  methodology
 }
 
 fragment ActivityFragment on Activity {

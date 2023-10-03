@@ -32,7 +32,7 @@ export const ListingModel = Type.Object(
     batchPrices: Nullable(Type.Array(Type.String())),
     createdAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
     updatedAt: Type.Optional(Type.Union([Type.String(), Type.Null()])),
-    seller: Nullable(ListingSeller),
+    seller: ListingSeller,
     expiration: Type.String({
       description: "Unix Timestamp (seconds) when the listing expires.",
     }),
@@ -43,6 +43,10 @@ export const ListingModel = Type.Object(
       id: Type.String(),
       key: Type.String(),
       vintage: Type.String(),
+      name: Type.String(),
+      category: Type.String(),
+      country: Type.String(),
+      methodology: Type.String(),
     }),
   },
   {

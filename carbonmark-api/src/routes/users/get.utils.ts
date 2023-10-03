@@ -1,4 +1,4 @@
-import { Contract, providers } from "ethers";
+import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
 import ERC20 from "../../abis/ERC20.json";
@@ -6,6 +6,13 @@ import { RPC_URLS } from "../../app.constants";
 import { NetworkParam } from "../../models/NetworkParam.model";
 import { Holding } from "../../types/assets.types";
 import { gql_sdk } from "../../utils/gqlSdk";
+
+const formatHolding = (h: Holding): Holding => {
+  return {
+    ...h,
+    amount: utils.formatUnits(h.amount, h.token.decimals),
+  };
+};
 
 /** Hacky Mumbai simulation for known testnet assets
  *  until we get a testnet version of polygon-digital-carbon */
@@ -52,7 +59,7 @@ const fetchTestnetHoldings = async (params: {
       },
     };
   });
-  return holdings;
+  return holdings.map(formatHolding);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
@@ -87,7 +94,7 @@ export const getHoldingsByWallet = async (params: {
   const { accounts } = await sdk.assets.getHoldingsByWallet({
     wallet: params.address,
   });
-  return accounts.at(0)?.holdings ?? [];
+  return accounts.at(0)?.holdings.map(formatHolding) ?? [];
 };
 
 /** Reduce an array of activities into a deduplicated sorted array of buyer and seller address strings. */

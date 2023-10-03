@@ -192,12 +192,9 @@ describe("GET /projects", () => {
             "batches",
             "createdAt",
             "deleted",
-            "totalAmountToSell",
             "updatedAt",
             "id",
-            "leftToSell",
             "tokenAddress",
-            "singleUnitPrice",
           ]),
         ],
         location: {
