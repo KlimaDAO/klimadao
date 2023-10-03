@@ -6,6 +6,8 @@ import { GetPurchaseByIdQuery } from "../../src/.generated/types/marketplace.typ
 
 const listing = aListing({
   singleUnitPrice: "99000000",
+  minFillAmount: "100000000000000000000",
+  totalAmountToSell: "100000000000000000000",
   leftToSell: "100000000000000000000",
   updatedAt: "1234",
 });
@@ -29,6 +31,10 @@ const purchase: GetPurchaseByIdQuery["purchase"] = {
       id: "VCS-191-2008",
       key: "VCS-191",
       vintage: "2008",
+      category: { id: "Renewable Energy" },
+      country: { id: "United States" },
+      methodology: "VM0006",
+      name: "Hydroelectric Fixture",
     },
   },
 };

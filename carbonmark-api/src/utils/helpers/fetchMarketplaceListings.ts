@@ -5,6 +5,7 @@ import { Activity } from "../../models/Activity.model";
 import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
 import { GQL_SDK } from "../gqlSdk";
+import { formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 
 type Params = {
@@ -53,14 +54,7 @@ export const fetchMarketplaceListings = async (
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
-  // TODO abstract to util and share logic with User.listings and DetailedProject.listings
-  const formattedListings = filteredListings.map((listing) => ({
-    ...listing,
-    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    leftToSell: utils.formatUnits(listing.leftToSell, 18),
-    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
-  }));
+  const formattedListings = filteredListings.map(formatListing);
 
   const formattedActivities = filteredActivities.map((activity) => ({
     ...activity,

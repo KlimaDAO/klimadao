@@ -1,13 +1,13 @@
 import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { Listing } from "../../models/Listing.model";
 import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
   getProfileByHandle,
   getUserProfilesByIds,
 } from "../../utils/helpers/users.utils";
+import { formatListing } from "../../utils/marketplace.utils";
 import { Params, QueryString, schema } from "./get.schema";
 import {
   getHoldingsByWallet,
@@ -81,16 +81,7 @@ const handler = (fastify: FastifyInstance) =>
         };
       }) || [];
 
-    const listings =
-      user?.listings?.map(
-        (l): Listing => ({
-          ...l,
-          minFillAmount: utils.formatUnits(l.minFillAmount, 18),
-          leftToSell: utils.formatUnits(l.leftToSell, 18),
-          singleUnitPrice: utils.formatUnits(l.singleUnitPrice, 6),
-          totalAmountToSell: utils.formatUnits(l.totalAmountToSell),
-        })
-      ) || [];
+    const listings = user?.listings?.map(formatListing) || [];
 
     const response: User = {
       createdAt: profile?.createdAt || 0,
