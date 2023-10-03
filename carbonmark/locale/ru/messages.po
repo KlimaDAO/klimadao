@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-03 18:35+0000\n"
+"POT-Creation-Date: 2023-10-03 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -132,9 +132,12 @@ msgid "At this time Carbonmark cannot process credit card payments exceeding: {f
 msgstr "В настоящее время компания Carbonmark не может обрабатывать платежи по кредитным картам на сумму, превышающую: {fiatBalance}."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:75
-msgid "At this time, Carbonmark cannot process credit card payments exceeding {0}."
-msgstr "В настоящее время Carbonmark не может обрабатывать платежи по кредитным картам на сумму, превышающую {0}."
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:80
+msgid ""
+"At this time, Carbonmark cannot process credit card payments\n"
+"exceeding {0}. Please adjust the\n"
+"quantity and try again later."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:58
@@ -151,7 +154,7 @@ msgstr "Превышение доступного остатка"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:86
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:91
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:177
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:201
 msgid "Available supply exceeded"
 msgstr "Доступный запас превышен"
 
@@ -167,7 +170,7 @@ msgid "Available to retire"
 msgstr "Доступно для выбивания"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:149
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:174
 msgid "Available:"
 msgstr "Доступно: "
 
@@ -189,30 +192,35 @@ msgid "Back to Project"
 msgstr "Вернуться к проекту"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:350
+msgid "Balance"
+msgstr "Баланс"
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:106
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:283
 msgid "Balance: {0}"
 msgstr "Баланс: {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:346
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:394
 msgid "Be careful not to include any sensitive personal information (such as an email address) in your retirement name or message. The information you enter here cannot be edited once it is submitted and will permanently exist on a public blockchain."
 msgstr "Будьте осторожны, чтобы не включать какую-либо конфиденциальную личную информацию (например, адрес электронной почты) в ваше сообщение на выбивание. Информация, которую вы вводите здесь, не может быть отредактирована после ее отправки и будет постоянно существовать в общедоступной цепочке блоков."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:227
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:248
 msgid "Beneficiary Address"
 msgstr "Адрес получателя"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:198
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:219
 msgid "Beneficiary name"
 msgstr "Имя Получателя"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:291
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:213
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:234
 msgid "Beneficiary wallet address (optional)"
 msgstr "Адрес кошелька получателя (необязательно)"
 
@@ -384,7 +392,7 @@ msgstr "Скопировать"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:50
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:362
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:410
 msgid "Could not calculate Total Cost"
 msgstr "Не удалось рассчитать общую стоимость"
 
@@ -446,7 +454,7 @@ msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:69
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:74
 msgid "Credit card minimum purchase is {0}"
 msgstr ""
 
@@ -456,7 +464,7 @@ msgid "Credit card payments incur an additional processing fee. <0>See docs to l
 msgstr "При оплате кредитной картой взимается дополнительная плата за обработку. <0>Подробнее см. в документации.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:330
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:379
 msgid "Currently, Carbonmark only accepts Polygon USDC or Credit Card Payments. <0>Learn how to acquire USDC on Polygon.</0>"
 msgstr "В настоящее время Carbonmark принимает только платежи Polygon USDC или кредитные карты. <0>Узнайте, как приобрести USDC на Polygon.</0>"
 
@@ -483,12 +491,12 @@ msgid "Data for this seller"
 msgstr "Данные по этому продавцу"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:231
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:252
 msgid "Defaults to the connected wallet address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:263
 msgid "Describe the purpose of this retirement"
 msgstr "Опишите цель этого вывода"
 
@@ -628,12 +636,12 @@ msgid "How many tonnes of carbon do you want to buy?"
 msgstr "Сколько тонн углерода вы хотите купить?"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:181
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:205
 msgid "How many tonnes of carbon do you want to retire?"
 msgstr "Сколько тонн углерода вы хотите выбить?"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:145
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:170
 msgid "How many tonnes of carbon would you like to retire?"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
@@ -743,6 +751,11 @@ msgid "Login"
 msgstr "Авторизоваться"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:333
+msgid "Login to pay with USDC"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/shared/Navigation/index.tsx:63
 #: components/shared/Navigation/index.tsx:100
 msgid "Marketplace"
@@ -842,7 +855,7 @@ msgid "Not Connected"
 msgstr "Не подключен"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:223
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:244
 msgid "Not a valid polygon address"
 msgstr "Недействительный адрес полигона"
 
@@ -884,7 +897,7 @@ msgstr "ПРОЕКТ"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:98
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:103
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:260
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:279
 msgid "Pay with:"
 msgstr "Оплатить с:"
 
@@ -961,6 +974,11 @@ msgid "Privacy policy"
 msgstr "Политика конфиденциальности"
 
 #. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:344
+msgid "Processing Fee:"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:86
 msgid "Processing Purchase"
 msgstr "Обработка покупки"
@@ -1031,7 +1049,7 @@ msgid "Quantity Available:"
 msgstr "Доступное количество:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:172
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:196
 msgid "Quantity is required"
 msgstr "Необходимое количество"
 
@@ -1095,13 +1113,13 @@ msgid "Renewable Energy"
 msgstr "Возобновляемая энергия"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:139
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:165
 msgid "Required Field"
 msgstr "Обязательное поле"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:202
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:248
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:223
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
 msgid "Required when proceeding with Credit Card"
 msgstr "Требуется при оплате кредитной картой"
 
@@ -1135,6 +1153,11 @@ msgstr "Результаты"
 #: components/pages/Portfolio/AssetProject/index.tsx:64
 msgid "Retire"
 msgstr "Выбито"
+
+#. js-lingui-explicit-id
+#: components/pages/Project/Retire/Pool/SubmitButton.tsx:32
+msgid "Retire Carbon"
+msgstr "Вывод карбона"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetireForm/index.tsx:197
@@ -1198,8 +1221,8 @@ msgid "Retirement Activity"
 msgstr "Деятельность по выбиванию"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:236
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:252
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:257
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:271
 msgid "Retirement Message"
 msgstr "Сообщение о использовании"
 
@@ -1262,7 +1285,6 @@ msgstr "Объявление продавца"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/SubmitButton.tsx:31
 #: components/pages/Project/Purchase/Pool/SubmitButton.tsx:31
-#: components/pages/Project/Retire/Pool/SubmitButton.tsx:32
 msgid "Sign In / Connect To Buy"
 msgstr "Войти / Подключиться, чтобы купить"
 
@@ -1382,13 +1404,13 @@ msgid "The minimum amount to buy is 1 Tonne"
 msgstr "Минимальное количество для покупки - 1 тонна"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:45
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:51
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:50
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:56
 msgid "The minimum amount to retire is 0.001 Tonnes"
 msgstr "Минимальная сумма для выбивания составляет 0,001 тонны."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:63
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:68
 msgid "The minimum amount to retire is 1 Tonnes"
 msgstr "Минимальная сумма для вывода из обращения 1 тонна"
 
@@ -1471,7 +1493,6 @@ msgstr "Переключение Сортировка по меню"
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:110
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:115
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:280
 msgid "Toggle payment method"
 msgstr "Сменить способ оплаты"
 
@@ -1496,7 +1517,7 @@ msgstr "Получено токенов:"
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:75
 #: components/pages/Project/Purchase/Pool/TotalValues.tsx:86
 #: components/pages/Project/Retire/Pool/AssetDetails.tsx:51
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:155
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:180
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:150
 msgid "Tonnes"
 msgstr "Тонны"
@@ -1512,7 +1533,7 @@ msgid "Tonnes sold:"
 msgstr "Продано тонн:"
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:365
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:413
 msgid "Total Cost is required"
 msgstr "Необходима общая стоимость"
 
@@ -1711,8 +1732,8 @@ msgid "What is Carbonmark? Answers to common questions about the Digital Carbon 
 msgstr "Что такое Карбонмарк? Ответы на распространенные вопросы об интерфейсе цифрового углеродного рынка, который легко связывает покупателей и продавцов проверенных углеродных кредитов."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:190
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:206
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:213
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:227
 msgid "Who will this retirement be credited to?"
 msgstr "Кому будет зачислено это выбивание?"
 
@@ -1759,13 +1780,13 @@ msgid "You chose to reject the transaction."
 msgstr "Вы решили отклонить транзакцию."
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:217
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:238
 msgid "You either need to provide a beneficiary address or login with your browser wallet."
 msgstr "Вам нужно либо указать адрес получателя, либо войти в систему с помощью кошелька в браузере."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:54
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:55
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:60
 msgid "You exceeded your available amount of tokens"
 msgstr "Вы превысили доступное количество токенов"
 
@@ -2755,7 +2776,7 @@ msgid "{0}"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Project/Retire/Pool/RetireInputs.tsx:267
+#: components/pages/Project/Retire/Pool/RetireInputs.tsx:287
 msgid "{0} maximum for credit cards"
 msgstr "{0} максимальная сумма по кредитным картам"
 
