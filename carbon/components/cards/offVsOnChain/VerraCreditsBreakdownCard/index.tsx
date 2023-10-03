@@ -11,11 +11,11 @@ import styles from "./styles.module.scss";
 export default function VerraCreditsBreakdownCard(props: CardProps) {
   const chart = (
     <div className={styles.wrapper}>
-      {}
+      {/* @ts-expect-error async Server component */}
       <IssuedVsTokenizedCreditsChart />
-      {}
+      {/* @ts-expect-error async Server component */}
       <OffchainRetiredCreditsCard />
-      {}
+      {/* @ts-expect-error async Server component */}
       <OnchainRetiredCreditsCard />
     </div>
   );

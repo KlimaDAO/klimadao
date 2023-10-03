@@ -3,7 +3,10 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { DailyEthCarbonRetirementsChart } from "components/charts/DailyCarbonRetirementsChart";
 
 export default function DailyEthRetirementsCard(props: CardProps) {
-  const chart = <DailyEthCarbonRetirementsChart />;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <DailyEthCarbonRetirementsChart />
+  );
   return (
     <ChartCard
       {...props}

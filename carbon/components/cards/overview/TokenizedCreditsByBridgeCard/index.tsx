@@ -11,6 +11,7 @@ import { palette } from "theme/palette";
 /** Verra Credits Card */
 export default function TokenizedCreditsByBridgeCard(props: CardProps) {
   const chart = (
+    /* @ts-expect-error async Server component */
     <TokenizedCreditsByBridgeChart
       showPercentageInLegend={props.isDetailPage}
     />

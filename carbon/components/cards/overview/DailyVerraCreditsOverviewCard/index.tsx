@@ -109,6 +109,7 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
         ];
       }
       charts[`${bridge}|${stat}`] = (
+        /* @ts-expect-error async Server component */
         <DailyCreditsChart
           chartConfiguration={chartConfiguration}
           queryConfiguration={queryConfiguration}

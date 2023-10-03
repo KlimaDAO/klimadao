@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
  */
 export default function DataTableClientWrapper(props: {
   configurationKey: ConfigurationKey;
-  params?: object;
+  params: object;
   firstPageTable: JSX.Element;
   pages_count: number;
 }) {

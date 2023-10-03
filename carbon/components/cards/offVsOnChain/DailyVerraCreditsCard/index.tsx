@@ -39,6 +39,7 @@ export default function DailyVerraCreditsCard(
   ];
 
   const chart = (
+    /* @ts-expect-error async Server component */
     <DailyCreditsChart
       chartConfiguration={chartConfiguration}
       queryConfiguration={queryConfiguration}

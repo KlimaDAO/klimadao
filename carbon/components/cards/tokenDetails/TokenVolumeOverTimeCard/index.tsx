@@ -15,7 +15,10 @@ import { Status } from "lib/charts/types";
 export default function TokenVolumeOverTimeCard(
   props: CardProps & TokenDetailsProps
 ) {
-  const chart = <TokenVolumeOverTimeChart {...props} />;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <TokenVolumeOverTimeChart {...props} />
+  );
 
   return (
     <ChartCard

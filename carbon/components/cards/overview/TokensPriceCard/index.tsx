@@ -23,7 +23,10 @@ import styles from "./styles.module.scss";
 /** Token Prices Card */
 export default function TokensPriceCard(props: CardProps) {
   const layout = props.isDetailPage ? "row" : "column";
-  const chart = <TokenPricesChart layout={layout}></TokenPricesChart>;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <TokenPricesChart layout={layout}></TokenPricesChart>
+  );
   return (
     <ChartCard
       {...props}

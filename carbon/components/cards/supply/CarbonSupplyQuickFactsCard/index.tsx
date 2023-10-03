@@ -11,7 +11,10 @@ import ChartCard, { CardProps } from "../../ChartCard";
 import styles from "./styles.module.scss";
 
 export default function CarbonSupplyQuickFactsCard(props: CardProps) {
-  const chart = <CarbonSupplyQuickFactsChart></CarbonSupplyQuickFactsChart>;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <CarbonSupplyQuickFactsChart></CarbonSupplyQuickFactsChart>
+  );
 
   return (
     <ChartCard

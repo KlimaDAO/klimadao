@@ -8,6 +8,7 @@ import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregate
 export default function TokenOriginsCard(props: CardProps & TokenDetailsProps) {
   const params = creditsQueryParamsFromProps(props);
   const chart = (
+    /* @ts-expect-error async Server component */
     <DataTable configurationKey="TokenOriginsList" params={params} />
   );
 

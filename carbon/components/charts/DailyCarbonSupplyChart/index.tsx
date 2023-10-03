@@ -52,7 +52,7 @@ export async function DailyPolygonCarbonSupplyChart() {
       legendOrder: 5,
     },
   ];
-
+  /* @ts-expect-error async Server component */
   return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
@@ -66,7 +66,7 @@ export async function DailyEthCarbonSupplyChart() {
       legendOrder: 3,
     },
   ];
-
+  /* @ts-expect-error async Server component */
   return <DailyCarbonSupplyChart configuration={configuration} />;
 }
 
@@ -92,6 +92,6 @@ export async function DailyCeloCarbonSupplyChart() {
       legendOrder: 3,
     },
   ];
-
+  /* @ts-expect-error async Server component */
   return <DailyCarbonSupplyChart configuration={configuration} />;
 }

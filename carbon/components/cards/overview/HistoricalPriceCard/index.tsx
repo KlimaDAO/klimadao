@@ -8,7 +8,10 @@ import { palette } from "theme/palette";
 
 /** Historical Prices Card */
 export default function HistoricalPriceCard(props: CardProps) {
-  const chart = <HistoricalPriceChart />;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <HistoricalPriceChart />
+  );
   return (
     <ChartCard
       {...props}

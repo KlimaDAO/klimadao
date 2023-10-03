@@ -19,9 +19,11 @@ export default function TokenPoolBreakdownCard(
   let chart = <></>;
   switch (props.bridge) {
     case "toucan":
+      /* @ts-expect-error async Server component */
       chart = <TokenPoolBreakdownChartToucanChart {...props} />;
       break;
     case "c3":
+      /* @ts-expect-error async Server component */
       chart = <TokenPoolBreakdownChartC3Chart {...props} />;
       break;
     default:

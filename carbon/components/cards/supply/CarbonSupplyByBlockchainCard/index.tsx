@@ -8,7 +8,10 @@ import { getLatestCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics"
 import { CarbonMetricsItem } from "lib/charts/types";
 
 export default function CarbonSupplyByBlockChainCard(props: CardProps) {
-  const chart = <CarbonSupplyByBlockChainChart></CarbonSupplyByBlockChainChart>;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <CarbonSupplyByBlockChainChart></CarbonSupplyByBlockChainChart>
+  );
 
   return (
     <ChartCard

@@ -74,6 +74,7 @@ export default function DailyCarbonSupplyByProtocolCard(
   ];
 
   const chart = (
+    /* @ts-expect-error async Server component */
     <DailyCreditsChart
       chartConfiguration={chartConfiguration}
       queryConfiguration={queryConfiguration}

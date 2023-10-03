@@ -3,7 +3,10 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { DailyEthCarbonSupplyChart } from "components/charts/DailyCarbonSupplyChart";
 
 export default function DailyEthCarbonSupplyCard(props: CardProps) {
-  const chart = <DailyEthCarbonSupplyChart />;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <DailyEthCarbonSupplyChart />
+  );
 
   return (
     <ChartCard

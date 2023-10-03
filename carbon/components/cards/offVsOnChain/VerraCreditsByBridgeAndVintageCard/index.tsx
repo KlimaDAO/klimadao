@@ -11,7 +11,10 @@ import { OffVsOnChainProps } from "../helpers";
 export default function VerraCreditsByBridgeAndVintageCard(
   props: CardProps & OffVsOnChainProps
 ) {
-  const chart = <VerraCreditsByBridgeAndVintageChart {...props} />;
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <VerraCreditsByBridgeAndVintageChart {...props} />
+  );
   const title = t`Credits by vintage start dates`;
   const detailUrl =
     props.status == "issued"

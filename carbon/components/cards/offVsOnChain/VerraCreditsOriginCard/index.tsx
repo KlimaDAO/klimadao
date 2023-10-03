@@ -10,6 +10,7 @@ export default function VerraCreditsOriginCard(
     status: props.status,
   };
   const chart = (
+    /* @ts-expect-error async Server component */
     <DataTable configurationKey="VerraCreditsOriginsList" params={params} />
   );
 
