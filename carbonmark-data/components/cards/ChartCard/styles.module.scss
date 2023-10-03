@@ -81,12 +81,14 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
 
+.overlapLegend {
   @include desktop {
     margin: 0;
     justify-content: center;
     position: absolute;
-    bottom: 0;
+    bottom: 1.3rem;
     left: 0;
   }
 }

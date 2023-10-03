@@ -30,8 +30,8 @@ export default function OverviewPage() {
             <HistoricalPriceCard></HistoricalPriceCard>
           </div>
           <div className={layout.cardRow}>
-            <DailyCarbonSupplyOverviewCard></DailyCarbonSupplyOverviewCard>
-            <DailyCarbonRetirementsCard></DailyCarbonRetirementsCard>
+            <DailyCarbonSupplyOverviewCard bottomOptionsPosition="left"></DailyCarbonSupplyOverviewCard>
+            <DailyCarbonRetirementsCard bottomOptionsPosition="left"></DailyCarbonRetirementsCard>
           </div>
         </div>
         <div className={layout.cardStackedRows}>
