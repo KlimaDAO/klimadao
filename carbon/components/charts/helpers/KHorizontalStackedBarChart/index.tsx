@@ -1,13 +1,13 @@
 "use client"; // use client for recharts animations
 import { KlimaStackedBars } from "components/charts/helpers";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { ChartData } from "lib/charts/types";
 import { BarChart, XAxis, YAxis } from "recharts";
 import ChartWrapper from "../ChartWrapper";
+import { ChartConfiguration } from "../Configuration";
 
 interface Props<T extends object> {
   data: ChartData<T>;
-  configuration: SimpleChartConfiguration<T>;
+  configuration: ChartConfiguration<keyof T>;
   noDataText?: string;
 }
 /** FIXME: Refactor to KlimaHorizontalStackedBarChart */

@@ -1,6 +1,5 @@
 "use client"; // use client for recharts animations
 import { KlimaLegendProps, KlimaTooltip } from "components/charts/helpers";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage } from "lib/charts/helpers";
 import { ChartData } from "lib/charts/types";
 import { cloneDeep } from "lodash";
@@ -8,12 +7,12 @@ import { useRef } from "react";
 import { Cell, Legend, LegendProps, Pie, PieChart, Tooltip } from "recharts";
 import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import ChartWrapper from "../ChartWrapper";
-import { ChartConfigurationItem } from "../Configuration";
+import { ChartConfiguration, ChartConfigurationItem } from "../Configuration";
 import { YAxisType, getToolTipYAxisFormatter } from "../props";
 
 interface Props<CI extends { quantity: number }, T extends object> {
   data: ChartData<CI>;
-  configuration: SimpleChartConfiguration<T>;
+  configuration: ChartConfiguration<keyof T>;
   LegendProps?: Omit<LegendProps, "ref">;
   showLegend?: boolean;
   showPercentageInLegend?: boolean;
@@ -37,7 +36,7 @@ export default function KPieChart<
   const chartData: ChartData<
     ChartConfigurationItem<keyof T> & { quantity: number }
   > = nonZeroData.map((item, i) => {
-    const chartOptions = configuration[i].chartOptions;
+    const chartOptions = configuration[i];
     let label = chartOptions.label || chartOptions.id;
     if (props.showPercentageInLegend) {
       const percentage = formatPercentage({

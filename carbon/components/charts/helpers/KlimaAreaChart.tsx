@@ -17,11 +17,11 @@ export function KlimaAreaProps(props: AreaProps): Omit<AreaProps, "ref"> {
 export function KlimaStackedAreas<T>(configuration: ChartConfiguration<T>) {
   return configuration.map((item) => (
     <Area
-      key={item.chartOptions.id}
+      key={item.id}
       {...KlimaAreaProps({
-        name: item.chartOptions.label,
-        dataKey: item.chartOptions.id,
-        fill: item.chartOptions.color,
+        name: item.label,
+        dataKey: item.id,
+        fill: item.color,
       })}
     />
   ));

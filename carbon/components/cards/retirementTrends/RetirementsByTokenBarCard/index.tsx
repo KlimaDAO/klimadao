@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { getTokenCarbonMetricsInPercent } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -22,30 +22,24 @@ export default function RetirementsByTokenBarCard(props: CardProps) {
 
 /** Async server component that renders a Recharts client component */
 async function RetirementsByTokenBarChart() {
-  const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
+  const configuration: ChartConfiguration<keyof CarbonMetricsItem> = [
     {
-      chartOptions: {
-        id: "c3t_retired_polygon",
-        label: "C3T",
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "c3t_retired_polygon",
+      label: "C3T",
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "tco2_retired_polygon",
-        label: "TCO2",
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "tco2_retired_polygon",
+      label: "TCO2",
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
     {
-      chartOptions: {
-        id: "mco2_retired_eth",
-        label: "MCO2",
-        color: palette.charts.color5,
-        legendOrder: 3,
-      },
+      id: "mco2_retired_eth",
+      label: "MCO2",
+      color: palette.charts.color5,
+      legendOrder: 3,
     },
   ];
 

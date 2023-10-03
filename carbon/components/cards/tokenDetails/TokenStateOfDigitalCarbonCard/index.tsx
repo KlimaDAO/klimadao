@@ -6,10 +6,10 @@ import {
   TokenDetailsProps,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
 import { formatTonnes } from "components/charts/helpers/DataTable/configurations/helpers";
 import KPieChart from "components/charts/helpers/KPieChart";
-import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
 import { queryAggregatedCredits } from "lib/charts/queries";
 import { capitalize } from "lodash";
 import styles from "./styles.module.scss";
@@ -39,24 +39,18 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
     await queryAggregatedCredits({ bridge: props.bridge, status: "retired" })
   ).quantity;
   const outstanding = bridged - retired;
-  const configuration: SimpleChartConfigurationFromType<
-    "retired" | "outstanding"
-  > = [
+  const configuration: ChartConfiguration<"retired" | "outstanding"> = [
     {
-      chartOptions: {
-        id: "retired",
-        label: t`Retired`,
-        color: palette.charts.color3,
-        legendOrder: 1,
-      },
+      id: "retired",
+      label: t`Retired`,
+      color: palette.charts.color3,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "outstanding",
-        label: t`Outstanding`,
-        color: palette.charts.color5,
-        legendOrder: 5,
-      },
+      id: "outstanding",
+      label: t`Outstanding`,
+      color: palette.charts.color5,
+      legendOrder: 5,
     },
   ];
   const data = [

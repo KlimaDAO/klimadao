@@ -32,28 +32,22 @@ async function TokenizedCreditsByBridgeChart(props: {
   const status = "bridged";
   const chartConfiguration: AggregatedCreditsChartConfiguration = [
     {
-      chartOptions: {
-        id: "toucan",
-        label: "Toucan",
-        color: palette.charts.color5,
-        legendOrder: 1,
-      },
+      id: "toucan",
+      label: "Toucan",
+      color: palette.charts.color5,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "moss",
-        label: "Moss",
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "moss",
+      label: "Moss",
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
     {
-      chartOptions: {
-        id: "c3",
-        label: "C3",
-        color: palette.charts.color1,
-        legendOrder: 3,
-      },
+      id: "c3",
+      label: "C3",
+      color: palette.charts.color1,
+      legendOrder: 3,
     },
   ];
   const queryConfiguration: AggregatedCreditsQueryConfiguration = [

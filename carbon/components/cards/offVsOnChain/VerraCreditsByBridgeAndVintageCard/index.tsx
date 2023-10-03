@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { queryAggregatedCreditsByBridgeAndVintage } from "lib/charts/queries";
 import { AggregatedCreditsByBridgeAndVintageItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -23,41 +23,34 @@ export default function VerraCreditsByBridgeAndVintageCard(
   );
 }
 async function VerraCreditsByBridgeAndVintageChart(props: OffVsOnChainProps) {
-  const configuration: SimpleChartConfiguration<AggregatedCreditsByBridgeAndVintageItem> =
-    [
-      {
-        chartOptions: {
-          id: "not_bridged_quantity",
-          label: "Not bridged",
-          color: palette.charts.color5,
-          legendOrder: 4,
-        },
-      },
-      {
-        chartOptions: {
-          id: "toucan_quantity",
-          label: "Toucan",
-          color: palette.charts.color3,
-          legendOrder: 1,
-        },
-      },
-      {
-        chartOptions: {
-          id: "moss_quantity",
-          label: "Moss",
-          color: palette.charts.color2,
-          legendOrder: 2,
-        },
-      },
-      {
-        chartOptions: {
-          id: "c3_quantity",
-          label: "C3",
-          color: palette.charts.color1,
-          legendOrder: 3,
-        },
-      },
-    ];
+  const configuration: ChartConfiguration<
+    keyof AggregatedCreditsByBridgeAndVintageItem
+  > = [
+    {
+      id: "not_bridged_quantity",
+      label: "Not bridged",
+      color: palette.charts.color5,
+      legendOrder: 4,
+    },
+    {
+      id: "toucan_quantity",
+      label: "Toucan",
+      color: palette.charts.color3,
+      legendOrder: 1,
+    },
+    {
+      id: "moss_quantity",
+      label: "Moss",
+      color: palette.charts.color2,
+      legendOrder: 2,
+    },
+    {
+      id: "c3_quantity",
+      label: "C3",
+      color: palette.charts.color1,
+      legendOrder: 3,
+    },
+  ];
   const data = (
     await queryAggregatedCreditsByBridgeAndVintage({
       page_size: -1,

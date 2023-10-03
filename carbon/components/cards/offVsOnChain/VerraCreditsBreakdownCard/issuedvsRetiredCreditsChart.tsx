@@ -1,15 +1,10 @@
 import { t } from "@lingui/macro";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KPieChart from "components/charts/helpers/KPieChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage, formatTonnes } from "lib/charts/helpers";
 import { queryAggregatedCredits } from "lib/charts/queries";
 import { palette } from "theme/palette";
 import styles from "./styles.module.scss";
-
-interface IssuedvsRetiredItem {
-  issued: number;
-  retired: number;
-}
 
 export async function OffchainRetiredCreditsCard() {
   const issued = (
@@ -54,22 +49,18 @@ function RetiredCreditsChart(props: {
   retired: number;
   legend: React.ReactNode;
 }) {
-  const configuration: SimpleChartConfiguration<IssuedvsRetiredItem> = [
+  const configuration: ChartConfiguration<"issued" | "retired"> = [
     {
-      chartOptions: {
-        id: "issued",
-        label: t`Issued`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "issued",
+      label: t`Issued`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "retired",
-        label: t`Retired`,
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "retired",
+      label: t`Retired`,
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
   ];
   const data = [

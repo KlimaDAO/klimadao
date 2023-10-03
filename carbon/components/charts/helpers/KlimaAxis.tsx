@@ -91,7 +91,7 @@ export function KlimaYAxisTonsProps<CI, T>(
 ) {
   // Find maximum value in data
   const dataKeys: Array<keyof CI> = conf.map(
-    (confItem) => confItem.chartOptions.id as keyof CI
+    (confItem) => confItem.id as keyof CI
   );
   const max = helpers.getDataChartMax(data, dataKeys);
   // Select formatter

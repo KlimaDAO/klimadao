@@ -18,28 +18,22 @@ export default function DailyCarbonSupplyByProtocolCard(
 
   const chartConfiguration: DailyCreditsChartConfiguration = [
     {
-      chartOptions: {
-        id: "toucan_quantity",
-        label: "Toucan",
-        color: palette.charts.color5,
-        legendOrder: 1,
-      },
+      id: "toucan_quantity",
+      label: "Toucan",
+      color: palette.charts.color5,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "moss_quantity",
-        label: "Moss",
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "moss_quantity",
+      label: "Moss",
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
     {
-      chartOptions: {
-        id: "c3_quantity",
-        label: "C3",
-        color: palette.charts.color1,
-        legendOrder: 3,
-      },
+      id: "c3_quantity",
+      label: "C3",
+      color: palette.charts.color1,
+      legendOrder: 3,
     },
   ];
 

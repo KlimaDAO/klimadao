@@ -16,17 +16,17 @@ export function KlimaLegendProps<T>(
   const props: LegendProps = {} as LegendProps;
   props.payload = [...conf]
     .sort((item1, item2) =>
-      item1.chartOptions.legendOrder && item2.chartOptions.legendOrder
-        ? item1.chartOptions.legendOrder > item2.chartOptions.legendOrder
+      item1.legendOrder && item2.legendOrder
+        ? item1.legendOrder > item2.legendOrder
           ? 1
           : -1
         : 0
     )
     .map((item) => {
       return {
-        id: item.chartOptions.id,
-        value: item.chartOptions.label,
-        color: item.chartOptions.color,
+        id: item.id,
+        value: item.label,
+        color: item.color,
         type: "circle",
       };
     });

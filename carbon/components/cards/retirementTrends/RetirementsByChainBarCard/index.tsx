@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { getMonthlyRetirementsByOriginInPercent } from "lib/charts/aggregators/getMonthlyRetirementsByOriginInPercent";
 import { KlimaMonthlyRetirementsByOriginItem } from "lib/charts/types";
 import { palette } from "theme/palette";
@@ -21,25 +21,22 @@ export default function RetirementsByChainBarCard(props: CardProps) {
 }
 /** Async server component that renders a Recharts client component */
 async function RetirementsByChainBarChart() {
-  const configuration: SimpleChartConfiguration<KlimaMonthlyRetirementsByOriginItem> =
-    [
-      {
-        chartOptions: {
-          id: "amount_retired_offchain",
-          label: t`Off-chain`,
-          color: palette.charts.color1,
-          legendOrder: 1,
-        },
-      },
-      {
-        chartOptions: {
-          id: "amount_retired_klima",
-          label: t`On-chain`,
-          color: palette.charts.color3,
-          legendOrder: 2,
-        },
-      },
-    ];
+  const configuration: ChartConfiguration<
+    keyof KlimaMonthlyRetirementsByOriginItem
+  > = [
+    {
+      id: "amount_retired_offchain",
+      label: t`Off-chain`,
+      color: palette.charts.color1,
+      legendOrder: 1,
+    },
+    {
+      id: "amount_retired_klima",
+      label: t`On-chain`,
+      color: palette.charts.color3,
+      legendOrder: 2,
+    },
+  ];
   const data = await getMonthlyRetirementsByOriginInPercent(configuration);
   return (
     <KBarChart

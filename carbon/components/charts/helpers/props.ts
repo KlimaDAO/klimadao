@@ -3,7 +3,6 @@ import {
   KlimaXAxisDailyProps,
   KlimaXAxisMonthlyProps,
 } from "components/charts/helpers";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import helpers from "lib/charts/helpers";
 import {
   Bridge,
@@ -14,6 +13,7 @@ import {
 } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import { LegendProps, XAxisProps } from "recharts";
+import { ChartConfiguration } from "./Configuration";
 import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
@@ -31,7 +31,7 @@ export interface CreditsFilteringProps {
 
 export interface ChartProps<T extends object> {
   data: ChartData<T>;
-  configuration: SimpleChartConfiguration<T>;
+  configuration: ChartConfiguration<keyof T>;
   dateField: keyof T;
   XAxis?: XAxisType;
   YAxis?: YAxisType;

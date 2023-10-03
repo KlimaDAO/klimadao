@@ -66,28 +66,22 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
         ];
         chartConfiguration = [
           {
-            chartOptions: {
-              id: "toucan_quantity",
-              label: "Toucan",
-              color: palette.charts.color5,
-              legendOrder: 1,
-            },
+            id: "toucan_quantity",
+            label: "Toucan",
+            color: palette.charts.color5,
+            legendOrder: 1,
           },
           {
-            chartOptions: {
-              id: "moss_quantity",
-              label: "Moss",
-              color: palette.charts.color3,
-              legendOrder: 2,
-            },
+            id: "moss_quantity",
+            label: "Moss",
+            color: palette.charts.color3,
+            legendOrder: 2,
           },
           {
-            chartOptions: {
-              id: "c3_quantity",
-              label: "C3",
-              color: palette.charts.color1,
-              legendOrder: 3,
-            },
+            id: "c3_quantity",
+            label: "C3",
+            color: palette.charts.color1,
+            legendOrder: 3,
           },
         ];
       } else {
@@ -108,11 +102,9 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
         ];
         chartConfiguration = [
           {
-            chartOptions: {
-              id: "offchain_quantity",
-              label: "Offchain",
-              color: palette.charts.color3,
-            },
+            id: "offchain_quantity",
+            label: "Offchain",
+            color: palette.charts.color3,
           },
         ];
       }

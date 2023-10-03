@@ -11,11 +11,11 @@ export function KlimaBarProps(props: BarProps): Omit<BarProps, "ref"> {
 export function KlimaStackedBars<T>(configuration: ChartConfiguration<T>) {
   return configuration.map((item) => (
     <Bar
-      key={item.chartOptions.id}
+      key={item.id}
       {...KlimaBarProps({
-        name: item.chartOptions.label,
-        dataKey: item.chartOptions.id,
-        fill: item.chartOptions.color,
+        name: item.label,
+        dataKey: item.id,
+        fill: item.color,
         stackId: 1,
       })}
     />

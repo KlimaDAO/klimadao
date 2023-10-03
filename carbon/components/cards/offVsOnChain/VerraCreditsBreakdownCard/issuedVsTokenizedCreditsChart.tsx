@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
 import KHorizontalStackedBarChart from "components/charts/helpers/KHorizontalStackedBarChart";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage, formatTonnes } from "lib/charts/helpers";
 import { queryAggregatedCredits } from "lib/charts/queries";
 import { ChartData } from "lib/charts/types";
@@ -27,25 +27,18 @@ export async function IssuedVsTokenizedCreditsChart() {
       bridged,
     },
   ];
-  const configuration: SimpleChartConfiguration<{
-    issued: number;
-    bridged: number;
-  }> = [
+  const configuration: ChartConfiguration<"issued" | "bridged"> = [
     {
-      chartOptions: {
-        id: "bridged",
-        label: "eza",
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "bridged",
+      label: t`Bridged`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "issued",
-        label: "eza",
-        color: palette.charts.color5,
-        legendOrder: 1,
-      },
+      id: "issued",
+      label: t`Issued`,
+      color: palette.charts.color5,
+      legendOrder: 1,
     },
   ];
   return (

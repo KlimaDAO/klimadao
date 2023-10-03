@@ -1,11 +1,11 @@
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { queryCarbonMetrics } from "lib/charts/queries";
 import { CarbonMetricsItem } from "lib/charts/types";
-import { SimpleChartConfiguration } from ".";
 import { pruneNullRows, transformToPercentages } from "../helpers";
 
 /* Fetches daily carbon metrics  */
 export async function getCarbonMetrics(
-  configuration: SimpleChartConfiguration<CarbonMetricsItem>
+  configuration: ChartConfiguration<keyof CarbonMetricsItem>
 ) {
   const data = await queryCarbonMetrics<CarbonMetricsItem>("all", {
     sort_by: "date",
@@ -39,7 +39,7 @@ export async function getCarbonMetrics7daysAgo() {
 }
 
 export async function getTokenCarbonMetricsInPercent(
-  configuration: SimpleChartConfiguration<CarbonMetricsItem>
+  configuration: ChartConfiguration<keyof CarbonMetricsItem>
 ) {
   const data = await getCarbonMetrics(configuration);
   return transformToPercentages(data, configuration);

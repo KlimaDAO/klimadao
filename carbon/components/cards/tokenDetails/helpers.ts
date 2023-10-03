@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import {
   Bridge,
   DateFilteringOption,
@@ -27,25 +27,21 @@ export function propsToDetailsURL(props: TokenDetailsProps, slug: string) {
   return `/details/${slug}/${props.bridge}?pool=${props.pool}&status=${props.status}&since=${props.since}`;
 }
 export function getChartConfiguration(props: TokenDetailsProps) {
-  const configuration: SimpleChartConfiguration<PoolQuantitiesInterface> = [];
+  const configuration: ChartConfiguration<keyof PoolQuantitiesInterface> = [];
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
     configuration.push({
-      chartOptions: {
-        id: "ubo_quantity",
-        label: t`UBO`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "ubo_quantity",
+      label: t`UBO`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     });
   }
   if (props.bridge == "c3" && (props.pool == "all" || props.pool == "nbo")) {
     configuration.push({
-      chartOptions: {
-        id: "nbo_quantity",
-        label: t`NBO`,
-        color: palette.charts.color5,
-        legendOrder: 2,
-      },
+      id: "nbo_quantity",
+      label: t`NBO`,
+      color: palette.charts.color5,
+      legendOrder: 2,
     });
   }
   if (
@@ -53,12 +49,10 @@ export function getChartConfiguration(props: TokenDetailsProps) {
     (props.pool == "all" || props.pool == "bct")
   ) {
     configuration.push({
-      chartOptions: {
-        id: "bct_quantity",
-        label: t`BCT`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "bct_quantity",
+      label: t`BCT`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     });
   }
   if (
@@ -66,22 +60,18 @@ export function getChartConfiguration(props: TokenDetailsProps) {
     (props.pool == "all" || props.pool == "nct")
   ) {
     configuration.push({
-      chartOptions: {
-        id: "nct_quantity",
-        label: t`NCT`,
-        color: palette.charts.color5,
-        legendOrder: 2,
-      },
+      id: "nct_quantity",
+      label: t`NCT`,
+      color: palette.charts.color5,
+      legendOrder: 2,
     });
   }
   if (props.bridge == "moss") {
     configuration.push({
-      chartOptions: {
-        id: "mco2_quantity",
-        label: t`MCO2`,
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "mco2_quantity",
+      label: t`MCO2`,
+      color: palette.charts.color3,
+      legendOrder: 2,
     });
   }
   return configuration;

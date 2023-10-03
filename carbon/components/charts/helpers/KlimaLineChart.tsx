@@ -15,11 +15,11 @@ export function KlimaLineProps(props: LineProps): Omit<LineProps, "ref"> {
 export function KlimaLines<T>(configuration: ChartConfiguration<T>) {
   return configuration.map((item) => (
     <Line
-      key={item.chartOptions.id}
+      key={item.id}
       {...KlimaLineProps({
-        name: item.chartOptions.label,
-        dataKey: item.chartOptions.id,
-        stroke: item.chartOptions.color,
+        name: item.label,
+        dataKey: item.id,
+        stroke: item.color,
       })}
     />
   ));

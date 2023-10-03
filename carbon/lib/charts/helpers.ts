@@ -1,7 +1,7 @@
 import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { currentLocale } from "lib/i18n";
 import { DateTimeFormatOptions } from "next-intl";
-import { SimpleChartConfiguration } from "./aggregators";
 import { ChartData } from "./types";
 /*
   This function takes ChartData and transform values into percentages given a chart configuration
@@ -13,15 +13,14 @@ import { ChartData } from "./types";
 */
 export function transformToPercentages<CI>(
   data: ChartData<CI>,
-  configuration: SimpleChartConfiguration<CI>
+  configuration: ChartConfiguration<keyof CI>
 ): ChartData<CI> {
   data.forEach((item) => {
     const total = configuration.reduce((prev, conf) => {
-      return prev + (item[conf.chartOptions.id] as number);
+      return prev + (item[conf.id] as number);
     }, 0);
     configuration.forEach((conf) => {
-      (item[conf.chartOptions.id] as number) =
-        (item[conf.chartOptions.id] as number) / total;
+      (item[conf.id] as number) = (item[conf.id] as number) / total;
     });
   });
   return data;
@@ -31,11 +30,11 @@ export function transformToPercentages<CI>(
 */
 export function pruneNullRows<CI>(
   data: ChartData<CI>,
-  configuration: SimpleChartConfiguration<CI>
+  configuration: ChartConfiguration<keyof CI>
 ): ChartData<CI> {
   return data.filter((item) => {
     return configuration.some((conf) => {
-      const value = item[conf.chartOptions.id];
+      const value = item[conf.id];
       return Number(value) != 0;
     });
   });

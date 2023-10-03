@@ -4,9 +4,9 @@ export interface ChartConfigurationItem<T> {
   color: string; // color on the chart
   legendOrder?: number; // The order in which the element are displayd in the legend
 }
-/*
+/** 
 A chart configuration is an array of configuration items that also bear data about how to query data (Q)
+Generics: 
+ - T type of the id of the chart configuration items
 */
-export type ChartConfiguration<C> = Array<{
-  chartOptions: ChartConfigurationItem<C>;
-}>;
+export type ChartConfiguration<T> = Array<ChartConfigurationItem<T>>;

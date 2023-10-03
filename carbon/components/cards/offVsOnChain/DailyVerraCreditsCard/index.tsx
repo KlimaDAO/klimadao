@@ -18,12 +18,10 @@ export default function DailyVerraCreditsCard(
 
   const chartConfiguration: DailyCreditsChartConfiguration = [
     {
-      chartOptions: {
-        id: "offchain_quantity",
-        label: "Verra",
-        color: palette.charts.color5,
-        legendOrder: 1,
-      },
+      id: "offchain_quantity",
+      label: "Verra",
+      color: palette.charts.color5,
+      legendOrder: 1,
     },
   ];
   const queryConfiguration: DailyCreditsQueryConfiguration = [

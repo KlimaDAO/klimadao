@@ -7,8 +7,8 @@ import {
   TokenDetailsProps,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
+import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KPieChart from "components/charts/helpers/KPieChart";
-import { SimpleChartConfigurationFromType } from "lib/charts/aggregators";
 import { queryAggregatedCredits } from "lib/charts/queries";
 import { capitalize } from "lodash";
 
@@ -61,32 +61,24 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
   ).quantity;
 
   const not_pooled = all - (bct + nct);
-  const configuration: SimpleChartConfigurationFromType<
-    "bct" | "nct" | "not_pooled"
-  > = [
+  const configuration: ChartConfiguration<"bct" | "nct" | "not_pooled"> = [
     {
-      chartOptions: {
-        id: "bct",
-        label: t`BCT`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "bct",
+      label: t`BCT`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "nct",
-        label: t`NCT`,
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "nct",
+      label: t`NCT`,
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
     {
-      chartOptions: {
-        id: "not_pooled",
-        label: t`Not pooled`,
-        color: palette.charts.color5,
-        legendOrder: 3,
-      },
+      id: "not_pooled",
+      label: t`Not pooled`,
+      color: palette.charts.color5,
+      legendOrder: 3,
     },
   ];
   const data = [
@@ -130,32 +122,24 @@ async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
   ).quantity;
 
   const not_pooled = all - (nbo + ubo);
-  const configuration: SimpleChartConfigurationFromType<
-    "nbo" | "ubo" | "not_pooled"
-  > = [
+  const configuration: ChartConfiguration<"nbo" | "ubo" | "not_pooled"> = [
     {
-      chartOptions: {
-        id: "nbo",
-        label: t`NBO`,
-        color: palette.charts.color1,
-        legendOrder: 1,
-      },
+      id: "nbo",
+      label: t`NBO`,
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
     {
-      chartOptions: {
-        id: "ubo",
-        label: t`UBO`,
-        color: palette.charts.color3,
-        legendOrder: 2,
-      },
+      id: "ubo",
+      label: t`UBO`,
+      color: palette.charts.color3,
+      legendOrder: 2,
     },
     {
-      chartOptions: {
-        id: "not_pooled",
-        label: t`Not pooled`,
-        color: palette.charts.color5,
-        legendOrder: 3,
-      },
+      id: "not_pooled",
+      label: t`Not pooled`,
+      color: palette.charts.color5,
+      legendOrder: 3,
     },
   ];
   const data = [
