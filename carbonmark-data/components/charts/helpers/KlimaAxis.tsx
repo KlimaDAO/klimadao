@@ -1,25 +1,40 @@
 import { helpers } from "lib/charts";
 import { ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
+import { Text } from "recharts";
 import { ChartConfiguration } from "./Configuration";
-/* Base parameters for all Axis */
+/** Base parameters for all Axis Props */
 const BASE_AXIS_PROPS = {
   tickLine: false,
   tick: { fontSize: 12 },
 };
-/* Base parameters for XAxis */
+/** Base parameters for XAxis */
 const BASE_XAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
   dy: 10,
   axisLine: false,
   interval: 0,
 });
-/* Base parameters for YAxis */
+/** Base parameters for YAxis */
 const BASE_YAXIS_PROPS = Object.assign({}, BASE_AXIS_PROPS, {
   dx: -10,
   axisLine: true,
 });
+/** XAxis Tick formatter that optimize anchoring for the first and last ticks */
+function XAxisTickFormatter(props: any) {
+  const textAnchor =
+    props.index == 0
+      ? "begin"
+      : props.index == props.visibleTicksCount - 1
+      ? "end"
+      : "middle";
 
-/* XAxis props to display ticks as months */
+  return (
+    <Text {...props} textAnchor={textAnchor} fontSize={props.dy}>
+      {props.tickFormatter(props.payload.value)}
+    </Text>
+  );
+}
+/** XAxis props to display ticks as months */
 export function KlimaXAxisMonthlyProps<T>(
   data: ChartData<T>,
   dataKey: keyof T
@@ -29,9 +44,10 @@ export function KlimaXAxisMonthlyProps<T>(
     dataKey: dataKey as string,
     tickFormatter: helpers.formatDateAsMonths,
     ticks: helpers.niceTicks(data, dataKey),
+    tick: <XAxisTickFormatter />,
   });
 }
-/* XAxis props to display ticks as days */
+/** XAxis props to display ticks as days */
 export function KlimaXAxisDailyProps<T>(data: ChartData<T>, dataKey: keyof T) {
   return Object.assign({}, BASE_XAXIS_PROPS, {
     // FIXME: We should not need to hard cast here
@@ -40,7 +56,7 @@ export function KlimaXAxisDailyProps<T>(data: ChartData<T>, dataKey: keyof T) {
     ticks: helpers.niceTicks(data, dataKey),
   });
 }
-/* XAxis props to display vintage dates */
+/** XAxis props to display vintage dates */
 export function KlimaXAxisVintageProps<T>(
   data: ChartData<T>,
   dataKey: keyof T
@@ -53,7 +69,7 @@ export function KlimaXAxisVintageProps<T>(
   });
 }
 
-/* XAxis props to display methodologies */
+/** XAxis props to display methodologies */
 export function KlimaXAxisMethodologyProps<T>(
   data: ChartData<T>,
   dataKey: keyof T
@@ -68,7 +84,7 @@ export function KlimaXAxisMethodologyProps<T>(
   });
 }
 
-/* YAxis props to display quantity in an appropriate format */
+/** YAxis props to display quantity in an appropriate format */
 export function KlimaYAxisTonsProps<CI, Q, M, T>(
   data: ChartData<CI>,
   conf: ChartConfiguration<Q, M, T>
@@ -89,7 +105,7 @@ export function KlimaYAxisTonsProps<CI, Q, M, T>(
   return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
 }
 
-/* YAxis props to display prices in an appropriate format */
+/** YAxis props to display prices in an appropriate format */
 export function KlimaYAxisPriceProps() {
   const locale = currentLocale();
   const formatter = new Intl.NumberFormat(locale, {
@@ -99,7 +115,7 @@ export function KlimaYAxisPriceProps() {
   return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
 }
 
-/* YAxis props to display percentages in an appropriate format */
+/** YAxis props to display percentages in an appropriate format */
 export function KlimaYAxisPercentageProps() {
   const tickFormatter = (x: number) =>
     helpers.formatPercentage({ value: x, fractionDigits: 0 });

@@ -4,6 +4,7 @@ import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { formatPercentage } from "lib/charts/helpers";
 import { ChartData } from "lib/charts/types";
 import { cloneDeep } from "lodash";
+import { useRef } from "react";
 import { Cell, Legend, LegendProps, Pie, PieChart, Tooltip } from "recharts";
 import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import ChartWrapper from "../ChartWrapper";
@@ -16,6 +17,7 @@ interface Props<CI extends { quantity: number }, T extends object> {
   LegendProps?: Omit<LegendProps, "ref">;
   showLegend?: boolean;
   showPercentageInLegend?: boolean;
+  showTooltip?: boolean;
   legendContent?: ContentType;
   noDataText?: string;
   YAxis?: YAxisType;
@@ -27,15 +29,6 @@ export default function KPieChart<
 >(props: Props<CI, T>) {
   // Copy configuration because we are going to alter it
   const configuration = cloneDeep(props.configuration);
-  // Default configuration
-  const LocalLegendProps =
-    props.LegendProps ||
-    Object.assign({}, KlimaLegendProps(configuration), {
-      verticalAlign: "middle",
-      align: "center",
-      layout: "vertical",
-    });
-  const showLegend = props.showLegend === undefined ? true : props.showLegend;
   const nonZeroData = props.data.filter((item) => item.quantity > 0);
   const total = nonZeroData.reduce((previousValue, item) => {
     return previousValue + item.quantity;
@@ -62,16 +55,62 @@ export default function KPieChart<
     chartOptions.label = label;
     return record;
   });
+  // Conpute legend props
+  const localLegendProps =
+    props.LegendProps ||
+    Object.assign({}, KlimaLegendProps(configuration), {
+      verticalAlign: "middle",
+      align: "center",
+      layout: "vertical",
+    });
+  const showLegend = props.showLegend === undefined ? true : props.showLegend;
+  const showTooltip =
+    props.showTooltip === undefined ? true : props.showTooltip;
 
+  // Used to programmaticaly show/Hide tooltips see: https://codesandbox.io/s/recharts-programmatically-show-tooltip-bhfnwt?file=/src/App.tsx:666-700
+  const chartRef = useRef<any>();
+  const legendItemOnMouseOver = (item: any) => {
+    if (!chartRef.current) {
+      return;
+    }
+
+    const graphicalItems = chartRef.current.state.formattedGraphicalItems[0];
+    let activeItem: any = undefined;
+    let index = 0;
+    for (; index < graphicalItems.props.data.length; index++) {
+      if (graphicalItems.props.data[index].id == item.id) {
+        activeItem = graphicalItems.props.sectors[index];
+      }
+    }
+    if (!activeItem) {
+      console.error("check chart state!", chartRef.current.state);
+      return;
+    }
+
+    chartRef.current.setState(
+      {
+        activeTooltipIndex: index,
+      },
+      () => {
+        chartRef.current.handleItemMouseEnter(activeItem);
+      }
+    );
+  };
+  const legendItemOnMouseLeave = () => {
+    if (!chartRef.current) {
+      return;
+    }
+    chartRef.current.setState({
+      isTooltipActive: false,
+    });
+  };
   return (
-    <ChartWrapper data={nonZeroData} noDataText={props.noDataText}>
-      <PieChart>
+    <ChartWrapper data={chartData} noDataText={props.noDataText}>
+      <PieChart ref={chartRef}>
         <Pie
           data={props.data}
           dataKey="quantity"
           nameKey="label"
-          cx="50%"
-          cy="50%"
           innerRadius="93%"
           outerRadius="100%"
         >
@@ -79,16 +118,23 @@ export default function KPieChart<
             <Cell key={entry.id} fill={entry.color} />
           ))}
         </Pie>
-        <Tooltip
-          {...{
-            content: KlimaTooltip({
-              yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
-            }),
-            cursor: { fill: "transparent" },
-          }}
-        />
+        {showTooltip && (
+          <Tooltip
+            {...{
+              content: KlimaTooltip({
+                yAxisFormatter: getToolTipYAxisFormatter(props.YAxis),
+              }),
+              cursor: { fill: "transparent" },
+            }}
+          />
+        )}
         {showLegend && (
-          <Legend {...LocalLegendProps} content={props.legendContent} />
+          <Legend
+            {...localLegendProps}
+            content={props.legendContent}
+            onMouseOver={legendItemOnMouseOver}
+            onMouseLeave={legendItemOnMouseLeave}
+          />
         )}
       </PieChart>
     </ChartWrapper>

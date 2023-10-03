@@ -3,6 +3,7 @@ import { KlimaLegendProps, KlimaLines } from "components/charts/helpers";
 import { Legend, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import ChartWrapper from "../ChartWrapper";
 import {
+  BOTTOM_LEFT_LEGEND_PROPS,
   ChartProps,
   getKlimaTooltipProps,
   getXAxisProps,
@@ -11,14 +12,13 @@ import {
 
 /** FIXME: Refactor to KlimaLineChart */
 export default function KLineChart<T extends object>(props: ChartProps<T>) {
-  const LocalLegendProps =
+  const localLegendProps =
     props.LegendProps ||
-    Object.assign({}, KlimaLegendProps(props.configuration), {
-      layout: "horizontal",
-      verticalAlign: "bottom",
-      align: "left",
-      wrapperStyle: { marginLeft: "40px", paddingTop: "20px" },
-    });
+    Object.assign(
+      {},
+      KlimaLegendProps(props.configuration),
+      BOTTOM_LEFT_LEGEND_PROPS
+    );
 
   return (
     <ChartWrapper data={props.data} noDataText={props.noDataText}>
@@ -26,7 +26,7 @@ export default function KLineChart<T extends object>(props: ChartProps<T>) {
         <XAxis {...getXAxisProps(props)} />
         <YAxis {...getYAxisProps(props)} />
         <Tooltip {...getKlimaTooltipProps(props)} />
-        <Legend {...LocalLegendProps} />
+        <Legend {...localLegendProps} />
         {KlimaLines(props.configuration)}
       </LineChart>
     </ChartWrapper>
