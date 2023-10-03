@@ -1,6 +1,10 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import {
+  DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
+} from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";
@@ -12,17 +16,8 @@ export default function DailyCarbonSupplyByProtocolCard(
   const dateField = statusToDateField(status);
   const source = "quantity";
 
-  const configuration = [
+  const chartConfiguration: DailyCreditsChartConfiguration = [
     {
-      query: {
-        bridge: "toucan",
-        status,
-      },
-      dataMapping: {
-        source,
-        destination: "toucan_quantity",
-        dateField,
-      },
       chartOptions: {
         id: "toucan_quantity",
         label: "Toucan",
@@ -31,15 +26,6 @@ export default function DailyCarbonSupplyByProtocolCard(
       },
     },
     {
-      query: {
-        bridge: "moss",
-        status,
-      },
-      dataMapping: {
-        source,
-        destination: "moss_quantity",
-        dateField,
-      },
       chartOptions: {
         id: "moss_quantity",
         label: "Moss",
@@ -48,15 +34,6 @@ export default function DailyCarbonSupplyByProtocolCard(
       },
     },
     {
-      query: {
-        bridge: "c3",
-        status,
-      },
-      dataMapping: {
-        source,
-        destination: "c3_quantity",
-        dateField,
-      },
       chartOptions: {
         id: "c3_quantity",
         label: "C3",
@@ -66,7 +43,48 @@ export default function DailyCarbonSupplyByProtocolCard(
     },
   ];
 
-  const chart = <DailyCreditsChart configuration={configuration} />;
+  const queryConfiguration: DailyCreditsQueryConfiguration = [
+    {
+      query: {
+        bridge: "toucan",
+        status,
+      },
+      mapping: {
+        source,
+        destination: "toucan_quantity",
+        dateField,
+      },
+    },
+    {
+      query: {
+        bridge: "moss",
+        status,
+      },
+      mapping: {
+        source,
+        destination: "moss_quantity",
+        dateField,
+      },
+    },
+    {
+      query: {
+        bridge: "c3",
+        status,
+      },
+      mapping: {
+        source,
+        destination: "c3_quantity",
+        dateField,
+      },
+    },
+  ];
+
+  const chart = (
+    <DailyCreditsChart
+      chartConfiguration={chartConfiguration}
+      queryConfiguration={queryConfiguration}
+    />
+  );
   const title =
     props.status == "issued"
       ? t`Cummulative Verra registry credits tokenized over time`

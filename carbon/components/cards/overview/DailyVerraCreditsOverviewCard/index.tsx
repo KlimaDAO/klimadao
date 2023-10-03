@@ -1,7 +1,10 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
-import { DailyCreditsChartConfiguration } from "lib/charts/aggregators/getDailyCredits";
+import {
+  DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
+} from "lib/charts/aggregators/getDailyCredits";
 import {
   getCreditsBridgeOptions,
   getCreditsStatusOptions,
@@ -16,7 +19,8 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
   // Pre-compute charts for the various options combinations */
   ["onchain", "offchain"].forEach((bridge) => {
     ["issued", "retired"].forEach((stat) => {
-      let configuration: DailyCreditsChartConfiguration;
+      let queryConfiguration: DailyCreditsQueryConfiguration;
+      let chartConfiguration: DailyCreditsChartConfiguration;
       let dateField: DateField;
       let status: Status;
       const source = "quantity";
@@ -25,17 +29,43 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
         dateField = stat == "retired" ? "retirement_date" : "bridged_date";
         status = stat == "retired" ? "retired" : "bridged";
 
-        configuration = [
+        queryConfiguration = [
           {
             query: {
               bridge: "toucan",
               status,
             },
-            dataMapping: {
+            mapping: {
               source,
               destination: "toucan_quantity",
               dateField,
             },
+          },
+          {
+            query: {
+              bridge: "moss",
+              status,
+            },
+            mapping: {
+              source,
+              destination: "moss_quantity",
+              dateField,
+            },
+          },
+          {
+            query: {
+              bridge: "c3",
+              status,
+            },
+            mapping: {
+              source,
+              destination: "c3_quantity",
+              dateField,
+            },
+          },
+        ];
+        chartConfiguration = [
+          {
             chartOptions: {
               id: "toucan_quantity",
               label: "Toucan",
@@ -44,15 +74,6 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
             },
           },
           {
-            query: {
-              bridge: "moss",
-              status,
-            },
-            dataMapping: {
-              source,
-              destination: "moss_quantity",
-              dateField,
-            },
             chartOptions: {
               id: "moss_quantity",
               label: "Moss",
@@ -61,15 +82,6 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
             },
           },
           {
-            query: {
-              bridge: "c3",
-              status,
-            },
-            dataMapping: {
-              source,
-              destination: "c3_quantity",
-              dateField,
-            },
             chartOptions: {
               id: "c3_quantity",
               label: "C3",
@@ -81,17 +93,21 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
       } else {
         dateField = stat == "retired" ? "retirement_date" : "issuance_date";
         status = stat == "retired" ? "retired" : "issued";
-        configuration = [
+        queryConfiguration = [
           {
             query: {
               bridge: "offchain",
               status,
             },
-            dataMapping: {
+            mapping: {
               source,
               destination: "offchain_quantity",
               dateField,
             },
+          },
+        ];
+        chartConfiguration = [
+          {
             chartOptions: {
               id: "offchain_quantity",
               label: "Offchain",
@@ -101,7 +117,10 @@ export default function DailyVerraCreditsOverviewCard(props: CardProps) {
         ];
       }
       charts[`${bridge}|${stat}`] = (
-        <DailyCreditsChart configuration={configuration} />
+        <DailyCreditsChart
+          chartConfiguration={chartConfiguration}
+          queryConfiguration={queryConfiguration}
+        />
       );
     });
   });

@@ -318,11 +318,16 @@ export type AggregatedCreditsByOrigin =
   PaginatedResponse<AggregatedCreditsByOriginItem>;
 
 // ChartData mappings (used to transform API responses into chart data)
-export interface ChartMappingParams {
-  source: string; // Qhen querying source field is renamed into destination
-  destination: string;
+
+/** instances of this interface describes how to transform query results into chart data
+ * CI: type of the chartdata items
+ */
+export interface ChartMappingParams<SCI, DCI> {
+  source: keyof SCI; // When querying source field is renamed into destination
+  destination: keyof DCI;
 }
-export interface ChartDateMappingParams extends ChartMappingParams {
+export interface ChartDateMappingParams<SCI, DCI>
+  extends ChartMappingParams<SCI, DCI> {
   dateField: DateField; // The date_field expected in the response Object
 }
 
@@ -342,26 +347,10 @@ export type GenericDailyChartDataItem = {
 export type DailyChartData<CI extends GenericDailyChartDataItem> =
   ChartData<CI>;
 
-// Chart data: Daily credits
-export type DailyCreditsChartQueryParams = CreditsQueryParams &
-  ChartMappingParams &
-  ChartDateMappingParams;
-
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
-
-// Chart data: Aggregated credits
-export type AggregatedCreditsChartQueryParams = CreditsQueryParams &
-  ChartMappingParams;
-export interface AggregatedCreditsChartDataItem
-  extends GenericAggregatedChartDataItem {
-  quantity: number;
-}
-
-export type AggregatedCreditsChartData =
-  ChartData<AggregatedCreditsChartDataItem>;
 
 // Chat Data: Treemaps
 export interface TreeMapItem {

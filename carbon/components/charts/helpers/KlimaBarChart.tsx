@@ -8,9 +8,7 @@ export function KlimaBarProps(props: BarProps): Omit<BarProps, "ref"> {
 }
 
 // Creates Recharts Stacked Bars from a ChartConfiguration
-export function KlimaStackedBars<Q, M, T>(
-  configuration: ChartConfiguration<Q, M, T>
-) {
+export function KlimaStackedBars<T>(configuration: ChartConfiguration<T>) {
   return configuration.map((item) => (
     <Bar
       key={item.chartOptions.id}

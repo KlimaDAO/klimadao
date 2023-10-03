@@ -9,8 +9,8 @@ const BASE_LEGEND_PROPS = {
 };
 
 // Creates Rechart LegendProps from a ChartConfiguration
-export function KlimaLegendProps<Q, M, T>(
-  conf: ChartConfiguration<Q, M, T>,
+export function KlimaLegendProps<T>(
+  conf: ChartConfiguration<T>,
   extraProps: LegendProps = {}
 ): Omit<LegendProps, "ref"> {
   const props: LegendProps = {} as LegendProps;

@@ -1,6 +1,7 @@
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import {
   DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
   getDailyCredits,
 } from "lib/charts/aggregators/getDailyCredits";
 import { DailyCreditsChartDataItem } from "lib/charts/types";
@@ -8,11 +9,12 @@ import KAreaChart from "../helpers/KAreaChart";
 
 /** Async server component that renders a Recharts client component */
 export default async function DailyCreditsChart(props: {
-  configuration: DailyCreditsChartConfiguration;
+  chartConfiguration: DailyCreditsChartConfiguration;
+  queryConfiguration: DailyCreditsQueryConfiguration;
 }) {
   const configuration =
-    props.configuration as SimpleChartConfiguration<DailyCreditsChartDataItem>;
-  const data = await getDailyCredits(props.configuration);
+    props.chartConfiguration as SimpleChartConfiguration<DailyCreditsChartDataItem>;
+  const data = await getDailyCredits(props.queryConfiguration);
   return (
     <KAreaChart data={data} configuration={configuration} dateField="date" />
   );

@@ -12,9 +12,7 @@ export function KlimaLineProps(props: LineProps): Omit<LineProps, "ref"> {
 }
 
 // Creates Recharts Lines from a ChartConfiguration
-export function KlimaLines<Q, M, T>(
-  configuration: ChartConfiguration<Q, M, T>
-) {
+export function KlimaLines<T>(configuration: ChartConfiguration<T>) {
   return configuration.map((item) => (
     <Line
       key={item.chartOptions.id}

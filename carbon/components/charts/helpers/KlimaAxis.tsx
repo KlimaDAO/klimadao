@@ -85,9 +85,9 @@ export function KlimaXAxisMethodologyProps<T>(
 }
 
 /** YAxis props to display quantity in an appropriate format */
-export function KlimaYAxisTonsProps<CI, Q, M, T>(
+export function KlimaYAxisTonsProps<CI, T>(
   data: ChartData<CI>,
-  conf: ChartConfiguration<Q, M, T>
+  conf: ChartConfiguration<T>
 ) {
   // Find maximum value in data
   const dataKeys: Array<keyof CI> = conf.map(

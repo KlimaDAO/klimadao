@@ -1,6 +1,10 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
+import {
+  DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
+} from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";
@@ -12,17 +16,8 @@ export default function DailyVerraCreditsCard(
   const dateField = statusToDateField(status);
   const source = "quantity";
 
-  const configuration = [
+  const chartConfiguration: DailyCreditsChartConfiguration = [
     {
-      query: {
-        bridge: "offchain",
-        status,
-      },
-      dataMapping: {
-        source,
-        destination: "offchain_quantity",
-        dateField,
-      },
       chartOptions: {
         id: "offchain_quantity",
         label: "Verra",
@@ -31,8 +26,26 @@ export default function DailyVerraCreditsCard(
       },
     },
   ];
+  const queryConfiguration: DailyCreditsQueryConfiguration = [
+    {
+      query: {
+        bridge: "offchain",
+        status,
+      },
+      mapping: {
+        source,
+        destination: "offchain_quantity",
+        dateField,
+      },
+    },
+  ];
 
-  const chart = <DailyCreditsChart configuration={configuration} />;
+  const chart = (
+    <DailyCreditsChart
+      chartConfiguration={chartConfiguration}
+      queryConfiguration={queryConfiguration}
+    />
+  );
   const title =
     props.status == "issued"
       ? t`Cummulative Verra registry credits issued over time`
