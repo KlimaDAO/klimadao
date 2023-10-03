@@ -1,11 +1,29 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import HistoricalPriceChart from "components/charts/HistoricalPriceChart";
+import KLineChart from "components/charts/helpers/KLineChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { queryPrices } from "lib/charts/queries";
 import { PricesItem } from "lib/charts/types";
 import { palette } from "theme/palette";
+
 /** Historical Prices Card */
 export default function HistoricalPriceCard(props: CardProps) {
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <HistoricalPriceChart />
+  );
+  return (
+    <ChartCard
+      {...props}
+      title={t`Historical prices (USD)`}
+      detailUrl="/details/price-of-digital-carbon"
+      chart={chart}
+    />
+  );
+}
+
+/** HistoricalPrice chart */
+async function HistoricalPriceChart() {
   const configuration: SimpleChartConfiguration<PricesItem> = [
     {
       chartOptions: {
@@ -48,16 +66,15 @@ export default function HistoricalPriceCard(props: CardProps) {
       },
     },
   ];
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <HistoricalPriceChart configuration={configuration} />
-  );
+  const data = (
+    await queryPrices({ sort_by: "date", sort_order: "asc", page_size: -1 })
+  ).items;
   return (
-    <ChartCard
-      {...props}
-      title={t`Historical prices`}
-      detailUrl="/details/price-of-digital-carbon"
-      chart={chart}
+    <KLineChart
+      configuration={configuration}
+      data={data}
+      dateField="date"
+      YAxis="price"
     />
   );
 }

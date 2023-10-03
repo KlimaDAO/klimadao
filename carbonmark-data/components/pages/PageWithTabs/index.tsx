@@ -129,6 +129,7 @@ export default function PageWithTabs(props: {
           >
             {props.tabs.map((tab) => (
               <Tab
+                key={tab.key}
                 className={styles.tabButton}
                 label={tab.label}
                 value={tab.key}
@@ -138,12 +139,17 @@ export default function PageWithTabs(props: {
           {props.tabs.map(
             (tab, tabIndex) =>
               tabsDynamicOptionsList[tabIndex] && (
-                <TabPanel value={tab.key} className={styles.noPadding}>
+                <TabPanel
+                  key={tabIndex}
+                  value={tab.key}
+                  className={styles.noPadding}
+                >
                   <div className={styles.optionsSwitchers}>
                     {tabsDynamicOptionsList[tabIndex].map(
                       (options, widgetIndex) => (
                         <div className={styles.optionsSwitcherWrapper}>
                           <OptionsSwitcher
+                            key={widgetIndex}
                             options={options}
                             onSelectionChange={onOptionChange(
                               tabIndex,
@@ -161,7 +167,11 @@ export default function PageWithTabs(props: {
           )}
 
           {props.tabs.map((tab, tabIndex) => (
-            <TabPanel value={tab.key} className={styles.noPadding}>
+            <TabPanel
+              key={tabIndex}
+              value={tab.key}
+              className={styles.noPadding}
+            >
               {displayedTab(tabIndex)}
             </TabPanel>
           ))}

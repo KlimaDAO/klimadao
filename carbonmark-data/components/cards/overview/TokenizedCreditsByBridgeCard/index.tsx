@@ -1,11 +1,34 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import CreditsByBridgeChart from "components/charts/CreditsByBridgeChart";
-import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
+import KPieChart from "components/charts/helpers/KPieChart";
+import {
+  AggregatedCreditsChartConfiguration,
+  getAggregatedCredits,
+} from "lib/charts/aggregators/getAggregatedCredits";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
 export default function TokenizedCreditsByBridgeCard(props: CardProps) {
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <TokenizedCreditsByBridgeChart
+      showPercentageInLegend={props.isDetailPage}
+    />
+  );
+  return (
+    <ChartCard
+      {...props}
+      title={t`Tokenized credits by bridge`}
+      detailUrl="/details/verra-credits-tokenized-by-bridge"
+      chart={chart}
+    />
+  );
+}
+
+/** Async server component that renders a Recharts client component */
+async function TokenizedCreditsByBridgeChart(props: {
+  showPercentageInLegend?: boolean;
+}) {
   const status = "bridged";
   const configuration: AggregatedCreditsChartConfiguration = [
     {
@@ -17,7 +40,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
         id: "toucan",
         label: "Toucan",
         color: palette.charts.color5,
-        legendOrder: 3,
+        legendOrder: 1,
       },
     },
     {
@@ -29,7 +52,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
         id: "moss",
         label: "Moss",
         color: palette.charts.color3,
-        legendOrder: 3,
+        legendOrder: 2,
       },
     },
     {
@@ -45,16 +68,14 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
       },
     },
   ];
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <CreditsByBridgeChart configuration={configuration}></CreditsByBridgeChart>
-  );
+  const data = await getAggregatedCredits(configuration);
+
   return (
-    <ChartCard
-      {...props}
-      title={t`Tokenized credits by bridge`}
-      detailUrl="/details/verra-credits-tokenized-by-bridge"
-      chart={chart}
+    <KPieChart
+      data={data}
+      configuration={configuration}
+      showPercentageInLegend={props.showPercentageInLegend}
+      YAxis="tons"
     />
   );
 }

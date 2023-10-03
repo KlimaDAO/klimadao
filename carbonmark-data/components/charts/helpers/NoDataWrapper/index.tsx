@@ -1,16 +1,17 @@
 "use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
 import { ChartData } from "lib/charts/types";
-import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
-interface Props<T> {
+export interface NoDataWrapperProps<T> {
   data: ChartData<T>;
   noDataText?: string;
-  children: ReactNode;
+  children: React.ReactElement;
 }
-/** FIXME: Refactor to KlimaBarChart */
-export default function NoDataChartWrapper<T>(props: Props<T>) {
+/** A wrapper for data components
+ * Displays noDataText if there is no data to display
+ * */
+export default function NoDataWrapper<T>(props: NoDataWrapperProps<T>) {
   const noDataText = props.noDataText || t`No data availble`;
   if (props.data.length) {
     return <>{props.children}</>;

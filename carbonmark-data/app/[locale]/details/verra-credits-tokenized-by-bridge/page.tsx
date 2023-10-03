@@ -9,6 +9,7 @@ export default function VerraCreditsTokenizedByBridgePage() {
       card={
         <TokenizedCreditsByBridgeCard
           isDetailPage={true}
+          centerTitle={true}
         ></TokenizedCreditsByBridgeCard>
       }
       overview={t`Lorem Ipsum`}

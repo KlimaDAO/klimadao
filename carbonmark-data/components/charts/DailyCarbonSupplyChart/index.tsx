@@ -2,14 +2,20 @@ import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { getCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
-import Chart from "./Chart";
+import KAreaChart from "../helpers/KAreaChart";
 
 /** Generic Daily Carbon Supply Chart */
 export async function DailyCarbonSupplyChart(props: {
   configuration: SimpleChartConfiguration<CarbonMetricsItem>;
 }) {
   const data = await getCarbonMetrics(props.configuration);
-  return <Chart data={data} configuration={props.configuration} />;
+  return (
+    <KAreaChart
+      data={data}
+      configuration={props.configuration}
+      dateField="date"
+    />
+  );
 }
 
 /** Polygon carbon Supply chart */

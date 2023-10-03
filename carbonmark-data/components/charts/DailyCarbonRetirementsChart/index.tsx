@@ -3,7 +3,7 @@ import { SimpleChartConfiguration } from "lib/charts/aggregators";
 import { getCarbonMetrics } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
-import Chart from "./Chart";
+import KAreaChart from "../helpers/KAreaChart";
 
 /** Polygon carbon Retirements chart */
 export async function DailyPolygonCarbonRetirementsChart() {
@@ -26,7 +26,9 @@ export async function DailyPolygonCarbonRetirementsChart() {
     },
   ];
   const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  return (
+    <KAreaChart data={data} configuration={configuration} dateField="date" />
+  );
 }
 
 /** Polygon carbon Supply chart */
@@ -42,5 +44,7 @@ export async function DailyEthCarbonRetirementsChart() {
     },
   ];
   const data = await getCarbonMetrics(configuration);
-  return <Chart data={data} configuration={configuration} />;
+  return (
+    <KAreaChart data={data} configuration={configuration} dateField="date" />
+  );
 }

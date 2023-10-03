@@ -1,6 +1,7 @@
 "use client"; // use client for recharts animations
 import { TreeMapData } from "lib/charts/types";
-import { ResponsiveContainer, Treemap } from "recharts";
+import { Treemap } from "recharts";
+import ChartWrapper from "../helpers/ChartWrapper";
 import TreeMapItem from "../helpers/TreeMapItem";
 
 interface Props {
@@ -8,13 +9,13 @@ interface Props {
 }
 export default function Chart(props: Props) {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ChartWrapper data={props.data}>
       <Treemap
         data={props.data}
         dataKey="size"
         aspectRatio={1}
         content={<TreeMapItem />}
       ></Treemap>
-    </ResponsiveContainer>
+    </ChartWrapper>
   );
 }

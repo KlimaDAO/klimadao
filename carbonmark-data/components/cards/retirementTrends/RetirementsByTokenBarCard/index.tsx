@@ -1,12 +1,30 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
-import RetirementsByTokenBarChart from "components/charts/RetirementsByTokenBarChart";
+import KBarChart from "components/charts/helpers/KBarChart";
 import { SimpleChartConfiguration } from "lib/charts/aggregators";
+import { getTokenCarbonMetricsInPercent } from "lib/charts/aggregators/getCarbonMetrics";
 import { CarbonMetricsItem } from "lib/charts/types";
 import { palette } from "theme/palette";
+
 /** Klima DAO Retirements by pool Card */
 export default function RetirementsByTokenBarCard(props: CardProps) {
-  const dateField = "date";
+  const chart = (
+    /* @ts-expect-error async Server component */
+    <RetirementsByTokenBarChart />
+  );
+
+  return (
+    <ChartCard
+      {...props}
+      title={t`KlimaDAO retirements by token`}
+      detailUrl="/details/retirement-trends-by-token"
+      chart={chart}
+    />
+  );
+}
+
+/** Async server component that renders a Recharts client component */
+async function RetirementsByTokenBarChart() {
   const configuration: SimpleChartConfiguration<CarbonMetricsItem> = [
     {
       chartOptions: {
@@ -34,17 +52,14 @@ export default function RetirementsByTokenBarCard(props: CardProps) {
     },
   ];
 
-  const chart = (
-    /* @ts-expect-error async Server component */
-    <RetirementsByTokenBarChart configuration={configuration} />
-  );
-
+  const data = await getTokenCarbonMetricsInPercent(configuration);
   return (
-    <ChartCard
-      {...props}
-      title={t`KlimaDAO retirements by token`}
-      detailUrl="/details/retirement-trends-by-token"
-      chart={chart}
+    <KBarChart
+      configuration={configuration}
+      data={data}
+      YAxis="percentage"
+      XAxis="months"
+      dateField="date"
     />
   );
 }

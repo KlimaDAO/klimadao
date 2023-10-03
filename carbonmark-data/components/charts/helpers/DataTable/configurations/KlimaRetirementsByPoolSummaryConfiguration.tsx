@@ -31,7 +31,7 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
         header: "",
         cellStyle: `${styles.header} ${layout.nowrap}`,
         dataKey: "retirement_date",
-        formatter: helpers.formatDateAsMonthsShort(locale),
+        formatter: helpers.formatDateAsMonthsShort,
       },
       amount_retired: {
         header: t`Amount Retired`,

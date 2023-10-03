@@ -63,7 +63,7 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
       header: t`Date`,
       cellStyle: layout.textRight,
       dataKey: "retirement_date",
-      formatter: helpers.formatDateAsDaysShort(this.locale),
+      formatter: helpers.formatDateAsDaysShort,
     };
   }
   get transactionIdColumn(): Column<RawRetirementsItem> {
