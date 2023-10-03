@@ -29,7 +29,7 @@ export const SubmitButton: FC<Props> = (props) => {
     return (
       <ButtonPrimary
         className={props.className}
-        label={t`Sign In / Connect To Buy`}
+        label={t`Retire Carbon`}
         onClick={toggleModal}
         disabled={props.disabled}
       />
