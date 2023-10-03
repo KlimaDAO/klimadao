@@ -28,14 +28,13 @@ export default function KPieChart<
 >(props: Props<CI, T>) {
   // Copy configuration because we are going to alter it
   const configuration = cloneDeep(props.configuration);
-  const nonZeroData = props.data.filter((item) => item.quantity > 0);
-  const total = nonZeroData.reduce((previousValue, item) => {
+  const total = props.data.reduce((previousValue, item) => {
     return previousValue + item.quantity;
   }, 0);
   // Transform data so id and labels from configuration are available to recharts
-  const chartData: ChartData<
+  let chartData: ChartData<
     ChartConfigurationItem<keyof T> & { quantity: number }
-  > = nonZeroData.map((item, i) => {
+  > = props.data.map((item, i) => {
     const chartOptions = configuration[i];
     let label = chartOptions.label || chartOptions.id;
     if (props.showPercentageInLegend) {
@@ -54,6 +53,8 @@ export default function KPieChart<
     chartOptions.label = label;
     return record;
   });
+  chartData = chartData.filter((item) => item.quantity > 0);
+
   // Conpute legend props
   const localLegendProps =
     props.LegendProps ||
@@ -114,7 +115,7 @@ export default function KPieChart<
           outerRadius="100%"
         >
           {chartData.map((entry) => (
-            <Cell key={entry.id} fill={entry.color} />
+            <Cell key={entry.id} fill={entry.color} name={entry.label} />
           ))}
         </Pie>
         {showTooltip && (

@@ -14,6 +14,7 @@ export function KlimaTooltip(params: {
     TName extends NameType,
   >(props: TooltipProps<TValue, TName>) {
     const { active, payload, label } = props;
+
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltip}>
@@ -21,7 +22,7 @@ export function KlimaTooltip(params: {
           <div className={styles.tooltipItems}>
             {payload.map((pld) => (
               <div key={pld.name}>
-                <div>{pld.name}</div>
+                <div>{pld.payload?.name || pld.name}</div>
                 <div style={{ color: pld.color }}>
                   {pld.value &&
                     params.yAxisFormatter &&

@@ -1,16 +1,21 @@
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { CreditsFilteringProps } from "components/charts/helpers/props";
 import {
+  AggregatedCredits,
   Bridge,
   ChartData,
   CreditsQueryParams,
-  GenericAggregatedChartDataItem,
+  DateFieldParam,
+  Status,
+  TreeMapData,
 } from "lib/charts/types";
-import { queryAggregatedCredits } from "../queries";
-
-export interface AggregatedCreditsChartDataItem
-  extends GenericAggregatedChartDataItem {
-  quantity: number;
-}
+import { statusToDateFieldGt } from "../dateField";
+import { dateForQuery } from "../helpers";
+import {
+  queryAggregatedCredits,
+  queryAggregatedCreditsByProjects,
+} from "../queries";
+export type AggregatedCreditsChartDataItem = AggregatedCredits;
 
 export type AggregatedCreditsChartData =
   ChartData<AggregatedCreditsChartDataItem>;
@@ -21,41 +26,64 @@ export type AggregatedCreditsQueryConfiguration = Array<{
   query: CreditsQueryParams;
 }>;
 
-/*
-  This function takes multiple queries, resolves them to datasets (global aggregates) and merge them into data usable by recharts
-  Params:
-   - fetchFunction: The function that queries the API
-  Generics:
-   - CI: Expected type of items returned in the chart data array
-   - Q: Type of the query and mapping parameters
-*/
-export async function prepareAggregatedChartData(
+/** Transforms widget options into credits query parameters */
+export function creditsQueryParamsFromProps(
+  props: CreditsFilteringProps,
+  forceStatus?: Status
+): CreditsQueryParams {
+  const status = forceStatus === undefined ? props.status : forceStatus;
+  const queryParams: CreditsQueryParams = {
+    bridge: props.bridge,
+    pool: props.pool,
+    status,
+  };
+
+  const dateField: DateFieldParam = statusToDateFieldGt(status);
+  if (props.since == "last7d") {
+    queryParams[dateField] = dateForQuery(Date.now() - 60 * 60 * 24 * 7 * 1000);
+  } else if (props.since == "last30d") {
+    queryParams[dateField] = dateForQuery(
+      Date.now() - 60 * 60 * 24 * 30 * 1000
+    );
+  }
+  return queryParams;
+}
+/** Transforms widget options into pools query parameters */
+export function poolsQueryParamsFromProps(
+  props: CreditsFilteringProps
+): CreditsQueryParams {
+  const queryParams: CreditsFilteringProps = { ...props };
+  if (queryParams.status == "bridged") queryParams.status = "deposited";
+  return creditsQueryParamsFromProps(queryParams);
+}
+
+/** Queries multiple the aggregated credits endpoint multiple time and merge results into a dataset */
+export async function getAggregatedCredits(
   configuration: AggregatedCreditsQueryConfiguration
 ): Promise<ChartData<AggregatedCreditsChartDataItem>> {
-  const datasets = await Promise.all(
+  return await Promise.all(
     configuration.map((configurationItem) => {
       return queryAggregatedCredits(configurationItem.query);
     })
   );
-  const chartData: ChartData<AggregatedCreditsChartDataItem> = [];
-  datasets.forEach((dataset, i) => {
-    const record: AggregatedCreditsChartDataItem =
-      {} as AggregatedCreditsChartDataItem;
-    /*
-    const chartOptions = configuration[i].chartOptions;
-    record.id = chartOptions.id;
-    record.color = chartOptions.color;
-    record.label = chartOptions.label || chartOptions.id;
-    */
-    record.quantity = dataset.quantity;
-    chartData.push(record);
-  });
-  return chartData;
 }
 
-/* Fetches multiple verra credits globally aggregated and merge them to be used in a chart */
-export async function getAggregatedCredits(
-  configuration: AggregatedCreditsQueryConfiguration
-) {
-  return prepareAggregatedChartData(configuration);
+/* Fetches aggregated credits by projects and format them for a tree chart */
+export async function getAggregatedCreditsByProjects(
+  props: CreditsFilteringProps
+): Promise<TreeMapData> {
+  const params = creditsQueryParamsFromProps(props);
+
+  const finalParams = Object.assign({}, params, {
+    sort_by: "quantity",
+    sort_order: "desc",
+  });
+  const data = await queryAggregatedCreditsByProjects(finalParams);
+  const chartData: TreeMapData = data.items.map((item) => {
+    return {
+      name: item.project_type,
+      size: item.quantity,
+    };
+  });
+  return chartData;
 }

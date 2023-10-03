@@ -332,15 +332,8 @@ export interface ChartDateMappingParams<SCI, DCI>
 }
 
 // Chart data: Generics
-export type GenericChartDataItem = Record<Partial<string>, string | number>;
 export type ChartData<T> = Array<T>;
-export type GenericChartData = ChartData<GenericChartDataItem>;
-export interface GenericAggregatedChartDataItem {
-  id: string;
-  label: string;
-  color: string;
-  quantity?: number;
-}
+
 export type GenericDailyChartDataItem = {
   date: number;
 };
