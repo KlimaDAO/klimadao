@@ -26,9 +26,13 @@ export type RetirePageProps = {
 };
 
 export const Retire: NextPage<RetirePageProps> = (props) => {
-  const { isConnected, address, toggleModal, provider, initializing } =
+  const { isConnected, address = "", toggleModal, provider, initializing } =
     useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser(address);
+  const { carbonmarkUser, isLoading } = useFetchUser({
+    params: { walletOrHandle: address },
+    // Current user, fetch all listings
+    query: { expiresAfter: "0" }
+  },);
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;

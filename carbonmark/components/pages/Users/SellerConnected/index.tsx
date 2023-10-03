@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -31,8 +32,13 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
+  const { address } = useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
+    params: { walletOrHandle: props.userAddress },
+    // Conditionally fetch all listings for the user if viewing own profile
+    query: { expiresAfter: address === props.userAddress ? "0" : undefined }
+  });
 
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
   const [isPending, setIsPending] = useState(false);
 
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
