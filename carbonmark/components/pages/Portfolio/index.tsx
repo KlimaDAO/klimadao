@@ -17,12 +17,17 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address = "", toggleModal, initializing, networkLabel } =
-    useWeb3();
+  const {
+    isConnected,
+    address = "",
+    toggleModal,
+    initializing,
+    networkLabel,
+  } = useWeb3();
   const { carbonmarkUser, isLoading, mutate } = useFetchUser({
     params: { walletOrHandle: address },
     //Since we're fetching for the current user fetch all listings
-    query: { network: networkLabel, expiresAfter: "0" }
+    query: { network: networkLabel, expiresAfter: "0" },
   });
 
   const [isPending, setIsPending] = useState(false);
