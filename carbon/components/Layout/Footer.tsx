@@ -16,55 +16,63 @@ export const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
-        <Link href="#">Home</Link>
         <Link href="#" className={layout.mobileOnly}>
           Buy
         </Link>
         <Link href="#" className={layout.mobileOnly}>
           Stake
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link
+          href="https://app.klimadao.finance/"
+          className={layout.mobileOnly}
+        >
           App
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link
+          href="https://docs.klimadao.finance/"
+          className={layout.mobileOnly}
+        >
           Docs
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link
+          href="https://app.klimadao.finance/"
+          className={layout.desktopOnly}
+        >
           Klima App
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link href="https://www.carbonmark.com/" className={layout.desktopOnly}>
           Carbonmark
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
-          Klima Data
-        </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link
+          href="https://docs.klimadao.finance/"
+          className={layout.desktopOnly}
+        >
           Official Docs
         </Link>
-        <Link href="#">Blog</Link>
-        <Link href="#">Contact</Link>
-        <Link href="#">Disclaimer</Link>
+        <Link href="https://www.klimadao.finance/resources">Blog</Link>
+        <Link href="https://www.klimadao.finance/contact">Contact</Link>
+        <Link href="https://www.klimadao.finance/disclaimer">Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
-        <Link href="#">
+        <Link href="https://twitter.com/KlimaDAO">
           <Twitter />
         </Link>
-        <Link href="#">
+        <Link href="https://www.youtube.com/c/klimadaofinance">
           <YouTube />
         </Link>
-        <Link href="#">
+        <Link href="https://discord.com/invite/klimadao">
           <DiscordSvg />
         </Link>
         <Link href="#" className={layout.mobileOnly}>
           <Reddit />
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link href="https://github.com/KlimaDAO/" className={layout.mobileOnly}>
           <GitHub />
         </Link>
-        <Link href="#">
+        <Link href="https://www.linkedin.com/company/klimadao/">
           <LinkedIn />
         </Link>
-        <Link href="#">
+        <Link href="https://t.me/joinchat/Zb06f_mnMosyYTYy">
           <Telegram />
         </Link>
         <Link href="#" className={layout.mobileOnly}>
