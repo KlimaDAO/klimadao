@@ -60,6 +60,15 @@
     gap: 1rem;
   }
 }
+.cardRowWrap {
+  @include breakpoints.desktop {
+    flex-wrap: wrap;
+    & > div {
+      flex-basis: 49%;
+      flex-grow: 0;
+    }
+  }
+}
 .prioritizeFirstCard {
   & > div:first-child {
     flex: 1 0.5;
