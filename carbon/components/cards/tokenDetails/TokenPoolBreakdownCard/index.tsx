@@ -103,7 +103,10 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
 
 /** Async server component that renders a Recharts client component */
 async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props, "bridged");
+  const params = creditsQueryParamsFromProps({
+    ...props,
+    ...{ since: "lifetime", status: "bridged" },
+  });
   const nbo = (
     await queryAggregatedCredits({
       ...params,
