@@ -1,4 +1,4 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 .global {
   display: flex;
@@ -6,7 +6,7 @@
 }
 
 .twoColumns {
-  @include desktop {
+  @include breakpoints.desktop {
     display: flex;
     gap: 2rem;
   }
@@ -17,16 +17,16 @@
   }
 
   & > div:nth-child(2) {
-    @include desktop {
+    @include breakpoints.desktop {
       max-width: 36rem;
     }
   }
 }
 
 .twoColumns {
-  @include desktop {
+  @include breakpoints.desktop {
     display: flex;
-    gap: 20px;
+    gap: 2rem;
   }
 
   & > div:first-child {
@@ -35,7 +35,7 @@
   }
 
   & > div:nth-child(2) {
-    @include desktop {
+    @include breakpoints.desktop {
       max-width: 36rem;
     }
   }
@@ -55,7 +55,7 @@
     flex: 1 1 0;
   }
 
-  @include desktop {
+  @include breakpoints.desktop {
     display: flex;
     gap: 1rem;
   }
@@ -74,7 +74,7 @@ div.card50percent {
 }
 
 .mobileOnly {
-  @include large {
+  @include breakpoints.large {
     display: none;
   }
 }
@@ -82,7 +82,7 @@ div.card50percent {
 .desktopOnly {
   display: none;
 
-  @include large {
+  @include breakpoints.large {
     display: unset;
   }
 }
