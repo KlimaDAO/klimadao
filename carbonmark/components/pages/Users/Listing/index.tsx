@@ -6,7 +6,7 @@ import { ProjectKey } from "components/ProjectKey";
 import { Text } from "components/Text";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { CategoryName, Listing as ListingT } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ type Props = {
 export const Listing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const project = props.listing.project;
-  const category = project?.category?.id as CategoryName;
+  const category = project?.category as CategoryName;
 
   return (
     <Card>
@@ -33,23 +33,23 @@ export const Listing: FC<Props> = (props) => {
       </div>
       <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
-          {project.name}
+          {project.name || `${project.key}-${project.vintage}`}
         </Text>
       </Link>
       <div className={styles.image}>
         <Link href={createProjectLink(project)}>
-          <ProjectImage category={category} />
+          <ProjectImage category={category || "Other"} />
         </Link>
       </div>
       <div className={styles.amounts}>
         <Text t="h4">
-          {formatBigToPrice(props.listing.singleUnitPrice, locale)}
+          {formatToPrice(props.listing.singleUnitPrice, locale)}
         </Text>
         <Text t="body1">
           <Trans id="seller.listing.quantity_available">
             Quantity Available:
           </Trans>{" "}
-          {formatBigToTonnes(props.listing.leftToSell, locale)}
+          {formatToTonnes(props.listing.leftToSell, locale)}
         </Text>
       </div>
       {props.children}
