@@ -1,7 +1,7 @@
 import { helpers } from "lib/charts";
 import { ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
-import { Text } from "recharts";
+import { Text, YAxisProps } from "recharts";
 import { ChartConfiguration } from "./Configuration";
 /** Base parameters for all Axis Props */
 const BASE_AXIS_PROPS = {
@@ -102,7 +102,10 @@ export function KlimaYAxisTonsProps<CI, T>(
       ? helpers.formatQuantityAsKiloTons
       : helpers.formatQuantityAsMillionsOfTons;
 
-  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+  return Object.assign({}, BASE_YAXIS_PROPS, {
+    tickFormatter,
+    width: 70,
+  } as YAxisProps);
 }
 
 /** YAxis props to display prices in an appropriate format */
@@ -112,7 +115,10 @@ export function KlimaYAxisPriceProps() {
     maximumFractionDigits: 2,
   });
   const tickFormatter = (value: number) => formatter.format(value);
-  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+  return Object.assign({}, BASE_YAXIS_PROPS, {
+    tickFormatter,
+    width: 40,
+  } as YAxisProps);
 }
 
 /** YAxis props to display percentages in an appropriate format */

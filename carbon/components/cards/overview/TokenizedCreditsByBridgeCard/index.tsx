@@ -21,6 +21,7 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
       {...props}
       title={t`Tokenized credits by bridge`}
       detailUrl="/details/verra-credits-tokenized-by-bridge"
+      detailUrlPosition="bottom"
       chart={chart}
     />
   );
