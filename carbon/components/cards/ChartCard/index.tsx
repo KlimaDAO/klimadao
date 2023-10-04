@@ -15,6 +15,7 @@ export type CardProps = {
   isDetailPage?: boolean;
   centerTitle?: boolean;
   bottomOptionsPosition?: BottomOptionsPosition;
+  detailUrlPosition?: DetailUrlPosition;
 };
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -35,7 +36,6 @@ export default function ChartCard<T extends Key, B extends Key>(
     chart?: React.ReactNode;
     title: string;
     detailUrl?: string;
-    detailUrlPosition?: DetailUrlPosition;
     topOptions?: Options<T>;
     bottomOptions?: Options<B>;
     // Todo: It would be nice if the component could detect it was inside a 'ChartRow'
