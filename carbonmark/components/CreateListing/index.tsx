@@ -157,10 +157,7 @@ export const CreateListing: FC<Props> = (props) => {
 
   return (
     <Modal
-      title={t({
-        id: "profile.listings_modal.title",
-        message: "Create a Listing",
-      })}
+      title={t`Create a listing`}
       showModal={props.showModal}
       onToggleModal={onModalClose}
     >
