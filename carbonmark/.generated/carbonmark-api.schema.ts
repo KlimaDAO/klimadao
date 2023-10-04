@@ -2,7 +2,7 @@ export default {
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.0-3** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-4** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@ export default {
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.0-3"
+    "version": "2.0.0-4"
   },
   "components": {
     "schemas": {
@@ -262,61 +262,54 @@ export default {
                       ]
                     },
                     "seller": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "handle": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "null"
-                                }
-                              ]
-                            },
-                            "username": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "null"
-                                }
-                              ]
-                            },
-                            "description": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "null"
-                                }
-                              ]
-                            },
-                            "profileImgUrl": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "null"
-                                }
-                              ]
-                            },
-                            "id": {
+                      "type": "object",
+                      "properties": {
+                        "handle": {
+                          "anyOf": [
+                            {
                               "type": "string"
+                            },
+                            {
+                              "type": "null"
                             }
-                          },
-                          "required": [
-                            "id"
                           ]
                         },
-                        {
-                          "type": "null"
+                        "username": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "description": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "profileImgUrl": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
                         }
+                      },
+                      "required": [
+                        "id"
                       ]
                     },
                     "expiration": {
@@ -338,12 +331,28 @@ export default {
                         },
                         "vintage": {
                           "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "methodology": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "id",
                         "key",
-                        "vintage"
+                        "vintage",
+                        "name",
+                        "category",
+                        "country",
+                        "methodology"
                       ]
                     }
                   },
@@ -353,6 +362,7 @@ export default {
                     "tokenAddress",
                     "singleUnitPrice",
                     "totalAmountToSell",
+                    "seller",
                     "expiration",
                     "minFillAmount",
                     "project"
@@ -791,61 +801,54 @@ export default {
                   ]
                 },
                 "seller": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "handle": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "username": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "description": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "profileImgUrl": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "id": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "anyOf": [
+                        {
                           "type": "string"
+                        },
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id"
                       ]
                     },
-                    {
-                      "type": "null"
+                    "username": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "description": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "profileImgUrl": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
                     }
+                  },
+                  "required": [
+                    "id"
                   ]
                 },
                 "expiration": {
@@ -867,12 +870,28 @@ export default {
                     },
                     "vintage": {
                       "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "methodology": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "key",
-                    "vintage"
+                    "vintage",
+                    "name",
+                    "category",
+                    "country",
+                    "methodology"
                   ]
                 }
               },
@@ -882,6 +901,7 @@ export default {
                 "tokenAddress",
                 "singleUnitPrice",
                 "totalAmountToSell",
+                "seller",
                 "expiration",
                 "minFillAmount",
                 "project"
@@ -1275,61 +1295,54 @@ export default {
             ]
           },
           "seller": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "handle": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "username": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "description": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "profileImgUrl": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "id": {
+            "type": "object",
+            "properties": {
+              "handle": {
+                "anyOf": [
+                  {
                     "type": "string"
+                  },
+                  {
+                    "type": "null"
                   }
-                },
-                "required": [
-                  "id"
                 ]
               },
-              {
-                "type": "null"
+              "username": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "profileImgUrl": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "type": "string"
               }
+            },
+            "required": [
+              "id"
             ]
           },
           "expiration": {
@@ -1351,12 +1364,28 @@ export default {
               },
               "vintage": {
                 "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "methodology": {
+                "type": "string"
               }
             },
             "required": [
               "id",
               "key",
-              "vintage"
+              "vintage",
+              "name",
+              "category",
+              "country",
+              "methodology"
             ]
           }
         },
@@ -1366,6 +1395,7 @@ export default {
           "tokenAddress",
           "singleUnitPrice",
           "totalAmountToSell",
+          "seller",
           "expiration",
           "minFillAmount",
           "project"
@@ -1662,61 +1692,54 @@ export default {
                   ]
                 },
                 "seller": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "handle": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "username": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "description": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "profileImgUrl": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "id": {
+                  "type": "object",
+                  "properties": {
+                    "handle": {
+                      "anyOf": [
+                        {
                           "type": "string"
+                        },
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id"
                       ]
                     },
-                    {
-                      "type": "null"
+                    "username": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "description": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "profileImgUrl": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
                     }
+                  },
+                  "required": [
+                    "id"
                   ]
                 },
                 "expiration": {
@@ -1738,12 +1761,28 @@ export default {
                     },
                     "vintage": {
                       "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "methodology": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "key",
-                    "vintage"
+                    "vintage",
+                    "name",
+                    "category",
+                    "country",
+                    "methodology"
                   ]
                 }
               },
@@ -1753,6 +1792,7 @@ export default {
                 "tokenAddress",
                 "singleUnitPrice",
                 "totalAmountToSell",
+                "seller",
                 "expiration",
                 "minFillAmount",
                 "project"
@@ -2287,7 +2327,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1696288898",
+              "default": "1696379549",
               "type": "string"
             },
             "example": "1620000000",
@@ -2550,61 +2590,54 @@ export default {
                                   ]
                                 },
                                 "seller": {
-                                  "anyOf": [
-                                    {
-                                      "type": "object",
-                                      "properties": {
-                                        "handle": {
-                                          "anyOf": [
-                                            {
-                                              "type": "string"
-                                            },
-                                            {
-                                              "type": "null"
-                                            }
-                                          ]
-                                        },
-                                        "username": {
-                                          "anyOf": [
-                                            {
-                                              "type": "string"
-                                            },
-                                            {
-                                              "type": "null"
-                                            }
-                                          ]
-                                        },
-                                        "description": {
-                                          "anyOf": [
-                                            {
-                                              "type": "string"
-                                            },
-                                            {
-                                              "type": "null"
-                                            }
-                                          ]
-                                        },
-                                        "profileImgUrl": {
-                                          "anyOf": [
-                                            {
-                                              "type": "string"
-                                            },
-                                            {
-                                              "type": "null"
-                                            }
-                                          ]
-                                        },
-                                        "id": {
+                                  "type": "object",
+                                  "properties": {
+                                    "handle": {
+                                      "anyOf": [
+                                        {
                                           "type": "string"
+                                        },
+                                        {
+                                          "type": "null"
                                         }
-                                      },
-                                      "required": [
-                                        "id"
                                       ]
                                     },
-                                    {
-                                      "type": "null"
+                                    "username": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "description": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "profileImgUrl": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "null"
+                                        }
+                                      ]
+                                    },
+                                    "id": {
+                                      "type": "string"
                                     }
+                                  },
+                                  "required": [
+                                    "id"
                                   ]
                                 },
                                 "expiration": {
@@ -2626,12 +2659,28 @@ export default {
                                     },
                                     "vintage": {
                                       "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "category": {
+                                      "type": "string"
+                                    },
+                                    "country": {
+                                      "type": "string"
+                                    },
+                                    "methodology": {
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "id",
                                     "key",
-                                    "vintage"
+                                    "vintage",
+                                    "name",
+                                    "category",
+                                    "country",
+                                    "methodology"
                                   ]
                                 }
                               },
@@ -2641,6 +2690,7 @@ export default {
                                 "tokenAddress",
                                 "singleUnitPrice",
                                 "totalAmountToSell",
+                                "seller",
                                 "expiration",
                                 "minFillAmount",
                                 "project"
@@ -2740,7 +2790,7 @@ export default {
           },
           {
             "schema": {
-              "default": "1696288899",
+              "default": "1696379549",
               "type": "string"
             },
             "example": "1620000000",
@@ -2909,61 +2959,54 @@ export default {
                             ]
                           },
                           "seller": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "username": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "description": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "profileImgUrl": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "id": {
+                            "type": "object",
+                            "properties": {
+                              "handle": {
+                                "anyOf": [
+                                  {
                                     "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
                                   }
-                                },
-                                "required": [
-                                  "id"
                                 ]
                               },
-                              {
-                                "type": "null"
+                              "username": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "description": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "profileImgUrl": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "id": {
+                                "type": "string"
                               }
+                            },
+                            "required": [
+                              "id"
                             ]
                           },
                           "expiration": {
@@ -2985,12 +3028,28 @@ export default {
                               },
                               "vintage": {
                                 "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id",
                               "key",
-                              "vintage"
+                              "vintage",
+                              "name",
+                              "category",
+                              "country",
+                              "methodology"
                             ]
                           }
                         },
@@ -3000,6 +3059,7 @@ export default {
                           "tokenAddress",
                           "singleUnitPrice",
                           "totalAmountToSell",
+                          "seller",
                           "expiration",
                           "minFillAmount",
                           "project"
@@ -3896,61 +3956,54 @@ export default {
                             ]
                           },
                           "seller": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "username": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "description": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "profileImgUrl": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "id": {
+                            "type": "object",
+                            "properties": {
+                              "handle": {
+                                "anyOf": [
+                                  {
                                     "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
                                   }
-                                },
-                                "required": [
-                                  "id"
                                 ]
                               },
-                              {
-                                "type": "null"
+                              "username": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "description": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "profileImgUrl": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "id": {
+                                "type": "string"
                               }
+                            },
+                            "required": [
+                              "id"
                             ]
                           },
                           "expiration": {
@@ -3972,12 +4025,28 @@ export default {
                               },
                               "vintage": {
                                 "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "category": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "methodology": {
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id",
                               "key",
-                              "vintage"
+                              "vintage",
+                              "name",
+                              "category",
+                              "country",
+                              "methodology"
                             ]
                           }
                         },
@@ -3987,6 +4056,7 @@ export default {
                           "tokenAddress",
                           "singleUnitPrice",
                           "totalAmountToSell",
+                          "seller",
                           "expiration",
                           "minFillAmount",
                           "project"
