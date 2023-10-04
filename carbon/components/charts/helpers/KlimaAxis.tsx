@@ -121,16 +121,20 @@ export function KlimaYAxisPriceProps() {
   } as YAxisProps);
 }
 
-/** YAxis props to display percentages in an appropriate format */
+/** YAxis props to display percentages with a fixed axis in an appropriate format */
 export function KlimaYAxisPercentageProps() {
   const tickFormatter = (x: number) =>
     helpers.formatPercentage({ value: x, fractionDigits: 0 });
-  return Object.assign(
-    {
-      domain: [0, 1],
-      ticks: [0, 0.2, 0.4, 0.6, 0.8, 1],
-    },
-    BASE_YAXIS_PROPS,
-    { tickFormatter }
-  );
+  const scaleProps = {
+    domain: [0, 1],
+    ticks: [0, 0.2, 0.4, 0.6, 0.8, 1],
+  };
+  return { ...BASE_YAXIS_PROPS, ...scaleProps, ...{ tickFormatter } };
+}
+
+/** YAxis props to display percentages in an appropriate format */
+export function KlimaYAxisPercentageAutoscaleProps() {
+  const tickFormatter = (x: number) =>
+    helpers.formatPercentage({ value: x, fractionDigits: 2 });
+  return { ...BASE_YAXIS_PROPS, ...{ tickFormatter } };
 }
