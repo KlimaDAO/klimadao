@@ -1,4 +1,4 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 .cardContainer {
   box-sizing: border-box;
@@ -14,7 +14,7 @@
   width: 100%;
   min-width: 0;
 
-  @include desktop {
+  @include breakpoints.desktop {
     padding: 1.2rem 1.4rem;
   }
 }
@@ -84,7 +84,7 @@
 }
 
 .overlapLegend {
-  @include desktop {
+  @include breakpoints.desktop {
     margin: 0;
     justify-content: center;
     position: absolute;
@@ -94,7 +94,7 @@
 }
 
 .cardFooterSwitcher {
-  @include desktop {
+  @include breakpoints.desktop {
     display: none;
   }
 }
@@ -102,7 +102,7 @@
 .cardHeaderSwitcher {
   display: none;
 
-  @include desktop {
+  @include breakpoints.desktop {
     display: block;
   }
 }
