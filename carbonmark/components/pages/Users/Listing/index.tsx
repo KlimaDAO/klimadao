@@ -22,7 +22,7 @@ type Props = {
 export const Listing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const project = props.listing.project;
-  const category = project?.category?.id as CategoryName;
+  const category = project?.category as CategoryName;
 
   return (
     <Card>

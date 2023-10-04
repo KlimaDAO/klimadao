@@ -1,10 +1,9 @@
-import { formatTonnes, formatUnits } from "@klimadao/lib/utils";
+import { formatTonnes } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -35,7 +34,7 @@ export const EditListing: FC<Props> = (props) => {
   const locale = router.locale || "en";
 
   const listedQuantity = formatTonnes({
-    amount: formatUnits(props.listing.leftToSell),
+    amount: props.listing.leftToSell,
     locale,
   });
   const totalAvailableQuantity = formatTonnes({
@@ -46,11 +45,8 @@ export const EditListing: FC<Props> = (props) => {
   const { register, handleSubmit, formState } = useForm<FormValues>({
     defaultValues: {
       tokenAddress: props.listing.tokenAddress,
-      newQuantity: formatUnits(props.listing.leftToSell),
-      newSingleUnitPrice: formatUnits(
-        props.listing.singleUnitPrice,
-        getTokenDecimals("usdc")
-      ),
+      newQuantity: props.listing.leftToSell,
+      newSingleUnitPrice: props.listing.singleUnitPrice,
       ...props.values,
     },
   });
