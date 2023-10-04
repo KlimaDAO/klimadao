@@ -62,8 +62,8 @@ export async function DailyEthCarbonSupplyChart() {
     {
       id: "mco2_supply_eth",
       label: "MCO2",
-      color: palette.charts.color3,
-      legendOrder: 3,
+      color: palette.charts.color1,
+      legendOrder: 5,
     },
   ];
   /* @ts-expect-error async Server component */
@@ -74,8 +74,8 @@ export async function DailyEthCarbonSupplyChart() {
 export async function DailyCeloCarbonSupplyChart() {
   const configuration: ChartConfiguration<keyof CarbonMetricsItem> = [
     {
-      id: "bct_supply_celo",
-      label: "BCT",
+      id: "mco2_supply_celo",
+      label: "MCO2",
       color: palette.charts.color5,
       legendOrder: 1,
     },
@@ -86,8 +86,8 @@ export async function DailyCeloCarbonSupplyChart() {
       legendOrder: 2,
     },
     {
-      id: "mco2_supply_celo",
-      label: "MCO2",
+      id: "bct_supply_celo",
+      label: "BCT",
       color: palette.charts.color1,
       legendOrder: 3,
     },
