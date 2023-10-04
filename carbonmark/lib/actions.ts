@@ -337,7 +337,7 @@ export const addProjectsToAssets = async (params: {
         resolvedAssets.push({
           tokenAddress: asset.token.id,
           tokenName: asset.token.name,
-          balance: ethersFormatUnits(asset.amount, asset.token.decimals),
+          balance: asset.amount,
           tokenType: getTokenType(asset),
           project,
         });
@@ -366,7 +366,7 @@ export const createCompositeAsset = (
 
   const compositeAsset: AssetForRetirement = {
     tokenName: asset.token.name,
-    balance: ethersFormatUnits(asset.amount, asset.token.decimals),
+    balance: asset.amount,
     tokenType: getTokenType(asset),
     tokenSymbol: asset.token.symbol,
     project,

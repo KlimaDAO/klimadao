@@ -33,12 +33,12 @@ export const Listing: FC<Props> = (props) => {
       </div>
       <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
-          {project.name}
+          {project.name || `${project.key}-${project.vintage}`}
         </Text>
       </Link>
       <div className={styles.image}>
         <Link href={createProjectLink(project)}>
-          <ProjectImage category={category} />
+          <ProjectImage category={category || "Other"} />
         </Link>
       </div>
       <div className={styles.amounts}>
