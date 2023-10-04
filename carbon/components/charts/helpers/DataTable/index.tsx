@@ -24,13 +24,16 @@ import NoDataWrapper from "../NoDataWrapper";
 /** An async server component that does an initial data fetching to know the number of pages this dataset has
  * configurationKey: Table configuration key
  * usePagination: Use a simple Server Component to show data without pagination
+ * height: expected height of the table (for skeleton)
  */
 export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
   params: object;
   withPagination?: boolean;
+  height?: number;
 }) {
-  const withPagination = props.withPagination || true;
+  const withPagination =
+    props.withPagination === undefined ? true : props.withPagination;
   const data = (await fetchData(
     props.configurationKey,
     0,
@@ -46,6 +49,7 @@ export default async function DataTable<RI>(props: {
           <DataTableClientWrapper
             configurationKey={props.configurationKey}
             params={props.params}
+            height={props.height}
             pages_count={data.pages_count}
             firstPageTable={firstPageTable}
           ></DataTableClientWrapper>

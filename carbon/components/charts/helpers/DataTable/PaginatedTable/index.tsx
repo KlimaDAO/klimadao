@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 /** A Client Component (wannabe Server Component) that renders the actual Table
  * configurationKey: Table configuration key
  * page: the page of the dataset to render
+ * height: expected height of the table (for skeleton)
  */
 export default function PaginatedTable<RI>(props: {
   configurationKey: ConfigurationKey;
   page: number;
   params: object;
+  height?: number;
 }) {
   const [data, setData] = useState<PaginatedResponse<RI> | null>(null);
   useEffect(() => {
@@ -27,6 +29,6 @@ export default function PaginatedTable<RI>(props: {
   return data ? (
     <Table configurationKey={props.configurationKey} data={data}></Table>
   ) : (
-    <Skeleton />
+    <Skeleton height={props.height} />
   );
 }

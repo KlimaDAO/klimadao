@@ -5,7 +5,7 @@ import DataTable from "components/charts/helpers/DataTable";
 export default function RetirementsByPoolListCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <DataTable configurationKey="KlimaRetirementsByPoolList" />
+    <DataTable configurationKey="KlimaRetirementsByPoolList" height={428} />
   );
 
   return (
