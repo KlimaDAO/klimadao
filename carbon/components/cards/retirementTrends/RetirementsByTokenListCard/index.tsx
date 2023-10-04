@@ -1,11 +1,15 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DataTable from "components/charts/helpers/DataTable";
+import { standardVerticalDataTableHeight } from "components/charts/helpers/DataTable/configurations/helpers";
 
 export default function RetirementsByTokenListCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <DataTable configurationKey="KlimaRetirementsByTokenList" />
+    <DataTable
+      configurationKey="KlimaRetirementsByTokenList"
+      height={standardVerticalDataTableHeight}
+    />
   );
 
   return (
