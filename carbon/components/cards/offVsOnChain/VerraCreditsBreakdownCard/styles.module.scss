@@ -1,14 +1,26 @@
 .wrapper {
   display: flex;
+  line-height: 1;
   & > div {
     flex: 1 1 0;
   }
 }
-.issuedvsBridgedWrapper {
+.issuedvsTokenizedWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  div[aria-describedby="chart"] {
+    max-width: calc(100% - 1rem);
+    min-height: 2.4rem;
+  }
+}
+.issuedvsRetiredWrapper {
   display: flex;
   flex-direction: column;
   padding: 1.2rem;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 .pieChartWrapper {
@@ -23,17 +35,11 @@
     font-size: 1.6rem;
   }
 }
+.pieChartBottomLegend {
+  line-height: 1;
+}
 .smallLabel {
   font-size: 0.8rem;
-}
-.issuedvsTokenizedWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  div[aria-describedby="chart"] {
-    max-width: calc(100% - 1rem);
-    min-height: 4rem;
-  }
 }
 .fact {
   display: flex;
