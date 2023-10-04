@@ -1,8 +1,6 @@
 import {
   GitHub,
   LinkedIn,
-  Reddit,
-  RssFeed,
   Telegram,
   Twitter,
   YouTube,
@@ -16,12 +14,6 @@ export const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
-        <Link href="#" className={layout.mobileOnly}>
-          Buy
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          Stake
-        </Link>
         <Link
           href="https://app.klimadao.finance/"
           className={layout.mobileOnly}
@@ -63,9 +55,6 @@ export const Footer: FC = () => {
         <Link href="https://discord.com/invite/klimadao">
           <DiscordSvg />
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          <Reddit />
-        </Link>
         <Link href="https://github.com/KlimaDAO/" className={layout.mobileOnly}>
           <GitHub />
         </Link>
@@ -74,9 +63,6 @@ export const Footer: FC = () => {
         </Link>
         <Link href="https://t.me/joinchat/Zb06f_mnMosyYTYy">
           <Telegram />
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          <RssFeed />
         </Link>
       </div>
     </div>
