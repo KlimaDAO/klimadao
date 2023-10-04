@@ -14,46 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:56
-msgid "Select asset:"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:112
-msgid "USDC per unit (tonne)"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:117
-msgid "Unit price is required"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:127
-msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:133
-msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:146
-msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:152
-msgid "You can delete this listing at any time."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:184
-msgid "{0} tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -120,8 +80,48 @@ msgid "Copy"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:56
+msgid "Select asset:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:112
+msgid "USDC per unit (tonne)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:117
+msgid "Unit price is required"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:127
+msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:133
+msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:146
+msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:152
+msgid "You can delete this listing at any time."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:184
+msgid "{0} tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id

@@ -14,46 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:56
-msgid "Select asset:"
-msgstr "Select asset:"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:112
-msgid "USDC per unit (tonne)"
-msgstr "USDC per unit (tonne)"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:117
-msgid "Unit price is required"
-msgstr "Unit price is required"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:127
-msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr "First, approve the Carbonmark system to transfer this asset on your behalf."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:133
-msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
-msgstr "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:146
-msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:152
-msgid "You can delete this listing at any time."
-msgstr "You can delete this listing at any time."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:184
-msgid "{0} tonnes"
-msgstr "{0} tonnes"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -120,9 +80,49 @@ msgid "Copy"
 msgstr "Copy"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:56
+msgid "Select asset:"
+msgstr "Select asset:"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:112
+msgid "USDC per unit (tonne)"
+msgstr "USDC per unit (tonne)"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:117
+msgid "Unit price is required"
+msgstr "Unit price is required"
+
+#. js-lingui-explicit-id
 #: components/CreateListing/Form/ProjectTokenDropDown/index.tsx:69
 msgid "Toggle Select Project"
 msgstr "Toggle Select Project"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:127
+msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
+msgstr "First, approve the Carbonmark system to transfer this asset on your behalf."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:133
+msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
+msgstr "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:146
+msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
+msgstr "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:152
+msgid "You can delete this listing at any time."
+msgstr "You can delete this listing at any time."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:184
+msgid "{0} tonnes"
+msgstr "{0} tonnes"
 
 #. js-lingui-explicit-id
 #: components/Dropdown/index.tsx:133
