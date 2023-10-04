@@ -8,6 +8,7 @@ import { Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Badge } from "../../Badge";
 import * as styles from "./styles";
 
 export type FormValues = {
@@ -144,6 +145,17 @@ export const EditListing: FC<Props> = (props) => {
             }}
             errorMessage={formState.errors.newSingleUnitPrice?.message}
           />
+
+          {/* @todo Makka - only hardcoded temporarily until data is available from api */}
+          <div className={styles.expiration}>
+            <Text t="body1">
+              <Trans>Expiration</Trans>
+            </Text>
+            <div>
+              <Text t="body1">90 days (12-12-2024)</Text>
+              <Badge type="Invalid" />
+            </div>
+          </div>
 
           <ButtonPrimary
             label={<Trans>Update listing</Trans>}

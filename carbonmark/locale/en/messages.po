@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:152
+msgid "Expiration"
+msgstr "Expiration"
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -81,7 +86,7 @@ msgstr "Copy"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:59
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:65
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:66
 msgid "Asset"
 msgstr "Asset"
 
@@ -1679,6 +1684,26 @@ msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:9
+msgid "Invalid"
+msgstr "Invalid"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing has become invalid and is currently hidden from the marketplace. Click \"Edit\" to delete the listing or change quantity."
+msgstr "This listing has become invalid and is currently hidden from the marketplace. Click \"Edit\" to delete the listing or change quantity."
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:14
+msgid "Expired"
+msgstr "Expired"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is currently hidden from the marketplace. Click \"Edit\" and resubmit the listing."
+msgstr "This listing has expired and is currently hidden from the marketplace. Click \"Edit\" and resubmit the listing."
+
+#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profile | Carbonmark"
@@ -1716,32 +1741,32 @@ msgid "This user has not yet created a carbonmark profile."
 msgstr "This user has not yet created a carbonmark profile."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:84
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
 msgid "New Quantity"
 msgstr "New Quantity"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
 msgid "Total quantity to list for sale"
 msgstr "Total quantity to list for sale"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
 msgid "Available balance exceeded"
 msgstr "Available balance exceeded"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:113
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:119
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:120
 msgid "New Unit Price (USDC)"
 msgstr "New Unit Price (USDC)"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:161
 msgid "Update listing"
 msgstr "Update listing"
 
@@ -2418,12 +2443,12 @@ msgid "retirement.single.proof_of.title"
 msgstr "Proof of"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:56
 msgid "seller.listing.quantity_available"
 msgstr "Quantity Available:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:91
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:92
 msgid "user.listing.edit.input.quantity.required"
 msgstr "Quantity is required"
 
@@ -2519,7 +2544,7 @@ msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:129
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:130
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr "Single Price is required"
 
@@ -2612,12 +2637,12 @@ msgstr "The minimum amount to sell is 1 Tonne"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:120
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:137
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr "The minimum price per tonne is {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:98
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr "The minimum quantity to sell is 1 tonne"
 
@@ -2692,7 +2717,7 @@ msgid "retirement.single.type.title"
 msgstr "Type:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:121
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:122
 msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC per ton"
 

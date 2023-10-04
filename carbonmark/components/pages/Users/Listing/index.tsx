@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
+import { Badge } from "../Badge";
 import * as styles from "./styles";
 
 type Props = {
@@ -27,9 +28,15 @@ export const Listing: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={category} />
-        <Vintage vintage={project.vintage} />
-        <ProjectKey projectKey={project.key} />
+        <div>
+          <Category category={category} />
+          <Vintage vintage={project.vintage} />
+          <ProjectKey projectKey={project.key} />
+        </div>
+        <div>
+          <Badge type="Invalid" />
+          <Badge type="Expired" />
+        </div>
       </div>
       <Link href={createProjectLink(project)}>
         <Text t="h4" className={styles.link}>
