@@ -86,7 +86,6 @@ export default function KPieChart<
       chartRef.current.state.graphicalItems[0].props.children;
     let activeItem: any = undefined;
     let index = 0;
-    console.log(item);
     for (; index < graphicalItems.length; index++) {
       if (graphicalItems[index].key == item.id) {
         activeItem = formattedGraphicalItems[index];
