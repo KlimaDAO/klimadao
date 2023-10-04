@@ -80,12 +80,16 @@ export default function KPieChart<
       return;
     }
 
-    const graphicalItems = chartRef.current.state.formattedGraphicalItems[0];
+    const formattedGraphicalItems =
+      chartRef.current.state.formattedGraphicalItems[0].props.sectors;
+    const graphicalItems =
+      chartRef.current.state.graphicalItems[0].props.children;
     let activeItem: any = undefined;
     let index = 0;
-    for (; index < graphicalItems.props.data.length; index++) {
-      if (graphicalItems.props.data[index].id == item.id) {
-        activeItem = graphicalItems.props.sectors[index];
+    console.log(item);
+    for (; index < graphicalItems.length; index++) {
+      if (graphicalItems[index].key == item.id) {
+        activeItem = formattedGraphicalItems[index];
       }
     }
     if (!activeItem) {
