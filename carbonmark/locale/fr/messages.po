@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-04 19:13+0000\n"
+"POT-Creation-Date: 2023-10-04 20:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,6 +80,11 @@ msgid "All assets sourced from major registries"
 msgstr "Tous les actifs issus des plus importants registres"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:146
+msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:83
 msgid "Amount is required"
 msgstr "Le montant est requis"
@@ -142,14 +147,14 @@ msgstr ""
 "Veuillez ajuster la quantité et réessayer plus tard."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:58
+#: components/pages/Portfolio/AssetProject/index.tsx:59
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:46
 #: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Tonnes disponibles :"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:106
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:102
 msgid "Available balance exceeded"
 msgstr "Solde disponible dépassé"
 
@@ -409,14 +414,15 @@ msgid "Create Carbonmark Profile"
 msgstr "Créer un profil Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:187
+#: components/pages/Users/SellerConnected/index.tsx:191
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "Create New Listing"
 msgstr "Créer une nouvelle annonce"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:161
 msgid "Create Profile"
 msgstr "Créer un profil"
 
@@ -488,7 +494,7 @@ msgstr "Données pour ce projet et année"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:92
+#: components/pages/Users/SellerUnconnected/index.tsx:94
 msgid "Data for this seller"
 msgstr "Données pour ce vendeur"
 
@@ -538,7 +544,7 @@ msgid "Downloading ..."
 msgstr "Téléchargement en cours ..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:156
+#: components/pages/Users/SellerConnected/index.tsx:161
 msgid "Edit Profile"
 msgstr "Modifier votre profil"
 
@@ -566,6 +572,11 @@ msgstr "Prix final"
 #: components/pages/Resources/index.tsx:21
 msgid "Find the latest updates, guides, and resources to help you leverage the Carbonmark platform."
 msgstr "Retrouvez les dernières mises à jour, les guides et les ressources pour vous aider à tirer profit de la plateforme Carbonmark."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:127
+msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:343
@@ -709,8 +720,8 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "Mettez vos projets en vente en quelques clics"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:171
-#: components/pages/Users/SellerUnconnected/index.tsx:48
+#: components/pages/Users/SellerConnected/index.tsx:176
+#: components/pages/Users/SellerUnconnected/index.tsx:50
 msgid "Listings"
 msgstr "Annonces"
 
@@ -785,12 +796,12 @@ msgid "Moss"
 msgstr "Moss"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:85
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:81
 msgid "New Quantity"
 msgstr "Nouvelle Quantité"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:120
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:116
 msgid "New Unit Price (USDC)"
 msgstr "Nouveau Prix Unitaire (USDC)"
 
@@ -800,8 +811,8 @@ msgid "No Activity to show."
 msgstr "Aucune activité à montrer"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:214
-#: components/pages/Users/SellerUnconnected/index.tsx:84
+#: components/pages/Users/SellerConnected/index.tsx:233
+#: components/pages/Users/SellerUnconnected/index.tsx:86
 msgid "No active listings."
 msgstr "Aucune annonce active."
 
@@ -920,8 +931,8 @@ msgstr "Veuillez vous connecter"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:59
-#: components/pages/Users/SellerConnected/index.tsx:131
-#: components/pages/Users/SellerConnected/index.tsx:145
+#: components/pages/Users/SellerConnected/index.tsx:136
+#: components/pages/Users/SellerConnected/index.tsx:150
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Veuillez actualiser la page. Une erreur s'est produite lors de la mise à jour de vos données : {e}."
 
@@ -1056,7 +1067,7 @@ msgid "Quantity is required"
 msgstr "La quantité est requise"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:113
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:109
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {0}, Total available: {totalAvailableQuantity}"
 msgstr "Quantité listée : {listedQuantity}, Quantité non listée : {0}, Total disponible : {totalAvailableQuantity}"
 
@@ -1152,7 +1163,7 @@ msgid "Results"
 msgstr "Résultats"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:64
+#: components/pages/Portfolio/AssetProject/index.tsx:65
 msgid "Retire"
 msgstr "Retirer du marché"
 
@@ -1265,7 +1276,13 @@ msgid "See your retirement receipt"
 msgstr "Voir votre justificatif de retrait du marché"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:56
+msgid "Select asset:"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:74
+#: components/pages/Portfolio/AssetProject/index.tsx:81
 msgid "Sell"
 msgstr "Vendre"
 
@@ -1448,7 +1465,7 @@ msgid "There was an error loading the total cost."
 msgstr "Une erreur s'est produite lors du calcul du coût total."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:106
+#: components/pages/Users/SellerConnected/index.tsx:111
 msgid "There was an error loading your assets. {e}"
 msgstr "Une erreur s'est produite lors du chargement de vos actifs. {e}"
 
@@ -1568,7 +1585,7 @@ msgid "Total price"
 msgstr "Prix total"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:87
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:83
 msgid "Total quantity to list for sale"
 msgstr "Quantité totale à mettre en vente"
 
@@ -1584,6 +1601,16 @@ msgid "Total sale cost"
 msgstr "Coût total de la vente"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:112
+msgid "USDC per unit (tonne)"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Form/index.tsx:117
+msgid "Unit price is required"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "Une transparence sans précédent sur le marché numérique du carbone."
@@ -1594,7 +1621,7 @@ msgid "Updated:"
 msgstr "Mis à jour :"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:208
+#: components/pages/Users/SellerConnected/index.tsx:227
 msgid "Updating your data..."
 msgstr "Mise à jour de vos données..."
 
@@ -1767,6 +1794,16 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "Vous pouvez également retirer n'importe quel actif carbone de votre portefeuille."
 
 #. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:152
+msgid "You can delete this listing at any time."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:133
+msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
 msgid "You can view the successful transaction now on <0>PolygonScan.</0>"
 msgstr "Vous pouvez dès à présent visualiser la transaction réussie sur <0>PolygonScan.</0>"
@@ -1821,7 +1858,7 @@ msgstr "Votre achat n'a pas encore été finalisé. Pour finaliser votre achat, 
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:232
+#: components/pages/Users/SellerConnected/index.tsx:251
 msgid "Your seller data"
 msgstr "Vos données de vendeur"
 
@@ -1887,17 +1924,17 @@ msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:61
+#: lib/constants.ts:65
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:65
+#: lib/constants.ts:69
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:69
+#: lib/constants.ts:73
 msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 
@@ -1905,36 +1942,6 @@ msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et v
 #: components/Layout/index.tsx:104
 msgid "connect_modal.error_title"
 msgstr "Erreur de connexion"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:127
-msgid "create.approval_1"
-msgstr "Vous êtes sur le point de créer une nouvelle annonce."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:132
-msgid "create.approval_2"
-msgstr "La première étape consiste à donner l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, l'étape suivante consiste à approuver le transfert effectif et à mettre votre annonce en ligne."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:139
-msgid "create.approval_3"
-msgstr "Vous pouvez choisir de supprimer votre annonce active à tout moment, ce qui aura pour effet de transférer automatiquement l'actif de retour vers votre portefeuille."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:145
-msgid "create.approval_4"
-msgstr "Vérifiez que toutes les informations sont correctes et cliquez sur \"approuver\" pour continuer."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:157
-msgid "create.submit_1"
-msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille, votre actif n'a pas encore été transféré."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:163
-msgid "create.submit_2"
-msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer \" ci-dessous."
 
 #. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
@@ -1954,22 +1961,22 @@ msgid "each"
 msgstr "chaque"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:179
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "edit_listing.approval_1"
 msgstr "Vous êtes sur le point de transférer la propriété de cet actif de votre portefeuille à Carbonmark."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:185
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
 msgid "edit_listing.approval_2"
 msgstr "Vous pouvez enlever votre annonce à tout moment jusqu'à ce qu'elle soit vendue."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:192
 msgid "edit_listing.submit_1"
 msgstr "L'étape précédente a donné l'autorisation à Carbonmark de transférer ce type d'actif de votre portefeuille , votre actif n'a pas encore été transféré."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:203
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:198
 msgid "edit_listting.submit_2"
 msgstr "Pour finaliser le transfert de cet actif à Carbonmark et mettre en ligne votre annonce, vérifiez que toutes les informations sont correctes et cliquez sur le bouton \"Envoyer\" ci-dessous."
 
@@ -2090,12 +2097,12 @@ msgid "portfolio.balances.title"
 msgstr "Soldes"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:180
+#: components/CreateListing/Form/index.tsx:144
 msgid "profile.addListing_modal.submit"
 msgstr "Créer l'annonce"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:151
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:147
 msgid "profile.editListing_modal.submit"
 msgstr "Mettre à jour l'annonce"
 
@@ -2105,7 +2112,7 @@ msgid "profile.edit_modal.submit"
 msgstr "Sauvegarder les modifications"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:238
+#: components/pages/Users/SellerConnected/index.tsx:257
 msgid "profile.edit_profile.title"
 msgstr "Votre Profil"
 
@@ -2115,22 +2122,22 @@ msgid "profile.edit_your_profile"
 msgstr "Modifier votre profil pour ajouter une description."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:165
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:160
 msgid "profile.listing.delete.error"
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:222
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
 msgid "profile.listing.edit"
 msgstr "Modifier"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:254
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:249
 msgid "profile.listing.edit.delete_listing"
 msgstr "Supprimer l'annonce"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:175
+#: components/CreateListing/index.tsx:160
 msgid "profile.listings_modal.title"
 msgstr "Créer une annonce"
 
@@ -2505,12 +2512,12 @@ msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total des Transactions de Retraits du marché"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:234
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "seller.edit_listing.title"
 msgstr "Modifier l'annonce"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerUnconnected/index.tsx:71
+#: components/pages/Users/SellerUnconnected/index.tsx:73
 msgid "seller.listing.buy"
 msgstr "Acheter"
 
@@ -2521,7 +2528,7 @@ msgstr "Quantité Disponible :"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:61
+#: components/pages/Users/SellerUnconnected/index.tsx:63
 msgid "shared.connect_to_buy"
 msgstr "Se connecter pour acheter"
 
@@ -2563,8 +2570,7 @@ msgid "tonnes"
 msgstr "tonnes"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:199
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:281
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:276
 msgid "tonnes.long"
 msgstr "tonnes"
 
@@ -2624,7 +2630,7 @@ msgid "transaction_modal.approve.price"
 msgstr "Confirmer le prix par tonne"
 
 #. js-lingui-explicit-id
-#: components/Transaction/index.tsx:85
+#: components/Transaction/index.tsx:84
 msgid "transaction_modal.button.go_back"
 msgstr "Retour"
 
@@ -2694,74 +2700,63 @@ msgid "user.activities.empty_state"
 msgstr "Aucune activité à montrer"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:122
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:118
 msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC par tonne"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:171
+#: components/CreateListing/Form/index.tsx:135
 msgid "user.edit.form.input.singleUnitPrice.label"
 msgstr "Prix à l'unité"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:142
-msgid "user.edit.form.input.singleUnitPrice.placeholder"
-msgstr "USDC par tonne"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:130
+#: components/CreateListing/Form/index.tsx:100
 msgid "user.edit.form.input.totalAmountToSell.label"
 msgstr "Montant Total"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:95
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr "La quantité minimale à vendre est de 1 tonne"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:92
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:88
 msgid "user.listing.edit.input.quantity.required"
 msgstr "La quantité est requise"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:66
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:62
 msgid "user.listing.edit.project.label"
 msgstr "Projet"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:65
-msgid "user.listing.form.input.select_project.label"
-msgstr "Sélectionner un Projet:"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:162
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:137
+#: components/CreateListing/Form/index.tsx:126
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:133
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr "Le prix minimum par tonne est de {0}"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:150
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:130
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:126
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr "Le Prix à l'unité est requis"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:123
+#: components/CreateListing/Form/index.tsx:93
 msgid "user.listing.form.input.totalAmountToSell.maxAmount"
 msgstr "Vous avez dépassé votre montant disponible"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:116
+#: components/CreateListing/Form/index.tsx:86
 msgid "user.listing.form.input.totalAmountToSell.minimum"
 msgstr "La quantité minimale à vendre est de 1 Tonne"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:101
+#: components/CreateListing/Form/index.tsx:71
 msgid "user.listing.form.input.totalAmountToSell.placeholder"
 msgstr "Combien voulez-vous vendre"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Form/index.tsx:109
+#: components/CreateListing/Form/index.tsx:79
 msgid "user.listing.form.input.totalAmountToSell.required"
 msgstr "Le Montant Total à Vendre est requis"
 
@@ -2779,6 +2774,11 @@ msgstr "{0}"
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:287
 msgid "{0} maximum for credit cards"
 msgstr "Maximum de {0} pour les cartes de crédit"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:184
+msgid "{0} tonnes"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
