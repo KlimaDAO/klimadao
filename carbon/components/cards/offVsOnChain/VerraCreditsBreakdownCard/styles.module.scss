@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  line-height: 1;
+  line-height: normal;
   & > div {
     flex: 1 1 0;
   }
@@ -36,7 +36,7 @@
   }
 }
 .pieChartBottomLegend {
-  line-height: 1;
+  line-height: normal;
 }
 .smallLabel {
   font-size: 0.8rem;
