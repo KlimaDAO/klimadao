@@ -1,0 +1,10 @@
+module.exports = {
+  "carbonmark-api": {
+    input: "./.generated/carbonmark-api.schema.json",
+    output: {
+      client: "swr",
+      mode: "split",
+      target: "./.generated/carbonmark-api.sdk.ts",
+    },
+  },
+};
