@@ -2166,48 +2166,6 @@
     }
   },
   "paths": {
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/categories": {
       "get": {
         "summary": "Categories",
@@ -2717,6 +2675,48 @@
         }
       }
     },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -2725,6 +2725,14 @@
         ],
         "description": "Get a user's profile and activity",
         "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
           {
             "schema": {
               "type": "string"

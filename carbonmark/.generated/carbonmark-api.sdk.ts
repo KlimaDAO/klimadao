@@ -29,10 +29,10 @@ import type {
   Key
 } from 'swr'
 import type {
-  GetCountries200Item,
   GetCategories200Item,
   GetProjects200Item,
   GetProjectsParams,
+  GetCountries200Item,
   GetUsersWalletOrHandle200,
   GetUsersWalletOrHandleParams,
   PostUsers200,
@@ -51,48 +51,6 @@ import type {
 
   
   /**
- * Retrieve an array containing the countries that carbon projects originate from
- * @summary Countries
- */
-export const getCountries = (
-     options?: AxiosRequestConfig
- ): Promise<AxiosResponse<GetCountries200Item[]>> => {
-    return axios.get(
-      `/countries`,options
-    );
-  }
-
-
-export const getGetCountriesKey = () => [`/countries`] as const;
-
-    
-export type GetCountriesQueryResult = NonNullable<Awaited<ReturnType<typeof getCountries>>>
-export type GetCountriesQueryError = AxiosError<unknown>
-
-/**
- * @summary Countries
- */
-export const useGetCountries = <TError = AxiosError<unknown>>(
-  options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getCountries>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
-
-  ) => {
-
-  const {swr: swrOptions, axios: axiosOptions} = options ?? {}
-
-  const isEnabled = swrOptions?.enabled !== false
-    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetCountriesKey() : null);
-  const swrFn = () => getCountries(axiosOptions);
-
-  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
-
-  return {
-    swrKey,
-    ...query
-  }
-}
-
-
-/**
  * A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.
  * @summary Categories
  */
@@ -168,6 +126,48 @@ export const useGetProjects = <TError = AxiosError<unknown>>(
   const isEnabled = swrOptions?.enabled !== false
     const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetProjectsKey(params) : null);
   const swrFn = () => getProjects(params, axiosOptions);
+
+  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
+
+  return {
+    swrKey,
+    ...query
+  }
+}
+
+
+/**
+ * Retrieve an array containing the countries that carbon projects originate from
+ * @summary Countries
+ */
+export const getCountries = (
+     options?: AxiosRequestConfig
+ ): Promise<AxiosResponse<GetCountries200Item[]>> => {
+    return axios.get(
+      `/countries`,options
+    );
+  }
+
+
+export const getGetCountriesKey = () => [`/countries`] as const;
+
+    
+export type GetCountriesQueryResult = NonNullable<Awaited<ReturnType<typeof getCountries>>>
+export type GetCountriesQueryError = AxiosError<unknown>
+
+/**
+ * @summary Countries
+ */
+export const useGetCountries = <TError = AxiosError<unknown>>(
+  options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getCountries>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
+
+  ) => {
+
+  const {swr: swrOptions, axios: axiosOptions} = options ?? {}
+
+  const isEnabled = swrOptions?.enabled !== false
+    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetCountriesKey() : null);
+  const swrFn = () => getCountries(axiosOptions);
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
 

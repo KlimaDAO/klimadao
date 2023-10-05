@@ -478,10 +478,15 @@ export type GetUsersWalletOrHandle200Description = string | null;
 export type GetUsersWalletOrHandle200Handle = string | null;
 
 export type GetUsersWalletOrHandleParams = {
+network?: Def1;
 /**
  * Only return listings that expire after this timestamp (Unix seconds)
  */
 expiresAfter?: string;
+};
+
+export type GetCountries200Item = {
+  id: string;
 };
 
 export type GetProjects200ItemImagesAnyOfItem = {
@@ -490,6 +495,8 @@ export type GetProjects200ItemImagesAnyOfItem = {
 };
 
 export type GetProjects200ItemImages = GetProjects200ItemImagesAnyOfItem[] | null;
+
+export type GetProjects200ItemListings = GetProjects200ItemListingsAnyOfItem[] | null;
 
 export type GetProjects200Item = {
   description?: GetProjects200ItemDescription;
@@ -521,6 +528,14 @@ export type GetProjects200ItemListingsAnyOfItemProject = {
   methodology: string;
 };
 
+export type GetProjects200ItemListingsAnyOfItemSeller = {
+  handle?: GetProjects200ItemListingsAnyOfItemSellerHandle;
+  username?: GetProjects200ItemListingsAnyOfItemSellerUsername;
+  description?: GetProjects200ItemListingsAnyOfItemSellerDescription;
+  profileImgUrl?: GetProjects200ItemListingsAnyOfItemSellerProfileImgUrl;
+  id: string;
+};
+
 /**
  * Marketplace listing with per-tonne price and project info.
  */
@@ -548,8 +563,6 @@ export type GetProjects200ItemListingsAnyOfItem = {
   project: GetProjects200ItemListingsAnyOfItemProject;
 };
 
-export type GetProjects200ItemListings = GetProjects200ItemListingsAnyOfItem[] | null;
-
 export type GetProjects200ItemListingsAnyOfItemSellerProfileImgUrl = string | null;
 
 export type GetProjects200ItemListingsAnyOfItemSellerDescription = string | null;
@@ -557,14 +570,6 @@ export type GetProjects200ItemListingsAnyOfItemSellerDescription = string | null
 export type GetProjects200ItemListingsAnyOfItemSellerUsername = string | null;
 
 export type GetProjects200ItemListingsAnyOfItemSellerHandle = string | null;
-
-export type GetProjects200ItemListingsAnyOfItemSeller = {
-  handle?: GetProjects200ItemListingsAnyOfItemSellerHandle;
-  username?: GetProjects200ItemListingsAnyOfItemSellerUsername;
-  description?: GetProjects200ItemListingsAnyOfItemSellerDescription;
-  profileImgUrl?: GetProjects200ItemListingsAnyOfItemSellerProfileImgUrl;
-  id: string;
-};
 
 export type GetProjects200ItemListingsAnyOfItemUpdatedAt = string | null;
 
@@ -658,10 +663,6 @@ export type GetCategories200Item = {
   id: string;
 };
 
-export type GetCountries200Item = {
-  id: string;
-};
-
 /**
  * Optional. Desired blockchain network. Default is `polygon` (mainnet).
  */
@@ -736,30 +737,17 @@ export interface Asset {
   amount: string;
 }
 
-export type UserAssetsItem = {
-  id: string;
-  token: UserAssetsItemToken;
-  amount: string;
-};
-
-export interface User {
-  handle?: UserHandle;
-  username: string;
-  description?: UserDescription;
-  profileImgUrl?: UserProfileImgUrl;
-  updatedAt: number;
-  createdAt: number;
-  wallet: string;
-  listings: UserListingsItem[];
-  activities: UserActivitiesItem[];
-  assets: UserAssetsItem[];
-}
-
 export type UserAssetsItemToken = {
   id: string;
   name: string;
   symbol: string;
   decimals: number;
+};
+
+export type UserAssetsItem = {
+  id: string;
+  token: UserAssetsItemToken;
+  amount: string;
 };
 
 export type UserActivitiesItemBuyerAnyOfHandle = string | null;
@@ -874,6 +862,19 @@ export type UserProfileImgUrl = string | null;
 export type UserDescription = string | null;
 
 export type UserHandle = string | null;
+
+export interface User {
+  handle?: UserHandle;
+  username: string;
+  description?: UserDescription;
+  profileImgUrl?: UserProfileImgUrl;
+  updatedAt: number;
+  createdAt: number;
+  wallet: string;
+  listings: UserListingsItem[];
+  activities: UserActivitiesItem[];
+  assets: UserAssetsItem[];
+}
 
 export type PurchaseListingProject = {
   country: string;
