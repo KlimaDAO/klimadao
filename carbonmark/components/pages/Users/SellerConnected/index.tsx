@@ -37,7 +37,10 @@ export const SellerConnected: FC<Props> = (props) => {
   const { carbonmarkUser, isLoading, mutate } = useFetchUser({
     params: { walletOrHandle: props.userAddress },
     // Conditionally fetch all listings for the user if viewing own profile
-    query: { expiresAfter: address === props.userAddress ? "0" : undefined, network: networkLabel },
+    query: {
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+      network: networkLabel,
+    },
   });
 
   const [isPending, setIsPending] = useState(false);

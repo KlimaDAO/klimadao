@@ -25,7 +25,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
     //Conditionally fetch all listings if fetching for the current user
     query: {
       expiresAfter: address === props.userAddress ? "0" : undefined,
-      network: networkLabel
+      network: networkLabel,
     },
   });
 
