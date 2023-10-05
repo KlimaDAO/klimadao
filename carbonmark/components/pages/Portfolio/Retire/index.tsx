@@ -1,4 +1,4 @@
-import { useGetUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Messages } from "@lingui/core";
 import { t, Trans } from "@lingui/macro";
@@ -12,7 +12,6 @@ import type {
   AssetForRetirement,
   PcbProject,
 } from "lib/types/carbonmark.types";
-import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -30,15 +29,12 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
   const { isConnected, address, toggleModal, provider, initializing, networkLabel } =
     useWeb3();
 
-  const { data, isLoading } =
-    useGetUsersWalletOrHandle(
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- hook is only enabled when address is non-null
-      address!,
+  const { data: carbonmarkUser, isLoading } =
+    useGetUsersWalletorhandle(
+      address ?? "",
       { network: networkLabel },
-      { swr: { enabled: notNil(address) } }
     );
 
-  const carbonmarkUser = data?.data;
 
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);

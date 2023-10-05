@@ -1,15 +1,14 @@
-import { getCategories, getCountries, getProjects, getVintages } from ".generated/carbonmark-api.sdk";
-import { GetCategories200Item } from ".generated/carbonmark-api.sdk.schemas";
-import { AxiosResponse } from 'axios';
+import { getCategories, getCountries, getProjects, getVintages } from '.generated/carbonmark-api-sdk/clients';
 import { Projects } from "components/pages/Projects";
 import { loadTranslation } from "lib/i18n";
 import {
   Category,
-  CategoryName,
   Country,
   Project,
-  Vintage,
+  Vintage
 } from "lib/types/carbonmark.types";
+import { trim } from 'lodash';
+import { update } from 'lodash/fp';
 import { GetStaticProps } from "next";
 
 export interface ProjectsPageStaticProps {
@@ -23,15 +22,11 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
   ctx
 ) => {
   try {
-    const projects = (await getProjects()).data;
-    const vintages = (await getVintages()).data;
-    const categories = (await getCategories({
-      transformResponse: (data: AxiosResponse<GetCategories200Item[], any>) => data.data.map((category) => ({
-        /** @note because the API is returning trailing empty spaces on some categories, trim them here */
-        id: category.id.trim() as CategoryName,
-      }))
-    })).data;
-    const countries = (await getCountries()).data;
+    const projects = await getProjects();
+    const vintages = await getVintages();
+    /** @note because the API is returning trailing empty spaces on some categories, trim them here */
+    const categories = (await getCategories()).map(update('id', trim));
+    const countries = await getCountries();
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
@@ -50,7 +45,7 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Carbonmark Projects Page", e);
+    console.error("Failed to generate Carbonmark Projects Page", e.message);
     return {
       notFound: true,
       revalidate: 10,
