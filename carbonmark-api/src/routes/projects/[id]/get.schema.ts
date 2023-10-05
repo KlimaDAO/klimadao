@@ -1,16 +1,18 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 import { DetailedProjectModel } from "../../../models/DetailedProject.model";
-import { NetworkParamModel } from "../../../models/NetworkParam.model";
+import { NetworkParam } from "../../../models/NetworkParam.model";
 import { CreditId } from "../../../utils/CreditId";
 
-export const Params = Type.Object({
+export const params = Type.Object({
   id: Type.RegEx(CreditId.ValidCreditIdRegex, {
     description: "Project id & vintage",
     examples: ["VCS-191-2008"],
   }),
 });
 
-export const QueryString = Type.Object({
+export type Params = Static<typeof params>;
+
+const querystring = Type.Object({
   expiresAfter: Type.Optional(
     Type.String({
       description:
@@ -18,15 +20,18 @@ export const QueryString = Type.Object({
       examples: ["1620000000"],
     })
   ),
-  network: Type.Optional(NetworkParamModel),
 });
+
+export type Querystring = Static<typeof querystring> & {
+  network: NetworkParam;
+};
 
 export const schema = {
   summary: "Project details",
   description: "Retrieve a carbon project by its project ID",
   tags: ["Projects"],
-  params: Params,
-  querystring: QueryString,
+  params,
+  querystring,
   response: {
     200: {
       description: "Project with id",

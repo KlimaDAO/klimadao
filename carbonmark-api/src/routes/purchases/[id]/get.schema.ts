@@ -1,5 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
-import { CommonSchema } from "../../../models/CommonSchema.model";
 import { PurchaseModel } from "../../../models/Purchase.model";
 
 const Params = Type.Object(
@@ -16,13 +15,10 @@ const Params = Type.Object(
   }
 );
 
-export const Querystring = CommonSchema;
-
 export const schema = {
   summary: "Purchase details",
   description:
     "Retrieve the details of a purchase by its ID (transaction hash)",
-  querystring: Querystring,
   params: Params,
   response: {
     200: {

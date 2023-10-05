@@ -1,5 +1,4 @@
 import { Type } from "@sinclair/typebox";
-import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { UserModel } from "../../models/User.model";
 
 export const Params = Type.Object(
@@ -13,7 +12,6 @@ export const Params = Type.Object(
 );
 
 export const QueryString = Type.Object({
-  network: Type.Optional(NetworkParamModel),
   expiresAfter: Type.Optional(
     Type.String({
       description:

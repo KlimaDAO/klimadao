@@ -1,4 +1,3 @@
-import { Static } from "@sinclair/typebox";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { compact, concat, min } from "lodash";
 import { pipe, uniq } from "lodash/fp";
@@ -10,15 +9,16 @@ import { gql_sdk } from "../../../utils/gqlSdk";
 import { fetchCarbonProject } from "../../../utils/helpers/carbonProjects.utils";
 import { fetchMarketplaceListings } from "../../../utils/helpers/fetchMarketplaceListings";
 import { fetchPoolPricesAndStats } from "../../../utils/helpers/fetchPoolPricesAndStats";
+import { Querystring } from "../get.schema";
 import { toGeoJSON } from "../get.utils";
-import { schema } from "./get.schema";
+import { Params, schema } from "./get.schema";
 
 // Handler function for the "/projects/:id" route
 const handler = (fastify: FastifyInstance) =>
   async function (
     request: FastifyRequest<{
-      Params: Static<typeof schema.params>;
-      Querystring: Static<typeof schema.querystring>;
+      Params: Params;
+      Querystring: Querystring;
     }>,
     reply: FastifyReply
   ) {
