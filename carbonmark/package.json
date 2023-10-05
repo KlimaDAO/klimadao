@@ -10,7 +10,7 @@
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
     "postinstall": "npm run lingui:compile",
-    "generate:types": "tsx ./scripts/fetch-api-schema.ts && orval"
+    "generate:types": "tsx ./scripts/fetch-api-schema.ts && kubb"
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.7.1",
