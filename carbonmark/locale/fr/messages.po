@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-04 21:32+0000\n"
+"POT-Creation-Date: 2023-10-05 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr "Tous les actifs issus des plus importants registres"
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:146
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr ""
+msgstr "Bientôt terminé ! La dernière étape consiste à créer l'annonce et à la soumettre au système. Veuillez vérifier la quantité et le prix ci-dessous."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:83
@@ -576,7 +576,7 @@ msgstr "Retrouvez les dernières mises à jour, les guides et les ressources pou
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:127
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr ""
+msgstr "Tout d'abord, vous devez donner l'autorisation au système Carbonmark de transférer cet actif en votre nom."
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:343
@@ -1278,7 +1278,7 @@ msgstr "Voir votre justificatif de retrait du marché"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:56
 msgid "Select asset:"
-msgstr ""
+msgstr "Sélectionner un actif :"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:74
@@ -1603,12 +1603,12 @@ msgstr "Coût total de la vente"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:112
 msgid "USDC per unit (tonne)"
-msgstr ""
+msgstr "USDC par unité (tonne)"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:117
 msgid "Unit price is required"
-msgstr ""
+msgstr "Le prix unitaire est requis"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1796,12 +1796,12 @@ msgstr "Vous pouvez également retirer n'importe quel actif carbone de votre por
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:152
 msgid "You can delete this listing at any time."
-msgstr ""
+msgstr "Vous pouvez supprimer cette annonce à tout moment."
 
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:133
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
-msgstr ""
+msgstr "Vous pouvez révoquer cette autorisation à tout moment. Les actifs ne seront transférés hors de votre portefeuille uniquement lorsqu'une vente sera réalisée."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
@@ -2778,7 +2778,7 @@ msgstr "Maximum de {0} pour les cartes de crédit"
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:184
 msgid "{0} tonnes"
-msgstr ""
+msgstr "{0} tonnes"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
