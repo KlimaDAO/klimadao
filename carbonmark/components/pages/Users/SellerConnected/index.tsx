@@ -11,14 +11,12 @@ import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
-import { addProjectsToAssets } from "lib/actions";
 import { activityIsAdded, getUser, getUserUntil } from "lib/api";
-import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { AssetForListing, User } from "lib/types/carbonmark.types";
+import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
 import { ProfileSidebar } from "../ProfileSidebar";
@@ -39,15 +37,10 @@ export const SellerConnected: FC<Props> = (props) => {
     { network: networkLabel }
   );
   const [isPending, setIsPending] = useState(false);
-
-  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
-  const [_isLoadingAssets, setIsLoadingAssets] = useState(false);
-
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const hasAssets = !!carbonmarkUser?.assets?.length;
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
@@ -73,50 +66,6 @@ export const SellerConnected: FC<Props> = (props) => {
 
     return newUser;
   };
-
-  // load Assets every time user changed
-  useEffect(() => {
-    // stop loading assets when there are no assets to load
-    if (isCarbonmarkUser && !hasAssets) {
-      setIsLoadingAssets(false);
-    }
-
-    if (hasAssets) {
-      const getProjectData = async () => {
-        try {
-          setIsLoadingAssets(true);
-
-          const assetWithProjectTokens = getAssetsWithProjectTokens(
-            carbonmarkUser.assets
-          );
-
-          if (assetWithProjectTokens.length) {
-            const assetsData = await addProjectsToAssets({
-              assets: assetWithProjectTokens,
-            });
-
-            // TODO: filter assets with balance > 0
-            // this will be unnecessary as soon as bezos switched to mainnet
-
-            const assetsWithBalance = assetsData.filter(
-              (a) => Number(a.balance) > 0
-            );
-
-            if (assetsWithBalance.length) {
-              setAssetsData(assetsWithBalance);
-            }
-          }
-        } catch (e) {
-          console.error(e);
-          setErrorMessage(t`There was an error loading your assets. ${e}`);
-        } finally {
-          setIsLoadingAssets(false);
-        }
-      };
-
-      getProjectData();
-    }
-  }, [carbonmarkUser]);
 
   const onEditProfile = async (profileData: User) => {
     try {
@@ -238,7 +187,7 @@ export const SellerConnected: FC<Props> = (props) => {
             <ListingEditable
               listings={sortedListings}
               onFinishEditing={onUpdateUser}
-              assets={assetsData || []}
+              assets={carbonmarkUser?.assets || []}
               isUpdatingData={isPending}
             />
           )}
