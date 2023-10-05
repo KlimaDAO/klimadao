@@ -19,8 +19,10 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, isConnected, toggleModal } = useWeb3();
-  const { carbonmarkUser } = useFetchUser(props.userAddress);
+  const { address, isConnected, toggleModal, networkLabel } = useWeb3();
+  const { carbonmarkUser } = useFetchUser(props.userAddress, {
+    network: networkLabel,
+  });
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const hasListings = !!activeListings.length;

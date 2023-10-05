@@ -26,7 +26,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v2.0.0-1.api.carbonmark.com";
+export const API_PROD_URL = "https://v2.0.0-6.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -45,7 +45,7 @@ const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
 const API_DEVELOPMENT_URL =
   process.env.NEXT_PUBLIC_CARBONMARK_API_URL ?? API_PREVIEW_URL;
 
-const ENVIRONMENT: Environment =
+export const ENVIRONMENT: Environment =
   new LogicTable({
     production: IS_PRODUCTION,
     development: IS_LOCAL_DEVELOPMENT,
@@ -56,6 +56,10 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
+/** Default number of days until a listing expires */
+export const DEFAULT_EXPIRATION_DAYS = 90;
+/** Default minimum fill for a listing */
+export const DEFAULT_MIN_FILL_AMOUNT = 1;
 
 export const getConnectErrorStrings = () => ({
   default: t({
@@ -74,10 +78,19 @@ export const getConnectErrorStrings = () => ({
 });
 
 export const config = {
+  // todo, deprecate in favor of networks e.g. "mumbai", "polygon"
   networks: {
     production: "mainnet",
     preview: "mainnet",
     development: "mainnet",
+  },
+  featureFlags: {
+    /** Ability to create listings from assets in portfolio */
+    createListing: {
+      production: false,
+      preview: true,
+      development: true,
+    },
   },
   urls: {
     baseUrl: {

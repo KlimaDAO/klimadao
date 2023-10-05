@@ -61,6 +61,7 @@ jest.mock("../../../src/routes/projects/get.utils", () => {
         category: [],
         country: [],
         vintage: [],
+        expiresAfter: "0",
         search: "",
       };
     }),
