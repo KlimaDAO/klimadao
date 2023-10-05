@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import {
   GitHub,
   LinkedIn,
@@ -14,54 +15,42 @@ export const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
-        <Link
-          href="https://app.klimadao.finance/"
-          className={layout.mobileOnly}
-        >
+        <Link href={urls.app} className={layout.mobileOnly}>
           App
         </Link>
-        <Link
-          href="https://docs.klimadao.finance/"
-          className={layout.mobileOnly}
-        >
+        <Link href={urls.officialDocs} className={layout.mobileOnly}>
           Docs
         </Link>
-        <Link
-          href="https://app.klimadao.finance/"
-          className={layout.desktopOnly}
-        >
+        <Link href={urls.app} className={layout.desktopOnly}>
           Klima App
         </Link>
-        <Link href="https://www.carbonmark.com/" className={layout.desktopOnly}>
+        <Link href={urls.carbonmark} className={layout.desktopOnly}>
           Carbonmark
         </Link>
-        <Link
-          href="https://docs.klimadao.finance/"
-          className={layout.desktopOnly}
-        >
+        <Link href={urls.officialDocs} className={layout.desktopOnly}>
           Official Docs
         </Link>
-        <Link href="https://www.klimadao.finance/resources">Blog</Link>
-        <Link href="https://www.klimadao.finance/contact">Contact</Link>
-        <Link href="https://www.klimadao.finance/disclaimer">Disclaimer</Link>
+        <Link href={urls.resources}>Blog</Link>
+        <Link href={urls.contact}>Contact</Link>
+        <Link href={urls.disclaimer}>Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
-        <Link href="https://twitter.com/KlimaDAO">
+        <Link href={urls.twitter}>
           <Twitter />
         </Link>
-        <Link href="https://www.youtube.com/c/klimadaofinance">
+        <Link href={urls.youtube}>
           <YouTube />
         </Link>
-        <Link href="https://discord.com/invite/klimadao">
+        <Link href={urls.discordInvite}>
           <DiscordSvg />
         </Link>
-        <Link href="https://github.com/KlimaDAO/" className={layout.mobileOnly}>
+        <Link href={urls.github} className={layout.mobileOnly}>
           <GitHub />
         </Link>
-        <Link href="https://www.linkedin.com/company/klimadao/">
+        <Link href={urls.linkedIn}>
           <LinkedIn />
         </Link>
-        <Link href="https://t.me/joinchat/Zb06f_mnMosyYTYy">
+        <Link href={urls.telegram}>
           <Telegram />
         </Link>
       </div>
