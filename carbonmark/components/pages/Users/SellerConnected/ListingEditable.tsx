@@ -5,8 +5,6 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
-import { parseUnits } from "ethers-v6";
-import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
   deleteListingTransaction,
@@ -52,12 +50,9 @@ export const ListingEditable: FC<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const existingQuantityBN = BigInt(listingToEdit?.leftToSell || "0");
-  const newQuantityBN = parseUnits(inputValues?.newQuantity || "1", 18);
-  const newQuantityDelta = formatUnits(
-    BigInt(newQuantityBN) - BigInt(existingQuantityBN),
-    18
-  );
+  const existingQuantityBN = Number(listingToEdit?.leftToSell || "0");
+  const newQuantityBN = Number(inputValues?.newQuantity || "1");
+  const newQuantityDelta = newQuantityBN - existingQuantityBN;
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -96,7 +91,7 @@ export const ListingEditable: FC<Props> = (props) => {
   };
 
   const hasApproval = () => {
-    if (Number(newQuantityDelta) <= 0) {
+    if (newQuantityDelta <= 0) {
       // we only need an approval when tonnes are being added
       return true;
     }
@@ -115,7 +110,7 @@ export const ListingEditable: FC<Props> = (props) => {
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: newQuantityDelta,
+        value: newQuantityDelta.toString(),
         onStatus: onUpdateStatus,
       });
     } catch (e) {

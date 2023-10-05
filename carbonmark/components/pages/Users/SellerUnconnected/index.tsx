@@ -19,11 +19,14 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, isConnected, toggleModal } = useWeb3();
+  const { address, isConnected, toggleModal, networkLabel } = useWeb3();
   const { carbonmarkUser } = useFetchUser({
     params: { walletOrHandle: props.userAddress },
     //Conditionally fetch all listings if fetching for the current user
-    query: { expiresAfter: address === props.userAddress ? "0" : undefined },
+    query: {
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+      network: networkLabel
+    },
   });
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
