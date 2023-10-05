@@ -1,3 +1,4 @@
+import { useGetUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Layout } from "components/Layout";
@@ -7,7 +8,6 @@ import { PageHead } from "components/PageHead";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
-import { useFetchUser } from "hooks/useFetchUser";
 import { activityIsAdded, getUserUntil } from "lib/api";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -19,9 +19,10 @@ import * as styles from "./styles";
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal, initializing, networkLabel } =
     useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address, {
-    network: networkLabel,
-  });
+  const { data, isLoading, mutate } = useGetUsersWalletOrHandle(address ?? "", { network: networkLabel })
+
+  const carbonmarkUser = data?.data;
+
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
