@@ -59,16 +59,18 @@ export type GetPurchasesId200 = {
   price: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetPurchasesIdNetwork = {  polygon: 'polygon',
+  mumbai: 'mumbai',
+} as const;
+
 export type GetPurchasesIdParams = {
 /**
  * Optional. Desired blockchain network. Default is `polygon` (mainnet).
  */
 network?: typeof GetPurchasesIdNetwork[keyof typeof GetPurchasesIdNetwork] ;
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetPurchasesIdNetwork = {  polygon: 'polygon',
-  mumbai: 'mumbai',
-} as const;
+
 };
 
 export type GetProjectsId200Stats = {
@@ -301,6 +303,11 @@ export type GetProjectsId200Name = string | null;
 
 export type GetProjectsId200ProjectID = string | null;
 
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetProjectsIdNetwork = {  polygon: 'polygon',
+  mumbai: 'mumbai',
+} as const;
 export type GetProjectsIdParams = {
 /**
  * Only return projects listings that expire after this timestamp (Unix seconds)
@@ -311,10 +318,7 @@ expiresAfter?: string;
  */
 network?: typeof GetProjectsIdNetwork[keyof typeof GetProjectsIdNetwork] ;
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetProjectsIdNetwork = {  polygon: 'polygon',
-  mumbai: 'mumbai',
-} as const;
+
 };
 
 export type PutUsersWallet200 = {
@@ -497,17 +501,17 @@ export type GetUsersWalletOrHandle200ProfileImgUrl = string | null;
 export type GetUsersWalletOrHandle200Description = string | null;
 
 export type GetUsersWalletOrHandle200Handle = string | null;
-
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetUsersWalletOrHandleNetwork = {  polygon: 'polygon',
+  mumbai: 'mumbai',
+} as const;
 export type GetUsersWalletOrHandleParams = {
 /**
  * Optional. Desired blockchain network. Default is `polygon` (mainnet).
  */
 network?: typeof GetUsersWalletOrHandleNetwork[keyof typeof GetUsersWalletOrHandleNetwork] ;
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetUsersWalletOrHandleNetwork = {  polygon: 'polygon',
-  mumbai: 'mumbai',
-} as const;
+
 /**
  * Only return listings that expire after this timestamp (Unix seconds)
  */
@@ -660,17 +664,17 @@ export type GetProjects200ItemMethodologiesItemAnyOf = {
 export type GetProjects200ItemShortDescription = string | null;
 
 export type GetProjects200ItemDescription = string | null;
-
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetProjectsNetwork = {  polygon: 'polygon',
+  mumbai: 'mumbai',
+} as const;
 export type GetProjectsParams = {
 /**
  * Optional. Desired blockchain network. Default is `polygon` (mainnet).
  */
 network?: typeof GetProjectsNetwork[keyof typeof GetProjectsNetwork] ;
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetProjectsNetwork = {  polygon: 'polygon',
-  mumbai: 'mumbai',
-} as const;
+
 /**
  * Desired country of origin for carbon projects
  */
