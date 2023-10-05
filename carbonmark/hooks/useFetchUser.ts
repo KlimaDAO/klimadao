@@ -18,7 +18,7 @@ export const useFetchUser = (
     ).json();
 
   const { data, ...rest } = useSWR(
-    `${urls.api.users}/${args.params.walletOrHandle}&network=${args.query?.network}`,
+    useFetchUserKey(args),
     fetchUser,
     options?.swrOpts
   );
@@ -26,4 +26,10 @@ export const useFetchUser = (
   const carbonmarkUser = !!data?.wallet ? data : null;
 
   return { carbonmarkUser, ...rest };
+};
+
+export const useFetchUserKey = (args: Parameters<GetUserFnT>[0]) => {
+  return `${
+    urls.api.users
+  }/${args.params.walletOrHandle.toLowerCase()}&network=${args.query?.network?.toLowerCase()}`;
 };

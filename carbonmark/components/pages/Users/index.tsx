@@ -3,7 +3,7 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { urls } from "lib/constants";
+import { useFetchUserKey } from "hooks/useFetchUser";
 import { fetcher } from "lib/fetcher";
 import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
@@ -28,12 +28,10 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <PageHead
-        title={t`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        } | Profile | Carbonmark`}
-        mediaTitle={`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        }'s Profile on Carbonmark`}
+        title={t`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          } | Profile | Carbonmark`}
+        mediaTitle={`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          }'s Profile on Carbonmark`}
         metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
 
@@ -61,7 +59,7 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`${urls.api.users}/${props.userAddress}?type=wallet`]:
+        [useFetchUserKey({ params: { walletOrHandle: props.userAddress } })]:
           props.carbonmarkUser,
       },
     }}
