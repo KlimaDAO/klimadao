@@ -1,3 +1,4 @@
+import { getUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -6,7 +7,7 @@ import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
-import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
+import { loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
@@ -52,9 +53,7 @@ export const EditProfile: FC<Props> = (props) => {
   const fetchIsNewHandle = async (handle?: string | null) => {
     if (isNil(handle)) return true;
     try {
-      const handleFromApi = await getUser({
-        user: handle,
-      });
+      const handleFromApi = (await getUsersWalletOrHandle(handle)).data;
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
@@ -146,23 +145,23 @@ export const EditProfile: FC<Props> = (props) => {
               "handle",
               !isExistingUser // validate only if handle can be changed
                 ? {
-                    required: {
-                      value: true,
-                      message: t`Handle is required`,
-                    },
-                    pattern: {
-                      value: VALID_HANDLE_REGEX, // no special characters!
-                      message: t`Handle should not contain any special characters`,
-                    },
-                    validate: {
-                      isAddress: (v) =>
-                        !isAddress(v) || // do not allow polygon addresses
-                        t`Handle should not be an address`,
-                      isNewHandle: async (v) =>
-                        (await fetchIsNewHandle(v)) || // ensure unique handles
-                        t`Sorry, this handle already exists`,
-                    },
-                  }
+                  required: {
+                    value: true,
+                    message: t`Handle is required`,
+                  },
+                  pattern: {
+                    value: VALID_HANDLE_REGEX, // no special characters!
+                    message: t`Handle should not contain any special characters`,
+                  },
+                  validate: {
+                    isAddress: (v) =>
+                      !isAddress(v) || // do not allow polygon addresses
+                      t`Handle should not be an address`,
+                    isNewHandle: async (v) =>
+                      (await fetchIsNewHandle(v)) || // ensure unique handles
+                      t`Sorry, this handle already exists`,
+                  },
+                }
                 : undefined
             ),
           }}

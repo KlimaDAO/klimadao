@@ -139,8 +139,9 @@ export const getUserUntil = async (params: {
   retryInterval?: number;
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
-  const fetchUser = () =>
-    getUsersWalletOrHandle(params.address, { network: params.network });
+  const fetchUser = async () =>
+    (await getUsersWalletOrHandle(params.address, { network: params.network }))
+      .data;
 
   const updatedUser = await pollUntil({
     fn: fetchUser,

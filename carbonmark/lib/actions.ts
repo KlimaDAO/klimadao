@@ -1,3 +1,4 @@
+import { getProjectsId } from ".generated/carbonmark-api.sdk";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
@@ -6,7 +7,6 @@ import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
 import { Contract, Transaction, ethers, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
-import { getProject } from "lib/api";
 import {
   createProjectIdFromAsset,
   getTokenType,
@@ -379,12 +379,12 @@ export const getProjectInfoFromApi = async (
   projectId: string
 ): Promise<AssetForListing["project"] | null> => {
   try {
-    const project = await getProject(projectId);
+    const project = (await getProjectsId(projectId)).data;
 
     return {
       key: project.key,
-      projectID: project.projectID,
-      name: project.name,
+      projectID: project.projectID ?? "",
+      name: project.name ?? "",
       methodology: getMethodologyFromProject(project),
       vintage: project.vintage,
       category: getCategoryFromProject(project),

@@ -1,3 +1,4 @@
+import { getUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
@@ -12,7 +13,7 @@ import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
 import { addProjectsToAssets } from "lib/actions";
-import { activityIsAdded, getUser, getUserUntil } from "lib/api";
+import { activityIsAdded, getUserUntil } from "lib/api";
 import { getAssetsWithProjectTokens } from "lib/getAssetsData";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
@@ -121,9 +122,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = await getUser({
-        user: props.userAddress,
-      });
+      const userFromApi = (await getUsersWalletOrHandle(props.userAddress)).data;
 
       // Merge with data from Updated Profile as backend might be slow!
       const newUser = { ...userFromApi, ...profileData };
