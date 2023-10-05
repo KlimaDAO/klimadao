@@ -60,7 +60,6 @@ export const CreateListingForm: FC<Props> = (props) => {
         </Text>
         <ProjectTokenDropDown
           onTokenSelect={(asset) => {
-            console.log("select", asset.token.id.toLowerCase());
             setValue("tokenAddress", asset.token.id.toLowerCase());
           }}
           assets={props.assets}

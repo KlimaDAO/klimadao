@@ -127,7 +127,7 @@ export const getRetirementCertificate = async (params: {
     }
     await createDownloadLink(await result.blob(), filename);
   } catch (error) {
-    console.log("Error occurred downloading retirement certificate", error);
+    console.error("Error occurred downloading retirement certificate", error);
   }
 };
 
