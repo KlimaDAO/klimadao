@@ -9,10 +9,8 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
-import {
-  DEFAULT_MIN_LISTING_QUANTITY,
-  LISTABLE_TOKEN_SYMBOL_REGEX,
-} from "lib/constants";
+import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
+import { isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
@@ -81,12 +79,35 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
-  const hasApproval = () => {
-    return (
-      !!allowanceValue &&
-      !!inputValues &&
-      Number(allowanceValue) >= Number(inputValues.amount)
+  // if a listing exists, subtract the listed amount from the asset balance
+  const getListableBalance = (asset: Asset): number => {
+    if (!isListableToken(asset)) return 0;
+    const listing = props.listings.find(
+      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
     );
+    if (!listing) return Number(asset.amount);
+    return Number(asset.amount) - Number(listing.leftToSell);
+  };
+
+  /** Return the value of all other listings of this same asset, plus the new listing quantity */
+  const getTotalAssetApproval = (form?: FormValues | null): number => {
+    if (!form) return 0;
+    const sumOtherListings = props.listings
+      .filter(
+        (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
+      )
+      .reduce((a, b) => a + Number(b.leftToSell), 0);
+
+    return sumOtherListings + Number(form?.amount || "0");
+  };
+
+  /**
+   * Return true if the user has exactly the required approval for all listings of this asset
+   * Incl. the new listing
+   */
+  const hasApproval = () => {
+    if (!Number(inputValues?.amount)) return false;
+    return Number(allowanceValue || "0") === getTotalAssetApproval(inputValues);
   };
 
   const handleApproval = async () => {
@@ -98,7 +119,7 @@ export const CreateListing: FC<Props> = (props) => {
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: inputValues.amount,
+        value: getTotalAssetApproval(inputValues).toString(),
         onStatus: onUpdateStatus,
       });
     } catch (e) {
@@ -141,6 +162,14 @@ export const CreateListing: FC<Props> = (props) => {
             transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
+        {getTotalAssetApproval(inputValues) > Number(inputValues?.amount) && (
+          <Text t="body1" color="lighter">
+            <Trans>
+              The value below reflects the sum of all of your listings for this
+              specific token.
+            </Trans>
+          </Text>
+        )}
       </div>
     );
   };
@@ -161,18 +190,7 @@ export const CreateListing: FC<Props> = (props) => {
     );
   };
 
-  const getListableBalance = (asset: Asset): number => {
-    if (!LISTABLE_TOKEN_SYMBOL_REGEX.test(asset.token.symbol)) return 0;
-    // for the given asset, check if a listing exists
-    // if a listing exists, subtract the listed amount from the asset balance
-    // return the listable balance
-    const listing = props.listings.find(
-      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
-    );
-    if (!listing) return Number(asset.amount);
-    return Number(asset.amount) - Number(listing.leftToSell);
-  };
-
+  /** Filter out tokens that are not listable or don't have enough balance */
   const hasListableBalance = (asset: Asset): boolean => {
     return getListableBalance(asset) > DEFAULT_MIN_LISTING_QUANTITY;
   };
@@ -205,7 +223,11 @@ export const CreateListing: FC<Props> = (props) => {
         <Transaction
           hasApproval={hasApproval()}
           amount={{
-            value: t`${inputValues.amount} tonnes`,
+            value: t`${
+              hasApproval()
+                ? Number(inputValues?.amount)
+                : getTotalAssetApproval(inputValues)
+            } tonnes`,
           }}
           price={{
             value: inputValues.unitPrice,

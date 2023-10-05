@@ -118,9 +118,8 @@ export const ListingEditable: FC<Props> = (props) => {
     try {
       await updateListingTransaction({
         listingId: listingToEdit.id,
-        tokenAddress: inputValues.tokenAddress,
         provider,
-        totalAmountToSell: inputValues.newQuantity,
+        newAmount: inputValues.newQuantity,
         singleUnitPrice: inputValues.newSingleUnitPrice,
         onStatus: onUpdateStatus,
       });
