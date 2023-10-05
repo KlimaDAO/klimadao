@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   "carbonmark-api": {
     input: "./.generated/carbonmark-api.schema.json",
     output: {
@@ -14,3 +14,4 @@ module.exports = {
     },
   },
 };
+export default config;

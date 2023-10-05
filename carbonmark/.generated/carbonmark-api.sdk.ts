@@ -29,8 +29,8 @@ import type {
   Key
 } from 'swr'
 import type {
-  GetCategories200Item,
   GetCountries200Item,
+  GetCategories200Item,
   GetProjects200Item,
   GetProjectsParams,
   GetUsersWalletOrHandle200,
@@ -42,7 +42,6 @@ import type {
   GetProjectsId200,
   GetProjectsIdParams,
   GetPurchasesId200,
-  GetPurchasesIdParams,
   PostUsersLogin200,
   PostUsersLoginBody,
   PostUsersLoginVerify200,
@@ -52,48 +51,6 @@ import type {
 
   
   /**
- * A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.
- * @summary Categories
- */
-export const getCategories = (
-     options?: AxiosRequestConfig
- ): Promise<AxiosResponse<GetCategories200Item[]>> => {
-    return axios.get(
-      `/categories`,options
-    );
-  }
-
-
-export const getGetCategoriesKey = () => [`/categories`] as const;
-
-    
-export type GetCategoriesQueryResult = NonNullable<Awaited<ReturnType<typeof getCategories>>>
-export type GetCategoriesQueryError = AxiosError<unknown>
-
-/**
- * @summary Categories
- */
-export const useGetCategories = <TError = AxiosError<unknown>>(
-  options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getCategories>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
-
-  ) => {
-
-  const {swr: swrOptions, axios: axiosOptions} = options ?? {}
-
-  const isEnabled = swrOptions?.enabled !== false
-    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetCategoriesKey() : null);
-  const swrFn = () => getCategories(axiosOptions);
-
-  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
-
-  return {
-    swrKey,
-    ...query
-  }
-}
-
-
-/**
  * Retrieve an array containing the countries that carbon projects originate from
  * @summary Countries
  */
@@ -125,6 +82,48 @@ export const useGetCountries = <TError = AxiosError<unknown>>(
   const isEnabled = swrOptions?.enabled !== false
     const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetCountriesKey() : null);
   const swrFn = () => getCountries(axiosOptions);
+
+  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
+
+  return {
+    swrKey,
+    ...query
+  }
+}
+
+
+/**
+ * A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.
+ * @summary Categories
+ */
+export const getCategories = (
+     options?: AxiosRequestConfig
+ ): Promise<AxiosResponse<GetCategories200Item[]>> => {
+    return axios.get(
+      `/categories`,options
+    );
+  }
+
+
+export const getGetCategoriesKey = () => [`/categories`] as const;
+
+    
+export type GetCategoriesQueryResult = NonNullable<Awaited<ReturnType<typeof getCategories>>>
+export type GetCategoriesQueryError = AxiosError<unknown>
+
+/**
+ * @summary Categories
+ */
+export const useGetCategories = <TError = AxiosError<unknown>>(
+  options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getCategories>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
+
+  ) => {
+
+  const {swr: swrOptions, axios: axiosOptions} = options ?? {}
+
+  const isEnabled = swrOptions?.enabled !== false
+    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetCategoriesKey() : null);
+  const swrFn = () => getCategories(axiosOptions);
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
 
@@ -349,19 +348,15 @@ export const useGetProjectsId = <TError = AxiosError<unknown>>(
  * @summary Purchase details
  */
 export const getPurchasesId = (
-    id: string,
-    params: GetPurchasesIdParams, options?: AxiosRequestConfig
+    id: string, options?: AxiosRequestConfig
  ): Promise<AxiosResponse<GetPurchasesId200>> => {
     return axios.get(
-      `/purchases/${id}`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/purchases/${id}`,options
     );
   }
 
 
-export const getGetPurchasesIdKey = (id: string,
-    params: GetPurchasesIdParams,) => [`/purchases/${id}`, ...(params ? [params]: [])] as const;
+export const getGetPurchasesIdKey = (id: string,) => [`/purchases/${id}`] as const;
 
     
 export type GetPurchasesIdQueryResult = NonNullable<Awaited<ReturnType<typeof getPurchasesId>>>
@@ -371,16 +366,15 @@ export type GetPurchasesIdQueryError = AxiosError<unknown>
  * @summary Purchase details
  */
 export const useGetPurchasesId = <TError = AxiosError<unknown>>(
- id: string,
-    params: GetPurchasesIdParams, options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getPurchasesId>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
+ id: string, options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getPurchasesId>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
 
   ) => {
 
   const {swr: swrOptions, axios: axiosOptions} = options ?? {}
 
   const isEnabled = swrOptions?.enabled !== false && !!(id)
-    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetPurchasesIdKey(id,params) : null);
-  const swrFn = () => getPurchasesId(id,params, axiosOptions);
+    const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetPurchasesIdKey(id) : null);
+  const swrFn = () => getPurchasesId(id, axiosOptions);
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
 
