@@ -67,8 +67,8 @@ export const SellerConnected: FC<Props> = (props) => {
     const newUser = await getUserUntil({
       address: props.userAddress,
       retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 1000,
-      maxAttempts: 50,
+      retryInterval: 2000,
+      maxAttempts: 25,
     });
 
     return newUser;
@@ -268,11 +268,12 @@ export const SellerConnected: FC<Props> = (props) => {
         />
       </Modal>
 
-      {!!assetsData?.length && (
+      {!!carbonmarkUser?.assets?.length && (
         <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
-          assets={assetsData}
+          assets={carbonmarkUser.assets}
+          listings={carbonmarkUser.listings}
           showModal={showCreateListingModal}
         />
       )}

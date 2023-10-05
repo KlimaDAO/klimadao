@@ -9,16 +9,22 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
+import {
+  DEFAULT_MIN_LISTING_QUANTITY,
+  LISTABLE_TOKEN_SYMBOL_REGEX,
+} from "lib/constants";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing } from "lib/types/carbonmark.types";
+import { Asset, Listing } from "lib/types/carbonmark.types";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
 type Props = {
-  assets: AssetForListing[];
+  assets: Asset[];
+  /** User's listings, used to determine the listable balance */
+  listings: Listing[];
   showModal: boolean;
   onModalClose: () => void;
   onSubmit: () => void;
@@ -155,6 +161,27 @@ export const CreateListing: FC<Props> = (props) => {
     );
   };
 
+  const getListableBalance = (asset: Asset): number => {
+    if (!LISTABLE_TOKEN_SYMBOL_REGEX.test(asset.token.symbol)) return 0;
+    // for the given asset, check if a listing exists
+    // if a listing exists, subtract the listed amount from the asset balance
+    // return the listable balance
+    const listing = props.listings.find(
+      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
+    );
+    if (!listing) return Number(asset.amount);
+    return Number(asset.amount) - Number(listing.leftToSell);
+  };
+
+  const hasListableBalance = (asset: Asset): boolean => {
+    return getListableBalance(asset) > DEFAULT_MIN_LISTING_QUANTITY;
+  };
+
+  const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
+    ...a,
+    amount: getListableBalance(a).toString(),
+  }));
+
   return (
     <Modal
       title={t`Create a listing`}
@@ -163,7 +190,7 @@ export const CreateListing: FC<Props> = (props) => {
     >
       {showForm && (
         <CreateListingForm
-          assets={props.assets}
+          assets={listableAssets}
           onSubmit={onAddListingFormSubmit}
           values={inputValues}
         />

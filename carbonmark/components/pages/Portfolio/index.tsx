@@ -42,6 +42,7 @@ export const Portfolio: NextPage = () => {
       retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
       retryInterval: 1000,
       maxAttempts: 50,
+      network: networkLabel,
     });
 
     return newUser;
