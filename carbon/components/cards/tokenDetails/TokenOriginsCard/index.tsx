@@ -3,8 +3,8 @@ import ChartCard, { CardProps } from "../../ChartCard";
 
 import { TokenDetailsProps } from "components/cards/tokenDetails/helpers";
 import DataTable from "components/charts/helpers/DataTable";
-import { standardVerticalDataTableHeight } from "components/charts/helpers/DataTable/configurations/helpers";
 import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import layout from "theme/layout.module.scss";
 
 export default function TokenOriginsCard(props: CardProps & TokenDetailsProps) {
   const params = creditsQueryParamsFromProps(props);
@@ -13,7 +13,7 @@ export default function TokenOriginsCard(props: CardProps & TokenDetailsProps) {
     <DataTable
       configurationKey="TokenOriginsList"
       params={params}
-      height={standardVerticalDataTableHeight}
+      skeletonClassName={layout.tenRowsSkeleton}
     />
   );
 

@@ -16,7 +16,7 @@ export default function PaginatedTable<RI>(props: {
   configurationKey: ConfigurationKey;
   page: number;
   params: object;
-  height?: number;
+  skeletonClassName?: string;
 }) {
   const [data, setData] = useState<PaginatedResponse<RI> | null>(null);
   useEffect(() => {
@@ -29,6 +29,6 @@ export default function PaginatedTable<RI>(props: {
   return data ? (
     <Table configurationKey={props.configurationKey} data={data}></Table>
   ) : (
-    <Skeleton height={props.height} />
+    <Skeleton className={props.skeletonClassName} />
   );
 }

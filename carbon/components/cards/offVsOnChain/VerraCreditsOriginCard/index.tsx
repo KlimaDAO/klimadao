@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import DataTable from "components/charts/helpers/DataTable";
-import { standardVerticalDataTableHeight } from "components/charts/helpers/DataTable/configurations/helpers";
+import layout from "theme/layout.module.scss";
 import ChartCard, { CardProps } from "../../ChartCard";
 import { OffVsOnChainProps } from "../helpers";
 
@@ -15,7 +15,7 @@ export default function VerraCreditsOriginCard(
     <DataTable
       configurationKey="VerraCreditsOriginsList"
       params={params}
-      height={standardVerticalDataTableHeight}
+      skeletonClassName={layout.tenRowsSkeleton}
     />
   );
 

@@ -1,14 +1,14 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DataTable from "components/charts/helpers/DataTable";
-import { standardVerticalDataTableHeight } from "components/charts/helpers/DataTable/configurations/helpers";
+import layout from "theme/layout.module.scss";
 
 export default function RetirementsByChainListCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
     <DataTable
       configurationKey="KlimaRetirementsByChainList"
-      height={standardVerticalDataTableHeight}
+      skeletonClassName={layout.tenRowsSkeleton}
     />
   );
 

@@ -16,7 +16,7 @@ export default function DataTableClientWrapper(props: {
   params: object;
   firstPageTable: JSX.Element;
   pages_count: number;
-  height?: number;
+  skeletonClassName?: string;
 }) {
   const [page, setPage] = useState<number>(0);
 
@@ -28,7 +28,7 @@ export default function DataTableClientWrapper(props: {
           page={page}
           configurationKey={props.configurationKey}
           params={props.params}
-          height={props.height}
+          skeletonClassName={props.skeletonClassName}
         ></PaginatedTable>
       )}
       <Pagination

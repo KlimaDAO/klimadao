@@ -30,7 +30,7 @@ export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
   params: object;
   withPagination?: boolean;
-  height?: number;
+  skeletonClassName?: string;
 }) {
   const withPagination =
     props.withPagination === undefined ? true : props.withPagination;
@@ -49,7 +49,7 @@ export default async function DataTable<RI>(props: {
           <DataTableClientWrapper
             configurationKey={props.configurationKey}
             params={props.params}
-            height={props.height}
+            skeletonClassName={props.skeletonClassName}
             pages_count={data.pages_count}
             firstPageTable={firstPageTable}
           ></DataTableClientWrapper>

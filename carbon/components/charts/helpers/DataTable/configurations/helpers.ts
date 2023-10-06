@@ -22,5 +22,3 @@ export function formatTonnes(amount: string | number) {
     minimumFractionDigits: 2,
   });
 }
-
-export const standardVerticalDataTableHeight = 428;
