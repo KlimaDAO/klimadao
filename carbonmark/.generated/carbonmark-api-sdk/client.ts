@@ -1,4 +1,5 @@
 import axios from "axios";
+import { urls } from "lib/constants";
 
 import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
 
@@ -19,7 +20,7 @@ export type RequestConfig<TVariables = unknown> = {
 };
 
 export const axiosInstance = axios.create({
-  baseURL: typeof undefined !== "undefined" ? undefined : undefined,
+  baseURL: urls.api.base,
   headers:
     typeof "{}" !== "undefined"
       ? (JSON.parse("{}") as AxiosHeaders)
