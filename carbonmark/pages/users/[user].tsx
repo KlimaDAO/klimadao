@@ -31,7 +31,7 @@ const getUserType = (user: string): UserType => {
  * Redirects if handle is found, otherwise render empty page props.
  * */
 const resolveAddress = async (params: { address: string; locale?: string }) => {
-  const carbonmarkUser = await getUsersWalletorhandle(params.address)
+  const carbonmarkUser = await getUsersWalletorhandle(params.address);
   // Handle urls are canonical & more user friendly, redirect if possible
   if (carbonmarkUser?.handle) {
     return {
