@@ -55,6 +55,7 @@ async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
       configuration={configuration}
       dateField={dateField}
       XAxis={XAxis}
+      YAxis="tons"
     />
   );
 }

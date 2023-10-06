@@ -17,6 +17,7 @@ import { ChartConfiguration } from "./Configuration";
 import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
+  KlimaYAxisIdentityProps,
   KlimaYAxisPercentageAutoscaleProps,
   KlimaYAxisPercentageProps,
   KlimaYAxisPriceProps,
@@ -51,6 +52,7 @@ export type YAxisType =
   | "price"
   | "percentage"
   | "percentageAutoscale"
+  | "identity"
   | undefined;
 
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
@@ -87,6 +89,9 @@ export function getYAxisProps<T extends object>(props: ChartProps<T>) {
   }
   if (props.YAxis == "percentageAutoscale") {
     YAxisProps = KlimaYAxisPercentageAutoscaleProps();
+  }
+  if (props.YAxis == "identity") {
+    YAxisProps = KlimaYAxisIdentityProps();
   }
   return YAxisProps;
 }

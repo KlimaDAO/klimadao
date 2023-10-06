@@ -138,3 +138,9 @@ export function KlimaYAxisPercentageAutoscaleProps() {
     helpers.formatPercentage({ value: x, fractionDigits: 2 });
   return { ...BASE_YAXIS_PROPS, ...{ tickFormatter } };
 }
+
+/** YAxis props to display value as is */
+export function KlimaYAxisIdentityProps() {
+  const tickFormatter = (x: number) => String(x);
+  return { ...BASE_YAXIS_PROPS, ...{ tickFormatter } };
+}
