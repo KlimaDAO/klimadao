@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { urls } from "../../carbonmark/lib/constants";
+import { urls } from "../carbonmark/lib/constants";
 
 const SCHEMA_URL = `${urls.api.base}/openapi.json`;
 
@@ -20,7 +20,7 @@ const SCHEMA_URL = `${urls.api.base}/openapi.json`;
 
   const schema = await resp.json();
   fs.writeFileSync(
-    path.join(__dirname, "../", "carbonmark-api.schema.json"),
+    path.join(__dirname, "carbonmark-api.schema.json"),
     JSON.stringify(schema, null, 2)
   );
 })();

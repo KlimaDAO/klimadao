@@ -1,3 +1,5 @@
+import type { Def1 } from "./Def1";
+
 export type GetPurchasesIdPathParams = {
   /**
    * @description ID (transaction hash) of the purchase to retrieve
@@ -64,4 +66,8 @@ export type GetPurchasesIdQueryResponse = {
    * @type string
    */
   price: string;
+};
+
+export type GetPurchasesIdQueryParams = {
+  network?: Def1;
 };
