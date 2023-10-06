@@ -1,9 +1,6 @@
 import { Static, Type } from "@sinclair/typebox";
 import { DetailedProjectModel } from "../../../models/DetailedProject.model";
-import {
-  NetworkParam,
-  NetworkParamModel,
-} from "../../../models/NetworkParam.model";
+import { NetworkParamModel } from "../../../models/NetworkParam.model";
 import { CreditId } from "../../../utils/CreditId";
 
 export const params = Type.Object({
@@ -26,9 +23,7 @@ const querystring = Type.Object({
   ),
 });
 
-export type Querystring = Static<typeof querystring> & {
-  network: NetworkParam;
-};
+export type Querystring = Static<typeof querystring>;
 
 export const schema = {
   summary: "Project details",
