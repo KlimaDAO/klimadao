@@ -1,10 +1,9 @@
-import type schema from ".generated/carbonmark-api.schema";
 import { BigNumber } from "ethers";
-import type { NormalizeOAS, OASModel } from "fets";
 import { CATEGORY_INFO } from "lib/getCategoryInfo";
 
 /** These types are all derived from the open-api schema from api.carbonmark.com/openapi.json */
 import type {
+  Image,
   Activity as SDKActivity,
   Asset as SDKAsset,
   Category as SDKCategory,
@@ -14,7 +13,7 @@ import type {
   Project as SDKProject,
   TokenPrice as SDKTokenPrice,
   User as SDKUser,
-} from ".generated/carbonmark-api.sdk.schemas";
+} from ".generated/carbonmark-api-sdk/models";
 
 export type Project = SDKProject;
 export type Listing = SDKListing;
@@ -25,10 +24,8 @@ export type Category = SDKCategory;
 export type Country = SDKCountry;
 export type Asset = SDKAsset;
 export type DetailedProject = SDKDetailedProject;
-
+export type CarouselImage = Image;
 export type CategoryName = keyof typeof CATEGORY_INFO;
-
-export type CarouselImage = OASModel<NormalizeOAS<typeof schema>, "Image">;
 
 export interface PcbProject {
   id: string;

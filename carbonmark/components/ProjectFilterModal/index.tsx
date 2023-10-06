@@ -1,3 +1,4 @@
+import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { t } from "@lingui/macro";
 import { Accordion } from "components/Accordion";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -6,7 +7,6 @@ import { CheckboxGroup } from "components/CheckboxGroup/CheckboxGroup";
 import { CheckboxOption } from "components/CheckboxGroup/CheckboxGroup.types";
 import { Text } from "components/Text";
 import { Modal, ModalProps } from "components/shared/Modal";
-import { useFetchProjects } from "hooks/useFetchProjects";
 import {
   FilterValues,
   defaultParams,
@@ -31,7 +31,7 @@ const keys = ["country", "category", "vintage"] as const;
 
 export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
   const router = useRouter();
-  const { projects, isValidating } = useFetchProjects();
+  const { data: projects = [], isValidating } = useGetProjects();
   const { params, updateQueryParams, resetQueryParams } = useProjectsParams();
 
   // Set the default values and override with any existing url params
@@ -163,9 +163,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         />
         <Text t="h5" align="center">
           {!isValidating
-            ? `${projects.length} ${
-                projects.length === 1 ? t`Result` : t`Results`
-              }`
+            ? `${projects.length} ${projects.length === 1 ? t`Result` : t`Results`
+            }`
             : t`Compiling Results ...`}
         </Text>
       </form>

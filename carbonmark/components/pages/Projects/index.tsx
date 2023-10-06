@@ -1,3 +1,4 @@
+import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
@@ -6,7 +7,6 @@ import { PageHead } from "components/PageHead";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { useFetchProjects } from "hooks/useFetchProjects";
 import { useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
 import { urls } from "lib/constants";
@@ -33,7 +33,7 @@ const Page: NextPage = () => {
   const { isMobile } = useResponsive();
 
   const { params, updateQueryParams } = useProjectsParams();
-  const { projects, isLoading, isValidating } = useFetchProjects();
+  const { data: projects = [], isLoading, isValidating } = useGetProjects();
 
   const sortFn = get(PROJECT_SORT_FNS, params.sort) ?? identity;
   const sortedProjects = sortFn(projects);

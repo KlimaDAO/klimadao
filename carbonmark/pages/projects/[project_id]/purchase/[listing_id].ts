@@ -1,8 +1,8 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import {
   ProjectPurchase,
   ProjectPurchasePageProps,
 } from "components/pages/Project/Purchase";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   try {
-    let project = await getCarbonmarkProject(project_id);
+    let project = await getProjectsId(project_id);
 
     if (!project) {
       throw new Error("No project found");
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<
 
     if (!listing && !IS_PRODUCTION) {
       // check testnet listings
-      project = await getCarbonmarkProject(project_id, {
+      project = await getProjectsId(project_id, {
         network: "mumbai",
       });
       listing = project?.listings.find(findListing);

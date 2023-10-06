@@ -1,4 +1,4 @@
-import { useFetchProjects } from "hooks/useFetchProjects";
+import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { Project } from "lib/types/carbonmark.types";
 import { compact } from "lodash";
 import { map as mapFn, pipe, uniqBy } from "lodash/fp";
@@ -10,7 +10,7 @@ import CarbonmarkMap from "./carbonmark-map";
 export const MapView = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<CarbonmarkMap | null>(null);
-  const { projects } = useFetchProjects();
+  const { data: projects = [] } = useGetProjects({});
 
   //Convert projects to GeoJSON Features
   const fn = pipe(

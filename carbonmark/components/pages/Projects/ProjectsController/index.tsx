@@ -1,3 +1,4 @@
+import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { GridViewOutlined, ListOutlined } from "@mui/icons-material";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -5,7 +6,6 @@ import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";
 import { Toggle } from "components/Toggle";
-import { useFetchProjects } from "hooks/useFetchProjects";
 import { FilterValues, useProjectsParams } from "hooks/useProjectsFilterParams";
 import { useResponsive } from "hooks/useResponsive";
 import { isEmpty } from "lodash";
@@ -21,7 +21,7 @@ const ProjectsController = () => {
   const router = useRouter();
   const { params, updateQueryParams } = useProjectsParams();
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const { projects } = useFetchProjects();
+  const { data: projects = [] } = useGetProjects();
 
   const toggleModal = () => setShowFilterModal((prev) => !prev);
   const isMap = params.layout === "map";

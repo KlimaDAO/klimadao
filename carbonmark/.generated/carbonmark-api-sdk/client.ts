@@ -1,7 +1,12 @@
+import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
 import axios from "axios";
 import { urls } from "lib/constants";
 
-import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
+/**
+ * This client is necessary only so that we can set the base url for our api and it's generated sdk
+ * I'm sure there is a better way..
+ * See: https://www.kubb.dev/plugins/swagger-client/client#default-client
+ */
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";

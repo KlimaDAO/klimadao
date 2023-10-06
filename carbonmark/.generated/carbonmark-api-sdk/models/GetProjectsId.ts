@@ -1,17 +1,11 @@
+import type { Def1 } from "./Def1";
+
 export type GetProjectsIdPathParams = {
   /**
    * @description Project id & vintage
    * @type string
    */
   id: string;
-};
-
-export type GetProjectsIdQueryParams = {
-  /**
-   * @description Only return projects listings that expire after this timestamp (Unix seconds)
-   * @type string | undefined
-   */
-  expiresAfter?: string;
 };
 
 export const type4 = {
@@ -252,4 +246,13 @@ export type GetProjectsIdQueryResponse = {
    * @type string
    */
   vintage: string;
+};
+
+export type GetProjectsIdQueryParams = {
+  network?: Def1;
+  /**
+   * @description Only return projects listings that expire after this timestamp (Unix seconds)
+   * @type string | undefined
+   */
+  expiresAfter?: string;
 };

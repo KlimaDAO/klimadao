@@ -1,6 +1,6 @@
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { defaultProjects } from "@klimadao/lib/utils";
 import { Retire } from "components/pages/Retire";
-import { getCarbonmarkProject } from "lib/carbonmark";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
@@ -13,13 +13,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     const featuredProjects = await Promise.all(
       featuredProjectKeys.map(
-        async (project) => await getCarbonmarkProject(project)
+        async (project) => await getProjectsId(project)
       )
     );
 
     const defaultProjects = await Promise.all(
       defaultProjectKeys.map(
-        async (project) => await getCarbonmarkProject(project)
+        async (project) => await getProjectsId(project)
       )
     );
 
