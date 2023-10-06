@@ -10,6 +10,7 @@ import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Vintage } from "components/Vintage";
 import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
+import { getFeatureFlag } from "lib/getFeatureFlag";
 import { LO } from "lib/luckyOrange";
 import { AssetForListing } from "lib/types/carbonmark.types";
 import Link from "next/link";
@@ -68,15 +69,22 @@ export const AssetProject: FC<Props> = (props) => {
             LO.track("Retire: Retire Button Clicked");
           }}
         />
-        <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
-          <div>
-            <CarbonmarkButton
-              label={<Trans>Sell</Trans>}
-              onClick={props.onSell}
-              disabled={true}
-            />
-          </div>
-        </TextInfoTooltip>
+        {getFeatureFlag("createListing") ? (
+          <CarbonmarkButton
+            label={<Trans>Sell</Trans>}
+            onClick={props.onSell}
+          />
+        ) : (
+          <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+            <div>
+              <CarbonmarkButton
+                label={<Trans>Sell</Trans>}
+                onClick={props.onSell}
+                disabled={true}
+              />
+            </div>
+          </TextInfoTooltip>
+        )}
       </div>
     </Card>
   );

@@ -61,6 +61,7 @@ jest.mock("../../../src/routes/projects/get.utils", () => {
         category: [],
         country: [],
         vintage: [],
+        expiresAfter: "0",
         search: "",
       };
     }),
@@ -192,12 +193,9 @@ describe("GET /projects", () => {
             "batches",
             "createdAt",
             "deleted",
-            "totalAmountToSell",
             "updatedAt",
             "id",
-            "leftToSell",
             "tokenAddress",
-            "singleUnitPrice",
           ]),
         ],
         location: {

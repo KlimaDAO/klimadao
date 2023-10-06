@@ -24,6 +24,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
+import { formatListing } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./get.constants";
 
 /**
@@ -140,9 +141,9 @@ export const isActiveListing = (l: {
  * Returns true if project has >=1 tonne in any active, unexpired listing
  * */
 export const isValidMarketplaceProject = (
-  project: Pick<Project, "listings">
+  project: GetProjectsQuery["projects"][number]
 ) => {
-  if (!project.listings) return false;
+  if (!project?.listings) return false;
   const validProjects = project.listings.filter(isActiveListing);
   return !!validProjects.length;
 };
@@ -234,7 +235,7 @@ export const composeProjectEntries = (
       projectAddress: pool?.tokenAddress ?? "",
       updatedAt: pickUpdatedAt(data),
       price: pickBestPrice(data, poolPrices),
-      listings: market?.listings || null,
+      listings: market?.listings?.map(formatListing) || null,
     };
 
     entries.push(entry);

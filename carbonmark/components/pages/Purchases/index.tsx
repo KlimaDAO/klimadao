@@ -8,7 +8,7 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { urls } from "lib/constants";
 import { createProjectLink } from "lib/createUrls";
-import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
+import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { Purchase } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export type PageProps = {
 export const PurchaseReceipt: NextPage<PageProps> = (props) => {
   const { locale } = useRouter();
   const amount =
-    props.purchase?.amount && formatBigToTonnes(props.purchase.amount, locale);
+    props.purchase?.amount && formatToTonnes(props.purchase.amount, locale);
   const metaDescription = props.purchase
     ? t`${amount} tonnes were purchased for project ${props.purchase?.listing?.project?.key}`
     : t`View the project details and other info for this purchase.`;
@@ -103,7 +103,7 @@ export const PurchaseReceipt: NextPage<PageProps> = (props) => {
                             <Trans>Quantity purchased:</Trans>
                           </Text>
                           <Text t="body1">
-                            {formatBigToTonnes(props.purchase.amount, locale)}
+                            {formatToTonnes(props.purchase.amount, locale)}
                           </Text>
                         </div>
 
@@ -112,7 +112,7 @@ export const PurchaseReceipt: NextPage<PageProps> = (props) => {
                             <Trans>Final price</Trans>
                           </Text>
                           <Text t="body1">
-                            {formatBigToPrice(props.purchase.price, locale)}
+                            {formatToPrice(props.purchase.price, locale)}
                           </Text>
                         </div>
                       </div>
