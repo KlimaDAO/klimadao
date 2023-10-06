@@ -1,8 +1,7 @@
+import { urls } from "@klimadao/lib/constants";
 import {
   GitHub,
   LinkedIn,
-  Reddit,
-  RssFeed,
   Telegram,
   Twitter,
   YouTube,
@@ -16,59 +15,43 @@ export const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerNavLinks}>
-        <Link href="#">Home</Link>
-        <Link href="#" className={layout.mobileOnly}>
-          Buy
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          Stake
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link href={urls.app} className={layout.mobileOnly}>
           App
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link href={urls.officialDocs} className={layout.mobileOnly}>
           Docs
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link href={urls.app} className={layout.desktopOnly}>
           Klima App
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link href={urls.carbonmark} className={layout.desktopOnly}>
           Carbonmark
         </Link>
-        <Link href="#" className={layout.desktopOnly}>
-          Klima Data
-        </Link>
-        <Link href="#" className={layout.desktopOnly}>
+        <Link href={urls.officialDocs} className={layout.desktopOnly}>
           Official Docs
         </Link>
-        <Link href="#">Blog</Link>
-        <Link href="#">Contact</Link>
-        <Link href="#">Disclaimer</Link>
+        <Link href={urls.resources}>Blog</Link>
+        <Link href={urls.contact}>Contact</Link>
+        <Link href={urls.disclaimer}>Disclaimer</Link>
       </div>
       <div className={styles.footerSocialLinks}>
-        <Link href="#">
+        <Link href={urls.twitter}>
           <Twitter />
         </Link>
-        <Link href="#">
+        <Link href={urls.youtube}>
           <YouTube />
         </Link>
-        <Link href="#">
+        <Link href={urls.discordInvite}>
           <DiscordSvg />
         </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          <Reddit />
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
+        <Link href={urls.github} className={layout.mobileOnly}>
           <GitHub />
         </Link>
-        <Link href="#">
+        <Link href={urls.linkedIn}>
           <LinkedIn />
         </Link>
-        <Link href="#">
+        <Link href={urls.telegram}>
           <Telegram />
-        </Link>
-        <Link href="#" className={layout.mobileOnly}>
-          <RssFeed />
         </Link>
       </div>
     </div>
