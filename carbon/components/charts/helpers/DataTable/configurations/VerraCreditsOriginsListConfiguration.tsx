@@ -17,7 +17,6 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
   async fetchFunction(page: number, params?: CreditsQueryParams) {
     const total = (await queryAggregatedCredits({ bridge: "offchain" }))
       .quantity;
-
     const data = await queryAggregatedCreditsByBridgeAndOrigin(
       Object.assign(
         {},
@@ -46,7 +45,9 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
     });
     return data;
   }
-  getColumns(): Columns<AggregatedCreditsByBridgeAndOriginItem> {
+  getColumns(
+    params?: CreditsQueryParams
+  ): Columns<AggregatedCreditsByBridgeAndOriginItem> {
     return {
       country: {
         header: t`Country`,
@@ -55,37 +56,47 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
         formatter: (x: string) => x,
       },
       toucan: {
-        header: t`Toucan bridged VCUs`,
+        header:
+          params?.status == "issued"
+            ? t`Toucan bridged VCUs`
+            : t`Toucan retired VCUs`,
         cellStyle: layout.textRight,
         dataKey: "toucan_quantity",
         formatter: this.formatTonnes,
       },
       moss: {
-        header: t`Moss bridged VCUs`,
+        header:
+          params?.status == "issued"
+            ? t`Moss bridged VCUs`
+            : t`Moss retired VCUs`,
         cellStyle: layout.textRight,
         dataKey: "moss_quantity",
         formatter: this.formatTonnes,
       },
       c3: {
-        header: t`C3 bridged VCUs`,
+        header:
+          params?.status == "issued" ? t`C3 bridged VCUs` : t`C3 retired VCUs`,
         cellStyle: layout.textRight,
         dataKey: "c3_quantity",
         formatter: this.formatTonnes,
       },
       tokenized: {
-        header: t`Total tokenized VCUs`,
+        header:
+          params?.status == "issued"
+            ? t`Total tokenized VCUs`
+            : t`Total retired VCUs onchain`,
         cellStyle: layout.textRight,
         dataKey: "total_bridged",
         formatter: this.formatTonnes,
       },
       issued: {
-        header: t`Verra credits issued`,
+        header: t`Total retired VCUs`,
         cellStyle: layout.textRight,
         dataKey: "total_quantity",
         formatter: this.formatTonnes,
       },
       percentage: {
-        header: t`Precentage`,
+        header: t`Percentage`,
         cellStyle: layout.textRight,
         dataKey: "percentage",
         formatter: (x: number) =>

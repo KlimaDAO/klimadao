@@ -37,6 +37,7 @@ export type Status =
   | "bridged"
   | "redeemed"
   | "retired"
+  | "all_retired"
   | "issued"
   | "deposited";
 export interface AggregationQueryParams {
