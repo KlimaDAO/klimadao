@@ -46,12 +46,6 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.6",
-    "@kubb/cli": "^1.9.4",
-    "@kubb/core": "^1.9.4",
-    "@kubb/swagger": "^1.9.4",
-    "@kubb/swagger-ts": "^1.9.4",
-    "@kubb/swagger-client": "^1.9.4",
-    "@kubb/swagger-swr": "^1.9.4",
     "@lingui/cli": "^3.17.2",
     "@lingui/loader": "^3.17.2",
     "@lingui/macro": "^3.17.2",

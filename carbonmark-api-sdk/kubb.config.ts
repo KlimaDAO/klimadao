@@ -8,24 +8,20 @@ export default defineConfig(async () => {
   return {
     root: ".",
     input: {
-      path: "./.generated/carbonmark-api.schema.json",
+      path: "./carbonmark-api.schema.json",
     },
     output: {
       clean: true,
-      path: "./.generated/carbonmark-api-sdk",
+      path: "./packages/sdk",
     },
     hooks: {
-      done: ["npx prettier --write ./.generated/carbonmark-api-sdk"],
+      done: ["npx prettier --write ./packages/sdk"],
     },
     plugins: [
       createSwagger({}),
       createSwaggerTS({}),
-      createSwaggerClient({
-        client: "./lib/api/client.ts",
-      }),
-      createSwaggerSWR({
-        client: "./lib/api/client.ts",
-      }),
+      createSwaggerClient({}),
+      createSwaggerSWR({}),
     ],
   };
 });

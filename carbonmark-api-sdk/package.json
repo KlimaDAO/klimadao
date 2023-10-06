@@ -1,0 +1,20 @@
+{
+  "name": "@klimadao/carbonmark-api-sdk",
+  "version": "1.0.0",
+  "description": "A generated SDK to allow interaction with the Carbonmark API",
+  "main": "index.ts",
+  "scripts": {
+    "generate": "tsx ./scripts/fetch-api-schema.ts && kubb"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tsx": "^3.13.0",
+    "@kubb/cli": "^1.9.4",
+    "@kubb/core": "^1.9.4",
+    "@kubb/swagger": "^1.9.4",
+    "@kubb/swagger-ts": "^1.9.4",
+    "@kubb/swagger-client": "^1.9.4",
+    "@kubb/swagger-swr": "^1.9.4"
+  }
+}
