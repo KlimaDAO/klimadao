@@ -1,6 +1,6 @@
-import client from "@kubb/swagger-client/client";
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
+import client from "../../../lib/api/client";
 import type {
   GetUsersWalletorhandlePathParams,
   GetUsersWalletorhandleQueryParams,

@@ -1,9 +1,9 @@
-import client from "@kubb/swagger-client/client";
 import type {
   SWRMutationConfiguration,
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
+import client from "../../../lib/api/client";
 import type {
   PostUsers403,
   PostUsersMutationRequest,

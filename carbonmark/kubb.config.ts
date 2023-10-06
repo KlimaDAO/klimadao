@@ -23,7 +23,9 @@ export default defineConfig(async () => {
       createSwaggerClient({
         client: "./lib/api/client.ts",
       }),
-      createSwaggerSWR({}),
+      createSwaggerSWR({
+        client: "./lib/api/client.ts",
+      }),
     ],
   };
 });
