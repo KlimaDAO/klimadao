@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "esModuleInterop": true
+  },
+  "include": ["sdk/**/*.ts"]
+}

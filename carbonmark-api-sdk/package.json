@@ -1,10 +1,12 @@
 {
-  "name": "@klimadao/carbonmark-api-sdk",
+  "name": "carbonmark-api-sdk",
   "version": "1.0.0",
   "description": "A generated SDK to allow interaction with the Carbonmark API",
-  "main": "sdk/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "generate": "tsx ./fetch-schema.ts && kubb"
+    "generate": "tsx ./fetch-schema.ts && kubb",
+    "build":"tsc"
   },
   "author": "",
   "license": "ISC",
