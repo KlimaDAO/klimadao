@@ -1,6 +1,9 @@
 import { Static, Type } from "@sinclair/typebox";
 import { DetailedProjectModel } from "../../../models/DetailedProject.model";
-import { NetworkParam } from "../../../models/NetworkParam.model";
+import {
+  NetworkParam,
+  NetworkParamModel,
+} from "../../../models/NetworkParam.model";
 import { CreditId } from "../../../utils/CreditId";
 
 export const params = Type.Object({
@@ -13,6 +16,7 @@ export const params = Type.Object({
 export type Params = Static<typeof params>;
 
 const querystring = Type.Object({
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
   expiresAfter: Type.Optional(
     Type.String({
       description:
