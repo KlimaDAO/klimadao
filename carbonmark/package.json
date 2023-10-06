@@ -9,8 +9,7 @@
     "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
     "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
-    "postinstall": "npm run lingui:compile",
-    "generate:types": "tsx ./scripts/fetch-api-schema.ts && kubb"
+    "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.7.1",
@@ -62,7 +61,6 @@
     "axios": "^1.5.1",
     "eslint": "^8.39.0",
     "eslint-config-next": "^13.3.1",
-    "tsx": "^3.13.0",
     "typescript": "^4.9.5"
   },
   "engines": {

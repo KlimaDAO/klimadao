@@ -1,8 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "caption": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-    "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-  },
-  "x-readme-ref-name": "Image"
-}
