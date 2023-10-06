@@ -1,4 +1,4 @@
-import { getGetUsersWalletOrHandleKey } from ".generated/carbonmark-api.sdk";
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
@@ -60,7 +60,7 @@ export const Users: NextPage<PageProps> = (props) => (
       fetcher,
       fallback: {
         // https://swr.vercel.app/docs/with-nextjs#complex-keys
-        [unstable_serialize(getGetUsersWalletOrHandleKey(props.userAddress))]:
+        [unstable_serialize(getUsersWalletorhandle(props.userAddress))]:
           props.carbonmarkUser,
       },
     }}

@@ -1,4 +1,4 @@
-import { getUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
@@ -140,8 +140,7 @@ export const getUserUntil = async (params: {
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const fetchUser = async () =>
-    (await getUsersWalletOrHandle(params.address, { network: params.network }))
-      .data;
+    await getUsersWalletorhandle(params.address, { network: params.network });
 
   const updatedUser = await pollUntil({
     fn: fetchUser,

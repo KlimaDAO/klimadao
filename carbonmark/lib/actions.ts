@@ -1,4 +1,4 @@
-import { getProjectsId } from ".generated/carbonmark-api.sdk";
+import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
@@ -379,7 +379,7 @@ export const getProjectInfoFromApi = async (
   projectId: string
 ): Promise<AssetForListing["project"] | null> => {
   try {
-    const project = (await getProjectsId(projectId)).data;
+    const project = await getProjectsId(projectId);
 
     return {
       key: project.key,

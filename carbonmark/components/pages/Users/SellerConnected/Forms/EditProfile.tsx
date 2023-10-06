@@ -1,4 +1,4 @@
-import { getUsersWalletOrHandle } from ".generated/carbonmark-api.sdk";
+import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
@@ -53,7 +53,7 @@ export const EditProfile: FC<Props> = (props) => {
   const fetchIsNewHandle = async (handle?: string | null) => {
     if (isNil(handle)) return true;
     try {
-      const handleFromApi = (await getUsersWalletOrHandle(handle)).data;
+      const handleFromApi = (await getUsersWalletorhandle(handle));
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
