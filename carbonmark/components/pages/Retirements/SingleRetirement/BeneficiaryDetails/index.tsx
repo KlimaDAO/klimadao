@@ -1,9 +1,9 @@
+import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { Anchor as A } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { ProfileLogo } from "components/pages/Users/ProfileLogo";
 import { Text } from "components/Text";
-import { useFetchUser } from "hooks/useFetchUser";
 import { urls } from "lib/constants";
 import { FC } from "react";
 import * as styles from "./styles";
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
-  const { carbonmarkUser } = useFetchUser(props.beneficiaryAddress);
+  const { data: carbonmarkUser } = useGetUsersWalletorhandle(props.beneficiaryAddress);
   return (
     <div className={styles.beneficiaryCard}>
       {!!carbonmarkUser && !!carbonmarkUser.profileImgUrl && (
@@ -38,9 +38,8 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         </Text>
         <A
           className={styles.profileLink}
-          href={`${urls.users}/${
-            carbonmarkUser?.handle || props.beneficiaryAddress
-          }`}
+          href={`${urls.users}/${carbonmarkUser?.handle || props.beneficiaryAddress
+            }`}
         >
           {t`View Carbonmark Profile`}
           <LaunchIcon />

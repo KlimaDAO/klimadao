@@ -7,8 +7,7 @@ import {
   Project,
   Vintage
 } from "lib/types/carbonmark.types";
-import { trim } from 'lodash';
-import { update } from 'lodash/fp';
+import { trim, update } from 'lodash/fp';
 import { GetStaticProps } from "next";
 
 export interface ProjectsPageStaticProps {
@@ -24,9 +23,10 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
   try {
     const projects = await getProjects();
     const vintages = await getVintages();
+    const countries = await getCountries();
     /** @note because the API is returning trailing empty spaces on some categories, trim them here */
     const categories = (await getCategories()).map(update('id', trim));
-    const countries = await getCountries();
+
     const translation = await loadTranslation(ctx.locale);
 
     if (!translation) {
