@@ -42,7 +42,10 @@ export default function TokenPoolBreakdownCard(
 
 /** Async server component that renders a Recharts client component */
 async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props, "bridged");
+  const params = creditsQueryParamsFromProps({
+    ...props,
+    ...{ since: "lifetime", status: "bridged" },
+  });
   const bct = (
     await queryAggregatedCredits({
       ...params,
