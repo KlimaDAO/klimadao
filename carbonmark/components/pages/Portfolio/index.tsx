@@ -19,8 +19,11 @@ import * as styles from "./styles";
 export const Portfolio: NextPage = () => {
   const { isConnected, address, toggleModal, initializing, networkLabel } =
     useWeb3();
-  const { data: carbonmarkUser, isLoading, mutate } = useGetUsersWalletorhandle(address ?? "", { network: networkLabel })
-
+  const {
+    data: carbonmarkUser,
+    isLoading,
+    mutate,
+  } = useGetUsersWalletorhandle(address ?? "", { network: networkLabel });
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -121,7 +124,9 @@ export const Portfolio: NextPage = () => {
             </Col>
 
             <Col>
-              {carbonmarkUser && <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />}
+              {carbonmarkUser && (
+                <PortfolioSidebar user={carbonmarkUser} isPending={isPending} />
+              )}
             </Col>
           </TwoColLayout>
         </div>

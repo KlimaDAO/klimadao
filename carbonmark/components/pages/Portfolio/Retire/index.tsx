@@ -26,15 +26,19 @@ export type RetirePageProps = {
 };
 
 export const Retire: NextPage<RetirePageProps> = (props) => {
-  const { isConnected, address, toggleModal, provider, initializing, networkLabel } =
-    useWeb3();
+  const {
+    isConnected,
+    address,
+    toggleModal,
+    provider,
+    initializing,
+    networkLabel,
+  } = useWeb3();
 
-  const { data: carbonmarkUser, isLoading } =
-    useGetUsersWalletorhandle(
-      address ?? "",
-      { network: networkLabel },
-    );
-
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+    address ?? "",
+    { network: networkLabel }
+  );
 
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);

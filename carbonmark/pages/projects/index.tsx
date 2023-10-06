@@ -1,13 +1,18 @@
-import { getCategories, getCountries, getProjects, getVintages } from '.generated/carbonmark-api-sdk/clients';
+import {
+  getCategories,
+  getCountries,
+  getProjects,
+  getVintages,
+} from ".generated/carbonmark-api-sdk/clients";
 import { Projects } from "components/pages/Projects";
 import { loadTranslation } from "lib/i18n";
 import {
   Category,
   Country,
   Project,
-  Vintage
+  Vintage,
 } from "lib/types/carbonmark.types";
-import { trim, update } from 'lodash/fp';
+import { trim, update } from "lodash/fp";
 import { GetStaticProps } from "next";
 
 export interface ProjectsPageStaticProps {
@@ -25,7 +30,7 @@ export const getStaticProps: GetStaticProps<ProjectsPageStaticProps> = async (
     const vintages = await getVintages();
     const countries = await getCountries();
     /** @note because the API is returning trailing empty spaces on some categories, trim them here */
-    const categories = (await getCategories()).map(update('id', trim));
+    const categories = (await getCategories()).map(update("id", trim));
 
     const translation = await loadTranslation(ctx.locale);
 

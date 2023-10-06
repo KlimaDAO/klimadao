@@ -35,10 +35,11 @@ type Props = {
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
   const { networkLabel } = useWeb3();
-  const { data: carbonmarkUser, isLoading, mutate } = useGetUsersWalletorhandle(
-    props.userAddress,
-    { network: networkLabel }
-  );
+  const {
+    data: carbonmarkUser,
+    isLoading,
+    mutate,
+  } = useGetUsersWalletorhandle(props.userAddress, { network: networkLabel });
   const [isPending, setIsPending] = useState(false);
 
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
@@ -122,7 +123,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = (await getUsersWalletorhandle(props.userAddress));
+      const userFromApi = await getUsersWalletorhandle(props.userAddress);
 
       // Merge with data from Updated Profile as backend might be slow!
       const newUser = { ...userFromApi, ...profileData };
@@ -163,11 +164,13 @@ export const SellerConnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        {carbonmarkUser && <ProfileHeader
-          carbonmarkUser={carbonmarkUser}
-          userName={props.userName}
-          userAddress={props.userAddress}
-        />}
+        {carbonmarkUser && (
+          <ProfileHeader
+            carbonmarkUser={carbonmarkUser}
+            userName={props.userName}
+            userAddress={props.userAddress}
+          />
+        )}
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
@@ -244,11 +247,13 @@ export const SellerConnected: FC<Props> = (props) => {
         </Col>
 
         <Col>
-          {carbonmarkUser && <ProfileSidebar
-            user={carbonmarkUser}
-            isPending={isPending}
-            title={t`Your seller data`}
-          />}
+          {carbonmarkUser && (
+            <ProfileSidebar
+              user={carbonmarkUser}
+              isPending={isPending}
+              title={t`Your seller data`}
+            />
+          )}
         </Col>
       </TwoColLayout>
 
@@ -260,11 +265,13 @@ export const SellerConnected: FC<Props> = (props) => {
         showModal={showEditProfileModal}
         onToggleModal={() => setShowEditProfileModal((s) => !s)}
       >
-        {carbonmarkUser && <EditProfile
-          user={carbonmarkUser}
-          onSubmit={onEditProfile}
-          isCarbonmarkUser={isCarbonmarkUser}
-        />}
+        {carbonmarkUser && (
+          <EditProfile
+            user={carbonmarkUser}
+            onSubmit={onEditProfile}
+            isCarbonmarkUser={isCarbonmarkUser}
+          />
+        )}
       </Modal>
 
       {!!assetsData?.length && (

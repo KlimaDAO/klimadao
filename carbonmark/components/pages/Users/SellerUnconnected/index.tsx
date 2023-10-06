@@ -20,9 +20,12 @@ type Props = {
 
 export const SellerUnconnected: FC<Props> = (props) => {
   const { address, isConnected, toggleModal, networkLabel } = useWeb3();
-  const { data: carbonmarkUser } = useGetUsersWalletorhandle(props.userAddress, {
-    network: networkLabel,
-  });
+  const { data: carbonmarkUser } = useGetUsersWalletorhandle(
+    props.userAddress,
+    {
+      network: networkLabel,
+    }
+  );
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const hasListings = !!activeListings.length;
@@ -38,11 +41,13 @@ export const SellerUnconnected: FC<Props> = (props) => {
         <LoginButton className="loginButton" />
       </div>
       <div className={styles.fullWidth}>
-        {carbonmarkUser && <ProfileHeader
-          carbonmarkUser={carbonmarkUser}
-          userName={props.userName}
-          userAddress={props.userAddress}
-        />}
+        {carbonmarkUser && (
+          <ProfileHeader
+            carbonmarkUser={carbonmarkUser}
+            userName={props.userName}
+            userAddress={props.userAddress}
+          />
+        )}
       </div>
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
@@ -89,10 +94,12 @@ export const SellerUnconnected: FC<Props> = (props) => {
           )}
         </Col>
         <Col>
-          {carbonmarkUser && <ProfileSidebar
-            user={carbonmarkUser}
-            title={t`Data for this seller`}
-          />}
+          {carbonmarkUser && (
+            <ProfileSidebar
+              user={carbonmarkUser}
+              title={t`Data for this seller`}
+            />
+          )}
         </Col>
       </TwoColLayout>
     </div>

@@ -14,7 +14,9 @@ type Props = {
 };
 
 export const BeneficiaryDetails: FC<Props> = (props) => {
-  const { data: carbonmarkUser } = useGetUsersWalletorhandle(props.beneficiaryAddress);
+  const { data: carbonmarkUser } = useGetUsersWalletorhandle(
+    props.beneficiaryAddress
+  );
   return (
     <div className={styles.beneficiaryCard}>
       {!!carbonmarkUser && !!carbonmarkUser.profileImgUrl && (
@@ -38,8 +40,9 @@ export const BeneficiaryDetails: FC<Props> = (props) => {
         </Text>
         <A
           className={styles.profileLink}
-          href={`${urls.users}/${carbonmarkUser?.handle || props.beneficiaryAddress
-            }`}
+          href={`${urls.users}/${
+            carbonmarkUser?.handle || props.beneficiaryAddress
+          }`}
         >
           {t`View Carbonmark Profile`}
           <LaunchIcon />

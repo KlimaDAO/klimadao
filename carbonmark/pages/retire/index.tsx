@@ -12,15 +12,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const translation = await loadTranslation(ctx.locale);
 
     const featuredProjects = await Promise.all(
-      featuredProjectKeys.map(
-        async (project) => await getProjectsId(project)
-      )
+      featuredProjectKeys.map(async (project) => await getProjectsId(project))
     );
 
     const defaultProjects = await Promise.all(
-      defaultProjectKeys.map(
-        async (project) => await getProjectsId(project)
-      )
+      defaultProjectKeys.map(async (project) => await getProjectsId(project))
     );
 
     if (!translation) {

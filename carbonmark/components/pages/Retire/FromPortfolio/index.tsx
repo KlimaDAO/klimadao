@@ -15,7 +15,9 @@ export type Props = {
 };
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
-  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(props.address);
+  const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
+    props.address
+  );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
