@@ -44,7 +44,7 @@ export function fillWithZeroes<CI extends object>(
     if (newItem === undefined) {
       newItem = Object.assign({ ...data[0] });
       configuration.forEach((conf) => {
-        if (newItem !== undefined) (newItem[conf.id] as number) = 0;
+        (newItem![conf.id] as number) = 0;
       });
     }
     if (newItem) {
