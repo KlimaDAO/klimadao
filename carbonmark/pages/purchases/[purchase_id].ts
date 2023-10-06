@@ -1,9 +1,10 @@
+import { getPurchasesId } from ".generated/carbonmark-api-sdk/clients";
 import { PageProps, PurchaseReceipt } from "components/pages/Purchases";
-import { client } from "lib/api/client";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Purchase } from "lib/types/carbonmark.types";
+import { isNil } from "lodash";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
@@ -31,29 +32,18 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let purchase: Purchase | null = null;
     // try mainnet first
     try {
-      const response = await client[`/purchases/{id}`].get({
-        params: {
-          id: params.purchase_id,
-        },
-      });
-      if (!response.ok) throw new Error("No mainnet purchase found");
-      purchase = await response.json();
+      purchase = await getPurchasesId(params.purchase_id);
+      if (isNil(purchase)) throw new Error("No mainnet purchase found");
     } catch (e) {
       // if mainnet 404s, try testnet in next block
     }
 
     if (!purchase && !IS_PRODUCTION) {
       try {
-        const response = await client[`/purchases/{id}`].get({
-          params: {
-            id: params.purchase_id,
-          },
-          query: {
-            network: "mumbai",
-          },
+        purchase = await getPurchasesId(params.purchase_id, {
+          network: "mumbai",
         });
-        if (!response.ok) throw new Error("No testnet purchase found");
-        purchase = await response.json();
+        if (isNil(purchase)) throw new Error("No testnet purchase found");
       } catch (e) {
         // if testnet 404s, check that txn exists on mainnet
       }

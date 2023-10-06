@@ -12,7 +12,7 @@ export function getPurchasesIdQueryOptions<
   TError = unknown,
 >(
   id: GetPurchasesIdPathParams["id"],
-  params: GetPurchasesIdQueryParams,
+  params?: GetPurchasesIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): SWRConfiguration<TData, TError> {
   return {
@@ -40,7 +40,7 @@ export function useGetPurchasesId<
   TError = unknown,
 >(
   id: GetPurchasesIdPathParams["id"],
-  params: GetPurchasesIdQueryParams,
+  params?: GetPurchasesIdQueryParams,
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
