@@ -1,7 +1,7 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire, PendingKlimaRetire } from "@klimadao/lib/types/subgraph";
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
+import { getProjectsId } from "carbonmark-api-sdk";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { isAddress } from "ethers-v6";
 import { loadTranslation } from "lib/i18n";

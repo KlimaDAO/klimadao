@@ -1,6 +1,6 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
+import { useGetUsersWalletorhandle } from "carbonmark-api-sdk";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { LoginButton } from "components/LoginButton";
 import { Text } from "components/Text";

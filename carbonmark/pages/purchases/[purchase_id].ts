@@ -1,4 +1,4 @@
-import { getPurchasesId } from ".generated/carbonmark-api-sdk/clients";
+import { getPurchasesId } from "carbonmark-api-sdk";
 import { PageProps, PurchaseReceipt } from "components/pages/Purchases";
 import { IS_PRODUCTION } from "lib/constants";
 import { loadTranslation } from "lib/i18n";

@@ -1,4 +1,4 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
+import { useGetProjects } from "carbonmark-api-sdk";
 import { Project } from "lib/types/carbonmark.types";
 import { compact } from "lodash";
 import { map as mapFn, pipe, uniqBy } from "lodash/fp";

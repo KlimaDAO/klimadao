@@ -1,5 +1,5 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { PoolToken } from "@klimadao/lib/constants";
+import { getProjectsId } from "carbonmark-api-sdk";
 import {
   ProjectRetire,
   ProjectRetirePageProps,

@@ -1,7 +1,7 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { GridViewOutlined, ListOutlined } from "@mui/icons-material";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { useGetProjects } from "carbonmark-api-sdk";
 import { LoginButton } from "components/LoginButton";
 import { ProjectFilterModal } from "components/ProjectFilterModal";
 import { Text } from "components/Text";

@@ -1,4 +1,4 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import { getProjectsId } from "carbonmark-api-sdk";
 import {
   ProjectPurchase,
   ProjectPurchasePageProps,

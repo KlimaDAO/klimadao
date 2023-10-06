@@ -3,7 +3,7 @@ import {
   getCountries,
   getProjects,
   getVintages,
-} from ".generated/carbonmark-api-sdk/clients";
+} from "carbonmark-api-sdk";
 import { Projects } from "components/pages/Projects";
 import { loadTranslation } from "lib/i18n";
 import {

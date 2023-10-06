@@ -1,7 +1,7 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { t } from "@lingui/macro";
+import { useGetProjects } from "carbonmark-api-sdk";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { PROJECT_SORT_FNS } from "components/ProjectFilterModal/constants";

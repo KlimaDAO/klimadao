@@ -1,4 +1,3 @@
-import { useGetProjectsId } from ".generated/carbonmark-api-sdk/hooks";
 import { cx } from "@emotion/css";
 import { fetcher } from "@klimadao/carbonmark/lib/fetcher";
 import { Anchor } from "@klimadao/lib/components";
@@ -7,6 +6,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { useGetProjectsId } from "carbonmark-api-sdk";
 import { Activities } from "components/Activities";
 import Carousel from "components/Carousel/Carousel";
 import { Category } from "components/Category";

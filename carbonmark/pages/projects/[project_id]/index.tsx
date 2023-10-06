@@ -1,4 +1,4 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
+import { getProjectsId } from "carbonmark-api-sdk";
 import { PageProps, Project } from "components/pages/Project";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";

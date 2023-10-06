@@ -1,5 +1,5 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { defaultProjects } from "@klimadao/lib/utils";
+import { getProjectsId } from "carbonmark-api-sdk";
 import { Retire } from "components/pages/Retire";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";

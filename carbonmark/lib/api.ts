@@ -1,5 +1,5 @@
-import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { getUsersWalletorhandle } from "carbonmark-api-sdk";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
 import { User } from "lib/types/carbonmark.types";

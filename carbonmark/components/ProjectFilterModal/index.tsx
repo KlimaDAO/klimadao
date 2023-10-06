@@ -1,5 +1,5 @@
-import { useGetProjects } from ".generated/carbonmark-api-sdk/hooks";
 import { t } from "@lingui/macro";
+import { useGetProjects } from "carbonmark-api-sdk";
 import { Accordion } from "components/Accordion";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { ButtonSecondary } from "components/Buttons/ButtonSecondary";
@@ -163,9 +163,8 @@ export const ProjectFilterModal: FC<ProjectFilterModalProps> = (props) => {
         />
         <Text t="h5" align="center">
           {!isValidating
-            ? `${projects.length} ${
-                projects.length === 1 ? t`Result` : t`Results`
-              }`
+            ? `${projects.length} ${projects.length === 1 ? t`Result` : t`Results`
+            }`
             : t`Compiling Results ...`}
         </Text>
       </form>

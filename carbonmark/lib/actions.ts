@@ -1,10 +1,10 @@
-import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
+import { getProjectsId } from "carbonmark-api-sdk";
 import { Contract, Transaction, ethers, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
 import {

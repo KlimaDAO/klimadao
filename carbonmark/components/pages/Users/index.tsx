@@ -1,6 +1,6 @@
-import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
+import { getUsersWalletorhandle } from "carbonmark-api-sdk";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
@@ -28,12 +28,10 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <PageHead
-        title={t`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        } | Profile | Carbonmark`}
-        mediaTitle={`${
-          props.carbonmarkUser?.handle || concatAddress(props.userAddress)
-        }'s Profile on Carbonmark`}
+        title={t`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          } | Profile | Carbonmark`}
+        mediaTitle={`${props.carbonmarkUser?.handle || concatAddress(props.userAddress)
+          }'s Profile on Carbonmark`}
         metaDescription={t`Create and edit listings, and track your activity with your Carbonmark profile.`}
       />
 

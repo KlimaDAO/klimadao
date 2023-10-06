@@ -1,4 +1,4 @@
-import { getUsersWalletorhandle } from ".generated/carbonmark-api-sdk/clients";
+import { getUsersWalletorhandle } from "carbonmark-api-sdk";
 import { PageProps, Users } from "components/pages/Users";
 import { isAddress } from "ethers-v6";
 import { VALID_HANDLE_REGEX } from "lib/constants";

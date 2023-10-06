@@ -1,5 +1,5 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { useGetUsersWalletorhandle } from "carbonmark-api-sdk";
 import { LO } from "lib/luckyOrange";
 import { FC, useEffect } from "react";
 

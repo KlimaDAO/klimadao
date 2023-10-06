@@ -1,5 +1,5 @@
-import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { t, Trans } from "@lingui/macro";
+import { useGetUsersWalletorhandle } from "carbonmark-api-sdk";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
