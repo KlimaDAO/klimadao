@@ -26,29 +26,32 @@ export function transformToPercentages<CI>(
   });
   return data;
 }
-export function fillMonthsWithZeroes<CI extends object>(
+export function fillWithZeroes<CI extends object>(
   data: ChartData<CI>,
+  configuration: ChartConfiguration<keyof CI>,
   dateField: keyof CI,
-  configuration: ChartConfiguration<keyof CI>
+  granularity: moment.unitOfTime.DurationConstructor
 ): ChartData<CI> {
   if (data.length == 0) return data;
   let date = moment(data[0][dateField] as string);
   const now = moment();
   const newData: ChartData<CI> = [];
-  while (date.isSameOrBefore(now, "M")) {
-    date = date.add("1", "M");
+  while (date.isSameOrBefore(now, granularity)) {
     let newItem: CI | undefined = data.find((item) => {
-      const itemDate = moment(item[dateField] as string).startOf("M");
-      return itemDate.isSame(date, "M");
+      const itemDate = moment(item[dateField] as string).startOf(granularity);
+      return itemDate.isSame(date, granularity);
     });
     if (newItem === undefined) {
-      newItem = { ...data[0] };
-      (newItem[dateField] as string) = date.startOf("M").toISOString();
+      newItem = Object.assign({ ...data[0] });
       configuration.forEach((conf) => {
         if (newItem !== undefined) (newItem[conf.id] as number) = 0;
       });
     }
-    newData.push(newItem);
+    if (newItem) {
+      (newItem[dateField] as string) = date.startOf(granularity).toISOString();
+      newData.push(newItem);
+    }
+    date = date.add("1", granularity);
   }
   return newData;
 }
@@ -213,7 +216,7 @@ export function getDataChartMax<T>(
   }, 0);
 }
 const helpers = {
-  fillMonthsWithZeroes,
+  fillWithZeroes,
   cumulativeSum,
   formatDateAndTime,
   formatQuantityAsMillionsOfTons,

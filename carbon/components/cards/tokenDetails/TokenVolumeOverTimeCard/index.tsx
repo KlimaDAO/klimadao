@@ -7,9 +7,9 @@ import {
   getChartConfiguration,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
-import KAreaChart from "components/charts/helpers/KAreaChart";
+import KBarChart from "components/charts/helpers/KBarChart";
 import { statusToDateField } from "lib/charts/dateField";
-import { cumulativeSum, fillMonthsWithZeroes } from "lib/charts/helpers";
+import { fillWithZeroes } from "lib/charts/helpers";
 import { queryAggregatedCreditsByPoolAndDates } from "lib/charts/queries";
 import { Status } from "lib/charts/types";
 
@@ -38,15 +38,19 @@ async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
   let data = (
     await queryAggregatedCreditsByPoolAndDates(freq, {
       ...params,
-      ...{ operator: "cumsum" },
     })
   ).items;
-  data = fillMonthsWithZeroes(data, "bridged_date", configuration);
-  data = cumulativeSum(data, configuration);
+
+  data = fillWithZeroes(
+    data,
+    configuration,
+    "bridged_date",
+    props.since == "lifetime" ? "M" : "d"
+  );
   const XAxis = props.since == "lifetime" ? "months" : "days";
   const dateField = statusToDateField(params.status as Status);
   return (
-    <KAreaChart
+    <KBarChart
       data={data}
       configuration={configuration}
       dateField={dateField}
