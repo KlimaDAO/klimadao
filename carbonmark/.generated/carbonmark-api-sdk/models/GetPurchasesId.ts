@@ -6,6 +6,14 @@ export type GetPurchasesIdPathParams = {
   id: string;
 };
 
+export type GetPurchasesIdQueryParams = {
+  /**
+   * @description Optional. Desired blockchain network. Default is `polygon` (mainnet).
+   * @default 'polygon'
+   */
+  network: "polygon" | "mumbai";
+};
+
 /**
  * @description Successful response with listing details
  */

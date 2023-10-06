@@ -3,6 +3,7 @@ import useSWR from "swr";
 import client from "../../../lib/api/client";
 import type {
   GetPurchasesIdPathParams,
+  GetPurchasesIdQueryParams,
   GetPurchasesIdQueryResponse,
 } from "../models/GetPurchasesId";
 
@@ -11,6 +12,7 @@ export function getPurchasesIdQueryOptions<
   TError = unknown,
 >(
   id: GetPurchasesIdPathParams["id"],
+  params: GetPurchasesIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): SWRConfiguration<TData, TError> {
   return {
@@ -18,6 +20,8 @@ export function getPurchasesIdQueryOptions<
       return client<TData, TError>({
         method: "get",
         url: `/purchases/${id}`,
+
+        params,
 
         ...options,
       });
@@ -36,6 +40,7 @@ export function useGetPurchasesId<
   TError = unknown,
 >(
   id: GetPurchasesIdPathParams["id"],
+  params: GetPurchasesIdQueryParams,
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
@@ -44,7 +49,7 @@ export function useGetPurchasesId<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
   const query = useSWR<TData, TError, string>(`/purchases/${id}`, {
-    ...getPurchasesIdQueryOptions<TData, TError>(id, clientOptions),
+    ...getPurchasesIdQueryOptions<TData, TError>(id, params, clientOptions),
     ...queryOptions,
   });
 
