@@ -3,7 +3,8 @@
     "declaration": true,
     "outDir": "./dist",
     "sourceMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "include": ["sdk/**/*.ts"]
 }

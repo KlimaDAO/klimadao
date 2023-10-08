@@ -1,6 +1,6 @@
 {
   "name": "carbonmark-api-sdk",
-  "version": "1.0.0",
+  "version": "2.0.0-6",
   "description": "A generated SDK to allow interaction with the Carbonmark API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "tsx": "^3.13.0",
     "@kubb/cli": "^1.9.4",
     "@kubb/core": "^1.9.4",

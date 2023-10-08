@@ -1,8 +1,9 @@
 import fs from "fs";
 import path from "path";
-import { urls } from "../carbonmark/lib/constants";
+import packageJson from "./package.json";
 
-const SCHEMA_URL = `${urls.api.base}/openapi.json`;
+const API_VERSION = packageJson.version;
+const SCHEMA_URL = `https://v${API_VERSION}.api.carbonmark.com/openapi.json`;
 
 /**
  * This script fetches the CarbonMark API schema from the provided URL and writes it to a local file.
