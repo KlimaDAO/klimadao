@@ -20,8 +20,8 @@ export default defineConfig(async () => {
     plugins: [
       createSwagger({}),
       createSwaggerTS({}),
-      createSwaggerClient({}),
-      createSwaggerSWR({}),
+      createSwaggerClient({ client: "./client.ts" }),
+      createSwaggerSWR({ client: "./client.ts" }),
     ],
   };
 });
