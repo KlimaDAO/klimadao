@@ -1,10 +1,7 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import KPieChart from "components/charts/helpers/KPieChart";
-import {
-  AggregatedCreditsChartConfiguration,
-  AggregatedCreditsQueryConfiguration,
-} from "lib/charts/aggregators/getAggregatedCredits";
+import { AggregatedCreditsChartConfiguration } from "lib/charts/aggregators/getAggregatedCredits";
 import { queryAggregatedCreditsByBridge } from "lib/charts/queries";
 import { palette } from "theme/palette";
 
@@ -30,7 +27,6 @@ export default function TokenizedCreditsByBridgeCard(props: CardProps) {
 async function TokenizedCreditsByBridgeChart(props: {
   showPercentageInLegend?: boolean;
 }) {
-  const status = "bridged";
   const chartConfiguration: AggregatedCreditsChartConfiguration = [
     {
       id: "toucan",
@@ -51,26 +47,7 @@ async function TokenizedCreditsByBridgeChart(props: {
       legendOrder: 3,
     },
   ];
-  const queryConfiguration: AggregatedCreditsQueryConfiguration = [
-    {
-      query: {
-        bridge: "toucan",
-        status,
-      },
-    },
-    {
-      query: {
-        bridge: "moss",
-        status,
-      },
-    },
-    {
-      query: {
-        bridge: "c3",
-        status,
-      },
-    },
-  ];
+
   const data = await queryAggregatedCreditsByBridge();
   const chartData = [
     { id: "toucan", quantity: data.toucan_quantity },
