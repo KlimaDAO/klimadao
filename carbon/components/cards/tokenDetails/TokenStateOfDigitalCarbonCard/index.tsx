@@ -72,7 +72,7 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
       <div className={styles.legend}>
         <div>
           <CustomLegendItem
-            color={palette.charts.color1}
+            color={palette.charts.color5}
             text={t`${formatTonnes(bridged)} tonnes bridged`}
           />
           <CustomLegendItem
@@ -80,7 +80,7 @@ async function TokenStateOfDigitalCarbonChart(props: TokenDetailsProps) {
             text={t`${formatTonnes(retired)} tonnes retired`}
           />
           <CustomLegendItem
-            color={palette.charts.color5}
+            color={palette.charts.color1}
             text={t`${formatTonnes(outstanding)} tonnes outstanding`}
           />
         </div>

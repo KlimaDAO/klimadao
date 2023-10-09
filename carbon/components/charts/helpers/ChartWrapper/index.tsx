@@ -3,7 +3,7 @@ import Skeleton from "components/Skeleton";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 import { ResponsiveContainer } from "recharts";
-import { NoDataWrapperProps } from "../NoDataWrapper";
+import NoDataWrapper, { NoDataWrapperProps } from "../NoDataWrapper";
 
 // A custom hook that detects if the window is currently being resized
 // Returns a single value 'isBeingResized'
@@ -41,9 +41,11 @@ export const useIsResizing = () => {
 export default function ChartWrapper<T>(props: NoDataWrapperProps<T>) {
   const isBeingResized = useIsResizing();
   const content = !isBeingResized ? (
-    <ResponsiveContainer width="100%" height="100%">
-      {props.children}
-    </ResponsiveContainer>
+    <NoDataWrapper {...props}>
+      <ResponsiveContainer width="100%" height="100%">
+        {props.children}
+      </ResponsiveContainer>
+    </NoDataWrapper>
   ) : (
     <Skeleton text="" />
   );

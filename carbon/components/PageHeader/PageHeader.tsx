@@ -1,5 +1,7 @@
 "use client";
 
+import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 import { KeyboardArrowLeft } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
@@ -39,7 +41,11 @@ export const PageHeader: FC<{
       <div className={layout.desktopOnly}>
         <div className={styles.buttons}>
           <ChangeLanguageButton className={styles.changeLanguageButton} />
-          <Button className={styles.exploreButton}>Explore Marketplace</Button>
+          <Link href={urls.carbonmark}>
+            <Button className={styles.exploreButton}>
+              {t`Explore Marketplace`}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

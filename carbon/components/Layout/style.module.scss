@@ -1,9 +1,9 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 .desktopSidebar {
   display: none;
 
-  @include desktop {
+  @include breakpoints.desktop {
     position: sticky;
     top: 1rem;
     padding: 4.8rem 2rem;
@@ -85,7 +85,7 @@
   padding: 0.8rem 1.6rem 0.8rem 1.6rem;
   justify-content: space-between;
 
-  @include desktop {
+  @include breakpoints.desktop {
     display: none;
   }
 }
@@ -104,7 +104,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 
-  @include desktop {
+  @include breakpoints.desktop {
     display: none;
   }
 
@@ -137,7 +137,7 @@
   padding: 0 1.6rem;
   flex: 1;
 
-  @include desktop {
+  @include breakpoints.desktop {
     padding: 0 4rem;
   }
 }
@@ -172,7 +172,7 @@
   gap: 4rem;
   align-items: center;
 
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     display: flex;
     justify-content: space-between;
   }
@@ -189,7 +189,7 @@
   justify-content: flex-start;
   gap: 1.6rem;
 
-  @include desktop {
+  @include breakpoints.desktop {
     gap: 3.2rem;
     flex-direction: row;
     justify-content: space-between;
@@ -206,7 +206,7 @@
   align-items: center;
   justify-content: space-between;
 
-  @include large {
+  @include breakpoints.large {
     justify-content: center;
   }
 
@@ -217,7 +217,7 @@
 }
 
 .desktopLayout {
-  @include desktop {
+  @include breakpoints.desktop {
     align-items: start;
     display: grid;
     grid-template-columns: min-content auto;
