@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-09 18:36+0000\n"
+"POT-Creation-Date: 2023-10-09 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr "Alle Assets stammen von großen Zertifizierern"
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:146
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
-msgstr ""
+msgstr "Fast fertig! Im letzten Schritt erstellen Sie den Eintrag und übertragen ihn ins System. Bitte verifizieren Sie unten noch einmal die Menge und den Preis."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseInputs.tsx:83
@@ -142,7 +142,7 @@ msgid ""
 "At this time, Carbonmark cannot process credit card payments\n"
 "exceeding {0}. Please adjust the\n"
 "quantity and try again later."
-msgstr ""
+msgstr "Aktuell kann Carbonmark keine Kreditkartenzahlungen annehmen, die {0} überschreiten. Bitte passen Sie die Menge an und versuchen Sie es noch einmal."
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:59
@@ -457,12 +457,12 @@ msgstr "Erstellt:"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:94
 msgid "Credit card minimum purchase is ${formattedFiatMinimum}"
-msgstr ""
+msgstr "Minimumpreis für Kreditkartenzahlungen ist ${formattedFiatMinimum}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:74
 msgid "Credit card minimum purchase is {0}"
-msgstr ""
+msgstr "Mindestpreis für Kreditkartenzahlungen ist {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:220
@@ -574,7 +574,7 @@ msgstr "Hier finden Sie die neuesten Updates, Guides und Dokumente, um Carbonmar
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:127
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
-msgstr ""
+msgstr "Geben Sie Carbonmark zuerst das Recht, dieses Asset in Ihrem Auftrag zu übertragen."
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:343
@@ -764,7 +764,7 @@ msgstr "Anmelden"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:333
 msgid "Login to pay with USDC"
-msgstr ""
+msgstr "Melden Sie sich an, um mit USDC zu bezahlen"
 
 #. js-lingui-explicit-id
 #: components/shared/Navigation/index.tsx:63
@@ -987,7 +987,7 @@ msgstr "Datenschutzbestimmungen"
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:344
 msgid "Processing Fee:"
-msgstr ""
+msgstr "Bearbeitungsgebühr:"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseModal.tsx:86
@@ -1276,7 +1276,7 @@ msgstr "Ihr Ausgleichszertifikat ansehen"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:56
 msgid "Select asset:"
-msgstr ""
+msgstr "Asset auswählen:"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:74
@@ -1601,12 +1601,12 @@ msgstr "Gesamtverkaufskosten"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:112
 msgid "USDC per unit (tonne)"
-msgstr ""
+msgstr "USDC pro Einheit (Tonne)"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:117
 msgid "Unit price is required"
-msgstr ""
+msgstr "Stückpreis ist erforderlich"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1794,12 +1794,12 @@ msgstr "Sie können jedes CO2-Asset in Ihrer Wallet zum Ausgleich Ihres Fußabdr
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:152
 msgid "You can delete this listing at any time."
-msgstr ""
+msgstr "Sie können diesen Eintrag jederzeit entfernen."
 
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:133
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
-msgstr ""
+msgstr "Sie können diese Einwilligung jederzeit widerrufen. Die Assets werden nur aus Ihrer Wallet entnommen, wenn ein Verkauf abgeschlossen ist."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/SuccessScreen.tsx:48
@@ -2766,7 +2766,7 @@ msgstr "Diese Funktion steht nur für eingeloggte Nutzer zur Verfügung. Loggen 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:168
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:287
@@ -2776,7 +2776,7 @@ msgstr "Maximal {0} für Kreditkarten"
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:184
 msgid "{0} tonnes"
-msgstr ""
+msgstr "{0} Tonnen"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
