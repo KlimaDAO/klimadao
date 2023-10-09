@@ -7,7 +7,7 @@ import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import isNumber from "lodash/isNumber";
+import { isNumber } from "lodash";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
 type Query = {

@@ -51,9 +51,7 @@ const handler = (fastify: FastifyInstance) =>
         sdk.marketplace.getProjects({
           vintage: args.vintage ?? allOptions.vintage,
           search: request.query.search ?? "",
-          expiresAfter:
-            request.query.expiresAfter ??
-            Math.floor(Date.now() / 1000).toString(),
+          expiresAfter: request.query.expiresAfter ?? allOptions.expiresAfter,
         }),
         sdk.offsets.findCarbonOffsets({
           category: args.category ?? allOptions.category,
