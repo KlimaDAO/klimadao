@@ -247,6 +247,7 @@ export enum Activity_OrderBy {
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
+  ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
   Seller = 'seller',
@@ -528,6 +529,7 @@ export enum Listing_OrderBy {
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
+  ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
   Seller = 'seller',
@@ -555,6 +557,7 @@ export type Project = {
   methodology: Scalars['String'];
   name: Scalars['String'];
   projectAddress: Scalars['Bytes'];
+  registry: Scalars['String'];
   updatedAt: Maybe<Scalars['BigInt']>;
   vintage: Scalars['BigInt'];
 };
@@ -704,6 +707,26 @@ export type Project_Filter = {
   projectAddress_not: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
+  registry: InputMaybe<Scalars['String']>;
+  registry_contains: InputMaybe<Scalars['String']>;
+  registry_contains_nocase: InputMaybe<Scalars['String']>;
+  registry_ends_with: InputMaybe<Scalars['String']>;
+  registry_ends_with_nocase: InputMaybe<Scalars['String']>;
+  registry_gt: InputMaybe<Scalars['String']>;
+  registry_gte: InputMaybe<Scalars['String']>;
+  registry_in: InputMaybe<Array<Scalars['String']>>;
+  registry_lt: InputMaybe<Scalars['String']>;
+  registry_lte: InputMaybe<Scalars['String']>;
+  registry_not: InputMaybe<Scalars['String']>;
+  registry_not_contains: InputMaybe<Scalars['String']>;
+  registry_not_contains_nocase: InputMaybe<Scalars['String']>;
+  registry_not_ends_with: InputMaybe<Scalars['String']>;
+  registry_not_ends_with_nocase: InputMaybe<Scalars['String']>;
+  registry_not_in: InputMaybe<Array<Scalars['String']>>;
+  registry_not_starts_with: InputMaybe<Scalars['String']>;
+  registry_not_starts_with_nocase: InputMaybe<Scalars['String']>;
+  registry_starts_with: InputMaybe<Scalars['String']>;
+  registry_starts_with_nocase: InputMaybe<Scalars['String']>;
   updatedAt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gte: InputMaybe<Scalars['BigInt']>;
@@ -734,6 +757,7 @@ export enum Project_OrderBy {
   Methodology = 'methodology',
   Name = 'name',
   ProjectAddress = 'projectAddress',
+  Registry = 'registry',
   UpdatedAt = 'updatedAt',
   Vintage = 'vintage'
 }
