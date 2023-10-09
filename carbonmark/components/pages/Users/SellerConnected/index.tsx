@@ -62,6 +62,7 @@ export const SellerConnected: FC<Props> = (props) => {
       retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
       retryInterval: 2000,
       maxAttempts: 25,
+      network: networkLabel,
     });
 
     return newUser;
