@@ -20,6 +20,7 @@ jobs:
     # block this action if initiated by this or other workflows
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+    environment: Release-staging
     steps:
       - uses: actions/checkout@v4
         with:
