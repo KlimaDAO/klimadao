@@ -1,6 +1,6 @@
 {
   "name": "@klimadao/carbonmark-api",
-  "version": "2.0.0-6-emc-test-again",
+  "version": "2.0.0-6-emc-test",
   "description": "An API for exploring Carbonmark project data, prices and activity.",
   "main": "app.ts",
   "scripts": {
