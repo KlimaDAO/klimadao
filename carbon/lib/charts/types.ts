@@ -72,12 +72,12 @@ export interface PaginatedResponse<RI> {
   current_page: number;
 }
 export interface BridgeQuantitiesInterface {
-  toucan_quantity?: number;
-  c3_quantity?: number;
-  moss_quantity?: number;
-  offchain_quantity?: number;
-  total_quantity?: number;
-  not_bridged_quantity?: number;
+  toucan_quantity: number;
+  c3_quantity: number;
+  moss_quantity: number;
+  offchain_quantity: number;
+  total_quantity: number;
+  not_bridged_quantity: number;
 }
 export interface PoolQuantitiesInterface {
   bct_quantity: number;
@@ -143,33 +143,7 @@ export interface AggregatedCreditsByProjectsItem {
   quantity: number;
 }
 export type AggregatedCreditsByProjects =
-  PaginatedResponse<AggregatedCreditsByProjects>;
-export interface DailyPolygonCarbonMetricsItem {
-  date: string;
-  bct_supply: number;
-  nct_supply: number;
-  mco2_supply: number;
-  ubo_supply: number;
-  nbo_supply: number;
-  bct_redeemed: number;
-  nct_redeemed: number;
-  ubo_redeemed: number;
-  nbo_redeemed: number;
-  total_carbon_supply: number;
-  mco2_retired: number;
-  tco2_retired: number;
-  c3t_retired: number;
-  total_retirements: number;
-  bct_klima_retired: number;
-  nct_klima_retired: number;
-  mco2_klima_retired: number;
-  ubo_klima_retired: number;
-  nco_klima_retired: number;
-  total_klima_retirements: number;
-  tco2_klima_retired: number;
-  c3t_klima_retired: number;
-  not_klima_retired: number;
-}
+  PaginatedResponse<AggregatedCreditsByProjectsItem>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -306,6 +280,15 @@ export interface AggregatedCreditsByBridgeAndOriginItem
 }
 export type AggregatedCreditsByBridgeAndOrigin =
   ChartData<AggregatedCreditsByBridgeAndOriginItem>;
+
+export interface AggregatedCreditsByBridgeAndDateItem
+  extends BridgeQuantitiesInterface {
+  issuance_date: number;
+}
+export type AggregatedCreditsByBridgeAndDate =
+  ChartData<AggregatedCreditsByBridgeAndDateItem>;
+
+export type AggregatedCreditsByBridge = BridgeQuantitiesInterface;
 
 export interface MonthlyAggregatedCreditsByPoolItem
   extends PoolQuantitiesInterface,

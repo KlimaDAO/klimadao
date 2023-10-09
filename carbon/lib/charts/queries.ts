@@ -1,6 +1,8 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
+  AggregatedCreditsByBridge,
+  AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
   AggregatedCreditsByBridgeAndVintageItem,
   AggregatedCreditsByOriginItem,
@@ -91,7 +93,7 @@ async function query<R, Q extends object>(
    Q: Type of the Query parameters
    Returns a default response in case a network error
 */
-async function failsafeQuery<R, Q extends object>(
+async function failsafeQuery<R, Q extends object | undefined>(
   url: string,
   params: Q | undefined,
   defaultValue: R,
@@ -292,3 +294,31 @@ export function queryAggregatedCreditsByBridgeAndOrigin(
     params
   );
 }
+
+/** Queries the Credits Aggregations by bridge endpoint */
+export const queryAggregatedCreditsByBridgeAndDate = function (
+  params: CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndDateItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndDateItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndDate,
+    params
+  );
+};
+
+/** Queries the Credits Aggregations by bridge endpoint */
+export const queryAggregatedCreditsByBridge = function (
+  params?: CreditsQueryParams
+): Promise<AggregatedCreditsByBridge> {
+  return failsafeQuery<AggregatedCreditsByBridge, typeof params>(
+    urls.api.aggregatedCreditsByBridge,
+    params,
+    {
+      toucan_quantity: 0,
+      c3_quantity: 0,
+      moss_quantity: 0,
+      offchain_quantity: 0,
+      total_quantity: 0,
+      not_bridged_quantity: 0,
+    }
+  );
+};

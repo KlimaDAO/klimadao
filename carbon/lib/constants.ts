@@ -62,5 +62,7 @@ export const urls = {
     aggregatedCreditsByCountry: `${api_url}/credits/agg/countries`,
     aggregatedCreditsByBridgeAndVintage: `${api_url}/credits/agg/bridge/vintage`,
     aggregatedCreditsByBridgeAndCountries: `${api_url}/credits/agg/bridge/countries`,
+    aggregatedCreditsByBridgeAndDate: `${api_url}/credits/agg/bridge/monthly`,
+    aggregatedCreditsByBridge: `${api_url}/credits/agg/bridge`,
   },
 };

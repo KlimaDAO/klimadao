@@ -4,8 +4,8 @@ import KPieChart from "components/charts/helpers/KPieChart";
 import {
   AggregatedCreditsChartConfiguration,
   AggregatedCreditsQueryConfiguration,
-  getAggregatedCredits,
 } from "lib/charts/aggregators/getAggregatedCredits";
+import { queryAggregatedCreditsByBridge } from "lib/charts/queries";
 import { palette } from "theme/palette";
 
 /** Verra Credits Card */
@@ -71,11 +71,16 @@ async function TokenizedCreditsByBridgeChart(props: {
       },
     },
   ];
-  const data = await getAggregatedCredits(queryConfiguration);
+  const data = await queryAggregatedCreditsByBridge();
+  const chartData = [
+    { id: "toucan", quantity: data.toucan_quantity },
+    { id: "moss", quantity: data.moss_quantity },
+    { id: "c3", quantity: data.c3_quantity },
+  ];
 
   return (
     <KPieChart
-      data={data}
+      data={chartData}
       configuration={chartConfiguration}
       showPercentageInLegend={props.showPercentageInLegend}
       YAxis="tons"
