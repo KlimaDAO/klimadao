@@ -247,10 +247,6 @@ export enum Activity_OrderBy {
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectID',
-  ProjectProjectType = 'project__projectType',
-  ProjectRegion = 'project__region',
-  ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
   Seller = 'seller',
@@ -532,10 +528,6 @@ export enum Listing_OrderBy {
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectID',
-  ProjectProjectType = 'project__projectType',
-  ProjectRegion = 'project__region',
-  ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
   Seller = 'seller',
@@ -555,18 +547,14 @@ export enum OrderDirection {
 export type Project = {
   __typename?: 'Project';
   activities: Maybe<Array<Activity>>;
-  category: Maybe<Category>;
-  country: Maybe<Country>;
+  category: Category;
+  country: Country;
   id: Scalars['ID'];
   key: Scalars['String'];
   listings: Maybe<Array<Listing>>;
   methodology: Scalars['String'];
   name: Scalars['String'];
   projectAddress: Scalars['Bytes'];
-  projectID: Scalars['String'];
-  projectType: Scalars['String'];
-  region: Scalars['String'];
-  registry: Scalars['String'];
   updatedAt: Maybe<Scalars['BigInt']>;
   vintage: Scalars['BigInt'];
 };
@@ -716,86 +704,6 @@ export type Project_Filter = {
   projectAddress_not: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  projectID: InputMaybe<Scalars['String']>;
-  projectID_contains: InputMaybe<Scalars['String']>;
-  projectID_contains_nocase: InputMaybe<Scalars['String']>;
-  projectID_ends_with: InputMaybe<Scalars['String']>;
-  projectID_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_gt: InputMaybe<Scalars['String']>;
-  projectID_gte: InputMaybe<Scalars['String']>;
-  projectID_in: InputMaybe<Array<Scalars['String']>>;
-  projectID_lt: InputMaybe<Scalars['String']>;
-  projectID_lte: InputMaybe<Scalars['String']>;
-  projectID_not: InputMaybe<Scalars['String']>;
-  projectID_not_contains: InputMaybe<Scalars['String']>;
-  projectID_not_contains_nocase: InputMaybe<Scalars['String']>;
-  projectID_not_ends_with: InputMaybe<Scalars['String']>;
-  projectID_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_not_in: InputMaybe<Array<Scalars['String']>>;
-  projectID_not_starts_with: InputMaybe<Scalars['String']>;
-  projectID_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_starts_with: InputMaybe<Scalars['String']>;
-  projectID_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectType: InputMaybe<Scalars['String']>;
-  projectType_contains: InputMaybe<Scalars['String']>;
-  projectType_contains_nocase: InputMaybe<Scalars['String']>;
-  projectType_ends_with: InputMaybe<Scalars['String']>;
-  projectType_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_gt: InputMaybe<Scalars['String']>;
-  projectType_gte: InputMaybe<Scalars['String']>;
-  projectType_in: InputMaybe<Array<Scalars['String']>>;
-  projectType_lt: InputMaybe<Scalars['String']>;
-  projectType_lte: InputMaybe<Scalars['String']>;
-  projectType_not: InputMaybe<Scalars['String']>;
-  projectType_not_contains: InputMaybe<Scalars['String']>;
-  projectType_not_contains_nocase: InputMaybe<Scalars['String']>;
-  projectType_not_ends_with: InputMaybe<Scalars['String']>;
-  projectType_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_not_in: InputMaybe<Array<Scalars['String']>>;
-  projectType_not_starts_with: InputMaybe<Scalars['String']>;
-  projectType_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_starts_with: InputMaybe<Scalars['String']>;
-  projectType_starts_with_nocase: InputMaybe<Scalars['String']>;
-  region: InputMaybe<Scalars['String']>;
-  region_contains: InputMaybe<Scalars['String']>;
-  region_contains_nocase: InputMaybe<Scalars['String']>;
-  region_ends_with: InputMaybe<Scalars['String']>;
-  region_ends_with_nocase: InputMaybe<Scalars['String']>;
-  region_gt: InputMaybe<Scalars['String']>;
-  region_gte: InputMaybe<Scalars['String']>;
-  region_in: InputMaybe<Array<Scalars['String']>>;
-  region_lt: InputMaybe<Scalars['String']>;
-  region_lte: InputMaybe<Scalars['String']>;
-  region_not: InputMaybe<Scalars['String']>;
-  region_not_contains: InputMaybe<Scalars['String']>;
-  region_not_contains_nocase: InputMaybe<Scalars['String']>;
-  region_not_ends_with: InputMaybe<Scalars['String']>;
-  region_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  region_not_in: InputMaybe<Array<Scalars['String']>>;
-  region_not_starts_with: InputMaybe<Scalars['String']>;
-  region_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  region_starts_with: InputMaybe<Scalars['String']>;
-  region_starts_with_nocase: InputMaybe<Scalars['String']>;
-  registry: InputMaybe<Scalars['String']>;
-  registry_contains: InputMaybe<Scalars['String']>;
-  registry_contains_nocase: InputMaybe<Scalars['String']>;
-  registry_ends_with: InputMaybe<Scalars['String']>;
-  registry_ends_with_nocase: InputMaybe<Scalars['String']>;
-  registry_gt: InputMaybe<Scalars['String']>;
-  registry_gte: InputMaybe<Scalars['String']>;
-  registry_in: InputMaybe<Array<Scalars['String']>>;
-  registry_lt: InputMaybe<Scalars['String']>;
-  registry_lte: InputMaybe<Scalars['String']>;
-  registry_not: InputMaybe<Scalars['String']>;
-  registry_not_contains: InputMaybe<Scalars['String']>;
-  registry_not_contains_nocase: InputMaybe<Scalars['String']>;
-  registry_not_ends_with: InputMaybe<Scalars['String']>;
-  registry_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  registry_not_in: InputMaybe<Array<Scalars['String']>>;
-  registry_not_starts_with: InputMaybe<Scalars['String']>;
-  registry_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  registry_starts_with: InputMaybe<Scalars['String']>;
-  registry_starts_with_nocase: InputMaybe<Scalars['String']>;
   updatedAt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gt: InputMaybe<Scalars['BigInt']>;
   updatedAt_gte: InputMaybe<Scalars['BigInt']>;
@@ -826,10 +734,6 @@ export enum Project_OrderBy {
   Methodology = 'methodology',
   Name = 'name',
   ProjectAddress = 'projectAddress',
-  ProjectId = 'projectID',
-  ProjectType = 'projectType',
-  Region = 'region',
-  Registry = 'registry',
   UpdatedAt = 'updatedAt',
   Vintage = 'vintage'
 }
@@ -1346,9 +1250,9 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } };
+export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
 
-export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null };
+export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } };
 
 export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
 
@@ -1372,7 +1276,7 @@ export type GetPurchaseByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } } } | null };
+export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
@@ -1380,7 +1284,7 @@ export type GetUserByWalletQueryVariables = Exact<{
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
 export type GetProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
@@ -1389,7 +1293,7 @@ export type GetProjectsQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } }> | null, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null }> };
+export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
 
 export type GetProjectByIdQueryVariables = Exact<{
   projectId: Scalars['ID'];
@@ -1397,7 +1301,7 @@ export type GetProjectByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string } | null, country: { __typename?: 'Country', id: string } | null } | null };
+export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
 
 export const ProjectFragmentFragmentDoc = gql`
     fragment ProjectFragment on Project {
