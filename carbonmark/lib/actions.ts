@@ -314,7 +314,7 @@ export const addProjectsToAssets = async (params: {
     );
 
     const ProjectMap = projects.reduce((PMap, p) => {
-      if (p?.key) PMap.set(p.key, p);
+      if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
       return PMap;
     }, new Map<string, DetailedProject>());
 
