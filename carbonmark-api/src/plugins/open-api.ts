@@ -15,6 +15,8 @@ import { TokenPriceModel } from "../models/TokenPrice.model";
 import { UserModel } from "../models/User.model";
 import { ImageModel } from "../models/Utility.model";
 
+import { version } from "../../package.json";
+
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
   info: {
     title: "Carbonmark REST API",
@@ -66,6 +68,11 @@ For a developer guides and example implementations, or to learn more about Carbo
     description:
       "Additional documentation. The complete product and platform knowledge base for Carbonmark can be found here.",
   },
+  servers: [
+    {
+      url: `https://v${version}.api.carbonmark.com`,
+    },
+  ],
 };
 
 export default fp(async function (fastify) {
