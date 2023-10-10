@@ -12,11 +12,11 @@
   "license": "ISC",
   "devDependencies": {
     "tsx": "^3.13.0",
-    "@kubb/cli": "^1.9.4",
-    "@kubb/core": "^1.9.4",
-    "@kubb/swagger": "^1.9.4",
-    "@kubb/swagger-ts": "^1.9.4",
-    "@kubb/swagger-client": "^1.9.4",
-    "@kubb/swagger-swr": "^1.9.4"
+    "@kubb/cli": "1.9.4",
+    "@kubb/core": "1.9.4",
+    "@kubb/swagger": "1.9.4",
+    "@kubb/swagger-ts": "1.9.4",
+    "@kubb/swagger-client": "1.9.4",
+    "@kubb/swagger-swr": "1.9.4"
   }
 }
