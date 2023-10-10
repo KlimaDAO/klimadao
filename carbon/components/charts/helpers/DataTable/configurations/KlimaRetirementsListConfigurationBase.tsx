@@ -45,7 +45,7 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
       header: t`Pool`,
       cellStyle: layout.textCenter,
       dataKey: "token",
-      formatter: (x: string | number) => x,
+      formatter: (x: string | number) => x || t`N/A`,
     };
   }
   get protocolColumn(): Column<RawRetirementsItem> {
