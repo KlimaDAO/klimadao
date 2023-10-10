@@ -45,7 +45,7 @@ async function TokenPoolBreakdownChartToucanChart() {
     {
       id: "bct",
       label: t`BCT`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 1,
     },
     {
@@ -57,7 +57,7 @@ async function TokenPoolBreakdownChartToucanChart() {
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color1,
+      color: palette.charts.color5,
       legendOrder: 3,
     },
   ];
@@ -86,7 +86,7 @@ async function TokenPoolBreakdownChartC3Chart() {
     {
       id: "ubo",
       label: t`UBO`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 1,
     },
     {
@@ -98,18 +98,18 @@ async function TokenPoolBreakdownChartC3Chart() {
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color1,
+      color: palette.charts.color5,
       legendOrder: 3,
     },
   ];
   const data = await queryAggregatedCreditsByPool({ bridge: "c3" });
   const chartData = [
     {
-      quantity: data.nbo_quantity,
+      quantity: data.ubo_quantity,
       id: "ubo",
     },
     {
-      quantity: data.ubo_quantity,
+      quantity: data.nbo_quantity,
       id: "nbo",
     },
     {

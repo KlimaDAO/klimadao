@@ -40,7 +40,7 @@ export function getChartConfiguration(props: TokenDetailsProps) {
     configuration.push({
       id: "nbo_quantity",
       label: t`NBO`,
-      color: palette.charts.color5,
+      color: palette.charts.color3,
       legendOrder: 2,
     });
   }
@@ -62,10 +62,22 @@ export function getChartConfiguration(props: TokenDetailsProps) {
     configuration.push({
       id: "nct_quantity",
       label: t`NCT`,
-      color: palette.charts.color5,
+      color: palette.charts.color3,
       legendOrder: 2,
     });
   }
+  if (
+    (props.bridge == "c3" || props.bridge == "toucan") &&
+    props.pool == "all"
+  ) {
+    configuration.push({
+      id: "not_pooled_quantity",
+      label: t`Not pooled`,
+      color: palette.charts.color5,
+      legendOrder: 3,
+    });
+  }
+
   if (props.bridge == "moss") {
     configuration.push({
       id: "mco2_quantity",
