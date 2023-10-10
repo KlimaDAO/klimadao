@@ -4,7 +4,7 @@
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
   border-radius: 0.8rem;
-  background-color: var(--surface-04);
+  background-color: var(--brand-white);
   padding: 0 1.4rem;
   padding-top: 1.2rem;
   display: flex;
@@ -43,13 +43,6 @@
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
-}
-
-.blubb {
-  flex: 1 1 0;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
 }
 
 .cardHeaderDetailsLink {

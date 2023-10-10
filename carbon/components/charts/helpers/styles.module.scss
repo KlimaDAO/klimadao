@@ -4,22 +4,39 @@
 }
 
 .tooltip {
-  background-color: var(--surface-04);
+  background-color: var(--brand-white);
   border: 0.1rem solid var(--surface-03);
   border-radius: 1.5rem;
   padding: 1rem;
   text-align: center;
   font-size: 1.2rem;
-  box-shadow: var(--box-shadow);
-  opacity: 0.9;
+  box-shadow:
+    0px 3px 6px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  z-index: 999;
 }
 
 .tooltipItems {
   display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+}
 
-  > div {
-    padding: 1rem;
+.date {
+  font-weight: 700;
+}
+
+.payloadName {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  .dot {
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
   }
 }
