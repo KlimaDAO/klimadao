@@ -27,7 +27,7 @@
     "@tippyjs/react": "^4.2.6",
     "@translation/lingui": "^1.0.0",
     "@turf/helpers": "^6.5.0",
-    "carbonmark-api-sdk": "^1.0.0",
+    "carbonmark-api-sdk": "2.0.0-7",
     "embla-carousel-react": "^8.0.0-rc06",
     "ethers": "^5.7.2",
     "ethers-v6": "npm:ethers@^6.7.1",
