@@ -28,10 +28,12 @@ export function KlimaTooltip(params: {
             {payload.map((pld) => (
               <div key={pld.name}>
                 <div className={styles.payloadName}>
-                  <span
-                    className={styles.dot}
-                    style={{ backgroundColor: pld.color }}
-                  ></span>
+                  {pld.color && (
+                    <span
+                      className={styles.dot}
+                      style={{ backgroundColor: pld.color }}
+                    ></span>
+                  )}
                   {pld.payload?.name || pld.name}
                 </div>
                 <div>
