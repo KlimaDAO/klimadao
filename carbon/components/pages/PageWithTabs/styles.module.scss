@@ -1,4 +1,4 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 .tabButton {
   font-family: Poppins;
@@ -7,7 +7,7 @@
 }
 
 .mobileOnly {
-  @include large {
+  @include breakpoints.large {
     display: none;
   }
 }
@@ -15,7 +15,7 @@
 .desktopOnly {
   display: none;
 
-  @include large {
+  @include breakpoints.large {
     display: unset;
   }
 }
@@ -27,7 +27,7 @@
 }
 
 .tabRoot {
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     position: relative;
   }
 }
@@ -40,11 +40,11 @@
     "one three"
     "two two";
 
-  @include large {
+  @include breakpoints.large {
     grid-template-areas: "one two three";
   }
 
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     position: absolute;
     top: 0;
     right: 0;
@@ -65,7 +65,7 @@
     grid-area: three;
   }
 
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     &:not(:first-child) {
       margin-left: 2rem;
     }
@@ -79,7 +79,7 @@
     height: 4rem;
   }
 
-  @include desktopLarge {
+  @include breakpoints.desktopLarge {
     li {
       height: min-content;
     }

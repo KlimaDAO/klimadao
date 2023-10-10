@@ -24,7 +24,7 @@ export default function RetirementsByChainBarCard(props: CardProps) {
 }
 /** Async server component that renders a Recharts client component */
 async function RetirementsByChainBarChart() {
-  const configuration: ChartConfiguration<
+  const queryConfiguration: ChartConfiguration<
     keyof KlimaMonthlyRetirementsByOriginItem
   > = [
     {
@@ -40,12 +40,13 @@ async function RetirementsByChainBarChart() {
       legendOrder: 2,
     },
   ];
-  const data = await getMonthlyRetirementsByOriginInPercent(configuration);
+  const data = await getMonthlyRetirementsByOriginInPercent(queryConfiguration);
+  const configuration = [queryConfiguration[1]];
   return (
     <KBarChart
       configuration={configuration}
       data={data}
-      YAxis="percentage"
+      YAxis="percentageAutoscale"
       XAxis="months"
       dateField="retirement_date"
     />
