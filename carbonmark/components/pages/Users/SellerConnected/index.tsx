@@ -52,22 +52,6 @@ export const SellerConnected: FC<Props> = (props) => {
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const handleMutateUserUntil = async () => {
-    const latestActivity = carbonmarkUser?.activities.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-    )[0];
-
-    const newUser = await getUserUntil({
-      address: props.userAddress,
-      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 2000,
-      maxAttempts: 25,
-      network: networkLabel,
-    });
-
-    return newUser;
-  };
-
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
@@ -89,9 +73,21 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const onUpdateUser = async () => {
     try {
+      if (!carbonmarkUser) return;
       scrollToTop();
       setIsPending(true);
-      await mutate(handleMutateUserUntil, {
+      const newUser = await getUserUntil({
+        address: carbonmarkUser.wallet.toLowerCase(),
+        retryUntil: activityIsAdded(
+          carbonmarkUser?.activities[0].timeStamp || "0"
+        ),
+        retryInterval: 2000,
+        maxAttempts: 50,
+        network: networkLabel,
+      });
+      await mutate(newUser, {
+        optimisticData: newUser,
+        revalidate: false, // mutate() triggers request-- we can skip it
         populateCache: true,
       });
     } catch (e) {
