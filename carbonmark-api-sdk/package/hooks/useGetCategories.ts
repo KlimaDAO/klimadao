@@ -1,10 +1,10 @@
-import client from "@kubb/swagger-client/client";
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
-import type { GetCountriesQueryResponse } from "../models/GetCountries";
+import client from "../../client";
+import type { GetCategoriesQueryResponse } from "../models/GetCategories";
 
-export function getCountriesQueryOptions<
-  TData = GetCountriesQueryResponse,
+export function getCategoriesQueryOptions<
+  TData = GetCategoriesQueryResponse,
   TError = unknown,
 >(
   options: Partial<Parameters<typeof client>[0]> = {}
@@ -13,7 +13,7 @@ export function getCountriesQueryOptions<
     fetcher: () => {
       return client<TData, TError>({
         method: "get",
-        url: `/countries`,
+        url: `/categories`,
 
         ...options,
       });
@@ -22,13 +22,13 @@ export function getCountriesQueryOptions<
 }
 
 /**
- * @description Retrieve an array containing the countries that carbon projects originate from
- * @summary Countries
- * @link /countries
+ * @description A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.
+ * @summary Categories
+ * @link /categories
  */
 
-export function useGetCountries<
-  TData = GetCountriesQueryResponse,
+export function useGetCategories<
+  TData = GetCategoriesQueryResponse,
   TError = unknown,
 >(options?: {
   query?: SWRConfiguration<TData, TError>;
@@ -36,8 +36,8 @@ export function useGetCountries<
 }): SWRResponse<TData, TError> {
   const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/countries`, {
-    ...getCountriesQueryOptions<TData, TError>(clientOptions),
+  const query = useSWR<TData, TError, string>(`/categories`, {
+    ...getCategoriesQueryOptions<TData, TError>(clientOptions),
     ...queryOptions,
   });
 

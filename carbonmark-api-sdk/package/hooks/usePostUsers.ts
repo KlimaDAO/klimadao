@@ -1,24 +1,24 @@
-import client from "@kubb/swagger-client/client";
 import type {
   SWRMutationConfiguration,
   SWRMutationResponse,
 } from "swr/mutation";
 import useSWRMutation from "swr/mutation";
+import client from "../../client";
 import type {
-  PostUsersLoginVerifyMutationRequest,
-  PostUsersLoginVerifyMutationResponse,
-} from "../models/PostUsersLoginVerify";
+  PostUsers403,
+  PostUsersMutationRequest,
+  PostUsersMutationResponse,
+} from "../models/PostUsers";
 
 /**
- * @description Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.
- * @summary Verify signed data
- * @link /users/login/verify
+ * @summary Create user profile
+ * @link /users
  */
 
-export function usePostUsersLoginVerify<
-  TData = PostUsersLoginVerifyMutationResponse,
-  TError = unknown,
-  TVariables = PostUsersLoginVerifyMutationRequest,
+export function usePostUsers<
+  TData = PostUsersMutationResponse,
+  TError = PostUsers403,
+  TVariables = PostUsersMutationRequest,
 >(options?: {
   mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
   client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
@@ -27,7 +27,7 @@ export function usePostUsersLoginVerify<
     options ?? {};
 
   return useSWRMutation<TData, TError, string, TVariables>(
-    `/users/login/verify`,
+    `/users`,
     (url, { arg: data }) => {
       return client<TData, TError, TVariables>({
         method: "post",

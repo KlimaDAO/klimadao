@@ -1,5 +1,6 @@
 import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
 import axios from "axios";
+//@ts-ignore -- this file is only a template so ignore import errors
 import packageJson from "./package.json";
 
 const API_VERSION = packageJson.version;
@@ -8,7 +9,6 @@ const API_VERSION = packageJson.version;
  * I'm sure there is a better way..
  * See: https://www.kubb.dev/plugins/swagger-client/client#default-client
  */
-declare const AXIOS_HEADERS: string;
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -29,8 +29,8 @@ export type RequestConfig<TVariables = unknown> = {
 export const axiosInstance = axios.create({
   baseURL: `https://v${API_VERSION}.api.carbonmark.com`,
   headers:
-    typeof AXIOS_HEADERS !== "undefined"
-      ? (JSON.parse(AXIOS_HEADERS) as AxiosHeaders)
+    typeof "{}" !== "undefined"
+      ? (JSON.parse("{}") as AxiosHeaders)
       : undefined,
 });
 

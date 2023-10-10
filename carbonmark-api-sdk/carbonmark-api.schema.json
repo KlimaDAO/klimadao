@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.0-6** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-7** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.0-6"
+    "version": "2.0.0-7"
   },
   "components": {
     "schemas": {
@@ -2166,48 +2166,6 @@
     }
   },
   "paths": {
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/categories": {
       "get": {
         "summary": "Categories",
@@ -2241,6 +2199,48 @@
                     },
                     {
                       "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
                     }
                   ]
                 ]
@@ -2719,56 +2719,6 @@
                     ]
                   }
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
               }
             }
           }
@@ -3471,6 +3421,56 @@
                     "description"
                   ]
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vintages": {
+      "get": {
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                  ]
+                ]
               }
             }
           }

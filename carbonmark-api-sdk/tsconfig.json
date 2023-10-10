@@ -6,5 +6,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["sdk/**/*.ts"]
+  "include": ["package/**/*.ts"]
 }

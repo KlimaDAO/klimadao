@@ -1,6 +1,14 @@
-import axios from "axios";
-
 import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
+import axios from "axios";
+//@ts-ignore -- this file is only a template so we need it to reference the parent
+import packageJson from "./package.json";
+
+const API_VERSION = packageJson.version;
+/**
+ * This client is necessary only so that we can set the base url for our api and it's generated sdk
+ * I'm sure there is a better way..
+ * See: https://www.kubb.dev/plugins/swagger-client/client#default-client
+ */
 
 export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
@@ -19,7 +27,7 @@ export type RequestConfig<TVariables = unknown> = {
 };
 
 export const axiosInstance = axios.create({
-  baseURL: typeof undefined !== "undefined" ? undefined : undefined,
+  baseURL: `https://v${API_VERSION}.api.carbonmark.com`,
   headers:
     typeof "{}" !== "undefined"
       ? (JSON.parse("{}") as AxiosHeaders)

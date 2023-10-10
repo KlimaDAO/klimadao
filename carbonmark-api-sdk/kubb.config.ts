@@ -12,10 +12,10 @@ export default defineConfig(async () => {
     },
     output: {
       clean: true,
-      path: "./sdk",
+      path: "./package",
     },
     hooks: {
-      done: ["npx prettier --write ./sdk"],
+      done: ["npx prettier --write ./package"],
     },
     plugins: [
       createSwagger({}),
