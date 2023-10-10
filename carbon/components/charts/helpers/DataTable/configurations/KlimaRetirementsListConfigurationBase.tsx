@@ -12,7 +12,10 @@ import styles from "./styles.module.scss";
 import { Column } from "./types";
 
 /** A base configuration for The detailed list of klima retirement trends */
-export default abstract class KlimaRetirementsListConfigurationBase extends AbstractTableConfiguration<RawRetirementsItem> {
+export default abstract class KlimaRetirementsListConfigurationBase extends AbstractTableConfiguration<
+  RawRetirementsItem,
+  undefined
+> {
   fetchFunction(page: number) {
     return queryKlimaRawRetirements({
       sort_by: "retirement_date",
