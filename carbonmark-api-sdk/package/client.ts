@@ -1,9 +1,8 @@
 import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
 import axios from "axios";
-//@ts-ignore -- this file is only a template so we need it to reference the parent
-import packageJson from "./package.json";
+//@ts-ignore -- this file is only a template so ignore import errors
+import { version as API_VERSION } from "./package.json";
 
-const API_VERSION = packageJson.version;
 /**
  * This client is necessary only so that we can set the base url for our api and it's generated sdk
  * I'm sure there is a better way..
