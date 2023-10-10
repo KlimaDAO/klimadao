@@ -1,5 +1,6 @@
 "use client";
 
+import { cx } from "@emotion/css";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import Link from "components/Link";
 import OptionsSwitcher from "components/OptionsSwitcher";
@@ -16,6 +17,7 @@ export type CardProps = {
   centerTitle?: boolean;
   bottomOptionsPosition?: BottomOptionsPosition;
   detailUrlPosition?: DetailUrlPosition;
+  className?: string;
 };
 /**
  * A UI layout component to position content in a white card with hyperlinks and title.
@@ -106,7 +108,10 @@ export default function ChartCard<T extends Key, B extends Key>(
   }
 
   return (
-    <div className={cardClassName} aria-roledescription={roleDescription}>
+    <div
+      className={cx(cardClassName, props.className)}
+      aria-roledescription={roleDescription}
+    >
       <div className={styles.cardHeader}>
         <h2 className={cardHeaderTitleStyle}>{props.title}</h2>
         {props.topOptions && (

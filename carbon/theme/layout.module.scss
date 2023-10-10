@@ -23,24 +23,6 @@
   }
 }
 
-.twoColumns {
-  @include breakpoints.desktop {
-    display: flex;
-    gap: 2rem;
-  }
-
-  & > div:first-child {
-    width: 100%;
-    flex-grow: 1;
-  }
-
-  & > div:nth-child(2) {
-    @include breakpoints.desktop {
-      max-width: 36rem;
-    }
-  }
-}
-
 .cardStackedRows {
   display: flex;
   flex-direction: column;
@@ -118,4 +100,28 @@ div.card50percent {
 
 .tenRowsSkeleton {
   min-height: 42.8rem;
+}
+
+.zIndexOne {
+  z-index: 1;
+}
+
+.zIndexTwo {
+  z-index: 2;
+}
+
+.zIndexThree {
+  z-index: 3;
+}
+
+.zIndexFour {
+  z-index: 4;
+}
+
+.zIndexFive {
+  z-index: 5;
+}
+
+.zIndexSix {
+  z-index: 6;
 }
