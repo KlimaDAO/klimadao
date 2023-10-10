@@ -6,6 +6,7 @@ import {
   AggregatedCreditsByBridgeAndOriginItem,
   AggregatedCreditsByBridgeAndVintageItem,
   AggregatedCreditsByOriginItem,
+  AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectsItem,
@@ -319,6 +320,24 @@ export const queryAggregatedCreditsByBridge = function (
       offchain_quantity: 0,
       total_quantity: 0,
       not_bridged_quantity: 0,
+    }
+  );
+};
+/** Queries the Credits Aggregations by pool endpoint */
+export const queryAggregatedCreditsByPool = function (
+  params?: CreditsQueryParams
+): Promise<AggregatedCreditsByPool> {
+  return failsafeQuery<AggregatedCreditsByPool, typeof params>(
+    urls.api.aggregatedCreditsByPool,
+    params,
+    {
+      bct_quantity: 0,
+      nct_quantity: 0,
+      mco2_quantity: 0,
+      ubo_quantity: 0,
+      nbo_quantity: 0,
+      total_quantity: 0,
+      not_pooled_quantity: 0,
     }
   );
 };
