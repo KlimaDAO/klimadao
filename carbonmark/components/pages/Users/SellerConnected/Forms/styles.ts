@@ -32,12 +32,7 @@ export const spinner = css`
   justify-content: center;
 `;
 
-export const editLabelProjectName = css`
-  background: var(--surface-04);
-  border-radius: 1rem;
-  padding: 1.4rem 1rem;
-  min-height: 4.8rem;
-`;
+export const editLabelProjectName = css``;
 
 export const profileLogo = css`
   justify-self: center;
