@@ -6,7 +6,7 @@ import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
-import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
+import { loginUser, postUser, putUser, refreshUser, verifyUser } from "lib/api";
 import { VALID_HANDLE_REGEX } from "lib/constants";
 import { User } from "lib/types/carbonmark.types";
 import { isNil } from "lodash";
@@ -34,7 +34,7 @@ export const editSignMessage = (nonce: string): string =>
 
 export const EditProfile: FC<Props> = (props) => {
   const isExistingUser = !!props.user?.handle;
-  const { address, signer } = useWeb3();
+  const { address, signer, networkLabel } = useWeb3();
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
@@ -52,8 +52,9 @@ export const EditProfile: FC<Props> = (props) => {
   const fetchIsNewHandle = async (handle?: string | null) => {
     if (isNil(handle)) return true;
     try {
-      const handleFromApi = await getUser({
-        user: handle,
+      const handleFromApi = await refreshUser({
+        walletOrHandle: handle.toLowerCase(),
+        network: networkLabel,
       });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
