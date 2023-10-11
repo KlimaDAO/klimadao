@@ -9,7 +9,7 @@ import layout from "theme/layout.module.scss";
 
 export default function OffVsOnChainPage() {
   const issuedCreditsTab = <OffVsOnChainTab status="issued" />;
-  const retiredCreditsTab = <OffVsOnChainTab status="retired" />;
+  const retiredCreditsTab = <OffVsOnChainTab status="all_retired" />;
   return (
     <div>
       <PageHeader title={t`Off vs On-chain carbon`} />

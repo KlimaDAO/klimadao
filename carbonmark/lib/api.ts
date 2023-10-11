@@ -119,7 +119,7 @@ export const getRetirementCertificate = async (params: {
     }
     await createDownloadLink(await result.blob(), filename);
   } catch (error) {
-    console.log("Error occurred downloading retirement certificate", error);
+    console.error("Error occurred downloading retirement certificate", error);
   }
 };
 
@@ -128,7 +128,6 @@ export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
   const latestActivity = newUser.activities.sort(
     (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
   )[0];
-
   return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);
 };
 
@@ -140,7 +139,10 @@ export const getUserUntil = async (params: {
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const fetchUser = async () =>
-    await getUsersWalletorhandle(params.address, { network: params.network });
+    await getUsersWalletorhandle(params.address, {
+      network: params.network,
+      expiresAfter: "0",
+    });
 
   const updatedUser = await pollUntil({
     fn: fetchUser,

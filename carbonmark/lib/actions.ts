@@ -1,19 +1,10 @@
-import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import TCO2 from "@klimadao/lib/abi/TCO2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 import { formatUnits, isTestnetChainId } from "@klimadao/lib/utils";
 import { getProjectsId } from "carbonmark-api-sdk";
-import { Contract, Transaction, ethers, providers } from "ethers";
+import { Contract, Transaction, providers } from "ethers";
 import { formatUnits as ethersFormatUnits, parseUnits } from "ethers-v6";
-import {
-  createProjectIdFromAsset,
-  getTokenType,
-  isC3TToken,
-  isTCO2Token,
-} from "lib/getAssetsData";
-import { getCategoryFromMethodology } from "lib/getCategoryFromMethodology";
 import { getAddress } from "lib/networkAware/getAddress";
 import { getContract } from "lib/networkAware/getContract";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
@@ -21,15 +12,11 @@ import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
 import { OnStatusHandler } from "lib/statusMessage";
 import {
   Asset,
-  AssetForListing,
   AssetForRetirement,
+  DetailedProject,
   PcbProject,
 } from "lib/types/carbonmark.types";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
-import {
-  getCategoryFromProject,
-  getMethodologyFromProject,
-} from "./projectGetter";
 
 const getSignerNetwork = (
   signer: providers.JsonRpcSigner
@@ -187,27 +174,27 @@ export const createListingTransaction = async (params: {
 
 export const updateListingTransaction = async (params: {
   listingId: string;
-  tokenAddress: string;
-  totalAmountToSell: string;
+  newAmount: string;
   singleUnitPrice: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }) => {
   try {
+    const signer = params.provider.getSigner();
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
       provider: params.provider.getSigner(),
+      network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
 
     params.onStatus("userConfirmation", "");
 
     const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
-      params.tokenAddress,
-      parseUnits(params.totalAmountToSell, 18), // C3 token
+      parseUnits(params.newAmount, 18),
       parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
-      [], // TODO batches
-      [] // TODO batches price
+      parseUnits(DEFAULT_MIN_FILL_AMOUNT.toString(), 18), // minFillAmount
+      getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS) // deadline (aka expiration)
     );
 
     params.onStatus("networkConfirmation", "");
@@ -277,14 +264,16 @@ export const deleteListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
+    const signer = params.provider.getSigner();
     const carbonmarkContract = getContract({
       contractName: "carbonmark",
       provider: params.provider.getSigner(),
+      network: getSignerNetwork(signer) === "mumbai" ? "testnet" : "mainnet",
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await carbonmarkContract.deleteListing(params.listingId);
+    const listingTxn = await carbonmarkContract.cancelListing(params.listingId);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
@@ -300,52 +289,39 @@ export const deleteListingTransaction = async (params: {
   }
 };
 
+export type AssetWithProject = Asset & {
+  project: DetailedProject | null;
+};
+
+const idFromSymbol = (symbol: string) => {
+  const [_bridge, registry, registryProjectId, vintage] = symbol
+    .toUpperCase()
+    .split("-");
+  return `${registry}-${registryProjectId}-${vintage}`;
+};
+
 export const addProjectsToAssets = async (params: {
   assets: Asset[];
-}): Promise<AssetForListing[]> => {
+}): Promise<AssetWithProject[]> => {
   try {
-    const assetsData = await params.assets.reduce<Promise<AssetForListing[]>>(
-      async (resultPromise, asset) => {
-        const resolvedAssets = await resultPromise;
-
-        let project: AssetForListing["project"];
-        const projectId = createProjectIdFromAsset(asset);
-
-        const projectFromApi =
-          !!projectId && (await getProjectInfoFromApi(projectId));
-
-        // project exists on API
-        if (projectFromApi && projectFromApi.key) {
-          project = projectFromApi;
-        } else {
-          // no project from API, let´s call the contract
-          if (isC3TToken(asset.token.symbol)) {
-            const projectFromContract = await getProjectInfoFromC3Contract(
-              asset.token.id
-            );
-            project = projectFromContract;
-          }
-
-          if (isTCO2Token(asset.token.symbol)) {
-            const projectFromContract = await getProjectInfoFromTCO2Contract(
-              asset.token.id
-            );
-            project = projectFromContract;
-          }
-        }
-
-        resolvedAssets.push({
-          tokenAddress: asset.token.id,
-          tokenName: asset.token.name,
-          balance: asset.amount,
-          tokenType: getTokenType(asset),
-          project,
-        });
-        return resolvedAssets;
-      },
-      Promise.resolve([])
+    const projectIdSet = new Set<string>();
+    params.assets.forEach((asset) => {
+      projectIdSet.add(idFromSymbol(asset.token.symbol));
+    });
+    const projectIds = Array.from(projectIdSet);
+    const projects = await Promise.all(
+      projectIds.map((id) => getProjectsId(id))
     );
-    return assetsData;
+
+    const ProjectMap = projects.reduce((PMap, p) => {
+      if (p?.key) PMap.set(`${p.key}-${p.vintage}`, p);
+      return PMap;
+    }, new Map<string, DetailedProject>());
+
+    return params.assets.map((a) => ({
+      ...a,
+      project: ProjectMap.get(idFromSymbol(a.token.symbol)) ?? null,
+    }));
   } catch (e) {
     throw e;
   }
@@ -367,108 +343,11 @@ export const createCompositeAsset = (
   const compositeAsset: AssetForRetirement = {
     tokenName: asset.token.name,
     balance: asset.amount,
-    tokenType: getTokenType(asset),
     tokenSymbol: asset.token.symbol,
     project,
   };
 
   return compositeAsset;
-};
-
-export const getProjectInfoFromApi = async (
-  projectId: string
-): Promise<AssetForListing["project"] | null> => {
-  try {
-    const project = await getProjectsId(projectId);
-
-    return {
-      key: project.key,
-      projectID: project.projectID ?? "",
-      name: project.name ?? "",
-      methodology: getMethodologyFromProject(project),
-      vintage: project.vintage,
-      category: getCategoryFromProject(project),
-    };
-  } catch (e: any) {
-    console.error("getProjectInfoFromApi Error for projectId", projectId, e);
-    return null;
-  }
-};
-
-export const getProjectInfoFromC3Contract = async (
-  tokenAddress: string
-): Promise<AssetForListing["project"] | undefined> => {
-  const contract = new ethers.Contract(
-    tokenAddress,
-    C3ProjectToken.abi,
-    getStaticProvider()
-  );
-
-  try {
-    const promises = [
-      contract.getProjectInfo(),
-      contract.getProjectIdentifier(),
-      contract.getVintage(),
-    ];
-
-    const [projectInfo, projectKey, vintage] = await Promise.all(promises);
-
-    return {
-      key: projectKey,
-      projectID: projectInfo.project_id,
-      name: projectInfo.name,
-      methodology: projectInfo.methodology,
-      vintage: ethersFormatUnits(vintage, 0),
-      category: getCategoryFromMethodology(projectInfo.methodology),
-    };
-  } catch (e: any) {
-    console.error("getProjectInfoFromContract Error", e);
-  }
-};
-/** Ethers uses the ABI to construct this response object for us */
-interface ProjectAttributes {
-  beneficiary: string;
-  category: string;
-  emissionType: string;
-  method: string;
-  methodology: string;
-  projectId: string;
-  region: string;
-  standard: string;
-  storageMethod: string;
-  uri: string;
-}
-interface VintageAttributes {
-  name: string; // yyyymmdd e.g. "20140701"
-}
-
-type Attributes = [ProjectAttributes, VintageAttributes];
-
-export const getProjectInfoFromTCO2Contract = async (
-  tokenAddress: string
-): Promise<AssetForListing["project"] | undefined> => {
-  const contract = new ethers.Contract(
-    tokenAddress,
-    TCO2.abi,
-    getStaticProvider({ chain: "polygon" })
-  );
-
-  try {
-    // https://docs.toucan.earth/toucan/dev-resources/smart-contracts/tco2#getattributes
-    const [projectAttributes, vintageAttributes]: Attributes =
-      await contract.getAttributes();
-    return {
-      key: projectAttributes.projectId,
-      projectID: projectAttributes.projectId // "VCS-191" or sometimes just "191"
-        .replace("VCS-", "")
-        .replace("GS-", ""),
-      methodology: projectAttributes.methodology,
-      vintage: vintageAttributes.name.slice(0, 4), // "2023"
-      category: getCategoryFromMethodology(projectAttributes.methodology),
-    };
-  } catch (e: any) {
-    console.error("getProjectInfoFromTCO2Contract Error", e);
-  }
 };
 
 export const getUSDCBalance = async (params: {

@@ -3,6 +3,8 @@ export {
   KlimaXAxisDailyProps,
   KlimaXAxisMethodologyProps,
   KlimaXAxisMonthlyProps,
+  KlimaYAxisIdentityProps,
+  KlimaYAxisPercentageAutoscaleProps,
   KlimaYAxisPercentageProps,
   KlimaYAxisPriceProps,
   KlimaYAxisTonsProps,

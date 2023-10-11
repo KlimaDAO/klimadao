@@ -63,15 +63,16 @@ async function query<R, Q extends object>(
   }
   let errorMessage = `Failed to fetch ${url}`;
   let res: Response;
+
   try {
     res = await fetch(url, { next: { revalidate } });
   } catch (e) {
     // Handle HTTP errors
+    console.error(e);
     throw new Error(errorMessage);
   }
   const text = await res.text();
-
-  errorMessage = `${text} \n ${errorMessage}`;
+  errorMessage = `${text} \n status:  ${res.status} ${res.statusText} \n ${errorMessage}`;
   if (!res.ok) {
     // Handle HTTP errors
     throw new Error(errorMessage);
@@ -100,7 +101,7 @@ async function failsafeQuery<R, Q extends object>(
     return await query(url, params, revalidate);
   } catch (e) {
     // Catch errors and return an empty response so the page can still be rendered
-    console.error(e);
+    console.error(e.message);
     return Promise.resolve(defaultValue);
   }
 }

@@ -162,28 +162,13 @@ export type ProjectInfo = {
   project_type: string;
 };
 
-export type AssetForListing = {
-  tokenAddress: string;
-  tokenName: string;
-  balance: string;
-  tokenType: "1" | "2"; // 1: C3T, 2: TCO2
-  project?: {
-    key: string;
-    vintage: string;
-    name?: string;
-    projectID: string;
-    methodology: string;
-    category: CategoryName;
-  };
-};
-
 export type AssetForRetirement = {
   tokenName: string;
   balance: string;
-  tokenType: "1" | "2";
   tokenSymbol: string; // 1: C3T, 2: TCO2
   project: PcbProject;
 };
+
 export type Methodology = {
   id: string;
   name: string;

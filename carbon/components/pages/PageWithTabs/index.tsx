@@ -147,9 +147,11 @@ export default function PageWithTabs(props: {
                   <div className={styles.optionsSwitchers}>
                     {tabsDynamicOptionsList[tabIndex].map(
                       (options, widgetIndex) => (
-                        <div className={styles.optionsSwitcherWrapper}>
+                        <div
+                          key={widgetIndex}
+                          className={styles.optionsSwitcherWrapper}
+                        >
                           <OptionsSwitcher
-                            key={widgetIndex}
                             options={options}
                             onSelectionChange={onOptionChange(
                               tabIndex,

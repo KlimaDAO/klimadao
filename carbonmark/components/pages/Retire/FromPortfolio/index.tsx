@@ -3,9 +3,8 @@ import { useGetUsersWalletorhandle } from "carbonmark-api-sdk";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { addProjectsToAssets } from "lib/actions";
-import { getAssetsWithProjectTokens } from "lib/getAssetsData";
-import { AssetForListing } from "lib/types/carbonmark.types";
+import { addProjectsToAssets, AssetWithProject } from "lib/actions";
+import { isListableToken } from "lib/isListableToken";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
 import * as styles from "./styles";
@@ -20,47 +19,36 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
   );
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
 
-  const assetWithProjectTokens =
-    !!carbonmarkUser?.assets?.length &&
-    getAssetsWithProjectTokens(carbonmarkUser.assets);
-
+  const listableAssets = carbonmarkUser?.assets.filter(isListableToken) || [];
   const emptyAssets =
     !!carbonmarkUser && !isLoadingAssets && !assetsData?.length;
   const hasAssets =
-    !!carbonmarkUser && !isLoadingAssets && !!assetWithProjectTokens;
+    !!carbonmarkUser && !isLoadingAssets && !!listableAssets.length;
   const isUnregistered = props.address && !isLoading && carbonmarkUser === null;
 
-  // load Assets on carbonmarkUser
   useEffect(() => {
-    if (hasAssets) {
-      const getAssetsData = async () => {
-        try {
-          setIsLoadingAssets(true);
+    if (!hasAssets) return;
+    const getAssetsData = async () => {
+      try {
+        setIsLoadingAssets(true);
 
-          if (assetWithProjectTokens) {
-            const assetsWithProject = await addProjectsToAssets({
-              assets: assetWithProjectTokens,
-            });
+        if (listableAssets.length) {
+          const assetsWithProject = await addProjectsToAssets({
+            assets: listableAssets,
+          });
 
-            // TODO: filter assets with balance > 0
-            // this will be unnecessary as soon as bezos switched to mainnet
-            const assetsWithBalance = assetsWithProject.filter(
-              (a) => Number(a.balance) > 0
-            );
-
-            setAssetsData(assetsWithBalance);
-          }
-        } catch (e) {
-          console.error(e);
-        } finally {
-          setIsLoadingAssets(false);
+          setAssetsData(assetsWithProject);
         }
-      };
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setIsLoadingAssets(false);
+      }
+    };
 
-      getAssetsData();
-    }
+    getAssetsData();
   }, [carbonmarkUser]);
 
   return (
@@ -70,7 +58,7 @@ export const RetireFromPortfolio: FC<Props> = (props) => {
       {!!assetsData && (
         <div className={styles.cardsList}>
           {assetsData.map((a) => (
-            <AssetProject asset={a} key={a.tokenAddress} />
+            <AssetProject asset={a} key={a.id} />
           ))}
         </div>
       )}
