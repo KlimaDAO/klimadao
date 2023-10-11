@@ -12,6 +12,7 @@ import { AssetWithProject } from "lib/actions";
 import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getFeatureFlag } from "lib/getFeatureFlag";
+import { hasListableBalance } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
 import { CategoryName } from "lib/types/carbonmark.types";
 import Link from "next/link";
@@ -27,6 +28,8 @@ interface Props {
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
   const category = props.asset.project?.methodologies?.[0]?.category || "Other";
+  const isListable = hasListableBalance(props.asset);
+
   return (
     <Card>
       {props.asset.project && (
@@ -74,6 +77,7 @@ export const AssetProject: FC<Props> = (props) => {
           <CarbonmarkButton
             label={<Trans>Sell</Trans>}
             onClick={props.onSell}
+            disabled={!isListable}
           />
         ) : (
           <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
