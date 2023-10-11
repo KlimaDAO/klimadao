@@ -27,10 +27,10 @@ export default function RetirementsByTokenBarCard(props: CardProps) {
 async function RetirementsByTokenBarChart() {
   const configuration: ChartConfiguration<keyof CarbonMetricsItem> = [
     {
-      id: "c3t_retired_polygon",
-      label: "C3T",
-      color: palette.charts.color1,
-      legendOrder: 1,
+      id: "mco2_retired_eth",
+      label: "MCO2",
+      color: palette.charts.color5,
+      legendOrder: 3,
     },
     {
       id: "tco2_retired_polygon",
@@ -39,10 +39,10 @@ async function RetirementsByTokenBarChart() {
       legendOrder: 2,
     },
     {
-      id: "mco2_retired_eth",
-      label: "MCO2",
-      color: palette.charts.color5,
-      legendOrder: 3,
+      id: "c3t_retired_polygon",
+      label: "C3T",
+      color: palette.charts.color1,
+      legendOrder: 1,
     },
   ];
 

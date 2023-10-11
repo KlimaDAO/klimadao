@@ -33,27 +33,22 @@ export const Portfolio: NextPage = () => {
   const isUnregistered =
     isConnectedUser && !isLoading && carbonmarkUser === null;
 
-  const handleMutateUser = async () => {
-    if (!isConnectedUser) return;
-
-    const latestActivity = carbonmarkUser?.activities.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-    )[0];
-
-    const newUser = await getUserUntil({
-      address,
-      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 1000,
-      maxAttempts: 50,
-    });
-
-    return newUser;
-  };
-
   const onUpdateUser = async () => {
+    if (!carbonmarkUser) return;
     try {
       setIsPending(true);
-      await mutate(handleMutateUser, {
+      const newUser = await getUserUntil({
+        address: carbonmarkUser.wallet.toLowerCase(),
+        retryUntil: activityIsAdded(
+          carbonmarkUser?.activities[0].timeStamp || "0"
+        ),
+        retryInterval: 2000,
+        maxAttempts: 50,
+        network: networkLabel,
+      });
+      await mutate(newUser, {
+        optimisticData: newUser,
+        revalidate: false,
         populateCache: true,
       });
     } catch (e) {

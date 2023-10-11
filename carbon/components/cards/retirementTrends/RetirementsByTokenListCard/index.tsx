@@ -1,11 +1,15 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DataTable from "components/charts/helpers/DataTable";
+import layout from "theme/layout.module.scss";
 
 export default function RetirementsByTokenListCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <DataTable configurationKey="KlimaRetirementsByTokenList" />
+    <DataTable
+      configurationKey="KlimaRetirementsByTokenList"
+      skeletonClassName={layout.tenRowsSkeleton}
+    />
   );
 
   return (

@@ -1,4 +1,4 @@
-@import "theme/typography.module.scss";
+@use "theme/typography.module.scss";
 
 .changeLanguageButton {
   min-width: 4.8rem;
@@ -15,7 +15,7 @@
 }
 
 .tooltip {
-  @include body1;
+  @include typography.body1;
   text-align: center;
   background: white;
   border-radius: 0.8rem;

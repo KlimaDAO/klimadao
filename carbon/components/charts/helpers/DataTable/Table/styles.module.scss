@@ -1,11 +1,11 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 .table {
   color: var(--text-color-01);
 }
 .desktopOnly {
   display: none;
 
-  @include medium {
+  @include breakpoints.medium {
     display: block;
   }
 }
@@ -13,7 +13,7 @@
 .mobileOnly {
   display: block;
 
-  @include medium {
+  @include breakpoints.medium {
     display: none;
   }
 }

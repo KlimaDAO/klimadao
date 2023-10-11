@@ -9,12 +9,14 @@ import styles from "./styles.module.scss";
  * configurationKey: configuration to render the table
  * firstPageTable: A serverside render of the first page for faster initial rendering
  * pages_count: number of pages this table has
+ * height: expected height of the table (for skeleton)
  */
 export default function DataTableClientWrapper(props: {
   configurationKey: ConfigurationKey;
   params: object;
   firstPageTable: JSX.Element;
   pages_count: number;
+  skeletonClassName?: string;
 }) {
   const [page, setPage] = useState<number>(0);
 
@@ -26,6 +28,7 @@ export default function DataTableClientWrapper(props: {
           page={page}
           configurationKey={props.configurationKey}
           params={props.params}
+          skeletonClassName={props.skeletonClassName}
         ></PaginatedTable>
       )}
       <Pagination
