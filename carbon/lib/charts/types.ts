@@ -11,6 +11,7 @@ export type Chain = (typeof CHAIN)[number];
 export type Token = (typeof TOKENS)[number];
 export type Protocol = (typeof PROTOCOLS)[number];
 export type DateFilteringOption = "lifetime" | "last30d" | "last7d";
+export type DateAggregationFrequency = "daily" | "monthly";
 
 export interface DateFieldInterface {
   bridged_date?: string;
@@ -91,10 +92,11 @@ export interface OriginInterface {
   country_code: string;
 }
 
-export interface DailyCreditsItem extends DateFieldInterface {
+export interface AggregatedCreditsByDatesItem extends DateFieldInterface {
   quantity: number;
 }
-export type DailyCredits = PaginatedResponse<DailyCreditsItem>;
+export type AggregatedCreditsByDates =
+  PaginatedResponse<AggregatedCreditsByDatesItem>;
 
 export interface CarbonMetricsItem {
   date: string;
@@ -138,12 +140,20 @@ export interface CarbonMetricsItem {
 }
 
 export type CarbonMetrics = PaginatedResponse<CarbonMetricsItem>;
-export interface AggregatedCreditsByProjectsItem {
+export interface AggregatedCreditsByProjectItem {
   project_type: string;
   quantity: number;
 }
-export type AggregatedCreditsByProjects =
-  PaginatedResponse<AggregatedCreditsByProjectsItem>;
+export type AggregatedCreditsByProject =
+  PaginatedResponse<AggregatedCreditsByProjectItem>;
+
+export interface AggregatedCreditsByMethodologyItem
+  extends PoolQuantitiesInterface {
+  methodology: string;
+  quantity: number;
+}
+export type AggregatedCreditsByMethodology =
+  PaginatedResponse<AggregatedCreditsByMethodologyItem>;
 
 export interface AggregatedCredits {
   quantity: number;
@@ -262,6 +272,13 @@ export interface AggregatedCreditsByCountryItem {
 }
 export type AggregatedCreditsByCountry =
   PaginatedResponse<AggregatedCreditsByCountryItem>;
+
+export interface AggregatedCreditsByVintageItem {
+  quantity: number;
+  vintage: number;
+}
+export type AggregatedCreditsByVintage =
+  PaginatedResponse<AggregatedCreditsByVintageItem>;
 
 export interface AggregatedCreditsByBridgeAndVintageItem
   extends BridgeQuantitiesInterface {

@@ -7,7 +7,7 @@ import {
 } from "lib/charts/types";
 import { statusToDateFieldGt } from "../dateField";
 import { dateForQuery } from "../helpers";
-import { queryAggregatedCreditsByProjects } from "../queries";
+import { queryAggregatedCreditsByProject } from "../queries";
 
 /** Transforms widget options into credits query parameters */
 export function creditsQueryParamsFromProps(
@@ -41,7 +41,7 @@ export function poolsQueryParamsFromProps(
 }
 
 /* Fetches aggregated credits by projects and format them for a tree chart */
-export async function getAggregatedCreditsByProjects(
+export async function getAggregatedCreditsByProject(
   props: CreditsFilteringProps
 ): Promise<TreeMapData> {
   const params = creditsQueryParamsFromProps(props);
@@ -50,7 +50,7 @@ export async function getAggregatedCreditsByProjects(
     sort_by: "quantity",
     sort_order: "desc",
   });
-  const data = await queryAggregatedCreditsByProjects(finalParams);
+  const data = await queryAggregatedCreditsByProject(finalParams);
   const chartData: TreeMapData = data.items.map((item) => {
     return {
       name: item.project_type,

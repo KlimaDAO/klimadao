@@ -5,17 +5,20 @@ import {
   AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
   AggregatedCreditsByBridgeAndVintageItem,
+  AggregatedCreditsByDates,
+  AggregatedCreditsByDatesItem,
+  AggregatedCreditsByMethodologyItem,
   AggregatedCreditsByOriginItem,
   AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
   AggregatedCreditsByPoolAndVintageItem,
-  AggregatedCreditsByProjectsItem,
+  AggregatedCreditsByProjectItem,
+  AggregatedCreditsByVintageItem,
   AggregationQueryParams,
   CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
-  DailyCredits,
-  DailyCreditsItem,
+  DateAggregationFrequency,
   KlimaMonthlyRetirementsByOriginItem,
   KlimaMonthlyRetirementsByTokenItem,
   KlimaRetirementsByBeneficiaryItem,
@@ -122,13 +125,14 @@ async function paginatedQuery<RI, Q extends object | undefined>(
 }
 
 /** Queries the Credits Daily Aggregations endpoint */
-export const queryDailyAggregatedCredits = function (
+export const queryAggregatedCreditsByDates = function (
+  freq: DateAggregationFrequency,
   params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-): Promise<DailyCredits> {
+): Promise<AggregatedCreditsByDates> {
   return paginatedQuery<
-    DailyCreditsItem,
+    AggregatedCreditsByDatesItem,
     CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-  >(urls.api.dailyAggregatedCredits, params);
+  >(`${urls.api.aggregatedCreditsByDate}/${freq}`, params);
 };
 
 /** Queries the Credits Global Aggregations endpoint */
@@ -143,11 +147,21 @@ export const queryAggregatedCredits = function (
 };
 
 /** Queries the Credits Aggregations by projects endpoint */
-export const queryAggregatedCreditsByProjects = function (
+export const queryAggregatedCreditsByProject = function (
   params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-): Promise<PaginatedResponse<AggregatedCreditsByProjectsItem>> {
-  return paginatedQuery<AggregatedCreditsByProjectsItem, typeof params>(
-    urls.api.aggregatedCreditsByProjects,
+): Promise<PaginatedResponse<AggregatedCreditsByProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByProject,
+    params
+  );
+};
+
+/** Queries the Credits Aggregations by methodology endpoint */
+export const queryAggregatedCreditsByMethodology = function (
+  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByMethodologyItem>> {
+  return paginatedQuery<AggregatedCreditsByMethodologyItem, typeof params>(
+    urls.api.aggregatedCreditsByMethodology,
     params
   );
 };
@@ -236,12 +250,12 @@ export function queryCarbonMetrics<RI>(
 }
 
 /** Queries the Pools tokens & dates aggregation endpoint */
-export function queryAggregatedCreditsByPoolAndDates(
-  freq: string,
+export function queryAggregatedCreditsByPoolAndDate(
+  freq: DateAggregationFrequency,
   params: PaginationQueryParams & CreditsQueryParams
 ): Promise<PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>> {
   return paginatedQuery<MonthlyAggregatedCreditsByPoolItem, typeof params>(
-    `${urls.api.aggregatedCreditsByPoolAndDates}/${freq}`,
+    `${urls.api.aggregatedCreditsByPoolAndDate}/${freq}`,
     params
   );
 }
@@ -276,6 +290,16 @@ export function queryAggregatedCreditsByOrigin(
   );
 }
 
+/** Queries the Credits countries aggregation endpoint */
+export function queryAggregatedCreditsByVintage(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByVintageItem>> {
+  return paginatedQuery<AggregatedCreditsByVintageItem, typeof params>(
+    urls.api.aggregatedCreditsByVintage,
+    params
+  );
+}
+
 /** Queries the Credits bridge and vintage aggregation endpoint */
 export function queryAggregatedCreditsByBridgeAndVintage(
   params: PaginationQueryParams & CreditsQueryParams
@@ -291,7 +315,7 @@ export function queryAggregatedCreditsByBridgeAndOrigin(
   params: PaginationQueryParams & CreditsQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndOriginItem>> {
   return paginatedQuery<AggregatedCreditsByBridgeAndOriginItem, typeof params>(
-    urls.api.aggregatedCreditsByBridgeAndCountries,
+    urls.api.aggregatedCreditsByBridgeAndCountry,
     params
   );
 }

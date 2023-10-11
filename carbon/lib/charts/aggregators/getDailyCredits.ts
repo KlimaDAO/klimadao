@@ -1,17 +1,20 @@
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
-import { queryDailyAggregatedCredits } from "lib/charts/queries";
+import { queryAggregatedCreditsByDates } from "lib/charts/queries";
 import {
+  AggregatedCreditsByDatesItem,
   Bridge,
   ChartDateMappingParams,
   CreditsQueryParams,
   DailyCreditsChartData,
   DailyCreditsChartDataItem,
-  DailyCreditsItem,
 } from "lib/charts/types";
 
 export type DailyCreditsQueryConfiguration = Array<{
   query: CreditsQueryParams;
-  mapping: ChartDateMappingParams<DailyCreditsItem, DailyCreditsChartDataItem>;
+  mapping: ChartDateMappingParams<
+    AggregatedCreditsByDatesItem,
+    DailyCreditsChartDataItem
+  >;
 }>;
 export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
 
@@ -30,7 +33,7 @@ export async function prepareDailyChartData(
   // Fetch data
   const datasets = await Promise.all(
     configuration.map((configurationItem) =>
-      queryDailyAggregatedCredits({
+      queryAggregatedCreditsByDates("daily", {
         ...configurationItem.query,
         ...{
           operator: "cumsum",

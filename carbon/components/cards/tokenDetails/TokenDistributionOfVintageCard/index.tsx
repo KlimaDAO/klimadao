@@ -14,9 +14,10 @@ export default function TokenDistributionOfVintageCard(
   props: CardProps & TokenDetailsProps
 ) {
   // No vintage card for retired credits on particular pools
-  if (props.pool != "all" && props.status != "retired") {
+  /*
+  if (props.pool != "all" && props.status == "retired") {
     return <></>;
-  }
+  }*/
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenDistributionOfVintageChart {...props} />
