@@ -61,7 +61,7 @@ export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
 /** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */
 export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-|GS-)/;
 /** Default number of days until a listing expires */
-export const DEFAULT_EXPIRATION_DAYS = 90;
+export const DEFAULT_EXPIRATION_DAYS = 0.00347; // TEMP SET TO 5 MINUTES FOR QA TESTING ONLY
 /** Default minimum fill for a listing */
 export const DEFAULT_MIN_FILL_AMOUNT = 1;
 /** Minimum number of tonnes that can be listed for sale */
