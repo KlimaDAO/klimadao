@@ -64,6 +64,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
           >
             <AssetProject
               asset={a}
+              listings={props.user?.listings || []}
               onSell={() => {
                 LO.track("Listing: Sell Clicked");
                 setAssetToSell(a);

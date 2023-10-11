@@ -12,14 +12,16 @@ import { AssetWithProject } from "lib/actions";
 import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getFeatureFlag } from "lib/getFeatureFlag";
+import { isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
-import { CategoryName } from "lib/types/carbonmark.types";
+import { Asset, CategoryName, Listing } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "./styles";
 
 interface Props {
+  listings: Listing[];
   asset: AssetWithProject;
   onSell: () => void;
 }
@@ -27,6 +29,25 @@ interface Props {
 export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
   const category = props.asset.project?.methodologies?.[0]?.category || "Other";
+
+  const getUnlistedBalance = (asset: Asset): number => {
+    if (!isListableToken(asset)) return 0;
+    const listing = props.listings.find(
+      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
+    );
+    if (!listing) return Number(asset.amount);
+    return Number(asset.amount) - Number(listing.leftToSell);
+  };
+
+  const getListedBalance = (asset: Asset) => {
+    if (!isListableToken(asset)) return 0;
+    const listing = props.listings.find(
+      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
+    );
+    if (!listing) return Number(asset.amount);
+    return Number(listing.leftToSell);
+  };
+
   return (
     <Card>
       {props.asset.project && (
@@ -56,10 +77,21 @@ export const AssetProject: FC<Props> = (props) => {
           </Link>
         </div>
       )}
-      <Text t="body1">
-        <Trans>Available Tonnes:</Trans>{" "}
-        <strong>{formatToTonnes(props.asset.amount, locale)}</strong>
-      </Text>
+
+      <div className={styles.tonnes}>
+        <Text t="body1">
+          <Trans>Unlisted tonnes:</Trans>{" "}
+          <strong>
+            {formatToTonnes(getUnlistedBalance(props.asset), locale)}
+          </strong>
+        </Text>
+        <Text t="body1">
+          <Trans>Listed tonnes:</Trans>{" "}
+          <strong>
+            {formatToTonnes(getListedBalance(props.asset), locale)}
+          </strong>
+        </Text>
+      </div>
 
       <div className={styles.buttons}>
         <ButtonPrimary
@@ -74,6 +106,7 @@ export const AssetProject: FC<Props> = (props) => {
           <CarbonmarkButton
             label={<Trans>Sell</Trans>}
             onClick={props.onSell}
+            disabled={!!(getUnlistedBalance(props.asset) < 1)}
           />
         ) : (
           <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">

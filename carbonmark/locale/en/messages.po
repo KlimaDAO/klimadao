@@ -14,6 +14,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/AssetProject/index.tsx:83
+msgid "Unlisted tonnes:"
+msgstr "Unlisted tonnes:"
+
+#. js-lingui-explicit-id
+#: components/pages/Portfolio/AssetProject/index.tsx:89
+msgid "Listed tonnes:"
+msgstr "Listed tonnes:"
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -559,20 +569,19 @@ msgid "Terms of use"
 msgstr "Terms of use"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:60
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 #: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:66
+#: components/pages/Portfolio/AssetProject/index.tsx:98
 msgid "Retire"
 msgstr "Retire"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:75
-#: components/pages/Portfolio/AssetProject/index.tsx:82
+#: components/pages/Portfolio/AssetProject/index.tsx:107
+#: components/pages/Portfolio/AssetProject/index.tsx:115
 msgid "Sell"
 msgstr "Sell"
 
@@ -583,12 +592,12 @@ msgid "Loading your assets"
 msgstr "Loading your assets"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:84
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:85
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:95
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:96
 msgid "No listable assets found."
 msgstr "No listable assets found."
 
