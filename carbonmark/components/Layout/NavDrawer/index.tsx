@@ -29,10 +29,10 @@ interface NavDrawerProps {
 }
 
 export const NavDrawer: FC<NavDrawerProps> = (props) => {
-  const { address, isConnected, disconnect, toggleModal } = useWeb3();
+  const { address, isConnected, disconnect, toggleModal, initializing } =
+    useWeb3();
   // collect nameserviceDomain Data if connected and domain is in URL
   const connectedDomain = useGetDomainFromAddress(address);
-
   return (
     <nav className={styles.container}>
       <div className={styles.mobile.header} data-mobile-only>
@@ -47,8 +47,18 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
           <CarbonmarkLogoFull />
         </Link>
       </div>
-
-      {!address && !isConnected && (
+      {initializing && (
+        <div data-mobile-only>
+          <ButtonPrimary
+            label={t`Loading...`}
+            disabled
+            onClick={toggleModal}
+            className="connectButton"
+          />
+          <div className="hr" />
+        </div>
+      )}
+      {!address && !isConnected && !initializing && (
         <div data-mobile-only>
           <ButtonPrimary
             label={t`Log in`}

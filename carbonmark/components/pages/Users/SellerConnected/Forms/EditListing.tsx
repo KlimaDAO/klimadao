@@ -23,7 +23,7 @@ type Props = {
   onCancel: () => void;
   listing: Listing;
   values: null | FormValues;
-  assetBalance: string;
+  listableBalance: number;
 };
 
 /**
@@ -38,7 +38,7 @@ export const EditListing: FC<Props> = (props) => {
     locale,
   });
   const totalAvailableQuantity = formatTonnes({
-    amount: (Number(props.assetBalance) + Number(listedQuantity)).toString(),
+    amount: props.listableBalance.toString(),
     locale,
   });
 
@@ -55,14 +55,17 @@ export const EditListing: FC<Props> = (props) => {
     props.onSubmit(values);
   };
 
+  const unlistedQuantity =
+    props.listableBalance - Number(props.listing.leftToSell);
+
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
         <Text t="body1">
-          <Trans id="user.listing.edit.project.label">Project</Trans>
+          <Trans>Asset</Trans>
         </Text>
-        <Text t="body1" className={styles.editLabelProjectName}>
-          {props.listing.project?.name}
+        <Text className={styles.editLabelProjectName}>
+          {props.listing.project.name || props.listing.project.id}
         </Text>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -108,7 +111,7 @@ export const EditListing: FC<Props> = (props) => {
           <Text t="body3" className={styles.availableAmount}>
             <Trans>
               Quantity listed: {listedQuantity}, Quantity unlisted:{" "}
-              {props.assetBalance}, Total available: {totalAvailableQuantity}
+              {unlistedQuantity}, Total available: {totalAvailableQuantity}
             </Trans>
           </Text>
           <InputField
@@ -143,11 +146,7 @@ export const EditListing: FC<Props> = (props) => {
           />
 
           <ButtonPrimary
-            label={
-              <Trans id="profile.editListing_modal.submit">
-                Update Listing
-              </Trans>
-            }
+            label={<Trans>Update listing</Trans>}
             onClick={handleSubmit(onSubmit)}
             disabled={!formState.isDirty}
           />
