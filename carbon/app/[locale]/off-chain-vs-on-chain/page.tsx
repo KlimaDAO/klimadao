@@ -15,8 +15,8 @@ export default function OffVsOnChainPage() {
       <PageHeader title={t`Off vs On-chain carbon`} />
       <div className={layout.cardStackedRows}>
         <div className={`${layout.cardRow} ${layout.prioritizeFirstCard}`}>
-          <VerraCreditsBreakdownCard />
-          <TokenizedCreditsByBridgeCard />
+          <VerraCreditsBreakdownCard className={layout.zIndexSeven} />
+          <TokenizedCreditsByBridgeCard className={layout.zIndexSix} />
         </div>
       </div>
       <OffVsOnChainClientWrapper

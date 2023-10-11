@@ -16,8 +16,6 @@ export function KlimaTooltip(params: {
   >(props: TooltipProps<TValue, TName>) {
     const { active, payload, label } = props;
 
-    console.log(payload?.map((p) => p.color));
-
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltip}>
