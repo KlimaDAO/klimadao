@@ -8,12 +8,12 @@ const BadgeType = {
   Invalid: {
     title: t`Invalid`,
     icon: <ErrorOutlineOutlined />,
-    tooltipText: t`This listing has become invalid and is currently hidden from the marketplace. Click "Edit" to delete the listing or change quantity.`,
+    tooltipText: t`This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing.`,
   },
   Expired: {
     title: t`Expired`,
     icon: <TimerOffOutlined />,
-    tooltipText: t`This listing has expired and is currently hidden from the marketplace. Click "Edit" and resubmit the listing.`,
+    tooltipText: t`This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing.`,
   },
 };
 
