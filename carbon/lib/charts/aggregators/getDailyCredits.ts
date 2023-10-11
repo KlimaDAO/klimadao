@@ -7,7 +7,9 @@ import {
   CreditsQueryParams,
   DailyCreditsChartData,
   DailyCreditsChartDataItem,
+  DateAggregationFrequency,
 } from "lib/charts/types";
+import moment from "moment";
 
 export type DailyCreditsQueryConfiguration = Array<{
   query: CreditsQueryParams;
@@ -18,25 +20,18 @@ export type DailyCreditsQueryConfiguration = Array<{
 }>;
 export type DailyCreditsChartConfiguration = ChartConfiguration<Bridge>;
 
-/*
-  This function takes multiple queries, resolves them to datasets (daily aggregates) and merge them into data usable by recharts
-  Params:
-   - configuration: A chart configuration 
-   - fetchFunction: The function that queries the API
-  Generics:
-   - CI: Expected type of items returned in the chart data array   
-   - Q: Type of the query params
-*/
-export async function prepareDailyChartData(
+/* Fetches multiple verra credits aggregated by dates and merge them to be used in a chart */
+export async function getMergedCreditsByDate(
+  freq: DateAggregationFrequency,
   configuration: DailyCreditsQueryConfiguration
-): Promise<DailyCreditsChartData> {
+) {
+  const granularity = freq == "monthly" ? "M" : "d";
   // Fetch data
   const datasets = await Promise.all(
     configuration.map((configurationItem) =>
-      queryAggregatedCreditsByDates("daily", {
+      queryAggregatedCreditsByDates(freq, {
         ...configurationItem.query,
         ...{
-          operator: "cumsum",
           page_size: -1,
           sort_order: "asc",
         },
@@ -54,8 +49,9 @@ export async function prepareDailyChartData(
     const dataset = datasets[i];
     dataset?.items.forEach((item) => {
       const date = Date.parse(item[dateField] as string);
-      records[date] = records[date] || {};
-      const record = records[date];
+      const id = moment(date).startOf(granularity).toISOString();
+      records[id] = records[id] || {};
+      const record = records[id];
       record.date = date;
       // TODO: solve data typing properly
       record[mapping.destination] = item[mapping.source] as number;
@@ -68,36 +64,41 @@ export async function prepareDailyChartData(
 
   // Create a new dataset with every dates represented
   const chartData: DailyCreditsChartData = [];
-  if (Object.keys(records).length) {
-    let j = 0;
-    for (let date = minDate; date <= maxDate; date += 60 * 60 * 24 * 1000) {
-      let record = records[date];
-      if (j > 0) {
-        const previousRecord: DailyCreditsChartDataItem = chartData[j - 1];
-        // Use the record computed previously for this date. If the record does not exist use the record from the previous date
-        if (record === undefined) {
-          record = records[date] || Object.assign({}, previousRecord);
-        }
-        // If there is no value for a key, use the value from the previous record
-        configuration.forEach((configurationItem) => {
-          const destination = configurationItem.mapping
-            .destination as keyof DailyCreditsChartDataItem;
-          record[destination] =
-            record[destination] || previousRecord[destination] || 0;
-        });
-        // Ensure the date is okay (if we copied the previous record)
-        record.date = date;
-      }
-      chartData.push(record);
-      j++;
+
+  // Exit quickly if the dataset is empty
+  if (Object.keys(records).length == 0) return chartData;
+
+  const emptyRecord: DailyCreditsChartDataItem = {
+    date: 0,
+    bct_quantity: 0,
+    nct_quantity: 0,
+    nbo_quantity: 0,
+    ubo_quantity: 0,
+    mco2_quantity: 0,
+    not_pooled_quantity: 0,
+    offchain_quantity: 0,
+    not_bridged_quantity: 0,
+    toucan_quantity: 0,
+    c3_quantity: 0,
+    moss_quantity: 0,
+    total_quantity: 0,
+  };
+  const now = moment();
+  let date = moment(minDate);
+  while (date.isSameOrBefore(now, granularity)) {
+    const id = date.startOf(granularity).toISOString();
+    let record: DailyCreditsChartDataItem = records[id];
+    if (record === undefined) {
+      record = Object.assign({ ...emptyRecord });
     }
+    configuration.forEach((configurationItem) => {
+      const destination = configurationItem.mapping
+        .destination as keyof DailyCreditsChartDataItem;
+      record[destination] ||= 0;
+    });
+    record.date = date.unix() * 1000;
+    chartData.push(record as DailyCreditsChartDataItem);
+    date = date.add("1", granularity);
   }
   return chartData;
-}
-
-/* Fetches multiple verra credits aggregated by dates and merge them to be used in a chart */
-export async function getDailyCredits(
-  configuration: DailyCreditsQueryConfiguration
-) {
-  return prepareDailyChartData(configuration);
 }

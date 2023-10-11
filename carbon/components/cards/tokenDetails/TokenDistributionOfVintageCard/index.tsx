@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {

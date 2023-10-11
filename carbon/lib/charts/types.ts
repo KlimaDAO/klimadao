@@ -5,7 +5,7 @@ export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
 export const TOKENS = ["bct", "nct", "mco2", "ubo", "nbo"];
 export const PROTOCOLS = ["c3t", "tco2", "mco2"];
-export type Pool = "ubo" | "nbo" | "nct" | "bct" | "all";
+export type Pool = "ubo" | "nbo" | "nct" | "bct" | "moss" | "all";
 export type Bridge = (typeof BRIDGES)[number] | "offchain" | "all";
 export type Chain = (typeof CHAIN)[number];
 export type Token = (typeof TOKENS)[number];
@@ -341,6 +341,7 @@ export type DailyChartData<CI extends GenericDailyChartDataItem> =
 
 export interface DailyCreditsChartDataItem
   extends GenericDailyChartDataItem,
+    PoolQuantitiesInterface,
     BridgeQuantitiesInterface {}
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 

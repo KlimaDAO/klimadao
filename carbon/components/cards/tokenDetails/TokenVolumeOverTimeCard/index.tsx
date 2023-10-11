@@ -1,19 +1,14 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {
   TokenDetailsProps,
+  getChartConfiguration,
+  getCreditsQueryConfiguration,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
-import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { statusToDateField } from "lib/charts/dateField";
-import { fillWithZeroes } from "lib/charts/helpers";
-import { queryAggregatedCreditsByDates } from "lib/charts/queries";
-import { AggregatedCreditsByDatesItem, Status } from "lib/charts/types";
-import { palette } from "theme/palette";
-
+import { getMergedCreditsByDate } from "lib/charts/aggregators/getDailyCredits";
 export default function TokenVolumeOverTimeCard(
   props: CardProps & TokenDetailsProps
 ) {
@@ -33,36 +28,27 @@ export default function TokenVolumeOverTimeCard(
 }
 /** Async server component that renders a Recharts client component */
 async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props);
+  const chartConfiguration = getChartConfiguration(props);
+  const queryConfiguration = getCreditsQueryConfiguration(props);
   const freq = props.since == "lifetime" ? "monthly" : "daily";
-  const configuration: ChartConfiguration<keyof AggregatedCreditsByDatesItem> =
-    [
-      {
-        id: "quantity",
-        label: t`Quantity`,
-        color: palette.charts.color3,
-        legendOrder: 1,
-      },
-    ];
-  let data = (
-    await queryAggregatedCreditsByDates(freq, {
-      ...params,
-    })
-  ).items;
-
-  data = fillWithZeroes(
-    data,
-    configuration,
-    statusToDateField(props.status),
-    props.since == "lifetime" ? "M" : "d"
-  );
-  const XAxis = props.since == "lifetime" ? "months" : "days";
-  const dateField = statusToDateField(params.status as Status);
+  const data = await getMergedCreditsByDate(freq, queryConfiguration);
+  // Hack: We must modify data to add not pooled quantity value
+  if (props.pool == "all") {
+    data.forEach((item) => {
+      if (props.bridge == "toucan")
+        item.not_pooled_quantity =
+          item.total_quantity - (item.nct_quantity + item.bct_quantity);
+      if (props.bridge == "c3")
+        item.not_pooled_quantity =
+          item.total_quantity - (item.ubo_quantity + item.nbo_quantity);
+    });
+  }
+  const XAxis = freq == "monthly" ? "months" : "days";
   return (
     <KBarChart
       data={data}
-      configuration={configuration}
-      dateField={dateField}
+      configuration={chartConfiguration}
+      dateField="date"
       XAxis={XAxis}
       YAxis="tons"
     />

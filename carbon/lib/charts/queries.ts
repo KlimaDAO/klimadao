@@ -36,7 +36,7 @@ import {
 export const EMPTY_PAGINATED_RESPONSE = {
   items: [],
   items_count: 0,
-  pages_count: 0,
+  pages_count: 1,
   current_page: 0,
 };
 

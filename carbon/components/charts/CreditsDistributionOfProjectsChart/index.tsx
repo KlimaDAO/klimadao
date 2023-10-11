@@ -1,4 +1,4 @@
-import { getAggregatedCreditsByProject } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { getAggregatedCreditsByProject } from "lib/charts/aggregators/getAggregatedCredits";
 import Chart from "./Chart";
 
 import ChartWrapper from "../helpers/ChartWrapper";

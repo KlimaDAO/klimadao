@@ -1,5 +1,8 @@
 import { t } from "@lingui/macro";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
+import { DailyCreditsQueryConfiguration } from "lib/charts/aggregators/getDailyCredits";
+import { statusToDateField } from "lib/charts/dateField";
 import {
   Bridge,
   DateFilteringOption,
@@ -84,6 +87,87 @@ export function getChartConfiguration(props: TokenDetailsProps) {
       label: t`MCO2`,
       color: palette.charts.color3,
       legendOrder: 2,
+    });
+  }
+  return configuration;
+}
+
+export function getCreditsQueryConfiguration(
+  props: TokenDetailsProps
+): DailyCreditsQueryConfiguration {
+  const freq = props.since == "lifetime" ? "monthly" : "daily";
+  const dateField = statusToDateField(props.status);
+  const params = creditsQueryParamsFromProps(props);
+
+  const configuration: DailyCreditsQueryConfiguration = [];
+  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "ubo")) {
+    configuration.push({
+      query: { ...params, ...{ pool: "ubo" } },
+      mapping: {
+        source: "quantity",
+        destination: "ubo_quantity",
+        dateField,
+      },
+    });
+  }
+  if (props.bridge == "c3" && (props.pool == "all" || props.pool == "nbo")) {
+    configuration.push({
+      query: { ...params, ...{ pool: "nbo" } },
+      mapping: {
+        source: "quantity",
+        destination: "nbo_quantity",
+        dateField,
+      },
+    });
+  }
+  if (
+    props.bridge == "toucan" &&
+    (props.pool == "all" || props.pool == "bct")
+  ) {
+    configuration.push({
+      query: { ...params, ...{ pool: "bct" } },
+      mapping: {
+        source: "quantity",
+        destination: "bct_quantity",
+        dateField,
+      },
+    });
+  }
+  if (
+    props.bridge == "toucan" &&
+    (props.pool == "all" || props.pool == "nct")
+  ) {
+    configuration.push({
+      query: { ...params, ...{ pool: "nct" } },
+      mapping: {
+        source: "quantity",
+        destination: "nct_quantity",
+        dateField,
+      },
+    });
+  }
+  if (
+    (props.bridge == "c3" || props.bridge == "toucan") &&
+    props.pool == "all"
+  ) {
+    configuration.push({
+      query: { ...params, ...{ pool: "all" } },
+      mapping: {
+        source: "quantity",
+        destination: "total_quantity",
+        dateField,
+      },
+    });
+  }
+
+  if (props.bridge == "moss") {
+    configuration.push({
+      query: { ...params },
+      mapping: {
+        source: "quantity",
+        destination: "mco2_quantity",
+        dateField,
+      },
     });
   }
   return configuration;
