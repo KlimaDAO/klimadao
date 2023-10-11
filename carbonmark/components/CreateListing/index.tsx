@@ -9,8 +9,7 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
-import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
-import { isListableToken } from "lib/isListableToken";
+import { hasListableBalance, isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
@@ -188,11 +187,6 @@ export const CreateListing: FC<Props> = (props) => {
         </Text>
       </div>
     );
-  };
-
-  /** Filter out tokens that are not listable or don't have enough balance */
-  const hasListableBalance = (asset: Asset): boolean => {
-    return getListableBalance(asset) > DEFAULT_MIN_LISTING_QUANTITY;
   };
 
   const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
