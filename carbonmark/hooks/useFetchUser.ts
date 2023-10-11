@@ -18,7 +18,7 @@ export const useFetchUser = (
     ).json();
 
   const { data, ...rest } = useSWR(
-    useFetchUserKey(args),
+    fetchUserURL(args),
     fetchUser,
     options?.swrOpts
   );
@@ -28,8 +28,24 @@ export const useFetchUser = (
   return { carbonmarkUser, ...rest };
 };
 
-export const useFetchUserKey = (args: Parameters<GetUserFnT>[0]) => {
-  return `${
-    urls.api.users
-  }/${args.params.walletOrHandle.toLowerCase()}&network=${args.query?.network?.toLowerCase()}`;
+/**
+ * Construct stable URL as key for SWR. When this key changes, data is re-fetched.
+ * Always includes network default 'polygon'
+ */
+export const fetchUserURL = (args: Parameters<GetUserFnT>[0]) => {
+  const url = new URL(
+    `${urls.api.users}/${args.params.walletOrHandle.toLowerCase()}`
+  );
+
+  const { network = "polygon", ...query } = args.query || {};
+  url.searchParams.set("network", network?.toLowerCase());
+
+  for (const queryParam in query) {
+    const value = query[queryParam as keyof typeof query];
+    if (value) {
+      url.searchParams.set(queryParam, value);
+    }
+  }
+
+  return url.toString();
 };
