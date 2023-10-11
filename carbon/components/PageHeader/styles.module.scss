@@ -1,4 +1,4 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 .header {
   margin-top: 1.6rem;
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
 
-  @include desktop {
+  @include breakpoints.desktop {
     margin-top: 4.6rem;
   }
 }
@@ -17,7 +17,7 @@
   flex-direction: column;
   gap: 0.8rem;
 
-  @include desktop {
+  @include breakpoints.desktop {
     gap: 2rem;
     flex-direction: row;
     align-items: center;
@@ -42,7 +42,7 @@
     }
   }
 
-  @include desktop {
+  @include breakpoints.desktop {
     font-size: 3.2rem;
   }
 }
@@ -54,7 +54,7 @@
 .buttons {
   display: none;
 
-  @include desktop {
+  @include breakpoints.desktop {
     display: flex;
     gap: 1.2rem;
   }

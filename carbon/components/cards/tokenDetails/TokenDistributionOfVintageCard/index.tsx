@@ -43,6 +43,7 @@ async function TokenDistributionOfVintageChart(props: TokenDetailsProps) {
       configuration={configuration}
       dateField="vintage"
       XAxis="vintage"
+      YAxis="tons"
     />
   );
 }

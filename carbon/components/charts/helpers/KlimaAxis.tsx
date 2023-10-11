@@ -1,7 +1,7 @@
 import { helpers } from "lib/charts";
 import { ChartData } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
-import { Text } from "recharts";
+import { Text, YAxisProps } from "recharts";
 import { ChartConfiguration } from "./Configuration";
 /** Base parameters for all Axis Props */
 const BASE_AXIS_PROPS = {
@@ -102,7 +102,10 @@ export function KlimaYAxisTonsProps<CI, T>(
       ? helpers.formatQuantityAsKiloTons
       : helpers.formatQuantityAsMillionsOfTons;
 
-  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+  return Object.assign({}, BASE_YAXIS_PROPS, {
+    tickFormatter,
+    width: 70,
+  } as YAxisProps);
 }
 
 /** YAxis props to display prices in an appropriate format */
@@ -112,19 +115,32 @@ export function KlimaYAxisPriceProps() {
     maximumFractionDigits: 2,
   });
   const tickFormatter = (value: number) => formatter.format(value);
-  return Object.assign({}, BASE_YAXIS_PROPS, { tickFormatter });
+  return Object.assign({}, BASE_YAXIS_PROPS, {
+    tickFormatter,
+    width: 40,
+  } as YAxisProps);
 }
 
-/** YAxis props to display percentages in an appropriate format */
+/** YAxis props to display percentages with a fixed axis in an appropriate format */
 export function KlimaYAxisPercentageProps() {
   const tickFormatter = (x: number) =>
     helpers.formatPercentage({ value: x, fractionDigits: 0 });
-  return Object.assign(
-    {
-      domain: [0, 1],
-      ticks: [0, 0.2, 0.4, 0.6, 0.8, 1],
-    },
-    BASE_YAXIS_PROPS,
-    { tickFormatter }
-  );
+  const scaleProps = {
+    domain: [0, 1],
+    ticks: [0, 0.2, 0.4, 0.6, 0.8, 1],
+  };
+  return { ...BASE_YAXIS_PROPS, ...scaleProps, ...{ tickFormatter } };
+}
+
+/** YAxis props to display percentages in an appropriate format */
+export function KlimaYAxisPercentageAutoscaleProps() {
+  const tickFormatter = (x: number) =>
+    helpers.formatPercentage({ value: x, fractionDigits: 2 });
+  return { ...BASE_YAXIS_PROPS, ...{ tickFormatter } };
+}
+
+/** YAxis props to display value as is */
+export function KlimaYAxisIdentityProps() {
+  const tickFormatter = (x: number) => String(x);
+  return { ...BASE_YAXIS_PROPS, ...{ tickFormatter } };
 }

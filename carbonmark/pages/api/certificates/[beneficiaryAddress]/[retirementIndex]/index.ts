@@ -61,7 +61,7 @@ export default async function handler(
     certificate.pipe(res);
     certificate.end();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).send("Failed to generate retirement certificate");
   }
 }

@@ -24,7 +24,7 @@ export function KlimaTooltip(params: {
               <div key={pld.name}>
                 <div>{pld.payload?.name || pld.name}</div>
                 <div style={{ color: pld.color }}>
-                  {pld.value &&
+                  {pld.value !== undefined &&
                     params.yAxisFormatter &&
                     params.yAxisFormatter(pld.value as number)}
                 </div>
