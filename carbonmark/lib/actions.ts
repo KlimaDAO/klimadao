@@ -15,6 +15,7 @@ import {
   DetailedProject,
   PcbProject,
 } from "lib/types/carbonmark.types";
+import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { getCarbonmarkProject } from "./carbonmark";
 import { DEFAULT_EXPIRATION_DAYS, DEFAULT_MIN_FILL_AMOUNT } from "./constants";
 
@@ -118,16 +119,6 @@ export const approveTokenSpend = async (params: {
     console.error(error);
     throw error;
   }
-};
-
-/** Takes a `days` argument, converts it to seconds and adds it to the current date timestamp
- * @returns {string} timestamp in Unix seconds
- */
-const getExpirationTimestamp = (days: number): string => {
-  // 1000ms/s * 60s/m * 60m/hr * 24hr/d * days
-  const milliseconds = 1000 * 60 * 60 * 24 * days;
-  const expireTimestamp = Date.now() + milliseconds;
-  return Math.floor(expireTimestamp / 1000).toString(); // ms to seconds
 };
 
 export const createListingTransaction = async (params: {

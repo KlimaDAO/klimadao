@@ -3,8 +3,9 @@ import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
-import { MINIMUM_TONNE_PRICE } from "lib/constants";
+import { DEFAULT_EXPIRATION_DAYS, MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark.types";
+import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -59,6 +60,17 @@ export const EditListing: FC<Props> = (props) => {
   const unlistedQuantity =
     props.listableBalance - Number(props.listing.leftToSell);
 
+  const isExpired =
+    Number(props.listing.expiration) <= Math.floor(Date.now() / 1000);
+
+  const isInvalid = false; // TODO https://github.com/KlimaDAO/klimadao/issues/1586
+
+  const expirationTimestamp = getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS);
+
+  const expirationDatestring = new Date(
+    Math.floor(Number(expirationTimestamp) * 1000)
+  ).toLocaleDateString(locale);
+
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
@@ -66,7 +78,7 @@ export const EditListing: FC<Props> = (props) => {
           <Trans>Asset</Trans>
         </Text>
         <Text className={styles.editLabelProjectName}>
-          {props.listing.project.name || props.listing.project.id}
+          {props.listing.project.name} ({props.listing.project.id})
         </Text>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -146,21 +158,25 @@ export const EditListing: FC<Props> = (props) => {
             errorMessage={formState.errors.newSingleUnitPrice?.message}
           />
 
-          {/* @todo Makka - only hardcoded temporarily until data is available from api */}
           <div className={styles.expiration}>
             <Text t="body1">
               <Trans>Expiration</Trans>
             </Text>
             <div>
-              <Text t="body1">90 days (12-12-2024)</Text>
-              <Badge type="Invalid" />
+              <Text t="body1">
+                <Trans>
+                  {DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})
+                </Trans>
+              </Text>
+              {isInvalid && <Badge type="Invalid" />}
+              {isExpired && <Badge type="Expired" />}
             </div>
           </div>
 
           <ButtonPrimary
             label={<Trans>Update listing</Trans>}
             onClick={handleSubmit(onSubmit)}
-            disabled={!formState.isDirty}
+            disabled={!formState.isDirty && !isExpired}
           />
         </div>
       </form>
