@@ -26,7 +26,7 @@ export default function OverviewPage() {
             <VerraCreditsCard></VerraCreditsCard>
           </div>
           <div className={layout.cardRow}>
-            <TokenizedCreditsByBridgeCard></TokenizedCreditsByBridgeCard>
+            <TokenizedCreditsByBridgeCard detailUrlPosition="bottom"></TokenizedCreditsByBridgeCard>
             <HistoricalPriceCard></HistoricalPriceCard>
           </div>
           <div className={layout.cardRow}>

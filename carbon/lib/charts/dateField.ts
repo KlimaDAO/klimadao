@@ -16,6 +16,11 @@ const dateFieldMapper = {
     fieldLt: "retirement_date_lt",
     fieldGt: "retirement_date_gt",
   },
+  all_retired: {
+    field: "retirement_date",
+    fieldLt: "retirement_date_lt",
+    fieldGt: "retirement_date_gt",
+  },
   deposited: {
     field: "deposited_date",
     fieldLt: "deposited_date_lt",

@@ -43,6 +43,7 @@ async function TokenDistributionOfMethodologiesChart(props: TokenDetailsProps) {
       configuration={configuration}
       dateField="methodology"
       XAxis="methodology"
+      YAxis="tons"
     />
   );
 }

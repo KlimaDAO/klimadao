@@ -42,7 +42,10 @@ export default function TokenPoolBreakdownCard(
 
 /** Async server component that renders a Recharts client component */
 async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props, "bridged");
+  const params = creditsQueryParamsFromProps({
+    ...props,
+    ...{ since: "lifetime", status: "bridged" },
+  });
   const bct = (
     await queryAggregatedCredits({
       ...params,
@@ -67,7 +70,7 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
     {
       id: "bct",
       label: t`BCT`,
-      color: palette.charts.color1,
+      color: palette.charts.color5,
       legendOrder: 1,
     },
     {
@@ -79,7 +82,7 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 3,
     },
   ];
@@ -103,7 +106,10 @@ async function TokenPoolBreakdownChartToucanChart(props: TokenDetailsProps) {
 
 /** Async server component that renders a Recharts client component */
 async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props, "bridged");
+  const params = creditsQueryParamsFromProps({
+    ...props,
+    ...{ since: "lifetime", status: "bridged" },
+  });
   const nbo = (
     await queryAggregatedCredits({
       ...params,
@@ -126,21 +132,21 @@ async function TokenPoolBreakdownChartC3Chart(props: TokenDetailsProps) {
   const not_pooled = all - (nbo + ubo);
   const configuration: ChartConfiguration<"nbo" | "ubo" | "not_pooled"> = [
     {
-      id: "nbo",
-      label: t`NBO`,
-      color: palette.charts.color1,
+      id: "ubo",
+      label: t`UBO`,
+      color: palette.charts.color5,
       legendOrder: 1,
     },
     {
-      id: "ubo",
-      label: t`UBO`,
+      id: "nbo",
+      label: t`NBO`,
       color: palette.charts.color3,
       legendOrder: 2,
     },
     {
       id: "not_pooled",
       label: t`Not pooled`,
-      color: palette.charts.color5,
+      color: palette.charts.color1,
       legendOrder: 3,
     },
   ];

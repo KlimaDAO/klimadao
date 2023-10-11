@@ -74,7 +74,7 @@ function RetiredCreditsChart(props: {
     },
   ];
   return (
-    <div className={styles.issuedvsBridgedWrapper}>
+    <div className={styles.issuedvsRetiredWrapper}>
       <div className={styles.pieChartWrapper}>
         <KPieChart
           data={data}
@@ -88,7 +88,7 @@ function RetiredCreditsChart(props: {
           }
         />
       </div>
-      <div className={styles.pieChartLegend}>
+      <div className={styles.fact}>
         <div className={styles.value}>
           {formatTonnes({ amount: props.retired, maximumFractionDigits: 0 })}
         </div>

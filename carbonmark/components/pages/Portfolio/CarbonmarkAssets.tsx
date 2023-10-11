@@ -2,10 +2,10 @@ import { t, Trans } from "@lingui/macro";
 import { CreateListing } from "components/CreateListing";
 import { SpinnerWithLabel } from "components/SpinnerWithLabel";
 import { Text } from "components/Text";
-import { addProjectsToAssets } from "lib/actions";
-import { getAssetsWithProjectTokens } from "lib/getAssetsData";
+import { addProjectsToAssets, AssetWithProject } from "lib/actions";
+import { isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
-import { AssetForListing, User } from "lib/types/carbonmark.types";
+import { User } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AssetProject } from "./AssetProject";
@@ -20,15 +20,12 @@ type Props = {
 
 export const CarbonmarkAssets: FC<Props> = (props) => {
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
-  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
-  const [assetToSell, setAssetToSell] = useState<AssetForListing | null>(null);
+  const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);
+  const [assetToSell, setAssetToSell] = useState<AssetWithProject | null>(null);
 
-  const assetWithProjectTokens =
-    !!props.user?.assets?.length &&
-    getAssetsWithProjectTokens(props.user.assets);
-
+  const listableAssets = props.user?.assets.filter(isListableToken) || [];
   const isUpdatingUser = props.isLoadingUser || isLoadingAssets;
-  const hasAssets = !isLoadingAssets && !!assetWithProjectTokens;
+  const hasAssets = !isLoadingAssets && !!listableAssets.length;
   const emptyAssets = !isUpdatingUser && !assetsData?.length;
 
   // load Assets every time user changed
@@ -38,18 +35,11 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
         try {
           setIsLoadingAssets(true);
 
-          if (assetWithProjectTokens) {
+          if (listableAssets.length) {
             const assetsWithProject = await addProjectsToAssets({
-              assets: assetWithProjectTokens,
+              assets: listableAssets,
             });
-
-            // TODO: filter assets with balance > 0
-            // this will be unnecessary as soon as bezos switched to mainnet
-            const assetsWithBalance = assetsWithProject.filter(
-              (a) => Number(a.balance) > 0
-            );
-
-            setAssetsData(assetsWithBalance);
+            setAssetsData(assetsWithProject);
           }
         } catch (e) {
           console.error(e);
@@ -70,7 +60,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
         assetsData.map((a) => (
           <div
             className={isUpdatingUser ? styles.loadingOverlay : ""}
-            key={a.tokenAddress}
+            key={a.id}
           >
             <AssetProject
               asset={a}
@@ -88,6 +78,7 @@ export const CarbonmarkAssets: FC<Props> = (props) => {
           onSubmit={props.onUpdateUser}
           assets={[assetToSell]}
           showModal={!!assetToSell}
+          listings={props.user?.listings || []}
           successScreen={
             <Text align="center">
               <Trans>

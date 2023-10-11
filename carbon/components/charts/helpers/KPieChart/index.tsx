@@ -5,7 +5,6 @@ import { ChartData } from "lib/charts/types";
 import { cloneDeep } from "lodash";
 import { useRef } from "react";
 import { Cell, Legend, LegendProps, Pie, PieChart, Tooltip } from "recharts";
-import { ContentType } from "recharts/types/component/DefaultLegendContent";
 import ChartWrapper from "../ChartWrapper";
 import { ChartConfiguration, ChartConfigurationItem } from "../Configuration";
 import { YAxisType, getToolTipYAxisFormatter } from "../props";
@@ -17,7 +16,7 @@ interface Props<CI extends { quantity: number }, T extends object> {
   showLegend?: boolean;
   showPercentageInLegend?: boolean;
   showTooltip?: boolean;
-  legendContent?: ContentType;
+  legendContent?: React.ReactNode;
   noDataText?: string;
   YAxis?: YAxisType;
 }
@@ -59,11 +58,18 @@ export default function KPieChart<
   const localLegendProps =
     props.LegendProps ||
     Object.assign({}, KlimaLegendProps(configuration), {
-      verticalAlign: "middle",
       align: "center",
       layout: "vertical",
+      verticalAlign: "middle",
     });
   const showLegend = props.showLegend === undefined ? true : props.showLegend;
+  // legendContent has to be passed as a function to prevent React complaining with verticalAlign. See: https://github.com/recharts/recharts/issues/1448
+  const legendContent = props.legendContent
+    ? () => {
+        return props.legendContent ? props.legendContent : <div></div>;
+      }
+    : undefined;
+
   const showTooltip =
     props.showTooltip === undefined ? true : props.showTooltip;
 
@@ -74,12 +80,15 @@ export default function KPieChart<
       return;
     }
 
-    const graphicalItems = chartRef.current.state.formattedGraphicalItems[0];
+    const formattedGraphicalItems =
+      chartRef.current.state.formattedGraphicalItems[0].props.sectors;
+    const graphicalItems =
+      chartRef.current.state.graphicalItems[0].props.children;
     let activeItem: any = undefined;
     let index = 0;
-    for (; index < graphicalItems.props.data.length; index++) {
-      if (graphicalItems.props.data[index].id == item.id) {
-        activeItem = graphicalItems.props.sectors[index];
+    for (; index < graphicalItems.length; index++) {
+      if (graphicalItems[index].key == item.id) {
+        activeItem = formattedGraphicalItems[index];
       }
     }
     if (!activeItem) {
@@ -131,7 +140,7 @@ export default function KPieChart<
         {showLegend && (
           <Legend
             {...localLegendProps}
-            content={props.legendContent}
+            content={legendContent}
             onMouseOver={legendItemOnMouseOver}
             onMouseLeave={legendItemOnMouseLeave}
           />

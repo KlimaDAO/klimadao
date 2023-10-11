@@ -10,20 +10,13 @@ import layout from "theme/layout.module.scss";
 export default function TokenDetailsTab(props: TokenDetailsProps) {
   return (
     <div>
-      <div className={layout.cardRow}>
+      <div className={`${layout.cardRow} ${layout.cardRowWrap}`}>
         <TokenStateOfDigitalCarbonCard {...props} />
         <TokenPoolBreakdownCard {...props} />
-      </div>
-
-      <div className={layout.cardRow}>
         <TokenVolumeOverTimeCard {...props} />
         <TokenDistributionOfVintageCard {...props} />
-      </div>
-      <div className={layout.cardRow}>
         <TokenDistributionOfMethodologiesCard {...props} />
         <TokenDistributionOfProjectsCard {...props} />
-      </div>
-      <div className={layout.cardRow}>
         <TokenOriginsCard {...props} />
       </div>
     </div>

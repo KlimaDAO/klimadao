@@ -17,6 +17,8 @@ import { ChartConfiguration } from "./Configuration";
 import {
   KlimaXAxisMethodologyProps,
   KlimaXAxisVintageProps,
+  KlimaYAxisIdentityProps,
+  KlimaYAxisPercentageAutoscaleProps,
   KlimaYAxisPercentageProps,
   KlimaYAxisPriceProps,
   KlimaYAxisTonsProps,
@@ -45,7 +47,13 @@ export type XAxisType =
   | "vintage"
   | "methodology"
   | undefined;
-export type YAxisType = "tons" | "price" | "percentage" | undefined;
+export type YAxisType =
+  | "tons"
+  | "price"
+  | "percentage"
+  | "percentageAutoscale"
+  | "identity"
+  | undefined;
 
 export function getXAxisProps<T extends object>(props: ChartProps<T>) {
   const locale = currentLocale();
@@ -79,9 +87,15 @@ export function getYAxisProps<T extends object>(props: ChartProps<T>) {
   if (props.YAxis == "percentage") {
     YAxisProps = KlimaYAxisPercentageProps();
   }
+  if (props.YAxis == "percentageAutoscale") {
+    YAxisProps = KlimaYAxisPercentageAutoscaleProps();
+  }
+  if (props.YAxis == "identity") {
+    YAxisProps = KlimaYAxisIdentityProps();
+  }
   return YAxisProps;
 }
-export function getToolTipXAxisFormatter<T extends object>(XAxis: XAxisType) {
+export function getToolTipXAxisFormatter(XAxis: XAxisType) {
   const locale = currentLocale();
   // Default format months
   let toolTipXAxisFormatter = helpers.formatDateAsMonths;
@@ -109,7 +123,7 @@ export function getToolTipYAxisFormatter(YAxis: YAxisType) {
   if (YAxis == "price") {
     toolTipYAxisFormatter = helpers.formatPrice;
   }
-  if (YAxis == "percentage") {
+  if (YAxis == "percentage" || YAxis == "percentageAutoscale") {
     toolTipYAxisFormatter = (x) =>
       helpers.formatPercentage({ value: x, fractionDigits: 2 });
   }
