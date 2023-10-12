@@ -8,13 +8,15 @@ const handler = (fastify: FastifyInstance) =>
     reply: FastifyReply
   ) {
     // Destructure the wallet, username, and description properties from the request body
-    const { wallet, username, description, profileImgUrl } = request.body;
+    const { wallet, username, description, profileImgUrl, handle } =
+      request.body;
 
     try {
       const updatedData = {
         username,
         description,
         updatedAt: Date.now(),
+        handle,
         profileImgUrl:
           profileImgUrl && profileImgUrl.length ? profileImgUrl : null,
       };
