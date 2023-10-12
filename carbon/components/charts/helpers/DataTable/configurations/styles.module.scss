@@ -1,4 +1,4 @@
-@import "~@klimadao/lib/theme/breakpoints.scss";
+@use "~@klimadao/lib/theme/breakpoints.scss";
 
 // Tables styling
 .table {
@@ -8,7 +8,7 @@
 
 .header {
   background-color: var(--surface-01);
-  @include medium {
+  @include breakpoints.medium {
     white-space: nowrap;
   }
   th,

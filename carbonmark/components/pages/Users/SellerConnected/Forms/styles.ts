@@ -32,12 +32,7 @@ export const spinner = css`
   justify-content: center;
 `;
 
-export const editLabelProjectName = css`
-  background: var(--surface-04);
-  border-radius: 1rem;
-  padding: 1.4rem 1rem;
-  min-height: 4.8rem;
-`;
+export const editLabelProjectName = css``;
 
 export const profileLogo = css`
   justify-self: center;
@@ -45,4 +40,16 @@ export const profileLogo = css`
 
 export const required = css`
   color: var(--warning-red);
+`;
+
+export const expiration = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  & div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;

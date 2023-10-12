@@ -17,11 +17,19 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address, toggleModal, initializing, networkLabel } =
-    useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(address, {
-    network: networkLabel,
+  const {
+    isConnected,
+    address = "",
+    toggleModal,
+    initializing,
+    networkLabel,
+  } = useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
+    params: { walletOrHandle: address },
+    //Since we're fetching for the current user fetch all listings
+    query: { network: networkLabel, expiresAfter: "0" },
   });
+
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -30,27 +38,22 @@ export const Portfolio: NextPage = () => {
   const isUnregistered =
     isConnectedUser && !isLoading && carbonmarkUser === null;
 
-  const handleMutateUser = async () => {
-    if (!isConnectedUser) return;
-
-    const latestActivity = carbonmarkUser?.activities.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-    )[0];
-
-    const newUser = await getUserUntil({
-      address,
-      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 1000,
-      maxAttempts: 50,
-    });
-
-    return newUser;
-  };
-
   const onUpdateUser = async () => {
+    if (!carbonmarkUser) return;
     try {
       setIsPending(true);
-      await mutate(handleMutateUser, {
+      const newUser = await getUserUntil({
+        address: carbonmarkUser.wallet.toLowerCase(),
+        retryUntil: activityIsAdded(
+          carbonmarkUser?.activities[0].timeStamp || "0"
+        ),
+        retryInterval: 2000,
+        maxAttempts: 50,
+        network: networkLabel,
+      });
+      await mutate(newUser, {
+        optimisticData: newUser,
+        revalidate: false,
         populateCache: true,
       });
     } catch (e) {

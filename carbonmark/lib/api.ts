@@ -127,7 +127,7 @@ export const getRetirementCertificate = async (params: {
     }
     await createDownloadLink(await result.blob(), filename);
   } catch (error) {
-    console.log("Error occurred downloading retirement certificate", error);
+    console.error("Error occurred downloading retirement certificate", error);
   }
 };
 
@@ -136,8 +136,32 @@ export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
   const latestActivity = newUser.activities.sort(
     (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
   )[0];
-
   return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);
+};
+
+export const refreshUser = async (params: {
+  walletOrHandle: string;
+  network?: "mumbai" | "polygon";
+  expiresAfter?: string;
+}) => {
+  const { network = "polygon", expiresAfter } = params;
+  const response = await client["/users/{walletOrHandle}"].get(
+    {
+      params: { walletOrHandle: params.walletOrHandle.toLowerCase() },
+      query: { network, expiresAfter },
+    },
+    {
+      cache: "reload",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  const user = await response.json();
+  return user;
 };
 
 export const getUserUntil = async (params: {
@@ -148,9 +172,10 @@ export const getUserUntil = async (params: {
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const fetchUser = () =>
-    getUser({
-      user: params.address,
+    refreshUser({
+      walletOrHandle: params.address,
       network: params.network,
+      expiresAfter: "0",
     });
 
   const updatedUser = await pollUntil({
@@ -178,19 +203,11 @@ export const getProjects = async (
   return await fetcher(url);
 };
 
-export const getUser = async (params: {
-  user: string;
-  network?: "mumbai" | "polygon";
-}): Promise<User> => {
-  const { network = "polygon" } = params;
-  return await fetcher(`${urls.api.users}/${params.user}?network=${network}`);
-};
-
 export const getProject = async (projectId: string): Promise<Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);
 
 export const getCategories = async (): Promise<CategoryName[]> => {
-  const response = await await client["/categories"].get();
+  const response = await client["/categories"].get();
   const categories = await response.json();
   return categories.map(extract("id")).filter(isCategoryName);
 };

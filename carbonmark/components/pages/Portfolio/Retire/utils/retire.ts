@@ -108,8 +108,6 @@ export const retireProjectTokenTransaction = async (params: {
     params.onStatus("networkConfirmation");
     const receipt: RetirementReceipt = await txn.wait(1);
 
-    console.log("Retirement Receipt:", receipt);
-
     return {
       receipt,
       retirementTotals: newRetirementIndex.toNumber(),

@@ -1,6 +1,7 @@
 import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { currentLocale } from "lib/i18n";
+import moment from "moment";
 import { DateTimeFormatOptions } from "next-intl";
 import { ChartData } from "./types";
 /*
@@ -25,6 +26,48 @@ export function transformToPercentages<CI>(
   });
   return data;
 }
+export function fillWithZeroes<CI extends object>(
+  data: ChartData<CI>,
+  configuration: ChartConfiguration<keyof CI>,
+  dateField: keyof CI,
+  granularity: moment.unitOfTime.DurationConstructor
+): ChartData<CI> {
+  if (data.length == 0) return data;
+  let date = moment(data[0][dateField] as string);
+  const now = moment();
+  const newData: ChartData<CI> = [];
+  while (date.isSameOrBefore(now, granularity)) {
+    let newItem: CI | undefined = data.find((item) => {
+      const itemDate = moment(item[dateField] as string).startOf(granularity);
+      return itemDate.isSame(date, granularity);
+    });
+    if (newItem === undefined) {
+      newItem = Object.assign({ ...data[0] });
+      configuration.forEach((conf) => {
+        (newItem![conf.id] as number) = 0;
+      });
+    }
+    if (newItem) {
+      (newItem[dateField] as string) = date.startOf(granularity).toISOString();
+      newData.push(newItem);
+    }
+    date = date.add("1", granularity);
+  }
+  return newData;
+}
+export function cumulativeSum<CI extends object>(
+  data: ChartData<CI>,
+  configuration: ChartConfiguration<keyof CI>
+): ChartData<CI> {
+  data.forEach((item, index) => {
+    configuration.forEach((conf) => {
+      if (index > 0)
+        (item[conf.id] as number) += data[index - 1][conf.id] as number;
+    });
+  });
+  return data;
+}
+// This function fills missing months in query results
 /** 
   Returns chart data where there are no rows with all charted data equals 0
 */
@@ -173,6 +216,8 @@ export function getDataChartMax<T>(
   }, 0);
 }
 const helpers = {
+  fillWithZeroes,
+  cumulativeSum,
   formatDateAndTime,
   formatQuantityAsMillionsOfTons,
   formatQuantityAsKiloTons,
