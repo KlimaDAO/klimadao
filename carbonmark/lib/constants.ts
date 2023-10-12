@@ -52,7 +52,6 @@ export const ENVIRONMENT: Environment =
     preview: IS_PREVIEW,
   }).first() ?? "preview";
 
-console.log(process.env.NEXT_PUBLIC_CARBONMARK_API_URL);
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
@@ -150,5 +149,3 @@ export const urls = {
 export const DEFAULT_NETWORK = config.networks[ENVIRONMENT] as
   | "mainnet"
   | "testnet";
-
-console.log(config.urls.api[ENVIRONMENT]);
