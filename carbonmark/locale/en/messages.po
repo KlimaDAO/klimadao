@@ -14,26 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:11
-msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-
-#. js-lingui-explicit-id
-#: components/pages/Users/Badge/index.tsx:16
-msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-
-#. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
-msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-
-#. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
-msgid "Expiration"
-msgstr "Expiration"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -1704,9 +1684,19 @@ msgid "Invalid"
 msgstr "Invalid"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+
+#. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:14
 msgid "Expired"
 msgstr "Expired"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
 
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
@@ -1769,6 +1759,16 @@ msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:132
 msgid "New Unit Price (USDC)"
 msgstr "New Unit Price (USDC)"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
+msgid "Expiration"
+msgstr "Expiration"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
