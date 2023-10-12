@@ -7,7 +7,6 @@ import client from "../../../lib/api/client";
 import type {
   PutUsersWalletMutationRequest,
   PutUsersWalletMutationResponse,
-  PutUsersWalletPathParams,
 } from "../models/PutUsersWallet";
 
 /**
@@ -19,13 +18,10 @@ export function usePutUsersWallet<
   TData = PutUsersWalletMutationResponse,
   TError = unknown,
   TVariables = PutUsersWalletMutationRequest,
->(
-  wallet: PutUsersWalletPathParams["wallet"],
-  options?: {
-    mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
-    client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
-  }
-): SWRMutationResponse<TData, TError, string, TVariables> {
+>(options?: {
+  mutation?: SWRMutationConfiguration<TData, TError, string, TVariables>;
+  client?: Partial<Parameters<typeof client<TData, TError, TVariables>>[0]>;
+}): SWRMutationResponse<TData, TError, string, TVariables> {
   const { mutation: mutationOptions, client: clientOptions = {} } =
     options ?? {};
 

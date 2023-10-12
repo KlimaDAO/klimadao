@@ -38,11 +38,3 @@ export type PutUsersWalletMutationResponse = {
    */
   profileImgUrl?: string;
 };
-
-export type PutUsersWalletPathParams = {
-  /**
-   * @description The target wallet address
-   * @type string
-   */
-  wallet: string;
-};

@@ -1,3 +1,4 @@
+import client from '.generated/carbonmark-api-sdk/client';
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -9,6 +10,7 @@ import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { activityIsAdded, getUserUntil } from "lib/api";
+import { notNil } from "lib/utils/functional.utils";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
@@ -23,7 +25,9 @@ export const Portfolio: NextPage = () => {
     data: carbonmarkUser,
     isLoading,
     mutate,
-  } = useGetUsersWalletorhandle(address ?? "", { network: networkLabel, expiresAfter: "0" });
+  } = useGetUsersWalletorhandle(address ?? "",
+    { network: networkLabel, expiresAfter: "0" },
+    { query: { fetcher: notNil(address) ? client : async () => undefined } });
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

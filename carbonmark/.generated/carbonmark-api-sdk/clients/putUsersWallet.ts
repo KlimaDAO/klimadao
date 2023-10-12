@@ -2,7 +2,6 @@ import client from "../client";
 import type {
   PutUsersWalletMutationRequest,
   PutUsersWalletMutationResponse,
-  PutUsersWalletPathParams,
 } from "../models/PutUsersWallet";
 
 /**
@@ -14,7 +13,6 @@ export function putUsersWallet<
   TData = PutUsersWalletMutationResponse,
   TVariables = PutUsersWalletMutationRequest,
 >(
-  wallet: PutUsersWalletPathParams["wallet"],
   data: TVariables,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): Promise<TData> {

@@ -1,53 +1,33 @@
-import type { AxiosError, AxiosHeaders, AxiosRequestConfig } from "axios";
-import axios from "axios";
 import { urls } from "lib/constants";
 
-/**
- * This client is necessary only so that we can set the base url for our api and it's generated sdk
- * I'm sure there is a better way..
- * See: https://www.kubb.dev/plugins/swagger-client/client#default-client
- */
-declare const AXIOS_HEADERS: string;
-
-export type RequestConfig<TVariables = unknown> = {
-  method: "get" | "put" | "patch" | "post" | "delete";
+export type RequestConfig = {
+  method: "GET" | "PUT" | "PATCH" | "POST" | "DELETE";
   url: string;
   params?: unknown;
-  data?: TVariables;
-  responseType?:
-    | "arraybuffer"
-    | "blob"
-    | "document"
-    | "json"
-    | "text"
-    | "stream";
-  signal?: AbortSignal;
-  headers?: AxiosRequestConfig["headers"];
+  body?: unknown;
+  headers?: HeadersInit;
 };
 
-export const axiosInstance = axios.create({
-  baseURL: urls.api.base,
-  headers:
-    typeof AXIOS_HEADERS !== "undefined"
-      ? (JSON.parse(AXIOS_HEADERS) as AxiosHeaders)
-      : undefined,
-});
+export const fetchClient = async ({
+  method,
+  url,
+  body,
+  headers,
+}: RequestConfig): Promise<Response> => {
+  const response = await fetch(`${urls.api.base}/${url}`, {
+    method,
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+  });
 
-export const axiosClient = async <
-  TData,
-  TError = unknown,
-  TVariables = unknown,
->(
-  config: RequestConfig<TVariables>
-): Promise<TData> => {
-  const promise = axiosInstance
-    .request<TData>({ ...config })
-    .then(({ data }) => data)
-    .catch((e: AxiosError<TError>) => {
-      throw e;
-    });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-  return promise;
+  return response.json();
 };
 
-export default axiosClient;
+export default fetchClient;

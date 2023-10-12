@@ -1,11 +1,17 @@
-import type { Def1 } from "./Def1";
-
 export type GetPurchasesIdPathParams = {
   /**
    * @description ID (transaction hash) of the purchase to retrieve
    * @type string
    */
   id: string;
+};
+
+export type GetPurchasesIdQueryParams = {
+  /**
+   * @description Optional. Desired blockchain network. Default is `polygon` (mainnet).
+   * @default 'polygon'
+   */
+  network: "polygon" | "mumbai";
 };
 
 /**
@@ -66,8 +72,4 @@ export type GetPurchasesIdQueryResponse = {
    * @type string
    */
   price: string;
-};
-
-export type GetPurchasesIdQueryParams = {
-  network?: Def1;
 };

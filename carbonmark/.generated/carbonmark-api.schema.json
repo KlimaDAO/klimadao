@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Carbonmark REST API",
-    "description": "\nWelcome to the API Reference docs for **version 2.0.0-6** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
+    "description": "\nWelcome to the API Reference docs for **version 2.0.0-7** of the Carbonmark REST API. Use this API to view assets, prices, supply, activity and more.\n## Quick start\nBe sure to prefix a version number, otherwise your application will be exposed to breaking changes.\n\n~~~ts\nconst res = await fetch(\"https://v1.api.carbonmark.com/projects\");\nconst projects = await res.json();\n~~~\n\nFor a developer guides and example implementations, or to learn more about Carbonmark and Digital Carbon Market, view our product knowledge base at <a href=\"https://docs.carbonmark.com\">docs.carbonmark.com</a>.\n## \n",
     "termsOfService": "https://www.carbonmark.com/blog/terms-of-use",
     "contact": {
       "name": "Support",
@@ -12,7 +12,7 @@
       "name": "MIT",
       "url": "https://github.com/KlimaDAO/klimadao/blob/main/LICENSE"
     },
-    "version": "2.0.0-6"
+    "version": "2.0.0-7"
   },
   "components": {
     "schemas": {
@@ -2166,6 +2166,48 @@
     }
   },
   "paths": {
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/countries": {
       "get": {
         "summary": "Countries",
@@ -2218,11 +2260,34 @@
         "parameters": [
           {
             "schema": {
-              "$ref": "#/components/schemas/def-1"
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
             },
             "in": "query",
             "name": "network",
-            "required": false
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
           {
             "schema": {
@@ -2683,98 +2748,6 @@
         }
       }
     },
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/vintages": {
-      "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "examples": [
-                  [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/users/{walletOrHandle}": {
       "get": {
         "summary": "User details",
@@ -2785,11 +2758,34 @@
         "parameters": [
           {
             "schema": {
-              "$ref": "#/components/schemas/def-1"
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
             },
             "in": "query",
             "name": "network",
-            "required": false
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
           {
             "schema": {
@@ -3428,18 +3424,6 @@
           },
           "required": true
         },
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
-            "in": "path",
-            "name": "wallet",
-            "required": true,
-            "description": "The target wallet address"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3477,132 +3461,40 @@
         }
       }
     },
-    "/purchases/{id}": {
+    "/vintages": {
       "get": {
-        "summary": "Purchase details",
-        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "ID (transaction hash) of the purchase to retrieve"
-          }
-        ],
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
         "responses": {
           "200": {
-            "description": "Successful response with listing details",
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "ID (transaction hash) of the purchase",
-                      "examples": [
-                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
-                      ],
-                      "type": "string"
-                    },
-                    "amount": {
-                      "description": "Quantity of credits purchased",
-                      "examples": [
-                        "1.0"
-                      ],
-                      "type": "string"
-                    },
-                    "listing": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "ID of the listing that was purchased",
-                          "examples": [
-                            "0x1"
-                          ],
-                          "type": "string"
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "project"
-                      ]
-                    },
-                    "price": {
-                      "description": "Total purchase price (USDC)",
-                      "examples": [
-                        "5.0"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "amount",
-                    "listing",
-                    "price"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
                   ]
-                }
+                ]
               }
             }
           }
@@ -3619,14 +3511,6 @@
         "parameters": [
           {
             "schema": {
-              "$ref": "#/components/schemas/def-1"
-            },
-            "in": "query",
-            "name": "network",
-            "required": false
-          },
-          {
-            "schema": {
               "type": "string"
             },
             "example": "1620000000",
@@ -3634,6 +3518,37 @@
             "name": "expiresAfter",
             "required": false,
             "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
+          },
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": false,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
           {
             "schema": {
@@ -4292,6 +4207,161 @@
                     "activities",
                     "price",
                     "vintage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{id}": {
+      "get": {
+        "summary": "Purchase details",
+        "description": "Retrieve the details of a purchase by its ID (transaction hash)",
+        "parameters": [
+          {
+            "schema": {
+              "default": "polygon",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "polygon"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "mumbai"
+                  ]
+                }
+              ]
+            },
+            "examples": {
+              "polygon": {
+                "value": "polygon"
+              },
+              "mumbai": {
+                "value": "mumbai"
+              }
+            },
+            "in": "query",
+            "name": "network",
+            "required": true,
+            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2821a317b0166e40eff697c209c4534bbfa1c1fbd418255b2be24443b146a60f",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "ID (transaction hash) of the purchase to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with listing details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID (transaction hash) of the purchase",
+                      "examples": [
+                        "0xcad9383fba33aaad6256304ef7b103f3f00b21afbaffbbff14423bf074b699e8"
+                      ],
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Quantity of credits purchased",
+                      "examples": [
+                        "1.0"
+                      ],
+                      "type": "string"
+                    },
+                    "listing": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "ID of the listing that was purchased",
+                          "examples": [
+                            "0x1"
+                          ],
+                          "type": "string"
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "country": {
+                              "examples": [
+                                "China"
+                              ],
+                              "type": "string"
+                            },
+                            "key": {
+                              "examples": [
+                                "VCS-191"
+                              ],
+                              "type": "string"
+                            },
+                            "methodology": {
+                              "examples": [
+                                "ACM0002"
+                              ],
+                              "type": "string"
+                            },
+                            "name": {
+                              "examples": [
+                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
+                              ],
+                              "type": "string"
+                            },
+                            "projectID": {
+                              "examples": [
+                                "191"
+                              ],
+                              "type": "string"
+                            },
+                            "vintage": {
+                              "examples": [
+                                "2008"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "country",
+                            "key",
+                            "methodology",
+                            "name",
+                            "projectID",
+                            "vintage"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "project"
+                      ]
+                    },
+                    "price": {
+                      "description": "Total purchase price (USDC)",
+                      "examples": [
+                        "5.0"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "amount",
+                    "listing",
+                    "price"
                   ]
                 }
               }

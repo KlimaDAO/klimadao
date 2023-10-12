@@ -13,7 +13,7 @@ import type {
 
 export function getPurchasesId<TData = GetPurchasesIdQueryResponse>(
   id: GetPurchasesIdPathParams["id"],
-  params?: GetPurchasesIdQueryParams,
+  params: GetPurchasesIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): Promise<TData> {
   return client<TData>({

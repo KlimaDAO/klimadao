@@ -1,16 +1,12 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
 import client from "../../../lib/api/client";
-import type {
-  GetVintagesQueryParams,
-  GetVintagesQueryResponse,
-} from "../models/GetVintages";
+import type { GetVintagesQueryResponse } from "../models/GetVintages";
 
 export function getVintagesQueryOptions<
   TData = GetVintagesQueryResponse,
   TError = unknown,
 >(
-  params?: GetVintagesQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
 ): SWRConfiguration<TData, TError> {
   return {
@@ -18,8 +14,6 @@ export function getVintagesQueryOptions<
       return client<TData, TError>({
         method: "get",
         url: `/vintages`,
-
-        params,
 
         ...options,
       });
@@ -36,17 +30,14 @@ export function getVintagesQueryOptions<
 export function useGetVintages<
   TData = GetVintagesQueryResponse,
   TError = unknown,
->(
-  params?: GetVintagesQueryParams,
-  options?: {
-    query?: SWRConfiguration<TData, TError>;
-    client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
-  }
-): SWRResponse<TData, TError> {
+>(options?: {
+  query?: SWRConfiguration<TData, TError>;
+  client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+}): SWRResponse<TData, TError> {
   const { query: queryOptions, client: clientOptions = {} } = options ?? {};
 
   const query = useSWR<TData, TError, string>(`/vintages`, {
-    ...getVintagesQueryOptions<TData, TError>(params, clientOptions),
+    ...getVintagesQueryOptions<TData, TError>(clientOptions),
     ...queryOptions,
   });
 
