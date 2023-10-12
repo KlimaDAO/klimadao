@@ -117,8 +117,6 @@ export const PurchaseInputs: FC<Props> = (props) => {
             )}
           </div>
 
-          <>{console.log("exceededBalance", exceededBalance)}</>
-
           <Dropdown
             name="paymentMethod"
             initial={carbonmarkPaymentMethodMap["usdc"].id}
