@@ -14,7 +14,9 @@ export type Props = {
 };
 
 export const RetireFromPortfolio: FC<Props> = (props) => {
-  const { carbonmarkUser, isLoading } = useFetchUser(props.address);
+  const { carbonmarkUser, isLoading } = useFetchUser({
+    params: { walletOrHandle: props.address },
+  });
 
   const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [assetsData, setAssetsData] = useState<AssetWithProject[] | null>(null);

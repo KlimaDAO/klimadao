@@ -147,7 +147,7 @@ export const refreshUser = async (params: {
   const { network = "polygon", expiresAfter } = params;
   const response = await client["/users/{walletOrHandle}"].get(
     {
-      params: { walletOrHandle: params.walletOrHandle },
+      params: { walletOrHandle: params.walletOrHandle.toLowerCase() },
       query: { network, expiresAfter },
     },
     {
@@ -173,7 +173,7 @@ export const getUserUntil = async (params: {
 }): Promise<User> => {
   const fetchUser = () =>
     refreshUser({
-      walletOrHandle: params.address.toLowerCase(),
+      walletOrHandle: params.address,
       network: params.network,
       expiresAfter: "0",
     });
@@ -201,14 +201,6 @@ export const getProjects = async (
   let url = urls.api.projects;
   if (notNil(params)) url += new URLSearchParams(params);
   return await fetcher(url);
-};
-
-export const getUser = async (params: {
-  user: string;
-  network?: "mumbai" | "polygon";
-}): Promise<User> => {
-  const { network = "polygon" } = params;
-  return await fetcher(`${urls.api.users}/${params.user}?network=${network}`);
 };
 
 export const getProject = async (projectId: string): Promise<Project> =>

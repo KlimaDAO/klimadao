@@ -11,7 +11,7 @@ import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
-import { activityIsAdded, getUser, getUserUntil } from "lib/api";
+import { activityIsAdded, getUserUntil, refreshUser } from "lib/api";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
@@ -31,11 +31,16 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { networkLabel } = useWeb3();
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(
-    props.userAddress,
-    { network: networkLabel }
-  );
+  const { address, networkLabel } = useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
+    params: { walletOrHandle: props.userAddress },
+    // Conditionally fetch all listings for the user if viewing own profile
+    query: {
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+      network: networkLabel,
+    },
+  });
+
   const [isPending, setIsPending] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
@@ -55,8 +60,9 @@ export const SellerConnected: FC<Props> = (props) => {
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = await getUser({
-        user: props.userAddress,
+      const userFromApi = await refreshUser({
+        walletOrHandle: props.userAddress,
+        network: networkLabel,
       });
 
       // Merge with data from Updated Profile as backend might be slow!
