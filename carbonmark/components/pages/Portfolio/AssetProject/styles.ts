@@ -35,3 +35,8 @@ export const link = css`
     color: blue;
   }
 `;
+
+export const tonnes = css`
+  display: flex;
+  justify-content: space-between;
+`;

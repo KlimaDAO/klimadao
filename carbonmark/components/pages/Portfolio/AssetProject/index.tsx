@@ -59,11 +59,17 @@ export const AssetProject: FC<Props> = (props) => {
           </Link>
         </div>
       )}
-      <Text t="body1">
-        <Trans>Available Tonnes:</Trans>{" "}
-        <strong>{formatToTonnes(props.asset.amount, locale)}</strong>
-      </Text>
+      <div className={styles.tonnes}>
+        <Text t="body1">
+          <Trans>Unlisted Tonnes:</Trans>{" "}
+          <strong>{formatToTonnes(props.asset.amount, locale)}</strong>
+        </Text>
 
+        <Text t="body1">
+          <Trans>Listed Tonnes:</Trans>{" "}
+          <strong>{formatToTonnes(props.asset.amount, locale)}</strong>
+        </Text>
+      </div>
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
