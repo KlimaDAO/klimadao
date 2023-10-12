@@ -4,16 +4,22 @@ export const COMMON_SCHEMA_URI = "http://api.carbonmark.com/schemas";
 const GRAPH_API_ROOT = "https://api.thegraph.com/subgraphs/name";
 const GRAPH_API_ROOT_ID = "https://api.thegraph.com/subgraphs/id";
 
-/** Graph URLS */
-/** Note: the keys of the below objects are used when selecting gql files for type generation */
-export const GRAPH_URLS = {
-  marketplace: `${GRAPH_API_ROOT}/najada/marketplace-matic`,
-  // v0.0.2 - https://github.com/KlimaDAO/klima-subgraph/releases/
-  marketplaceMumbai: `${GRAPH_API_ROOT_ID}/QmYaSLxLhoqekxuip14HyEKXFuW9DQZE8CndFrHGHyeoB8`,
+const POLYGON_URLS = {
+  marketplace: `${GRAPH_API_ROOT_ID}/QmQZZSTzdP1JzyfvcZwJTZ6CCNXCBmhirc2AyCh4VDzPFV`,
   assets: `${GRAPH_API_ROOT}/cujowolf/klima-refi-current-holdings`,
   offsets: `${GRAPH_API_ROOT}/klimadao/polygon-bridged-carbon`,
   tokens: `${GRAPH_API_ROOT}/klimadao/klimadao-pairs`,
   digitalCarbon: `${GRAPH_API_ROOT}/klimadao/polygon-digital-carbon`,
+};
+
+// For now these are the same, marketplace will be updated once it has been released to polygon
+const MUMBAI_URLS = POLYGON_URLS;
+
+/** Graph URLS */
+/** Note: the keys of the below objects are used when selecting gql files for type generation */
+export const GRAPH_URLS = {
+  polygon: POLYGON_URLS,
+  mumbai: MUMBAI_URLS,
 };
 
 /** Sanity URLS */

@@ -15,7 +15,7 @@ describe("GET /vintages", () => {
 
   /** A default response for offsets */
   beforeEach(() =>
-    nock(GRAPH_URLS.offsets)
+    nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [] } })
   );
@@ -23,7 +23,7 @@ describe("GET /vintages", () => {
   /** The happy path */
   test("Success", async () => {
     const mock = aProject();
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [mock] } });
 
@@ -40,7 +40,7 @@ describe("GET /vintages", () => {
 
   /** An issue with one of the graph APIs */
   test("Graph Error", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         errors: [ERROR],
@@ -56,7 +56,7 @@ describe("GET /vintages", () => {
   });
 
   test("Empty data", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } });
 
@@ -71,7 +71,7 @@ describe("GET /vintages", () => {
   });
 
   test("Invalid data", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: "invalid data" } });
 

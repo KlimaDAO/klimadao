@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "6d6815a9-6e6b-4ea5-a551-aa8f29502604",
+    "_postman_id": "4eea85ed-1464-4a25-bd36-56b3b6ff5f2c",
     "name": "carbonmark-api",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "275500"
@@ -109,7 +109,7 @@
           "variable": [
             {
               "key": "purchaseId",
-              "value": "0xf29982b8a9aae457640fba31eaacc694868167c11b6d6e7ac9dd5e06e3405b14"
+              "value": "0x03bac372ddee7c014b6c610d1ead2d20d8b01b5e2714436a3b346c488ed26885"
             }
           ]
         }

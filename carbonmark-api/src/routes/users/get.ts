@@ -1,12 +1,15 @@
 import { Static } from "@sinclair/typebox";
 import { utils } from "ethers";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { Activity } from "../../models/Activity.model";
+import { Listing } from "../../models/Listing.model";
 import { User } from "../../models/User.model";
 import {
   getProfileByAddress,
   getProfileByHandle,
   getUserProfilesByIds,
 } from "../../utils/helpers/users.utils";
+import { formatListing } from "../../utils/marketplace.utils";
 import { Params, QueryString, schema } from "./get.schema";
 import {
   getHoldingsByWallet,
@@ -43,7 +46,11 @@ const handler = (fastify: FastifyInstance) =>
     const [profile, user, assets] = await Promise.all([
       handleProfile ||
         getProfileByAddress({ firebase: fastify.firebase, address }),
-      getUserByWallet({ address, network: query.network }),
+      getUserByWallet({
+        address,
+        network: query.network,
+        expiresAfter: query.expiresAfter,
+      }),
       getHoldingsByWallet({ address, network: query.network }),
     ]);
 
@@ -53,8 +60,8 @@ const handler = (fastify: FastifyInstance) =>
       addresses: getUniqueWallets(user?.activities ?? []),
     });
 
-    const activities =
-      user?.activities?.map((a) => {
+    let activities =
+      user?.activities?.map((a): Activity => {
         // remember: not all users have profiles.
         const buyer = !!a.buyer?.id && {
           id: a.buyer.id,
@@ -76,14 +83,16 @@ const handler = (fastify: FastifyInstance) =>
         };
       }) || [];
 
-    const listings =
-      user?.listings?.map((l) => ({
-        id: l.id,
-        leftToSell: l.leftToSell,
-        tokenAddress: l.tokenAddress,
-        singleUnitPrice: l.singleUnitPrice,
-        totalAmountToSell: l.totalAmountToSell,
-      })) || [];
+    let listings = user?.listings?.map(formatListing) || [];
+
+    // TEMP HOTFIX until we have a mainnet graph url
+    // https://github.com/KlimaDAO/klimadao/issues/1604
+    if (listings.length && request.query.network !== "mumbai") {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
+      listings = [] as Listing[];
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- temp fix
+      activities = [] as Activity[];
+    }
 
     const response: User = {
       createdAt: profile?.createdAt || 0,

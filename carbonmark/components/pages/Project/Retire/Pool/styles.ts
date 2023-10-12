@@ -85,6 +85,45 @@ export const paymentDropdown = css`
   }
 `;
 
+export const paymentMethod = css`
+  gap: 0.8rem;
+  color: #000;
+  display: flex;
+  padding: 1rem;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.8rem;
+  border: 1px solid #8b8fae;
+
+  &.selected {
+    color: #fff;
+    background: #58585c;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  div {
+    gap: 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    color: #626266;
+    &.selected {
+      color: #b0b1b8;
+    }
+
+    strong {
+      font-weight: 700;
+      padding-left: 0.8rem;
+    }
+  }
+`;
+
 export const paymentDropDownHeader = css`
   display: flex;
   align-items: center;
@@ -282,4 +321,67 @@ export const viewButton = css`
 
 export const fullWidthButton = css`
   width: 100%;
+`;
+
+export const feeText = css`
+  p {
+    color: var(--bright-blue);
+  }
+`;
+
+export const iconFade = css`
+  transition:
+    opacity 800ms linear,
+    display 800ms linear;
+  display: none;
+  opacity: 0;
+`;
+
+export const textTransition = css`
+  animation: slide 0.4s forwards 0.6s;
+
+  &.processing-fee {
+    animation: change-color 1.8s forwards 0s;
+  }
+
+  &.carbonmark-fee {
+    color: var(--bright-blue);
+    animation: slide 0.4s forwards 0.6s;
+  }
+
+  &.total-cost {
+    animation:
+      slide-total-cost 0.4s forwards 0.6s,
+      change-color 1.8s forwards 0s;
+  }
+
+  @keyframes slide {
+    from {
+      display: block;
+    }
+    to {
+      transform: translateX(-2.8rem);
+    }
+  }
+
+  @keyframes slide-total-cost {
+    from {
+      display: block;
+    }
+    to {
+      transform: translateX(-4.4rem);
+    }
+  }
+
+  @keyframes change-color {
+    0% {
+      color: var(--klima-green);
+    }
+    50% {
+      color: var(--klima-green);
+    }
+    100% {
+      color: #000;
+    }
+  }
 `;

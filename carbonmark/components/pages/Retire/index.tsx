@@ -152,7 +152,7 @@ export const Retire: NextPage<PageProps> = (props) => {
 
             <div className={styles.cardsList}>
               {props.defaultProjects.map((p) => {
-                if (p.isPoolProject && !!p.prices)
+                if (!!p.prices)
                   return (
                     <ProjectCard
                       key={p.key}

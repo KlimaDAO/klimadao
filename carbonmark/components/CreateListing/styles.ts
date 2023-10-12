@@ -8,7 +8,6 @@ export const centerContent = css`
 `;
 
 export const formatParagraph = css`
-  p {
-    margin-bottom: 1em;
-  }
+  display: grid;
+  gap: 1.6rem;
 `;

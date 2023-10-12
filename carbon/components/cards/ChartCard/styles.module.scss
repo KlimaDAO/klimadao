@@ -1,0 +1,109 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.cardContainer {
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.8rem;
+  background-color: var(--surface-04);
+  padding: 0 1.4rem;
+  padding-top: 1.2rem;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  @include breakpoints.desktop {
+    padding: 1.2rem 1.4rem;
+  }
+}
+
+.rowCardContainer {
+  min-height: 28.4rem;
+  height: 28.4rem;
+
+  &[aria-roledescription="detailPage"] {
+    min-height: 40rem;
+    height: 40rem;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.cardHeaderTitle {
+  white-space: nowrap;
+  flex: 1 1 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.blubb {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.cardHeaderDetailsLink {
+  &,
+  &:hover,
+  &.visited {
+    justify-self: flex-end;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    color: var(--text-color-05);
+    flex: 1 0;
+    text-align: right;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.cardContent {
+  max-width: calc(100% - 1rem);
+  height: 100%;
+}
+
+.cardFooter {
+  flex: 1 1 0;
+  margin-right: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.overlapLegend {
+  @include breakpoints.desktop {
+    margin: 0;
+    justify-content: center;
+    position: absolute;
+    bottom: 1.3rem;
+    left: 0;
+  }
+}
+
+.cardFooterSwitcher {
+  @include breakpoints.desktop {
+    display: none;
+  }
+}
+
+.cardHeaderSwitcher {
+  display: none;
+
+  @include breakpoints.desktop {
+    display: block;
+  }
+}

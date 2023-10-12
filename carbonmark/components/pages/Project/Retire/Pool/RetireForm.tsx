@@ -162,6 +162,7 @@ export const RetireForm: FC<Props> = (props) => {
       return;
     } catch (e) {
       console.error(e);
+
       setIsRedirecting(false);
       if (e.name === "MinPurchaseRequired") {
         setCheckoutError(t`${e.message}`);
@@ -308,7 +309,6 @@ export const RetireForm: FC<Props> = (props) => {
             <ProjectHeader project={props.project} />
             <div className={styles.formContainer}>
               <Price price={props.price.singleUnitPrice} />
-
               <RetireInputs
                 onSubmit={onContinue}
                 values={inputValues}
@@ -319,7 +319,6 @@ export const RetireForm: FC<Props> = (props) => {
                 address={address}
                 fiatAmountError={fiatAmountError}
               />
-
               <SubmitButton
                 onSubmit={onContinue}
                 isLoading={isLoadingAllowance}
@@ -327,7 +326,6 @@ export const RetireForm: FC<Props> = (props) => {
                 paymentMethod={paymentMethod}
                 disabled={disableSubmit}
               />
-
               {errorMessage && <Text>{errorMessage}</Text>}
             </div>
           </Card>

@@ -22,7 +22,6 @@ describe("PUT /User", () => {
         description: "blah",
       },
     });
-    console.log(response.body);
     expect(response.statusCode).toBe(200);
   });
 });

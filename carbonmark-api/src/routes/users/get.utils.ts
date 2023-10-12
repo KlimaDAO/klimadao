@@ -1,13 +1,18 @@
-import { Contract, providers } from "ethers";
+import { Contract, providers, utils } from "ethers";
 import { compact, sortBy, sortedUniq } from "lodash";
 import { pipe } from "lodash/fp";
 import ERC20 from "../../abis/ERC20.json";
 import { RPC_URLS } from "../../app.constants";
-import { Holding } from "../../graphql/assets.types";
-import { ByWalletUser } from "../../graphql/marketplace.types";
-import { User as MumbaiUser } from "../../graphql/marketplaceMumbai.types";
 import { NetworkParam } from "../../models/NetworkParam.model";
-import { gqlSdk } from "../../utils/gqlSdk";
+import { Holding } from "../../types/assets.types";
+import { gql_sdk } from "../../utils/gqlSdk";
+
+const formatHolding = (h: Holding): Holding => {
+  return {
+    ...h,
+    amount: utils.formatUnits(h.amount, h.token.decimals),
+  };
+};
 
 /** Hacky Mumbai simulation for known testnet assets
  *  until we get a testnet version of polygon-digital-carbon */
@@ -54,18 +59,21 @@ const fetchTestnetHoldings = async (params: {
       },
     };
   });
-  return holdings;
+  return holdings.map(formatHolding);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
 export const getUserByWallet = async (params: {
   address: string;
   network?: NetworkParam;
-}): Promise<ByWalletUser | MumbaiUser | undefined> => {
-  const graph =
-    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
-  const { users } = await graph.getUserByWallet({
+  expiresAfter?: string;
+}) => {
+  const sdk = gql_sdk(params.network);
+  const expiresAfter =
+    params.expiresAfter || Math.floor(Date.now() / 1000).toString();
+  const { users } = await sdk.marketplace.getUserByWallet({
     wallet: params.address.toLowerCase(),
+    expiresAfter,
   });
   return users.at(0);
 };
@@ -81,11 +89,12 @@ export const getHoldingsByWallet = async (params: {
       address: params.address,
     });
   }
+  const sdk = gql_sdk(params.network);
   // TODO: should be `polygon-digital-carbon` instead of `assets` subgraph
-  const { accounts } = await gqlSdk.assets.getHoldingsByWallet({
+  const { accounts } = await sdk.assets.getHoldingsByWallet({
     wallet: params.address,
   });
-  return accounts.at(0)?.holdings ?? [];
+  return accounts.at(0)?.holdings.map(formatHolding) ?? [];
 };
 
 /** Reduce an array of activities into a deduplicated sorted array of buyer and seller address strings. */

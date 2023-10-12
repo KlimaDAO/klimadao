@@ -9,6 +9,8 @@ import { DEV_URL, ERROR } from "../../test.constants";
 
 const purchaseModelFixture: Purchase = {
   ...marketplace.purchase,
+  amount: "1.0",
+  price: "5.0",
   listing: {
     id: marketplace.purchase.listing.id,
     project: {
@@ -43,11 +45,11 @@ describe("GET /purchases/:id", () => {
   });
 
   /** The happy path */
-  test("Success", async () => {
+  test("Returns and formats BigNumber values", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -61,9 +63,9 @@ describe("GET /purchases/:id", () => {
 
   test("Accept polygon network param", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -77,9 +79,9 @@ describe("GET /purchases/:id", () => {
 
   test("Accept mumbai network param", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplaceMumbai)
+    nock(GRAPH_URLS["mumbai"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -93,9 +95,9 @@ describe("GET /purchases/:id", () => {
 
   test("Reject bad purchase id", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -109,9 +111,9 @@ describe("GET /purchases/:id", () => {
 
   test("Reject unknown network param", async () => {
     // Mock the response from the graph
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
-      .reply(200, { data: { purchases: [marketplace.purchase] } });
+      .reply(200, { data: { purchase: marketplace.purchase } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -124,7 +126,7 @@ describe("GET /purchases/:id", () => {
   });
 
   test("Mainnet purchase not found", async () => {
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { purchases: [] } });
 
@@ -143,7 +145,7 @@ describe("GET /purchases/:id", () => {
       .spyOn(console, "error")
       .mockImplementationOnce(() => {});
 
-    nock(GRAPH_URLS.marketplace)
+    nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, {
         errors: [ERROR],

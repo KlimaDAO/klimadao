@@ -3,7 +3,7 @@ import {
   aProjectContent,
 } from "../../src/.generated/mocks/carbonProjects.mocks";
 
-const content = aProjectContent({
+const projectContent = aProjectContent({
   project: {
     registry: "VCS",
     registryProjectId: "191",
@@ -12,15 +12,16 @@ const content = aProjectContent({
   longDescription: "Long description for vcs-101",
 });
 
-const cmsProject = aProject({
+const project = aProject({
   country: "China",
   registry: "VCS",
   registryProjectId: "191",
+  region: "Asia",
 });
 
 // Generated types are wrong, id is string - https://github.com/KlimaDAO/klimadao/issues/1500
 const carbonProject = {
-  ...cmsProject,
+  ...project,
   // override these because the type from aProject() is wrong
   id: "VCS-191",
   methodologies: [
@@ -30,11 +31,13 @@ const carbonProject = {
       name: "Grid-connected electricity generation from renewable sources",
     },
   ],
-  content,
+  content: projectContent,
 };
 
 /** Fixtures for queries to the carbon-projects cms */
 const fixtures = {
+  projectContent,
+  project,
   /** Project entry in `fetchAllProjects` query */
   carbonProject,
 };

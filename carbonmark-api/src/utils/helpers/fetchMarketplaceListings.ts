@@ -1,38 +1,39 @@
 import { utils } from "ethers";
 import { FastifyInstance } from "fastify";
 import { set, sortBy } from "lodash";
-import {
-  CreditActivityWithHandle,
-  CreditListingWithHandle,
-} from "../../graphql/marketplaceMumbai.types";
-import { NetworkParam } from "../../models/NetworkParam.model";
+import { Activity } from "../../models/Activity.model";
+import { Listing } from "../../models/Listing.model";
 import { isActiveListing } from "../../routes/projects/get.utils";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
+import { formatListing } from "../marketplace.utils";
 import { getUserProfilesByIds } from "./users.utils";
 
 type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
   fastify: FastifyInstance; // Fastify instance
-  network?: NetworkParam;
+  /** UNIX seconds - default is current system timestamp */
+  expiresAfter?: string;
 };
 
 const filterUnsoldActivity = (activity: { activityType?: string }) =>
   activity.activityType !== "Sold";
 
-export const getCreditListings = async (params: {
-  projectId: string;
-  vintageStr: string;
-  network?: NetworkParam;
-}) => {
-  const graph =
-    params.network === "mumbai" ? gqlSdk.marketplaceMumbai : gqlSdk.marketplace;
-
-  const data = await graph.getCreditListings({
+export const getCreditListings = async (
+  sdk: GQL_SDK,
+  params: {
+    projectId: string;
+    vintageStr: string;
+    /** UNIX seconds - default is current system timestamp */
+    expiresAfter?: string;
+  }
+) => {
+  const expiresAfter =
+    params.expiresAfter || String(Math.floor(Date.now() / 1000));
+  const project = await sdk.marketplace.getProjectById({
     projectId: params.projectId,
-    vintageStr: params.vintageStr,
+    expiresAfter,
   });
-  const project = data?.projects.at(0);
   return project;
 };
 
@@ -41,29 +42,19 @@ export const getCreditListings = async (params: {
  * Filters out deleted, sold-out and inactive listings
  * Fetches seller profile info from firebase
  */
-export const fetchMarketplaceListings = async ({
-  key,
-  vintage,
-  fastify,
-  network,
-}: Params): Promise<
-  [CreditListingWithHandle[], CreditActivityWithHandle[]]
-> => {
-  const project = await getCreditListings({
-    projectId: key,
-    vintageStr: vintage,
-    network,
+export const fetchMarketplaceListings = async (
+  sdk: GQL_SDK,
+  { key, vintage, expiresAfter, fastify }: Params
+): Promise<[Listing[], Activity[]]> => {
+  const { project } = await sdk.marketplace.getProjectById({
+    projectId: key + "-" + vintage,
+    expiresAfter: expiresAfter ?? String(Math.floor(Date.now() / 1000)),
   });
   const filteredListings = project?.listings?.filter(isActiveListing) || [];
   const filteredActivities =
     project?.activities?.filter(filterUnsoldActivity) || [];
 
-  const formattedListings = filteredListings.map((listing) => ({
-    ...listing,
-    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
-    leftToSell: utils.formatUnits(listing.leftToSell, 18),
-    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
-  }));
+  const formattedListings = filteredListings.map(formatListing);
 
   const formattedActivities = filteredActivities.map((activity) => ({
     ...activity,

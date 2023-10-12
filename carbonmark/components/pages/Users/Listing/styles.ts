@@ -16,6 +16,13 @@ export const tags = css`
   display: flex;
   gap: 1.6rem;
   flex-direction: row;
+  justify-content: space-between;
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
 `;
 
 export const category = css`

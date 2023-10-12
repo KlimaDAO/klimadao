@@ -29,7 +29,7 @@ export type Activity = {
   previousAmount: Maybe<Scalars['BigInt']>;
   previousPrice: Maybe<Scalars['BigInt']>;
   price: Maybe<Scalars['BigInt']>;
-  project: Maybe<Project>;
+  project: Project;
   seller: User;
   timeStamp: Maybe<Scalars['BigInt']>;
   user: Maybe<User>;
@@ -230,8 +230,10 @@ export enum Activity_OrderBy {
   ListingActive = 'listing__active',
   ListingCreatedAt = 'listing__createdAt',
   ListingDeleted = 'listing__deleted',
+  ListingExpiration = 'listing__expiration',
   ListingId = 'listing__id',
   ListingLeftToSell = 'listing__leftToSell',
+  ListingMinFillAmount = 'listing__minFillAmount',
   ListingSingleUnitPrice = 'listing__singleUnitPrice',
   ListingTokenAddress = 'listing__tokenAddress',
   ListingTotalAmountToSell = 'listing__totalAmountToSell',
@@ -245,9 +247,6 @@ export enum Activity_OrderBy {
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectID',
-  ProjectProjectType = 'project__projectType',
-  ProjectRegion = 'project__region',
   ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
@@ -348,8 +347,10 @@ export type Listing = {
   batches: Maybe<Array<Scalars['BigInt']>>;
   createdAt: Maybe<Scalars['BigInt']>;
   deleted: Maybe<Scalars['Boolean']>;
+  expiration: Scalars['BigInt'];
   id: Scalars['ID'];
   leftToSell: Scalars['BigInt'];
+  minFillAmount: Scalars['BigInt'];
   project: Project;
   seller: User;
   singleUnitPrice: Scalars['BigInt'];
@@ -400,6 +401,14 @@ export type Listing_Filter = {
   deleted_in: InputMaybe<Array<Scalars['Boolean']>>;
   deleted_not: InputMaybe<Scalars['Boolean']>;
   deleted_not_in: InputMaybe<Array<Scalars['Boolean']>>;
+  expiration: InputMaybe<Scalars['BigInt']>;
+  expiration_gt: InputMaybe<Scalars['BigInt']>;
+  expiration_gte: InputMaybe<Scalars['BigInt']>;
+  expiration_in: InputMaybe<Array<Scalars['BigInt']>>;
+  expiration_lt: InputMaybe<Scalars['BigInt']>;
+  expiration_lte: InputMaybe<Scalars['BigInt']>;
+  expiration_not: InputMaybe<Scalars['BigInt']>;
+  expiration_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   id: InputMaybe<Scalars['ID']>;
   id_gt: InputMaybe<Scalars['ID']>;
   id_gte: InputMaybe<Scalars['ID']>;
@@ -416,6 +425,14 @@ export type Listing_Filter = {
   leftToSell_lte: InputMaybe<Scalars['BigInt']>;
   leftToSell_not: InputMaybe<Scalars['BigInt']>;
   leftToSell_not_in: InputMaybe<Array<Scalars['BigInt']>>;
+  minFillAmount: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_gt: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_gte: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_in: InputMaybe<Array<Scalars['BigInt']>>;
+  minFillAmount_lt: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_lte: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_not: InputMaybe<Scalars['BigInt']>;
+  minFillAmount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   or: InputMaybe<Array<InputMaybe<Listing_Filter>>>;
   project: InputMaybe<Scalars['String']>;
   project_: InputMaybe<Project_Filter>;
@@ -502,17 +519,16 @@ export enum Listing_OrderBy {
   Batches = 'batches',
   CreatedAt = 'createdAt',
   Deleted = 'deleted',
+  Expiration = 'expiration',
   Id = 'id',
   LeftToSell = 'leftToSell',
+  MinFillAmount = 'minFillAmount',
   Project = 'project',
   ProjectId = 'project__id',
   ProjectKey = 'project__key',
   ProjectMethodology = 'project__methodology',
   ProjectName = 'project__name',
   ProjectProjectAddress = 'project__projectAddress',
-  ProjectProjectId = 'project__projectID',
-  ProjectProjectType = 'project__projectType',
-  ProjectRegion = 'project__region',
   ProjectRegistry = 'project__registry',
   ProjectUpdatedAt = 'project__updatedAt',
   ProjectVintage = 'project__vintage',
@@ -533,17 +549,14 @@ export enum OrderDirection {
 export type Project = {
   __typename?: 'Project';
   activities: Maybe<Array<Activity>>;
-  category: Maybe<Category>;
-  country: Maybe<Country>;
+  category: Category;
+  country: Country;
   id: Scalars['ID'];
   key: Scalars['String'];
   listings: Maybe<Array<Listing>>;
   methodology: Scalars['String'];
   name: Scalars['String'];
   projectAddress: Scalars['Bytes'];
-  projectID: Scalars['String'];
-  projectType: Scalars['String'];
-  region: Scalars['String'];
   registry: Scalars['String'];
   updatedAt: Maybe<Scalars['BigInt']>;
   vintage: Scalars['BigInt'];
@@ -694,66 +707,6 @@ export type Project_Filter = {
   projectAddress_not: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_contains: InputMaybe<Scalars['Bytes']>;
   projectAddress_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  projectID: InputMaybe<Scalars['String']>;
-  projectID_contains: InputMaybe<Scalars['String']>;
-  projectID_contains_nocase: InputMaybe<Scalars['String']>;
-  projectID_ends_with: InputMaybe<Scalars['String']>;
-  projectID_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_gt: InputMaybe<Scalars['String']>;
-  projectID_gte: InputMaybe<Scalars['String']>;
-  projectID_in: InputMaybe<Array<Scalars['String']>>;
-  projectID_lt: InputMaybe<Scalars['String']>;
-  projectID_lte: InputMaybe<Scalars['String']>;
-  projectID_not: InputMaybe<Scalars['String']>;
-  projectID_not_contains: InputMaybe<Scalars['String']>;
-  projectID_not_contains_nocase: InputMaybe<Scalars['String']>;
-  projectID_not_ends_with: InputMaybe<Scalars['String']>;
-  projectID_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_not_in: InputMaybe<Array<Scalars['String']>>;
-  projectID_not_starts_with: InputMaybe<Scalars['String']>;
-  projectID_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectID_starts_with: InputMaybe<Scalars['String']>;
-  projectID_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectType: InputMaybe<Scalars['String']>;
-  projectType_contains: InputMaybe<Scalars['String']>;
-  projectType_contains_nocase: InputMaybe<Scalars['String']>;
-  projectType_ends_with: InputMaybe<Scalars['String']>;
-  projectType_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_gt: InputMaybe<Scalars['String']>;
-  projectType_gte: InputMaybe<Scalars['String']>;
-  projectType_in: InputMaybe<Array<Scalars['String']>>;
-  projectType_lt: InputMaybe<Scalars['String']>;
-  projectType_lte: InputMaybe<Scalars['String']>;
-  projectType_not: InputMaybe<Scalars['String']>;
-  projectType_not_contains: InputMaybe<Scalars['String']>;
-  projectType_not_contains_nocase: InputMaybe<Scalars['String']>;
-  projectType_not_ends_with: InputMaybe<Scalars['String']>;
-  projectType_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_not_in: InputMaybe<Array<Scalars['String']>>;
-  projectType_not_starts_with: InputMaybe<Scalars['String']>;
-  projectType_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  projectType_starts_with: InputMaybe<Scalars['String']>;
-  projectType_starts_with_nocase: InputMaybe<Scalars['String']>;
-  region: InputMaybe<Scalars['String']>;
-  region_contains: InputMaybe<Scalars['String']>;
-  region_contains_nocase: InputMaybe<Scalars['String']>;
-  region_ends_with: InputMaybe<Scalars['String']>;
-  region_ends_with_nocase: InputMaybe<Scalars['String']>;
-  region_gt: InputMaybe<Scalars['String']>;
-  region_gte: InputMaybe<Scalars['String']>;
-  region_in: InputMaybe<Array<Scalars['String']>>;
-  region_lt: InputMaybe<Scalars['String']>;
-  region_lte: InputMaybe<Scalars['String']>;
-  region_not: InputMaybe<Scalars['String']>;
-  region_not_contains: InputMaybe<Scalars['String']>;
-  region_not_contains_nocase: InputMaybe<Scalars['String']>;
-  region_not_ends_with: InputMaybe<Scalars['String']>;
-  region_not_ends_with_nocase: InputMaybe<Scalars['String']>;
-  region_not_in: InputMaybe<Array<Scalars['String']>>;
-  region_not_starts_with: InputMaybe<Scalars['String']>;
-  region_not_starts_with_nocase: InputMaybe<Scalars['String']>;
-  region_starts_with: InputMaybe<Scalars['String']>;
-  region_starts_with_nocase: InputMaybe<Scalars['String']>;
   registry: InputMaybe<Scalars['String']>;
   registry_contains: InputMaybe<Scalars['String']>;
   registry_contains_nocase: InputMaybe<Scalars['String']>;
@@ -804,9 +757,6 @@ export enum Project_OrderBy {
   Methodology = 'methodology',
   Name = 'name',
   ProjectAddress = 'projectAddress',
-  ProjectId = 'projectID',
-  ProjectType = 'projectType',
-  Region = 'region',
   Registry = 'registry',
   UpdatedAt = 'updatedAt',
   Vintage = 'vintage'
@@ -912,8 +862,10 @@ export enum Purchase_OrderBy {
   ListingActive = 'listing__active',
   ListingCreatedAt = 'listing__createdAt',
   ListingDeleted = 'listing__deleted',
+  ListingExpiration = 'listing__expiration',
   ListingId = 'listing__id',
   ListingLeftToSell = 'listing__leftToSell',
+  ListingMinFillAmount = 'listing__minFillAmount',
   ListingSingleUnitPrice = 'listing__singleUnitPrice',
   ListingTokenAddress = 'listing__tokenAddress',
   ListingTotalAmountToSell = 'listing__totalAmountToSell',
@@ -1322,11 +1274,11 @@ export enum _SubgraphErrorPolicy_ {
   Deny = 'deny'
 }
 
-export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null };
+export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
 
-export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category: { __typename?: 'Category', id: string } | null };
+export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } };
 
-export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType };
+export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
 
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1343,46 +1295,53 @@ export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
 
-export type GetPurchasesByIdQueryVariables = Exact<{
-  id: InputMaybe<Scalars['Bytes']>;
+export type GetPurchaseByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
 }>;
 
 
-export type GetPurchasesByIdQuery = { __typename?: 'Query', purchases: Array<{ __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', key: string, vintage: string } } }> };
+export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category: { __typename?: 'Category', id: string } | null } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, category: { __typename?: 'Category', id: string } | null } | null, seller: { __typename?: 'User', id: any }, buyer: { __typename?: 'User', id: any } | null }> | null, purchases: Array<{ __typename?: 'Purchase', id: any }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
-export type FindProjectsQueryVariables = Exact<{
-  country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
-  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+export type GetProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type FindProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null }> | null, category: { __typename?: 'Category', id: string } | null }> };
+export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
 
-export type GetProjectsByIdQueryVariables = Exact<{
-  key: InputMaybe<Scalars['String']>;
-  vintageStr: InputMaybe<Scalars['BigInt']>;
+export type GetProjectByIdQueryVariables = Exact<{
+  projectId: Scalars['ID'];
+  expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetProjectsByIdQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, projectID: string, name: string, vintage: string, projectAddress: any, registry: string, methodology: string, projectType: string, region: string, country: { __typename?: 'Country', id: string } | null, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, batches: Array<string> | null, batchPrices: Array<string> | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, seller: { __typename?: 'User', id: any }, buyer: { __typename?: 'User', id: any } | null }> | null, category: { __typename?: 'Category', id: string } | null }> };
+export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
 
-export type GetCreditListingsQueryVariables = Exact<{
-  projectId: InputMaybe<Scalars['String']>;
-  vintageStr: InputMaybe<Scalars['BigInt']>;
-}>;
-
-
-export type GetCreditListingsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, listings: Array<{ __typename?: 'Listing', createdAt: string | null, updatedAt: string | null, id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, seller: { __typename?: 'User', id: any } }> | null, activities: Array<{ __typename?: 'Activity', id: string, timeStamp: string | null, activityType: ActivityType, price: string | null, previousPrice: string | null, amount: string | null, previousAmount: string | null, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
-
+export const ProjectFragmentFragmentDoc = gql`
+    fragment ProjectFragment on Project {
+  id
+  key
+  vintage
+  name
+  category {
+    id
+  }
+  country {
+    id
+  }
+  methodology
+}
+    `;
 export const ListingFragmentFragmentDoc = gql`
     fragment ListingFragment on Listing {
   id
@@ -1391,30 +1350,19 @@ export const ListingFragmentFragmentDoc = gql`
   tokenAddress
   active
   deleted
-  batches
-  batchPrices
   singleUnitPrice
   createdAt
   updatedAt
-}
-    `;
-export const ProjectFragmentFragmentDoc = gql`
-    fragment ProjectFragment on Project {
-  id
-  key
-  projectID
-  name
-  vintage
-  projectAddress
-  registry
-  methodology
-  projectType
-  region
-  category {
+  seller {
     id
   }
+  project {
+    ...ProjectFragment
+  }
+  expiration
+  minFillAmount
 }
-    `;
+    ${ProjectFragmentFragmentDoc}`;
 export const ActivityFragmentFragmentDoc = gql`
     fragment ActivityFragment on Activity {
   id
@@ -1424,6 +1372,16 @@ export const ActivityFragmentFragmentDoc = gql`
   previousPrice
   timeStamp
   activityType
+  project {
+    key
+    vintage
+  }
+  buyer {
+    id
+  }
+  seller {
+    id
+  }
 }
     `;
 export const GetCategoriesDocument = gql`
@@ -1447,136 +1405,60 @@ export const GetVintagesDocument = gql`
   }
 }
     `;
-export const GetPurchasesByIdDocument = gql`
-    query getPurchasesById($id: Bytes) {
-  purchases(first: 1, where: {id: $id}) {
+export const GetPurchaseByIdDocument = gql`
+    query getPurchaseById($id: ID!) {
+  purchase(id: $id) {
     id
     amount
     listing {
       id
       project {
-        key
-        vintage
+        ...ProjectFragment
       }
     }
     price
   }
 }
-    `;
+    ${ProjectFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: Bytes) {
+    query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: {id: $wallet}) {
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
-      seller {
-        id
-      }
-      project {
-        ...ProjectFragment
-        category {
-          id
-        }
-      }
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
-      project {
-        category {
-          id
-        }
-        ...ProjectFragment
-      }
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
-    }
-    purchases {
-      id
     }
   }
 }
     ${ListingFragmentFragmentDoc}
-${ProjectFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
-export const FindProjectsDocument = gql`
-    query findProjects($country: [String!], $category: [String!], $search: String, $vintage: [BigInt!]) {
-  projects(
-    where: {category_: {id_in: $category}, country_: {id_in: $country}, name_contains_nocase: $search, vintage_in: $vintage}
-  ) {
+export const GetProjectsDocument = gql`
+    query getProjects($search: String, $vintage: [BigInt!], $expiresAfter: BigInt) {
+  projects(where: {name_contains_nocase: $search, vintage_in: $vintage}) {
     ...ProjectFragment
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
   }
 }
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}`;
-export const GetProjectsByIdDocument = gql`
-    query getProjectsById($key: String, $vintageStr: BigInt) {
-  projects(where: {key: $key, vintage: $vintageStr}) {
+export const GetProjectByIdDocument = gql`
+    query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
+  project(id: $projectId) {
     ...ProjectFragment
-    country {
-      id
-    }
-    listings {
+    listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
-      seller {
-        id
-      }
     }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
+    activities {
       ...ActivityFragment
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
     }
   }
 }
     ${ProjectFragmentFragmentDoc}
 ${ListingFragmentFragmentDoc}
 ${ActivityFragmentFragmentDoc}`;
-export const GetCreditListingsDocument = gql`
-    query getCreditListings($projectId: String, $vintageStr: BigInt) {
-  projects(where: {key: $projectId, vintage: $vintageStr}) {
-    id
-    listings {
-      createdAt
-      updatedAt
-      id
-      totalAmountToSell
-      leftToSell
-      tokenAddress
-      active
-      deleted
-      singleUnitPrice
-      seller {
-        id
-      }
-    }
-    activities {
-      id
-      timeStamp
-      activityType
-      price
-      previousPrice
-      amount
-      previousAmount
-      buyer {
-        id
-      }
-      seller {
-        id
-      }
-    }
-  }
-}
-    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -1594,20 +1476,17 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
-    getPurchasesById(variables?: GetPurchasesByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchasesByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchasesByIdQuery>(GetPurchasesByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchasesById', 'query');
+    getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
     },
     getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
     },
-    findProjects(variables?: FindProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FindProjectsQuery>(FindProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findProjects', 'query');
+    getProjects(variables?: GetProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query');
     },
-    getProjectsById(variables?: GetProjectsByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsByIdQuery>(GetProjectsByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectsById', 'query');
-    },
-    getCreditListings(variables?: GetCreditListingsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCreditListingsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCreditListingsQuery>(GetCreditListingsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCreditListings', 'query');
+    getProjectById(variables: GetProjectByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query');
     }
   };
 }

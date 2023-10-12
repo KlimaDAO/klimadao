@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+
+  & > div:nth-child(2n) {
+    background-color: var(--surface-03);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  flex: 1 0 0;
+  align-self: stretch;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+
+  [aria-describedby="value"] {
+    font-size: 1.2rem;
+  }
+
+  [aria-describedby="label"] {
+    font-size: 0.8rem;
+  }
+}

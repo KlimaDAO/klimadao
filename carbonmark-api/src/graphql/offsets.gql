@@ -18,27 +18,7 @@ query getCarbonOffsetsVintages {
 
 query getCarbonOffsetsByProjectAndVintage($key: String!, $vintageStr: String) {
   carbonOffsets(where: { projectID: $key, vintageYear: $vintageStr }) {
-    id
-    name
-    tokenAddress
-    vintage
-    vintageYear
-    bridge
-    projectID
-    methodology
-    methodologyCategory
-    country
-    category
-    name
-    registry
-    totalBridged
-    totalRetired
-    currentSupply
-    storageMethod
-    balanceUBO
-    balanceNBO
-    balanceNCT
-    balanceBCT
+    ...CarbonOffsetFragment
   }
 }
 
@@ -64,26 +44,6 @@ query findCarbonOffsets(
       ]
     }
   ) {
-    id
-    name
-    tokenAddress
-    vintage
-    vintageYear
-    bridge
-    projectID
-    methodology
-    methodologyCategory
-    country
-    category
-    name
-    registry
-    totalBridged
-    totalRetired
-    storageMethod
-    lastUpdate
-    balanceUBO
-    balanceNBO
-    balanceNCT
-    balanceBCT
+    ...CarbonOffsetFragment
   }
 }

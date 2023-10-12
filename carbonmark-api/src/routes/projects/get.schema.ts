@@ -2,7 +2,7 @@ import { Type } from "@sinclair/typebox";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { ProjectModel } from "../../models/Project.model";
 
-const querystring = Type.Object({
+export const querystring = Type.Object({
   network: Type.Optional(NetworkParamModel),
   country: Type.Optional(
     Type.String({
@@ -23,6 +23,13 @@ const querystring = Type.Object({
   vintage: Type.Optional(
     Type.String({
       description: "Desired vintage of carbon projects",
+    })
+  ),
+  expiresAfter: Type.Optional(
+    Type.String({
+      description:
+        "Only return projects listings that expire after this timestamp (Unix seconds)",
+      examples: ["1620000000"],
     })
   ),
 });

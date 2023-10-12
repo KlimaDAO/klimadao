@@ -2,9 +2,11 @@ import { FastifyInstance } from "fastify";
 import { compact, isNil, maxBy, minBy, sortBy } from "lodash";
 import { map } from "lodash/fp";
 import { Geopoint } from "../../.generated/types/carbonProjects.types";
-import { FindProjectsQueryVariables } from "../../.generated/types/marketplace.types";
-import { FindQueryProject } from "../../graphql/marketplace.types";
-import { FindQueryOffset } from "../../graphql/offsets.types";
+import { GetProjectsQuery } from "../../.generated/types/marketplace.types";
+import {
+  CarbonOffset,
+  GetCarbonOffsetsByProjectAndVintageQuery,
+} from "../../.generated/types/offsets.types";
 import { Project } from "../../models/Project.model";
 import { GeoJSONPoint } from "../../models/Utility.model";
 import {
@@ -14,6 +16,7 @@ import {
 } from "../../utils/CreditId";
 import { formatUSDC } from "../../utils/crypto.utils";
 import { extract } from "../../utils/functional.utils";
+import { GQL_SDK } from "../../utils/gqlSdk";
 import { CarbonProject } from "../../utils/helpers/carbonProjects.utils";
 import { PoolPrice } from "../../utils/helpers/fetchAllPoolPrices";
 import {
@@ -21,6 +24,7 @@ import {
   getAllCountries,
   getAllVintages,
 } from "../../utils/helpers/utils";
+import { formatListing } from "../../utils/marketplace.utils";
 import { POOL_INFO } from "./get.constants";
 
 /**
@@ -34,13 +38,14 @@ import { POOL_INFO } from "./get.constants";
  * # to return all possible values
  */
 export const getDefaultQueryArgs = async (
+  sdk: GQL_SDK,
   fastify: FastifyInstance
-): Promise<FindProjectsQueryVariables> => {
+) => {
   //Fetch all possible parameter values
   const [category, country, vintage] = await Promise.all([
-    getAllCategories(fastify).then(map(extract("id"))),
-    getAllCountries(fastify).then(map(extract("id"))),
-    getAllVintages(fastify),
+    getAllCategories(sdk, fastify).then(map(extract("id"))),
+    getAllCountries(sdk, fastify).then(map(extract("id"))),
+    getAllVintages(sdk, fastify),
   ]);
 
   return {
@@ -48,6 +53,7 @@ export const getDefaultQueryArgs = async (
     country,
     vintage,
     search: "",
+    expiresAfter: Math.floor(Date.now() / 1000).toString(),
   };
 };
 
@@ -57,7 +63,7 @@ export const getDefaultQueryArgs = async (
  * Sorted cheapest first.
  */
 export const getOffsetTokenPrices = (
-  offset: FindQueryOffset,
+  offset: GetCarbonOffsetsByProjectAndVintageQuery["carbonOffsets"][number],
   poolPrices: Record<string, PoolPrice>
 ) => {
   const prices: string[] = [];
@@ -109,7 +115,12 @@ export const toGeoJSON = (
  * For polygon-bridged-carbon subgraph projects
  * Returns true if project has >=1 tonne in any pool
  * */
-export const isValidPoolProject = (project: FindQueryOffset) => {
+export const isValidPoolProject = (
+  project: Pick<
+    CarbonOffset,
+    "balanceBCT" | "balanceNBO" | "balanceNCT" | "balanceUBO"
+  >
+) => {
   const validProjects = [
     project.balanceBCT,
     project.balanceNCT,
@@ -129,8 +140,10 @@ export const isActiveListing = (l: {
  * For marketplace subgraph projects
  * Returns true if project has >=1 tonne in any active, unexpired listing
  * */
-export const isValidMarketplaceProject = (project: FindQueryProject) => {
-  if (!project.listings) return false;
+export const isValidMarketplaceProject = (
+  project: GetProjectsQuery["projects"][number]
+) => {
+  if (!project?.listings) return false;
   const validProjects = project.listings.filter(isActiveListing);
   return !!validProjects.length;
 };
@@ -138,8 +151,8 @@ export const isValidMarketplaceProject = (project: FindQueryProject) => {
 /** A key may have a marketplace entry, a pool entry, or both. */
 type ProjectData = {
   key: CreditIdentifier;
-  poolProjectData?: FindQueryOffset;
-  marketplaceProjectData?: FindQueryProject;
+  poolProjectData?: GetCarbonOffsetsByProjectAndVintageQuery["carbonOffsets"][number];
+  marketplaceProjectData?: GetProjectsQuery["projects"][number];
 };
 /** Map project keys to gql and cms data */
 export type ProjectDataMap = Map<CreditIdentifier, ProjectData>;
@@ -205,10 +218,10 @@ export const composeProjectEntries = (
       methodologies: carbonProject?.methodologies ?? [],
       description: carbonProject?.description || null,
       short_description: carbonProject?.content?.shortDescription || null,
-      name: carbonProject?.name || pool?.name || market?.name || "",
+      name: carbonProject?.name || pool?.name || "",
       location: toGeoJSON(carbonProject?.geolocation),
       country: {
-        id: carbonProject?.country || pool?.country || market?.region || "",
+        id: carbonProject?.country || pool?.country || "",
       },
       images: carbonProject?.content?.images?.map((img) => ({
         url: img?.asset?.url ?? "",
@@ -216,12 +229,13 @@ export const composeProjectEntries = (
       })),
       key: projectId,
       registry,
+      region: carbonProject?.region || "",
       projectID: registryProjectId,
       vintage: pool?.vintageYear ?? market?.vintage ?? "",
-      projectAddress: pool?.tokenAddress ?? market?.projectAddress,
+      projectAddress: pool?.tokenAddress ?? "",
       updatedAt: pickUpdatedAt(data),
       price: pickBestPrice(data, poolPrices),
-      listings: market?.listings || null,
+      listings: market?.listings?.map(formatListing) || null,
     };
 
     entries.push(entry);
