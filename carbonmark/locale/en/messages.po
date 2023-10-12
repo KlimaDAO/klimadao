@@ -14,6 +14,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
+msgid "Expiration"
+msgstr "Expiration"
+
+#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -81,7 +101,7 @@ msgstr "Copy"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:59
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:65
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
 msgstr "Asset"
 
@@ -126,42 +146,42 @@ msgid "Toggle Select Project"
 msgstr "Toggle Select Project"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
+#: components/CreateListing/index.tsx:153
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:167
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "First, approve the Carbonmark system to transfer this asset on your behalf."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:160
+#: components/CreateListing/index.tsx:159
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:173
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:167
+#: components/CreateListing/index.tsx:166
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:180
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr "The value below reflects the sum of all of your listings for this specific token."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:181
+#: components/CreateListing/index.tsx:180
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:194
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:187
+#: components/CreateListing/index.tsx:186
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:200
 msgid "You can delete this listing at any time."
 msgstr "You can delete this listing at any time."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:205
+#: components/CreateListing/index.tsx:199
 msgid "Create a listing"
 msgstr "Create a listing"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:226
+#: components/CreateListing/index.tsx:220
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:292
 msgid "{0} tonnes"
 msgstr "{0} tonnes"
@@ -420,7 +440,7 @@ msgstr "List your projects for sale in just a few clicks"
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:107
+#: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Create Profile"
 msgstr "Create Profile"
 
@@ -559,26 +579,26 @@ msgid "Terms of use"
 msgstr "Terms of use"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:60
+#: components/pages/Portfolio/AssetProject/index.tsx:63
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 #: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
 msgstr "Available Tonnes:"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:66
+#: components/pages/Portfolio/AssetProject/index.tsx:69
 msgid "Retire"
 msgstr "Retire"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:75
-#: components/pages/Portfolio/AssetProject/index.tsx:82
+#: components/pages/Portfolio/AssetProject/index.tsx:78
+#: components/pages/Portfolio/AssetProject/index.tsx:86
 msgid "Sell"
 msgstr "Sell"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/CarbonmarkAssets.tsx:57
-#: components/pages/Retire/FromPortfolio/index.tsx:54
+#: components/pages/Retire/FromPortfolio/index.tsx:56
 msgid "Loading your assets"
 msgstr "Loading your assets"
 
@@ -593,51 +613,51 @@ msgid "No listable assets found."
 msgstr "No listable assets found."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/index.tsx:54
-#: components/pages/Users/SellerConnected/index.tsx:70
-#: components/pages/Users/SellerConnected/index.tsx:96
+#: components/pages/Portfolio/index.tsx:62
+#: components/pages/Users/SellerConnected/index.tsx:76
+#: components/pages/Users/SellerConnected/index.tsx:102
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "Please refresh the page. There was an error updating your data: {e}."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/index.tsx:64
-#: components/pages/Portfolio/index.tsx:65
+#: components/pages/Portfolio/index.tsx:72
+#: components/pages/Portfolio/index.tsx:73
 msgid "Portfolio | Carbonmark"
 msgstr "Portfolio | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/index.tsx:66
+#: components/pages/Portfolio/index.tsx:74
 msgid "View a complete overview of the digital carbon that you own in your Portfolio."
 msgstr "View a complete overview of the digital carbon that you own in your Portfolio."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/index.tsx:103
-#: components/pages/Portfolio/Retire/index.tsx:102
+#: components/pages/Portfolio/index.tsx:111
+#: components/pages/Portfolio/Retire/index.tsx:111
 msgid "Sorry. We could not find any data on Carbonmark for your user."
 msgstr "Sorry. We could not find any data on Carbonmark for your user."
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/index.tsx:109
-#: components/pages/Portfolio/Retire/index.tsx:107
+#: components/pages/Portfolio/index.tsx:117
+#: components/pages/Portfolio/Retire/index.tsx:116
 msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Have you already created your Carbonmark <0>Profile</0>?"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:197
+#: components/pages/Users/SellerConnected/index.tsx:203
 msgid "Your seller data"
 msgstr "Your seller data"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/index.tsx:80
-#: components/pages/Portfolio/Retire/index.tsx:81
+#: components/pages/Portfolio/Retire/index.tsx:89
+#: components/pages/Portfolio/Retire/index.tsx:90
 #: components/pages/Retire/index.tsx:39
 #: components/pages/Retire/index.tsx:40
 msgid "Retire | Carbonmark"
 msgstr "Retire | Carbonmark"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/Retire/index.tsx:82
+#: components/pages/Portfolio/Retire/index.tsx:91
 msgid "View a complete overview of the digital carbon that you own in your Retire."
 msgstr "View a complete overview of the digital carbon that you own in your Retire."
 
@@ -1563,18 +1583,18 @@ msgid "No Activity to show."
 msgstr "No Activity to show."
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/FromPortfolio/index.tsx:68
-#: components/pages/Retire/FromPortfolio/index.tsx:83
+#: components/pages/Retire/FromPortfolio/index.tsx:70
+#: components/pages/Retire/FromPortfolio/index.tsx:85
 msgid "We couldn't find any assets in your portfolio."
 msgstr "We couldn't find any assets in your portfolio."
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/FromPortfolio/index.tsx:73
+#: components/pages/Retire/FromPortfolio/index.tsx:75
 msgid "Purchase Carbon"
 msgstr "Purchase Carbon"
 
 #. js-lingui-explicit-id
-#: components/pages/Retire/FromPortfolio/index.tsx:88
+#: components/pages/Retire/FromPortfolio/index.tsx:90
 msgid "Create Carbonmark Profile"
 msgstr "Create Carbonmark Profile"
 
@@ -1634,7 +1654,7 @@ msgid "Here’s a list of readily available, discounted carbon tokens to retire 
 msgstr "Here’s a list of readily available, discounted carbon tokens to retire quickly and easily."
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:45
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:47
 msgid "View Carbonmark Profile"
 msgstr "View Carbonmark Profile"
 
@@ -1679,6 +1699,16 @@ msgid "Create your own retirement"
 msgstr "Create your own retirement"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:9
+msgid "Invalid"
+msgstr "Invalid"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:14
+msgid "Expired"
+msgstr "Expired"
+
+#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Profile | Carbonmark"
@@ -1701,7 +1731,7 @@ msgstr "Log in to create a Carbonmark profile"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Login/index.tsx:47
-#: components/pages/Users/SellerUnconnected/index.tsx:94
+#: components/pages/Users/SellerUnconnected/index.tsx:99
 msgid "Data for this seller"
 msgstr "Data for this seller"
 
@@ -1716,137 +1746,137 @@ msgid "This user has not yet created a carbonmark profile."
 msgstr "This user has not yet created a carbonmark profile."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:84
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:97
 msgid "New Quantity"
 msgstr "New Quantity"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "Total quantity to list for sale"
 msgstr "Total quantity to list for sale"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:118
 msgid "Available balance exceeded"
 msgstr "Available balance exceeded"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:119
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:132
 msgid "New Unit Price (USDC)"
 msgstr "New Unit Price (USDC)"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
 msgstr "Update listing"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:109
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:110
 msgid "You chose to reject the transaction."
 msgstr "You chose to reject the transaction."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:111
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:112
 msgid "Something went wrong. Please try again. {error}"
 msgstr "Something went wrong. Please try again. {error}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:144
 msgid "Your unique handle"
 msgstr "Your unique handle"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:151
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:152
 msgid "Handle is required"
 msgstr "Handle is required"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:155
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:156
 msgid "Handle should not contain any special characters"
 msgstr "Handle should not contain any special characters"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:161
 msgid "Handle should not be an address"
 msgstr "Handle should not be an address"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:163
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:164
 msgid "Sorry, this handle already exists"
 msgstr "Sorry, this handle already exists"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:170
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:171
 msgid "@Username (note: this can not be changed!)"
 msgstr "@Username (note: this can not be changed!)"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:177
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:178
 msgid "Your display name"
 msgstr "Your display name"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:182
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
 msgid "Display name is required"
 msgstr "Display name is required"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:187
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:188
 msgid "Display name"
 msgstr "Display name"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:198
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
 msgid "Profile picture"
 msgstr "Profile picture"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:199
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:200
 msgid "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 msgstr "200x200 PNG recommended. Upload your image to a host like imgur.com or postimages.org, and paste the full URL. Direct photo upload is coming soon!"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:207
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:208
 msgid "Say a few words about yourself. This will be visible in your seller profile."
 msgstr "Say a few words about yourself. This will be visible in your seller profile."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:210
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:211
 #: components/shared/Navigation/index.tsx:81
 #: components/shared/Navigation/index.tsx:118
 msgid "About"
 msgstr "About"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:107
+#: components/pages/Users/SellerConnected/index.tsx:113
 msgid "Edit Profile"
 msgstr "Edit Profile"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:122
-#: components/pages/Users/SellerUnconnected/index.tsx:50
+#: components/pages/Users/SellerConnected/index.tsx:128
+#: components/pages/Users/SellerUnconnected/index.tsx:55
 msgid "Listings"
 msgstr "Listings"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:137
-#: components/pages/Users/SellerConnected/index.tsx:155
+#: components/pages/Users/SellerConnected/index.tsx:143
+#: components/pages/Users/SellerConnected/index.tsx:161
 msgid "Create New Listing"
 msgstr "Create New Listing"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:173
+#: components/pages/Users/SellerConnected/index.tsx:179
 msgid "Updating your data..."
 msgstr "Updating your data..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:179
-#: components/pages/Users/SellerUnconnected/index.tsx:86
+#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "No active listings."
 msgstr "No active listings."
 
@@ -2118,7 +2148,7 @@ msgid "offset.retirement_beneficiary_name"
 msgstr "Beneficiary Name"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:32
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary:"
 
@@ -2128,7 +2158,7 @@ msgid "buy"
 msgstr "Buy"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerUnconnected/index.tsx:73
+#: components/pages/Users/SellerUnconnected/index.tsx:78
 msgid "seller.listing.buy"
 msgstr "Buy"
 
@@ -2343,7 +2373,7 @@ msgid "retirement.single.beneficiary.address.placeholder"
 msgstr "No beneficiary address available"
 
 #. js-lingui-explicit-id
-#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/BeneficiaryDetails/index.tsx:36
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
@@ -2418,12 +2448,12 @@ msgid "retirement.single.proof_of.title"
 msgstr "Proof of"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:59
 msgid "seller.listing.quantity_available"
 msgstr "Quantity Available:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:91
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:104
 msgid "user.listing.edit.input.quantity.required"
 msgstr "Quantity is required"
 
@@ -2478,7 +2508,7 @@ msgid "retirement.totals.retirements"
 msgstr "Retirements"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:229
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:230
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
@@ -2514,12 +2544,12 @@ msgstr "Show Results"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:94
-#: components/pages/Users/SellerUnconnected/index.tsx:63
+#: components/pages/Users/SellerUnconnected/index.tsx:68
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:129
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:142
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr "Single Price is required"
 
@@ -2612,12 +2642,12 @@ msgstr "The minimum amount to sell is 1 Tonne"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:120
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr "The minimum price per tonne is {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:98
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:111
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr "The minimum quantity to sell is 1 tonne"
 
@@ -2692,7 +2722,7 @@ msgid "retirement.single.type.title"
 msgstr "Type:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:121
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:134
 msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC per ton"
 
@@ -2772,7 +2802,7 @@ msgid "exitmodal.you_will_be_taken"
 msgstr "You will be taken to KlimaDAO.finance to complete this transaction."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:203
+#: components/pages/Users/SellerConnected/index.tsx:209
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 

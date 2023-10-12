@@ -17,13 +17,13 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address, toggleModal, initializing, networkLabel } =
+  const { isConnected, address = "", toggleModal, initializing, networkLabel } =
     useWeb3();
   const {
     data: carbonmarkUser,
     isLoading,
     mutate,
-  } = useGetUsersWalletorhandle(address ?? "", { network: networkLabel });
+  } = useGetUsersWalletorhandle(address ?? "", { network: networkLabel, expiresAfter: "0" });
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

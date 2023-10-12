@@ -28,7 +28,7 @@ export type RetirePageProps = {
 export const Retire: NextPage<RetirePageProps> = (props) => {
   const {
     isConnected,
-    address,
+    address = "",
     toggleModal,
     provider,
     initializing,
@@ -37,7 +37,7 @@ export const Retire: NextPage<RetirePageProps> = (props) => {
 
   const { data: carbonmarkUser, isLoading } = useGetUsersWalletorhandle(
     address ?? "",
-    { network: networkLabel }
+    { network: networkLabel, expiresAfter: "0" }
   );
 
   const [retirementAsset, setRetirementAsset] =
