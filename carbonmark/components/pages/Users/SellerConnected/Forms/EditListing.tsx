@@ -3,11 +3,13 @@ import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
-import { MINIMUM_TONNE_PRICE } from "lib/constants";
+import { DEFAULT_EXPIRATION_DAYS, MINIMUM_TONNE_PRICE } from "lib/constants";
 import { Listing } from "lib/types/carbonmark.types";
+import { getExpirationTimestamp } from "lib/utils/listings.utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Badge } from "../../Badge";
 import * as styles from "./styles";
 
 export type FormValues = {
@@ -23,7 +25,7 @@ type Props = {
   onCancel: () => void;
   listing: Listing;
   values: null | FormValues;
-  assetBalance: string;
+  listableBalance: number;
 };
 
 /**
@@ -38,7 +40,7 @@ export const EditListing: FC<Props> = (props) => {
     locale,
   });
   const totalAvailableQuantity = formatTonnes({
-    amount: (Number(props.assetBalance) + Number(listedQuantity)).toString(),
+    amount: props.listableBalance.toString(),
     locale,
   });
 
@@ -55,14 +57,28 @@ export const EditListing: FC<Props> = (props) => {
     props.onSubmit(values);
   };
 
+  const unlistedQuantity =
+    props.listableBalance - Number(props.listing.leftToSell);
+
+  const isExpired =
+    Number(props.listing.expiration) <= Math.floor(Date.now() / 1000);
+
+  const isInvalid = false; // TODO https://github.com/KlimaDAO/klimadao/issues/1586
+
+  const expirationTimestamp = getExpirationTimestamp(DEFAULT_EXPIRATION_DAYS);
+
+  const expirationDatestring = new Date(
+    Math.floor(Number(expirationTimestamp) * 1000)
+  ).toLocaleDateString(locale);
+
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
         <Text t="body1">
-          <Trans id="user.listing.edit.project.label">Project</Trans>
+          <Trans>Asset</Trans>
         </Text>
-        <Text t="body1" className={styles.editLabelProjectName}>
-          {props.listing.project?.name}
+        <Text className={styles.editLabelProjectName}>
+          {props.listing.project.name} ({props.listing.project.id})
         </Text>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -108,7 +124,7 @@ export const EditListing: FC<Props> = (props) => {
           <Text t="body3" className={styles.availableAmount}>
             <Trans>
               Quantity listed: {listedQuantity}, Quantity unlisted:{" "}
-              {props.assetBalance}, Total available: {totalAvailableQuantity}
+              {unlistedQuantity}, Total available: {totalAvailableQuantity}
             </Trans>
           </Text>
           <InputField
@@ -142,14 +158,25 @@ export const EditListing: FC<Props> = (props) => {
             errorMessage={formState.errors.newSingleUnitPrice?.message}
           />
 
+          <div className={styles.expiration}>
+            <Text t="body1">
+              <Trans>Expiration</Trans>
+            </Text>
+            <div>
+              <Text t="body1">
+                <Trans>
+                  {DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})
+                </Trans>
+              </Text>
+              {isInvalid && <Badge type="Invalid" />}
+              {isExpired && <Badge type="Expired" />}
+            </div>
+          </div>
+
           <ButtonPrimary
-            label={
-              <Trans id="profile.editListing_modal.submit">
-                Update Listing
-              </Trans>
-            }
+            label={<Trans>Update listing</Trans>}
             onClick={handleSubmit(onSubmit)}
-            disabled={!formState.isDirty}
+            disabled={!formState.isDirty && !isExpired}
           />
         </div>
       </form>

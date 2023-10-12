@@ -48,14 +48,25 @@ export interface Web3ModalStrings {
   torus_desc: string;
 }
 
+/**
+ * Interface for the state when the Web3 connection is established.
+ */
 export interface ConnectedWeb3State {
+  /** Indicates if the connection is established */
   isConnected: true;
+  /** The provider used for the connection */
   provider: TypedProvider;
+  /** The address of the connected account */
   address: string;
+  /** The signer used for signing transactions */
   signer: providers.JsonRpcSigner;
+  /** The network to which the connection is established */
   network: providers.Network;
+  /** The label of the network */
   networkLabel: "polygon" | "mumbai";
+  /** Indicates if the connection is being initialized */
   initializing: false;
+  /** Indicates if the connection is from cache */
   isConnectionFromCache: boolean;
 }
 
