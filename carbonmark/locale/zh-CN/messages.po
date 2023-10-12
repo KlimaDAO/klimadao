@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-11 22:46+0000\n"
+"POT-Creation-Date: 2023-10-12 00:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,7 +118,7 @@ msgstr "批准"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:59
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:65
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "Available Tonnes:"
 msgstr "可用吨数："
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:118
 msgid "Available balance exceeded"
 msgstr "超出可用余额"
 
@@ -584,6 +584,16 @@ msgid "Energy Efficiency"
 msgstr "能源效率"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
+msgid "Expiration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:14
+msgid "Expired"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
 msgid "FAQs"
 msgstr "常见问题解答"
@@ -715,6 +725,11 @@ msgid "Introducing Carbonmark"
 msgstr "介绍 Carbonmark"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:9
+msgid "Invalid"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
 msgid "KlimaDAO"
@@ -834,12 +849,12 @@ msgid "Moss"
 msgstr "Moss"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:84
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:97
 msgid "New Quantity"
 msgstr "新数量"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:119
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:132
 msgid "New Unit Price (USDC)"
 msgstr "新单价（USDC）"
 
@@ -1114,7 +1129,7 @@ msgid "Quantity is required"
 msgstr "数量为必填项"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr ""
 
@@ -1523,6 +1538,16 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
 msgid "This offer no longer exists."
 msgstr "此优惠已不存在。"
@@ -1633,7 +1658,7 @@ msgid "Total price"
 msgstr "总价"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "Total quantity to list for sale"
 msgstr "待售总数量"
 
@@ -1664,7 +1689,7 @@ msgid "Unprecedented transparency across the digital carbon market."
 msgstr "整个数字碳市场前所未有的透明度。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
 msgstr ""
 
@@ -2537,7 +2562,7 @@ msgid "seller.listing.buy"
 msgstr "购买"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:59
 msgid "seller.listing.quantity_available"
 msgstr "可用数量："
 
@@ -2710,28 +2735,28 @@ msgid "user.activities.empty_state"
 msgstr "无可显示的活动"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:121
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:134
 msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC / 吨"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:98
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:111
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr "最低销售量为 1 吨"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:91
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:104
 msgid "user.listing.edit.input.quantity.required"
 msgstr "数量为必填项"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:120
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr "每吨最低价格为 {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:129
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:142
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr "单价为必填项"
 
@@ -2770,6 +2795,11 @@ msgstr "{0} 吨"
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

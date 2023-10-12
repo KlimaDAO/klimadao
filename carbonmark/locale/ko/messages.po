@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-11 22:46+0000\n"
+"POT-Creation-Date: 2023-10-12 00:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,7 +118,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:59
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:65
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "Available Tonnes:"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:118
 msgid "Available balance exceeded"
 msgstr ""
 
@@ -584,6 +584,16 @@ msgid "Energy Efficiency"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
+msgid "Expiration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:14
+msgid "Expired"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
 msgid "FAQs"
 msgstr ""
@@ -715,6 +725,11 @@ msgid "Introducing Carbonmark"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:9
+msgid "Invalid"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
 msgid "KlimaDAO"
@@ -834,12 +849,12 @@ msgid "Moss"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:84
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:97
 msgid "New Quantity"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:119
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:132
 msgid "New Unit Price (USDC)"
 msgstr ""
 
@@ -1110,7 +1125,7 @@ msgid "Quantity is required"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr ""
 
@@ -1519,6 +1534,16 @@ msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
 msgid "This offer no longer exists."
 msgstr ""
@@ -1629,7 +1654,7 @@ msgid "Total price"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "Total quantity to list for sale"
 msgstr ""
 
@@ -1660,7 +1685,7 @@ msgid "Unprecedented transparency across the digital carbon market."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
 msgstr ""
 
@@ -2533,7 +2558,7 @@ msgid "seller.listing.buy"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:59
 msgid "seller.listing.quantity_available"
 msgstr ""
 
@@ -2706,28 +2731,28 @@ msgid "user.activities.empty_state"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:121
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:134
 msgid "user.edit.form.edit.price.placeholder"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:98
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:111
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:91
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:104
 msgid "user.listing.edit.input.quantity.required"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:120
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:129
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:142
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr ""
 
@@ -2765,6 +2790,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr ""
 
 #. js-lingui-explicit-id

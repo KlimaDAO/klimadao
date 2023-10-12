@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-11 22:46+0000\n"
+"POT-Creation-Date: 2023-10-12 00:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,7 +118,7 @@ msgstr "Одобрить"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:59
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:65
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "Available Tonnes:"
 msgstr "Доступные тонны:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:118
 msgid "Available balance exceeded"
 msgstr "Превышение доступного остатка"
 
@@ -584,6 +584,16 @@ msgid "Energy Efficiency"
 msgstr "Энергоэффективность"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
+msgid "Expiration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:14
+msgid "Expired"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
 msgid "FAQs"
 msgstr "Часто задаваемые вопросы"
@@ -715,6 +725,11 @@ msgid "Introducing Carbonmark"
 msgstr "Представляем Carbonmark"
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:9
+msgid "Invalid"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/Footer/index.tsx:49
 #: components/pages/Home/index.tsx:551
 msgid "KlimaDAO"
@@ -834,12 +849,12 @@ msgid "Moss"
 msgstr "Moss "
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:84
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:97
 msgid "New Quantity"
 msgstr "Новое количество"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:119
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:132
 msgid "New Unit Price (USDC)"
 msgstr "Новая цена за единицу (USDC)"
 
@@ -1110,7 +1125,7 @@ msgid "Quantity is required"
 msgstr "Необходимое количество"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:112
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr ""
 
@@ -1519,6 +1534,16 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
 #. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:16
+msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/Badge/index.tsx:11
+msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
 msgid "This offer no longer exists."
 msgstr "Это предложение больше не существует."
@@ -1629,7 +1654,7 @@ msgid "Total price"
 msgstr "Итоговая цена"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:99
 msgid "Total quantity to list for sale"
 msgstr "Общее количество для продажи"
 
@@ -1660,7 +1685,7 @@ msgid "Unprecedented transparency across the digital carbon market."
 msgstr "Беспрецедентная прозрачность на цифровом углеродном рынке."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
 msgstr ""
 
@@ -2535,7 +2560,7 @@ msgid "seller.listing.buy"
 msgstr "Купить"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/Listing/index.tsx:49
+#: components/pages/Users/Listing/index.tsx:59
 msgid "seller.listing.quantity_available"
 msgstr "Доступное количество:"
 
@@ -2708,28 +2733,28 @@ msgid "user.activities.empty_state"
 msgstr "Нет активности для показа"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:121
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:134
 msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC за тонну"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:98
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:111
 msgid "user.listing.edit.input.quantity.minimum"
 msgstr "Минимальное количество для продажи 1 тонна"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:91
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:104
 msgid "user.listing.edit.input.quantity.required"
 msgstr "Необходимое количество"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:120
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:136
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:149
 msgid "user.listing.form.input.singleUnitPrice.minimum"
 msgstr "Минимальная цена за тонну: {0}"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:129
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:142
 msgid "user.listing.form.input.singleUnitPrice.required"
 msgstr "Необходимая сумма"
 
@@ -2768,6 +2793,11 @@ msgstr ""
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | Профиль | Carbonmark"
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
+msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28
