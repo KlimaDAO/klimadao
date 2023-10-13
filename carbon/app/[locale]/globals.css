@@ -87,3 +87,8 @@ a {
   font-family: Poppins;
   margin-bottom: 0 !important;
 }
+
+.recharts-tooltip-wrapper {
+  position: relative;
+  z-index: 999;
+}
