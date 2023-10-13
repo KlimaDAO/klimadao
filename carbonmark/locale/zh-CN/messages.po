@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-12 22:33+0000\n"
+"POT-Creation-Date: 2023-10-13 22:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,8 +80,8 @@ msgid "All assets sourced from major registries"
 msgstr "所有资产均来自主要注册机构"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:180
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:194
+#: components/CreateListing/index.tsx:173
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "就快完成了！最后一步是创建列表并将其提交到系统。请确认以下数量和价格。"
 
@@ -120,7 +120,7 @@ msgstr "批准"
 #: components/CreateListing/Form/index.tsx:59
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
-msgstr ""
+msgstr "资产"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -173,7 +173,7 @@ msgstr "超出可用供应"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "可供列出：{0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -216,7 +216,7 @@ msgstr "余额"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:93
 msgid "Balance exceeded"
-msgstr ""
+msgstr "余额超出"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
@@ -442,9 +442,9 @@ msgid "Create Profile"
 msgstr "创建个人资料"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:199
+#: components/CreateListing/index.tsx:192
 msgid "Create a listing"
-msgstr ""
+msgstr "创建挂牌"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -564,7 +564,7 @@ msgid "Downloading ..."
 msgstr "正在下载..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:231
 msgid "Edit"
 msgstr "编辑"
 
@@ -574,9 +574,9 @@ msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:250
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit listing"
-msgstr ""
+msgstr "编辑挂牌"
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -586,12 +586,12 @@ msgstr "能源效率"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
 msgid "Expiration"
-msgstr ""
+msgstr "到期"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:14
 msgid "Expired"
-msgstr ""
+msgstr "已到期"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -614,8 +614,8 @@ msgid "Find the latest updates, guides, and resources to help you leverage the C
 msgstr "查找最新的更新、指南和资源，以帮助您更好的运用 Carbonmark 平台。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:167
+#: components/CreateListing/index.tsx:146
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "首先，批准Carbonmark系统，允许其代表您转让该资产。"
 
@@ -686,7 +686,7 @@ msgstr "以下是现成的、打折的碳代币列表，可以快速、轻松地
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "您想要挂牌出售多少吨？"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -727,7 +727,7 @@ msgstr "介绍 Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:9
 msgid "Invalid"
-msgstr ""
+msgstr "无效的"
 
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:49
@@ -1132,6 +1132,9 @@ msgstr "数量为必填项"
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
 msgstr ""
+"列出的数量：{listedQuantity}，\n"
+"未列出的数量：{unlistedQuantity}，\n"
+"可用总量：{totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1367,7 +1370,7 @@ msgstr "登录/连接购买"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "单件单价"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:104
@@ -1506,10 +1509,10 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonmark。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:166
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/CreateListing/index.tsx:159
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
 msgid "The value below reflects the sum of all of your listings for this specific token."
-msgstr ""
+msgstr "这个价值反映了该特定代币的所有挂牌价值的总和。"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:171
@@ -1540,12 +1543,12 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:16
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "此挂牌已过期并已从市场上隐藏。请重新提交或删除挂牌。"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:11
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "此挂牌已不再有效，并已从市场上隐藏。请重新提交或删除此挂牌。"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1676,7 +1679,7 @@ msgstr "总销售成本"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "USDC 每吨"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
@@ -1691,7 +1694,7 @@ msgstr "整个数字碳市场前所未有的透明度。"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
-msgstr ""
+msgstr "更新挂牌信息"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -1872,14 +1875,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "您还可以停用钱包中的任何碳资产。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:186
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:200
+#: components/CreateListing/index.tsx:179
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "You can delete this listing at any time."
 msgstr "您可以随时删除此挂牌"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:173
+#: components/CreateListing/index.tsx:152
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr "您可以随时撤销此批准。只有在销售完成后，资产才会从您的钱包中转出。"
 
@@ -2177,12 +2180,12 @@ msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加描述。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:265
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:258
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2786,8 +2789,8 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:220
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:292
+#: components/CreateListing/index.tsx:213
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:285
 msgid "{0} tonnes"
 msgstr "{0} 吨"
 
@@ -2799,7 +2802,7 @@ msgstr "{0} | 简介 | Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28
