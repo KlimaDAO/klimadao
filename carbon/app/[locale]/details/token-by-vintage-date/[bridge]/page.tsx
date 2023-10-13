@@ -19,7 +19,7 @@ export default function TokenDistributionOfVintageDatePage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of the vintage dates of each carbon credit bridged via ${bridgeLabel}.`}
     />
   );
 }

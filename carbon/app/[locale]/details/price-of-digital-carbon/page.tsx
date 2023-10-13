@@ -14,7 +14,7 @@ export default function PriceOfDigitalCarbonPage() {
           <TokensPriceCard isDetailPage={true}></TokensPriceCard>
         </div>
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The prices of various digital carbon pool tokens and their selective fees charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022.`}
     />
   );
 }
