@@ -15,6 +15,7 @@ import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Asset, Listing as ListingT } from "lib/types/carbonmark.types";
+import { getUnlistedBalance } from "lib/utils/listings.utils";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
@@ -213,15 +214,7 @@ export const ListingEditable: FC<Props> = (props) => {
       (a) => a.token.id.toLowerCase() === listing.tokenAddress.toLowerCase()
     );
     if (!asset) return 0;
-    const listedBalance = props.listings
-      // find any listing of the same token, incl. current listing
-      .filter(
-        (l) =>
-          l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase()
-      )
-      .map((l) => Number(l.leftToSell))
-      .reduce((a, b) => a + b, 0);
-    const unlistedBalance = Number(asset.amount) - listedBalance;
+    const unlistedBalance = getUnlistedBalance(asset, props.listings);
     // the listable balance includes current listing
     return unlistedBalance + Number(listing.leftToSell);
   };
