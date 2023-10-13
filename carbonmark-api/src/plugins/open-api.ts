@@ -16,6 +16,8 @@ import { UserModel } from "../models/User.model";
 import { ImageModel } from "../models/Utility.model";
 
 const OPEN_API_OPTIONS: FastifyDynamicSwaggerOptions["openapi"] = {
+  // This enables codegen utilities to target the relevant urls
+  servers: [{ url: `https://v${packageJson.version}.api.carbonmark.com` }],
   info: {
     title: "Carbonmark REST API",
     description: `
