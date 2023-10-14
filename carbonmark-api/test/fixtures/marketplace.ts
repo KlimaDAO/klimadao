@@ -27,6 +27,10 @@ const purchase: GetPurchaseByIdQuery["purchase"] = {
   price: "5000000", // 5 USDC
   listing: {
     id: "0x01",
+    tokenAddress: "0x5555553cd6ff9a46c36661750fabcbb9ae2ab555",
+    seller: {
+      id: "0x6667083cd6ff9a46c36661750fabcbb9ae2a6666",
+    },
     project: {
       id: "VCS-191-2008",
       key: "VCS-191",
