@@ -14,7 +14,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: Type.Array(Type.Ref(CategoryModel)),
+          schema: Type.Array(CategoryModel),
           examples: [
             [
               {
