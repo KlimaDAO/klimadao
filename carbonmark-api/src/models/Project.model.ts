@@ -9,7 +9,7 @@ export const ProjectModel = Type.Object({
   key: Type.String(),
   projectID: Type.String(),
   name: Type.String(),
-  methodologies: Type.Array(Nullable(MethodologyModel)),
+  methodologies: Type.Array(Nullable(Type.Ref(MethodologyModel))),
   location: Nullable(GeoJSONPointModel, {
     description: "A GeoJSON Point feature.",
   }),
@@ -20,7 +20,7 @@ export const ProjectModel = Type.Object({
   country: Type.Object({ id: Type.String() }),
   region: Type.String(),
   price: Type.String(),
-  listings: Nullable(Type.Array(ListingModel)), // null when listings are empty
+  listings: Nullable(Type.Array(Type.Ref(ListingModel))), // null when listings are empty
   images: Nullable(
     Type.Array(
       Type.Object({

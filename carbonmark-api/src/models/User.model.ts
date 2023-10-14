@@ -13,9 +13,9 @@ export const UserModel = Type.Object({
   updatedAt: Type.Number(),
   createdAt: Type.Number(),
   wallet: Type.String(),
-  listings: Type.Array(ListingModel),
-  activities: Type.Array(ActivityModel),
-  assets: Type.Array(AssetModel),
+  listings: Type.Array(Type.Ref(ListingModel)),
+  activities: Type.Array(Type.Ref(ActivityModel)),
+  assets: Type.Array(Type.Ref(AssetModel)),
 });
 
 export type User = Static<typeof UserModel>;

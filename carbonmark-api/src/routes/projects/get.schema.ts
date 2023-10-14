@@ -3,7 +3,7 @@ import { NetworkParamModel } from "../../models/NetworkParam.model";
 import { ProjectModel } from "../../models/Project.model";
 
 export const querystring = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
   country: Type.Optional(
     Type.String({
       description: "Desired country of origin for carbon projects",

@@ -18,7 +18,7 @@ export const QueryString = Type.Object({
       examples: ["1620000000"],
     })
   ),
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
 });
 
 export const schema = {

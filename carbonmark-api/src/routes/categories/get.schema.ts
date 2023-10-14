@@ -2,7 +2,7 @@ import { Type } from "@sinclair/typebox";
 import { CategoryModel } from "../../models/Category.model";
 import { NetworkParamModel } from "../../models/NetworkParam.model";
 export const Querystring = Type.Object({
-  network: Type.Optional(NetworkParamModel),
+  network: Type.Optional(Type.Ref(NetworkParamModel)),
 });
 export const schema = {
   summary: "Categories",
@@ -14,7 +14,7 @@ export const schema = {
       description: "Successful response",
       content: {
         "application/json": {
-          schema: Type.Array(CategoryModel),
+          schema: Type.Array(Type.Ref(CategoryModel)),
           examples: [
             [
               {
