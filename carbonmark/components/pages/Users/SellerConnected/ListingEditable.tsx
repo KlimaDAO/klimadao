@@ -101,13 +101,15 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(listingToEdit).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: getTotalAssetApproval(listingToEdit).toString(),
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
