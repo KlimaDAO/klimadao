@@ -9,12 +9,14 @@ import {
   createListingTransaction,
   getCarbonmarkAllowance,
 } from "lib/actions";
-import { DEFAULT_MIN_LISTING_QUANTITY } from "lib/constants";
-import { isListableToken } from "lib/isListableToken";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { Asset, Listing } from "lib/types/carbonmark.types";
+import {
+  getUnlistedBalance,
+  hasListableBalance,
+} from "lib/utils/listings.utils";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
@@ -77,16 +79,6 @@ export const CreateListing: FC<Props> = (props) => {
       console.error(e);
       setIsLoading(false);
     }
-  };
-
-  // if a listing exists, subtract the listed amount from the asset balance
-  const getListableBalance = (asset: Asset): number => {
-    if (!isListableToken(asset)) return 0;
-    const listing = props.listings.find(
-      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
-    );
-    if (!listing) return Number(asset.amount);
-    return Number(asset.amount) - Number(listing.leftToSell);
   };
 
   /** Return the value of all other listings of this same asset, plus the new listing quantity */
@@ -190,14 +182,9 @@ export const CreateListing: FC<Props> = (props) => {
     );
   };
 
-  /** Filter out tokens that are not listable or don't have enough balance */
-  const hasListableBalance = (asset: Asset): boolean => {
-    return getListableBalance(asset) > DEFAULT_MIN_LISTING_QUANTITY;
-  };
-
   const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
     ...a,
-    amount: getListableBalance(a).toString(),
+    amount: getUnlistedBalance(a, props.listings).toString(),
   }));
 
   return (
