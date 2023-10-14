@@ -36,7 +36,7 @@ export const AssetProject: FC<Props> = (props) => {
   const isSellable = getUnlistedBalance(props.asset, props.listings) > 1;
 
   const getListedBalance = (asset: Asset) => {
-    if (!hasListableBalance(props.asset) || !props.listings.length) return 0;
+    if (!hasListableBalance(asset) || !props.listings.length) return 0;
     const listing = props.listings.find(
       (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
     );
