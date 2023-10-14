@@ -13,8 +13,9 @@ import { createProjectLink } from "lib/createUrls";
 import { formatToTonnes } from "lib/formatNumbers";
 import { getFeatureFlag } from "lib/getFeatureFlag";
 import { LO } from "lib/luckyOrange";
-import { Asset, CategoryName, Listing } from "lib/types/carbonmark.types";
+import { CategoryName, Listing } from "lib/types/carbonmark.types";
 import {
+  getListedBalance,
   getUnlistedBalance,
   hasListableBalance,
 } from "lib/utils/listings.utils";
@@ -33,17 +34,9 @@ export const AssetProject: FC<Props> = (props) => {
   const { locale } = useRouter();
   const category = props.asset.project?.methodologies?.[0]?.category || "Other";
 
-  const isSellable = getUnlistedBalance(props.asset, props.listings) > 1;
-
-  const getListedBalance = (asset: Asset) => {
-    if (!hasListableBalance(asset) || !props.listings.length) return 0;
-    const listing = props.listings.find(
-      (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
-    );
-    if (!listing) return 0;
-    const unlistedBalance = getUnlistedBalance(asset, props.listings);
-    return unlistedBalance + Number(listing.leftToSell);
-  };
+  const isSellable = hasListableBalance(props.asset, props.listings);
+  const listedBalance = getListedBalance(props.asset, props.listings);
+  const unlistedBalance = getUnlistedBalance(props.asset, props.listings);
 
   return (
     <Card>
@@ -78,18 +71,11 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.tonnes}>
         <Text t="body1">
           <Trans>Unlisted tonnes:</Trans>{" "}
-          <strong>
-            {formatToTonnes(
-              getUnlistedBalance(props.asset, props.listings),
-              locale
-            )}
-          </strong>
+          <strong>{formatToTonnes(unlistedBalance, locale)}</strong>
         </Text>
         <Text t="body1">
           <Trans>Listed tonnes:</Trans>{" "}
-          <strong>
-            {formatToTonnes(getListedBalance(props.asset), locale)}
-          </strong>
+          <strong>{formatToTonnes(listedBalance, locale)}</strong>
         </Text>
       </div>
 

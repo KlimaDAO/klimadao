@@ -182,10 +182,12 @@ export const CreateListing: FC<Props> = (props) => {
     );
   };
 
-  const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
-    ...a,
-    amount: getUnlistedBalance(a, props.listings).toString(),
-  }));
+  const listableAssets = props.assets
+    .filter((a) => hasListableBalance(a, props.listings))
+    .map((a) => ({
+      ...a,
+      amount: getUnlistedBalance(a, props.listings).toString(),
+    }));
 
   return (
     <Modal
