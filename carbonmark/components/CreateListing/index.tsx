@@ -196,19 +196,10 @@ export const CreateListing: FC<Props> = (props) => {
     const amount = hasApproval()
       ? Number(inputValues?.amount) // 'submit' view shows the new quantity
       : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
-    console.log(
-      "getting amt label",
-      status,
-      allowanceValue,
-      hasApproval(),
-      amount
-    );
     return {
       value: t`${amount} tonnes`,
     };
   };
-
-  console.log("amount label: ", status, getAmountLabel().value);
 
   return (
     <Modal
