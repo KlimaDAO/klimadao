@@ -260,3 +260,8 @@ export const toggle_form_type = css`
     opacity: 0.5;
   }
 `;
+
+export const etherspotSwitchButton = css`
+  margin-top: 10px;
+`;
+

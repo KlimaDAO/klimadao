@@ -414,16 +414,14 @@ export const Stake = (props: Props) => {
             <FiberNewRoundedIcon className="new-releases-icon" />
             <Trans id="stake.lifi">
               Cross-chain staking is now available through{" "}
-              <Anchor
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowEtherspotBuidler(true);
-                }}
-              >
-                LI.FI and Etherspot
-              </Anchor>, with
+              <Anchor>LI.FI and Etherspot</Anchor>, with
               support for multiple chains and tokens.
             </Trans>
+            <ButtonPrimary
+              className={styles.etherspotSwitchButton}
+              label={<Trans id="stake.switch_to_etherspot">Stake cross-chain</Trans>}
+              onClick={() => setShowEtherspotBuidler(true)}
+            />
           </Text>
         </div>
 
