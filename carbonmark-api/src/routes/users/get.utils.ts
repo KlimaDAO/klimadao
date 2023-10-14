@@ -59,7 +59,7 @@ const fetchTestnetHoldings = async (params: {
       },
     };
   });
-  return holdings.map(formatHolding);
+  return holdings.map(formatHolding).filter((h) => Number(h.amount) > 0);
 };
 
 /** Network-aware fetcher for marketplace user data (listings and activities) */
