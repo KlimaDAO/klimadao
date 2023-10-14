@@ -46,3 +46,8 @@ export const hasListableBalance = (
   const balance = getUnlistedBalance(asset, listings);
   return balance >= DEFAULT_MIN_LISTING_QUANTITY;
 };
+
+/** Returns true if any asset has a listable balance */
+export const hasListableAssets = (assets: Asset[], listings: Listing[]) => {
+  return assets.some((t) => hasListableBalance(t, listings));
+};
