@@ -419,7 +419,7 @@ export const Stake = (props: Props) => {
             </Trans>
             <ButtonPrimary
               className={styles.etherspotSwitchButton}
-              label={<Trans id="stake.switch_to_etherspot">Stake cross-chain</Trans>}
+              label={<Trans>Stake cross-chain</Trans>}
               onClick={() => setShowEtherspotBuidler(true)}
             />
           </Text>
