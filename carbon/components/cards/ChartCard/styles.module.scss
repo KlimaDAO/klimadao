@@ -75,6 +75,11 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 1.2rem;
+
+  @include breakpoints.desktop {
+    margin: 0;
+  }
 }
 
 .overlapLegend {
