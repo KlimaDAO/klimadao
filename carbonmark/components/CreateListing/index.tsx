@@ -107,13 +107,15 @@ export const CreateListing: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: getTotalAssetApproval(inputValues).toString(),
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -194,10 +196,19 @@ export const CreateListing: FC<Props> = (props) => {
     const amount = hasApproval()
       ? Number(inputValues?.amount) // 'submit' view shows the new quantity
       : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
+    console.log(
+      "getting amt label",
+      status,
+      allowanceValue,
+      hasApproval(),
+      amount
+    );
     return {
       value: t`${amount} tonnes`,
     };
   };
+
+  console.log("amount label: ", status, getAmountLabel().value);
 
   return (
     <Modal
