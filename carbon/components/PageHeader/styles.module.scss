@@ -31,7 +31,7 @@
   margin: 0;
 
   span[role="button"] {
-    color: var(--text-color-01);
+    color: var(--lightmode-font-01);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -65,10 +65,10 @@
   font-size: 1.4rem;
   padding: 0 2.4rem;
   height: 4.8rem;
-  color: var(--text-color-04);
-  background-color: var(--text-color-05);
+  color: var(--brand-white);
+  background-color: var(--brand-blue);
 
   &:hover {
-    background-color: var(--text-color-05);
+    background-color: var(--brand-blue);
   }
 }

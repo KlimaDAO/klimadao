@@ -20,6 +20,9 @@ body {
   --brand-white: #ffffff;
   --brand-blue: #0ba1ff;
 
+  --brand-background: #f5f8fa;
+  --brand-border: #ebf1f5;
+
   --lightmode-surface-01: #2a2a2a;
   --lightmode-surface-02: #f5f5f7;
   --lightmode-surface-03: #f4f4f4;
@@ -43,26 +46,6 @@ body[data-theme="theme-light"] {
   --font-01: var(--lightmode-font-01);
   --font-02: var(--lightmode-font-02);
   --font-03: var(--lightmode-font-03);
-
-  /*---*/
-
-  --surface-01: #f5f5f7; /* lightmode-surface-02 */
-  --surface-02: #202020; /* darkmode-surface-02 */
-  --surface-03: #f5f8fa; /* lightmode-background-01 ? */
-  --surface-06: #ebf1f5; /* lightmode-border-01 ? */
-  --surface-02-active: #303030; /* darkmode-surface-03 */
-  --text-color-01: #313131; /* lightmode-font-01 */
-  --text-color-02: #9c9c9c; /* darkmode-font-03 */
-  --text-color-03: #a1a1a1; /* lightmode-font-01 */
-  --text-color-05: #0ba1ff; /* brand-blue */
-  --text-color-06: #767676; /* lightmode-font-02 */
-  --text-color-07: #cccccc; /* lightmode-surface-02 */
-
-  --brand-colors-klima-green: #0c3;
-
-  /* these are actually dark mode colors, but they're used for the footer*/
-  --surface-05: #2a2a2a;
-  --text-color-04: #fff;
 }
 
 body[data-theme="theme-dark"] {

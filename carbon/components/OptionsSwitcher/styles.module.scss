@@ -26,11 +26,11 @@
   }
 
   li {
-    border-top: 1px solid var(--text-color-01);
-    border-bottom: 1px solid var(--text-color-01);
+    border-top: 1px solid var(--lightmode-font-01);
+    border-bottom: 1px solid var(--lightmode-font-01);
     background-color: var(--brand-white);
     padding: 0.4rem 0.8rem 0.4rem 0.8rem;
-    color: var(--text-color-01);
+    color: var(--lightmode-font-01);
     cursor: pointer;
   }
 

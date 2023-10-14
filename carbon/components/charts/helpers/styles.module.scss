@@ -1,11 +1,11 @@
 .chartLegendText {
-  color: var(--text-color-01);
+  color: var(--lightmode-font-01);
   font-size: 1.2rem;
 }
 
 .tooltip {
   background-color: var(--brand-white);
-  border: 0.1rem solid var(--surface-03);
+  border: 0.1rem solid var(--brand-background);
   border-radius: 1.5rem;
   padding: 1rem;
   text-align: center;
