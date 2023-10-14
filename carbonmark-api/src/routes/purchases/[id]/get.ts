@@ -41,6 +41,10 @@ const handler = async (
     price: utils.formatUnits(purchase.price, 6),
     listing: {
       id: purchase.listing.id,
+      tokenAddress: purchase.listing.tokenAddress,
+      seller: {
+        id: purchase.listing.seller.id,
+      },
       project: {
         key: purchase.listing.project.key,
         vintage: purchase.listing.project.vintage,
