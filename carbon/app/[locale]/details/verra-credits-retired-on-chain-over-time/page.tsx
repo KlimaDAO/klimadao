@@ -9,7 +9,7 @@ export default function VerraCreditsRetiredOnChainOverTimePage() {
       card={
         <DailyCarbonSupplyByProtocolCard isDetailPage={true} status="retired" />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of carbon credits issued by carbon registry Verra and retired over time. On-chain refers to credits bridged and tokenized on a public blockchain.`}
     />
   );
 }

@@ -19,7 +19,7 @@ export default function TokenVolumeOverTimePage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The volume of digital carbon credits in ${bridgeLabel} digital carbon pools over a given time period.`}
     />
   );
 }

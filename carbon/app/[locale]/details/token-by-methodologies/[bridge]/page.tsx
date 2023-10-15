@@ -19,7 +19,7 @@ export default function TokenDistributionOfMethodologiesPage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of the methodologies used to validate and issue each carbon credit bridged via ${bridgeLabel}.`}
     />
   );
 }
