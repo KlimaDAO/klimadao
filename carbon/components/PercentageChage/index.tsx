@@ -20,7 +20,7 @@ export default function PercentageChange(props: {
   return (
     <span className={styles.priceChangeValue}>
       {icon}
-      {formatPercentage({ value: percentage, fractionDigits })}
+      {formatPercentage({ value: Math.abs(percentage), fractionDigits })}
     </span>
   );
 }

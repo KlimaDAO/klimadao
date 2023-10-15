@@ -1,5 +1,6 @@
 import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
+import layout from "theme/layout.module.scss";
 import { IssuedVsTokenizedCreditsChart } from "./issuedVsTokenizedCreditsChart";
 import {
   OffchainRetiredCreditsCard,
@@ -27,6 +28,7 @@ export default function VerraCreditsBreakdownCard(props: CardProps) {
       title={title}
       detailUrl="/details/verra-credits-breakdown"
       chart={chart}
+      className={layout.zIndexSeven}
     />
   );
 }

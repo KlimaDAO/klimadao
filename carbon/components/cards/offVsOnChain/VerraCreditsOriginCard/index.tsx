@@ -25,6 +25,7 @@ export default function VerraCreditsOriginCard(
       title={t`Credits tokenized vs credits issued by origin`}
       chart={chart}
       isColumnCard={true}
+      className={props.className}
     />
   );
 }

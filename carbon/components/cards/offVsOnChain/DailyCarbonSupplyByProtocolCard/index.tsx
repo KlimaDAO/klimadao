@@ -8,6 +8,7 @@ import {
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";
+
 /** Verra Credits Card */
 export default function DailyCarbonSupplyByProtocolCard(
   props: CardProps & OffVsOnChainProps
@@ -91,6 +92,12 @@ export default function DailyCarbonSupplyByProtocolCard(
       : "/details/verra-credits-retired-on-chain-over-time";
 
   return (
-    <ChartCard {...props} title={title} detailUrl={detailUrl} chart={chart} />
+    <ChartCard
+      {...props}
+      title={title}
+      detailUrl={detailUrl}
+      chart={chart}
+      className={props.className}
+    />
   );
 }
