@@ -40,7 +40,11 @@ export default async function DataTable<RI>(props: {
     props.params
   )) as PaginatedResponse<RI>;
   const firstPageTable = (
-    <Table configurationKey={props.configurationKey} data={data}></Table>
+    <Table
+      configurationKey={props.configurationKey}
+      data={data}
+      params={props.params}
+    ></Table>
   );
   return (
     <NoDataWrapper data={data.items}>

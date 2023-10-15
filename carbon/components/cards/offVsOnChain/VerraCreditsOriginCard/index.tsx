@@ -18,11 +18,15 @@ export default function VerraCreditsOriginCard(
       skeletonClassName={layout.tenRowsSkeleton}
     />
   );
+  const title =
+    props.status == "issued"
+      ? t`Credits tokenized vs credits issued by origin`
+      : t`Credits retired off-chain vs on-chain by origin`;
 
   return (
     <ChartCard
       {...props}
-      title={t`Credits tokenized vs credits issued by origin`}
+      title={title}
       chart={chart}
       isColumnCard={true}
       className={props.className}

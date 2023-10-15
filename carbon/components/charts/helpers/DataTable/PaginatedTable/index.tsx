@@ -27,7 +27,11 @@ export default function PaginatedTable<RI>(props: {
     });
   }, [props.page]);
   return data ? (
-    <Table configurationKey={props.configurationKey} data={data}></Table>
+    <Table
+      configurationKey={props.configurationKey}
+      params={props.params}
+      data={data}
+    ></Table>
   ) : (
     <Skeleton className={props.skeletonClassName} />
   );

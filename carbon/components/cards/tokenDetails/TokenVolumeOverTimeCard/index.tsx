@@ -1,18 +1,14 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {
   TokenDetailsProps,
   getChartConfiguration,
+  getCreditsQueryConfiguration,
   propsToDetailsURL,
 } from "components/cards/tokenDetails/helpers";
 import KBarChart from "components/charts/helpers/KBarChart";
-import { statusToDateField } from "lib/charts/dateField";
-import { fillWithZeroes } from "lib/charts/helpers";
-import { queryAggregatedCreditsByPoolAndDates } from "lib/charts/queries";
-import { Status } from "lib/charts/types";
-
+import { getMergedCreditsByDate } from "lib/charts/aggregators/getDailyCredits";
 export default function TokenVolumeOverTimeCard(
   props: CardProps & TokenDetailsProps
 ) {
@@ -32,28 +28,27 @@ export default function TokenVolumeOverTimeCard(
 }
 /** Async server component that renders a Recharts client component */
 async function TokenVolumeOverTimeChart(props: TokenDetailsProps) {
-  const params = creditsQueryParamsFromProps(props);
+  const chartConfiguration = getChartConfiguration(props);
+  const queryConfiguration = getCreditsQueryConfiguration(props);
   const freq = props.since == "lifetime" ? "monthly" : "daily";
-  const configuration = getChartConfiguration(props);
-  let data = (
-    await queryAggregatedCreditsByPoolAndDates(freq, {
-      ...params,
-    })
-  ).items;
-
-  data = fillWithZeroes(
-    data,
-    configuration,
-    "bridged_date",
-    props.since == "lifetime" ? "M" : "d"
-  );
-  const XAxis = props.since == "lifetime" ? "months" : "days";
-  const dateField = statusToDateField(params.status as Status);
+  const data = await getMergedCreditsByDate(freq, queryConfiguration);
+  // Hack: We must modify data to add not pooled quantity value
+  if (props.pool == "all") {
+    data.forEach((item) => {
+      if (props.bridge == "toucan")
+        item.not_pooled_quantity =
+          item.total_quantity - (item.nct_quantity + item.bct_quantity);
+      if (props.bridge == "c3")
+        item.not_pooled_quantity =
+          item.total_quantity - (item.ubo_quantity + item.nbo_quantity);
+    });
+  }
+  const XAxis = freq == "monthly" ? "months" : "days";
   return (
     <KBarChart
       data={data}
-      configuration={configuration}
-      dateField={dateField}
+      configuration={chartConfiguration}
+      dateField="date"
       XAxis={XAxis}
       YAxis="tons"
     />

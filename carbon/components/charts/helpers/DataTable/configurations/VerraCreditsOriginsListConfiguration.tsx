@@ -7,13 +7,15 @@ import {
 import {
   AggregatedCreditsByBridgeAndOriginItem,
   CreditsQueryParams,
-  PaginatedResponse,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
-import { Columns } from "./types";
+import { Columns, DataRendererProps } from "./types";
 
-export default class VerraCreditsOriginsListConfiguration extends AbstractTableConfiguration<AggregatedCreditsByBridgeAndOriginItem> {
+export default class VerraCreditsOriginsListConfiguration extends AbstractTableConfiguration<
+  AggregatedCreditsByBridgeAndOriginItem,
+  CreditsQueryParams
+> {
   async fetchFunction(page: number, params?: CreditsQueryParams) {
     const total = (await queryAggregatedCredits({ bridge: "offchain" }))
       .quantity;
@@ -40,7 +42,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
       ) {
         item.total_bridged =
           item.c3_quantity + item.toucan_quantity + item.moss_quantity;
-        item.percentage = item.total_quantity / total;
+        item.percentage = item.total_bridged / item.total_quantity;
       }
     });
     return data;
@@ -90,13 +92,19 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
         formatter: this.formatTonnes,
       },
       issued: {
-        header: t`Total retired VCUs`,
+        header:
+          params?.status == "issued"
+            ? t`Total issued VCUs`
+            : t`Total retired VCUs`,
         cellStyle: layout.textRight,
         dataKey: "total_quantity",
         formatter: this.formatTonnes,
       },
       percentage: {
-        header: t`Percentage`,
+        header:
+          params?.status == "issued"
+            ? t`Percentage tokenized`
+            : t`Percentage retired offchain`,
         cellStyle: layout.textRight,
         dataKey: "percentage",
         formatter: (x: number) =>
@@ -107,18 +115,20 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
   formatTonnes = (x: number) => {
     return formatTonnes({ amount: x, maximumFractionDigits: 0 });
   };
-  desktopRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByBridgeAndOriginItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+  desktopRenderer = (
+    props: DataRendererProps<
+      AggregatedCreditsByBridgeAndOriginItem,
+      CreditsQueryParams
+    >
+  ) => {
+    return this.VerticalTableLayout(props);
   };
-  mobileRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByBridgeAndOriginItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+  mobileRenderer = (
+    props: DataRendererProps<
+      AggregatedCreditsByBridgeAndOriginItem,
+      CreditsQueryParams
+    >
+  ) => {
+    return this.VerticalTableLayout(props);
   };
 }

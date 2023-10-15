@@ -1,4 +1,4 @@
-import { getAggregatedCreditsByProjects } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { getAggregatedCreditsByProject } from "lib/charts/aggregators/getAggregatedCredits";
 import Chart from "./Chart";
 
 import ChartWrapper from "../helpers/ChartWrapper";
@@ -7,7 +7,7 @@ import { CreditsFilteringProps } from "../helpers/props";
 export default async function CreditsDistributionOfProjectsChart(
   props: CreditsFilteringProps
 ) {
-  const data = await getAggregatedCreditsByProjects(props);
+  const data = await getAggregatedCreditsByProject(props);
   return (
     <ChartWrapper data={data}>
       <Chart data={data} />

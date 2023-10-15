@@ -22,3 +22,11 @@
     align-items: center;
   }
 }
+
+/** Hides insights got the time being */
+.text {
+  grid-template-columns: 1fr;
+}
+.insights {
+  display: none;
+}

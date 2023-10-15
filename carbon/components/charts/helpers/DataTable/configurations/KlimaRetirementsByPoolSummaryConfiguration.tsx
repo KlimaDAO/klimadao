@@ -1,18 +1,17 @@
 import { t } from "@lingui/macro";
 import { helpers } from "lib/charts";
 import { queryKlimaMonthlyRetirementsByPool } from "lib/charts/queries";
-import {
-  KlimaMonthlyRetirementsByTokenItem,
-  PaginatedResponse,
-} from "lib/charts/types";
-import { currentLocale } from "lib/i18n";
+import { KlimaMonthlyRetirementsByTokenItem } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
 
-import { Columns } from "./types";
+import { Columns, DataRendererProps } from "./types";
 
-export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<KlimaMonthlyRetirementsByTokenItem> {
+export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<
+  KlimaMonthlyRetirementsByTokenItem,
+  undefined
+> {
   async fetchFunction(_page: number) {
     const data = await queryKlimaMonthlyRetirementsByPool({
       sort_by: "retirement_date",
@@ -25,7 +24,6 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
     return data;
   }
   getColumns(): Columns<KlimaMonthlyRetirementsByTokenItem> {
-    const locale = currentLocale();
     return {
       retirement_date: {
         header: "",
@@ -61,18 +59,14 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
       },
     };
   }
-  desktopRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
-  }) => {
-    return this.HorizontalTableLayout({
-      data: props.data,
-    });
+  desktopRenderer = (
+    props: DataRendererProps<KlimaMonthlyRetirementsByTokenItem, undefined>
+  ) => {
+    return this.HorizontalTableLayout(props);
   };
-  mobileRenderer = (props: {
-    data: PaginatedResponse<KlimaMonthlyRetirementsByTokenItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+  mobileRenderer = (
+    props: DataRendererProps<KlimaMonthlyRetirementsByTokenItem, undefined>
+  ) => {
+    return this.VerticalTableLayout(props);
   };
 }
