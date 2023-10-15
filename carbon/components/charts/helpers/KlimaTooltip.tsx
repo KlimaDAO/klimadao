@@ -1,3 +1,4 @@
+import { t } from "@lingui/macro";
 import { TooltipProps } from "recharts";
 import {
   NameType,
@@ -18,15 +19,25 @@ export function KlimaTooltip(params: {
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltip}>
-          {params.xAxisFormatter && <p>{params.xAxisFormatter(label)}</p>}
+          {params.xAxisFormatter && (
+            <p className={styles.date}>{params.xAxisFormatter(label)}</p>
+          )}
           <div className={styles.tooltipItems}>
             {payload.map((pld) => (
               <div key={pld.name}>
-                <div>{pld.payload?.name || pld.name}</div>
-                <div style={{ color: pld.color }}>
+                <div className={styles.payloadName}>
+                  {pld.color && (
+                    <span
+                      className={styles.dot}
+                      style={{ backgroundColor: pld.color }}
+                    ></span>
+                  )}
+                  {pld.payload?.name || pld.name}
+                </div>
+                <div>
                   {pld.value !== undefined &&
                     params.yAxisFormatter &&
-                    params.yAxisFormatter(pld.value as number)}
+                    params.yAxisFormatter(pld.value as number) + t`T`}
                 </div>
               </div>
             ))}

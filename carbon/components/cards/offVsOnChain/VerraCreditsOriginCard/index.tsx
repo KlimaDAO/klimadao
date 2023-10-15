@@ -24,6 +24,12 @@ export default function VerraCreditsOriginCard(
       : t`Credits retired off-chain vs on-chain by origin`;
 
   return (
-    <ChartCard {...props} title={title} chart={chart} isColumnCard={true} />
+    <ChartCard
+      {...props}
+      title={title}
+      chart={chart}
+      isColumnCard={true}
+      className={props.className}
+    />
   );
 }

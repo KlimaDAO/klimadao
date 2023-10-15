@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-12 03:13+0000\n"
+"POT-Creation-Date: 2023-10-15 07:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,8 +80,8 @@ msgid "All assets sourced from major registries"
 msgstr "Tous les actifs issus des plus importants registres"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:180
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:194
+#: components/CreateListing/index.tsx:173
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "Bientôt terminé ! La dernière étape consiste à créer l'annonce et à la soumettre au système. Veuillez vérifier la quantité et le prix ci-dessous."
 
@@ -120,7 +120,7 @@ msgstr "Approuver"
 #: components/CreateListing/Form/index.tsx:59
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:78
 msgid "Asset"
-msgstr ""
+msgstr "Actif"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/Retire/RetirementSidebar/index.tsx:21
@@ -175,7 +175,7 @@ msgstr "Dépassement de l'offre disponible"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:101
 msgid "Available to list: {0}"
-msgstr ""
+msgstr "Disponible pour la vente : {0}"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/AssetDetails.tsx:49
@@ -218,7 +218,7 @@ msgstr "Solde"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:93
 msgid "Balance exceeded"
-msgstr ""
+msgstr "Solde dépassé"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:101
@@ -444,7 +444,7 @@ msgid "Create Profile"
 msgstr "Créer un profil"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:199
+#: components/CreateListing/index.tsx:192
 msgid "Create a listing"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgid "Downloading ..."
 msgstr "Téléchargement en cours ..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:231
 msgid "Edit"
 msgstr "Modifier"
 
@@ -576,7 +576,7 @@ msgid "Edit Profile"
 msgstr "Modifier votre profil"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:250
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit listing"
 msgstr ""
 
@@ -588,12 +588,12 @@ msgstr "Efficacité Énergétique"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:163
 msgid "Expiration"
-msgstr ""
+msgstr "Expiration"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:14
 msgid "Expired"
-msgstr ""
+msgstr "Expiré"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:464
@@ -616,8 +616,8 @@ msgid "Find the latest updates, guides, and resources to help you leverage the C
 msgstr "Retrouvez les dernières mises à jour, les guides et les ressources pour vous aider à tirer profit de la plateforme Carbonmark."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:167
+#: components/CreateListing/index.tsx:146
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "Tout d'abord, vous devez donner l'autorisation au système Carbonmark de transférer cet actif en votre nom."
 
@@ -688,7 +688,7 @@ msgstr "Voici une liste de jetons de carbone immédiatement disponibles et à pr
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:74
 msgid "How many tonnes do you want to list for sale?"
-msgstr ""
+msgstr "Combien de tonnes voulez-vous mettre en vente ?"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/PurchaseInputs.tsx:90
@@ -729,7 +729,7 @@ msgstr "Introduction de Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:9
 msgid "Invalid"
-msgstr ""
+msgstr "Invalide"
 
 #. js-lingui-explicit-id
 #: components/Footer/index.tsx:49
@@ -1504,8 +1504,8 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "L'étape précédente a accordé l'autorisation à Carbonmark de transférer votre actif de paiement de votre portefeuille ."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:166
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/CreateListing/index.tsx:159
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr ""
 
@@ -1674,7 +1674,7 @@ msgstr "Coût total de la vente"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:106
 msgid "USDC per tonne"
-msgstr ""
+msgstr "USDC par tonne"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:111
@@ -1870,14 +1870,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "Vous pouvez également retirer n'importe quel actif carbone de votre portefeuille."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:186
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:200
+#: components/CreateListing/index.tsx:179
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "You can delete this listing at any time."
 msgstr "Vous pouvez supprimer cette annonce à tout moment."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:173
+#: components/CreateListing/index.tsx:152
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr "Vous pouvez révoquer cette autorisation à tout moment. Les actifs ne seront transférés hors de votre portefeuille uniquement lorsqu'une vente sera réalisée."
 
@@ -2175,12 +2175,12 @@ msgid "profile.edit_your_profile"
 msgstr "Modifier votre profil pour ajouter une description."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
 msgid "profile.listing.delete.error"
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:265
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:258
 msgid "profile.listing.edit.delete_listing"
 msgstr "Supprimer l'annonce"
 
@@ -2784,8 +2784,8 @@ msgid "{0} maximum for credit cards"
 msgstr "Maximum de {0} pour les cartes de crédit"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:220
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:292
+#: components/CreateListing/index.tsx:213
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:285
 msgid "{0} tonnes"
 msgstr "{0} tonnes"
 
@@ -2797,7 +2797,7 @@ msgstr "{0} | Profil | Carbonmark"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
-msgstr ""
+msgstr "{DEFAULT_EXPIRATION_DAYS} jours ({expirationDatestring})"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

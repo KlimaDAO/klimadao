@@ -16,8 +16,8 @@
   [aria-describedby="title"] {
     text-align: center;
     padding: 2rem 0;
-    border-top: 0.1rem solid var(--text-color-03);
-    border-bottom: 0.1rem solid var(--text-color-03);
+    border-top: 0.1rem solid var(--lightmode-font-01);
+    border-bottom: 0.1rem solid var(--lightmode-font-01);
     font-family: Inter;
     font-weight: 500;
     font-size: 1.6rem;
@@ -29,7 +29,7 @@
     display: grid;
     gap: 1.6rem;
     padding-bottom: 4rem;
-    border-bottom: 0.1rem solid var(--text-color-03);
+    border-bottom: 0.1rem solid var(--lightmode-font-01);
     white-space: nowrap;
   }
 }
@@ -46,15 +46,15 @@
   color: #767676;
 
   &[aria-selected="true"] {
-    background-color: var(--surface-01);
+    background-color: var(--lightmode-surface-02);
     border-radius: 0.8rem;
-    color: var(--text-color-01);
+    color: var(--lightmode-font-01);
 
     /**
      * @todo this is kinda hacky */
     span {
-      background-color: var(--text-color-05);
-      color: var(--text-color-04);
+      background-color: var(--brand-blue);
+      color: var(--brand-white);
     }
   }
 }
@@ -66,8 +66,8 @@
 
 .desktopSidebarIcon {
   border-radius: 0.6rem;
-  background-color: var(--surface-01);
-  color: var(--text-color-01);
+  background-color: var(--lightmode-surface-02);
+  color: var(--lightmode-font-01);
   width: 3.2rem;
   height: 3.2rem;
 
@@ -98,9 +98,10 @@
 .mobileBottomNav {
   position: sticky;
   bottom: 0;
+  z-index: 700;
   display: flex;
   width: 100%;
-  background-color: var(--surface-02);
+  background-color: var(--darkmode-surface-02);
   flex-direction: row;
   justify-content: space-evenly;
 
@@ -121,11 +122,11 @@
   align-items: center;
 
   &[aria-selected="true"] {
-    background-color: var(--surface-02-active);
-    color: var(--text-color-05);
+    background-color: var(--darkmode-surface-03);
+    color: var(--brand-blue);
   }
 
-  color: var(--text-color-02);
+  color: var(--darkmode-font-03);
 
   svg {
     width: 2rem;
@@ -146,7 +147,7 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  background-color: var(--surface-03);
+  background-color: var(--brand-background);
 }
 
 .mobileMenuButton {
@@ -154,8 +155,8 @@
   min-height: 4.8rem;
   width: 4.8rem;
   height: 4.8rem;
-  color: var(--text-color-01);
-  background-color: var(--surface-01);
+  color: var(--lightmode-font-01);
+  background-color: var(--lightmode-surface-02);
 
   svg {
     width: 2.4rem;
@@ -164,8 +165,8 @@
 }
 
 .footer {
-  background-color: var(--surface-05);
-  color: var(--text-color-04);
+  background-color: var(--darkmode-surface-01);
+  color: var(--brand-white);
   padding: 4rem 2.4rem;
 
   display: grid;
@@ -179,7 +180,7 @@
 
   a {
     text-decoration: none;
-    color: var(--text-color-04);
+    color: var(--brand-white);
   }
 }
 

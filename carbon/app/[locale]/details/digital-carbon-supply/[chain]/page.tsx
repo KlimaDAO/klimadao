@@ -26,7 +26,7 @@ export default function DigitalDailyCarbonSupplyPage({
     <DetailPage
       pageTitle={t`Digital carbon supply - ${chainLabel}`}
       card={card}
-      overview={t`Lorem Ipsum`}
+      overview={t`The current supply of digital carbon on the ${chainLabel} blockchain broken down by digital carbon pool.`}
     />
   );
 }

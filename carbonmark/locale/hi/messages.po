@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-12 03:13+0000\n"
+"POT-Creation-Date: 2023-10-15 07:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,8 +80,8 @@ msgid "All assets sourced from major registries"
 msgstr "सभी संपत्तियां प्रमुख रजिस्ट्रियों से प्राप्त की गईं है"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:180
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:194
+#: components/CreateListing/index.tsx:173
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr ""
 
@@ -444,7 +444,7 @@ msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:199
+#: components/CreateListing/index.tsx:192
 msgid "Create a listing"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgid "Downloading ..."
 msgstr "डाउनलोड हो रहा है..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:238
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:231
 msgid "Edit"
 msgstr "संपादित करें"
 
@@ -576,7 +576,7 @@ msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:250
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit listing"
 msgstr ""
 
@@ -616,8 +616,8 @@ msgid "Find the latest updates, guides, and resources to help you leverage the C
 msgstr "कार्बनमार्क प्लैटफ़ॉर्म का लाभ उठाने में सहायता के लिए, नवीनतम अपडेट, गाइड और संसाधन खोजें।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:153
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:167
+#: components/CreateListing/index.tsx:146
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr ""
 
@@ -1504,8 +1504,8 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:166
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:180
+#: components/CreateListing/index.tsx:159
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr ""
 
@@ -1874,14 +1874,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "आप अपने बटुए में किसी भी कार्बन परिसंपत्ति को रिटायर भी कर सकते हैं।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:186
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:200
+#: components/CreateListing/index.tsx:179
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
 msgid "You can delete this listing at any time."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:173
+#: components/CreateListing/index.tsx:152
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr ""
 
@@ -2179,12 +2179,12 @@ msgid "profile.edit_your_profile"
 msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:153
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
 msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:265
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:258
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
@@ -2788,8 +2788,8 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} क्रेडिट कार्ड के लिए अधिकतम"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:220
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:292
+#: components/CreateListing/index.tsx:213
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:285
 msgid "{0} tonnes"
 msgstr ""
 

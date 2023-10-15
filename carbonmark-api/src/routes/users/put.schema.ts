@@ -5,6 +5,7 @@ export const RequestBody = Type.Object({
   username: Type.String({ minLength: 2 }),
   description: Type.String({ minLength: 2, maxLength: 500 }),
   profileImgUrl: Type.Optional(Type.String()),
+  handle: Type.Optional(Type.String({ minLength: 3, maxLength: 24 })),
 });
 
 export const schema = {

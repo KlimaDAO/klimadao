@@ -19,7 +19,7 @@ export default function TokenStateOfDigitalCarbonPage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of digital carbon credits bridged via ${bridgeLabel} broken down by the current outstanding supply and retired digital carbon credits.`}
     />
   );
 }

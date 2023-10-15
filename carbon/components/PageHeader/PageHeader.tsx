@@ -40,7 +40,7 @@ export const PageHeader: FC<{
 
       <div className={layout.desktopOnly}>
         <div className={styles.buttons}>
-          <ChangeLanguageButton className={styles.changeLanguageButton} />
+          <ChangeLanguageButton />
           <Link href={urls.carbonmark}>
             <Button className={styles.exploreButton}>
               {t`Explore Marketplace`}

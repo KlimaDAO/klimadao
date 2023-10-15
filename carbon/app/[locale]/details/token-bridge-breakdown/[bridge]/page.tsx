@@ -19,7 +19,7 @@ export default function TokenBridgeBreakdownPage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of the current supply of carbon credits bridged via ${bridgeLabel} and pooled into digital carbon pools.`}
     />
   );
 }
