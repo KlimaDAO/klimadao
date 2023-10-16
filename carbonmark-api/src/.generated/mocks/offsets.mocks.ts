@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BlockChangedFilter, Block_Height, Bridge, Bridge_Filter, CarbonMetric, CarbonMetric_Filter, CarbonOffset, CarbonOffset_Filter, CrosschainBridge, CrosschainBridge_Filter, DailyKlimaRetirement, DailyKlimaRetirement_Filter, Deposit, Deposit_Filter, KlimaRetire, KlimaRetire_Filter, Query, Redeem, Redeem_Filter, Retire, Retire_Filter, Subscription, ToucanCertificate, ToucanCertificate_Filter, Transaction, Transaction_Filter, _Block_, _Meta_, BridgeDirection, Bridge_OrderBy, CarbonMetric_OrderBy, CarbonOffset_OrderBy, CrosschainBridge_OrderBy, DailyKlimaRetirement_OrderBy, Deposit_OrderBy, KlimaRetire_OrderBy, OrderDirection, Redeem_OrderBy, Retire_OrderBy, ToucanCertificate_OrderBy, Transaction_OrderBy, _SubgraphErrorPolicy_ } from '../types/offsets.types';
+import { OffsetsBlockChangedFilter, OffsetsBlock_Height, OffsetsBridge, OffsetsBridge_Filter, OffsetsCarbonMetric, OffsetsCarbonMetric_Filter, OffsetsCarbonOffset, OffsetsCarbonOffset_Filter, OffsetsCrosschainBridge, OffsetsCrosschainBridge_Filter, OffsetsDailyKlimaRetirement, OffsetsDailyKlimaRetirement_Filter, OffsetsDeposit, OffsetsDeposit_Filter, OffsetsKlimaRetire, OffsetsKlimaRetire_Filter, OffsetsQuery, OffsetsRedeem, OffsetsRedeem_Filter, OffsetsRetire, OffsetsRetire_Filter, OffsetsSubscription, OffsetsToucanCertificate, OffsetsToucanCertificate_Filter, OffsetsTransaction, OffsetsTransaction_Filter, Offsets_Block_, Offsets_Meta_, BridgeDirection, Bridge_OrderBy, CarbonMetric_OrderBy, CarbonOffset_OrderBy, CrosschainBridge_OrderBy, DailyKlimaRetirement_OrderBy, Deposit_OrderBy, KlimaRetire_OrderBy, OrderDirection, Redeem_OrderBy, Retire_OrderBy, ToucanCertificate_OrderBy, Transaction_OrderBy, _SubgraphErrorPolicy_ } from '../types/offsets.types';
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<OffsetsBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -9,7 +9,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aBlock_Height = (overrides?: Partial<OffsetsBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): OffsetsBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -19,7 +19,7 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aBridge = (overrides?: Partial<Bridge>, _relationshipsToOmit: Set<string> = new Set()): Bridge => {
+export const aBridge = (overrides?: Partial<OffsetsBridge>, _relationshipsToOmit: Set<string> = new Set()): OffsetsBridge => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Bridge');
     return {
@@ -32,7 +32,7 @@ export const aBridge = (overrides?: Partial<Bridge>, _relationshipsToOmit: Set<s
     };
 };
 
-export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): Bridge_Filter => {
+export const aBridge_Filter = (overrides?: Partial<OffsetsBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsBridge_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Bridge_Filter');
     return {
@@ -128,7 +128,7 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>, _relationship
     };
 };
 
-export const aCarbonMetric = (overrides?: Partial<CarbonMetric>, _relationshipsToOmit: Set<string> = new Set()): CarbonMetric => {
+export const aCarbonMetric = (overrides?: Partial<OffsetsCarbonMetric>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCarbonMetric => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonMetric');
     return {
@@ -160,7 +160,7 @@ export const aCarbonMetric = (overrides?: Partial<CarbonMetric>, _relationshipsT
     };
 };
 
-export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonMetric_Filter => {
+export const aCarbonMetric_Filter = (overrides?: Partial<OffsetsCarbonMetric_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCarbonMetric_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonMetric_Filter');
     return {
@@ -370,7 +370,7 @@ export const aCarbonMetric_Filter = (overrides?: Partial<CarbonMetric_Filter>, _
     };
 };
 
-export const aCarbonOffset = (overrides?: Partial<CarbonOffset>, _relationshipsToOmit: Set<string> = new Set()): CarbonOffset => {
+export const aCarbonOffset = (overrides?: Partial<OffsetsCarbonOffset>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCarbonOffset => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonOffset');
     return {
@@ -409,7 +409,7 @@ export const aCarbonOffset = (overrides?: Partial<CarbonOffset>, _relationshipsT
     };
 };
 
-export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonOffset_Filter => {
+export const aCarbonOffset_Filter = (overrides?: Partial<OffsetsCarbonOffset_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCarbonOffset_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonOffset_Filter');
     return {
@@ -885,7 +885,7 @@ export const aCarbonOffset_Filter = (overrides?: Partial<CarbonOffset_Filter>, _
     };
 };
 
-export const aCrosschainBridge = (overrides?: Partial<CrosschainBridge>, _relationshipsToOmit: Set<string> = new Set()): CrosschainBridge => {
+export const aCrosschainBridge = (overrides?: Partial<OffsetsCrosschainBridge>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCrosschainBridge => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrosschainBridge');
     return {
@@ -899,7 +899,7 @@ export const aCrosschainBridge = (overrides?: Partial<CrosschainBridge>, _relati
     };
 };
 
-export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): CrosschainBridge_Filter => {
+export const aCrosschainBridge_Filter = (overrides?: Partial<OffsetsCrosschainBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsCrosschainBridge_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrosschainBridge_Filter');
     return {
@@ -998,7 +998,7 @@ export const aCrosschainBridge_Filter = (overrides?: Partial<CrosschainBridge_Fi
     };
 };
 
-export const aDailyKlimaRetirement = (overrides?: Partial<DailyKlimaRetirement>, _relationshipsToOmit: Set<string> = new Set()): DailyKlimaRetirement => {
+export const aDailyKlimaRetirement = (overrides?: Partial<OffsetsDailyKlimaRetirement>, _relationshipsToOmit: Set<string> = new Set()): OffsetsDailyKlimaRetirement => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DailyKlimaRetirement');
     return {
@@ -1012,7 +1012,7 @@ export const aDailyKlimaRetirement = (overrides?: Partial<DailyKlimaRetirement>,
     };
 };
 
-export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetirement_Filter>, _relationshipsToOmit: Set<string> = new Set()): DailyKlimaRetirement_Filter => {
+export const aDailyKlimaRetirement_Filter = (overrides?: Partial<OffsetsDailyKlimaRetirement_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsDailyKlimaRetirement_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('DailyKlimaRetirement_Filter');
     return {
@@ -1115,7 +1115,7 @@ export const aDailyKlimaRetirement_Filter = (overrides?: Partial<DailyKlimaRetir
     };
 };
 
-export const aDeposit = (overrides?: Partial<Deposit>, _relationshipsToOmit: Set<string> = new Set()): Deposit => {
+export const aDeposit = (overrides?: Partial<OffsetsDeposit>, _relationshipsToOmit: Set<string> = new Set()): OffsetsDeposit => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Deposit');
     return {
@@ -1129,7 +1129,7 @@ export const aDeposit = (overrides?: Partial<Deposit>, _relationshipsToOmit: Set
     };
 };
 
-export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>, _relationshipsToOmit: Set<string> = new Set()): Deposit_Filter => {
+export const aDeposit_Filter = (overrides?: Partial<OffsetsDeposit_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsDeposit_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Deposit_Filter');
     return {
@@ -1245,7 +1245,7 @@ export const aDeposit_Filter = (overrides?: Partial<Deposit_Filter>, _relationsh
     };
 };
 
-export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire => {
+export const aKlimaRetire = (overrides?: Partial<OffsetsKlimaRetire>, _relationshipsToOmit: Set<string> = new Set()): OffsetsKlimaRetire => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('KlimaRetire');
     return {
@@ -1267,7 +1267,7 @@ export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToO
     };
 };
 
-export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire_Filter => {
+export const aKlimaRetire_Filter = (overrides?: Partial<OffsetsKlimaRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsKlimaRetire_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('KlimaRetire_Filter');
     return {
@@ -1491,7 +1491,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _re
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aQuery = (overrides?: Partial<OffsetsQuery>, _relationshipsToOmit: Set<string> = new Set()): OffsetsQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
@@ -1522,7 +1522,7 @@ export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aRedeem = (overrides?: Partial<Redeem>, _relationshipsToOmit: Set<string> = new Set()): Redeem => {
+export const aRedeem = (overrides?: Partial<OffsetsRedeem>, _relationshipsToOmit: Set<string> = new Set()): OffsetsRedeem => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Redeem');
     return {
@@ -1536,7 +1536,7 @@ export const aRedeem = (overrides?: Partial<Redeem>, _relationshipsToOmit: Set<s
     };
 };
 
-export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>, _relationshipsToOmit: Set<string> = new Set()): Redeem_Filter => {
+export const aRedeem_Filter = (overrides?: Partial<OffsetsRedeem_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsRedeem_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Redeem_Filter');
     return {
@@ -1652,7 +1652,7 @@ export const aRedeem_Filter = (overrides?: Partial<Redeem_Filter>, _relationship
     };
 };
 
-export const aRetire = (overrides?: Partial<Retire>, _relationshipsToOmit: Set<string> = new Set()): Retire => {
+export const aRetire = (overrides?: Partial<OffsetsRetire>, _relationshipsToOmit: Set<string> = new Set()): OffsetsRetire => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Retire');
     return {
@@ -1666,7 +1666,7 @@ export const aRetire = (overrides?: Partial<Retire>, _relationshipsToOmit: Set<s
     };
 };
 
-export const aRetire_Filter = (overrides?: Partial<Retire_Filter>, _relationshipsToOmit: Set<string> = new Set()): Retire_Filter => {
+export const aRetire_Filter = (overrides?: Partial<OffsetsRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsRetire_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Retire_Filter');
     return {
@@ -1782,7 +1782,7 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>, _relationship
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aSubscription = (overrides?: Partial<OffsetsSubscription>, _relationshipsToOmit: Set<string> = new Set()): OffsetsSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
@@ -1812,7 +1812,7 @@ export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsT
     };
 };
 
-export const aToucanCertificate = (overrides?: Partial<ToucanCertificate>, _relationshipsToOmit: Set<string> = new Set()): ToucanCertificate => {
+export const aToucanCertificate = (overrides?: Partial<OffsetsToucanCertificate>, _relationshipsToOmit: Set<string> = new Set()): OffsetsToucanCertificate => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ToucanCertificate');
     return {
@@ -1824,7 +1824,7 @@ export const aToucanCertificate = (overrides?: Partial<ToucanCertificate>, _rela
     };
 };
 
-export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_Filter>, _relationshipsToOmit: Set<string> = new Set()): ToucanCertificate_Filter => {
+export const aToucanCertificate_Filter = (overrides?: Partial<OffsetsToucanCertificate_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsToucanCertificate_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ToucanCertificate_Filter');
     return {
@@ -1900,7 +1900,7 @@ export const aToucanCertificate_Filter = (overrides?: Partial<ToucanCertificate_
     };
 };
 
-export const aTransaction = (overrides?: Partial<Transaction>, _relationshipsToOmit: Set<string> = new Set()): Transaction => {
+export const aTransaction = (overrides?: Partial<OffsetsTransaction>, _relationshipsToOmit: Set<string> = new Set()): OffsetsTransaction => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Transaction');
     return {
@@ -1915,7 +1915,7 @@ export const aTransaction = (overrides?: Partial<Transaction>, _relationshipsToO
     };
 };
 
-export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>, _relationshipsToOmit: Set<string> = new Set()): Transaction_Filter => {
+export const aTransaction_Filter = (overrides?: Partial<OffsetsTransaction_Filter>, _relationshipsToOmit: Set<string> = new Set()): OffsetsTransaction_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Transaction_Filter');
     return {
@@ -1995,7 +1995,7 @@ export const aTransaction_Filter = (overrides?: Partial<Transaction_Filter>, _re
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const a_Block_ = (overrides?: Partial<Offsets_Block_>, _relationshipsToOmit: Set<string> = new Set()): Offsets_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -2005,7 +2005,7 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const a_Meta_ = (overrides?: Partial<Offsets_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Offsets_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {

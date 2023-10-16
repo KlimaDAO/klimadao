@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { Account, Account_Filter, BlockChangedFilter, Block_Height, Bridge, Bridge_Filter, CarbonCredit, CarbonCreditSnapshot, CarbonCreditSnapshot_Filter, CarbonCredit_Filter, CarbonPool, CarbonPoolCreditBalance, CarbonPoolCreditBalanceDailySnapshot, CarbonPoolCreditBalanceDailySnapshot_Filter, CarbonPoolCreditBalance_Filter, CarbonPoolDailySnapshot, CarbonPoolDailySnapshot_Filter, CarbonPool_Filter, CarbonProject, CarbonProject_Filter, CrossChainBridge, CrossChainBridge_Filter, Ecosystem, Ecosystem_Filter, Epoch, Epoch_Filter, Holding, HoldingDailySnapshot, HoldingDailySnapshot_Filter, Holding_Filter, KlimaRetire, KlimaRetire_Filter, Methodology, Methodology_Filter, PoolDeposit, PoolDeposit_Filter, PoolRedeem, PoolRedeem_Filter, ProvenanceRecord, ProvenanceRecord_Filter, Query, Retire, Retire_Filter, Subscription, Token, Token_Filter, ToucanBatch, ToucanBatch_Filter, _Block_, _Meta_, Account_OrderBy, BridgeProtocol, Bridge_OrderBy, CarbonCreditSnapshot_OrderBy, CarbonCredit_OrderBy, CarbonPoolCreditBalanceDailySnapshot_OrderBy, CarbonPoolCreditBalance_OrderBy, CarbonPoolDailySnapshot_OrderBy, CarbonPool_OrderBy, CarbonProject_OrderBy, CrossChainBridgeDirection, CrossChainBridge_OrderBy, Ecosystem_OrderBy, Epoch_OrderBy, HoldingDailySnapshot_OrderBy, Holding_OrderBy, KlimaRetire_OrderBy, Methodology_OrderBy, OrderDirection, PoolDeposit_OrderBy, PoolRedeem_OrderBy, ProvenanceRecord_OrderBy, ProvenanceType, Registry, RetireSource, Retire_OrderBy, Token_OrderBy, ToucanBatch_OrderBy, _SubgraphErrorPolicy_ } from '../types/digitalCarbon.types';
+import { DigitalcarbonAccount, DigitalcarbonAccount_Filter, DigitalcarbonBlockChangedFilter, DigitalcarbonBlock_Height, DigitalcarbonBridge, DigitalcarbonBridge_Filter, DigitalcarbonCarbonCredit, DigitalcarbonCarbonCreditSnapshot, DigitalcarbonCarbonCreditSnapshot_Filter, DigitalcarbonCarbonCredit_Filter, DigitalcarbonCarbonPool, DigitalcarbonCarbonPoolCreditBalance, DigitalcarbonCarbonPoolCreditBalanceDailySnapshot, DigitalcarbonCarbonPoolCreditBalanceDailySnapshot_Filter, DigitalcarbonCarbonPoolCreditBalance_Filter, DigitalcarbonCarbonPoolDailySnapshot, DigitalcarbonCarbonPoolDailySnapshot_Filter, DigitalcarbonCarbonPool_Filter, DigitalcarbonCarbonProject, DigitalcarbonCarbonProject_Filter, DigitalcarbonCrossChainBridge, DigitalcarbonCrossChainBridge_Filter, DigitalcarbonEcosystem, DigitalcarbonEcosystem_Filter, DigitalcarbonEpoch, DigitalcarbonEpoch_Filter, DigitalcarbonHolding, DigitalcarbonHoldingDailySnapshot, DigitalcarbonHoldingDailySnapshot_Filter, DigitalcarbonHolding_Filter, DigitalcarbonKlimaRetire, DigitalcarbonKlimaRetire_Filter, DigitalcarbonMethodology, DigitalcarbonMethodology_Filter, DigitalcarbonPoolDeposit, DigitalcarbonPoolDeposit_Filter, DigitalcarbonPoolRedeem, DigitalcarbonPoolRedeem_Filter, DigitalcarbonProvenanceRecord, DigitalcarbonProvenanceRecord_Filter, DigitalcarbonQuery, DigitalcarbonRetire, DigitalcarbonRetire_Filter, DigitalcarbonSubscription, DigitalcarbonToken, DigitalcarbonToken_Filter, DigitalcarbonToucanBatch, DigitalcarbonToucanBatch_Filter, Digitalcarbon_Block_, Digitalcarbon_Meta_, Account_OrderBy, BridgeProtocol, Bridge_OrderBy, CarbonCreditSnapshot_OrderBy, CarbonCredit_OrderBy, CarbonPoolCreditBalanceDailySnapshot_OrderBy, CarbonPoolCreditBalance_OrderBy, CarbonPoolDailySnapshot_OrderBy, CarbonPool_OrderBy, CarbonProject_OrderBy, CrossChainBridgeDirection, CrossChainBridge_OrderBy, Ecosystem_OrderBy, Epoch_OrderBy, HoldingDailySnapshot_OrderBy, Holding_OrderBy, KlimaRetire_OrderBy, Methodology_OrderBy, OrderDirection, PoolDeposit_OrderBy, PoolRedeem_OrderBy, ProvenanceRecord_OrderBy, ProvenanceType, Registry, RetireSource, Retire_OrderBy, Token_OrderBy, ToucanBatch_OrderBy, _SubgraphErrorPolicy_ } from '../types/digitalCarbon.types';
 
-export const anAccount = (overrides?: Partial<Account>, _relationshipsToOmit: Set<string> = new Set()): Account => {
+export const anAccount = (overrides?: Partial<DigitalcarbonAccount>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonAccount => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Account');
     return {
@@ -17,7 +17,7 @@ export const anAccount = (overrides?: Partial<Account>, _relationshipsToOmit: Se
     };
 };
 
-export const anAccount_Filter = (overrides?: Partial<Account_Filter>, _relationshipsToOmit: Set<string> = new Set()): Account_Filter => {
+export const anAccount_Filter = (overrides?: Partial<DigitalcarbonAccount_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonAccount_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Account_Filter');
     return {
@@ -52,7 +52,7 @@ export const anAccount_Filter = (overrides?: Partial<Account_Filter>, _relations
     };
 };
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<DigitalcarbonBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -60,7 +60,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aBlock_Height = (overrides?: Partial<DigitalcarbonBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -70,7 +70,7 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aBridge = (overrides?: Partial<Bridge>, _relationshipsToOmit: Set<string> = new Set()): Bridge => {
+export const aBridge = (overrides?: Partial<DigitalcarbonBridge>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonBridge => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Bridge');
     return {
@@ -82,7 +82,7 @@ export const aBridge = (overrides?: Partial<Bridge>, _relationshipsToOmit: Set<s
     };
 };
 
-export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): Bridge_Filter => {
+export const aBridge_Filter = (overrides?: Partial<DigitalcarbonBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonBridge_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Bridge_Filter');
     return {
@@ -160,7 +160,7 @@ export const aBridge_Filter = (overrides?: Partial<Bridge_Filter>, _relationship
     };
 };
 
-export const aCarbonCredit = (overrides?: Partial<CarbonCredit>, _relationshipsToOmit: Set<string> = new Set()): CarbonCredit => {
+export const aCarbonCredit = (overrides?: Partial<DigitalcarbonCarbonCredit>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonCredit => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonCredit');
     return {
@@ -180,7 +180,7 @@ export const aCarbonCredit = (overrides?: Partial<CarbonCredit>, _relationshipsT
     };
 };
 
-export const aCarbonCreditSnapshot = (overrides?: Partial<CarbonCreditSnapshot>, _relationshipsToOmit: Set<string> = new Set()): CarbonCreditSnapshot => {
+export const aCarbonCreditSnapshot = (overrides?: Partial<DigitalcarbonCarbonCreditSnapshot>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonCreditSnapshot => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonCreditSnapshot');
     return {
@@ -195,7 +195,7 @@ export const aCarbonCreditSnapshot = (overrides?: Partial<CarbonCreditSnapshot>,
     };
 };
 
-export const aCarbonCreditSnapshot_Filter = (overrides?: Partial<CarbonCreditSnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonCreditSnapshot_Filter => {
+export const aCarbonCreditSnapshot_Filter = (overrides?: Partial<DigitalcarbonCarbonCreditSnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonCreditSnapshot_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonCreditSnapshot_Filter');
     return {
@@ -284,7 +284,7 @@ export const aCarbonCreditSnapshot_Filter = (overrides?: Partial<CarbonCreditSna
     };
 };
 
-export const aCarbonCredit_Filter = (overrides?: Partial<CarbonCredit_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonCredit_Filter => {
+export const aCarbonCredit_Filter = (overrides?: Partial<DigitalcarbonCarbonCredit_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonCredit_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonCredit_Filter');
     return {
@@ -388,7 +388,7 @@ export const aCarbonCredit_Filter = (overrides?: Partial<CarbonCredit_Filter>, _
     };
 };
 
-export const aCarbonPool = (overrides?: Partial<CarbonPool>, _relationshipsToOmit: Set<string> = new Set()): CarbonPool => {
+export const aCarbonPool = (overrides?: Partial<DigitalcarbonCarbonPool>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPool => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPool');
     return {
@@ -406,7 +406,7 @@ export const aCarbonPool = (overrides?: Partial<CarbonPool>, _relationshipsToOmi
     };
 };
 
-export const aCarbonPoolCreditBalance = (overrides?: Partial<CarbonPoolCreditBalance>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolCreditBalance => {
+export const aCarbonPoolCreditBalance = (overrides?: Partial<DigitalcarbonCarbonPoolCreditBalance>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolCreditBalance => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolCreditBalance');
     return {
@@ -423,7 +423,7 @@ export const aCarbonPoolCreditBalance = (overrides?: Partial<CarbonPoolCreditBal
     };
 };
 
-export const aCarbonPoolCreditBalanceDailySnapshot = (overrides?: Partial<CarbonPoolCreditBalanceDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolCreditBalanceDailySnapshot => {
+export const aCarbonPoolCreditBalanceDailySnapshot = (overrides?: Partial<DigitalcarbonCarbonPoolCreditBalanceDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolCreditBalanceDailySnapshot => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolCreditBalanceDailySnapshot');
     return {
@@ -448,7 +448,7 @@ export const aCarbonPoolCreditBalanceDailySnapshot = (overrides?: Partial<Carbon
     };
 };
 
-export const aCarbonPoolCreditBalanceDailySnapshot_Filter = (overrides?: Partial<CarbonPoolCreditBalanceDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolCreditBalanceDailySnapshot_Filter => {
+export const aCarbonPoolCreditBalanceDailySnapshot_Filter = (overrides?: Partial<DigitalcarbonCarbonPoolCreditBalanceDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolCreditBalanceDailySnapshot_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolCreditBalanceDailySnapshot_Filter');
     return {
@@ -642,7 +642,7 @@ export const aCarbonPoolCreditBalanceDailySnapshot_Filter = (overrides?: Partial
     };
 };
 
-export const aCarbonPoolCreditBalance_Filter = (overrides?: Partial<CarbonPoolCreditBalance_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolCreditBalance_Filter => {
+export const aCarbonPoolCreditBalance_Filter = (overrides?: Partial<DigitalcarbonCarbonPoolCreditBalance_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolCreditBalance_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolCreditBalance_Filter');
     return {
@@ -753,7 +753,7 @@ export const aCarbonPoolCreditBalance_Filter = (overrides?: Partial<CarbonPoolCr
     };
 };
 
-export const aCarbonPoolDailySnapshot = (overrides?: Partial<CarbonPoolDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolDailySnapshot => {
+export const aCarbonPoolDailySnapshot = (overrides?: Partial<DigitalcarbonCarbonPoolDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolDailySnapshot => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolDailySnapshot');
     return {
@@ -770,7 +770,7 @@ export const aCarbonPoolDailySnapshot = (overrides?: Partial<CarbonPoolDailySnap
     };
 };
 
-export const aCarbonPoolDailySnapshot_Filter = (overrides?: Partial<CarbonPoolDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonPoolDailySnapshot_Filter => {
+export const aCarbonPoolDailySnapshot_Filter = (overrides?: Partial<DigitalcarbonCarbonPoolDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPoolDailySnapshot_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPoolDailySnapshot_Filter');
     return {
@@ -854,7 +854,7 @@ export const aCarbonPoolDailySnapshot_Filter = (overrides?: Partial<CarbonPoolDa
     };
 };
 
-export const aCarbonPool_Filter = (overrides?: Partial<CarbonPool_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonPool_Filter => {
+export const aCarbonPool_Filter = (overrides?: Partial<DigitalcarbonCarbonPool_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonPool_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonPool_Filter');
     return {
@@ -938,7 +938,7 @@ export const aCarbonPool_Filter = (overrides?: Partial<CarbonPool_Filter>, _rela
     };
 };
 
-export const aCarbonProject = (overrides?: Partial<CarbonProject>, _relationshipsToOmit: Set<string> = new Set()): CarbonProject => {
+export const aCarbonProject = (overrides?: Partial<DigitalcarbonCarbonProject>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonProject => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonProject');
     return {
@@ -954,7 +954,7 @@ export const aCarbonProject = (overrides?: Partial<CarbonProject>, _relationship
     };
 };
 
-export const aCarbonProject_Filter = (overrides?: Partial<CarbonProject_Filter>, _relationshipsToOmit: Set<string> = new Set()): CarbonProject_Filter => {
+export const aCarbonProject_Filter = (overrides?: Partial<DigitalcarbonCarbonProject_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCarbonProject_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CarbonProject_Filter');
     return {
@@ -1097,7 +1097,7 @@ export const aCarbonProject_Filter = (overrides?: Partial<CarbonProject_Filter>,
     };
 };
 
-export const aCrossChainBridge = (overrides?: Partial<CrossChainBridge>, _relationshipsToOmit: Set<string> = new Set()): CrossChainBridge => {
+export const aCrossChainBridge = (overrides?: Partial<DigitalcarbonCrossChainBridge>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCrossChainBridge => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrossChainBridge');
     return {
@@ -1112,7 +1112,7 @@ export const aCrossChainBridge = (overrides?: Partial<CrossChainBridge>, _relati
     };
 };
 
-export const aCrossChainBridge_Filter = (overrides?: Partial<CrossChainBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): CrossChainBridge_Filter => {
+export const aCrossChainBridge_Filter = (overrides?: Partial<DigitalcarbonCrossChainBridge_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonCrossChainBridge_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('CrossChainBridge_Filter');
     return {
@@ -1214,7 +1214,7 @@ export const aCrossChainBridge_Filter = (overrides?: Partial<CrossChainBridge_Fi
     };
 };
 
-export const anEcosystem = (overrides?: Partial<Ecosystem>, _relationshipsToOmit: Set<string> = new Set()): Ecosystem => {
+export const anEcosystem = (overrides?: Partial<DigitalcarbonEcosystem>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonEcosystem => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Ecosystem');
     return {
@@ -1223,7 +1223,7 @@ export const anEcosystem = (overrides?: Partial<Ecosystem>, _relationshipsToOmit
     };
 };
 
-export const anEcosystem_Filter = (overrides?: Partial<Ecosystem_Filter>, _relationshipsToOmit: Set<string> = new Set()): Ecosystem_Filter => {
+export const anEcosystem_Filter = (overrides?: Partial<DigitalcarbonEcosystem_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonEcosystem_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Ecosystem_Filter');
     return {
@@ -1247,7 +1247,7 @@ export const anEcosystem_Filter = (overrides?: Partial<Ecosystem_Filter>, _relat
     };
 };
 
-export const anEpoch = (overrides?: Partial<Epoch>, _relationshipsToOmit: Set<string> = new Set()): Epoch => {
+export const anEpoch = (overrides?: Partial<DigitalcarbonEpoch>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonEpoch => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Epoch');
     return {
@@ -1259,7 +1259,7 @@ export const anEpoch = (overrides?: Partial<Epoch>, _relationshipsToOmit: Set<st
     };
 };
 
-export const anEpoch_Filter = (overrides?: Partial<Epoch_Filter>, _relationshipsToOmit: Set<string> = new Set()): Epoch_Filter => {
+export const anEpoch_Filter = (overrides?: Partial<DigitalcarbonEpoch_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonEpoch_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Epoch_Filter');
     return {
@@ -1309,7 +1309,7 @@ export const anEpoch_Filter = (overrides?: Partial<Epoch_Filter>, _relationships
     };
 };
 
-export const aHolding = (overrides?: Partial<Holding>, _relationshipsToOmit: Set<string> = new Set()): Holding => {
+export const aHolding = (overrides?: Partial<DigitalcarbonHolding>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonHolding => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Holding');
     return {
@@ -1323,7 +1323,7 @@ export const aHolding = (overrides?: Partial<Holding>, _relationshipsToOmit: Set
     };
 };
 
-export const aHoldingDailySnapshot = (overrides?: Partial<HoldingDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): HoldingDailySnapshot => {
+export const aHoldingDailySnapshot = (overrides?: Partial<DigitalcarbonHoldingDailySnapshot>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonHoldingDailySnapshot => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('HoldingDailySnapshot');
     return {
@@ -1335,7 +1335,7 @@ export const aHoldingDailySnapshot = (overrides?: Partial<HoldingDailySnapshot>,
     };
 };
 
-export const aHoldingDailySnapshot_Filter = (overrides?: Partial<HoldingDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): HoldingDailySnapshot_Filter => {
+export const aHoldingDailySnapshot_Filter = (overrides?: Partial<DigitalcarbonHoldingDailySnapshot_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonHoldingDailySnapshot_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('HoldingDailySnapshot_Filter');
     return {
@@ -1413,7 +1413,7 @@ export const aHoldingDailySnapshot_Filter = (overrides?: Partial<HoldingDailySna
     };
 };
 
-export const aHolding_Filter = (overrides?: Partial<Holding_Filter>, _relationshipsToOmit: Set<string> = new Set()): Holding_Filter => {
+export const aHolding_Filter = (overrides?: Partial<DigitalcarbonHolding_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonHolding_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Holding_Filter');
     return {
@@ -1505,7 +1505,7 @@ export const aHolding_Filter = (overrides?: Partial<Holding_Filter>, _relationsh
     };
 };
 
-export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire => {
+export const aKlimaRetire = (overrides?: Partial<DigitalcarbonKlimaRetire>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonKlimaRetire => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('KlimaRetire');
     return {
@@ -1517,7 +1517,7 @@ export const aKlimaRetire = (overrides?: Partial<KlimaRetire>, _relationshipsToO
     };
 };
 
-export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): KlimaRetire_Filter => {
+export const aKlimaRetire_Filter = (overrides?: Partial<DigitalcarbonKlimaRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonKlimaRetire_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('KlimaRetire_Filter');
     return {
@@ -1578,7 +1578,7 @@ export const aKlimaRetire_Filter = (overrides?: Partial<KlimaRetire_Filter>, _re
     };
 };
 
-export const aMethodology = (overrides?: Partial<Methodology>, _relationshipsToOmit: Set<string> = new Set()): Methodology => {
+export const aMethodology = (overrides?: Partial<DigitalcarbonMethodology>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonMethodology => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Methodology');
     return {
@@ -1589,7 +1589,7 @@ export const aMethodology = (overrides?: Partial<Methodology>, _relationshipsToO
     };
 };
 
-export const aMethodology_Filter = (overrides?: Partial<Methodology_Filter>, _relationshipsToOmit: Set<string> = new Set()): Methodology_Filter => {
+export const aMethodology_Filter = (overrides?: Partial<DigitalcarbonMethodology_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonMethodology_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Methodology_Filter');
     return {
@@ -1667,7 +1667,7 @@ export const aMethodology_Filter = (overrides?: Partial<Methodology_Filter>, _re
     };
 };
 
-export const aPoolDeposit = (overrides?: Partial<PoolDeposit>, _relationshipsToOmit: Set<string> = new Set()): PoolDeposit => {
+export const aPoolDeposit = (overrides?: Partial<DigitalcarbonPoolDeposit>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonPoolDeposit => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('PoolDeposit');
     return {
@@ -1682,7 +1682,7 @@ export const aPoolDeposit = (overrides?: Partial<PoolDeposit>, _relationshipsToO
     };
 };
 
-export const aPoolDeposit_Filter = (overrides?: Partial<PoolDeposit_Filter>, _relationshipsToOmit: Set<string> = new Set()): PoolDeposit_Filter => {
+export const aPoolDeposit_Filter = (overrides?: Partial<DigitalcarbonPoolDeposit_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonPoolDeposit_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('PoolDeposit_Filter');
     return {
@@ -1823,7 +1823,7 @@ export const aPoolDeposit_Filter = (overrides?: Partial<PoolDeposit_Filter>, _re
     };
 };
 
-export const aPoolRedeem = (overrides?: Partial<PoolRedeem>, _relationshipsToOmit: Set<string> = new Set()): PoolRedeem => {
+export const aPoolRedeem = (overrides?: Partial<DigitalcarbonPoolRedeem>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonPoolRedeem => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('PoolRedeem');
     return {
@@ -1838,7 +1838,7 @@ export const aPoolRedeem = (overrides?: Partial<PoolRedeem>, _relationshipsToOmi
     };
 };
 
-export const aPoolRedeem_Filter = (overrides?: Partial<PoolRedeem_Filter>, _relationshipsToOmit: Set<string> = new Set()): PoolRedeem_Filter => {
+export const aPoolRedeem_Filter = (overrides?: Partial<DigitalcarbonPoolRedeem_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonPoolRedeem_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('PoolRedeem_Filter');
     return {
@@ -1979,7 +1979,7 @@ export const aPoolRedeem_Filter = (overrides?: Partial<PoolRedeem_Filter>, _rela
     };
 };
 
-export const aProvenanceRecord = (overrides?: Partial<ProvenanceRecord>, _relationshipsToOmit: Set<string> = new Set()): ProvenanceRecord => {
+export const aProvenanceRecord = (overrides?: Partial<DigitalcarbonProvenanceRecord>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonProvenanceRecord => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProvenanceRecord');
     return {
@@ -1998,7 +1998,7 @@ export const aProvenanceRecord = (overrides?: Partial<ProvenanceRecord>, _relati
     };
 };
 
-export const aProvenanceRecord_Filter = (overrides?: Partial<ProvenanceRecord_Filter>, _relationshipsToOmit: Set<string> = new Set()): ProvenanceRecord_Filter => {
+export const aProvenanceRecord_Filter = (overrides?: Partial<DigitalcarbonProvenanceRecord_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonProvenanceRecord_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ProvenanceRecord_Filter');
     return {
@@ -2107,7 +2107,7 @@ export const aProvenanceRecord_Filter = (overrides?: Partial<ProvenanceRecord_Fi
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aQuery = (overrides?: Partial<DigitalcarbonQuery>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
@@ -2159,7 +2159,7 @@ export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aRetire = (overrides?: Partial<Retire>, _relationshipsToOmit: Set<string> = new Set()): Retire => {
+export const aRetire = (overrides?: Partial<DigitalcarbonRetire>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonRetire => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Retire');
     return {
@@ -2179,7 +2179,7 @@ export const aRetire = (overrides?: Partial<Retire>, _relationshipsToOmit: Set<s
     };
 };
 
-export const aRetire_Filter = (overrides?: Partial<Retire_Filter>, _relationshipsToOmit: Set<string> = new Set()): Retire_Filter => {
+export const aRetire_Filter = (overrides?: Partial<DigitalcarbonRetire_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonRetire_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Retire_Filter');
     return {
@@ -2384,7 +2384,7 @@ export const aRetire_Filter = (overrides?: Partial<Retire_Filter>, _relationship
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aSubscription = (overrides?: Partial<DigitalcarbonSubscription>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
@@ -2436,7 +2436,7 @@ export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsT
     };
 };
 
-export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<string> = new Set()): Token => {
+export const aToken = (overrides?: Partial<DigitalcarbonToken>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonToken => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token');
     return {
@@ -2451,7 +2451,7 @@ export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsToOmit: Set<string> = new Set()): Token_Filter => {
+export const aToken_Filter = (overrides?: Partial<DigitalcarbonToken_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonToken_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token_Filter');
     return {
@@ -2551,7 +2551,7 @@ export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsT
     };
 };
 
-export const aToucanBatch = (overrides?: Partial<ToucanBatch>, _relationshipsToOmit: Set<string> = new Set()): ToucanBatch => {
+export const aToucanBatch = (overrides?: Partial<DigitalcarbonToucanBatch>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonToucanBatch => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ToucanBatch');
     return {
@@ -2561,7 +2561,7 @@ export const aToucanBatch = (overrides?: Partial<ToucanBatch>, _relationshipsToO
     };
 };
 
-export const aToucanBatch_Filter = (overrides?: Partial<ToucanBatch_Filter>, _relationshipsToOmit: Set<string> = new Set()): ToucanBatch_Filter => {
+export const aToucanBatch_Filter = (overrides?: Partial<DigitalcarbonToucanBatch_Filter>, _relationshipsToOmit: Set<string> = new Set()): DigitalcarbonToucanBatch_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('ToucanBatch_Filter');
     return {
@@ -2595,7 +2595,7 @@ export const aToucanBatch_Filter = (overrides?: Partial<ToucanBatch_Filter>, _re
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const a_Block_ = (overrides?: Partial<Digitalcarbon_Block_>, _relationshipsToOmit: Set<string> = new Set()): Digitalcarbon_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -2605,7 +2605,7 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const a_Meta_ = (overrides?: Partial<Digitalcarbon_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Digitalcarbon_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {

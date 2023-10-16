@@ -19,23 +19,23 @@ export type Scalars = {
   Int8: any;
 };
 
-export type Activity = {
+export type MarketplaceActivity = {
   __typename?: 'Activity';
-  activityType: ActivityType;
+  activityType: MarketplaceActivityType;
   amount: Maybe<Scalars['BigInt']>;
-  buyer: Maybe<User>;
+  buyer: Maybe<MarketplaceUser>;
   id: Scalars['String'];
-  listing: Maybe<Listing>;
+  listing: Maybe<MarketplaceListing>;
   previousAmount: Maybe<Scalars['BigInt']>;
   previousPrice: Maybe<Scalars['BigInt']>;
   price: Maybe<Scalars['BigInt']>;
-  project: Project;
-  seller: User;
+  project: MarketplaceProject;
+  seller: MarketplaceUser;
   timeStamp: Maybe<Scalars['BigInt']>;
-  user: Maybe<User>;
+  user: Maybe<MarketplaceUser>;
 };
 
-export enum ActivityType {
+export enum MarketplaceActivityType {
   CreatedListing = 'CreatedListing',
   DeletedListing = 'DeletedListing',
   Purchase = 'Purchase',
@@ -44,13 +44,13 @@ export enum ActivityType {
   UpdatedQuantity = 'UpdatedQuantity'
 }
 
-export type Activity_Filter = {
+export type MarketplaceActivity_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  activityType: InputMaybe<ActivityType>;
-  activityType_in: InputMaybe<Array<ActivityType>>;
-  activityType_not: InputMaybe<ActivityType>;
-  activityType_not_in: InputMaybe<Array<ActivityType>>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
+  activityType: InputMaybe<MarketplaceActivityType>;
+  activityType_in: InputMaybe<Array<MarketplaceActivityType>>;
+  activityType_not: InputMaybe<MarketplaceActivityType>;
+  activityType_not_in: InputMaybe<Array<MarketplaceActivityType>>;
   amount: InputMaybe<Scalars['BigInt']>;
   amount_gt: InputMaybe<Scalars['BigInt']>;
   amount_gte: InputMaybe<Scalars['BigInt']>;
@@ -59,9 +59,9 @@ export type Activity_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Activity_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceActivity_Filter>>>;
   buyer: InputMaybe<Scalars['String']>;
-  buyer_: InputMaybe<User_Filter>;
+  buyer_: InputMaybe<MarketplaceUser_Filter>;
   buyer_contains: InputMaybe<Scalars['String']>;
   buyer_contains_nocase: InputMaybe<Scalars['String']>;
   buyer_ends_with: InputMaybe<Scalars['String']>;
@@ -102,7 +102,7 @@ export type Activity_Filter = {
   id_starts_with: InputMaybe<Scalars['String']>;
   id_starts_with_nocase: InputMaybe<Scalars['String']>;
   listing: InputMaybe<Scalars['String']>;
-  listing_: InputMaybe<Listing_Filter>;
+  listing_: InputMaybe<MarketplaceListing_Filter>;
   listing_contains: InputMaybe<Scalars['String']>;
   listing_contains_nocase: InputMaybe<Scalars['String']>;
   listing_ends_with: InputMaybe<Scalars['String']>;
@@ -122,7 +122,7 @@ export type Activity_Filter = {
   listing_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   listing_starts_with: InputMaybe<Scalars['String']>;
   listing_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Activity_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceActivity_Filter>>>;
   previousAmount: InputMaybe<Scalars['BigInt']>;
   previousAmount_gt: InputMaybe<Scalars['BigInt']>;
   previousAmount_gte: InputMaybe<Scalars['BigInt']>;
@@ -148,7 +148,7 @@ export type Activity_Filter = {
   price_not: InputMaybe<Scalars['BigInt']>;
   price_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   project: InputMaybe<Scalars['String']>;
-  project_: InputMaybe<Project_Filter>;
+  project_: InputMaybe<MarketplaceProject_Filter>;
   project_contains: InputMaybe<Scalars['String']>;
   project_contains_nocase: InputMaybe<Scalars['String']>;
   project_ends_with: InputMaybe<Scalars['String']>;
@@ -169,7 +169,7 @@ export type Activity_Filter = {
   project_starts_with: InputMaybe<Scalars['String']>;
   project_starts_with_nocase: InputMaybe<Scalars['String']>;
   seller: InputMaybe<Scalars['String']>;
-  seller_: InputMaybe<User_Filter>;
+  seller_: InputMaybe<MarketplaceUser_Filter>;
   seller_contains: InputMaybe<Scalars['String']>;
   seller_contains_nocase: InputMaybe<Scalars['String']>;
   seller_ends_with: InputMaybe<Scalars['String']>;
@@ -198,7 +198,7 @@ export type Activity_Filter = {
   timeStamp_not: InputMaybe<Scalars['BigInt']>;
   timeStamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   user: InputMaybe<Scalars['String']>;
-  user_: InputMaybe<User_Filter>;
+  user_: InputMaybe<MarketplaceUser_Filter>;
   user_contains: InputMaybe<Scalars['String']>;
   user_contains_nocase: InputMaybe<Scalars['String']>;
   user_ends_with: InputMaybe<Scalars['String']>;
@@ -220,7 +220,7 @@ export type Activity_Filter = {
   user_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Activity_OrderBy {
+export enum MarketplaceActivity_OrderBy {
   ActivityType = 'activityType',
   Amount = 'amount',
   Buyer = 'buyer',
@@ -257,25 +257,25 @@ export enum Activity_OrderBy {
   UserId = 'user__id'
 }
 
-export type BlockChangedFilter = {
+export type MarketplaceBlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
 
-export type Block_Height = {
+export type MarketplaceBlock_Height = {
   hash: InputMaybe<Scalars['Bytes']>;
   number: InputMaybe<Scalars['Int']>;
   number_gte: InputMaybe<Scalars['Int']>;
 };
 
-export type Category = {
+export type MarketplaceCategory = {
   __typename?: 'Category';
   id: Scalars['String'];
 };
 
-export type Category_Filter = {
+export type MarketplaceCategory_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Category_Filter>>>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceCategory_Filter>>>;
   id: InputMaybe<Scalars['String']>;
   id_contains: InputMaybe<Scalars['String']>;
   id_contains_nocase: InputMaybe<Scalars['String']>;
@@ -296,22 +296,22 @@ export type Category_Filter = {
   id_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   id_starts_with: InputMaybe<Scalars['String']>;
   id_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Category_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceCategory_Filter>>>;
 };
 
-export enum Category_OrderBy {
+export enum MarketplaceCategory_OrderBy {
   Id = 'id'
 }
 
-export type Country = {
+export type MarketplaceCountry = {
   __typename?: 'Country';
   id: Scalars['String'];
 };
 
-export type Country_Filter = {
+export type MarketplaceCountry_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Country_Filter>>>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceCountry_Filter>>>;
   id: InputMaybe<Scalars['String']>;
   id_contains: InputMaybe<Scalars['String']>;
   id_contains_nocase: InputMaybe<Scalars['String']>;
@@ -332,17 +332,17 @@ export type Country_Filter = {
   id_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   id_starts_with: InputMaybe<Scalars['String']>;
   id_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Country_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceCountry_Filter>>>;
 };
 
-export enum Country_OrderBy {
+export enum MarketplaceCountry_OrderBy {
   Id = 'id'
 }
 
-export type Listing = {
+export type MarketplaceListing = {
   __typename?: 'Listing';
   active: Maybe<Scalars['Boolean']>;
-  activities: Maybe<Array<Activity>>;
+  activities: Maybe<Array<MarketplaceActivity>>;
   batchPrices: Maybe<Array<Scalars['BigInt']>>;
   batches: Maybe<Array<Scalars['BigInt']>>;
   createdAt: Maybe<Scalars['BigInt']>;
@@ -351,8 +351,8 @@ export type Listing = {
   id: Scalars['ID'];
   leftToSell: Scalars['BigInt'];
   minFillAmount: Scalars['BigInt'];
-  project: Project;
-  seller: User;
+  project: MarketplaceProject;
+  seller: MarketplaceUser;
   singleUnitPrice: Scalars['BigInt'];
   tokenAddress: Scalars['Bytes'];
   totalAmountToSell: Scalars['BigInt'];
@@ -360,23 +360,23 @@ export type Listing = {
 };
 
 
-export type ListingActivitiesArgs = {
+export type MarketplaceListingActivitiesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Activity_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceActivity_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Activity_Filter>;
+  where: InputMaybe<MarketplaceActivity_Filter>;
 };
 
-export type Listing_Filter = {
+export type MarketplaceListing_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
   active: InputMaybe<Scalars['Boolean']>;
   active_in: InputMaybe<Array<Scalars['Boolean']>>;
   active_not: InputMaybe<Scalars['Boolean']>;
   active_not_in: InputMaybe<Array<Scalars['Boolean']>>;
-  activities_: InputMaybe<Activity_Filter>;
-  and: InputMaybe<Array<InputMaybe<Listing_Filter>>>;
+  activities_: InputMaybe<MarketplaceActivity_Filter>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceListing_Filter>>>;
   batchPrices: InputMaybe<Array<Scalars['BigInt']>>;
   batchPrices_contains: InputMaybe<Array<Scalars['BigInt']>>;
   batchPrices_contains_nocase: InputMaybe<Array<Scalars['BigInt']>>;
@@ -433,9 +433,9 @@ export type Listing_Filter = {
   minFillAmount_lte: InputMaybe<Scalars['BigInt']>;
   minFillAmount_not: InputMaybe<Scalars['BigInt']>;
   minFillAmount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<Listing_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceListing_Filter>>>;
   project: InputMaybe<Scalars['String']>;
-  project_: InputMaybe<Project_Filter>;
+  project_: InputMaybe<MarketplaceProject_Filter>;
   project_contains: InputMaybe<Scalars['String']>;
   project_contains_nocase: InputMaybe<Scalars['String']>;
   project_ends_with: InputMaybe<Scalars['String']>;
@@ -456,7 +456,7 @@ export type Listing_Filter = {
   project_starts_with: InputMaybe<Scalars['String']>;
   project_starts_with_nocase: InputMaybe<Scalars['String']>;
   seller: InputMaybe<Scalars['String']>;
-  seller_: InputMaybe<User_Filter>;
+  seller_: InputMaybe<MarketplaceUser_Filter>;
   seller_contains: InputMaybe<Scalars['String']>;
   seller_contains_nocase: InputMaybe<Scalars['String']>;
   seller_ends_with: InputMaybe<Scalars['String']>;
@@ -512,7 +512,7 @@ export type Listing_Filter = {
   updatedAt_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum Listing_OrderBy {
+export enum MarketplaceListing_OrderBy {
   Active = 'active',
   Activities = 'activities',
   BatchPrices = 'batchPrices',
@@ -541,19 +541,19 @@ export enum Listing_OrderBy {
 }
 
 /** Defines the order direction, either ascending or descending */
-export enum OrderDirection {
+export enum MarketplaceOrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
 
-export type Project = {
+export type MarketplaceProject = {
   __typename?: 'Project';
-  activities: Maybe<Array<Activity>>;
-  category: Category;
-  country: Country;
+  activities: Maybe<Array<MarketplaceActivity>>;
+  category: MarketplaceCategory;
+  country: MarketplaceCountry;
   id: Scalars['ID'];
   key: Scalars['String'];
-  listings: Maybe<Array<Listing>>;
+  listings: Maybe<Array<MarketplaceListing>>;
   methodology: Scalars['String'];
   name: Scalars['String'];
   projectAddress: Scalars['Bytes'];
@@ -563,30 +563,30 @@ export type Project = {
 };
 
 
-export type ProjectActivitiesArgs = {
+export type MarketplaceProjectActivitiesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Activity_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceActivity_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Activity_Filter>;
+  where: InputMaybe<MarketplaceActivity_Filter>;
 };
 
 
-export type ProjectListingsArgs = {
+export type MarketplaceProjectListingsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Listing_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceListing_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Listing_Filter>;
+  where: InputMaybe<MarketplaceListing_Filter>;
 };
 
-export type Project_Filter = {
+export type MarketplaceProject_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  activities_: InputMaybe<Activity_Filter>;
-  and: InputMaybe<Array<InputMaybe<Project_Filter>>>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
+  activities_: InputMaybe<MarketplaceActivity_Filter>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceProject_Filter>>>;
   category: InputMaybe<Scalars['String']>;
-  category_: InputMaybe<Category_Filter>;
+  category_: InputMaybe<MarketplaceCategory_Filter>;
   category_contains: InputMaybe<Scalars['String']>;
   category_contains_nocase: InputMaybe<Scalars['String']>;
   category_ends_with: InputMaybe<Scalars['String']>;
@@ -607,7 +607,7 @@ export type Project_Filter = {
   category_starts_with: InputMaybe<Scalars['String']>;
   category_starts_with_nocase: InputMaybe<Scalars['String']>;
   country: InputMaybe<Scalars['String']>;
-  country_: InputMaybe<Country_Filter>;
+  country_: InputMaybe<MarketplaceCountry_Filter>;
   country_contains: InputMaybe<Scalars['String']>;
   country_contains_nocase: InputMaybe<Scalars['String']>;
   country_ends_with: InputMaybe<Scalars['String']>;
@@ -655,7 +655,7 @@ export type Project_Filter = {
   key_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   key_starts_with: InputMaybe<Scalars['String']>;
   key_starts_with_nocase: InputMaybe<Scalars['String']>;
-  listings_: InputMaybe<Listing_Filter>;
+  listings_: InputMaybe<MarketplaceListing_Filter>;
   methodology: InputMaybe<Scalars['String']>;
   methodology_contains: InputMaybe<Scalars['String']>;
   methodology_contains_nocase: InputMaybe<Scalars['String']>;
@@ -696,7 +696,7 @@ export type Project_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Project_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceProject_Filter>>>;
   projectAddress: InputMaybe<Scalars['Bytes']>;
   projectAddress_contains: InputMaybe<Scalars['Bytes']>;
   projectAddress_gt: InputMaybe<Scalars['Bytes']>;
@@ -745,7 +745,7 @@ export type Project_Filter = {
   vintage_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum Project_OrderBy {
+export enum MarketplaceProject_OrderBy {
   Activities = 'activities',
   Category = 'category',
   CategoryId = 'category__id',
@@ -762,19 +762,19 @@ export enum Project_OrderBy {
   Vintage = 'vintage'
 }
 
-export type Purchase = {
+export type MarketplacePurchase = {
   __typename?: 'Purchase';
   amount: Scalars['BigInt'];
   id: Scalars['Bytes'];
-  listing: Listing;
+  listing: MarketplaceListing;
   price: Scalars['BigInt'];
   timeStamp: Scalars['BigInt'];
-  user: User;
+  user: MarketplaceUser;
 };
 
-export type Purchase_Filter = {
+export type MarketplacePurchase_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
   amount: InputMaybe<Scalars['BigInt']>;
   amount_gt: InputMaybe<Scalars['BigInt']>;
   amount_gte: InputMaybe<Scalars['BigInt']>;
@@ -783,7 +783,7 @@ export type Purchase_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Purchase_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<MarketplacePurchase_Filter>>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -795,7 +795,7 @@ export type Purchase_Filter = {
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
   listing: InputMaybe<Scalars['String']>;
-  listing_: InputMaybe<Listing_Filter>;
+  listing_: InputMaybe<MarketplaceListing_Filter>;
   listing_contains: InputMaybe<Scalars['String']>;
   listing_contains_nocase: InputMaybe<Scalars['String']>;
   listing_ends_with: InputMaybe<Scalars['String']>;
@@ -815,7 +815,7 @@ export type Purchase_Filter = {
   listing_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   listing_starts_with: InputMaybe<Scalars['String']>;
   listing_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Purchase_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<MarketplacePurchase_Filter>>>;
   price: InputMaybe<Scalars['BigInt']>;
   price_gt: InputMaybe<Scalars['BigInt']>;
   price_gte: InputMaybe<Scalars['BigInt']>;
@@ -833,7 +833,7 @@ export type Purchase_Filter = {
   timeStamp_not: InputMaybe<Scalars['BigInt']>;
   timeStamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   user: InputMaybe<Scalars['String']>;
-  user_: InputMaybe<User_Filter>;
+  user_: InputMaybe<MarketplaceUser_Filter>;
   user_contains: InputMaybe<Scalars['String']>;
   user_contains_nocase: InputMaybe<Scalars['String']>;
   user_ends_with: InputMaybe<Scalars['String']>;
@@ -855,7 +855,7 @@ export type Purchase_Filter = {
   user_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Purchase_OrderBy {
+export enum MarketplacePurchase_OrderBy {
   Amount = 'amount',
   Id = 'id',
   Listing = 'listing',
@@ -876,348 +876,348 @@ export enum Purchase_OrderBy {
   UserId = 'user__id'
 }
 
-export type Query = {
+export type MarketplaceQuery = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  activities: Array<Activity>;
-  activity: Maybe<Activity>;
-  categories: Array<Category>;
-  category: Maybe<Category>;
-  countries: Array<Country>;
-  country: Maybe<Country>;
-  listing: Maybe<Listing>;
-  listings: Array<Listing>;
-  project: Maybe<Project>;
-  projects: Array<Project>;
-  purchase: Maybe<Purchase>;
-  purchases: Array<Purchase>;
-  user: Maybe<User>;
-  users: Array<User>;
+  _meta: Maybe<Marketplace_Meta_>;
+  activities: Array<MarketplaceActivity>;
+  activity: Maybe<MarketplaceActivity>;
+  categories: Array<MarketplaceCategory>;
+  category: Maybe<MarketplaceCategory>;
+  countries: Array<MarketplaceCountry>;
+  country: Maybe<MarketplaceCountry>;
+  listing: Maybe<MarketplaceListing>;
+  listings: Array<MarketplaceListing>;
+  project: Maybe<MarketplaceProject>;
+  projects: Array<MarketplaceProject>;
+  purchase: Maybe<MarketplacePurchase>;
+  purchases: Array<MarketplacePurchase>;
+  user: Maybe<MarketplaceUser>;
+  users: Array<MarketplaceUser>;
 };
 
 
-export type Query_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQuery_MetaArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
 };
 
 
-export type QueryActivitiesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryActivitiesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Activity_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceActivity_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Activity_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceActivity_Filter>;
 };
 
 
-export type QueryActivityArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryActivityArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCategoriesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryCategoriesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Category_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceCategory_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Category_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceCategory_Filter>;
 };
 
 
-export type QueryCategoryArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryCategoryArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCountriesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryCountriesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Country_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceCountry_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Country_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceCountry_Filter>;
 };
 
 
-export type QueryCountryArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryCountryArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryListingArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryListingArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryListingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryListingsArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Listing_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceListing_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Listing_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceListing_Filter>;
 };
 
 
-export type QueryProjectArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryProjectArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryProjectsArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryProjectsArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Project_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceProject_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Project_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceProject_Filter>;
 };
 
 
-export type QueryPurchaseArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryPurchaseArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryPurchasesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryPurchasesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Purchase_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplacePurchase_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Purchase_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplacePurchase_Filter>;
 };
 
 
-export type QueryUserArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryUserArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type QueryUsersArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceQueryUsersArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<User_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceUser_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<User_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceUser_Filter>;
 };
 
-export type Subscription = {
+export type MarketplaceSubscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  activities: Array<Activity>;
-  activity: Maybe<Activity>;
-  categories: Array<Category>;
-  category: Maybe<Category>;
-  countries: Array<Country>;
-  country: Maybe<Country>;
-  listing: Maybe<Listing>;
-  listings: Array<Listing>;
-  project: Maybe<Project>;
-  projects: Array<Project>;
-  purchase: Maybe<Purchase>;
-  purchases: Array<Purchase>;
-  user: Maybe<User>;
-  users: Array<User>;
+  _meta: Maybe<Marketplace_Meta_>;
+  activities: Array<MarketplaceActivity>;
+  activity: Maybe<MarketplaceActivity>;
+  categories: Array<MarketplaceCategory>;
+  category: Maybe<MarketplaceCategory>;
+  countries: Array<MarketplaceCountry>;
+  country: Maybe<MarketplaceCountry>;
+  listing: Maybe<MarketplaceListing>;
+  listings: Array<MarketplaceListing>;
+  project: Maybe<MarketplaceProject>;
+  projects: Array<MarketplaceProject>;
+  purchase: Maybe<MarketplacePurchase>;
+  purchases: Array<MarketplacePurchase>;
+  user: Maybe<MarketplaceUser>;
+  users: Array<MarketplaceUser>;
 };
 
 
-export type Subscription_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscription_MetaArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
 };
 
 
-export type SubscriptionActivitiesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionActivitiesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Activity_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceActivity_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Activity_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceActivity_Filter>;
 };
 
 
-export type SubscriptionActivityArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionActivityArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCategoriesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionCategoriesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Category_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceCategory_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Category_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceCategory_Filter>;
 };
 
 
-export type SubscriptionCategoryArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionCategoryArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCountriesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionCountriesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Country_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceCountry_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Country_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceCountry_Filter>;
 };
 
 
-export type SubscriptionCountryArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionCountryArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionListingArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionListingArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionListingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionListingsArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Listing_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceListing_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Listing_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceListing_Filter>;
 };
 
 
-export type SubscriptionProjectArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionProjectArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionProjectsArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionProjectsArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Project_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceProject_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Project_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceProject_Filter>;
 };
 
 
-export type SubscriptionPurchaseArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionPurchaseArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionPurchasesArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionPurchasesArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Purchase_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplacePurchase_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Purchase_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplacePurchase_Filter>;
 };
 
 
-export type SubscriptionUserArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionUserArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionUsersArgs = {
-  block: InputMaybe<Block_Height>;
+export type MarketplaceSubscriptionUsersArgs = {
+  block: InputMaybe<MarketplaceBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<User_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceUser_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<User_Filter>;
+  subgraphError?: Marketplace_SubgraphErrorPolicy_;
+  where: InputMaybe<MarketplaceUser_Filter>;
 };
 
-export type User = {
+export type MarketplaceUser = {
   __typename?: 'User';
-  activities: Maybe<Array<Activity>>;
+  activities: Maybe<Array<MarketplaceActivity>>;
   id: Scalars['Bytes'];
-  listings: Maybe<Array<Listing>>;
-  purchases: Maybe<Array<Purchase>>;
+  listings: Maybe<Array<MarketplaceListing>>;
+  purchases: Maybe<Array<MarketplacePurchase>>;
 };
 
 
-export type UserActivitiesArgs = {
+export type MarketplaceUserActivitiesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Activity_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceActivity_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Activity_Filter>;
+  where: InputMaybe<MarketplaceActivity_Filter>;
 };
 
 
-export type UserListingsArgs = {
+export type MarketplaceUserListingsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Listing_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplaceListing_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Listing_Filter>;
+  where: InputMaybe<MarketplaceListing_Filter>;
 };
 
 
-export type UserPurchasesArgs = {
+export type MarketplaceUserPurchasesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Purchase_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<MarketplacePurchase_OrderBy>;
+  orderDirection: InputMaybe<MarketplaceOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Purchase_Filter>;
+  where: InputMaybe<MarketplacePurchase_Filter>;
 };
 
-export type User_Filter = {
+export type MarketplaceUser_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  activities_: InputMaybe<Activity_Filter>;
-  and: InputMaybe<Array<InputMaybe<User_Filter>>>;
+  _change_block: InputMaybe<MarketplaceBlockChangedFilter>;
+  activities_: InputMaybe<MarketplaceActivity_Filter>;
+  and: InputMaybe<Array<InputMaybe<MarketplaceUser_Filter>>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -1228,19 +1228,19 @@ export type User_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  listings_: InputMaybe<Listing_Filter>;
-  or: InputMaybe<Array<InputMaybe<User_Filter>>>;
-  purchases_: InputMaybe<Purchase_Filter>;
+  listings_: InputMaybe<MarketplaceListing_Filter>;
+  or: InputMaybe<Array<InputMaybe<MarketplaceUser_Filter>>>;
+  purchases_: InputMaybe<MarketplacePurchase_Filter>;
 };
 
-export enum User_OrderBy {
+export enum MarketplaceUser_OrderBy {
   Activities = 'activities',
   Id = 'id',
   Listings = 'listings',
   Purchases = 'purchases'
 }
 
-export type _Block_ = {
+export type Marketplace_Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
   hash: Maybe<Scalars['Bytes']>;
@@ -1251,7 +1251,7 @@ export type _Block_ = {
 };
 
 /** The type for the top-level _meta field */
-export type _Meta_ = {
+export type Marketplace_Meta_ = {
   __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
@@ -1260,72 +1260,72 @@ export type _Meta_ = {
    * and therefore asks for the latest  block
    *
    */
-  block: _Block_;
+  block: Marketplace_Block_;
   /** The deployment ID */
   deployment: Scalars['String'];
   /** If `true`, the subgraph encountered indexing errors at some past block */
   hasIndexingErrors: Scalars['Boolean'];
 };
 
-export enum _SubgraphErrorPolicy_ {
+export enum Marketplace_SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   Allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
   Deny = 'deny'
 }
 
-export type ListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
+export type MarketplaceListingFragmentFragment = { __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } };
 
-export type ProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } };
+export type MarketplaceProjectFragmentFragment = { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } };
 
-export type ActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
+export type MarketplaceActivityFragmentFragment = { __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: MarketplaceActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } };
 
-export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
-
-export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+export type MarketplaceGetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
+export type MarketplaceGetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string }> };
 
-export type GetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+export type MarketplaceGetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
+export type MarketplaceGetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: string }> };
 
-export type GetPurchaseByIdQueryVariables = Exact<{
+export type MarketplaceGetVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MarketplaceGetVintagesQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', vintage: string }> };
+
+export type MarketplaceGetPurchaseByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
+export type MarketplaceGetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
 
-export type GetUserByWalletQueryVariables = Exact<{
+export type MarketplaceGetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+export type MarketplaceGetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: MarketplaceActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
 
-export type GetProjectsQueryVariables = Exact<{
+export type MarketplaceGetProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
   vintage: InputMaybe<Array<Scalars['BigInt']> | Scalars['BigInt']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
+export type MarketplaceGetProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }> };
 
-export type GetProjectByIdQueryVariables = Exact<{
+export type MarketplaceGetProjectByIdQueryVariables = Exact<{
   projectId: Scalars['ID'];
   expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
+export type MarketplaceGetProjectByIdQuery = { __typename?: 'Query', project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: MarketplaceActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } | null };
 
 export const ProjectFragmentFragmentDoc = gql`
     fragment ProjectFragment on Project {
@@ -1467,26 +1467,26 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getCategories(variables?: GetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
+    getCategories(variables?: MarketplaceGetCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetCategoriesQuery>(GetCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCategories', 'query');
     },
-    getCountries(variables?: GetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
+    getCountries(variables?: MarketplaceGetCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetCountriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetCountriesQuery>(GetCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCountries', 'query');
     },
-    getVintages(variables?: GetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
+    getVintages(variables?: MarketplaceGetVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetVintagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetVintagesQuery>(GetVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getVintages', 'query');
     },
-    getPurchaseById(variables: GetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPurchaseByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
+    getPurchaseById(variables: MarketplaceGetPurchaseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetPurchaseByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetPurchaseByIdQuery>(GetPurchaseByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPurchaseById', 'query');
     },
-    getUserByWallet(variables?: GetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetUserByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
+    getUserByWallet(variables?: MarketplaceGetUserByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetUserByWalletQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetUserByWalletQuery>(GetUserByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUserByWallet', 'query');
     },
-    getProjects(variables?: GetProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query');
+    getProjects(variables?: MarketplaceGetProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetProjectsQuery>(GetProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjects', 'query');
     },
-    getProjectById(variables: GetProjectByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query');
+    getProjectById(variables: MarketplaceGetProjectByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<MarketplaceGetProjectByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MarketplaceGetProjectByIdQuery>(GetProjectByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectById', 'query');
     }
   };
 }

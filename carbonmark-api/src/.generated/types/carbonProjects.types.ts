@@ -17,23 +17,23 @@ export type Scalars = {
   DateTime: any;
 };
 
-export type Block = {
+export type CarbonprojectsBlock = {
   __typename?: 'Block';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  children: Maybe<Array<Maybe<Span>>>;
+  children: Maybe<Array<Maybe<CarbonprojectsSpan>>>;
   list: Maybe<Scalars['String']>;
   style: Maybe<Scalars['String']>;
 };
 
-export type BooleanFilter = {
+export type CarbonprojectsBooleanFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Boolean']>;
   /** Checks if the value is not equal to the given input. */
   neq: InputMaybe<Scalars['Boolean']>;
 };
 
-export type CrossDatasetReference = {
+export type CarbonprojectsCrossDatasetReference = {
   __typename?: 'CrossDatasetReference';
   _dataset: Maybe<Scalars['String']>;
   _key: Maybe<Scalars['String']>;
@@ -43,25 +43,25 @@ export type CrossDatasetReference = {
   _weak: Maybe<Scalars['Boolean']>;
 };
 
-export type CrossDatasetReferenceFilter = {
-  _dataset: InputMaybe<StringFilter>;
-  _key: InputMaybe<StringFilter>;
-  _projectId: InputMaybe<StringFilter>;
-  _ref: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _weak: InputMaybe<BooleanFilter>;
+export type CarbonprojectsCrossDatasetReferenceFilter = {
+  _dataset: InputMaybe<CarbonprojectsStringFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _projectId: InputMaybe<CarbonprojectsStringFilter>;
+  _ref: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _weak: InputMaybe<CarbonprojectsBooleanFilter>;
 };
 
-export type CrossDatasetReferenceSorting = {
-  _dataset: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _projectId: InputMaybe<SortOrder>;
-  _ref: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _weak: InputMaybe<SortOrder>;
+export type CarbonprojectsCrossDatasetReferenceSorting = {
+  _dataset: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _projectId: InputMaybe<CarbonprojectsSortOrder>;
+  _ref: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _weak: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type DateFilter = {
+export type CarbonprojectsDateFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Date']>;
   /** Checks if the value is greater than the given input. */
@@ -76,7 +76,7 @@ export type DateFilter = {
   neq: InputMaybe<Scalars['Date']>;
 };
 
-export type DatetimeFilter = {
+export type CarbonprojectsDatetimeFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['DateTime']>;
   /** Checks if the value is greater than the given input. */
@@ -92,7 +92,7 @@ export type DatetimeFilter = {
 };
 
 /** A Sanity document */
-export type Document = {
+export type CarbonprojectsDocument = {
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
   /** Document ID */
@@ -105,43 +105,43 @@ export type Document = {
   _updatedAt: Maybe<Scalars['DateTime']>;
 };
 
-export type DocumentFilter = {
+export type CarbonprojectsDocumentFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
 };
 
-export type DocumentSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
+export type CarbonprojectsDocumentSorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type File = {
+export type CarbonprojectsFile = {
   __typename?: 'File';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  asset: Maybe<SanityFileAsset>;
+  asset: Maybe<CarbonprojectsSanityFileAsset>;
 };
 
-export type FileFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  asset: InputMaybe<SanityFileAssetFilter>;
+export type CarbonprojectsFileFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  asset: InputMaybe<CarbonprojectsSanityFileAssetFilter>;
 };
 
-export type FileSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
+export type CarbonprojectsFileSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type FloatFilter = {
+export type CarbonprojectsFloatFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Float']>;
   /** Checks if the value is greater than the given input. */
@@ -156,7 +156,7 @@ export type FloatFilter = {
   neq: InputMaybe<Scalars['Float']>;
 };
 
-export type Geopoint = {
+export type CarbonprojectsGeopoint = {
   __typename?: 'Geopoint';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -165,23 +165,23 @@ export type Geopoint = {
   lng: Maybe<Scalars['Float']>;
 };
 
-export type GeopointFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  alt: InputMaybe<FloatFilter>;
-  lat: InputMaybe<FloatFilter>;
-  lng: InputMaybe<FloatFilter>;
+export type CarbonprojectsGeopointFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  alt: InputMaybe<CarbonprojectsFloatFilter>;
+  lat: InputMaybe<CarbonprojectsFloatFilter>;
+  lng: InputMaybe<CarbonprojectsFloatFilter>;
 };
 
-export type GeopointSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  alt: InputMaybe<SortOrder>;
-  lat: InputMaybe<SortOrder>;
-  lng: InputMaybe<SortOrder>;
+export type CarbonprojectsGeopointSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  alt: InputMaybe<CarbonprojectsSortOrder>;
+  lat: InputMaybe<CarbonprojectsSortOrder>;
+  lng: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type IdFilter = {
+export type CarbonprojectsIdFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['ID']>;
   in: InputMaybe<Array<Scalars['ID']>>;
@@ -192,31 +192,31 @@ export type IdFilter = {
   nin: InputMaybe<Array<Scalars['ID']>>;
 };
 
-export type Image = {
+export type CarbonprojectsImage = {
   __typename?: 'Image';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  asset: Maybe<SanityImageAsset>;
-  crop: Maybe<SanityImageCrop>;
-  hotspot: Maybe<SanityImageHotspot>;
+  asset: Maybe<CarbonprojectsSanityImageAsset>;
+  crop: Maybe<CarbonprojectsSanityImageCrop>;
+  hotspot: Maybe<CarbonprojectsSanityImageHotspot>;
 };
 
-export type ImageFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  asset: InputMaybe<SanityImageAssetFilter>;
-  crop: InputMaybe<SanityImageCropFilter>;
-  hotspot: InputMaybe<SanityImageHotspotFilter>;
+export type CarbonprojectsImageFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  asset: InputMaybe<CarbonprojectsSanityImageAssetFilter>;
+  crop: InputMaybe<CarbonprojectsSanityImageCropFilter>;
+  hotspot: InputMaybe<CarbonprojectsSanityImageHotspotFilter>;
 };
 
-export type ImageSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  crop: InputMaybe<SanityImageCropSorting>;
-  hotspot: InputMaybe<SanityImageHotspotSorting>;
+export type CarbonprojectsImageSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  crop: InputMaybe<CarbonprojectsSanityImageCropSorting>;
+  hotspot: InputMaybe<CarbonprojectsSanityImageHotspotSorting>;
 };
 
-export type IntFilter = {
+export type CarbonprojectsIntFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Int']>;
   /** Checks if the value is greater than the given input. */
@@ -231,7 +231,7 @@ export type IntFilter = {
   neq: InputMaybe<Scalars['Int']>;
 };
 
-export type Methodology = Document & {
+export type CarbonprojectsMethodology = CarbonprojectsDocument & {
   __typename?: 'Methodology';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -246,42 +246,42 @@ export type Methodology = Document & {
   _updatedAt: Maybe<Scalars['DateTime']>;
   /** From our predefined ontology of categories */
   category: Maybe<Scalars['String']>;
-  id: Maybe<Slug>;
+  id: Maybe<CarbonprojectsSlug>;
   /** Link to the authoritative methodology webpage or PDF document */
   link: Maybe<Scalars['String']>;
   /** Methodology name. Use 'Title Case Capitalization'. No trailing period. No version number. */
   name: Maybe<Scalars['String']>;
 };
 
-export type MethodologyFilter = {
+export type CarbonprojectsMethodologyFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  category: InputMaybe<StringFilter>;
-  id: InputMaybe<SlugFilter>;
-  link: InputMaybe<StringFilter>;
-  name: InputMaybe<StringFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  category: InputMaybe<CarbonprojectsStringFilter>;
+  id: InputMaybe<CarbonprojectsSlugFilter>;
+  link: InputMaybe<CarbonprojectsStringFilter>;
+  name: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type MethodologySorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  category: InputMaybe<SortOrder>;
-  id: InputMaybe<SlugSorting>;
-  link: InputMaybe<SortOrder>;
-  name: InputMaybe<SortOrder>;
+export type CarbonprojectsMethodologySorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
+  category: InputMaybe<CarbonprojectsSortOrder>;
+  id: InputMaybe<CarbonprojectsSlugSorting>;
+  link: InputMaybe<CarbonprojectsSortOrder>;
+  name: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type Project = Document & {
+export type CarbonprojectsProject = CarbonprojectsDocument & {
   __typename?: 'Project';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -294,7 +294,7 @@ export type Project = Document & {
   _type: Maybe<Scalars['String']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']>;
-  boundary: Maybe<File>;
+  boundary: Maybe<CarbonprojectsFile>;
   ccbs: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Is this project CORSIA compliant? */
   corsia: Maybe<Scalars['Boolean']>;
@@ -302,10 +302,10 @@ export type Project = Document & {
   country: Maybe<Scalars['String']>;
   /** Official project description as it appears in the originating registry */
   description: Maybe<Scalars['String']>;
-  documents: Maybe<Array<Maybe<File>>>;
-  geolocation: Maybe<Geopoint>;
-  id: Maybe<Slug>;
-  methodologies: Maybe<Array<Maybe<Methodology>>>;
+  documents: Maybe<Array<Maybe<CarbonprojectsFile>>>;
+  geolocation: Maybe<CarbonprojectsGeopoint>;
+  id: Maybe<CarbonprojectsSlug>;
+  methodologies: Maybe<Array<Maybe<CarbonprojectsMethodology>>>;
   /** Project name. Use 'Title Case Capitalization'. No trailing period */
   name: Maybe<Scalars['String']>;
   /** Region where the project was implemented */
@@ -321,7 +321,7 @@ export type Project = Document & {
   url: Maybe<Scalars['String']>;
 };
 
-export type ProjectContent = Document & {
+export type CarbonprojectsProjectContent = CarbonprojectsDocument & {
   __typename?: 'ProjectContent';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -334,8 +334,8 @@ export type ProjectContent = Document & {
   _type: Maybe<Scalars['String']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']>;
-  coverImage: Maybe<Image>;
-  images: Maybe<Array<Maybe<Image>>>;
+  coverImage: Maybe<CarbonprojectsImage>;
+  images: Maybe<Array<Maybe<CarbonprojectsImage>>>;
   /** Longer description */
   longDescription: Maybe<Scalars['String']>;
   /** Use this space to document how the long description was generated or procured, so that this work can be reproduced by others. */
@@ -343,185 +343,185 @@ export type ProjectContent = Document & {
   /** Use this space to document how this media was generated or procured, so that this work can be reproduced by others. */
   notes: Maybe<Scalars['String']>;
   /** The project this content is associated with */
-  project: Maybe<Project>;
+  project: Maybe<CarbonprojectsProject>;
   /** Short description, e.g. for retirement PDFs. Ideally 300-600 chars, no newlines, no bullet points. */
   shortDescription: Maybe<Scalars['String']>;
   /** Use this space to document how the short description was generated or procured, so that this work can be reproduced by others. */
   shortDescriptionMeta: Maybe<Scalars['String']>;
 };
 
-export type ProjectContentFilter = {
+export type CarbonprojectsProjectContentFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  coverImage: InputMaybe<ImageFilter>;
-  longDescription: InputMaybe<StringFilter>;
-  longDescriptionMeta: InputMaybe<StringFilter>;
-  notes: InputMaybe<StringFilter>;
-  project: InputMaybe<ProjectFilter>;
-  shortDescription: InputMaybe<StringFilter>;
-  shortDescriptionMeta: InputMaybe<StringFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  coverImage: InputMaybe<CarbonprojectsImageFilter>;
+  longDescription: InputMaybe<CarbonprojectsStringFilter>;
+  longDescriptionMeta: InputMaybe<CarbonprojectsStringFilter>;
+  notes: InputMaybe<CarbonprojectsStringFilter>;
+  project: InputMaybe<CarbonprojectsProjectFilter>;
+  shortDescription: InputMaybe<CarbonprojectsStringFilter>;
+  shortDescriptionMeta: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type ProjectContentSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  coverImage: InputMaybe<ImageSorting>;
-  longDescription: InputMaybe<SortOrder>;
-  longDescriptionMeta: InputMaybe<SortOrder>;
-  notes: InputMaybe<SortOrder>;
-  shortDescription: InputMaybe<SortOrder>;
-  shortDescriptionMeta: InputMaybe<SortOrder>;
+export type CarbonprojectsProjectContentSorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
+  coverImage: InputMaybe<CarbonprojectsImageSorting>;
+  longDescription: InputMaybe<CarbonprojectsSortOrder>;
+  longDescriptionMeta: InputMaybe<CarbonprojectsSortOrder>;
+  notes: InputMaybe<CarbonprojectsSortOrder>;
+  shortDescription: InputMaybe<CarbonprojectsSortOrder>;
+  shortDescriptionMeta: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type ProjectFilter = {
+export type CarbonprojectsProjectFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  boundary: InputMaybe<FileFilter>;
-  corsia: InputMaybe<BooleanFilter>;
-  country: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  geolocation: InputMaybe<GeopointFilter>;
-  id: InputMaybe<SlugFilter>;
-  name: InputMaybe<StringFilter>;
-  region: InputMaybe<StringFilter>;
-  registry: InputMaybe<StringFilter>;
-  registryProjectId: InputMaybe<StringFilter>;
-  state: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  boundary: InputMaybe<CarbonprojectsFileFilter>;
+  corsia: InputMaybe<CarbonprojectsBooleanFilter>;
+  country: InputMaybe<CarbonprojectsStringFilter>;
+  description: InputMaybe<CarbonprojectsStringFilter>;
+  geolocation: InputMaybe<CarbonprojectsGeopointFilter>;
+  id: InputMaybe<CarbonprojectsSlugFilter>;
+  name: InputMaybe<CarbonprojectsStringFilter>;
+  region: InputMaybe<CarbonprojectsStringFilter>;
+  registry: InputMaybe<CarbonprojectsStringFilter>;
+  registryProjectId: InputMaybe<CarbonprojectsStringFilter>;
+  state: InputMaybe<CarbonprojectsStringFilter>;
+  url: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type ProjectSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  boundary: InputMaybe<FileSorting>;
-  corsia: InputMaybe<SortOrder>;
-  country: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  geolocation: InputMaybe<GeopointSorting>;
-  id: InputMaybe<SlugSorting>;
-  name: InputMaybe<SortOrder>;
-  region: InputMaybe<SortOrder>;
-  registry: InputMaybe<SortOrder>;
-  registryProjectId: InputMaybe<SortOrder>;
-  state: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CarbonprojectsProjectSorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
+  boundary: InputMaybe<CarbonprojectsFileSorting>;
+  corsia: InputMaybe<CarbonprojectsSortOrder>;
+  country: InputMaybe<CarbonprojectsSortOrder>;
+  description: InputMaybe<CarbonprojectsSortOrder>;
+  geolocation: InputMaybe<CarbonprojectsGeopointSorting>;
+  id: InputMaybe<CarbonprojectsSlugSorting>;
+  name: InputMaybe<CarbonprojectsSortOrder>;
+  region: InputMaybe<CarbonprojectsSortOrder>;
+  registry: InputMaybe<CarbonprojectsSortOrder>;
+  registryProjectId: InputMaybe<CarbonprojectsSortOrder>;
+  state: InputMaybe<CarbonprojectsSortOrder>;
+  url: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type RootQuery = {
+export type CarbonprojectsRootQuery = {
   __typename?: 'RootQuery';
-  Document: Maybe<Document>;
-  Methodology: Maybe<Methodology>;
-  Project: Maybe<Project>;
-  ProjectContent: Maybe<ProjectContent>;
-  SanityFileAsset: Maybe<SanityFileAsset>;
-  SanityImageAsset: Maybe<SanityImageAsset>;
-  allDocument: Array<Document>;
-  allMethodology: Array<Methodology>;
-  allProject: Array<Project>;
-  allProjectContent: Array<ProjectContent>;
-  allSanityFileAsset: Array<SanityFileAsset>;
-  allSanityImageAsset: Array<SanityImageAsset>;
+  Document: Maybe<CarbonprojectsDocument>;
+  Methodology: Maybe<CarbonprojectsMethodology>;
+  Project: Maybe<CarbonprojectsProject>;
+  ProjectContent: Maybe<CarbonprojectsProjectContent>;
+  SanityFileAsset: Maybe<CarbonprojectsSanityFileAsset>;
+  SanityImageAsset: Maybe<CarbonprojectsSanityImageAsset>;
+  allDocument: Array<CarbonprojectsDocument>;
+  allMethodology: Array<CarbonprojectsMethodology>;
+  allProject: Array<CarbonprojectsProject>;
+  allProjectContent: Array<CarbonprojectsProjectContent>;
+  allSanityFileAsset: Array<CarbonprojectsSanityFileAsset>;
+  allSanityImageAsset: Array<CarbonprojectsSanityImageAsset>;
 };
 
 
-export type RootQueryDocumentArgs = {
+export type CarbonprojectsRootQueryDocumentArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryMethodologyArgs = {
+export type CarbonprojectsRootQueryMethodologyArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryProjectArgs = {
+export type CarbonprojectsRootQueryProjectArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryProjectContentArgs = {
+export type CarbonprojectsRootQueryProjectContentArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQuerySanityFileAssetArgs = {
+export type CarbonprojectsRootQuerySanityFileAssetArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQuerySanityImageAssetArgs = {
+export type CarbonprojectsRootQuerySanityImageAssetArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootQueryAllDocumentArgs = {
+export type CarbonprojectsRootQueryAllDocumentArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<DocumentSorting>>;
-  where: InputMaybe<DocumentFilter>;
+  sort: InputMaybe<Array<CarbonprojectsDocumentSorting>>;
+  where: InputMaybe<CarbonprojectsDocumentFilter>;
 };
 
 
-export type RootQueryAllMethodologyArgs = {
+export type CarbonprojectsRootQueryAllMethodologyArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<MethodologySorting>>;
-  where: InputMaybe<MethodologyFilter>;
+  sort: InputMaybe<Array<CarbonprojectsMethodologySorting>>;
+  where: InputMaybe<CarbonprojectsMethodologyFilter>;
 };
 
 
-export type RootQueryAllProjectArgs = {
+export type CarbonprojectsRootQueryAllProjectArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<ProjectSorting>>;
-  where: InputMaybe<ProjectFilter>;
+  sort: InputMaybe<Array<CarbonprojectsProjectSorting>>;
+  where: InputMaybe<CarbonprojectsProjectFilter>;
 };
 
 
-export type RootQueryAllProjectContentArgs = {
+export type CarbonprojectsRootQueryAllProjectContentArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<ProjectContentSorting>>;
-  where: InputMaybe<ProjectContentFilter>;
+  sort: InputMaybe<Array<CarbonprojectsProjectContentSorting>>;
+  where: InputMaybe<CarbonprojectsProjectContentFilter>;
 };
 
 
-export type RootQueryAllSanityFileAssetArgs = {
+export type CarbonprojectsRootQueryAllSanityFileAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<SanityFileAssetSorting>>;
-  where: InputMaybe<SanityFileAssetFilter>;
+  sort: InputMaybe<Array<CarbonprojectsSanityFileAssetSorting>>;
+  where: InputMaybe<CarbonprojectsSanityFileAssetFilter>;
 };
 
 
-export type RootQueryAllSanityImageAssetArgs = {
+export type CarbonprojectsRootQueryAllSanityImageAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   offset: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<Array<SanityImageAssetSorting>>;
-  where: InputMaybe<SanityImageAssetFilter>;
+  sort: InputMaybe<Array<CarbonprojectsSanityImageAssetSorting>>;
+  where: InputMaybe<CarbonprojectsSanityImageAssetFilter>;
 };
 
-export type SanityAssetSourceData = {
+export type CarbonprojectsSanityAssetSourceData = {
   __typename?: 'SanityAssetSourceData';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -533,23 +533,23 @@ export type SanityAssetSourceData = {
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityAssetSourceDataFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  id: InputMaybe<StringFilter>;
-  name: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+export type CarbonprojectsSanityAssetSourceDataFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  id: InputMaybe<CarbonprojectsStringFilter>;
+  name: InputMaybe<CarbonprojectsStringFilter>;
+  url: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type SanityAssetSourceDataSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  id: InputMaybe<SortOrder>;
-  name: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityAssetSourceDataSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  id: InputMaybe<CarbonprojectsSortOrder>;
+  name: InputMaybe<CarbonprojectsSortOrder>;
+  url: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityFileAsset = Document & {
+export type CarbonprojectsSanityFileAsset = CarbonprojectsDocument & {
   __typename?: 'SanityFileAsset';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -572,58 +572,58 @@ export type SanityFileAsset = Document & {
   path: Maybe<Scalars['String']>;
   sha1hash: Maybe<Scalars['String']>;
   size: Maybe<Scalars['Float']>;
-  source: Maybe<SanityAssetSourceData>;
+  source: Maybe<CarbonprojectsSanityAssetSourceData>;
   title: Maybe<Scalars['String']>;
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityFileAssetFilter = {
+export type CarbonprojectsSanityFileAssetFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  altText: InputMaybe<StringFilter>;
-  assetId: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  extension: InputMaybe<StringFilter>;
-  label: InputMaybe<StringFilter>;
-  mimeType: InputMaybe<StringFilter>;
-  originalFilename: InputMaybe<StringFilter>;
-  path: InputMaybe<StringFilter>;
-  sha1hash: InputMaybe<StringFilter>;
-  size: InputMaybe<FloatFilter>;
-  source: InputMaybe<SanityAssetSourceDataFilter>;
-  title: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  altText: InputMaybe<CarbonprojectsStringFilter>;
+  assetId: InputMaybe<CarbonprojectsStringFilter>;
+  description: InputMaybe<CarbonprojectsStringFilter>;
+  extension: InputMaybe<CarbonprojectsStringFilter>;
+  label: InputMaybe<CarbonprojectsStringFilter>;
+  mimeType: InputMaybe<CarbonprojectsStringFilter>;
+  originalFilename: InputMaybe<CarbonprojectsStringFilter>;
+  path: InputMaybe<CarbonprojectsStringFilter>;
+  sha1hash: InputMaybe<CarbonprojectsStringFilter>;
+  size: InputMaybe<CarbonprojectsFloatFilter>;
+  source: InputMaybe<CarbonprojectsSanityAssetSourceDataFilter>;
+  title: InputMaybe<CarbonprojectsStringFilter>;
+  url: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type SanityFileAssetSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  altText: InputMaybe<SortOrder>;
-  assetId: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  extension: InputMaybe<SortOrder>;
-  label: InputMaybe<SortOrder>;
-  mimeType: InputMaybe<SortOrder>;
-  originalFilename: InputMaybe<SortOrder>;
-  path: InputMaybe<SortOrder>;
-  sha1hash: InputMaybe<SortOrder>;
-  size: InputMaybe<SortOrder>;
-  source: InputMaybe<SanityAssetSourceDataSorting>;
-  title: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityFileAssetSorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
+  altText: InputMaybe<CarbonprojectsSortOrder>;
+  assetId: InputMaybe<CarbonprojectsSortOrder>;
+  description: InputMaybe<CarbonprojectsSortOrder>;
+  extension: InputMaybe<CarbonprojectsSortOrder>;
+  label: InputMaybe<CarbonprojectsSortOrder>;
+  mimeType: InputMaybe<CarbonprojectsSortOrder>;
+  originalFilename: InputMaybe<CarbonprojectsSortOrder>;
+  path: InputMaybe<CarbonprojectsSortOrder>;
+  sha1hash: InputMaybe<CarbonprojectsSortOrder>;
+  size: InputMaybe<CarbonprojectsSortOrder>;
+  source: InputMaybe<CarbonprojectsSanityAssetSourceDataSorting>;
+  title: InputMaybe<CarbonprojectsSortOrder>;
+  url: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityImageAsset = Document & {
+export type CarbonprojectsSanityImageAsset = CarbonprojectsDocument & {
   __typename?: 'SanityImageAsset';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']>;
@@ -641,69 +641,69 @@ export type SanityImageAsset = Document & {
   description: Maybe<Scalars['String']>;
   extension: Maybe<Scalars['String']>;
   label: Maybe<Scalars['String']>;
-  metadata: Maybe<SanityImageMetadata>;
+  metadata: Maybe<CarbonprojectsSanityImageMetadata>;
   mimeType: Maybe<Scalars['String']>;
   originalFilename: Maybe<Scalars['String']>;
   path: Maybe<Scalars['String']>;
   sha1hash: Maybe<Scalars['String']>;
   size: Maybe<Scalars['Float']>;
-  source: Maybe<SanityAssetSourceData>;
+  source: Maybe<CarbonprojectsSanityAssetSourceData>;
   title: Maybe<Scalars['String']>;
   uploadId: Maybe<Scalars['String']>;
   url: Maybe<Scalars['String']>;
 };
 
-export type SanityImageAssetFilter = {
+export type CarbonprojectsSanityImageAssetFilter = {
   /** Apply filters on document level */
-  _: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt: InputMaybe<DatetimeFilter>;
-  _id: InputMaybe<IdFilter>;
-  _key: InputMaybe<StringFilter>;
-  _rev: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  _updatedAt: InputMaybe<DatetimeFilter>;
-  altText: InputMaybe<StringFilter>;
-  assetId: InputMaybe<StringFilter>;
-  description: InputMaybe<StringFilter>;
-  extension: InputMaybe<StringFilter>;
-  label: InputMaybe<StringFilter>;
-  metadata: InputMaybe<SanityImageMetadataFilter>;
-  mimeType: InputMaybe<StringFilter>;
-  originalFilename: InputMaybe<StringFilter>;
-  path: InputMaybe<StringFilter>;
-  sha1hash: InputMaybe<StringFilter>;
-  size: InputMaybe<FloatFilter>;
-  source: InputMaybe<SanityAssetSourceDataFilter>;
-  title: InputMaybe<StringFilter>;
-  uploadId: InputMaybe<StringFilter>;
-  url: InputMaybe<StringFilter>;
+  _: InputMaybe<CarbonprojectsSanity_DocumentFilter>;
+  _createdAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  _id: InputMaybe<CarbonprojectsIdFilter>;
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _rev: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  _updatedAt: InputMaybe<CarbonprojectsDatetimeFilter>;
+  altText: InputMaybe<CarbonprojectsStringFilter>;
+  assetId: InputMaybe<CarbonprojectsStringFilter>;
+  description: InputMaybe<CarbonprojectsStringFilter>;
+  extension: InputMaybe<CarbonprojectsStringFilter>;
+  label: InputMaybe<CarbonprojectsStringFilter>;
+  metadata: InputMaybe<CarbonprojectsSanityImageMetadataFilter>;
+  mimeType: InputMaybe<CarbonprojectsStringFilter>;
+  originalFilename: InputMaybe<CarbonprojectsStringFilter>;
+  path: InputMaybe<CarbonprojectsStringFilter>;
+  sha1hash: InputMaybe<CarbonprojectsStringFilter>;
+  size: InputMaybe<CarbonprojectsFloatFilter>;
+  source: InputMaybe<CarbonprojectsSanityAssetSourceDataFilter>;
+  title: InputMaybe<CarbonprojectsStringFilter>;
+  uploadId: InputMaybe<CarbonprojectsStringFilter>;
+  url: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type SanityImageAssetSorting = {
-  _createdAt: InputMaybe<SortOrder>;
-  _id: InputMaybe<SortOrder>;
-  _key: InputMaybe<SortOrder>;
-  _rev: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  _updatedAt: InputMaybe<SortOrder>;
-  altText: InputMaybe<SortOrder>;
-  assetId: InputMaybe<SortOrder>;
-  description: InputMaybe<SortOrder>;
-  extension: InputMaybe<SortOrder>;
-  label: InputMaybe<SortOrder>;
-  metadata: InputMaybe<SanityImageMetadataSorting>;
-  mimeType: InputMaybe<SortOrder>;
-  originalFilename: InputMaybe<SortOrder>;
-  path: InputMaybe<SortOrder>;
-  sha1hash: InputMaybe<SortOrder>;
-  size: InputMaybe<SortOrder>;
-  source: InputMaybe<SanityAssetSourceDataSorting>;
-  title: InputMaybe<SortOrder>;
-  uploadId: InputMaybe<SortOrder>;
-  url: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityImageAssetSorting = {
+  _createdAt: InputMaybe<CarbonprojectsSortOrder>;
+  _id: InputMaybe<CarbonprojectsSortOrder>;
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _rev: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  _updatedAt: InputMaybe<CarbonprojectsSortOrder>;
+  altText: InputMaybe<CarbonprojectsSortOrder>;
+  assetId: InputMaybe<CarbonprojectsSortOrder>;
+  description: InputMaybe<CarbonprojectsSortOrder>;
+  extension: InputMaybe<CarbonprojectsSortOrder>;
+  label: InputMaybe<CarbonprojectsSortOrder>;
+  metadata: InputMaybe<CarbonprojectsSanityImageMetadataSorting>;
+  mimeType: InputMaybe<CarbonprojectsSortOrder>;
+  originalFilename: InputMaybe<CarbonprojectsSortOrder>;
+  path: InputMaybe<CarbonprojectsSortOrder>;
+  sha1hash: InputMaybe<CarbonprojectsSortOrder>;
+  size: InputMaybe<CarbonprojectsSortOrder>;
+  source: InputMaybe<CarbonprojectsSanityAssetSourceDataSorting>;
+  title: InputMaybe<CarbonprojectsSortOrder>;
+  uploadId: InputMaybe<CarbonprojectsSortOrder>;
+  url: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityImageCrop = {
+export type CarbonprojectsSanityImageCrop = {
   __typename?: 'SanityImageCrop';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -713,25 +713,25 @@ export type SanityImageCrop = {
   top: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageCropFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  bottom: InputMaybe<FloatFilter>;
-  left: InputMaybe<FloatFilter>;
-  right: InputMaybe<FloatFilter>;
-  top: InputMaybe<FloatFilter>;
+export type CarbonprojectsSanityImageCropFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  bottom: InputMaybe<CarbonprojectsFloatFilter>;
+  left: InputMaybe<CarbonprojectsFloatFilter>;
+  right: InputMaybe<CarbonprojectsFloatFilter>;
+  top: InputMaybe<CarbonprojectsFloatFilter>;
 };
 
-export type SanityImageCropSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  bottom: InputMaybe<SortOrder>;
-  left: InputMaybe<SortOrder>;
-  right: InputMaybe<SortOrder>;
-  top: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityImageCropSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  bottom: InputMaybe<CarbonprojectsSortOrder>;
+  left: InputMaybe<CarbonprojectsSortOrder>;
+  right: InputMaybe<CarbonprojectsSortOrder>;
+  top: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityImageDimensions = {
+export type CarbonprojectsSanityImageDimensions = {
   __typename?: 'SanityImageDimensions';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -740,23 +740,23 @@ export type SanityImageDimensions = {
   width: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageDimensionsFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  aspectRatio: InputMaybe<FloatFilter>;
-  height: InputMaybe<FloatFilter>;
-  width: InputMaybe<FloatFilter>;
+export type CarbonprojectsSanityImageDimensionsFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  aspectRatio: InputMaybe<CarbonprojectsFloatFilter>;
+  height: InputMaybe<CarbonprojectsFloatFilter>;
+  width: InputMaybe<CarbonprojectsFloatFilter>;
 };
 
-export type SanityImageDimensionsSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  aspectRatio: InputMaybe<SortOrder>;
-  height: InputMaybe<SortOrder>;
-  width: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityImageDimensionsSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  aspectRatio: InputMaybe<CarbonprojectsSortOrder>;
+  height: InputMaybe<CarbonprojectsSortOrder>;
+  width: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityImageHotspot = {
+export type CarbonprojectsSanityImageHotspot = {
   __typename?: 'SanityImageHotspot';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -766,99 +766,99 @@ export type SanityImageHotspot = {
   y: Maybe<Scalars['Float']>;
 };
 
-export type SanityImageHotspotFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  height: InputMaybe<FloatFilter>;
-  width: InputMaybe<FloatFilter>;
-  x: InputMaybe<FloatFilter>;
-  y: InputMaybe<FloatFilter>;
+export type CarbonprojectsSanityImageHotspotFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  height: InputMaybe<CarbonprojectsFloatFilter>;
+  width: InputMaybe<CarbonprojectsFloatFilter>;
+  x: InputMaybe<CarbonprojectsFloatFilter>;
+  y: InputMaybe<CarbonprojectsFloatFilter>;
 };
 
-export type SanityImageHotspotSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  height: InputMaybe<SortOrder>;
-  width: InputMaybe<SortOrder>;
-  x: InputMaybe<SortOrder>;
-  y: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityImageHotspotSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  height: InputMaybe<CarbonprojectsSortOrder>;
+  width: InputMaybe<CarbonprojectsSortOrder>;
+  x: InputMaybe<CarbonprojectsSortOrder>;
+  y: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type SanityImageMetadata = {
+export type CarbonprojectsSanityImageMetadata = {
   __typename?: 'SanityImageMetadata';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
   blurHash: Maybe<Scalars['String']>;
-  dimensions: Maybe<SanityImageDimensions>;
+  dimensions: Maybe<CarbonprojectsSanityImageDimensions>;
   hasAlpha: Maybe<Scalars['Boolean']>;
   isOpaque: Maybe<Scalars['Boolean']>;
-  location: Maybe<Geopoint>;
+  location: Maybe<CarbonprojectsGeopoint>;
   lqip: Maybe<Scalars['String']>;
-  palette: Maybe<SanityImagePalette>;
+  palette: Maybe<CarbonprojectsSanityImagePalette>;
 };
 
-export type SanityImageMetadataFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  blurHash: InputMaybe<StringFilter>;
-  dimensions: InputMaybe<SanityImageDimensionsFilter>;
-  hasAlpha: InputMaybe<BooleanFilter>;
-  isOpaque: InputMaybe<BooleanFilter>;
-  location: InputMaybe<GeopointFilter>;
-  lqip: InputMaybe<StringFilter>;
-  palette: InputMaybe<SanityImagePaletteFilter>;
+export type CarbonprojectsSanityImageMetadataFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  blurHash: InputMaybe<CarbonprojectsStringFilter>;
+  dimensions: InputMaybe<CarbonprojectsSanityImageDimensionsFilter>;
+  hasAlpha: InputMaybe<CarbonprojectsBooleanFilter>;
+  isOpaque: InputMaybe<CarbonprojectsBooleanFilter>;
+  location: InputMaybe<CarbonprojectsGeopointFilter>;
+  lqip: InputMaybe<CarbonprojectsStringFilter>;
+  palette: InputMaybe<CarbonprojectsSanityImagePaletteFilter>;
 };
 
-export type SanityImageMetadataSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  blurHash: InputMaybe<SortOrder>;
-  dimensions: InputMaybe<SanityImageDimensionsSorting>;
-  hasAlpha: InputMaybe<SortOrder>;
-  isOpaque: InputMaybe<SortOrder>;
-  location: InputMaybe<GeopointSorting>;
-  lqip: InputMaybe<SortOrder>;
-  palette: InputMaybe<SanityImagePaletteSorting>;
+export type CarbonprojectsSanityImageMetadataSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  blurHash: InputMaybe<CarbonprojectsSortOrder>;
+  dimensions: InputMaybe<CarbonprojectsSanityImageDimensionsSorting>;
+  hasAlpha: InputMaybe<CarbonprojectsSortOrder>;
+  isOpaque: InputMaybe<CarbonprojectsSortOrder>;
+  location: InputMaybe<CarbonprojectsGeopointSorting>;
+  lqip: InputMaybe<CarbonprojectsSortOrder>;
+  palette: InputMaybe<CarbonprojectsSanityImagePaletteSorting>;
 };
 
-export type SanityImagePalette = {
+export type CarbonprojectsSanityImagePalette = {
   __typename?: 'SanityImagePalette';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
-  darkMuted: Maybe<SanityImagePaletteSwatch>;
-  darkVibrant: Maybe<SanityImagePaletteSwatch>;
-  dominant: Maybe<SanityImagePaletteSwatch>;
-  lightMuted: Maybe<SanityImagePaletteSwatch>;
-  lightVibrant: Maybe<SanityImagePaletteSwatch>;
-  muted: Maybe<SanityImagePaletteSwatch>;
-  vibrant: Maybe<SanityImagePaletteSwatch>;
+  darkMuted: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  darkVibrant: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  dominant: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  lightMuted: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  lightVibrant: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  muted: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
+  vibrant: Maybe<CarbonprojectsSanityImagePaletteSwatch>;
 };
 
-export type SanityImagePaletteFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  darkMuted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  darkVibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  dominant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  lightMuted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  lightVibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
-  muted: InputMaybe<SanityImagePaletteSwatchFilter>;
-  vibrant: InputMaybe<SanityImagePaletteSwatchFilter>;
+export type CarbonprojectsSanityImagePaletteFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  darkMuted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  darkVibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  dominant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  lightMuted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  lightVibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  muted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
+  vibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchFilter>;
 };
 
-export type SanityImagePaletteSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  darkMuted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  darkVibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  dominant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  lightMuted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  lightVibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
-  muted: InputMaybe<SanityImagePaletteSwatchSorting>;
-  vibrant: InputMaybe<SanityImagePaletteSwatchSorting>;
+export type CarbonprojectsSanityImagePaletteSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  darkMuted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  darkVibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  dominant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  lightMuted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  lightVibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  muted: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
+  vibrant: InputMaybe<CarbonprojectsSanityImagePaletteSwatchSorting>;
 };
 
-export type SanityImagePaletteSwatch = {
+export type CarbonprojectsSanityImagePaletteSwatch = {
   __typename?: 'SanityImagePaletteSwatch';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -868,32 +868,32 @@ export type SanityImagePaletteSwatch = {
   title: Maybe<Scalars['String']>;
 };
 
-export type SanityImagePaletteSwatchFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  background: InputMaybe<StringFilter>;
-  foreground: InputMaybe<StringFilter>;
-  population: InputMaybe<FloatFilter>;
-  title: InputMaybe<StringFilter>;
+export type CarbonprojectsSanityImagePaletteSwatchFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  background: InputMaybe<CarbonprojectsStringFilter>;
+  foreground: InputMaybe<CarbonprojectsStringFilter>;
+  population: InputMaybe<CarbonprojectsFloatFilter>;
+  title: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type SanityImagePaletteSwatchSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  background: InputMaybe<SortOrder>;
-  foreground: InputMaybe<SortOrder>;
-  population: InputMaybe<SortOrder>;
-  title: InputMaybe<SortOrder>;
+export type CarbonprojectsSanityImagePaletteSwatchSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  background: InputMaybe<CarbonprojectsSortOrder>;
+  foreground: InputMaybe<CarbonprojectsSortOrder>;
+  population: InputMaybe<CarbonprojectsSortOrder>;
+  title: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export type Sanity_DocumentFilter = {
+export type CarbonprojectsSanity_DocumentFilter = {
   /** All documents that are drafts. */
   is_draft: InputMaybe<Scalars['Boolean']>;
   /** All documents referencing the given document ID. */
   references: InputMaybe<Scalars['ID']>;
 };
 
-export type Slug = {
+export type CarbonprojectsSlug = {
   __typename?: 'Slug';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -901,28 +901,28 @@ export type Slug = {
   source: Maybe<Scalars['String']>;
 };
 
-export type SlugFilter = {
-  _key: InputMaybe<StringFilter>;
-  _type: InputMaybe<StringFilter>;
-  current: InputMaybe<StringFilter>;
-  source: InputMaybe<StringFilter>;
+export type CarbonprojectsSlugFilter = {
+  _key: InputMaybe<CarbonprojectsStringFilter>;
+  _type: InputMaybe<CarbonprojectsStringFilter>;
+  current: InputMaybe<CarbonprojectsStringFilter>;
+  source: InputMaybe<CarbonprojectsStringFilter>;
 };
 
-export type SlugSorting = {
-  _key: InputMaybe<SortOrder>;
-  _type: InputMaybe<SortOrder>;
-  current: InputMaybe<SortOrder>;
-  source: InputMaybe<SortOrder>;
+export type CarbonprojectsSlugSorting = {
+  _key: InputMaybe<CarbonprojectsSortOrder>;
+  _type: InputMaybe<CarbonprojectsSortOrder>;
+  current: InputMaybe<CarbonprojectsSortOrder>;
+  source: InputMaybe<CarbonprojectsSortOrder>;
 };
 
-export enum SortOrder {
+export enum CarbonprojectsSortOrder {
   /** Sorts on the value in ascending order. */
   Asc = 'ASC',
   /** Sorts on the value in descending order. */
   Desc = 'DESC'
 }
 
-export type Span = {
+export type CarbonprojectsSpan = {
   __typename?: 'Span';
   _key: Maybe<Scalars['String']>;
   _type: Maybe<Scalars['String']>;
@@ -930,7 +930,7 @@ export type Span = {
   text: Maybe<Scalars['String']>;
 };
 
-export type StringFilter = {
+export type CarbonprojectsStringFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['String']>;
   in: InputMaybe<Array<Scalars['String']>>;
@@ -941,35 +941,35 @@ export type StringFilter = {
   nin: InputMaybe<Array<Scalars['String']>>;
 };
 
-export type CarbonProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null };
+export type CarbonprojectsCarbonProjectFragmentFragment = { __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null };
 
-export type CarbonProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null };
+export type CarbonprojectsCarbonProjectContentFragmentFragment = { __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null };
 
-export type GetProjectQueryVariables = Exact<{
+export type CarbonprojectsGetProjectQueryVariables = Exact<{
   registry: Scalars['String'];
   registryProjectId: Scalars['String'];
 }>;
 
 
-export type GetProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
+export type CarbonprojectsGetProjectQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
 
-export type GetProjectContentQueryVariables = Exact<{
+export type CarbonprojectsGetProjectContentQueryVariables = Exact<{
   registry: Scalars['String'];
   registryProjectId: Scalars['String'];
 }>;
 
 
-export type GetProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
+export type CarbonprojectsGetProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
 
-export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
-
-export type GetAllProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
+export type CarbonprojectsGetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
+export type CarbonprojectsGetAllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', country: string | null, description: string | null, name: string | null, region: string | null, registry: string | null, url: string | null, registryProjectId: string | null, id: string | null, geolocation: { __typename?: 'Geopoint', lat: number | null, lng: number | null, alt: number | null } | null, methodologies: Array<{ __typename?: 'Methodology', category: string | null, name: string | null, id: string | null } | null> | null }> };
+
+export type CarbonprojectsGetAllProjectContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CarbonprojectsGetAllProjectContentQuery = { __typename?: 'RootQuery', allProjectContent: Array<{ __typename?: 'ProjectContent', shortDescription: string | null, longDescription: string | null, project: { __typename?: 'Project', registry: string | null, registryProjectId: string | null } | null, coverImage: { __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null } | null } | null, images: Array<{ __typename?: 'Image', asset: { __typename?: 'SanityImageAsset', url: string | null, label: string | null, title: string | null, altText: string | null } | null } | null> | null }> };
 
 export const CarbonProjectFragmentFragmentDoc = gql`
     fragment CarbonProjectFragment on Project {
@@ -1056,17 +1056,17 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getProject(variables: GetProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectQuery>(GetProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProject', 'query');
+    getProject(variables: CarbonprojectsGetProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CarbonprojectsGetProjectQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CarbonprojectsGetProjectQuery>(GetProjectDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProject', 'query');
     },
-    getProjectContent(variables: GetProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectContentQuery>(GetProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectContent', 'query');
+    getProjectContent(variables: CarbonprojectsGetProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CarbonprojectsGetProjectContentQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CarbonprojectsGetProjectContentQuery>(GetProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getProjectContent', 'query');
     },
-    getAllProjects(variables?: GetAllProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllProjectsQuery>(GetAllProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjects', 'query');
+    getAllProjects(variables?: CarbonprojectsGetAllProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CarbonprojectsGetAllProjectsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CarbonprojectsGetAllProjectsQuery>(GetAllProjectsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjects', 'query');
     },
-    getAllProjectContent(variables?: GetAllProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllProjectContentQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetAllProjectContentQuery>(GetAllProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjectContent', 'query');
+    getAllProjectContent(variables?: CarbonprojectsGetAllProjectContentQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CarbonprojectsGetAllProjectContentQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CarbonprojectsGetAllProjectContentQuery>(GetAllProjectContentDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllProjectContent', 'query');
     }
   };
 }

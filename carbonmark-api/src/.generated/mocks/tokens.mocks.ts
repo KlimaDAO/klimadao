@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BlockChangedFilter, Block_Height, Pair, Pair_Filter, Query, Subscription, Swap, Swap_Filter, Token, Token_Filter, _Block_, _Meta_, OrderDirection, Pair_OrderBy, Swap_OrderBy, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/tokens.types';
+import { TokensBlockChangedFilter, TokensBlock_Height, TokensPair, TokensPair_Filter, TokensQuery, TokensSubscription, TokensSwap, TokensSwap_Filter, TokensToken, TokensToken_Filter, Tokens_Block_, Tokens_Meta_, OrderDirection, Pair_OrderBy, Swap_OrderBy, Token_OrderBy, _SubgraphErrorPolicy_ } from '../types/tokens.types';
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<TokensBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): TokensBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -9,7 +9,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aBlock_Height = (overrides?: Partial<TokensBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): TokensBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -19,7 +19,7 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aPair = (overrides?: Partial<Pair>, _relationshipsToOmit: Set<string> = new Set()): Pair => {
+export const aPair = (overrides?: Partial<TokensPair>, _relationshipsToOmit: Set<string> = new Set()): TokensPair => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Pair');
     return {
@@ -34,7 +34,7 @@ export const aPair = (overrides?: Partial<Pair>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToOmit: Set<string> = new Set()): Pair_Filter => {
+export const aPair_Filter = (overrides?: Partial<TokensPair_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensPair_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Pair_Filter');
     return {
@@ -139,7 +139,7 @@ export const aPair_Filter = (overrides?: Partial<Pair_Filter>, _relationshipsToO
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aQuery = (overrides?: Partial<TokensQuery>, _relationshipsToOmit: Set<string> = new Set()): TokensQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
@@ -153,7 +153,7 @@ export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aSubscription = (overrides?: Partial<TokensSubscription>, _relationshipsToOmit: Set<string> = new Set()): TokensSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
@@ -167,7 +167,7 @@ export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsT
     };
 };
 
-export const aSwap = (overrides?: Partial<Swap>, _relationshipsToOmit: Set<string> = new Set()): Swap => {
+export const aSwap = (overrides?: Partial<TokensSwap>, _relationshipsToOmit: Set<string> = new Set()): TokensSwap => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Swap');
     return {
@@ -185,7 +185,7 @@ export const aSwap = (overrides?: Partial<Swap>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aSwap_Filter = (overrides?: Partial<Swap_Filter>, _relationshipsToOmit: Set<string> = new Set()): Swap_Filter => {
+export const aSwap_Filter = (overrides?: Partial<TokensSwap_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensSwap_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Swap_Filter');
     return {
@@ -308,7 +308,7 @@ export const aSwap_Filter = (overrides?: Partial<Swap_Filter>, _relationshipsToO
     };
 };
 
-export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<string> = new Set()): Token => {
+export const aToken = (overrides?: Partial<TokensToken>, _relationshipsToOmit: Set<string> = new Set()): TokensToken => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token');
     return {
@@ -319,7 +319,7 @@ export const aToken = (overrides?: Partial<Token>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsToOmit: Set<string> = new Set()): Token_Filter => {
+export const aToken_Filter = (overrides?: Partial<TokensToken_Filter>, _relationshipsToOmit: Set<string> = new Set()): TokensToken_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Token_Filter');
     return {
@@ -385,7 +385,7 @@ export const aToken_Filter = (overrides?: Partial<Token_Filter>, _relationshipsT
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const a_Block_ = (overrides?: Partial<Tokens_Block_>, _relationshipsToOmit: Set<string> = new Set()): Tokens_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -395,7 +395,7 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const a_Meta_ = (overrides?: Partial<Tokens_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Tokens_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {

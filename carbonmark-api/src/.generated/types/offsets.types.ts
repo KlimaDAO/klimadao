@@ -19,35 +19,35 @@ export type Scalars = {
   Int8: any;
 };
 
-export type BlockChangedFilter = {
+export type OffsetsBlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
 
-export type Block_Height = {
+export type OffsetsBlock_Height = {
   hash: InputMaybe<Scalars['Bytes']>;
   number: InputMaybe<Scalars['Int']>;
   number_gte: InputMaybe<Scalars['Int']>;
 };
 
-export type Bridge = {
+export type OffsetsBridge = {
   __typename?: 'Bridge';
   bridger: Scalars['String'];
   id: Scalars['ID'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   timestamp: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
   value: Scalars['BigDecimal'];
 };
 
-export enum BridgeDirection {
+export enum OffsetsBridgeDirection {
   Received = 'Received',
   Sent = 'Sent'
 }
 
-export type Bridge_Filter = {
+export type OffsetsBridge_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Bridge_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsBridge_Filter>>>;
   bridger: InputMaybe<Scalars['String']>;
   bridger_contains: InputMaybe<Scalars['String']>;
   bridger_contains_nocase: InputMaybe<Scalars['String']>;
@@ -77,7 +77,7 @@ export type Bridge_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -97,7 +97,7 @@ export type Bridge_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Bridge_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsBridge_Filter>>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -107,7 +107,7 @@ export type Bridge_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -137,7 +137,7 @@ export type Bridge_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Bridge_OrderBy {
+export enum OffsetsBridge_OrderBy {
   Bridger = 'bridger',
   Id = 'id',
   Offset = 'offset',
@@ -184,7 +184,7 @@ export enum Bridge_OrderBy {
   Value = 'value'
 }
 
-export type CarbonMetric = {
+export type OffsetsCarbonMetric = {
   __typename?: 'CarbonMetric';
   bctCrosschainSupply: Scalars['BigDecimal'];
   bctKlimaRetired: Scalars['BigDecimal'];
@@ -213,10 +213,10 @@ export type CarbonMetric = {
   uboSupply: Scalars['BigDecimal'];
 };
 
-export type CarbonMetric_Filter = {
+export type OffsetsCarbonMetric_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CarbonMetric_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsCarbonMetric_Filter>>>;
   bctCrosschainSupply: InputMaybe<Scalars['BigDecimal']>;
   bctCrosschainSupply_gt: InputMaybe<Scalars['BigDecimal']>;
   bctCrosschainSupply_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -345,7 +345,7 @@ export type CarbonMetric_Filter = {
   nctSupply_lte: InputMaybe<Scalars['BigDecimal']>;
   nctSupply_not: InputMaybe<Scalars['BigDecimal']>;
   nctSupply_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
-  or: InputMaybe<Array<InputMaybe<CarbonMetric_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsCarbonMetric_Filter>>>;
   tco2Retired: InputMaybe<Scalars['BigDecimal']>;
   tco2Retired_gt: InputMaybe<Scalars['BigDecimal']>;
   tco2Retired_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -420,7 +420,7 @@ export type CarbonMetric_Filter = {
   uboSupply_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum CarbonMetric_OrderBy {
+export enum OffsetsCarbonMetric_OrderBy {
   BctCrosschainSupply = 'bctCrosschainSupply',
   BctKlimaRetired = 'bctKlimaRetired',
   BctRedeemed = 'bctRedeemed',
@@ -448,7 +448,7 @@ export enum CarbonMetric_OrderBy {
   UboSupply = 'uboSupply'
 }
 
-export type CarbonOffset = {
+export type OffsetsCarbonOffset = {
   __typename?: 'CarbonOffset';
   additionalCertification: Scalars['String'];
   balanceBCT: Scalars['BigDecimal'];
@@ -456,7 +456,7 @@ export type CarbonOffset = {
   balanceNCT: Scalars['BigDecimal'];
   balanceUBO: Scalars['BigDecimal'];
   bridge: Scalars['String'];
-  bridges: Maybe<Array<Bridge>>;
+  bridges: Maybe<Array<OffsetsBridge>>;
   category: Scalars['String'];
   coBenefits: Scalars['String'];
   correspAdjustment: Scalars['String'];
@@ -474,7 +474,7 @@ export type CarbonOffset = {
   projectID: Scalars['String'];
   region: Scalars['String'];
   registry: Scalars['String'];
-  retirements: Maybe<Array<Retire>>;
+  retirements: Maybe<Array<OffsetsRetire>>;
   standard: Scalars['String'];
   storageMethod: Scalars['String'];
   tokenAddress: Scalars['String'];
@@ -485,26 +485,26 @@ export type CarbonOffset = {
 };
 
 
-export type CarbonOffsetBridgesArgs = {
+export type OffsetsCarbonOffsetBridgesArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsBridge_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Bridge_Filter>;
+  where: InputMaybe<OffsetsBridge_Filter>;
 };
 
 
-export type CarbonOffsetRetirementsArgs = {
+export type OffsetsCarbonOffsetRetirementsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsRetire_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Retire_Filter>;
+  where: InputMaybe<OffsetsRetire_Filter>;
 };
 
-export type CarbonOffset_Filter = {
+export type OffsetsCarbonOffset_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
   additionalCertification: InputMaybe<Scalars['String']>;
   additionalCertification_contains: InputMaybe<Scalars['String']>;
   additionalCertification_contains_nocase: InputMaybe<Scalars['String']>;
@@ -525,7 +525,7 @@ export type CarbonOffset_Filter = {
   additionalCertification_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   additionalCertification_starts_with: InputMaybe<Scalars['String']>;
   additionalCertification_starts_with_nocase: InputMaybe<Scalars['String']>;
-  and: InputMaybe<Array<InputMaybe<CarbonOffset_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<OffsetsCarbonOffset_Filter>>>;
   balanceBCT: InputMaybe<Scalars['BigDecimal']>;
   balanceBCT_gt: InputMaybe<Scalars['BigDecimal']>;
   balanceBCT_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -578,7 +578,7 @@ export type CarbonOffset_Filter = {
   bridge_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   bridge_starts_with: InputMaybe<Scalars['String']>;
   bridge_starts_with_nocase: InputMaybe<Scalars['String']>;
-  bridges_: InputMaybe<Bridge_Filter>;
+  bridges_: InputMaybe<OffsetsBridge_Filter>;
   category: InputMaybe<Scalars['String']>;
   category_contains: InputMaybe<Scalars['String']>;
   category_contains_nocase: InputMaybe<Scalars['String']>;
@@ -795,7 +795,7 @@ export type CarbonOffset_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<CarbonOffset_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsCarbonOffset_Filter>>>;
   projectID: InputMaybe<Scalars['String']>;
   projectID_contains: InputMaybe<Scalars['String']>;
   projectID_contains_nocase: InputMaybe<Scalars['String']>;
@@ -856,7 +856,7 @@ export type CarbonOffset_Filter = {
   registry_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   registry_starts_with: InputMaybe<Scalars['String']>;
   registry_starts_with_nocase: InputMaybe<Scalars['String']>;
-  retirements_: InputMaybe<Retire_Filter>;
+  retirements_: InputMaybe<OffsetsRetire_Filter>;
   standard: InputMaybe<Scalars['String']>;
   standard_contains: InputMaybe<Scalars['String']>;
   standard_contains_nocase: InputMaybe<Scalars['String']>;
@@ -975,7 +975,7 @@ export type CarbonOffset_Filter = {
   vintage_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum CarbonOffset_OrderBy {
+export enum OffsetsCarbonOffset_OrderBy {
   AdditionalCertification = 'additionalCertification',
   BalanceBct = 'balanceBCT',
   BalanceNbo = 'balanceNBO',
@@ -1015,21 +1015,21 @@ export enum CarbonOffset_OrderBy {
  * Currently used by Toucan
  *
  */
-export type CrosschainBridge = {
+export type OffsetsCrosschainBridge = {
   __typename?: 'CrosschainBridge';
   bridger: Scalars['String'];
-  direction: BridgeDirection;
+  direction: OffsetsBridgeDirection;
   id: Scalars['ID'];
   pool: Scalars['String'];
   timestamp: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
   value: Scalars['BigDecimal'];
 };
 
-export type CrosschainBridge_Filter = {
+export type OffsetsCrosschainBridge_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<CrosschainBridge_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsCrosschainBridge_Filter>>>;
   bridger: InputMaybe<Scalars['String']>;
   bridger_contains: InputMaybe<Scalars['String']>;
   bridger_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1050,10 +1050,10 @@ export type CrosschainBridge_Filter = {
   bridger_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   bridger_starts_with: InputMaybe<Scalars['String']>;
   bridger_starts_with_nocase: InputMaybe<Scalars['String']>;
-  direction: InputMaybe<BridgeDirection>;
-  direction_in: InputMaybe<Array<BridgeDirection>>;
-  direction_not: InputMaybe<BridgeDirection>;
-  direction_not_in: InputMaybe<Array<BridgeDirection>>;
+  direction: InputMaybe<OffsetsBridgeDirection>;
+  direction_in: InputMaybe<Array<OffsetsBridgeDirection>>;
+  direction_not: InputMaybe<OffsetsBridgeDirection>;
+  direction_not_in: InputMaybe<Array<OffsetsBridgeDirection>>;
   id: InputMaybe<Scalars['ID']>;
   id_gt: InputMaybe<Scalars['ID']>;
   id_gte: InputMaybe<Scalars['ID']>;
@@ -1062,7 +1062,7 @@ export type CrosschainBridge_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<CrosschainBridge_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsCrosschainBridge_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1092,7 +1092,7 @@ export type CrosschainBridge_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -1122,7 +1122,7 @@ export type CrosschainBridge_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum CrosschainBridge_OrderBy {
+export enum OffsetsCrosschainBridge_OrderBy {
   Bridger = 'bridger',
   Direction = 'direction',
   Id = 'id',
@@ -1140,20 +1140,20 @@ export enum CrosschainBridge_OrderBy {
   Value = 'value'
 }
 
-export type DailyKlimaRetirement = {
+export type OffsetsDailyKlimaRetirement = {
   __typename?: 'DailyKlimaRetirement';
   amount: Scalars['BigDecimal'];
   feeAmount: Scalars['BigDecimal'];
   id: Scalars['ID'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   pool: Scalars['String'];
   timestamp: Scalars['BigInt'];
   token: Scalars['String'];
 };
 
-export type DailyKlimaRetirement_Filter = {
+export type OffsetsDailyKlimaRetirement_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
   amount: InputMaybe<Scalars['BigDecimal']>;
   amount_gt: InputMaybe<Scalars['BigDecimal']>;
   amount_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -1162,7 +1162,7 @@ export type DailyKlimaRetirement_Filter = {
   amount_lte: InputMaybe<Scalars['BigDecimal']>;
   amount_not: InputMaybe<Scalars['BigDecimal']>;
   amount_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
-  and: InputMaybe<Array<InputMaybe<DailyKlimaRetirement_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<OffsetsDailyKlimaRetirement_Filter>>>;
   feeAmount: InputMaybe<Scalars['BigDecimal']>;
   feeAmount_gt: InputMaybe<Scalars['BigDecimal']>;
   feeAmount_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -1180,7 +1180,7 @@ export type DailyKlimaRetirement_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -1200,7 +1200,7 @@ export type DailyKlimaRetirement_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<DailyKlimaRetirement_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsDailyKlimaRetirement_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1251,7 +1251,7 @@ export type DailyKlimaRetirement_Filter = {
   token_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum DailyKlimaRetirement_OrderBy {
+export enum OffsetsDailyKlimaRetirement_OrderBy {
   Amount = 'amount',
   FeeAmount = 'feeAmount',
   Id = 'id',
@@ -1291,21 +1291,21 @@ export enum DailyKlimaRetirement_OrderBy {
   Token = 'token'
 }
 
-export type Deposit = {
+export type OffsetsDeposit = {
   __typename?: 'Deposit';
   depositor: Scalars['String'];
   id: Scalars['ID'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   pool: Scalars['String'];
   timestamp: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
   value: Scalars['BigDecimal'];
 };
 
-export type Deposit_Filter = {
+export type OffsetsDeposit_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Deposit_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsDeposit_Filter>>>;
   depositor: InputMaybe<Scalars['String']>;
   depositor_contains: InputMaybe<Scalars['String']>;
   depositor_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1335,7 +1335,7 @@ export type Deposit_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -1355,7 +1355,7 @@ export type Deposit_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Deposit_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsDeposit_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1385,7 +1385,7 @@ export type Deposit_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -1415,7 +1415,7 @@ export type Deposit_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Deposit_OrderBy {
+export enum OffsetsDeposit_OrderBy {
   Depositor = 'depositor',
   Id = 'id',
   Offset = 'offset',
@@ -1463,7 +1463,7 @@ export enum Deposit_OrderBy {
   Value = 'value'
 }
 
-export type KlimaRetire = {
+export type OffsetsKlimaRetire = {
   __typename?: 'KlimaRetire';
   amount: Scalars['BigDecimal'];
   beneficiary: Scalars['String'];
@@ -1472,19 +1472,19 @@ export type KlimaRetire = {
   feeAmount: Scalars['BigDecimal'];
   id: Scalars['ID'];
   index: Scalars['BigInt'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   pool: Scalars['String'];
   retirementMessage: Scalars['String'];
   retiringAddress: Scalars['String'];
   specific: Scalars['Boolean'];
   timestamp: Scalars['BigInt'];
   token: Scalars['String'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
 };
 
-export type KlimaRetire_Filter = {
+export type OffsetsKlimaRetire_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
   amount: InputMaybe<Scalars['BigDecimal']>;
   amount_gt: InputMaybe<Scalars['BigDecimal']>;
   amount_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -1493,7 +1493,7 @@ export type KlimaRetire_Filter = {
   amount_lte: InputMaybe<Scalars['BigDecimal']>;
   amount_not: InputMaybe<Scalars['BigDecimal']>;
   amount_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
-  and: InputMaybe<Array<InputMaybe<KlimaRetire_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<OffsetsKlimaRetire_Filter>>>;
   beneficiary: InputMaybe<Scalars['String']>;
   beneficiaryAddress: InputMaybe<Scalars['String']>;
   beneficiaryAddress_contains: InputMaybe<Scalars['String']>;
@@ -1567,7 +1567,7 @@ export type KlimaRetire_Filter = {
   index_not: InputMaybe<Scalars['BigInt']>;
   index_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -1587,7 +1587,7 @@ export type KlimaRetire_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<KlimaRetire_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsKlimaRetire_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
@@ -1681,7 +1681,7 @@ export type KlimaRetire_Filter = {
   token_starts_with: InputMaybe<Scalars['String']>;
   token_starts_with_nocase: InputMaybe<Scalars['String']>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -1703,7 +1703,7 @@ export type KlimaRetire_Filter = {
   transaction_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum KlimaRetire_OrderBy {
+export enum OffsetsKlimaRetire_OrderBy {
   Amount = 'amount',
   Beneficiary = 'beneficiary',
   BeneficiaryAddress = 'beneficiaryAddress',
@@ -1760,268 +1760,268 @@ export enum KlimaRetire_OrderBy {
 }
 
 /** Defines the order direction, either ascending or descending */
-export enum OrderDirection {
+export enum OffsetsOrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
 
-export type Query = {
+export type OffsetsQuery = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  bridge: Maybe<Bridge>;
-  bridges: Array<Bridge>;
-  carbonMetric: Maybe<CarbonMetric>;
-  carbonMetrics: Array<CarbonMetric>;
-  carbonOffset: Maybe<CarbonOffset>;
-  carbonOffsetSearch: Array<CarbonOffset>;
-  carbonOffsets: Array<CarbonOffset>;
-  crosschainBridge: Maybe<CrosschainBridge>;
-  crosschainBridges: Array<CrosschainBridge>;
-  dailyKlimaRetirement: Maybe<DailyKlimaRetirement>;
-  dailyKlimaRetirements: Array<DailyKlimaRetirement>;
-  deposit: Maybe<Deposit>;
-  deposits: Array<Deposit>;
-  klimaRetire: Maybe<KlimaRetire>;
-  klimaRetires: Array<KlimaRetire>;
-  redeem: Maybe<Redeem>;
-  redeems: Array<Redeem>;
-  retire: Maybe<Retire>;
-  retires: Array<Retire>;
-  toucanCertificate: Maybe<ToucanCertificate>;
-  toucanCertificates: Array<ToucanCertificate>;
-  transaction: Maybe<Transaction>;
-  transactions: Array<Transaction>;
+  _meta: Maybe<Offsets_Meta_>;
+  bridge: Maybe<OffsetsBridge>;
+  bridges: Array<OffsetsBridge>;
+  carbonMetric: Maybe<OffsetsCarbonMetric>;
+  carbonMetrics: Array<OffsetsCarbonMetric>;
+  carbonOffset: Maybe<OffsetsCarbonOffset>;
+  carbonOffsetSearch: Array<OffsetsCarbonOffset>;
+  carbonOffsets: Array<OffsetsCarbonOffset>;
+  crosschainBridge: Maybe<OffsetsCrosschainBridge>;
+  crosschainBridges: Array<OffsetsCrosschainBridge>;
+  dailyKlimaRetirement: Maybe<OffsetsDailyKlimaRetirement>;
+  dailyKlimaRetirements: Array<OffsetsDailyKlimaRetirement>;
+  deposit: Maybe<OffsetsDeposit>;
+  deposits: Array<OffsetsDeposit>;
+  klimaRetire: Maybe<OffsetsKlimaRetire>;
+  klimaRetires: Array<OffsetsKlimaRetire>;
+  redeem: Maybe<OffsetsRedeem>;
+  redeems: Array<OffsetsRedeem>;
+  retire: Maybe<OffsetsRetire>;
+  retires: Array<OffsetsRetire>;
+  toucanCertificate: Maybe<OffsetsToucanCertificate>;
+  toucanCertificates: Array<OffsetsToucanCertificate>;
+  transaction: Maybe<OffsetsTransaction>;
+  transactions: Array<OffsetsTransaction>;
 };
 
 
-export type Query_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQuery_MetaArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
 };
 
 
-export type QueryBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryBridgeArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryBridgesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsBridge_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Bridge_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsBridge_Filter>;
 };
 
 
-export type QueryCarbonMetricArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCarbonMetricArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonMetricsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCarbonMetricsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonMetric_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCarbonMetric_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonMetric_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCarbonMetric_Filter>;
 };
 
 
-export type QueryCarbonOffsetArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCarbonOffsetArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCarbonOffsetSearchArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCarbonOffsetSearchArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
   text: Scalars['String'];
-  where: InputMaybe<CarbonOffset_Filter>;
+  where: InputMaybe<OffsetsCarbonOffset_Filter>;
 };
 
 
-export type QueryCarbonOffsetsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCarbonOffsetsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonOffset_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCarbonOffset_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonOffset_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCarbonOffset_Filter>;
 };
 
 
-export type QueryCrosschainBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCrosschainBridgeArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryCrosschainBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryCrosschainBridgesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CrosschainBridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCrosschainBridge_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CrosschainBridge_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCrosschainBridge_Filter>;
 };
 
 
-export type QueryDailyKlimaRetirementArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryDailyKlimaRetirementArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryDailyKlimaRetirementsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryDailyKlimaRetirementsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<DailyKlimaRetirement_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsDailyKlimaRetirement_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<DailyKlimaRetirement_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsDailyKlimaRetirement_Filter>;
 };
 
 
-export type QueryDepositArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryDepositArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryDepositsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryDepositsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Deposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsDeposit_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Deposit_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsDeposit_Filter>;
 };
 
 
-export type QueryKlimaRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryKlimaRetireArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryKlimaRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryKlimaRetiresArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<KlimaRetire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsKlimaRetire_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<KlimaRetire_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsKlimaRetire_Filter>;
 };
 
 
-export type QueryRedeemArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryRedeemArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryRedeemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryRedeemsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Redeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsRedeem_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Redeem_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsRedeem_Filter>;
 };
 
 
-export type QueryRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryRetireArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryRetiresArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsRetire_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Retire_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsRetire_Filter>;
 };
 
 
-export type QueryToucanCertificateArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryToucanCertificateArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryToucanCertificatesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryToucanCertificatesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ToucanCertificate_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsToucanCertificate_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ToucanCertificate_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsToucanCertificate_Filter>;
 };
 
 
-export type QueryTransactionArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryTransactionArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryTransactionsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsQueryTransactionsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Transaction_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsTransaction_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Transaction_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsTransaction_Filter>;
 };
 
-export type Redeem = {
+export type OffsetsRedeem = {
   __typename?: 'Redeem';
   id: Scalars['ID'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   pool: Scalars['String'];
   redeemer: Scalars['String'];
   timestamp: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
   value: Scalars['BigDecimal'];
 };
 
-export type Redeem_Filter = {
+export type OffsetsRedeem_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Redeem_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsRedeem_Filter>>>;
   id: InputMaybe<Scalars['ID']>;
   id_gt: InputMaybe<Scalars['ID']>;
   id_gte: InputMaybe<Scalars['ID']>;
@@ -2031,7 +2031,7 @@ export type Redeem_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -2051,7 +2051,7 @@ export type Redeem_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Redeem_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsRedeem_Filter>>>;
   pool: InputMaybe<Scalars['String']>;
   pool_contains: InputMaybe<Scalars['String']>;
   pool_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2101,7 +2101,7 @@ export type Redeem_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -2131,7 +2131,7 @@ export type Redeem_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Redeem_OrderBy {
+export enum OffsetsRedeem_OrderBy {
   Id = 'id',
   Offset = 'offset',
   OffsetAdditionalCertification = 'offset__additionalCertification',
@@ -2179,21 +2179,21 @@ export enum Redeem_OrderBy {
   Value = 'value'
 }
 
-export type Retire = {
+export type OffsetsRetire = {
   __typename?: 'Retire';
   beneficiary: Scalars['String'];
   id: Scalars['ID'];
-  offset: CarbonOffset;
+  offset: OffsetsCarbonOffset;
   retiree: Scalars['String'];
   timestamp: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
   value: Scalars['BigDecimal'];
 };
 
-export type Retire_Filter = {
+export type OffsetsRetire_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Retire_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsRetire_Filter>>>;
   beneficiary: InputMaybe<Scalars['String']>;
   beneficiary_contains: InputMaybe<Scalars['String']>;
   beneficiary_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2223,7 +2223,7 @@ export type Retire_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   offset: InputMaybe<Scalars['String']>;
-  offset_: InputMaybe<CarbonOffset_Filter>;
+  offset_: InputMaybe<OffsetsCarbonOffset_Filter>;
   offset_contains: InputMaybe<Scalars['String']>;
   offset_contains_nocase: InputMaybe<Scalars['String']>;
   offset_ends_with: InputMaybe<Scalars['String']>;
@@ -2243,7 +2243,7 @@ export type Retire_Filter = {
   offset_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   offset_starts_with: InputMaybe<Scalars['String']>;
   offset_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Retire_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsRetire_Filter>>>;
   retiree: InputMaybe<Scalars['String']>;
   retiree_contains: InputMaybe<Scalars['String']>;
   retiree_contains_nocase: InputMaybe<Scalars['String']>;
@@ -2273,7 +2273,7 @@ export type Retire_Filter = {
   timestamp_not: InputMaybe<Scalars['BigInt']>;
   timestamp_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -2303,7 +2303,7 @@ export type Retire_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Retire_OrderBy {
+export enum OffsetsRetire_OrderBy {
   Beneficiary = 'beneficiary',
   Id = 'id',
   Offset = 'offset',
@@ -2351,250 +2351,250 @@ export enum Retire_OrderBy {
   Value = 'value'
 }
 
-export type Subscription = {
+export type OffsetsSubscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  bridge: Maybe<Bridge>;
-  bridges: Array<Bridge>;
-  carbonMetric: Maybe<CarbonMetric>;
-  carbonMetrics: Array<CarbonMetric>;
-  carbonOffset: Maybe<CarbonOffset>;
-  carbonOffsets: Array<CarbonOffset>;
-  crosschainBridge: Maybe<CrosschainBridge>;
-  crosschainBridges: Array<CrosschainBridge>;
-  dailyKlimaRetirement: Maybe<DailyKlimaRetirement>;
-  dailyKlimaRetirements: Array<DailyKlimaRetirement>;
-  deposit: Maybe<Deposit>;
-  deposits: Array<Deposit>;
-  klimaRetire: Maybe<KlimaRetire>;
-  klimaRetires: Array<KlimaRetire>;
-  redeem: Maybe<Redeem>;
-  redeems: Array<Redeem>;
-  retire: Maybe<Retire>;
-  retires: Array<Retire>;
-  toucanCertificate: Maybe<ToucanCertificate>;
-  toucanCertificates: Array<ToucanCertificate>;
-  transaction: Maybe<Transaction>;
-  transactions: Array<Transaction>;
+  _meta: Maybe<Offsets_Meta_>;
+  bridge: Maybe<OffsetsBridge>;
+  bridges: Array<OffsetsBridge>;
+  carbonMetric: Maybe<OffsetsCarbonMetric>;
+  carbonMetrics: Array<OffsetsCarbonMetric>;
+  carbonOffset: Maybe<OffsetsCarbonOffset>;
+  carbonOffsets: Array<OffsetsCarbonOffset>;
+  crosschainBridge: Maybe<OffsetsCrosschainBridge>;
+  crosschainBridges: Array<OffsetsCrosschainBridge>;
+  dailyKlimaRetirement: Maybe<OffsetsDailyKlimaRetirement>;
+  dailyKlimaRetirements: Array<OffsetsDailyKlimaRetirement>;
+  deposit: Maybe<OffsetsDeposit>;
+  deposits: Array<OffsetsDeposit>;
+  klimaRetire: Maybe<OffsetsKlimaRetire>;
+  klimaRetires: Array<OffsetsKlimaRetire>;
+  redeem: Maybe<OffsetsRedeem>;
+  redeems: Array<OffsetsRedeem>;
+  retire: Maybe<OffsetsRetire>;
+  retires: Array<OffsetsRetire>;
+  toucanCertificate: Maybe<OffsetsToucanCertificate>;
+  toucanCertificates: Array<OffsetsToucanCertificate>;
+  transaction: Maybe<OffsetsTransaction>;
+  transactions: Array<OffsetsTransaction>;
 };
 
 
-export type Subscription_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscription_MetaArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
 };
 
 
-export type SubscriptionBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionBridgeArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionBridgesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Bridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsBridge_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Bridge_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsBridge_Filter>;
 };
 
 
-export type SubscriptionCarbonMetricArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCarbonMetricArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonMetricsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCarbonMetricsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonMetric_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCarbonMetric_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonMetric_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCarbonMetric_Filter>;
 };
 
 
-export type SubscriptionCarbonOffsetArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCarbonOffsetArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCarbonOffsetsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCarbonOffsetsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CarbonOffset_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCarbonOffset_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CarbonOffset_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCarbonOffset_Filter>;
 };
 
 
-export type SubscriptionCrosschainBridgeArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCrosschainBridgeArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionCrosschainBridgesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionCrosschainBridgesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<CrosschainBridge_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsCrosschainBridge_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<CrosschainBridge_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsCrosschainBridge_Filter>;
 };
 
 
-export type SubscriptionDailyKlimaRetirementArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionDailyKlimaRetirementArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionDailyKlimaRetirementsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionDailyKlimaRetirementsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<DailyKlimaRetirement_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsDailyKlimaRetirement_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<DailyKlimaRetirement_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsDailyKlimaRetirement_Filter>;
 };
 
 
-export type SubscriptionDepositArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionDepositArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionDepositsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionDepositsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Deposit_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsDeposit_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Deposit_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsDeposit_Filter>;
 };
 
 
-export type SubscriptionKlimaRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionKlimaRetireArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionKlimaRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionKlimaRetiresArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<KlimaRetire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsKlimaRetire_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<KlimaRetire_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsKlimaRetire_Filter>;
 };
 
 
-export type SubscriptionRedeemArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionRedeemArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionRedeemsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionRedeemsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Redeem_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsRedeem_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Redeem_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsRedeem_Filter>;
 };
 
 
-export type SubscriptionRetireArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionRetireArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionRetiresArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionRetiresArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Retire_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsRetire_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Retire_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsRetire_Filter>;
 };
 
 
-export type SubscriptionToucanCertificateArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionToucanCertificateArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionToucanCertificatesArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionToucanCertificatesArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<ToucanCertificate_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsToucanCertificate_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<ToucanCertificate_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsToucanCertificate_Filter>;
 };
 
 
-export type SubscriptionTransactionArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionTransactionArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionTransactionsArgs = {
-  block: InputMaybe<Block_Height>;
+export type OffsetsSubscriptionTransactionsArgs = {
+  block: InputMaybe<OffsetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Transaction_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<OffsetsTransaction_OrderBy>;
+  orderDirection: InputMaybe<OffsetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Transaction_Filter>;
+  subgraphError?: Offsets_SubgraphErrorPolicy_;
+  where: InputMaybe<OffsetsTransaction_Filter>;
 };
 
-export type ToucanCertificate = {
+export type OffsetsToucanCertificate = {
   __typename?: 'ToucanCertificate';
   id: Scalars['ID'];
-  klimaRetire: Maybe<KlimaRetire>;
+  klimaRetire: Maybe<OffsetsKlimaRetire>;
   timestamp: Scalars['BigInt'];
   tokenID: Scalars['BigInt'];
-  transaction: Transaction;
+  transaction: OffsetsTransaction;
 };
 
-export type ToucanCertificate_Filter = {
+export type OffsetsToucanCertificate_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<ToucanCertificate_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsToucanCertificate_Filter>>>;
   id: InputMaybe<Scalars['ID']>;
   id_gt: InputMaybe<Scalars['ID']>;
   id_gte: InputMaybe<Scalars['ID']>;
@@ -2604,7 +2604,7 @@ export type ToucanCertificate_Filter = {
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
   klimaRetire: InputMaybe<Scalars['String']>;
-  klimaRetire_: InputMaybe<KlimaRetire_Filter>;
+  klimaRetire_: InputMaybe<OffsetsKlimaRetire_Filter>;
   klimaRetire_contains: InputMaybe<Scalars['String']>;
   klimaRetire_contains_nocase: InputMaybe<Scalars['String']>;
   klimaRetire_ends_with: InputMaybe<Scalars['String']>;
@@ -2624,7 +2624,7 @@ export type ToucanCertificate_Filter = {
   klimaRetire_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   klimaRetire_starts_with: InputMaybe<Scalars['String']>;
   klimaRetire_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<ToucanCertificate_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsToucanCertificate_Filter>>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -2642,7 +2642,7 @@ export type ToucanCertificate_Filter = {
   tokenID_not: InputMaybe<Scalars['BigInt']>;
   tokenID_not_in: InputMaybe<Array<Scalars['BigInt']>>;
   transaction: InputMaybe<Scalars['String']>;
-  transaction_: InputMaybe<Transaction_Filter>;
+  transaction_: InputMaybe<OffsetsTransaction_Filter>;
   transaction_contains: InputMaybe<Scalars['String']>;
   transaction_contains_nocase: InputMaybe<Scalars['String']>;
   transaction_ends_with: InputMaybe<Scalars['String']>;
@@ -2664,7 +2664,7 @@ export type ToucanCertificate_Filter = {
   transaction_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum ToucanCertificate_OrderBy {
+export enum OffsetsToucanCertificate_OrderBy {
   Id = 'id',
   KlimaRetire = 'klimaRetire',
   KlimaRetireAmount = 'klimaRetire__amount',
@@ -2693,7 +2693,7 @@ export enum ToucanCertificate_OrderBy {
   TransactionValue = 'transaction__value'
 }
 
-export type Transaction = {
+export type OffsetsTransaction = {
   __typename?: 'Transaction';
   blockHash: Scalars['Bytes'];
   blockNumber: Scalars['BigInt'];
@@ -2705,10 +2705,10 @@ export type Transaction = {
   value: Scalars['BigInt'];
 };
 
-export type Transaction_Filter = {
+export type OffsetsTransaction_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Transaction_Filter>>>;
+  _change_block: InputMaybe<OffsetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<OffsetsTransaction_Filter>>>;
   blockHash: InputMaybe<Scalars['Bytes']>;
   blockHash_contains: InputMaybe<Scalars['Bytes']>;
   blockHash_gt: InputMaybe<Scalars['Bytes']>;
@@ -2753,7 +2753,7 @@ export type Transaction_Filter = {
   id_lte: InputMaybe<Scalars['ID']>;
   id_not: InputMaybe<Scalars['ID']>;
   id_not_in: InputMaybe<Array<Scalars['ID']>>;
-  or: InputMaybe<Array<InputMaybe<Transaction_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<OffsetsTransaction_Filter>>>;
   timestamp: InputMaybe<Scalars['BigInt']>;
   timestamp_gt: InputMaybe<Scalars['BigInt']>;
   timestamp_gte: InputMaybe<Scalars['BigInt']>;
@@ -2782,7 +2782,7 @@ export type Transaction_Filter = {
   value_not_in: InputMaybe<Array<Scalars['BigInt']>>;
 };
 
-export enum Transaction_OrderBy {
+export enum OffsetsTransaction_OrderBy {
   BlockHash = 'blockHash',
   BlockNumber = 'blockNumber',
   From = 'from',
@@ -2793,7 +2793,7 @@ export enum Transaction_OrderBy {
   Value = 'value'
 }
 
-export type _Block_ = {
+export type Offsets_Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
   hash: Maybe<Scalars['Bytes']>;
@@ -2804,7 +2804,7 @@ export type _Block_ = {
 };
 
 /** The type for the top-level _meta field */
-export type _Meta_ = {
+export type Offsets_Meta_ = {
   __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
@@ -2813,46 +2813,46 @@ export type _Meta_ = {
    * and therefore asks for the latest  block
    *
    */
-  block: _Block_;
+  block: Offsets_Block_;
   /** The deployment ID */
   deployment: Scalars['String'];
   /** If `true`, the subgraph encountered indexing errors at some past block */
   hasIndexingErrors: Scalars['Boolean'];
 };
 
-export enum _SubgraphErrorPolicy_ {
+export enum Offsets_SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   Allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
   Deny = 'deny'
 }
 
-export type CarbonOffsetFragmentFragment = { __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string };
+export type OffsetsCarbonOffsetFragmentFragment = { __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string };
 
-export type GetCarbonOffsetsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetCarbonOffsetsCategoriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', methodologyCategory: string }> };
-
-export type GetCarbonOffsetsCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+export type OffsetsGetCarbonOffsetsCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCarbonOffsetsCountriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', country: string }> };
+export type OffsetsGetCarbonOffsetsCategoriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', methodologyCategory: string }> };
 
-export type GetCarbonOffsetsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+export type OffsetsGetCarbonOffsetsCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCarbonOffsetsVintagesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', vintageYear: string }> };
+export type OffsetsGetCarbonOffsetsCountriesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', country: string }> };
 
-export type GetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
+export type OffsetsGetCarbonOffsetsVintagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OffsetsGetCarbonOffsetsVintagesQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', vintageYear: string }> };
+
+export type OffsetsGetCarbonOffsetsByProjectAndVintageQueryVariables = Exact<{
   key: Scalars['String'];
   vintageStr: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
+export type OffsetsGetCarbonOffsetsByProjectAndVintageQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
 
-export type FindCarbonOffsetsQueryVariables = Exact<{
+export type OffsetsFindCarbonOffsetsQueryVariables = Exact<{
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
@@ -2860,7 +2860,7 @@ export type FindCarbonOffsetsQueryVariables = Exact<{
 }>;
 
 
-export type FindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
+export type OffsetsFindCarbonOffsetsQuery = { __typename?: 'Query', carbonOffsets: Array<{ __typename?: 'CarbonOffset', id: string, name: string, tokenAddress: string, vintage: string, vintageYear: string, bridge: string, projectID: string, methodology: string, methodologyCategory: string, country: string, category: string, registry: string, totalBridged: any, totalRetired: any, currentSupply: any, storageMethod: string, balanceUBO: any, balanceNBO: any, balanceNCT: any, balanceBCT: any, lastUpdate: string }> };
 
 export const CarbonOffsetFragmentFragmentDoc = gql`
     fragment CarbonOffsetFragment on CarbonOffset {
@@ -2934,20 +2934,20 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getCarbonOffsetsCategories(variables?: GetCarbonOffsetsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsCategoriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsCategoriesQuery>(GetCarbonOffsetsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCategories', 'query');
+    getCarbonOffsetsCategories(variables?: OffsetsGetCarbonOffsetsCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<OffsetsGetCarbonOffsetsCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<OffsetsGetCarbonOffsetsCategoriesQuery>(GetCarbonOffsetsCategoriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCategories', 'query');
     },
-    getCarbonOffsetsCountries(variables?: GetCarbonOffsetsCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsCountriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsCountriesQuery>(GetCarbonOffsetsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCountries', 'query');
+    getCarbonOffsetsCountries(variables?: OffsetsGetCarbonOffsetsCountriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<OffsetsGetCarbonOffsetsCountriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<OffsetsGetCarbonOffsetsCountriesQuery>(GetCarbonOffsetsCountriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsCountries', 'query');
     },
-    getCarbonOffsetsVintages(variables?: GetCarbonOffsetsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsVintagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsVintagesQuery>(GetCarbonOffsetsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsVintages', 'query');
+    getCarbonOffsetsVintages(variables?: OffsetsGetCarbonOffsetsVintagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<OffsetsGetCarbonOffsetsVintagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<OffsetsGetCarbonOffsetsVintagesQuery>(GetCarbonOffsetsVintagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsVintages', 'query');
     },
-    getCarbonOffsetsByProjectAndVintage(variables: GetCarbonOffsetsByProjectAndVintageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetCarbonOffsetsByProjectAndVintageQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetCarbonOffsetsByProjectAndVintageQuery>(GetCarbonOffsetsByProjectAndVintageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsByProjectAndVintage', 'query');
+    getCarbonOffsetsByProjectAndVintage(variables: OffsetsGetCarbonOffsetsByProjectAndVintageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<OffsetsGetCarbonOffsetsByProjectAndVintageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<OffsetsGetCarbonOffsetsByProjectAndVintageQuery>(GetCarbonOffsetsByProjectAndVintageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCarbonOffsetsByProjectAndVintage', 'query');
     },
-    findCarbonOffsets(variables?: FindCarbonOffsetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<FindCarbonOffsetsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FindCarbonOffsetsQuery>(FindCarbonOffsetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findCarbonOffsets', 'query');
+    findCarbonOffsets(variables?: OffsetsFindCarbonOffsetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<OffsetsFindCarbonOffsetsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<OffsetsFindCarbonOffsetsQuery>(FindCarbonOffsetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'findCarbonOffsets', 'query');
     }
   };
 }

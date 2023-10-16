@@ -19,27 +19,27 @@ export type Scalars = {
   Int8: any;
 };
 
-export type Account = {
+export type AssetsAccount = {
   __typename?: 'Account';
-  holdings: Array<Holding>;
+  holdings: Array<AssetsHolding>;
   /** Ethereum address of the account */
   id: Scalars['Bytes'];
 };
 
 
-export type AccountHoldingsArgs = {
+export type AssetsAccountHoldingsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsHolding_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Holding_Filter>;
+  where: InputMaybe<AssetsHolding_Filter>;
 };
 
-export type Account_Filter = {
+export type AssetsAccount_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Account_Filter>>>;
-  holdings_: InputMaybe<Holding_Filter>;
+  _change_block: InputMaybe<AssetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<AssetsAccount_Filter>>>;
+  holdings_: InputMaybe<AssetsHolding_Filter>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -50,28 +50,28 @@ export type Account_Filter = {
   id_not: InputMaybe<Scalars['Bytes']>;
   id_not_contains: InputMaybe<Scalars['Bytes']>;
   id_not_in: InputMaybe<Array<Scalars['Bytes']>>;
-  or: InputMaybe<Array<InputMaybe<Account_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<AssetsAccount_Filter>>>;
 };
 
-export enum Account_OrderBy {
+export enum AssetsAccount_OrderBy {
   Holdings = 'holdings',
   Id = 'id'
 }
 
-export type BlockChangedFilter = {
+export type AssetsBlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
 
-export type Block_Height = {
+export type AssetsBlock_Height = {
   hash: InputMaybe<Scalars['Bytes']>;
   number: InputMaybe<Scalars['Int']>;
   number_gte: InputMaybe<Scalars['Int']>;
 };
 
-export type Holding = {
+export type AssetsHolding = {
   __typename?: 'Holding';
   /** Account this belongs to */
-  account: Account;
+  account: AssetsAccount;
   /** Amount currently held in native units */
   amount: Scalars['BigInt'];
   /** {Account}-{Token} */
@@ -79,14 +79,14 @@ export type Holding = {
   /** Timestamp last updated */
   lastUpdated: Scalars['BigInt'];
   /** Token being held */
-  token: Token;
+  token: AssetsToken;
 };
 
-export type Holding_Filter = {
+export type AssetsHolding_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
+  _change_block: InputMaybe<AssetsBlockChangedFilter>;
   account: InputMaybe<Scalars['String']>;
-  account_: InputMaybe<Account_Filter>;
+  account_: InputMaybe<AssetsAccount_Filter>;
   account_contains: InputMaybe<Scalars['String']>;
   account_contains_nocase: InputMaybe<Scalars['String']>;
   account_ends_with: InputMaybe<Scalars['String']>;
@@ -114,7 +114,7 @@ export type Holding_Filter = {
   amount_lte: InputMaybe<Scalars['BigInt']>;
   amount_not: InputMaybe<Scalars['BigInt']>;
   amount_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  and: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  and: InputMaybe<Array<InputMaybe<AssetsHolding_Filter>>>;
   id: InputMaybe<Scalars['Bytes']>;
   id_contains: InputMaybe<Scalars['Bytes']>;
   id_gt: InputMaybe<Scalars['Bytes']>;
@@ -133,9 +133,9 @@ export type Holding_Filter = {
   lastUpdated_lte: InputMaybe<Scalars['BigInt']>;
   lastUpdated_not: InputMaybe<Scalars['BigInt']>;
   lastUpdated_not_in: InputMaybe<Array<Scalars['BigInt']>>;
-  or: InputMaybe<Array<InputMaybe<Holding_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<AssetsHolding_Filter>>>;
   token: InputMaybe<Scalars['String']>;
-  token_: InputMaybe<Token_Filter>;
+  token_: InputMaybe<AssetsToken_Filter>;
   token_contains: InputMaybe<Scalars['String']>;
   token_contains_nocase: InputMaybe<Scalars['String']>;
   token_ends_with: InputMaybe<Scalars['String']>;
@@ -157,7 +157,7 @@ export type Holding_Filter = {
   token_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Holding_OrderBy {
+export enum AssetsHolding_OrderBy {
   Account = 'account',
   AccountId = 'account__id',
   Amount = 'amount',
@@ -175,154 +175,154 @@ export enum Holding_OrderBy {
 }
 
 /** Defines the order direction, either ascending or descending */
-export enum OrderDirection {
+export enum AssetsOrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
 
-export type Query = {
+export type AssetsQuery = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  account: Maybe<Account>;
-  accounts: Array<Account>;
-  holding: Maybe<Holding>;
-  holdings: Array<Holding>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
+  _meta: Maybe<Assets_Meta_>;
+  account: Maybe<AssetsAccount>;
+  accounts: Array<AssetsAccount>;
+  holding: Maybe<AssetsHolding>;
+  holdings: Array<AssetsHolding>;
+  token: Maybe<AssetsToken>;
+  tokens: Array<AssetsToken>;
 };
 
 
-export type Query_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQuery_MetaArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
 };
 
 
-export type QueryAccountArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryAccountArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryAccountsArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryAccountsArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Account_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsAccount_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Account_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsAccount_Filter>;
 };
 
 
-export type QueryHoldingArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryHoldingArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryHoldingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryHoldingsArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsHolding_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Holding_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsHolding_Filter>;
 };
 
 
-export type QueryTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryTokenArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type QueryTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsQueryTokensArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsToken_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsToken_Filter>;
 };
 
-export type Subscription = {
+export type AssetsSubscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  account: Maybe<Account>;
-  accounts: Array<Account>;
-  holding: Maybe<Holding>;
-  holdings: Array<Holding>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
+  _meta: Maybe<Assets_Meta_>;
+  account: Maybe<AssetsAccount>;
+  accounts: Array<AssetsAccount>;
+  holding: Maybe<AssetsHolding>;
+  holdings: Array<AssetsHolding>;
+  token: Maybe<AssetsToken>;
+  tokens: Array<AssetsToken>;
 };
 
 
-export type Subscription_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscription_MetaArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
 };
 
 
-export type SubscriptionAccountArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionAccountArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionAccountsArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionAccountsArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Account_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsAccount_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Account_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsAccount_Filter>;
 };
 
 
-export type SubscriptionHoldingArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionHoldingArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionHoldingsArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionHoldingsArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Holding_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsHolding_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Holding_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsHolding_Filter>;
 };
 
 
-export type SubscriptionTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionTokenArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type AssetsSubscriptionTokensArgs = {
+  block: InputMaybe<AssetsBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<AssetsToken_OrderBy>;
+  orderDirection: InputMaybe<AssetsOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: Assets_SubgraphErrorPolicy_;
+  where: InputMaybe<AssetsToken_Filter>;
 };
 
-export type Token = {
+export type AssetsToken = {
   __typename?: 'Token';
   /** Decimals of the token */
   decimals: Scalars['Int'];
@@ -342,10 +342,10 @@ export type Token = {
   symbol: Scalars['String'];
 };
 
-export type Token_Filter = {
+export type AssetsToken_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  _change_block: InputMaybe<AssetsBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<AssetsToken_Filter>>>;
   decimals: InputMaybe<Scalars['Int']>;
   decimals_gt: InputMaybe<Scalars['Int']>;
   decimals_gte: InputMaybe<Scalars['Int']>;
@@ -416,7 +416,7 @@ export type Token_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<AssetsToken_Filter>>>;
   symbol: InputMaybe<Scalars['String']>;
   symbol_contains: InputMaybe<Scalars['String']>;
   symbol_contains_nocase: InputMaybe<Scalars['String']>;
@@ -439,7 +439,7 @@ export type Token_Filter = {
   symbol_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Token_OrderBy {
+export enum AssetsToken_OrderBy {
   Decimals = 'decimals',
   Id = 'id',
   LatestPricePerKlima = 'latestPricePerKLIMA',
@@ -450,7 +450,7 @@ export enum Token_OrderBy {
   Symbol = 'symbol'
 }
 
-export type _Block_ = {
+export type Assets_Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
   hash: Maybe<Scalars['Bytes']>;
@@ -461,7 +461,7 @@ export type _Block_ = {
 };
 
 /** The type for the top-level _meta field */
-export type _Meta_ = {
+export type Assets_Meta_ = {
   __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
@@ -470,26 +470,26 @@ export type _Meta_ = {
    * and therefore asks for the latest  block
    *
    */
-  block: _Block_;
+  block: Assets_Block_;
   /** The deployment ID */
   deployment: Scalars['String'];
   /** If `true`, the subgraph encountered indexing errors at some past block */
   hasIndexingErrors: Scalars['Boolean'];
 };
 
-export enum _SubgraphErrorPolicy_ {
+export enum Assets_SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   Allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
   Deny = 'deny'
 }
 
-export type GetHoldingsByWalletQueryVariables = Exact<{
+export type AssetsGetHoldingsByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
 }>;
 
 
-export type GetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
+export type AssetsGetHoldingsByWalletQuery = { __typename?: 'Query', accounts: Array<{ __typename?: 'Account', holdings: Array<{ __typename?: 'Holding', id: any, amount: string, token: { __typename?: 'Token', id: any, name: string, symbol: string, decimals: number } }> }> };
 
 
 export const GetHoldingsByWalletDocument = gql`
@@ -516,8 +516,8 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getHoldingsByWallet(variables?: GetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetHoldingsByWalletQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
+    getHoldingsByWallet(variables?: AssetsGetHoldingsByWalletQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AssetsGetHoldingsByWalletQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AssetsGetHoldingsByWalletQuery>(GetHoldingsByWalletDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHoldingsByWallet', 'query');
     }
   };
 }

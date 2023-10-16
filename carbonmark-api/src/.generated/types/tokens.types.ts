@@ -19,47 +19,47 @@ export type Scalars = {
   Int8: any;
 };
 
-export type BlockChangedFilter = {
+export type TokensBlockChangedFilter = {
   number_gte: Scalars['Int'];
 };
 
-export type Block_Height = {
+export type TokensBlock_Height = {
   hash: InputMaybe<Scalars['Bytes']>;
   number: InputMaybe<Scalars['Int']>;
   number_gte: InputMaybe<Scalars['Int']>;
 };
 
 /** Defines the order direction, either ascending or descending */
-export enum OrderDirection {
+export enum TokensOrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
 
-export type Pair = {
+export type TokensPair = {
   __typename?: 'Pair';
   currentprice: Scalars['BigDecimal'];
   id: Scalars['ID'];
   lastupdate: Scalars['String'];
-  swaps: Array<Swap>;
-  token0: Token;
-  token1: Token;
+  swaps: Array<TokensSwap>;
+  token0: TokensToken;
+  token1: TokensToken;
   totalklimaearnedfees: Scalars['BigDecimal'];
   totalvolume: Scalars['BigDecimal'];
 };
 
 
-export type PairSwapsArgs = {
+export type TokensPairSwapsArgs = {
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Swap_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensSwap_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Swap_Filter>;
+  where: InputMaybe<TokensSwap_Filter>;
 };
 
-export type Pair_Filter = {
+export type TokensPair_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Pair_Filter>>>;
+  _change_block: InputMaybe<TokensBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<TokensPair_Filter>>>;
   currentprice: InputMaybe<Scalars['BigDecimal']>;
   currentprice_gt: InputMaybe<Scalars['BigDecimal']>;
   currentprice_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -96,10 +96,10 @@ export type Pair_Filter = {
   lastupdate_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   lastupdate_starts_with: InputMaybe<Scalars['String']>;
   lastupdate_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Pair_Filter>>>;
-  swaps_: InputMaybe<Swap_Filter>;
+  or: InputMaybe<Array<InputMaybe<TokensPair_Filter>>>;
+  swaps_: InputMaybe<TokensSwap_Filter>;
   token0: InputMaybe<Scalars['String']>;
-  token0_: InputMaybe<Token_Filter>;
+  token0_: InputMaybe<TokensToken_Filter>;
   token0_contains: InputMaybe<Scalars['String']>;
   token0_contains_nocase: InputMaybe<Scalars['String']>;
   token0_ends_with: InputMaybe<Scalars['String']>;
@@ -120,7 +120,7 @@ export type Pair_Filter = {
   token0_starts_with: InputMaybe<Scalars['String']>;
   token0_starts_with_nocase: InputMaybe<Scalars['String']>;
   token1: InputMaybe<Scalars['String']>;
-  token1_: InputMaybe<Token_Filter>;
+  token1_: InputMaybe<TokensToken_Filter>;
   token1_contains: InputMaybe<Scalars['String']>;
   token1_contains_nocase: InputMaybe<Scalars['String']>;
   token1_ends_with: InputMaybe<Scalars['String']>;
@@ -158,7 +158,7 @@ export type Pair_Filter = {
   totalvolume_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Pair_OrderBy {
+export enum TokensPair_OrderBy {
   Currentprice = 'currentprice',
   Id = 'id',
   Lastupdate = 'lastupdate',
@@ -177,149 +177,149 @@ export enum Pair_OrderBy {
   Totalvolume = 'totalvolume'
 }
 
-export type Query = {
+export type TokensQuery = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  pair: Maybe<Pair>;
-  pairs: Array<Pair>;
-  swap: Maybe<Swap>;
-  swaps: Array<Swap>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
+  _meta: Maybe<Tokens_Meta_>;
+  pair: Maybe<TokensPair>;
+  pairs: Array<TokensPair>;
+  swap: Maybe<TokensSwap>;
+  swaps: Array<TokensSwap>;
+  token: Maybe<TokensToken>;
+  tokens: Array<TokensToken>;
 };
 
 
-export type Query_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQuery_MetaArgs = {
+  block: InputMaybe<TokensBlock_Height>;
 };
 
 
-export type QueryPairArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQueryPairArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type QueryPairsArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQueryPairsArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Pair_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensPair_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Pair_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensPair_Filter>;
 };
 
 
-export type QuerySwapArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQuerySwapArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type QuerySwapsArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQuerySwapsArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Swap_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensSwap_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Swap_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensSwap_Filter>;
 };
 
 
-export type QueryTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQueryTokenArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type QueryTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensQueryTokensArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensToken_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensToken_Filter>;
 };
 
-export type Subscription = {
+export type TokensSubscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
-  _meta: Maybe<_Meta_>;
-  pair: Maybe<Pair>;
-  pairs: Array<Pair>;
-  swap: Maybe<Swap>;
-  swaps: Array<Swap>;
-  token: Maybe<Token>;
-  tokens: Array<Token>;
+  _meta: Maybe<Tokens_Meta_>;
+  pair: Maybe<TokensPair>;
+  pairs: Array<TokensPair>;
+  swap: Maybe<TokensSwap>;
+  swaps: Array<TokensSwap>;
+  token: Maybe<TokensToken>;
+  tokens: Array<TokensToken>;
 };
 
 
-export type Subscription_MetaArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscription_MetaArgs = {
+  block: InputMaybe<TokensBlock_Height>;
 };
 
 
-export type SubscriptionPairArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionPairArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionPairsArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionPairsArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Pair_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensPair_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Pair_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensPair_Filter>;
 };
 
 
-export type SubscriptionSwapArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionSwapArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionSwapsArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionSwapsArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Swap_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensSwap_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Swap_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensSwap_Filter>;
 };
 
 
-export type SubscriptionTokenArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionTokenArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   id: Scalars['ID'];
-  subgraphError?: _SubgraphErrorPolicy_;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
 };
 
 
-export type SubscriptionTokensArgs = {
-  block: InputMaybe<Block_Height>;
+export type TokensSubscriptionTokensArgs = {
+  block: InputMaybe<TokensBlock_Height>;
   first?: InputMaybe<Scalars['Int']>;
-  orderBy: InputMaybe<Token_OrderBy>;
-  orderDirection: InputMaybe<OrderDirection>;
+  orderBy: InputMaybe<TokensToken_OrderBy>;
+  orderDirection: InputMaybe<TokensOrderDirection>;
   skip?: InputMaybe<Scalars['Int']>;
-  subgraphError?: _SubgraphErrorPolicy_;
-  where: InputMaybe<Token_Filter>;
+  subgraphError?: Tokens_SubgraphErrorPolicy_;
+  where: InputMaybe<TokensToken_Filter>;
 };
 
-export type Swap = {
+export type TokensSwap = {
   __typename?: 'Swap';
   close: Scalars['BigDecimal'];
   high: Scalars['BigDecimal'];
@@ -328,16 +328,16 @@ export type Swap = {
   low: Scalars['BigDecimal'];
   lpfees: Scalars['BigDecimal'];
   open: Scalars['BigDecimal'];
-  pair: Pair;
+  pair: TokensPair;
   slippage: Scalars['BigDecimal'];
   timestamp: Scalars['String'];
   volume: Scalars['BigDecimal'];
 };
 
-export type Swap_Filter = {
+export type TokensSwap_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Swap_Filter>>>;
+  _change_block: InputMaybe<TokensBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<TokensSwap_Filter>>>;
   close: InputMaybe<Scalars['BigDecimal']>;
   close_gt: InputMaybe<Scalars['BigDecimal']>;
   close_gte: InputMaybe<Scalars['BigDecimal']>;
@@ -394,9 +394,9 @@ export type Swap_Filter = {
   open_lte: InputMaybe<Scalars['BigDecimal']>;
   open_not: InputMaybe<Scalars['BigDecimal']>;
   open_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
-  or: InputMaybe<Array<InputMaybe<Swap_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<TokensSwap_Filter>>>;
   pair: InputMaybe<Scalars['String']>;
-  pair_: InputMaybe<Pair_Filter>;
+  pair_: InputMaybe<TokensPair_Filter>;
   pair_contains: InputMaybe<Scalars['String']>;
   pair_contains_nocase: InputMaybe<Scalars['String']>;
   pair_ends_with: InputMaybe<Scalars['String']>;
@@ -454,7 +454,7 @@ export type Swap_Filter = {
   volume_not_in: InputMaybe<Array<Scalars['BigDecimal']>>;
 };
 
-export enum Swap_OrderBy {
+export enum TokensSwap_OrderBy {
   Close = 'close',
   High = 'high',
   Id = 'id',
@@ -473,7 +473,7 @@ export enum Swap_OrderBy {
   Volume = 'volume'
 }
 
-export type Token = {
+export type TokensToken = {
   __typename?: 'Token';
   decimals: Scalars['Int'];
   id: Scalars['ID'];
@@ -481,10 +481,10 @@ export type Token = {
   symbol: Scalars['String'];
 };
 
-export type Token_Filter = {
+export type TokensToken_Filter = {
   /** Filter for the block changed event. */
-  _change_block: InputMaybe<BlockChangedFilter>;
-  and: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  _change_block: InputMaybe<TokensBlockChangedFilter>;
+  and: InputMaybe<Array<InputMaybe<TokensToken_Filter>>>;
   decimals: InputMaybe<Scalars['Int']>;
   decimals_gt: InputMaybe<Scalars['Int']>;
   decimals_gte: InputMaybe<Scalars['Int']>;
@@ -521,7 +521,7 @@ export type Token_Filter = {
   name_not_starts_with_nocase: InputMaybe<Scalars['String']>;
   name_starts_with: InputMaybe<Scalars['String']>;
   name_starts_with_nocase: InputMaybe<Scalars['String']>;
-  or: InputMaybe<Array<InputMaybe<Token_Filter>>>;
+  or: InputMaybe<Array<InputMaybe<TokensToken_Filter>>>;
   symbol: InputMaybe<Scalars['String']>;
   symbol_contains: InputMaybe<Scalars['String']>;
   symbol_contains_nocase: InputMaybe<Scalars['String']>;
@@ -544,14 +544,14 @@ export type Token_Filter = {
   symbol_starts_with_nocase: InputMaybe<Scalars['String']>;
 };
 
-export enum Token_OrderBy {
+export enum TokensToken_OrderBy {
   Decimals = 'decimals',
   Id = 'id',
   Name = 'name',
   Symbol = 'symbol'
 }
 
-export type _Block_ = {
+export type Tokens_Block_ = {
   __typename?: '_Block_';
   /** The hash of the block */
   hash: Maybe<Scalars['Bytes']>;
@@ -562,7 +562,7 @@ export type _Block_ = {
 };
 
 /** The type for the top-level _meta field */
-export type _Meta_ = {
+export type Tokens_Meta_ = {
   __typename?: '_Meta_';
   /**
    * Information about a specific subgraph block. The hash of the block
@@ -571,38 +571,38 @@ export type _Meta_ = {
    * and therefore asks for the latest  block
    *
    */
-  block: _Block_;
+  block: Tokens_Block_;
   /** The deployment ID */
   deployment: Scalars['String'];
   /** If `true`, the subgraph encountered indexing errors at some past block */
   hasIndexingErrors: Scalars['Boolean'];
 };
 
-export enum _SubgraphErrorPolicy_ {
+export enum Tokens_SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   Allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
   Deny = 'deny'
 }
 
-export type GetPairQueryVariables = Exact<{
+export type TokensGetPairQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type GetPairQuery = { __typename?: 'Query', pair: { __typename?: 'Pair', currentprice: any } | null };
+export type TokensGetPairQuery = { __typename?: 'Query', pair: { __typename?: 'Pair', currentprice: any } | null };
 
-export type GetBySymbolQueryVariables = Exact<{
+export type TokensGetBySymbolQueryVariables = Exact<{
   symbol: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetBySymbolQuery = { __typename?: 'Query', tokens: Array<{ __typename?: 'Token', id: string }> };
+export type TokensGetBySymbolQuery = { __typename?: 'Query', tokens: Array<{ __typename?: 'Token', id: string }> };
 
-export type GetPoolPricesQueryVariables = Exact<{ [key: string]: never; }>;
+export type TokensGetPoolPricesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPoolPricesQuery = { __typename?: 'Query', prices: Array<{ __typename?: 'Pair', address: string, price: any }> };
+export type TokensGetPoolPricesQuery = { __typename?: 'Query', prices: Array<{ __typename?: 'Pair', address: string, price: any }> };
 
 
 export const GetPairDocument = gql`
@@ -635,14 +635,14 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getPair(variables: GetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPairQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
+    getPair(variables: TokensGetPairQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetPairQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetPairQuery>(GetPairDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPair', 'query');
     },
-    getBySymbol(variables?: GetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBySymbolQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query');
+    getBySymbol(variables?: TokensGetBySymbolQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetBySymbolQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetBySymbolQuery>(GetBySymbolDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBySymbol', 'query');
     },
-    getPoolPrices(variables?: GetPoolPricesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPoolPricesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query');
+    getPoolPrices(variables?: TokensGetPoolPricesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<TokensGetPoolPricesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<TokensGetPoolPricesQuery>(GetPoolPricesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPoolPrices', 'query');
     }
   };
 }

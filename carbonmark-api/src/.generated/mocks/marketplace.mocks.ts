@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { Activity, Activity_Filter, BlockChangedFilter, Block_Height, Category, Category_Filter, Country, Country_Filter, Listing, Listing_Filter, Project, Project_Filter, Purchase, Purchase_Filter, Query, Subscription, User, User_Filter, _Block_, _Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
+import { MarketplaceActivity, MarketplaceActivity_Filter, MarketplaceBlockChangedFilter, MarketplaceBlock_Height, MarketplaceCategory, MarketplaceCategory_Filter, MarketplaceCountry, MarketplaceCountry_Filter, MarketplaceListing, MarketplaceListing_Filter, MarketplaceProject, MarketplaceProject_Filter, MarketplacePurchase, MarketplacePurchase_Filter, MarketplaceQuery, MarketplaceSubscription, MarketplaceUser, MarketplaceUser_Filter, Marketplace_Block_, Marketplace_Meta_, ActivityType, Activity_OrderBy, Category_OrderBy, Country_OrderBy, Listing_OrderBy, OrderDirection, Project_OrderBy, Purchase_OrderBy, User_OrderBy, _SubgraphErrorPolicy_ } from '../types/marketplace.types';
 
-export const anActivity = (overrides?: Partial<Activity>, _relationshipsToOmit: Set<string> = new Set()): Activity => {
+export const anActivity = (overrides?: Partial<MarketplaceActivity>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceActivity => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Activity');
     return {
@@ -20,7 +20,7 @@ export const anActivity = (overrides?: Partial<Activity>, _relationshipsToOmit: 
     };
 };
 
-export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relationshipsToOmit: Set<string> = new Set()): Activity_Filter => {
+export const anActivity_Filter = (overrides?: Partial<MarketplaceActivity_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceActivity_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Activity_Filter');
     return {
@@ -199,7 +199,7 @@ export const anActivity_Filter = (overrides?: Partial<Activity_Filter>, _relatio
     };
 };
 
-export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): BlockChangedFilter => {
+export const aBlockChangedFilter = (overrides?: Partial<MarketplaceBlockChangedFilter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceBlockChangedFilter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('BlockChangedFilter');
     return {
@@ -207,7 +207,7 @@ export const aBlockChangedFilter = (overrides?: Partial<BlockChangedFilter>, _re
     };
 };
 
-export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsToOmit: Set<string> = new Set()): Block_Height => {
+export const aBlock_Height = (overrides?: Partial<MarketplaceBlock_Height>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceBlock_Height => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Block_Height');
     return {
@@ -217,7 +217,7 @@ export const aBlock_Height = (overrides?: Partial<Block_Height>, _relationshipsT
     };
 };
 
-export const aCategory = (overrides?: Partial<Category>, _relationshipsToOmit: Set<string> = new Set()): Category => {
+export const aCategory = (overrides?: Partial<MarketplaceCategory>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCategory => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Category');
     return {
@@ -225,7 +225,7 @@ export const aCategory = (overrides?: Partial<Category>, _relationshipsToOmit: S
     };
 };
 
-export const aCategory_Filter = (overrides?: Partial<Category_Filter>, _relationshipsToOmit: Set<string> = new Set()): Category_Filter => {
+export const aCategory_Filter = (overrides?: Partial<MarketplaceCategory_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCategory_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Category_Filter');
     return {
@@ -255,7 +255,7 @@ export const aCategory_Filter = (overrides?: Partial<Category_Filter>, _relation
     };
 };
 
-export const aCountry = (overrides?: Partial<Country>, _relationshipsToOmit: Set<string> = new Set()): Country => {
+export const aCountry = (overrides?: Partial<MarketplaceCountry>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCountry => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Country');
     return {
@@ -263,7 +263,7 @@ export const aCountry = (overrides?: Partial<Country>, _relationshipsToOmit: Set
     };
 };
 
-export const aCountry_Filter = (overrides?: Partial<Country_Filter>, _relationshipsToOmit: Set<string> = new Set()): Country_Filter => {
+export const aCountry_Filter = (overrides?: Partial<MarketplaceCountry_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceCountry_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Country_Filter');
     return {
@@ -293,7 +293,7 @@ export const aCountry_Filter = (overrides?: Partial<Country_Filter>, _relationsh
     };
 };
 
-export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set<string> = new Set()): Listing => {
+export const aListing = (overrides?: Partial<MarketplaceListing>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceListing => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Listing');
     return {
@@ -316,7 +316,7 @@ export const aListing = (overrides?: Partial<Listing>, _relationshipsToOmit: Set
     };
 };
 
-export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationshipsToOmit: Set<string> = new Set()): Listing_Filter => {
+export const aListing_Filter = (overrides?: Partial<MarketplaceListing_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceListing_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Listing_Filter');
     return {
@@ -463,7 +463,7 @@ export const aListing_Filter = (overrides?: Partial<Listing_Filter>, _relationsh
     };
 };
 
-export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set<string> = new Set()): Project => {
+export const aProject = (overrides?: Partial<MarketplaceProject>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceProject => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Project');
     return {
@@ -482,7 +482,7 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
     };
 };
 
-export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationshipsToOmit: Set<string> = new Set()): Project_Filter => {
+export const aProject_Filter = (overrides?: Partial<MarketplaceProject_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceProject_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Project_Filter');
     return {
@@ -650,7 +650,7 @@ export const aProject_Filter = (overrides?: Partial<Project_Filter>, _relationsh
     };
 };
 
-export const aPurchase = (overrides?: Partial<Purchase>, _relationshipsToOmit: Set<string> = new Set()): Purchase => {
+export const aPurchase = (overrides?: Partial<MarketplacePurchase>, _relationshipsToOmit: Set<string> = new Set()): MarketplacePurchase => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Purchase');
     return {
@@ -663,7 +663,7 @@ export const aPurchase = (overrides?: Partial<Purchase>, _relationshipsToOmit: S
     };
 };
 
-export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relationshipsToOmit: Set<string> = new Set()): Purchase_Filter => {
+export const aPurchase_Filter = (overrides?: Partial<MarketplacePurchase_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplacePurchase_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Purchase_Filter');
     return {
@@ -749,7 +749,7 @@ export const aPurchase_Filter = (overrides?: Partial<Purchase_Filter>, _relation
     };
 };
 
-export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<string> = new Set()): Query => {
+export const aQuery = (overrides?: Partial<MarketplaceQuery>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceQuery => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Query');
     return {
@@ -771,7 +771,7 @@ export const aQuery = (overrides?: Partial<Query>, _relationshipsToOmit: Set<str
     };
 };
 
-export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsToOmit: Set<string> = new Set()): Subscription => {
+export const aSubscription = (overrides?: Partial<MarketplaceSubscription>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceSubscription => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('Subscription');
     return {
@@ -793,7 +793,7 @@ export const aSubscription = (overrides?: Partial<Subscription>, _relationshipsT
     };
 };
 
-export const aUser = (overrides?: Partial<User>, _relationshipsToOmit: Set<string> = new Set()): User => {
+export const aUser = (overrides?: Partial<MarketplaceUser>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceUser => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('User');
     return {
@@ -804,7 +804,7 @@ export const aUser = (overrides?: Partial<User>, _relationshipsToOmit: Set<strin
     };
 };
 
-export const aUser_Filter = (overrides?: Partial<User_Filter>, _relationshipsToOmit: Set<string> = new Set()): User_Filter => {
+export const aUser_Filter = (overrides?: Partial<MarketplaceUser_Filter>, _relationshipsToOmit: Set<string> = new Set()): MarketplaceUser_Filter => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('User_Filter');
     return {
@@ -827,7 +827,7 @@ export const aUser_Filter = (overrides?: Partial<User_Filter>, _relationshipsToO
     };
 };
 
-export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set<string> = new Set()): _Block_ => {
+export const a_Block_ = (overrides?: Partial<Marketplace_Block_>, _relationshipsToOmit: Set<string> = new Set()): Marketplace_Block_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Block_');
     return {
@@ -837,7 +837,7 @@ export const a_Block_ = (overrides?: Partial<_Block_>, _relationshipsToOmit: Set
     };
 };
 
-export const a_Meta_ = (overrides?: Partial<_Meta_>, _relationshipsToOmit: Set<string> = new Set()): _Meta_ => {
+export const a_Meta_ = (overrides?: Partial<Marketplace_Meta_>, _relationshipsToOmit: Set<string> = new Set()): Marketplace_Meta_ => {
     const relationshipsToOmit: Set<string> = new Set(_relationshipsToOmit);
     relationshipsToOmit.add('_Meta_');
     return {
