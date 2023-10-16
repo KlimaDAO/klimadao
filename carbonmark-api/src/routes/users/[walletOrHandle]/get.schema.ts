@@ -1,6 +1,6 @@
 import { Type } from "@sinclair/typebox";
-import { NetworkParamModel } from "../../models/NetworkParam.model";
-import { UserModel } from "../../models/User.model";
+import { NetworkParamModel } from "../../../models/NetworkParam.model";
+import { UserModel } from "../../../models/User.model";
 
 export const Params = Type.Object(
   {
