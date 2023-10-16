@@ -12,7 +12,7 @@ export default function VerraCreditsTokenizedByBridgePage() {
           centerTitle={true}
         ></TokenizedCreditsByBridgeCard>
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of carbon credits issued by carbon registry Verra which have been bridged and tokenized on a public blockchain.`}
     />
   );
 }

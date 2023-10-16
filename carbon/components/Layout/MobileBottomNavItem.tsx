@@ -11,9 +11,11 @@ interface Props {
 
 export const MobileBottomNavItem: FC<Props> = ({ navItem }) => {
   const pathname = usePathname();
-  const locale = currentLocale();
-  const pathnameWithoutLocale = pathname.slice(`/${locale}`.length) || "/";
-  const active = pathnameWithoutLocale == navItem.url;
+  const locale = `/${currentLocale()}`;
+  const pathnameWithoutLocale = pathname.startsWith(locale)
+    ? pathname.slice(locale.length)
+    : pathname;
+  const active = navItem.url == (pathnameWithoutLocale || "/");
 
   return (
     <a

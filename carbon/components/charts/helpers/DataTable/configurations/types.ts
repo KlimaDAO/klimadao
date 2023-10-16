@@ -19,7 +19,14 @@ export interface Columns<RI> {
   [key: string]: Column<RI>;
 }
 
-export type DataRenderer<RI> = (props: {
+export interface DataRendererProps<RI, P> {
   data: PaginatedResponse<RI>;
+  params?: P;
+}
+export type DataRenderer<RI, P> = (
+  props: DataRendererProps<RI, P>
+) => JSX.Element;
+export type ItemRenderer<RI, P> = (props: {
+  item: RI;
+  params?: P;
 }) => JSX.Element;
-export type ItemRenderer<RI> = (props: { item: RI }) => JSX.Element;

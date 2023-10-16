@@ -23,19 +23,30 @@ export default function OverviewPage() {
       <div className={layout.twoColumns}>
         <div className={layout.cardStackedRows}>
           <div className={layout.cardRow}>
-            <VerraCreditsCard></VerraCreditsCard>
+            <VerraCreditsCard className={layout.zIndexSeven}></VerraCreditsCard>
           </div>
           <div className={layout.cardRow}>
-            <TokenizedCreditsByBridgeCard detailUrlPosition="bottom"></TokenizedCreditsByBridgeCard>
-            <HistoricalPriceCard></HistoricalPriceCard>
+            <TokenizedCreditsByBridgeCard
+              detailUrlPosition="bottom"
+              className={layout.zIndexSix}
+            ></TokenizedCreditsByBridgeCard>
+            <HistoricalPriceCard
+              className={layout.zIndexFive}
+            ></HistoricalPriceCard>
           </div>
           <div className={layout.cardRow}>
-            <DailyCarbonSupplyOverviewCard bottomOptionsPosition="left"></DailyCarbonSupplyOverviewCard>
-            <DailyCarbonRetirementsCard bottomOptionsPosition="left"></DailyCarbonRetirementsCard>
+            <DailyCarbonSupplyOverviewCard
+              bottomOptionsPosition="left"
+              className={layout.zIndexFour}
+            ></DailyCarbonSupplyOverviewCard>
+            <DailyCarbonRetirementsCard
+              bottomOptionsPosition="left"
+              className={layout.zIndexThree}
+            ></DailyCarbonRetirementsCard>
           </div>
         </div>
         <div className={layout.cardStackedRows}>
-          <TokensPriceCard></TokensPriceCard>
+          <TokensPriceCard className={layout.zIndexTwo}></TokensPriceCard>
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ export default function VerraCreditsIssuedByVintagePage() {
           status="issued"
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of carbon credits that have been issued by carbon registry Verra sorted by the vintage start date of the carbon credit.`}
     />
   );
 }

@@ -7,7 +7,7 @@ export default function RetirementTrendsByTokenDetailPage() {
     <DetailPage
       pageTitle={t`Retirements by token`}
       card={<RetirementsByTokenBarCard isDetailPage={true} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`The percentage of retirements via infrastructure built by KlimaDAO from each digital carbon token in a given period.`}
     />
   );
 }

@@ -7,7 +7,7 @@ export default function RetirementTrendsByChainDetailPage() {
     <DetailPage
       pageTitle={t`Retirements by chain`}
       card={<RetirementsByChainBarCard isDetailPage={true} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`The percentage of all carbon credit retirements that are retired via infrastructure built by KlimaDAO over a given time period.`}
     />
   );
 }

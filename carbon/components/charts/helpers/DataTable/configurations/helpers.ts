@@ -11,7 +11,7 @@ export function getBeneficiaryColumn<
     header: t`Beneficiary address`,
     cellStyle: layout.textLeft,
     dataKey: "beneficiary",
-    formatter: (x: string | number) => x,
+    formatter: (x: string | number) => x || t`Missing`,
   };
 }
 export function formatTonnes(amount: string | number) {

@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCreditsByProjects";
+import { creditsQueryParamsFromProps } from "lib/charts/aggregators/getAggregatedCredits";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 import {
@@ -14,9 +14,10 @@ export default function TokenDistributionOfMethodologiesCard(
   props: CardProps & TokenDetailsProps
 ) {
   // No methodologies card for retired credits on particular pools
-  if (props.pool != "all" && props.status != "retired") {
+  /*
+  if (props.pool != "all" && props.status == "retired") {
     return <></>;
-  }
+  }*/
   const chart = (
     /* @ts-expect-error async Server component */
     <TokenDistributionOfMethodologiesChart {...props} />

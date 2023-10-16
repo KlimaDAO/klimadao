@@ -3,18 +3,23 @@ import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 import { Columns, DataRenderer, ItemRenderer } from "./types";
 
-export default abstract class TableConfiguration<RI> {
+/** An abstract class for table configuration
+ * Generics:
+ *  - RI: Type of the items representing table rows
+ *  - P: Type of the parameters used to customize the table
+ */
+export default abstract class AbstractTableConfiguration<RI, P> {
   /** Function used to fetch data */
   abstract fetchFunction(
     page: number,
-    params: object
+    params?: P
   ): Promise<PaginatedResponse<RI>>;
   /** Returns the columns (layout) for this table */
-  abstract getColumns(): Columns<RI>;
+  abstract getColumns(params?: P): Columns<RI>;
   /** Returns a JSX.Element that can render data items for mobile */
-  abstract mobileRenderer: DataRenderer<RI>;
+  abstract mobileRenderer: DataRenderer<RI, P>;
   /** Returns a JSX.Element that can render data items for desktop */
-  abstract desktopRenderer: DataRenderer<RI>;
+  abstract desktopRenderer: DataRenderer<RI, P>;
   /** Formats a data item value */
   formatValue(
     item: RI,
@@ -24,14 +29,17 @@ export default abstract class TableConfiguration<RI> {
     return column ? column.formatter(item[key] as never, item) : <></>;
   }
   /** Returns the title of a column */
-  getTitle(key: Extract<keyof RI, string>): string | React.ReactNode {
-    return this.getColumns()[key].header;
+  getTitle(
+    key: Extract<keyof RI, string>,
+    params?: P
+  ): string | React.ReactNode {
+    return this.getColumns(params)[key].header;
   }
   /**
    * Display data as a table with items as columns
    */
-  VerticalTableLayout(props: { data: PaginatedResponse<RI> }) {
-    const columns = this.getColumns();
+  VerticalTableLayout(props: { data: PaginatedResponse<RI>; params?: P }) {
+    const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
       <table className={styles.table}>
@@ -64,8 +72,8 @@ export default abstract class TableConfiguration<RI> {
   /**
    * Display data as a table with items as rows
    */
-  HorizontalTableLayout(props: { data: PaginatedResponse<RI> }) {
-    const columns = this.getColumns();
+  HorizontalTableLayout(props: { data: PaginatedResponse<RI>; params?: P }) {
+    const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
       <table className={styles.table}>
@@ -93,11 +101,14 @@ export default abstract class TableConfiguration<RI> {
    */
   CardsLayout<RI>(props: {
     data: PaginatedResponse<RI>;
-    cardRenderer: ItemRenderer<RI>;
+    cardRenderer: ItemRenderer<RI, P>;
+    params?: P;
   }) {
     return (
       <div className={styles.cards}>
-        {props.data.items.map((item) => props.cardRenderer({ item }))}
+        {props.data.items.map((item) =>
+          props.cardRenderer({ item, params: props.params })
+        )}
       </div>
     );
   }

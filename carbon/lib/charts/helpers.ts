@@ -59,13 +59,18 @@ export function cumulativeSum<CI extends object>(
   data: ChartData<CI>,
   configuration: ChartConfiguration<keyof CI>
 ): ChartData<CI> {
-  data.forEach((item, index) => {
+  const newData = data.map((item) => {
+    return { ...item };
+  });
+  newData.forEach((item, index) => {
     configuration.forEach((conf) => {
-      if (index > 0)
-        (item[conf.id] as number) += data[index - 1][conf.id] as number;
+      if (index > 0) {
+        const previousValue = newData[index - 1][conf.id];
+        if (previousValue) (item[conf.id] as number) += previousValue as number;
+      }
     });
   });
-  return data;
+  return newData;
 }
 // This function fills missing months in query results
 /** 

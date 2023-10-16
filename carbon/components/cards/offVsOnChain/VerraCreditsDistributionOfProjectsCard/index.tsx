@@ -28,6 +28,7 @@ export default function VerraCreditsDistributionOfProjectsCard(
       title={t`Credits by project type`}
       chart={chart}
       detailUrl={detailUrl}
+      className={props.className}
     />
   );
 }

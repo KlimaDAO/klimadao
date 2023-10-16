@@ -1,3 +1,4 @@
+import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import KlimaRetirementsByBeneficiaryListConfiguration from "./KlimaRetirementsByBeneficiaryListConfiguration";
 import KlimaRetirementsByChainListConfiguration from "./KlimaRetirementsByChainListConfiguration";
 import KlimaRetirementsByPoolListConfiguration from "./KlimaRetirementsByPoolListConfiguration";
@@ -17,24 +18,27 @@ const configurations = {
   VerraCreditsOriginsList: new VerraCreditsOriginsListConfiguration(),
 };
 export type ConfigurationKey = keyof typeof configurations;
-function getConfiguration(key: ConfigurationKey) {
-  const res = configurations[key];
+function getConfiguration<RI, P>(key: ConfigurationKey) {
+  const res = configurations[key] as unknown as AbstractTableConfiguration<
+    RI,
+    P
+  >;
   if (res) return res;
   throw `Unknown table configuration : ${key}`;
 }
 /** Fetches data given a table configuration*/
-export function fetchData(
+export function fetchData<RI, P>(
   key: ConfigurationKey,
   page: number,
-  params?: object
+  params?: P
 ) {
-  return getConfiguration(key).fetchFunction(page, params);
+  return getConfiguration<RI, P>(key).fetchFunction(page, params);
 }
 /** Returns a JSX.Element that can render data items for desktop */
-export function getDesktopRenderer(key: ConfigurationKey) {
-  return getConfiguration(key).desktopRenderer;
+export function getDesktopRenderer<RI, P>(key: ConfigurationKey) {
+  return getConfiguration<RI, P>(key).desktopRenderer;
 }
 /** Returns a JSX.Element that can render data items for mobile */
-export function getMobileRenderer(key: ConfigurationKey) {
-  return getConfiguration(key).mobileRenderer;
+export function getMobileRenderer<RI, P>(key: ConfigurationKey) {
+  return getConfiguration<RI, P>(key).mobileRenderer;
 }

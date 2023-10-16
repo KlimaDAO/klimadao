@@ -7,7 +7,7 @@ export default function RetirementTrendsByPoolDetailPage() {
     <DetailPage
       pageTitle={t`Retirements by pool`}
       card={<RetirementsByPoolBarCard isDetailPage={true} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`The percentage of total retirements from each digital carbon pool in a given period.`}
     />
   );
 }

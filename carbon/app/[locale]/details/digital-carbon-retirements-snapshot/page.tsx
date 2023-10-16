@@ -11,7 +11,7 @@ export default function DigitalCarbonRetirementsPage() {
           isDetailPage={true}
         ></DailyCarbonRetirementsCard>
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of digital carbon credits retired on-chain over time sorted by blockchain and what portion was retired via infrastructure built by KlimaDAO.`}
     />
   );
 }
