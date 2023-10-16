@@ -1451,7 +1451,7 @@ export const GetProjectByIdDocument = gql`
     listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
-    activities {
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
     }
   }
