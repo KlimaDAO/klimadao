@@ -23,8 +23,8 @@ The backend Node.js web-service and smart contracts are located in separate repo
 
 Take note, this repo utilizes newer features from Node, NPM and TypeScript 4.5.
 
-- Node >= v16.x
-- NPM >= v8.x (for NPM Workspaces)
+- Node >= v18.17.1
+- NPM >= v9.x (for NPM Workspaces)
 - TypeScript >= 4.5 (for ESModules support) `npm install -g typescript`
 - VSCode [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - VSCode [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
