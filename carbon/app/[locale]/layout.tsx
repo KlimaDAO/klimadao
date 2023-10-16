@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "Carbon Dashboard",
-  description: "Carbon Dashboard",
+  description: "Carbon Dashboar",
 };
 export default async function RootLayout(props: {
   children: React.ReactNode;
