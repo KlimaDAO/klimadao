@@ -1,4 +1,4 @@
-import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes as genericFormatTonnes } from "@klimadao/lib/utils";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { currentLocale } from "lib/i18n";
 import moment from "moment";
