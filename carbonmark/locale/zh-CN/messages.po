@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-15 07:00+0000\n"
+"POT-Creation-Date: 2023-10-17 08:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,8 +80,8 @@ msgid "All assets sourced from major registries"
 msgstr "所有资产均来自主要注册机构"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:173
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/CreateListing/index.tsx:175
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "就快完成了！最后一步是创建列表并将其提交到系统。请确认以下数量和价格。"
 
@@ -152,7 +152,6 @@ msgid ""
 msgstr "目前，Carbonmark 无法处理超过 {0} 的信用卡付款。请调整数量并稍后重试。"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:63
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 #: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
@@ -429,20 +428,20 @@ msgid "Create Carbonmark Profile"
 msgstr "创建 Carbonmark 配置文件"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:143
-#: components/pages/Users/SellerConnected/index.tsx:161
+#: components/pages/Users/SellerConnected/index.tsx:144
+#: components/pages/Users/SellerConnected/index.tsx:168
 msgid "Create New Listing"
 msgstr "创建新挂牌"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:114
 msgid "Create Profile"
 msgstr "创建个人资料"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:192
+#: components/CreateListing/index.tsx:206
 msgid "Create a listing"
 msgstr "创建挂牌"
 
@@ -564,17 +563,17 @@ msgid "Downloading ..."
 msgstr "正在下载..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:231
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit"
 msgstr "编辑"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:114
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:255
 msgid "Edit listing"
 msgstr "编辑挂牌"
 
@@ -614,8 +613,8 @@ msgid "Find the latest updates, guides, and resources to help you leverage the C
 msgstr "查找最新的更新、指南和资源，以帮助您更好的运用 Carbonmark 平台。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:146
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
+#: components/CreateListing/index.tsx:148
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "首先，批准Carbonmark系统，允许其代表您转让该资产。"
 
@@ -771,7 +770,12 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "只需点击几下，即可列出您的待售项目"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:128
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+msgid "Listed tonnes:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/index.tsx:129
 #: components/pages/Users/SellerUnconnected/index.tsx:55
 msgid "Listings"
 msgstr "挂牌信息"
@@ -864,7 +868,7 @@ msgid "No Activity to show."
 msgstr "无可显示活动"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:192
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "No active listings."
 msgstr "无活动列表。"
@@ -885,7 +889,7 @@ msgid "No data to show"
 msgstr "无可显示数据"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:95
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:96
 msgid "No listable assets found."
 msgstr "未找到可列出的资产。"
 
@@ -986,8 +990,8 @@ msgstr "请登录"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:62
-#: components/pages/Users/SellerConnected/index.tsx:76
-#: components/pages/Users/SellerConnected/index.tsx:102
+#: components/pages/Users/SellerConnected/index.tsx:77
+#: components/pages/Users/SellerConnected/index.tsx:103
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "请刷新页面。更新您的数据时出错：{e}。"
 
@@ -1228,7 +1232,7 @@ msgid "Results"
 msgstr "结果"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:84
 msgid "Retire"
 msgstr "停用"
 
@@ -1341,8 +1345,8 @@ msgid "See your retirement receipt"
 msgstr "查看您的停用收据"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:78
-#: components/pages/Portfolio/AssetProject/index.tsx:86
+#: components/pages/Portfolio/AssetProject/index.tsx:93
+#: components/pages/Portfolio/AssetProject/index.tsx:101
 msgid "Sell"
 msgstr "卖出"
 
@@ -1427,7 +1431,7 @@ msgid "Step 3"
 msgstr "步骤3"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:84
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:85
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "成功！稍后您的新列表将显示在您的 <0> 个人资料页面</0> 上。"
 
@@ -1509,8 +1513,8 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "上一步已批准将您的支付资产从您的钱包转移到 Carbonmark。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
+#: components/CreateListing/index.tsx:161
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr "这个价值反映了该特定代币的所有挂牌价值的总和。"
 
@@ -1687,6 +1691,11 @@ msgid "Unit price is required"
 msgstr "单价为必填项"
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/AssetProject/index.tsx:73
+msgid "Unlisted tonnes:"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "整个数字碳市场前所未有的透明度。"
@@ -1702,7 +1711,7 @@ msgid "Updated:"
 msgstr "已更新："
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:179
+#: components/pages/Users/SellerConnected/index.tsx:186
 msgid "Updating your data..."
 msgstr "正在更新您的数据..."
 
@@ -1875,14 +1884,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "您还可以停用钱包中的任何碳资产。"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:179
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/CreateListing/index.tsx:181
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "You can delete this listing at any time."
 msgstr "您可以随时删除此挂牌"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:152
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/CreateListing/index.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:176
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr "您可以随时撤销此批准。只有在销售完成后，资产才会从您的钱包中转出。"
 
@@ -1941,7 +1950,7 @@ msgstr "您的购买尚未完成。要完成您的购买，请验证所有信息
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:203
+#: components/pages/Users/SellerConnected/index.tsx:210
 msgid "Your seller data"
 msgstr "您的卖家数据"
 
@@ -2170,7 +2179,7 @@ msgid "profile.edit_modal.submit"
 msgstr "保存更改"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:216
 msgid "profile.edit_profile.title"
 msgstr "您的个人资料"
 
@@ -2180,12 +2189,12 @@ msgid "profile.edit_your_profile"
 msgstr "编辑您的个人资料以添加描述。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
 msgid "profile.listing.delete.error"
 msgstr "无法删除挂牌。请再试一次。"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:258
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:270
 msgid "profile.listing.edit.delete_listing"
 msgstr "删除挂牌"
 
@@ -2789,12 +2798,6 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} 信用卡最高限额"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:213
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:285
-msgid "{0} tonnes"
-msgstr "{0} 吨"
-
-#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | 简介 | Carbonmark"
@@ -2803,6 +2806,12 @@ msgstr "{0} | 简介 | Carbonmark"
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
 msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:200
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:230
+msgid "{amount} tonnes"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28
