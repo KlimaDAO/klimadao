@@ -14,12 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:198
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:228
-msgid "{amount} tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -132,37 +126,43 @@ msgid "Toggle Select Project"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:146
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
+#: components/CreateListing/index.tsx:148
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:152
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/CreateListing/index.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:176
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
+#: components/CreateListing/index.tsx:161
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:173
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/CreateListing/index.tsx:175
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:179
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/CreateListing/index.tsx:181
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "You can delete this listing at any time."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:204
+#: components/CreateListing/index.tsx:200
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:230
+msgid "{amount} tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:206
 msgid "Create a listing"
 msgstr ""
 
@@ -1887,12 +1887,12 @@ msgid "No active listings."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:241
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:253
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:255
 msgid "Edit listing"
 msgstr ""
 
@@ -2269,7 +2269,7 @@ msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
 msgid "profile.listing.delete.error"
 msgstr ""
 
@@ -2289,7 +2289,7 @@ msgid "offset.default_retirement_address"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:268
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:270
 msgid "profile.listing.edit.delete_listing"
 msgstr ""
 
