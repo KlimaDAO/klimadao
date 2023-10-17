@@ -1,12 +1,12 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { safeSub, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
+import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
-import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -128,7 +128,7 @@ export const RetireInputs: FC<Props> = (props) => {
     if (!isFiat || !Number(totalPrice)) return "$0.00";
     const priceWithoutFees =
       Number(quantity) * Number(props.price.singleUnitPrice);
-    const fee = Number(totalPrice) - priceWithoutFees;
+    const fee = Number(safeSub(totalPrice, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
   };

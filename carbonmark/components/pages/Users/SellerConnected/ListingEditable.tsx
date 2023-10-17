@@ -86,7 +86,7 @@ export const ListingEditable: FC<Props> = (props) => {
           l.id !== listing.id
       )
       .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
-    return sumOtherListings + newQuantity;
+    return Number(safeAdd(sumOtherListings.toString(), newQuantity.toString()));
   };
 
   /** Return true if the user has exactly the required approval for all listings of this asset */
@@ -218,7 +218,7 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!asset) return 0;
     const unlistedBalance = getUnlistedBalance(asset, props.listings);
     // the listable balance includes current listing
-    return unlistedBalance + Number(listing.leftToSell);
+    return Number(safeAdd(unlistedBalance.toString(), listing.leftToSell));
   };
 
   /** Util to render the amount label in the transaction modal */

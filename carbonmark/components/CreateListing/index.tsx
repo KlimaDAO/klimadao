@@ -89,7 +89,7 @@ export const CreateListing: FC<Props> = (props) => {
         (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
       )
       .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
-    return sumOtherListings + Number(form?.amount || "0");
+    return Number(safeAdd(sumOtherListings.toString(), form?.amount || "0"));
   };
 
   /**
