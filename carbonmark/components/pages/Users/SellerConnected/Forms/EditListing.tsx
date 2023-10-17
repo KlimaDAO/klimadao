@@ -1,4 +1,4 @@
-import { formatTonnes } from "@klimadao/lib/utils";
+import { formatTonnes, safeSub } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { Text } from "components/Text";
@@ -57,8 +57,10 @@ export const EditListing: FC<Props> = (props) => {
     props.onSubmit(values);
   };
 
-  const unlistedQuantity =
-    props.listableBalance - Number(props.listing.leftToSell);
+  const unlistedQuantity = safeSub(
+    props.listableBalance.toString(),
+    props.listing.leftToSell
+  );
 
   const isExpired =
     Number(props.listing.expiration) <= Math.floor(Date.now() / 1000);

@@ -1,10 +1,10 @@
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import {
   approveTokenSpend,
   deleteListingTransaction,
@@ -85,7 +85,7 @@ export const ListingEditable: FC<Props> = (props) => {
           l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase() &&
           l.id !== listing.id
       )
-      .reduce((a, b) => a + Number(b.leftToSell), 0);
+      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
     return sumOtherListings + newQuantity;
   };
 
