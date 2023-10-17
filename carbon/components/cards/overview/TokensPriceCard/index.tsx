@@ -1,4 +1,4 @@
-import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { ArrowDropDown, ArrowDropUp, InfoOutlined } from "@mui/icons-material";
 import PercentageChange from "components/PercentageChage";
