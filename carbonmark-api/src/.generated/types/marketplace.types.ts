@@ -1300,7 +1300,7 @@ export type GetPurchaseByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
+export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', amount: string, id: any, price: string, listing: { __typename?: 'Listing', id: string, tokenAddress: any, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }, seller: { __typename?: 'User', id: any } } } | null };
 
 export type GetUserByWalletQueryVariables = Exact<{
   wallet: InputMaybe<Scalars['Bytes']>;
@@ -1408,13 +1408,17 @@ export const GetVintagesDocument = gql`
 export const GetPurchaseByIdDocument = gql`
     query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    id
     amount
+    id
     listing {
       id
       project {
         ...ProjectFragment
       }
+      seller {
+        id
+      }
+      tokenAddress
     }
     price
   }
@@ -1451,7 +1455,7 @@ export const GetProjectByIdDocument = gql`
     listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
-    activities {
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
     }
   }

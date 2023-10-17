@@ -231,8 +231,8 @@ export const makePurchase = async (params: {
       params.sellerAddress,
       params.creditTokenAddress,
       parseUnits(params.singleUnitPrice, getTokenDecimals("usdc")),
-      parseUnits(params.quantity, 18), // C3 token
-      parseUnits(maxCost, 6)
+      parseUnits(params.quantity, 18),
+      parseUnits(maxCost, getTokenDecimals("usdc"))
     );
 
     params.onStatus("networkConfirmation", "");

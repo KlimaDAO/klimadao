@@ -21,13 +21,17 @@ query getVintages {
 
 query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    id
     amount
+    id
     listing {
       id
       project {
         ...ProjectFragment
       }
+      seller {
+        id
+      }
+      tokenAddress
     }
     price
   }
@@ -59,7 +63,7 @@ query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
     listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
-    activities {
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
     }
   }
