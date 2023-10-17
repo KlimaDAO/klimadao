@@ -84,6 +84,6 @@ export const modalContent = css`
   }
 
   &::-webkit-scrollbar {
-    width: 1.6rem;
+    display: none;
   }
 `;
