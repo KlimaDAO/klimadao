@@ -58,7 +58,7 @@ export const content = css`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin: 2rem 1.6rem;
+  margin: 4rem 1.6rem;
 
   ${breakpoints.large} {
     margin: 4rem 2rem;
@@ -76,18 +76,25 @@ export const featuredCard = css`
 
 export const sectionTitle = css`
   display: grid;
-  gap: 1.2rem;
+  gap: 0rem;
+
+  ${breakpoints.large} {
+    gap: 0.4rem;
+  }
 `;
 
 export const cardsHeader = css`
   display: flex;
   gap: 0.8rem;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 
   ${breakpoints.large} {
     gap: 2.4rem;
+    align-items: baseline;
+    flex-direction: row;
   }
 
   ${breakpoints.desktop} {
@@ -101,9 +108,11 @@ export const cardsHeaderTweakAlignment = css`
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 
   ${breakpoints.large} {
     gap: 2.4rem;
+    flex-direction: row;
   }
 
   ${breakpoints.desktop} {
@@ -145,7 +154,7 @@ export const textLink = css`
 
 export const cardsDescription = css`
   text-align: center;
-  padding: 0 2rem;
+  padding: 1.6rem 2rem 0;
 
   ${breakpoints.desktop} {
     text-align: inherit;
