@@ -65,12 +65,12 @@ export const stakeCard_ui = css`
 
 export const etherspotStakeCard_ui = css`
   justify-self: center;
-  
+
   button {
     display: inline-block;
     height: auto;
   }
-  
+
   svg {
     display: inline-block;
   }
@@ -264,4 +264,3 @@ export const toggle_form_type = css`
 export const etherspotSwitchButton = css`
   margin-top: 10px;
 `;
-

@@ -6,10 +6,10 @@ import {
   TorusProvider,
   TypedProvider,
   WalletConnectProvider,
+  web3InitialState,
   Web3ModalState,
   Web3State,
   WrappedProvider,
-  web3InitialState,
 } from "../../components/Web3Context/types";
 import { urls } from "../../constants";
 
@@ -29,9 +29,11 @@ const getWeb3Provider = (p: any): TypedProvider => {
   return new providers.Web3Provider(p) as TypedProvider;
 };
 
-type UseProviderProps = {
-  ignoreChainId?: boolean;
-} | undefined;
+type UseProviderProps =
+  | {
+      ignoreChainId?: boolean;
+    }
+  | undefined;
 
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useProvider = (props: UseProviderProps): Web3ModalState => {

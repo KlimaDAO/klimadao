@@ -1,10 +1,10 @@
+import { Etherspot } from "@etherspot/react-transaction-buidler";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import { providers } from "ethers";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Etherspot } from "@etherspot/react-transaction-buidler";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 
 import { changeStakeTransaction } from "actions/stake";
@@ -33,7 +33,11 @@ import {
   Text,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
-import { concatAddress, trimWithPlaceholder, useWeb3 } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  trimWithPlaceholder,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { defineMessage, t, Trans } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { ImageCard } from "components/ImageCard";
@@ -65,93 +69,94 @@ const inputPlaceholderMessage = {
 const klimaTheme = {
   color: {
     background: {
-      main: 'transparent',
-      card: 'var(--surface-03)',
-      cardBorder: 'var(--surface-03)',
-      tokenBalanceContainer: '#21002e',
-      horizontalLine: 'linear-gradient(90deg, #23a9c9, #cd34a2)',
-      topMenu: '#fff',
-      topMenuWallet: 'rgba(255, 247, 242, 0.24)',
-      topMenuButton: '#fff',
-      selectInput: 'var(--surface-02)',
-      selectInputExpanded: 'var(--surface-02)',
-      selectInputScrollbar: 'var(--klima-green)',
-      selectInputScrollbarHover: 'var(--klima-green)',
-      selectInputScrollbarActive: 'var(--klima-green)',
-      selectInputImagePlaceholder: '#ffe6d9',
-      selectInputToggleButton: '#fff',
-      selectInputBorder: '#fff',
-      selectInputExpandedBorder: 'transparent',
-      textInputBorder: 'transparent',
-      textInput: 'var(--surface-02)',
-      switchInput: 'var(--surface-02)',
-      switchInputActiveTab: 'var(--klima-green)',
-      switchInputInactiveTab: 'transparent',
-      button: 'var(--klima-green)',
-      closeButton: '#fff',
-      pill: 'var(--surface-03)',
-      roundedImageFallback: '#ffe6d9',
-      listItemQuickButtonSecondary: '#443d66',
-      listItemQuickButtonPrimary: 'var(--klima-green)',
-      statusIconSuccess: '#1ba23d',
-      statusIconPending: '#ff6b35',
-      statusIconFailed: '#ff0000',
-      checkboxInputActive: 'var(--klima-green)',
-      checkboxInputInactive: '#7f7a99',
-      dropdownHoverColor: 'var(--surface-02)',
-      selectInputExpandedHover: 'var(--surface-03)',
-      toDropdownColor: 'var(--surface-02)',
-      secondary: '#9889e4',
-      selectInputRadioOn: '#ff7733',
-      selectInputRadioOff: 'var(--surface-02)',
-      walletButton: 'linear-gradient(to bottom, var(--klima-green), var(--klima-green))',
-      walletChainDropdown: 'var(--surface-03)',
-      walletChainButtonActive: 'var(--klima-green)',
-      deployButton: '#ff884d',
-      blockParagraphBorder: 'transparent',
-      settingMenuMain: 'linear-gradient(rgb(253, 146, 80), rgb(255, 85, 72))',
-      settingsModalBorder: 'transparent',
-      settingsModal: '#fff',
-      settingsIcon: '#fd9250',
-      loadingAnimationBackground: 'var(--surface-03)',
-      loadingAnimationForeground: 'var(--surface-02)',
-      walletDisplayTypeButtonActive: 'var(--klima-green)',
+      main: "transparent",
+      card: "var(--surface-03)",
+      cardBorder: "var(--surface-03)",
+      tokenBalanceContainer: "#21002e",
+      horizontalLine: "linear-gradient(90deg, #23a9c9, #cd34a2)",
+      topMenu: "#fff",
+      topMenuWallet: "rgba(255, 247, 242, 0.24)",
+      topMenuButton: "#fff",
+      selectInput: "var(--surface-02)",
+      selectInputExpanded: "var(--surface-02)",
+      selectInputScrollbar: "var(--klima-green)",
+      selectInputScrollbarHover: "var(--klima-green)",
+      selectInputScrollbarActive: "var(--klima-green)",
+      selectInputImagePlaceholder: "#ffe6d9",
+      selectInputToggleButton: "#fff",
+      selectInputBorder: "#fff",
+      selectInputExpandedBorder: "transparent",
+      textInputBorder: "transparent",
+      textInput: "var(--surface-02)",
+      switchInput: "var(--surface-02)",
+      switchInputActiveTab: "var(--klima-green)",
+      switchInputInactiveTab: "transparent",
+      button: "var(--klima-green)",
+      closeButton: "#fff",
+      pill: "var(--surface-03)",
+      roundedImageFallback: "#ffe6d9",
+      listItemQuickButtonSecondary: "#443d66",
+      listItemQuickButtonPrimary: "var(--klima-green)",
+      statusIconSuccess: "#1ba23d",
+      statusIconPending: "#ff6b35",
+      statusIconFailed: "#ff0000",
+      checkboxInputActive: "var(--klima-green)",
+      checkboxInputInactive: "#7f7a99",
+      dropdownHoverColor: "var(--surface-02)",
+      selectInputExpandedHover: "var(--surface-03)",
+      toDropdownColor: "var(--surface-02)",
+      secondary: "#9889e4",
+      selectInputRadioOn: "#ff7733",
+      selectInputRadioOff: "var(--surface-02)",
+      walletButton:
+        "linear-gradient(to bottom, var(--klima-green), var(--klima-green))",
+      walletChainDropdown: "var(--surface-03)",
+      walletChainButtonActive: "var(--klima-green)",
+      deployButton: "#ff884d",
+      blockParagraphBorder: "transparent",
+      settingMenuMain: "linear-gradient(rgb(253, 146, 80), rgb(255, 85, 72))",
+      settingsModalBorder: "transparent",
+      settingsModal: "#fff",
+      settingsIcon: "#fd9250",
+      loadingAnimationBackground: "var(--surface-03)",
+      loadingAnimationForeground: "var(--surface-02)",
+      walletDisplayTypeButtonActive: "var(--klima-green)",
     },
     text: {
-      main: '#fff',
-      topBar: '#fff',
-      topMenu: '#fff',
-      topMenuWallet: '#fff',
-      cardTitle: '#fff',
-      card: '#fff',
-      cardDisabled: '#ddd',
-      innerLabel: '#fff',
-      outerLabel: '#fff',
-      selectInput: '#fff',
-      selectInputOption: '#fff',
-      selectInputOptionSecondary: '#fff',
-      selectInputImagePlaceholder: '#fff',
-      textInput: '#fff',
-      textInputSecondary: 'var(--font-03)',
-      switchInputActiveTab: '#fff',
-      switchInputInactiveTab: '#fff',
-      button: '#fff',
-      buttonSecondary: '#ffeee6',
-      errorMessage: '#ff3c00',
-      searchInput: '#fff',
-      searchInputSecondary: '#fff',
-      pill: '#fff',
-      pillValue: '#fff',
-      roundedImageFallback: '#fff',
-      listItemQuickButtonSecondary: '#fff',
-      listItemQuickButtonPrimary: '#fff',
-      transactionStatusLink: 'var(--klima-green)',
-      pasteIcon: 'var(--klima-green)',
-      walletDropdownIcon: '#fff',
-      settingsModalSubHeader: '#fff',
-      settingsMenuItem: '#000',
-      settingsMenuItemHover: 'var(--klima-green)',
-      searchIcon: 'var(--klima-green)',
+      main: "#fff",
+      topBar: "#fff",
+      topMenu: "#fff",
+      topMenuWallet: "#fff",
+      cardTitle: "#fff",
+      card: "#fff",
+      cardDisabled: "#ddd",
+      innerLabel: "#fff",
+      outerLabel: "#fff",
+      selectInput: "#fff",
+      selectInputOption: "#fff",
+      selectInputOptionSecondary: "#fff",
+      selectInputImagePlaceholder: "#fff",
+      textInput: "#fff",
+      textInputSecondary: "var(--font-03)",
+      switchInputActiveTab: "#fff",
+      switchInputInactiveTab: "#fff",
+      button: "#fff",
+      buttonSecondary: "#ffeee6",
+      errorMessage: "#ff3c00",
+      searchInput: "#fff",
+      searchInputSecondary: "#fff",
+      pill: "#fff",
+      pillValue: "#fff",
+      roundedImageFallback: "#fff",
+      listItemQuickButtonSecondary: "#fff",
+      listItemQuickButtonPrimary: "#fff",
+      transactionStatusLink: "var(--klima-green)",
+      pasteIcon: "var(--klima-green)",
+      walletDropdownIcon: "#fff",
+      settingsModalSubHeader: "#fff",
+      settingsMenuItem: "#000",
+      settingsMenuItemHover: "var(--klima-green)",
+      searchIcon: "var(--klima-green)",
     },
   },
 };
@@ -414,8 +419,8 @@ export const Stake = (props: Props) => {
             <FiberNewRoundedIcon className="new-releases-icon" />
             <Trans id="stake.lifi">
               Cross-chain staking is now available through{" "}
-              <Anchor>LI.FI and Etherspot</Anchor>, with
-              support for multiple chains and tokens.
+              <Anchor>LI.FI and Etherspot</Anchor>, with support for multiple
+              chains and tokens.
             </Trans>
             <ButtonPrimary
               className={styles.etherspotSwitchButton}
@@ -457,7 +462,9 @@ export const Stake = (props: Props) => {
                       //
                     }
                   }}
-                  defaultTransactionBlocks={[{ type: "KLIMA_STAKE", closeable: false }]}
+                  defaultTransactionBlocks={[
+                    { type: "KLIMA_STAKE", closeable: false },
+                  ]}
                   hideTransactionBlockTitle
                   hideAddTransactionButton
                   hideAddButton
@@ -554,9 +561,9 @@ export const Stake = (props: Props) => {
                 <TextInfoTooltip
                   content={
                     <Trans id="stake.akr.tooltip" comment="Long sentence">
-                      Annualized KLIMA Rewards, including compounding, should the
-                      current reward rate remain unchanged for 12 months (reward
-                      rate may be subject to change).
+                      Annualized KLIMA Rewards, including compounding, should
+                      the current reward rate remain unchanged for 12 months
+                      (reward rate may be subject to change).
                     </Trans>
                   }
                 >

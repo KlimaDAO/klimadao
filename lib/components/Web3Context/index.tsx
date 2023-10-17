@@ -30,7 +30,7 @@ export const Web3ContextProvider: FC<Props> = ({ appName, children }) => {
         renderModal,
         toggleModal,
         ignoreChainId,
-        setIgnoreChainId
+        setIgnoreChainId,
       }}
     >
       {children}
