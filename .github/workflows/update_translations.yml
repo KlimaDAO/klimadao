@@ -19,6 +19,8 @@ on:
         required: true
       TRANSLATIONIO_KEY_CARBONMARK:
         required: true
+      TRANSLATIONIO_KEY_CARBON_DATA:
+        required: true
 
 jobs:
   update_translations:
