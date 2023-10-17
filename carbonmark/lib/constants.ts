@@ -56,8 +56,8 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
-/** Any token symbol containing substring VCS- PURO- or ICR- is valid. This filters out BCT, MCO2, and other assets */
-export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-)/;
+/** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */
+export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-|GS-)/;
 /** Default number of days until a listing expires */
 export const DEFAULT_EXPIRATION_DAYS = 90;
 /** Default minimum fill for a listing */
