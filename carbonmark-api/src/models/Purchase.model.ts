@@ -16,6 +16,14 @@ export const PurchaseModel = Type.Object({
       description: "ID of the listing that was purchased",
       examples: ["0x1"],
     }),
+    tokenAddress: Type.String({
+      description: "Address of the asset that was purchased",
+    }),
+    seller: Type.Object({
+      id: Type.String({
+        description: "Address of the seller",
+      }),
+    }),
     project: Type.Object({
       country: Type.String({
         examples: ["China"],

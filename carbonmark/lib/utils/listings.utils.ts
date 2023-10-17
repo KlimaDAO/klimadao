@@ -14,25 +14,40 @@ export const getExpirationTimestamp = (days: number): string => {
   return Math.floor(expireTimestamp / 1000).toString(); // ms to seconds
 };
 
-export const isListableToken = (asset: Asset) =>
+export const isListableToken = (asset: Asset): boolean =>
   !!asset?.token?.symbol &&
   LISTABLE_TOKEN_SYMBOL_REGEX.test(asset.token.symbol);
 
-export const hasListableBalance = (asset: Asset) => {
-  return (
-    isListableToken(asset) &&
-    Number(asset.amount) >= DEFAULT_MIN_LISTING_QUANTITY
-  );
-};
-
-// Subtract the sum of asset listings from the total asset balance
-export const getUnlistedBalance = (asset: Asset, listings: Listing[]) => {
+/** Returns the remaining leftToSell for all listings of the given asset */
+export const getListedBalance = (asset: Asset, listings: Listing[]): number => {
   const assetListings = listings.filter(
     (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
   );
-  const sumLeftToSell = assetListings.reduce(
-    (acc, curr) => acc + Number(curr.leftToSell),
-    0
-  );
-  return Number(asset.amount) - Number(sumLeftToSell);
+  return assetListings.reduce((sum, l) => sum + Number(l.leftToSell), 0);
+};
+
+/** Subtract the listed balance from the total asset balance to get remaining unlisted tonnes */
+export const getUnlistedBalance = (
+  asset: Asset,
+  listings: Listing[]
+): number => {
+  const listedBalance = getListedBalance(asset, listings);
+  return Number(asset.amount) - listedBalance;
+};
+
+/** Returns true if listable asset, with a balance >= minimum listing quantity */
+export const hasListableBalance = (
+  asset: Asset,
+  listings: Listing[]
+): boolean => {
+  if (!isListableToken(asset)) {
+    return false;
+  }
+  const balance = getUnlistedBalance(asset, listings);
+  return balance >= DEFAULT_MIN_LISTING_QUANTITY;
+};
+
+/** Returns true if any asset has a listable balance */
+export const hasListableAssets = (assets: Asset[], listings: Listing[]) => {
+  return assets.some((t) => hasListableBalance(t, listings));
 };

@@ -101,13 +101,15 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(listingToEdit).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: getTotalAssetApproval(listingToEdit).toString(),
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -219,6 +221,16 @@ export const ListingEditable: FC<Props> = (props) => {
     return unlistedBalance + Number(listing.leftToSell);
   };
 
+  /** Util to render the amount label in the transaction modal */
+  const getAmountLabel = () => {
+    const amount = hasApproval()
+      ? newQuantity // 'submit' view shows the new quantity
+      : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
+    return {
+      value: t`${amount} tonnes`,
+    };
+  };
+
   return (
     <>
       {props.listings.map((listing) => (
@@ -281,13 +293,7 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            amount={{
-              value: t`${
-                hasApproval()
-                  ? newQuantity
-                  : getTotalAssetApproval(listingToEdit)
-              } tonnes`,
-            }}
+            amount={getAmountLabel()}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
