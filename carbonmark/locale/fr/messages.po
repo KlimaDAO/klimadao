@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-17 09:19+0000\n"
+"POT-Creation-Date: 2023-10-17 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -445,7 +445,7 @@ msgstr "Créer un profil"
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:206
 msgid "Create a listing"
-msgstr ""
+msgstr "Créer une annonce"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:222
@@ -577,7 +577,7 @@ msgstr "Modifier votre profil"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:255
 msgid "Edit listing"
-msgstr ""
+msgstr "Modifier l'annonce"
 
 #. js-lingui-explicit-id
 #: lib/getCategoryInfo.ts:47
@@ -774,7 +774,7 @@ msgstr "Mettez vos projets en vente en quelques clics"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 msgid "Listed tonnes:"
-msgstr ""
+msgstr "Tonnes à la vente :"
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:129
@@ -1133,7 +1133,7 @@ msgstr "La quantité est requise"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
 msgid "Quantity listed: {listedQuantity}, Quantity unlisted: {unlistedQuantity}, Total available: {totalAvailableQuantity}"
-msgstr ""
+msgstr "Quantité en vente : {listedQuantity}, Quantité non vendue : {unlistedQuantity}, Total disponible : {totalAvailableQuantity}"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:103
@@ -1369,7 +1369,7 @@ msgstr "Se connecter pour acheter"
 #. js-lingui-explicit-id
 #: components/CreateListing/Form/index.tsx:129
 msgid "Single unit price"
-msgstr ""
+msgstr "Prix unitaire"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Pool/PurchaseForm.tsx:104
@@ -1511,7 +1511,7 @@ msgstr "L'étape précédente a accordé l'autorisation à Carbonmark de transf�
 #: components/CreateListing/index.tsx:161
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "The value below reflects the sum of all of your listings for this specific token."
-msgstr ""
+msgstr "La valeur ci-dessous correspond à la somme de toutes vos annonces pour ce jeton."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Retire/Pool/RetireForm.tsx:171
@@ -1542,12 +1542,12 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:16
 msgid "This listing has expired and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Cette annonce a expiré et est cachée de la place de marché. Veuillez la soumettre à nouveau ou la supprimer."
 
 #. js-lingui-explicit-id
 #: components/pages/Users/Badge/index.tsx:11
 msgid "This listing is no longer valid and is hidden from the marketplace. Please resubmit or delete the listing."
-msgstr ""
+msgstr "Cette annonce n'est plus valide et est cachée de la place de marché. Veuillez la soumettre à nouveau ou la supprimer."
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/InactivePurchase.tsx:24
@@ -1688,7 +1688,7 @@ msgstr "Le prix unitaire est requis"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "Tonnes hors annonces :"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -1698,7 +1698,7 @@ msgstr "Une transparence sans précédent sur le marché numérique du carbone."
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:177
 msgid "Update listing"
-msgstr ""
+msgstr "Mettre à jour l'annonce"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/BuyOptions/SellerListing.tsx:86
@@ -2806,7 +2806,7 @@ msgstr "{DEFAULT_EXPIRATION_DAYS} jours ({expirationDatestring})"
 #: components/CreateListing/index.tsx:200
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:230
 msgid "{amount} tonnes"
-msgstr ""
+msgstr "{amount} tonnes"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28
