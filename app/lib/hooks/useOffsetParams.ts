@@ -4,7 +4,7 @@ import {
   PoolToken,
   poolTokens,
 } from "@klimadao/lib/constants";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -47,7 +47,7 @@ const parseInputParams = (params: URLSearchParams) => {
     } else if (param === "retirementToken") {
       const tkn = params.get("retirementToken")?.toLowerCase() || undefined;
       data[param] =
-        tkn && (isValidToken(tkn, poolTokens) || utils.isAddress(tkn))
+        tkn && (isValidToken(tkn, poolTokens) || isAddress(tkn))
           ? tkn
           : undefined;
     } else {

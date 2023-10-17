@@ -23,12 +23,9 @@ export const getServerSideProps: GetServerSideProps<
       params.project_token_0x.toLowerCase()
     );
     if (project.length === 0) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/portfolio",
-        },
-      };
+      throw new Error(
+        "No project found with address: " + params.project_token_0x
+      );
     }
 
     const translation = await loadTranslation(ctx.locale);

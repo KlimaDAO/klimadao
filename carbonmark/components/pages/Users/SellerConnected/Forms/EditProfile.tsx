@@ -5,9 +5,11 @@ import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
-import { utils } from "ethers";
-import { getUser, loginUser, postUser, putUser, verifyUser } from "lib/api";
-import { User } from "lib/types/carbonmark";
+import { isAddress } from "ethers-v6";
+import { loginUser, postUser, putUser, refreshUser, verifyUser } from "lib/api";
+import { VALID_HANDLE_REGEX } from "lib/constants";
+import { User } from "lib/types/carbonmark.types";
+import { isNil } from "lodash";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ProfileLogo } from "../../ProfileLogo";
@@ -32,7 +34,7 @@ export const editSignMessage = (nonce: string): string =>
 
 export const EditProfile: FC<Props> = (props) => {
   const isExistingUser = !!props.user?.handle;
-  const { address, signer } = useWeb3();
+  const { address, signer, networkLabel } = useWeb3();
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
@@ -47,17 +49,18 @@ export const EditProfile: FC<Props> = (props) => {
 
   const hasError = !isLoading && !!errorMessage;
 
-  const fetchIsNewHandle = async (handle: string) => {
+  const fetchIsNewHandle = async (handle?: string | null) => {
+    if (isNil(handle)) return true;
     try {
-      const handleFromApi = await getUser({
-        user: handle,
-        type: "handle",
+      const handleFromApi = await refreshUser({
+        walletOrHandle: handle.toLowerCase(),
+        network: networkLabel,
       });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
       console.error(error);
-      if (error.message === "Not Found") {
+      if (error.status === 404) {
         return true;
       }
       return false;
@@ -149,12 +152,12 @@ export const EditProfile: FC<Props> = (props) => {
                       message: t`Handle is required`,
                     },
                     pattern: {
-                      value: /^[a-zA-Z0-9]+$/, // no special characters!
+                      value: VALID_HANDLE_REGEX, // no special characters!
                       message: t`Handle should not contain any special characters`,
                     },
                     validate: {
                       isAddress: (v) =>
-                        !utils.isAddress(v) || // do not allow polygon addresses
+                        !isAddress(v) || // do not allow polygon addresses
                         t`Handle should not be an address`,
                       isNewHandle: async (v) =>
                         (await fetchIsNewHandle(v)) || // ensure unique handles

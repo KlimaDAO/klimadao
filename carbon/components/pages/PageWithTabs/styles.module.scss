@@ -1,0 +1,87 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+.tabButton {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.mobileOnly {
+  @include breakpoints.large {
+    display: none;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include breakpoints.large {
+    display: unset;
+  }
+}
+
+.noPadding {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.tabRoot {
+  @include breakpoints.desktopLarge {
+    position: relative;
+  }
+}
+
+.optionsSwitchers {
+  display: grid;
+  justify-content: space-between;
+  row-gap: 0.8rem;
+  grid-template-areas:
+    "one three"
+    "two two";
+
+  @include breakpoints.large {
+    grid-template-areas: "one two three";
+  }
+
+  @include breakpoints.desktopLarge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-content: end;
+    margin-top: 1rem;
+  }
+}
+
+.optionsSwitcherWrapper {
+  &:nth-child(1) {
+    grid-area: one;
+  }
+  &:nth-child(2) {
+    grid-area: two;
+    justify-self: center;
+  }
+  &:nth-child(3) {
+    grid-area: three;
+  }
+
+  @include breakpoints.desktopLarge {
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.optionsSwitcher {
+  li {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+  }
+
+  @include breakpoints.desktopLarge {
+    li {
+      height: min-content;
+    }
+  }
+}

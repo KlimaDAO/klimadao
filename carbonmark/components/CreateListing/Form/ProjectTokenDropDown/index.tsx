@@ -2,15 +2,15 @@ import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
-import { AssetForListing } from "lib/types/carbonmark";
+import { Asset } from "lib/types/carbonmark.types";
 import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";
 
 interface Props {
-  onTokenSelect: (a: AssetForListing) => void;
-  assets: AssetForListing[];
-  selectedAsset: AssetForListing;
+  onTokenSelect: (a: Asset) => void;
+  assets: Asset[];
+  selectedAsset: Asset;
 }
 
 /**@todo replace with /carbonmark/components/Dropdown */
@@ -37,16 +37,17 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
           <div className={styles.dropDownMenu}>
             {props.assets.map((asset) => (
               <button
-                key={asset.tokenAddress}
+                key={asset.token.id.toLowerCase()}
                 className={styles.projectButton}
                 onClick={() => props.onTokenSelect(asset)}
                 role="button"
-                aria-label={asset.tokenName}
+                aria-label={asset.token.symbol}
                 data-active={
-                  props.selectedAsset.tokenAddress === asset.tokenAddress
+                  props.selectedAsset.token.id.toLowerCase() ===
+                  asset.token.id.toLowerCase()
                 }
               >
-                {asset.project?.name || asset.tokenName}
+                {asset.token.symbol || asset.token.name}
               </button>
             ))}
           </div>
@@ -69,9 +70,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
           aria-label={t`Toggle Select Project`}
         >
           <span>
-            {props.selectedAsset?.project?.name ||
-              props.selectedAsset.tokenName ||
-              "not found"}
+            {props.selectedAsset.token.symbol || props.selectedAsset.token.name}
           </span>
           {!isDisabled && <ArrowIcon fontSize="large" />}
         </button>

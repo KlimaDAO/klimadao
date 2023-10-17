@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  line-height: normal;
+  & > div {
+    flex: 1 1 0;
+  }
+}
+.issuedvsTokenizedWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  div[aria-describedby="chart"] {
+    max-width: calc(100% - 1rem);
+    min-height: 2.4rem;
+  }
+}
+.issuedvsRetiredWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.pieChartWrapper {
+  max-width: calc(100% - 1rem);
+  min-width: calc(100% - 1rem);
+  // FIXME: Using a non fixed value here makes recharts increase the pie height forever
+  min-height: 14rem;
+  max-height: 15rem;
+}
+.pieChartInnerLegend {
+  div[aria-describedby="value"] {
+    font-size: 1.6rem;
+  }
+}
+.pieChartBottomLegend {
+  line-height: normal;
+}
+.smallLabel {
+  font-size: 0.8rem;
+}
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.value {
+  font-size: 2rem;
+  color: var(--lightmode-font-01);
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+.highlight {
+  color: var(--brand-green);
+}

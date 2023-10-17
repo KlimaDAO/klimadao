@@ -19,7 +19,7 @@ interface Props {
   onResetStatus: () => void;
   approvalText?: React.ReactNode;
   submitText?: React.ReactNode;
-  onGoBack?: () => void;
+  onGoBack: () => void;
   spenderAddress: string;
 }
 
@@ -58,7 +58,6 @@ export const Transaction: FC<Props> = (props) => {
       {view === "approve" && (
         <Approve
           amount={props.approvalValue || props.amount}
-          price={props.price}
           description={props.approvalText}
           spenderAddress={props.spenderAddress}
           onApproval={props.onApproval}

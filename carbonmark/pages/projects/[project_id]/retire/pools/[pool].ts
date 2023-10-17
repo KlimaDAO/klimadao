@@ -28,6 +28,9 @@ export const getServerSideProps: GetServerSideProps<
 
   try {
     const project = await getCarbonmarkProject(params.project_id);
+    if (!project) {
+      throw new Error("project not found");
+    }
 
     // check if price for pool exists for this project
     const poolPrice =

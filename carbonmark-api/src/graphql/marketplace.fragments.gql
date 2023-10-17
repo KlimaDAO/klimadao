@@ -5,24 +5,31 @@ fragment ListingFragment on Listing {
   tokenAddress
   active
   deleted
-  batches
-  batchPrices
   singleUnitPrice
   createdAt
   updatedAt
+  seller {
+    id
+  }
+  project {
+    ...ProjectFragment
+  }
+  expiration
+  minFillAmount
 }
 
 fragment ProjectFragment on Project {
   id
   key
-  projectID
-  name
   vintage
-  projectAddress
-  registry
+  name
+  category {
+    id
+  }
+  country {
+    id
+  }
   methodology
-  projectType
-  region
 }
 
 fragment ActivityFragment on Activity {
@@ -33,4 +40,14 @@ fragment ActivityFragment on Activity {
   previousPrice
   timeStamp
   activityType
+  project {
+    key
+    vintage
+  }
+  buyer {
+    id
+  }
+  seller {
+    id
+  }
 }

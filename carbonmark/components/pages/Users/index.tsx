@@ -3,9 +3,9 @@ import { t } from "@lingui/macro";
 import { Layout } from "components/Layout";
 import { PageHead } from "components/PageHead";
 import { useConnectedUser } from "hooks/useConnectedUser";
-import { urls } from "lib/constants";
+import { fetchUserURL } from "hooks/useFetchUser";
 import { fetcher } from "lib/fetcher";
-import { User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import { SWRConfig } from "swr";
 import { SellerConnected } from "./SellerConnected";
@@ -61,7 +61,7 @@ export const Users: NextPage<PageProps> = (props) => (
     value={{
       fetcher,
       fallback: {
-        [`${urls.api.users}/${props.userAddress}?type=wallet`]:
+        [fetchUserURL({ params: { walletOrHandle: props.userAddress } })]:
           props.carbonmarkUser,
       },
     }}

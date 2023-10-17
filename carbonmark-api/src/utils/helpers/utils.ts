@@ -8,13 +8,19 @@ import {
 } from "../../.generated/types/marketplace.types";
 import { CarbonOffset } from "../../.generated/types/offsets.types";
 
+import { TOKEN_ADDRESSES } from "../../app.constants";
 import { extract, notEmptyOrNil } from "../functional.utils";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
 import { CarbonProject } from "./carbonProjects.utils";
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- unable to type environment variables
+const ENV = (process.env.VERCEL_ENV ?? "development") as
+  | "development"
+  | "production";
 
 // This function retrieves all vintages from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as a sorted array of strings.
 export async function getAllVintages(
+  sdk: GQL_SDK,
   fastify: FastifyInstance
 ): Promise<string[]> {
   const uniqueValues = new Set<string>();
@@ -26,8 +32,8 @@ export async function getAllVintages(
   }
 
   const [{ projects }, { carbonOffsets }] = await Promise.all([
-    gqlSdk.marketplace.getVintages(),
-    gqlSdk.offsets.getCarbonOffsetsVintages(),
+    sdk.marketplace.getVintages(),
+    sdk.offsets.getCarbonOffsetsVintages(),
   ]);
 
   /** Handle invalid responses */
@@ -47,7 +53,7 @@ export async function getAllVintages(
 
 // This function retrieves all categories from two different sources (marketplace and carbon offsets),
 // combines them, removes duplicates, and returns the result as an array of objects with an "id" property.
-export async function getAllCategories(fastify: FastifyInstance) {
+export async function getAllCategories(sdk: GQL_SDK, fastify: FastifyInstance) {
   // Define cache key for caching the result
   const cacheKey = `categories`;
   // Try to get the cached result
@@ -63,8 +69,8 @@ export async function getAllCategories(fastify: FastifyInstance) {
 
   // Fetch categories from the marketplace & carbon offsets categories
   const [{ categories }, { carbonOffsets }] = await Promise.all([
-    gqlSdk.marketplace.getCategories(),
-    gqlSdk.offsets.getCarbonOffsetsCategories(),
+    sdk.marketplace.getCategories(),
+    sdk.offsets.getCarbonOffsetsCategories(),
   ]);
 
   /** Handle invalid responses */
@@ -101,7 +107,7 @@ export async function getAllCategories(fastify: FastifyInstance) {
   return result;
 }
 
-export async function getAllCountries(fastify: FastifyInstance) {
+export async function getAllCountries(sdk: GQL_SDK, fastify: FastifyInstance) {
   const cacheKey = `countries`;
 
   const cachedResult = await fastify.lcache.get<Country[]>(cacheKey)?.payload;
@@ -111,8 +117,8 @@ export async function getAllCountries(fastify: FastifyInstance) {
   }
 
   const [{ countries }, { carbonOffsets }] = await Promise.all([
-    gqlSdk.marketplace.getCountries(),
-    gqlSdk.offsets.getCarbonOffsetsCountries(),
+    sdk.marketplace.getCountries(),
+    sdk.offsets.getCarbonOffsetsCountries(),
   ]);
 
   /** Handle invalid responses */
@@ -154,7 +160,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNBO,
-      tokenAddress: process.env.NBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "nbo")?.priceInUsd,
       name: "NBO",
     });
@@ -164,7 +170,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceUBO,
-      tokenAddress: process.env.UBO_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].UBO_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ubo")?.priceInUsd,
       name: "UBO",
     });
@@ -174,7 +180,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceNCT,
-      tokenAddress: process.env.NTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].NTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "ntc")?.priceInUsd,
       name: "NCT",
     });
@@ -184,7 +190,7 @@ export function calculateProjectPoolPrices(
 
     prices.push({
       leftToSell: poolProject.balanceBCT,
-      tokenAddress: process.env.BTC_POOL,
+      tokenAddress: TOKEN_ADDRESSES[ENV].BTC_POOL,
       singleUnitPrice: poolPrices.find((obj) => obj.name === "btc")?.priceInUsd,
       name: "BCT",
     });

@@ -3,55 +3,49 @@ import { ButtonPrimary } from "components/Buttons/ButtonPrimary";
 import { InputField } from "components/shared/Form/InputField";
 import { Text } from "components/Text";
 import { MINIMUM_TONNE_PRICE } from "lib/constants";
-import { AssetForListing } from "lib/types/carbonmark";
+import { Asset } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { SubmitHandler, useForm, useWatch } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import * as styles from "./styles";
 
 export type FormValues = {
+  amount: string;
+  unitPrice: string;
   tokenAddress: string;
-  totalAmountToSell: string;
-  singleUnitPrice: string;
-  tokenType: "1" | "2";
-  batches?: string;
-  batchPrices?: string;
 };
 
 type Props = {
-  assets: AssetForListing[];
+  assets: Asset[];
   onSubmit: (values: FormValues) => void;
   values: null | FormValues;
 };
 
-const defaultValues = {
+const defaultValues: FormValues = {
   tokenAddress: "",
-  totalAmountToSell: "",
-  singleUnitPrice: "",
-  tokenType: "",
+  amount: "",
+  unitPrice: "",
 };
 
 export const CreateListingForm: FC<Props> = (props) => {
   const { locale } = useRouter();
 
-  const { register, handleSubmit, formState, control, setValue } =
+  const { register, handleSubmit, formState, setValue, watch } =
     useForm<FormValues>({
       defaultValues: {
         ...defaultValues,
         ...props.values,
         tokenAddress:
-          props.values?.tokenAddress || props.assets[0].tokenAddress,
-        tokenType: props.values?.tokenType || props.assets[0].tokenType,
+          props.values?.tokenAddress.toLowerCase() ||
+          props.assets[0].token.id.toLowerCase(),
       },
     });
 
-  const selectedTokenAddress = useWatch({
-    name: "tokenAddress",
-    control,
-  });
+  const selectedAddress = watch("tokenAddress");
+
   const selectedAsset =
-    props.assets.find((t) => t.tokenAddress === selectedTokenAddress) ||
+    props.assets.find((t) => t.token.id.toLowerCase() === selectedAddress) ||
     props.assets[0];
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
@@ -62,14 +56,11 @@ export const CreateListingForm: FC<Props> = (props) => {
     <div className={styles.formContainer}>
       <div className={styles.inputsContainer}>
         <Text t="body1">
-          <Trans id="user.listing.form.input.select_project.label">
-            Select Project:
-          </Trans>
+          <Trans>Asset</Trans>
         </Text>
         <ProjectTokenDropDown
           onTokenSelect={(asset) => {
-            setValue("tokenAddress", asset.tokenAddress);
-            setValue("tokenType", asset.tokenType);
+            setValue("tokenAddress", asset.token.id.toLowerCase());
           }}
           assets={props.assets}
           selectedAsset={selectedAsset}
@@ -78,32 +69,11 @@ export const CreateListingForm: FC<Props> = (props) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputsContainer}>
           <InputField
-            id="tokenAddress"
-            inputProps={{
-              type: "hidden",
-              ...register("tokenAddress"),
-            }}
-            label={"token address"}
-            hideLabel
-          />
-          <InputField
-            id="tokenType"
-            inputProps={{
-              type: "hidden",
-              ...register("tokenType"),
-            }}
-            label={"Token Type"}
-            hideLabel
-          />
-          <InputField
             id="totalAmountToSell"
             inputProps={{
-              placeholder: t({
-                id: "user.listing.form.input.totalAmountToSell.placeholder",
-                message: "How many do you want to sell",
-              }),
+              placeholder: t`How many tonnes do you want to list for sale?`,
               type: "number",
-              ...register("totalAmountToSell", {
+              ...register("amount", {
                 required: {
                   value: true,
                   message: t({
@@ -119,38 +89,26 @@ export const CreateListingForm: FC<Props> = (props) => {
                   }),
                 },
                 max: {
-                  value: Number(selectedAsset.balance),
-                  message: t({
-                    id: "user.listing.form.input.totalAmountToSell.maxAmount",
-                    message: "You exceeded your available amount",
-                  }),
+                  value: Number(selectedAsset.amount),
+                  message: t`Balance exceeded`,
                 },
               }),
             }}
-            label={t({
-              id: "user.edit.form.input.totalAmountToSell.label",
-              message: `Total Amount`,
-            })}
-            errorMessage={formState.errors.totalAmountToSell?.message}
+            label={t`Quantity`}
+            errorMessage={formState.errors.amount?.message}
           />
           <Text t="body3" className={styles.availableAmount}>
-            Available: {selectedAsset.balance}
+            <Trans>Available to list: {selectedAsset.amount}</Trans>
           </Text>
           <InputField
             id="singleUnitPrice"
             inputProps={{
-              placeholder: t({
-                id: "user.edit.form.input.singleUnitPrice.placeholder",
-                message: "USDC per ton",
-              }),
+              placeholder: t`USDC per tonne`,
               type: "number",
-              ...register("singleUnitPrice", {
+              ...register("unitPrice", {
                 required: {
                   value: true,
-                  message: t({
-                    id: "user.listing.form.input.singleUnitPrice.required",
-                    message: "Single Price is required",
-                  }),
+                  message: t`Unit price is required`,
                 },
                 pattern: {
                   // https://stackoverflow.com/questions/354044/what-is-the-best-u-s-currency-regex#:~:text=Number%3A%20Currency%20amount%20(cents%20optional)%20Optional%20thousands%20separators%3B%20optional%20two%2Ddigit%20fraction
@@ -168,11 +126,8 @@ export const CreateListingForm: FC<Props> = (props) => {
                 },
               }),
             }}
-            label={t({
-              id: "user.edit.form.input.singleUnitPrice.label",
-              message: "Single Unit Price",
-            })}
-            errorMessage={formState.errors.singleUnitPrice?.message}
+            label={t`Single unit price`}
+            errorMessage={formState.errors.unitPrice?.message}
           />
 
           <ButtonPrimary

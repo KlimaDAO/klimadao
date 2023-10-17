@@ -1,44 +1,63 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion -- We are checkign for missing env vars */
 import { GraphQLClient } from "graphql-request";
-import { difference } from "lodash";
-import { getSdk as assetsSdk } from "../.generated/types/assets.types";
-import { getSdk as carbonProjectsSdk } from "../.generated/types/carbonProjects.types";
-import { getSdk as marketplaceSdk } from "../.generated/types/marketplace.types";
-import { getSdk as offsetsSdk } from "../.generated/types/offsets.types";
-import { getSdk as tokensSdk } from "../.generated/types/tokens.types";
-import { notEmpty } from "./functional.utils";
+import {
+  getSdk as assetsSdk,
+  Sdk as AssetsSdk,
+} from "../.generated/types/assets.types";
+import {
+  getSdk as carbonProjectsSdk,
+  Sdk as CarbonProjectsSdk,
+} from "../.generated/types/carbonProjects.types";
+import {
+  getSdk as digitalCarbonSdk,
+  Sdk as DigitalCarbonSdk,
+} from "../.generated/types/digitalCarbon.types";
+import {
+  getSdk as marketplaceSdk,
+  Sdk as MarketplaceSdk,
+} from "../.generated/types/marketplace.types";
+import {
+  getSdk as offsetsSdk,
+  Sdk as OffsetsSdk,
+} from "../.generated/types/offsets.types";
+import {
+  getSdk as tokensSdk,
+  Sdk as TokensSdk,
+} from "../.generated/types/tokens.types";
+import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
+import { NetworkParam } from "../models/NetworkParam.model";
 
-const ENV_VARS = [
-  "GRAPH_API_URL",
-  "ASSETS_GRAPH_API_URL",
-  "CARBON_OFFSETS_GRAPH_API_URL",
-  "POOL_PRICES_GRAPH_API_URL",
-  "SANITY_GRAPH_API_URL",
-];
-
-const missingVars = difference(ENV_VARS, Object.keys(process.env));
-
-// Confirm that all required env vars have been set
-if (notEmpty(missingVars)) {
-  throw new Error(`Missing GRAPH env vars: ${missingVars}`);
-}
-
-//@todo remove the nullish coalescing empty strings
-const marketplaceClient = new GraphQLClient(process.env.GRAPH_API_URL!);
-const assetsClient = new GraphQLClient(process.env.ASSETS_GRAPH_API_URL!);
-const offsetsClient = new GraphQLClient(
-  process.env.CARBON_OFFSETS_GRAPH_API_URL!
-);
-const tokensClient = new GraphQLClient(process.env.POOL_PRICES_GRAPH_API_URL!);
-const carbonProjectsClient = new GraphQLClient(
-  process.env.SANITY_GRAPH_API_URL!
-);
-
-export const gqlSdk = {
-  marketplace: marketplaceSdk(marketplaceClient),
-  assets: assetsSdk(assetsClient),
-  offsets: offsetsSdk(offsetsClient),
-  tokens: tokensSdk(tokensClient),
-  carbon_projects: carbonProjectsSdk(carbonProjectsClient),
+export type GQL_SDK = {
+  marketplace: MarketplaceSdk;
+  assets: AssetsSdk;
+  offsets: OffsetsSdk;
+  tokens: TokensSdk;
+  carbon_projects: CarbonProjectsSdk;
+  digital_carbon: DigitalCarbonSdk;
 };
-/* eslint-enable @typescript-eslint/no-non-null-assertion -- Re-enable */
+
+const sdks = {
+  marketplace: marketplaceSdk,
+  assets: assetsSdk,
+  offsets: offsetsSdk,
+  tokens: tokensSdk,
+  carbon_projects: carbonProjectsSdk,
+  digital_carbon: digitalCarbonSdk,
+};
+
+export const gql_sdk = (
+  network: NetworkParam | undefined = "polygon"
+): GQL_SDK => {
+  const graph_urls = GRAPH_URLS[network];
+  return {
+    marketplace: sdks.marketplace(new GraphQLClient(graph_urls.marketplace)),
+    assets: sdks.assets(new GraphQLClient(graph_urls.assets)),
+    offsets: sdks.offsets(new GraphQLClient(graph_urls.offsets)),
+    tokens: sdks.tokens(new GraphQLClient(graph_urls.tokens)),
+    digital_carbon: sdks.digital_carbon(
+      new GraphQLClient(graph_urls.digitalCarbon)
+    ),
+    carbon_projects: sdks.carbon_projects(
+      new GraphQLClient(SANITY_URLS.carbonProjects)
+    ),
+  };
+};

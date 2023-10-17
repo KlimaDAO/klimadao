@@ -1,9 +1,8 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
-import { GRAPH_URLS } from "../../src/graphql/codegen.constants";
+import { GRAPH_URLS } from "../../src/app.constants";
 import { build } from "../helper";
-import { CATEGORIES } from "../routes/routes.mock";
-import { DEV_URL } from "../test.constants";
+import { CATEGORIES, DEV_URL } from "../test.constants";
 
 describe("Rate Limiter", () => {
   let app: FastifyInstance;
@@ -16,11 +15,11 @@ describe("Rate Limiter", () => {
 
   test("should limit requests", async () => {
     for (let i = 0; i < 100 + 1; i++) {
-      nock(GRAPH_URLS.offsets)
+      nock(GRAPH_URLS["polygon"].offsets)
         .post("")
         .reply(200, { data: { carbonOffsets: [] } });
 
-      nock(GRAPH_URLS.marketplace)
+      nock(GRAPH_URLS["polygon"].marketplace)
         .post("")
         .reply(200, { data: { categories: CATEGORIES } });
 

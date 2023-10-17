@@ -1,12 +1,4 @@
-import { formatUnits, trimWithLocale } from "@klimadao/lib/utils";
-import { BigNumberish } from "ethers";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
-
-/** USDC only */
-export const formatBigToPrice = (value: BigNumberish, locale = "en") => {
-  const toNumber = Number(formatUnits(value, getTokenDecimals("usdc")));
-  return formatToPrice(toNumber, locale);
-};
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 export const formatToPrice = (
   value: string | number,
@@ -31,11 +23,6 @@ export const formatToPrice = (
     maximumFractionDigits: currencyFractionDigits,
     minimumFractionDigits: 2,
   });
-};
-
-export const formatBigToTonnes = (value: BigNumberish, locale = "en") => {
-  const toNumber = formatUnits(value, 18);
-  return formatToTonnes(toNumber, locale);
 };
 
 export const formatToTonnes = (

@@ -1,0 +1,42 @@
+.list {
+  width: min-content;
+  margin: 0;
+  white-space: nowrap;
+  border-radius: 0.4rem;
+  background-color: var(--lightmode-font-01);
+  display: inline-flex;
+  gap: 0.1rem;
+  list-style-type: none;
+  padding: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  li:last-child {
+    border-color: var(--lightmode-font-01);
+    border-start-end-radius: 0.4rem;
+    border-end-end-radius: 0.4rem;
+    border-right: 1px solid var(--lightmode-font-01);
+  }
+
+  li:first-child {
+    border-color: var(--lightmode-font-01);
+    border-start-start-radius: 0.4rem;
+    border-end-start-radius: 0.4rem;
+    border-left: 1px solid var(--lightmode-font-01);
+  }
+
+  li {
+    border-top: 1px solid var(--lightmode-font-01);
+    border-bottom: 1px solid var(--lightmode-font-01);
+    background-color: var(--brand-white);
+    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+    color: var(--lightmode-font-01);
+    cursor: pointer;
+  }
+
+  li[data-selected="true"] {
+    color: var(--brand-white);
+    background-color: var(--lightmode-font-01);
+    cursor: default;
+  }
+}

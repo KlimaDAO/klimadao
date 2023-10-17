@@ -1,13 +1,13 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
-import {
-  GetAllProjectsQuery,
-  ProjectContent,
-} from "src/.generated/types/carbonProjects.types";
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
+import {
+  GetProjectQuery,
+  ProjectContent,
+} from "../../.generated/types/carbonProjects.types";
 import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
-import { gqlSdk } from "../gqlSdk";
+import { GQL_SDK } from "../gqlSdk";
 
 type Args = {
   registry: string; // e.g VCS
@@ -16,28 +16,26 @@ type Args = {
 
 /**
  * Generates a unique key for a project using its registry and id.
- * @param {Project} project - The project.
- * @param {string} project.id - The id of the project.
- * @param {string} project.registry - The registry of the project.
- * @returns {string} The generated key.
  */
-const projectKey = ({ registry, registryProjectId }: CarbonProject) =>
-  `${registry}-${registryProjectId}`;
+const projectKey = ({
+  registry,
+  registryProjectId,
+}: {
+  registry: string | null;
+  registryProjectId: string | null;
+}) => `${registry}-${registryProjectId}`;
 
-export type CarbonProject = GetAllProjectsQuery["allProject"][number] & {
+export type CarbonProject = GetProjectQuery["allProject"][number] & {
   content?: ProjectContent;
 };
+
 /**
  * Fetches a carbon project based on the provided registry and id.
- * @param {Object} args - The arguments.
- * @param {string} args.registry - The registry of the project (e.g., VCS).
- * @param {string} args.id - The id of the project (e.g., 1121).
- * @returns {Promise<CarbonProject|null>} The fetched project or null if not found.
  */
-export const fetchCarbonProject = async (args: Args) => {
+export const fetchCarbonProject = async (sdk: GQL_SDK, args: Args) => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    gqlSdk.carbon_projects.getProject(args),
-    gqlSdk.carbon_projects.getProjectContent(args),
+    sdk.carbon_projects.getProject(args),
+    sdk.carbon_projects.getProjectContent(args),
   ]);
 
   const project = allProject.at(0);
@@ -55,10 +53,12 @@ export const fetchCarbonProject = async (args: Args) => {
  * Fetches all carbon projects and their content
  * @returns {Promise<CarbonProject[]>} An array of all fetched projects.
  */
-export const fetchAllCarbonProjects = async (): Promise<CarbonProject[]> => {
+export const fetchAllCarbonProjects = async (
+  sdk: GQL_SDK
+): Promise<CarbonProject[]> => {
   const [{ allProject }, { allProjectContent }] = await Promise.all([
-    gqlSdk.carbon_projects.getAllProjects(),
-    gqlSdk.carbon_projects.getAllProjectContent(),
+    sdk.carbon_projects.getAllProjects(),
+    sdk.carbon_projects.getAllProjectContent(),
   ]);
 
   // Clean the content, removing those without project references

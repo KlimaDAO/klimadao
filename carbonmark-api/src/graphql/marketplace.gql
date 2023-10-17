@@ -19,109 +19,52 @@ query getVintages {
   }
 }
 
-query getPurchasesById($id: Bytes) {
-  purchases(first: 1, where: { id: $id }) {
-    id
+query getPurchaseById($id: ID!) {
+  purchase(id: $id) {
     amount
-    user {
-      id
-    }
+    id
     listing {
       id
+      project {
+        ...ProjectFragment
+      }
       seller {
         id
       }
-      project {
-        country {
-          id
-        }
-        key
-        methodology
-        name
-        projectID
-        vintage
-      }
+      tokenAddress
     }
     price
   }
 }
 
-query getUserByWallet($wallet: Bytes) {
+query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
   users(where: { id: $wallet }) {
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
-      seller {
-        id
-      }
-      project {
-        ...ProjectFragment
-        category {
-          id
-        }
-      }
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
-      project {
-        category {
-          id
-        }
-        ...ProjectFragment
-      }
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
-    }
-    purchases {
-      id
     }
   }
 }
 
-query findProjects(
-  $country: [String!]
-  $category: [String!]
-  $search: String
-  $vintage: [BigInt!]
-) {
-  projects(
-    where: {
-      category_: { id_in: $category }
-      country_: { id_in: $country }
-      name_contains_nocase: $search
-      vintage_in: $vintage
-    }
-  ) {
+query getProjects($search: String, $vintage: [BigInt!], $expiresAfter: BigInt) {
+  projects(where: { name_contains_nocase: $search, vintage_in: $vintage }) {
     ...ProjectFragment
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
     }
   }
 }
 
-query getProjectsById($key: String, $vintageStr: BigInt) {
-  projects(where: { key: $key, vintage: $vintageStr }) {
+query getProjectById($projectId: ID!, $expiresAfter: BigInt) {
+  project(id: $projectId) {
     ...ProjectFragment
-    country {
-      id
-    }
-    listings {
+    listings(where: { expiration_gt: $expiresAfter }) {
       ...ListingFragment
-      seller {
-        id
-      }
     }
     activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
-      seller {
-        id
-      }
-      buyer {
-        id
-      }
     }
   }
 }

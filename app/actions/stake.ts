@@ -1,5 +1,6 @@
 import { formatUnits, getContract } from "@klimadao/lib/utils";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { parseUnits } from "ethers-v6";
 import { OnStatusHandler } from "./utils";
 
 export const changeStakeTransaction = async (params: {
@@ -9,7 +10,7 @@ export const changeStakeTransaction = async (params: {
   action: "stake" | "unstake";
 }) => {
   try {
-    const parsedValue = utils.parseUnits(params.value, "gwei");
+    const parsedValue = parseUnits(params.value, "gwei");
     const contract = {
       stake: getContract({
         contractName: "staking_helper",

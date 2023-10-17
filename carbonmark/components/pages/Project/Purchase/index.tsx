@@ -5,7 +5,11 @@ import { LoginButton } from "components/LoginButton";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "lib/createUrls";
 import { isPoolToken } from "lib/getPoolData";
-import { Listing, Price, Project } from "lib/types/carbonmark";
+import {
+  DetailedProject,
+  Listing,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { InactivePurchase } from "./InactivePurchase";
@@ -14,18 +18,18 @@ import { PoolPurchase } from "./Pool";
 
 import * as styles from "./styles";
 export interface ProjectPurchasePageProps {
-  project: Project;
-  purchase: Listing | Price;
+  project: DetailedProject;
+  purchase: Listing | TokenPrice;
 }
 
-const getIsPoolPurchase = (purchase: Price): purchase is Price =>
+const getIsPoolPurchase = (purchase: TokenPrice): purchase is TokenPrice =>
   purchase.poolName !== undefined && isPoolToken(purchase.poolName);
 
 const getIsListingPurchase = (purchase: Listing): purchase is Listing =>
   purchase.id !== undefined;
 
 export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
-  const isPoolPurchase = getIsPoolPurchase(props.purchase as Price);
+  const isPoolPurchase = getIsPoolPurchase(props.purchase as TokenPrice);
   const isListingPurchase =
     !isPoolPurchase && getIsListingPurchase(props.purchase as Listing);
 
@@ -57,7 +61,7 @@ export const ProjectPurchase: NextPage<ProjectPurchasePageProps> = (props) => {
           {isPoolPurchase && (
             <PoolPurchase
               project={props.project}
-              price={props.purchase as Price}
+              price={props.purchase as TokenPrice}
             />
           )}
 

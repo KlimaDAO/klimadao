@@ -9,17 +9,27 @@ export const Web3Context = createContext<Web3ModalState>(web3InitialState);
 interface Props {
   appName?: string;
   children: React.ReactNode;
+  showMumbaiOption?: boolean;
 }
 
 /** Init the web3Modal and expose via react context  */
-export const Web3ContextProvider: FC<Props> = ({ appName, children }) => {
+export const Web3ContextProvider: FC<Props> = ({
+  appName,
+  children,
+  showMumbaiOption,
+}) => {
   const [ignoreChainId, setIgnoreChainId] = useState(false);
   const providerState = useProvider({ ignoreChainId });
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal((s) => !s);
   const renderModal = useCallback(
     (props: RenderModalProps) => (
-      <ConnectModal {...props} showModal={showModal} appName={appName} />
+      <ConnectModal
+        {...props}
+        showModal={showModal}
+        appName={appName}
+        showMumbaiOption={showMumbaiOption}
+      />
     ),
     [showModal]
   );

@@ -3,11 +3,11 @@ import {
   getRetirementTokenByAddress,
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { generateCertificate } from "lib/retirementCertificates";
 import { getAddressByDomain } from "lib/shared/getAddressByDomain";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
-import isNumber from "lodash/isNumber";
+import { isNumber } from "lodash";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
 type Query = {
@@ -35,7 +35,7 @@ export default async function handler(
       ? await getAddressByDomain(beneficiaryAddress)
       : beneficiaryAddress;
 
-    if (!utils.isAddress(resolvedAddress)) {
+    if (!isAddress(resolvedAddress)) {
       return res.status(400).send("Invalid beneficiary address or domain");
     }
 
@@ -61,7 +61,7 @@ export default async function handler(
     certificate.pipe(res);
     certificate.end();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).send("Failed to generate retirement certificate");
   }
 }

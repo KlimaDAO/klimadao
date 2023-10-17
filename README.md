@@ -23,8 +23,8 @@ The backend Node.js web-service and smart contracts are located in separate repo
 
 Take note, this repo utilizes newer features from Node, NPM and TypeScript 4.5.
 
-- Node >= v16.x
-- NPM >= v8.x (for NPM Workspaces)
+- Node >= v18.17.1
+- NPM >= v9.x (for NPM Workspaces)
 - TypeScript >= 4.5 (for ESModules support) `npm install -g typescript`
 - VSCode [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - VSCode [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -50,6 +50,15 @@ Other scripts you should know about:
 - `npm run build-all`: build all workspaces.
 - `npm run format-all`: Format all files with `prettier`.
 - `npm run extract-strings:dev`: Extract translation files for the source language "en".
+
+## Type Generation
+Typescript types for Carbonmark and Carbonmark API are generated via the `generate:types` script in each respective project. 
+
+Regenerate types in any of the following changes:
+
+1. Models in the API  (.model files)
+2. Change to any of the dependant subgraphs (see `codegen.constants.ts`)
+3. API Version targeted by Carbonmark
 
 ## Translations
 

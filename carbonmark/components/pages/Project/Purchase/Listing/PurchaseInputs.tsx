@@ -1,5 +1,4 @@
 import { Anchor } from "@klimadao/lib/components";
-import { formatUnits } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Dropdown } from "components/Dropdown";
@@ -9,7 +8,7 @@ import { urls } from "lib/constants";
 import { formatToPrice } from "lib/formatNumbers";
 import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { LO } from "lib/luckyOrange";
-import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark";
+import { CarbonmarkPaymentMethod, Listing } from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -52,7 +51,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
           <div className={styles.amountLabel}>
             <Text>{t`Purchase amount (tonnes):`}</Text>
             <Text t="body3">
-              <Trans>Available: {formatUnits(props.listing.leftToSell)}</Trans>
+              <Trans>Available: {Number(props.listing.leftToSell)}</Trans>
             </Text>
           </div>
 
@@ -65,7 +64,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
               }),
               type: "number",
               min: 1,
-              max: Number(formatUnits(props.listing.leftToSell)),
+              max: Number(props.listing.leftToSell),
               ...register("amount", {
                 onChange: () => clearErrors("price"),
                 required: {
@@ -83,7 +82,7 @@ export const PurchaseInputs: FC<Props> = (props) => {
                   }),
                 },
                 max: {
-                  value: Number(formatUnits(props.listing.leftToSell)),
+                  value: Number(props.listing.leftToSell),
                   message: t`Available supply exceeded`,
                 },
               }),

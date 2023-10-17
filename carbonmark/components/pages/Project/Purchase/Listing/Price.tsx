@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/macro";
 import { Text } from "components/Text";
-import { formatBigToPrice } from "lib/formatNumbers";
-import { Listing } from "lib/types/carbonmark";
+import { formatToPrice } from "lib/formatNumbers";
+import { Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import * as styles from "../styles";
@@ -15,7 +15,7 @@ export const Price: FC<Props> = (props) => {
   return (
     <div className={styles.price}>
       <Text t="h4">
-        {formatBigToPrice(props.price, locale)} <Trans>each</Trans>
+        {formatToPrice(props.price, locale)} <Trans>each</Trans>
       </Text>
     </div>
   );

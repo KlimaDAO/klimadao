@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import AddIcon from "@mui/icons-material/Add";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
@@ -10,13 +11,13 @@ import { Text } from "components/Text";
 import { TextInfoTooltip } from "components/TextInfoTooltip";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { useFetchUser } from "hooks/useFetchUser";
-import { addProjectsToAssets } from "lib/actions";
-import { activityIsAdded, getUser, getUserUntil } from "lib/api";
-import { getAssetsWithProjectTokens } from "lib/getAssetsData";
+import { activityIsAdded, getUserUntil, refreshUser } from "lib/api";
+import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
-import { AssetForListing, User } from "lib/types/carbonmark";
+import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
-import { FC, useEffect, useRef, useState } from "react";
+import { hasListableAssets } from "lib/utils/listings.utils";
+import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
 import { ProfileSidebar } from "../ProfileSidebar";
@@ -31,18 +32,21 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
+  const { address, networkLabel } = useWeb3();
+  const { carbonmarkUser, isLoading, mutate } = useFetchUser({
+    params: { walletOrHandle: props.userAddress },
+    // Conditionally fetch all listings for the user if viewing own profile
+    query: {
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+      network: networkLabel,
+    },
+  });
 
-  const { carbonmarkUser, isLoading, mutate } = useFetchUser(props.userAddress);
   const [isPending, setIsPending] = useState(false);
-
-  const [assetsData, setAssetsData] = useState<AssetForListing[] | null>(null);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
-  const [_isLoadingAssets, setIsLoadingAssets] = useState(false);
-
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const hasAssets = !!carbonmarkUser?.assets?.length;
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const sortedListings = getSortByUpdateListings(activeListings);
   const hasListings = !!activeListings.length;
@@ -54,71 +58,12 @@ export const SellerConnected: FC<Props> = (props) => {
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const handleMutateUserUntil = async () => {
-    const latestActivity = carbonmarkUser?.activities.sort(
-      (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-    )[0];
-
-    const newUser = await getUserUntil({
-      address: props.userAddress,
-      retryUntil: activityIsAdded(latestActivity?.timeStamp || "0"),
-      retryInterval: 1000,
-      maxAttempts: 50,
-    });
-
-    return newUser;
-  };
-
-  // load Assets every time user changed
-  useEffect(() => {
-    // stop loading assets when there are no assets to load
-    if (isCarbonmarkUser && !hasAssets) {
-      setIsLoadingAssets(false);
-    }
-
-    if (hasAssets) {
-      const getProjectData = async () => {
-        try {
-          setIsLoadingAssets(true);
-
-          const assetWithProjectTokens = getAssetsWithProjectTokens(
-            carbonmarkUser.assets
-          );
-
-          if (assetWithProjectTokens.length) {
-            const assetsData = await addProjectsToAssets({
-              assets: assetWithProjectTokens,
-            });
-
-            // TODO: filter assets with balance > 0
-            // this will be unnecessary as soon as bezos switched to mainnet
-
-            const assetsWithBalance = assetsData.filter(
-              (a) => Number(a.balance) > 0
-            );
-
-            if (assetsWithBalance.length) {
-              setAssetsData(assetsWithBalance);
-            }
-          }
-        } catch (e) {
-          console.error(e);
-          setErrorMessage(t`There was an error loading your assets. ${e}`);
-        } finally {
-          setIsLoadingAssets(false);
-        }
-      };
-
-      getProjectData();
-    }
-  }, [carbonmarkUser]);
-
   const onEditProfile = async (profileData: User) => {
     try {
       // get fresh data again
-      const userFromApi = await getUser({
-        user: props.userAddress,
-        type: "wallet",
+      const userFromApi = await refreshUser({
+        walletOrHandle: props.userAddress,
+        network: networkLabel,
       });
 
       // Merge with data from Updated Profile as backend might be slow!
@@ -135,9 +80,21 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const onUpdateUser = async () => {
     try {
+      if (!carbonmarkUser) return;
       scrollToTop();
       setIsPending(true);
-      await mutate(handleMutateUserUntil, {
+      const newUser = await getUserUntil({
+        address: carbonmarkUser.wallet.toLowerCase(),
+        retryUntil: activityIsAdded(
+          carbonmarkUser?.activities[0].timeStamp || "0"
+        ),
+        retryInterval: 2000,
+        maxAttempts: 50,
+        network: networkLabel,
+      });
+      await mutate(newUser, {
+        optimisticData: newUser,
+        revalidate: false, // mutate() triggers request-- we can skip it
         populateCache: true,
       });
     } catch (e) {
@@ -178,28 +135,48 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
         </div>
-        {isCarbonmarkUser && (
-          <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
-            <div>
-              <CarbonmarkButton
-                label={
-                  <>
-                    <span className={styles.addListingButtonText}>
-                      <Trans>Create New Listing</Trans>
-                    </span>
-                    <span className={styles.addListingButtonIcon}>
-                      <AddIcon />
-                    </span>
-                  </>
-                }
-                disabled={true} // disabled until carbonmark V2
-                onClick={() => {
-                  // setShowCreateListingModal(true)
-                }}
-              />
-            </div>
-          </TextInfoTooltip>
-        )}
+        {isCarbonmarkUser &&
+          (getFeatureFlag("createListing") ? (
+            <CarbonmarkButton
+              label={
+                <>
+                  <span className={styles.addListingButtonText}>
+                    <Trans>Create New Listing</Trans>
+                  </span>
+                  <span className={styles.addListingButtonIcon}>
+                    <AddIcon />
+                  </span>
+                </>
+              }
+              onClick={() => {
+                setShowCreateListingModal(true);
+              }}
+              disabled={
+                !hasListableAssets(
+                  carbonmarkUser.assets,
+                  carbonmarkUser.listings
+                )
+              }
+            />
+          ) : (
+            <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">
+              <div>
+                <CarbonmarkButton
+                  label={
+                    <>
+                      <span className={styles.addListingButtonText}>
+                        <Trans>Create New Listing</Trans>
+                      </span>
+                      <span className={styles.addListingButtonIcon}>
+                        <AddIcon />
+                      </span>
+                    </>
+                  }
+                  disabled={true} // disabled until carbonmark V2
+                />
+              </div>
+            </TextInfoTooltip>
+          ))}
       </div>
 
       <TwoColLayout>
@@ -220,7 +197,7 @@ export const SellerConnected: FC<Props> = (props) => {
             <ListingEditable
               listings={sortedListings}
               onFinishEditing={onUpdateUser}
-              assets={assetsData || []}
+              assets={carbonmarkUser?.assets || []}
               isUpdatingData={isPending}
             />
           )}
@@ -250,11 +227,12 @@ export const SellerConnected: FC<Props> = (props) => {
         />
       </Modal>
 
-      {!!assetsData?.length && (
+      {!!carbonmarkUser?.assets?.length && (
         <CreateListing
           onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
-          assets={assetsData}
+          assets={carbonmarkUser.assets}
+          listings={carbonmarkUser.listings}
           showModal={showCreateListingModal}
         />
       )}

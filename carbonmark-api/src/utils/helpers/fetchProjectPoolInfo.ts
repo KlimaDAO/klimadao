@@ -1,6 +1,7 @@
+import { ethers } from "ethers";
 import { get } from "lodash";
-import { POOL_INFO } from "../../routes/projects/projects.constants";
-import { gqlSdk } from "../gqlSdk";
+import { POOL_INFO } from "../../routes/projects/get.constants";
+import { GQL_SDK } from "../gqlSdk";
 
 type PoolName = "bct" | "nct" | "ubo" | "nbo";
 /**
@@ -23,72 +24,144 @@ type PoolInfoMap = {
   ubo: PoolInfo;
   nbo: PoolInfo;
 };
+/**
+ * Params for fetchProjectPoolInfo
+ */
+
+type Params = {
+  projectID: string; // Project id `"VCS-981"`
+  vintage: number; // Vintage Int 2017
+};
 
 /**
  * Stats for all project tokens across both bridges
  */
+export type BigNumberStats = {
+  bridged: ethers.BigNumber;
+  retired: ethers.BigNumber;
+  totalSupply: ethers.BigNumber;
+};
+
+const initialStats: BigNumberStats = {
+  bridged: ethers.BigNumber.from(0),
+  retired: ethers.BigNumber.from(0),
+  totalSupply: ethers.BigNumber.from(0),
+};
 export type Stats = {
   totalBridged: number;
   totalRetired: number;
   totalSupply: number;
 };
 
-type Params = {
-  key: string; // Project key `"VCS-981"`
-  vintage: string; // Vintage string `"2017"`
+/** Return Types for Digital Carbon Query */
+
+type PoolBalance = {
+  balance: string;
+  id: string;
+  deposited: string;
+  redeemed: string;
+  pool: {
+    name: string;
+    supply: string;
+    id: string;
+    decimals: number;
+  };
 };
 
-const initialStats: Stats = {
-  totalBridged: 0,
-  totalRetired: 0,
-  totalSupply: 0,
+type CarbonCredit = {
+  vintage: number;
+  currentSupply: string;
+  poolBalances: PoolBalance[];
+  id: string;
+  crossChainSupply: string;
+  bridgeProtocol: string;
+  bridged: string;
+  retired: string;
 };
+
+type CarbonCredits = CarbonCredit[];
 
 /**
- * Query the subgraph for a list of the C3Ts and TCO2s that exist for a given project-vintage combination.
+ * Query the subgraph for a list of the C3Ts and TCO2s that exist for a credit vintage.
  * @param {Params} params
  *  @example fetchCarbonProjectTokens({ key: "VCS-981", vintage: "2017" })
  * @returns {Promise<[PoolInfoMap, Stats]>}
  * A map of project token info for each pool. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
+
 export const fetchProjectPoolInfo = async (
+  sdk: GQL_SDK,
   params: Params
 ): Promise<[Partial<PoolInfoMap>, Stats]> => {
-  const data = await gqlSdk.offsets.getCarbonOffsetsByProjectAndVintage({
-    key: params.key,
-    vintageStr: params.vintage,
+  const data = await sdk.digital_carbon.getProjectCredits({
+    projectID: params.projectID,
+    vintage: Number(params.vintage),
   });
 
   /** @type {QueryResponse[]} */
-  const tokens = data?.carbonOffsets?.length ? data.carbonOffsets : [];
 
-  const stats: Stats = tokens.reduce(
+  const tokens: CarbonCredits = data?.carbonProjects?.[0]?.carbonCredits || [];
+
+  // Graph data is in 18 decimals. All operations are performed in BigNumber before converting to Number at the end
+
+  const bigNumberStats: BigNumberStats = tokens.reduce(
     (stat, token) => ({
-      totalBridged: stat.totalBridged + Number(token.totalBridged),
-      totalRetired: stat.totalRetired + Number(token.totalRetired),
-      totalSupply: stat.totalSupply + Number(token.currentSupply),
+      bridged: stat.bridged.add(ethers.BigNumber.from(token.bridged)),
+      retired: stat.retired.add(ethers.BigNumber.from(token.retired)),
+      totalSupply: stat.totalSupply.add(
+        ethers.BigNumber.from(token.currentSupply)
+      ),
     }),
     initialStats
   );
 
+  // project bigNumber stats
+  const stats: Stats = {
+    totalBridged: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.bridged, 18)
+    ),
+    totalRetired: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.retired, 18)
+    ),
+    totalSupply: parseFloat(
+      ethers.utils.formatUnits(bigNumberStats.totalSupply, 18)
+    ),
+  };
   const poolInfoMap = Object.keys(POOL_INFO).reduce<Partial<PoolInfoMap>>(
     (prevMap, poolName) => {
-      const balanceKey = `balance${poolName.toUpperCase()}`; // e.g. "balanceBCT"
-      // see if any of the entries from the subgraph have a balance > 1, otherwise return "0"
-      const matchingTokenInfo = tokens.find(
-        (t) => Number(get(t, balanceKey)) > 1
-      );
+      const poolAddress = POOL_INFO[poolName].poolAddress;
+      let totalSupply = 0;
+      let matchingTokenInfo: PoolBalance | undefined;
+
+      for (const token of tokens) {
+        const potentialMatch = token.poolBalances.find(
+          (t) => t.pool.id.toLowerCase() === poolAddress.toLowerCase()
+        );
+
+        if (potentialMatch) {
+          matchingTokenInfo = potentialMatch;
+          const decimals = potentialMatch.pool.decimals;
+          const numberBalance = parseFloat(
+            ethers.utils.formatUnits(potentialMatch.balance, decimals)
+          );
+          totalSupply += numberBalance;
+        }
+      }
+
+      if (!matchingTokenInfo) {
+        return prevMap;
+      }
 
       return {
         ...prevMap,
         [poolName]: {
           poolName,
-          supply: get(matchingTokenInfo, balanceKey, "0"),
-          poolAddress: POOL_INFO[poolName].poolAddress,
+          supply: totalSupply.toString(),
+          poolAddress,
           isPoolDefault:
-            matchingTokenInfo?.tokenAddress.toLowerCase() ===
+            matchingTokenInfo.id.toLowerCase() ===
             POOL_INFO[poolName].defaultProjectTokenAddress.toLowerCase(),
-          projectTokenAddress: get(matchingTokenInfo, "tokenAddress", ""),
+          projectTokenAddress: get(tokens[0], "id", ""),
         },
       };
     },

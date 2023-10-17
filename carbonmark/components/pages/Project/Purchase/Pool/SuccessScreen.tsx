@@ -9,19 +9,23 @@ import { carbonmarkPaymentMethodMap } from "lib/getPaymentMethods";
 import { getPoolTokenType } from "lib/getPoolData";
 import { carbonTokenInfoMap } from "lib/getTokenInfo";
 import { createProjectTokenName } from "lib/projectGetter";
-import { CarbonmarkPaymentMethod, Price, Project } from "lib/types/carbonmark";
+import {
+  CarbonmarkPaymentMethod,
+  DetailedProject,
+  TokenPrice,
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "../styles";
 
 type Props = {
-  project: Project;
+  project: DetailedProject;
   totalPrice?: string;
   transactionHash: string | null;
   paymentMethod?: CarbonmarkPaymentMethod;
   address?: string;
-  price: Price;
+  price: TokenPrice;
   quantity: string;
 };
 

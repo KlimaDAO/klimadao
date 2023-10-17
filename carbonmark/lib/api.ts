@@ -2,15 +2,16 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { urls } from "lib/constants";
 import { pollUntil } from "lib/pollUntil";
 import {
-  Category,
   CategoryName,
   Country,
   Project,
   User,
-} from "lib/types/carbonmark";
+} from "lib/types/carbonmark.types";
+import { client } from "./api/client";
 import { createDownloadLink } from "./createDownloadLink";
 import { fetcher } from "./fetcher";
-import { notNil } from "./utils/functional.utils";
+import { isCategoryName } from "./types/carbonmark.guard";
+import { extract, notNil } from "./utils/functional.utils";
 
 export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
   const res = await fetch(`${urls.api.users}/login`, {
@@ -126,7 +127,7 @@ export const getRetirementCertificate = async (params: {
     }
     await createDownloadLink(await result.blob(), filename);
   } catch (error) {
-    console.log("Error occurred downloading retirement certificate", error);
+    console.error("Error occurred downloading retirement certificate", error);
   }
 };
 
@@ -135,8 +136,32 @@ export const activityIsAdded = (prevTimeStamp: string) => (newUser: User) => {
   const latestActivity = newUser.activities.sort(
     (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
   )[0];
-
   return Number(latestActivity?.timeStamp || 0) > Number(prevTimeStamp);
+};
+
+export const refreshUser = async (params: {
+  walletOrHandle: string;
+  network?: "mumbai" | "polygon";
+  expiresAfter?: string;
+}) => {
+  const { network = "polygon", expiresAfter } = params;
+  const response = await client["/users/{walletOrHandle}"].get(
+    {
+      params: { walletOrHandle: params.walletOrHandle.toLowerCase() },
+      query: { network, expiresAfter },
+    },
+    {
+      cache: "reload",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+  const user = await response.json();
+  return user;
 };
 
 export const getUserUntil = async (params: {
@@ -144,11 +169,13 @@ export const getUserUntil = async (params: {
   retryUntil: (u: User) => boolean;
   maxAttempts?: number;
   retryInterval?: number;
+  network?: "mumbai" | "polygon";
 }): Promise<User> => {
   const fetchUser = () =>
-    getUser({
-      user: params.address,
-      type: "wallet",
+    refreshUser({
+      walletOrHandle: params.address,
+      network: params.network,
+      expiresAfter: "0",
     });
 
   const updatedUser = await pollUntil({
@@ -176,17 +203,14 @@ export const getProjects = async (
   return await fetcher(url);
 };
 
-export const getUser = async (params: {
-  user: string;
-  type: "wallet" | "handle";
-}): Promise<User> =>
-  await fetcher(`${urls.api.users}/${params.user}?type=${params.type}`);
-
 export const getProject = async (projectId: string): Promise<Project> =>
   await fetcher(`${urls.api.projects}/${projectId}`);
 
-export const getCategories = async (): Promise<Category[]> =>
-  await fetcher(urls.api.categories);
+export const getCategories = async (): Promise<CategoryName[]> => {
+  const response = await client["/categories"].get();
+  const categories = await response.json();
+  return categories.map(extract("id")).filter(isCategoryName);
+};
 
 export const getCountries = async (): Promise<Country[]> =>
   await fetcher(urls.api.countries);

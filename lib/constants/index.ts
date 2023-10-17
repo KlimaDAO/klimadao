@@ -35,7 +35,7 @@ const mainnet = {
   retirementAggregatorV2: "0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
   liveOffsetWallet: "0xa17b52d5e17254b03dfdf7b4dff2fc0c6108faac",
   liveOffsetContract: "0xB99fAbB350bbb48b8d586835d001085c8F188BA0",
-  carbonmark: "0x77F2014496Cd168662f74F860353BE1d16deCB2E", // Diamond
+  carbonmark: "", // TODO: v2 Diamond
 };
 
 const testnet: typeof mainnet = {
@@ -52,7 +52,7 @@ const testnet: typeof mainnet = {
   pklima_exercise: "0xBCE4486256bb306BF49e43DfdaFBc0A6660e95F9",
   sklima: "0xDe0cD0D51b9981BaB50DB974a1877c1C01b86e91",
   wsklima: "",
-  usdc: "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7",
+  usdc: "0xd4a086eD700578dC564B46004Fa92C20d5148B8F",
   klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
   klimaMco2Lp: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
@@ -75,7 +75,7 @@ const testnet: typeof mainnet = {
   retirementAggregatorV2: "",
   liveOffsetWallet: "",
   liveOffsetContract: "",
-  carbonmark: "0x694Ccc69525aecC522393e1e3623B937771ED1Af", // Diamond
+  carbonmark: "0x5dc7083cd6ff9a46c36661750fabcbb9ae2abed2", // v2 Diamond
 };
 
 export const addresses = {
@@ -161,6 +161,7 @@ export const urls = {
   portfolio: "https://www.carbonmark.com/portfolio",
   resourcesCarbonmark: "https://www.carbonmark.com/resources",
   carbonmarkEmail: "mailto:support@carbonmark.com",
+  disclaimer: "https://www.klimadao.finance/disclaimer",
 };
 
 export const polygonNetworks = {

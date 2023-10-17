@@ -19,8 +19,15 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, isConnected, toggleModal } = useWeb3();
-  const { carbonmarkUser } = useFetchUser(props.userAddress);
+  const { address, isConnected, toggleModal, networkLabel } = useWeb3();
+  const { carbonmarkUser } = useFetchUser({
+    params: { walletOrHandle: props.userAddress },
+    //Conditionally fetch all listings if fetching for the current user
+    query: {
+      expiresAfter: address === props.userAddress ? "0" : undefined,
+      network: networkLabel,
+    },
+  });
 
   const activeListings = getActiveListings(carbonmarkUser?.listings ?? []);
   const hasListings = !!activeListings.length;
@@ -66,7 +73,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
                   />
                 )}
 
-                {address && isConnected && (
+                {address && isConnected && listing.project && (
                   <ButtonPrimary
                     label={<Trans id="seller.listing.buy">Buy</Trans>}
                     className={styles.buyButton}

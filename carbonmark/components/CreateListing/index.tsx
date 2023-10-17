@@ -12,13 +12,19 @@ import {
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing } from "lib/types/carbonmark";
+import { Asset, Listing } from "lib/types/carbonmark.types";
+import {
+  getUnlistedBalance,
+  hasListableBalance,
+} from "lib/utils/listings.utils";
 import { FC, useState } from "react";
 import { CreateListingForm, FormValues } from "./Form";
 import * as styles from "./styles";
 
 type Props = {
-  assets: AssetForListing[];
+  assets: Asset[];
+  /** User's listings, used to determine the listable balance */
+  listings: Listing[];
   showModal: boolean;
   onModalClose: () => void;
   onSubmit: () => void;
@@ -26,7 +32,7 @@ type Props = {
 };
 
 export const CreateListing: FC<Props> = (props) => {
-  const { provider, address } = useWeb3();
+  const { provider, address, networkLabel } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
@@ -64,6 +70,7 @@ export const CreateListing: FC<Props> = (props) => {
       const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
+        network: networkLabel,
       });
       setAllowanceValue(allowance);
       setInputValues(values);
@@ -74,12 +81,25 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
+  /** Return the value of all other listings of this same asset, plus the new listing quantity */
+  const getTotalAssetApproval = (form?: FormValues | null): number => {
+    if (!form) return 0;
+    const sumOtherListings = props.listings
+      .filter(
+        (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
+      )
+      .reduce((a, b) => a + Number(b.leftToSell), 0);
+
+    return sumOtherListings + Number(form?.amount || "0");
+  };
+
+  /**
+   * Return true if the user has exactly the required approval for all listings of this asset
+   * Incl. the new listing
+   */
   const hasApproval = () => {
-    return (
-      !!allowanceValue &&
-      !!inputValues &&
-      Number(allowanceValue) >= Number(inputValues.totalAmountToSell)
-    );
+    if (!Number(inputValues?.amount)) return false;
+    return Number(allowanceValue || "0") === getTotalAssetApproval(inputValues);
   };
 
   const handleApproval = async () => {
@@ -87,13 +107,15 @@ export const CreateListing: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: inputValues.totalAmountToSell,
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -104,10 +126,9 @@ export const CreateListing: FC<Props> = (props) => {
     try {
       await createListingTransaction({
         tokenAddress: inputValues.tokenAddress,
+        amount: inputValues.amount,
+        unitPrice: inputValues.unitPrice,
         provider,
-        totalAmountToSell: inputValues.totalAmountToSell,
-        singleUnitPrice: inputValues.singleUnitPrice,
-        tokenType: inputValues.tokenType,
         onStatus: onUpdateStatus,
       });
       LO.track("Listing: Listing Created");
@@ -124,28 +145,25 @@ export const CreateListing: FC<Props> = (props) => {
     return (
       <div className={styles.formatParagraph}>
         <Text t="body1" color="lighter">
-          <Trans id="create.approval_1">
-            You are about to create a new listing.
+          <Trans>
+            First, approve the Carbonmark system to transfer this asset on your
+            behalf.
           </Trans>
         </Text>
         <Text t="body1" color="lighter">
-          <Trans id="create.approval_2">
-            The first step is to grant the approval to transfer this asset from
-            your wallet to Carbonmark, the next step is to approve the actual
-            transfer and make your listing live.
+          <Trans>
+            You can revoke this approval at any time. The assets will only be
+            transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="create.approval_3">
-            You can choose to remove your active listing at any time which will
-            automatically transfer the listed asset back to your wallet.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans id="create.approval_4">
-            Verify all information is correct and click 'approve' to continue.
-          </Trans>
-        </Text>
+        {getTotalAssetApproval(inputValues) > Number(inputValues?.amount) && (
+          <Text t="body1" color="lighter">
+            <Trans>
+              The value below reflects the sum of all of your listings for this
+              specific token.
+            </Trans>
+          </Text>
+        )}
       </div>
     );
   };
@@ -154,34 +172,44 @@ export const CreateListing: FC<Props> = (props) => {
     return (
       <div className={styles.formatParagraph}>
         <Text t="body1" color="lighter">
-          <Trans id="create.submit_1">
-            The previous step granted the approval to transfer this asset from
-            your wallet to Carbonmark, your asset has not been transferred yet.
+          <Trans>
+            Almost finished! The last step is to create the listing and submit
+            it to the system. Please verify the quantity and price below.
           </Trans>
         </Text>
         <Text t="body1" color="lighter">
-          <Trans id="create.submit_2">
-            To finalize the transfer of this asset to Carbonmark and make your
-            listing live, verify all information is correct and then click
-            submit below.
-          </Trans>
+          <Trans>You can delete this listing at any time.</Trans>
         </Text>
       </div>
     );
   };
 
+  const listableAssets = props.assets
+    .filter((a) => hasListableBalance(a, props.listings))
+    .map((a) => ({
+      ...a,
+      amount: getUnlistedBalance(a, props.listings).toString(),
+    }));
+
+  /** Util to render the amount label in the transaction modal */
+  const getAmountLabel = () => {
+    const amount = hasApproval()
+      ? Number(inputValues?.amount) // 'submit' view shows the new quantity
+      : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
+    return {
+      value: t`${amount} tonnes`,
+    };
+  };
+
   return (
     <Modal
-      title={t({
-        id: "profile.listings_modal.title",
-        message: "Create a Listing",
-      })}
+      title={t`Create a listing`}
       showModal={props.showModal}
       onToggleModal={onModalClose}
     >
       {showForm && (
         <CreateListingForm
-          assets={props.assets}
+          assets={listableAssets}
           onSubmit={onAddListingFormSubmit}
           values={inputValues}
         />
@@ -195,19 +223,14 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={{
-            value: `${inputValues.totalAmountToSell}  ${t({
-              id: "tonnes.long",
-              message: "tonnes",
-            })}`,
-          }}
+          amount={getAmountLabel()}
           price={{
-            value: inputValues.singleUnitPrice,
+            value: inputValues.unitPrice,
             token: "usdc",
           }}
           approvalText={<CreateApproval />}
           submitText={<CreateSubmit />}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={getAddress("carbonmark", networkLabel)}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={resetStateAndCloseModal}

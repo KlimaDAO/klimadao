@@ -2,7 +2,8 @@ import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
-import { BigNumber, Contract, providers, utils } from "ethers";
+import { BigNumber, Contract, providers } from "ethers";
+import { formatUnits as eFormatUnits, parseEther, parseUnits } from "ethers-v6";
 import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
@@ -180,9 +181,9 @@ export const calcBondDetails = (params: {
     const provider = getStaticProvider();
     let amountInWei;
     if (!params.value || params.value === "") {
-      amountInWei = utils.parseEther("0");
+      amountInWei = parseEther("0");
     } else {
-      amountInWei = utils.parseEther(params.value);
+      amountInWei = parseEther(params.value);
     }
 
     const bondContract = contractForBond({
@@ -355,7 +356,7 @@ export const calculateUserBondDetails = (params: {
       getBondAddress({ bond: params.bond })
     );
     // TODO: we can just use the state.user.balance for these values and eliminate this code.
-    const balance = utils.formatUnits(
+    const balance = eFormatUnits(
       await reserveContract.balanceOf(params.address),
       "ether"
     );
@@ -369,9 +370,9 @@ export const calculateUserBondDetails = (params: {
       setBond({
         bond: params.bond,
         balance,
-        interestDue: utils.formatUnits(interestDue, "gwei"),
+        interestDue: eFormatUnits(interestDue, "gwei"),
         bondMaturationBlock,
-        pendingPayout: utils.formatUnits(pendingPayout, "gwei"),
+        pendingPayout: eFormatUnits(pendingPayout, "gwei"),
       })
     );
   };
@@ -399,13 +400,13 @@ export const bondTransaction = async (params: {
         (1 / Number(formatUnits(bondPrice, 6))) *
           Number(params.value) *
           acceptedSlippage;
-      const formattedMinAmountOut = utils.parseUnits(
+      const formattedMinAmountOut = parseUnits(
         Number(minAmountOut.toFixed(6)).toString(),
         "mwei"
       );
       params.onStatus("userConfirmation", "");
       const address = await signer.getAddress();
-      const formattedValue = utils.parseUnits(params.value, "gwei");
+      const formattedValue = parseUnits(params.value, "gwei");
       const txn = await contract.deposit(
         BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
@@ -433,7 +434,7 @@ export const bondTransaction = async (params: {
       const calculatePremium = await contract.bondPrice();
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
-      const valueInWei = utils.parseUnits(params.value, "ether");
+      const valueInWei = parseUnits(params.value, "ether");
       const address = await signer.getAddress();
       params.onStatus("userConfirmation", "");
       const txn = await contract.deposit(valueInWei, maxPremium, address);

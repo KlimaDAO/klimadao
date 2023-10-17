@@ -9,7 +9,8 @@ type Environment = "production" | "preview" | "development";
 export const IS_PRODUCTION =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 /** True if local development (not preview deployment) */
-export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
+export const IS_LOCAL_DEVELOPMENT =
+  process.env.NODE_ENV === "development" || process.env.NODE_ENV == undefined;
 /** For preview deployments on Vercel */
 export const IS_PREVIEW = !IS_PRODUCTION && !IS_LOCAL_DEVELOPMENT;
 
@@ -23,15 +24,28 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
   0,
   7
 );
+
+/** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
+export const API_PROD_URL = "https://v2.0.0-9.api.carbonmark.com";
+
 /**
- * Use the aliased carbonmark-api deployment for the current commit if set manually in the CLI
- * @todo remove this once carbonmark is built via github actions
+ * Optional preview URL can be provided via env var.
+ * Testnet data can be accessed via `network=mumbai` query param
  */
 const API_PREVIEW_URL = process.env.NEXT_PUBLIC_USE_PREVIEW_CARBONMARK_API
-  ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app/api`
-  : "https://staging-api.carbonmark.com/api";
+  ? `https://carbonmark-api-${SHORT_COMMIT_HASH}-klimadao.vercel.app`
+  : API_PROD_URL;
 
-const ENVIRONMENT: Environment =
+/**
+ * The API URL to target when developing the app,
+ * useful for generating types that have not yet been deployed or are on  new version of the API
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003 npm run dev-carbonmark & npm run dev-carbonmark-api
+ * or for types
+ * NEXT_PUBLIC_CARBONMARK_API_URL=http://localhost:3003 npm run generate:types*/
+const API_DEVELOPMENT_URL =
+  process.env.NEXT_PUBLIC_CARBONMARK_API_URL ?? API_PREVIEW_URL;
+
+export const ENVIRONMENT: Environment =
   new LogicTable({
     production: IS_PRODUCTION,
     development: IS_LOCAL_DEVELOPMENT,
@@ -40,6 +54,16 @@ const ENVIRONMENT: Environment =
 
 export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
+/** No special chars */
+export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
+/** Any token symbol containing substring VCS- PURO- or ICR- is valid. This filters out BCT, MCO2, and other assets */
+export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-)/;
+/** Default number of days until a listing expires */
+export const DEFAULT_EXPIRATION_DAYS = 90;
+/** Default minimum fill for a listing */
+export const DEFAULT_MIN_FILL_AMOUNT = 1;
+/** Minimum number of tonnes that can be listed for sale */
+export const DEFAULT_MIN_LISTING_QUANTITY = 1;
 
 export const getConnectErrorStrings = () => ({
   default: t({
@@ -58,10 +82,19 @@ export const getConnectErrorStrings = () => ({
 });
 
 export const config = {
+  // todo, deprecate in favor of networks e.g. "mumbai", "polygon"
   networks: {
     production: "mainnet",
     preview: "mainnet",
     development: "mainnet",
+  },
+  featureFlags: {
+    /** Ability to create listings from assets in portfolio */
+    createListing: {
+      production: false,
+      preview: true,
+      development: true,
+    },
   },
   urls: {
     baseUrl: {
@@ -75,12 +108,9 @@ export const config = {
       development: polygonNetworks.testnet.blockExplorerUrls[0],
     },
     api: {
-      production: "https://api.carbonmark.com/api",
+      production: API_PROD_URL,
       preview: API_PREVIEW_URL,
-      //Allow the developer to set the carbonmark api url to point to their local instance if necessary
-      development:
-        process.env.NEXT_PUBLIC_CARBONMARK_API_URL ??
-        "https://staging-api.carbonmark.com/api",
+      development: API_DEVELOPMENT_URL,
     },
     fiat: {
       production: "https://checkout.offsetra.com/api",
@@ -92,6 +122,7 @@ export const config = {
 
 export const urls = {
   api: {
+    base: config.urls.api[ENVIRONMENT],
     projects: `${config.urls.api[ENVIRONMENT]}/projects`,
     users: `${config.urls.api[ENVIRONMENT]}/users`,
     purchases: `${config.urls.api[ENVIRONMENT]}/purchases`,

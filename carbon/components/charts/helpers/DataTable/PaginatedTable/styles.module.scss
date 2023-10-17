@@ -1,0 +1,16 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+.desktopOnly {
+  display: none;
+
+  @include breakpoints.medium {
+    display: block;
+  }
+}
+
+.mobileOnly {
+  display: block;
+
+  @include breakpoints.medium {
+    display: none;
+  }
+}

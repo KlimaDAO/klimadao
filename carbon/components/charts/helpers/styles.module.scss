@@ -1,0 +1,41 @@
+.chartLegendText {
+  color: var(--lightmode-font-01);
+  font-size: 1.2rem;
+}
+
+.tooltip {
+  background-color: var(--brand-white);
+  border: 0.1rem solid var(--brand-background);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow:
+    0px 3px 6px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  min-width: 16rem;
+}
+
+.tooltipItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.date {
+  font-weight: 700;
+}
+
+.payloadName {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  .dot {
+    border-radius: 50%;
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}

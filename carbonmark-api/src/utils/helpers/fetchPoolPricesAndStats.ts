@@ -1,19 +1,14 @@
 import { get } from "lodash";
+import { NetworkParam } from "../../models/NetworkParam.model";
+import { TokenPriceT } from "../../models/TokenPrice.model";
+import { GQL_SDK } from "../gqlSdk";
 import { fetchAllPoolPrices } from "./fetchAllPoolPrices";
 import { fetchProjectPoolInfo, Stats } from "./fetchProjectPoolInfo";
-
-type ProjectPoolPrice = {
-  poolName: "bct" | "nct" | "ubo" | "nbo"; // Name of the pool
-  supply: string; // The number of tokens in the pool available for retirement
-  poolAddress: string; // The address of the pool / pool token
-  projectTokenAddress: string; // The address of the project token in the pool
-  isPoolDefault: boolean; // If true, the project does not have a selective redemption fee. Each pool has 1 default project.
-  singleUnitPrice: string; // Pool price including any selection fees (for non-default projects), excluding 1% aggregator fee and sushiswap fees
-};
 
 type Params = {
   key: string; // Project key `"VCS-981"`
   vintage: string; // Vintage string `"2017"`
+  network: NetworkParam;
 };
 
 /**
@@ -22,17 +17,21 @@ type Params = {
  * @returns {Promise<[ProjectPoolPrice[], Stats]>} - 1 entry for each asset. For example VCS-981-2017 has been bridged to a C3T (pooled in NBO) and a TCO2 (pooled in NCT)
  */
 export const fetchPoolPricesAndStats = async (
+  sdk: GQL_SDK,
   params: Params
-): Promise<[ProjectPoolPrice[], Stats]> => {
+): Promise<[TokenPriceT[], Stats]> => {
+  if (params.network !== "polygon") {
+    return [[], { totalBridged: 0, totalSupply: 0, totalRetired: 0 }];
+  }
   const [[poolInfoMap, stats], allPoolPrices] = await Promise.all([
-    fetchProjectPoolInfo({
-      key: params.key,
-      vintage: params.vintage,
+    fetchProjectPoolInfo(sdk, {
+      projectID: params.key,
+      vintage: Number(params.vintage),
     }),
-    fetchAllPoolPrices(), // fetch the price for all known lps
+    fetchAllPoolPrices(sdk), // fetch the price for all known lps
   ]);
   /** @type {ProjectPoolPrice[]} */
-  const initialPrices: ProjectPoolPrice[] = [];
+  const initialPrices: TokenPriceT[] = [];
   // convert the map to an array of prices, filter out any pools that don't have a supply
   const poolPrices = Object.keys(poolInfoMap).reduce((arr, poolName) => {
     const poolInfo = get(poolInfoMap, poolName);

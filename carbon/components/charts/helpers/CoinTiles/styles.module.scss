@@ -1,0 +1,99 @@
+@use "sass:math";
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
+$nbTiles: 5;
+/** Configures columns for a grid layout 
+And enable css to be passed to items of all rows except the last one
+*/
+@mixin configureGrid($rowSize) {
+  $nbTilesNotOnLastRow: $nbTiles - $nbTiles % $rowSize;
+  grid-template-columns: repeat($rowSize, 1fr);
+  @for $i from 0 to $nbTilesNotOnLastRow {
+    > div:nth-child(#{$i + 1}) {
+      border-bottom: 1px solid var(--lightmode-font-03);
+    }
+  }
+}
+.tiles_column_layout {
+  display: grid;
+  gap: 24px;
+  > div:not(:last-child) {
+    border-bottom: 1px solid var(--lightmode-font-03);
+  }
+}
+.tiles_row_layout {
+  display: grid;
+  gap: 24px;
+  @include breakpoints.onlySmall {
+    @include configureGrid(1);
+  }
+  @include breakpoints.onlyMedium {
+    @include configureGrid(2);
+  }
+  @include breakpoints.onlyLarge {
+    @include configureGrid(2);
+  }
+  @include breakpoints.onlyDesktop {
+    @include configureGrid(3);
+  }
+  @include breakpoints.desktopLarge {
+    @include configureGrid(4);
+  }
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  gap: 10px;
+  color: var(--lightmode-font-01);
+}
+.header {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  align-items: center;
+}
+.headerText {
+  [aria-describedby="title"] {
+    font-weight: bold;
+  }
+  [aria-describedby="fact"] {
+    color: var(--lightmode-font-02);
+  }
+}
+.iconBox {
+  padding: 4px;
+  border: 1px solid;
+  border-color: var(--brand-border);
+  background-color: var(--brand-background);
+  border-radius: 4px;
+  line-height: 0;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  [aria-describedby="value"] {
+    font-weight: bold;
+    font-size: 24px;
+
+    span {
+      display: flex;
+      align-items: center;
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+  }
+  [aria-describedby="label"] {
+    text-transform: uppercase;
+    font-size: 8px;
+    color: var(--lightmode-font-02);
+  }
+}

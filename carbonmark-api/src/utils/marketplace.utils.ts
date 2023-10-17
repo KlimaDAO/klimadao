@@ -1,16 +1,10 @@
-import { merge } from "lodash";
-import { Listing } from "../.generated/types/marketplace.types";
-import { FirebaseInstance } from "../plugins/firebase";
-import { getFirebaseUser } from "./firebase.utils";
+import { utils } from "ethers";
+import {
+  GetProjectsQuery,
+  Listing,
+} from "../.generated/types/marketplace.types";
+import { Listing as ListingModel } from "../models/Listing.model";
 import { notNil } from "./functional.utils";
-
-export const updateListingUser =
-  (fb: FirebaseInstance) => async (listing: Partial<Listing>) => {
-    const sellerId = listing.seller?.id.toUpperCase();
-    const { data } = await getFirebaseUser(sellerId, fb);
-    const seller = merge({ ...data() }, listing.seller);
-    return { ...listing, seller };
-  };
 
 export const isListingActive = (listing: Partial<Listing>) =>
   notNil(listing.leftToSell) &&
@@ -29,5 +23,25 @@ export const deconstructListingId = (str: string) => {
   return {
     key,
     vintage,
+  };
+};
+
+type GetProjectListing = NonNullable<
+  GetProjectsQuery["projects"][number]["listings"]
+>[number];
+
+/** Formats a gql.marketplace listing to match Listing.model, and formats integers */
+export const formatListing = (listing: GetProjectListing): ListingModel => {
+  return {
+    ...listing,
+    leftToSell: utils.formatUnits(listing.leftToSell, 18),
+    singleUnitPrice: utils.formatUnits(listing.singleUnitPrice, 6),
+    minFillAmount: utils.formatUnits(listing.minFillAmount, 18),
+    totalAmountToSell: utils.formatUnits(listing.totalAmountToSell, 18),
+    project: {
+      ...listing.project,
+      category: listing.project.category?.id || "",
+      country: listing.project.country?.id || "",
+    },
   };
 };

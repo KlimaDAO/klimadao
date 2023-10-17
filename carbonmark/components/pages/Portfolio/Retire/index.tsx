@@ -8,7 +8,10 @@ import { PageHead } from "components/PageHead";
 import { Text } from "components/Text";
 import { useFetchUser } from "hooks/useFetchUser";
 import { createCompositeAsset } from "lib/actions";
-import type { AssetForRetirement, PcbProject } from "lib/types/carbonmark";
+import type {
+  AssetForRetirement,
+  PcbProject,
+} from "lib/types/carbonmark.types";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -23,9 +26,18 @@ export type RetirePageProps = {
 };
 
 export const Retire: NextPage<RetirePageProps> = (props) => {
-  const { isConnected, address, toggleModal, provider, initializing } =
-    useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser(address);
+  const {
+    isConnected,
+    address = "",
+    toggleModal,
+    provider,
+    initializing,
+  } = useWeb3();
+  const { carbonmarkUser, isLoading } = useFetchUser({
+    params: { walletOrHandle: address },
+    // Current user, fetch all listings
+    query: { expiresAfter: "0" },
+  });
   const [retirementAsset, setRetirementAsset] =
     useState<AssetForRetirement | null>(null);
   const isConnectedUser = isConnected && address;

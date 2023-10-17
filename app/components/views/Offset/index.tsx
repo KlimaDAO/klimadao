@@ -36,7 +36,8 @@ import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
-import { providers, utils } from "ethers";
+import { providers } from "ethers";
+import { isAddress, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
@@ -160,7 +161,7 @@ export const Offset = (props: Props) => {
   useEffect(() => {
     if (
       selectedRetirementToken &&
-      utils.isAddress(selectedRetirementToken) &&
+      isAddress(selectedRetirementToken) &&
       !props.isConnected &&
       !props.initializing
     ) {
@@ -201,7 +202,7 @@ export const Offset = (props: Props) => {
     // if input token changes, force a compatible retirement token
     if (
       selectedRetirementToken &&
-      !utils.isAddress(selectedRetirementToken) &&
+      !isAddress(selectedRetirementToken) &&
       !offsetCompatibility[paymentMethod]?.includes(
         selectedRetirementToken as RetirementToken
       )
@@ -294,9 +295,8 @@ export const Offset = (props: Props) => {
       // for example, when using mco2 to retire mco2
       return cost;
     }
-    const onePercent = utils
-      .parseUnits(cost, getTokenDecimals(paymentMethod))
-      .div("100");
+    const onePercent =
+      BigInt(parseUnits(cost, getTokenDecimals(paymentMethod))) / BigInt("100");
     const val = safeAdd(
       cost,
       formatUnits(onePercent, getTokenDecimals(paymentMethod))
@@ -501,7 +501,7 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
+    } else if (!!beneficiaryAddress && !isAddress(beneficiaryAddress)) {
       return {
         label: t({
           id: "shared.invalid_beneficiary_addr",
@@ -525,7 +525,7 @@ export const Offset = (props: Props) => {
         }),
         disabled: true,
       };
-    } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
+    } else if (!!projectAddress && !isAddress(projectAddress)) {
       return {
         label: t({
           id: "shared.invalid_project_address",
@@ -716,7 +716,7 @@ export const Offset = (props: Props) => {
               />
             )}
 
-          {utils.isAddress(projectAddress) &&
+          {isAddress(projectAddress) &&
             !selectedProject &&
             isPoolToken(selectedRetirementToken) &&
             selectedRetirementToken !== "mco2" && (
@@ -810,7 +810,7 @@ export const Offset = (props: Props) => {
               <input
                 value={beneficiaryAddress}
                 data-error={
-                  !!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)
+                  !!beneficiaryAddress && !isAddress(beneficiaryAddress)
                 }
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
                 placeholder={t`Beneficiary 0x address (optional)`}

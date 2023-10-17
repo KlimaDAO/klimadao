@@ -48,13 +48,25 @@ export interface Web3ModalStrings {
   torus_desc: string;
 }
 
+/**
+ * Interface for the state when the Web3 connection is established.
+ */
 export interface ConnectedWeb3State {
+  /** Indicates if the connection is established */
   isConnected: true;
+  /** The provider used for the connection */
   provider: TypedProvider;
+  /** The address of the connected account */
   address: string;
+  /** The signer used for signing transactions */
   signer: providers.JsonRpcSigner;
+  /** The network to which the connection is established */
   network: providers.Network;
+  /** The label of the network */
+  networkLabel: "polygon" | "mumbai";
+  /** Indicates if the connection is being initialized */
   initializing: false;
+  /** Indicates if the connection is from cache */
   isConnectionFromCache: boolean;
 }
 
@@ -82,13 +94,27 @@ export interface RenderModalProps {
   };
   buttonClassName?: string;
   onClose?: () => void;
+  showMumbaiOption?: boolean;
 }
 
 export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
+export type WalletLabel =
+  | "torus"
+  | "torus-mumbai"
+  | "walletconnect"
+  | "coinbase"
+  | "injected"
+  | "walletConnect";
+
+export type ConnectFn = (
+  wallet?: WalletLabel,
+  options?: { useCache?: boolean }
+) => Promise<void>;
+
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
 export type Web3ModalState = Web3State & {
-  connect?: (wallet?: string) => Promise<void>;
+  connect?: ConnectFn;
   disconnect?: () => Promise<void>;
   showModal: boolean;
   renderModal: (props: RenderModalProps) => JSX.Element;
@@ -97,6 +123,7 @@ export type Web3ModalState = Web3State & {
   isConnectionFromCache: boolean | undefined;
   ignoreChainId: boolean;
   setIgnoreChainId?: (value: boolean) => void;
+  networkLabel: "polygon" | "mumbai";
 };
 
 export const web3InitialState: Web3ModalState = {
@@ -107,6 +134,7 @@ export const web3InitialState: Web3ModalState = {
   address: undefined,
   signer: undefined,
   network: undefined,
+  networkLabel: "polygon",
   showModal: false,
   isConnectionFromCache: undefined,
   renderModal: () => undefined as unknown as JSX.Element,

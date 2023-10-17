@@ -5,58 +5,39 @@ import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
-import { BigNumber, utils } from "ethers";
-import { formatUnits } from "ethers/lib/utils";
 import {
   approveTokenSpend,
   deleteListingTransaction,
   getCarbonmarkAllowance,
   updateListingTransaction,
 } from "lib/actions";
-import { formatToTonnes } from "lib/formatNumbers";
 import { LO } from "lib/luckyOrange";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
-import { AssetForListing, ListingWithProject } from "lib/types/carbonmark";
+import { Asset, Listing as ListingT } from "lib/types/carbonmark.types";
+import { getUnlistedBalance } from "lib/utils/listings.utils";
 import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 import * as styles from "./styles";
 
 type Props = {
-  listings: ListingWithProject[];
-  assets: AssetForListing[];
+  listings: ListingT[];
+  assets: Asset[];
   onFinishEditing: () => void;
   isUpdatingData: boolean;
 };
 
-const getBalanceForListing = (
-  listing: ListingWithProject,
-  assets: AssetForListing[]
-): number => {
-  const matchingBalance = assets.find(
-    (a) => a.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase()
-  )?.balance;
-  return Number(matchingBalance ?? 0);
-};
-
 export const ListingEditable: FC<Props> = (props) => {
-  const { provider, address } = useWeb3();
-  const [listingToEdit, setListingToEdit] = useState<ListingWithProject | null>(
-    null
-  );
+  const { provider, address, networkLabel } = useWeb3();
+  const [listingToEdit, setListingToEdit] = useState<ListingT | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const existingQuantityBN = BigNumber.from(listingToEdit?.leftToSell || "0");
-  const newQuantityBN = utils.parseUnits(inputValues?.newQuantity || "1", 18);
-  const newQuantityDelta = formatUnits(
-    newQuantityBN.sub(existingQuantityBN),
-    18
-  );
+  const newQuantity = Number(inputValues?.newQuantity || "1");
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -84,6 +65,7 @@ export const ListingEditable: FC<Props> = (props) => {
       const allowance = await getCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
+        network: networkLabel,
       });
       setAllowanceValue(allowance);
       setInputValues(values);
@@ -94,15 +76,24 @@ export const ListingEditable: FC<Props> = (props) => {
     }
   };
 
+  /** Return the value of all other listings of this same asset, plus the new listing quantity */
+  const getTotalAssetApproval = (listing?: ListingT | null): number => {
+    if (!listing) return 0;
+    const sumOtherListings = props.listings
+      .filter(
+        (l) =>
+          l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase() &&
+          l.id !== listing.id
+      )
+      .reduce((a, b) => a + Number(b.leftToSell), 0);
+    return sumOtherListings + newQuantity;
+  };
+
+  /** Return true if the user has exactly the required approval for all listings of this asset */
   const hasApproval = () => {
-    if (Number(newQuantityDelta) <= 0) {
-      // we only need an approval when tonnes are being added
-      return true;
-    }
+    if (!listingToEdit) return false;
     return (
-      !!allowanceValue &&
-      !!inputValues &&
-      Number(allowanceValue) >= Number(inputValues.newQuantity)
+      Number(allowanceValue || "0") === getTotalAssetApproval(listingToEdit)
     );
   };
 
@@ -110,13 +101,15 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(listingToEdit).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: newQuantityDelta,
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -128,9 +121,8 @@ export const ListingEditable: FC<Props> = (props) => {
     try {
       await updateListingTransaction({
         listingId: listingToEdit.id,
-        tokenAddress: inputValues.tokenAddress,
         provider,
-        totalAmountToSell: inputValues.newQuantity,
+        newAmount: inputValues.newQuantity,
         singleUnitPrice: inputValues.newSingleUnitPrice,
         onStatus: onUpdateStatus,
       });
@@ -175,16 +167,25 @@ export const ListingEditable: FC<Props> = (props) => {
     return (
       <div className={styles.formatParagraph}>
         <Text t="body1" color="lighter">
-          <Trans id="edit_listing.approval_1">
-            You are about to transfer ownership of this asset from your wallet
-            to Carbonmark.
+          <Trans>
+            First, approve the Carbonmark system to transfer this asset on your
+            behalf.
           </Trans>
         </Text>
         <Text t="body1" color="lighter">
-          <Trans id="edit_listing.approval_2">
-            You can remove your listing at any time until it has been sold.
+          <Trans>
+            You can revoke this approval at any time. The assets will only be
+            transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
+        {getTotalAssetApproval(listingToEdit) > newQuantity && (
+          <Text t="body1" color="lighter">
+            <Trans>
+              The value below reflects the sum of all of your listings for this
+              specific token.
+            </Trans>
+          </Text>
+        )}
       </div>
     );
   };
@@ -193,20 +194,41 @@ export const ListingEditable: FC<Props> = (props) => {
     return (
       <div className={styles.formatParagraph}>
         <Text t="body1" color="lighter">
-          <Trans id="edit_listing.submit_1">
-            The previous step granted the approval to transfer this asset from
-            your wallet to Carbonmark, your asset has not been transferred yet.
+          <Trans>
+            Almost finished! The last step is to create the listing and submit
+            it to the system. Please verify the quantity and price below.
           </Trans>
         </Text>
         <Text t="body1" color="lighter">
-          <Trans id="edit_listting.submit_2">
-            To finalize the transfer of this asset to Carbonmark and make your
-            listing live, verify all information is correct and then click
-            submit below.
-          </Trans>
+          <Trans>You can delete this listing at any time.</Trans>
         </Text>
       </div>
     );
+  };
+
+  /**
+   * For a given listing, finds the user balance
+   * From that balance, subtract the amount of any other listings
+   * @returns {number} The amount that can be listed (incl. currently listed quantity)
+   */
+  const getListableBalance = (listing: ListingT): number => {
+    const asset = props.assets.find(
+      (a) => a.token.id.toLowerCase() === listing.tokenAddress.toLowerCase()
+    );
+    if (!asset) return 0;
+    const unlistedBalance = getUnlistedBalance(asset, props.listings);
+    // the listable balance includes current listing
+    return unlistedBalance + Number(listing.leftToSell);
+  };
+
+  /** Util to render the amount label in the transaction modal */
+  const getAmountLabel = () => {
+    const amount = hasApproval()
+      ? newQuantity // 'submit' view shows the new quantity
+      : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
+    return {
+      value: t`${amount} tonnes`,
+    };
   };
 
   return (
@@ -218,7 +240,7 @@ export const ListingEditable: FC<Props> = (props) => {
         >
           <Listing listing={listing}>
             <CarbonmarkButton
-              label={<Trans id="profile.listing.edit">Edit</Trans>}
+              label={<Trans>Edit</Trans>}
               className={styles.editListingButton}
               onClick={() => {
                 LO.track("Listing: Edit Clicked");
@@ -230,10 +252,7 @@ export const ListingEditable: FC<Props> = (props) => {
       ))}
 
       <Modal
-        title={t({
-          id: "seller.edit_listing.title",
-          message: "Edit Listing",
-        })}
+        title={t`Edit listing`}
         showModal={!!listingToEdit}
         onToggleModal={onModalClose}
       >
@@ -244,9 +263,7 @@ export const ListingEditable: FC<Props> = (props) => {
               onSubmit={onFormSubmit}
               onCancel={() => setListingToEdit(null)}
               values={inputValues}
-              assetBalance={formatToTonnes(
-                getBalanceForListing(listingToEdit, props.assets)
-              )}
+              listableBalance={getListableBalance(listingToEdit)}
             />
             <CarbonmarkButton
               label={
@@ -276,17 +293,12 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            amount={{
-              value: `${newQuantityDelta} ${t({
-                id: "tonnes.long",
-                message: "tonnes",
-              })}`,
-            }}
+            amount={getAmountLabel()}
             price={{
               value: inputValues.newSingleUnitPrice,
               token: "usdc",
             }}
-            spenderAddress={getAddress("carbonmark")}
+            spenderAddress={getAddress("carbonmark", networkLabel)}
             approvalText={<EditApproval />}
             submitText={<EditSubmit />}
             onApproval={handleApproval}

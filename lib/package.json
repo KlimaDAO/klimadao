@@ -1,5 +1,6 @@
 {
   "name": "@klimadao/lib",
+  "sideEffects": false,
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -12,7 +13,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
     "@tippyjs/react": "^4.2.6",
-    "@toruslabs/torus-embed": "^1.41.2",
+    "@toruslabs/torus-embed": "^4.0.0",
     "@walletconnect/web3-provider": "^1.8.0",
     "ethers": "^5.7.2",
     "make-plural": "^7.2.0",
@@ -36,7 +37,6 @@
     "./constants": "./out/constants/index.js",
     "./featureFlags": "./out/featureFlags/index.js",
     "./utils": "./out/utils/index.js",
-    "./utils/getLocales": "./out/utils/getLocales/index.js",
     "./hooks": "./out/hooks/index.js",
     "./theme/*": "./theme/*",
     "./abi/*": "./abi/*"

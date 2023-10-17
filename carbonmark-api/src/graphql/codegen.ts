@@ -1,17 +1,18 @@
 import { merge } from "lodash";
-import { GRAPH_URLS, SANITY_URLS } from "./codegen.constants";
+import { GRAPH_URLS, SANITY_URLS } from "../app.constants";
+// eslint-disable-next-line @typescript-eslint/no-var-requires -- ugh
 
-const GENERATED_DIR = "src/.generated/types";
-const GENERATED_MOCKS_DIR = "src/.generated/mocks";
-const DOCUMENTS_DIR = "src/graphql";
-
-const plugins = [
+const PLUGINS = [
   "typescript",
   "typescript-operations",
   "typescript-graphql-request",
 ];
 
-const schemas = merge(GRAPH_URLS, SANITY_URLS);
+const schemas = merge(GRAPH_URLS["polygon"], SANITY_URLS);
+
+const GENERATED_DIR = `src/.generated/types`;
+const GENERATED_MOCKS_DIR = `src/.generated/mocks`;
+const DOCUMENTS_DIR = `src/graphql`;
 
 // Generate configuration for each schema entry
 const generates = Object.entries(schemas).reduce(
@@ -23,7 +24,7 @@ const generates = Object.entries(schemas).reduce(
         `${DOCUMENTS_DIR}/${key}.gql`,
         `${DOCUMENTS_DIR}/${key}.fragments.gql`,
       ],
-      plugins,
+      plugins: PLUGINS,
     },
     [`${GENERATED_MOCKS_DIR}/${key}.mocks.ts`]: {
       schema,
@@ -48,12 +49,11 @@ const generates = Object.entries(schemas).reduce(
   {}
 );
 
-const config = {
+export default {
   overwrite: true,
   generates,
   config: {
     scalars: { BigInt: "string", ID: "string" },
+    avoidOptionals: true,
   },
 };
-
-export default config;

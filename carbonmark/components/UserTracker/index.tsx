@@ -9,14 +9,21 @@ interface Props {
 
 /** A component that tracks user logins  */
 export const UserTracker: FC<Props> = (props) => {
-  const { address, isConnectionFromCache } = useWeb3();
-  const { carbonmarkUser, isLoading } = useFetchUser(address);
+  const { address = "", isConnectionFromCache } = useWeb3();
+  const { carbonmarkUser, isLoading } = useFetchUser({
+    params: { walletOrHandle: address },
+  });
   useEffect(() => {
     // Start tracking only if we finished loading carbonmarkUser data
-    if (address && !isLoading) {
+    if (
+      address &&
+      !isLoading &&
+      carbonmarkUser?.handle &&
+      carbonmarkUser.username
+    ) {
       LO.identify(address, {
-        user: carbonmarkUser ? carbonmarkUser.handle : undefined,
-        name: carbonmarkUser ? carbonmarkUser.username : undefined,
+        user: carbonmarkUser.handle,
+        name: carbonmarkUser.username,
       });
       if (!isConnectionFromCache) {
         LO.track("Login");

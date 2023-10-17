@@ -34,6 +34,12 @@ type Props = {
 };
 
 export const ActivityTable: FC<Props> = (props) => {
+  const formatTonnes = (value: string | number) => {
+    // < 1 tonne, show up to 3 decimals / > 1 tonne, show up to 2 decimals
+    const precision = Number(value) < 1 ? 3 : 2;
+    return trimWithLocale(value, precision, props.locale);
+  };
+
   return (
     <div className={cx(styles.list, props.className)}>
       <div className={styles.listHeader}>
@@ -52,7 +58,7 @@ export const ActivityTable: FC<Props> = (props) => {
             <div className={styles.listItem}>
               <Text>{r.offset.name || r.offset.projectID}</Text>
               <Text align="end">
-                {trimWithLocale(r.amount, 2, props.locale)}
+                {formatTonnes(r.amount)}
                 {t`t`}
               </Text>
               <Text>{getFormattedDate(r.timestamp, props.locale || "en")}</Text>

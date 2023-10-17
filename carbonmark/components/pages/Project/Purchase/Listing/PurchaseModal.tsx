@@ -1,3 +1,4 @@
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
@@ -5,7 +6,7 @@ import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
 import { getAddress } from "lib/networkAware/getAddress";
 import { TransactionStatusMessage } from "lib/statusMessage";
-import { CarbonmarkToken } from "lib/types/carbonmark";
+import { CarbonmarkToken } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { FC } from "react";
 import * as styles from "../styles";
@@ -80,6 +81,7 @@ const PurchaseSubmit: FC = () => {
 };
 
 export const PurchaseModal: FC<Props> = (props) => {
+  const { networkLabel } = useWeb3();
   return (
     <Modal
       title={
@@ -107,7 +109,8 @@ export const PurchaseModal: FC<Props> = (props) => {
           onCancel={props.onCancel}
           status={props.status}
           onResetStatus={props.onResetStatus}
-          spenderAddress={getAddress("carbonmark")}
+          spenderAddress={getAddress("carbonmark", networkLabel)}
+          onGoBack={props.onCancel}
         />
       )}
       {props.isProcessing && (

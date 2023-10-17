@@ -1,24 +1,29 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
-import { Dropdown } from "components/Dropdown";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
 import { Text } from "components/Text";
-import { utils } from "ethers";
+import { isAddress } from "ethers-v6";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
 import { carbonmarkRetirePaymentMethodMap } from "lib/getPaymentMethods";
 import {
   CarbonmarkPaymentMethod,
-  Price as PriceType,
-} from "lib/types/carbonmark";
+  TokenPrice as PriceType,
+} from "lib/types/carbonmark.types";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import { SubmitHandler, useFormContext, useWatch } from "react-hook-form";
+import {
+  Controller,
+  SubmitHandler,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 import * as styles from "./styles";
 import { FormValues } from "./types";
 
@@ -28,12 +33,15 @@ type Props = {
   values: null | FormValues;
   userBalance: string | null;
   fiatBalance: string | null;
+  fiatMinimum: string | null;
   address?: string;
+  fiatAmountError?: boolean;
 };
 
 const validations = (
   userBalance: string | null,
-  fiatBalance: string | null
+  fiatBalance: string | null,
+  fiatMinimum: string | null
 ) => ({
   usdc: {
     quantity: {
@@ -43,6 +51,10 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: 0.001,
+        message: t`The minimum amount to retire is 0.001 Tonnes`,
+      },
       max: {
         value: Number(userBalance || "0"),
         message: t`You exceeded your available amount of tokens`,
@@ -57,11 +69,19 @@ const validations = (
       },
     },
     totalPrice: {
+      min: {
+        value: Number(fiatMinimum || "0"),
+        message: t`Credit card minimum purchase is ${formatToPrice(
+          fiatMinimum || 0
+        )}`,
+      },
       max: {
         value: Number(fiatBalance || "2000"),
-        message: t`At this time, Carbonmark cannot process credit card payments exceeding ${formatToPrice(
-          fiatBalance || 0
-        )}.`,
+        message: t`
+            At this time, Carbonmark cannot process credit card payments
+            exceeding ${formatToPrice(fiatBalance || 0)}. Please adjust the
+            quantity and try again later.
+          `,
       },
     },
   },
@@ -69,7 +89,7 @@ const validations = (
 
 export const RetireInputs: FC<Props> = (props) => {
   const { locale } = useRouter();
-
+  const { address, isConnected, toggleModal } = useWeb3();
   const { register, handleSubmit, formState, control, clearErrors, setValue } =
     useFormContext<FormValues>();
 
@@ -82,20 +102,50 @@ export const RetireInputs: FC<Props> = (props) => {
   const totalPrice = useWatch({ name: "totalPrice", control });
 
   const getValidations = () =>
-    validations(props.userBalance, props.fiatBalance)[paymentMethod];
+    validations(props.userBalance, props.fiatBalance, props.fiatMinimum)[
+      paymentMethod
+    ];
+
+  const belowFiatMinimum =
+    paymentMethod === "fiat" &&
+    quantity !== "0" &&
+    Number(props.fiatMinimum) > Number(totalPrice);
+
+  const isFiat = paymentMethod === "fiat";
+
+  const isDisabled = (item: string) =>
+    item === "usdc" && !address && !isConnected;
 
   const exceededFiatBalance =
-    paymentMethod === "fiat" && Number(props.fiatBalance) < Number(totalPrice);
+    isFiat && Number(props.fiatBalance) < Number(totalPrice);
+
+  const payWithItems = Object.entries(
+    carbonmarkRetirePaymentMethodMap
+  ).reverse();
+
+  /** Credit card fee string to display in the price card for fiat payments */
+  const calcCreditCardFee = (): string => {
+    if (!isFiat || !Number(totalPrice)) return "$0.00";
+    const priceWithoutFees =
+      Number(quantity) * Number(props.price.singleUnitPrice);
+    const fee = Number(totalPrice) - priceWithoutFees;
+    if (fee <= 0) return "$0.00";
+    return formatToPrice(fee.toString(), locale, isFiat);
+  };
 
   useEffect(() => {
     // remove all errors when changed
     clearErrors();
     // When the user choose to pay by credit card,
     // we convert the existing quantity to a whole number (1.123 -> 2)
-    if (paymentMethod === "fiat" && !!quantity) {
+    if (isFiat && !!quantity && !props.fiatAmountError) {
       setValue("quantity", Math.ceil(Number(quantity)).toString());
     }
-  }, [paymentMethod]);
+    // clear quantity when error
+    if (isFiat && !!props.fiatAmountError) {
+      setValue("quantity", "");
+    }
+  }, [paymentMethod, props.fiatAmountError]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -114,7 +164,6 @@ export const RetireInputs: FC<Props> = (props) => {
         <Text>
           <span className={styles.required}>* </span> {t`Required Field`}
         </Text>
-
         <div className={styles.labelWithInput}>
           <div className={styles.quantityLabel}>
             <Text>
@@ -135,9 +184,8 @@ export const RetireInputs: FC<Props> = (props) => {
                 ...register("quantity", {
                   onChange: (e) => {
                     clearErrors("totalPrice");
-
                     // Enforce whole numbers for Fiat, API throws otherwise
-                    paymentMethod === "fiat" &&
+                    isFiat &&
                       setValue(
                         "quantity",
                         Math.ceil(Number(e.target.value)).toString()
@@ -160,13 +208,10 @@ export const RetireInputs: FC<Props> = (props) => {
             />
           </div>
         </div>
-
         <div className={styles.labelWithInput}>
           <Text>
             {t`Who will this retirement be credited to?`}{" "}
-            {paymentMethod === "fiat" && (
-              <span className={styles.required}>*</span>
-            )}
+            {isFiat && <span className={styles.required}>*</span>}
           </Text>
           <InputField
             id="beneficiaryName"
@@ -174,7 +219,7 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Beneficiary name`,
               ...register("beneficiaryName", {
                 required: {
-                  value: paymentMethod === "fiat",
+                  value: isFiat,
                   message: t`Required when proceeding with Credit Card`,
                 },
               }),
@@ -189,13 +234,13 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Beneficiary wallet address (optional)`,
               ...register("beneficiaryAddress", {
                 required: {
-                  value: paymentMethod === "fiat" && !props.address,
+                  value: isFiat && !props.address,
                   message: t`You either need to provide a beneficiary address or login with your browser wallet.`,
                 },
                 validate: {
                   isAddress: (v) =>
                     v === "" || // no beneficiary, fallback to default address
-                    utils.isAddress(v) || // allow polygon addresses only
+                    isAddress(v) || // allow polygon addresses only
                     t`Not a valid polygon address`,
                 },
               }),
@@ -210,9 +255,7 @@ export const RetireInputs: FC<Props> = (props) => {
         <div className={styles.labelWithInput}>
           <Text>
             {t`Retirement Message`}{" "}
-            {paymentMethod === "fiat" && (
-              <span className={styles.required}>*</span>
-            )}
+            {isFiat && <span className={styles.required}>*</span>}
           </Text>
           <TextareaField
             id="retirementMessage"
@@ -220,7 +263,7 @@ export const RetireInputs: FC<Props> = (props) => {
               placeholder: t`Describe the purpose of this retirement`,
               ...register("retirementMessage", {
                 required: {
-                  value: paymentMethod === "fiat",
+                  value: isFiat,
                   message: t`Required when proceeding with Credit Card`,
                 },
               }),
@@ -230,69 +273,105 @@ export const RetireInputs: FC<Props> = (props) => {
             errorMessage={formState.errors.retirementMessage?.message}
           />
         </div>
-
         <div className={styles.labelWithInput}>
           <div className={styles.paymentLabel}>
-            <Text>{t`Pay with:`}</Text>
-            {!!props.userBalance && paymentMethod !== "fiat" && (
+            <Text>
+              {t`Pay with:`} <span className={styles.required}>*</span>
+            </Text>
+            {!!props.userBalance && !isFiat && (
               <Text t="body3">
                 {t`Balance: ${formatToPrice(props.userBalance, locale)}`}
               </Text>
             )}
-            {paymentMethod === "fiat" && props.fiatBalance && (
+            {isFiat && props.fiatBalance && (
               <Text t="body3">{t`${formatToPrice(
                 props.fiatBalance,
                 locale
               )} maximum for credit cards`}</Text>
             )}
           </div>
-
-          <Dropdown
-            name="paymentMethod"
-            initial={carbonmarkRetirePaymentMethodMap["fiat"].id}
-            className={cx(styles.paymentDropdown, {
-              error: exceededFiatBalance,
-            })}
-            aria-label={t`Toggle payment method`}
-            renderLabel={(selected) => (
-              <div className={styles.paymentDropDownHeader}>
-                <Image
-                  className="icon"
-                  src={
-                    carbonmarkRetirePaymentMethodMap[
-                      selected.id as CarbonmarkPaymentMethod
-                    ].icon
-                  }
-                  width={28}
-                  height={28}
-                  alt={
-                    carbonmarkRetirePaymentMethodMap[
-                      selected.id as CarbonmarkPaymentMethod
-                    ].id
-                  }
-                />{" "}
-                {selected.label}
-              </div>
-            )}
-            control={control}
-            options={Object.values(carbonmarkRetirePaymentMethodMap).map(
-              (val) => ({
-                id: val.id,
-                label: val.label,
-                value: val.id,
-                icon: val.icon,
-                disabled: val.disabled,
-              })
-            )}
-          />
+          {payWithItems?.map(([item, value]) => (
+            <Controller
+              control={control}
+              name="paymentMethod"
+              key={`payment-method-${item}`}
+              render={({ field }) => (
+                <>
+                  <button
+                    type="button"
+                    disabled={value.disabled}
+                    aria-label="Payment Method"
+                    onClick={() => {
+                      if (value.id === "usdc" && !isConnected && !address) {
+                        toggleModal();
+                      }
+                      setValue(
+                        "paymentMethod",
+                        value.id as CarbonmarkPaymentMethod
+                      );
+                    }}
+                    className={cx(styles.paymentMethod, {
+                      error: exceededFiatBalance,
+                      selected: item === field.value,
+                    })}
+                  >
+                    <div>
+                      <Image
+                        width={28}
+                        height={28}
+                        className="icon"
+                        src={value.icon}
+                        alt={value.label}
+                      />
+                      {item === "fiat" ? (
+                        <>{value.label}</>
+                      ) : (
+                        <>
+                          {isConnected && address ? (
+                            value.label
+                          ) : (
+                            <Trans>Login to pay with USDC</Trans>
+                          )}
+                        </>
+                      )}
+                    </div>
+                    <Text
+                      t="body3"
+                      className={cx({ selected: item === field.value })}
+                    >
+                      {item === "fiat" && (
+                        <>
+                          <Trans>Processing Fee:</Trans>
+                          <strong>{calcCreditCardFee()}</strong>
+                        </>
+                      )}
+                      {item === "usdc" && !isDisabled(item) && (
+                        <>
+                          <Trans>Balance</Trans>
+                          <strong>
+                            {formatToPrice(props.userBalance!, locale)}
+                          </strong>
+                        </>
+                      )}
+                    </Text>
+                  </button>
+                </>
+              )}
+            />
+          ))}
         </div>
+
+        {belowFiatMinimum && (
+          <Text t="body1" className={styles.errorMessagePrice}>
+            {getValidations().totalPrice.min.message}
+          </Text>
+        )}
 
         {exceededFiatBalance && (
           <Text t="body1" className={styles.errorMessagePrice}>
             {getValidations().totalPrice.max.message}
           </Text>
         )}
-
         <div className={styles.paymentHelp}>
           <HelpOutline className={styles.helpIcon} />
           <div className={styles.paymentText}>
@@ -309,7 +388,6 @@ export const RetireInputs: FC<Props> = (props) => {
             </Text>
           </div>
         </div>
-
         <div className={styles.disclaimer}>
           <GppMaybeOutlined />
           <Text t="body3">
