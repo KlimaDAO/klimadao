@@ -45,6 +45,7 @@ describe("CreditId", () => {
 
   test("isValidCreditId - static method", () => {
     expect(CreditId.isValidCreditId("VCS-191-2008")).toBe(true);
+    expect(CreditId.isValidCreditId("GS-500-2020")).toBe(true);
     expect(CreditId.isValidCreditId("vcs-191-2008")).toBe(true);
     expect(CreditId.isValidCreditId("VCS-191-0")).toBe(false);
     expect(CreditId.isValidCreditId("VCS-0")).toBe(false);
@@ -56,6 +57,8 @@ describe("CreditId", () => {
 
   test("isValidProjectId - static method", () => {
     expect(CreditId.isValidProjectId("VCS-191")).toBe(true);
+    expect(CreditId.isValidProjectId("GS-500")).toBe(true);
+    expect(CreditId.isValidProjectId("ICR-2023")).toBe(true);
     expect(CreditId.isValidProjectId("vcs-191")).toBe(true);
     expect(CreditId.isValidProjectId("PURO-0001")).toBe(true);
     expect(CreditId.isValidProjectId("PURO-0001-2020")).toBe(false);
