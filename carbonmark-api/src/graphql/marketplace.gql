@@ -21,13 +21,17 @@ query getVintages {
 
 query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    id
     amount
+    id
     listing {
       id
       project {
         ...ProjectFragment
       }
+      seller {
+        id
+      }
+      tokenAddress
     }
     price
   }
