@@ -8,7 +8,6 @@ import { approveTokenSpend, getUSDCBalance, makePurchase } from "lib/actions";
 import { LO } from "lib/luckyOrange";
 import { getAllowance } from "lib/networkAware/getAllowance";
 import { getContract } from "lib/networkAware/getContract";
-import { getStaticProvider } from "lib/networkAware/getStaticProvider";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { DetailedProject, Listing } from "lib/types/carbonmark.types";
 import { useRouter } from "next/router";
@@ -90,7 +89,8 @@ export const PurchaseForm: FC<Props> = (props) => {
       const allowance = await getAllowance({
         contract: getContract({
           contractName: "usdc",
-          provider: getStaticProvider(),
+          provider,
+          network: networkLabel === "mumbai" ? "testnet" : "mainnet",
         }),
         address,
         spender: "carbonmark",
@@ -151,7 +151,7 @@ export const PurchaseForm: FC<Props> = (props) => {
       const result = await makePurchase({
         listingId: inputValues.listingId,
         quantity: inputValues.amount,
-        singleUnitPrice: inputValues.price,
+        singleUnitPrice: props.listing.singleUnitPrice,
         creditTokenAddress: props.listing.tokenAddress,
         sellerAddress: props.listing.seller.id,
         provider,
