@@ -12,11 +12,24 @@ export const client = createClient<NormalizeOAS<typeof schema>>({
     // If the status code is not in the range 200-299,
     // we still try to parse and throw it.
     if (!res.ok) {
-      throw new Error((await res.json()).message);
+      throw new FetchError((await res.json()).message, res.status);
     }
 
     return res;
   },
 });
+/** Extend Error to allow network status to be returned */
+class FetchError extends Error {
+  constructor(
+    public message: string,
+    public status: number
+  ) {
+    super(message);
+    // Ensure the name of this error is the same as the class name
+    this.name = this.constructor.name;
+    // This clips the constructor invocation from the stack trace.
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
 
 export type ClientT = typeof client;
