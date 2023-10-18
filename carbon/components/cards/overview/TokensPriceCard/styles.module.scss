@@ -9,4 +9,10 @@
 }
 .selectiveFeeIcon {
   font-size: 10px;
+  &:hover {
+    color: var(--brand-blue);
+  }
+}
+.tooltipText {
+  font-size: 12px;
 }
