@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-15 07:00+0000\n"
+"POT-Creation-Date: 2023-10-18 07:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,8 +80,8 @@ msgid "All assets sourced from major registries"
 msgstr "सभी संपत्तियां प्रमुख रजिस्ट्रियों से प्राप्त की गईं है"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:173
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:195
+#: components/CreateListing/index.tsx:175
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr ""
 
@@ -152,7 +152,6 @@ msgid ""
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:63
 #: components/pages/Retire/FromPortfolio/AssetProject/index.tsx:50
 #: components/ProjectCard/index.tsx:46
 msgid "Available Tonnes:"
@@ -431,20 +430,20 @@ msgid "Create Carbonmark Profile"
 msgstr "कार्बनमार्क प्रोफ़ाइल बनाएं"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:143
-#: components/pages/Users/SellerConnected/index.tsx:161
+#: components/pages/Users/SellerConnected/index.tsx:144
+#: components/pages/Users/SellerConnected/index.tsx:168
 msgid "Create New Listing"
 msgstr "नयी सूची बनाएँ"
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:304
 #: components/pages/Home/index.tsx:328
-#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:114
 msgid "Create Profile"
 msgstr "प्रोफ़ाइल बनाएँ"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:192
+#: components/CreateListing/index.tsx:206
 msgid "Create a listing"
 msgstr ""
 
@@ -566,17 +565,17 @@ msgid "Downloading ..."
 msgstr "डाउनलोड हो रहा है..."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:231
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
 msgid "Edit"
 msgstr "संपादित करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:113
+#: components/pages/Users/SellerConnected/index.tsx:114
 msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:243
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:255
 msgid "Edit listing"
 msgstr ""
 
@@ -616,8 +615,8 @@ msgid "Find the latest updates, guides, and resources to help you leverage the C
 msgstr "कार्बनमार्क प्लैटफ़ॉर्म का लाभ उठाने में सहायता के लिए, नवीनतम अपडेट, गाइड और संसाधन खोजें।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:146
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:168
+#: components/CreateListing/index.tsx:148
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr ""
 
@@ -773,7 +772,12 @@ msgid "List your projects for sale in just a few clicks"
 msgstr "बस कुछ ही क्लिक में बिक्री के लिए अपनी परियोजनाओं की सूची बनाएं"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:128
+#: components/pages/Portfolio/AssetProject/index.tsx:77
+msgid "Listed tonnes:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/Users/SellerConnected/index.tsx:129
 #: components/pages/Users/SellerUnconnected/index.tsx:55
 msgid "Listings"
 msgstr "सूचियाँ"
@@ -866,7 +870,7 @@ msgid "No Activity to show."
 msgstr "दिखाने के लिए कोई गतिविधि नहीं।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:185
+#: components/pages/Users/SellerConnected/index.tsx:192
 #: components/pages/Users/SellerUnconnected/index.tsx:91
 msgid "No active listings."
 msgstr "शून्य सक्रिय सूचियाँ"
@@ -887,7 +891,7 @@ msgid "No data to show"
 msgstr "दिखाने के लिए कोई डेटा नहीं"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:95
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:96
 msgid "No listable assets found."
 msgstr "एक भी सूचीयोग्य ऐसेट मौजूद नहीं"
 
@@ -986,8 +990,8 @@ msgstr "कृपया लॉगिन करें"
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/index.tsx:62
-#: components/pages/Users/SellerConnected/index.tsx:76
-#: components/pages/Users/SellerConnected/index.tsx:102
+#: components/pages/Users/SellerConnected/index.tsx:77
+#: components/pages/Users/SellerConnected/index.tsx:103
 msgid "Please refresh the page. There was an error updating your data: {e}."
 msgstr "कृपया पृष्ट को रिफ़्रेश करें। आपका डेटा अपडेट करने में गलती हुई: {e}।"
 
@@ -1223,7 +1227,7 @@ msgid "Results"
 msgstr "परिणाम"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:69
+#: components/pages/Portfolio/AssetProject/index.tsx:84
 msgid "Retire"
 msgstr "रिटायर"
 
@@ -1336,8 +1340,8 @@ msgid "See your retirement receipt"
 msgstr "अपनी रिटायरमेंट रसीद देखें"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/AssetProject/index.tsx:78
-#: components/pages/Portfolio/AssetProject/index.tsx:86
+#: components/pages/Portfolio/AssetProject/index.tsx:93
+#: components/pages/Portfolio/AssetProject/index.tsx:101
 msgid "Sell"
 msgstr "बेचें"
 
@@ -1422,7 +1426,7 @@ msgid "Step 3"
 msgstr "चरण 3"
 
 #. js-lingui-explicit-id
-#: components/pages/Portfolio/CarbonmarkAssets.tsx:84
+#: components/pages/Portfolio/CarbonmarkAssets.tsx:85
 msgid "Success! Your new listing will appear in a few moments on your <0>Profile page</0>."
 msgstr "सफलता! आपकी नई लिस्टिंग कुछ ही पलों में आपके <0>प्रोफ़ाइल पेज</0> पर दिखाई देगी।"
 
@@ -1504,8 +1508,8 @@ msgid "The previous step granted the approval to transfer your payment asset fro
 msgstr "पिछले चरण में आपके भुगतान ऐसेट को आपके वॉलेट से कार्बनमार्क में हस्तांतरण को मंज़ूरी मिली।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:181
+#: components/CreateListing/index.tsx:161
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:183
 msgid "The value below reflects the sum of all of your listings for this specific token."
 msgstr ""
 
@@ -1684,6 +1688,11 @@ msgid "Unit price is required"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/pages/Portfolio/AssetProject/index.tsx:73
+msgid "Unlisted tonnes:"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
 msgid "Unprecedented transparency across the digital carbon market."
 msgstr "डिजिटल कार्बन बाज़ार में अभूतपूर्व पारदर्शिता।"
@@ -1699,7 +1708,7 @@ msgid "Updated:"
 msgstr "अपडेटेड:"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:179
+#: components/pages/Users/SellerConnected/index.tsx:186
 msgid "Updating your data..."
 msgstr "आपका डेटा अपडेट हो रहा है..."
 
@@ -1874,14 +1883,14 @@ msgid "You can also retire any carbon asset in your wallet."
 msgstr "आप अपने बटुए में किसी भी कार्बन परिसंपत्ति को रिटायर भी कर सकते हैं।"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:179
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:201
+#: components/CreateListing/index.tsx:181
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "You can delete this listing at any time."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:152
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:174
+#: components/CreateListing/index.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:176
 msgid "You can revoke this approval at any time. The assets will only be transferred out of your wallet when a sale is completed."
 msgstr ""
 
@@ -1940,7 +1949,7 @@ msgstr "आपकी ख़रीदारी अभी पूर्ण नही�
 
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/PortfolioSidebar.tsx:25
-#: components/pages/Users/SellerConnected/index.tsx:203
+#: components/pages/Users/SellerConnected/index.tsx:210
 msgid "Your seller data"
 msgstr "आपका विक्रेता डेटा"
 
@@ -2169,7 +2178,7 @@ msgid "profile.edit_modal.submit"
 msgstr "बदलाव सेव करें"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/index.tsx:209
+#: components/pages/Users/SellerConnected/index.tsx:216
 msgid "profile.edit_profile.title"
 msgstr "आपकी प्रोफ़ाइल"
 
@@ -2179,12 +2188,12 @@ msgid "profile.edit_your_profile"
 msgstr "विवरण जोड़ने के लिए अपनी प्रोफ़ाइल संपादित करें."
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:156
 msgid "profile.listing.delete.error"
 msgstr "सूची मिटायी नहीं जा सकी। कृपया पुनः कोशिश करें।"
 
 #. js-lingui-explicit-id
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:258
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:270
 msgid "profile.listing.edit.delete_listing"
 msgstr "सूची मिटाएँ"
 
@@ -2788,12 +2797,6 @@ msgid "{0} maximum for credit cards"
 msgstr "{0} क्रेडिट कार्ड के लिए अधिकतम"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:213
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:285
-msgid "{0} tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/pages/Users/index.tsx:31
 msgid "{0} | Profile | Carbonmark"
 msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
@@ -2801,6 +2804,12 @@ msgstr "{0} | प्रोफ़ाइल | कार्बनमार्क"
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/Forms/EditListing.tsx:167
 msgid "{DEFAULT_EXPIRATION_DAYS} days ({expirationDatestring})"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:200
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:230
+msgid "{amount} tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id

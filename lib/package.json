@@ -1,5 +1,6 @@
 {
   "name": "@klimadao/lib",
+  "sideEffects": false,
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -36,7 +37,6 @@
     "./constants": "./out/constants/index.js",
     "./featureFlags": "./out/featureFlags/index.js",
     "./utils": "./out/utils/index.js",
-    "./utils/lightIndex": "./out/utils/lightIndex.js",
     "./hooks": "./out/hooks/index.js",
     "./theme/*": "./theme/*",
     "./abi/*": "./abi/*"

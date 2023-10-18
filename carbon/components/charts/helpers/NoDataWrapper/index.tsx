@@ -1,4 +1,3 @@
-"use client"; // use client for recharts animations
 import { t } from "@lingui/macro";
 import { ChartData } from "lib/charts/types";
 import styles from "./styles.module.scss";
