@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-18 22:16+0000\n"
+"POT-Creation-Date: 2023-10-18 22:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -393,8 +393,8 @@ msgid "Confirm Retirement"
 msgstr "Подтвердить выбивание"
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:554
+#: components/Footer/index.tsx:41
+#: components/pages/Home/index.tsx:553
 msgid "Contact"
 msgstr "Связаться"
 
@@ -670,8 +670,8 @@ msgid "Have you already created your Carbonmark <0>Profile</0>?"
 msgstr "Вы уже создали свой профиль Carbonmark <0>Profile</0>?"
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:545
+#: components/Footer/index.tsx:32
+#: components/pages/Home/index.tsx:544
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
@@ -729,8 +729,8 @@ msgid "Invalid"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:551
+#: components/Footer/index.tsx:38
+#: components/pages/Home/index.tsx:550
 msgid "KlimaDAO"
 msgstr "KlimaDAO"
 
@@ -1034,12 +1034,12 @@ msgid "Price per tonne"
 msgstr "Цена за тонну"
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:29
+#: components/Footer/index.tsx:26
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:539
+#: components/pages/Home/index.tsx:538
 msgid "Privacy policy"
 msgstr "Политика конфиденциальности"
 
@@ -1199,9 +1199,9 @@ msgid "Required when proceeding with Credit Card"
 msgstr "Требуется при оплате кредитной картой"
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:35
 #: components/pages/Home/index.tsx:511
-#: components/pages/Home/index.tsx:548
+#: components/pages/Home/index.tsx:547
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -1434,12 +1434,12 @@ msgid "Switch to Polygon"
 msgstr "Переключиться на Polygon"
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:34
+#: components/Footer/index.tsx:29
 msgid "Terms of Use"
 msgstr "Условия использования"
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:542
+#: components/pages/Home/index.tsx:541
 msgid "Terms of use"
 msgstr "Условия использования"
 

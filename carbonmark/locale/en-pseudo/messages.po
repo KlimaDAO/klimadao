@@ -185,27 +185,27 @@ msgid "Cancel"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:29
+#: components/Footer/index.tsx:26
 msgid "Privacy Policy"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:34
+#: components/Footer/index.tsx:29
 msgid "Terms of Use"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:39
-#: components/pages/Home/index.tsx:545
+#: components/Footer/index.tsx:32
+#: components/pages/Home/index.tsx:544
 #: components/shared/Navigation/index.tsx:87
 #: components/shared/Navigation/index.tsx:124
 msgid "Help"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:35
 #: components/pages/Home/index.tsx:511
-#: components/pages/Home/index.tsx:548
+#: components/pages/Home/index.tsx:547
 #: components/pages/Resources/ResourcesList/index.tsx:154
 #: components/shared/Navigation/index.tsx:75
 #: components/shared/Navigation/index.tsx:112
@@ -213,14 +213,14 @@ msgid "Resources"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:49
-#: components/pages/Home/index.tsx:551
+#: components/Footer/index.tsx:38
+#: components/pages/Home/index.tsx:550
 msgid "KlimaDAO"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/Footer/index.tsx:54
-#: components/pages/Home/index.tsx:554
+#: components/Footer/index.tsx:41
+#: components/pages/Home/index.tsx:553
 msgid "Contact"
 msgstr ""
 
@@ -549,12 +549,12 @@ msgid "KlimaDAO provides the transparent, neutral, and public infrastructure req
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:539
+#: components/pages/Home/index.tsx:538
 msgid "Privacy policy"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Home/index.tsx:542
+#: components/pages/Home/index.tsx:541
 msgid "Terms of use"
 msgstr ""
 
