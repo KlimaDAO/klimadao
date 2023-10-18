@@ -90,7 +90,7 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
           {
             label: (
               <span className={styles.selectiveFee}>
-                <span>{t`Selective fee`}</span>
+                <span>{t`Selective cost`}</span>
                 <span
                   className={styles.selectiveFeeIcon}
                   title={selectiveFeeDescription}
