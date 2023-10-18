@@ -2,7 +2,7 @@ import { BBox } from "@turf/helpers";
 import { NEXT_PUBLIC_MAPBOX_TOKEN } from "lib/constants";
 import { Project } from "lib/types/carbonmark.types";
 import { compact, isNil } from "lodash";
-import { default as MapBoxGL, default as mapboxgl } from "mapbox-gl";
+import MapBoxGL from "mapbox-gl";
 import Supercluster, { AnyProps, ClusterFeature } from "supercluster";
 import { DEFAULT_OPTS } from "./carbonmark-map.constants";
 import { CarbonmarkMapOpts } from "./carbonmark-map.types";
@@ -14,14 +14,14 @@ MapBoxGL.accessToken = NEXT_PUBLIC_MAPBOX_TOKEN;
 
 const BRIGHT_BLUE = "#0019ff"; // var(--bright-blue)
 
-class CarbonmarkMap extends mapboxgl.Map {
+class CarbonmarkMap extends MapBoxGL.Map {
   points?: Supercluster.PointFeature<{ project: Project }>[];
   markers: MapBoxGL.Marker[] = [];
   clusterer?: Supercluster;
 
   constructor(container: string | HTMLElement, opts?: CarbonmarkMapOpts) {
     super({ container, ...DEFAULT_OPTS, ...opts });
-    this.addControl(new mapboxgl.NavigationControl(), "bottom-left");
+    this.addControl(new MapBoxGL.NavigationControl(), "bottom-left");
     this.points = opts?.points;
     this.on("moveend", () => this.renderMarkers());
     this.on("zoomend", () => this.renderMarkers());
