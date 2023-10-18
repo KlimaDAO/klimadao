@@ -965,7 +965,7 @@ msgid "T"
 msgstr "T"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/NoDataWrapper/index.tsx:15
+#: components/charts/helpers/NoDataWrapper/index.tsx:14
 msgid "No data availble"
 msgstr "No data availble"
 
@@ -991,7 +991,7 @@ msgid "Token Details"
 msgstr "Token Details"
 
 #. js-lingui-explicit-id
-#: components/PageHeader/PageHeader.tsx:46
+#: components/PageHeader/PageHeader.tsx:37
 msgid "Explore Marketplace"
 msgstr "Explore Marketplace"
 
