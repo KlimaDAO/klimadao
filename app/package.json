@@ -17,7 +17,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
-    "@etherspot/react-transaction-buidler": "^0.26.8",
+    "@etherspot/react-transaction-buidler": "0.26.9",
     "@formkit/auto-animate": "^0.7.0",
     "@lingui/core": "^3.17.2",
     "@lingui/react": "^3.17.2",
