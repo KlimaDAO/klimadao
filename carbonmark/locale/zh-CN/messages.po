@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-17 19:59+0000\n"
+"POT-Creation-Date: 2023-10-18 14:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -772,7 +772,7 @@ msgstr "只需点击几下，即可列出您的待售项目"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:77
 msgid "Listed tonnes:"
-msgstr ""
+msgstr "已列出的吨数："
 
 #. js-lingui-explicit-id
 #: components/pages/Users/SellerConnected/index.tsx:129
@@ -1693,7 +1693,7 @@ msgstr "单价为必填项"
 #. js-lingui-explicit-id
 #: components/pages/Portfolio/AssetProject/index.tsx:73
 msgid "Unlisted tonnes:"
-msgstr ""
+msgstr "未列出的吨数："
 
 #. js-lingui-explicit-id
 #: components/pages/Home/index.tsx:322
@@ -2811,7 +2811,7 @@ msgstr "{DEFAULT_EXPIRATION_DAYS} 天 ({expirationDatestring})"
 #: components/CreateListing/index.tsx:200
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:230
 msgid "{amount} tonnes"
-msgstr ""
+msgstr "{amount} 吨"
 
 #. js-lingui-explicit-id
 #: components/pages/Purchases/index.tsx:28

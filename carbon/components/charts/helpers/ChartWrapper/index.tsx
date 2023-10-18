@@ -1,4 +1,4 @@
-"use client"; // use client for recharts animations
+"use client";
 import Skeleton from "components/Skeleton";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";

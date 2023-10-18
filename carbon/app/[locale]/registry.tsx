@@ -1,5 +1,3 @@
-// app/ThemeRegistry.tsx
-"use client";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
