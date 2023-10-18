@@ -1,9 +1,9 @@
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
-import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
+import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import {
   approveTokenSpend,
   createListingTransaction,
@@ -88,9 +88,8 @@ export const CreateListing: FC<Props> = (props) => {
       .filter(
         (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
       )
-      .reduce((a, b) => a + Number(b.leftToSell), 0);
-
-    return sumOtherListings + Number(form?.amount || "0");
+      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
+    return Number(safeAdd(sumOtherListings.toString(), form?.amount || "0"));
   };
 
   /**

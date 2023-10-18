@@ -1,3 +1,4 @@
+import { safeAdd, safeSub } from "@klimadao/lib/utils";
 import {
   DEFAULT_MIN_LISTING_QUANTITY,
   LISTABLE_TOKEN_SYMBOL_REGEX,
@@ -23,7 +24,10 @@ export const getListedBalance = (asset: Asset, listings: Listing[]): number => {
   const assetListings = listings.filter(
     (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
   );
-  return assetListings.reduce((sum, l) => sum + Number(l.leftToSell), 0);
+  return assetListings.reduce(
+    (sum, l) => Number(safeAdd(sum.toString(), l.leftToSell)),
+    0
+  );
 };
 
 /** Subtract the listed balance from the total asset balance to get remaining unlisted tonnes */
@@ -32,7 +36,7 @@ export const getUnlistedBalance = (
   listings: Listing[]
 ): number => {
   const listedBalance = getListedBalance(asset, listings);
-  return Number(asset.amount) - listedBalance;
+  return Number(safeSub(asset.amount, listedBalance.toString()));
 };
 
 /** Returns true if listable asset, with a balance >= minimum listing quantity */
