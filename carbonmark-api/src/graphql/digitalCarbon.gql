@@ -1,3 +1,23 @@
+query getDigitalCarbonProjectsVintages {
+  carbonProjects(first: 1000) {
+    carbonCredits {
+      vintage
+    }
+  }
+}
+
+query getDigitalCarbonProjectsCategories {
+  carbonProjects(first: 1000) {
+    category
+  }
+}
+
+query getDigitalCarbonProjectsCountries {
+  carbonProjects(first: 1000) {
+    country
+  }
+}
+
 query getProjectCredits($projectID: String!, $vintage: Int) {
   carbonProjects(where: { projectID: $projectID }) {
     registry
@@ -21,6 +41,9 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
           supply
           id
           decimals
+          dailySnapshots {
+            lastUpdateTimestamp
+          }
         }
       }
       id
@@ -28,6 +51,63 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
       bridgeProtocol
       bridged
       retired
+    }
+  }
+}
+
+query findDigitalCarbonProjects(
+  $category: [String!]
+  $country: [String!]
+  $vintage: [Int!]
+  $search: String
+) {
+  carbonProjects(
+    first: 1000
+    where: {
+      and: [
+        { category_in: $category }
+        { country_in: $country }
+        { carbonCredits_: { vintage_in: $vintage } }
+        {
+          or: [
+            { name_contains_nocase: $search }
+            { projectID_contains_nocase: $search }
+          ]
+        }
+      ]
+    }
+  ) {
+    id
+    name
+    projectID
+    methodologies
+    country
+    category
+    registry
+    region
+    carbonCredits {
+      vintage
+      currentSupply
+      id
+      crossChainSupply
+      bridgeProtocol
+      bridged
+      retired
+      poolBalances {
+        balance
+        id
+        deposited
+        redeemed
+        pool {
+          name
+          supply
+          id
+          decimals
+          dailySnapshots {
+            lastUpdateTimestamp
+          }
+        }
+      }
     }
   }
 }
