@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/price-of-digital-carbon/page.tsx:17
-msgid "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
-msgstr "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
-
-#. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:94
-msgid "Selective cost"
-msgstr "Selective cost"
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -99,6 +89,11 @@ msgstr "The current supply of digital carbon on the {chainLabel} blockchain brok
 #: app/[locale]/details/price-of-digital-carbon/page.tsx:10
 msgid "Price of digital carbon"
 msgstr "Price of digital carbon"
+
+#. js-lingui-explicit-id
+#: app/[locale]/details/price-of-digital-carbon/page.tsx:17
+msgid "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
+msgstr "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:8
@@ -531,6 +526,11 @@ msgstr "{formattedCurrentSupply} tonnes available"
 #: components/cards/overview/TokensPriceCard/index.tsx:88
 msgid "Price per tonne"
 msgstr "Price per tonne"
+
+#. js-lingui-explicit-id
+#: components/cards/overview/TokensPriceCard/index.tsx:94
+msgid "Selective cost"
+msgstr "Selective cost"
 
 #. js-lingui-explicit-id
 #: components/cards/overview/TokensPriceCard/index.tsx:111
