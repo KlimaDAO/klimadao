@@ -9,7 +9,7 @@ export default function VerraCreditsTokenizedOverTimePage() {
       card={
         <DailyCarbonSupplyByProtocolCard isDetailPage={true} status="issued" />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of carbon credits issued by carbon registry Verra which have been bridged and tokenized on a public blockchain over time.`}
     />
   );
 }

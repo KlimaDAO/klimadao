@@ -19,7 +19,7 @@ export default function TokenDistributionOfProjectsPage({
           {...searchParams}
         />
       }
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of the carbon projects for which the carbon credits were issued and then bridged and pooled via ${bridgeLabel}.`}
     />
   );
 }

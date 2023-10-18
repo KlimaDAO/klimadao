@@ -6,8 +6,10 @@ import {
   DailyCreditsQueryConfiguration,
 } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
+import layout from "theme/layout.module.scss";
 import { palette } from "theme/palette";
 import { OffVsOnChainProps } from "../helpers";
+
 /** Verra Credits Card */
 export default function DailyVerraCreditsCard(
   props: CardProps & OffVsOnChainProps
@@ -55,6 +57,12 @@ export default function DailyVerraCreditsCard(
       ? "/details/verra-credits-issued-over-time"
       : "/details/verra-credits-retired-off-chain-over-time";
   return (
-    <ChartCard {...props} title={title} detailUrl={detailUrl} chart={chart} />
+    <ChartCard
+      {...props}
+      title={title}
+      detailUrl={detailUrl}
+      chart={chart}
+      className={layout.zIndexSeven}
+    />
   );
 }

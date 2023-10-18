@@ -5,9 +5,9 @@ import DetailPage from "components/pages/DetailPage";
 export default function DigitalCarbonSupplyQuickFactsPage() {
   return (
     <DetailPage
-      pageTitle={t`Digital carbon supply - quick Facts`}
+      pageTitle={t`Digital carbon supply - quick facts`}
       card={<CarbonSupplyQuickFactsCard isDetailPage={true} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`A collection of data for quick reference including total supply, supply changes, and retirement trends.`}
     />
   );
 }

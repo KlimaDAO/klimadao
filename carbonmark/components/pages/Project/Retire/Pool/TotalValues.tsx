@@ -1,4 +1,5 @@
 import { cx } from "@emotion/css";
+import { safeSub } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import { Text } from "components/Text";
@@ -50,7 +51,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
     // we have the total cost and the price per tonne.
     const priceWithoutFees =
       Number(amount) * Number(props.price.singleUnitPrice);
-    const fee = Number(props.costs) - priceWithoutFees;
+    const fee = Number(safeSub(props.costs, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
   };

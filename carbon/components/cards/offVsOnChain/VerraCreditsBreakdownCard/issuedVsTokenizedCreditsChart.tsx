@@ -18,7 +18,7 @@ export async function IssuedVsTokenizedCreditsChart() {
     await queryAggregatedCredits({ bridge: "offchain", status: "issued" })
   ).quantity;
   const bridged = (
-    await queryAggregatedCredits({ bridge: "all", status: "bridged" })
+    await queryAggregatedCredits({ bridge: "offchain", status: "bridged" })
   ).quantity;
   const percentageTokenized = bridged / issued;
   const data: ChartData<IssuedvsBridgedItem> = [

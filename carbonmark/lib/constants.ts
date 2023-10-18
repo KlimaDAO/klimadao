@@ -26,7 +26,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v2.0.0-7.api.carbonmark.com";
+export const API_PROD_URL = "https://v2.0.0-9.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -56,7 +56,7 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
-/** Any token symbol containing substring VCS- PURO- or ICR- is valid. This filters out BCT, MCO2, and other assets */
+/** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */
 export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-)/;
 /** Default number of days until a listing expires */
 export const DEFAULT_EXPIRATION_DAYS = 90;

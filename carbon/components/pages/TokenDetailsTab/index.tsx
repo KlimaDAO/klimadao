@@ -11,13 +11,25 @@ export default function TokenDetailsTab(props: TokenDetailsProps) {
   return (
     <div>
       <div className={`${layout.cardRow} ${layout.cardRowWrap}`}>
-        <TokenStateOfDigitalCarbonCard {...props} />
-        <TokenPoolBreakdownCard {...props} />
-        <TokenVolumeOverTimeCard {...props} />
-        <TokenDistributionOfVintageCard {...props} />
-        <TokenDistributionOfMethodologiesCard {...props} />
-        <TokenDistributionOfProjectsCard {...props} />
-        <TokenOriginsCard {...props} />
+        <TokenStateOfDigitalCarbonCard
+          {...props}
+          className={layout.zIndexSeven}
+        />
+        <TokenPoolBreakdownCard {...props} className={layout.zIndexSix} />
+        <TokenVolumeOverTimeCard {...props} className={layout.zIndexFive} />
+        <TokenDistributionOfVintageCard
+          {...props}
+          className={layout.zIndexFour}
+        />
+        <TokenDistributionOfMethodologiesCard
+          {...props}
+          className={layout.zIndexThree}
+        />
+        <TokenDistributionOfProjectsCard
+          {...props}
+          className={layout.zIndexTwo}
+        />
+        <TokenOriginsCard {...props} className={layout.zIndexOne} />
       </div>
     </div>
   );

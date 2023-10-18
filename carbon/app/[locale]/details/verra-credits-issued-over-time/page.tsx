@@ -7,7 +7,7 @@ export default function VerraCreditsRetiredOverTimePage() {
     <DetailPage
       pageTitle={t`Verra credits retired over time`}
       card={<DailyVerraCreditsCard isDetailPage={true} status="issued" />}
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of carbon credits issued by carbon registry Verra that have been retired over time.`}
     />
   );
 }

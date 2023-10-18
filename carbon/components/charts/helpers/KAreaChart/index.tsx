@@ -23,11 +23,11 @@ export default function KAreaChart<T extends object>(props: ChartProps<T>) {
   return (
     <ChartWrapper data={props.data} noDataText={props.noDataText}>
       <AreaChart data={props.data}>
+        {KlimaStackedAreas(props.configuration)}
         <XAxis {...getXAxisProps(props)} />
         <YAxis {...getYAxisProps(props)} />
         <Tooltip {...getKlimaTooltipProps(props)} />
         <Legend {...localLegendProps} />
-        {KlimaStackedAreas(props.configuration)}
       </AreaChart>
     </ChartWrapper>
   );

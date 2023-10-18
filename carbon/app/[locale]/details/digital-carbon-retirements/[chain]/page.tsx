@@ -22,7 +22,7 @@ export default function DigitalDailyRetirementsPage({
     <DetailPage
       pageTitle={t`Digital carbon retirements - ${chainLabel}`}
       card={card}
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of digital carbon credits retired over time on the ${chainLabel} blockchain.`}
     />
   );
 }

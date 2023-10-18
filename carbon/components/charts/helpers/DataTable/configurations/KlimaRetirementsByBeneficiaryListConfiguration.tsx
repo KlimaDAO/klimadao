@@ -10,7 +10,10 @@ import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
 import { Columns } from "./types";
 
-export default class KlimaRetirementsByBeneficiaryListConfiguration extends AbstractTableConfiguration<KlimaRetirementsByBeneficiaryItem> {
+export default class KlimaRetirementsByBeneficiaryListConfiguration extends AbstractTableConfiguration<
+  KlimaRetirementsByBeneficiaryItem,
+  undefined
+> {
   fetchFunction(page: number) {
     return queryKlimaRetirementsByBeneficiary({
       sort_by: "amount_retired",

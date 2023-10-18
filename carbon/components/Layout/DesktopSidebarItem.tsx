@@ -1,5 +1,5 @@
-import { currentLocale } from "lib/i18n";
-import { usePathname } from "next/navigation";
+"use client";
+import { useIsPathnameActive } from "hooks/useIsPathnameActive";
 import { FC } from "react";
 import { NavItem } from "./NavItems";
 import styles from "./style.module.scss";
@@ -10,10 +10,7 @@ interface Props {
 }
 
 export const DesktopSidebarItem: FC<Props> = ({ navItem }) => {
-  const pathname = usePathname();
-  const locale = currentLocale();
-  const pathnameWithoutLocale = pathname.slice(`/${locale}`.length) || "/";
-  const active = pathnameWithoutLocale == navItem.url;
+  const active = useIsPathnameActive(navItem.url);
 
   return (
     <a
