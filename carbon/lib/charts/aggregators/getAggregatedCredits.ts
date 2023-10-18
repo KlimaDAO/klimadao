@@ -9,6 +9,7 @@ import {
   Status,
   TreeMapData,
 } from "lib/charts/types";
+import moment from "moment";
 import { statusToDateFieldGt } from "../dateField";
 import { dateForQuery } from "../helpers";
 import {
@@ -40,10 +41,12 @@ export function creditsQueryParamsFromProps(
 
   const dateField: DateFieldParam = statusToDateFieldGt(status);
   if (props.since == "last7d") {
-    queryParams[dateField] = dateForQuery(Date.now() - 60 * 60 * 24 * 7 * 1000);
+    queryParams[dateField] = dateForQuery(
+      moment().add(-7, "day").startOf("day").unix() * 1000
+    );
   } else if (props.since == "last30d") {
     queryParams[dateField] = dateForQuery(
-      Date.now() - 60 * 60 * 24 * 30 * 1000
+      moment().add(-1, "month").startOf("day").unix() * 1000
     );
   }
   return queryParams;
