@@ -28,7 +28,7 @@ export function getTokenIcon(token: Token) {
   return <OverviewCardIcon icon={icon} alt={token} />;
 }
 
-/** Returns the helper text of the selective fee for the given Token */
+/** Returns the helper text of the selective cost for the given Token */
 export async function getTokenSelectiveFeeDescription(token: Token) {
   const tokenInfo = await queryTokenInfo(token);
   if (tokenInfo == undefined) return "";

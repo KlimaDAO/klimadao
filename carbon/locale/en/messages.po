@@ -92,8 +92,8 @@ msgstr "Price of digital carbon"
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/price-of-digital-carbon/page.tsx:17
-msgid "The prices of various digital carbon pool tokens and their selective fees charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
-msgstr "The prices of various digital carbon pool tokens and their selective fees charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
+msgid "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
+msgstr "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/retirement-trends-by-chain/page.tsx:8
@@ -513,27 +513,27 @@ msgid "Historical prices (USD)"
 msgstr "Historical prices (USD)"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:33
+#: components/cards/overview/TokensPriceCard/index.tsx:34
 msgid "Digital carbon pricing"
 msgstr "Digital carbon pricing"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:83
+#: components/cards/overview/TokensPriceCard/index.tsx:84
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr "{formattedCurrentSupply} tonnes available"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:87
+#: components/cards/overview/TokensPriceCard/index.tsx:88
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:93
-msgid "Selective fee"
-msgstr "Selective fee"
+#: components/cards/overview/TokensPriceCard/index.tsx:94
+msgid "Selective cost"
+msgstr "Selective cost"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:105
+#: components/cards/overview/TokensPriceCard/index.tsx:111
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
 #: lib/charts/options.ts:128
 msgid "Last 7 days"

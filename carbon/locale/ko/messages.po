@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-18 07:29+0000\n"
+"POT-Creation-Date: 2023-10-18 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -258,7 +258,7 @@ msgid "Detailed list of KlimaDAO retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:33
+#: components/cards/overview/TokensPriceCard/index.tsx:34
 msgid "Digital carbon pricing"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgid "Last 30 days"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:105
+#: components/cards/overview/TokensPriceCard/index.tsx:111
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
@@ -605,7 +605,7 @@ msgid "Price of digital carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:87
+#: components/cards/overview/TokensPriceCard/index.tsx:88
 msgid "Price per tonne"
 msgstr ""
 
@@ -681,8 +681,8 @@ msgid "Retirements by token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:93
-msgid "Selective fee"
+#: components/cards/overview/TokensPriceCard/index.tsx:94
+msgid "Selective cost"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -735,7 +735,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/price-of-digital-carbon/page.tsx:17
-msgid "The prices of various digital carbon pool tokens and their selective fees charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
+msgid "The prices of various digital carbon pool tokens and their selective costs charged by bridges to redeem or retire a specific underlying digital carbon credit token. Note: The chart shows MCO2 price data from the KLIMA/MCO2 pool launched in January 2022."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1044,6 +1044,6 @@ msgid "{bridgeLabel} volume over Time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:83
+#: components/cards/overview/TokensPriceCard/index.tsx:84
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr ""
