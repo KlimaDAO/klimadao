@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:203
-msgid "Create a listing"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -145,7 +140,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:160
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:183
-msgid "The value below reflects the sum of all of your listings for this specific token."
+msgid "The Confirm amount below reflects the sum of all your listings for this specific token."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -164,6 +159,11 @@ msgstr ""
 #: components/CreateListing/index.tsx:198
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "{amount} tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:203
+msgid "Create a listing"
 msgstr ""
 
 #. js-lingui-explicit-id
