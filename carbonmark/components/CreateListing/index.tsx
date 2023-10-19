@@ -195,9 +195,7 @@ export const CreateListing: FC<Props> = (props) => {
     const amount = hasApproval()
       ? Number(inputValues?.amount) // 'submit' view shows the new quantity
       : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
-    return {
-      value: t`${amount} tonnes`,
-    };
+    return t`${amount} tonnes`;
   };
 
   return (

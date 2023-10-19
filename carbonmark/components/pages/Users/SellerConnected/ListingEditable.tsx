@@ -226,9 +226,7 @@ export const ListingEditable: FC<Props> = (props) => {
     const amount = hasApproval()
       ? newQuantity // 'submit' view shows the new quantity
       : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
-    return {
-      value: t`${amount} tonnes`,
-    };
+    return t`${amount} tonnes`;
   };
 
   return (

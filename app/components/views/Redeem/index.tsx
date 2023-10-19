@@ -5,6 +5,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { addresses } from "@klimadao/lib/constants";
+import { formatUnits, getTokenDecimals, safeAdd } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
@@ -23,7 +24,7 @@ import { TransactionModal } from "components/TransactionModal";
 import { SelectiveRetirement } from "components/views/Offset/SelectiveRetirement";
 import { CarbonProject } from "components/views/Offset/SelectiveRetirement/queryProjectDetails";
 import { providers } from "ethers";
-import { isAddress } from "ethers-v6";
+import { isAddress, parseUnits } from "ethers-v6";
 import { tokenInfo } from "lib/getTokenInfo";
 import {
   RedeemPaymentMethod,
@@ -153,11 +154,24 @@ export const Redeem = (props: Props) => {
     setCost("0");
   };
 
+  const getApprovalValue = (): string => {
+    if (!cost || cost === "loading") return "0";
+    if (paymentMethod === projectTokenAddress) {
+      return cost;
+    }
+    const onePercent =
+      BigInt(parseUnits(cost, getTokenDecimals(paymentMethod))) / BigInt("100");
+    return safeAdd(
+      cost,
+      formatUnits(onePercent, getTokenDecimals(paymentMethod))
+    );
+  };
+
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
       const approvedValue = await changeApprovalTransaction({
-        value: cost,
+        value: getApprovalValue(),
         provider: props.provider,
         token: paymentMethod,
         spender: "retirementAggregatorV2",
@@ -185,7 +199,7 @@ export const Redeem = (props: Props) => {
         pool,
         projectTokenAddress,
         quantity,
-        maxCost: cost,
+        maxCost: getApprovalValue(),
       });
       dispatch(
         updateRedemption({
@@ -204,7 +218,9 @@ export const Redeem = (props: Props) => {
   };
 
   const insufficientBalance = () => {
-    return Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+    return (
+      Number(getApprovalValue()) > Number(balances?.[paymentMethod] ?? "0")
+    );
   };
 
   const selectedProjectSupply = selectedProject
@@ -221,7 +237,7 @@ export const Redeem = (props: Props) => {
     return (
       !!allowances?.[paymentMethod] &&
       !!Number(allowances?.[paymentMethod]) &&
-      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
+      Number(getApprovalValue()) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -446,7 +462,7 @@ export const Redeem = (props: Props) => {
                 </TextInfoTooltip>
               </div>
             }
-            amount={Number(cost)?.toLocaleString(locale)}
+            amount={cost}
             icon={tokenInfo[paymentMethod].icon}
             name={paymentMethod}
             loading={cost === "loading"}
@@ -465,18 +481,29 @@ export const Redeem = (props: Props) => {
             name={selectedProject?.projectID || "???"}
             labelAlignment="start"
           />
+          <div className={styles.pay_with_dropdown}>
+            <DropdownWithModal
+              label={t`Payment method`}
+              modalTitle={t`Payment Method`}
+              currentItem={paymentMethod}
+              items={paymentMethodItems}
+              warn={insufficientBalance()}
+              isModalOpen={isPaymentMethodModalOpen}
+              onToggleModal={() => setIsPaymentMethodModalOpen((s) => !s)}
+              onItemSelect={(str) =>
+                handleSelectInputToken(str as RedeemPaymentMethod)
+              }
+            />
+            {insufficientBalance() && (
+              <Text t="caption" className="warn">
+                <Trans>
+                  Your balance must equal at least 1% more than the cost of the
+                  transaction.
+                </Trans>
+              </Text>
+            )}
+          </div>
 
-          <DropdownWithModal
-            label={t`Payment method`}
-            modalTitle={t`Payment Method`}
-            currentItem={paymentMethod}
-            items={paymentMethodItems}
-            isModalOpen={isPaymentMethodModalOpen}
-            onToggleModal={() => setIsPaymentMethodModalOpen((s) => !s)}
-            onItemSelect={(str) =>
-              handleSelectInputToken(str as RedeemPaymentMethod)
-            }
-          />
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
@@ -504,7 +531,7 @@ export const Redeem = (props: Props) => {
           tokenIcon={tokenInfo[paymentMethod].icon}
           spenderAddress={addresses["mainnet"].retirementAggregatorV2}
           value={cost}
-          approvalValue={cost}
+          approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}
           onApproval={handleApprove}

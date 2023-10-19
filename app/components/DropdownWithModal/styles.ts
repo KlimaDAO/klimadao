@@ -6,6 +6,10 @@ export const container = css`
   gap: 0.6rem;
 `;
 
+export const warn = css`
+  border: 0.175rem solid var(--warn);
+`;
+
 export const listItem = css`
   border: 0.2rem solid var(--surface-03);
   width: 100%;

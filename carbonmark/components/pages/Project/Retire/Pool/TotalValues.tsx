@@ -23,6 +23,7 @@ type TotalValuesProps = {
   fiatMinimum: string | null;
   costs: string;
   setCosts: (costs: string) => void;
+  approvalValue: string;
 };
 
 const getStringBetween = (str: string, start: string, end: string) => {
@@ -134,7 +135,7 @@ export const TotalValues: FC<TotalValuesProps> = (props) => {
   const exceededBalance =
     !!props.userBalance &&
     !isFiat &&
-    Number(props.userBalance) <= Number(props.costs);
+    Number(props.userBalance) <= Number(props.approvalValue);
   const currentBalance = formatToPrice(props.userBalance || "0", locale);
   const fiatBalance = formatToPrice(props.fiatBalance || "0", locale);
 
