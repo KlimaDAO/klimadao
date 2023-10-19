@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-19 16:55+0000\n"
+"POT-Creation-Date: 2023-10-19 18:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,8 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:548
-#: components/views/Redeem/index.tsx:270
+#: components/views/Offset/index.tsx:550
+#: components/views/Redeem/index.tsx:286
 #: components/views/Stake/index.tsx:251
 #: components/views/Wrap/index.tsx:229
 msgid "Approve"
@@ -23,23 +23,23 @@ msgid "Balances"
 msgstr "Soldes"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:816
+#: components/views/Offset/index.tsx:818
 msgid "Beneficiary 0x address (optional)"
 msgstr "Adresse du bénéficiaire 0x (facultatif)"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:804
+#: components/views/Offset/index.tsx:806
 msgid "Beneficiary name"
 msgstr "Nom du bénéficiaire"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:359
+#: components/views/Redeem/index.tsx:375
 msgid "Buy & Redeem Carbon"
 msgstr "Acheter et Réclamer du carbone"
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:499
+#: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr "Acheter du Carbone"
 
@@ -49,7 +49,7 @@ msgid "Capacity"
 msgstr "Capacité"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:275
+#: components/views/Redeem/index.tsx:291
 msgid "Continue"
 msgstr "Continuer"
 
@@ -59,22 +59,22 @@ msgid "Enter Quantity"
 msgstr "Entrez la Quantité"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:485
-#: components/views/Redeem/index.tsx:244
-#: components/views/Redeem/index.tsx:415
+#: components/views/Offset/index.tsx:487
+#: components/views/Redeem/index.tsx:260
+#: components/views/Redeem/index.tsx:431
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "Enter quantity"
 msgstr "Entrez la quantité"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:397
+#: components/views/Redeem/index.tsx:413
 msgid "How many tonnes would you like to acquire?"
 msgstr "Combien de tonnes souhaitez-vous acquérir ?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:538
-#: components/views/Redeem/index.tsx:265
+#: components/views/Offset/index.tsx:540
+#: components/views/Redeem/index.tsx:281
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "Insufficient balance"
@@ -101,10 +101,10 @@ msgstr "Chargement des informations sur le projet..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:472
-#: components/views/Offset/index.tsx:610
-#: components/views/Redeem/index.tsx:239
-#: components/views/Redeem/index.tsx:323
+#: components/views/Offset/index.tsx:474
+#: components/views/Offset/index.tsx:612
+#: components/views/Redeem/index.tsx:255
+#: components/views/Redeem/index.tsx:339
 #: components/views/Stake/index.tsx:429
 #: components/views/Stake/index.tsx:436
 #: components/views/Stake/index.tsx:443
@@ -128,7 +128,7 @@ msgid "Not Connected"
 msgstr "Non connecté"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:679
 msgid "Offset"
 msgstr "Compenser"
 
@@ -138,17 +138,17 @@ msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update you
 msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez mettre à jour vos favoris."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:680
+#: components/views/Offset/index.tsx:682
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "Payez en fiat ou en crypto, ou retirez les crédits que vous possédez déjà. Votre message et vos données seront inscrits de manière permanente sur la blockchain. Retrouvez tous les jetons pris en charge dans nos <0>docs</0>."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:471
+#: components/views/Redeem/index.tsx:487
 msgid "Payment Method"
 msgstr "Mode de paiement"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:470
+#: components/views/Redeem/index.tsx:486
 msgid "Payment method"
 msgstr "Mode de paiement"
 
@@ -159,18 +159,18 @@ msgid "Project details <0/>"
 msgstr "Détails du projet <0/>"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:372
-#: components/views/Redeem/index.tsx:373
+#: components/views/Redeem/index.tsx:388
+#: components/views/Redeem/index.tsx:389
 msgid "Select carbon pool"
 msgstr "Sélectionnez le réservoir de carbone"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:691
+#: components/views/Offset/index.tsx:693
 msgid "Select carbon token to retire"
 msgstr "Sélectionnez le jeton carbone à retirer du marché"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:692
+#: components/views/Offset/index.tsx:694
 msgid "Select token"
 msgstr "Sélectionnez le jeton"
 
@@ -185,7 +185,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:439
+#: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "Ce coût comprend les frais de glissement et les éventuels frais de rachat facturés par la piscine."
 
@@ -222,9 +222,15 @@ msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Cre
 msgstr "Vous devez charger votre portefeuille avec des jetons USDC, KLIMA ou d'un pool de carbone. La prise en charge des cartes de crédit sera bientôt possible."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:459
+#: components/views/Redeem/index.tsx:475
 msgid "You receive"
 msgstr "Vous recevez"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:921
+#: components/views/Redeem/index.tsx:499
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr ""
 
 #. Long sentence
 #. js-lingui-explicit-id
@@ -618,7 +624,7 @@ msgid "error.404.page.text"
 msgstr "Désolé, il semble que nous vous ayons envoyé au mauvais endroit. <0/>Sélectionnez un élément dans le menu s'il vous plaît."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:871
+#: components/views/Offset/index.tsx:873
 msgid "fiat.max_quantity"
 msgstr "${0} maximum pour les cartes de crédit"
 
@@ -765,27 +771,27 @@ msgid "nav.back"
 msgstr "RETOUR"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:854
+#: components/views/Offset/index.tsx:856
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:733
+#: components/views/Offset/index.tsx:735
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:543
+#: components/views/Offset/index.tsx:545
 msgid "offset.checkout"
 msgstr "Paiement"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:819
+#: components/views/Offset/index.tsx:821
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:899
+#: components/views/Offset/index.tsx:902
 msgid "offset.dropdown_payWith.label"
 msgstr "Payer avec"
 
@@ -795,30 +801,30 @@ msgid "offset.enter_address"
 msgstr "Entrez l'adresse commençant par 0x"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:631
-#: components/views/Redeem/index.tsx:337
+#: components/views/Offset/index.tsx:633
+#: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
 msgstr "JETON INCOMPATIBLE"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:514
-#: components/views/Redeem/index.tsx:249
+#: components/views/Offset/index.tsx:516
+#: components/views/Redeem/index.tsx:265
 msgid "offset.insufficient_project_tonnage"
 msgstr "Tonnage de projet insuffisant"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:777
-#: components/views/Redeem/index.tsx:424
+#: components/views/Offset/index.tsx:779
+#: components/views/Redeem/index.tsx:440
 msgid "offset.invalid_project_tonnage"
 msgstr "Impossible de dépasser le tonnage disponible du projet sélectionné."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:786
+#: components/views/Offset/index.tsx:788
 msgid "offset.min_quantity_fiat"
 msgstr "Achat minimum d'une tonne. Entiers uniquement."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:903
+#: components/views/Offset/index.tsx:906
 msgid "offset.modal_payWith.title"
 msgstr "Sélectionnez l'actif"
 
@@ -828,12 +834,12 @@ msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:765
+#: components/views/Offset/index.tsx:767
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:946
+#: components/views/Offset/index.tsx:959
 msgid "offset.retire_carbon"
 msgstr "Retirer du marché des crédits Carbone"
 
@@ -848,22 +854,22 @@ msgid "offset.retire_specific_tooltip"
 msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et payés à l'opérateur du pont."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:796
+#: components/views/Offset/index.tsx:798
 msgid "offset.retirement_credit"
 msgstr "A qui ce retrait du marché carbone sera-t-elle créditée ?"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:830
+#: components/views/Offset/index.tsx:832
 msgid "offset.retirement_message"
 msgstr "Message de retrait du marché"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:839
+#: components/views/Offset/index.tsx:841
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait du marché"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:884
+#: components/views/Offset/index.tsx:886
 msgid "offset.retiring"
 msgstr "Compensation en cours"
 
@@ -998,13 +1004,13 @@ msgid "offset.you_have_retired"
 msgstr "Vous avez retiré du marché"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:850
-#: components/views/Redeem/index.tsx:435
+#: components/views/Offset/index.tsx:852
+#: components/views/Redeem/index.tsx:451
 msgid "offset_cost"
 msgstr "Coût"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:919
+#: components/views/Offset/index.tsx:932
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
@@ -1088,7 +1094,7 @@ msgid "pklima.update"
 msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en jeu et gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:362
+#: components/views/Redeem/index.tsx:378
 msgid "redeem.description"
 msgstr "Acquérir des jetons pour un projet de compensation carbone spécifique. Les jetons du projet seront rachetés auprès d'un pool de carbone et transférés dans votre portefeuille, afin que vous puissiez les échanger ou les retirer du marché plus tard."
 
@@ -1131,12 +1137,12 @@ msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:490
+#: components/views/Offset/index.tsx:492
 msgid "shared.enter_beneficiary"
 msgstr "Entrez le nom du bénéficiaire"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:498
+#: components/views/Offset/index.tsx:500
 msgid "shared.enter_retirement_message"
 msgstr "Entrez le message de retrait du marché"
 
@@ -1149,18 +1155,18 @@ msgid "shared.error"
 msgstr "ERREUR"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:508
 msgid "shared.invalid_beneficiary_addr"
 msgstr "Adresse bénéficiaire invalide"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:530
-#: components/views/Redeem/index.tsx:257
+#: components/views/Offset/index.tsx:532
+#: components/views/Redeem/index.tsx:273
 msgid "shared.invalid_project_address"
 msgstr "Adresse de projet invalide"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:522
+#: components/views/Offset/index.tsx:524
 msgid "shared.invalid_quantity"
 msgstr "Quantité invalide"
 
@@ -1168,9 +1174,9 @@ msgstr "Quantité invalide"
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:466
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:231
+#: components/views/Redeem/index.tsx:247
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -1185,12 +1191,12 @@ msgid "shared.max"
 msgstr "Max"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:479
 msgid "shared.redirecting_checkout"
 msgstr "Redirection vers la paiement..."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:553
+#: components/views/Offset/index.tsx:555
 msgid "shared.retire"
 msgstr "Retirer du marché des crédits carbone"
 
