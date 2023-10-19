@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:168
-msgid "The Confirm amount below reflects the sum of all your listings for this specific token."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:211
-msgid "Create a listing"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -150,25 +140,30 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:160
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:183
-msgid "The value below reflects the sum of all of your listings for this specific token."
+msgid "The Confirm amount below reflects the sum of all your listings for this specific token."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:182
+#: components/CreateListing/index.tsx:174
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:188
+#: components/CreateListing/index.tsx:180
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "You can delete this listing at any time."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:206
+#: components/CreateListing/index.tsx:198
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "{amount} tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:203
+msgid "Create a listing"
 msgstr ""
 
 #. js-lingui-explicit-id

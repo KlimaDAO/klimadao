@@ -178,14 +178,14 @@ export const ListingEditable: FC<Props> = (props) => {
             transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
-        {getTotalAssetApproval(listingToEdit) > newQuantity && (
-          <Text t="body1" color="lighter">
+        <Text t="body1" color="lighter">
+          <strong>
             <Trans>
-              The value below reflects the sum of all of your listings for this
-              specific token.
+              The Confirm amount below reflects the sum of all your listings for
+              this specific token.
             </Trans>
-          </Text>
-        )}
+          </strong>
+        </Text>
       </div>
     );
   };

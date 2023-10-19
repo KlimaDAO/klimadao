@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:168
-msgid "The Confirm amount below reflects the sum of all your listings for this specific token."
-msgstr "The Confirm amount below reflects the sum of all your listings for this specific token."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:211
-msgid "Create a listing"
-msgstr "Create a listing"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -150,26 +140,31 @@ msgstr "You can revoke this approval at any time. The assets will only be transf
 #. js-lingui-explicit-id
 #: components/CreateListing/index.tsx:160
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:183
-msgid "The value below reflects the sum of all of your listings for this specific token."
-msgstr "The value below reflects the sum of all of your listings for this specific token."
+msgid "The Confirm amount below reflects the sum of all your listings for this specific token."
+msgstr "The Confirm amount below reflects the sum of all your listings for this specific token."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:182
+#: components/CreateListing/index.tsx:174
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:197
 msgid "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 msgstr "Almost finished! The last step is to create the listing and submit it to the system. Please verify the quantity and price below."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:188
+#: components/CreateListing/index.tsx:180
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:203
 msgid "You can delete this listing at any time."
 msgstr "You can delete this listing at any time."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:206
+#: components/CreateListing/index.tsx:198
 #: components/pages/Users/SellerConnected/ListingEditable.tsx:229
 msgid "{amount} tonnes"
 msgstr "{amount} tonnes"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:203
+msgid "Create a listing"
+msgstr "Create a listing"
 
 #. js-lingui-explicit-id
 #: components/Dropdown/index.tsx:133
