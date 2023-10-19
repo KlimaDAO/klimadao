@@ -163,6 +163,14 @@ export const CreateListing: FC<Props> = (props) => {
             </Trans>
           </Text>
         )}
+        <Text t="body1" color="lighter">
+          <strong>
+            <Trans>
+              The Confirm amount below reflects the sum of all your listings for
+              this specific token.
+            </Trans>
+          </strong>
+        </Text>
       </div>
     );
   };
