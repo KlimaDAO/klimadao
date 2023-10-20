@@ -18,7 +18,6 @@ export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";
 export { getIsValidAddress } from "./getIsValidAddress";
-export { getKlimaSupply } from "./getKlimaSupply";
 export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
 export {
