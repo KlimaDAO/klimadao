@@ -4196,10 +4196,10 @@ export type GetProjectCreditsQueryVariables = Exact<{
 export type GetProjectCreditsQuery = { __typename?: 'Query', carbonProjects: Array<{ __typename?: 'CarbonProject', registry: Registry, region: string, projectID: string, name: string, methodologies: string, id: string, country: string, category: string, carbonCredits: Array<{ __typename?: 'CarbonCredit', vintage: number, currentSupply: string, id: any, crossChainSupply: string, bridgeProtocol: BridgeProtocol, bridged: string, retired: string, poolBalances: Array<{ __typename?: 'CarbonPoolCreditBalance', balance: string, id: any, deposited: string, redeemed: string, pool: { __typename?: 'CarbonPool', name: string, supply: string, id: any, decimals: number, dailySnapshots: Array<{ __typename?: 'CarbonPoolDailySnapshot', lastUpdateTimestamp: string }> } }> }> }> };
 
 export type FindDigitalCarbonProjectsQueryVariables = Exact<{
-  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   country: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
-  vintage: InputMaybe<Array<Scalars['Int']> | Scalars['Int']>;
+  category: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
   search: InputMaybe<Scalars['String']>;
+  vintage: InputMaybe<Array<Scalars['Int']> | Scalars['Int']>;
 }>;
 
 
@@ -4268,7 +4268,7 @@ export const GetProjectCreditsDocument = gql`
 }
     `;
 export const FindDigitalCarbonProjectsDocument = gql`
-    query findDigitalCarbonProjects($category: [String!], $country: [String!], $vintage: [Int!], $search: String) {
+    query findDigitalCarbonProjects($country: [String!], $category: [String!], $search: String, $vintage: [Int!]) {
   carbonProjects(
     first: 1000
     where: {and: [{category_in: $category}, {country_in: $country}, {carbonCredits_: {vintage_in: $vintage}}, {or: [{name_contains_nocase: $search}, {projectID_contains_nocase: $search}]}]}

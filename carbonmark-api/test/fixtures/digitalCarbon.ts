@@ -1,90 +1,133 @@
 import {
-  aCarbonCredit,
-  aCarbonPool,
-  aCarbonPoolCreditBalance,
-  aCarbonProject,
-} from "../../src/.generated/mocks/digitalCarbon.mocks";
-import { POOL_INFO } from "../../src/routes/projects/get.constants";
+  BridgeProtocol,
+  CarbonCredit,
+  CarbonPool,
+  CarbonPoolCreditBalance,
+  CarbonPoolDailySnapshot,
+  Registry,
+} from "../../src/.generated/types/digitalCarbon.types";
 
-const TCO2_VCS_981_2017 = "0xeaa9938076748d7edd4df0721b3e3fe4077349d3";
-const C3T_VCS_981_2017 = "0x7dbeebf8c2356ff8c53e41928c9575054a6f331b";
+import { aCarbonProject } from "../../src/.generated/mocks/digitalCarbon.mocks";
 
-const uboPool = aCarbonPool({
-  id: POOL_INFO.nbo.poolAddress,
-  decimals: 18,
-  name: "Universal Basic Offset",
-  supply: "21202280666164910248664",
-});
-const nboPool = aCarbonPool({
-  id: POOL_INFO.nbo.poolAddress,
-  decimals: 18,
-  name: "Nature Based Offset",
-  supply: "31202280666164910248664",
-});
-const nctPool = aCarbonPool({
-  id: POOL_INFO.nct.poolAddress,
-  name: "Toucan Protocol: Nature Carbon Tonne",
-  supply: "1604659955808874505539565",
-  decimals: 18,
-});
-const bctPool = aCarbonPool({
-  id: POOL_INFO.bct.poolAddress,
-  name: "Toucan Protocol: Base Carbon Tonne",
-  supply: "18545844499823544157213608",
-  decimals: 18,
-});
-const poolBalance_NBO = aCarbonPoolCreditBalance({
-  balance: "26202320013669175484739",
-  pool: nboPool,
-  deposited: "28903000000000000000000",
-  redeemed: "2700679986330824515261",
-});
-const poolBalance_NCT = aCarbonPoolCreditBalance({
-  balance: "137168659539439210",
-  pool: nctPool,
-  deposited: "19048774113647802186879",
-  redeemed: "17724636944988262747669",
-});
-const poolBalance_BCT = aCarbonPoolCreditBalance({
-  balance: "0", // all redeemed and moved to TCO2
-  pool: bctPool,
-  deposited: "142330703112744844598983",
-  redeemed: "142330703112744844598983",
-});
-const carbonCredit_C3T = aCarbonCredit({
-  vintage: 2017,
-  bridged: "28903000000000000000000",
-  retired: "2645744986330824515261",
-  currentSupply: "26257255013669175484739",
-  poolBalances: [poolBalance_NBO],
-  id: C3T_VCS_981_2017,
-});
-const carbonCredit_TCO2 = aCarbonCredit({
-  vintage: 2017,
-  bridged: "73794000000000000000000",
-  retired: "6709707416786222240581",
-  currentSupply: "62876512583213777759419",
-  poolBalances: [poolBalance_BCT, poolBalance_NCT],
-  id: TCO2_VCS_981_2017,
-});
-/** A project with two pool prices (1 empty pool) */
-const carbonProject = aCarbonProject({
-  projectID: "VCS-981",
-  name: "Pacajai REDD+ Project",
-  methodologies: "VM0015",
-  id: "VCS-981",
-  country: "Brazil",
-  category: "Forestry",
-  carbonCredits: [carbonCredit_TCO2, carbonCredit_C3T],
+type PartialCarbonPoolCreditBalance = Partial<CarbonPoolCreditBalance>;
+
+type PartialCarbonPoolDailySnapshot = Partial<CarbonPoolDailySnapshot>;
+
+// /** Fixtures for the polygon-bridged-carbon subgraph */
+
+const creditBalance: PartialCarbonPoolCreditBalance = {
+  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+};
+
+const dailySnapshot: PartialCarbonPoolDailySnapshot = {
+  // Note: You did not provide a new value for this id, so it remains the same.
+  id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea014b0000",
+  lastUpdateTimestamp: "1628582400",
+};
+
+const poolBalance: PartialCarbonPoolCreditBalance = {
+  balance: "320307910491148199345054",
+  id: "0x2f800db0fdb5223b3c3f354886d907a671414a7fb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  deposited: "320308000000000000000000",
+  redeemed: "89508851800654946",
+  pool: {
+    name: "Toucan Protocol: Base Carbon Tonne",
+    supply: "18546102526284342155938612",
+    id: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+    decimals: 18,
+    creditBalances: [creditBalance as CarbonPoolCreditBalance],
+    crossChainSupply: "0",
+    dailySnapshots: [dailySnapshot as CarbonPoolDailySnapshot],
+  } as CarbonPool,
+};
+
+type PartialCarbonCredit = Partial<CarbonCredit>;
+
+const carbonCredit: PartialCarbonCredit = {
+  vintage: 2011,
+  currentSupply: "320308000000000000000000",
+  id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
+  crossChainSupply: "0",
+  bridgeProtocol: BridgeProtocol.Toucan,
+  bridged: "320308000000000000000000",
+  retired: "0",
+  poolBalances: [poolBalance as CarbonPoolCreditBalance],
+};
+
+// const carbonProject = aCarbonProject({
+//   id: "VCS-191",
+//   name: "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
+//   projectID: "VCS-191",
+//   methodologies: "ACM0002",
+//   country: "China",
+//   category: "Renewable Energy",
+//   registry: Registry.Verra,
+//   region: "",
+//   carbonCredits: [carbonCredit as CarbonCredit],
+// });
+
+const digitalCarbonProject = aCarbonProject({
+  id: "VCS-191",
+  name: "Grid-connected electricity generation from renewable sources",
+  projectID: "VCS-191",
+  methodologies: "ACM0002",
+  country: "China",
+  category: "Renewable Energy",
+  registry: Registry.Verra,
+  region: "Asia",
+  carbonCredits: [carbonCredit as CarbonCredit],
 });
 
-/** Fixtures for the polygon-bridged-carbon subgraph */
+const countries = {
+  data: {
+    carbonProjects: [
+      {
+        country: "",
+      },
+      {
+        country: "",
+      },
+      {
+        country: "Brazil",
+      },
+      {
+        country: "India",
+      },
+      {
+        country: "India",
+      },
+      {
+        country: "China",
+      },
+      {
+        country: "China",
+      },
+      {
+        country: "Congo",
+      },
+      {
+        country: "",
+      },
+      {
+        country: "India",
+      },
+      {
+        country: "Brazil",
+      },
+    ],
+  },
+};
+
+const empty_countries = {
+  data: {
+    carbonProjects: [],
+  },
+};
+
 const fixtures = {
-  carbonProject,
-  bctPool,
-  nctPool,
-  uboPool,
-  nboPool,
+  countries,
+  empty_countries,
+  digitalCarbonProject,
 };
 
 export default fixtures;

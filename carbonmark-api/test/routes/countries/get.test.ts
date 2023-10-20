@@ -15,9 +15,9 @@ describe("GET /countries", () => {
 
   /** A default response for offsets */
   beforeEach(() =>
-    nock(GRAPH_URLS["polygon"].offsets)
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
-      .reply(200, { data: { carbonOffsets: COUNTRIES } })
+      .reply(200, { data: { carbonProjects: COUNTRIES } })
   );
 
   /** The happy path */
@@ -25,6 +25,10 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { countries: COUNTRIES } });
+
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, { data: { carbonProjects: COUNTRIES } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -45,6 +49,8 @@ describe("GET /countries", () => {
         errors: [ERROR],
       });
 
+    nock(GRAPH_URLS["polygon"].digitalCarbon).post("").reply(200, []);
+
     const response = await fastify.inject({
       method: "GET",
       url: `${DEV_URL}/countries`,
@@ -58,6 +64,10 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { countries: [] } });
+
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, { data: { carbonProjects: [] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -73,6 +83,10 @@ describe("GET /countries", () => {
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { categories: "invalid data" } });
+
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, { data: { carbonProjects: "invalid data" } });
 
     const response = await fastify.inject({
       method: "GET",

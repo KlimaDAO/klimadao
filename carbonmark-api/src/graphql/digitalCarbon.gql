@@ -56,10 +56,10 @@ query getProjectCredits($projectID: String!, $vintage: Int) {
 }
 
 query findDigitalCarbonProjects(
-  $category: [String!]
   $country: [String!]
-  $vintage: [Int!]
+  $category: [String!]
   $search: String
+  $vintage: [Int!]
 ) {
   carbonProjects(
     first: 1000

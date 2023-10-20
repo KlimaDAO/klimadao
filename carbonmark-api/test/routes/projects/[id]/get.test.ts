@@ -69,7 +69,7 @@ describe("GET /projects/:id", () => {
       .post("")
       .reply(200, {
         data: {
-          carbonProjects: [digitalCarbon.carbonProject],
+          carbonProjects: [digitalCarbon.digitalCarbonProject],
         },
       });
     nock(GRAPH_URLS["polygon"].offsets).post("").reply(200, { data: {} });
@@ -104,7 +104,7 @@ describe("GET /projects/:id", () => {
       .post("")
       .reply(200, {
         data: {
-          carbonProjects: [digitalCarbon.carbonProject],
+          carbonProjects: [digitalCarbon.digitalCarbonProject],
         },
       });
     nock(GRAPH_URLS["polygon"].offsets).post("").reply(200, { data: {} });
@@ -117,6 +117,6 @@ describe("GET /projects/:id", () => {
     });
     const project = await response.json();
     expect(response.statusCode).toEqual(200);
-    expect(project.prices).toHaveLength(2);
+    expect(project.prices).toHaveLength(1);
   });
 });
