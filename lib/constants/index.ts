@@ -222,7 +222,7 @@ export const allowancesContracts = {
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
-export const FALLBACK_BLOCK_RATE = 2.3;
+export const AVERAGE_BLOCK_RATE = 2.21;
 
 export const API_BASE_URL = "https://www.klimadao.finance/api";
 

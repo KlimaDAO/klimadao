@@ -1,6 +1,5 @@
 export { concatAddress } from "./concatAddress";
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
-export { fetchBlockRate } from "./fetchBlockRate";
 export { formatTonnes } from "./formatTonnes";
 export { formatUnits } from "./formatUnits";
 export {
