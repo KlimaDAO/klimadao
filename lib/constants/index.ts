@@ -224,8 +224,6 @@ export const allowancesContracts = {
 export const EPOCH_INTERVAL = 11520;
 export const AVERAGE_BLOCK_RATE = 2.21;
 
-export const API_BASE_URL = "https://www.klimadao.finance/api";
-
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
