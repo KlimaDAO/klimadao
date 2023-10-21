@@ -127,3 +127,13 @@ export const input = css`
     color: var(--warn);
   }
 `;
+
+export const pay_with_dropdown = css`
+  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+
+  .warn {
+    color: var(--warn);
+  }
+`;

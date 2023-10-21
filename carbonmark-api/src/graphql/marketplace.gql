@@ -37,14 +37,19 @@ query getPurchaseById($id: ID!) {
   }
 }
 
-query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
-  users(where: { id: $wallet }) {
-    listings(where: { expiration_gt: $expiresAfter }) {
-      ...ListingFragment
+query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
+  listings(where: { seller: $wallet, expiration_gt: $expiresAfter }) {
+    ...ListingFragment
+  }
+  activities(
+    orderBy: timeStamp
+    orderDirection: desc
+    first: 10
+    where: {
+      or: [{ seller: $wallet, activityType_not: Purchase }, { buyer: $wallet }]
     }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      ...ActivityFragment
-    }
+  ) {
+    ...ActivityFragment
   }
 }
 

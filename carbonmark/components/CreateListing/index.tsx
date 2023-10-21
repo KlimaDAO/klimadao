@@ -155,14 +155,14 @@ export const CreateListing: FC<Props> = (props) => {
             transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
-        {getTotalAssetApproval(inputValues) > Number(inputValues?.amount) && (
-          <Text t="body1" color="lighter">
+        <Text t="body1" color="lighter">
+          <strong>
             <Trans>
-              The value below reflects the sum of all of your listings for this
-              specific token.
+              The Confirm amount below reflects the sum of all your listings for
+              this specific token.
             </Trans>
-          </Text>
-        )}
+          </strong>
+        </Text>
       </div>
     );
   };
@@ -195,9 +195,7 @@ export const CreateListing: FC<Props> = (props) => {
     const amount = hasApproval()
       ? Number(inputValues?.amount) // 'submit' view shows the new quantity
       : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
-    return {
-      value: t`${amount} tonnes`,
-    };
+    return t`${amount} tonnes`;
   };
 
   return (
