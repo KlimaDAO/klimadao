@@ -19,6 +19,21 @@ export type Purchase = {
      */
     id: string;
     /**
+     * @description Address of the asset that was purchased
+     * @type string
+     */
+    tokenAddress: string;
+    /**
+     * @type object
+     */
+    seller: {
+      /**
+       * @description Address of the seller
+       * @type string
+       */
+      id: string;
+    };
+    /**
      * @type object
      */
     project: {

@@ -1,22 +1,11 @@
+import type { Def1 } from "./Def1";
+
 export type GetUsersWalletorhandlePathParams = {
   /**
    * @description A user handle or wallet address
    * @type string
    */
   walletOrHandle: string;
-};
-
-export type GetUsersWalletorhandleQueryParams = {
-  /**
-   * @description Optional. Desired blockchain network. Default is `polygon` (mainnet).
-   * @default 'polygon'
-   */
-  network?: "polygon" | "mumbai";
-  /**
-   * @description Only return listings that expire after this timestamp (Unix seconds)
-   * @type string | undefined
-   */
-  expiresAfter?: string;
 };
 
 /**
@@ -196,4 +185,13 @@ export type GetUsersWalletorhandleQueryResponse = {
      */
     amount: string;
   }[];
+};
+
+export type GetUsersWalletorhandleQueryParams = {
+  network?: Def1;
+  /**
+   * @description Only return listings that expire after this timestamp (Unix seconds)
+   * @type string | undefined
+   */
+  expiresAfter?: string;
 };

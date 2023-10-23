@@ -15,6 +15,10 @@ export type PutUsersWalletMutationRequest = {
    * @type string | undefined
    */
   profileImgUrl?: string;
+  /**
+   * @type string | undefined
+   */
+  handle?: string;
 };
 
 /**
@@ -37,4 +41,16 @@ export type PutUsersWalletMutationResponse = {
    * @type string | undefined
    */
   profileImgUrl?: string;
+  /**
+   * @type string | undefined
+   */
+  handle?: string;
+};
+
+export type PutUsersWalletPathParams = {
+  /**
+   * @description The target wallet address
+   * @type string
+   */
+  wallet: string;
 };

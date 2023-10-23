@@ -2184,48 +2184,6 @@
     }
   },
   "paths": {
-    "/categories": {
-      "get": {
-        "summary": "Categories",
-        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Blue Carbon"
-                    },
-                    {
-                      "id": "Forestry"
-                    },
-                    {
-                      "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/countries": {
       "get": {
         "summary": "Countries",
@@ -2268,6 +2226,48 @@
         }
       }
     },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "A list of all methodology categories used to delineate every project in the marketplace. A project may belong to one or more of these categories.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    {
+                      "id": "Blue Carbon"
+                    },
+                    {
+                      "id": "Forestry"
+                    },
+                    {
+                      "id": "Other"
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/projects": {
       "get": {
         "summary": "List projects",
@@ -2278,34 +2278,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
@@ -2776,34 +2753,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
@@ -3447,6 +3401,18 @@
           },
           "required": true
         },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "example": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B",
+            "in": "path",
+            "name": "wallet",
+            "required": true,
+            "description": "The target wallet address"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3493,6 +3459,16 @@
       "get": {
         "summary": "Vintages",
         "description": "Retrieve an array of the vintages of available carbon projects",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3539,6 +3515,14 @@
         "parameters": [
           {
             "schema": {
+              "$ref": "#/components/schemas/def-1"
+            },
+            "in": "query",
+            "name": "network",
+            "required": false
+          },
+          {
+            "schema": {
               "type": "string"
             },
             "example": "1620000000",
@@ -3546,37 +3530,6 @@
             "name": "expiresAfter",
             "required": false,
             "description": "Only return projects listings that expire after this timestamp (Unix seconds)"
-          },
-          {
-            "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
-            },
-            "in": "query",
-            "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
           },
           {
             "schema": {
@@ -4250,34 +4203,11 @@
         "parameters": [
           {
             "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
+              "$ref": "#/components/schemas/def-1"
             },
             "in": "query",
             "name": "network",
-            "required": true,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
+            "required": false
           },
           {
             "schema": {
