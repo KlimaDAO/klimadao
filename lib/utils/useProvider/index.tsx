@@ -13,11 +13,7 @@ import {
   WrappedProvider,
   web3InitialState,
 } from "../../components/Web3Context/types";
-import {
-  WALLETCONNECT_PROJECT_ID,
-  polygonNetworks,
-  urls,
-} from "../../constants";
+import { polygonNetworks, urls } from "../../constants";
 import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
@@ -86,12 +82,16 @@ export const useProvider = (): Web3ModalState => {
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
       ) {
+        if (!options?.walletConnectProjectId) {
+          console.error("Failed to connect: missing walletConnectProjectId");
+          return;
+        }
         const { default: EthereumProvider } = await import(
           "@walletconnect/ethereum-provider"
         );
 
         const walletConnectProvider = await EthereumProvider.init({
-          projectId: WALLETCONNECT_PROJECT_ID,
+          projectId: options.walletConnectProjectId,
           chains: [137],
           showQrModal: true,
         });

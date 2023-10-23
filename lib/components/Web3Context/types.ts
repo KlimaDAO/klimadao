@@ -109,7 +109,7 @@ export type WalletLabel =
 
 export type ConnectFn = (
   wallet?: WalletLabel,
-  options?: { useCache?: boolean }
+  options?: { useCache?: boolean; walletConnectProjectId?: string }
 ) => Promise<void>;
 
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
