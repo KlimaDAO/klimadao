@@ -13,14 +13,13 @@ type PartialCarbonPoolCreditBalance = Partial<CarbonPoolCreditBalance>;
 
 type PartialCarbonPoolDailySnapshot = Partial<CarbonPoolDailySnapshot>;
 
-// /** Fixtures for the polygon-bridged-carbon subgraph */
+// /** Fixtures for the polygon-digital-carbon subgraph */
 
 const creditBalance: PartialCarbonPoolCreditBalance = {
   id: "0xb0d34b2ec3b47ba1f27c9d4e8520f8fa38ef538d",
 };
 
 const dailySnapshot: PartialCarbonPoolDailySnapshot = {
-  // Note: You did not provide a new value for this id, so it remains the same.
   id: "0xaa7dbd1598251f856c12f63557a4c4397c253cea014b0000",
   lastUpdateTimestamp: "1628582400",
 };
@@ -54,18 +53,6 @@ const carbonCredit: PartialCarbonCredit = {
   poolBalances: [poolBalance as CarbonPoolCreditBalance],
 };
 
-// const carbonProject = aCarbonProject({
-//   id: "VCS-191",
-//   name: "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
-//   projectID: "VCS-191",
-//   methodologies: "ACM0002",
-//   country: "China",
-//   category: "Renewable Energy",
-//   registry: Registry.Verra,
-//   region: "",
-//   carbonCredits: [carbonCredit as CarbonCredit],
-// });
-
 const digitalCarbonProject = aCarbonProject({
   id: "VCS-191",
   name: "Grid-connected electricity generation from renewable sources",
@@ -78,46 +65,6 @@ const digitalCarbonProject = aCarbonProject({
   carbonCredits: [carbonCredit as CarbonCredit],
 });
 
-const countries = {
-  data: {
-    carbonProjects: [
-      {
-        country: "",
-      },
-      {
-        country: "",
-      },
-      {
-        country: "Brazil",
-      },
-      {
-        country: "India",
-      },
-      {
-        country: "India",
-      },
-      {
-        country: "China",
-      },
-      {
-        country: "China",
-      },
-      {
-        country: "Congo",
-      },
-      {
-        country: "",
-      },
-      {
-        country: "India",
-      },
-      {
-        country: "Brazil",
-      },
-    ],
-  },
-};
-
 const empty_countries = {
   data: {
     carbonProjects: [],
@@ -125,7 +72,6 @@ const empty_countries = {
 };
 
 const fixtures = {
-  countries,
   empty_countries,
   digitalCarbonProject,
 };

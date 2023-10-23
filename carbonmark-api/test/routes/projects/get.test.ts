@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
+import { formatUSDC } from "../../../src/utils/crypto.utils";
 import carbonProjects from "../../fixtures/carbonProjects";
 import digitalCarbon from "../../fixtures/digitalCarbon";
 import marketplace from "../../fixtures/marketplace";
@@ -172,6 +173,7 @@ describe("GET /projects", () => {
     nock(GRAPH_URLS["polygon"].digitalCarbon)
       .post("")
       .reply(200, { data: { carbonProjects: [] } });
+
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [marketplace.projectWithListing] } });
@@ -232,67 +234,80 @@ describe("GET /projects", () => {
 
   /** PRICES NOT YET ON SUBGRAPH */
 
-  // test("Best price is listing price", async () => {
-  //   nock(GRAPH_URLS["polygon"].offsets)
-  //     .post("")
-  //     .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
+  test("Best price is listing price", async () => {
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, {
+        data: { carbonProjects: [digitalCarbon.digitalCarbonProject] },
+      });
 
-  //   const cheapListing = {
-  //     ...marketplace.projectWithListing.listings?.[0],
-  //     singleUnitPrice: "111111", // 0.111111
-  //   };
+    const cheapListing = {
+      ...marketplace.projectWithListing.listings?.[0],
+      singleUnitPrice: "111111", // 0.111111
+    };
 
-  //   nock(GRAPH_URLS["polygon"].marketplace)
-  //     .post("")
-  //     .reply(200, {
-  //       data: {
-  //         projects: [
-  //           {
-  //             ...marketplace.projectWithListing,
-  //             listings: [cheapListing],
-  //           },
-  //         ],
-  //       },
-  //     }); // override so listing is cheaper
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("")
+      .reply(200, {
+        data: {
+          projects: [
+            {
+              ...marketplace.projectWithListing,
+              listings: [cheapListing],
+            },
+          ],
+        },
+      }); // override so listing is cheaper
 
-  //   const response = await fastify.inject({
-  //     method: "GET",
-  //     url: `${DEV_URL}/projects`,
-  //   });
-  //   const data = response.json();
-  //   expect(data[0].price).toStrictEqual(
-  //     formatUSDC(cheapListing.singleUnitPrice)
-  //   );
-  // });
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = response.json();
+    const entryWithListing = data.find(
+      (entry: any) => entry.listings && entry.listings.length
+    );
+    expect(entryWithListing.price).toStrictEqual(
+      formatUSDC(cheapListing.singleUnitPrice)
+    );
+  });
 
-  // test("Best price is the lowest of 2 pool prices", async () => {
-  //   nock(GRAPH_URLS["polygon"].offsets)
-  //     .post("")
-  //     .reply(200, {
-  //       data: {
-  //         carbonOffsets: [
-  //           {
-  //             ...bridgedCarbon.offset,
-  //             balanceBCT: "123",
-  //             balanceNCT: "123",
-  //           },
-  //         ],
-  //       },
-  //     });
+  test("Best price is the lowest of 2 pool prices", async () => {
+    nock(GRAPH_URLS["polygon"].digitalCarbon)
+      .post("")
+      .reply(200, {
+        data: {
+          carbonProjects: [
+            {
+              ...digitalCarbon.digitalCarbonProject,
+            },
+          ],
+        },
+      });
 
-  //   nock(GRAPH_URLS["polygon"].marketplace)
-  //     .post("")
-  //     .reply(200, {
-  //       data: {
-  //         projects: [marketplace.projectWithListing],
-  //       },
-  //     }); // override so listing is cheaper
+    nock(GRAPH_URLS["polygon"].marketplace)
+      .post("")
+      .reply(200, {
+        data: {
+          projects: [
+            {
+              ...marketplace.projectWithListing,
+              listings: [
+                {
+                  ...marketplace.projectWithListing.listings?.[0],
+                  singleUnitPrice: "1234560",
+                },
+              ],
+            },
+          ],
+        },
+      }); // override so listing is cheaper
 
-  //   const response = await fastify.inject({
-  //     method: "GET",
-  //     url: `${DEV_URL}/projects`,
-  //   });
-  //   const data = response.json();
-  //   expect(data[0].price).toStrictEqual(poolPrices.bct.defaultPrice);
-  // });
+    const response = await fastify.inject({
+      method: "GET",
+      url: `${DEV_URL}/projects`,
+    });
+    const data = response.json();
+    expect(data[1].price).toStrictEqual(poolPrices.bct.defaultPrice);
+  });
 });
