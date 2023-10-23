@@ -7,8 +7,6 @@ on:
     # Run on changes made to package.json
     branches:
       - staging
-      # Temporarily for testing
-      - emc/chore/carbonmark-api-package-version-release
     paths:
       - "carbonmark-api/package.json"
     # Run on pushed carbonmark-api tags
