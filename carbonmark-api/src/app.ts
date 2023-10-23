@@ -4,14 +4,10 @@ import { FastifyPluginAsync } from "fastify";
 import path, { join } from "path";
 import { CommonSchema } from "./models/CommonSchema.model";
 
-const IS_DEV = !["preview", "production"].includes(
-  process.env.VERCEL_ENV ?? ""
-);
-
-const ENV_PATH = IS_DEV ? "../.env.local" : "../../.env.local";
-
 // Only pull env vars from .env if running in locally
-dotenv.config({ path: path.resolve(__dirname, ENV_PATH) });
+if (!["preview", "production"].includes(process.env.VERCEL_ENV ?? "")) {
+  dotenv.config({ path: path.resolve(__dirname, "../../.env.local") });
+}
 
 export type AppOptions = {
   // Place your custom options for app below here.
