@@ -7,7 +7,7 @@ export default function DigitalCarbonSupplyByBlockchainPage() {
     <DetailPage
       pageTitle={t`Digital carbon supply by Blockchain`}
       card={<CarbonSupplyByBlockChainCard isDetailPage={true} />}
-      overview={t`Lorem Ipsum`}
+      overview={t`A breakdown of the current supply of digital carbon credits available on public blockchains.`}
     />
   );
 }

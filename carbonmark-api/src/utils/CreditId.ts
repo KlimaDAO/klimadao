@@ -33,8 +33,9 @@ export class CreditId {
   projectId: ProjectIdentifier;
   creditId: CreditIdentifier;
 
-  public static ValidCreditIdRegex = /^(VCS|PURO|ICR)-\d+-(19\d{2}|20\d{2})$/i;
-  public static ValidProjectIdRegex = /^(VCS|PURO|ICR)-\d+$/i; // case insensitive
+  public static ValidCreditIdRegex =
+    /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/i;
+  public static ValidProjectIdRegex = /^(VCS|PURO|ICR|GS)-\d+$/i; // case insensitive
 
   constructor(params: UntypedParams);
   constructor(params: string);

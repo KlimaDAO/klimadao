@@ -138,14 +138,14 @@ export const getUserUntil = async (params: {
   retryInterval?: number;
   network?: "mumbai" | "polygon";
 }): Promise<User> => {
-  const fetchUser = async () =>
+  const fetchUserData = async () =>
     await getUsersWalletorhandle(params.address, {
       network: params.network,
       expiresAfter: "0",
     });
 
   const updatedUser = await pollUntil({
-    fn: fetchUser,
+    fn: fetchUserData,
     validate: params.retryUntil,
     ms: params.retryInterval || 1000,
     maxAttempts: params.maxAttempts || 50,

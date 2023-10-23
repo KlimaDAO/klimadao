@@ -17,6 +17,7 @@ import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
+import { hasListableAssets } from "lib/utils/listings.utils";
 import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
@@ -146,6 +147,12 @@ export const SellerConnected: FC<Props> = (props) => {
               onClick={() => {
                 setShowCreateListingModal(true);
               }}
+              disabled={
+                !hasListableAssets(
+                  carbonmarkUser.assets,
+                  carbonmarkUser.listings
+                )
+              }
             />
           ) : (
             <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">

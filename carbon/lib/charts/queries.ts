@@ -1,18 +1,24 @@
 import { urls } from "lib/constants";
 import {
   AggregatedCredits,
+  AggregatedCreditsByBridge,
+  AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
   AggregatedCreditsByBridgeAndVintageItem,
+  AggregatedCreditsByDates,
+  AggregatedCreditsByDatesItem,
+  AggregatedCreditsByMethodologyItem,
   AggregatedCreditsByOriginItem,
+  AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
   AggregatedCreditsByPoolAndVintageItem,
-  AggregatedCreditsByProjectsItem,
+  AggregatedCreditsByProjectItem,
+  AggregatedCreditsByVintageItem,
   AggregationQueryParams,
   CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
-  DailyCredits,
-  DailyCreditsItem,
+  DateAggregationFrequency,
   KlimaMonthlyRetirementsByOriginItem,
   KlimaMonthlyRetirementsByTokenItem,
   KlimaRetirementsByBeneficiaryItem,
@@ -30,7 +36,7 @@ import {
 export const EMPTY_PAGINATED_RESPONSE = {
   items: [],
   items_count: 0,
-  pages_count: 0,
+  pages_count: 1,
   current_page: 0,
 };
 
@@ -91,7 +97,7 @@ async function query<R, Q extends object>(
    Q: Type of the Query parameters
    Returns a default response in case a network error
 */
-async function failsafeQuery<R, Q extends object>(
+async function failsafeQuery<R, Q extends object | undefined>(
   url: string,
   params: Q | undefined,
   defaultValue: R,
@@ -119,13 +125,14 @@ async function paginatedQuery<RI, Q extends object | undefined>(
 }
 
 /** Queries the Credits Daily Aggregations endpoint */
-export const queryDailyAggregatedCredits = function (
+export const queryAggregatedCreditsByDates = function (
+  freq: DateAggregationFrequency,
   params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-): Promise<DailyCredits> {
+): Promise<AggregatedCreditsByDates> {
   return paginatedQuery<
-    DailyCreditsItem,
+    AggregatedCreditsByDatesItem,
     CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-  >(urls.api.dailyAggregatedCredits, params);
+  >(`${urls.api.aggregatedCreditsByDate}/${freq}`, params);
 };
 
 /** Queries the Credits Global Aggregations endpoint */
@@ -140,11 +147,21 @@ export const queryAggregatedCredits = function (
 };
 
 /** Queries the Credits Aggregations by projects endpoint */
-export const queryAggregatedCreditsByProjects = function (
+export const queryAggregatedCreditsByProject = function (
   params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
-): Promise<PaginatedResponse<AggregatedCreditsByProjectsItem>> {
-  return paginatedQuery<AggregatedCreditsByProjectsItem, typeof params>(
-    urls.api.aggregatedCreditsByProjects,
+): Promise<PaginatedResponse<AggregatedCreditsByProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByProject,
+    params
+  );
+};
+
+/** Queries the Credits Aggregations by methodology endpoint */
+export const queryAggregatedCreditsByMethodology = function (
+  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByMethodologyItem>> {
+  return paginatedQuery<AggregatedCreditsByMethodologyItem, typeof params>(
+    urls.api.aggregatedCreditsByMethodology,
     params
   );
 };
@@ -233,12 +250,12 @@ export function queryCarbonMetrics<RI>(
 }
 
 /** Queries the Pools tokens & dates aggregation endpoint */
-export function queryAggregatedCreditsByPoolAndDates(
-  freq: string,
+export function queryAggregatedCreditsByPoolAndDate(
+  freq: DateAggregationFrequency,
   params: PaginationQueryParams & CreditsQueryParams
 ): Promise<PaginatedResponse<MonthlyAggregatedCreditsByPoolItem>> {
   return paginatedQuery<MonthlyAggregatedCreditsByPoolItem, typeof params>(
-    `${urls.api.aggregatedCreditsByPoolAndDates}/${freq}`,
+    `${urls.api.aggregatedCreditsByPoolAndDate}/${freq}`,
     params
   );
 }
@@ -273,6 +290,16 @@ export function queryAggregatedCreditsByOrigin(
   );
 }
 
+/** Queries the Credits countries aggregation endpoint */
+export function queryAggregatedCreditsByVintage(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByVintageItem>> {
+  return paginatedQuery<AggregatedCreditsByVintageItem, typeof params>(
+    urls.api.aggregatedCreditsByVintage,
+    params
+  );
+}
+
 /** Queries the Credits bridge and vintage aggregation endpoint */
 export function queryAggregatedCreditsByBridgeAndVintage(
   params: PaginationQueryParams & CreditsQueryParams
@@ -288,7 +315,53 @@ export function queryAggregatedCreditsByBridgeAndOrigin(
   params: PaginationQueryParams & CreditsQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndOriginItem>> {
   return paginatedQuery<AggregatedCreditsByBridgeAndOriginItem, typeof params>(
-    urls.api.aggregatedCreditsByBridgeAndCountries,
+    urls.api.aggregatedCreditsByBridgeAndCountry,
     params
   );
 }
+
+/** Queries the Credits Aggregations by bridge endpoint */
+export const queryAggregatedCreditsByBridgeAndDate = function (
+  params: CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndDateItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndDateItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndDate,
+    params
+  );
+};
+
+/** Queries the Credits Aggregations by bridge endpoint */
+export const queryAggregatedCreditsByBridge = function (
+  params?: CreditsQueryParams
+): Promise<AggregatedCreditsByBridge> {
+  return failsafeQuery<AggregatedCreditsByBridge, typeof params>(
+    urls.api.aggregatedCreditsByBridge,
+    params,
+    {
+      toucan_quantity: 0,
+      c3_quantity: 0,
+      moss_quantity: 0,
+      offchain_quantity: 0,
+      total_quantity: 0,
+      not_bridged_quantity: 0,
+    }
+  );
+};
+/** Queries the Credits Aggregations by pool endpoint */
+export const queryAggregatedCreditsByPool = function (
+  params?: CreditsQueryParams
+): Promise<AggregatedCreditsByPool> {
+  return failsafeQuery<AggregatedCreditsByPool, typeof params>(
+    urls.api.aggregatedCreditsByPool,
+    params,
+    {
+      bct_quantity: 0,
+      nct_quantity: 0,
+      mco2_quantity: 0,
+      ubo_quantity: 0,
+      nbo_quantity: 0,
+      total_quantity: 0,
+      not_pooled_quantity: 0,
+    }
+  );
+};

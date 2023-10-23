@@ -9,11 +9,12 @@ import {
   Status,
   TreeMapData,
 } from "lib/charts/types";
+import moment from "moment";
 import { statusToDateFieldGt } from "../dateField";
 import { dateForQuery } from "../helpers";
 import {
   queryAggregatedCredits,
-  queryAggregatedCreditsByProjects,
+  queryAggregatedCreditsByProject,
 } from "../queries";
 export type AggregatedCreditsChartDataItem = AggregatedCredits;
 
@@ -40,10 +41,12 @@ export function creditsQueryParamsFromProps(
 
   const dateField: DateFieldParam = statusToDateFieldGt(status);
   if (props.since == "last7d") {
-    queryParams[dateField] = dateForQuery(Date.now() - 60 * 60 * 24 * 7 * 1000);
+    queryParams[dateField] = dateForQuery(
+      moment().add(-7, "day").startOf("day").unix() * 1000
+    );
   } else if (props.since == "last30d") {
     queryParams[dateField] = dateForQuery(
-      Date.now() - 60 * 60 * 24 * 30 * 1000
+      moment().add(-1, "month").startOf("day").unix() * 1000
     );
   }
   return queryParams;
@@ -69,7 +72,7 @@ export async function getAggregatedCredits(
 }
 
 /* Fetches aggregated credits by projects and format them for a tree chart */
-export async function getAggregatedCreditsByProjects(
+export async function getAggregatedCreditsByProject(
   props: CreditsFilteringProps
 ): Promise<TreeMapData> {
   const params = creditsQueryParamsFromProps(props);
@@ -78,7 +81,7 @@ export async function getAggregatedCreditsByProjects(
     sort_by: "quantity",
     sort_order: "desc",
   });
-  const data = await queryAggregatedCreditsByProjects(finalParams);
+  const data = await queryAggregatedCreditsByProject(finalParams);
   const chartData: TreeMapData = data.items.map((item) => {
     return {
       name: item.project_type,

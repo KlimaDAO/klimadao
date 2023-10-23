@@ -18,20 +18,20 @@ export default function SupplyPage() {
       <div className={layout.cardStackedRows}>
         <div></div>
         <div className={layout.cardRow}>
-          <CarbonSupplyQuickFactsCard />
-          <CarbonSupplyByBlockChainCard />
+          <CarbonSupplyQuickFactsCard className={layout.zIndexSeven} />
+          <CarbonSupplyByBlockChainCard className={layout.zIndexSix} />
         </div>
         <div className={layout.cardRow}>
-          <DailyPolygonCarbonSupplyCard />
-          <DailyPolygonRetirementsCard />
+          <DailyPolygonCarbonSupplyCard className={layout.zIndexFive} />
+          <DailyPolygonRetirementsCard className={layout.zIndexFour} />
         </div>
         <div className={layout.cardRow}>
-          <DailyEthCarbonSupplyCard />
-          <DailyEthRetirementsCard />
+          <DailyEthCarbonSupplyCard className={layout.zIndexThree} />
+          <DailyEthRetirementsCard className={layout.zIndexTwo} />
         </div>
         <div className={layout.cardRow}>
           <div className={layout.card50percent}>
-            <DailyCeloCarbonSupplyCard />
+            <DailyCeloCarbonSupplyCard className={layout.zIndexOne} />
           </div>
         </div>
       </div>

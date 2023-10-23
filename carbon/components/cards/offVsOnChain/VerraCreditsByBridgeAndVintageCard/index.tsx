@@ -22,7 +22,13 @@ export default function VerraCreditsByBridgeAndVintageCard(
       : "/details/verra-credits-retired-by-vintage-date";
 
   return (
-    <ChartCard {...props} title={title} detailUrl={detailUrl} chart={chart} />
+    <ChartCard
+      {...props}
+      title={title}
+      detailUrl={detailUrl}
+      chart={chart}
+      className={props.className}
+    />
   );
 }
 async function VerraCreditsByBridgeAndVintageChart(props: OffVsOnChainProps) {

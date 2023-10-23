@@ -7,7 +7,7 @@ export default function VerraCreditsOverTimePage() {
     <DetailPage
       pageTitle={t`Verra credits over time`}
       card={<DailyVerraCreditsCard isDetailPage={true}></DailyVerraCreditsCard>}
-      overview={t`Lorem Ipsum`}
+      overview={t`The total number of carbon credits issued by carbon registry Verra over time and the number of credits retired over time. On-chain refers to credits bridged and tokenized on a public blockchain.`}
       insights={{ content: t`Lorem Ipsum`, source: "ai" }}
     />
   );

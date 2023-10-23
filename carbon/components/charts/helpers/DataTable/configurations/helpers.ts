@@ -1,4 +1,4 @@
-import { formatTonnes as formatTonnesGeneric } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes as formatTonnesGeneric } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
@@ -11,7 +11,7 @@ export function getBeneficiaryColumn<
     header: t`Beneficiary address`,
     cellStyle: layout.textLeft,
     dataKey: "beneficiary",
-    formatter: (x: string | number) => x,
+    formatter: (x: string | number) => x || t`Missing`,
   };
 }
 export function formatTonnes(amount: string | number) {

@@ -137,6 +137,10 @@ export const paymentDropdown = css`
     width: 100%;
     gap: 1rem;
   }
+
+  &.error > button {
+    border: 1px solid var(--warn);
+  }
 `;
 
 export const paymentDropDownHeader = css`
@@ -179,6 +183,10 @@ export const errorMessagePrice = css`
   margin-bottom: 0.2rem;
   word-break: break-word;
   margin-top: -0.8rem;
+
+  &.balance {
+    margin-top: 0.4rem;
+  }
 
   ${breakpoints.large} {
     font-size: 1.4rem;

@@ -3,14 +3,16 @@ import { queryAggregatedCreditsByOrigin } from "lib/charts/queries";
 import {
   AggregatedCreditsByOriginItem,
   CreditsQueryParams,
-  PaginatedResponse,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes } from "./helpers";
-import { Columns } from "./types";
+import { Columns, DataRendererProps } from "./types";
 
-export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<AggregatedCreditsByOriginItem> {
+export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<
+  AggregatedCreditsByOriginItem,
+  CreditsQueryParams
+> {
   fetchFunction(page: number, params?: CreditsQueryParams) {
     return queryAggregatedCreditsByOrigin(
       Object.assign(
@@ -47,16 +49,16 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
       },
     };
   }
-  desktopRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByOriginItem>;
-  }) => {
+  desktopRenderer = (
+    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
+  ) => {
     return this.VerticalTableLayout({
       data: props.data,
     });
   };
-  mobileRenderer = (props: {
-    data: PaginatedResponse<AggregatedCreditsByOriginItem>;
-  }) => {
+  mobileRenderer = (
+    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
+  ) => {
     return this.VerticalTableLayout({
       data: props.data,
     });
