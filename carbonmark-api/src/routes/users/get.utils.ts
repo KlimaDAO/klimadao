@@ -28,6 +28,11 @@ const fetchTestnetHoldings = async (params: {
       decimals: 18,
     },
     {
+      symbol: "TCO2-VCS-1052-2012",
+      address: "0xc361F72bbd04b38c06E34F97A4116742c5441939",
+      decimals: 18,
+    },
+    {
       symbol: "TCO2-VCS-191-2009",
       address: "0x74589F305224c9e1E8aAeb341C6a09e8709A5Dab",
       decimals: 18,
