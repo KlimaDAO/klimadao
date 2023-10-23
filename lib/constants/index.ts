@@ -226,6 +226,8 @@ export const FALLBACK_BLOCK_RATE = 2.3;
 
 export const API_BASE_URL = "https://www.klimadao.finance/api";
 
+export const WALLETCONNECT_PROJECT_ID = "51d2bf0bcd3abd445f503942db20b1f9"; // @todo - Makka add projectId
+
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
@@ -302,7 +304,3 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
-
-export const WALLETCONNECT_PROJECT_ID =
-  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ??
-  "51d2bf0bcd3abd445f503942db20b1f9"; // @todo Makka - remove hardcoded projectId after official projectId setup

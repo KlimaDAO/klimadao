@@ -187,7 +187,8 @@ export const useProvider = (): Web3ModalState => {
       // no need to listen to torus events. They do not have any external control
       return;
     }
-    const handleAccountsChanged = (accts: string[]) => {
+    // @todo -> Makka fix types and remove any.
+    const handleAccountsChanged = (accts: string[] | any) => {
       if (accts.length > 0) {
         window.location.reload();
       } else {
@@ -205,16 +206,15 @@ export const useProvider = (): Web3ModalState => {
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
-    web3state.provider.provider.on("accountsChanged", (accts) =>
-      handleAccountsChanged(accts)
-    );
+    web3state.provider.provider.on("accountsChanged", handleAccountsChanged);
     web3state.provider.provider.on("chainChanged", handleChainChanged);
     /** For WalletConnect and Coinbase disconnections */
     web3state.provider.provider.on("disconnect", handleDisconnect);
 
     return () => {
-      web3state.provider.provider.removeListener("accountsChanged", (accts) =>
-        handleAccountsChanged(accts)
+      web3state.provider.provider.removeListener(
+        "accountsChanged",
+        handleAccountsChanged
       );
       web3state.provider.provider.removeListener(
         "chainChanged",
