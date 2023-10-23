@@ -1,4 +1,4 @@
-import client from '.generated/carbonmark-api-sdk/client';
+import client from ".generated/carbonmark-api-sdk/client";
 import { useGetUsersWalletorhandle } from ".generated/carbonmark-api-sdk/hooks";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -19,15 +19,22 @@ import { PortfolioSidebar } from "./PortfolioSidebar";
 import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
-  const { isConnected, address = "", toggleModal, initializing, networkLabel } =
-    useWeb3();
+  const {
+    isConnected,
+    address = "",
+    toggleModal,
+    initializing,
+    networkLabel,
+  } = useWeb3();
   const {
     data: carbonmarkUser,
     isLoading,
     mutate,
-  } = useGetUsersWalletorhandle(address ?? "",
+  } = useGetUsersWalletorhandle(
+    address ?? "",
     { network: networkLabel, expiresAfter: "0" },
-    { query: { fetcher: notNil(address) ? client : async () => undefined } });
+    { query: { fetcher: notNil(address) ? client : async () => undefined } }
+  );
 
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

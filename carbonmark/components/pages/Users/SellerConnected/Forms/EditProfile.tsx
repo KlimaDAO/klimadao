@@ -53,7 +53,9 @@ export const EditProfile: FC<Props> = (props) => {
   const fetchIsNewHandle = async (handle?: string | null) => {
     if (isNil(handle)) return true;
     try {
-      const handleFromApi = await getUsersWalletorhandle(handle.toLowerCase(), { network });
+      const handleFromApi = await getUsersWalletorhandle(handle.toLowerCase(), {
+        network,
+      });
       const apiHandle = handleFromApi?.handle || "";
       return apiHandle.toLowerCase() !== handle.toLowerCase();
     } catch (error) {
@@ -145,23 +147,23 @@ export const EditProfile: FC<Props> = (props) => {
               "handle",
               !isExistingUser // validate only if handle can be changed
                 ? {
-                  required: {
-                    value: true,
-                    message: t`Handle is required`,
-                  },
-                  pattern: {
-                    value: VALID_HANDLE_REGEX, // no special characters!
-                    message: t`Handle should not contain any special characters`,
-                  },
-                  validate: {
-                    isAddress: (v) =>
-                      !isAddress(v) || // do not allow polygon addresses
-                      t`Handle should not be an address`,
-                    isNewHandle: async (v) =>
-                      (await fetchIsNewHandle(v)) || // ensure unique handles
-                      t`Sorry, this handle already exists`,
-                  },
-                }
+                    required: {
+                      value: true,
+                      message: t`Handle is required`,
+                    },
+                    pattern: {
+                      value: VALID_HANDLE_REGEX, // no special characters!
+                      message: t`Handle should not contain any special characters`,
+                    },
+                    validate: {
+                      isAddress: (v) =>
+                        !isAddress(v) || // do not allow polygon addresses
+                        t`Handle should not be an address`,
+                      isNewHandle: async (v) =>
+                        (await fetchIsNewHandle(v)) || // ensure unique handles
+                        t`Sorry, this handle already exists`,
+                    },
+                  }
                 : undefined
             ),
           }}
