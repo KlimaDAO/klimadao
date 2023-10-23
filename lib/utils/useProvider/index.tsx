@@ -13,7 +13,11 @@ import {
   WrappedProvider,
   web3InitialState,
 } from "../../components/Web3Context/types";
-import { polygonNetworks, urls } from "../../constants";
+import {
+  WALLETCONNECT_PROJECT_ID,
+  polygonNetworks,
+  urls,
+} from "../../constants";
 import { isTestnetChainId } from "../isTestnetChainId";
 
 /** Type guards for convenience and readability */
@@ -44,7 +48,7 @@ export const useProvider = (): Web3ModalState => {
       isWalletConnectProvider(web3state.provider?.provider) ||
       isCoinbaseProvider(web3state.provider?.provider)
     ) {
-      await web3state.provider?.provider?.close();
+      await web3state.provider?.provider?.disconnect();
     }
     window.location.reload();
   };
@@ -82,14 +86,16 @@ export const useProvider = (): Web3ModalState => {
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
       ) {
-        const { default: WalletConnectProvider } = await import(
-          "@walletconnect/web3-provider"
+        const { default: EthereumProvider } = await import(
+          "@walletconnect/ethereum-provider"
         );
-        const walletConnectProvider = new WalletConnectProvider({
-          rpc: {
-            137: urls.polygonMainnetRpc,
-          },
+
+        const walletConnectProvider = await EthereumProvider.init({
+          projectId: WALLETCONNECT_PROJECT_ID,
+          chains: [137],
+          showQrModal: true,
         });
+
         await walletConnectProvider.enable();
         provider = getWeb3Provider(walletConnectProvider);
         localStorage.setItem("web3-wallet", "walletConnect");
@@ -199,15 +205,16 @@ export const useProvider = (): Web3ModalState => {
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
-    web3state.provider.provider.on("accountsChanged", handleAccountsChanged);
+    web3state.provider.provider.on("accountsChanged", (accts) =>
+      handleAccountsChanged(accts)
+    );
     web3state.provider.provider.on("chainChanged", handleChainChanged);
     /** For WalletConnect and Coinbase disconnections */
     web3state.provider.provider.on("disconnect", handleDisconnect);
 
     return () => {
-      web3state.provider.provider.removeListener(
-        "accountsChanged",
-        handleAccountsChanged
+      web3state.provider.provider.removeListener("accountsChanged", (accts) =>
+        handleAccountsChanged(accts)
       );
       web3state.provider.provider.removeListener(
         "chainChanged",

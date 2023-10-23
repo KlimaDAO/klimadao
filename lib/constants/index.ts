@@ -302,3 +302,7 @@ export const verra = {
 export const goldStandard = {
   projectDetailPage: `${REGISTRIES.GoldStandard.url}/projects/details`,
 };
+
+export const WALLETCONNECT_PROJECT_ID =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ??
+  "51d2bf0bcd3abd445f503942db20b1f9"; // @todo Makka - remove hardcoded projectId after official projectId setup
