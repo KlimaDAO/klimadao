@@ -218,6 +218,11 @@ export const checkboxContainer = css`
 export const errorButton = css`
   background-color: #0019ff; // bright-blue, same in dark/light mode
   color: #fff !important; // same in dark/light mode
+
+  [data-theme="theme-dark"] & {
+    color: #000 !important;
+    background: var(--klima-green);
+  }
 `;
 
 // typography
@@ -251,7 +256,12 @@ export const body1 = css`
   font-size: 1.6rem;
   line-height: 2rem;
   letter-spacing: 0.016rem;
+
+  [data-theme="theme-dark"] & {
+    color: #fff;
+  }
 `;
+
 export const closeButton = css`
   svg {
     fill: var(--font-01);
