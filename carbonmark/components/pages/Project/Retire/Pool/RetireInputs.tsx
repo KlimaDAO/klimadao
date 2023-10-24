@@ -1,12 +1,12 @@
 import { cx } from "@emotion/css";
 import { Anchor } from "@klimadao/lib/components";
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { safeSub, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import HelpOutline from "@mui/icons-material/HelpOutline";
+import { Text } from "components/Text";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
-import { Text } from "components/Text";
 import { isAddress } from "ethers-v6";
 import { urls as carbonmarkUrls } from "lib/constants";
 import { formatToPrice, formatToTonnes } from "lib/formatNumbers";
@@ -36,6 +36,7 @@ type Props = {
   fiatMinimum: string | null;
   address?: string;
   fiatAmountError?: boolean;
+  approvalValue: string;
 };
 
 const validations = (
@@ -128,7 +129,7 @@ export const RetireInputs: FC<Props> = (props) => {
     if (!isFiat || !Number(totalPrice)) return "$0.00";
     const priceWithoutFees =
       Number(quantity) * Number(props.price.singleUnitPrice);
-    const fee = Number(totalPrice) - priceWithoutFees;
+    const fee = Number(safeSub(totalPrice, priceWithoutFees.toString()));
     if (fee <= 0) return "$0.00";
     return formatToPrice(fee.toString(), locale, isFiat);
   };
@@ -146,6 +147,11 @@ export const RetireInputs: FC<Props> = (props) => {
       setValue("quantity", "");
     }
   }, [paymentMethod, props.fiatAmountError]);
+
+  const exceededBalance =
+    paymentMethod !== "fiat" &&
+    !!props.userBalance &&
+    Number(props.userBalance) <= Number(props.approvalValue);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -311,7 +317,10 @@ export const RetireInputs: FC<Props> = (props) => {
                       );
                     }}
                     className={cx(styles.paymentMethod, {
-                      error: exceededFiatBalance,
+                      error:
+                        exceededFiatBalance ||
+                        belowFiatMinimum ||
+                        exceededBalance,
                       selected: item === field.value,
                     })}
                   >
@@ -359,6 +368,15 @@ export const RetireInputs: FC<Props> = (props) => {
               )}
             />
           ))}
+
+          {exceededBalance && (
+            <Text t="body1" className={cx(styles.errorMessagePrice, "balance")}>
+              <Trans>
+                Your balance must equal at least 1% more than the cost of the
+                transaction.
+              </Trans>
+            </Text>
+          )}
         </div>
 
         {belowFiatMinimum && (

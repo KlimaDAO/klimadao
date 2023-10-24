@@ -1,10 +1,10 @@
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
-import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import {
   approveTokenSpend,
   deleteListingTransaction,
@@ -85,8 +85,8 @@ export const ListingEditable: FC<Props> = (props) => {
           l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase() &&
           l.id !== listing.id
       )
-      .reduce((a, b) => a + Number(b.leftToSell), 0);
-    return sumOtherListings + newQuantity;
+      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
+    return Number(safeAdd(sumOtherListings.toString(), newQuantity.toString()));
   };
 
   /** Return true if the user has exactly the required approval for all listings of this asset */
@@ -178,14 +178,14 @@ export const ListingEditable: FC<Props> = (props) => {
             transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
-        {getTotalAssetApproval(listingToEdit) > newQuantity && (
-          <Text t="body1" color="lighter">
+        <Text t="body1" color="lighter">
+          <strong>
             <Trans>
-              The value below reflects the sum of all of your listings for this
-              specific token.
+              The Confirm amount below reflects the sum of all your listings for
+              this specific token.
             </Trans>
-          </Text>
-        )}
+          </strong>
+        </Text>
       </div>
     );
   };
@@ -218,7 +218,7 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!asset) return 0;
     const unlistedBalance = getUnlistedBalance(asset, props.listings);
     // the listable balance includes current listing
-    return unlistedBalance + Number(listing.leftToSell);
+    return Number(safeAdd(unlistedBalance.toString(), listing.leftToSell));
   };
 
   /** Util to render the amount label in the transaction modal */
@@ -226,9 +226,7 @@ export const ListingEditable: FC<Props> = (props) => {
     const amount = hasApproval()
       ? newQuantity // 'submit' view shows the new quantity
       : getTotalAssetApproval(listingToEdit); // 'approve' view shows all listings of this asset
-    return {
-      value: t`${amount} tonnes`,
-    };
+    return t`${amount} tonnes`;
   };
 
   return (

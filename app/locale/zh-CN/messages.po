@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-18 14:16+0000\n"
+"POT-Creation-Date: 2023-10-24 16:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,8 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
-#: components/views/Offset/index.tsx:548
-#: components/views/Redeem/index.tsx:270
+#: components/views/Offset/index.tsx:550
+#: components/views/Redeem/index.tsx:286
 #: components/views/Stake/index.tsx:251
 #: components/views/Wrap/index.tsx:229
 msgid "Approve"
@@ -23,23 +23,23 @@ msgid "Balances"
 msgstr "余额"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:816
+#: components/views/Offset/index.tsx:818
 msgid "Beneficiary 0x address (optional)"
 msgstr "收款人 0x 地址（可选）"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:804
+#: components/views/Offset/index.tsx:806
 msgid "Beneficiary name"
 msgstr "受益人姓名"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:359
+#: components/views/Redeem/index.tsx:375
 msgid "Buy & Redeem Carbon"
 msgstr "购买和赎回碳"
 
 #. js-lingui-explicit-id
 #: components/NavMenu/index.tsx:204
-#: components/views/Redeem/index.tsx:499
+#: components/views/Redeem/index.tsx:526
 msgid "Buy Carbon"
 msgstr "购买碳"
 
@@ -49,7 +49,7 @@ msgid "Capacity"
 msgstr "容量"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:275
+#: components/views/Redeem/index.tsx:291
 msgid "Continue"
 msgstr "继续"
 
@@ -59,22 +59,22 @@ msgid "Enter Quantity"
 msgstr "输入数量"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:485
-#: components/views/Redeem/index.tsx:244
-#: components/views/Redeem/index.tsx:415
+#: components/views/Offset/index.tsx:487
+#: components/views/Redeem/index.tsx:260
+#: components/views/Redeem/index.tsx:431
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:211
 msgid "Enter quantity"
 msgstr "输入数量"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:397
+#: components/views/Redeem/index.tsx:413
 msgid "How many tonnes would you like to acquire?"
 msgstr "您想要多少吨碳？"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:538
-#: components/views/Redeem/index.tsx:265
+#: components/views/Offset/index.tsx:540
+#: components/views/Redeem/index.tsx:281
 #: components/views/Stake/index.tsx:246
 #: components/views/Wrap/index.tsx:224
 msgid "Insufficient balance"
@@ -101,10 +101,10 @@ msgstr "正在加载项目信息..."
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:472
-#: components/views/Offset/index.tsx:610
-#: components/views/Redeem/index.tsx:239
-#: components/views/Redeem/index.tsx:323
+#: components/views/Offset/index.tsx:474
+#: components/views/Offset/index.tsx:612
+#: components/views/Redeem/index.tsx:255
+#: components/views/Redeem/index.tsx:339
 #: components/views/Stake/index.tsx:429
 #: components/views/Stake/index.tsx:436
 #: components/views/Stake/index.tsx:443
@@ -128,7 +128,7 @@ msgid "Not Connected"
 msgstr "未连接"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:679
 msgid "Offset"
 msgstr "抵消"
 
@@ -138,17 +138,17 @@ msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update you
 msgstr "2022年4月12日起，“dapp”迁移至“app”。请更新您的书签。"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:680
+#: components/views/Offset/index.tsx:682
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "可使用法定货币或加密货币支付，亦或您停用碳而拥有的积分。您的信息和数据将永久铭刻在区块链上。在 <0> docs</0> 中了解我们所支持代币的更多信息."
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:471
+#: components/views/Redeem/index.tsx:487
 msgid "Payment Method"
 msgstr "付款方式"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:470
+#: components/views/Redeem/index.tsx:486
 msgid "Payment method"
 msgstr "付款方式"
 
@@ -159,18 +159,18 @@ msgid "Project details <0/>"
 msgstr "项目详情<0/>"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:372
-#: components/views/Redeem/index.tsx:373
+#: components/views/Redeem/index.tsx:388
+#: components/views/Redeem/index.tsx:389
 msgid "Select carbon pool"
 msgstr "选择碳池"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:691
+#: components/views/Offset/index.tsx:693
 msgid "Select carbon token to retire"
 msgstr "选择要停用的碳代币"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:692
+#: components/views/Offset/index.tsx:694
 msgid "Select token"
 msgstr "选择代币"
 
@@ -185,7 +185,7 @@ msgid "This app only works on Polygon Mainnet."
 msgstr "此应用程序仅适用于 Polygon 主网。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:439
+#: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "此费用包括滑点和矿池收取的任何赎回费用"
 
@@ -222,9 +222,15 @@ msgid "You need to load your wallet with USDC, KLIMA or a carbon pool token. Cre
 msgstr "您的钱包需加载 USDC、KLIMA 或碳池代币。信用卡支付功能即将推出。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:459
+#: components/views/Redeem/index.tsx:475
 msgid "You receive"
 msgstr "您收到"
+
+#. js-lingui-explicit-id
+#: components/views/Offset/index.tsx:921
+#: components/views/Redeem/index.tsx:499
+msgid "Your balance must equal at least 1% more than the cost of the transaction."
+msgstr ""
 
 #. Long sentence
 #. js-lingui-explicit-id
@@ -593,17 +599,17 @@ msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
@@ -618,7 +624,7 @@ msgid "error.404.page.text"
 msgstr "抱歉，好像我们发送了错误路径。 <0/>请从菜单中选择发送目的地。"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:871
+#: components/views/Offset/index.tsx:873
 msgid "fiat.max_quantity"
 msgstr "信用卡最高金额 ${0}"
 
@@ -765,27 +771,27 @@ msgid "nav.back"
 msgstr "返回"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:854
+#: components/views/Offset/index.tsx:856
 msgid "offset.aggregation_fee_tooltip"
 msgstr "该成本包括1%的滑点和聚合费用。"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:733
+#: components/views/Offset/index.tsx:735
 msgid "offset.amount_in_tonnes"
 msgstr "您要抵消多少吨碳？"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:543
+#: components/views/Offset/index.tsx:545
 msgid "offset.checkout"
 msgstr "结账"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:819
+#: components/views/Offset/index.tsx:821
 msgid "offset.default_retirement_address"
 msgstr "默认的已连接钱包地址"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:899
+#: components/views/Offset/index.tsx:902
 msgid "offset.dropdown_payWith.label"
 msgstr "使用...支付"
 
@@ -795,30 +801,30 @@ msgid "offset.enter_address"
 msgstr "输入 0x 地址"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:631
-#: components/views/Redeem/index.tsx:337
+#: components/views/Offset/index.tsx:633
+#: components/views/Redeem/index.tsx:353
 msgid "offset.incompatible"
 msgstr "不兼容输入的代币"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:514
-#: components/views/Redeem/index.tsx:249
+#: components/views/Offset/index.tsx:516
+#: components/views/Redeem/index.tsx:265
 msgid "offset.insufficient_project_tonnage"
 msgstr "项目吨位不足"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:777
-#: components/views/Redeem/index.tsx:424
+#: components/views/Offset/index.tsx:779
+#: components/views/Redeem/index.tsx:440
 msgid "offset.invalid_project_tonnage"
 msgstr "不能超过所选项目的可用吨位"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:786
+#: components/views/Offset/index.tsx:788
 msgid "offset.min_quantity_fiat"
 msgstr "最少购买 1 吨, 限购整数。"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:903
+#: components/views/Offset/index.tsx:906
 msgid "offset.modal_payWith.title"
 msgstr "选择代币"
 
@@ -828,12 +834,12 @@ msgid "offset.number_of_retirements"
 msgstr "总碳停用"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:765
+#: components/views/Offset/index.tsx:767
 msgid "offset.offset_quantity"
 msgstr "输入要抵消的数量"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:946
+#: components/views/Offset/index.tsx:959
 msgid "offset.retire_carbon"
 msgstr "碳停用"
 
@@ -848,22 +854,22 @@ msgid "offset.retire_specific_tooltip"
 msgstr "需支付的额外费用，由所选矿池和需支付给链接桥供应商的费用来确定。"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:796
+#: components/views/Offset/index.tsx:798
 msgid "offset.retirement_credit"
 msgstr "本次碳停用将归功于谁？"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:830
+#: components/views/Offset/index.tsx:832
 msgid "offset.retirement_message"
 msgstr "停用消息"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:839
+#: components/views/Offset/index.tsx:841
 msgid "offset.retirement_purpose"
 msgstr "描述本次碳停用的目的"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:884
+#: components/views/Offset/index.tsx:886
 msgid "offset.retiring"
 msgstr "停用中"
 
@@ -998,13 +1004,13 @@ msgid "offset.you_have_retired"
 msgstr "您已停用了..."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:850
-#: components/views/Redeem/index.tsx:435
+#: components/views/Offset/index.tsx:852
+#: components/views/Redeem/index.tsx:451
 msgid "offset_cost"
 msgstr "成本"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:919
+#: components/views/Offset/index.tsx:932
 msgid "offset_disclaimer"
 msgstr "注意！不要暴露任何敏感的个人信息。信息无法编辑，且该信息将永久存在于公共区块链上。"
 
@@ -1088,7 +1094,7 @@ msgid "pklima.update"
 msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之前获得的代币，并挣得奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
 
 #. js-lingui-explicit-id
-#: components/views/Redeem/index.tsx:362
+#: components/views/Redeem/index.tsx:378
 msgid "redeem.description"
 msgstr "为特定的碳抵消项目获取代币。项目代币将从碳池中赎回并转移到您的钱包，因此您可以稍后进行交易或碳停用。"
 
@@ -1131,12 +1137,12 @@ msgid "shared.enter_amount"
 msgstr "输入金额"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:490
+#: components/views/Offset/index.tsx:492
 msgid "shared.enter_beneficiary"
 msgstr "输入收款人姓名"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:498
+#: components/views/Offset/index.tsx:500
 msgid "shared.enter_retirement_message"
 msgstr "输入碳停用信息"
 
@@ -1149,18 +1155,18 @@ msgid "shared.error"
 msgstr "错误"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:508
 msgid "shared.invalid_beneficiary_addr"
 msgstr "无效收款人地址"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:530
-#: components/views/Redeem/index.tsx:257
+#: components/views/Offset/index.tsx:532
+#: components/views/Redeem/index.tsx:273
 msgid "shared.invalid_project_address"
 msgstr "无效项目地址"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:522
+#: components/views/Offset/index.tsx:524
 msgid "shared.invalid_quantity"
 msgstr "无效数量"
 
@@ -1168,9 +1174,9 @@ msgstr "无效数量"
 #: components/views/Bond/index.tsx:397
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:466
 #: components/views/PKlima/index.tsx:149
-#: components/views/Redeem/index.tsx:231
+#: components/views/Redeem/index.tsx:247
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:198
 msgid "shared.login_connect"
@@ -1185,12 +1191,12 @@ msgid "shared.max"
 msgstr "最大额度"
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:479
 msgid "shared.redirecting_checkout"
 msgstr "转到结帐..."
 
 #. js-lingui-explicit-id
-#: components/views/Offset/index.tsx:553
+#: components/views/Offset/index.tsx:555
 msgid "shared.retire"
 msgstr "停用碳"
 

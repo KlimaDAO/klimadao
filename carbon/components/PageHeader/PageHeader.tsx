@@ -32,7 +32,7 @@ export const PageHeader: FC<{
       <div className={layout.desktopOnly}>
         <div className={styles.buttons}>
           <ChangeLanguageButton />
-          <Link href={urls.carbonmark}>
+          <Link href={urls.marketplace}>
             <Button className={styles.exploreButton}>
               {t`Explore Marketplace`}
             </Button>

@@ -9,6 +9,7 @@ import {
   getRedeemAllowance,
   redeemCarbonTransaction,
 } from "lib/actions.redeem";
+import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import {
   DetailedProject,
@@ -41,6 +42,7 @@ export const PurchaseForm: FC<Props> = (props) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
+  const [costs, setCosts] = useState("");
 
   const methods = useForm<FormValues>({
     mode: "onChange",
@@ -107,6 +109,8 @@ export const PurchaseForm: FC<Props> = (props) => {
     }
   };
 
+  const getApprovalValue = () => getPoolApprovalValue(costs);
+
   // compare with total price including fees
   const hasApproval = () => {
     return (
@@ -125,7 +129,7 @@ export const PurchaseForm: FC<Props> = (props) => {
           tokenName: inputValues.paymentMethod,
           spender: "retirementAggregatorV2",
           signer: provider.getSigner(),
-          value: inputValues.totalPrice,
+          value: getApprovalValue(),
           onStatus: onUpdateStatus,
         }));
     } catch (e) {
@@ -171,6 +175,7 @@ export const PurchaseForm: FC<Props> = (props) => {
                 price={props.price}
                 values={inputValues}
                 balance={balance}
+                approvalValue={getApprovalValue()}
               />
 
               <SubmitButton
@@ -186,7 +191,13 @@ export const PurchaseForm: FC<Props> = (props) => {
         <Col>
           <div className={styles.stickyContentWrapper}>
             <Card>
-              <TotalValues balance={balance} price={props.price} />
+              <TotalValues
+                balance={balance}
+                price={props.price}
+                costs={costs}
+                setCosts={setCosts}
+                approvalValue={getApprovalValue()}
+              />
             </Card>
             <Card>
               <AssetDetails price={props.price} project={props.project} />
@@ -202,13 +213,8 @@ export const PurchaseForm: FC<Props> = (props) => {
 
       <PurchaseModal
         hasApproval={hasApproval()}
-        amount={{
-          value: inputValues?.totalPrice || "0",
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
+        amount={inputValues?.totalPrice || "0"}
+        approvalValue={getApprovalValue()}
         isProcessing={isProcessing}
         status={status}
         showModal={showTransactionView}

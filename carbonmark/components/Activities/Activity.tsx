@@ -137,12 +137,14 @@ export const Activity = (props: Props) => {
           )
         )}
       </Text>
-      {!!amountA && !!amountB && (
-        <Text t="body1">
-          <span className="number">{`${amountA}`}</span> {transactionString}
-          <span className="number">{`${amountB}`}</span>
-        </Text>
-      )}
+      {!!amountA &&
+        !!amountB &&
+        props.activity.activityType != "DeletedListing" && (
+          <Text t="body1">
+            <span className="number">{`${amountA}`}</span> {transactionString}
+            <span className="number">{`${amountB}`}</span>
+          </Text>
+        )}
     </div>
   );
 };
