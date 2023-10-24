@@ -13,7 +13,7 @@ import type {
   Project as SDKProject,
   TokenPrice as SDKTokenPrice,
   User as SDKUser,
-} from ".generated/carbonmark-api-sdk/models";
+} from ".generated/carbonmark-api-sdk/types";
 
 export type Project = SDKProject;
 export type Listing = SDKListing;

@@ -10,7 +10,16 @@ export type RequestConfig<TVariables = unknown> = {
 
 export type ResponseConfig<TData> = { data: TData };
 
-export const fetchClient = async <TData, TVariables = unknown>(
+export type ApiError<TError> = {
+  message: string;
+  data?: TError;
+};
+
+export const fetchClient = async <
+  TData,
+  TError = unknown,
+  TVariables = unknown,
+>(
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
   const response = await fetch(
@@ -26,7 +35,11 @@ export const fetchClient = async <TData, TVariables = unknown>(
   );
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    const errorData = await response.json();
+    throw {
+      message: `HTTP error! status: ${response.status}`,
+      data: errorData as TError,
+    };
   }
 
   return response.json();

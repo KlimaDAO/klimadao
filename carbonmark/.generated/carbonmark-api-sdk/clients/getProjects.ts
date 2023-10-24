@@ -13,11 +13,13 @@ import type {
 export async function getProjects<TData = GetProjectsQueryResponse>(
   params?: GetProjectsQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData>({
     method: "get",
     url: `/projects`,
     params,
     ...options,
   });
+
+  return resData;
 }

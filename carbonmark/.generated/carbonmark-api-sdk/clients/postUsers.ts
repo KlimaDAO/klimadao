@@ -15,11 +15,13 @@ export async function postUsers<
 >(
   data: TVariables,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData, TVariables>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData, TVariables>({
     method: "post",
     url: `/users`,
     data,
     ...options,
   });
+
+  return resData;
 }

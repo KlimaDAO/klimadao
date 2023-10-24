@@ -17,11 +17,13 @@ export async function getUsersWalletorhandle<
   walletOrHandle: GetUsersWalletorhandlePathParams["walletOrHandle"],
   params?: GetUsersWalletorhandleQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData>({
     method: "get",
     url: `/users/${walletOrHandle}`,
     params,
     ...options,
   });
+
+  return resData;
 }

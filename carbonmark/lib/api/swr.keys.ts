@@ -1,7 +1,7 @@
 import {
   GetUsersWalletorhandlePathParams,
   GetUsersWalletorhandleQueryParams,
-} from ".generated/carbonmark-api-sdk/models";
+} from ".generated/carbonmark-api-sdk/types";
 import { urls } from "lib/constants";
 
 /**

@@ -17,11 +17,13 @@ export async function putUsersWallet<
   wallet: PutUsersWalletPathParams["wallet"],
   data: TVariables,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData, TVariables>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData, TVariables>({
     method: "put",
     url: `/users/${wallet}`,
     data,
     ...options,
   });
+
+  return resData;
 }

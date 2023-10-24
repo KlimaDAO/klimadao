@@ -15,11 +15,13 @@ export async function getPurchasesId<TData = GetPurchasesIdQueryResponse>(
   id: GetPurchasesIdPathParams["id"],
   params?: GetPurchasesIdQueryParams,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData>({
     method: "get",
     url: `/purchases/${id}`,
     params,
     ...options,
   });
+
+  return resData;
 }

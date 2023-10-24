@@ -9,10 +9,12 @@ import type { GetCountriesQueryResponse } from "../types/GetCountries";
  */
 export async function getCountries<TData = GetCountriesQueryResponse>(
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<ResponseConfig<TData>> {
-  return client<TData>({
+): Promise<ResponseConfig<TData>["data"]> {
+  const { data: resData } = await client<TData>({
     method: "get",
     url: `/countries`,
     ...options,
   });
+
+  return resData;
 }
