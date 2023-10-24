@@ -1129,7 +1129,7 @@ msgid "bond.unredeemed.tooltip"
 msgstr "Remaining unredeemed value (vested and un-vested)"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
@@ -1385,7 +1385,7 @@ msgid "wsklima.unwrapped.label"
 msgstr "unwrapped"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
@@ -1415,7 +1415,7 @@ msgid "offset.selectiveRetirement.empty_search_results"
 msgstr "We could not find any projects related to your search. Please modify the filters and try again."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 
