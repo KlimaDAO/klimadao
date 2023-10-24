@@ -1,0 +1,19 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+.table {
+  color: var(--lightmode-font-01);
+}
+.desktopOnly {
+  display: none;
+
+  @include breakpoints.medium {
+    display: block;
+  }
+}
+
+.mobileOnly {
+  display: block;
+
+  @include breakpoints.medium {
+    display: none;
+  }
+}

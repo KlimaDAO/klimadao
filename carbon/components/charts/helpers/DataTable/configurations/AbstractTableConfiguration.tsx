@@ -1,5 +1,4 @@
-import { ExpandLess, ExpandMore, UnfoldMore } from "@mui/icons-material";
-import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
+import { PaginatedResponse } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 import { Columns, DataRenderer, DataRendererProps, ItemRenderer } from "./types";
@@ -41,47 +40,7 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   VerticalTableLayout(props: DataRendererProps<RI, P>) {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
-    function setSortParamsWrapper(key: string): void {
-      let newSortParams: SortQueryParams = {...props.sortParams};
-      if (newSortParams.sort_by == key) {
-        switch (newSortParams.sort_order) {
-          case "asc" : newSortParams.sort_order = "desc"; break;
-          case "desc" : newSortParams.sort_by = undefined; break;
-          default : newSortParams.sort_order = "asc"; break;
-        }
-      }
-      else  {
-        newSortParams.sort_by = key;
-        newSortParams.sort_order = "asc";
-      }
-      props.setSortParams(newSortParams);
-    }
-    useEffect(() => {
-      this.forceUpdate();
-    } [props.sortParams]);
-    function sortButtonComponent(key: string): JSX.Element {
-      let Element = UnfoldMore;
-      
-      if (props.sortParams.sort_by == key) {
-        console.log(key, props.sortParams.sort_by);
-        Element = props.sortParams.sort_by == "asc" ? ExpandMore : ExpandLess
-      }
-      return <Element  onClick={() => setSortParamsWrapper(key)} />
-    }
     return (
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles.header}>
-            {columnKeys.map((key) => (
-              <th key={key} className={columns[key].cellStyle}>
-                {columns[key].header}
-                { (columns[key].sortable === undefined || columns[key].sortable) && 
-                   sortButtonComponent(key) 
-                }
-              </th>
-            ))}
-          </tr>
-        </thead>
         <tbody>
           {props.data.items.map((item, index) => (
             <tr key={index} className={styles.row}>
@@ -96,7 +55,6 @@ export default abstract class AbstractTableConfiguration<RI, P> {
             </tr>
           ))}
         </tbody>
-      </table>
     );
   }
   /**

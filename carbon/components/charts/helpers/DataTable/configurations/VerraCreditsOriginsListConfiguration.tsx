@@ -1,4 +1,3 @@
-"use client"
 import { t } from "@lingui/macro";
 import { formatPercentage, formatTonnes } from "lib/charts/helpers";
 import {

@@ -42,3 +42,10 @@ export function getDesktopRenderer<RI, P>(key: ConfigurationKey) {
 export function getMobileRenderer<RI, P>(key: ConfigurationKey) {
   return getConfiguration<RI, P>(key).mobileRenderer;
 }
+/** Returns the columns definition of the given table configuration*/
+export function getColumns<RI, P>(
+  key: ConfigurationKey,
+  params?: P
+) {
+  return getConfiguration<RI, P>(key).getColumns(params);
+}
