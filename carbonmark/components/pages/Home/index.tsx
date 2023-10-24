@@ -300,7 +300,7 @@ export const Home: NextPage<Props> = (props) => {
               </div>
             </div>
             <ButtonPrimary
-              href="/profile"
+              href="/users/login"
               label={<Trans>Create Profile</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (
@@ -324,7 +324,7 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <ButtonPrimary
-              href="/profile"
+              href="/users/login"
               label={<Trans>Create Profile</Trans>}
               className={styles.browseButton}
               renderLink={(linkProps) => (

@@ -14,7 +14,8 @@
     "@mui/material": "^5.12.2",
     "@tippyjs/react": "^4.2.6",
     "@toruslabs/torus-embed": "^4.0.0",
-    "@walletconnect/web3-provider": "^1.8.0",
+    "@walletconnect/ethereum-provider": "^2.10.2",
+    "@walletconnect/modal": "^2.6.2",
     "ethers": "^5.7.2",
     "make-plural": "^7.2.0",
     "react": "^18.2.0"
