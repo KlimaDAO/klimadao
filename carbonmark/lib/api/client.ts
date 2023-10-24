@@ -23,7 +23,7 @@ export const fetchClient = async <
   request: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
   const response = await fetch(
-    `${urls.api.base}${request.url}${request.params}`,
+    `${urls.api.base}${request.url}${request.params ?? ""}`,
     {
       method: request.method,
       body: JSON.stringify(request.data),
@@ -41,8 +41,8 @@ export const fetchClient = async <
       data: errorData as TError,
     };
   }
-
-  return response.json();
+  const data = await response.json();
+  return { data };
 };
 
 export default fetchClient;
