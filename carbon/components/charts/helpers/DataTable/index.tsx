@@ -5,33 +5,21 @@ import {
 } from "components/charts/helpers/DataTable/configurations";
 import { PaginatedResponse } from "lib/charts/types";
 import NoDataWrapper from "../NoDataWrapper";
-/** The table component is tricky because of those two constraints:
- * - 1. Data must be fetched by server components
- * - 2. Number of pages must be known by the pagination (client component)
- * - 3. Functions cannot be passed to client components
- *
- * Because of 1 and 2 we have one server component fetching the number of pages
- * It calls a client component to handle pagination
- * The client component calls a server component to actualy render the page
- * Right now this server component is hydrated client side. But we would like it to be built server side only even when changing pages
- *
- * Because of 3 and the fact that there is a client component layer before the actual rendering of the table server side
- * all tables configurations are indexed in a dictionnary and only the dictionnary key is passed down to the final server component
- *
- */
 
 /** An async server component that does an initial data fetching to know the number of pages this dataset has
  * configurationKey: Table configuration key
- * usePagination: Use a simple Server Component to show data without pagination
- * height: expected height of the table (for skeleton)
+ * params: extra query parameters;
+ * withPagination: Wether to display pagination or not;
+ * skeletonClassName: Classname for the squeleton
+ * hideOnMobile: Whether or not this table should be displayed on mobile devices
  */
 export default async function DataTable<RI>(props: {
   configurationKey: ConfigurationKey;
   params: object;
   withPagination?: boolean;
+  hideOnMobile?: boolean;
   skeletonClassName?: string;
 }) {
-
   const data = (await fetchData(
     props.configurationKey,
     0,
@@ -39,15 +27,10 @@ export default async function DataTable<RI>(props: {
   )) as PaginatedResponse<RI>;
   return (
     <NoDataWrapper data={data.items}>
-      <>
-          <DataTableClientWrapper
-            configurationKey={props.configurationKey}
-            params={props.params}
-            skeletonClassName={props.skeletonClassName}
-            pages_count={data.pages_count}
-            withPagination={props.withPagination}
-          ></DataTableClientWrapper>
-      </>
+      <DataTableClientWrapper
+        {...props}
+        pages_count={data.pages_count}
+      ></DataTableClientWrapper>
     </NoDataWrapper>
   );
 }

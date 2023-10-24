@@ -39,6 +39,7 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   ): string | React.ReactNode {
     return this.getColumns(params)[key].header;
   }
+
   /**
    * Display data as a table with items as columns
    */
@@ -71,23 +72,21 @@ export default abstract class AbstractTableConfiguration<RI, P> {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
-      <table className={styles.table}>
-        <tbody>
-          {columnKeys.map((key) => (
-            <tr key={key} className={columns[key].cellStyle}>
-              <td className={layout.textLeft}>{columns[key].header}</td>
-              {props.data.items.map((item, index) => (
-                <td key={index} className={layout.textRight}>
-                  {columns[key].formatter(
-                    item[columns[key].dataKey] as never,
-                    item
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <tbody>
+        {columnKeys.map((key) => (
+          <tr key={key} className={columns[key].cellStyle}>
+            <td className={layout.textLeft}>{columns[key].header}</td>
+            {props.data.items.map((item, index) => (
+              <td key={index} className={layout.textRight}>
+                {columns[key].formatter(
+                  item[columns[key].dataKey] as never,
+                  item
+                )}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     );
   }
 
@@ -101,11 +100,17 @@ export default abstract class AbstractTableConfiguration<RI, P> {
     }
   ) {
     return (
-      <div className={styles.cards}>
-        {props.data.items.map((item) =>
-          props.cardRenderer({ item, params: props.params })
-        )}
-      </div>
+      <tbody>
+        <tr>
+          <td>
+            <div className={styles.cards}>
+              {props.data.items.map((item) =>
+                props.cardRenderer({ item, params: props.params })
+              )}
+            </div>
+          </td>
+        </tr>
+      </tbody>
     );
   }
 }

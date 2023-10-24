@@ -130,6 +130,6 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
       CreditsQueryParams
     >
   ) => {
-    return this.VerticalTableLayout(props);
+    return <></>;
   };
 }

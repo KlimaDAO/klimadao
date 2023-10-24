@@ -6,3 +6,22 @@
     width: 100%;
   }
 }
+.table {
+  color: var(--lightmode-font-01);
+  width: 100%;
+}
+.desktopOnly {
+  display: none;
+
+  @include breakpoints.medium {
+    display: table;
+  }
+}
+
+.mobileOnly {
+  display: block;
+
+  @include breakpoints.medium {
+    display: none;
+  }
+}

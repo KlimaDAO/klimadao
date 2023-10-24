@@ -1,3 +1,7 @@
+import DailyCarbonSupplyByProtocolCard from "components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard";
+import DailyVerraCreditsCard from "components/cards/offVsOnChain/DailyVerraCreditsCard";
+import VerraCreditsByBridgeAndVintageCard from "components/cards/offVsOnChain/VerraCreditsByBridgeAndVintageCard";
+import VerraCreditsDistributionOfProjectsCard from "components/cards/offVsOnChain/VerraCreditsDistributionOfProjectsCard";
 import VerraCreditsOriginCard from "components/cards/offVsOnChain/VerraCreditsOriginCard";
 
 import { Status } from "lib/charts/types";
@@ -10,6 +14,23 @@ export default function OffVsOnChainTab(props: { status: Status }) {
   return (
     <>
       <div className={layout.cardRow}>
+        <DailyVerraCreditsCard {...props} className={layout.zIndexFive} />
+        <DailyCarbonSupplyByProtocolCard
+          {...props}
+          className={layout.zIndexFive}
+        />
+      </div>
+      <div className={layout.cardRow}>
+        <VerraCreditsByBridgeAndVintageCard
+          {...props}
+          className={layout.zIndexFour}
+        />
+        <VerraCreditsDistributionOfProjectsCard
+          {...props}
+          className={layout.xIndexThree}
+        />
+      </div>
+      <div className={`${layout.cardRow} ${layout.desktopOnly}`}>
         <VerraCreditsOriginCard {...props} className={layout.zIndexTwo} />
       </div>
     </>
