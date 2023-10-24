@@ -41,9 +41,7 @@ export type Status =
   | "all_retired"
   | "issued"
   | "deposited";
-export interface AggregationQueryParams {
-  operator?: "sum" | "cumsum";
-}
+
 export interface CarbonSupplyQueryParams {
   chain: Chain;
 }
