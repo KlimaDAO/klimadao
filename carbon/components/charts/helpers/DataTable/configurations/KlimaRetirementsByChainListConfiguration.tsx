@@ -1,18 +1,21 @@
 import { queryAllRawRetirements } from "lib/charts/queries";
-import { RawRetirementsItem } from "lib/charts/types";
+import { RawRetirementsItem, SortQueryParams } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import KlimaRetirementsListConfigurationBase from "./KlimaRetirementsListConfigurationBase";
-import { Columns } from "./types";
 
 import { t } from "@lingui/macro";
 import PolygonscanLink from "../../PolygonscanLink";
+import { Columns } from "./types";
 export default class KlimaRetirementsByChainListConfiguration extends KlimaRetirementsListConfigurationBase {
-  fetchFunction(page: number) {
+  fetchFunction(page: number, params?: SortQueryParams) {
     return queryAllRawRetirements({
-      sort_by: "retirement_date",
-      sort_order: "desc",
-      page_size: 10,
-      page,
+      ...{
+        sort_by: "retirement_date",
+        sort_order: "desc",
+        page_size: 10,
+        page,
+      },
+      ...params,
     });
   }
   getColumns(): Columns<RawRetirementsItem> {

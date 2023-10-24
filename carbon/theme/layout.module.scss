@@ -97,6 +97,13 @@ div.card50percent {
     margin-right: auto;
   }
 }
+.blockCenter {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 .textCenter {
   text-align: center;
 }

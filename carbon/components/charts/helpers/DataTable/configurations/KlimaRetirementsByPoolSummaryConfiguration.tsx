@@ -6,7 +6,7 @@ import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import styles from "./styles.module.scss";
 
-import { Columns, DataRendererProps } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
 export default class KlimaRetirementsByPoolSummaryConfiguration extends AbstractTableConfiguration<
   KlimaMonthlyRetirementsByTokenItem,
@@ -59,14 +59,6 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
       },
     };
   }
-  desktopRenderer = (
-    props: DataRendererProps<KlimaMonthlyRetirementsByTokenItem, undefined>
-  ) => {
-    return this.HorizontalTableLayout(props);
-  };
-  mobileRenderer = (
-    props: DataRendererProps<KlimaMonthlyRetirementsByTokenItem, undefined>
-  ) => {
-    return this.VerticalTableLayout(props);
-  };
+  desktopRenderer: DataRendererKey = "horizontal-table";
+  mobileRenderer: DataRendererKey = "vertical-table";
 }

@@ -1,6 +1,6 @@
 @use "~@klimadao/lib/theme/breakpoints.scss";
 
-.wrapper {
+.mobileCardsWrapper {
   width: fit-content;
   @include breakpoints.medium {
     width: 100%;
@@ -19,7 +19,7 @@
 }
 
 .mobileOnly {
-  display: block;
+  display: table;
 
   @include breakpoints.medium {
     display: none;

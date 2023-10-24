@@ -1,26 +1,31 @@
 import { t } from "@lingui/macro";
 import { queryKlimaRetirementsByBeneficiary } from "lib/charts/queries";
 import {
-  KlimaRetirementsByBeneficiaryItem
+  KlimaRetirementsByBeneficiaryItem,
+  SortQueryParams,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
-import { Columns, DataRendererProps } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
 export default class KlimaRetirementsByBeneficiaryListConfiguration extends AbstractTableConfiguration<
   KlimaRetirementsByBeneficiaryItem,
   undefined
 > {
-  fetchFunction(page: number) {
+  fetchFunction(page: number, params?: SortQueryParams) {
     return queryKlimaRetirementsByBeneficiary({
-      sort_by: "amount_retired",
-      sort_order: "desc",
-      page_size: 10,
-      page,
+      ...{
+        sort_by: "amount_retired",
+        sort_order: "desc",
+        page_size: 10,
+        page,
+      },
+      ...params,
     });
   }
+
   getColumns(): Columns<KlimaRetirementsByBeneficiaryItem> {
     return {
       beneficiary: getBeneficiaryColumn(),
@@ -38,13 +43,10 @@ export default class KlimaRetirementsByBeneficiaryListConfiguration extends Abst
       },
     };
   }
-  desktopRenderer = (props: DataRendererProps<KlimaRetirementsByBeneficiaryItem, undefined>) => {
-    return this.VerticalTableLayout(props);
-  };
-  mobileRenderer = (props: DataRendererProps<KlimaRetirementsByBeneficiaryItem, undefined>) => {
-    return this.CardsLayout({...props, ...{ cardRenderer: this.cardRenderer}});
-  };
-  cardRenderer = (props: { item: KlimaRetirementsByBeneficiaryItem }) => {
+  desktopRenderer: DataRendererKey = "vertical-table";
+  mobileRenderer: DataRendererKey = "cards";
+
+  CardRenderer = (props: { item: KlimaRetirementsByBeneficiaryItem }) => {
     return (
       <div className={styles.card}>
         <div className={styles.cardTitle}>{props.item.beneficiary}</div>

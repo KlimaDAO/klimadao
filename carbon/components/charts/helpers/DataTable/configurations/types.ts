@@ -32,3 +32,9 @@ export type ItemRenderer<RI, P> = (props: {
   item: RI;
   params?: P;
 }) => JSX.Element;
+export type DataRendererKey =
+  | "vertical-table"
+  | "horizontal-table"
+  | "cards"
+  | "void";
+export type DataRendererType = "desktop" | "mobile";

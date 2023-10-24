@@ -28,7 +28,7 @@ export default function VerticalTableHeader<P>(props: {
           newSortParams.sort_order = "asc";
           break;
         case "asc":
-          newSortParams.sort_by = undefined;
+          newSortParams = {};
           break;
         default:
           newSortParams.sort_order = "asc";

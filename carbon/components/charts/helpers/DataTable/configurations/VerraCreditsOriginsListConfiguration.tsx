@@ -1,9 +1,6 @@
 import { t } from "@lingui/macro";
 import { formatPercentage, formatTonnes } from "lib/charts/helpers";
-import {
-  queryAggregatedCredits,
-  queryAggregatedCreditsByBridgeAndOrigin,
-} from "lib/charts/queries";
+import { queryAggregatedCreditsByBridgeAndOrigin } from "lib/charts/queries";
 import {
   AggregatedCreditsByBridgeAndOriginItem,
   CreditsQueryParams,
@@ -11,27 +8,23 @@ import {
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
-import { Columns, DataRendererProps } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
 export default class VerraCreditsOriginsListConfiguration extends AbstractTableConfiguration<
   AggregatedCreditsByBridgeAndOriginItem,
   CreditsQueryParams
 > {
   async fetchFunction(page: number, params?: CreditsQueryParams) {
-    const total = (await queryAggregatedCredits({ bridge: "offchain" }))
-      .quantity;
-    const data = await queryAggregatedCreditsByBridgeAndOrigin(
-      Object.assign(
-        {},
-        {
-          sort_by: "total_quantity",
-          sort_order: "desc",
-          page_size: 10,
-          page,
-        } as SortQueryParams,
-        params
-      )
-    );
+    const data = await queryAggregatedCreditsByBridgeAndOrigin({
+      ...({
+        sort_by: "total_quantity",
+        sort_order: "desc",
+        page_size: 10,
+        page,
+      } as SortQueryParams),
+      ...params,
+    });
+
     data.items.forEach((item) => {
       item.total_bridged = 0;
       item.percentage = 0;
@@ -116,20 +109,6 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
   formatTonnes = (x: number) => {
     return formatTonnes({ amount: x, maximumFractionDigits: 0 });
   };
-  desktopRenderer = (
-    props: DataRendererProps<
-      AggregatedCreditsByBridgeAndOriginItem,
-      CreditsQueryParams
-    >
-  ) => {
-    return this.VerticalTableLayout(props);
-  };
-  mobileRenderer = (
-    props: DataRendererProps<
-      AggregatedCreditsByBridgeAndOriginItem,
-      CreditsQueryParams
-    >
-  ) => {
-    return <></>;
-  };
+  desktopRenderer: DataRendererKey = "vertical-table";
+  mobileRenderer: DataRendererKey = "void";
 }

@@ -7,9 +7,10 @@ import VerticalTableHeader from "../VerticalTableHeader";
 import {
   ConfigurationKey,
   fetchData,
-  getDesktopRenderer,
-  getMobileRenderer,
+  getRenderer,
+  getRendererKey,
 } from "../configurations";
+import { DataRendererType } from "../configurations/types";
 import styles from "./styles.module.scss";
 
 /** Client components that renders a paginated table
@@ -46,13 +47,23 @@ export default function DataTableClientWrapper<RI, P>(props: {
   }, [page, sortParams]);
 
   /** Renders a table or a skeleton if there is no data */
-  function renderTable(renderer: "desktop" | "mobile") {
+  function renderTable(rendererType: DataRendererType) {
     if (data) {
-      const Renderer =
-        renderer == "desktop"
-          ? getDesktopRenderer<RI, P>(props.configurationKey)
-          : getMobileRenderer<RI, P>(props.configurationKey);
-      return Renderer ? Renderer({ data, params: props.params }) : <></>;
+      const Renderer = getRenderer(props.configurationKey, rendererType);
+      const rendererKey = getRendererKey(props.configurationKey, rendererType);
+      return (
+        <>
+          {rendererKey == "vertical-table" && (
+            <VerticalTableHeader
+              sortParams={sortParams}
+              setSortParams={setSortParams}
+              configurationKey={props.configurationKey}
+              params={props.params}
+            />
+          )}
+          {Renderer({ data, params: props.params })}
+        </>
+      );
     } else {
       return (
         <tbody>
@@ -67,16 +78,15 @@ export default function DataTableClientWrapper<RI, P>(props: {
       );
     }
   }
+  // The card renderer needs a special wrapper to align pagination properly
+  const wrapperClassName =
+    getRendererKey(props.configurationKey, "mobile") == "cards"
+      ? styles.mobileCardsWrapper
+      : "";
 
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapperClassName}>
       <table className={`${styles.table} ${styles.desktopOnly}`}>
-        <VerticalTableHeader
-          sortParams={sortParams}
-          setSortParams={setSortParams}
-          configurationKey={props.configurationKey}
-          params={props.params}
-        />
         {renderTable("desktop")}
       </table>
       <table className={`${styles.table} ${styles.mobileOnly}`}>

@@ -3,7 +3,7 @@ import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 import {
   Columns,
-  DataRenderer,
+  DataRendererKey,
   DataRendererProps,
   ItemRenderer,
 } from "./types";
@@ -21,9 +21,9 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   /** Returns the columns (layout) for this table */
   abstract getColumns(params?: P): Columns<RI>;
   /** Returns a JSX.Element that can render data items for mobile */
-  abstract mobileRenderer: DataRenderer<RI, P>;
+  abstract mobileRenderer: DataRendererKey;
   /** Returns a JSX.Element that can render data items for desktop */
-  abstract desktopRenderer: DataRenderer<RI, P>;
+  abstract desktopRenderer: DataRendererKey;
   /** Formats a data item value */
   formatValue(
     item: RI,
@@ -41,9 +41,9 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   }
 
   /**
-   * Display data as a table with items as columns
+   * A renderer that displays data as a table with items as rows
    */
-  VerticalTableLayout(props: DataRendererProps<RI, P>) {
+  VerticalTableRenderer(props: DataRendererProps<RI, P>) {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
@@ -66,9 +66,9 @@ export default abstract class AbstractTableConfiguration<RI, P> {
     );
   }
   /**
-   * Display data as a table with items as rows
+   * A renderer that display data as a table with items as columns
    */
-  HorizontalTableLayout(props: DataRendererProps<RI, P>) {
+  HorizontalTableRenderer(props: DataRendererProps<RI, P>) {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
@@ -91,11 +91,10 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   }
 
   /**
-   * Displays data as cards
+   * A renderer that displays data as cards
    */
-  CardsLayout(
+  CardsRenderer(
     props: DataRendererProps<RI, P> & {
-      cardRenderer: ItemRenderer<RI, P>;
       params?: P;
     }
   ) {
@@ -104,13 +103,28 @@ export default abstract class AbstractTableConfiguration<RI, P> {
         <tr>
           <td>
             <div className={styles.cards}>
-              {props.data.items.map((item) =>
-                props.cardRenderer({ item, params: props.params })
-              )}
+              {props.data.items.map((item, index) => (
+                <this.CardRenderer item={item} key={index} />
+              ))}
             </div>
           </td>
         </tr>
       </tbody>
     );
+  }
+
+  CardRenderer = (props: { item: RI }) => {
+    return <></>;
+  };
+  /**
+   * A renderer that does not display data
+   */
+  VoidRenderer(
+    props: DataRendererProps<RI, P> & {
+      cardRenderer: ItemRenderer<RI, P>;
+      params?: P;
+    }
+  ) {
+    return <></>;
   }
 }

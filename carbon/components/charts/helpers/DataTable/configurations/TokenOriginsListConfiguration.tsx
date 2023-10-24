@@ -8,7 +8,7 @@ import {
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes } from "./helpers";
-import { Columns, DataRendererProps } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
 export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<
   AggregatedCreditsByOriginItem,
@@ -50,14 +50,6 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
       },
     };
   }
-  desktopRenderer = (
-    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
-  ) => {
-    return this.VerticalTableLayout(props);
-  };
-  mobileRenderer = (
-    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
-  ) => {
-    return this.VerticalTableLayout(props);
-  };
+  desktopRenderer: DataRendererKey = "vertical-table";
+  mobileRenderer: DataRendererKey = "vertical-table";
 }
