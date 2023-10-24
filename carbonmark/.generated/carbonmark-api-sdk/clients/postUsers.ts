@@ -1,27 +1,25 @@
+import type { ResponseConfig } from "../client";
 import client from "../client";
 import type {
   PostUsersMutationRequest,
   PostUsersMutationResponse,
-} from "../models/PostUsers";
+} from "../types/PostUsers";
 
 /**
  * @summary Create user profile
  * @link /users
  */
-
-export function postUsers<
+export async function postUsers<
   TData = PostUsersMutationResponse,
   TVariables = PostUsersMutationRequest,
 >(
   data: TVariables,
   options: Partial<Parameters<typeof client>[0]> = {}
-): Promise<TData> {
+): Promise<ResponseConfig<TData>> {
   return client<TData, TVariables>({
     method: "post",
     url: `/users`,
-
     data,
-
     ...options,
   });
 }

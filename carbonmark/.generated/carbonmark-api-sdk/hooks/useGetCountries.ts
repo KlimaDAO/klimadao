@@ -1,7 +1,7 @@
 import type { SWRConfiguration, SWRResponse } from "swr";
 import useSWR from "swr";
 import client from "../../../lib/api/client";
-import type { GetCountriesQueryResponse } from "../models/GetCountries";
+import type { GetCountriesQueryResponse } from "../types/GetCountries";
 
 export function getCountriesQueryOptions<
   TData = GetCountriesQueryResponse,
@@ -16,7 +16,7 @@ export function getCountriesQueryOptions<
         url: `/countries`,
 
         ...options,
-      });
+      }).then((res) => res.data);
     },
   };
 }
@@ -33,10 +33,16 @@ export function useGetCountries<
 >(options?: {
   query?: SWRConfiguration<TData, TError>;
   client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+  shouldFetch?: boolean;
 }): SWRResponse<TData, TError> {
-  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
+  const {
+    query: queryOptions,
+    client: clientOptions = {},
+    shouldFetch = true,
+  } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/countries`, {
+  const url = shouldFetch ? `/countries` : null;
+  const query = useSWR<TData, TError, string | null>(url, {
     ...getCountriesQueryOptions<TData, TError>(clientOptions),
     ...queryOptions,
   });

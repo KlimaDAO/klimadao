@@ -4,13 +4,15 @@ export type RequestConfig<TVariables = unknown> = {
   method: "get" | "put" | "patch" | "post" | "delete";
   url: string;
   params?: unknown;
-  data?: TVariables;
+  data?: TVariables | unknown;
   headers?: HeadersInit;
 };
 
+export type ResponseConfig<TData> = NonNullable<TData>;
+
 export const fetchClient = async <TData, TVariables = unknown>(
   request: RequestConfig<TVariables>
-): Promise<TData> => {
+): Promise<ResponseConfig<TData>> => {
   const response = await fetch(
     `${urls.api.base}${request.url}${request.params}`,
     {

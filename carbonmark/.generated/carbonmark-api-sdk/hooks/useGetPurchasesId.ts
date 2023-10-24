@@ -5,7 +5,7 @@ import type {
   GetPurchasesIdPathParams,
   GetPurchasesIdQueryParams,
   GetPurchasesIdQueryResponse,
-} from "../models/GetPurchasesId";
+} from "../types/GetPurchasesId";
 
 export function getPurchasesIdQueryOptions<
   TData = GetPurchasesIdQueryResponse,
@@ -24,7 +24,7 @@ export function getPurchasesIdQueryOptions<
         params,
 
         ...options,
-      });
+      }).then((res) => res.data);
     },
   };
 }
@@ -44,11 +44,17 @@ export function useGetPurchasesId<
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
+  const {
+    query: queryOptions,
+    client: clientOptions = {},
+    shouldFetch = true,
+  } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/purchases/${id}`, {
+  const url = shouldFetch ? `/purchases/${id}` : null;
+  const query = useSWR<TData, TError, string | null>(url, {
     ...getPurchasesIdQueryOptions<TData, TError>(id, params, clientOptions),
     ...queryOptions,
   });

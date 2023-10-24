@@ -22,6 +22,7 @@ export default defineConfig(async () => {
       createSwaggerTS({}),
       createSwaggerClient({
         client: "./lib/api/client.ts",
+        dataReturnType: "full",
       }),
       createSwaggerSWR({
         client: "./lib/api/client.ts",

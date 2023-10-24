@@ -5,7 +5,7 @@ import type {
   GetProjectsIdPathParams,
   GetProjectsIdQueryParams,
   GetProjectsIdQueryResponse,
-} from "../models/GetProjectsId";
+} from "../types/GetProjectsId";
 
 export function getProjectsIdQueryOptions<
   TData = GetProjectsIdQueryResponse,
@@ -24,7 +24,7 @@ export function getProjectsIdQueryOptions<
         params,
 
         ...options,
-      });
+      }).then((res) => res.data);
     },
   };
 }
@@ -44,11 +44,17 @@ export function useGetProjectsId<
   options?: {
     query?: SWRConfiguration<TData, TError>;
     client?: Partial<Parameters<typeof client<TData, TError>>[0]>;
+    shouldFetch?: boolean;
   }
 ): SWRResponse<TData, TError> {
-  const { query: queryOptions, client: clientOptions = {} } = options ?? {};
+  const {
+    query: queryOptions,
+    client: clientOptions = {},
+    shouldFetch = true,
+  } = options ?? {};
 
-  const query = useSWR<TData, TError, string>(`/projects/${id}`, {
+  const url = shouldFetch ? `/projects/${id}` : null;
+  const query = useSWR<TData, TError, string | null>(url, {
     ...getProjectsIdQueryOptions<TData, TError>(id, params, clientOptions),
     ...queryOptions,
   });
