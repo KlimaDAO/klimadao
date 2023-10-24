@@ -1,3 +1,4 @@
+import { SortQueryParams } from "lib/charts/types";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import KlimaRetirementsByBeneficiaryListConfiguration from "./KlimaRetirementsByBeneficiaryListConfiguration";
 import KlimaRetirementsByChainListConfiguration from "./KlimaRetirementsByChainListConfiguration";
@@ -30,9 +31,10 @@ function getConfiguration<RI, P>(key: ConfigurationKey) {
 export function fetchData<RI, P>(
   key: ConfigurationKey,
   page: number,
-  params?: P
+  params?: P,
+  sortParams?: SortQueryParams
 ) {
-  return getConfiguration<RI, P>(key).fetchFunction(page, params);
+  return getConfiguration<RI, P>(key).fetchFunction(page, {...params, ...sortParams} as P & SortQueryParams);
 }
 /** Returns a JSX.Element that can render data items for desktop */
 export function getDesktopRenderer<RI, P>(key: ConfigurationKey) {

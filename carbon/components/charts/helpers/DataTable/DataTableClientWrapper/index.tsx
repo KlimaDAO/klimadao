@@ -1,6 +1,7 @@
 "use client";
 import PaginatedTable from "components/charts/helpers/DataTable/PaginatedTable";
 import Pagination from "components/charts/helpers/DataTable/Pagination";
+import { SortQueryParams } from "lib/charts/types";
 import { useState } from "react";
 import { ConfigurationKey } from "../configurations";
 import styles from "./styles.module.scss";
@@ -20,6 +21,7 @@ export default function DataTableClientWrapper(props: {
   const withPagination =
   props.withPagination === undefined ? true : props.withPagination;
   const [page, setPage] = useState<number>(0);
+  const [sortParams, setSortParams] = useState<SortQueryParams>({});
   return (
     <div className={styles.wrapper}>
         <PaginatedTable
@@ -27,6 +29,8 @@ export default function DataTableClientWrapper(props: {
           configurationKey={props.configurationKey}
           params={props.params}
           skeletonClassName={props.skeletonClassName}
+          sortParams={sortParams}
+          setSortParams={setSortParams}
         ></PaginatedTable>
         { withPagination && 
         (

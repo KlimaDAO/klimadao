@@ -1,4 +1,4 @@
-import { PaginatedResponse } from "lib/charts/types";
+import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
 import { Columns, DataRenderer, DataRendererProps, ItemRenderer } from "./types";
@@ -11,7 +11,7 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   /** Function used to fetch data */
   abstract fetchFunction(
     page: number,
-    params?: P
+    params?: P & SortQueryParams
   ): Promise<PaginatedResponse<RI>>;
   /** Returns the columns (layout) for this table */
   abstract getColumns(params?: P): Columns<RI>;

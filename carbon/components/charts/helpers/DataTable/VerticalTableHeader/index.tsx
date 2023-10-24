@@ -4,10 +4,8 @@ import { SortQueryParams } from "lib/charts/types";
 import { ConfigurationKey, getColumns } from "../configurations";
 import styles from "../configurations/styles.module.scss";
 
-/** A Client Component (wannabe Server Component) that renders the actual Table
- * configurationKey: Table configuration key
- * page: the page of the dataset to render
- * height: expected height of the table (for skeleton)
+/** Renders a vertical table header
+ * 
  */
 
 export default function VerticalTableHeader<P>(props: { 
@@ -37,11 +35,12 @@ export default function VerticalTableHeader<P>(props: {
     let Element = UnfoldMore;
     
     if (props.sortParams.sort_by == key) {
-      console.log(key, props.sortParams.sort_by);
       Element = props.sortParams.sort_by == "asc" ? ExpandMore : ExpandLess
     }
     return <Element  onClick={() => setSortParamsWrapper(key)} />
   }
+ 
+
   return (
     <thead>
       <tr className={styles.header}>
