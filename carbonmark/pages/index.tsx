@@ -1,9 +1,8 @@
 import { getProjectsId } from ".generated/carbonmark-api-sdk/clients";
 import { Home } from "components/pages/Home";
 import { loadTranslation } from "lib/i18n";
-import { compact } from 'lodash';
+import { compact } from "lodash";
 import { GetStaticProps } from "next";
-
 
 const defaultProjectKeys = ["VCS-674-2014", "VCS-292-2020", "VCS-981-2017"];
 
