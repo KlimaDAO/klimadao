@@ -1,7 +1,12 @@
 import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
-import { Columns, DataRenderer, DataRendererProps, ItemRenderer } from "./types";
+import {
+  Columns,
+  DataRenderer,
+  DataRendererProps,
+  ItemRenderer,
+} from "./types";
 /** An abstract class for table configuration
  * Generics:
  *  - RI: Type of the items representing table rows
@@ -41,20 +46,22 @@ export default abstract class AbstractTableConfiguration<RI, P> {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
-        <tbody>
-          {props.data.items.map((item, index) => (
-            <tr key={index} className={styles.row}>
-              {columnKeys.map((key) => (
-                <td key={key} className={columns[key].cellStyle}>
+      <tbody>
+        {props.data.items.map((item, index) => (
+          <tr key={index} className={styles.row}>
+            {columnKeys.map((key) => (
+              <td key={key} className={columns[key].cellStyle}>
+                <div>
                   {columns[key].formatter(
                     item[columns[key].dataKey] as never,
                     item
                   )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+                </div>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     );
   }
   /**
@@ -87,7 +94,12 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   /**
    * Displays data as cards
    */
-  CardsLayout(props: DataRendererProps<RI, P> & { cardRenderer: ItemRenderer<RI, P>; params?: P }) {
+  CardsLayout(
+    props: DataRendererProps<RI, P> & {
+      cardRenderer: ItemRenderer<RI, P>;
+      params?: P;
+    }
+  ) {
     return (
       <div className={styles.cards}>
         {props.data.items.map((item) =>

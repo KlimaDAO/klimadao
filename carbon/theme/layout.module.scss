@@ -87,7 +87,14 @@ div.card50percent {
 }
 .blockRight {
   :first-child {
+    width: fit-content;
     margin-left: auto;
+  }
+}
+.blockLeft {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
   }
 }
 .textCenter {

@@ -52,7 +52,7 @@ export type CreditsQueryParams = {
 } & DateFieldQueryParamsInterface;
 export interface SortQueryParams {
   sort_by?: string;
-  sort_order?: string;
+  sort_order?: "asc" | "desc";
 }
 export interface PaginationQueryParams extends SortQueryParams {
   page_size?: number;

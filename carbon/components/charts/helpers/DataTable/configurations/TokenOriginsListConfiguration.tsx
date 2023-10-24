@@ -3,6 +3,7 @@ import { queryAggregatedCreditsByOrigin } from "lib/charts/queries";
 import {
   AggregatedCreditsByOriginItem,
   CreditsQueryParams,
+  SortQueryParams,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
@@ -22,7 +23,7 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
           sort_order: "desc",
           page_size: 10,
           page,
-        },
+        } as SortQueryParams,
         params
       )
     );

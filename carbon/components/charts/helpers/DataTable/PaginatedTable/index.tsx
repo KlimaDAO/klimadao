@@ -1,5 +1,4 @@
-"use client"
-import Skeleton from "components/Skeleton";
+"use client";
 import {
   ConfigurationKey,
   fetchData,
@@ -21,24 +20,31 @@ export default function PaginatedTable<RI>(props: {
   sortParams: SortQueryParams;
   setSortParams: (sortParams: SortQueryParams) => void;
 }) {
-  const [data, setData] = useState<PaginatedResponse<RI> | null>(null);
+  const [data, setData] = useState<PaginatedResponse<RI> | undefined>(
+    undefined
+  );
 
   useEffect(() => {
-    setData(null);
-    fetchData(props.configurationKey, props.page, props.params, props.sortParams).then((data) => {
+    setData(undefined);
+    fetchData(
+      props.configurationKey,
+      props.page,
+      props.params,
+      props.sortParams
+    ).then((data) => {
       /* FIXME: Unfortunately we have to hardcast this */
       setData(data as PaginatedResponse<RI>);
     });
   }, [props.page, props.sortParams]);
 
-  return data ? (
+  return (
     <TableHeaderClientWrapper
       configurationKey={props.configurationKey}
       params={props.params}
       data={data}
-      sortParams={props.sortParams} setSortParams={props.setSortParams}
+      sortParams={props.sortParams}
+      setSortParams={props.setSortParams}
+      skeletonClassName={props.skeletonClassName}
     />
-  ) : (
-    <Skeleton className={props.skeletonClassName} />
   );
 }

@@ -6,6 +6,7 @@ import {
   ChartData,
   CreditsQueryParams,
   DateFieldParam,
+  SortQueryParams,
   Status,
   TreeMapData,
 } from "lib/charts/types";
@@ -80,7 +81,7 @@ export async function getAggregatedCreditsByProject(
   const finalParams = Object.assign({}, params, {
     sort_by: "quantity",
     sort_order: "desc",
-  });
+  } as SortQueryParams);
   const data = await queryAggregatedCreditsByProject(finalParams);
   const chartData: TreeMapData = data.items.map((item) => {
     return {

@@ -7,6 +7,7 @@ import {
 import {
   AggregatedCreditsByBridgeAndOriginItem,
   CreditsQueryParams,
+  SortQueryParams,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
@@ -27,7 +28,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           sort_order: "desc",
           page_size: 10,
           page,
-        },
+        } as SortQueryParams,
         params
       )
     );
@@ -53,7 +54,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
     return {
       country: {
         header: t`Country`,
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockLeft,
         dataKey: "country",
         formatter: (x: string) => x,
       },
@@ -62,7 +63,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           params?.status == "issued"
             ? t`Toucan bridged VCUs`
             : t`Toucan retired VCUs`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "toucan_quantity",
         formatter: this.formatTonnes,
       },
@@ -71,14 +72,14 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           params?.status == "issued"
             ? t`Moss bridged VCUs`
             : t`Moss retired VCUs`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "moss_quantity",
         formatter: this.formatTonnes,
       },
       c3: {
         header:
           params?.status == "issued" ? t`C3 bridged VCUs` : t`C3 retired VCUs`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "c3_quantity",
         formatter: this.formatTonnes,
       },
@@ -87,7 +88,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           params?.status == "issued"
             ? t`Total tokenized VCUs`
             : t`Total retired VCUs onchain`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "total_bridged",
         formatter: this.formatTonnes,
       },
@@ -96,7 +97,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           params?.status == "issued"
             ? t`Total issued VCUs`
             : t`Total retired VCUs`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "total_quantity",
         formatter: this.formatTonnes,
       },
@@ -105,7 +106,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
           params?.status == "issued"
             ? t`Percentage tokenized`
             : t`Percentage retired offchain`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "percentage",
         formatter: (x: number) =>
           formatPercentage({ value: x, fractionDigits: 1 }),

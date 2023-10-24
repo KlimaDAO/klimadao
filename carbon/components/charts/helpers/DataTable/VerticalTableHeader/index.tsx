@@ -1,55 +1,66 @@
-"use client"
+"use client";
 import { ExpandLess, ExpandMore, UnfoldMore } from "@mui/icons-material";
 import { SortQueryParams } from "lib/charts/types";
 import { ConfigurationKey, getColumns } from "../configurations";
-import styles from "../configurations/styles.module.scss";
+import tableStyles from "../configurations/styles.module.scss";
+import styles from "./styles.module.scss";
 
 /** Renders a vertical table header
- * 
+ *
  */
 
-export default function VerticalTableHeader<P>(props: { 
-  configurationKey: ConfigurationKey 
+export default function VerticalTableHeader<P>(props: {
+  configurationKey: ConfigurationKey;
   sortParams: SortQueryParams;
   setSortParams: (sortParams: SortQueryParams) => void;
   params: P;
 }) {
   const columns = getColumns(props.configurationKey, props.params);
   const columnKeys = Object.keys(columns);
+
+  /** Computes the sortOptions depending on the buitton clicked */
   function setSortParamsWrapper(key: string): void {
-    let newSortParams: SortQueryParams = {...props.sortParams};
-    if (newSortParams.sort_by == key) {
+    const dataKey = columns[key].dataKey;
+    let newSortParams: SortQueryParams = { ...props.sortParams };
+    if (newSortParams.sort_by == dataKey) {
       switch (newSortParams.sort_order) {
-        case "asc" : newSortParams.sort_order = "desc"; break;
-        case "desc" : newSortParams.sort_by = undefined; break;
-        default : newSortParams.sort_order = "asc"; break;
+        case "desc":
+          newSortParams.sort_order = "asc";
+          break;
+        case "asc":
+          newSortParams.sort_by = undefined;
+          break;
+        default:
+          newSortParams.sort_order = "asc";
+          break;
       }
-    }
-    else  {
-      newSortParams.sort_by = key;
-      newSortParams.sort_order = "asc";
+    } else {
+      newSortParams.sort_by = dataKey;
+      newSortParams.sort_order = "desc";
     }
     props.setSortParams(newSortParams);
   }
+  /** Computes the button associated to the header */
   function sortButtonComponent(key: string): JSX.Element {
     let Element = UnfoldMore;
-    
-    if (props.sortParams.sort_by == key) {
-      Element = props.sortParams.sort_by == "asc" ? ExpandMore : ExpandLess
+    const dataKey = columns[key].dataKey;
+
+    if (props.sortParams.sort_by == dataKey) {
+      Element = props.sortParams.sort_order == "asc" ? ExpandLess : ExpandMore;
     }
-    return <Element  onClick={() => setSortParamsWrapper(key)} />
+    return <Element onClick={() => setSortParamsWrapper(key)} />;
   }
- 
 
   return (
     <thead>
-      <tr className={styles.header}>
+      <tr className={tableStyles.header}>
         {columnKeys.map((key) => (
           <th key={key} className={columns[key].cellStyle}>
-            {columns[key].header}
-            { (columns[key].sortable === undefined || columns[key].sortable) && 
-                sortButtonComponent(key) 
-            }
+            <span className={styles.cell}>
+              {columns[key].header}
+              {(columns[key].sortable === undefined || columns[key].sortable) &&
+                sortButtonComponent(key)}
+            </span>
           </th>
         ))}
       </tr>
