@@ -1,16 +1,15 @@
-import { useFetchProjects } from "hooks/useFetchProjects";
 import { Project } from "lib/types/carbonmark.types";
 import { compact } from "lodash";
 import { map as mapFn, pipe, uniqBy } from "lodash/fp";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
+import ViewProps from "../props";
 import * as styles from "./MapView.styles";
 import CarbonmarkMap from "./carbonmark-map";
 
-export const MapView = () => {
+export const MapView: FC<ViewProps> = ({ projects }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<CarbonmarkMap | null>(null);
-  const { projects } = useFetchProjects();
 
   //Convert projects to GeoJSON Features
   const fn = pipe(
