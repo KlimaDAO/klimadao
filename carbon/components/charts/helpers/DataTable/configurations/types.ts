@@ -1,4 +1,4 @@
-import { PaginatedResponse } from "lib/charts/types";
+import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
 import React from "react";
 
 type Formatter<RI> =
@@ -13,6 +13,8 @@ export interface Column<RI> {
   cellStyle: string;
   /** Formatter for the data to be displayed */
   formatter: Formatter<RI>;
+  /** Can we sort using this column */
+  sortable?: boolean;
 }
 
 export interface Columns<RI> {
@@ -22,6 +24,8 @@ export interface Columns<RI> {
 export interface DataRendererProps<RI, P> {
   data: PaginatedResponse<RI>;
   params?: P;
+  sortParams: SortQueryParams;
+  setSortParams: (sortParams: SortQueryParams) => void;
 }
 export type DataRenderer<RI, P> = (
   props: DataRendererProps<RI, P>

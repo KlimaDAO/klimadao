@@ -1,5 +1,4 @@
 import DataTableClientWrapper from "components/charts/helpers/DataTable/DataTableClientWrapper";
-import Table from "components/charts/helpers/DataTable/Table";
 import {
   ConfigurationKey,
   fetchData,
@@ -32,33 +31,22 @@ export default async function DataTable<RI>(props: {
   withPagination?: boolean;
   skeletonClassName?: string;
 }) {
-  const withPagination =
-    props.withPagination === undefined ? true : props.withPagination;
+
   const data = (await fetchData(
     props.configurationKey,
     0,
     props.params
   )) as PaginatedResponse<RI>;
-  const firstPageTable = (
-    <Table
-      configurationKey={props.configurationKey}
-      data={data}
-      params={props.params}
-    ></Table>
-  );
   return (
     <NoDataWrapper data={data.items}>
       <>
-        {withPagination && (
           <DataTableClientWrapper
             configurationKey={props.configurationKey}
             params={props.params}
             skeletonClassName={props.skeletonClassName}
             pages_count={data.pages_count}
-            firstPageTable={firstPageTable}
+            withPagination={props.withPagination}
           ></DataTableClientWrapper>
-        )}
-        {!withPagination && <div>{firstPageTable}</div>}
       </>
     </NoDataWrapper>
   );

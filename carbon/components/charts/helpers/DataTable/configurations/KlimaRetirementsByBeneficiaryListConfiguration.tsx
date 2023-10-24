@@ -1,14 +1,13 @@
 import { t } from "@lingui/macro";
 import { queryKlimaRetirementsByBeneficiary } from "lib/charts/queries";
 import {
-  KlimaRetirementsByBeneficiaryItem,
-  PaginatedResponse,
+  KlimaRetirementsByBeneficiaryItem
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
-import { Columns } from "./types";
+import { Columns, DataRendererProps } from "./types";
 
 export default class KlimaRetirementsByBeneficiaryListConfiguration extends AbstractTableConfiguration<
   KlimaRetirementsByBeneficiaryItem,
@@ -39,20 +38,11 @@ export default class KlimaRetirementsByBeneficiaryListConfiguration extends Abst
       },
     };
   }
-  desktopRenderer = (props: {
-    data: PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+  desktopRenderer = (props: DataRendererProps<KlimaRetirementsByBeneficiaryItem, undefined>) => {
+    return this.VerticalTableLayout(props);
   };
-  mobileRenderer = (props: {
-    data: PaginatedResponse<KlimaRetirementsByBeneficiaryItem>;
-  }) => {
-    return this.CardsLayout({
-      data: props.data,
-      cardRenderer: this.cardRenderer,
-    });
+  mobileRenderer = (props: DataRendererProps<KlimaRetirementsByBeneficiaryItem, undefined>) => {
+    return this.CardsLayout({...props, ...{ cardRenderer: this.cardRenderer}});
   };
   cardRenderer = (props: { item: KlimaRetirementsByBeneficiaryItem }) => {
     return (

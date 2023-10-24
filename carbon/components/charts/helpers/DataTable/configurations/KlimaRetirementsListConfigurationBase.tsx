@@ -3,13 +3,13 @@ import PolyscanLink from "components/charts/helpers/PolygonscanLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
 import { queryKlimaRawRetirements } from "lib/charts/queries";
-import { PaginatedResponse, RawRetirementsItem } from "lib/charts/types";
+import { RawRetirementsItem } from "lib/charts/types";
 import { currentLocale } from "lib/i18n";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
-import { Column } from "./types";
+import { Column, DataRendererProps } from "./types";
 
 /** A base configuration for The detailed list of klima retirement trends */
 export default abstract class KlimaRetirementsListConfigurationBase extends AbstractTableConfiguration<
@@ -106,17 +106,10 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
       </div>
     );
   };
-  desktopRenderer = (props: {
-    data: PaginatedResponse<RawRetirementsItem>;
-  }) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+  desktopRenderer = (props: DataRendererProps<RawRetirementsItem, undefined>) => {
+    return this.VerticalTableLayout(props);
   };
-  mobileRenderer = (props: { data: PaginatedResponse<RawRetirementsItem> }) => {
-    return this.CardsLayout({
-      data: props.data,
-      cardRenderer: this.cardRenderer,
-    });
+  mobileRenderer = (props: DataRendererProps<RawRetirementsItem, undefined>) => {
+    return this.CardsLayout({ ...props, ...{ cardRenderer: this.cardRenderer }});
   };
 }

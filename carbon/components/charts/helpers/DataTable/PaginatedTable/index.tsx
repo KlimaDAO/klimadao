@@ -4,8 +4,8 @@ import {
 } from "components/charts/helpers/DataTable/configurations";
 import Table from "components/charts/helpers/DataTable/Table";
 import Skeleton from "components/Skeleton";
-import { PaginatedResponse } from "lib/charts/types";
-import { useEffect, useState } from "react";
+import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 /** A Client Component (wannabe Server Component) that renders the actual Table
  * configurationKey: Table configuration key
@@ -17,6 +17,8 @@ export default function PaginatedTable<RI>(props: {
   page: number;
   params: object;
   skeletonClassName?: string;
+  sortParams: SortQueryParams
+  setSortParams: Dispatch<SetStateAction<SortQueryParams>>
 }) {
   const [data, setData] = useState<PaginatedResponse<RI> | null>(null);
   useEffect(() => {
@@ -26,11 +28,14 @@ export default function PaginatedTable<RI>(props: {
       setData(data as PaginatedResponse<RI>);
     });
   }, [props.page]);
+
   return data ? (
     <Table
       configurationKey={props.configurationKey}
       params={props.params}
       data={data}
+      sortParams={props.sortParams}
+      setSortParams={props.setSortParams}
     ></Table>
   ) : (
     <Skeleton className={props.skeletonClassName} />

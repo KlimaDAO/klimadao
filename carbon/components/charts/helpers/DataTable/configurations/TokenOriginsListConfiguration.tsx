@@ -52,15 +52,11 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
   desktopRenderer = (
     props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
   ) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+    return this.VerticalTableLayout(props);
   };
   mobileRenderer = (
     props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
   ) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
+    return this.VerticalTableLayout(props);
   };
 }

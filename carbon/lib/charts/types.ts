@@ -50,11 +50,13 @@ export type CreditsQueryParams = {
   pool?: Pool;
   status?: Status;
 } & DateFieldQueryParamsInterface;
-export interface PaginationQueryParams {
-  page_size?: number;
-  page?: number;
+export interface SortQueryParams {
   sort_by?: string;
   sort_order?: string;
+}
+export interface PaginationQueryParams extends SortQueryParams {
+  page_size?: number;
+  page?: number;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
