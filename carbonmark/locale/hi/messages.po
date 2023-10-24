@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-24 16:50+0000\n"
+"POT-Creation-Date: 2023-10-24 22:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -901,8 +901,8 @@ msgid "No listings found for this project."
 msgstr "इस प्रॉजेक्ट हेतु कोई सूची मौजूद नहीं"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/GridView/GridView.tsx:41
-#: components/pages/Projects/ListView/ListView.tsx:157
+#: components/pages/Projects/GridView/GridView.tsx:38
+#: components/pages/Projects/ListView/ListView.tsx:154
 msgid "No project description found"
 msgstr "कोई प्रॉजेक्ट विवरण मौजूद नहीं"
 
