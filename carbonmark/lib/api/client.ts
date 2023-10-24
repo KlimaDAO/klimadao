@@ -8,7 +8,7 @@ export type RequestConfig<TVariables = unknown> = {
   headers?: HeadersInit;
 };
 
-export type ResponseConfig<TData> = NonNullable<TData>;
+export type ResponseConfig<TData> = { data: TData };
 
 export const fetchClient = async <TData, TVariables = unknown>(
   request: RequestConfig<TVariables>
