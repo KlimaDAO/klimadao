@@ -1,5 +1,3 @@
-import { Key } from "react";
-
 // API level Query parameters
 export const BRIDGES = ["toucan", "c3", "moss"];
 export const CHAIN = ["polygon", "eth", "celo"];
@@ -354,4 +352,4 @@ export interface TreeMapItem {
 export type TreeMapData = Array<TreeMapItem>;
 
 /** Node dictionnary for cards or tab */
-export type NodeDictionnary = Record<Key, React.ReactNode>;
+export type NodeDictionnary = Record<string | number | symbol, React.ReactNode>;
