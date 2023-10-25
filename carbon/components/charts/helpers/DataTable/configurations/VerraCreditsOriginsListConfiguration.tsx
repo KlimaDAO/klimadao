@@ -15,7 +15,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
   CreditsQueryParams
 > {
   async fetchFunction(page: number, params?: CreditsQueryParams) {
-    const data = await queryAggregatedCreditsByBridgeAndOrigin({
+    return await queryAggregatedCreditsByBridgeAndOrigin({
       ...({
         sort_by: "total_quantity",
         sort_order: "desc",
@@ -24,22 +24,6 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
       } as SortQueryParams),
       ...params,
     });
-
-    data.items.forEach((item) => {
-      item.total_bridged = 0;
-      item.percentage = 0;
-      if (
-        item.c3_quantity !== undefined &&
-        item.toucan_quantity !== undefined &&
-        item.moss_quantity !== undefined &&
-        item.total_quantity !== undefined
-      ) {
-        item.total_bridged =
-          item.c3_quantity + item.toucan_quantity + item.moss_quantity;
-        item.percentage = item.total_bridged / item.total_quantity;
-      }
-    });
-    return data;
   }
   getColumns(
     params?: CreditsQueryParams
@@ -82,7 +66,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
             ? t`Total tokenized VCUs`
             : t`Total retired VCUs onchain`,
         cellStyle: layout.blockRight,
-        dataKey: "total_bridged",
+        dataKey: "bridge_quantity",
         formatter: this.formatTonnes,
       },
       issued: {
@@ -94,13 +78,13 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
         dataKey: "total_quantity",
         formatter: this.formatTonnes,
       },
-      percentage: {
+      bridge_ratio: {
         header:
           params?.status == "issued"
             ? t`Percentage tokenized`
             : t`Percentage retired offchain`,
         cellStyle: layout.blockRight,
-        dataKey: "percentage",
+        dataKey: "bridge_ratio",
         formatter: (x: number) =>
           formatPercentage({ value: x, fractionDigits: 1 }),
       },

@@ -290,8 +290,9 @@ export type AggregatedCreditsByBridgeAndVintage =
 export interface AggregatedCreditsByBridgeAndOriginItem
   extends BridgeQuantitiesInterface,
     OriginInterface {
-  total_bridged: number;
-  percentage?: number;
+  bridge_quantity: number;
+  bridge_ratio: number;
+  not_bridge_quantity?: number;
 }
 export type AggregatedCreditsByBridgeAndOrigin =
   ChartData<AggregatedCreditsByBridgeAndOriginItem>;

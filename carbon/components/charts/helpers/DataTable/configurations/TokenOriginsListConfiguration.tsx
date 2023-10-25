@@ -32,19 +32,19 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
     return {
       country: {
         header: t`Country`,
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockLeft,
         dataKey: "country",
         formatter: (x: string) => x,
       },
       countryCode: {
         header: t`Country`,
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockLeft,
         dataKey: "country_code",
         formatter: (x: string) => x,
       },
       amount_retired: {
         header: t`Amount retired`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "quantity",
         formatter: formatTonnes,
       },

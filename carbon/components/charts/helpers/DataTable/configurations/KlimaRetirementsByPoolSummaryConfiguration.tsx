@@ -30,6 +30,7 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
         cellStyle: `${styles.header} ${layout.nowrap}`,
         dataKey: "retirement_date",
         formatter: helpers.formatDateAsMonthsShort,
+        sortable: false,
       },
       amount_retired: {
         header: t`Amount Retired`,
@@ -37,12 +38,14 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
         dataKey: "amount_retired",
         formatter: (x: string | number) =>
           helpers.formatTonnes({ amount: Number(x), minimumFractionDigits: 2 }),
+        sortable: false,
       },
       number_of_retirements: {
         header: t`Number of transactions`,
         cellStyle: styles.row,
         dataKey: "number_of_retirements",
         formatter: (x: string | number) => x,
+        sortable: false,
       },
       avgTonnesPerTransaction: {
         header: t`Avg tonnes per transaction`,
@@ -56,6 +59,7 @@ export default class KlimaRetirementsByPoolSummaryConfiguration extends Abstract
             amount: item.amount_retired / item.number_of_retirements,
           });
         },
+        sortable: false,
       },
     };
   }
