@@ -1,13 +1,22 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const modal = css`
   gap: 0;
+  width: 90%;
+  max-height: 90vh;
+
   div:first-of-type {
     p {
       font-weight: 600;
       font-size: 2.4rem;
       font-family: var(--font-family-secondary);
     }
+  }
+
+  ${breakpoints.medium} {
+    width: 48rem;
+    max-height: 100vh;
   }
 `;
 

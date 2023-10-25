@@ -1,4 +1,5 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { useScrollLock } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { Modal } from "components/Modal";
 import { isNil } from "lodash";
@@ -7,6 +8,7 @@ import * as styles from "./styles";
 
 export const DisclamerModal: FC = () => {
   const [showModal, setShowModal] = useState(false);
+  useScrollLock(showModal);
 
   useEffect(() => {
     if (isNil(window?.sessionStorage?.getItem("disclaimer_accepted"))) {
