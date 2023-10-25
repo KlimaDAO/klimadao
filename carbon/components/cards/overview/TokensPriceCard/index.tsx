@@ -1,6 +1,7 @@
-import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { ArrowDropDown, ArrowDropUp, InfoOutlined } from "@mui/icons-material";
+import { Tooltip } from "@mui/material";
 import PercentageChange from "components/PercentageChage";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
@@ -90,13 +91,18 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
           {
             label: (
               <span className={styles.selectiveFee}>
-                <span>{t`Selective fee`}</span>
-                <span
-                  className={styles.selectiveFeeIcon}
-                  title={selectiveFeeDescription}
+                <span>{t`Selective cost`}</span>
+                <Tooltip
+                  title={
+                    <span className={styles.tooltipText}>
+                      {selectiveFeeDescription}
+                    </span>
+                  }
                 >
-                  <InfoOutlined fontSize={"inherit"} />
-                </span>
+                  <span className={styles.selectiveFeeIcon}>
+                    <InfoOutlined fontSize={"inherit"} />
+                  </span>
+                </Tooltip>
               </span>
             ),
             value: selectiveCostInfo,

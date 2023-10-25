@@ -1,9 +1,9 @@
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
-import { Modal } from "components/shared/Modal";
-import { Spinner } from "components/shared/Spinner";
+import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { Trans, t } from "@lingui/macro";
 import { Text } from "components/Text";
 import { Transaction } from "components/Transaction";
+import { Modal } from "components/shared/Modal";
+import { Spinner } from "components/shared/Spinner";
 import {
   approveTokenSpend,
   createListingTransaction,
@@ -88,9 +88,8 @@ export const CreateListing: FC<Props> = (props) => {
       .filter(
         (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
       )
-      .reduce((a, b) => a + Number(b.leftToSell), 0);
-
-    return sumOtherListings + Number(form?.amount || "0");
+      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
+    return Number(safeAdd(sumOtherListings.toString(), form?.amount || "0"));
   };
 
   /**
@@ -107,13 +106,15 @@ export const CreateListing: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
+      const newAllowanceValue = getTotalAssetApproval(inputValues).toString();
       await approveTokenSpend({
         tokenAddress: inputValues.tokenAddress,
         spender: "carbonmark",
         signer: provider.getSigner(),
-        value: getTotalAssetApproval(inputValues).toString(),
+        value: newAllowanceValue,
         onStatus: onUpdateStatus,
       });
+      setAllowanceValue(newAllowanceValue);
     } catch (e) {
       console.error(e);
     }
@@ -154,14 +155,14 @@ export const CreateListing: FC<Props> = (props) => {
             transferred out of your wallet when a sale is completed.
           </Trans>
         </Text>
-        {getTotalAssetApproval(inputValues) > Number(inputValues?.amount) && (
-          <Text t="body1" color="lighter">
+        <Text t="body1" color="lighter">
+          <strong>
             <Trans>
-              The value below reflects the sum of all of your listings for this
-              specific token.
+              The Confirm amount below reflects the sum of all your listings for
+              this specific token.
             </Trans>
-          </Text>
-        )}
+          </strong>
+        </Text>
       </div>
     );
   };
@@ -182,10 +183,20 @@ export const CreateListing: FC<Props> = (props) => {
     );
   };
 
-  const listableAssets = props.assets.filter(hasListableBalance).map((a) => ({
-    ...a,
-    amount: getUnlistedBalance(a, props.listings).toString(),
-  }));
+  const listableAssets = props.assets
+    .filter((a) => hasListableBalance(a, props.listings))
+    .map((a) => ({
+      ...a,
+      amount: getUnlistedBalance(a, props.listings).toString(),
+    }));
+
+  /** Util to render the amount label in the transaction modal */
+  const getAmountLabel = () => {
+    const amount = hasApproval()
+      ? Number(inputValues?.amount) // 'submit' view shows the new quantity
+      : getTotalAssetApproval(inputValues); // 'approve' view shows all listings of this asset
+    return t`${amount} tonnes`;
+  };
 
   return (
     <Modal
@@ -209,13 +220,7 @@ export const CreateListing: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          amount={{
-            value: t`${
-              hasApproval()
-                ? Number(inputValues?.amount)
-                : getTotalAssetApproval(inputValues)
-            } tonnes`,
-          }}
+          amount={getAmountLabel()}
           price={{
             value: inputValues.unitPrice,
             token: "usdc",

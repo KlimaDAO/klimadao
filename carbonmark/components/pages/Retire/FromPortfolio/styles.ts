@@ -5,10 +5,9 @@ export const cardsList = css`
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-
   justify-content: center;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     justify-content: flex-start;
   }
 `;

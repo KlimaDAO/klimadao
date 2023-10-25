@@ -13,6 +13,10 @@ const purchaseModelFixture: Purchase = {
   price: "5.0",
   listing: {
     id: marketplace.purchase.listing.id,
+    tokenAddress: marketplace.purchase.listing.tokenAddress,
+    seller: {
+      id: marketplace.purchase.listing.seller.id,
+    },
     project: {
       key: marketplace.purchase.listing.project.key,
       vintage: marketplace.purchase.listing.project.vintage,

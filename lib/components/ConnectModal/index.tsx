@@ -46,6 +46,7 @@ export interface ConnectModalProps {
   onClose?: () => void;
   showModal: boolean;
   showMumbaiOption?: boolean;
+  walletConnectProjectId?: string;
 }
 
 type WindowEthereum = providers.ExternalProvider & {
@@ -99,7 +100,9 @@ export const ConnectModal = (props: ConnectModalProps) => {
       } else if (params.wallet === "coinbase") {
         await connect("coinbase");
       } else if (params.wallet === "walletConnect") {
-        await connect("walletConnect");
+        await connect("walletConnect", {
+          walletConnectProjectId: props.walletConnectProjectId,
+        });
       } else if (params.wallet === "torus") {
         await connect("torus");
       } else if (params.wallet === "torus-mumbai") {

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-15 07:00+0000\n"
+"POT-Creation-Date: 2023-10-24 22:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -646,17 +646,17 @@ msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:18
+#: lib/constants.ts:21
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:22
+#: lib/constants.ts:25
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:26
+#: lib/constants.ts:29
 msgid "connect_modal.error_processing"
 msgstr "Requête en cours de traitement. Veuillez ouvrir votre portefeuille et valider la requête."
 

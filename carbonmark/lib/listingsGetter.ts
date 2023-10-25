@@ -1,21 +1,20 @@
+import { safeAdd, safeSub } from "@klimadao/lib/utils";
 import { Listing } from "lib/types/carbonmark.types";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const leftToSellTotal = acc + Number(curr.leftToSell);
-    return leftToSellTotal;
+    return Number(safeAdd(acc.toString(), curr.leftToSell));
   }, 0);
 
 export const getTotalAmountToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
-    const totalAmountTo = acc + Number(curr.totalAmountToSell);
-    return totalAmountTo;
+    return Number(safeAdd(acc.toString(), curr.totalAmountToSell));
   }, 0);
 
 export const getTotalAmountSold = (listings: Listing[]) => {
   const totalAmount = getTotalAmountToSell(listings);
   const leftToSell = getAmountLeftToSell(listings);
-  return totalAmount - leftToSell;
+  return safeSub(totalAmount.toString(), leftToSell.toString());
 };
 
 export const getActiveListings = (listings: Listing[]) =>
@@ -25,4 +24,4 @@ export const getAllListings = (listings: Listing[]) =>
   listings.filter((l) => l.deleted === false);
 
 export const getSortByUpdateListings = (listings: Listing[]) =>
-  listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+  listings.sort((a, b) => Number(safeSub(b.updatedAt!, a.updatedAt!)));
