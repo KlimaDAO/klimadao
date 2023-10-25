@@ -3,11 +3,12 @@ import { queryAggregatedCreditsByOrigin } from "lib/charts/queries";
 import {
   AggregatedCreditsByOriginItem,
   CreditsQueryParams,
+  SortQueryParams,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes } from "./helpers";
-import { Columns, DataRendererProps } from "./types";
+import { Columns, DataRendererKey } from "./types";
 
 export default class TokenOriginsListConfiguration extends AbstractTableConfiguration<
   AggregatedCreditsByOriginItem,
@@ -22,7 +23,7 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
           sort_order: "desc",
           page_size: 10,
           page,
-        },
+        } as SortQueryParams,
         params
       )
     );
@@ -31,36 +32,24 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
     return {
       country: {
         header: t`Country`,
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockLeft,
         dataKey: "country",
         formatter: (x: string) => x,
       },
       countryCode: {
         header: t`Country`,
-        cellStyle: layout.textLeft,
+        cellStyle: layout.blockLeft,
         dataKey: "country_code",
         formatter: (x: string) => x,
       },
       amount_retired: {
         header: t`Amount retired`,
-        cellStyle: layout.textRight,
+        cellStyle: layout.blockRight,
         dataKey: "quantity",
         formatter: formatTonnes,
       },
     };
   }
-  desktopRenderer = (
-    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
-  ) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
-  };
-  mobileRenderer = (
-    props: DataRendererProps<AggregatedCreditsByOriginItem, CreditsQueryParams>
-  ) => {
-    return this.VerticalTableLayout({
-      data: props.data,
-    });
-  };
+  desktopRenderer: DataRendererKey = "vertical-table";
+  mobileRenderer: DataRendererKey = "vertical-table";
 }
