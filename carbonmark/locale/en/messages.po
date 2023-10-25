@@ -1346,8 +1346,8 @@ msgid "Credit card payments incur an additional processing fee. <0>See docs to l
 msgstr "Credit card payments incur an additional processing fee. <0>See docs to learn more.</0>"
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/GridView/GridView.tsx:41
-#: components/pages/Projects/ListView/ListView.tsx:157
+#: components/pages/Projects/GridView/GridView.tsx:38
+#: components/pages/Projects/ListView/ListView.tsx:154
 msgid "No project description found"
 msgstr "No project description found"
 
@@ -2478,7 +2478,7 @@ msgid "retirement.single.quantity.title"
 msgstr "QUANTITY RETIRED"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:77
+#: lib/constants.ts:79
 msgid "connect_modal.error_processing"
 msgstr "Request already processing. Please open your wallet and complete the request."
 
@@ -2742,7 +2742,7 @@ msgid "user.edit.form.edit.price.placeholder"
 msgstr "USDC per ton"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:73
+#: lib/constants.ts:75
 msgid "connect_modal.error_message_refused"
 msgstr "User refused connection."
 
@@ -2777,7 +2777,7 @@ msgid "retirement.single.vintage.title"
 msgstr "Vintage:"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:69
+#: lib/constants.ts:71
 msgid "connect_modal.error_message_default"
 msgstr "We had some trouble connecting. Please try again."
 

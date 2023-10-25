@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-24 15:42+0000\n"
+"POT-Creation-Date: 2023-10-24 22:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -599,17 +599,17 @@ msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 

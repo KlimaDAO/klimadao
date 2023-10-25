@@ -1129,7 +1129,7 @@ msgid "bond.unredeemed.tooltip"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr ""
 
@@ -1385,7 +1385,7 @@ msgid "wsklima.unwrapped.label"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
@@ -1415,7 +1415,7 @@ msgid "offset.selectiveRetirement.empty_search_results"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr ""
 
