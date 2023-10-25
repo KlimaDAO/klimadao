@@ -41,9 +41,7 @@ export type Status =
   | "all_retired"
   | "issued"
   | "deposited";
-export interface AggregationQueryParams {
-  operator?: "sum" | "cumsum";
-}
+
 export interface CarbonSupplyQueryParams {
   chain: Chain;
 }
@@ -52,11 +50,13 @@ export type CreditsQueryParams = {
   pool?: Pool;
   status?: Status;
 } & DateFieldQueryParamsInterface;
-export interface PaginationQueryParams {
+export interface SortQueryParams {
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+export interface PaginationQueryParams extends SortQueryParams {
   page_size?: number;
   page?: number;
-  sort_by?: string;
-  sort_order?: string;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
@@ -290,8 +290,9 @@ export type AggregatedCreditsByBridgeAndVintage =
 export interface AggregatedCreditsByBridgeAndOriginItem
   extends BridgeQuantitiesInterface,
     OriginInterface {
-  total_bridged: number;
-  percentage?: number;
+  bridge_quantity: number;
+  bridge_ratio: number;
+  not_bridge_quantity?: number;
 }
 export type AggregatedCreditsByBridgeAndOrigin =
   ChartData<AggregatedCreditsByBridgeAndOriginItem>;

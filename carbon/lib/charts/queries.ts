@@ -14,7 +14,6 @@ import {
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectItem,
   AggregatedCreditsByVintageItem,
-  AggregationQueryParams,
   CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
@@ -127,17 +126,17 @@ async function paginatedQuery<RI, Q extends object | undefined>(
 /** Queries the Credits Daily Aggregations endpoint */
 export const queryAggregatedCreditsByDates = function (
   freq: DateAggregationFrequency,
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<AggregatedCreditsByDates> {
   return paginatedQuery<
     AggregatedCreditsByDatesItem,
-    CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+    CreditsQueryParams & PaginationQueryParams
   >(`${urls.api.aggregatedCreditsByDate}/${freq}`, params);
 };
 
 /** Queries the Credits Global Aggregations endpoint */
 export const queryAggregatedCredits = function (
-  params: CreditsQueryParams & AggregationQueryParams
+  params: CreditsQueryParams
 ): Promise<AggregatedCredits> {
   return failsafeQuery<AggregatedCredits, typeof params>(
     urls.api.aggregatedCredits,
@@ -148,7 +147,7 @@ export const queryAggregatedCredits = function (
 
 /** Queries the Credits Aggregations by projects endpoint */
 export const queryAggregatedCreditsByProject = function (
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByProjectItem>> {
   return paginatedQuery<AggregatedCreditsByProjectItem, typeof params>(
     urls.api.aggregatedCreditsByProject,
@@ -158,7 +157,7 @@ export const queryAggregatedCreditsByProject = function (
 
 /** Queries the Credits Aggregations by methodology endpoint */
 export const queryAggregatedCreditsByMethodology = function (
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByMethodologyItem>> {
   return paginatedQuery<AggregatedCreditsByMethodologyItem, typeof params>(
     urls.api.aggregatedCreditsByMethodology,
