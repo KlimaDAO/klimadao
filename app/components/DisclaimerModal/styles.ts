@@ -4,7 +4,9 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const modal = css`
   gap: 0;
   width: 90%;
-  max-height: 90vh;
+  height: auto;
+  top: 2.5rem;
+  bottom: 2.5rem;
 
   div:first-of-type {
     p {
@@ -15,6 +17,8 @@ export const modal = css`
   }
 
   ${breakpoints.medium} {
+    top: auto;
+    bottom: auto;
     width: 48rem;
     max-height: 100vh;
   }
