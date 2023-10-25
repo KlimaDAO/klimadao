@@ -93,7 +93,9 @@ export interface OriginInterface {
   country: string;
   country_code: string;
 }
-
+export interface ProjecTypeInterface {
+  project_type: string;
+}
 export interface AggregatedCreditsByDatesItem extends DateFieldInterface {
   quantity: number;
 }
@@ -267,9 +269,13 @@ export interface AggregatedCreditsByPoolAndMethodologyItem
 export type AggregatedCreditsByPoolAndMethodology =
   PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>;
 
-export interface AggregatedCreditsByCountryItem {
-  country: string;
-  country_code: string;
+export interface AggregatedCreditsByPoolAndProjectItem
+  extends PoolQuantitiesInterface,
+    ProjecTypeInterface {}
+export type AggregatedCreditsByPoolAndProject =
+  PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>;
+
+export interface AggregatedCreditsByCountryItem extends OriginInterface {
   quantity: number;
 }
 export type AggregatedCreditsByCountry =
@@ -290,9 +296,8 @@ export type AggregatedCreditsByBridgeAndVintage =
   ChartData<AggregatedCreditsByBridgeAndVintageItem>;
 
 export interface AggregatedCreditsByBridgeAndProjectItem
-  extends BridgeQuantitiesInterface {
-  project_type: string;
-}
+  extends BridgeQuantitiesInterface,
+    ProjecTypeInterface {}
 export type AggregatedCreditsByBridgeAndProject =
   ChartData<AggregatedCreditsByBridgeAndProjectItem>;
 

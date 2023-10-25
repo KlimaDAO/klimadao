@@ -12,6 +12,7 @@ import {
   AggregatedCreditsByOriginItem,
   AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
+  AggregatedCreditsByPoolAndProjectItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectItem,
   AggregatedCreditsByVintageItem,
@@ -278,6 +279,16 @@ export function queryAggregatedCreditsByPoolAndMethodology(
     AggregatedCreditsByPoolAndMethodologyItem,
     typeof params
   >(urls.api.aggregatedCreditsByPoolAndMethodology, params);
+}
+
+/** Queries the Credits pool and methodology aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByPoolAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByPoolAndProject,
+    params
+  );
 }
 
 /** Queries the Credits countries aggregation endpoint */
