@@ -22,7 +22,7 @@ export const MobileTabSelector = <T extends string>(props: {
       className={`${styles.select} ${props.className}`}
       value={props.value}
       onChange={handleChange}
-      IconComponent={() => <KeyboardArrowDown className={styles.selectArrow} />}
+      IconComponent={KeyboardArrowDown}
     >
       {props.options.map((option) => {
         return (
