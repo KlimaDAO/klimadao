@@ -11,9 +11,11 @@ import ChartWrapper from "../ChartWrapper";
 import TreeMapItem from "../TreeMapItem";
 import styles from "../styles.module.scss";
 
+export type TreemapTooltipConfiguration = "issued" | "retired";
 interface Props<RI> {
   data: TreeMapData<RI>;
   dataKey: Extract<keyof RI, string>;
+  tooltipConfiguration: TreemapTooltipConfiguration;
 }
 export default function KTreeMap<RI>(props: Props<RI>) {
   return (
@@ -24,7 +26,7 @@ export default function KTreeMap<RI>(props: Props<RI>) {
         aspectRatio={1}
         content={<TreeMapItem />}
       >
-        <Tooltip content={<TreeMapTooltip />} />
+        <Tooltip content={TreeMapTooltip(props.tooltipConfiguration)} />
       </Treemap>
     </ChartWrapper>
   );
@@ -38,38 +40,63 @@ function TreeMapTooltipItem(props: { label: string; value: React.ReactNode }) {
     </div>
   );
 }
-function TreeMapTooltip<TValue extends ValueType, TName extends NameType>(
-  props: TooltipProps<TValue, TName>
-) {
-  if (props.active && props.payload && props.payload.length) {
-    const payload = props.payload[0].payload;
-    const percentage = formatPercentage({
-      value: payload.bridge_ratio,
-      fractionDigits: 2,
-    });
-    const issued = formatTonnes({
-      amount: payload.total_quantity,
-      maximumFractionDigits: 0,
-    });
-    const tokenized = formatTonnes({
-      amount: payload.bridge_quantity,
-      maximumFractionDigits: 0,
-    });
+function TreeMapTooltip(tooltipConfiguration: TreemapTooltipConfiguration) {
+  function TreeMapTooltipComponent<
+    TValue extends ValueType,
+    TName extends NameType,
+  >(props: TooltipProps<TValue, TName>) {
+    if (props.active && props.payload && props.payload.length) {
+      const payload = props.payload[0].payload;
+      const percentage = formatPercentage({
+        value: payload.bridge_ratio,
+        fractionDigits: 2,
+      });
+      const issued = formatTonnes({
+        amount: payload.total_quantity,
+        maximumFractionDigits: 0,
+      });
+      const tokenized = formatTonnes({
+        amount: payload.bridge_quantity,
+        maximumFractionDigits: 0,
+      });
 
-    return (
-      <div className={styles.tooltip}>
-        <p className={styles.date}>{payload.name}</p>
-        <div className={styles.tooltipItems}>
-          <TreeMapTooltipItem label={t`Issued VCUs`} value={issued} />
-          <TreeMapTooltipItem label={t`Tokenized VCUs`} value={tokenized} />
-          <TreeMapTooltipItem
-            label={t`Percentage tokenized`}
-            value={percentage}
-          />
+      return (
+        <div className={styles.tooltip}>
+          <p className={styles.date}>{payload.name}</p>
+          <div className={styles.tooltipItems}>
+            {tooltipConfiguration == "issued" && (
+              <>
+                <TreeMapTooltipItem label={t`Issued VCUs`} value={issued} />
+                <TreeMapTooltipItem
+                  label={t`Tokenized VCUs`}
+                  value={tokenized}
+                />
+                <TreeMapTooltipItem
+                  label={t`Percentage VCUs tokenized`}
+                  value={percentage}
+                />
+              </>
+            )}
+            {tooltipConfiguration == "retired" && (
+              <>
+                <TreeMapTooltipItem
+                  label={t`Total retired VCUs`}
+                  value={issued}
+                />
+                <TreeMapTooltipItem
+                  label={t`Total retired VCUs offchain`}
+                  value={tokenized}
+                />
+                <TreeMapTooltipItem
+                  label={t`Percentage VCUs retired offchain`}
+                  value={percentage}
+                />
+              </>
+            )}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-
-  return null;
+  return TreeMapTooltipComponent;
 }
