@@ -1,3 +1,4 @@
+import { KeyboardArrowDown } from "@mui/icons-material";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import styles from "./styles.module.scss";
 
@@ -21,6 +22,7 @@ export const MobileTabSelector = <T extends string>(props: {
       className={`${styles.select} ${props.className}`}
       value={props.value}
       onChange={handleChange}
+      IconComponent={() => <KeyboardArrowDown className={styles.selectArrow} />}
     >
       {props.options.map((option) => {
         return (
