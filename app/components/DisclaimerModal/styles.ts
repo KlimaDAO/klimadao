@@ -18,8 +18,8 @@ export const content = css`
   p {
     color: white !important;
     display: flex;
-    font-size: 1.6rem;
-    line-height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     margin-bottom: 1.2rem;
   }
 `;
