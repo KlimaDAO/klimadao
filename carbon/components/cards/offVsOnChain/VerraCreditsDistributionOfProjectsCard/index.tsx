@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
-import CreditsDistributionOfProjectsChart from "components/charts/CreditsDistributionOfProjectsChart";
+import DistributionOfProjectsChart from "components/charts/DistributionOfProjectsChart";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
+import { getAggregatedCreditsByBridgeAndProject } from "lib/charts/aggregators/getAggregatedCredits";
 import ChartCard, { CardProps } from "../../ChartCard";
 import { OffVsOnChainProps } from "../helpers";
 
@@ -15,7 +16,7 @@ export default function VerraCreditsDistributionOfProjectsCard(
   };
   const chart = (
     /* @ts-expect-error async Server component */
-    <CreditsDistributionOfProjectsChart {...params} />
+    <VerraCreditsDistributionOfProjectsChart {...params} />
   );
   const detailUrl =
     props.status == "issued"
@@ -29,6 +30,20 @@ export default function VerraCreditsDistributionOfProjectsCard(
       chart={chart}
       detailUrl={detailUrl}
       className={props.className}
+    />
+  );
+}
+
+/** Async server component that renders a Recharts client component */
+async function VerraCreditsDistributionOfProjectsChart(
+  props: CreditsFilteringProps
+) {
+  const data = await getAggregatedCreditsByBridgeAndProject(props);
+  return (
+    <DistributionOfProjectsChart
+      {...props}
+      data={data}
+      dataKey="total_quantity"
     />
   );
 }

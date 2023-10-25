@@ -4,6 +4,7 @@ import {
   AggregatedCreditsByBridge,
   AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
+  AggregatedCreditsByBridgeAndProjectItem,
   AggregatedCreditsByBridgeAndVintageItem,
   AggregatedCreditsByDates,
   AggregatedCreditsByDatesItem,
@@ -11,6 +12,7 @@ import {
   AggregatedCreditsByOriginItem,
   AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
+  AggregatedCreditsByPoolAndProjectItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectItem,
   AggregatedCreditsByVintageItem,
@@ -279,6 +281,16 @@ export function queryAggregatedCreditsByPoolAndMethodology(
   >(urls.api.aggregatedCreditsByPoolAndMethodology, params);
 }
 
+/** Queries the Credits pool and methodology aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByPoolAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByPoolAndProject,
+    params
+  );
+}
+
 /** Queries the Credits countries aggregation endpoint */
 export function queryAggregatedCreditsByOrigin(
   params: PaginationQueryParams & CreditsQueryParams
@@ -305,6 +317,16 @@ export function queryAggregatedCreditsByBridgeAndVintage(
 ): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndVintageItem>> {
   return paginatedQuery<AggregatedCreditsByBridgeAndVintageItem, typeof params>(
     urls.api.aggregatedCreditsByBridgeAndVintage,
+    params
+  );
+}
+
+/** Queries the Credits bridge and project aggregation endpoint */
+export function queryAggregatedCreditsByBridgeAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndProject,
     params
   );
 }
@@ -342,7 +364,9 @@ export const queryAggregatedCreditsByBridge = function (
       moss_quantity: 0,
       offchain_quantity: 0,
       total_quantity: 0,
-      not_bridged_quantity: 0,
+      not_bridge_quantity: 0,
+      bridge_quantity: 0,
+      bridge_ratio: 0,
     }
   );
 };
