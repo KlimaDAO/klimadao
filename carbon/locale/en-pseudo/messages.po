@@ -14,71 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:60
-msgid "Total Issued VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:61
-msgid "Tokenized VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:63
-msgid "Percentage of tokenized VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:71
-msgid "Total retired VCUs offchain"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:75
-msgid "Percentage of VCUs retired offchain"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:94
-msgid "UBO pooled VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:95
-msgid "UBO retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:103
-msgid "NBO pooled VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:104
-msgid "NBO retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:124
-msgid "BCT pooled VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:125
-msgid "BCT retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:133
-msgid "NCT pooled VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:134
-msgid "NCT retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -858,6 +793,113 @@ msgid "Retired outside of KlimaDAO"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:60
+msgid "Total Issued VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:61
+msgid "Tokenized VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:63
+msgid "Percentage of tokenized VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:69
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:76
+msgid "Total retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:71
+msgid "Total retired VCUs offchain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:75
+msgid "Percentage of VCUs retired offchain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:85
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
+msgid "C3 bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:86
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
+msgid "C3 retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:94
+msgid "UBO pooled VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:95
+msgid "UBO retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:103
+msgid "NBO pooled VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:104
+msgid "NBO retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:115
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:41
+msgid "Toucan bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:116
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:42
+msgid "Toucan retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:124
+msgid "BCT pooled VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:125
+msgid "BCT retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:133
+msgid "NCT pooled VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:134
+msgid "NCT retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:144
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:50
+msgid "Moss bridged VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/DistributionOfProjectsChart/index.tsx:145
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:51
+msgid "Moss retired VCUs"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/helpers.ts:11
 msgid "Beneficiary address"
 msgstr ""
@@ -952,42 +994,6 @@ msgid "Country"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:115
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:41
-msgid "Toucan bridged VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:116
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:42
-msgid "Toucan retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:144
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:50
-msgid "Moss bridged VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:145
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:51
-msgid "Moss retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:85
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
-msgid "C3 bridged VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:86
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
-msgid "C3 retired VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:66
 msgid "Total tokenized VCUs"
 msgstr ""
@@ -1000,12 +1006,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:75
 msgid "Total issued VCUs"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/DistributionOfProjectsChart/index.tsx:69
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:76
-msgid "Total retired VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
