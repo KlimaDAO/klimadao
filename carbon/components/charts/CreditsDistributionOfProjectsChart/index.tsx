@@ -1,5 +1,5 @@
 import { getAggregatedCreditsByProject } from "lib/charts/aggregators/getAggregatedCredits";
-import Chart from "./Chart";
+import KTreeMap from "../helpers/KTreeMap";
 
 import ChartWrapper from "../helpers/ChartWrapper";
 import { CreditsFilteringProps } from "../helpers/props";
@@ -10,7 +10,7 @@ export default async function CreditsDistributionOfProjectsChart(
   const data = await getAggregatedCreditsByProject(props);
   return (
     <ChartWrapper data={data}>
-      <Chart data={data} />
+      <KTreeMap data={data} dataKey="total_quantity" />
     </ChartWrapper>
   );
 }

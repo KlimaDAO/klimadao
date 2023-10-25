@@ -4,6 +4,7 @@ import {
   AggregatedCreditsByBridge,
   AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
+  AggregatedCreditsByBridgeAndProjectItem,
   AggregatedCreditsByBridgeAndVintageItem,
   AggregatedCreditsByDates,
   AggregatedCreditsByDatesItem,
@@ -309,6 +310,16 @@ export function queryAggregatedCreditsByBridgeAndVintage(
   );
 }
 
+/** Queries the Credits bridge and project aggregation endpoint */
+export function queryAggregatedCreditsByBridgeAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndProject,
+    params
+  );
+}
+
 /** Queries the Credits bridge and countries aggregation endpoint */
 export function queryAggregatedCreditsByBridgeAndOrigin(
   params: PaginationQueryParams & CreditsQueryParams
@@ -342,7 +353,9 @@ export const queryAggregatedCreditsByBridge = function (
       moss_quantity: 0,
       offchain_quantity: 0,
       total_quantity: 0,
-      not_bridged_quantity: 0,
+      not_bridge_quantity: 0,
+      bridge_quantity: 0,
+      bridge_ratio: 0,
     }
   );
 };
