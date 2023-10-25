@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:85
-msgid "Percentage retired onchain"
-msgstr "Percentage retired onchain"
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -958,6 +953,11 @@ msgstr "Total retired VCUs"
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:84
 msgid "Percentage tokenized"
 msgstr "Percentage tokenized"
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:85
+msgid "Percentage retired onchain"
+msgstr "Percentage retired onchain"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/KlimaTooltip.tsx:40
