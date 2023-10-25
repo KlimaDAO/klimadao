@@ -1,14 +1,12 @@
 import { css } from "@emotion/css";
 
 export const modal = css`
-  .modalContent {
-    width: 48rem !important;
-    .title {
-      & p {
-        font-weight: 600;
-        font-size: 2.4rem;
-        font-family: var(--font-family-secondary);
-      }
+  gap: 0;
+  div:first-of-type {
+    p {
+      font-weight: 600;
+      font-size: 2.4rem;
+      font-family: var(--font-family-secondary);
     }
   }
 `;
