@@ -151,8 +151,8 @@ function TreeMapTooltip(params: TokenDetailsProps) {
         <div className={styles.tooltip}>
           <p className={styles.date}>{payload.name}</p>
           <div className={styles.tooltipItems}>
-            {toolTipItems.map((item) => (
-              <div>
+            {toolTipItems.map((item, index) => (
+              <div key="index">
                 <div className={styles.payloadName}>{item.label}</div>
                 <div>{item.value}</div>
               </div>

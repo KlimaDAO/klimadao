@@ -82,7 +82,7 @@ export default class VerraCreditsOriginsListConfiguration extends AbstractTableC
         header:
           params?.status == "issued"
             ? t`Percentage tokenized`
-            : t`Percentage retired offchain`,
+            : t`Percentage retired onchain`,
         cellStyle: layout.blockRight,
         dataKey: "bridge_ratio",
         formatter: (x: number) =>

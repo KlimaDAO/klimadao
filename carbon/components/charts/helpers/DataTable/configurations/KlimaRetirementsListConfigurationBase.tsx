@@ -59,7 +59,8 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
       formatter: (x: string | number) => {
         if (x == "BCT" || x == "NCT") return "TCO2";
         if (x == "UBO" || x == "NBO") return "C3T";
-        return "";
+        if (x == "MCO2" || x == "NBO") return "MCO2";
+        return x;
       },
     };
   }
