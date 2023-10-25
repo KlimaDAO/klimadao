@@ -1343,8 +1343,8 @@ msgid "Credit card payments incur an additional processing fee. <0>See docs to l
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/pages/Projects/GridView/GridView.tsx:41
-#: components/pages/Projects/ListView/ListView.tsx:157
+#: components/pages/Projects/GridView/GridView.tsx:38
+#: components/pages/Projects/ListView/ListView.tsx:154
 msgid "No project description found"
 msgstr ""
 
