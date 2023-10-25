@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-24 22:55+0000\n"
+"POT-Creation-Date: 2023-10-25 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,18 +50,18 @@ msgid "All Tokens"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:35
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:36
 msgid "Amount Retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:29
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:45
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:46
 msgid "Amount retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:48
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:51
 msgid "Avg tonnes per transaction"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgid "Base Carbon Tonne (BCT)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:42
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:45
 msgid "Beneficiary"
 msgstr ""
 
@@ -141,12 +141,12 @@ msgid "C3 Carbon Credit (C3T)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:80
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
 msgid "C3 bridged VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:80
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:58
 msgid "C3 retired VCUs"
 msgstr ""
 
@@ -188,9 +188,9 @@ msgid "Change language"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:33
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:39
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:55
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:34
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:40
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:33
 msgid "Country"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgid "Cummulative Verra registry credits tokenized over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:66
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:70
 msgid "Date"
 msgstr ""
 
@@ -427,17 +427,17 @@ msgid "Moss Carbon Credit (MCO2)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:72
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:50
 msgid "Moss bridged VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:73
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:51
 msgid "Moss retired VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:48
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:51
 #: components/charts/helpers/VerraProjectLink/index.tsx:18
 msgid "N/A"
 msgstr ""
@@ -481,12 +481,12 @@ msgid "Not pooled"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:35
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:39
 msgid "Number of retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:42
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByPoolSummaryConfiguration.tsx:44
 msgid "Number of transactions"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:32
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:81
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:22
 msgid "Off-chain"
 msgstr ""
@@ -531,7 +531,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:38
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:61
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:18
 msgid "On-chain"
 msgstr ""
@@ -547,7 +547,7 @@ msgid "On-chain retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:22
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
 msgid "On/Off chain"
 msgstr ""
 
@@ -568,12 +568,12 @@ msgid "Overview"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:107
-msgid "Percentage retired offchain"
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:85
+msgid "Percentage retired onchain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:106
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:84
 msgid "Percentage tokenized"
 msgstr ""
 
@@ -595,7 +595,7 @@ msgid "Polygon supply"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:45
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:48
 msgid "Pool"
 msgstr ""
 
@@ -610,12 +610,12 @@ msgid "Price per tonne"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:35
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:38
 msgid "Project"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:31
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:34
 msgid "Proof"
 msgstr ""
 
@@ -834,7 +834,7 @@ msgid "This cost includes the asset spot price + the {0}% fee to selectively red
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:53
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:56
 msgid "Token"
 msgstr ""
 
@@ -855,22 +855,22 @@ msgid "Tokenized credits by bridge"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:84
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:89
 msgid "Tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:97
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:75
 msgid "Total issued VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:98
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:76
 msgid "Total retired VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:89
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:67
 msgid "Total retired VCUs onchain"
 msgstr ""
 
@@ -885,7 +885,7 @@ msgid "Total supply (tonnes)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:88
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:66
 msgid "Total tokenized VCUs"
 msgstr ""
 
@@ -912,12 +912,12 @@ msgid "Toucan Carbon Credit (TCO2)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:63
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:41
 msgid "Toucan bridged VCUs"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:64
+#: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:42
 msgid "Toucan retired VCUs"
 msgstr ""
 
@@ -1004,7 +1004,7 @@ msgid "on-chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:103
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:108
 msgid "{0} Tonnes"
 msgstr ""
 
