@@ -2184,97 +2184,6 @@ export default {
     }
   },
   "paths": {
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/login": {
-      "post": {
-        "summary": "Get nonce",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "nonce": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "nonce"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/categories": {
       "get": {
         "summary": "Categories",
@@ -2308,48 +2217,6 @@ export default {
                     },
                     {
                       "id": "Other"
-                    }
-                  ]
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/countries": {
-      "get": {
-        "summary": "Countries",
-        "description": "Retrieve an array containing the countries that carbon projects originate from",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": [
-                  [
-                    {
-                      "id": "Brazil"
-                    },
-                    {
-                      "id": "Bulgaria"
-                    },
-                    {
-                      "id": "China"
                     }
                   ]
                 ]
@@ -2857,505 +2724,40 @@ export default {
         }
       }
     },
-    "/users/{walletOrHandle}": {
+    "/vintages": {
       "get": {
-        "summary": "User details",
-        "tags": [
-          "Users"
-        ],
-        "description": "Get a user's profile and activity",
-        "parameters": [
-          {
-            "schema": {
-              "default": "polygon",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "polygon"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "mumbai"
-                  ]
-                }
-              ]
-            },
-            "examples": {
-              "polygon": {
-                "value": "polygon"
-              },
-              "mumbai": {
-                "value": "mumbai"
-              }
-            },
-            "in": "query",
-            "name": "network",
-            "required": false,
-            "description": "Optional. Desired blockchain network. Default is `polygon` (mainnet)."
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "example": "1620000000",
-            "in": "query",
-            "name": "expiresAfter",
-            "required": false,
-            "description": "Only return listings that expire after this timestamp (Unix seconds)"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "atmosfearful": {
-                "value": "atmosfearful"
-              },
-              "0xAb5B7b5849784279280188b556AF3c179F31Dc5B": {
-                "value": "0xAb5B7b5849784279280188b556AF3c179F31Dc5B"
-              }
-            },
-            "in": "path",
-            "name": "walletOrHandle",
-            "required": true,
-            "description": "A user handle or wallet address"
-          }
-        ],
+        "summary": "Vintages",
+        "description": "Retrieve an array of the vintages of available carbon projects",
         "responses": {
           "200": {
             "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "handle": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "profileImgUrl": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "updatedAt": {
-                      "type": "number"
-                    },
-                    "createdAt": {
-                      "type": "number"
-                    },
-                    "wallet": {
-                      "type": "string"
-                    },
-                    "listings": {
-                      "type": "array",
-                      "items": {
-                        "description": "Marketplace listing with per-tonne price and project info.",
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "Unique listing identifier",
-                            "type": "string"
-                          },
-                          "leftToSell": {
-                            "description": "Remaining supply. Unformatted 18 decimal string",
-                            "type": "string"
-                          },
-                          "tokenAddress": {
-                            "description": "Address of the asset being sold",
-                            "type": "string"
-                          },
-                          "singleUnitPrice": {
-                            "description": "USDC price per tonne. Unformatted 6 decimal string. e.g. 1000000",
-                            "type": "string"
-                          },
-                          "totalAmountToSell": {
-                            "type": "string"
-                          },
-                          "active": {
-                            "anyOf": [
-                              {
-                                "type": "boolean"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "deleted": {
-                            "anyOf": [
-                              {
-                                "type": "boolean"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "batches": {
-                            "anyOf": [
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "batchPrices": {
-                            "anyOf": [
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "createdAt": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "updatedAt": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "seller": {
-                            "type": "object",
-                            "properties": {
-                              "handle": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "username": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "description": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "profileImgUrl": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "id": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ]
-                          },
-                          "expiration": {
-                            "description": "Unix Timestamp (seconds) when the listing expires.",
-                            "type": "string"
-                          },
-                          "minFillAmount": {
-                            "description": "Minimum quantity for purchase transaction to succeed.",
-                            "type": "string"
-                          },
-                          "project": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "key": {
-                                "type": "string"
-                              },
-                              "vintage": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "category": {
-                                "type": "string"
-                              },
-                              "country": {
-                                "type": "string"
-                              },
-                              "methodology": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "key",
-                              "vintage",
-                              "name",
-                              "category",
-                              "country",
-                              "methodology"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "leftToSell",
-                          "tokenAddress",
-                          "singleUnitPrice",
-                          "totalAmountToSell",
-                          "seller",
-                          "expiration",
-                          "minFillAmount",
-                          "project"
-                        ]
-                      }
-                    },
-                    "activities": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "amount": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "previousAmount": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "price": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "previousPrice": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "timeStamp": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "activityType": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "seller": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          },
-                          "buyer": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "string"
-                                  },
-                                  "handle": {
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  }
-                                },
-                                "required": [
-                                  "id"
-                                ]
-                              },
-                              {
-                                "type": "null"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id"
-                        ]
-                      }
-                    },
-                    "assets": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "token": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string"
-                              },
-                              "name": {
-                                "type": "string"
-                              },
-                              "symbol": {
-                                "type": "string"
-                              },
-                              "decimals": {
-                                "type": "number"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "symbol",
-                              "decimals"
-                            ]
-                          },
-                          "amount": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "token",
-                          "amount"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "username",
-                    "updatedAt",
-                    "createdAt",
-                    "wallet",
-                    "listings",
-                    "activities",
-                    "assets"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": [
+                  [
+                    "2006",
+                    "2007",
+                    "2008",
+                    "2009",
+                    "2010",
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
                   ]
-                }
+                ]
               }
             }
           }
@@ -3494,10 +2896,10 @@ export default {
         }
       }
     },
-    "/vintages": {
+    "/countries": {
       "get": {
-        "summary": "Vintages",
-        "description": "Retrieve an array of the vintages of available carbon projects",
+        "summary": "Countries",
+        "description": "Retrieve an array containing the countries that carbon projects originate from",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -3506,28 +2908,79 @@ export default {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
                   }
                 },
                 "examples": [
                   [
-                    "2006",
-                    "2007",
-                    "2008",
-                    "2009",
-                    "2010",
-                    "2011",
-                    "2012",
-                    "2013",
-                    "2014",
-                    "2015",
-                    "2016",
-                    "2017",
-                    "2018",
-                    "2019",
-                    "2020"
+                    {
+                      "id": "Brazil"
+                    },
+                    {
+                      "id": "Bulgaria"
+                    },
+                    {
+                      "id": "China"
+                    }
                   ]
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Get nonce",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Provides the user with a nonce to be included in the next signature. Consumed by /verify endpoint.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "wallet"
+                ],
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 26,
+                    "maxLength": 64,
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nonce": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nonce"
+                  ]
+                }
               }
             }
           }
@@ -3613,6 +3066,22 @@ export default {
                           ],
                           "type": "string"
                         },
+                        "tokenAddress": {
+                          "description": "Address of the asset that was purchased",
+                          "type": "string"
+                        },
+                        "seller": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Address of the seller",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
+                        },
                         "project": {
                           "type": "object",
                           "properties": {
@@ -3665,6 +3134,8 @@ export default {
                       },
                       "required": [
                         "id",
+                        "tokenAddress",
+                        "seller",
                         "project"
                       ]
                     },
@@ -3681,59 +3152,6 @@ export default {
                     "amount",
                     "listing",
                     "price"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/login/verify": {
-      "post": {
-        "summary": "Verify signed data",
-        "tags": [
-          "Auth"
-        ],
-        "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "wallet",
-                  "signature"
-                ],
-                "type": "object",
-                "properties": {
-                  "wallet": {
-                    "minLength": 26,
-                    "maxLength": 64,
-                    "type": "string"
-                  },
-                  "signature": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "token"
                   ]
                 }
               }
@@ -4536,77 +3954,9 @@ export default {
                         {
                           "type": "string"
                         },
-                        "tokenAddress": {
-                          "description": "Address of the asset that was purchased",
-                          "type": "string"
-                        },
-                        "seller": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Address of the seller",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "project": {
-                          "type": "object",
-                          "properties": {
-                            "country": {
-                              "examples": [
-                                "China"
-                              ],
-                              "type": "string"
-                            },
-                            "key": {
-                              "examples": [
-                                "VCS-191"
-                              ],
-                              "type": "string"
-                            },
-                            "methodology": {
-                              "examples": [
-                                "ACM0002"
-                              ],
-                              "type": "string"
-                            },
-                            "name": {
-                              "examples": [
-                                "4×50 MW Dayingjiang- 3 Hydropower Project Phases 1&2"
-                              ],
-                              "type": "string"
-                            },
-                            "projectID": {
-                              "examples": [
-                                "191"
-                              ],
-                              "type": "string"
-                            },
-                            "vintage": {
-                              "examples": [
-                                "2008"
-                              ],
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "country",
-                            "key",
-                            "methodology",
-                            "name",
-                            "projectID",
-                            "vintage"
-                          ]
+                        {
+                          "type": "null"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "tokenAddress",
-                        "seller",
-                        "project"
                       ]
                     },
                     "username": {
@@ -5073,6 +4423,16 @@ export default {
           },
           "required": true
         },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "wallet",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -5107,6 +4467,59 @@ export default {
                     "wallet",
                     "username",
                     "description"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/verify": {
+      "post": {
+        "summary": "Verify signed data",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Provide a signed hash to receive a JWT token to be consumed by PUT or POST requests.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "wallet",
+                  "signature"
+                ],
+                "type": "object",
+                "properties": {
+                  "wallet": {
+                    "minLength": 26,
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "signature": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "token"
                   ]
                 }
               }
