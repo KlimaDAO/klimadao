@@ -40,6 +40,7 @@ import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
 import { addresses, urls } from "@klimadao/lib/constants";
+import { DisclamerModal } from "components/DisclaimerModal";
 import { tokenInfo } from "lib/getTokenInfo";
 import * as styles from "./styles";
 
@@ -286,6 +287,7 @@ export const Stake = (props: Props) => {
 
   return (
     <>
+      <DisclamerModal />
       <BalancesCard
         assets={["klima", "sklima"]}
         tooltip={

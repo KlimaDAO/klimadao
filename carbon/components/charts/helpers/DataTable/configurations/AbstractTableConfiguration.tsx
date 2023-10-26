@@ -1,8 +1,12 @@
-import { PaginatedResponse } from "lib/charts/types";
+import { PaginatedResponse, SortQueryParams } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
 import styles from "./styles.module.scss";
-import { Columns, DataRenderer, ItemRenderer } from "./types";
-
+import {
+  Columns,
+  DataRendererKey,
+  DataRendererProps,
+  ItemRenderer,
+} from "./types";
 /** An abstract class for table configuration
  * Generics:
  *  - RI: Type of the items representing table rows
@@ -12,14 +16,14 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   /** Function used to fetch data */
   abstract fetchFunction(
     page: number,
-    params?: P
+    params?: P & SortQueryParams
   ): Promise<PaginatedResponse<RI>>;
   /** Returns the columns (layout) for this table */
   abstract getColumns(params?: P): Columns<RI>;
   /** Returns a JSX.Element that can render data items for mobile */
-  abstract mobileRenderer: DataRenderer<RI, P>;
+  abstract mobileRenderer: DataRendererKey;
   /** Returns a JSX.Element that can render data items for desktop */
-  abstract desktopRenderer: DataRenderer<RI, P>;
+  abstract desktopRenderer: DataRendererKey;
   /** Formats a data item value */
   formatValue(
     item: RI,
@@ -35,81 +39,92 @@ export default abstract class AbstractTableConfiguration<RI, P> {
   ): string | React.ReactNode {
     return this.getColumns(params)[key].header;
   }
+
   /**
-   * Display data as a table with items as columns
+   * A renderer that displays data as a table with items as rows
    */
-  VerticalTableLayout(props: { data: PaginatedResponse<RI>; params?: P }) {
+  VerticalTableRenderer(props: DataRendererProps<RI, P>) {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles.header}>
+      <tbody>
+        {props.data.items.map((item, index) => (
+          <tr key={index} className={styles.row}>
             {columnKeys.map((key) => (
-              <th key={key} className={columns[key].cellStyle}>
-                {columns[key].header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {props.data.items.map((item, index) => (
-            <tr key={index} className={styles.row}>
-              {columnKeys.map((key) => (
-                <td key={key} className={columns[key].cellStyle}>
+              <td key={key} className={columns[key].cellStyle}>
+                <div>
                   {columns[key].formatter(
                     item[columns[key].dataKey] as never,
                     item
                   )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                </div>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     );
   }
   /**
-   * Display data as a table with items as rows
+   * A renderer that display data as a table with items as columns
    */
-  HorizontalTableLayout(props: { data: PaginatedResponse<RI>; params?: P }) {
+  HorizontalTableRenderer(props: DataRendererProps<RI, P>) {
     const columns = this.getColumns(props.params);
     const columnKeys = Object.keys(columns);
     return (
-      <table className={styles.table}>
-        <tbody>
-          {columnKeys.map((key) => (
-            <tr key={key} className={columns[key].cellStyle}>
-              <td className={layout.textLeft}>{columns[key].header}</td>
-              {props.data.items.map((item, index) => (
-                <td key={index} className={layout.textRight}>
-                  {columns[key].formatter(
-                    item[columns[key].dataKey] as never,
-                    item
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <tbody>
+        {columnKeys.map((key) => (
+          <tr key={key} className={columns[key].cellStyle}>
+            <td className={layout.textLeft}>{columns[key].header}</td>
+            {props.data.items.map((item, index) => (
+              <td key={index} className={layout.textRight}>
+                {columns[key].formatter(
+                  item[columns[key].dataKey] as never,
+                  item
+                )}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     );
   }
 
   /**
-   * Displays data as cards
+   * A renderer that displays data as cards
    */
-  CardsLayout<RI>(props: {
-    data: PaginatedResponse<RI>;
-    cardRenderer: ItemRenderer<RI, P>;
-    params?: P;
-  }) {
+  CardsRenderer(
+    props: DataRendererProps<RI, P> & {
+      params?: P;
+    }
+  ) {
     return (
-      <div className={styles.cards}>
-        {props.data.items.map((item) =>
-          props.cardRenderer({ item, params: props.params })
-        )}
-      </div>
+      <tbody>
+        <tr>
+          <td>
+            <div className={styles.cards}>
+              {props.data.items.map((item, index) => (
+                <this.CardRenderer item={item} key={index} />
+              ))}
+            </div>
+          </td>
+        </tr>
+      </tbody>
     );
+  }
+
+  CardRenderer = (props: { item: RI }) => {
+    return <></>;
+  };
+  /**
+   * A renderer that does not display data
+   */
+  VoidRenderer(
+    props: DataRendererProps<RI, P> & {
+      cardRenderer: ItemRenderer<RI, P>;
+      params?: P;
+    }
+  ) {
+    return <></>;
   }
 }
