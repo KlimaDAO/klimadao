@@ -82,6 +82,7 @@ export const AssetProject: FC<Props> = (props) => {
       <div className={styles.buttons}>
         <ButtonPrimary
           label={<Trans>Retire</Trans>}
+          disabled={unlistedBalance <= 0}
           href={`/portfolio/${props.asset.token.id}/retire`}
           renderLink={(linkProps) => <Link {...linkProps} />}
           onClick={() => {

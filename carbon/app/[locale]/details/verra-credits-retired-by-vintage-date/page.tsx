@@ -9,7 +9,7 @@ export default function VerraCreditsRetiredByVintageDatePage() {
       card={
         <VerraCreditsByBridgeAndVintageCard
           isDetailPage={true}
-          status="retired"
+          status="all_retired"
         />
       }
       overview={t`The total number of carbon credits that have been issued by carbon registry Verra and retired sorted by the vintage start date of the carbon credit.`}
