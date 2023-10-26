@@ -24,14 +24,11 @@ You will need to be authenticated to the following in order to run the project:
 
 ### Link your local copy of the project with vercel
 
-1. You must be a member of the KlimaDAO project in Vercel.
-2. Say `Y`es when prompted to link the project to an existing project.
-3. Existing project name is `carbonmark-api`.
 
-- run from root
+Run the following from the root of the repository, accepting all options:
 
 ```sh
-vercel link
+vercel link -p carbonmark-api
 ```
 
 ### Environment Variables
@@ -40,7 +37,7 @@ Some important environment variables are stored in vercel and need to be downloa
 
 ```sh
 # run from root klimadao folder
-vercel env pull --environment=development .env.local
+vercel env pull --environment=development carbonmark-api/.env.local
 ```
 
 
@@ -49,13 +46,15 @@ vercel env pull --environment=development .env.local
 
 
 ```sh
-# run from root klimadao folder
-cd  carbonmark-api && npm  ci
+# run from the repository root
+npm install
 ```
 
-## Development
+## Scripts
 
-`npm run dev-carbonmark-api` to start the app in dev mode.
+### `npm run dev`
+
+Starts the app in dev mode with hot-reloading.
 
 Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
@@ -63,26 +62,47 @@ Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
 For production mode
 
+### `npm build`
+
+Compile and package a production ready version in `/dist`
+
 ### `npm run test`
 
 Run the test cases.
 
+### `npm run lint`
+
+Lint and type checks.
+
 ### `npm run test:postman`
 
-Run the test cases via postman
+A healthcheck of all endpoints to ensure all happy paths are working.
+
+### `npm run generate:types`
+
+Updates generated types and mocks from the relevant subgraphs used by the API
 
 ## Releases & Versioning
 
-To increment the API version, create a new git tag of the format `carbonmark-api/vX.X.X` using [SemVer](https://semver.org/).
-Github Actions will build and deploys that version of the API to the `vX.X.X.api.carbonmark.com` domain.
+### Creating a Release
 
-The root `api.carbonmark.com` domain is always running the latest version of the code on `main`.
+To release a new version of the API increment the version number in `carbonmark-api/package.json` and create a pull request with that change. (Note that the format of the version should follow [SemVer](https://semver.org/) conventions)
 
-Breaking changes should be documented in Github tags.
+Once the pull request is merged with staging the `release_carbonmark_api` github action will: 
+1. Build and deploy that version of the API under the `vX.X.X.api.carbonmark.com` domain.
+2. Create a tag of the format `carbonmark-api/vX.X.X` at the merged commit.
+3. Create a Github [release](https://github.com/KlimaDAO/klimadao/releases) with the title `carbonmark-api-vX.X.X` containing a change-log of all the commited changes within the `carbonmark-api` directory since the last release
 
-#### Hotfixes
+Alternatively creating a new git tag of the format `carbonmark-api/vX.X.X` will also trigger a release but **make sure to update the package.json version** simultaneously when releasing this way. **This approach is not recommended**
 
-To create a hotfix on an earlier API version that customers are using, check out an earlier tagged commit, create a branch, then tag and release a hotfix from that branch.
+### Domains
+The root `api.carbonmark.com` domain is always running the latest version of the code on `staging`.
+
+All previously released versions can be accessed at `vX.X.X.api.carbonmark.com`
+
+### Creating a Hotfix
+
+To create a hotfix on an earlier API version that customers are using, check out an earlier tag, create a branch, increment the package.json version then create a tag from that commit **ensuring that the hotfix branch is long living**.
 
 ## Reference Docs & OpenAPI Spec
 
@@ -92,3 +112,15 @@ Reference docs can be found at the root.
 These are generated from an OpenAPI JSON spec that is auto-generated from our Fastify schemas. The raw JSON spec is not kept in source control-- it can be accessed at [api.carbonmark.com/openapi.json](https://api.carbonmark.com/openapi.json).
 
 Fastify schemas are co-located with the respective route handlers, except for the root OpenAPI config, which is located in [src/plugins/open-api.ts](./src/plugins/open-api.ts). For more info see the @fastify/swagger plugin docs.
+
+## Type Generation
+The API leverages several [Graph](https://thegraph.com/) gql interfaces to source the data it needs for each of it's endpoints. These GraphQL servers contain their own domain objects and so to ensure type safety our interactions with them are handled through generated typescript types in `.ggenerated` and via the `gql_sdk`.
+
+Types should not need to be re-generated unless the subgraph that is targetted has changed (or a new one has been added). 
+
+To re-generate:
+1. Update the URLs defined in `app.constants.ts` 
+2. Run `npm run generate:types` from within the `/carbonmark-api` directory
+3. Create a new release following the process [defined above](#creating-a-release)
+
+
