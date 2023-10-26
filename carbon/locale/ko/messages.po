@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-26 03:14+0000\n"
+"POT-Creation-Date: 2023-10-26 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -398,7 +398,7 @@ msgid "Last 30 days"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:111
+#: components/cards/overview/TokensPriceCard/index.tsx:104
 #: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
@@ -649,7 +649,7 @@ msgid "Price of digital carbon"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:88
+#: components/cards/overview/TokensPriceCard/index.tsx:81
 msgid "Price per tonne"
 msgstr ""
 
@@ -725,7 +725,7 @@ msgid "Retirements by token"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:94
+#: components/cards/overview/TokensPriceCard/index.tsx:87
 msgid "Selective cost"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgid "The total number of carbon credits issued by carbon registry Verra and re
 msgstr ""
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:12
+#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:15
 msgid "The total number of carbon credits issued by carbon registry Verra and retired over time. On-chain refers to credits bridged and tokenized on a public blockchain."
 msgstr ""
 
@@ -1116,6 +1116,6 @@ msgid "{bridgeLabel} volume over Time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:84
+#: components/cards/overview/TokensPriceCard/index.tsx:77
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr ""
