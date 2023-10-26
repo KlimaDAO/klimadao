@@ -44,7 +44,7 @@ export default function DataTableClientWrapper<RI, P>(props: {
         setData(data as PaginatedResponse<RI>);
       }
     );
-  }, [page, sortParams]);
+  }, [page, props.params, sortParams]);
 
   /** Renders a table or a skeleton if there is no data */
   function renderTable(rendererType: DataRendererType) {
