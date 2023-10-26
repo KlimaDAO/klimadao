@@ -85,8 +85,8 @@ export const ListingEditable: FC<Props> = (props) => {
           l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase() &&
           l.id !== listing.id
       )
-      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
-    return Number(safeAdd(sumOtherListings.toString(), newQuantity.toString()));
+      .reduce((a, b) => safeAdd(a, b.leftToSell), "0");
+    return Number(safeAdd(sumOtherListings, newQuantity.toString()));
   };
 
   /** Return true if the user has exactly the required approval for all listings of this asset */
