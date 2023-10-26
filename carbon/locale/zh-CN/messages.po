@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-26 15:12+0000\n"
+"POT-Creation-Date: 2023-10-26 15:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,8 +55,13 @@ msgid "Amount Retired"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:48
+msgid "Amount bridged"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:46
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:47
 msgid "Amount retired"
 msgstr ""
 
@@ -184,7 +189,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:43
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:49
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:51
 #: lib/charts/options.ts:60
 msgid "Celo"
 msgstr ""
@@ -200,10 +205,14 @@ msgid "Change language"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:34
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:40
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:33
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:33
 msgid "Country"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:39
+msgid "Country code"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -321,7 +330,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:37
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:45
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:47
 #: lib/charts/options.ts:50
 msgid "Ethereum"
 msgstr ""
@@ -399,7 +408,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/overview/TokensPriceCard/index.tsx:104
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:105
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
 msgstr ""
@@ -623,7 +632,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:31
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:41
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:43
 #: lib/charts/options.ts:46
 msgid "Polygon"
 msgstr ""
@@ -664,7 +673,7 @@ msgid "Proof"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:22
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:24
 msgid "Quick facts"
 msgstr ""
 
@@ -689,7 +698,7 @@ msgid "Retired outside of KlimaDAO"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:111
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:113
 #: components/charts/DailyCarbonRetirementsChart/index.tsx:13
 msgid "Retired via KlimaDAO"
 msgstr ""
@@ -750,11 +759,6 @@ msgstr ""
 #: components/cards/overview/DailyCarbonSupplyOverviewCard/index.tsx:23
 #: components/Layout/NavItems.tsx:29
 msgid "Supply"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/charts/helpers/KlimaTooltip.tsx:40
-msgid "T"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -935,12 +939,12 @@ msgid "Total retired VCUs onchain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:107
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:109
 msgid "Total retirements (tonnes)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:93
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:95
 msgid "Total supply (tonnes)"
 msgstr ""
 
