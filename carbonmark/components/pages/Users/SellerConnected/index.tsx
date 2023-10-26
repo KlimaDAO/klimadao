@@ -32,12 +32,11 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { address, networkLabel } = useWeb3();
+  const { networkLabel } = useWeb3();
   const { carbonmarkUser, isLoading, mutate } = useFetchUser({
     params: { walletOrHandle: props.userAddress },
-    // Conditionally fetch all listings for the user if viewing own profile
     query: {
-      expiresAfter: address === props.userAddress ? "0" : undefined,
+      expiresAfter: "0",
       network: networkLabel,
     },
   });
