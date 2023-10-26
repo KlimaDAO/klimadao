@@ -1426,7 +1426,7 @@ export const GetPurchaseByIdDocument = gql`
     ${ProjectFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
     query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
-  listings(where: {seller: $wallet, expiration_gt: $expiresAfter}) {
+  listings(where: {seller: $wallet, expiration_gt: $expiresAfter, active: true}) {
     ...ListingFragment
   }
   activities(
