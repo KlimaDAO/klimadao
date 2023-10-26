@@ -9,7 +9,7 @@ export default function VerraCreditsRetiredByProjectTypePage() {
       card={
         <VerraCreditsDistributionOfProjectsCard
           isDetailPage={true}
-          status="retired"
+          status="all_retired"
         />
       }
       overview={t`The total number of carbon credits that have been issued by carbon registry Verra and retired sorted by carbon project type.`}
