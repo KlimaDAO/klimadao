@@ -77,12 +77,15 @@ export async function getMergedCreditsByDate(
     mco2_quantity: 0,
     not_pooled_quantity: 0,
     offchain_quantity: 0,
-    not_bridged_quantity: 0,
+    not_bridge_quantity: 0,
+    bridge_quantity: 0,
     toucan_quantity: 0,
     c3_quantity: 0,
     moss_quantity: 0,
     total_quantity: 0,
+    bridge_ratio: 0,
   };
+
   const now = moment();
   let date = moment(minDate);
   while (date.isSameOrBefore(now, granularity)) {

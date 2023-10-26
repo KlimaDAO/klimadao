@@ -30,7 +30,7 @@ export default function OffVsOnChainTab(props: { status: Status }) {
           className={layout.xIndexThree}
         />
       </div>
-      <div className={layout.cardRow}>
+      <div className={`${layout.cardRow} ${layout.desktopOnly}`}>
         <VerraCreditsOriginCard {...props} className={layout.zIndexTwo} />
       </div>
     </>

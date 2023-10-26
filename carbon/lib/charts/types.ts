@@ -39,9 +39,7 @@ export type Status =
   | "all_retired"
   | "issued"
   | "deposited";
-export interface AggregationQueryParams {
-  operator?: "sum" | "cumsum";
-}
+
 export interface CarbonSupplyQueryParams {
   chain: Chain;
 }
@@ -50,11 +48,13 @@ export type CreditsQueryParams = {
   pool?: Pool;
   status?: Status;
 } & DateFieldQueryParamsInterface;
-export interface PaginationQueryParams {
+export interface SortQueryParams {
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+export interface PaginationQueryParams extends SortQueryParams {
   page_size?: number;
   page?: number;
-  sort_by?: string;
-  sort_order?: string;
 }
 export interface CarbonMetricsQueryParams {
   sample?: string;
@@ -76,7 +76,9 @@ export interface BridgeQuantitiesInterface {
   moss_quantity: number;
   offchain_quantity: number;
   total_quantity: number;
-  not_bridged_quantity: number;
+  bridge_quantity: number;
+  bridge_ratio: number;
+  not_bridge_quantity?: number;
 }
 export interface PoolQuantitiesInterface {
   bct_quantity: number;
@@ -89,7 +91,9 @@ export interface OriginInterface {
   country: string;
   country_code: string;
 }
-
+export interface ProjecTypeInterface {
+  project_type: string;
+}
 export interface AggregatedCreditsByDatesItem extends DateFieldInterface {
   quantity: number;
 }
@@ -263,9 +267,13 @@ export interface AggregatedCreditsByPoolAndMethodologyItem
 export type AggregatedCreditsByPoolAndMethodology =
   PaginatedResponse<AggregatedCreditsByPoolAndMethodologyItem>;
 
-export interface AggregatedCreditsByCountryItem {
-  country: string;
-  country_code: string;
+export interface AggregatedCreditsByPoolAndProjectItem
+  extends PoolQuantitiesInterface,
+    ProjecTypeInterface {}
+export type AggregatedCreditsByPoolAndProject =
+  PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>;
+
+export interface AggregatedCreditsByCountryItem extends OriginInterface {
   quantity: number;
 }
 export type AggregatedCreditsByCountry =
@@ -285,12 +293,15 @@ export interface AggregatedCreditsByBridgeAndVintageItem
 export type AggregatedCreditsByBridgeAndVintage =
   ChartData<AggregatedCreditsByBridgeAndVintageItem>;
 
+export interface AggregatedCreditsByBridgeAndProjectItem
+  extends BridgeQuantitiesInterface,
+    ProjecTypeInterface {}
+export type AggregatedCreditsByBridgeAndProject =
+  ChartData<AggregatedCreditsByBridgeAndProjectItem>;
+
 export interface AggregatedCreditsByBridgeAndOriginItem
   extends BridgeQuantitiesInterface,
-    OriginInterface {
-  total_bridged: number;
-  percentage?: number;
-}
+    OriginInterface {}
 export type AggregatedCreditsByBridgeAndOrigin =
   ChartData<AggregatedCreditsByBridgeAndOriginItem>;
 
@@ -344,12 +355,11 @@ export interface DailyCreditsChartDataItem
 export type DailyCreditsChartData = DailyChartData<DailyCreditsChartDataItem>;
 
 // Chat Data: Treemaps
-export interface TreeMapItem {
-  name: string;
-  size?: number;
-  children?: TreeMapData;
-}
-export type TreeMapData = Array<TreeMapItem>;
+export type TreeMapItem<P> = P & {
+  name?: string;
+  children?: TreeMapData<P>;
+};
+export type TreeMapData<P> = Array<TreeMapItem<P>>;
 
 /** Node dictionnary for cards or tab */
 export type NodeDictionnary = Record<string | number | symbol, React.ReactNode>;
