@@ -13,10 +13,14 @@ export default function RetirementsByChainOffchainChartCard(props: CardProps) {
   const chart = (
     <div className={styles.wrapper}>
       <div className={styles.charts}>
-        {/* @ts-expect-error async Server component */}
-        <RetirementsByChainChart view="offchain" />
-        {/* @ts-expect-error async Server component */}
-        <RetirementsByChainChart view="onchain" />
+        <div>
+          {/* @ts-expect-error async Server component */}
+          <RetirementsByChainChart view="offchain" />
+        </div>
+        <div>
+          {/* @ts-expect-error async Server component */}
+          <RetirementsByChainChart view="onchain" />
+        </div>
       </div>
       <div className={styles.legend}>
         <CustomLegendItem color={palette.charts.color5} text={t`Off-chain`} />
