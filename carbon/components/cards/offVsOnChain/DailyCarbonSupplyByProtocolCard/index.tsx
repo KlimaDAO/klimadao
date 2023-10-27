@@ -2,8 +2,8 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import {
-    DailyCreditsChartConfiguration,
-    DailyCreditsQueryConfiguration,
+  DailyCreditsChartConfiguration,
+  DailyCreditsQueryConfiguration,
 } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
