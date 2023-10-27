@@ -1,0 +1,12 @@
+.wrapper {
+  height: 100%;
+}
+.charts {
+  display: flex;
+  max-width: calc(100% - 1rem);
+  height: 24rem;
+}
+.legend {
+  display: flex;
+  gap: 1.6rem;
+}
