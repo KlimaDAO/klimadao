@@ -248,7 +248,7 @@ export const ListingEditable: FC<Props> = (props) => {
         {showTransactionView && !isLoading && (
           <Transaction
             hasApproval={hasApproval()}
-            allowance={t`${allowanceValue} tonnes`}
+            allowance={allowanceValue}
             quantity={getAmountLabel()}
             price={{
               value: inputValues.newSingleUnitPrice,

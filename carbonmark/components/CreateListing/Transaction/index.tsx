@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { FC, useState } from "react";
@@ -58,7 +58,7 @@ export const Transaction: FC<Props> = (props) => {
         <Approve
           amount={
             props.hasApproval
-              ? props.allowance
+              ? t`${props.allowance} tonnes`
               : props.approvalValue || props.quantity
           }
           onApproval={props.onApproval}
