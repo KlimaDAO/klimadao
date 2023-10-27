@@ -301,7 +301,7 @@ msgstr "Off vs On-chain carbon"
 
 #. js-lingui-explicit-id
 #: app/[locale]/overview/digital-carbon/page.tsx:12
-#: app/[locale]/overview/digital-carbon/page.tsx:23
+#: app/[locale]/overview/digital-carbon/page.tsx:24
 #: app/[locale]/overview/page.tsx:20
 msgid "What is digital carbon?"
 msgstr "What is digital carbon?"
@@ -312,7 +312,7 @@ msgid "Banner image"
 msgstr "Banner image"
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/digital-carbon/page.tsx:25
+#: app/[locale]/overview/digital-carbon/page.tsx:26
 msgid ""
 "The term 'digital carbon' refers to a carbon credit that has been\n"
 "bridged from an off-chain carbon registry and tokenized, so that the\n"
@@ -327,7 +327,7 @@ msgstr ""
 "transparency, and trust of the underlying blockchain database."
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/digital-carbon/page.tsx:32
+#: app/[locale]/overview/digital-carbon/page.tsx:33
 msgid ""
 "Just like off-chain carbon credits, a digital carbon credit\n"
 "represents a verified metric ton of carbon removed or avoided by an\n"

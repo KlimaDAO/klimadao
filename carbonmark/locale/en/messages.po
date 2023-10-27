@@ -14,36 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:43
-msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr "The allowance below reflects the sum of all your listings for this specific token."
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:59
-msgid "Total allowance"
-msgstr "Total allowance"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:88
-msgid "Next"
-msgstr "Next"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:90
-msgid "Submit"
-msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:98
-msgid "Close"
-msgstr "Close"
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr "created listing"
@@ -157,9 +127,46 @@ msgid "Toggle Select Project"
 msgstr "Toggle Select Project"
 
 #. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+msgid "{amount} tonnes"
+msgstr "{amount} tonnes"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:159
+msgid "Create a listing"
+msgstr "Create a listing"
+
+#. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
 msgstr "First, approve the Carbonmark system to transfer this asset on your behalf."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:43
+msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
+msgstr "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:50
+msgid "The allowance below reflects the sum of all your listings for this specific token."
+msgstr "The allowance below reflects the sum of all your listings for this specific token."
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:59
+msgid "Total allowance"
+msgstr "Total allowance"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:81
+#: components/Transaction/Approve.tsx:100
+msgid "Approve"
+msgstr "Approve"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:88
+msgid "Next"
+msgstr "Next"
 
 #. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Submit.tsx:41
@@ -172,15 +179,22 @@ msgid "You can delete this listing at any time."
 msgstr "You can delete this listing at any time."
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
-msgid "{amount} tonnes"
-msgstr "{amount} tonnes"
+#: components/CreateListing/Transaction/Submit.tsx:62
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
+msgid "Price per tonne"
+msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-msgid "Create a listing"
-msgstr "Create a listing"
+#: components/CreateListing/Transaction/Submit.tsx:90
+msgid "Submit"
+msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Submit.tsx:98
+msgid "Close"
+msgstr "Close"
 
 #. js-lingui-explicit-id
 #: components/Dropdown/index.tsx:133
@@ -919,14 +933,6 @@ msgstr "Amount to purchase"
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:152
 msgid "Tonnes"
 msgstr "Tonnes"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:62
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
-msgid "Price per tonne"
-msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
 #: components/pages/Project/Purchase/Listing/TotalValues.tsx:61
@@ -2053,12 +2059,6 @@ msgstr "Tonnes listed:"
 #: components/Stats/StatsListings.tsx:49
 msgid "Active listings:"
 msgstr "Active listings:"
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
-msgid "Approve"
-msgstr "Approve"
 
 #. js-lingui-explicit-id
 #: components/ViewWalletButton/index.tsx:25

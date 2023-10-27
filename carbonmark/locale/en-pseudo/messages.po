@@ -14,36 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:43
-msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:50
-msgid "The allowance below reflects the sum of all your listings for this specific token."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:59
-msgid "Total allowance"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:88
-msgid "Next"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:90
-msgid "Submit"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:98
-msgid "Close"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: components/Activities/Activities.constants.ts:4
 msgid "created listing"
 msgstr ""
@@ -157,8 +127,45 @@ msgid "Toggle Select Project"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:154
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
+msgid "{amount} tonnes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/index.tsx:159
+msgid "Create a listing"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/CreateListing/Transaction/Approve.tsx:37
 msgid "First, approve the Carbonmark system to transfer this asset on your behalf."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:43
+msgid "The assets will only be transferred out of your wallet when a sale is completed. You can revoke this allowance at any time."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:50
+msgid "The allowance below reflects the sum of all your listings for this specific token."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:59
+msgid "Total allowance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:81
+#: components/Transaction/Approve.tsx:100
+msgid "Approve"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Approve.tsx:88
+msgid "Next"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -172,14 +179,21 @@ msgid "You can delete this listing at any time."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:154
-#: components/pages/Users/SellerConnected/ListingEditable.tsx:186
-msgid "{amount} tonnes"
+#: components/CreateListing/Transaction/Submit.tsx:62
+#: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
+#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
+#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
+msgid "Price per tonne"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/CreateListing/index.tsx:159
-msgid "Create a listing"
+#: components/CreateListing/Transaction/Submit.tsx:90
+msgid "Submit"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/CreateListing/Transaction/Submit.tsx:98
+msgid "Close"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -918,14 +932,6 @@ msgstr ""
 #: components/pages/Project/Retire/Pool/RetireInputs.tsx:186
 #: components/pages/Project/Retire/Pool/TotalValues.tsx:152
 msgid "Tonnes"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Submit.tsx:62
-#: components/pages/Project/Purchase/Listing/TotalValues.tsx:57
-#: components/pages/Project/Purchase/Pool/TotalValues.tsx:94
-#: components/pages/Project/Retire/Pool/TotalValues.tsx:158
-msgid "Price per tonne"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -2049,12 +2055,6 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/Stats/StatsListings.tsx:49
 msgid "Active listings:"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/CreateListing/Transaction/Approve.tsx:81
-#: components/Transaction/Approve.tsx:100
-msgid "Approve"
 msgstr ""
 
 #. js-lingui-explicit-id
