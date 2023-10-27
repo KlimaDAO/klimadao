@@ -28,10 +28,11 @@
 }
 
 .bannerContainer {
-  max-width: 100%;
+  max-width: 1132px;
 }
 
 .banner {
-  min-height: 16rem;
   width: 100%;
+  height: auto;
+  object-fit: contain;
 }
