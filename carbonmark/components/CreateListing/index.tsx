@@ -1,7 +1,6 @@
 import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
-import { Text } from "components/Text";
-import { Transaction } from "components/Transaction";
+import { t } from "@lingui/macro";
+import { Transaction } from "components/CreateListing/Transaction";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import {
@@ -88,8 +87,8 @@ export const CreateListing: FC<Props> = (props) => {
       .filter(
         (l) => l.tokenAddress.toLowerCase() === form.tokenAddress.toLowerCase()
       )
-      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
-    return Number(safeAdd(sumOtherListings.toString(), form?.amount || "0"));
+      .reduce((a, b) => safeAdd(a, b.leftToSell), "0");
+    return Number(safeAdd(sumOtherListings, form?.amount || "0"));
   };
 
   /**
@@ -140,49 +139,6 @@ export const CreateListing: FC<Props> = (props) => {
     }
   };
 
-  const CreateApproval = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            First, approve the Carbonmark system to transfer this asset on your
-            behalf.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>
-            You can revoke this approval at any time. The assets will only be
-            transferred out of your wallet when a sale is completed.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <strong>
-            <Trans>
-              The Confirm amount below reflects the sum of all your listings for
-              this specific token.
-            </Trans>
-          </strong>
-        </Text>
-      </div>
-    );
-  };
-
-  const CreateSubmit = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            Almost finished! The last step is to create the listing and submit
-            it to the system. Please verify the quantity and price below.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>You can delete this listing at any time.</Trans>
-        </Text>
-      </div>
-    );
-  };
-
   const listableAssets = props.assets
     .filter((a) => hasListableBalance(a, props.listings))
     .map((a) => ({
@@ -225,8 +181,6 @@ export const CreateListing: FC<Props> = (props) => {
             value: inputValues.unitPrice,
             token: "usdc",
           }}
-          approvalText={<CreateApproval />}
-          submitText={<CreateSubmit />}
           spenderAddress={getAddress("carbonmark", networkLabel)}
           onApproval={handleApproval}
           onSubmit={onAddListing}

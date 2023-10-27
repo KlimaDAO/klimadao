@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-20 21:11+0000\n"
+"POT-Creation-Date: 2023-10-26 22:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,12 +8,17 @@ msgstr ""
 "Language: zh-CN\n"
 
 #. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:84
+msgid "Acknowledge and Accept"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Offset/index.tsx:550
 #: components/views/Redeem/index.tsx:286
-#: components/views/Stake/index.tsx:251
-#: components/views/Wrap/index.tsx:229
+#: components/views/Stake/index.tsx:252
+#: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "批准"
 
@@ -62,8 +67,8 @@ msgstr "输入数量"
 #: components/views/Offset/index.tsx:487
 #: components/views/Redeem/index.tsx:260
 #: components/views/Redeem/index.tsx:431
-#: components/views/Stake/index.tsx:241
-#: components/views/Wrap/index.tsx:211
+#: components/views/Stake/index.tsx:242
+#: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "输入数量"
 
@@ -75,10 +80,20 @@ msgstr "您想要多少吨碳？"
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:540
 #: components/views/Redeem/index.tsx:281
-#: components/views/Stake/index.tsx:246
-#: components/views/Wrap/index.tsx:224
+#: components/views/Stake/index.tsx:247
+#: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "余额不足"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Investment Risk Disclaimer"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:47
+msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -105,10 +120,10 @@ msgstr "正在加载项目信息..."
 #: components/views/Offset/index.tsx:612
 #: components/views/Redeem/index.tsx:255
 #: components/views/Redeem/index.tsx:339
-#: components/views/Stake/index.tsx:429
-#: components/views/Stake/index.tsx:436
-#: components/views/Stake/index.tsx:443
-#: components/views/Wrap/index.tsx:206
+#: components/views/Stake/index.tsx:431
+#: components/views/Stake/index.tsx:438
+#: components/views/Stake/index.tsx:445
+#: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "正在加载..."
 
@@ -116,6 +131,16 @@ msgstr "正在加载..."
 #: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "登录"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:39
+msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:68
+msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -138,6 +163,11 @@ msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update you
 msgstr "2022年4月12日起，“dapp”迁移至“app”。请更新您的书签。"
 
 #. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:60
+msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
+msgstr ""
+
+#. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:682
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "可使用法定货币或加密货币支付，亦或您停用碳而拥有的积分。您的信息和数据将永久铭刻在区块链上。在 <0> docs</0> 中了解我们所支持代币的更多信息."
@@ -157,6 +187,16 @@ msgstr "付款方式"
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
 msgid "Project details <0/>"
 msgstr "项目详情<0/>"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:32
+msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:53
+msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -188,6 +228,11 @@ msgstr "此应用程序仅适用于 Polygon 主网。"
 #: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "此费用包括滑点和矿池收取的任何赎回费用"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:75
+msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
@@ -456,28 +501,28 @@ msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:31
 msgid "buy.buy_klima"
 msgstr "购买 KLIMA"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:59
 msgid "buy.connect_to_buy"
 msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:34
 msgid "buy.cta_1"
 msgstr "如果您是初学者，我们建议您遵循我们的分步教程：<0>如何购买 KLIMA</0> ."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:40
 msgid "buy.cta_2"
 msgstr "另外，如果您已经在 Polygon 上拥有一个带有 MATIC 的钱包，获得 KLIMA 的最佳方式是在 <0>Sushi.com </0>上交换. 如果您更喜欢用信用卡支付，您可以使用 <1>Transak</1>直接购买 KLIMA。"
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:54
 msgid "buy.please_log_in"
 msgstr "请登录或连接钱包"
 
@@ -508,73 +553,73 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ 验证 URL 并将此页面添加为书签！"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:89
+#: components/views/ChooseBond/index.tsx:90
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan基地碳吨"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:198
+#: components/views/ChooseBond/index.tsx:200
 msgid "choose_bond.bond_carbon"
 msgstr "碳债券"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:203
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "购买 KLIMA 的最佳方式。将碳汇入我们的国库，并以折扣价获得 KLIMA。所有债券（反向债券除外）都有 5 天的强制性归属期。"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:225
+#: components/views/ChooseBond/index.tsx:227
 msgid "choose_bond.choose_bond"
 msgstr "选择一款债券"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:105
+#: components/views/ChooseBond/index.tsx:106
 msgid "choose_bond.inverse_usdc"
 msgstr "提供KLIMA，收到USDC"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:97
+#: components/views/ChooseBond/index.tsx:98
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap 流动性"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:93
+#: components/views/ChooseBond/index.tsx:94
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap 流动性"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:85
+#: components/views/ChooseBond/index.tsx:86
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS碳信用代币"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:101
+#: components/views/ChooseBond/index.tsx:102
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap 流动性"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:81
+#: components/views/ChooseBond/index.tsx:82
 msgid "choose_bond.nbo.description"
 msgstr "C3 基于自然抵消"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:228
+#: components/views/ChooseBond/index.tsx:230
 msgid "choose_bond.percent_discount"
 msgstr "％ 折扣"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:254
+#: components/views/ChooseBond/index.tsx:256
 msgid "choose_bond.sold_out"
 msgstr "售罄"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:215
+#: components/views/ChooseBond/index.tsx:217
 msgid "choose_bond.treasury_balance"
 msgstr "国库余额"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:77
+#: components/views/ChooseBond/index.tsx:78
 msgid "choose_bond.ubo.description"
 msgstr "C3 基本通用抵消"
 
@@ -599,17 +644,17 @@ msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "用户拒绝连接。"
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "请求已在处理中。请打开您的钱包并完成请求。"
 
@@ -1121,18 +1166,18 @@ msgstr "变更语言"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:432
 #: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:219
+#: components/views/Wrap/index.tsx:220
 msgid "shared.confirming"
 msgstr "确认中"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:236
+#: components/views/Stake/index.tsx:237
 msgid "shared.connect_wallet"
 msgstr "正在加载..."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:259
+#: components/views/Stake/index.tsx:268
 msgid "shared.enter_amount"
 msgstr "输入金额"
 
@@ -1149,8 +1194,8 @@ msgstr "输入碳停用信息"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:275
-#: components/views/Wrap/index.tsx:246
+#: components/views/Stake/index.tsx:276
+#: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "错误"
 
@@ -1172,21 +1217,21 @@ msgstr "无效数量"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:466
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:247
-#: components/views/Stake/index.tsx:228
-#: components/views/Wrap/index.tsx:198
+#: components/views/Stake/index.tsx:229
+#: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "登录/连接"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:370
-#: components/views/Wrap/index.tsx:344
+#: components/views/Stake/index.tsx:372
+#: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "最大额度"
 
@@ -1206,32 +1251,32 @@ msgid "shared.sold_out"
 msgstr "售罄"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:383
+#: components/views/Stake/index.tsx:385
 msgid "stake.5_day_rewards"
 msgstr "5天奖励"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:386
+#: components/views/Stake/index.tsx:388
 msgid "stake.5_day_rewards.tooltip"
 msgstr "如果连续质押5天，约可获得...奖励，包括复利。"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:399
+#: components/views/Stake/index.tsx:401
 msgid "stake.akr"
 msgstr "KLIMA年化奖励率"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:402
+#: components/views/Stake/index.tsx:404
 msgid "stake.akr.tooltip"
 msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), KLIMA 年化奖利率...，包括复利。"
 
 #. Long sentence
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:76
-#: components/views/Stake/index.tsx:292
+#: components/views/Buy/index.tsx:78
+#: components/views/Stake/index.tsx:294
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
 
@@ -1241,28 +1286,28 @@ msgid "stake.estimated_payout"
 msgstr "预计支出 (sKLIMA)"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:413
+#: components/views/Stake/index.tsx:415
 msgid "stake.index"
 msgstr "指数"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:416
+#: components/views/Stake/index.tsx:418
 msgid "stake.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有利。"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:54
+#: components/views/Stake/index.tsx:55
 msgid "stake.inputplaceholder.stake"
 msgstr "质押量"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:58
+#: components/views/Stake/index.tsx:59
 msgid "stake.inputplaceholder.unstake"
 msgstr "取消质押量"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:315
 msgid "stake.lifi"
 msgstr "现在可以通过 <0>LI.FI 和 Etherspot </0> 进行跨链质押，支持多个链和通证。"
 
@@ -1287,30 +1332,30 @@ msgid "stake.rebase.info"
 msgstr "该协议自动铸造和分配奖励。所得是您的 sKLIMA 余额的百分比"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:333
+#: components/views/Stake/index.tsx:335
 msgid "stake.stake"
 msgstr "质押"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:309
 msgid "stake.stake_hold_earn"
 msgstr "质押、持有并赚取 sKLIMA 复利 。"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:469
+#: components/views/Stake/index.tsx:258
+#: components/views/Stake/index.tsx:306
+#: components/views/Stake/index.tsx:471
 msgid "stake.stake_klima"
 msgstr "质押 KLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:345
+#: components/views/Stake/index.tsx:347
 msgid "stake.unstake"
 msgstr "取消质押"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:266
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:473
 msgid "stake.unstake_klima"
 msgstr "取消质押KLIMA"
 
@@ -1425,64 +1470,64 @@ msgid "web3modal.walletlink.desc"
 msgstr "使用 Coinbase 扫描进行连接"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:372
+#: components/views/Wrap/index.tsx:374
 msgid "wrap.balance"
 msgstr "余额"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:269
 msgid "wrap.balances_tooltip"
 msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:359
+#: components/views/Wrap/index.tsx:361
 msgid "wrap.index"
 msgstr "指数"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:364
 msgid "wrap.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。用于计算 wsKLIMA 价值。"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:50
+#: components/views/Wrap/index.tsx:51
 msgid "wrap.sklima_to_wrap"
 msgstr "待打包的 sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:322
+#: components/views/Wrap/index.tsx:324
 msgid "wrap.unwrap"
 msgstr "分拆"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:311
+#: components/views/Wrap/index.tsx:313
 msgid "wrap.wrap"
 msgstr "打包"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima"
 msgstr "打包 sKLIMA"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:289
+#: components/views/Wrap/index.tsx:291
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:280
+#: components/views/Wrap/index.tsx:282
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:54
+#: components/views/Wrap/index.tsx:55
 msgid "wrap.wsklima_to_unwrap"
 msgstr "待拆分的 wsKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:375
+#: components/views/Wrap/index.tsx:377
 msgid "wrap.you_will_get"
 msgstr "你将获得"
 

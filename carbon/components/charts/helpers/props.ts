@@ -119,7 +119,7 @@ export function getToolTipYAxisFormatter(YAxis: YAxisType) {
   const locale = currentLocale();
   // Default format tons
   let toolTipYAxisFormatter = (x: number) =>
-    helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
+    helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 }) + `T`;
   if (YAxis == "price") {
     toolTipYAxisFormatter = helpers.formatPrice;
   }

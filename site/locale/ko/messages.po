@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-20 21:10+0000\n"
+"POT-Creation-Date: 2023-10-26 22:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -644,17 +644,17 @@ msgid "connect_modal.connecting"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:18
+#: lib/constants.ts:21
 msgid "connect_modal.error_message_default"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:22
+#: lib/constants.ts:25
 msgid "connect_modal.error_message_refused"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:26
+#: lib/constants.ts:29
 msgid "connect_modal.error_processing"
 msgstr ""
 

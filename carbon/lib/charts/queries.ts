@@ -4,6 +4,7 @@ import {
   AggregatedCreditsByBridge,
   AggregatedCreditsByBridgeAndDateItem,
   AggregatedCreditsByBridgeAndOriginItem,
+  AggregatedCreditsByBridgeAndProjectItem,
   AggregatedCreditsByBridgeAndVintageItem,
   AggregatedCreditsByDates,
   AggregatedCreditsByDatesItem,
@@ -11,10 +12,10 @@ import {
   AggregatedCreditsByOriginItem,
   AggregatedCreditsByPool,
   AggregatedCreditsByPoolAndMethodologyItem,
+  AggregatedCreditsByPoolAndProjectItem,
   AggregatedCreditsByPoolAndVintageItem,
   AggregatedCreditsByProjectItem,
   AggregatedCreditsByVintageItem,
-  AggregationQueryParams,
   CarbonMetricsQueryParams,
   Chain,
   CreditsQueryParams,
@@ -127,17 +128,17 @@ async function paginatedQuery<RI, Q extends object | undefined>(
 /** Queries the Credits Daily Aggregations endpoint */
 export const queryAggregatedCreditsByDates = function (
   freq: DateAggregationFrequency,
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<AggregatedCreditsByDates> {
   return paginatedQuery<
     AggregatedCreditsByDatesItem,
-    CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+    CreditsQueryParams & PaginationQueryParams
   >(`${urls.api.aggregatedCreditsByDate}/${freq}`, params);
 };
 
 /** Queries the Credits Global Aggregations endpoint */
 export const queryAggregatedCredits = function (
-  params: CreditsQueryParams & AggregationQueryParams
+  params: CreditsQueryParams
 ): Promise<AggregatedCredits> {
   return failsafeQuery<AggregatedCredits, typeof params>(
     urls.api.aggregatedCredits,
@@ -148,7 +149,7 @@ export const queryAggregatedCredits = function (
 
 /** Queries the Credits Aggregations by projects endpoint */
 export const queryAggregatedCreditsByProject = function (
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByProjectItem>> {
   return paginatedQuery<AggregatedCreditsByProjectItem, typeof params>(
     urls.api.aggregatedCreditsByProject,
@@ -158,7 +159,7 @@ export const queryAggregatedCreditsByProject = function (
 
 /** Queries the Credits Aggregations by methodology endpoint */
 export const queryAggregatedCreditsByMethodology = function (
-  params: CreditsQueryParams & AggregationQueryParams & PaginationQueryParams
+  params: CreditsQueryParams & PaginationQueryParams
 ): Promise<PaginatedResponse<AggregatedCreditsByMethodologyItem>> {
   return paginatedQuery<AggregatedCreditsByMethodologyItem, typeof params>(
     urls.api.aggregatedCreditsByMethodology,
@@ -280,6 +281,16 @@ export function queryAggregatedCreditsByPoolAndMethodology(
   >(urls.api.aggregatedCreditsByPoolAndMethodology, params);
 }
 
+/** Queries the Credits pool and methodology aggregation endpoint */
+export function queryAggregatedCreditsByPoolAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByPoolAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByPoolAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByPoolAndProject,
+    params
+  );
+}
+
 /** Queries the Credits countries aggregation endpoint */
 export function queryAggregatedCreditsByOrigin(
   params: PaginationQueryParams & CreditsQueryParams
@@ -306,6 +317,16 @@ export function queryAggregatedCreditsByBridgeAndVintage(
 ): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndVintageItem>> {
   return paginatedQuery<AggregatedCreditsByBridgeAndVintageItem, typeof params>(
     urls.api.aggregatedCreditsByBridgeAndVintage,
+    params
+  );
+}
+
+/** Queries the Credits bridge and project aggregation endpoint */
+export function queryAggregatedCreditsByBridgeAndProject(
+  params: PaginationQueryParams & CreditsQueryParams
+): Promise<PaginatedResponse<AggregatedCreditsByBridgeAndProjectItem>> {
+  return paginatedQuery<AggregatedCreditsByBridgeAndProjectItem, typeof params>(
+    urls.api.aggregatedCreditsByBridgeAndProject,
     params
   );
 }
@@ -343,7 +364,9 @@ export const queryAggregatedCreditsByBridge = function (
       moss_quantity: 0,
       offchain_quantity: 0,
       total_quantity: 0,
-      not_bridged_quantity: 0,
+      not_bridge_quantity: 0,
+      bridge_quantity: 0,
+      bridge_ratio: 0,
     }
   );
 };
