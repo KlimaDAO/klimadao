@@ -9,7 +9,6 @@ import { Value } from "./types";
 
 interface Props {
   hasApproval: boolean;
-  amount: string;
   price?: Value;
   approvalValue?: string;
   onApproval: () => void;
@@ -19,6 +18,8 @@ interface Props {
   onResetStatus: () => void;
   onGoBack: () => void;
   spenderAddress: string;
+  allowance: string;
+  quantity: string;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -55,7 +56,11 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={props.approvalValue || props.amount}
+          amount={
+            props.hasApproval
+              ? props.allowance
+              : props.approvalValue || props.quantity
+          }
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -66,7 +71,7 @@ export const Transaction: FC<Props> = (props) => {
       )}
       {view === "submit" && (
         <Submit
-          amount={props.amount}
+          amount={props.quantity}
           price={props.price}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
