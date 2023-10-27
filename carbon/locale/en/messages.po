@@ -407,8 +407,8 @@ msgstr "Toucan"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:86
-msgid "Cummulative Verra registry credits tokenized over time"
-msgstr "Cummulative Verra registry credits tokenized over time"
+msgid "Cumulative Verra registry credits tokenized over time"
+msgstr "Cumulative Verra registry credits tokenized over time"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:87
@@ -417,8 +417,8 @@ msgstr "On-Chain Verra credits retired over time"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:52
-msgid "Cummulative Verra registry credits issued over time"
-msgstr "Cummulative Verra registry credits issued over time"
+msgid "Cumulative Verra registry credits issued over time"
+msgstr "Cumulative Verra registry credits issued over time"
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:53

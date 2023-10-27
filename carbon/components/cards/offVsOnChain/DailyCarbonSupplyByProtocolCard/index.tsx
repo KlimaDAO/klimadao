@@ -2,8 +2,8 @@ import { t } from "@lingui/macro";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import DailyCreditsChart from "components/charts/DailyCreditsChart";
 import {
-  DailyCreditsChartConfiguration,
-  DailyCreditsQueryConfiguration,
+    DailyCreditsChartConfiguration,
+    DailyCreditsQueryConfiguration,
 } from "lib/charts/aggregators/getDailyCredits";
 import { statusToDateField } from "lib/charts/dateField";
 import { palette } from "theme/palette";
@@ -83,7 +83,7 @@ export default function DailyCarbonSupplyByProtocolCard(
   );
   const title =
     props.status == "issued"
-      ? t`Cummulative Verra registry credits tokenized over time`
+      ? t`Cumulative Verra registry credits tokenized over time`
       : t`On-Chain Verra credits retired over time`;
 
   const detailUrl =

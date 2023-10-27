@@ -394,7 +394,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyCarbonSupplyByProtocolCard/index.tsx:86
-msgid "Cummulative Verra registry credits tokenized over time"
+msgid "Cumulative Verra registry credits tokenized over time"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -404,7 +404,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/offVsOnChain/DailyVerraCreditsCard/index.tsx:52
-msgid "Cummulative Verra registry credits issued over time"
+msgid "Cumulative Verra registry credits issued over time"
 msgstr ""
 
 #. js-lingui-explicit-id
