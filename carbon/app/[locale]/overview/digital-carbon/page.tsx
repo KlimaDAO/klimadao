@@ -19,17 +19,18 @@ export default function OverviewPage() {
             width={1132}
             height={320}
           />
-          <article className={styles.article}>
-            <h2>{t`What is digital carbon?`}</h2>
-            <p>
-              {t`The term 'digital carbon' refers to a carbon credit that has been
+        </div>
+        <article className={styles.article}>
+          <h2>{t`What is digital carbon?`}</h2>
+          <p>
+            {t`The term 'digital carbon' refers to a carbon credit that has been
             bridged from an off-chain carbon registry and tokenized, so that the
             credit now exists solely on a public blockchain (e.g. Polygon). In
             being brought on chain, digital carbon inherits the immutability,
             transparency, and trust of the underlying blockchain database.`}
-            </p>
-            <p>
-              {t`Just like off-chain carbon credits, a digital carbon credit
+          </p>
+          <p>
+            {t`Just like off-chain carbon credits, a digital carbon credit
             represents a verified metric ton of carbon removed or avoided by an
             individual carbon reduction project at a certain point in time. Also
             like traditional credits, digital carbon can be bought, sold, and
@@ -37,9 +38,8 @@ export default function OverviewPage() {
             advantage of digital carbon is that it is a 'money Lego' – it can be
             used to power applications, enable new use cases, and, ultimately,
             dramatically scale financing to carbon reduction projects.`}
-            </p>
-          </article>
-        </div>
+          </p>
+        </article>
       </div>
     </>
   );

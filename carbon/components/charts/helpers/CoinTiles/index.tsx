@@ -39,6 +39,8 @@ export function CoinTile(props: { data: CoinTileData }) {
     </div>
   );
 }
+
+/** A component that renders tiles */
 export function CoinTiles(props: Props) {
   const tiles_styles =
     props.layout == "row"

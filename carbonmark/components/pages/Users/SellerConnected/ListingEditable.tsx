@@ -1,8 +1,8 @@
 import { safeAdd, useWeb3 } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { Transaction } from "components/CreateListing/Transaction";
 import { Text } from "components/Text";
-import { Transaction } from "components/Transaction";
 import { Modal } from "components/shared/Modal";
 import { Spinner } from "components/shared/Spinner";
 import {
@@ -85,8 +85,8 @@ export const ListingEditable: FC<Props> = (props) => {
           l.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase() &&
           l.id !== listing.id
       )
-      .reduce((a, b) => Number(safeAdd(a.toString(), b.leftToSell)), 0);
-    return Number(safeAdd(sumOtherListings.toString(), newQuantity.toString()));
+      .reduce((a, b) => safeAdd(a, b.leftToSell), "0");
+    return Number(safeAdd(sumOtherListings, newQuantity.toString()));
   };
 
   /** Return true if the user has exactly the required approval for all listings of this asset */
@@ -161,49 +161,6 @@ export const ListingEditable: FC<Props> = (props) => {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const EditApproval = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            First, approve the Carbonmark system to transfer this asset on your
-            behalf.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>
-            You can revoke this approval at any time. The assets will only be
-            transferred out of your wallet when a sale is completed.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <strong>
-            <Trans>
-              The Confirm amount below reflects the sum of all your listings for
-              this specific token.
-            </Trans>
-          </strong>
-        </Text>
-      </div>
-    );
-  };
-
-  const EditSubmit = () => {
-    return (
-      <div className={styles.formatParagraph}>
-        <Text t="body1" color="lighter">
-          <Trans>
-            Almost finished! The last step is to create the listing and submit
-            it to the system. Please verify the quantity and price below.
-          </Trans>
-        </Text>
-        <Text t="body1" color="lighter">
-          <Trans>You can delete this listing at any time.</Trans>
-        </Text>
-      </div>
-    );
   };
 
   /**
@@ -297,8 +254,6 @@ export const ListingEditable: FC<Props> = (props) => {
               token: "usdc",
             }}
             spenderAddress={getAddress("carbonmark", networkLabel)}
-            approvalText={<EditApproval />}
-            submitText={<EditSubmit />}
             onApproval={handleApproval}
             onSubmit={onUpdateListing}
             onCancel={resetLocalState}
