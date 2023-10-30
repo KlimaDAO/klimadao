@@ -16,6 +16,7 @@ const handler = async (
     return reply.badRequest("Invalid purchase id: " + request.params.id);
   }
   const sdk = gql_sdk(request.query.network);
+
   const { purchase } = await sdk.marketplace.getPurchaseById(request.params);
 
   /** Handle the not found case */
