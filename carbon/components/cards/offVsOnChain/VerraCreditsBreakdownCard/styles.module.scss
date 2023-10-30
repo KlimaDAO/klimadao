@@ -1,16 +1,27 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
 .wrapper {
   display: flex;
   line-height: normal;
+  height: 100%;
+  & > div {
+    min-width: 14rem;
+  }
   & > div:nth-child(1) {
-    flex: 3 1 0;
+    flex: 10 1 0;
   }
   & > div:nth-child(2) {
     flex: 0 0 0;
-    min-width: 14rem;
   }
   & > div:nth-child(3) {
     flex: 0 0 0;
-    min-width: 14rem;
+  }
+}
+.wrapperDetailsPage {
+  & > div {
+    @include breakpoints.desktopLarge {
+      min-width: 28rem;
+    }
   }
 }
 .issuedvsTokenizedWrapper {
@@ -34,9 +45,7 @@
 .pieChartWrapper {
   max-width: calc(100% - 1rem);
   min-width: calc(100% - 1rem);
-  // FIXME: Using a non fixed value here makes recharts increase the pie height forever
-  min-height: 14rem;
-  max-height: 15rem;
+  flex-grow: 10;
 }
 .pieChartInnerLegend {
   div[aria-describedby="value"] {
