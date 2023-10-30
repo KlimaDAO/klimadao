@@ -76,6 +76,7 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
   get transactionIdColumn(): Column<RawRetirementsItem> {
     return {
       header: "",
+      cellStyle: layout.blockRight,
       dataKey: "transaction_id",
       formatter: (transactionId: string) => (
         <PolyscanLink
