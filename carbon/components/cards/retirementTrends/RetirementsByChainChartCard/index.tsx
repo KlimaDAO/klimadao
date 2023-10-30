@@ -3,7 +3,7 @@ import ChartCard, { CardProps } from "components/cards/ChartCard";
 import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import CustomLegendItem from "components/charts/helpers/CustomLegendItem";
 import KAreaChart from "components/charts/helpers/KAreaChart";
-import { getMonthlyRetirementsByOriginInPercent } from "lib/charts/aggregators/getMonthlyRetirementsByOriginInPercent";
+import { queryMonthlyRetirementsByOrigin } from "lib/charts/queries";
 import { KlimaMonthlyRetirementsByOriginItem } from "lib/charts/types";
 import { palette } from "theme/palette";
 import styles from "./styles.module.scss";
@@ -59,13 +59,22 @@ async function RetirementsByChainChart(props: {
       legendOrder: 2,
     },
   ];
-  const data = await getMonthlyRetirementsByOriginInPercent(queryConfiguration);
+  const data = (
+    await queryMonthlyRetirementsByOrigin({
+      sort_by: "retirement_date",
+      sort_order: "desc",
+      page_size: 24,
+    })
+  ).items;
+  data.sort((item1, item2) => {
+    return item1.retirement_date > item2.retirement_date ? 1 : -1;
+  });
   const configuration = [queryConfiguration[props.view == "offchain" ? 0 : 1]];
   return (
     <KAreaChart
       configuration={configuration}
       data={data}
-      YAxis="percentageAutoscale"
+      YAxis="tons"
       XAxis="months"
       dateField="retirement_date"
       showLegend={false}
