@@ -177,7 +177,7 @@ msgstr "The volume of digital carbon credits in {bridgeLabel} digital carbon poo
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-breakdown/page.tsx:8
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:23
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:26
 msgid "Verra credits breakdown"
 msgstr "Verra credits breakdown"
 
@@ -602,13 +602,13 @@ msgstr "Carbon pool redemptions / retirements"
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:69
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:67
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:68
 msgid "Total tonnes redeemed"
 msgstr "Total tonnes redeemed"
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:76
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:74
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:75
 msgid "Redeemed via KlimaDAO"
 msgstr "Redeemed via KlimaDAO"
 
