@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import PercentageChange from "components/PercentageChage";
+import PercentageChange from "components/PercentageChange";
 import { CoinTileDataFact } from "components/charts/helpers/CoinTiles";
 import {
   getCarbonMetrics7daysAgo,
