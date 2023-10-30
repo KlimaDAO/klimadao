@@ -177,7 +177,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-breakdown/page.tsx:8
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:23
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:26
 msgid "Verra credits breakdown"
 msgstr ""
 
@@ -534,12 +534,8 @@ msgid "Detailed list of KlimaDAO retirements"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:19
-msgid "KlimaDAO retirements by chain"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:32
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:26
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:51
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:81
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:22
@@ -547,11 +543,17 @@ msgid "Off-chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:38
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:27
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:57
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:61
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:18
 msgid "On-chain"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:36
+msgid "KlimaDAO retirements by chain"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -588,13 +590,13 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:69
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:67
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:68
 msgid "Total tonnes redeemed"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:76
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:74
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:75
 msgid "Redeemed via KlimaDAO"
 msgstr ""
 
