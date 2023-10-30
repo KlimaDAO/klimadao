@@ -67,7 +67,9 @@ export default function PageWithTabs(props: {
   const pathname = usePathname();
 
   const handleChange = (_: React.SyntheticEvent, newTab: string) => {
-    router.push(`${pathname}?tab=${newTab}`);
+    const url = new URL(window.location.href);
+    url.searchParams.set("tab", String(newTab));
+    history.pushState({}, document.title, url.href);
     setActiveTab(newTab);
   };
 
@@ -152,6 +154,7 @@ export default function PageWithTabs(props: {
                           className={styles.optionsSwitcherWrapper}
                         >
                           <OptionsSwitcher
+                            name={`option_${tab.key}_${widgetIndex}`}
                             options={options}
                             onSelectionChange={onOptionChange(
                               tabIndex,
