@@ -35,7 +35,8 @@ export class CreditId {
   creditId: CreditIdentifier;
 
   public static ValidCreditIdRegex =
-    /^(VCS|PURO|ICR|GS)-\d+-(19\d{2}|20\d{2})$/i;
+    /^(VCS|PURO|GS)-\d+-(19\d{2}|20\d{2})$|^ICR-[A-Z]+-\d+-\d+-\d+-[A-Z]-\d+-(19\d{2}|20\d{2})$/i;
+
   public static ValidProjectIdRegex = /^(VCS|PURO|ICR|GS)-\d+$/i; // case insensitive
 
   constructor(params: UntypedParams);
@@ -78,14 +79,34 @@ export class CreditId {
   static isValidProjectId = (id: unknown): id is `${string}-${string}` =>
     CreditId.ValidProjectIdRegex.test(String(id));
 
+  /** Case insensitive type-guard @example isValidStandard("ICR") // true */
+  static isValidStandard(value: string): value is Standard {
+    return standards.some((standard) => standard === value);
+  }
+
   /* eslint-disable @typescript-eslint/consistent-type-assertions -- type guards */
   /** Validates, splits and capitalizes a CreditIdentifier string */
   static splitCreditId(
     creditId: string
   ): [Standard, RegistryProjectId, Vintage] {
     if (!this.isValidCreditId(creditId)) throw new Error("Invalid CreditId");
-    const [standard, registryProjectId, vintage] = creditId.split("-");
-    return [standard.toUpperCase() as Standard, registryProjectId, vintage];
+
+    const parts = creditId.split("-");
+    const standard = parts[0].toUpperCase();
+
+    if (!CreditId.isValidStandard(standard)) {
+      throw new Error("Invalid Standard");
+    }
+
+    if (standard === "ICR") {
+      const registryProjectId = parts[2];
+      const vintage = parts[parts.length - 1];
+      return [standard, registryProjectId, vintage];
+    } else {
+      const registryProjectId = parts[1];
+      const vintage = parts[2];
+      return [standard, registryProjectId, vintage];
+    }
   }
 
   /** Validates, splits and capitalizes a ProjectIdentifier string */

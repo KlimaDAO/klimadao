@@ -1,5 +1,6 @@
 import { compact, merge } from "lodash";
 import { filter, pipe } from "lodash/fp";
+
 import { SetRequired } from "../../../../lib/utils/typescript.utils";
 import {
   GetCmsProjectQuery,
@@ -9,10 +10,32 @@ import { arrayToMap } from "../array.utils";
 import { extract, notNil, selector } from "../functional.utils";
 import { GQL_SDK } from "../gqlSdk";
 
-type Args = {
-  registry: string; // e.g VCS
-  registryProjectId: string; //e.g 1121
+export type ProjectImage = {
+  asset?: {
+    url?: string | null;
+    caption?: string | null;
+    altText?: string | null;
+  } | null;
 };
+
+type IcrCarbonImage = {
+  uri: string;
+  fileName: string;
+};
+
+type SdkArgs = {
+  registry: string;
+  registryProjectId: string;
+};
+
+type IcrArgs = {
+  serialization: string;
+  network: string;
+};
+
+export type FetchCarbonProjectMethod = GQL_SDK | string;
+
+export type FetchCarbonProjectArgs = SdkArgs | IcrArgs;
 
 /**
  * Generates a unique key for a project using its registry and id.
@@ -29,24 +52,101 @@ export type CarbonProject = GetCmsProjectQuery["allProject"][number] & {
   content?: ProjectContent;
 };
 
-/**
- * Fetches a carbon project based on the provided registry and id.
- */
-export const fetchCMSProject = async (sdk: GQL_SDK, args: Args) => {
-  const [{ allProject }, { allProjectContent }] = await Promise.all([
-    sdk.cms.getCMSProject(args),
-    sdk.cms.getCMSProjectContent(args),
-  ]);
+// fix return type
+export const fetchCMSProject = async (
+  sdk: FetchCarbonProjectMethod,
+  args: FetchCarbonProjectArgs
+) => {
+  // come up with better way to check registry type that satisfies typescript
+  if ("serialization" in args && typeof sdk === "string") {
+    const url = `${sdk}/public/projects?creditSerialization=${args.serialization}`;
 
-  const project = allProject.at(0);
-  const content = allProjectContent.at(0);
-  const key = projectKey(args);
+    /**
+     * @todo change polygon to correct network when verified
+     */
+    const api_key =
+      args.network === "polygon"
+        ? process.env.ICR_MUMBAI_API_KEY
+        : process.env.ICR_MUMBAI_API_KEY;
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${api_key}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const apiData = await response.json();
 
-  return {
-    ...project,
-    ...content,
-    key,
-  };
+      const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+
+      // make common type to export
+      const images: ProjectImage[] =
+        apiData.media?.map((image: IcrCarbonImage) => ({
+          asset: {
+            url: image.uri,
+            caption: image.fileName,
+          },
+        })) || [];
+      const registryProjectId = args.serialization
+        .split("-")
+        .slice(1)
+        .join("-");
+
+      return {
+        key: args.serialization,
+        country: regionNames.of(apiData.countryCode) || null,
+        description: apiData.shortDescription || null,
+        name: apiData.fullName || null,
+        region: apiData.geographicalRegion || null,
+        registry: apiData.ghgProgram?.id.toUpperCase() || null,
+        url: apiData.website || null,
+        registryProjectId,
+        id: apiData.onChainId || null,
+        geolocation: apiData.geoLocation || null,
+        methodologies:
+          [
+            {
+              id: apiData.methodology.id,
+              /**
+               * @todo replace with correct category
+               */
+              category: "Other",
+              name: apiData.methodology.title,
+            },
+          ] || null,
+        shortDescription: apiData.shortDescription || null,
+        longDescription: "DOES NOT EXIST YET- TUFNEL",
+        project: {
+          registry: apiData.ghgProgram?.id || null,
+          registryProjectId: apiData._id || null,
+        },
+        coverImage: apiData.documents?.[0]?.uri || null,
+        images,
+      };
+    } catch (error) {
+      // catch 403s here for mainnet keys that are not verified
+      console.error(error);
+      throw error;
+    }
+  } else if ("registry" in args && typeof sdk !== "string") {
+    const [{ allProject }, { allProjectContent }] = await Promise.all([
+      sdk.cms.getCMSProject(args),
+      sdk.cms.getCMSProjectContent(args),
+    ]);
+
+    const project = allProject?.at(0);
+    const content = allProjectContent?.at(0);
+    const key = projectKey(args);
+    return {
+      ...project,
+      ...content,
+      key,
+    };
+  }
+  throw new Error(
+    "Invalid arguments or SDK type provided to fetchCarbonProject"
+  );
 };
 
 /**
