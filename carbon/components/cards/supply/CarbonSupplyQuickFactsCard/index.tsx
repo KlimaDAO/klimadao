@@ -13,7 +13,9 @@ import styles from "./styles.module.scss";
 export default function CarbonSupplyQuickFactsCard(props: CardProps) {
   const chart = (
     /* @ts-expect-error async Server component */
-    <CarbonSupplyQuickFactsChart></CarbonSupplyQuickFactsChart>
+    <CarbonSupplyQuickFactsChart
+      isDetailPage={props.isDetailPage}
+    ></CarbonSupplyQuickFactsChart>
   );
 
   return (
@@ -27,7 +29,7 @@ export default function CarbonSupplyQuickFactsCard(props: CardProps) {
 }
 
 /** Async server component that renders a Recharts client component */
-async function CarbonSupplyQuickFactsChart() {
+async function CarbonSupplyQuickFactsChart(props: { isDetailPage?: boolean }) {
   const metricsNow = await getLatestCarbonMetrics();
   const metrics7DaysAgo = await getCarbonMetrics7daysAgo();
 
@@ -113,9 +115,12 @@ async function CarbonSupplyQuickFactsChart() {
       </div>
     );
   }
+  const wrapperclassName = props.isDetailPage
+    ? `${styles.wrapper} ${styles.detailsPageWrapper}`
+    : styles.wrapper;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapperclassName}>
       {data.map((item) => CarbonSupplyQuickFactsColumn(item))}
     </div>
   );
