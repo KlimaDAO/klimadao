@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-25 19:11+0000\n"
+"POT-Creation-Date: 2023-10-27 13:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,7 +10,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:84
 msgid "Acknowledge and Accept"
-msgstr ""
+msgstr "Accuser réception et Accepter"
 
 #. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
@@ -88,12 +88,12 @@ msgstr "Solde insuffisant"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:29
 msgid "Investment Risk Disclaimer"
-msgstr ""
+msgstr "Avis de non-responsabilité concernant les risques d'investissement"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:47
 msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
-msgstr ""
+msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pour $KLIMA, ce qui peut entraîner des pertes si vous devez vendre vos jetons rapidement."
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -135,12 +135,12 @@ msgstr "Se connecter"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:39
 msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
-msgstr ""
+msgstr "Perte d'Investissement : La valeur de $KLIMA et d'autres cryptomonnaies peut augmenter ou diminuer rapidement à tout moment. Par conséquent, vous pourriez subir des pertes importantes et rapides, y compris la perte de l'intégralité du capital investi."
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:68
 msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
-msgstr ""
+msgstr "Aucune Garantie : Il n'y a aucune garantie que la plateforme KlimaDAO ou le jeton $KLIMA atteindra ses objectifs ou qu'une quelconque valeur sera préservée dans le protocole."
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -165,7 +165,7 @@ msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez met
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:60
 msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
-msgstr ""
+msgstr "Risques Opérationnels : La plateforme KlimaDAO repose sur diverses technologies liées au réseau Polygon et à d'autres actifs numériques. Ces technologies sont sujettes à des changements qui pourraient avoir un impact négatif sur votre investissement."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:682
@@ -191,12 +191,12 @@ msgstr "Détails du projet <0/>"
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:32
 msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
-msgstr ""
+msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degré élevé de risque et doit être considéré comme extrêmement spéculatif. Voici quelques points importants à prendre en compte :"
 
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:53
 msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
-msgstr ""
+msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire des crypto-monnaies évolue et les changements de réglementation pourraient avoir un impact négatif sur votre investissement."
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -232,7 +232,7 @@ msgstr "Ce coût comprend les frais de glissement et les éventuels frais de rac
 #. js-lingui-explicit-id
 #: components/DisclaimerModal/index.tsx:75
 msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
-msgstr ""
+msgstr "Cette liste de risques ne couvre pas tous les risques liés à l'investissement dans $KLIMA. Vous devez procéder à vos propres vérifications et consulter un conseiller financier agréé avant de prendre toute décision d'investissement."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113

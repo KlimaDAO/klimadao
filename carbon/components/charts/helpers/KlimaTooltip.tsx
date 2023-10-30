@@ -1,4 +1,3 @@
-import { t } from "@lingui/macro";
 import { TooltipProps } from "recharts";
 import {
   NameType,
@@ -37,7 +36,7 @@ export function KlimaTooltip(params: {
                 <div>
                   {pld.value !== undefined &&
                     params.yAxisFormatter &&
-                    params.yAxisFormatter(pld.value as number) + t`T`}
+                    params.yAxisFormatter(pld.value as number)}
                 </div>
               </div>
             ))}
