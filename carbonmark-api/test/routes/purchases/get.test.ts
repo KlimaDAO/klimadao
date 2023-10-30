@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { Purchase } from "../../../src/models/Purchase.model";
-import carbonProjects from "../../fixtures/carbonProjects";
+import { carbonProject } from "../../fixtures/carbonProjects";
 import marketplace from "../../fixtures/marketplace";
 import { build } from "../../helper";
 import { DEV_URL, ERROR } from "../../test.constants";
@@ -20,10 +20,10 @@ const purchaseModelFixture: Purchase = {
     project: {
       key: marketplace.purchase.listing.project.key,
       vintage: marketplace.purchase.listing.project.vintage,
-      country: carbonProjects.carbonProject.country!,
-      name: carbonProjects.carbonProject.name!,
-      methodology: carbonProjects.carbonProject.methodologies?.[0]?.id!,
-      projectID: carbonProjects.carbonProject.registryProjectId!,
+      country: carbonProject.country!,
+      name: carbonProject.name!,
+      methodology: carbonProject.methodologies?.[0]?._id!,
+      projectID: carbonProject.registryProjectId!,
     },
   },
 };
@@ -35,7 +35,7 @@ jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
   return {
     ...carbonProjectsUtils,
     fetchCarbonProject: jest.fn(() => {
-      return carbonProjects.carbonProject;
+      return carbonProject;
     }),
   };
 });

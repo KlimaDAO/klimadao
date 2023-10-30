@@ -3,7 +3,7 @@ import { pick } from "lodash";
 import nock from "nock";
 import { GRAPH_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
-import carbonProjects from "../../fixtures/carbonProjects";
+import { carbonProject } from "../../fixtures/carbonProjects";
 import marketplace from "../../fixtures/marketplace";
 import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
@@ -16,7 +16,7 @@ jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
   return {
     ...carbonProjectsUtils,
     fetchAllCarbonProjects: jest.fn(() => {
-      return [carbonProjects.carbonProject];
+      return [carbonProject];
     }),
   };
 });
@@ -115,15 +115,14 @@ describe("GET /projects", () => {
     //@todo replace with composeEntries function
     const expectedResponse = [
       {
-        ...pick(carbonProjects.carbonProject, [
+        ...pick(carbonProject, [
           "description",
           "name",
           "methodologies",
           "region",
         ]),
         // applies short_description property from cms
-        short_description:
-          carbonProjects.carbonProject.content?.shortDescription,
+        short_description: carbonProject.content?.shortDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: bridgedCarbon.offset.projectID.split("-")[1],
         vintage: bridgedCarbon.offset.vintageYear,
@@ -132,7 +131,7 @@ describe("GET /projects", () => {
         registry: bridgedCarbon.offset.projectID.split("-")[0],
         updatedAt: bridgedCarbon.offset.lastUpdate,
         country: {
-          id: carbonProjects.carbonProject.country,
+          id: carbonProject.country,
         },
         price: poolPrices.bct.defaultPrice,
         listings: null,
@@ -140,14 +139,14 @@ describe("GET /projects", () => {
         location: {
           geometry: {
             coordinates: [
-              carbonProjects.carbonProject.geolocation?.lng,
-              carbonProjects.carbonProject.geolocation?.lat,
+              carbonProject.geolocation?.lng,
+              carbonProject.geolocation?.lat,
             ],
             type: "Point",
           },
           type: "Feature",
         },
-        images: carbonProjects.carbonProject.content?.images?.map((img) => ({
+        images: carbonProject.content?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
@@ -174,15 +173,10 @@ describe("GET /projects", () => {
     const expectedResponse = [
       {
         ...pick(marketplace.projectWithListing, ["key", "vintage"]),
-        ...pick(carbonProjects.carbonProject, [
-          "description",
-          "name",
-          "methodologies",
-        ]),
-        short_description:
-          carbonProjects.carbonProject.content?.shortDescription,
+        ...pick(carbonProject, ["description", "name", "methodologies"]),
+        short_description: carbonProject.content?.shortDescription,
         country: {
-          id: carbonProjects.carbonProject.country,
+          id: carbonProject.country,
         },
         price: "99",
         updatedAt: marketplace.projectWithListing.listings?.[0].updatedAt,
@@ -201,14 +195,14 @@ describe("GET /projects", () => {
         location: {
           geometry: {
             coordinates: [
-              carbonProjects.carbonProject.geolocation?.lng,
-              carbonProjects.carbonProject.geolocation?.lat,
+              carbonProject.geolocation?.lng,
+              carbonProject.geolocation?.lat,
             ],
             type: "Point",
           },
           type: "Feature",
         },
-        images: carbonProjects.carbonProject.content?.images?.map((img) => ({
+        images: carbonProject.content?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),

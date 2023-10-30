@@ -1,7 +1,10 @@
 import { FastifyInstance } from "fastify";
 import nock from "nock";
 import { GRAPH_URLS, SANITY_URLS } from "../../../../src/app.constants";
-import carbonProjects from "../../../fixtures/carbonProjects";
+import {
+  carbonProject,
+  projectContent,
+} from "../../../fixtures/carbonProjects";
 import digitalCarbon from "../../../fixtures/digitalCarbon";
 import { build } from "../../../helper";
 import { DEV_URL } from "../../../test.constants";
@@ -24,8 +27,8 @@ describe("GET /projects/:id", () => {
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [carbonProject],
+          allProjectContent: [projectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
@@ -54,8 +57,8 @@ describe("GET /projects/:id", () => {
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [carbonProject],
+          allProjectContent: [projectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
@@ -87,8 +90,8 @@ describe("GET /projects/:id", () => {
       .twice() // once for each query
       .reply(200, {
         data: {
-          allProject: [carbonProjects.project],
-          allProjectContent: [carbonProjects.projectContent],
+          allProject: [carbonProject],
+          allProjectContent: [projectContent],
         },
       });
     nock(GRAPH_URLS["polygon"].tokens).post("").reply(200, {
