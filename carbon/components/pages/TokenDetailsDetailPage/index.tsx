@@ -22,7 +22,9 @@ export default function TokenDetailsDetailPage(
   const newProps = { ...props };
   newProps.card = (
     <div className={styles.tabRoot}>
-      <div className={styles.optionsSwitchers}>
+      <div
+        className={`${styles.optionsSwitchers} ${styles.optionsSwitchersWithoutTabs}`}
+      >
         {poolOptions && (
           <div className={styles.optionsSwitcherWrapper}>
             <OptionsSwitcher

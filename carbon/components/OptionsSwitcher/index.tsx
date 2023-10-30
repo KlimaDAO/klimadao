@@ -1,3 +1,4 @@
+"use client";
 /**
  * A widget to choose betwwen different options
  * name: name of the widget (for state persistence state)
@@ -13,9 +14,10 @@ import styles from "./styles.module.scss";
 export default function OptionsSwitcher<T extends Key>(props: {
   name: string;
   options: Options<T>;
-  onSelectionChange: OptionChangeHandler<T>;
+  onSelectionChange?: OptionChangeHandler<T>;
   value?: T;
   className?: string;
+  readonly?: boolean;
 }) {
   // The widget initial value is the first option value or the value from the url query
   let initialValue = props.value || props.options[0].value;
@@ -26,16 +28,21 @@ export default function OptionsSwitcher<T extends Key>(props: {
   const [selected, setSelected] = useState<T>(
     props.value || props.options[0].value
   );
+  const readonly = props.readonly === undefined ? false : props.readonly;
 
   // Notify the parent of the initial value
   useEffect(() => {
     const url = new URL(window.location.href);
     initialValue = (url.searchParams.get(props.name) as T) || initialValue;
     setSelected(initialValue);
-    props.onSelectionChange(initialValue);
+    console.log(initialValue);
+    if (!readonly && props.onSelectionChange) {
+      props.onSelectionChange(initialValue);
+    }
   }, []);
 
   const select: OptionChangeHandler<T> = (value) => {
+    if (props.readonly) return;
     // Change value
     setSelected(value);
 
@@ -46,21 +53,25 @@ export default function OptionsSwitcher<T extends Key>(props: {
       history.pushState({}, document.title, url.href);
     }
     // Notify parent
-    return props.onSelectionChange(value);
+    if (!readonly && props.onSelectionChange) {
+      return props.onSelectionChange(value);
+    }
   };
   return (
     <ul
       className={`${styles.list} ${!!props.className ? props.className : ""}`}
     >
-      {props.options.map((option) => (
-        <li
-          key={option.value}
-          onClick={() => select(option.value)}
-          data-selected={selected == option.value}
-        >
-          {option.label}
-        </li>
-      ))}
+      {props.options
+        .filter((option) => !readonly || selected == option.value)
+        .map((option) => (
+          <li
+            key={option.value}
+            onClick={() => select(option.value)}
+            data-selected={selected == option.value}
+          >
+            {option.label}
+          </li>
+        ))}
     </ul>
   );
 }

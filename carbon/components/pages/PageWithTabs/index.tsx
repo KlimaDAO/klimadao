@@ -154,8 +154,8 @@ export default function PageWithTabs(props: {
                         className={styles.optionsSwitcherWrapper}
                       >
                         <OptionsSwitcher
-                            name={`option_${tab.key}_${widgetIndex}`}
-                            options={options}
+                          name={`option_${tab.key}_${widgetIndex}`}
+                          options={options}
                           onSelectionChange={onOptionChange(
                             tabIndex,
                             widgetIndex

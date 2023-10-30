@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import TokenDistributionOfProjectsCard from "components/cards/tokenDetails/TokenDistributionOfProjectsCard";
-import DetailPage from "components/pages/DetailPage";
+import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
@@ -10,7 +10,8 @@ export default function TokenDistributionOfProjectsPage({
 }: TokenDetailPageProps) {
   const bridgeLabel = capitalize(params.bridge);
   return (
-    <DetailPage
+    <TokenDetailsDetailPage
+      bridge={params.bridge}
       pageTitle={t`${bridgeLabel} distribution of projects`}
       card={
         <TokenDistributionOfProjectsCard

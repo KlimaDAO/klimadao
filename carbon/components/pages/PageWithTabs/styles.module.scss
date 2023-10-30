@@ -34,6 +34,7 @@
   display: grid;
   justify-content: space-between;
   row-gap: 0.8rem;
+  margin-bottom: 2rem;
   grid-template-areas:
     "one three"
     "two two";
@@ -49,6 +50,9 @@
     justify-content: end;
     margin-top: 1rem;
   }
+}
+.optionsSwitchersWithoutTabs {
+  position: relative;
 }
 
 .optionsSwitcherWrapper {

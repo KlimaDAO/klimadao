@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import TokenVolumeOverTimeCard from "components/cards/tokenDetails/TokenVolumeOverTimeCard";
-import DetailPage from "components/pages/DetailPage";
+import TokenDetailsDetailPage from "components/pages/TokenDetailsDetailPage";
 import { TokenDetailPageProps } from "components/pages/props";
 import { capitalize } from "lodash";
 
@@ -10,7 +10,8 @@ export default function TokenVolumeOverTimePage({
 }: TokenDetailPageProps) {
   const bridgeLabel = capitalize(params.bridge);
   return (
-    <DetailPage
+    <TokenDetailsDetailPage
+      bridge={params.bridge}
       pageTitle={t`${bridgeLabel} volume over Time`}
       card={
         <TokenVolumeOverTimeCard
@@ -20,6 +21,6 @@ export default function TokenVolumeOverTimePage({
         />
       }
       overview={t`The volume of digital carbon credits in ${bridgeLabel} digital carbon pools over a given time period.`}
-    />
+    ></TokenDetailsDetailPage>
   );
 }
