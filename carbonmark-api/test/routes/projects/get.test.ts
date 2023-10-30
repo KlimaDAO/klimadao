@@ -1,25 +1,19 @@
 import { FastifyInstance } from "fastify";
 import { pick } from "lodash";
 import nock from "nock";
-import { GRAPH_URLS } from "../../../src/app.constants";
+import {
+  aProject,
+  aProjectContent,
+} from "../../../src/.generated/mocks/carbonProjects.mocks";
+import { GRAPH_URLS, SANITY_URLS } from "../../../src/app.constants";
 import { formatUSDC } from "../../../src/utils/crypto.utils";
-import { carbonProject } from "../../fixtures/carbonProjects";
 import marketplace from "../../fixtures/marketplace";
 import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-jest.mock("../../../src/utils/helpers/carbonProjects.utils", () => {
-  const carbonProjectsUtils = jest.requireActual(
-    "../../../src/utils/helpers/carbonProjects.utils"
-  );
-  return {
-    ...carbonProjectsUtils,
-    fetchAllCarbonProjects: jest.fn(() => {
-      return [carbonProject];
-    }),
-  };
-});
+const carbonProjectContent = aProjectContent({});
+const carbonProject = aProject();
 
 const poolPrices = {
   bct: {
@@ -98,13 +92,22 @@ describe("GET /projects", () => {
     expect(response.statusCode).toEqual(200);
   });
 
-  test("Composes a pool project with cms data", async () => {
+  test.only("Composes a pool project with cms data", async () => {
     nock(GRAPH_URLS["polygon"].offsets)
       .post("")
       .reply(200, { data: { carbonOffsets: [bridgedCarbon.offset] } });
+
     nock(GRAPH_URLS["polygon"].marketplace)
       .post("")
       .reply(200, { data: { projects: [] } }); // no marketplace projects
+
+    nock(SANITY_URLS["carbonProjects"])
+      .post("", /getAllProjects/)
+      .reply(200, { data: { allProject: [carbonProject] } });
+
+    nock(SANITY_URLS["carbonProjects"])
+      .post("", /getAllProjectContent/)
+      .reply(200, { data: { allProjectContent: [carbonProjectContent] } });
 
     const response = await fastify.inject({
       method: "GET",
@@ -112,7 +115,6 @@ describe("GET /projects", () => {
     });
     const data = response.json();
 
-    //@todo replace with composeEntries function
     const expectedResponse = [
       {
         ...pick(carbonProject, [
@@ -122,7 +124,7 @@ describe("GET /projects", () => {
           "region",
         ]),
         // applies short_description property from cms
-        short_description: carbonProject.content?.shortDescription,
+        short_description: carbonProjectContent?.shortDescription,
         // Takes numeric from full id, "VCS-191" -> "191"
         projectID: bridgedCarbon.offset.projectID.split("-")[1],
         vintage: bridgedCarbon.offset.vintageYear,
@@ -146,7 +148,7 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: carbonProject.content?.images?.map((img) => ({
+        images: carbonProjectContent?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
@@ -174,7 +176,7 @@ describe("GET /projects", () => {
       {
         ...pick(marketplace.projectWithListing, ["key", "vintage"]),
         ...pick(carbonProject, ["description", "name", "methodologies"]),
-        short_description: carbonProject.content?.shortDescription,
+        short_description: carbonProjectContent?.shortDescription,
         country: {
           id: carbonProject.country,
         },
@@ -202,7 +204,7 @@ describe("GET /projects", () => {
           },
           type: "Feature",
         },
-        images: carbonProject.content?.images?.map((img) => ({
+        images: carbonProjectContent?.images?.map((img) => ({
           url: img?.asset?.url,
           caption: img?.asset?.description,
         })),
