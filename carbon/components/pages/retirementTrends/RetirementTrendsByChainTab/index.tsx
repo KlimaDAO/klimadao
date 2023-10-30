@@ -14,12 +14,10 @@ export default function RetirementTrendsByChainTab() {
           key={0}
           className={`${layout.zIndexSeven} ${layout.card66percent}`}
         />
-        ,
         <RetirementsByChainOverviewCard key={0} className={layout.zIndexFive} />
-        ,
       </div>
       <div className={layout.cardRow}>
-        <RetirementsByChainListCard key={1} className={layout.zIndexSix} />,
+        <RetirementsByChainListCard key={1} className={layout.zIndexSix} />
       </div>
     </div>
   );
