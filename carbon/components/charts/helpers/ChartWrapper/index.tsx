@@ -10,9 +10,14 @@ import NoDataWrapper, { NoDataWrapperProps } from "../NoDataWrapper";
 // the method is debounced to 200ms after which it returns to being false.
 export const useIsResizing = () => {
   const [isBeingResized, setIsBeingResized] = useState(false);
-
+  let width = 0;
+  let height = 0;
   const reset = useCallback(
     debounce(() => {
+      if (typeof window !== "undefined") {
+        width = document.documentElement.clientHeight;
+        height = document.documentElement.clientWidth;
+      }
       setIsBeingResized(false);
     }, 200),
     []
@@ -20,8 +25,14 @@ export const useIsResizing = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsBeingResized(true);
-      reset();
+      if (
+        typeof window !== "undefined" &&
+        (height != document.documentElement.clientHeight ||
+          width != document.documentElement.clientWidth)
+      ) {
+        setIsBeingResized(true);
+        reset();
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -31,6 +42,7 @@ export const useIsResizing = () => {
     };
   }, [setIsBeingResized]);
 
+  reset();
   return isBeingResized;
 };
 
