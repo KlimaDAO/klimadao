@@ -14,24 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/digital-carbon/page.tsx:33
-msgid ""
-"Just like off-chain carbon credits, a digital carbon credit\n"
-"represents a verified metric ton of carbon removed or avoided by an\n"
-"individual carbon reduction project at a certain point in time. Also\n"
-"like traditional credits, digital carbon can be bought, sold, and\n"
-"retired – but with much greater transparency and ease. A further\n"
-"advantage of digital carbon is that it is a 'money Lego' – it is\n"
-"programmable and can be used to power applications, enable new use cases,\n"
-"and ultimately, dramatically scale financing to carbon reduction projects."
-msgstr ""
-
-#. js-lingui-explicit-id
-#: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:13
-msgid "The total number of retirements and amount of digital carbon credits retired via infrastructure built by KlimaDAO from a given beneficiary address."
-msgstr ""
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -336,6 +318,19 @@ msgid ""
 "credit now exists solely on a public blockchain (e.g. Polygon). In\n"
 "being brought on chain, digital carbon inherits the immutability,\n"
 "transparency, and trust of the underlying blockchain database."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: app/[locale]/overview/digital-carbon/page.tsx:33
+msgid ""
+"Just like off-chain carbon credits, a digital carbon credit\n"
+"represents a verified metric ton of carbon removed or avoided by an\n"
+"individual carbon reduction project at a certain point in time. Also\n"
+"like traditional credits, digital carbon can be bought, sold, and\n"
+"retired – but with much greater transparency and ease. A further\n"
+"advantage of digital carbon is that it is a 'money Lego' – it is\n"
+"programmable and can be used to power applications, enable new use cases,\n"
+"and ultimately, dramatically scale financing to carbon reduction projects."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1065,6 +1060,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/pages/DetailPage/index.tsx:31
 msgid "Insights"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/pages/retirementTrends/RetirementTrendsByBeneficiaryTab/index.tsx:13
+msgid "The total number of retirements and amount of digital carbon credits retired via infrastructure built by KlimaDAO from a given beneficiary address."
 msgstr ""
 
 #. js-lingui-explicit-id
