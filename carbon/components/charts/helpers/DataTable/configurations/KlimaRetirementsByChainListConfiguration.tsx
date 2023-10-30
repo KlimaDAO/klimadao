@@ -4,7 +4,7 @@ import layout from "theme/layout.module.scss";
 import KlimaRetirementsListConfigurationBase from "./KlimaRetirementsListConfigurationBase";
 
 import { t } from "@lingui/macro";
-import PolygonscanLink from "../../PolygonscanLink";
+import TableLink from "../../TableLink";
 import { Columns } from "./types";
 export default class KlimaRetirementsByChainListConfiguration extends KlimaRetirementsListConfigurationBase {
   fetchFunction(page: number, params?: SortQueryParams) {
@@ -36,7 +36,10 @@ export default class KlimaRetirementsByChainListConfiguration extends KlimaRetir
         dataKey: "transaction_id",
         formatter: (x: string, item: RawRetirementsItem) =>
           item.origin == "Klima" ? (
-            <PolygonscanLink transactionId={x}></PolygonscanLink>
+            <TableLink
+              label={"Polygonscan"}
+              href={`https://polygonscan.com/tx/${x}`}
+            />
           ) : (
             item.serial_number
           ),

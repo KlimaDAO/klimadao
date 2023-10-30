@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import PolyscanLink from "components/charts/helpers/PolygonscanLink";
+import PolyscanLink from "components/charts/helpers/TableLink";
 import VerraProjectLink from "components/charts/helpers/VerraProjectLink";
 import { helpers } from "lib/charts";
 import { queryKlimaRawRetirements } from "lib/charts/queries";
@@ -76,10 +76,12 @@ export default abstract class KlimaRetirementsListConfigurationBase extends Abst
   get transactionIdColumn(): Column<RawRetirementsItem> {
     return {
       header: "",
-      cellStyle: layout.blockRight,
       dataKey: "transaction_id",
       formatter: (transactionId: string) => (
-        <PolyscanLink transactionId={transactionId}></PolyscanLink>
+        <PolyscanLink
+          label={"Polygonscan"}
+          href={`https://polygonscan.com/tx/${transactionId}`}
+        />
       ),
       sortable: false,
     };
