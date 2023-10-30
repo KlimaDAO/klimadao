@@ -114,7 +114,7 @@ These are generated from an OpenAPI JSON spec that is auto-generated from our Fa
 Fastify schemas are co-located with the respective route handlers, except for the root OpenAPI config, which is located in [src/plugins/open-api.ts](./src/plugins/open-api.ts). For more info see the @fastify/swagger plugin docs.
 
 ## Type Generation
-The API leverages several [Graph](https://thegraph.com/) gql interfaces to source the data it needs for each of it's endpoints. These GraphQL servers contain their own domain objects and so to ensure type safety our interactions with them are handled through generated typescript types in `.ggenerated` and via the `gql_sdk`.
+The API leverages several [Graph](https://thegraph.com/) gql interfaces to source the data it needs for each of it's endpoints. These GraphQL servers contain their own domain objects and so to ensure type safety our interactions with them are handled through generated typescript types in `.generated` and via the `gql_sdk`.
 
 Types should not need to be re-generated unless the subgraph that is targetted has changed (or a new one has been added). 
 
