@@ -1,6 +1,7 @@
-.polyscanLink {
+.tableLink {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-end;
+  gap: 0.8rem;
   color: var(--brand-blue);
 }

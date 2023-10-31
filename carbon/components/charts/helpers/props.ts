@@ -39,6 +39,7 @@ export interface ChartProps<T extends object> {
   YAxis?: YAxisType;
   LegendProps?: Omit<LegendProps, "ref">;
   noDataText?: string;
+  showLegend?: boolean;
 }
 
 export type XAxisType =

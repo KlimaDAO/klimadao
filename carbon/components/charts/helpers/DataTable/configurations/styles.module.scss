@@ -16,16 +16,16 @@
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.8rem;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-family: Poppins;
   }
 }
 
 .row {
-  border-bottom: 1px solid var(--lightmode-surface-02);
+  border-bottom: 0.1rem solid var(--lightmode-surface-02);
   td {
     padding: 1.2rem 0.8rem 1.2rem 0.8rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
