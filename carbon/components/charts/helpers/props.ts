@@ -39,6 +39,7 @@ export interface ChartProps<T extends object> {
   YAxis?: YAxisType;
   LegendProps?: Omit<LegendProps, "ref">;
   noDataText?: string;
+  showLegend?: boolean;
 }
 
 export type XAxisType =
@@ -119,7 +120,7 @@ export function getToolTipYAxisFormatter(YAxis: YAxisType) {
   const locale = currentLocale();
   // Default format tons
   let toolTipYAxisFormatter = (x: number) =>
-    helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 });
+    helpers.formatTonnes({ amount: x, maximumFractionDigits: 2 }) + `T`;
   if (YAxis == "price") {
     toolTipYAxisFormatter = helpers.formatPrice;
   }
