@@ -177,7 +177,7 @@ msgstr "The volume of digital carbon credits in {bridgeLabel} digital carbon poo
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-breakdown/page.tsx:8
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:23
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:26
 msgid "Verra credits breakdown"
 msgstr "Verra credits breakdown"
 
@@ -269,7 +269,7 @@ msgid "On-chain Verra credits retired over time"
 msgstr "On-chain Verra credits retired over time"
 
 #. js-lingui-explicit-id
-#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:12
+#: app/[locale]/details/verra-credits-retired-on-chain-over-time/page.tsx:15
 msgid "The total number of carbon credits issued by carbon registry Verra and retired over time. On-chain refers to credits bridged and tokenized on a public blockchain."
 msgstr "The total number of carbon credits issued by carbon registry Verra and retired over time. On-chain refers to credits bridged and tokenized on a public blockchain."
 
@@ -301,7 +301,7 @@ msgstr "Off vs On-chain carbon"
 
 #. js-lingui-explicit-id
 #: app/[locale]/overview/digital-carbon/page.tsx:12
-#: app/[locale]/overview/digital-carbon/page.tsx:23
+#: app/[locale]/overview/digital-carbon/page.tsx:24
 #: app/[locale]/overview/page.tsx:20
 msgid "What is digital carbon?"
 msgstr "What is digital carbon?"
@@ -312,7 +312,7 @@ msgid "Banner image"
 msgstr "Banner image"
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/digital-carbon/page.tsx:25
+#: app/[locale]/overview/digital-carbon/page.tsx:26
 msgid ""
 "The term 'digital carbon' refers to a carbon credit that has been\n"
 "bridged from an off-chain carbon registry and tokenized, so that the\n"
@@ -327,7 +327,7 @@ msgstr ""
 "transparency, and trust of the underlying blockchain database."
 
 #. js-lingui-explicit-id
-#: app/[locale]/overview/digital-carbon/page.tsx:32
+#: app/[locale]/overview/digital-carbon/page.tsx:33
 msgid ""
 "Just like off-chain carbon credits, a digital carbon credit\n"
 "represents a verified metric ton of carbon removed or avoided by an\n"
@@ -518,23 +518,23 @@ msgid "Digital carbon pricing"
 msgstr "Digital carbon pricing"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:84
+#: components/cards/overview/TokensPriceCard/index.tsx:77
 msgid "{formattedCurrentSupply} tonnes available"
 msgstr "{formattedCurrentSupply} tonnes available"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:88
+#: components/cards/overview/TokensPriceCard/index.tsx:81
 msgid "Price per tonne"
 msgstr "Price per tonne"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:94
+#: components/cards/overview/TokensPriceCard/index.tsx:87
 msgid "Selective cost"
 msgstr "Selective cost"
 
 #. js-lingui-explicit-id
-#: components/cards/overview/TokensPriceCard/index.tsx:111
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:103
+#: components/cards/overview/TokensPriceCard/index.tsx:104
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:105
 #: lib/charts/options.ts:128
 msgid "Last 7 days"
 msgstr "Last 7 days"
@@ -548,12 +548,8 @@ msgid "Detailed list of KlimaDAO retirements"
 msgstr "Detailed list of KlimaDAO retirements"
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:19
-msgid "KlimaDAO retirements by chain"
-msgstr "KlimaDAO retirements by chain"
-
-#. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:32
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:26
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:51
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:81
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:22
@@ -561,12 +557,18 @@ msgid "Off-chain"
 msgstr "Off-chain"
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:38
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:27
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:57
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:61
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:18
 msgid "On-chain"
 msgstr "On-chain"
+
+#. js-lingui-explicit-id
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:36
+msgid "KlimaDAO retirements by chain"
+msgstr "KlimaDAO retirements by chain"
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:27
@@ -602,13 +604,13 @@ msgstr "Carbon pool redemptions / retirements"
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:69
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:67
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:68
 msgid "Total tonnes redeemed"
 msgstr "Total tonnes redeemed"
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:76
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:74
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:75
 msgid "Redeemed via KlimaDAO"
 msgstr "Redeemed via KlimaDAO"
 
@@ -629,42 +631,42 @@ msgstr "Carbon supply by blockchain"
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:31
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:41
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:43
 #: lib/charts/options.ts:46
 msgid "Polygon"
 msgstr "Polygon"
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:37
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:45
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:47
 #: lib/charts/options.ts:50
 msgid "Ethereum"
 msgstr "Ethereum"
 
 #. js-lingui-explicit-id
 #: components/cards/supply/CarbonSupplyByBlockchainCard/index.tsx:43
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:49
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:51
 #: lib/charts/options.ts:60
 msgid "Celo"
 msgstr "Celo"
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:22
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:24
 msgid "Quick facts"
 msgstr "Quick facts"
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:93
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:95
 msgid "Total supply (tonnes)"
 msgstr "Total supply (tonnes)"
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:107
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:109
 msgid "Total retirements (tonnes)"
 msgstr "Total retirements (tonnes)"
 
 #. js-lingui-explicit-id
-#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:111
+#: components/cards/supply/CarbonSupplyQuickFactsCard/index.tsx:113
 #: components/charts/DailyCarbonRetirementsChart/index.tsx:13
 msgid "Retired via KlimaDAO"
 msgstr "Retired via KlimaDAO"
@@ -924,7 +926,7 @@ msgstr "Missing"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:46
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:47
 msgid "Amount retired"
 msgstr "Amount retired"
 
@@ -1000,11 +1002,20 @@ msgid "{0} Tonnes"
 msgstr "{0} Tonnes"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:34
-#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:40
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:33
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:33
 msgid "Country"
 msgstr "Country"
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:39
+msgid "Country code"
+msgstr "Country code"
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:48
+msgid "Amount bridged"
+msgstr "Amount bridged"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:66
@@ -1030,11 +1041,6 @@ msgstr "Percentage tokenized"
 #: components/charts/helpers/DataTable/configurations/VerraCreditsOriginsListConfiguration.tsx:85
 msgid "Percentage retired onchain"
 msgstr "Percentage retired onchain"
-
-#. js-lingui-explicit-id
-#: components/charts/helpers/KlimaTooltip.tsx:40
-msgid "T"
-msgstr "T"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/NoDataWrapper/index.tsx:14

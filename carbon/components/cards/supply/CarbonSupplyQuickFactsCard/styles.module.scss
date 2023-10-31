@@ -1,3 +1,5 @@
+@use "~@klimadao/lib/theme/breakpoints.scss";
+
 .wrapper {
   display: flex;
   flex-shrink: 0;
@@ -35,5 +37,21 @@
 
   [aria-describedby="label"] {
     font-size: 0.8rem;
+  }
+}
+// Font scalling for details page
+.detailsPageWrapper {
+  .title {
+    font-size: 1.6rem;
+  }
+  .fact {
+    font-size: 1.6rem;
+  }
+  [aria-describedby="value"] {
+    font-size: 1.6rem;
+  }
+
+  [aria-describedby="label"] {
+    font-size: 1.2rem;
   }
 }

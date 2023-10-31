@@ -15,20 +15,19 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
   CreditsQueryParams
 > {
   fetchFunction(page: number, params?: CreditsQueryParams) {
-    return queryAggregatedCreditsByOrigin(
-      Object.assign(
-        {},
-        {
-          sort_by: "quantity",
-          sort_order: "desc",
-          page_size: 10,
-          page,
-        } as SortQueryParams,
-        params
-      )
-    );
+    return queryAggregatedCreditsByOrigin({
+      ...({
+        sort_by: "quantity",
+        sort_order: "desc",
+        page_size: 10,
+        page,
+      } as SortQueryParams),
+      ...params,
+    });
   }
-  getColumns(): Columns<AggregatedCreditsByOriginItem> {
+  getColumns(
+    params?: CreditsQueryParams
+  ): Columns<AggregatedCreditsByOriginItem> {
     return {
       country: {
         header: t`Country`,
@@ -37,13 +36,16 @@ export default class TokenOriginsListConfiguration extends AbstractTableConfigur
         formatter: (x: string) => x,
       },
       countryCode: {
-        header: t`Country`,
+        header: t`Country code`,
         cellStyle: layout.blockLeft,
         dataKey: "country_code",
         formatter: (x: string) => x,
       },
       amount_retired: {
-        header: t`Amount retired`,
+        header:
+          params?.status == "retired" || params?.status == "all_retired"
+            ? t`Amount retired`
+            : t`Amount bridged`,
         cellStyle: layout.blockRight,
         dataKey: "quantity",
         formatter: formatTonnes,
