@@ -6,7 +6,6 @@ import {
 import DistributionOfProjectsChart from "components/charts/DistributionOfProjectsChart";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
 import { getAggregatedCreditsByPoolAndProject } from "lib/charts/aggregators/getAggregatedCredits";
-import layout from "theme/layout.module.scss";
 import ChartCard, { CardProps } from "../../ChartCard";
 
 export default function TokenDistributionOfProjectsCard(
@@ -23,7 +22,6 @@ export default function TokenDistributionOfProjectsCard(
       title={t`Distribution of Projects`}
       chart={chart}
       detailUrl={propsToDetailsURL(props, "token-by-projects")}
-      className={layout.noOverflow}
     />
   );
 }

@@ -8,6 +8,7 @@ import {
   NameType,
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
+import layout from "theme/layout.module.scss";
 import ChartWrapper from "../helpers/ChartWrapper";
 import TreeMapItem from "../helpers/TreeMapItem";
 import styles from "../helpers/styles.module.scss";
@@ -18,7 +19,7 @@ interface Props<RI> extends TokenDetailsProps {
 }
 export default function DistributionOfProjectsChart<RI>(props: Props<RI>) {
   return (
-    <ChartWrapper data={props.data}>
+    <ChartWrapper data={props.data} className={layout.noOverflow}>
       <Treemap
         data={props.data}
         dataKey={props.dataKey}
