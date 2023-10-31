@@ -58,6 +58,7 @@ export default function OptionsSwitcher<T extends Key>(props: {
     }
   };
   return (
+    // FIXME: this doesn't let you override certain styles
     <ul
       className={`${styles.list} ${!!props.className ? props.className : ""}`}
     >

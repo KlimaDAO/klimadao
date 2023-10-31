@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-30 14:09+0000\n"
+"POT-Creation-Date: 2023-10-31 04:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgid "Amount bridged"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:35
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:47
 msgid "Amount retired"
 msgstr ""
@@ -99,7 +99,7 @@ msgid "Base Carbon Tonne (BCT)"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:45
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:48
 msgid "Beneficiary"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgid ""
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:19
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:36
 msgid "KlimaDAO retirements by chain"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgid "Not pooled"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:39
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:41
 msgid "Number of retirements"
 msgstr ""
 
@@ -554,7 +554,8 @@ msgid "Off-Chain Verra credits retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:32
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:26
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:51
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:81
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:22
@@ -572,7 +573,8 @@ msgid "On-Chain Verra credits retired over time"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/cards/retirementTrends/RetirementsByChainBarCard/index.tsx:38
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:27
+#: components/cards/retirementTrends/RetirementsByChainChartCard/index.tsx:57
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:61
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:28
 #: lib/charts/options.ts:18
@@ -679,7 +681,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:76
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:74
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:75
 msgid "Redeemed via KlimaDAO"
 msgstr ""
 
@@ -706,6 +708,11 @@ msgstr ""
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByChainOverviewCard/index.tsx:72
 msgid "Retired via klimaDAO"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
+msgid "Retirement Details"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -908,7 +915,7 @@ msgid "Tokenized credits by bridge"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:89
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:92
 msgid "Tonnes"
 msgstr ""
 
@@ -955,7 +962,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/cards/retirementTrends/RetirementsByPoolOverviewCard/index.tsx:69
-#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:67
+#: components/cards/retirementTrends/RetirementsByTokenOverviewCard/index.tsx:68
 msgid "Total tonnes redeemed"
 msgstr ""
 
@@ -1017,7 +1024,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: app/[locale]/details/verra-credits-breakdown/page.tsx:8
-#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:23
+#: components/cards/offVsOnChain/VerraCreditsBreakdownCard/index.tsx:26
 msgid "Verra credits breakdown"
 msgstr ""
 
@@ -1080,7 +1087,7 @@ msgid "on-chain"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:108
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
 msgid "{0} Tonnes"
 msgstr ""
 
