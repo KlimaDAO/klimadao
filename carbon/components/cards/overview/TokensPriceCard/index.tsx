@@ -2,7 +2,7 @@ import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { InfoOutlined } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
-import PercentageChange from "components/PercentageChage";
+import PercentageChange from "components/PercentageChange";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
   CoinTiles,

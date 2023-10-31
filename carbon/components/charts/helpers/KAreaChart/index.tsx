@@ -12,6 +12,7 @@ import {
 
 /** FIXME: Refactor to KlimaAreaChart */
 export default function KAreaChart<T extends object>(props: ChartProps<T>) {
+  const showLegend = props.showLegend !== undefined ? props.showLegend : true;
   const localLegendProps =
     props.LegendProps ||
     Object.assign(
@@ -27,7 +28,7 @@ export default function KAreaChart<T extends object>(props: ChartProps<T>) {
         <XAxis {...getXAxisProps(props)} />
         <YAxis {...getYAxisProps(props)} />
         <Tooltip {...getKlimaTooltipProps(props)} />
-        <Legend {...localLegendProps} />
+        {showLegend && <Legend {...localLegendProps} />}
       </AreaChart>
     </ChartWrapper>
   );

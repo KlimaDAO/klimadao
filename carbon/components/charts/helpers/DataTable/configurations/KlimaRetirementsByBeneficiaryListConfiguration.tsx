@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { queryKlimaRetirementsByBeneficiary } from "lib/charts/queries";
 import {
@@ -5,6 +6,7 @@ import {
   SortQueryParams,
 } from "lib/charts/types";
 import layout from "theme/layout.module.scss";
+import TableLink from "../../TableLink";
 import AbstractTableConfiguration from "./AbstractTableConfiguration";
 import { formatTonnes, getBeneficiaryColumn } from "./helpers";
 import styles from "./styles.module.scss";
@@ -40,6 +42,19 @@ export default class KlimaRetirementsByBeneficiaryListConfiguration extends Abst
         cellStyle: layout.textRight,
         dataKey: "number_of_retirements",
         formatter: (x: string | number) => x,
+      },
+      retirement_details: {
+        header: "",
+        cellStyle: layout.blockRight,
+        dataKey: "beneficiary",
+        formatter: (x: string) => {
+          return (
+            <TableLink
+              label={t`Retirement Details`}
+              href={`${urls.retirements_carbonmark}/${x}`}
+            />
+          );
+        },
       },
     };
   }
