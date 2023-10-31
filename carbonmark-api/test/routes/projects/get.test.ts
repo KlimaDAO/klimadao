@@ -12,8 +12,8 @@ import bridgedCarbon from "../../fixtures/offsets";
 import { build } from "../../helper";
 import { DEV_URL } from "../../test.constants";
 
-const carbonProjectContent = aProjectContent({});
-const carbonProject = aProject();
+const carbonProject = aProject({});
+const carbonProjectContent = aProjectContent({ project: carbonProject });
 
 const poolPrices = {
   bct: {

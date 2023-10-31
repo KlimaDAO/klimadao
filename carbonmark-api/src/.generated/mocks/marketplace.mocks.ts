@@ -470,7 +470,7 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
         activities: overrides && overrides.hasOwnProperty('activities') ? overrides.activities! : [relationshipsToOmit.has('Activity') ? {} as Activity : anActivity({}, relationshipsToOmit)],
         category: overrides && overrides.hasOwnProperty('category') ? overrides.category! : relationshipsToOmit.has('Category') ? {} as Category : aCategory({}, relationshipsToOmit),
         country: overrides && overrides.hasOwnProperty('country') ? overrides.country! : 'China',
-        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : '3e7d7963-406a-47bd-ad80-0448296895bf',
+        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'VCS-191',
         key: overrides && overrides.hasOwnProperty('key') ? overrides.key! : 'delectus',
         listings: overrides && overrides.hasOwnProperty('listings') ? overrides.listings! : [relationshipsToOmit.has('Listing') ? {} as Listing : aListing({}, relationshipsToOmit)],
         methodology: overrides && overrides.hasOwnProperty('methodology') ? overrides.methodology! : 'doloremque',

@@ -69,7 +69,6 @@ export const fetchAllCarbonProjects = async (
 
   // Build a map for constant time lookup
   const contentMap = arrayToMap(content, pipe(extract("project"), projectKey));
-
   // Pair Projects with their content
   const projects: CarbonProject[] = allProject.map((project) =>
     merge(project, {

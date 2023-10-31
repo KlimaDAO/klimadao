@@ -11,6 +11,7 @@ const offset = aCarbonOffset({
   projectID: "VCS-191",
   vintageYear: "2008",
   methodologyCategory: "Energy",
+  region: "Asia",
 });
 
 /** Fixtures for the polygon-bridged-carbon subgraph */

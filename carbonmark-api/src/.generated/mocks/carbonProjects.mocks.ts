@@ -331,7 +331,7 @@ export const aProject = (overrides?: Partial<Project>, _relationshipsToOmit: Set
         description: overrides && overrides.hasOwnProperty('description') ? overrides.description! : 'voluptatem',
         documents: overrides && overrides.hasOwnProperty('documents') ? overrides.documents! : [relationshipsToOmit.has('File') ? {} as File : aFile({}, relationshipsToOmit)],
         geolocation: overrides && overrides.hasOwnProperty('geolocation') ? overrides.geolocation! : relationshipsToOmit.has('Geopoint') ? {} as Geopoint : aGeopoint({}, relationshipsToOmit),
-        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : relationshipsToOmit.has('Slug') ? {} as Slug : aSlug({}, relationshipsToOmit),
+        id: overrides && overrides.hasOwnProperty('id') ? overrides.id! : 'VCS-191',
         methodologies: overrides && overrides.hasOwnProperty('methodologies') ? overrides.methodologies! : [relationshipsToOmit.has('Methodology') ? {} as Methodology : aMethodology({}, relationshipsToOmit)],
         name: overrides && overrides.hasOwnProperty('name') ? overrides.name! : 'et',
         region: overrides && overrides.hasOwnProperty('region') ? overrides.region! : 'Asia',

@@ -30,6 +30,7 @@ const ts_mock_plugin = (key: string) => ({
       registry: "'VCS'",
       registryProjectId: "'191'",
       region: "'Asia'",
+      id: "'VCS-191'",
     },
     Methodology: {
       id: "'ACM0002'",

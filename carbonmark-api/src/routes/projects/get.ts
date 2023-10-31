@@ -67,7 +67,10 @@ const handler = (fastify: FastifyInstance) =>
     const ProjectMap: ProjectDataMap = new Map();
 
     cmsProjects.forEach((project) => {
-      if (!CreditId.isValidProjectId(project.id)) return;
+      if (!CreditId.isValidProjectId(project.id)) {
+        console.warn(`Invalid CMS project id ${JSON.stringify(project.id)}`);
+        return;
+      }
       const [standard, registryProjectId] = CreditId.splitProjectId(project.id); // type guard and capitalize
       CMSDataMap.set(`${standard}-${registryProjectId}`, project);
     });
@@ -127,6 +130,11 @@ const handler = (fastify: FastifyInstance) =>
     const entries = composeProjectEntries(ProjectMap, CMSDataMap, poolPrices);
 
     const sortedEntries = sortBy(entries, (e) => Number(e.price));
+
+    console.log(cmsProjects);
+    // console.log(poolProjectsData.carbonOffsets);
+    // console.log(marketplaceProjectsData.projects);
+    // console.log(sortedEntries);
 
     // Send the transformed projects array as a JSON string in the response
     return reply
