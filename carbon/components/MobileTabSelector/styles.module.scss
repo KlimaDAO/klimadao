@@ -1,11 +1,16 @@
 .select {
   width: 100%;
   font-size: 1.6rem;
-  background-color: var(--surface-04);
+  background-color: var(--brand-white);
   margin-bottom: 1.6rem;
 
   fieldset {
     border: 0;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
