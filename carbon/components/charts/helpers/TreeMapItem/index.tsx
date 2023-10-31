@@ -27,29 +27,40 @@ export default class TreemapItem extends Component<{
       return <></>;
     const { depth, x, y, width, height, index, name } = this.props;
     const bgColors = Object.values(palette.charts);
+    const tokens = name.trim().split(" ");
+    const nbTokens = tokens.length;
+    const yGap = 2;
 
-    const fontSize = Math.abs((width * 1.8) / name.length);
+    // Compute font size
+    const maxfontSizeX = Math.min(
+      ...tokens.map((token) => Math.abs((width * 1.5) / token.length))
+    );
+    const maxfontSizeY = Math.max(height / nbTokens - yGap, 1);
+    const fontSize = Math.min(maxfontSizeX, maxfontSizeY);
+
+    // Compute starting y position of text
+    const textMidY = y + height / 2;
+    const textHeight = nbTokens * (fontSize + yGap) - yGap;
+    const textStartY = textMidY - textHeight / 2 + fontSize;
 
     const bgColor = bgColors[index % 5];
     const txtColor = bgColors[(index + 3) % 5];
     return (
       <g>
-        <rect x={x} y={y} width={width} height={height} fill={bgColor}>
-          <title>{name}</title>
-        </rect>
-        {depth === 1 ? (
+        <rect x={x} y={y} width={width} height={height} fill={bgColor}></rect>
+        {tokens.map((token, index) => (
           <text
+            key={index}
             x={x + width / 2}
-            y={y + (height + fontSize) / 2}
+            y={textStartY + (fontSize + yGap) * index}
             textAnchor="middle"
             fill={txtColor}
             stroke="none"
             fontSize={fontSize}
           >
-            <title>{name}</title>
-            {name}
+            {token}
           </text>
-        ) : null}
+        ))}
       </g>
     );
   }

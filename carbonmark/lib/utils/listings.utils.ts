@@ -24,9 +24,8 @@ export const getListedBalance = (asset: Asset, listings: Listing[]): number => {
   const assetListings = listings.filter(
     (l) => l.tokenAddress.toLowerCase() === asset.token.id.toLowerCase()
   );
-  return assetListings.reduce(
-    (sum, l) => Number(safeAdd(sum.toString(), l.leftToSell)),
-    0
+  return Number(
+    assetListings.reduce((sum, l) => safeAdd(sum, l.leftToSell), "0")
   );
 };
 

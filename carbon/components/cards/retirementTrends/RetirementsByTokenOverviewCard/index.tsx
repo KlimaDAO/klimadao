@@ -60,6 +60,7 @@ async function RetirementsByTokenOverviewChart(props: {
     const precentageRetiredViaKlimadao =
       tonnesRetiredViaKlimadao / tonnesRetired;
     coinTilesData.push({
+      order: -tonnesRetired,
       title: getProtocolFullName(protocol),
       icon: getProtocolIcon(protocol),
       facts: [

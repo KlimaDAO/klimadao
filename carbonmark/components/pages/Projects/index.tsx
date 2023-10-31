@@ -18,14 +18,14 @@ import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
-import { MapView } from "./MapView/MapView";
+import LazyLoadingMapView from "./MapView/LazyLoadingMapView";
 import ProjectsController from "./ProjectsController";
 import * as styles from "./styles";
 
 const views = {
   grid: GridView,
   list: ListView,
-  map: MapView,
+  map: LazyLoadingMapView,
 };
 
 const Page: NextPage = () => {

@@ -10,8 +10,11 @@ import styles from "./styles.module.scss";
 
 /** Verra Credits by bridge and vintage Card */
 export default function VerraCreditsBreakdownCard(props: CardProps) {
+  let wrapperClassName = props.isDetailPage
+    ? `${styles.wrapper} ${styles.wrapperDetailsPage}`
+    : styles.wrapper;
   const chart = (
-    <div className={styles.wrapper}>
+    <div className={wrapperClassName}>
       {/* @ts-expect-error async Server component */}
       <IssuedVsTokenizedCreditsChart />
       {/* @ts-expect-error async Server component */}

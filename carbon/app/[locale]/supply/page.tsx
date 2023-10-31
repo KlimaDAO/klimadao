@@ -18,7 +18,9 @@ export default function SupplyPage() {
       <div className={layout.cardStackedRows}>
         <div></div>
         <div className={layout.cardRow}>
-          <CarbonSupplyQuickFactsCard className={layout.zIndexSeven} />
+          <CarbonSupplyQuickFactsCard
+            className={`${layout.zIndexSeven} ${layout.card66percent}`}
+          />
           <CarbonSupplyByBlockChainCard className={layout.zIndexSix} />
         </div>
         <div className={layout.cardRow}>

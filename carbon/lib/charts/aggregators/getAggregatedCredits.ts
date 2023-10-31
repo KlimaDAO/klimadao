@@ -2,19 +2,24 @@ import { ChartConfiguration } from "components/charts/helpers/Configuration";
 import { CreditsFilteringProps } from "components/charts/helpers/props";
 import {
   AggregatedCredits,
+  AggregatedCreditsByBridgeAndProjectItem,
+  AggregatedCreditsByPoolAndProjectItem,
   Bridge,
   ChartData,
   CreditsQueryParams,
   DateFieldParam,
+  SortQueryParams,
   Status,
   TreeMapData,
+  TreeMapItem,
 } from "lib/charts/types";
 import moment from "moment";
 import { statusToDateFieldGt } from "../dateField";
 import { dateForQuery } from "../helpers";
 import {
   queryAggregatedCredits,
-  queryAggregatedCreditsByProject,
+  queryAggregatedCreditsByBridgeAndProject,
+  queryAggregatedCreditsByPoolAndProject,
 } from "../queries";
 export type AggregatedCreditsChartDataItem = AggregatedCredits;
 
@@ -72,21 +77,45 @@ export async function getAggregatedCredits(
 }
 
 /* Fetches aggregated credits by projects and format them for a tree chart */
-export async function getAggregatedCreditsByProject(
+export async function getAggregatedCreditsByBridgeAndProject(
   props: CreditsFilteringProps
-): Promise<TreeMapData> {
+): Promise<TreeMapData<AggregatedCreditsByBridgeAndProjectItem>> {
   const params = creditsQueryParamsFromProps(props);
 
   const finalParams = Object.assign({}, params, {
-    sort_by: "quantity",
+    sort_by: "total_quantity",
     sort_order: "desc",
-  });
-  const data = await queryAggregatedCreditsByProject(finalParams);
-  const chartData: TreeMapData = data.items.map((item) => {
-    return {
-      name: item.project_type,
-      size: item.quantity,
-    };
-  });
+  } as SortQueryParams);
+  const data = await queryAggregatedCreditsByBridgeAndProject(finalParams);
+  const chartData: TreeMapData<AggregatedCreditsByBridgeAndProjectItem> =
+    data.items.map((item) => {
+      const newItem = {
+        ...item,
+      } as TreeMapItem<AggregatedCreditsByBridgeAndProjectItem>;
+      newItem.name = item.project_type;
+      return newItem;
+    });
+  return chartData;
+}
+
+/* Fetches aggregated credits by projects and format them for a tree chart */
+export async function getAggregatedCreditsByPoolAndProject(
+  props: CreditsFilteringProps
+): Promise<TreeMapData<AggregatedCreditsByPoolAndProjectItem>> {
+  const params = creditsQueryParamsFromProps(props);
+
+  const finalParams = Object.assign({}, params, {
+    sort_by: "total_quantity",
+    sort_order: "desc",
+  } as SortQueryParams);
+  const data = await queryAggregatedCreditsByPoolAndProject(finalParams);
+  const chartData: TreeMapData<AggregatedCreditsByPoolAndProjectItem> =
+    data.items.map((item) => {
+      const newItem = {
+        ...item,
+      } as TreeMapItem<AggregatedCreditsByPoolAndProjectItem>;
+      newItem.name = item.project_type;
+      return newItem;
+    });
   return chartData;
 }

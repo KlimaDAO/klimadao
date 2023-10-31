@@ -3,7 +3,7 @@
 import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 import type Torus from "@toruslabs/torus-embed";
 import type { TorusInpageProvider } from "@toruslabs/torus-embed";
-import type Web3Provider from "@walletconnect/web3-provider";
+import type EthereumProvider from "@walletconnect/ethereum-provider";
 import type { providers } from "ethers";
 
 // Function overloads because "accountsChanged" returns an array of strings, but the others don't.
@@ -23,7 +23,7 @@ interface WrappedWeb3Provider extends providers.ExternalProvider {
   removeListener: typeof ProviderEventHandler;
 }
 export type TorusProvider = TorusInpageProvider & { torus: Torus };
-export type WalletConnectProvider = Web3Provider;
+export type WalletConnectProvider = EthereumProvider;
 /** Coinbase has these methods, but the types are wrong. */
 export type CoinbaseProvider = CoinbaseWalletProvider & {
   sendAsync: providers.ExternalProvider["sendAsync"];
@@ -109,7 +109,7 @@ export type WalletLabel =
 
 export type ConnectFn = (
   wallet?: WalletLabel,
-  options?: { useCache?: boolean }
+  options?: { useCache?: boolean; walletConnectProjectId?: string }
 ) => Promise<void>;
 
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
