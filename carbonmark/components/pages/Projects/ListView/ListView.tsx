@@ -15,6 +15,7 @@ import { Project } from "lib/types/carbonmark.types";
 import { isEqual, split } from "lodash";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
+import ViewProps from "../props";
 import * as styles from "./styles";
 
 interface Data {
@@ -66,11 +67,7 @@ const columns: readonly Column[] = [
   },
 ];
 
-type Props = {
-  projects: Array<Project>;
-};
-
-export const ListView: FC<Props> = ({ projects }) => {
+export const ListView: FC<ViewProps> = ({ projects }) => {
   const router = useRouter();
   const {
     params: { sort },

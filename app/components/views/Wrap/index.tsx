@@ -36,6 +36,7 @@ import { useAppDispatch } from "state";
 
 import { addresses } from "@klimadao/lib/constants";
 import { defineMessage, t, Trans } from "@lingui/macro";
+import { DisclamerModal } from "components/DisclaimerModal";
 import * as styles from "components/views/Stake/styles";
 import { tokenInfo } from "lib/getTokenInfo";
 
@@ -261,6 +262,7 @@ export const Wrap: FC<Props> = (props) => {
 
   return (
     <>
+      <DisclamerModal />
       <BalancesCard
         assets={["sklima", "wsklima", "wsklimaUnwrapped"]}
         tooltip={

@@ -36,7 +36,7 @@ async function VerraCreditsByBridgeAndVintageChart(props: OffVsOnChainProps) {
     keyof AggregatedCreditsByBridgeAndVintageItem
   > = [
     {
-      id: "not_bridged_quantity",
+      id: "not_bridge_quantity",
       label: "Not bridged",
       color: palette.charts.color5,
       legendOrder: 4,

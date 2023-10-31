@@ -12,6 +12,9 @@ export const IS_PREVIEW_BUILD =
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
+export const WALLETCONNECT_PROJECT_ID =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
+
 export const BASE_URL = IS_PRODUCTION
   ? urls.app
   : process.env.NEXT_PUBLIC_VERCEL_URL

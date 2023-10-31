@@ -39,7 +39,7 @@
 
   @include breakpoints.desktop {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
   }
 }
 .cardRowWrap {
@@ -61,6 +61,10 @@
 }
 div.card50percent {
   flex-basis: 50%;
+  flex-grow: 0;
+}
+div.card66percent {
+  flex-basis: 66%;
   flex-grow: 0;
 }
 
@@ -87,6 +91,20 @@ div.card50percent {
 }
 .blockRight {
   :first-child {
+    width: fit-content;
+    margin-left: auto;
+  }
+}
+.blockLeft {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
+  }
+}
+.blockCenter {
+  :first-child {
+    width: fit-content;
+    margin-right: auto;
     margin-left: auto;
   }
 }

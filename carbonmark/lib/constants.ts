@@ -18,6 +18,8 @@ export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
+export const WALLETCONNECT_PROJECT_ID =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 /** An abbreviated version of the commit hash used when deploying a preview build of the api in deploy_carbonmark_api.yml */
 const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
@@ -26,7 +28,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v2.0.0-10.api.carbonmark.com";
+export const API_PROD_URL = "https://v2.0.0-13.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.

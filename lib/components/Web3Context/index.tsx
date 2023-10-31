@@ -10,6 +10,7 @@ interface Props {
   appName?: string;
   children: React.ReactNode;
   showMumbaiOption?: boolean;
+  walletConnectProjectId?: string;
 }
 
 /** Init the web3Modal and expose via react context  */
@@ -17,6 +18,7 @@ export const Web3ContextProvider: FC<Props> = ({
   appName,
   children,
   showMumbaiOption,
+  walletConnectProjectId,
 }) => {
   const providerState = useProvider();
   const [showModal, setShowModal] = useState(false);
@@ -28,6 +30,7 @@ export const Web3ContextProvider: FC<Props> = ({
         showModal={showModal}
         appName={appName}
         showMumbaiOption={showMumbaiOption}
+        walletConnectProjectId={walletConnectProjectId}
       />
     ),
     [showModal]

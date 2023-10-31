@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-23 15:35+0000\n"
+"POT-Creation-Date: 2023-10-30 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,12 +8,17 @@ msgstr ""
 "Language: fr\n"
 
 #. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:84
+msgid "Acknowledge and Accept"
+msgstr "Accuser réception et Accepter"
+
+#. js-lingui-explicit-id
 #: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:454
 #: components/views/Offset/index.tsx:550
 #: components/views/Redeem/index.tsx:286
-#: components/views/Stake/index.tsx:251
-#: components/views/Wrap/index.tsx:229
+#: components/views/Stake/index.tsx:252
+#: components/views/Wrap/index.tsx:230
 msgid "Approve"
 msgstr "Approuver"
 
@@ -62,8 +67,8 @@ msgstr "Entrez la Quantité"
 #: components/views/Offset/index.tsx:487
 #: components/views/Redeem/index.tsx:260
 #: components/views/Redeem/index.tsx:431
-#: components/views/Stake/index.tsx:241
-#: components/views/Wrap/index.tsx:211
+#: components/views/Stake/index.tsx:242
+#: components/views/Wrap/index.tsx:212
 msgid "Enter quantity"
 msgstr "Entrez la quantité"
 
@@ -75,10 +80,20 @@ msgstr "Combien de tonnes souhaitez-vous acquérir ?"
 #. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:540
 #: components/views/Redeem/index.tsx:281
-#: components/views/Stake/index.tsx:246
-#: components/views/Wrap/index.tsx:224
+#: components/views/Stake/index.tsx:247
+#: components/views/Wrap/index.tsx:225
 msgid "Insufficient balance"
 msgstr "Solde insuffisant"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:29
+msgid "Investment Risk Disclaimer"
+msgstr "Avis de non-responsabilité concernant les risques d'investissement"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:47
+msgid "Lack of Liquidity: There may be no active market for $KLIMA, which may result in losses if you need to sell your tokens quickly."
+msgstr "Manque de Liquidité : Il se peut qu'il n'y ait pas de marché actif pour $KLIMA, ce qui peut entraîner des pertes si vous devez vendre vos jetons rapidement."
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:411
@@ -105,10 +120,10 @@ msgstr "Chargement des informations sur le projet..."
 #: components/views/Offset/index.tsx:612
 #: components/views/Redeem/index.tsx:255
 #: components/views/Redeem/index.tsx:339
-#: components/views/Stake/index.tsx:429
-#: components/views/Stake/index.tsx:436
-#: components/views/Stake/index.tsx:443
-#: components/views/Wrap/index.tsx:206
+#: components/views/Stake/index.tsx:431
+#: components/views/Stake/index.tsx:438
+#: components/views/Stake/index.tsx:445
+#: components/views/Wrap/index.tsx:207
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -116,6 +131,16 @@ msgstr "Chargement..."
 #: components/views/Home/index.tsx:181
 msgid "Login"
 msgstr "Se connecter"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:39
+msgid "Loss of Investment: The value of $KLIMA and other cryptocurrencies can rapidly increase or decrease at any time. As a result, you could experience significant and rapid losses, including the loss of all money invested."
+msgstr "Perte d'Investissement : La valeur de $KLIMA et d'autres cryptomonnaies peut augmenter ou diminuer rapidement à tout moment. Par conséquent, vous pourriez subir des pertes importantes et rapides, y compris la perte de l'intégralité du capital investi."
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:68
+msgid "No Guarantee: There is no guarantee that the KlimaDAO platform or the $KLIMA token will achieve its objectives or that any value will be retained in the Protocol."
+msgstr "Aucune Garantie : Il n'y a aucune garantie que la plateforme KlimaDAO ou le jeton $KLIMA atteindra ses objectifs ou qu'une quelconque valeur sera préservée dans le protocole."
 
 #. js-lingui-explicit-id
 #: components/CarbonBalancesCard/index.tsx:166
@@ -138,6 +163,11 @@ msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update you
 msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez mettre à jour vos favoris."
 
 #. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:60
+msgid "Operational Risks: The KlimaDAO platform relies on various technologies related to the Polygon network and other digital assets. These technologies are subject to change, and such changes could adversely affect your investment."
+msgstr "Risques Opérationnels : La plateforme KlimaDAO repose sur diverses technologies liées au réseau Polygon et à d'autres actifs numériques. Ces technologies sont sujettes à des changements qui pourraient avoir un impact négatif sur votre investissement."
+
+#. js-lingui-explicit-id
 #: components/views/Offset/index.tsx:682
 msgid "Pay with fiat or crypto, or retire credits you already own. Your message and data will be permanently inscribed on the blockchain. Learn more about supported tokens in our <0>docs</0>."
 msgstr "Payez en fiat ou en crypto, ou retirez les crédits que vous possédez déjà. Votre message et vos données seront inscrits de manière permanente sur la blockchain. Retrouvez tous les jetons pris en charge dans nos <0>docs</0>."
@@ -157,6 +187,16 @@ msgstr "Mode de paiement"
 #: components/views/Redeem/ProjectTokenDetails/index.tsx:129
 msgid "Project details <0/>"
 msgstr "Détails du projet <0/>"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:32
+msgid "Purchasing cryptocurrencies, including the $KLIMA token, involves a high degree of risk and should be considered extremely speculative. Here are some important points to consider:"
+msgstr "L'achat de crypto-monnaies, y compris le jeton $KLIMA, implique un degré élevé de risque et doit être considéré comme extrêmement spéculatif. Voici quelques points importants à prendre en compte :"
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:53
+msgid "Regulatory Actions and Changes: The regulatory environment for cryptocurrencies is evolving and changes in regulation could adversely affect your investment."
+msgstr "Actions et Évolutions Réglementaires : L'environnement réglementaire des crypto-monnaies évolue et les changements de réglementation pourraient avoir un impact négatif sur votre investissement."
 
 #. js-lingui-explicit-id
 #: components/views/Redeem/index.tsx:388
@@ -188,6 +228,11 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 #: components/views/Redeem/index.tsx:455
 msgid "This cost includes slippage and any redemption fees charged by the pool"
 msgstr "Ce coût comprend les frais de glissement et les éventuels frais de rachat facturés par la piscine."
+
+#. js-lingui-explicit-id
+#: components/DisclaimerModal/index.tsx:75
+msgid "This summary risk warning does not disclose all the risks associated with investing in $KLIMA. You should conduct your own due diligence and consult with a financial advisor before making any investment decisions."
+msgstr "Cette liste de risques ne couvre pas tous les risques liés à l'investissement dans $KLIMA. Vous devez procéder à vos propres vérifications et consulter un conseiller financier agréé avant de prendre toute décision d'investissement."
 
 #. js-lingui-explicit-id
 #: components/views/Offset/ProjectTokenDetails/index.tsx:113
@@ -456,28 +501,28 @@ msgid "bond.you_will_get.tooltip"
 msgstr "Montant d'obligations KLIMA liée que vous obtiendrez, d'après la quantité soumise en entrée."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:31
 msgid "buy.buy_klima"
 msgstr "Acheter KLIMA"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:59
 msgid "buy.connect_to_buy"
 msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont connectés. Vous pouvez vous connecter ou créer un compte en cliquant sur le bouton ci-dessous."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:34
 msgid "buy.cta_1"
 msgstr "Si vous êtes un débutant, nous vous recommandons de suivre notre tutoriel étape par étape : <0>Comment acheter des KLIMA</0>."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:40
 msgid "buy.cta_2"
 msgstr "Autrement, si vous avez déjà un portefeuille avec des MATIC sur Polygon, la meilleure façon d'obtenir KLIMA est de faire un échange sur <0>Sushi.com</0>. Si vous préférez plutôt payer avec une carte de crédit, vous pouvez utiliser <1>Transak</1> pour acheter KLIMA directement."
 
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:54
 msgid "buy.please_log_in"
 msgstr "Veuillez Vous Identifier ou Connecter Un Portefeuille"
 
@@ -508,73 +553,73 @@ msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Vérifiez l'URL et mettez cette page dans vos favoris !"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:89
+#: components/views/ChooseBond/index.tsx:90
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Tonne de Carbone de base Toucan"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:198
+#: components/views/ChooseBond/index.tsx:200
 msgid "choose_bond.bond_carbon"
 msgstr "Obligation carbone"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:203
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "La meilleure façon d'acheter des KLIMA. Déposez des équivalents carbone dans notre trésorerie et recevez des KLIMA à prix réduit. Toutes les obligations (sauf celles à taux variable inversé) ont une période de maturation obligatoire de 5 jours."
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:225
+#: components/views/ChooseBond/index.tsx:227
 msgid "choose_bond.choose_bond"
 msgstr "Choisissez une obligation"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:105
+#: components/views/ChooseBond/index.tsx:106
 msgid "choose_bond.inverse_usdc"
 msgstr "Fournissez des KLIMA, recevez des USDC"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:97
+#: components/views/ChooseBond/index.tsx:98
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/BCT"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:93
+#: components/views/ChooseBond/index.tsx:94
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/USDC"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:85
+#: components/views/ChooseBond/index.tsx:86
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "Jeton de crédit carbone MOSS"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:101
+#: components/views/ChooseBond/index.tsx:102
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "Liquidité Quickswap KLIMA/MCO2"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:81
+#: components/views/ChooseBond/index.tsx:82
 msgid "choose_bond.nbo.description"
 msgstr "Compensation C3 basée sur la nature"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:228
+#: components/views/ChooseBond/index.tsx:230
 msgid "choose_bond.percent_discount"
 msgstr "% Remise"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:254
+#: components/views/ChooseBond/index.tsx:256
 msgid "choose_bond.sold_out"
 msgstr "ÉPUISÉ"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:215
+#: components/views/ChooseBond/index.tsx:217
 msgid "choose_bond.treasury_balance"
 msgstr "Solde de la trésorerie"
 
 #. js-lingui-explicit-id
-#: components/views/ChooseBond/index.tsx:77
+#: components/views/ChooseBond/index.tsx:78
 msgid "choose_bond.ubo.description"
 msgstr "Compensation C3 standard"
 
@@ -599,17 +644,17 @@ msgid "connect_modal.connecting"
 msgstr "Connexion en cours..."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:29
+#: lib/constants.ts:32
 msgid "connect_modal.error_message_default"
 msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:33
+#: lib/constants.ts:36
 msgid "connect_modal.error_message_refused"
 msgstr "L'utilisateur a refusé la connexion."
 
 #. js-lingui-explicit-id
-#: lib/constants.ts:37
+#: lib/constants.ts:40
 msgid "connect_modal.error_processing"
 msgstr "Demande en cours de traitement. Veuillez ouvrir votre portefeuille et compléter la demande."
 
@@ -1121,18 +1166,18 @@ msgstr "Changer de langue"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:432
 #: components/views/PKlima/index.tsx:165
-#: components/views/Wrap/index.tsx:219
+#: components/views/Wrap/index.tsx:220
 msgid "shared.confirming"
 msgstr "Confirmation en cours"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:236
+#: components/views/Stake/index.tsx:237
 msgid "shared.connect_wallet"
 msgstr "Chargement..."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:258
-#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:259
+#: components/views/Stake/index.tsx:268
 msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
@@ -1149,8 +1194,8 @@ msgstr "Entrez le message de retrait du marché"
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:475
 #: components/views/Bond/index.tsx:494
-#: components/views/Stake/index.tsx:275
-#: components/views/Wrap/index.tsx:246
+#: components/views/Stake/index.tsx:276
+#: components/views/Wrap/index.tsx:247
 msgid "shared.error"
 msgstr "ERREUR"
 
@@ -1172,21 +1217,21 @@ msgstr "Quantité invalide"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:397
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:65
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:466
 #: components/views/PKlima/index.tsx:149
 #: components/views/Redeem/index.tsx:247
-#: components/views/Stake/index.tsx:228
-#: components/views/Wrap/index.tsx:198
+#: components/views/Stake/index.tsx:229
+#: components/views/Wrap/index.tsx:199
 msgid "shared.login_connect"
 msgstr "S'identifier / Se connecter"
 
 #. js-lingui-explicit-id
 #: components/views/Bond/index.tsx:605
 #: components/views/PKlima/index.tsx:239
-#: components/views/Stake/index.tsx:370
-#: components/views/Wrap/index.tsx:344
+#: components/views/Stake/index.tsx:372
+#: components/views/Wrap/index.tsx:346
 msgid "shared.max"
 msgstr "Max"
 
@@ -1206,32 +1251,32 @@ msgid "shared.sold_out"
 msgstr "Épuisé"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:383
+#: components/views/Stake/index.tsx:385
 msgid "stake.5_day_rewards"
 msgstr "Récompenses sur 5 jours"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:386
+#: components/views/Stake/index.tsx:388
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Récompenses approximatives, comprenant les intérêts composés, si vous laissez votre mise pendant 5 jours."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:399
+#: components/views/Stake/index.tsx:401
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:402
+#: components/views/Stake/index.tsx:404
 msgid "stake.akr.tooltip"
 msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le rendement actuel reste inchangé pendant 12 mois (le rendement peut être variable)."
 
 #. Long sentence
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Buy/index.tsx:76
-#: components/views/Stake/index.tsx:292
+#: components/views/Buy/index.tsx:78
+#: components/views/Stake/index.tsx:294
 msgid "stake.balancescard.tooltip"
 msgstr "Mettez en jeu vos jetons KLIMA pour recevoir des sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
 
@@ -1241,28 +1286,28 @@ msgid "stake.estimated_payout"
 msgstr "Est. paiement (sKLIMA)"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:413
+#: components/views/Stake/index.tsx:415
 msgid "stake.index"
 msgstr "Indice"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:416
+#: components/views/Stake/index.tsx:418
 msgid "stake.index.tooltip"
 msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en jeu 1 KLIMA le jour du lancement. Utile à des fins comptables."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:54
+#: components/views/Stake/index.tsx:55
 msgid "stake.inputplaceholder.stake"
 msgstr "Montant à mettre en jeu"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:58
+#: components/views/Stake/index.tsx:59
 msgid "stake.inputplaceholder.unstake"
 msgstr "Montant de la mise à enlever"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:315
 msgid "stake.lifi"
 msgstr "La mise en jeu inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
 
@@ -1287,30 +1332,30 @@ msgid "stake.rebase.info"
 msgstr "Le protocole génère et distribue automatiquement les intérêts. Vous êtes rémunéré un pourcentage de votre solde en sKLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:333
+#: components/views/Stake/index.tsx:335
 msgid "stake.stake"
 msgstr "Mettre en jeu"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:309
 msgid "stake.stake_hold_earn"
 msgstr "Mettez en jeu, accumulez et gagnez des sKLIMA via les intérêts composés."
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:304
-#: components/views/Stake/index.tsx:469
+#: components/views/Stake/index.tsx:258
+#: components/views/Stake/index.tsx:306
+#: components/views/Stake/index.tsx:471
 msgid "stake.stake_klima"
 msgstr "Mettre en jeu des KLIMA"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:345
+#: components/views/Stake/index.tsx:347
 msgid "stake.unstake"
 msgstr "Enlever sa mise"
 
 #. js-lingui-explicit-id
-#: components/views/Stake/index.tsx:266
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:473
 msgid "stake.unstake_klima"
 msgstr "Enlever sa mise de KLIMA"
 
@@ -1425,64 +1470,64 @@ msgid "web3modal.walletlink.desc"
 msgstr "Scannez avec Coinbase pour vous connecter"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:372
+#: components/views/Wrap/index.tsx:374
 msgid "wrap.balance"
 msgstr "Solde"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:269
 msgid "wrap.balances_tooltip"
 msgstr "Encapsulez sKLIMA pour recevoir un KLIMA ajusté à l'indice, encapsulé et mis en jeu"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:359
+#: components/views/Wrap/index.tsx:361
 msgid "wrap.index"
 msgstr "Indice"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:364
 msgid "wrap.index.tooltip"
 msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en jeu 1 KLIMA le jour du lancement. Utilisé pour calculer la valeur wsKLIMA."
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:50
+#: components/views/Wrap/index.tsx:51
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA à encapsuler"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:322
+#: components/views/Wrap/index.tsx:324
 msgid "wrap.unwrap"
 msgstr "Dés-encapsuler"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:311
+#: components/views/Wrap/index.tsx:313
 msgid "wrap.wrap"
 msgstr "Encapsuler"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima"
 msgstr "Encapsuler sKLIMA"
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:289
+#: components/views/Wrap/index.tsx:291
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Peut être utile à des fins comptables, néanmoins, les récompenses sont exactement les mêmes. Les valeurs d'encapsulation et de dés-encapsulation sont calculées en fonction de l'indice actuel."
 
 #. Long sentence
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:280
+#: components/views/Wrap/index.tsx:282
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre solde wsKLIMA n'augmentera pas avec le temps."
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:54
+#: components/views/Wrap/index.tsx:55
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA à dés-encapsuler"
 
 #. js-lingui-explicit-id
-#: components/views/Wrap/index.tsx:375
+#: components/views/Wrap/index.tsx:377
 msgid "wrap.you_will_get"
 msgstr "Vous obtiendrez"
 
