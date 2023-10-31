@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
+msgid "Retirement Details"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -912,13 +917,13 @@ msgid "Missing"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:35
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:47
 msgid "Amount retired"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:39
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:41
 msgid "Number of retirements"
 msgstr ""
 
@@ -933,7 +938,7 @@ msgid "Proof"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:45
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:48
 msgid "Beneficiary"
 msgstr ""
 
@@ -979,12 +984,12 @@ msgid "Date"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:89
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:92
 msgid "Tonnes"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:108
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
 msgid "{0} Tonnes"
 msgstr ""
 
