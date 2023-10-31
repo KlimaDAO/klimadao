@@ -136,44 +136,35 @@ export default function PageWithTabs(props: {
               ></Tab>
             ))}
           </TabList>
-          {props.tabs.map(
-            (tab, tabIndex) =>
-              tabsDynamicOptionsList[tabIndex] && (
-                <TabPanel
-                  key={tabIndex}
-                  value={tab.key}
-                  className={styles.noPadding}
-                >
-                  <div className={styles.optionsSwitchers}>
-                    {tabsDynamicOptionsList[tabIndex].map(
-                      (options, widgetIndex) => (
-                        <div
-                          key={widgetIndex}
-                          className={styles.optionsSwitcherWrapper}
-                        >
-                          <OptionsSwitcher
-                            options={options}
-                            onSelectionChange={onOptionChange(
-                              tabIndex,
-                              widgetIndex
-                            )}
-                            value={optionKeys[tabIndex][widgetIndex]}
-                            className={styles.optionsSwitcher}
-                          />
-                        </div>
-                      )
-                    )}
-                  </div>
-                </TabPanel>
-              )
-          )}
 
           {props.tabs.map((tab, tabIndex) => (
             <TabPanel
               key={tabIndex}
               value={tab.key}
-              className={styles.noPadding}
+              className={styles.topPadding}
             >
+              {tabsDynamicOptionsList[tabIndex] && (
+                <div className={styles.optionsSwitchers}>
+                  {tabsDynamicOptionsList[tabIndex].map(
+                    (options, widgetIndex) => (
+                      <div
+                        key={widgetIndex}
+                        className={styles.optionsSwitcherWrapper}
+                      >
+                        <OptionsSwitcher
+                          options={options}
+                          onSelectionChange={onOptionChange(
+                            tabIndex,
+                            widgetIndex
+                          )}
+                          value={optionKeys[tabIndex][widgetIndex]}
+                          className={styles.optionsSwitcher}
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
               {displayedTab(tabIndex)}
             </TabPanel>
           ))}
