@@ -28,7 +28,7 @@ export default function OptionsSwitcher<T extends Key>(props: {
   const [selected, setSelected] = useState<T>(
     props.value || props.options[0].value
   );
-  const readonly = props.readonly === undefined ? false : props.readonly;
+  const readonly = props.readonly ?? false;
 
   // Notify the parent of the initial value
   useEffect(() => {
