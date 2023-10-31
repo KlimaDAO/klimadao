@@ -837,110 +837,62 @@ export const browseButton = css`
 `;
 
 export const footer = css`
-  background: var(--manatee);
-  padding: 2.8rem 0;
-  grid-column: full;
-  display: grid;
-  grid-template-columns: inherit;
-  height: unset;
-
-  nav {
-    max-height: unset;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-
-  ${breakpoints.medium} {
-    padding: 4rem 0;
-    nav {
-      width: unset;
-    }
-  }
-`;
-
-export const footerContent = css`
+  width: 100vw;
+  background-color: var(--manatee);
   display: flex;
   flex-direction: column;
-  grid-column: main;
-  align-items: center;
-  gap: 5rem;
-  justify-content: space-between;
-  height: 100%;
+  gap: 4rem;
+  padding: 4rem 1.6rem;
 
-  ${breakpoints.medium} {
-    justify-content: center;
+  ${breakpoints.desktop} {
+    padding: 4rem;
+    padding-bottom: 10rem;
+    gap: 3rem;
   }
 
-  ${breakpoints.large} {
+  ${breakpoints.desktopLarge} {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  a,
+  a:visited {
+    color: white;
   }
 `;
 
 export const footerNav = css`
   font-size: 1.4rem;
-  max-height: 12rem;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  row-gap: 1.6rem;
-  column-gap: 3.2rem;
-
-  a {
-    width: 100%;
-    ${breakpoints.medium} {
-      width: auto;
-    }
-  }
-
-  & a {
-    color: #fff !important;
-  }
-
-  ${breakpoints.large} {
-    gap: 1.6rem 2rem;
-    flex-direction: column;
-  }
+  gap: 2rem;
 
   ${breakpoints.desktop} {
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1.6rem 3.2rem;
+    justify-content: space-between;
+  }
+
+  ${breakpoints.desktopLarge} {
+    gap: 4rem;
   }
 `;
 
 export const footerIcons = css`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.6rem;
-  flex-wrap: wrap;
-  justify-content: flex-start !important;
+  gap: 2rem;
 
   ${breakpoints.desktop} {
     justify-content: center;
   }
 
-  & a {
-    display: inline-flex;
-  }
-
   svg {
-    width: 1.6rem;
+    width: 2rem;
     height: 2rem;
   }
 
   & svg path {
     fill: #fff;
-  }
-
-  ${breakpoints.medium} {
-    flex-direction: row;
-    svg {
-      width: 1.8rem;
-    }
   }
 `;

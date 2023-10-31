@@ -1,7 +1,8 @@
-import { formatTonnes } from "@klimadao/lib/utils/lightIndex";
+import { formatTonnes } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
-import { ArrowDropDown, ArrowDropUp, InfoOutlined } from "@mui/icons-material";
-import PercentageChange from "components/PercentageChage";
+import { InfoOutlined } from "@mui/icons-material";
+import { Tooltip } from "@mui/material";
+import PercentageChange from "components/PercentageChange";
 import ChartCard, { CardProps } from "components/cards/ChartCard";
 import {
   CoinTiles,
@@ -39,8 +40,7 @@ export default function TokensPriceCard(props: CardProps) {
   );
 }
 
-/** Async server component
- */
+/** Async server component */
 async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
   const locale = currentLocale();
   const prices7daysAgo: PricesItem = (
@@ -65,12 +65,6 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
         prices7daysAgo[`${token}_price` as Extract<keyof PricesItem, number>];
       const priceChangePercentage =
         ((tokenInfo.price - price7DaysAgo) * 100) / tokenInfo.price;
-      const priceChangeIcon =
-        priceChangePercentage > 0 ? (
-          <ArrowDropUp color={"success"}></ArrowDropUp>
-        ) : (
-          <ArrowDropDown color={"error"}></ArrowDropDown>
-        );
 
       // Selective cost
       const selectiveCostInfo =
@@ -90,13 +84,18 @@ async function TokenPricesChart(props: { layout: CoinTilesLayout }) {
           {
             label: (
               <span className={styles.selectiveFee}>
-                <span>{t`Selective fee`}</span>
-                <span
-                  className={styles.selectiveFeeIcon}
-                  title={selectiveFeeDescription}
+                <span>{t`Selective cost`}</span>
+                <Tooltip
+                  title={
+                    <span className={styles.tooltipText}>
+                      {selectiveFeeDescription}
+                    </span>
+                  }
                 >
-                  <InfoOutlined fontSize={"inherit"} />
-                </span>
+                  <span className={styles.selectiveFeeIcon}>
+                    <InfoOutlined fontSize={"inherit"} />
+                  </span>
+                </Tooltip>
               </span>
             ),
             value: selectiveCostInfo,

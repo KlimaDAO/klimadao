@@ -16,6 +16,7 @@ import { getFeatureFlag } from "lib/getFeatureFlag";
 import { getActiveListings, getSortByUpdateListings } from "lib/listingsGetter";
 import { User } from "lib/types/carbonmark.types";
 import { notNil } from "lib/utils/functional.utils";
+import { hasListableAssets } from "lib/utils/listings.utils";
 import { FC, useRef, useState } from "react";
 import { ProfileButton } from "../ProfileButton";
 import { ProfileHeader } from "../ProfileHeader";
@@ -31,12 +32,11 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const scrollToRef = useRef<null | HTMLDivElement>(null);
-  const { address, networkLabel } = useWeb3();
+  const { networkLabel } = useWeb3();
   const { carbonmarkUser, isLoading, mutate } = useFetchUser({
     params: { walletOrHandle: props.userAddress },
-    // Conditionally fetch all listings for the user if viewing own profile
     query: {
-      expiresAfter: address === props.userAddress ? "0" : undefined,
+      expiresAfter: "0",
       network: networkLabel,
     },
   });
@@ -150,6 +150,12 @@ export const SellerConnected: FC<Props> = (props) => {
               onClick={() => {
                 setShowCreateListingModal(true);
               }}
+              disabled={
+                !hasListableAssets(
+                  carbonmarkUser.assets,
+                  carbonmarkUser.listings
+                )
+              }
             />
           ) : (
             <TextInfoTooltip tooltip="New listings are temporarily disabled while we upgrade our marketplace to a new version.">

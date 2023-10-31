@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 
 // keep globals on new line so that it is imported after variables.css
 import "@klimadao/lib/theme/globals.css";
+import { WALLETCONNECT_PROJECT_ID } from "lib/constants";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -60,7 +61,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider>
+      <Web3ContextProvider walletConnectProjectId={WALLETCONNECT_PROJECT_ID}>
         <I18nProvider i18n={i18n}>
           <GridContainer>
             <Component {...pageProps} />

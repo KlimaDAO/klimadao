@@ -1300,15 +1300,15 @@ export type GetPurchaseByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', id: any, amount: string, price: string, listing: { __typename?: 'Listing', id: string, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } } } | null };
+export type GetPurchaseByIdQuery = { __typename?: 'Query', purchase: { __typename?: 'Purchase', amount: string, id: any, price: string, listing: { __typename?: 'Listing', id: string, tokenAddress: any, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } }, seller: { __typename?: 'User', id: any } } } | null };
 
 export type GetUserByWalletQueryVariables = Exact<{
-  wallet: InputMaybe<Scalars['Bytes']>;
+  wallet: InputMaybe<Scalars['String']>;
   expiresAfter: InputMaybe<Scalars['BigInt']>;
 }>;
 
 
-export type GetUserByWalletQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }> | null, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> | null }> };
+export type GetUserByWalletQuery = { __typename?: 'Query', listings: Array<{ __typename?: 'Listing', id: string, totalAmountToSell: string, leftToSell: string, tokenAddress: any, active: boolean | null, deleted: boolean | null, singleUnitPrice: string, createdAt: string | null, updatedAt: string | null, expiration: string, minFillAmount: string, seller: { __typename?: 'User', id: any }, project: { __typename?: 'Project', id: string, key: string, vintage: string, name: string, methodology: string, category: { __typename?: 'Category', id: string }, country: { __typename?: 'Country', id: string } } }>, activities: Array<{ __typename?: 'Activity', id: string, amount: string | null, previousAmount: string | null, price: string | null, previousPrice: string | null, timeStamp: string | null, activityType: ActivityType, project: { __typename?: 'Project', key: string, vintage: string }, buyer: { __typename?: 'User', id: any } | null, seller: { __typename?: 'User', id: any } }> };
 
 export type GetProjectsQueryVariables = Exact<{
   search: InputMaybe<Scalars['String']>;
@@ -1408,27 +1408,34 @@ export const GetVintagesDocument = gql`
 export const GetPurchaseByIdDocument = gql`
     query getPurchaseById($id: ID!) {
   purchase(id: $id) {
-    id
     amount
+    id
     listing {
       id
       project {
         ...ProjectFragment
       }
+      seller {
+        id
+      }
+      tokenAddress
     }
     price
   }
 }
     ${ProjectFragmentFragmentDoc}`;
 export const GetUserByWalletDocument = gql`
-    query getUserByWallet($wallet: Bytes, $expiresAfter: BigInt) {
-  users(where: {id: $wallet}) {
-    listings(where: {expiration_gt: $expiresAfter}) {
-      ...ListingFragment
-    }
-    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
-      ...ActivityFragment
-    }
+    query getUserByWallet($wallet: String, $expiresAfter: BigInt) {
+  listings(where: {seller: $wallet, expiration_gt: $expiresAfter, active: true}) {
+    ...ListingFragment
+  }
+  activities(
+    orderBy: timeStamp
+    orderDirection: desc
+    first: 10
+    where: {or: [{seller: $wallet, activityType_not: Purchase}, {buyer: $wallet}]}
+  ) {
+    ...ActivityFragment
   }
 }
     ${ListingFragmentFragmentDoc}
@@ -1451,7 +1458,7 @@ export const GetProjectByIdDocument = gql`
     listings(where: {expiration_gt: $expiresAfter}) {
       ...ListingFragment
     }
-    activities {
+    activities(orderBy: timeStamp, orderDirection: desc, first: 10) {
       ...ActivityFragment
     }
   }

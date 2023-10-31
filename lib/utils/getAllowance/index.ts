@@ -30,7 +30,7 @@ export const getAllowance = async (params: {
       params.address, // owner
       addresses[network][params.spender] // spender
     );
-    const decimals = getTokenDecimals(params.token, network);
+    const decimals = getTokenDecimals(params.token);
     return {
       [params.token]: {
         [params.spender]: formatUnits(value, decimals),

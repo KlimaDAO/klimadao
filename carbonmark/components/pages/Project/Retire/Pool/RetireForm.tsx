@@ -1,11 +1,10 @@
 import { PoolToken } from "@klimadao/lib/constants";
-import { formatUnits, safeAdd, useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { Card } from "components/Card";
 import { Text } from "components/Text";
 import { Col, TwoColLayout } from "components/TwoColLayout";
 import { ProjectHeader } from "components/pages/Project/ProjectHeader";
-import { parseUnits } from "ethers-v6";
 import { approveTokenSpend, getUSDCBalance } from "lib/actions";
 import {
   getRetirementAllowance,
@@ -14,7 +13,7 @@ import {
 import { urls } from "lib/constants";
 import { redirectFiatCheckout } from "lib/fiat/fiatCheckout";
 import { getFiatInfo } from "lib/fiat/fiatInfo";
-import { getTokenDecimals } from "lib/networkAware/getTokenDecimals";
+import { getPoolApprovalValue } from "lib/getPoolData";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { DetailedProject, TokenPrice } from "lib/types/carbonmark.types";
 import { waitForIndexStatus } from "lib/waitForIndexStatus";
@@ -78,6 +77,13 @@ export const RetireForm: FC<Props> = (props) => {
   });
 
   const router = useRouter();
+
+  useEffect(() => {
+    // for the usdc icons to be visible for the required transition
+    // on first load the default paymentMethod is set as usdc & then
+    // immediately set to fiat.
+    methods.setValue("paymentMethod", "fiat");
+  }, []);
 
   useEffect(() => {
     if (!address) return;
@@ -208,23 +214,7 @@ export const RetireForm: FC<Props> = (props) => {
     }
   };
 
-  const getApprovalValue = (): string => {
-    if (!inputValues?.totalPrice) return "0";
-
-    const onePercent =
-      BigInt(
-        parseUnits(
-          inputValues.totalPrice,
-          getTokenDecimals(inputValues.paymentMethod)
-        )
-      ) / BigInt(100);
-
-    const val = safeAdd(
-      inputValues.totalPrice,
-      formatUnits(onePercent, getTokenDecimals(inputValues.paymentMethod))
-    );
-    return val;
-  };
+  const getApprovalValue = () => getPoolApprovalValue(costs);
 
   // compare with total price including fees
   const hasApproval = () => {
@@ -318,6 +308,7 @@ export const RetireForm: FC<Props> = (props) => {
                 price={props.price}
                 address={address}
                 fiatAmountError={fiatAmountError}
+                approvalValue={getApprovalValue()}
               />
               <SubmitButton
                 onSubmit={onContinue}
@@ -344,6 +335,7 @@ export const RetireForm: FC<Props> = (props) => {
                   fiatBalance={fiatBalance}
                   costs={costs}
                   setCosts={setCosts}
+                  approvalValue={getApprovalValue()}
                 />
               </Card>
             </div>
@@ -360,20 +352,8 @@ export const RetireForm: FC<Props> = (props) => {
 
       <RetireModal
         hasApproval={hasApproval()}
-        amount={{
-          value: inputValues?.totalPrice || "0",
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
-        approvalValue={{
-          value: getApprovalValue(),
-          token:
-            (inputValues?.paymentMethod !== "fiat" &&
-              inputValues?.paymentMethod) ||
-            "usdc",
-        }}
+        amount={inputValues?.totalPrice || "0"}
+        approvalValue={getApprovalValue()}
         isProcessing={isProcessing}
         status={status}
         showModal={showTransactionView}

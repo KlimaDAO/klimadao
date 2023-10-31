@@ -18,6 +18,8 @@ export const NEXT_PUBLIC_MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 /** Exposed via env vars, this is an infura id to be used in the browser, in getStaticProvider, as a fallback for polygon-rpc */
 export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;
+export const WALLETCONNECT_PROJECT_ID =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 /** An abbreviated version of the commit hash used when deploying a preview build of the api in deploy_carbonmark_api.yml */
 const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
@@ -26,7 +28,7 @@ const SHORT_COMMIT_HASH = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(
 );
 
 /** When incrementing this API version, be sure to update TypeScript types to reflect API changes */
-export const API_PROD_URL = "https://v2.0.0-8.api.carbonmark.com";
+export const API_PROD_URL = "https://v2.0.0-13.api.carbonmark.com";
 
 /**
  * Optional preview URL can be provided via env var.
@@ -56,8 +58,8 @@ export const MINIMUM_TONNE_PRICE = 0.1;
 export const CARBONMARK_FEE = 0.0; // 0%
 /** No special chars */
 export const VALID_HANDLE_REGEX = /^[a-zA-Z0-9]+$/;
-/** Any token symbol containing substring VCS- PURO- or ICR- is valid. This filters out BCT, MCO2, and other assets */
-export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-)/;
+/** Any token symbol containing known substrings is valid. This filters out BCT, MCO2, and other assets */
+export const LISTABLE_TOKEN_SYMBOL_REGEX = /(VCS-|PURO-|ICR-|GS-)/;
 /** Default number of days until a listing expires */
 export const DEFAULT_EXPIRATION_DAYS = 90;
 /** Default minimum fill for a listing */

@@ -75,6 +75,9 @@ let nextConfig = {
       },
     ];
   },
+  experimental: {
+    optimizePackageImports: ["@klimadao/lib/utils"],
+  },
   sentry: {
     // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
     // for client-side builds. (This will be the default starting in

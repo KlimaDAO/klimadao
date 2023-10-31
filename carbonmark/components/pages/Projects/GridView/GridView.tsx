@@ -9,13 +9,10 @@ import { getCategoryFromProject } from "lib/projectGetter";
 import { CategoryName, Project } from "lib/types/carbonmark.types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ViewProps from "../props";
 import * as styles from "./styles";
 
-type Props = {
-  projects: Array<Project>;
-};
-
-export const GridView: React.FC<Props> = ({ projects }) => {
+export const GridView: React.FC<ViewProps> = ({ projects }) => {
   const { locale } = useRouter();
 
   return (

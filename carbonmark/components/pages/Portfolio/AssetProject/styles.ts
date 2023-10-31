@@ -12,6 +12,12 @@ export const image = css`
   }
 `;
 
+export const tonnes = css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const tags = css`
   display: flex;
   gap: 1.6rem;

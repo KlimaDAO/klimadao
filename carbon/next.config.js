@@ -61,6 +61,9 @@ module.exports = async (phase, { defaultConfig }) => {
         },
       ];
     },
+    experimental: {
+      optimizePackageImports: ["@klimadao/lib/utils"],
+    },
   };
   return withBundleAnalyzer({
     enabled: process.env.ANALYZE === "true",

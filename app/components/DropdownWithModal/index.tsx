@@ -4,9 +4,9 @@ import { FC, ReactNode } from "react";
 
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
-
 import * as styles from "./styles";
 
 interface Item {
@@ -22,6 +22,7 @@ interface Props {
   label: ReactNode;
   currentItem: string;
   items: Item[];
+  warn?: boolean;
   isModalOpen: boolean;
   onItemSelect: (key: string) => void;
   onToggleModal: () => void;
@@ -36,7 +37,12 @@ export const DropdownWithModal: FC<Props> = (props) => {
         {props.label}
       </Text>
 
-      <button className={styles.listItem} onClick={props.onToggleModal}>
+      <button
+        className={cx(styles.listItem, {
+          [styles.warn]: !!props.warn,
+        })}
+        onClick={props.onToggleModal}
+      >
         <div className="start_content">
           <Image
             alt={currentItem.label}
