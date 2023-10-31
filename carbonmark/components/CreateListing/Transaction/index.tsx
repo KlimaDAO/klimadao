@@ -8,17 +8,19 @@ import * as styles from "./styles";
 import { Value } from "./types";
 
 interface Props {
+  /** If the seller has already approved the required allowance */
   hasApproval: boolean;
+  /** Price per unit */
   price?: Value;
-  approvalValue?: string;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;
   status: TransactionStatusMessage | null;
   onResetStatus: () => void;
   onGoBack: () => void;
-  spenderAddress: string;
+  /** Total allowance needed to create this listing (sum of similar listings + new listing) */
   allowance: string;
+  /** Quantity to list for */
   quantity: string;
 }
 
@@ -56,11 +58,7 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          amount={
-            props.hasApproval
-              ? t`${props.allowance} tonnes`
-              : props.approvalValue || props.quantity
-          }
+          amount={t`${props.allowance} tonnes`}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
