@@ -15,8 +15,8 @@ export const useIsResizing = () => {
   const reset = useCallback(
     debounce(() => {
       if (typeof window !== "undefined") {
-        width = document.documentElement.clientHeight;
-        height = document.documentElement.clientWidth;
+        width = document.documentElement.clientWidth;
+        height = document.documentElement.clientHeight;
       }
       setIsBeingResized(false);
     }, 200),
