@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
-msgid "Retirement Details"
-msgstr "Retirement Details"
-
-#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -939,6 +934,11 @@ msgstr "Amount retired"
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:41
 msgid "Number of retirements"
 msgstr "Number of retirements"
+
+#. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
+msgid "Retirement Details"
+msgstr "Retirement Details"
 
 #. js-lingui-explicit-id
 #: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:25
