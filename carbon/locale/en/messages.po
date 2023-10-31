@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:53
+msgid "Retirement Details"
+msgstr "Retirement Details"
+
+#. js-lingui-explicit-id
 #: app/[locale]/details/breakdown-of-digital-carbon/[bridge]/page.tsx:14
 #: app/[locale]/details/token-bridge-breakdown/[bridge]/page.tsx:14
 msgid "Breakdown of {bridgeLabel} pooled"
@@ -924,13 +929,13 @@ msgid "Missing"
 msgstr "Missing"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:33
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:35
 #: components/charts/helpers/DataTable/configurations/TokenOriginsListConfiguration.tsx:47
 msgid "Amount retired"
 msgstr "Amount retired"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:39
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByBeneficiaryListConfiguration.tsx:41
 msgid "Number of retirements"
 msgstr "Number of retirements"
 
@@ -945,7 +950,7 @@ msgid "Proof"
 msgstr "Proof"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:45
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsByChainListConfiguration.tsx:48
 msgid "Beneficiary"
 msgstr "Beneficiary"
 
@@ -991,12 +996,12 @@ msgid "Date"
 msgstr "Date"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:89
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:92
 msgid "Tonnes"
 msgstr "Tonnes"
 
 #. js-lingui-explicit-id
-#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:108
+#: components/charts/helpers/DataTable/configurations/KlimaRetirementsListConfigurationBase.tsx:111
 msgid "{0} Tonnes"
 msgstr "{0} Tonnes"
 
