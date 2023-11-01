@@ -9,7 +9,6 @@ import styles from "./styles.module.scss";
 
 interface Props {
   navItem: NavItem;
-  key?: string;
 }
 export const MobileMenuButtonItem: FC<Props> = (props) => {
   const active = useIsPathnameActive(props.navItem.url);
